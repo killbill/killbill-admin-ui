@@ -1,0 +1,39 @@
+<div class="page-header">
+  <h3>Subscriptions</h3>
+</div>
+<table class="table table-condensed table-striped data-table">
+  <thead>
+    <tr>
+      <th>Product category</th>
+      <th>Product name</th>
+      <th>Billing period</th>
+      <th>Start date</th>
+      <th>Charged through date</th>
+      <th>Actions</th>
+    </tr>   
+  </thead>
+  <tbody>
+    <% if @subscriptions.present? && !@subscriptions.nil? %>
+      <% @subscriptions.each do |sub| %>
+        <tr>
+          <td><%= sub.product_category.downcase.capitalize if sub.product_category.present? %></td>
+          <td><%= sub.product_name.downcase.capitalize if sub.product_name.present? %></td>
+          <td><%= sub.billing_period.downcase.capitalize if sub.billing_period.present? %></td>
+          <td><%= format_date(sub.start_date).html_safe %></td>
+          <td><%= format_date(sub.charged_through_date).html_safe %></td>
+          <td>
+            <% if sub.product_category == 'BASE' %>
+              <%= link_to "Change", kaui_engine.edit_subscription_path(sub.subscription_id), :class => "btn btn-mini" %>
+              <%= link_to "Cancel", kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete, :class => "btn btn-mini" %>
+              <%= link_to "Add Addons", kaui_engine.subscription_path(sub.subscription_id), :method => :post, :class => "btn btn-mini" %>
+            <% else %>
+            <% end %>
+            <% if sub.product_category == 'ADD_ON' %>
+              <%= link_to "Cancel", kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete, :class => "btn btn-mini" %>            
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

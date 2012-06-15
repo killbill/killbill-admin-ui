@@ -1,0 +1,27 @@
+<% @page_title = "Edit Subscription: #{@subscription.subscription_id}" %>
+<%= form_for(@subscription, :url => subscription_path(@subscription.subscription_id), :html => { :method => :put, :class => "form-horizontal" }) do |f| %>
+  <%= f.hidden_field :subscription_id %>
+  <div class="control-group">
+    <%= label_tag 'plan', 'Current product:', :class => "control-label" %>
+    <div class="controls">
+      <input class="input-xlarge disabled" disabled="disabled" value="<%= "#{@subscription.product_name} #{@subscription.billing_period}".humanize %>"/>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :product_name, "New product:", :class => "control-label" %>
+    <div class="controls">
+      <%= select :subscription, :product_name, @products.collect { |p| ["#{p.product_name} #{p.billing_period}".humanize, p.id] }, { :include_blank => true }, { :class => 'input-xlarge' } %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :start_date, 'Change Date:', :class => "control-label" %>
+    <div class="controls">
+      <%= text_field :subscription, :start_date, :value => nil ,:class => 'input-xlarge date-picker' %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Change", :class => 'btn btn-primary' %>
+    <%= link_to 'Show', kaui_engine.subscription_path(@subscription.subscription_id), :class => 'btn' %>
+    <%= link_to 'Back', :back, :class => 'btn' %>
+  </div>
+<% end %>

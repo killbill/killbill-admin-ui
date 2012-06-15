@@ -1,0 +1,38 @@
+<% if @account.present? %>
+  <dl class="dl-horizontal">
+    <dt>Id:</dt>
+    <dd><%= @account.account_id %>&nbsp;</dd>
+    <dt>Name:</dt>
+    <dd><%= @account.name %>&nbsp;</dd>
+    <dt>Email:</dt>
+    <dd><%= @account.email %>&nbsp;</dd>
+    <dt>Billing day:</dt>
+    <dd><%= @account.billing_day %>&nbsp;</dd>
+    <dt>Currency:</dt>
+    <dd><%= @account.currency %>&nbsp;</dd>
+    <dt>Timezone:</dt>
+    <dd><%= @account.timezone %>&nbsp;</dd>
+    <dt>Address 1:</dt>
+    <dd><%= @account.address1 %>&nbsp;</dd>
+    <dt>Address 2:</dt>
+    <dd><%= @account.address2 %>&nbsp;</dd>
+    <dt>Company:</dt>
+    <dd><%= @account.company %>&nbsp;</dd>
+    <dt>State:</dt>
+    <dd><%= @account.state %>&nbsp;</dd>
+    <dt>Country:</dt>
+    <dd><%= @account.country %>&nbsp;</dd>        
+    <dt>Phone:</dt>
+    <dd><%= @account.phone %>&nbsp;</dd>        
+    <dt>External key:</dt>
+    <dd><%= @account.external_key %>&nbsp;</dd>
+    <%= render :partial => "kaui/tags/tags_table",
+               :locals => { :tags => @tags, :tags_url_or_path => kaui_engine.edit_account_tags_path(:params => { :account_id => @account.account_id }) } %>
+  </dl>
+  <% if @payment_methods.present? %>
+    <%= render :partial => "kaui/subscriptions/subscriptions_table" %>
+  <% end %>
+
+<% else %>
+  <p>Account not found</p>
+<% end %>

@@ -1,0 +1,58 @@
+<% if @invoice.present? %>
+  <dl class="dl-horizontal">
+    <dt>Account Name:</dt>
+    <dd><%= @account.name %>&nbsp;</dd>
+    <dd><%= link_to @account.email, Kaui.account_home_path.call(@account.external_key) %>&nbsp;</dd>
+    <dt>Invoice number:</dt>
+    <dd><%= @invoice.invoice_number %>&nbsp;</dd>
+    <dt>Invoice date:</dt>
+    <dd><%= format_date(@invoice.invoice_dt).html_safe %>&nbsp;</dd>
+    <dt>Target date:</dt>
+    <dd><%= format_date(@invoice.target_dt).html_safe %>&nbsp;</dd>
+    <dt>Amount:</dt>
+    <dd><%= @invoice.amount %>&nbsp;</dd>
+    <dt>Balance:</dt>
+    <dd><%= @invoice.balance %>&nbsp;</dd>
+  </dt>
+  <div class="page-header">
+    <h3>Subscriptions</h3>
+  </div>
+  <table class="table table-condensed table-striped data-table">
+    <thead>
+      <tr>
+        <th>External Key</th>
+        <th>Product category</th>
+        <th>Product name</th>
+        <th>Billing period</th>
+        <th>Start date</th>
+        <th>Charged through date</th>
+        <th>Price list</th>
+      </tr>   
+    </thead>
+    <tbody>
+      <% @invoice.items.each do |item| %>
+        <% sub = @subscriptions[item.subscription_id] %>
+        <% bundle = @bundles[item.bundle_id] %>
+        <% if sub.present? && bundle.present? %>
+          <tr>
+            <td>
+              <%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.external_key) if bundle.external_key.present? %>
+            </td>
+            <td><%= sub.product_category.downcase.capitalize if sub.product_category.present? %></td>
+            <td><%= sub.product_name.downcase.capitalize if sub.product_name.present? %></td>
+            <td><%= sub.billing_period.downcase.capitalize if sub.billing_period.present? %></td>
+            <td><%= format_date(sub.start_date).html_safe %></td>
+            <td><%= format_date(sub.charged_through_date).html_safe %></td>
+            <td><%= sub.price_list.downcase.capitalize if sub.price_list.present? %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="page-header">
+    <h3>Payments</h3>
+  </div>  
+<% else %>
+  <p>Invoice not found</p>
+<% end %>
+<%= link_to 'Back', :back, :class => 'btn' %>

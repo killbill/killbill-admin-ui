@@ -1,0 +1,81 @@
+<div class="page-header">
+  <h1>Refund Payment</h1>
+</div>
+<%= form_for(@refund, :url => { :action => :create }, :html => { :class => "form-horizontal" }) do |f| %>
+  <%= f.hidden_field :account_id %>
+  <%= f.hidden_field :payment_id %>
+  <fieldset>
+    <div class="control-group">
+      <label class="control-label">Date</label>
+      <div class="controls">
+        <label class="checkbox">
+          <%= DateTime.now.to_s(:pretty) %>
+        </label>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Invoice number</label>
+      <div class="controls">
+        <label class="checkbox">
+            <%= @invoice.invoice_number %><br/>
+        </label>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Account name</label>
+      <div class="controls">
+        <label class="checkbox">
+          <%= @account.name %><br/>
+          <%= @account.email %>
+        </label>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Status</label>
+      <div class="controls">
+        <label class="checkbox">
+          <%= @payment.status %>
+        </label>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Payment method</label>
+      <div class="controls">
+        <label class="checkbox">
+          <%= @payment.payment_method %>
+        </label>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Payment</label>
+      <div class="controls">
+        <label class="checkbox">
+          <%= @payment.amount %> <%= @account.currency %>
+        </label>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :amount, "Refund amount", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :amount, :value => @payment.amount, :class => 'input-small' %>
+        <p class="help-inline"><%= @account.currency %></p>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :reason, "Reason", :class => "control-label" %>
+      <div class="controls">
+        <%= f.select :reason, Kaui::Refund::SAMPLE_REASON_CODES %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :comment, :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_area :comment, :rows => 3, :class => 'input-xlarge' %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= button_tag "Create refund", :class =>"btn btn-primary" %>
+      <%= link_to 'Back', :back, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

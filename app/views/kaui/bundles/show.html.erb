@@ -1,0 +1,13 @@
+<% if @bundle.present? %>
+  <h3><%= link_to Kaui.bundle_key_display_string.call(@bundle.external_key), Kaui.bundle_home_path.call(@bundle.external_key) if @bundle.external_key.present? %>&nbsp;</h3>
+  <dl class="dl-horizontal">
+    <dt>Account id:</dt>
+    <dd><%= @bundle.account_id %>&nbsp;</dd>
+    <dt>Bundle key:</dt>
+    <dd><%= @bundle.external_key %>&nbsp;</dd>
+  <% if @subscriptions.present? %>
+    <%= render :partial => "kaui/subscriptions/subscriptions_table" %>
+  <% end %>
+<% else %>
+  <p>Bundle not found</p>
+<% end %>

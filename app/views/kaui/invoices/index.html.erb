@@ -1,0 +1,14 @@
+<%= form_tag invoices_path, :class => "form-horizontal", :method => :get do %>
+  <fieldset>
+    <legend>Please enter invoice id</legend>
+    <div class="control-group">
+      <label class="control-label" for="account_id">Invoice</label>
+      <div class="controls">
+        <%= text_field_tag 'invoice_id', nil, :class => "input-xlarge", :id => "invoice_id" %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= button_tag "Search", :class =>"btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>

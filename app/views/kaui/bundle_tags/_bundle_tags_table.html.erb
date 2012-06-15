@@ -1,0 +1,11 @@
+<dt>Tags:</dt>
+<dd>
+  <% if @tags.present? %>
+    <% @tags.sort.each_with_index do |tag, idx| %>
+      <span><%= tag %><% if idx < @tags.length - 1 %>, <% end %></span>
+    <% end %>
+    <br/>
+  <% end %>
+  <%= link_to 'Add/Remove', kaui_engine.edit_bundle_tags_path(:params => { :bundle_id => @bundle.bundle_id }),
+                                                              :class => "btn btn-mini" %>
+</dd>

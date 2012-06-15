@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h2>Payment methods</h2>
+</div>
+<table class="table table-condensed table-striped">
+  <thead>
+    <tr>
+      <th>Card Type</th>
+      <th>Mask Number / Baid</th>
+      <th>Expiration Date</th>
+      <th>Default Method</th>
+      <th>Actions</th>
+    </tr>   
+  </thead>
+  <tbody>
+  <% if @payment_methods.present? %>
+    <% @payment_methods.each do |payment_method| %>
+      <tr>
+        <td><%= payment_method["cardType"] %></a></td>
+        <td><%= payment_method["maskNumber"] %></td>
+        <td><%= payment_method["expirationDate"] %></td>
+        <td>
+          <% if payment_method['defaultMethod'] %>
+            <i class="icon-ok"></i>
+          <% else %>
+            <%= link_to "Make Default", kaui_engine.set_default_payment_method_account_path(:id => @account_id, :params => { :payment_method_id => payment_method['id'] }), :method => "PUT", :confirm => "Are you sure ?", :class => "btn btn-mini" %>
+          <% end %>
+        </td>        
+        <td>
+          <% unless payment_method['defaultMethod'] %>
+            <%= link_to "Delete", kaui_engine.delete_payment_method_account_path(:id => @account_id, :params => { :payment_method_id => payment_method['id'] }), :method => "DELETE", :confirm => "Are you sure ?", :class => "btn btn-mini" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>

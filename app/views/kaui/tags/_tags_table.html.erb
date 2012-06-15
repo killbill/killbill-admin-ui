@@ -1,0 +1,10 @@
+<dt>Tags:</dt>
+<dd>       
+  <% if tags.present? %>
+    <% tags.sort.each_with_index do |tag, idx| %>
+      <span><%= tag %><% if idx < tags.length - 1 %>, <% end %></span>
+    <% end %>
+    <br/>
+  <% end %>
+  <%= link_to 'Add/Remove', tags_url_or_path, :class => "btn btn-mini" %>
+</dd>

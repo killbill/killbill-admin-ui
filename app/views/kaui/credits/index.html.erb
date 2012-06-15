@@ -1,0 +1,14 @@
+<%= form_tag credits_path, :class => "form-horizontal", :method => :get do %>
+  <fieldset>
+    <legend>Please enter payment id</legend>
+    <div class="control-group">
+      <label class="control-label" for="payment_id">External Payment</label>
+      <div class="controls">
+        <%= text_field_tag 'payment_id', nil, :class => "input-xlarge", :id => "payment_id" %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= button_tag "Search", :class =>"btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>
