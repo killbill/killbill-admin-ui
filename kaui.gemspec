@@ -9,15 +9,10 @@ Gem::Specification.new do |s|
   s.version     = Kaui::VERSION
   s.authors     = ["Alena Dudzinskaya"]
   s.email       = ["alenad@glam.com"]
-  s.homepage    = "https://github.com/ning"
+  s.homepage    = "https://github.com/ning/killbill-admin-ui"
   s.summary     = "Killbill Admin UI plugin"
   s.description = "Rails UI plugin for Killbill administration."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
-
-  s.add_dependency "rails", "~> 3.2.3"
-
-  s.add_development_dependency "jquery-rails"
-  s.add_development_dependency "mysql2"
 end
