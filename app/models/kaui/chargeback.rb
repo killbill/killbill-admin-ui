@@ -23,7 +23,6 @@ class Kaui::Chargeback < Kaui::Base
                     "499 - OTHER" ]
 
   define_attr :account_id
-  define_attr :external_key
   define_attr :payment_id
   define_attr :invoice_id
   define_attr :amount

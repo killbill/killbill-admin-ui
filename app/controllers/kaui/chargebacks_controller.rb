@@ -15,9 +15,8 @@ class Kaui::ChargebacksController < ApplicationController
 
   def new
     @payment_id = params[:payment_id]
-    @account_id = params[:account_id]
     @invoice_id = params[:invoice_id]
-    @external_key = params[:external_key]
+    @account_id = params[:account_id]
 
     @chargeback = Kaui::Chargeback.new(:payment_id => @payment_id, 
                                        :invoice_id => @invoice_id,
@@ -26,7 +25,7 @@ class Kaui::ChargebacksController < ApplicationController
     # @payment_attempt = Kaui::KillbillHelper::get_payment_attempt(@external_key, @invoice_id, @payment_id)
     @account = Kaui::KillbillHelper::get_account(@account_id)
     # TODO: get payment by payment id (no api at the moment)
-    @payment = Kaui::KillbillHelper::get_payment(@invoice_id)
+    @payment = Kaui::KillbillHelper::get_payment(@invoice_id, @payment_id)
     @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
   end
 

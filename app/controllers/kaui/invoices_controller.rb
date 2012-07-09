@@ -10,7 +10,6 @@ class Kaui::InvoicesController < ApplicationController
     if @invoice_id.present?
       @invoice = Kaui::KillbillHelper.get_invoice(@invoice_id)
       if @invoice.present?
-        puts "invoice #{@invoice.to_yaml}"
         @account = Kaui::KillbillHelper.get_account(@invoice.account_id)
         @subscriptions = {}
         @bundles = {}

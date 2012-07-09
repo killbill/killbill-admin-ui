@@ -15,19 +15,17 @@ class Kaui::RefundsController < ApplicationController
 
   def new
     @payment_id = params[:payment_id]
-    @account_id = params[:account_id]
     @invoice_id = params[:invoice_id]
-    @external_key = params[:external_key]
+    @account_id = params[:account_id]
 
     @refund = Kaui::Refund.new(:payment_id => @payment_id, 
                                :invoice_id => @invoice_id,
-                               :account_id => @account_id,
-                               :external_key => @external_key)
+                               :account_id => @account_id)
 
     @account = Kaui::KillbillHelper::get_account(@account_id)
     # @payment_attempt = Kaui::KillbillHelper::get_payment_attempt(@external_key, @invoice_id, @payment_id)
-    puts @account.to_yaml
-    @payment = Kaui::KillbillHelper::get_payment(@payment_id)
+    @payment = Kaui::KillbillHelper::get_payment(@invoice_id, @payment_id)
+    puts "payment is #{@payment.to_yaml}"
     @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
   end
 

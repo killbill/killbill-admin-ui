@@ -94,7 +94,6 @@ module Kaui
     ############## SUBSCRIPTION ##############
 
     def self.get_subscriptions_for_bundle(bundle_id)
-      puts "Getting subscriptions for bundle #{bundle_id}"
       begin
         data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}/subscriptions"
         if data.nil?
@@ -242,7 +241,7 @@ module Kaui
     #   end
     # end
 
-    def self.get_payment(invoice_id)
+    def self.get_payment(invoice_id, payment_id)
       payments = get_payments(invoice_id)
       payments.each do |payment|
         return payment if payment.payment_id == payment_id
