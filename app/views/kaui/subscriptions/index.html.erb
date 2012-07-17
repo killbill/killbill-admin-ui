@@ -1,10 +1,10 @@
 <%= form_tag subscriptions_path, :class => "form-horizontal", :method => :get do %>
   <fieldset>
-    <legend>Please enter bundle id</legend>
+    <legend>Please enter subsciption id</legend>
     <div class="control-group">
-      <label class="control-label" for="bundle_id">Bundle</label>
+      <label class="control-label" for="subscription_id">Subscription</label>
       <div class="controls">
-        <%= text_field_tag 'bundle_id', nil, :class => "input-xlarge", :id => "bundle_id" %>
+        <%= text_field_tag 'subscription_id', nil, :class => "input-xlarge", :id => "subscription_id" %>
       </div>
     </div>
     <div class="form-actions">

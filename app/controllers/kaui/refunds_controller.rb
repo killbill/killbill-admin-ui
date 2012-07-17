@@ -18,21 +18,24 @@ class Kaui::RefundsController < ApplicationController
     @invoice_id = params[:invoice_id]
     @account_id = params[:account_id]
 
-    @refund = Kaui::Refund.new(:payment_id => @payment_id, 
-                               :invoice_id => @invoice_id,
-                               :account_id => @account_id)
+    @refund = Kaui::Refund.new('adjusted' => true)
 
     @account = Kaui::KillbillHelper::get_account(@account_id)
-    # @payment_attempt = Kaui::KillbillHelper::get_payment_attempt(@external_key, @invoice_id, @payment_id)
     @payment = Kaui::KillbillHelper::get_payment(@invoice_id, @payment_id)
-    puts "payment is #{@payment.to_yaml}"
     @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
   end
 
   def create
+    payment_id = params[:payment_id]
+    account_id = params[:account_id]
+
     refund = Kaui::Refund.new(params[:refund])
-    # TODO: read refund object from post params
-    #Kaui::KillbillHelper::create_refund(refund)
-    redirect_to account_timeline_path(:id => refund.account_id)
+    refund.adjusted = (refund.adjusted == "1")
+    if refund.present?
+      Kaui::KillbillHelper::create_refund(params[:payment_id], refund, params[:reason], params[:comment])
+      redirect_to account_timeline_path(:id => params[:account_id])
+    else
+      flash[:error] = "No refund given to process"
+    end
   end
 end

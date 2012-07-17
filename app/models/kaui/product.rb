@@ -13,7 +13,7 @@ module Kaui
     end
   end
 
-  SAMPLE_SAMPLE_BASE_PRODUCTS = [
+  SAMPLE_BASE_PRODUCTS = [
     Kaui::Product.new(:id => "product1", :product_category => "Base", :product_name => "OneBase", :billing_period => "ANNUAL"),
     Kaui::Product.new(:id => "product2", :product_category => "Base", :product_name => "TwoBase", :billing_period => "MONTHLY"),
   ]

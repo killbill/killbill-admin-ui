@@ -22,10 +22,11 @@ class Kaui::Chargeback < Kaui::Base
                     "420 - Not as Described",
                     "499 - OTHER" ]
 
-  define_attr :account_id
   define_attr :payment_id
-  define_attr :invoice_id
-  define_attr :amount
-  define_attr :comment
-  define_attr :reason
+  define_attr :chargeback_amount
+
+  def initialize(data = {})
+    super(:payment_id => data['paymentId'] || data['payment_id'],
+          :chargeback_amount => data['chargebackAmount'] || data['chargeback_amount'])
+  end
 end

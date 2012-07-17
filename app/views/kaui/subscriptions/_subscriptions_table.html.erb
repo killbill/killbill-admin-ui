@@ -9,8 +9,9 @@
       <th>Billing period</th>
       <th>Start date</th>
       <th>Charged through date</th>
+      <th>Notes</th>
       <th>Actions</th>
-    </tr>   
+    </tr>
   </thead>
   <tbody>
     <% if @subscriptions.present? && !@subscriptions.nil? %>
@@ -22,14 +23,20 @@
           <td><%= format_date(sub.start_date).html_safe %></td>
           <td><%= format_date(sub.charged_through_date).html_safe %></td>
           <td>
+            <% if sub.canceledDate.present? %>
+              <%= "Canceled as of #{sub.canceledDate}" %>
+            <% end %>
+          </td>
+          <td>
             <% if sub.product_category == 'BASE' %>
-              <%= link_to "Change", kaui_engine.edit_subscription_path(sub.subscription_id), :class => "btn btn-mini" %>
+              <%= link_to "Change", kaui_engine.edit_subscription_path(sub.subscription_id), :class => "btn btn-mini" unless sub.canceledDate.present? %>
               <%= link_to "Cancel", kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete, :class => "btn btn-mini" %>
               <%= link_to "Add Addons", kaui_engine.subscription_path(sub.subscription_id), :method => :post, :class => "btn btn-mini" %>
             <% else %>
             <% end %>
             <% if sub.product_category == 'ADD_ON' %>
-              <%= link_to "Cancel", kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete, :class => "btn btn-mini" %>            
+              <%= link_to "Cancel", kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete, :class => "btn btn-mini" unless sub.canceledDate.present? %>
+              <%= link_to "Reinstate", kaui_engine.subscription_path(:id => sub.subscription_id), :method => :put, :class => "btn btn-mini" if sub.canceledDate.present? %>
             <% end %>
           </td>
         </tr>

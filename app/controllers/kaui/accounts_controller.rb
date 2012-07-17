@@ -9,9 +9,15 @@ class Kaui::AccountsController < ApplicationController
   end
 
   def show
-    @account_id = params[:id]
-    if @account_id.present?
-      @account = Kaui::KillbillHelper.get_account(@account_id)
+    key = params[:id]
+    if key.present?
+      # support id (UUID) and external key search
+      if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
+        @account = Kaui::KillbillHelper.get_account(key)
+      else
+        @account = Kaui::KillbillHelper.get_account_by_external_key(key)
+      end
+
       if @account.present?
         # TODO: add when payment methods are implemented
         # @payment_methods = Kaui::KillbillHelper.get_payment_methods(@account_id)

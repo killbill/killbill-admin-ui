@@ -2,6 +2,9 @@ require 'kaui/product'
 
 class Kaui::SubscriptionsController < ApplicationController
   def index
+    if params[:subscription_id].present?
+      redirect_to subscription_path(params[:subscription_id])
+    end
   end
 
   def show
@@ -19,7 +22,7 @@ class Kaui::SubscriptionsController < ApplicationController
     @billing_period = params[:billing_period]
     @price_list = params[:price_list]
 
-    @subscription = Kaui::Subscription.new(:bundle_id => @bundle_id, 
+    @subscription = Kaui::Subscription.new(:bundle_id => @bundle_id,
                                            :product_name => @product_name,
                                            :product_category => @product_category,
                                            :billing_period => @billing_period,
@@ -40,14 +43,14 @@ class Kaui::SubscriptionsController < ApplicationController
       flash[:error] = "No subscription id given or subscription not found"
       redirect_to :back
     end
-    @products = Kaui::BASE_PRODUCTS
+    @products = Kaui::SAMPLE_BASE_PRODUCTS
   end
 
   def update
     if params.has_key?(:subscription) && params[:subscription].has_key?(:subscription_id)
       subscription = Kaui::KillbillHelper.get_subscription(params[:subscription][:subscription_id])
       product_id = params[:subscription][:product_name]
-      products = Kaui::BASE_PRODUCTS.select{|p| p.id == product_id}
+      products = Kaui::SAMPLE_BASE_PRODUCTS.select{|p| p.id == product_id}
       unless products.empty?
         subscription.product_name = products[0].product_name
         subscription.billing_period = products[0].billing_period

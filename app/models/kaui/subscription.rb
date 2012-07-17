@@ -7,7 +7,7 @@ class Kaui::Subscription < Kaui::Base
   define_attr :charged_through_date
   define_attr :price_list
   define_attr :start_date
-  define_attr :cancelledDate
+  define_attr :canceledDate
   has_many :events, Kaui::Event
 
   def initialize(data = {})
@@ -19,7 +19,7 @@ class Kaui::Subscription < Kaui::Base
           :charged_through_date => data['chargedThroughDate'],
           :price_list => data['priceList'],
           :start_date => data['startDate'],
-          :cancelledDate => data['cancelledDate'],
+          :canceledDate => data['cancelledDate'],
           :events => data['events'])
   end
 end

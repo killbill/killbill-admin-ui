@@ -1,4 +1,4 @@
-<% @page_title = "Edit Subscription: #{@subscription.subscription_id}" %>
+<% @page_title = "Edit Subscription" %>
 <%= form_for(@subscription, :url => subscription_path(@subscription.subscription_id), :html => { :method => :put, :class => "form-horizontal" }) do |f| %>
   <%= f.hidden_field :subscription_id %>
   <div class="control-group">
@@ -21,7 +21,6 @@
   </div>
   <div class="form-actions">
     <%= f.submit "Change", :class => 'btn btn-primary' %>
-    <%= link_to 'Show', kaui_engine.subscription_path(@subscription.subscription_id), :class => 'btn' %>
     <%= link_to 'Back', :back, :class => 'btn' %>
   </div>
 <% end %>

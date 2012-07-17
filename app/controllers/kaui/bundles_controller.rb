@@ -7,13 +7,19 @@ class Kaui::BundlesController < ApplicationController
   end
 
   def show
-    @external_key = params[:id]
-    if @external_key.present?
-      @bundle = Kaui::KillbillHelper.get_bundle_by_external_key(@external_key)
+    key = params[:id]
+    if key.present?
+      # support id (UUID) and external key search
+      if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
+        @bundle = Kaui::KillbillHelper.get_bundle(key)
+      else
+        @bundle = Kaui::KillbillHelper.get_bundle_by_external_key(key)
+      end
+
       if @bundle.present?
         @subscriptions = Kaui::KillbillHelper.get_subscriptions_for_bundle(@bundle.bundle_id)
       else
-        flash[:error] = "Bundle #{@external_key} not found"
+        flash[:error] = "Bundle #{key} not found"
         redirect_to :action => :index
       end
     else

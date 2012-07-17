@@ -7,6 +7,9 @@ class Kaui::Invoice < Kaui::Base
   define_attr :account_id
   define_attr :invoice_number
   define_attr :payment_amount
+  define_attr :refund_adjustment
+  define_attr :credit_balance_adjustment
+  define_attr :credit_adjustment
   define_attr :invoice_dt
   define_attr :payment_dt
   define_attr :target_dt
@@ -20,6 +23,9 @@ class Kaui::Invoice < Kaui::Base
           :account_id => data['accountId'],
           :invoice_number => data['invoiceNumber'],
           :payment_amount => data['paymentAmount'],
+          :refund_adjustment => data['refundAdj'],
+          :credit_balance_adjustment => data['cba'],
+          :credit_adjustment => data['creditAdj'],
           :invoice_dt => data['invoiceDate'],
           :payment_dt => data['paymentDate'],
           :target_dt => data['targetDate'],
