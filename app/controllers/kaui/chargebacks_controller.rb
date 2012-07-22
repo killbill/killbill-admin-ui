@@ -34,9 +34,12 @@ class Kaui::ChargebacksController < ApplicationController
       success = Kaui::KillbillHelper::create_chargeback(chargeback, params[:reason], params[:comment])
       if success
         flash[:info] = "Chargeback created"
+      else
+        flash[:error] = "Could not process chargeback"
       end
+    else
+      flash[:error] = "No chargeback to process"
     end
-    flash[:error] = "Could not process chargeback"
     redirect_to account_timeline_path(:id => params[:account_id])
   end
 

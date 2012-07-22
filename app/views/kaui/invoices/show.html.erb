@@ -1,10 +1,9 @@
 <% if @invoice.present? %>
+  <h3>Invoice number: <%= @invoice.invoice_number %></h3>
   <dl class="dl-horizontal">
     <dt>Account Name:</dt>
     <dd><%= @account.name %>&nbsp;</dd>
     <dd><%= link_to @account.email, Kaui.account_home_path.call(@account.external_key) %>&nbsp;</dd>
-    <dt>Invoice number:</dt>
-    <dd><%= @invoice.invoice_number %>&nbsp;</dd>
     <dt>Invoice date:</dt>
     <dd><%= format_date(@invoice.invoice_dt).html_safe %>&nbsp;</dd>
     <dt>Target date:</dt>
@@ -27,7 +26,7 @@
         <th>Start date</th>
         <th>Charged through date</th>
         <th>Price list</th>
-      </tr>   
+      </tr>
     </thead>
     <tbody>
       <% @invoice.items.each do |item| %>
@@ -51,7 +50,7 @@
   </table>
   <div class="page-header">
     <h3>Payments</h3>
-  </div>  
+  </div>
 <% else %>
   <p>Invoice not found</p>
 <% end %>

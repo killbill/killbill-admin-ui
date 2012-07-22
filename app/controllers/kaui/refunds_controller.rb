@@ -32,10 +32,16 @@ class Kaui::RefundsController < ApplicationController
     refund = Kaui::Refund.new(params[:refund])
     refund.adjusted = (refund.adjusted == "1")
     if refund.present?
-      Kaui::KillbillHelper::create_refund(params[:payment_id], refund, params[:reason], params[:comment])
-      redirect_to account_timeline_path(:id => params[:account_id])
+      success = Kaui::KillbillHelper::create_refund(params[:payment_id], refund, params[:reason], params[:comment])
+      if success
+        flash[:info] = "Refund created"
+      else
+        flash[:error] = "Error while processing refund"
+      end
     else
-      flash[:error] = "No refund given to process"
+      flash[:error] = "No refund to process"
     end
+    redirect_to account_timeline_path(:id => params[:account_id])
   end
+
 end

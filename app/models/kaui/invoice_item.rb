@@ -14,16 +14,17 @@ class Kaui::InvoiceItem < Kaui::Base
   define_attr :currency;
 
   def initialize(data = {})
-    super(:invoice_id => data['invoiceId'],
+    super(
           :account_id => data['accountId'],
-          :bundle_id => data['bundleId'],
-          :subscription_id => data['subscriptionId'],
-          :plan_name => data['planName'],
-          :phase_name => data['phaseName'],
-          :description => data['description'],
-          :start_date => data['startDate'],
-          :end_date => data['endDate'],
           :amount => data['amount'],
-          :currency => data['currency'])
+          :bundle_id => data['bundleId'],
+          :currency => data['currency'],
+          :description => data['description'],
+          :end_date => data['endDate'],
+          :invoice_id => data['invoiceId'],
+          :phase_name => data['phaseName'],
+          :plan_name => data['planName'],
+          :start_date => data['startDate'],
+          :subscription_id => data['subscriptionId'])
   end
 end

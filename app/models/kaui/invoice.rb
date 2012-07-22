@@ -17,19 +17,18 @@ class Kaui::Invoice < Kaui::Base
   has_many :items, Kaui::InvoiceItem
 
   def initialize(data = {})
-    super(:amount => data['amount'],
-          :balance => data['balance'],
-          :invoice_id => data['invoiceId'],
+    super(
           :account_id => data['accountId'],
-          :invoice_number => data['invoiceNumber'],
-          :payment_amount => data['paymentAmount'],
-          :refund_adjustment => data['refundAdj'],
+          :amount => data['amount'],
+          :balance => data['balance'],
           :credit_balance_adjustment => data['cba'],
           :credit_adjustment => data['creditAdj'],
           :invoice_dt => data['invoiceDate'],
-          :payment_dt => data['paymentDate'],
+          :invoice_id => data['invoiceId'],
+          :invoice_number => data['invoiceNumber'],
+          :refund_adjustment => data['refundAdj'],
           :target_dt => data['targetDate'],
-          :bundle_keys => data['bundleKeys'],
-          :items => data['items'])
+          :items => data['items'],
+          :bundle_keys => data['bundleKeys'])
   end
 end

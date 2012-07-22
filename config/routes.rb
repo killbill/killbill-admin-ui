@@ -16,7 +16,7 @@ Kaui::Engine.routes.draw do
       post :credits, :as => "credits"
     end
   end
-    
+
   resources :chargebacks, :only => [ :show, :create, :new ]
 
   resources :credits, :only => [ :create, :new ]
@@ -29,7 +29,11 @@ Kaui::Engine.routes.draw do
 
   resources :bundles, :only => [ :index, :show ]
 
-  resources :subscriptions, :except => [ :new, :create ]
+  resources :subscriptions, :except => [ :new, :create ] do
+    member do
+      put :reinstate
+    end
+  end
 
   scope "/account_tags" do
     match "/" => "account_tags#show", :via => :get, :as => "account_tags"

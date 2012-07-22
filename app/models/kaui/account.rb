@@ -6,8 +6,8 @@ class Kaui::Account < Kaui::Base
   define_attr :name
   define_attr :first_name_length
   define_attr :email
-  define_attr :billing_day
   define_attr :currency
+  define_attr :payment_method_id
   define_attr :timezone
   define_attr :address1
   define_attr :address2
@@ -22,8 +22,8 @@ class Kaui::Account < Kaui::Base
           :name => data['name'] || "#{data['firstName'] || ''}#{data.has_key?('firstName') ? ' ' : ''}#{data['lastName'] || ''}",
           :first_name_length => data['length'] || (data.has_key?('firstName') ? data['firstName'].length : 0),
           :email => data['email'],
-          :billing_day => data['billingDay'],
           :currency => data['currency'],
+          :payment_method_id => data['paymentMethodId'],
           :timezone => data['timeZone'] || data['timezone'],
           :address1 => data['address1'],
           :address2 => data['address2'],

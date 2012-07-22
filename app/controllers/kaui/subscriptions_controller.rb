@@ -64,6 +64,21 @@ class Kaui::SubscriptionsController < ApplicationController
     end
   end
 
+  def reinstate
+    subscription_id = params[:id]
+    if subscription_id.present?
+      success = Kaui::KillbillHelper.reinstate_subscription(subscription_id)
+      if success
+        flash[:info] = "Subscription reinstated"
+      else
+        flash[:error] = "Error reinstating subscription"
+      end
+      redirect_to :back
+    else
+      flash[:error] = "No subscription id given"
+    end
+  end
+
   def destroy
     subscription_id = params[:id]
     if subscription_id.present?
