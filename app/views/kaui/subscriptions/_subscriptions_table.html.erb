@@ -23,21 +23,21 @@
           <td><%= format_date(sub.start_date).html_safe %></td>
           <td><%= format_date(sub.charged_through_date).html_safe %></td>
           <td>
-            <% if sub.canceledDate.present? %>
-              <%= "Pending cancellation on " %> <%= format_date(sub.canceledDate).html_safe %>
+            <% if sub.canceled_date.present? %>
+              <%= "Pending cancellation on " %> <%= format_date(sub.canceled_date).html_safe %>
             <% end %>
           </td>
           <td>
             <nobr>
               <% if sub.product_category == 'BASE' %>
-                <%= link_to "Change", kaui_engine.edit_subscription_path(sub.subscription_id), :class => "btn btn-mini" unless sub.canceledDate.present? %>
+                <%= link_to "Change", kaui_engine.edit_subscription_path(sub.subscription_id), :class => "btn btn-mini" unless sub.canceled_date.present? %>
                 <%= link_to "Cancel", kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete, :class => "btn btn-mini" %>
-                <%= link_to "Add Addons", kaui_engine.subscription_path(sub.subscription_id), :method => :post, :class => "btn btn-mini" %>
+                <%= link_to "Add Addons", kaui_engine.new_subscription_path(:params => { :bundle_id => sub.bundle_id, :base_subscription => sub.product_name }), :class => "btn btn-mini" %>
               <% else %>
               <% end %>
               <% if sub.product_category == 'ADD_ON' %>
-                <%= link_to "Cancel", kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete, :class => "btn btn-mini" unless sub.canceledDate.present? %>
-                <% if sub.canceledDate.present? && Time.parse(sub.canceledDate) > Time.now %>
+                <%= link_to "Cancel", kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete, :class => "btn btn-mini" unless sub.canceled_date.present? %>
+                <% if sub.canceled_date.present? && Time.parse(sub.canceled_date) > Time.now %>
                   <%= link_to "Reinstate", kaui_engine.reinstate_subscription_path(:id => sub.subscription_id), :method => :put, :class => "btn btn-mini" %>
                 <% end %>
               <% end %>

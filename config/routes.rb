@@ -29,7 +29,7 @@ Kaui::Engine.routes.draw do
 
   resources :bundles, :only => [ :index, :show ]
 
-  resources :subscriptions, :except => [ :new, :create ] do
+  resources :subscriptions do
     member do
       put :reinstate
     end

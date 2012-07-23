@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h1>Add subscription to <%= Kaui.bundle_key_display_string.call(@bundle.external_key) %></h1>
+</div>
+<%= form_for(@subscription, :url => { :action => :create }, :html => { :class => "form-horizontal" }) do |f| %>
+  <fieldset>
+    <%= f.hidden_field :bundle_id %>
+    <%= hidden_field_tag :base_subscription, @base_subscription %>
+    <div class="control-group">
+      <%= label_tag :plan_name, "Available Plans:", :class => "control-label" %>
+      <div class="controls">
+        <%= select_tag :plan_name, options_for_select(@catalog.keys, @plan_name) %>
+        <p class="help-block">
+          Proration on customer's invoice will be done automatically.
+        </p>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= f.submit 'Add', :class => 'btn btn-primary' %>
+      <%= link_to 'Back', :back, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

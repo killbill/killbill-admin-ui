@@ -212,9 +212,10 @@ module Kaui
 
     def self.get_available_addons(base_product_name)
       begin
-        data = call_killbill :get, "/1.0/catalog/availableAddons?baseProductName=#{base_product_name}"
-        #TODO: parse into a map of plan names to array of product name, product category, billing period, price list
-        return data[:json]
+        data = call_killbill :get, "/1.0/kb/catalog/availableAddons?baseProductName=#{base_product_name}"
+        if data.has_key?(:json)
+          data[:json].inject({}) {|catalog_hash, item| catalog_hash.merge!(item["planName"] => item) }
+        end
       rescue => e
         puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end

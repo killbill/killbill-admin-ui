@@ -7,19 +7,19 @@ class Kaui::Subscription < Kaui::Base
   define_attr :charged_through_date
   define_attr :price_list
   define_attr :start_date
-  define_attr :canceledDate
+  define_attr :canceled_date
   has_many :events, Kaui::Event
 
   def initialize(data = {})
-    super(:subscription_id => data['subscriptionId'],
-          :bundle_id => data['bundleId'],
-          :product_category => data['productCategory'],
-          :product_name => data['productName'],
-          :billing_period => data['billingPeriod'],
-          :charged_through_date => data['chargedThroughDate'],
-          :price_list => data['priceList'],
-          :start_date => data['startDate'],
-          :canceledDate => data['cancelledDate'],
+    super(:subscription_id => data['subscriptionId'] || data['subscription_id'],
+          :bundle_id => data['bundleId'] || data['bundle_id'],
+          :product_category => data['productCategory'] || data['product_category'],
+          :product_name => data['productName'] || data['product_name'],
+          :billing_period => data['billingPeriod'] || data['billing_period'],
+          :charged_through_date => data['chargedThroughDate'] || data['charged_through_date'],
+          :price_list => data['priceList'] || data['price_list'],
+          :start_date => data['startDate'] || data['start_date'],
+          :canceled_date => data['cancelledDate'] || data['canceled_date'],
           :events => data['events'])
   end
 end

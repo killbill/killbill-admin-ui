@@ -16,26 +16,43 @@ class Kaui::SubscriptionsController < Kaui::EngineController
   end
 
   def new
-    @bundle_id = params[:bundle_id]
-    @product_name = params[:product_name]
-    @product_category = params[:product_category]
-    @billing_period = params[:billing_period]
-    @price_list = params[:price_list]
+    bundle_id = params[:bundle_id]
+    @base_subscription = params[:base_subscription]
+    @bundle = Kaui::KillbillHelper::get_bundle(bundle_id)
+    if @base_subscription.present?
+      @catalog = Kaui::KillbillHelper::get_available_addons(@base_subscription)
+    else
+      # TODO: call catalog to get base subscription types
+    end
 
-    @subscription = Kaui::Subscription.new(:bundle_id => @bundle_id,
-                                           :product_name => @product_name,
-                                           :product_category => @product_category,
-                                           :billing_period => @billing_period,
-                                           :price_list => @price_list)
-
-    @bundle = Kaui::KillbillHelper.get_bundle(subscription.bundle_id)
+    @subscription = Kaui::Subscription.new("bundleId" => bundle_id)
   end
 
   def create
-    subscription = Kaui::Subscription.new(params[:subscription])
+    @base_subscription = params[:base_subscription]
+    @subscription = Kaui::Subscription.new(params[:subscription])
+    @bundle = Kaui::KillbillHelper::get_bundle(@subscription.bundle_id)
+    @plan_name = params[:plan_name]
+    if @base_subscription.present?
+      @catalog = Kaui::KillbillHelper::get_available_addons(@base_subscription)
+      @subscription.product_category = "ADD_ON"
+    else
+      # TODO: call catalog to get base subscription types
+      @subscription.product_category = "BASE"
+    end
 
-    Kaui::KillbillHelper::create_subscription(subscription)
-    redirect_to Kaui.bundle_home_path.call(bundle.external_key)
+    plan = @catalog[@plan_name]
+    @subscription.billing_period = plan["billingPeriod"]
+    @subscription.product_name = plan["productName"]
+    @subscription.price_list = plan["priceListName"]
+
+    begin
+      Kaui::KillbillHelper::create_subscription(@subscription)
+      redirect_to Kaui.bundle_home_path.call(@bundle.external_key)
+    rescue => e
+      flash[:error] = e.message
+      render :new
+    end
   end
 
   def add_addon
