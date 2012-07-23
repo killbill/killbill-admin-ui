@@ -1,4 +1,4 @@
-class Kaui::AccountTagsController < ApplicationController
+class Kaui::AccountTagsController < Kaui::EngineController
 
   def show
     account_id = params[:id]

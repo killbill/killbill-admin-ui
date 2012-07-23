@@ -1,4 +1,4 @@
-class Kaui::AccountTimelinesController < ApplicationController
+class Kaui::AccountTimelinesController < Kaui::EngineController
   def index
     if params[:account_id].present?
       redirect_to account_timeline_path(params[:account_id])

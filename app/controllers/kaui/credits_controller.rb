@@ -1,4 +1,4 @@
-class Kaui::CreditsController < ApplicationController
+class Kaui::CreditsController < Kaui::EngineController
   def show
     @payment_id = params[:id]
     if @payment_id.present?

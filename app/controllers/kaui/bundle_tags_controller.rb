@@ -1,4 +1,4 @@
-class Kaui::BundleTagsController < ApplicationController
+class Kaui::BundleTagsController < Kaui::EngineController
 
   def show
     bundle_id = params[:id]

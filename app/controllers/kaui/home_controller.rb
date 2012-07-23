@@ -1,6 +1,4 @@
-module Kaui
-  class HomeController < ApplicationController
-    def index
-    end
+class Kaui::HomeController < Kaui::EngineController
+  def index
   end
 end

@@ -1,7 +1,7 @@
 require 'rest_client'
 require 'json'
 
-class Kaui::AccountsController < ApplicationController
+class Kaui::AccountsController < Kaui::EngineController
   def index
     if params[:account_id].present?
       redirect_to account_path(params[:account_id])

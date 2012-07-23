@@ -1,4 +1,4 @@
-class Kaui::InvoicesController < ApplicationController
+class Kaui::InvoicesController < Kaui::EngineController
   def index
     if params[:id].present?
       redirect_to invoice_path(params[:id])
@@ -23,7 +23,7 @@ class Kaui::InvoicesController < ApplicationController
             end
         end
         else
-          flash[:error] = "Invoice items for #{@invoice_id} not found"  
+          flash[:error] = "Invoice items for #{@invoice_id} not found"
         end
       else
         flash[:error] = "Invoice #{@invoice_id} not found"

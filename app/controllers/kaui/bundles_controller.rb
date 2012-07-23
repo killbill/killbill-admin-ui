@@ -1,4 +1,4 @@
-class Kaui::BundlesController < ApplicationController
+class Kaui::BundlesController < Kaui::EngineController
 
   def index
     if params[:bundle_id].present?
