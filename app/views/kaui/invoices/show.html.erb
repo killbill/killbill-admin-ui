@@ -1,5 +1,5 @@
 <% if @invoice.present? %>
-  <h3>Invoice number: <%= @invoice.invoice_number %></h3>
+  <h3>Invoice number: INV<%= @invoice.invoice_number %></h3>
   <dl class="dl-horizontal">
     <dt>Account Name:</dt>
     <dd><%= @account.name %>&nbsp;</dd>
@@ -49,9 +49,12 @@
     </tbody>
   </table>
   <div class="page-header">
-    <h3>Payments</h3>
+    <% if @payments.present? %>
+      <%= render :partial => "kaui/payments/payments_table" %>
+    <% end %>
   </div>
 <% else %>
   <p>Invoice not found</p>
 <% end %>
 <%= link_to 'Back', :back, :class => 'btn' %>
+<%= link_to "View customer invoice html", kaui_engine.show_html_invoice_path(@invoice.invoice_id), :class => 'btn', :target => "_blank" %>

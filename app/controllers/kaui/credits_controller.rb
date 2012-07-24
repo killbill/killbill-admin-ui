@@ -1,8 +1,10 @@
 class Kaui::CreditsController < Kaui::EngineController
   def show
-    @payment_id = params[:id]
-    if @payment_id.present?
-      data = Kaui::KillbillHelper::get_credits_for_payment(@payment_id)
+    @account_id = params[:account_id]
+    @invoice_id = params[:invoice_id]
+
+    # invoice id can be nil for account level credit
+      data = Kaui::KillbillHelper::get_credits(@account_id, @invoice_id)
       if data.present?
         @credit = Kaui::Credit.new(data)
       else

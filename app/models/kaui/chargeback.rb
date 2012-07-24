@@ -24,9 +24,15 @@ class Kaui::Chargeback < Kaui::Base
 
   define_attr :payment_id
   define_attr :chargeback_amount
+  define_attr :requested_dt
+  define_attr :effective_dt
+  define_attr :reason
 
   def initialize(data = {})
     super(:payment_id => data['paymentId'] || data['payment_id'],
-          :chargeback_amount => data['chargebackAmount'] || data['chargeback_amount'])
+          :chargeback_amount => data['chargebackAmount'] || data['chargeback_amount'],
+          :requested_dt => data['requestedDate'] || data['requested_date'] || data['requested_dt'],
+          :effective_dt => data['effectiveDate'] || data['effective_date'] || data['effective_dt'],
+          :reason => data['reason'])
   end
 end

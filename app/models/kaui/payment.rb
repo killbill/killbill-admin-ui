@@ -15,9 +15,11 @@ class Kaui::Payment < Kaui::Base
   define_attr :status
   define_attr :bundle_keys
 
+  has_many :refunds, Kaui::Refund
+  has_many :chargebacks, Kaui::Chargeback
+
   def initialize(data = {})
-    super(
-          :account_id => data['accountId'],
+    super(:account_id => data['accountId'],
           :amount => data['amount'],
           :currency => data['currency'],
           :effective_dt => data['effectiveDate'],
@@ -29,6 +31,8 @@ class Kaui::Payment < Kaui::Base
           :requested_dt => data['requestedDate'],
           :retry_count => data['retryCount'],
           :status => data['status'],
-          :bundle_keys => data['bundleKeys'])
+          :bundle_keys => data['bundleKeys'],
+          :refunds => data['refunds'],
+          :chargebacks => data['chargebacks'])
   end
 end

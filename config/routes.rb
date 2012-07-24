@@ -25,7 +25,11 @@ Kaui::Engine.routes.draw do
 
   resources :refunds, :only => [ :show, :create, :new ]
 
-  resources :invoices, :only => [ :index, :show ]
+  resources :invoices, :only => [ :index, :show ] do
+    member do
+      get :show_html
+    end
+  end
 
   resources :bundles, :only => [ :index, :show ]
 

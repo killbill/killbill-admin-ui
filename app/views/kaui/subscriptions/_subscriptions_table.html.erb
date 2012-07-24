@@ -20,8 +20,8 @@
           <td><%= sub.product_category.downcase.capitalize if sub.product_category.present? %></td>
           <td><%= sub.product_name.downcase.capitalize if sub.product_name.present? %></td>
           <td><%= sub.billing_period.downcase.capitalize if sub.billing_period.present? %></td>
-          <td><%= format_date(sub.start_date).html_safe %></td>
-          <td><%= format_date(sub.charged_through_date).html_safe %></td>
+          <td><%= format_date(sub.start_date).html_safe  if sub.start_date.present? %></td>
+          <td><%= format_date(sub.charged_through_date).html_safe if sub.charged_through_date.present? %></td>
           <td>
             <% if sub.canceled_date.present? %>
               <%= "Pending cancellation on " %> <%= format_date(sub.canceled_date).html_safe %>

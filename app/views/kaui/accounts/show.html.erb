@@ -6,8 +6,8 @@
     <dd><%= @account.name %>&nbsp;</dd>
     <dt>Email:</dt>
     <dd><%= @account.email %>&nbsp;</dd>
-    <dt>Billing day:</dt>
-    <dd><%= @account.billing_day %>&nbsp;</dd>
+    <dt>Bill cycle day:</dt>
+    <dd><%= @account.bill_cycle_day.day_of_month_local %> (user timezone) / <%= @account.bill_cycle_day.day_of_month_utc %> (UTC)</dd>
     <dt>Currency:</dt>
     <dd><%= @account.currency %>&nbsp;</dd>
     <dt>Timezone:</dt>

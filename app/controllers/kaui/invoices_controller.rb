@@ -11,6 +11,7 @@ class Kaui::InvoicesController < Kaui::EngineController
       @invoice = Kaui::KillbillHelper.get_invoice(@invoice_id)
       if @invoice.present?
         @account = Kaui::KillbillHelper.get_account(@invoice.account_id)
+        @payments = Kaui::KillbillHelper.get_payments(@invoice_id)
         @subscriptions = {}
         @bundles = {}
         if @invoice.items.present?
@@ -32,5 +33,9 @@ class Kaui::InvoicesController < Kaui::EngineController
     else
       flash[:error] = "No id given"
     end
+  end
+
+  def show_html
+    render :text => Kaui::KillbillHelper.get_invoice_html(params[:id])
   end
 end

@@ -15,6 +15,7 @@ class Kaui::Account < Kaui::Base
   define_attr :state
   define_attr :country
   define_attr :phone
+  has_one :bill_cycle_day, Kaui::BillCycleDay
 
   def initialize(data = {})
     super(:account_id => data['accountId'],
@@ -30,6 +31,7 @@ class Kaui::Account < Kaui::Base
           :company =>  data['company'],
           :state => data['state'],
           :country => data['country'],
-          :phone => data['phone'])
+          :phone => data['phone'],
+          :bill_cycle_day => data['billCycleDay'])
   end
 end

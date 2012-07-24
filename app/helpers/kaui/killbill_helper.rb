@@ -9,7 +9,11 @@ module Kaui
       response = RestClient.send(method.to_sym, url, *args)
       data = { :code => response.code }
       if response.code < 300 && response.body.present?
-        data[:json] = JSON.parse(response.body)
+        if response.headers[:content_type] =~ /application\/json.*/
+          data[:json] = JSON.parse(response.body)
+        else
+          data[:body] = response.body
+        end
       end
       # TODO: error handling
       data
@@ -208,11 +212,31 @@ module Kaui
       end
     end
 
+    def self.get_invoice_html(invoice_id)
+      begin
+        data = call_killbill :get, "/1.0/kb/invoices/#{invoice_id}/html"
+        data[:body] if data.present?
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
     ############## CATALOG ##############
 
     def self.get_available_addons(base_product_name)
       begin
         data = call_killbill :get, "/1.0/kb/catalog/availableAddons?baseProductName=#{base_product_name}"
+        if data.has_key?(:json)
+          data[:json].inject({}) {|catalog_hash, item| catalog_hash.merge!(item["planName"] => item) }
+        end
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
+    def self.get_available_base_plans()
+      begin
+        data = call_killbill :get, "/1.0/kb/catalog/availableBasePlans"
         if data.has_key?(:json)
           data[:json].inject({}) {|catalog_hash, item| catalog_hash.merge!(item["planName"] => item) }
         end

@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Payments</h3>
+</div>
+<table class="table table-condensed table-striped data-table">
+  <thead>
+    <tr>
+      <th>Requested date</th>
+      <th>Effective date</th>
+      <th>Total amount</th>
+      <th>Paid amount</th>
+      <th>Payment method</th>
+      <th>Retry count</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @payments.present? %>
+      <% @payments.each do |payment| %>
+        <tr>
+          <td><%= format_date(payment.requested_dt).html_safe  if payment.requested_dt.present? %></td>
+          <td><%= format_date(payment.effective_dt).html_safe  if payment.effective_dt.present? %></td>
+          <td><%= payment.amount %> <%= @account.currency if payment.amount.present? %></td>
+          <td><%= payment.paid_amount %> <%= @account.currency if payment.paid_amount.present? %></td>
+          <td></td>
+          <td><%= payment.retry_count %></td>
+          <td><%= payment.status %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

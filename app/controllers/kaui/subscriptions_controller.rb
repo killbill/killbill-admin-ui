@@ -22,7 +22,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     if @base_subscription.present?
       @catalog = Kaui::KillbillHelper::get_available_addons(@base_subscription)
     else
-      # TODO: call catalog to get base subscription types
+      @catalog = Kaui::KillbillHelper::get_available_base_plans()
     end
 
     @subscription = Kaui::Subscription.new("bundleId" => bundle_id)
@@ -37,7 +37,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       @catalog = Kaui::KillbillHelper::get_available_addons(@base_subscription)
       @subscription.product_category = "ADD_ON"
     else
-      # TODO: call catalog to get base subscription types
+      @catalog = Kaui::KillbillHelper::get_available_base_plans()
       @subscription.product_category = "BASE"
     end
 
@@ -76,25 +76,36 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
   def edit
     @subscription = Kaui::KillbillHelper.get_subscription(params[:id])
-    unless @subscription.present?
+    if @subscription.present?
+      bundle_id = params[:bundle_id]
+      @bundle = Kaui::KillbillHelper::get_bundle(bundle_id)
+      @catalog = Kaui::KillbillHelper::get_available_base_plans
+      @current_plan = "#{@subscription.product_name} #{@subscription.billing_period}".humanize
+      if @subscription.price_list != "DEFAULT"
+        @current_plan += " (price list #{@subscription.price_list})"
+      end
+    else
       flash[:error] = "No subscription id given or subscription not found"
       redirect_to :back
     end
-    @products = Kaui::SAMPLE_BASE_PRODUCTS
   end
 
   def update
     if params.has_key?(:subscription) && params[:subscription].has_key?(:subscription_id)
       subscription = Kaui::KillbillHelper.get_subscription(params[:subscription][:subscription_id])
-      product_id = params[:subscription][:product_name]
-      products = Kaui::SAMPLE_BASE_PRODUCTS.select{|p| p.id == product_id}
-      unless products.empty?
-        subscription.product_name = products[0].product_name
-        subscription.billing_period = products[0].billing_period
-        subscription.start_date = params[:subscription][:start_date]
-        Kaui::KillbillHelper.update_subscription(subscription)
-      end
-      redirect_to :action => :show, :id => subscription.subscription_id
+      catalog = Kaui::KillbillHelper::get_available_base_plans
+      plan = catalog[params[:plan_name]]
+      start_date = params[:start_date]
+      subscription.billing_period = plan["billingPeriod"]
+      subscription.product_category = plan["productCategory"]
+      subscription.product_name = plan["productName"]
+      subscription.price_list = plan["priceListName"]
+      subscription.subscription_id = params[:subscription][:subscription_id]
+      # TODO: need to use entered start_date (or current date if none entered)
+
+      Kaui::KillbillHelper.update_subscription(subscription)
+
+      redirect_to :back
     else
       flash[:error] = "No subscription given"
       redirect_to :back
