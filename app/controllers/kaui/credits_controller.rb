@@ -3,6 +3,7 @@ class Kaui::CreditsController < Kaui::EngineController
     @account_id = params[:account_id]
     @invoice_id = params[:invoice_id]
 
+    if params.has_key?(:account_id)
     # invoice id can be nil for account level credit
       data = Kaui::KillbillHelper::get_credits(@account_id, @invoice_id)
       if data.present?
