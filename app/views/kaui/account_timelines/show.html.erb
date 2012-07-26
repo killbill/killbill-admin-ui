@@ -8,6 +8,10 @@
     <div class="controls">
       <%= select_tag "bundles", options_for_select([ "" ] + @bundle_names.values.sort, @selected_bundle || 'all') %>
     </div>
+    <dl class="dl-horizontal">
+      <dt>Billing timezone:</dt>
+      <dd><%= @account.timezone %></dd>
+    </dl>
   </div>
 </form>
 <hr/>

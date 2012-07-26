@@ -25,7 +25,7 @@ class Kaui::Account < Kaui::Base
           :email => data['email'],
           :currency => data['currency'],
           :payment_method_id => data['paymentMethodId'],
-          :timezone => data['timeZone'] || data['timezone'],
+          :timezone => data['timeZone'] || data['time_zone'] || data['timezone'],
           :address1 => data['address1'],
           :address2 => data['address2'],
           :company =>  data['company'],
