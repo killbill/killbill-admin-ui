@@ -297,7 +297,7 @@ module Kaui
     def self.delete_payment_method(account_id, payment_method_id, current_user = nil, reason = nil, comment = nil)
       begin
         call_killbill :delete,
-                      "/1.0/accounts/#{account_id}/paymentMethods/#{payment_method_id}",
+                      "/1.0/kb/accounts/#{account_id}/paymentMethods/#{payment_method_id}",
                       "X-Killbill-CreatedBy" => current_user,
                       "X-Killbill-Reason" => "#{reason}",
                       "X-Killbill-Comment" => "#{comment}"
@@ -308,7 +308,7 @@ module Kaui
 
     def self.get_payment_methods(account_id)
       begin
-        data = call_killbill :get, "/1.0/accounts/#{account_id}/paymentMethods"
+        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/paymentMethods?withPluginInfo=true"
         process_response(data, :multiple) {|json| Kaui::PaymentMethod.new(json) }
       rescue => e
         puts "#{$!}\n\t" + e.backtrace.join("\n\t")

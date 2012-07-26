@@ -4,31 +4,30 @@
 <table class="table table-condensed table-striped">
   <thead>
     <tr>
+      <th>Type</th>
       <th>Card Type</th>
+      <th>Account Name</th>
       <th>Mask Number / Baid</th>
       <th>Expiration Date</th>
       <th>Default Method</th>
       <th>Actions</th>
-    </tr>   
+    </tr>
   </thead>
   <tbody>
-  <% if @payment_methods.present? %>
-    <% @payment_methods.each do |payment_method| %>
+  <% if payment_methods.present? && !payment_methods.nil? %>
+    <% payment_methods.each do |payment_method| %>
       <tr>
-        <td><%= payment_method["cardType"] %></a></td>
-        <td><%= payment_method["maskNumber"] %></td>
-        <td><%= payment_method["expirationDate"] %></td>
+        <td><%= payment_method.type %></a></td>
+        <td><%= payment_method.card_type %></a></td>
+        <td><%= payment_method.card_holder_name %><%= payment_method.email %></a></td>
+        <td><%= payment_method.mask_number %><%= payment_method.baid %></td>
+        <td><%= payment_method.expiration_dt %></td>
         <td>
-          <% if payment_method['defaultMethod'] %>
+          <% if payment_method.is_default %>
             <i class="icon-ok"></i>
-          <% else %>
-            <%= link_to "Make Default", kaui_engine.set_default_payment_method_account_path(:id => @account_id, :params => { :payment_method_id => payment_method['id'] }), :method => "PUT", :confirm => "Are you sure ?", :class => "btn btn-mini" %>
           <% end %>
-        </td>        
+        </td>
         <td>
-          <% unless payment_method['defaultMethod'] %>
-            <%= link_to "Delete", kaui_engine.delete_payment_method_account_path(:id => @account_id, :params => { :payment_method_id => payment_method['id'] }), :method => "DELETE", :confirm => "Are you sure ?", :class => "btn btn-mini" %>
-          <% end %>
         </td>
       </tr>
     <% end %>

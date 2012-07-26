@@ -14,8 +14,8 @@
     </tr>
   </thead>
   <tbody>
-    <% if @subscriptions.present? && !@subscriptions.nil? %>
-      <% @subscriptions.each do |sub| %>
+    <% if subscriptions.present? && !subscriptions.nil? %>
+      <% subscriptions.each do |sub| %>
         <tr>
           <td><%= sub.product_category.downcase.capitalize if sub.product_category.present? %></td>
           <td><%= sub.product_name.downcase.capitalize if sub.product_name.present? %></td>

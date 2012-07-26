@@ -6,7 +6,7 @@
     <dt>Bundle key:</dt>
     <dd><%= @bundle.external_key %>&nbsp;</dd>
   <% if @subscriptions.present? %>
-    <%= render :partial => "kaui/subscriptions/subscriptions_table" %>
+    <%= render :partial => "kaui/subscriptions/subscriptions_table", :locals => { :subscriptions => @subscriptions } %>
   <% end %>
 <% else %>
   <p>Bundle not found</p>

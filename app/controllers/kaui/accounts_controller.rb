@@ -19,12 +19,7 @@ class Kaui::AccountsController < Kaui::EngineController
       end
 
       if @account.present?
-        # TODO: add when payment methods are implemented
-        # @payment_methods = Kaui::KillbillHelper.get_payment_methods(@account_id)
-        # unless @payment_methods.is_a?(Array)
-        #   flash[:error] = "No payment methods for account #{@account_id}"
-        #   redirect_to :action => :index
-        # end
+        @payment_methods = Kaui::KillbillHelper.get_payment_methods(@account_id)
       else
         flash[:error] = "Account #{@account_id} not found"
         redirect_to :action => :index
@@ -49,16 +44,15 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def set_default_payment_method
-    @external_key = params[:id]
+    @account_id = params[:id]
     # TODO
     redirect_to :back
   end
 
   def delete_payment_method
-    @external_key = params[:id]
     @payment_method_id = params[:payment_method_id]
-    if @external_key.present? && @payment_method_id.present?
-      Kaui::KillbillHelper::delete_payment_method(@external_key, @payment_method_id)
+    if @payment_method_id.present?
+      Kaui::KillbillHelper::delete_payment_method(@payment_method_id)
     else
       flash[:notice] = "No id given"
     end
