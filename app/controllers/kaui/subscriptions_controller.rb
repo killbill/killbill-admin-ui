@@ -77,8 +77,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
   def edit
     @subscription = Kaui::KillbillHelper.get_subscription(params[:id])
     if @subscription.present?
-      bundle_id = params[:bundle_id]
-      @bundle = Kaui::KillbillHelper::get_bundle(bundle_id)
+      @bundle = Kaui::KillbillHelper::get_bundle(@subscription.bundle_id)
       @catalog = Kaui::KillbillHelper::get_available_base_plans
       @current_plan = "#{@subscription.product_name} #{@subscription.billing_period}".humanize
       if @subscription.price_list != "DEFAULT"
@@ -93,9 +92,12 @@ class Kaui::SubscriptionsController < Kaui::EngineController
   def update
     if params.has_key?(:subscription) && params[:subscription].has_key?(:subscription_id)
       subscription = Kaui::KillbillHelper.get_subscription(params[:subscription][:subscription_id])
+      bundle = Kaui::KillbillHelper::get_bundle(subscription.bundle_id)
       catalog = Kaui::KillbillHelper::get_available_base_plans
+
       plan = catalog[params[:plan_name]]
       start_date = params[:start_date]
+
       subscription.billing_period = plan["billingPeriod"]
       subscription.product_category = plan["productCategory"]
       subscription.product_name = plan["productName"]
@@ -104,8 +106,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       # TODO: need to use entered start_date (or current date if none entered)
 
       Kaui::KillbillHelper.update_subscription(subscription)
-
-      redirect_to :back
+      redirect_to Kaui.bundle_home_path.call(bundle.external_key)
     else
       flash[:error] = "No subscription given"
       redirect_to :back
