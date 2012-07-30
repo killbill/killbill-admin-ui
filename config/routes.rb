@@ -21,7 +21,7 @@ Kaui::Engine.routes.draw do
 
   resources :credits, :only => [ :create, :new ]
 
-  resources :payment_methods, :only => [ :show ]
+  resources :payment_methods, :only => [ :show, :destroy ]
 
   resources :refunds, :only => [ :show, :create, :new ]
 

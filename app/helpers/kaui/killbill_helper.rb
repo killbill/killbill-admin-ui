@@ -294,10 +294,10 @@ module Kaui
 
     ############## PAYMENT METHOD ##############
 
-    def self.delete_payment_method(account_id, payment_method_id, current_user = nil, reason = nil, comment = nil)
+    def self.delete_payment_method(payment_method_id, current_user = nil, reason = nil, comment = nil)
       begin
         call_killbill :delete,
-                      "/1.0/kb/accounts/#{account_id}/paymentMethods/#{payment_method_id}",
+                      "/1.0/kb/paymentMethods/#{payment_method_id}",
                       "X-Killbill-CreatedBy" => current_user,
                       "X-Killbill-Reason" => "#{reason}",
                       "X-Killbill-Comment" => "#{comment}"
@@ -310,6 +310,20 @@ module Kaui
       begin
         data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/paymentMethods?withPluginInfo=true"
         process_response(data, :multiple) {|json| Kaui::PaymentMethod.new(json) }
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
+    def self.set_payment_method_as_default(account_id, payment_method_id, current_user = nil, reason = nil, comment = nil)
+      begin
+        data = call_killbill :put, "/1.0/kb/accounts/#{account_id}/paymentMethods/#{payment_method_id}/setDefault",
+                                   "",
+                                   :content_type => :json,
+                                   "X-Killbill-CreatedBy" => current_user,
+                                   "X-Killbill-Reason" => "#{reason}",
+                                   "X-Killbill-Comment" => "#{comment}"
+        return data[:code] < 300
       rescue => e
         puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
