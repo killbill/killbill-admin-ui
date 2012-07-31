@@ -76,9 +76,9 @@ module Kaui
       end
     end
 
-    def self.get_bundle_by_external_key(external_key)
+    def self.get_bundle_by_external_key(account_id, external_key)
       begin
-        data = call_killbill :get, "/1.0/kb/bundles?externalKey=#{external_key}"
+        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/bundles?externalKey=#{external_key}"
         process_response(data, :single) {|json| Kaui::Bundle.new(json) }
       rescue => e
         puts "#{$!}\n\t" + e.backtrace.join("\n\t")
