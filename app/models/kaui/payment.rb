@@ -1,6 +1,10 @@
 require 'active_model'
 
 class Kaui::Payment < Kaui::Base
+
+  SAMPLE_REASON_CODES = [ "600 - Alt payment method",
+                          "699 - OTHER" ]
+
   define_attr :account_id
   define_attr :amount
   define_attr :currency
@@ -19,19 +23,19 @@ class Kaui::Payment < Kaui::Base
   has_many :chargebacks, Kaui::Chargeback
 
   def initialize(data = {})
-    super(:account_id => data['accountId'],
+    super(:account_id => data['accountId'] || data['account_id'],
           :amount => data['amount'],
           :currency => data['currency'],
-          :effective_dt => data['effectiveDate'],
-          :invoice_id => data['invoiceId'],
-          :paid_amount => data['paidAmount'],
-          :payment_id => data['paymentId'],
-          :payment_method_id => data['paymentMethodId'],
-          :refund_amount => data['refundAmount'],
-          :requested_dt => data['requestedDate'],
-          :retry_count => data['retryCount'],
+          :effective_dt => data['effectiveDate'] || data['effective_dt'],
+          :invoice_id => data['invoiceId'] || data['invoice_id'],
+          :paid_amount => data['paidAmount'] || data['paid_amount'],
+          :payment_id => data['paymentId'] || data['payment_id'],
+          :payment_method_id => data['paymentMethodId'] || data['payment_method_id'],
+          :refund_amount => data['refundAmount'] || data['refund_amount'],
+          :requested_dt => data['requestedDate'] || data['requested_dt'],
+          :retry_count => data['retryCount'] || data['retry_count'],
           :status => data['status'],
-          :bundle_keys => data['bundleKeys'],
+          :bundle_keys => data['bundleKeys'] || data['bundle_keys'],
           :refunds => data['refunds'],
           :chargebacks => data['chargebacks'])
   end

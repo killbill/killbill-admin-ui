@@ -6,8 +6,8 @@ class Kaui::Credit < Kaui::Base
   define_attr :account_id
   define_attr :invoice_id
   define_attr :credit_amount
-  define_attr :requested_dt
-  define_attr :effective_dt
+  define_attr :requested_date
+  define_attr :effective_date
   define_attr :comment
   define_attr :reason
 
@@ -15,7 +15,7 @@ class Kaui::Credit < Kaui::Base
     super(:account_id => data['accountId'] || data['account_id'],
           :invoice_id => data['invoiceId'] || data['invoice_id'],
           :credit_amount => data['creditAmount'] || data['credit_amount'],
-          :requested_dt => data['requestedDate'],
-          :effective_dt => data['effectiveDate'])
+          :requested_date => data['requestedDate'] || data['requested_date'],
+          :effective_date => data['effectiveDate'] || data['effective_date'])
   end
 end

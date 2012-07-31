@@ -81,8 +81,14 @@
             <% if invoice.balance > 0 %>
               <nobr>
                 <%= link_to "Credit",
-                            kaui_engine.new_credit_path(:params => { :account_id => @account.account_id,
+                            kaui_engine.new_credit_path(:params => { :account_id => invoice.account_id,
                                                                      :invoice_id => invoice.invoice_id }),
+                            :class => "btn btn-mini" %>
+              </nobr>
+              <nobr>
+                <%= link_to "External Payment",
+                            kaui_engine.new_external_payment_path(:params => { :account_id => invoice.account_id,
+                                                                               :invoice_id => invoice.invoice_id }),
                             :class => "btn btn-mini" %>
               </nobr>
               <% end %>

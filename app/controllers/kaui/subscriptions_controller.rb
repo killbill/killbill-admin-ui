@@ -91,7 +91,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
   def update
     if params.has_key?(:subscription) && params[:subscription].has_key?(:subscription_id)
-      subscription = Kaui::KillbillHelper.get_subscription(params[:subscription][:subscription_id])
+      subscription = Kaui::KillbillHelper::get_subscription(params[:subscription][:subscription_id])
       bundle = Kaui::KillbillHelper::get_bundle(subscription.bundle_id)
       catalog = Kaui::KillbillHelper::get_available_base_plans
 
@@ -105,7 +105,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       subscription.subscription_id = params[:subscription][:subscription_id]
       # TODO: need to use entered start_date (or current date if none entered)
 
-      Kaui::KillbillHelper.update_subscription(subscription)
+      Kaui::KillbillHelper::update_subscription(subscription)
       redirect_to Kaui.bundle_home_path.call(bundle.external_key)
     else
       flash[:error] = "No subscription given"
@@ -116,7 +116,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
   def reinstate
     subscription_id = params[:id]
     if subscription_id.present?
-      success = Kaui::KillbillHelper.reinstate_subscription(subscription_id, current_user)
+      success = Kaui::KillbillHelper::reinstate_subscription(subscription_id, current_user)
       if success
         flash[:info] = "Subscription reinstated"
       else
@@ -131,7 +131,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
   def destroy
     subscription_id = params[:id]
     if subscription_id.present?
-      Kaui::KillbillHelper.delete_subscription(subscription_id)
+      Kaui::KillbillHelper::delete_subscription(subscription_id)
       redirect_to :back
     else
       flash[:error] = "No subscription id given"

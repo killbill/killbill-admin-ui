@@ -221,6 +221,28 @@ module Kaui
       end
     end
 
+    ############## EXTERNAL PAYMENT ##############
+
+    def self.create_external_payment(payment, current_user = nil, reason = nil, comment = nil)
+      begin
+        payment_data = Kaui::ExternalPayment.camelize(payment.to_hash)
+        if payment.invoice_id.present?
+          data = call_killbill :post,
+                               "/1.0/kb/invoices/#{payment.invoice_id}/payments?externalPayment=true",
+                               ActiveSupport::JSON.encode(payment_data, :root => false),
+                               :content_type => "application/json",
+                               "X-Killbill-CreatedBy" => current_user,
+                               "X-Killbill-Reason" => extract_reason_code(reason),
+                               "X-Killbill-Comment" => "#{comment}"
+          return data[:code] < 300
+        else
+          return false
+        end
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
     ############## CATALOG ##############
 
     def self.get_available_addons(base_product_name)
@@ -321,7 +343,7 @@ module Kaui
                                    "",
                                    :content_type => :json,
                                    "X-Killbill-CreatedBy" => current_user,
-                                   "X-Killbill-Reason" => "#{reason}",
+                                   "X-Killbill-Reason" => extract_reason_code(reason),
                                    "X-Killbill-Comment" => "#{comment}"
         return data[:code] < 300
       rescue => e

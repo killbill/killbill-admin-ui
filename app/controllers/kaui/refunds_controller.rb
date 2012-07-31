@@ -32,7 +32,7 @@ class Kaui::RefundsController < Kaui::EngineController
     refund = Kaui::Refund.new(params[:refund])
     refund.adjusted = (refund.adjusted == "1")
     if refund.present?
-      success = Kaui::KillbillHelper::create_refund(params[:payment_id], refund, params[:reason], params[:comment])
+      success = Kaui::KillbillHelper::create_refund(params[:payment_id], refund, current_user, params[:reason], params[:comment])
       if success
         flash[:info] = "Refund created"
       else

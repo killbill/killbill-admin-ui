@@ -20,8 +20,7 @@ class Kaui::CreditsController < Kaui::EngineController
     @account_id = params[:account_id]
     @invoice_id = params[:invoice_id]
 
-    @credit = Kaui::Credit.new(:invoice_id => @invoice_id,
-                               :account_id => @account_id)
+    @credit = Kaui::Credit.new("accountId" => @account_id, "invoiceId" => @invoice_id)
 
     @account = Kaui::KillbillHelper::get_account(@account_id)
     @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
@@ -29,8 +28,12 @@ class Kaui::CreditsController < Kaui::EngineController
 
   def create
     credit = Kaui::Credit.new(params[:credit])
-    # TODO: read credit object from post params
-    #Kaui::KillbillHelper::create_credit(@payment_id)
-    redirect_to account_timeline_path(:id => credit.account_id)
+    success = Kaui::KillbillHelper::create_credit(credit, current_user, params[:reason], params[:comment])
+    if success
+      flash[:info] = "Credit created"
+    else
+      flash[:error] = "Error while creating credit"
+    end
+    redirect_to account_timeline_path(credit.account_id)
   end
 end

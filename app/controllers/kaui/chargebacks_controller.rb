@@ -1,4 +1,5 @@
 class Kaui::ChargebacksController < Kaui::EngineController
+
   def show
     @payment_id = params[:id]
     if @payment_id.present?
@@ -42,6 +43,4 @@ class Kaui::ChargebacksController < Kaui::EngineController
     end
     redirect_to account_timeline_path(:id => params[:account_id])
   end
-
-
 end

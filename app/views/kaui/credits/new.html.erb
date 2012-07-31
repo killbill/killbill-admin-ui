@@ -49,22 +49,28 @@
       </div>
     <% end %>
     <div class="control-group">
-      <%= f.label :amount, "Credit amount", :class => "control-label" %>
+      <%= f.label :credit_amount, "Credit amount", :class => "control-label" %>
       <div class="controls">
-        <%= f.text_field :amount, :class => 'input-small' %>
+        <%= f.text_field :credit_amount, :class => 'input-small' %>
         <p class="help-inline"><%= @account.currency %></p>
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :reason, "Reason", :class => "control-label" %>
+      <%= f.label :effective_date, 'Effective Date:', :class => "control-label" %>
       <div class="controls">
-        <%= f.select :reason, Kaui::Credit::SAMPLE_REASON_CODES %>
+        <%= f.text_field :effective_date, :class => 'input-xlarge date-picker' %>
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :comment, :class => "control-label" %>
+      <%= label_tag :reason, "Reason", :class => "control-label" %>
       <div class="controls">
-        <%= f.text_area :comment, :rows => 3, :class => 'input-xlarge' %>
+        <%= select_tag :reason, options_for_select(Kaui::Credit::SAMPLE_REASON_CODES) %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= label_tag :comment, "Comment", :class => "control-label" %>
+      <div class="controls">
+        <%= text_area_tag :comment, "", :rows => 3, :class => 'input-xlarge' %>
       </div>
     </div>
     <div class="form-actions">
