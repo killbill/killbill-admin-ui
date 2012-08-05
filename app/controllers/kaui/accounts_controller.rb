@@ -20,6 +20,15 @@ class Kaui::AccountsController < Kaui::EngineController
 
       if @account.present?
         @payment_methods = Kaui::KillbillHelper.get_payment_methods(@account.account_id)
+        @bundles = Kaui::KillbillHelper::get_bundles(@account.account_id)
+        @subscriptions_by_bundle_id = {}
+
+        @bundles.each do |bundle|
+          subscriptions = Kaui::KillbillHelper::get_subscriptions_for_bundle(bundle.bundle_id)
+          if subscriptions.present?
+            @subscriptions_by_bundle_id[bundle.bundle_id.to_s] = (@subscriptions_by_bundle_id[bundle.bundle_id.to_s] || []) + subscriptions
+          end
+        end
       else
         flash[:error] = "Account #{@account_id} not found"
         redirect_to :action => :index

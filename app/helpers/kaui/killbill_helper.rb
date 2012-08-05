@@ -59,9 +59,18 @@ module Kaui
         process_response(data, :single) {|json| Kaui::Account.new(json) }
       rescue => e
         puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+        "#{e.message} #{e.response}"
       end
     end
 
+    def self.get_account_by_bundle_id(bundle_id)
+      begin
+        bundle = get_bundle(bundle_id)
+        account = get_account(bundle.account_id)
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
 
     ############## BUNDLE ##############
 
@@ -94,10 +103,16 @@ module Kaui
       end
     end
 
-    def self.get_bundles(account_id)
+    def self.transfer_bundle(bundle_id, new_account_id, current_user = nil, reason = nil, comment = nil)
       begin
-        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/bundles"
-        process_response(data, :multiple) {|json| Kaui::Bundle.new(json) }
+        data = call_killbill :put,
+                             "/1.0/kb/bundles/#{bundle_id}",
+                             ActiveSupport::JSON.encode("accountId" => new_account_id),
+                             :content_type => :json,
+                             "X-Killbill-CreatedBy" => current_user,
+                             "X-Killbill-Reason" => "#{reason}",
+                             "X-Killbill-Comment" => "#{comment}"
+        return data[:code] < 300
 
       rescue => e
         puts "#{$!}\n\t" + e.backtrace.join("\n\t")
@@ -157,11 +172,11 @@ module Kaui
       end
     end
 
-    def self.update_subscription(subscription, current_user = nil, reason = nil, comment = nil)
+    def self.update_subscription(subscription, requested_date = nil, current_user = nil, reason = nil, comment = nil)
       begin
         subscription_data = Kaui::Subscription.camelize(subscription.to_hash)
         data = call_killbill :put,
-                             "/1.0/kb/subscriptions/#{subscription.subscription_id}",
+                             "/1.0/kb/subscriptions/#{subscription.subscription_id}?requested_date=#{requested_date}",
                              ActiveSupport::JSON.encode(subscription_data, :root => false),
                              :content_type => :json,
                              "X-Killbill-CreatedBy" => current_user,

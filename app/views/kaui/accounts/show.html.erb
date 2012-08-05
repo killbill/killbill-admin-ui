@@ -29,11 +29,15 @@
     <%= render :partial => "kaui/tags/tags_table",
                :locals => { :tags => @tags, :tags_url_or_path => kaui_engine.edit_account_tags_path(:params => { :account_id => @account.account_id }) } %>
   </dl>
-  <% if @subscriptions.present? %>
-    <%= render :partial => "kaui/subscriptions/subscriptions_table", :locals => { :subscriptions => @subscriptions } %>
-  <% end %>
   <% if @payment_methods.present? %>
     <%= render :partial => "kaui/payment_methods/payment_methods_table", :locals => { :payment_methods => @payment_methods } %>
+  <% end %>
+  <% @bundles.each do |bundle| %>
+      <% subs = @subscriptions_by_bundle_id[bundle.bundle_id] %>
+      <% if subs.present? %>
+        <h4><%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.external_key) if bundle.external_key.present? %>&nbsp;</h4>
+        <%= render :partial => "kaui/subscriptions/subscriptions_table", :locals => { :subscriptions => subs } %>
+      <% end %>
   <% end %>
 <% else %>
   <p>Account not found</p>

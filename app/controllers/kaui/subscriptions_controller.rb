@@ -47,7 +47,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     @subscription.price_list = plan["priceListName"]
 
     begin
-      Kaui::KillbillHelper::create_subscription(@subscription)
+      Kaui::KillbillHelper::create_subscription(@subscription, current_user)
       redirect_to Kaui.bundle_home_path.call(@bundle.external_key)
     rescue => e
       flash[:error] = e.message
@@ -96,7 +96,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       catalog = Kaui::KillbillHelper::get_available_base_plans
 
       plan = catalog[params[:plan_name]]
-      start_date = params[:start_date]
+      requested_date = params[:requested_date]
 
       subscription.billing_period = plan["billingPeriod"]
       subscription.product_category = plan["productCategory"]
@@ -105,7 +105,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       subscription.subscription_id = params[:subscription][:subscription_id]
       # TODO: need to use entered start_date (or current date if none entered)
 
-      Kaui::KillbillHelper::update_subscription(subscription)
+      Kaui::KillbillHelper::update_subscription(subscription, requested_date, current_user)
       redirect_to Kaui.bundle_home_path.call(bundle.external_key)
     else
       flash[:error] = "No subscription given"
@@ -131,7 +131,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
   def destroy
     subscription_id = params[:id]
     if subscription_id.present?
-      Kaui::KillbillHelper::delete_subscription(subscription_id)
+      Kaui::KillbillHelper::delete_subscription(subscription_id, current_user)
       redirect_to :back
     else
       flash[:error] = "No subscription id given"

@@ -33,7 +33,12 @@ Kaui::Engine.routes.draw do
     end
   end
 
-  resources :bundles, :only => [ :index, :show ]
+  resources :bundles, :only => [ :index, :show ] do
+    member do
+      put :do_transfer
+      get :transfer
+    end
+  end
 
   resources :subscriptions do
     member do
