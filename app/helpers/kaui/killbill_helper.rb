@@ -366,6 +366,21 @@ module Kaui
       end
     end
 
+    def self.add_payment_method(payment_method, current_user = nil, reason = nil, comment = nil)
+      payment_method_data = Kaui::Refund.camelize(payment_method.to_hash)
+      begin
+        data = call_killbill :post, "/1.0/kb/accounts/#{payment_method.account_id}/paymentMethods?isDefault=#{payment_method.is_default}",
+                                    ActiveSupport::JSON.encode(payment_method_data, :root => false),
+                                    :content_type => :json,
+                                    "X-Killbill-CreatedBy" => current_user,
+                                    "X-Killbill-Reason" => extract_reason_code(reason),
+                                    "X-Killbill-Comment" => "#{comment}"
+        return data[:code] < 300
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
     ############## REFUND ##############
 
     def self.get_refunds_for_payment(payment_id)

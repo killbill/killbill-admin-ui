@@ -3,9 +3,11 @@ Kaui::Engine.routes.draw do
 
   resources :accounts, :only => [ :index, :show ] do
   	member do
-	    get :payment_methods, :as => "payment_methods"
-	    put :set_default_payment_method, :as => "set_default_payment_method"
-	    delete :delete_payment_method, :as => "delete_payment_method"
+      get :payment_methods
+      put :set_default_payment_method
+      get :add_payment_method
+      post :do_add_payment_method
+      delete :delete_payment_method
 		end
   end
 
