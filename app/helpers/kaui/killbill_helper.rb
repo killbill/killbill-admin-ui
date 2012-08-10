@@ -37,7 +37,7 @@ module Kaui
 
     def self.get_account_timeline(account_id)
       begin
-        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/timeline"
+        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/timeline?audit=true"
         process_response(data, :single) {|json| Kaui::AccountTimeline.new(json) }
       rescue => e
         puts "#{$!}\n\t" + e.backtrace.join("\n\t")
@@ -103,10 +103,10 @@ module Kaui
       end
     end
 
-    def self.transfer_bundle(bundle_id, new_account_id, current_user = nil, reason = nil, comment = nil)
+    def self.transfer_bundle(bundle_id, new_account_id, cancel_immediately = false, transfer_addons = true, current_user = nil, reason = nil, comment = nil)
       begin
         data = call_killbill :put,
-                             "/1.0/kb/bundles/#{bundle_id}",
+                             "/1.0/kb/bundles/#{bundle_id}?cancelImmediately=#{cancel_immediately}&transferAddOn=#{transfer_addons}",
                              ActiveSupport::JSON.encode("accountId" => new_account_id),
                              :content_type => :json,
                              "X-Killbill-CreatedBy" => current_user,

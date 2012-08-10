@@ -8,6 +8,8 @@ class Kaui::Event < Kaui::Base
   define_attr :product
   define_attr :requested_dt
 
+  has_many :audit_logs, Kaui::AuditLog
+
   def initialize(data = {})
     super(:event_id => data['eventId'],
           :billing_period => data['billingPeriod'],
@@ -16,6 +18,7 @@ class Kaui::Event < Kaui::Base
           :phase => data['phase'],
           :price_list => data['priceList'],
           :product => data['product'],
-          :requested_dt => data['requestedDate'])
+          :requested_dt => data['requestedDate'],
+          :audit_logs => data['auditLogs'])
   end
 end

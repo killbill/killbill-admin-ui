@@ -21,6 +21,7 @@ class Kaui::Payment < Kaui::Base
 
   has_many :refunds, Kaui::Refund
   has_many :chargebacks, Kaui::Chargeback
+  has_many :audit_logs, Kaui::AuditLog
 
   def initialize(data = {})
     super(:account_id => data['accountId'] || data['account_id'],
@@ -37,6 +38,7 @@ class Kaui::Payment < Kaui::Base
           :status => data['status'],
           :bundle_keys => data['bundleKeys'] || data['bundle_keys'],
           :refunds => data['refunds'],
-          :chargebacks => data['chargebacks'])
+          :chargebacks => data['chargebacks'],
+          :audit_logs => data['auditLogs'])
   end
 end

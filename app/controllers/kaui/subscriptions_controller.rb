@@ -101,7 +101,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       subscription.billing_period = plan["billingPeriod"]
       subscription.product_category = plan["productCategory"]
       subscription.product_name = plan["productName"]
-      subscription.price_list = plan["priceListName"]
+      subscription.price_list = params[:subscription][:price_list]
       subscription.subscription_id = params[:subscription][:subscription_id]
       # TODO: need to use entered start_date (or current date if none entered)
 

@@ -16,6 +16,12 @@
       <%= text_field_tag :new_account_key, nil, :class => "input-xlarge" %>
     </div>
   </div>
+  <div class="control-group">
+    <%= label_tag :comment, "Comment", :class => "control-label" %>
+    <div class="controls">
+      <%= text_area_tag :comment, "", :rows => 3, :class => 'input-xlarge' %>
+    </div>
+  </div>
   <div class="form-actions">
     <%= submit_tag "Change", :class => 'btn btn-primary' %>
     <%= link_to 'Back', :back, :class => 'btn' %>

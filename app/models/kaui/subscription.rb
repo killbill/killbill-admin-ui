@@ -8,6 +8,7 @@ class Kaui::Subscription < Kaui::Base
   define_attr :price_list
   define_attr :start_date
   define_attr :canceled_date
+
   has_many :events, Kaui::Event
 
   def initialize(data = {})

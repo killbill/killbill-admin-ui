@@ -76,7 +76,13 @@
               <%= "Invoice #" %>
               <%= link_to invoice.invoice_number, invoice_path(:id => invoice.invoice_id) %>
           </td>
-          <td></td>
+          <td>
+            <% if invoice_stub.audit_logs.present? %>
+              <% invoice_stub.audit_logs.each do |entry| %>
+                <%= entry.description unless entry.changed_by == 'Transition' %><br/>
+              <% end %>
+            <% end %>
+          </td>
           <td>
             <% if invoice.balance > 0 %>
               <nobr>
@@ -126,7 +132,11 @@
               <%= "Payment id:" %> <%= refund.payment_id %><br/>
               <%= "Refund Amount:" %> <%= refund.refund_amount %><br/>
             </td>
-            <td></td>
+            <td>
+              <% if refund.audit_logs.present? %>
+              <%= refund.audit_logs[0].description %><br/>
+              <% end %>
+            </td>
             <td></td>
           </tr>
         <% end %>
@@ -161,7 +171,11 @@
             <%= "Payment id:" %> <%= chargeback.payment_id %><br/>
             <%= "Chargeback Amount:" %> <%= chargeback.chargeback_amount %><br/>
           </td>
-          <td></td>
+          <td>
+            <% if chargeback.audit_logs.present? %>
+              <%= chargeback.audit_logs[0].description %><br/>
+            <% end %>
+          </td>
           <td></td>
         <% end %>
       <% end %>
@@ -198,6 +212,7 @@
           </td>
           <td><%= "PAYMENT" %></td>
           <td>
+            <%= "Payment id:" %> <%= payment.id %><br/>
             <%= "Total amount:" %> <%= payment.amount %> <%= @account.currency if payment.amount.present? %><br/>
             <%= "Paid amount:" %> <%= payment.paid_amount %> <%= @account.currency %><br/>
             <span <% if payment.status == 'FAILED' %>class="alert-error" <% elsif payment.status == 'SUCCESS' %>class="alert-success" <% end %>>
@@ -206,7 +221,11 @@
             <br/>
             <%= "Invoice #" %> <%= link_to invoice.invoice_number, invoice_path(:id => invoice.invoice_id) %>
           </td>
-          <td></td>
+          <td>
+            <% payment.audit_logs.each do |entry| %>
+              <%= entry.description unless entry.changed_by == 'PaymentRequestProcessor' %><br/>
+            <% end %>
+          </td>
           <td>
             <% if payment.payment_id.present? %>
               <nobr>
@@ -220,9 +239,9 @@
                                                                           :class => "btn btn-mini" %>
               </nobr>
               <% elsif invoice.balance > 0 %>
-                <%= link_to 'Pay', kaui_engine.new_chargeback_path(:params => { :payment_id => payment.payment_id,
-                                                                                :account_id => @account.account_id,
-                                                                                :invoice_id => payment.invoice_id }),
+                <%= link_to 'Pay', kaui_engine.new_payment_path(:params => { :payment_id => payment.payment_id,
+                                                                             :account_id => @account.account_id,
+                                                                             :invoice_id => payment.invoice_id }),
                                                                    :class => "btn btn-mini" %>
             <% end %>
           </td>
