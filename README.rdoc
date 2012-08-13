@@ -1,3 +1,16 @@
 = Kaui
 
 This project rocks and uses MIT-LICENSE.
+
+== Getting started
+
+=== Running tests
+
+Prepare a kaui_test database locally to be able to run the test suite:
+
+  create database kaui_test;
+  grant all privileges on kaui_test.* to 'root'@'localhost' identified by '';
+
+You can run tests using rake:
+
+  rake test
