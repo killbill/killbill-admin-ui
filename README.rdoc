@@ -4,6 +4,14 @@ This project rocks and uses MIT-LICENSE.
 
 == Getting started
 
+=== Running Kaui
+
+You can run Kaui locally using the dummy app in the test directory:
+
+  # Point to your killbill installation
+  export KILLBILL_URL="http://killbill.company.com:8080"
+  cd test/dummy && rails s
+
 === Running tests
 
 Prepare a kaui_test database locally to be able to run the test suite:
