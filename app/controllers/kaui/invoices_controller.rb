@@ -1,7 +1,7 @@
 class Kaui::InvoicesController < Kaui::EngineController
   def index
-    if params[:id].present?
-      redirect_to invoice_path(params[:id])
+    if params[:invoice_id].present?
+      redirect_to invoice_path(params[:invoice_id])
     end
   end
 
