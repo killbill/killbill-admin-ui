@@ -14,14 +14,15 @@ module Kaui::KillbillHelper
   @@fixtures ||= {}
 
   def self.get_account(account_id)
-    @@fixtures.each do |k,v|
-      next unless k == "accounts"
-      v.each do |w,u|
-        return Kaui::Account.new(u.fixture) if u.fixture["accountId"] == account_id
-      end
-    end
+    find_among_fixtures(Kaui::Account, account_id)
+  end
 
-    return nil
+  def self.get_invoice(invoice_id)
+    find_among_fixtures(Kaui::Invoice, invoice_id)
+  end
+
+  def self.get_payments(invoice_id)
+    []
   end
 
   def self.get_payment_methods(account_id)
@@ -34,6 +35,18 @@ module Kaui::KillbillHelper
 
   def self.get_subscriptions_for_bundle(bundle_id)
     []
+  end
+
+  def self.find_among_fixtures(clazz, id)
+    type = clazz.name.demodulize.downcase
+    @@fixtures.each do |k,v|
+      next unless k == "#{type}s"
+      v.each do |w,u|
+        return clazz.new(u.fixture) if u.fixture["#{type}Id"] == id
+      end
+    end
+
+    return nil
   end
 
   def self.set_fixtures(f)

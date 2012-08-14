@@ -30,7 +30,7 @@ class Kaui::Invoice < Kaui::Base
           :invoice_number => data['invoiceNumber'],
           :refund_adjustment => data['refundAdj'],
           :target_dt => data['targetDate'],
-          :items => data['items'],
+          :items => data['items'] || [],
           :bundle_keys => data['bundleKeys'],
           :audit_logs => data['auditLogs'])
   end
