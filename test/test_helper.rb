@@ -9,6 +9,37 @@ Rails.backtrace_cleaner.remove_silencers!
 # Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
+# Mock killbill-server and serve data from the fixtures
+module Kaui::KillbillHelper
+  @@fixtures ||= {}
+
+  def self.get_account(account_id)
+    @@fixtures.each do |k,v|
+      next unless k == "accounts"
+      v.each do |w,u|
+        return Kaui::Account.new(u.fixture) if u.fixture["accountId"] == account_id
+      end
+    end
+
+    return nil
+  end
+
+  def self.get_payment_methods(account_id)
+    []
+  end
+
+  def self.get_bundles(account_id)
+    []
+  end
+
+  def self.get_subscriptions_for_bundle(bundle_id)
+    []
+  end
+
+  def self.set_fixtures(f)
+    @@fixtures = f
+  end
+end
 
 class ActiveRecord::Fixtures
   # Monkey-patch the create_fixtures method not to rely on a database
@@ -30,6 +61,8 @@ class ActiveRecord::Fixtures
 
       all_loaded_fixtures.update(fixtures_map)
       cache_fixtures(nil, fixtures_map)
+
+      Kaui::KillbillHelper.set_fixtures fixtures_map
     end
     cached_fixtures(nil, table_names)
   end
