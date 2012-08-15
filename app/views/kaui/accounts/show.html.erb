@@ -40,7 +40,7 @@
   <% @bundles.each do |bundle| %>
     <% subs = @subscriptions_by_bundle_id[bundle.bundle_id] %>
     <% if subs.present? %>
-      <h4><%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.external_key) if bundle.external_key.present? %>&nbsp;</h4>
+      <h2>Bundle <%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.bundle_id) if bundle.external_key.present? %>&nbsp;</h2>
       <%= render :partial => "kaui/subscriptions/subscriptions_table", :locals => { :subscriptions => subs } %>
     <% end %>
   <% end %>

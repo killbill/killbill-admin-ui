@@ -13,7 +13,7 @@ class Kaui::BundlesController < Kaui::EngineController
       if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
         @bundle = Kaui::KillbillHelper.get_bundle(key)
       else
-        @bundle = Kaui::KillbillHelper.get_bundle_by_external_key(key)
+        @bundle = Kaui::KillbillHelper.get_bundle_by_external_key(key, params[:account_id])
       end
 
       if @bundle.present?

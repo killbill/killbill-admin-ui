@@ -21,6 +21,10 @@ module Kaui::KillbillHelper
     find_among_fixtures(Kaui::Invoice, invoice_id)
   end
 
+  def self.get_bundle(bundle_id)
+    find_among_fixtures(Kaui::Bundle, bundle_id)
+  end
+
   def self.get_payments(invoice_id)
     []
   end
