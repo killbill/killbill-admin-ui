@@ -32,6 +32,11 @@ class Kaui::Base
 
   def initialize(attributes = {})
     self.attributes = attributes
+    # Make has_many associations return [] instead of nil by default
+    @@attribute_names[self.class.name].each do |name, type_desc|
+      val = send("#{name}")
+      send("#{name}=", []) if val.nil? and !type_desc.nil? and type_desc[:cardinality] == :many
+    end
   end
 
   def attributes=(values)
