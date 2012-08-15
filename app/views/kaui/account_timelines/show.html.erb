@@ -40,16 +40,16 @@
         <% end %>
         <tr title="<%= bundles %>">
           <td>
-            <% if invoice.invoice_dt.present? %>
-              <span class="hide" title="<%= invoice.invoice_dt %>"></span>
-              <%= invoice.invoice_dt %>
+            <% if invoice.invoice_date.present? %>
+              <span class="hide" title="<%= invoice.invoice_date %>"></span>
+              <%= invoice.invoice_date %>
             <% else %>
               [unknown]
             <% end %>
           <td>
-            <% if invoice.target_dt.present? %>
-              <span class="hide" title="<%= invoice.target_dt %>"></span>
-              <%= invoice.target_dt %>
+            <% if invoice.target_date.present? %>
+              <span class="hide" title="<%= invoice.target_date %>"></span>
+              <%= invoice.target_date %>
             <% else %>
               [unknown]
             <% end %>
