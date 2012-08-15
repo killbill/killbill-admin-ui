@@ -1,0 +1,59 @@
+plugin_info_property_accountId:
+  isUpdatable: false
+  key: accountId
+  value: 2c92c0f9388395fa01389106b7684c96
+
+plugin_info_property_type:
+  isUpdatable: false
+  key: type
+  value: CreditCard
+
+plugin_info_property_cardHolderName:
+  isUpdatable: true
+  key: cardHolderName
+  value: pierre
+
+plugin_info_property_cardType:
+  isUpdatable: false
+  key: cardType
+  value: MasterCard
+
+plugin_info_property_expirationDate:
+  isUpdatable: true
+  key: expirationDate
+  value: 2026-01
+
+plugin_info_property_maskNumber:
+  isUpdatable: false
+  key: maskNumber
+  value: 1111
+
+plugin_info_property_address1:
+  isUpdatable: false
+  key: address1
+  value: 10, rue du puits
+
+plugin_info_property_address2:
+  isUpdatable: false
+  key: address2
+  value: Cidex 12341
+
+plugin_info_property_city:
+  isUpdatable: false
+  key: city
+  value: Nantes
+
+plugin_info_property_postalCode:
+  isUpdatable: false
+  key: postalCode
+  value: 44100
+
+plugin_info_property_state:
+  isUpdatable: false
+  key: state
+  value: Pays de la Loire
+
+plugin_info_property_country:
+  isUpdatable: false
+  key: country
+  value: France
