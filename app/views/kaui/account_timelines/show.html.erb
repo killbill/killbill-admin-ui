@@ -212,7 +212,7 @@
           </td>
           <td><%= "PAYMENT" %></td>
           <td>
-            <%= "Payment id:" %> <%= payment.id %><br/>
+            <%= "Payment id:" %> <%= payment.payment_id %><br/>
             <%= "Total amount:" %> <%= payment.amount %> <%= @account.currency if payment.amount.present? %><br/>
             <%= "Paid amount:" %> <%= payment.paid_amount %> <%= @account.currency %><br/>
             <span <% if payment.status == 'FAILED' %>class="alert-error" <% elsif payment.status == 'SUCCESS' %>class="alert-success" <% end %>>
