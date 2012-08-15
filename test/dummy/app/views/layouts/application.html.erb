@@ -20,6 +20,7 @@
             <li <%= "class='active'" if params[:controller] == 'external_payments' %>><%= link_to "External payments", kaui_engine.external_payments_path %></li>
             <li <%= "class='active'" if params[:controller] == 'refunds' %>><%= link_to "Refunds", kaui_engine.refunds_path %></li>
             <li <%= "class='active'" if params[:controller] == 'invoices' %>><%= link_to "Invoices", kaui_engine.invoices_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'invoice_items' %>><%= link_to "Invoice items", kaui_engine.invoice_items_path %></li>
           </ul>
         </div>
       </div>

@@ -227,10 +227,38 @@ module Kaui
       end
     end
 
+    def self.get_invoice_item(invoice_id, invoice_item_id)
+      # Find the item from the invoice
+      # TODO add killbill-server API
+      invoice = Kaui::KillbillHelper.get_invoice(invoice_id)
+      if invoice.present? and invoice.items.present?
+        invoice.items.each do |item|
+          return item if item.invoice_item_id == invoice_item_id
+        end
+      end
+      nil
+    end
+
     def self.get_invoice_html(invoice_id)
       begin
         data = call_killbill :get, "/1.0/kb/invoices/#{invoice_id}/html"
         data[:body] if data.present?
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
+    def self.adjust_invoice(invoice_item, current_user = nil, reason = nil, comment = nil)
+      begin
+        invoice_data = Kaui::InvoiceItem.camelize(invoice_item.to_hash)
+        data = call_killbill :post,
+                             "/1.0/kb/invoices/#{invoice_item.invoice_id}",
+                             ActiveSupport::JSON.encode(invoice_data, :root => false),
+                             :content_type => :json,
+                             "X-Killbill-CreatedBy" => current_user,
+                             "X-Killbill-Reason" => "#{reason}",
+                             "X-Killbill-Comment" => "#{comment}"
+        return data[:code] < 300
       rescue => e
         puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end

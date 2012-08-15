@@ -1,0 +1,31 @@
+<% if @invoice_item.present? %>
+  <dl class="dl-horizontal">
+    <dt>Id:</dt>
+    <dd><%= @invoice_item.invoice_item_id %>&nbsp;</dd>
+    <dt>Invoice id:</dt>
+    <dd><%= @invoice_item.invoice_id %>&nbsp;</dd>
+    <dt>Account id:</dt>
+    <dd><%= @invoice_item.account_id %>&nbsp;</dd>
+    <dt>Bundle id:</dt>
+    <dd><%= @invoice_item.bundle_id %>&nbsp;</dd>
+    <dt>Subscription id:</dt>
+    <dd><%= @invoice_item.subscription_id %>&nbsp;</dd>
+    <dt>Plan name:</dt>
+    <dd><%= @invoice_item.plan_name %>&nbsp;</dd>
+    <dt>Phase name:</dt>
+    <dd><%= @invoice_item.phase_name %>&nbsp;</dd>
+    <dt>Description:</dt>
+    <dd><%= @invoice_item.description %>&nbsp;</dd>
+    <dt>Start date:</dt>
+    <dd><%= @invoice_item.start_date %>&nbsp;</dd>
+    <dt>End date:</dt>
+    <dd><%= @invoice_item.end_date %>&nbsp;</dd>
+    <dt>Amount:</dt>
+    <dd><%= @invoice_item.amount %>&nbsp;</dd>
+    <dt>Currency:</dt>
+    <dd><%= @invoice_item.currency %>&nbsp;</dd>
+  </dl>
+  <%= link_to 'Edit', edit_invoice_item_path(:id => @invoice_item.invoice_item_id, :invoice_id => @invoice_item.invoice_id), :class => 'btn' %>
+<% else %>
+  <p>Invoice item not found</p>
+<% end %>

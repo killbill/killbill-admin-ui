@@ -1,6 +1,11 @@
 require 'active_model'
 
 class Kaui::InvoiceItem < Kaui::Base
+  SAMPLE_REASON_CODES = [ "100 - Courtesy",
+                          "101 - Billing Error",
+                          "199 - OTHER" ]
+
+  define_attr :invoice_item_id
   define_attr :invoice_id
   define_attr :account_id
   define_attr :bundle_id
@@ -12,19 +17,5 @@ class Kaui::InvoiceItem < Kaui::Base
   define_attr :end_date
   define_attr :amount;
   define_attr :currency;
-
-  def initialize(data = {})
-    super(
-          :account_id => data['accountId'],
-          :amount => data['amount'],
-          :bundle_id => data['bundleId'],
-          :currency => data['currency'],
-          :description => data['description'],
-          :end_date => data['endDate'],
-          :invoice_id => data['invoiceId'],
-          :phase_name => data['phaseName'],
-          :plan_name => data['planName'],
-          :start_date => data['startDate'],
-          :subscription_id => data['subscriptionId'])
-  end
+  define_attr :audit_logs;
 end

@@ -21,6 +21,10 @@ module Kaui::KillbillHelper
     find_among_fixtures(Kaui::Invoice, invoice_id)
   end
 
+  def self.get_invoice_item(invoice_id, invoice_item_id)
+    find_among_fixtures(Kaui::InvoiceItem, invoice_item_id)
+  end
+
   def self.get_bundle(bundle_id)
     find_among_fixtures(Kaui::Bundle, bundle_id)
   end
@@ -42,15 +46,22 @@ module Kaui::KillbillHelper
   end
 
   def self.find_among_fixtures(clazz, id)
-    type = clazz.name.demodulize.downcase
+    results = find_all_among_fixtures(clazz, id)
+    results.length > 0 ? results[0] : nil
+  end
+
+  def self.find_all_among_fixtures(clazz, id)
+    results = []
+    type = clazz.name.demodulize.underscore
+    type_id = "#{clazz.name.demodulize.camelize}Id".uncapitalize
     @@fixtures.each do |k,v|
       next unless k == "#{type}s"
       v.each do |w,u|
-        return clazz.new(u.fixture) if u.fixture["#{type}Id"] == id
+        results << clazz.new(u.fixture) if u.fixture[type_id] == id
       end
     end
 
-    return nil
+    return results
   end
 
   def self.set_fixtures(f)
@@ -88,5 +99,11 @@ end
 class ActiveRecord::Fixture
   def find
     @fixture
+  end
+end
+
+class String
+  def uncapitalize
+    self[0, 1].downcase + self[1..-1]
   end
 end

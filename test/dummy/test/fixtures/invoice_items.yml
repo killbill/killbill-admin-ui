@@ -1,0 +1,13 @@
+recurring_item_for_pierre:
+  invoiceItemId: 8dc9c444-a63f-4776-b2a3-2bf783ae7d5f
+  invoiceId: 42f52d03-d2da-4912-bd2f-81695bb97627
+  accountId: cef727ef-0acc-42a0-b1a1-2f3631a01e10
+  bundleId: 6dd8af87-8e45-42bb-ad4c-b04ba4242f44
+  subscriptionId: b9d367f9-8bb0-415b-817c-3a81b874b58a
+  planName: pistol-monthly
+  phaseName: evergreen
+  description: Evergreen phase for the monthly Pistol plan
+  startDate: 2012-07-16
+  endDate: 2012-08-15
+  amount: 100.12
+  currency: USD
