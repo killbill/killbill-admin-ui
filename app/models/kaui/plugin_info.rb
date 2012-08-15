@@ -2,12 +2,8 @@ require 'active_model'
 
 class Kaui::PluginInfo < Kaui::Base
   define_attr :external_payment_id
-  has_many :properties, Kaui::PluginInfoProperty
 
-  def initialize(data = {})
-    super(:external_payment_id => data['externalPaymentId'],
-          :properties => data['properties'])
-  end
+  has_many :properties, Kaui::PluginInfoProperty
 
   def property(key)
     prop = properties.find { |prop| prop.key == key } unless properties.nil?
