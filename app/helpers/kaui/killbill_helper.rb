@@ -37,7 +37,7 @@ module Kaui
 
     def self.get_account_timeline(account_id)
       begin
-        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/timeline?audit=true"
+        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/timeline?audit=MINIMAL"
         process_response(data, :single) {|json| Kaui::AccountTimeline.new(json) }
       rescue => e
         puts "#{$!}\n\t" + e.backtrace.join("\n\t")
