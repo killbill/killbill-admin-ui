@@ -33,6 +33,7 @@
     <%= render :partial => "kaui/tags/tags_table",
                :locals => { :tags => @tags, :tags_url_or_path => kaui_engine.edit_account_tags_path(:params => { :account_id => @account.account_id }) } %>
   </dl>
+  <h2><%= link_to "Billing timeline", kaui_engine.account_timeline_path(@account.account_id) %></h2>
   <% if @payment_methods.present? %>
     <%= render :partial => "kaui/payment_methods/payment_methods_table", :locals => { :account_id => @account.account_id, :payment_methods => @payment_methods } %>
   <% end %>
