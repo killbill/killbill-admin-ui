@@ -31,7 +31,7 @@ class Kaui::AccountsController < Kaui::EngineController
         end
       else
         flash[:error] = "Account #{@account_id} not found"
-        redirect_to :action => :index
+        render :action => :index
       end
     else
       flash[:error] = "No id given"

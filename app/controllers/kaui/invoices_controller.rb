@@ -28,7 +28,7 @@ class Kaui::InvoicesController < Kaui::EngineController
         end
       else
         flash[:error] = "Invoice #{@invoice_id} not found"
-        redirect_to :action => :index
+        render :action => :index
       end
     else
       flash[:error] = "No id given"
