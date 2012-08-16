@@ -18,7 +18,7 @@ class Kaui::AccountsController < Kaui::EngineController
         @account = Kaui::KillbillHelper::get_account_by_external_key(key)
       end
 
-      if @account.present?
+      if @account.present? and @account.is_a? Kaui::Account
         @payment_methods = Kaui::KillbillHelper::get_payment_methods(@account.account_id)
         @bundles = Kaui::KillbillHelper::get_bundles(@account.account_id)
         @subscriptions_by_bundle_id = {}
@@ -30,7 +30,7 @@ class Kaui::AccountsController < Kaui::EngineController
           end
         end
       else
-        flash[:error] = "Account #{@account_id} not found"
+        flash[:error] = "Account #{@account_id} not found: #{@account}"
         render :action => :index
       end
     else
