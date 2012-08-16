@@ -125,4 +125,5 @@ class Kaui::AccountsController < Kaui::EngineController
     end
     redirect_to :back
   end
+
 end

@@ -37,7 +37,7 @@ module Kaui
 
     def self.get_account_timeline(account_id)
       begin
-        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/timeline?audit=true"
+        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/timeline?audit=MINIMAL"
         process_response(data, :single) {|json| Kaui::AccountTimeline.new(json) }
       rescue => e
         puts "#{$!}\n\t" + e.backtrace.join("\n\t")
@@ -175,8 +175,10 @@ module Kaui
     def self.update_subscription(subscription, requested_date = nil, current_user = nil, reason = nil, comment = nil)
       begin
         subscription_data = Kaui::Subscription.camelize(subscription.to_hash)
+        date_param = "?requestedDate=" + requested_date.to_s unless requested_date.blank?
+
         data = call_killbill :put,
-                             "/1.0/kb/subscriptions/#{subscription.subscription_id}?requested_date=#{requested_date}",
+                             "/1.0/kb/subscriptions/#{subscription.subscription_id}#{date_param}",
                              ActiveSupport::JSON.encode(subscription_data, :root => false),
                              :content_type => :json,
                              "X-Killbill-CreatedBy" => current_user,
@@ -236,23 +238,29 @@ module Kaui
       end
     end
 
-    ############## EXTERNAL PAYMENT ##############
-
-    def self.create_external_payment(payment, current_user = nil, reason = nil, comment = nil)
+    def self.create_charge(charge, requested_date, current_user = nil, reason = nil, comment = nil)
       begin
-        payment_data = Kaui::ExternalPayment.camelize(payment.to_hash)
-        if payment.invoice_id.present?
+        charge_data = Kaui::Charge.camelize(charge.to_hash)
+        date_param = "?requestedDate=" + requested_date unless requested_date.blank?
+
+        if charge.invoice_id.present?
           data = call_killbill :post,
-                               "/1.0/kb/invoices/#{payment.invoice_id}/payments?externalPayment=true",
-                               ActiveSupport::JSON.encode(payment_data, :root => false),
+                               "/1.0/kb/invoices/#{charge.invoice_id}/charges#{date_param}",
+                               ActiveSupport::JSON.encode(charge_data, :root => false),
                                :content_type => "application/json",
                                "X-Killbill-CreatedBy" => current_user,
                                "X-Killbill-Reason" => extract_reason_code(reason),
                                "X-Killbill-Comment" => "#{comment}"
-          return data[:code] < 300
         else
-          return false
+          data = call_killbill :post,
+                   "/1.0/kb/invoices/charges#{date_param}",
+                   ActiveSupport::JSON.encode(charge_data, :root => false),
+                   :content_type => "application/json",
+                   "X-Killbill-CreatedBy" => current_user,
+                   "X-Killbill-Reason" => extract_reason_code(reason),
+                   "X-Killbill-Comment" => "#{comment}"
         end
+        return data[:code] < 300
       rescue => e
         puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
@@ -284,28 +292,6 @@ module Kaui
 
     ############## PAYMENT ##############
 
-    # def self.get_payment_attempt(external_key, invoice_id, payment_id)
-    #   payment_attempts = get_payment_attempts(external_key, invoice_id)
-    #   payment_attempts.each do |payment_attempt|
-    #     return payment_attempt if payment_attempt.payment_id == payment_id
-    #   end
-    #   nil
-    # end
-
-    # def self.get_payment_attempts(external_key, invoice_id)
-    #   begin
-    #     #TODO: add if needed
-    #     if data.nil?
-    #       []
-    #     else
-    #       data.collect {|item| Kaui::PaymentAttempt.new(item) }
-    #     end
-    #   rescue => e
-    #     puts "#{$!}\n\t" + e.backtrace.join("\n\t")
-    #     []
-    #   end
-    # end
-
     def self.get_payment(invoice_id, payment_id)
       payments = get_payments(invoice_id)
       if payments.present?
@@ -329,6 +315,27 @@ module Kaui
       end
     end
 
+    def self.create_payment(payment, external, current_user = nil, reason = nil, comment = nil)
+      begin
+        payment_data = Kaui::Payment.camelize(payment.to_hash)
+
+        if payment.invoice_id.present?
+          data = call_killbill :post,
+                               "/1.0/kb/invoices/#{payment.invoice_id}/payments?externalPayment=#{external}",
+                               ActiveSupport::JSON.encode(payment_data, :root => false),
+                               :content_type => "application/json",
+                               "X-Killbill-CreatedBy" => current_user,
+                               "X-Killbill-Reason" => extract_reason_code(reason),
+                               "X-Killbill-Comment" => "#{comment}"
+          return data[:code] < 300
+        else
+          return false
+        end
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
     ############## PAYMENT METHOD ##############
 
     def self.delete_payment_method(payment_method_id, current_user = nil, reason = nil, comment = nil)
@@ -347,6 +354,15 @@ module Kaui
       begin
         data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/paymentMethods?withPluginInfo=true"
         process_response(data, :multiple) {|json| Kaui::PaymentMethod.new(json) }
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
+    def self.get_payment_method(payment_method_id)
+      begin
+        data = call_killbill :get, "/1.0/kb/paymentMethods/#{payment_method_id}?withPluginInfo=true"
+        process_response(data, :single) {|json| Kaui::PaymentMethod.new(json) }
       rescue => e
         puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
@@ -441,7 +457,7 @@ module Kaui
 
     def self.create_credit(credit, current_user = nil, reason = nil, comment = nil)
       begin
-        credit_data = Kaui::Refund.camelize(credit.to_hash)
+        credit_data = Kaui::Credit.camelize(credit.to_hash)
         data = call_killbill :post,
                              "/1.0/kb/credits",
                              ActiveSupport::JSON.encode(credit_data, :root => false),

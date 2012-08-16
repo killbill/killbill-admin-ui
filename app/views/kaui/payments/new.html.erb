@@ -1,23 +1,15 @@
 <div class="page-header">
-  <h1>Apply External Payment</h1>
+  <h1>Process Payment</h1>
 </div>
 <%= form_for(@payment, :url => { :action => :create }, :html => { :class => "form-horizontal" }) do |f| %>
-  <%= hidden_field_tag :account_id, @account_id %>
-  <%= hidden_field_tag :invoice_id, @invoice_id %>
+  <%= f.hidden_field :account_id %>
+  <%= hidden_field_tag :external, params[:external] %>
   <fieldset>
     <div class="control-group">
       <label class="control-label">Date</label>
       <div class="controls">
         <label class="checkbox">
           <%= DateTime.now.to_s(:pretty) %>
-        </label>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label">Invoice number</label>
-      <div class="controls">
-        <label class="checkbox">
-            <%= @invoice.invoice_number %><br/>
         </label>
       </div>
     </div>
@@ -29,6 +21,34 @@
           <%= @account.email %>
         </label>
       </div>
+    </div>
+    <% if @invoice.present? %>
+      <%= f.hidden_field :invoice_id %>
+      <div class="control-group">
+        <label class="control-label">Invoice number</label>
+        <div class="controls">
+          <label class="checkbox">
+              <%= @invoice.invoice_number %><br/>
+          </label>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Invoice amount</label>
+        <div class="controls">
+          <label class="checkbox">
+              <%= @invoice.amount %> <%= @account.currency %>
+          </label>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Balance</label>
+        <div class="controls">
+          <label class="checkbox">
+              <%= @invoice.balance.nil? ? "0.00" : @invoice.balance %> <%= @account.currency %>
+          </label>
+        </div>
+      </div>
+    <% end %>
     <div class="control-group">
       <%= f.label :amount, "Amount", :class => "control-label" %>
       <div class="controls">
@@ -49,7 +69,7 @@
       </div>
     </div>
     <div class="form-actions">
-      <%= button_tag "Create refund", :class =>"btn btn-primary" %>
+      <%= button_tag "Process Payment", :class =>"btn btn-primary" %>
       <%= link_to 'Back', :back, :class => 'btn' %>
     </div>
   </fieldset>

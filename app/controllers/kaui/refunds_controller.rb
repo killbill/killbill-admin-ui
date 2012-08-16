@@ -23,6 +23,7 @@ class Kaui::RefundsController < Kaui::EngineController
     @account = Kaui::KillbillHelper::get_account(@account_id)
     @payment = Kaui::KillbillHelper::get_payment(@invoice_id, @payment_id)
     @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
+    @payment_method = Kaui::KillbillHelper::get_payment_method(@payment.payment_method_id)
   end
 
   def create

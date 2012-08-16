@@ -93,11 +93,25 @@
               </nobr>
               <nobr>
                 <%= link_to "External Payment",
-                            kaui_engine.new_external_payment_path(:params => { :account_id => invoice.account_id,
-                                                                               :invoice_id => invoice.invoice_id }),
+                            kaui_engine.new_payment_path(:params => { :account_id => invoice.account_id,
+                                                                      :invoice_id => invoice.invoice_id,
+                                                                      :external => "true" }),
                             :class => "btn btn-mini" %>
               </nobr>
-              <% end %>
+              <nobr>
+                <%= link_to "Payment",
+                            kaui_engine.new_payment_path(:params => { :account_id => invoice.account_id,
+                                                                      :invoice_id => invoice.invoice_id,
+                                                                      :external => "false" }),
+                            :class => "btn btn-mini" %>
+              </nobr>
+            <% end %>
+            <nobr>
+              <%= link_to "Charge",
+                          kaui_engine.new_charge_path(:params => { :account_id => invoice.account_id,
+                                                                   :invoice_id => invoice.invoice_id }),
+                          :class => "btn btn-mini" %>
+            </nobr>
           </td>
         </tr>
       <% end %>
@@ -212,7 +226,7 @@
           </td>
           <td><%= "PAYMENT" %></td>
           <td>
-            <%= "Payment id:" %> <%= payment.id %><br/>
+            <%= "Payment id:" %> <%= payment.payment_id %><br/>
             <%= "Total amount:" %> <%= payment.amount %> <%= @account.currency if payment.amount.present? %><br/>
             <%= "Paid amount:" %> <%= payment.paid_amount %> <%= @account.currency %><br/>
             <span <% if payment.status == 'FAILED' %>class="alert-error" <% elsif payment.status == 'SUCCESS' %>class="alert-success" <% end %>>
@@ -222,8 +236,10 @@
             <%= "Invoice #" %> <%= link_to invoice.invoice_number, invoice_path(:id => invoice.invoice_id) %>
           </td>
           <td>
-            <% payment.audit_logs.each do |entry| %>
-              <%= entry.description unless entry.changed_by == 'PaymentRequestProcessor' %><br/>
+            <% if payment.audit_logs.present? %>
+              <% payment.audit_logs.each do |entry| %>
+                <%= entry.description unless entry.changed_by == 'PaymentRequestProcessor' %><br/>
+              <% end %>
             <% end %>
           </td>
           <td>
@@ -242,7 +258,7 @@
                 <%= link_to 'Pay', kaui_engine.new_payment_path(:params => { :payment_id => payment.payment_id,
                                                                              :account_id => @account.account_id,
                                                                              :invoice_id => payment.invoice_id }),
-                                                                   :class => "btn btn-mini" %>
+                                                                :class => "btn btn-mini" %>
             <% end %>
           </td>
         </tr>
@@ -272,7 +288,13 @@
               </td>
               <td><%= event.event_type %></td>
               <td><%= event.product %> <%= event.billing_period == 'NO_BILLING_PERIOD' || event.billing_period.nil? ? "" : event.billing_period.downcase.capitalize %> <%= event.phase.downcase.capitalize if event.phase.present? %></td>
-              <td> </td>
+              <td>
+                <% if event.audit_logs.present? %>
+                  <% event.audit_logs.each do |entry| %>
+                  <%= entry.description %><br/>
+                  <% end %>
+                <% end %>
+              </td>
               <td> </td>
             </tr>
           <% end %>

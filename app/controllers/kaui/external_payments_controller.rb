@@ -15,8 +15,6 @@ class Kaui::ExternalPaymentsController < Kaui::EngineController
     success = Kaui::KillbillHelper::create_external_payment(external_payment, current_user, params[:reason], params[:comment])
     if success
       flash[:info] = "External Payment created"
-    # else
-    #   flash[:error] = "Error while creating external payment"
     end
     redirect_to account_timeline_path(external_payment.account_id)
   end

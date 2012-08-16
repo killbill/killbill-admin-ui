@@ -16,6 +16,8 @@ Kaui::Engine.routes.draw do
       post :refunds, :as => "refunds"
       post :chargebacks, :as => "chargebacks"
       post :credits, :as => "credits"
+      post :payments, :as => "payments"
+      post :charges, :as => "charges"
     end
   end
 
@@ -23,7 +25,11 @@ Kaui::Engine.routes.draw do
 
   resources :credits, :only => [ :create, :new ]
 
+  resources :charges, :only => [ :create, :new ]
+
   resources :external_payments, :only => [ :create, :new ]
+
+  resources :payments, :only => [ :create, :new ]
 
   resources :payment_methods, :only => [ :show, :destroy ]
 

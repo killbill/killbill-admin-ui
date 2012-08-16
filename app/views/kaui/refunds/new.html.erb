@@ -42,7 +42,7 @@
       <label class="control-label">Payment method</label>
       <div class="controls">
         <label class="checkbox">
-          <%= @payment.payment_method_id %>
+          <%= @payment_method.type %> <%= @payment_method.card_type %> <%= @payment_method.mask_number %>
         </label>
       </div>
     </div>
