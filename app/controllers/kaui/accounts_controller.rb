@@ -13,9 +13,9 @@ class Kaui::AccountsController < Kaui::EngineController
     if key.present?
       # support id (UUID) and external key search
       if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
-        @account = Kaui::KillbillHelper::get_account(key)
+        @account = Kaui::KillbillHelper::get_account(key, true)
       else
-        @account = Kaui::KillbillHelper::get_account_by_external_key(key)
+        @account = Kaui::KillbillHelper::get_account_by_external_key(key, true)
       end
 
       if @account.present?

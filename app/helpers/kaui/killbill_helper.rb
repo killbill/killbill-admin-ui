@@ -44,18 +44,18 @@ module Kaui
       end
     end
 
-    def self.get_account(account_id)
+    def self.get_account(account_id, with_balance=false)
       begin
-        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}"
+        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}?accountWithBalance=#{with_balance}"
         process_response(data, :single) {|json| Kaui::Account.new(json) }
       rescue => e
         puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
-    def self.get_account_by_external_key(external_key)
+    def self.get_account_by_external_key(external_key, with_balance=false)
       begin
-        data = call_killbill :get, "/1.0/kb/accounts?externalKey=#{external_key}"
+        data = call_killbill :get, "/1.0/kb/accounts?externalKey=#{external_key}&accountWithBalance=#{with_balance}"
         process_response(data, :single) {|json| Kaui::Account.new(json) }
       rescue => e
         puts "#{$!}\n\t" + e.backtrace.join("\n\t")
