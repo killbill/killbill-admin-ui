@@ -411,6 +411,15 @@ module Kaui
 
     ############## REFUND ##############
 
+    def self.get_refund(refund_id)
+      begin
+        data = call_killbill :get, "/1.0/kb/refunds/#{refund_id}"
+        process_response(data, :single) { |json| Kaui::Refund.new(json) }
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
     def self.get_refunds_for_payment(payment_id)
       begin
         data = call_killbill :get, "/1.0/kb/payments/#{payment_id}/refunds"

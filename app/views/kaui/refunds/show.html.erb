@@ -1,19 +1,33 @@
-<% if @refund_info.present? %>
-  <table class="table table-striped table-bordered table-condensed">
-    <thead>
+<% if @refunds.present? and @refunds.size > 0 %>
+<div class="page-header">
+  <h2>Refunds</h2>
+</div>
+<table class="table table-condensed table-striped">
+  <thead>
+    <tr>
+      <th>Refund id</th>
+      <th>Payment id</th>
+      <th>Amount</th>
+      <th>Adjusted?</th>
+      <th>Requested date</th>
+      <th>Effective date</th>
+      <th>Adjustments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @refunds.each do |refund| %>
       <tr>
-        <th>Attribute</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @refund_info.keys.sort.each do |key| %>
-      <tr>
-        <td><%= key %></td>
-        <td><%= @refund_info[key] %></td>
+        <td><%= refund.refund_id %></a></td>
+        <td><%= link_to refund.payment_id, payment_path(refund.payment_id) %></a></td>
+        <td><%= refund.refund_amount %></a></td>
+        <td><%= refund.adjusted %></td>
+        <td><%= format_date(refund.requested_date).html_safe %></td>
+        <td><%= format_date(refund.effective_date).html_safe %></td>
+        <td><%= refund.adjustments %></td>
       </tr>
     <% end %>
-  </table>
+  </tbody>
+</table>
 <% else %>
   <p>Refund info not found</p>
 <% end %>
