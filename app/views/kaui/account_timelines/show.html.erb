@@ -121,7 +121,7 @@
           <tr title="<%= bundles %>">
             <td>
               <% if refund.requested_date.present? %>
-                <span class="hide" title="<%= refund.requested_dt %>"></span>
+                <span class="hide" title="<%= refund.requested_date %>"></span>
                 <%= format_date(refund.requested_date).html_safe %>
               <% else %>
                 [unknown]
