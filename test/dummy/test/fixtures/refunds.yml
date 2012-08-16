@@ -1,0 +1,7 @@
+refund_for_pierre:
+  refund_id: a85108be-4132-4384-b15e-9a650dc3a4ef
+  paymentId: 02445ff7-75a2-41c9-9d95-fc20584a17f9
+  refundAmount: 1.95
+  adjusted: false
+  requestedDate: 2012-07-17 00:57:26
+  effectiveDate: 2012-07-18 00:57:26

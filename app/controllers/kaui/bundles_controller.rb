@@ -21,7 +21,7 @@ class Kaui::BundlesController < Kaui::EngineController
         @subscriptions = Kaui::KillbillHelper.get_subscriptions_for_bundle(@bundle.bundle_id)
       else
         flash[:error] = "Bundle #{key} not found"
-        redirect_to :action => :index
+        render :action => :index
       end
     else
       flash[:error] = "No id given"

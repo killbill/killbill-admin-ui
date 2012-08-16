@@ -76,10 +76,14 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
   def edit
     @subscription = Kaui::KillbillHelper.get_subscription(params[:id])
+
     if @subscription.present?
       @bundle = Kaui::KillbillHelper::get_bundle(@subscription.bundle_id)
+      @account = Kaui::KillbillHelper::get_account(@bundle.account_id)
       @catalog = Kaui::KillbillHelper::get_available_base_plans
+
       @current_plan = "#{@subscription.product_name} #{@subscription.billing_period}".humanize
+
       if @subscription.price_list != "DEFAULT"
         @current_plan += " (price list #{@subscription.price_list})"
       end
@@ -106,7 +110,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       # TODO: need to use entered start_date (or current date if none entered)
 
       Kaui::KillbillHelper::update_subscription(subscription, requested_date, current_user)
-      redirect_to Kaui.bundle_home_path.call(bundle.external_key)
+      redirect_to Kaui.bundle_home_path.call(bundle.bundle_id)
     else
       flash[:error] = "No subscription given"
       redirect_to :back

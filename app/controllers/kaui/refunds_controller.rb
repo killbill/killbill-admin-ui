@@ -1,15 +1,25 @@
 class Kaui::RefundsController < Kaui::EngineController
-	def show
-    @payment_id = params[:id]
-    if @payment_id.present?
-      data = Kaui::KillbillHelper::get_refunds_for_payment(@payment_id)
+  def index
+    if params[:refund_id].present?
+      redirect_to refund_path(params[:refund_id])
+    end
+  end
+
+  def show
+    if params[:id].present?
+      data = Kaui::KillbillHelper::get_refund(params[:id])
       if data.present?
-        @refund = Kaui::Refund.new(data)
+        @refunds = [data]
       else
-        Rails.logger.warn("Did not get back refunds for the payment id #{response_body}")
+        @refunds = Kaui::KillbillHelper::get_refunds_for_payment(params[:id])
+        unless @refunds.present?
+          flash[:error] = "Refund for id or payment id #{params[:id]} couldn't be found"
+          render :action => :index
+        end
       end
     else
-      flash[:notice] = "No payment id given"
+      flash[:error] = "A refund or payment id should be specifed"
+      render :action => :index
     end
   end
 
@@ -23,6 +33,7 @@ class Kaui::RefundsController < Kaui::EngineController
     @account = Kaui::KillbillHelper::get_account(@account_id)
     @payment = Kaui::KillbillHelper::get_payment(@invoice_id, @payment_id)
     @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
+    @payment_method = Kaui::KillbillHelper::get_payment_method(@payment.payment_method_id)
   end
 
   def create

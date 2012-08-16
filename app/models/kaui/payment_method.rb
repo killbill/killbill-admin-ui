@@ -5,15 +5,8 @@ class Kaui::PaymentMethod < Kaui::Base
   define_attr :is_default
   define_attr :payment_method_id
   define_attr :plugin_name
-  has_one :plugin_info, Kaui::PluginInfo
 
-  def initialize(data = {})
-    super(:account_id => data['accountId'],
-          :is_default => data['isDefault'],
-          :payment_method_id => data['paymentMethodId'],
-          :plugin_name => data['pluginName'],
-          :plugin_info => data['pluginInfo'])
-  end
+  has_one :plugin_info, Kaui::PluginInfo
 
   def card_type
     plugin_info.property("cardType") if plugin_info.present?
