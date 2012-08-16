@@ -16,13 +16,15 @@ class Kaui::AuditLog < Kaui::Base
   end
 
   def description
-    changed_str = "Performed by #{changed_by} on #{ActionController::Base.helpers.format_date(change_date)}"
-    if reason_code.blank? && comments.blank?
-      changed_str
-    elsif reason_code.blank?
-      "#{changed_str}: #{comments}"
-    else
-      "#{changed_str} (#{reason_code} #{comments})"
+    if changed_by.present?
+      changed_str = "Performed by #{changed_by} on #{ActionController::Base.helpers.format_date(change_date)}"
+      if reason_code.blank? && comments.blank?
+        changed_str
+      elsif reason_code.blank?
+        "#{changed_str}: #{comments}"
+      else
+        "#{changed_str} (#{reason_code} #{comments})"
+      end
     end
   end
 end

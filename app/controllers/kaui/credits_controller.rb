@@ -19,11 +19,10 @@ class Kaui::CreditsController < Kaui::EngineController
   def new
     @account_id = params[:account_id]
     @invoice_id = params[:invoice_id]
-
-    @credit = Kaui::Credit.new("accountId" => @account_id, "invoiceId" => @invoice_id)
-
     @account = Kaui::KillbillHelper::get_account(@account_id)
-    @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
+    @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id) unless @invoice_id.nil?
+
+    @credit = Kaui::Credit.new("accountId" => @account_id, "invoiceId" => @invoice_id, "creditAmount" => @invoice.balance)
   end
 
   def create
