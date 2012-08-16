@@ -110,7 +110,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       # TODO: need to use entered start_date (or current date if none entered)
 
       Kaui::KillbillHelper::update_subscription(subscription, requested_date, current_user)
-      redirect_to Kaui.bundle_home_path.call(bundle.external_key)
+      redirect_to Kaui.bundle_home_path.call(bundle.bundle_id)
     else
       flash[:error] = "No subscription given"
       redirect_to :back
