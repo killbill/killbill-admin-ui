@@ -10,6 +10,7 @@ class Kaui::Refund < Kaui::Base
   define_attr :payment_id
   define_attr :adjusted
   define_attr :refund_amount
+  define_attr :currency
   define_attr :requested_date
   define_attr :effective_date
   define_attr :adjustments

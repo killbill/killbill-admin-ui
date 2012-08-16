@@ -10,6 +10,7 @@ class Kaui::RefundTest < ActiveSupport::TestCase
     assert_equal as_json["refund_id"], refund.refund_id
     assert_equal as_json["paymentId"], refund.payment_id
     assert_equal as_json["refundAmount"], refund.refund_amount
+    assert_equal as_json["currency"], refund.currency
     assert_equal as_json["adjusted"], refund.adjusted
     assert_equal as_json["requestedDate"], refund.requested_date
     assert_equal as_json["effectiveDate"], refund.effective_date
