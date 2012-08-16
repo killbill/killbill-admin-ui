@@ -29,11 +29,11 @@ Kaui::Engine.routes.draw do
 
   resources :external_payments, :only => [ :create, :new ]
 
-  resources :payments, :only => [ :create, :new ]
+  resources :payments, :only => [ :create, :new, :index, :show ]
 
   resources :payment_methods, :only => [ :show, :destroy ]
 
-  resources :refunds, :only => [ :show, :create, :new ]
+  resources :refunds, :only => [ :index, :show, :create, :new ]
 
   resources :invoices, :only => [ :index, :show ] do
     member do

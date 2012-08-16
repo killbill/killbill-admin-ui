@@ -21,4 +21,22 @@ class Kaui::AccountTest < ActiveSupport::TestCase
     assert_equal as_json["state"], pierre.state
     assert_equal as_json["timeZone"], pierre.timezone
   end
+  
+  test "can read correct positive balance" do
+    as_json = accounts(:account_with_positive_balance)
+    t = Kaui::Account.new(as_json)
+    assert(t.balance > 0)
+  end
+
+  test "can read correct negative balance" do
+    as_json = accounts(:account_with_negative_balance)
+    t = Kaui::Account.new(as_json)
+    assert(t.balance < 0)
+  end
+
+  test "can read correct zero balance" do
+    as_json = accounts(:account_with_zero_balance)
+    t = Kaui::Account.new(as_json)
+    assert(t.balance == 0)
+  end
 end

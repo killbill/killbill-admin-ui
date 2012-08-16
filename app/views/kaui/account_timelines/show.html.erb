@@ -120,17 +120,17 @@
           <% bundles = payment.bundle_keys.split(",").map {|bundle_key| @bundle_names[bundle_key] }.join(",") %>
           <tr title="<%= bundles %>">
             <td>
-              <% if refund.requested_dt.present? %>
-                <span class="hide" title="<%= refund.requested_dt %>"></span>
-                <%= format_date(refund.requested_dt).html_safe %>
+              <% if refund.requested_date.present? %>
+                <span class="hide" title="<%= refund.requested_date %>"></span>
+                <%= format_date(refund.requested_date).html_safe %>
               <% else %>
                 [unknown]
               <% end %>
             </td>
             <td>
-              <% if refund.requested_dt.present? %>
-                <span class="hide" title="<%= refund.requested_dt %>"></span>
-                <%= format_date(refund.requested_dt).html_safe %>
+              <% if refund.effective_date.present? %>
+                <span class="hide" title="<%= refund.effective_date %>"></span>
+                <%= format_date(refund.effective_date).html_safe %>
               <% else %>
                 [unknown]
               <% end %>
@@ -144,7 +144,7 @@
             <td>
               <%= "Adjusted:" %> <% if refund.adjusted %>yes<% else %>no<% end %><br/>
               <%= "Payment id:" %> <%= refund.payment_id %><br/>
-              <%= "Refund Amount:" %> <%= refund.refund_amount %><br/>
+              <%= "Refund Amount:" %> <%= refund.amount %><br/>
             </td>
             <td>
               <% if refund.audit_logs.present? %>
