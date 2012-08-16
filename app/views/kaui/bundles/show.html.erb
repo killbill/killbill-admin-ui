@@ -1,6 +1,7 @@
 <% if @bundle.present? %>
-  <h3><%= link_to Kaui.bundle_key_display_string.call(@bundle.external_key), Kaui.bundle_home_path.call(@bundle.external_key) if @bundle.external_key.present? %>&nbsp;</h3>
   <dl class="dl-horizontal">
+    <dt>Id:</dt>
+    <dd><%= @bundle.bundle_id %>&nbsp;</dd>
     <dt>Account:</dt>
     <dd><%= @account.name %>&nbsp;</dd>
     <dd><%= link_to @account.email, Kaui.account_home_path.call(@account.external_key) %>&nbsp;</dd>

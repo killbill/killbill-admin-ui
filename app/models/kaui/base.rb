@@ -31,7 +31,17 @@ class Kaui::Base
   end
 
   def initialize(attributes = {})
-    self.attributes = attributes
+    # We can come here either from the Killbill API (attributes will be a JSON hash,
+    # with camel cased keys) or from e.g. Rails forms (attributes will be a hash with
+    # snake cased keys).
+    # Either way, convert the keys to snake case as our attributes are snake cased.
+    self.attributes = Kaui::Base.convert_hash_keys(attributes)
+
+    # Make has_many associations return [] instead of nil by default
+    @@attribute_names[self.class.name].each do |name, type_desc|
+      val = send("#{name}")
+      send("#{name}=", []) if val.nil? and !type_desc.nil? and type_desc[:cardinality] == :many
+    end
   end
 
   def attributes=(values)
@@ -87,6 +97,19 @@ class Kaui::Base
       else
         value
     end
+  end
+
+  # Convert a hash with camel cased keys into a hash with snake cased keys:
+  #
+  #   { :accountId => 12 } becomes { :account_id => 12 }
+  #
+  def self.convert_hash_keys(value)
+    case value
+      when Hash
+        Hash[value.map { |k, v| [k.to_s.underscore.to_sym, convert_hash_keys(v)] }]
+      else
+        value
+     end
   end
 
   def ==(other)

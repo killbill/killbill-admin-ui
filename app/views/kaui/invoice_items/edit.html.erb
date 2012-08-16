@@ -1,0 +1,92 @@
+<% @page_title = "Create invoice item adjustment" %>
+<%= form_for(@invoice_item, :url => invoice_item_path(@invoice_item.invoice_item_id), :html => { :method => :put, :class => "form-horizontal" }) do |f| %>
+  <div class="control-group">
+    <%= f.label :invoice_item_id, "Id:", :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :invoice_item_id, :class => "input-xlarge disabled", :readonly => true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :invoice_id, "Invoice id:", :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :invoice_id, :class => "input-xlarge disabled", :readonly => true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :account_id, "Account id:", :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :account_id, :class => "input-xlarge disabled", :readonly => true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :bundle_id, "Bundle id:", :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :bundle_id, :class => "input-xlarge disabled", :readonly => true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :subscription_id, "Subscription id:", :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :subscription_id, :class => "input-xlarge disabled", :readonly => true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :plan_name, "Plan name:", :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :plan_name, :class => "input-xlarge disabled", :readonly => true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :phase_name, "Phase name:", :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :phase_name, :class => "input-xlarge disabled", :readonly => true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, "Description:", :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :description, :class => "input-xlarge disabled", :readonly => true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :start_date, "Start date:", :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :start_date, :class => "input-xlarge disabled", :readonly => true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :end_date, "End date:", :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :end_date, :class => "input-xlarge disabled", :readonly => true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :currency, "Currency:", :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :currency, :class => "input-xlarge disabled", :readonly => true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :amount, "Item amount", :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :amount, :class => "input-small" %>
+      <p class="help-inline"><%= @invoice_item.currency %></p>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag :reason, "Reason", :class => "control-label" %>
+    <div class="controls">
+      <%= select_tag :reason, options_for_select(Kaui::InvoiceItem::SAMPLE_REASON_CODES) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= label_tag :comment, "Comment", :class => "control-label" %>
+    <div class="controls">
+      <%= text_area_tag :comment, "", :rows => 3, :class => 'input-xlarge' %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Update", :class => "btn btn-primary" %>
+    <%= link_to "Back", :back, :class => "btn" %>
+  </div>
+<% end %>

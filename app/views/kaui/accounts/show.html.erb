@@ -7,7 +7,11 @@
     <dt>Email:</dt>
     <dd><%= @account.email %>&nbsp;</dd>
     <dt>Bill cycle day:</dt>
-    <dd><%= @account.bill_cycle_day.day_of_month_local %> (user timezone) / <%= @account.bill_cycle_day.day_of_month_utc %> (UTC)</dd>
+    <% if @account.bill_cycle_day %>
+      <dd><%= @account.bill_cycle_day.day_of_month_local %> (user timezone) / <%= @account.bill_cycle_day.day_of_month_utc %> (UTC)</dd>
+    <% else %>
+      <dd><%=t :unknown_bcd %></dd>
+    <% end %>
     <dt>Currency:</dt>
     <dd><%= @account.currency %>&nbsp;</dd>
     <dt>Timezone:</dt>
@@ -29,6 +33,7 @@
     <%= render :partial => "kaui/tags/tags_table",
                :locals => { :tags => @tags, :tags_url_or_path => kaui_engine.edit_account_tags_path(:params => { :account_id => @account.account_id }) } %>
   </dl>
+  <h2><%= link_to "Billing timeline", kaui_engine.account_timeline_path(@account.account_id) %></h2>
   <% if @payment_methods.present? %>
     <%= render :partial => "kaui/payment_methods/payment_methods_table", :locals => { :account_id => @account.account_id, :payment_methods => @payment_methods } %>
   <% end %>
@@ -36,7 +41,7 @@
   <% @bundles.each do |bundle| %>
     <% subs = @subscriptions_by_bundle_id[bundle.bundle_id] %>
     <% if subs.present? %>
-      <h4><%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.external_key) if bundle.external_key.present? %>&nbsp;</h4>
+      <h2>Bundle <%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.bundle_id) if bundle.external_key.present? %>&nbsp;</h2>
       <%= render :partial => "kaui/subscriptions/subscriptions_table", :locals => { :subscriptions => subs } %>
     <% end %>
   <% end %>

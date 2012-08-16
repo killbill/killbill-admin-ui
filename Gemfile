@@ -6,5 +6,14 @@ gem 'rest-client', '~> 1.6.7'
 group :development, :test do
   # jquery-rails is used by the dummy application
   gem "jquery-rails"
-  gem "mysql2"
+
+  if defined?(JRUBY_VERSION)
+    gem "jruby-openssl", "~> 0.7.7"
+
+    gem 'activerecord-jdbc-adapter', '~> 1.2.2'
+    gem 'activerecord-jdbcmysql-adapter', '~> 1.2.2'
+    gem 'jdbc-mysql', :require => false
+  else
+    gem 'mysql2'
+  end
 end

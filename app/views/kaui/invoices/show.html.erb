@@ -5,46 +5,48 @@
     <dd><%= @account.name %>&nbsp;</dd>
     <dd><%= link_to @account.email, Kaui.account_home_path.call(@account.external_key) %>&nbsp;</dd>
     <dt>Invoice date:</dt>
-    <dd><%= format_date(@invoice.invoice_dt).html_safe %>&nbsp;</dd>
+    <dd><%= format_date(@invoice.invoice_date).html_safe %>&nbsp;</dd>
     <dt>Target date:</dt>
-    <dd><%= format_date(@invoice.target_dt).html_safe %>&nbsp;</dd>
+    <dd><%= format_date(@invoice.target_date).html_safe %>&nbsp;</dd>
     <dt>Amount:</dt>
     <dd><%= @invoice.amount %>&nbsp;</dd>
     <dt>Balance:</dt>
     <dd><%= @invoice.balance %>&nbsp;</dd>
   </dl>
   <div class="page-header">
-    <h3>Subscriptions</h3>
+    <h3>Invoice items</h3>
   </div>
   <table class="table table-condensed table-striped data-table">
     <thead>
       <tr>
-        <th>External Key</th>
-        <th>Product category</th>
-        <th>Product name</th>
-        <th>Billing period</th>
-        <th>Start date</th>
-        <th>Charged through date</th>
-        <th>Price list</th>
+        <th style="width: 10%">External Key</th>
+        <th style="width: 30%">Description</th>
+        <th style="width: 10%">Start date</th>
+        <th style="width: 10%">End date</th>
+        <th style="width: 10%">Charged through date</th>
+        <th style="width: 10%">Price list</th>
+        <th style="width: 10%">Amount</th>
+        <th style="width: 10%"></th>
       </tr>
     </thead>
     <tbody>
       <% @invoice.items.each do |item| %>
         <% sub = @subscriptions[item.subscription_id] %>
         <% bundle = @bundles[item.bundle_id] %>
-        <% if sub.present? && bundle.present? %>
-          <tr>
-            <td>
-              <%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.external_key) if bundle.external_key.present? %>
-            </td>
-            <td><%= sub.product_category.downcase.capitalize if sub.product_category.present? %></td>
-            <td><%= sub.product_name.downcase.capitalize if sub.product_name.present? %></td>
-            <td><%= sub.billing_period.downcase.capitalize if sub.billing_period.present? %></td>
-            <td><%= format_date(sub.start_date).html_safe %></td>
-            <td><%= format_date(sub.charged_through_date).html_safe %></td>
-            <td><%= sub.price_list.downcase.capitalize if sub.price_list.present? %></td>
-          </tr>
-        <% end %>
+        <tr>
+          <td>
+            <%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.bundle_id) if bundle.present? and bundle.external_key.present? %>
+          </td>
+          <td><%= item.description %></td>
+          <td><%= format_date(item.start_date).html_safe if item.start_date %></td>
+          <td><%= format_date(item.end_date).html_safe if item.end_date %></td>
+          <td><%= format_date(sub.charged_through_date).html_safe if sub.present? %></td>
+          <td><%= sub.price_list.downcase.capitalize if sub.present? and sub.price_list.present? %></td>
+          <td><%= item.amount %>&nbsp;<%= item.currency %></td>
+          <td><%= link_to "Adjust",
+                          kaui_engine.edit_invoice_item_path(item.invoice_item_id, :invoice_id => @invoice.invoice_id),
+                          :class => "btn btn-mini" %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>

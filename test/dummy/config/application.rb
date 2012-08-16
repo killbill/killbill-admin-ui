@@ -4,6 +4,7 @@ require 'rails/all'
 
 Bundler.require
 require "kaui"
+require "jquery-rails"
 
 module Dummy
   class Application < Rails::Application

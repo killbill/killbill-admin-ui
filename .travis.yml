@@ -1,0 +1,27 @@
+language: ruby
+
+notifications:
+  email:
+    - ri-dev@ning.com
+
+rvm:
+  - 1.9.3
+  - 1.9.2
+  - jruby-18mode
+  - jruby-19mode
+  - ruby-head
+  - jruby-head
+  - 1.8.7
+
+jdk:
+  - openjdk7
+  - oraclejdk7
+  - openjdk6
+
+before_script:
+  - mysql -e 'create database kaui_test;'
+
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: jruby-head

@@ -1,0 +1,5 @@
+payment_method_for_pierre:
+  accountId: 6cef727ef-0acc-42a0-b1a1-2f3631a01e10
+  isDefault: true
+  paymentMethodId: d9e5f642-4532-40df-b733-f7abbfb32b2a
+  pluginName: chargorifomariphic

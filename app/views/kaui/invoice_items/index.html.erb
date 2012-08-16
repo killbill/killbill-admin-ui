@@ -1,0 +1,20 @@
+<%= form_tag invoice_items_path, :class => "form-horizontal", :method => :get do %>
+  <fieldset>
+    <legend>Please enter invoice_item id</legend>
+    <div class="control-group">
+      <label class="control-label" for="invoice_item_id">Invoice item id</label>
+      <div class="controls">
+        <%= text_field_tag 'invoice_item_id', nil, :class => "input-xlarge", :id => "invoice_item_id" %>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="invoice_id">Invoice id</label>
+      <div class="controls">
+        <%= text_field_tag 'invoice_id', nil, :class => "input-xlarge", :id => "invoice_id" %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= button_tag "Search", :class =>"btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>

@@ -38,6 +38,7 @@ GEM
       railties (>= 3.2.0, < 5.0)
       thor (~> 0.14)
     json (1.7.0)
+    json (1.7.0-java)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -85,6 +86,7 @@ GEM
     tzinfo (0.3.33)
 
 PLATFORMS
+  java
   ruby
 
 DEPENDENCIES

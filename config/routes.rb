@@ -41,6 +41,8 @@ Kaui::Engine.routes.draw do
     end
   end
 
+  resources :invoice_items, :only => [ :index, :show, :edit, :update ]
+
   resources :bundles, :only => [ :index, :show ] do
     member do
       put :do_transfer

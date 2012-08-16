@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Dummy</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>Kaui Dummy app</title>
+    <%= stylesheet_link_tag    "application", "bootstrap.v2.0.4.min.css", :media => "all" %>
+    <%= javascript_include_tag "application", "bootstrap.v2.0.4.min.js", "jquery.dataTables.v1.9.3.min.js" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
+            <li <%= "class='active'" if params[:controller] == 'accounts' %>><%= link_to "Accounts", kaui_engine.accounts_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'account_timelines' %>><%= link_to "Account timelines", kaui_engine.account_timelines_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'bundles' %>><%= link_to "Bundles", kaui_engine.bundles_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'subscriptions' %>><%= link_to "Subscriptions", kaui_engine.subscriptions_path	 %></li>
+            <li <%= "class='active'" if params[:controller] == 'chargebacks' %>><%= link_to "Chargebacks", kaui_engine.chargebacks_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'credits' %>><%= link_to "Credits", kaui_engine.credits_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'external_payments' %>><%= link_to "External payments", kaui_engine.external_payments_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'refunds' %>><%= link_to "Refunds", kaui_engine.refunds_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'invoices' %>><%= link_to "Invoices", kaui_engine.invoices_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'invoice_items' %>><%= link_to "Invoice items", kaui_engine.invoice_items_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <% if flash[:error] %>
+        <div class="row-fluid">
+          <div class="span12">
+            <div class="alert alert-error"><%= flash[:error] %></div>
+          </div>
+        </div>
+      <% end %>
+      <% if flash[:notice] %>
+        <div class="row-fluid">
+          <div class="span12">
+            <div class="alert alert-info"><%= flash[:notice] %></div>
+          </div>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
 </html>
