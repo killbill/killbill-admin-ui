@@ -7,7 +7,7 @@ class Kaui::RefundTest < ActiveSupport::TestCase
     as_json = refunds(:refund_for_pierre)
     refund = Kaui::Refund.new(as_json)
     
-    assert_equal as_json["refund_id"], refund.refund_id
+    assert_equal as_json["refundId"], refund.refund_id
     assert_equal as_json["paymentId"], refund.payment_id
     assert_equal as_json["refundAmount"], refund.refund_amount
     assert_equal as_json["currency"], refund.currency
