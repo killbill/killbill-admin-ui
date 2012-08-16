@@ -144,7 +144,7 @@
             <td>
               <%= "Adjusted:" %> <% if refund.adjusted %>yes<% else %>no<% end %><br/>
               <%= "Payment id:" %> <%= refund.payment_id %><br/>
-              <%= "Refund Amount:" %> <%= refund.refund_amount %><br/>
+              <%= "Refund Amount:" %> <%= refund.amount %><br/>
             </td>
             <td>
               <% if refund.audit_logs.present? %>
