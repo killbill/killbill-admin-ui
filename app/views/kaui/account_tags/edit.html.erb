@@ -1,38 +1,38 @@
-<div class="page-header">
+<div class='page-header'>
   <h1>Add/Remove Tags</h1>
 </div>
-<%= form_tag update_account_tags_path, :class => "form-horizontal" do %>
+<%= form_tag update_account_tags_path, :class => 'form-horizontal' do %>
 <%= hidden_field_tag :account_id, @account.account_id %>
   <fieldset>
-    <div class="control-group">
-      <label class="control-label">Account name</label>
-      <div class="controls">
-        <label class="checkbox">
-          <%= @account.name %><br/>
+    <div class='control-group'>
+      <label class='control-label'>Account name</label>
+      <div class='controls'>
+        <label class='checkbox'>
+          <%= link_to @account.name, @account %><br/>
           <%= @account.email %>
         </label>
       </div>
     </div>
-    <div class="control-group">
-      <%= label_tag :name, "Tag", :class => "control-label" %>
-      <div class="controls">
+    <div class='control-group'>
+      <%= label_tag :name, 'Tag', :class => 'control-label' %>
+      <div class='controls'>
         <% @available_tags.each do |tag| %>
-          <label class="checkbox">
-            <%= check_box_tag "tags[]", tag.name, @tags.include?(tag.name) %>
-            <span href="#" class="tag-description" rel="tooltip" title="<%= tag.description %>"><%= tag.name %></span>
+          <label class='checkbox'>
+            <%= check_box_tag tag.id, tag.name, @tags.include?(tag.name) %>
+            <span href='#' class='tag-description' rel='tooltip' title='<%= tag.description %>'><%= tag.name %></span>
           </label>
         <% end %>
       </div>
     </div>
 
-    <div class="form-actions">
-      <%= button_tag "Update", :class =>"btn btn-primary" %>
+    <div class='form-actions'>
+      <%= button_tag 'Update', :class =>'btn btn-primary' %>
       <%= link_to 'Back', :back, :class => 'btn' %>
     </div>
   </fieldset>
 <% end %>
 <%= javascript_tag do %>
   $(function() {
-    $(".tag-description").tooltip();
+    $('.tag-description').tooltip();
   });
 <% end %>
