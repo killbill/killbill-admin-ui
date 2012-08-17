@@ -510,7 +510,17 @@ module Kaui
     def self.get_tag_definitions
       begin
         data = call_killbill :get, "/1.0/kb/tagDefinitions"
-        process_response(data, :single) {|json| Kaui::Tag.new(json) }
+        process_response(data, :multiple) { |json| Kaui::TagDefinition.new(json) }
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+        []
+      end
+    end
+
+    def self.get_tag_definition(tag_definition_id)
+      begin
+        data = call_killbill :get, "/1.0/kb/tagDefinitions/#{tag_definition_id}"
+        process_response(data, :single) { |json| Kaui::TagDefinition.new(json) }
       rescue => e
         puts "#{$!}\n\t" + e.backtrace.join("\n\t")
         []
