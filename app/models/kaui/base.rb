@@ -42,6 +42,9 @@ class Kaui::Base
       val = send("#{name}")
       send("#{name}=", []) if val.nil? and !type_desc.nil? and type_desc[:cardinality] == :many
     end
+
+    # Mark the record as persisted if we have an id
+    @persisted = to_param.present?
   end
 
   def attributes=(values)
@@ -117,6 +120,11 @@ class Kaui::Base
   end
 
   def persisted?
-    false
+    @persisted
+  end
+
+  def to_param
+    # id is a string (killbill UUID)
+    @id
   end
 end
