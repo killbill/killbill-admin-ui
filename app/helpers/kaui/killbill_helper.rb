@@ -320,16 +320,13 @@ module Kaui
 
     ############## PAYMENT ##############
 
-    def self.get_payment(invoice_id, payment_id)
-      payments = get_payments(invoice_id)
-      if payments.present?
-        payments.each do |payment|
-          if payment.payment_id == payment_id
-            return payment
-          end
-        end
+    def self.get_payment(payment_id)
+      begin
+        data = call_killbill :get, "/1.0/kb/payments/#{payment_id}"
+        process_response(data, :single) { |json| Kaui::Payment.new(json) }
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
-      nil
     end
 
     def self.get_payments(invoice_id)

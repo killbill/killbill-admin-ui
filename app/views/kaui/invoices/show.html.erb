@@ -16,7 +16,23 @@
   <div class="page-header">
     <h3>Invoice items</h3>
   </div>
-  <table class="table table-condensed table-striped data-table">
+  <script language="javascript">
+    function hightlightLinkedItems(invoice_item_id, linked_invoice_item_id) {
+      $("#invoice_table tr:gt(0)").each(function(index) {
+        var ids = $(this).attr("id").split("_");
+        var item_id = ids[2];
+        var linked_item_id = ids[3];
+        if ((invoice_item_id.length > 0 && item_id == invoice_item_id) ||
+            (linked_invoice_item_id.length > 0 && item_id == linked_invoice_item_id) ||
+            (invoice_item_id.length > 0 && invoice_item_id == linked_item_id)) {
+          $(this).css("background", "yellow");
+        } else {
+          $(this).css("background", "none");
+        }
+      });
+    }
+  </script>
+  <table id="invoice_table" class="table table-condensed data-table">
     <thead>
       <tr>
         <th style="width: 10%">External Key</th>
@@ -33,16 +49,16 @@
       <% @invoice.items.each do |item| %>
         <% sub = @subscriptions[item.subscription_id] %>
         <% bundle = @bundles[item.bundle_id] %>
-        <tr>
+        <tr id=<%= "invoice_item_#{item.invoice_item_id}_#{item.linked_invoice_item_id}" %>>
           <td>
             <%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.bundle_id) if bundle.present? and bundle.external_key.present? %>
           </td>
-          <td><%= item.description %></td>
-          <td><%= format_date(item.start_date).html_safe if item.start_date %></td>
-          <td><%= format_date(item.end_date).html_safe if item.end_date %></td>
-          <td><%= format_date(sub.charged_through_date).html_safe if sub.present? %></td>
-          <td><%= sub.price_list.downcase.capitalize if sub.present? and sub.price_list.present? %></td>
-          <td><%= item.amount %>&nbsp;<%= item.currency %></td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.description %></td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= format_date(item.start_date).html_safe if item.start_date %></td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= format_date(item.end_date).html_safe if item.end_date %></td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= format_date(sub.charged_through_date).html_safe if sub.present? %></td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= sub.price_list.downcase.capitalize if sub.present? and sub.price_list.present? %></td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.amount %>&nbsp;<%= item.currency %></td>
           <td><%= link_to "Adjust",
                           kaui_engine.edit_invoice_item_path(item.invoice_item_id, :invoice_id => @invoice.invoice_id),
                           :class => "btn btn-mini" %></td>

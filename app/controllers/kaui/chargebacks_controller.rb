@@ -21,8 +21,7 @@ class Kaui::ChargebacksController < Kaui::EngineController
 
     # @payment_attempt = Kaui::KillbillHelper::get_payment_attempt(@external_key, @invoice_id, @payment_id)
     @account = Kaui::KillbillHelper::get_account(@account_id)
-    # TODO: get payment by payment id (no api at the moment)
-    @payment = Kaui::KillbillHelper::get_payment(@invoice_id, @payment_id)
+    @payment = Kaui::KillbillHelper::get_payment(@payment_id)
     @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
     @payment_method = Kaui::KillbillHelper::get_payment_method(@payment.payment_method_id)
 
