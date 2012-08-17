@@ -12,7 +12,7 @@ class Kaui::AccountTimelinesController < Kaui::EngineController
 
       if @account.present?
         @timeline = Kaui::KillbillHelper::get_account_timeline(@account_id)
-        # @payment_attempts_by_payment_id = {}
+
         @invoices_by_id = {}
         @bundle_names = {}
         unless @timeline.nil?

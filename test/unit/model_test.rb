@@ -10,24 +10,24 @@ module Kaui
              {
                "account": 125.0,
                "invoice_id": "the_invoice_id_1",
-               "requested_dt": "2012-03-15T15:35:23.000Z",
-               "effective_dt": "2012-03-15T15:35:23.000Z",
+               "requested_date": "2012-03-15T15:35:23.000Z",
+               "effective_date": "2012-03-15T15:35:23.000Z",
                "status": "Success",
                "payment_id": "the_payment_id_1"
              },
              {
                "account": 33.45,
                "invoice_id": "the_invoice_id_2",
-               "requested_dt": "2012-03-21T15:35:23.000Z",
-               "effective_dt": "2012-03-21T15:35:23.000Z",
+               "requested_date": "2012-03-21T15:35:23.000Z",
+               "effective_date": "2012-03-21T15:35:23.000Z",
                "status": "Success",
                "payment_id": "the_payment_id_2"
              },
              {
                "account": 75.34,
                "invoice_id": "the_invoice_id_3",
-               "requested_dt": "2012-05-12T15:34:23.000Z",
-               "effective_dt": "2012-05-12T15:34:23.000Z",
+               "requested_date": "2012-05-12T15:34:23.000Z",
+               "effective_date": "2012-05-12T15:34:23.000Z",
                "status": "Success",
                "payment_id": "the_payment_id_3"
              }
@@ -45,9 +45,9 @@ module Kaui
                      {
                        "event_id": "id_create_1",
                        "billing_period": "monthly",
-                       "requested_dt": "2012-03-15T15:34:22.000Z",
+                       "requested_date": "2012-03-15T15:34:22.000Z",
                        "product": "pro",
-                       "effective_dt": "2012-03-15T15:34:22.000Z",
+                       "effective_date": "2012-03-15T15:34:22.000Z",
                        "price_list": "default",
                        "event_type": "CREATE",
                        "phase": "trial"
@@ -55,9 +55,9 @@ module Kaui
                      {
                        "event_id": "id_create_1",
                        "billing_period": "monthly",
-                       "requested_dt": "2012-04-14T15:34:22.000Z",
+                       "requested_date": "2012-04-14T15:34:22.000Z",
                        "product": "pro",
-                       "effective_dt": "2012-04-14T15:34:22.000Z",
+                       "effective_date": "2012-04-14T15:34:22.000Z",
                        "price_list": "default",
                        "event_type": "PHASE",
                        "phase": "evergreen"
@@ -65,9 +65,9 @@ module Kaui
                      {
                        "event_id": "id_create_1",
                        "billing_period": "monthly",
-                       "requested_dt": "2012-05-12T15:34:22.000Z",
+                       "requested_date": "2012-05-12T15:34:22.000Z",
                        "product": "plus",
-                       "effective_dt": "2012-05-12T15:34:22.000Z",
+                       "effective_date": "2012-05-12T15:34:22.000Z",
                        "price_list": "default",
                        "event_type": "CHANGE",
                        "phase": "evergreen"
@@ -81,9 +81,9 @@ module Kaui
                      {
                        "event_id": "id_create_2",
                        "billing_period": "monthly",
-                       "requested_dt": "2012-03-21T15:34:22.000Z",
+                       "requested_date": "2012-03-21T15:34:22.000Z",
                        "product": "paid_access",
-                       "effective_dt": "2012-03-21T15:34:22.000Z",
+                       "effective_date": "2012-03-21T15:34:22.000Z",
                        "price_list": "default",
                        "event_type": "CREATE",
                        "phase": "evergreen"
@@ -100,25 +100,25 @@ module Kaui
              {
                "amount": 125.0,
                "invoice_id": "the_invoice_id_1",
-               "requested_dt": "2012-03-15T15:34:23.000Z",
+               "requested_date": "2012-03-15T15:34:23.000Z",
                "invoice_number": "INV_0001",
-               "effective_dt": "2012-03-15T15:34:23.000Z",
+               "effective_date": "2012-03-15T15:34:23.000Z",
                "balance": 0.0
              },
              {
                "amount": 33.45,
                "invoice_id": "the_invoice_id_2",
-               "requested_dt": "2012-03-21T15:34:23.000Z",
+               "requested_date": "2012-03-21T15:34:23.000Z",
                "invoice_number": "INV_0002",
-               "effective_dt": "2012-03-21T15:34:23.000Z",
+               "effective_date": "2012-03-21T15:34:23.000Z",
                "balance": 0.0
              },
              {
                "amount": 75.34,
                "invoice_id": "the_invoice_id_3",
-               "requested_dt": "2012-05-12T15:34:23.000Z",
+               "requested_date": "2012-05-12T15:34:23.000Z",
                "invoice_number": "INV_0003",
-               "effective_dt": "2012-05-12T15:34:23.000Z",
+               "effective_date": "2012-05-12T15:34:23.000Z",
                "balance": 0.0
              }
            ]

@@ -12,6 +12,7 @@ class Kaui::InvoicesController < Kaui::EngineController
       if @invoice.present?
         @account = Kaui::KillbillHelper.get_account(@invoice.account_id)
         @payments = Kaui::KillbillHelper.get_payments(@invoice_id)
+
         @subscriptions = {}
         @bundles = {}
         if @invoice.items.present?

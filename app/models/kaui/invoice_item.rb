@@ -15,7 +15,8 @@ class Kaui::InvoiceItem < Kaui::Base
   define_attr :description
   define_attr :start_date
   define_attr :end_date
-  define_attr :amount;
-  define_attr :currency;
-  define_attr :audit_logs;
+  define_attr :amount
+  define_attr :currency
+  define_attr :linked_invoice_item_id
+  define_attr :audit_logs
 end

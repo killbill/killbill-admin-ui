@@ -56,6 +56,22 @@
       </div>
     </div>
     <div class="control-group">
+      <label class="control-label">External Payment Id</label>
+      <div class="controls">
+        <label class="checkbox">
+          <%= @payment.ext_first_payment_id_ref %>
+        </label>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">External Secondary Payment Id</label>
+      <div class="controls">
+        <label class="checkbox">
+          <%= @payment.ext_second_payment_id_ref %>
+        </label>
+      </div>
+    </div>
+    <div class="control-group">
       <%= f.label :chargeback_amount, "Chargeback amount", :class => "control-label" %>
       <div class="controls">
         <%= f.text_field :chargeback_amount, :class => 'input-small' %>
