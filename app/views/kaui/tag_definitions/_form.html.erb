@@ -1,0 +1,45 @@
+<%= form_for(@tag_definition) do |f| %>
+  <% if @tag_definition.errors.any? %>
+    <div class='alert alert-error'>
+      <h2><%= pluralize(@tag_definition.errors.count, 'error') %> prohibited this tag definition from being saved:</h2>
+
+      <ul>
+      <% @tag_definition.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% unless @tag_definition.new_record? %>
+    <div class='control-group'>
+      <%= f.label :id, 'Id:', :class => 'control-label' %>
+      <div class='controls'>
+        <%= f.text_field :id, :class => 'input-xlarge disabled', :readonly => true %>
+      </div>
+    </div>
+  <% end %>
+  <div class='control-group'>
+    <%= f.label :name, 'Name:', :class => 'control-label' %>
+    <div class='controls'>
+      <% unless @tag_definition.new_record? %>
+        <%= f.text_field :name, :class => 'input-large disabled', :readonly => true %>
+      <% else %>
+        <%= f.text_field :name %>
+      <% end %>
+    </div>
+  </div>
+  <div class='control-group'>
+    <%= f.label :description, 'Description:', :class => 'control-label' %>
+    <div class='controls'>
+      <%= f.text_field :description, :class => 'input-xxlarge' %>
+    </div>
+  </div>
+  <div class='form-actions'>
+    <%= f.submit @tag_definition.new_record? ? 'Create' : 'Update', :class => 'btn btn-primary' %>
+    <% unless @tag_definition.new_record? %>
+      <%= link_to 'Show', @tag_definition, :class => 'btn' %>
+    <% end %>
+    <%= link_to 'Back', :back, :class => 'btn' %>
+  </div>
+<% end %>

@@ -527,6 +527,35 @@ module Kaui
       end
     end
 
+    def self.create_tag_definition(tag_definition, current_user = nil, reason = nil, comment = nil)
+      begin
+        tag_definition_data = Kaui::TagDefinition.camelize(tag_definition.to_hash)
+        data = call_killbill :post,
+                             "/1.0/kb/tagDefinitions",
+                             ActiveSupport::JSON.encode(tag_definition_data, :root => false),
+                             :content_type => "application/json",
+                             "X-Killbill-CreatedBy" => current_user,
+                             "X-Killbill-Reason" => extract_reason_code(reason),
+                             "X-Killbill-Comment" => "#{comment}"
+        return data[:code] < 300
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
+    def self.delete_tag_definition(tag_definition_id, current_user = nil, reason = nil, comment = nil)
+      begin
+        data = call_killbill :delete,
+                             "/1.0/kb/tagDefinitions/#{tag_definition_id}",
+                             "X-Killbill-CreatedBy" => current_user,
+                             "X-Killbill-Reason" => "#{reason}",
+                             "X-Killbill-Comment" => "#{comment}"
+        return data[:code] < 300
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
     def self.get_tags_for_account(account_id)
       begin
         data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/tags"

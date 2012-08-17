@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] = "test"
 
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require "rails/test_help"
+require 'securerandom'
 
 Rails.backtrace_cleaner.remove_silencers!
 
@@ -49,23 +50,58 @@ module Kaui::KillbillHelper
     []
   end
 
-  def self.find_among_fixtures(clazz, id)
-    results = find_all_among_fixtures(clazz, id)
+  def self.get_tag_definitions
+    find_all_among_fixtures(Kaui::TagDefinition)
+  end
+
+  def self.get_tag_definition(tag_definition_id)
+    find_among_fixtures(Kaui::TagDefinition, tag_definition_id, 'id')
+  end
+
+  def self.create_tag_definition(tag_definition)
+    tag_definition.id = SecureRandom.uuid
+    add_fixture(tag_definition, Kaui::TagDefinition)
+  end
+
+  def self.delete_tag_definition(tag_definition_id)
+    delete_fixture(Kaui::TagDefinition, tag_definition_id, 'id')
+  end
+
+  def self.find_among_fixtures(clazz, id, type_id=nil)
+    results = find_all_among_fixtures(clazz, id, type_id)
     results.length > 0 ? results[0] : nil
   end
 
-  def self.find_all_among_fixtures(clazz, id)
+  def self.find_all_among_fixtures(clazz, id=nil, type_id=nil)
     results = []
     type = clazz.name.demodulize.underscore
-    type_id = "#{clazz.name.demodulize.camelize}Id".uncapitalize
+    type_id = "#{clazz.name.demodulize.camelize}Id".uncapitalize unless type_id
     @@fixtures.each do |k,v|
       next unless k == "#{type}s"
       v.each do |w,u|
-        results << clazz.new(u.fixture) if u.fixture[type_id] == id
+        results << clazz.new(u.fixture) if u.fixture[type_id] == id or !id.present?
       end
     end
 
     return results
+  end
+
+  def self.add_fixture(fixture, clazz)
+    type = clazz.name.demodulize.underscore
+    @@fixtures["#{type}s"].fixtures ||= {}
+    @@fixtures["#{type}s"].fixtures["auto_generated_fixture_#{rand(100)}"] = ActiveRecord::Fixture.new(fixture.to_hash, clazz)
+    fixture
+  end
+
+  def self.delete_fixture(clazz, id, type_id=nil)
+    type = clazz.name.demodulize.underscore
+    type_id = "#{clazz.name.demodulize.camelize}Id".uncapitalize unless type_id
+    @@fixtures.each do |k,v|
+      next unless k == "#{type}s"
+      v.each do |w,u|
+        v.fixtures.delete(w) if u.fixture[type_id] == id
+      end
+    end
   end
 
   def self.set_fixtures(f)

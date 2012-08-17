@@ -21,6 +21,7 @@
             <li <%= "class='active'" if params[:controller] == 'refunds' %>><%= link_to "Refunds", kaui_engine.refunds_path %></li>
             <li <%= "class='active'" if params[:controller] == 'invoices' %>><%= link_to "Invoices", kaui_engine.invoices_path %></li>
             <li <%= "class='active'" if params[:controller] == 'invoice_items' %>><%= link_to "Invoice items", kaui_engine.invoice_items_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'tag_definitions' %>><%= link_to "Tag definitions", kaui_engine.tag_definitions_path %></li>
           </ul>
         </div>
       </div>
