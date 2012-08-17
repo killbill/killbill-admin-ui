@@ -25,7 +25,9 @@ module Kaui
         post :create, tag_definition: { description: @tag_definition.description, name: @tag_definition.name }
       end
 
-      assert_redirected_to tag_definition_path(assigns(:tag_definition))
+      # TODO - for now, we redirect to the main page as we don't get the id back
+      assert_redirected_to tag_definitions_path
+      # assert_redirected_to tag_definition_path(assigns(:tag_definition))
     end
 
     test "should show tag_definition" do

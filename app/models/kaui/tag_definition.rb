@@ -14,7 +14,8 @@ class Kaui::TagDefinition < Kaui::Base
 
   def save
     Kaui::KillbillHelper.create_tag_definition(self)
-    @persisted = true
+    # TODO - we should return the newly created id and update the model
+    # @persisted = true
   end
 
   def destroy
