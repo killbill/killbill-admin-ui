@@ -160,17 +160,17 @@
         <% bundles = payment.bundle_keys.split(",").map {|bundle_key| @bundle_names[bundle_key] }.join(",") %>
         <tr title="<%= bundles %>">
           <td>
-            <% if chargeback.effective_dt.present? %>
-              <span class="hide" title="<%= chargeback.effective_dt %>"></span>
-              <%= format_date(chargeback.effective_dt).html_safe %>
+            <% if chargeback.effective_date.present? %>
+              <span class="hide" title="<%= chargeback.effective_date %>"></span>
+              <%= format_date(chargeback.effective_date).html_safe %>
             <% else %>
               [unknown]
             <% end %>
           </td>
           <td>
-            <% if chargeback.effective_dt.present? %>
-              <span class="hide" title="<%= chargeback.effective_dt %>"></span>
-              <%= format_date(chargeback.effective_dt).html_safe %>
+            <% if chargeback.effective_date.present? %>
+              <span class="hide" title="<%= chargeback.effective_date %>"></span>
+              <%= format_date(chargeback.effective_date).html_safe %>
             <% else %>
               [unknown]
             <% end %>
@@ -268,17 +268,17 @@
           <% sub.events.each do |event| %>
             <tr title="<%= @bundle_names[bundle.external_key] %>">
               <td>
-                <% if event.requested_dt.present? %>
-                  <span class="hide" title="<%= event.requested_dt %>"></span>
-                  <%= format_date(event.requested_dt).html_safe %>
+                <% if event.requested_date.present? %>
+                  <span class="hide" title="<%= event.requested_date %>"></span>
+                  <%= format_date(event.requested_date).html_safe %>
                 <% else %>
                   [unknown]
                 <% end %>
               </td>
               <td>
-                <% if event.effective_dt.present? %>
-                  <span class="hide" title="<%= event.effective_dt %>"></span>
-                  <%= format_date(event.effective_dt).html_safe %>
+                <% if event.effective_date.present? %>
+                  <span class="hide" title="<%= event.effective_date %>"></span>
+                  <%= format_date(event.effective_date).html_safe %>
                 <% else %>
                   [unknown]
                 <% end %>
