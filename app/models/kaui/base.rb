@@ -3,6 +3,8 @@ class Kaui::Base
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
+  attr_reader :errors
+
   @@attribute_names = {}
 
   def self.define_attr(*args)
@@ -45,6 +47,9 @@ class Kaui::Base
 
     # Mark the record as persisted if we have an id
     @persisted = to_param.present?
+
+    # Errors for form validations
+    @errors = ActiveModel::Errors.new(self)
   end
 
   def attributes=(values)
@@ -126,5 +131,17 @@ class Kaui::Base
   def to_param
     # id is a string (killbill UUID)
     @id
+  end
+
+  def read_attribute_for_validation(attr)
+    send(attr)
+  end
+
+  def self.human_attribute_name(attr, options = {})
+    attr
+  end
+
+  def self.lookup_ancestors
+    [self]
   end
 end
