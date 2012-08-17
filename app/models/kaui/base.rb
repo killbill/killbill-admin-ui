@@ -128,6 +128,10 @@ class Kaui::Base
     @persisted
   end
 
+  def new_record?
+    !persisted?
+  end
+
   def to_param
     # id is a string (killbill UUID)
     @id
