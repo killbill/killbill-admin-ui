@@ -1,0 +1,10 @@
+<dt>Emails:</dt>
+<dd>       
+  <% if account_emails.present? %>
+    <% account_emails.each_with_index do |account_email, idx| %>
+      <span><%= link_to account_email.email, account_email, method: :delete %><% if idx < account_emails.length - 1 %>, <% end %></span>
+    <% end %>
+    <br/>
+  <% end %>
+  <%= link_to 'Add/Remove', account_email_path(account_id), :class => 'btn btn-mini' %>
+</dd>

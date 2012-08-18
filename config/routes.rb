@@ -13,6 +13,8 @@ Kaui::Engine.routes.draw do
 		end
   end
 
+  resources :account_emails, :only => [ :create, :new, :show, :destroy ]
+
   resources :account_timelines, :only => [ :index, :show ] do
     member do
       post :refunds, :as => "refunds"

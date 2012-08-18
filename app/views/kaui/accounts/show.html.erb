@@ -38,9 +38,11 @@
     <% else %>
         <dd><span class="label label-important" ><%= @account.balance %></span>&nbsp;</dd>    
     <% end %>
-    
+
     <%= render :partial => "kaui/tags/tags_table",
                :locals => { :tags => @tags, :tags_url_or_path => kaui_engine.edit_account_tags_path(:params => { :account_id => @account.account_id }) } %>
+    <%= render :partial => "kaui/account_emails/account_emails_table",
+               :locals => { :account_emails => @account_emails, :account_id => @account.account_id } %>
   </dl>
   <h2><%= link_to "Billing timeline", kaui_engine.account_timeline_path(@account.account_id) %></h2>
   <% if @payment_methods.present? %>
