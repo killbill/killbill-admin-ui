@@ -20,6 +20,7 @@ class Kaui::AccountsController < Kaui::EngineController
 
       if @account.present? and @account.is_a? Kaui::Account
         @tags = Kaui::KillbillHelper::get_tags_for_account(@account.account_id).sort
+        @account_emails = Kaui::AccountEmail.where(:account_id => @account.account_id)
         @payment_methods = Kaui::KillbillHelper::get_payment_methods(@account.account_id)
         @bundles = Kaui::KillbillHelper::get_bundles(@account.account_id)
         @subscriptions_by_bundle_id = {}
@@ -127,4 +128,9 @@ class Kaui::AccountsController < Kaui::EngineController
     redirect_to :back
   end
 
+  def toggle_email_notifications
+    @account = Kaui::KillbillHelper::update_email_notifications(params[:id], params[:is_notified])
+    flash[:notice] = "Email preferences updated"
+    redirect_to :back
+  end
 end

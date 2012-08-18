@@ -72,6 +72,60 @@ module Kaui
       end
     end
 
+    def self.get_account_emails(account_id)
+      begin
+        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/emails"
+        process_response(data, :multiple) { |json| Kaui::AccountEmail.new(json) }
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
+    def self.add_account_email(account_email, current_user = nil, reason = nil, comment = nil)
+      begin
+        account_email_data = Kaui::AccountEmail.camelize(account_email.to_hash)
+        data = call_killbill :post,
+                             "/1.0/kb/accounts/#{account_email.account_id}/emails",
+                             ActiveSupport::JSON.encode(account_email_data, :root => false),
+                             :content_type => "application/json",
+                             "X-Killbill-CreatedBy" => current_user,
+                             "X-Killbill-Reason" => extract_reason_code(reason),
+                             "X-Killbill-Comment" => "#{comment}"
+        return data[:code] = 201
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
+    def self.remove_account_email(account_email, current_user = nil, reason = nil, comment = nil)
+      begin
+        data = call_killbill :delete,
+                             "/1.0/kb/accounts/#{account_email.account_id}/emails/#{account_email.email}",
+                             "X-Killbill-CreatedBy" => current_user,
+                             "X-Killbill-Reason" => "#{reason}",
+                             "X-Killbill-Comment" => "#{comment}"
+        return data[:code] < 300
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
+    def self.update_email_notifications(account_id, is_notified, current_user = nil, reason = nil, comment = nil)
+      begin
+        email_data = { :isNotifiedForInvoices => is_notified }
+        data = call_killbill :put,
+                             "/1.0/kb/accounts/#{account_id}/emailNotifications",
+                             ActiveSupport::JSON.encode(email_data, :root => false),
+                             :content_type => "application/json",
+                             "X-Killbill-CreatedBy" => current_user,
+                             "X-Killbill-Reason" => extract_reason_code(reason),
+                             "X-Killbill-Comment" => "#{comment}"
+        return data[:code] = 200
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
     ############## BUNDLE ##############
 
     def self.get_bundles(account_id)

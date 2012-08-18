@@ -17,7 +17,11 @@ module Kaui::KillbillHelper
   def self.get_account(account_id, with_account_id=false)
     find_among_fixtures(Kaui::Account, account_id)
   end
-  
+
+  def self.get_account_emails(account_id)
+    []
+  end
+
   def self.get_account_by_external_key(account_id, with_account_id=false)
     find_among_fixtures(Kaui::Account, account_id)
   end

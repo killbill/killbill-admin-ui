@@ -1,0 +1,24 @@
+<h2>Account emails</h2>
+
+<table id='invoice_table' class='table table-condensed data-table'>
+  <thead>
+    <tr>
+      <th style='width: 45%'>Account id</th>
+      <th style='width: 45%'>Email</th>
+      <th style='width: 10%'></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @account_emails.each do |account_email| %>
+      <tr>
+        <td><%= link_to account_email.account_id, account_path(account_email.account_id) %></td>
+        <td><%= account_email.email %></td>
+        <td><%= link_to 'Destroy', account_email_path(account_email.account_id, :email => account_email.email), :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Account email', new_account_email_path(:account_id => @account_id), :class => 'btn btn-primary' %>
