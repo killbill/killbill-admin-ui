@@ -33,6 +33,6 @@ class Kaui::CreditsController < Kaui::EngineController
     else
       flash[:error] = "Error while creating credit"
     end
-    redirect_to account_timeline_path(credit.account_id)
+    redirect_to kaui_engine.account_timeline_path(credit.account_id)
   end
 end

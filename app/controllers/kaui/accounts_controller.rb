@@ -4,7 +4,7 @@ require 'json'
 class Kaui::AccountsController < Kaui::EngineController
   def index
     if params[:account_id].present?
-      redirect_to account_path(params[:account_id])
+      redirect_to kaui_engine.account_path(params[:account_id])
     end
   end
 
@@ -108,7 +108,7 @@ class Kaui::AccountsController < Kaui::EngineController
 
       if success
         flash[:info] = "Payment method created"
-        redirect_to account_timeline_path(@account.account_id)
+        redirect_to kaui_engine.account_timeline_path(@account.account_id)
         return
       else
         flash[:error] = "Error while adding payment method"

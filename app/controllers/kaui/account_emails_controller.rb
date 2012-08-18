@@ -30,7 +30,7 @@ module Kaui
 
       respond_to do |format|
         if @account_email.save
-          format.html { redirect_to account_email_path(@account_email), :notice => 'Account email was successfully created.' }
+          format.html { redirect_to kaui_engine.account_email_path(@account_email), :notice => 'Account email was successfully created.' }
           format.json { render :json => @account_email, :status => :created, :location => @account_email }
         else
           format.html { render :action => "new" }
@@ -46,7 +46,7 @@ module Kaui
       @account_email.destroy
 
       respond_to do |format|
-        format.html { redirect_to account_email_path(params[:id]) }
+        format.html { redirect_to kaui_engine.account_email_path(params[:id]) }
         format.json { head :no_content }
       end
     end

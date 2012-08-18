@@ -1,7 +1,7 @@
 class Kaui::InvoiceItemsController < Kaui::EngineController
   def index
     if params[:invoice_item_id].present? and params[:invoice_id].present?
-      redirect_to invoice_item_path(params[:invoice_item_id], :invoice_id => params[:invoice_id])
+      redirect_to kaui_engine.invoice_item_path(params[:invoice_item_id], :invoice_id => params[:invoice_id])
     end
   end
 
@@ -18,7 +18,7 @@ class Kaui::InvoiceItemsController < Kaui::EngineController
     success = Kaui::KillbillHelper.adjust_invoice(@invoice_item, current_user, params[:reason], params[:comment])
     if success
       flash[:notice] = "Adjustment item created"
-      redirect_to invoice_path(@invoice_item.invoice_id)
+      redirect_to kaui_engine.invoice_path(@invoice_item.invoice_id)
     else
       flash[:error] = "Unable to create adjustment item"
       render :action => "edit"

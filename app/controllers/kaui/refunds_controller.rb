@@ -1,7 +1,7 @@
 class Kaui::RefundsController < Kaui::EngineController
   def index
     if params[:refund_id].present?
-      redirect_to refund_path(params[:refund_id])
+      redirect_to kaui_engine.refund_path(params[:refund_id])
     end
   end
 
@@ -52,7 +52,7 @@ class Kaui::RefundsController < Kaui::EngineController
     else
       flash[:error] = "No refund to process"
     end
-    redirect_to account_timeline_path(:id => params[:account_id])
+    redirect_to kaui_engine.account_timeline_path(:id => params[:account_id])
   end
 
 end
