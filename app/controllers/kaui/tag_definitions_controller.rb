@@ -7,7 +7,7 @@ module Kaui
 
       respond_to do |format|
         format.html # index.html.erb
-        format.json { render json: @tag_definitions }
+        format.json { render :json => @tag_definitions }
       end
     end
 
@@ -18,7 +18,7 @@ module Kaui
 
       respond_to do |format|
         format.html # show.html.erb
-        format.json { render json: @tag_definition }
+        format.json { render :json => @tag_definition }
       end
     end
 
@@ -29,7 +29,7 @@ module Kaui
 
       respond_to do |format|
         format.html # new.html.erb
-        format.json { render json: @tag_definition }
+        format.json { render :json => @tag_definition }
       end
     end
 
@@ -45,11 +45,11 @@ module Kaui
 
       respond_to do |format|
         if @tag_definition.save
-          format.html { redirect_to @tag_definition, notice: 'Tag definition was successfully created.' }
-          format.json { render json: @tag_definition, status: :created, location: @tag_definition }
+          format.html { redirect_to @tag_definition, :notice => 'Tag definition was successfully created.' }
+          format.json { render :json => @tag_definition, :status => :created, :location => @tag_definition }
         else
-          format.html { render action: "new" }
-          format.json { render json: @tag_definition.errors, status: :unprocessable_entity }
+          format.html { render :action => "new" }
+          format.json { render :json => @tag_definition.errors, :status => :unprocessable_entity }
         end
       end
     end
@@ -61,11 +61,11 @@ module Kaui
 
       respond_to do |format|
         if @tag_definition.update_attributes(params[:tag_definition])
-          format.html { redirect_to @tag_definition, notice: 'Tag definition was successfully updated.' }
+          format.html { redirect_to @tag_definition, :notice => 'Tag definition was successfully updated.' }
           format.json { head :no_content }
         else
-          format.html { render action: "edit" }
-          format.json { render json: @tag_definition.errors, status: :unprocessable_entity }
+          format.html { render :action => "edit" }
+          format.json { render :json => @tag_definition.errors, :status => :unprocessable_entity }
         end
       end
     end

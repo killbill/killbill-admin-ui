@@ -22,7 +22,7 @@ module Kaui
 
     test "should create tag_definition" do
       assert_difference('TagDefinition.count') do
-        post :create, tag_definition: { description: @tag_definition.description, name: @tag_definition.name }
+        post :create, :tag_definition => { :description => @tag_definition.description, :name => @tag_definition.name }
       end
 
       # TODO - for now, we redirect to the main page as we don't get the id back
@@ -31,12 +31,12 @@ module Kaui
     end
 
     test "should show tag_definition" do
-      get :show, id: @tag_definition
+      get :show, :id => @tag_definition
       assert_response :success
     end
 
     test "should get edit" do
-      get :edit, id: @tag_definition
+      get :edit, :id => @tag_definition
       assert_response :success
     end
 
@@ -47,11 +47,11 @@ module Kaui
     # end
 
     test "should destroy tag_definition" do
-      post :create, tag_definition: { description: @tag_definition.description, name: @tag_definition.name }
+      post :create, :tag_definition => { :description => @tag_definition.description, :name => @tag_definition.name }
       new_id = assigns(:tag_definition).id
 
       assert_difference('TagDefinition.count', -1) do
-        delete :destroy, id: new_id
+        delete :destroy, :id => new_id
       end
 
       assert_redirected_to tag_definitions_path

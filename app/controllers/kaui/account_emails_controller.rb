@@ -8,7 +8,7 @@ module Kaui
 
       respond_to do |format|
         format.html # show.html.erb
-        format.json { render json: @account_email }
+        format.json { render :json => @account_email }
       end
     end
 
@@ -19,7 +19,7 @@ module Kaui
 
       respond_to do |format|
         format.html # new.html.erb
-        format.json { render json: @account_email }
+        format.json { render :json => @account_email }
       end
     end
 
@@ -30,11 +30,11 @@ module Kaui
 
       respond_to do |format|
         if @account_email.save
-          format.html { redirect_to account_email_path(@account_email), notice: 'Account email was successfully created.' }
-          format.json { render json: @account_email, status: :created, location: @account_email }
+          format.html { redirect_to account_email_path(@account_email), :notice => 'Account email was successfully created.' }
+          format.json { render :json => @account_email, :status => :created, :location => @account_email }
         else
-          format.html { render action: "new" }
-          format.json { render json: @account_email.errors, status: :unprocessable_entity }
+          format.html { render :action => "new" }
+          format.json { render :json => @account_email.errors, :status => :unprocessable_entity }
         end
       end
     end

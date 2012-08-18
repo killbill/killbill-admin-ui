@@ -13,7 +13,7 @@
       <tr>
         <td><%= link_to account_email.account_id, account_path(account_email.account_id) %></td>
         <td><%= account_email.email %></td>
-        <td><%= link_to 'Destroy', account_email_path(account_email.account_id, :email => account_email.email), confirm: 'Are you sure?', method: :delete %></td>
+        <td><%= link_to 'Destroy', account_email_path(account_email.account_id, :email => account_email.email), :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
     <% end %>
   </tbody>

@@ -21,7 +21,7 @@
         <!-- ><td><%= link_to 'Edit', edit_tag_definition_path(tag_definition) %></td> -->
         <td>
           <% unless tag_definition.is_system_tag? %>
-            <%= link_to 'Destroy', tag_definition, confirm: 'Are you sure?', method: :delete %>
+            <%= link_to 'Destroy', tag_definition, :confirm => 'Are you sure?', :method => :delete %>
           <% end %>
         </td>
       </tr>
