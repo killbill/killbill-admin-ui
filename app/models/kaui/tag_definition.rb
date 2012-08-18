@@ -36,4 +36,8 @@ class Kaui::TagDefinition < Kaui::Base
     end
     is_system_tag
   end
+
+  def <=>(tag_definition)
+    @name.downcase <=> tag_definition.name.downcase
+  end
 end

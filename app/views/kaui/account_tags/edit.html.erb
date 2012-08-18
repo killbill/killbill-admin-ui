@@ -2,7 +2,7 @@
   <h1>Add/Remove Tags</h1>
 </div>
 <%= form_tag update_account_tags_path, :class => 'form-horizontal' do %>
-<%= hidden_field_tag :account_id, @account.account_id %>
+  <%= hidden_field_tag :account_id, @account.account_id %>
   <fieldset>
     <div class='control-group'>
       <label class='control-label'>Account name</label>
@@ -18,7 +18,7 @@
       <div class='controls'>
         <% @available_tags.each do |tag| %>
           <label class='checkbox'>
-            <%= check_box_tag tag.id, tag.name, @tags.include?(tag.name) %>
+            <%= check_box_tag "tag_#{tag.id}", tag.name, @tag_names.include?(tag.name) %>
             <span href='#' class='tag-description' rel='tooltip' title='<%= tag.description %>'><%= tag.name %></span>
           </label>
         <% end %>

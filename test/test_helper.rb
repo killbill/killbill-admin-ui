@@ -50,6 +50,10 @@ module Kaui::KillbillHelper
     []
   end
 
+  def self.get_tags_for_account(account_id)
+    []
+  end
+
   def self.get_tag_definitions
     find_all_among_fixtures(Kaui::TagDefinition)
   end
