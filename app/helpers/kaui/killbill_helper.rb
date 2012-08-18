@@ -213,6 +213,8 @@ module Kaui
     def self.create_subscription(subscription, current_user = nil, reason = nil, comment = nil)
       begin
         subscription_data = Kaui::Subscription.camelize(subscription.to_hash)
+        # We don't want to pass events
+        subscription_data.delete(:events)
         data = call_killbill :post,
                              "/1.0/kb/subscriptions",
                              ActiveSupport::JSON.encode(subscription_data, :root => false),
