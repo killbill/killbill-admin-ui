@@ -38,6 +38,8 @@
     <% else %>
         <dd><span class="label label-important" ><%= @account.balance %></span>&nbsp;</dd>    
     <% end %>
+    <dt>Notified for inv?</dt>
+    <dd><%= @account.is_notified_for_invoices %>&nbsp;<%= link_to "Toggle", kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post, :class => 'btn btn-mini' %></dd>
 
     <%= render :partial => "kaui/tags/tags_table",
                :locals => { :tags => @tags, :tags_url_or_path => kaui_engine.edit_account_tags_path(:params => { :account_id => @account.account_id }) } %>

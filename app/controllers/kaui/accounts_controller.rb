@@ -128,4 +128,9 @@ class Kaui::AccountsController < Kaui::EngineController
     redirect_to :back
   end
 
+  def toggle_email_notifications
+    @account = Kaui::KillbillHelper::update_email_notifications(params[:id], params[:is_notified])
+    flash[:notice] = "Email preferences updated"
+    redirect_to :back
+  end
 end

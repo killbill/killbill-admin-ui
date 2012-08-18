@@ -110,6 +110,22 @@ module Kaui
       end
     end
 
+    def self.update_email_notifications(account_id, is_notified, current_user = nil, reason = nil, comment = nil)
+      begin
+        email_data = { :isNotifiedForInvoices => is_notified }
+        data = call_killbill :put,
+                             "/1.0/kb/accounts/#{account_id}/emailNotifications",
+                             ActiveSupport::JSON.encode(email_data, :root => false),
+                             :content_type => "application/json",
+                             "X-Killbill-CreatedBy" => current_user,
+                             "X-Killbill-Reason" => extract_reason_code(reason),
+                             "X-Killbill-Comment" => "#{comment}"
+        return data[:code] = 200
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
     ############## BUNDLE ##############
 
     def self.get_bundles(account_id)
