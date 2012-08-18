@@ -1,4 +1,6 @@
 Kaui::Engine.routes.draw do
+  resources :tag_definitions
+
   root :to => "home#index"
 
   resources :accounts, :only => [ :index, :show ] do

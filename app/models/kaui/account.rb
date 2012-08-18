@@ -36,4 +36,8 @@ class Kaui::Account < Kaui::Base
           :bill_cycle_day => data['billCycleDay'],
           :balance => data['accountBalance'])
   end
+
+  def to_param
+    @account_id
+  end
 end

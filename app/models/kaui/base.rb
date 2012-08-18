@@ -148,4 +148,31 @@ class Kaui::Base
   def self.lookup_ancestors
     [self]
   end
+
+  def self.all
+    []
+  end
+
+  def self.count
+    all.count
+  end
+
+  def self.find(id)
+    nil
+  end
+
+  def save
+    @errors.add(:save, 'Saving this object is not yet supported')
+    false
+  end
+
+  def update_attributes(tag_definition)
+    @errors.add(:update, 'Updating this object is not yet supported')
+    false
+  end
+
+  def destroy
+    @errors.add(:destroy, 'Destroying this object is not yet supported')
+    false
+  end
 end
