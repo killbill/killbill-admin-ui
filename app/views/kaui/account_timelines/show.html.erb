@@ -266,6 +266,8 @@
       <% @timeline.bundles.each do |bundle| %>
         <% bundle.subscriptions.each do |sub| %>
           <% sub.events.each do |event| %>
+            <!-- SKIP UNCANCEL SINCE MATCHING CANCEL EVENT IS NOT RETURNED AS IT WAS INVALIDED -->
+            <% next if event.event_type == 'UNCANCEL' %>
             <tr title="<%= @bundle_names[bundle.external_key] %>">
               <td>
                 <% if event.requested_date.present? %>
