@@ -38,6 +38,9 @@ class Kaui::TagDefinition < Kaui::Base
   end
 
   def <=>(tag_definition)
-    @name.downcase <=> tag_definition.name.downcase
+    # System tags last
+    return 1 if is_system_tag? and !tag_definition.is_system_tag?
+    return -1 if !is_system_tag? and tag_definition.is_system_tag?
+    @name <=> tag_definition.name
   end
 end

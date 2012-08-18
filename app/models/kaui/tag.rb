@@ -9,6 +9,6 @@ class Kaui::Tag < Kaui::Base
   end
 
   def <=>(tag)
-    @tag_definition_name.downcase <=> tag.tag_definition_name.downcase
+    @tag_definition_name <=> tag.tag_definition_name
   end
 end
