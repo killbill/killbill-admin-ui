@@ -109,7 +109,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       subscription.subscription_id = params[:subscription][:subscription_id]
 
       Kaui::KillbillHelper::update_subscription(subscription, requested_date, current_user)
-      redirect_to Kaui.bundle_home_path.call(bundle.external_key)
+      redirect_to kaui_engine.bundle_home_path.call(bundle.bundle_id)
     else
       flash[:error] = "No subscription given"
       redirect_to :back
