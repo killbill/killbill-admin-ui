@@ -61,7 +61,7 @@
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.amount %>&nbsp;<%= item.currency %></td>
           <td><%= link_to "Adjust",
                           kaui_engine.edit_invoice_item_path(item.invoice_item_id, :invoice_id => @invoice.invoice_id),
-                          :class => "btn btn-mini" %></td>
+                          :class => "btn btn-mini" if item.amount > 0 and item.subscription_id.present? %></td>
         </tr>
       <% end %>
     </tbody>
