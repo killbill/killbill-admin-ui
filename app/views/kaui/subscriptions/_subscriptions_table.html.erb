@@ -30,9 +30,13 @@
           <td>
             <nobr>
               <% if sub.product_category == 'BASE' %>
-                <%= link_to "Change", kaui_engine.edit_subscription_path(sub.subscription_id), :class => "btn btn-mini" unless sub.canceled_date.present? %>
-                <%= link_to "Cancel", kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete, :class => "btn btn-mini" %>
-                <%= link_to "Add Addons", kaui_engine.new_subscription_path(:params => { :bundle_id => sub.bundle_id, :base_subscription => sub.product_name }), :class => "btn btn-mini" %>
+                <% if sub.canceled_date.present? %>
+                  <%= link_to "Reinstate", kaui_engine.reinstate_subscription_path(:id => sub.subscription_id), :method => :put, :class => "btn btn-mini" %>                    
+                <% else %>
+                  <%= link_to "Change", kaui_engine.edit_subscription_path(sub.subscription_id), :class => "btn btn-mini" %>
+                  <%= link_to "Cancel", kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete, :class => "btn btn-mini" %>
+                  <%= link_to "Add Addons", kaui_engine.new_subscription_path(:params => { :bundle_id => sub.bundle_id, :base_subscription => sub.product_name }), :class => "btn btn-mini" %>
+                <% end%>
               <% else %>
               <% end %>
               <% if sub.product_category == 'ADD_ON' %>
