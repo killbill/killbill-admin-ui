@@ -21,8 +21,9 @@ class Kaui::CreditsController < Kaui::EngineController
     @invoice_id = params[:invoice_id]
     @account = Kaui::KillbillHelper::get_account(@account_id)
     @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id) unless @invoice_id.nil?
+    credit_amount = @invoice.balance unless @invoice.nil?
 
-    @credit = Kaui::Credit.new("accountId" => @account_id, "invoiceId" => @invoice_id, "creditAmount" => @invoice.balance)
+    @credit = Kaui::Credit.new("accountId" => @account_id, "invoiceId" => @invoice_id, "creditAmount" => credit_amount)
   end
 
   def create
@@ -33,6 +34,7 @@ class Kaui::CreditsController < Kaui::EngineController
     else
       flash[:error] = "Error while creating credit"
     end
-    redirect_to account_timeline_path(credit.account_id)
+    account = Kaui::KillbillHelper::get_account(credit.account_id)
+    redirect_to Kaui.account_home_path.call(account.external_key)
   end
 end

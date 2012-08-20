@@ -6,17 +6,21 @@ module Kaui
     def self.call_killbill(method, uri, *args)
       url = Kaui.killbill_finder.call + uri
       Rails.logger.info "Performing #{method} request to #{url}"
-      response = RestClient.send(method.to_sym, url, *args)
-      data = { :code => response.code }
-      if response.code < 300 && response.body.present?
-        if response.headers[:content_type] =~ /application\/json.*/
-          data[:json] = JSON.parse(response.body)
-        else
-          data[:body] = response.body
+      begin
+        response = RestClient.send(method.to_sym, url, *args)
+        data = { :code => response.code }
+        if response.code < 300 && response.body.present?
+          if response.headers[:content_type] =~ /application\/json.*/
+            data[:json] = JSON.parse(response.body)
+          else
+            data[:body] = response.body
+          end
         end
+        data
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+        raise e
       end
-      # TODO: error handling
-      data
     end
 
     def self.process_response(response, arity, &block)
@@ -35,32 +39,28 @@ module Kaui
 
     ############## ACCOUNT ##############
 
-    def self.get_account_timeline(account_id)
-      begin
-        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/timeline?audit=MINIMAL"
-        process_response(data, :single) {|json| Kaui::AccountTimeline.new(json) }
-      rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+    def self.get_account_by_key(key, with_balance)
+      # support id (UUID) and external key search
+      if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
+        Kaui::KillbillHelper.get_account(key, with_balance)
+      else
+        Kaui::KillbillHelper.get_account_by_external_key(key, with_balance)
       end
+    end
+
+    def self.get_account_timeline(account_id)
+      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/timeline?audit=MINIMAL"
+      process_response(data, :single) {|json| Kaui::AccountTimeline.new(json) }
     end
 
     def self.get_account(account_id, with_balance=false)
-      begin
-        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}?accountWithBalance=#{with_balance}"
-        process_response(data, :single) {|json| Kaui::Account.new(json) }
-      rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
-      end
+      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}?accountWithBalance=#{with_balance}"
+      process_response(data, :single) {|json| Kaui::Account.new(json) }
     end
 
     def self.get_account_by_external_key(external_key, with_balance=false)
-      begin
-        data = call_killbill :get, "/1.0/kb/accounts?externalKey=#{external_key}&accountWithBalance=#{with_balance}"
-        process_response(data, :single) {|json| Kaui::Account.new(json) }
-      rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
-        "#{e.message} #{e.response}"
-      end
+      data = call_killbill :get, "/1.0/kb/accounts?externalKey=#{external_key}&accountWithBalance=#{with_balance}"
+      process_response(data, :single) {|json| Kaui::Account.new(json) }
     end
 
     def self.get_account_by_bundle_id(bundle_id)
@@ -68,7 +68,6 @@ module Kaui
         bundle = get_bundle(bundle_id)
         account = get_account(bundle.account_id)
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -81,7 +80,6 @@ module Kaui
       rescue RestClient::BadRequest
         []
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -90,7 +88,6 @@ module Kaui
         data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/bundles?externalKey=#{external_key}"
         process_response(data, :single) {|json| Kaui::Bundle.new(json) }
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -99,7 +96,6 @@ module Kaui
         data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}"
         process_response(data, :single) {|json| Kaui::Bundle.new(json) }
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -115,7 +111,6 @@ module Kaui
         return data[:code] < 300
 
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -128,7 +123,6 @@ module Kaui
       rescue RestClient::BadRequest
         []
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -143,7 +137,6 @@ module Kaui
       rescue RestClient::BadRequest
         []
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -152,7 +145,6 @@ module Kaui
         data = call_killbill :get, "/1.0/kb/subscriptions/#{subscription_id}"
         process_response(data, :single) {|json| Kaui::Subscription.new(json) }
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -168,7 +160,6 @@ module Kaui
                               "X-Killbill-Comment" => "#{comment}"
         return data[:code] == 201
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -186,7 +177,6 @@ module Kaui
                              "X-Killbill-Comment" => "#{comment}"
         return data[:code] < 300
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -201,7 +191,6 @@ module Kaui
                              "X-Killbill-Comment" => "#{comment}"
         return data[:code] < 300
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -214,7 +203,6 @@ module Kaui
                              "X-Killbill-Comment" => "#{comment}"
         return data[:code] < 300
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -225,7 +213,6 @@ module Kaui
         data = call_killbill :get, "/1.0/kb/invoices/#{invoice_id}?withItems=true"
         process_response(data, :single) {|json| Kaui::Invoice.new(json) }
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -246,7 +233,6 @@ module Kaui
         data = call_killbill :get, "/1.0/kb/invoices/#{invoice_id}/html"
         data[:body] if data.present?
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -262,7 +248,6 @@ module Kaui
                              "X-Killbill-Comment" => "#{comment}"
         return data[:code] < 300
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -290,7 +275,6 @@ module Kaui
         end
         return data[:code] < 300
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -303,7 +287,6 @@ module Kaui
           data[:json].inject({}) {|catalog_hash, item| catalog_hash.merge!(item["planName"] => item) }
         end
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -314,7 +297,6 @@ module Kaui
           data[:json].inject({}) {|catalog_hash, item| catalog_hash.merge!(item["planName"] => item) }
         end
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -325,7 +307,6 @@ module Kaui
         data = call_killbill :get, "/1.0/kb/payments/#{payment_id}"
         process_response(data, :single) { |json| Kaui::Payment.new(json) }
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -335,7 +316,6 @@ module Kaui
         response_data = process_response(data, :multiple) {|json| Kaui::Payment.new(json) }
         return response_data
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
         []
       end
     end
@@ -357,22 +337,18 @@ module Kaui
           return false
         end
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
     ############## PAYMENT METHOD ##############
 
-    def self.delete_payment_method(payment_method_id, current_user = nil, reason = nil, comment = nil)
-      begin
-        call_killbill :delete,
-                      "/1.0/kb/paymentMethods/#{payment_method_id}",
-                      "X-Killbill-CreatedBy" => current_user,
-                      "X-Killbill-Reason" => "#{reason}",
-                      "X-Killbill-Comment" => "#{comment}"
-      rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
-      end
+    def self.delete_payment_method(payment_method_id, set_auto_pay_off = false,  current_user = nil, reason = nil, comment = nil)
+      set_auto_pay_off_param = "?deleteDefaultPmWithAutoPayOff=true" if set_auto_pay_off
+      call_killbill :delete,
+                    "/1.0/kb/paymentMethods/#{payment_method_id}#{set_auto_pay_off_param}",
+                    "X-Killbill-CreatedBy" => current_user,
+                    "X-Killbill-Reason" => "#{reason}",
+                    "X-Killbill-Comment" => "#{comment}"
     end
 
     def self.get_payment_methods(account_id)
@@ -380,7 +356,6 @@ module Kaui
         data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/paymentMethods?withPluginInfo=true"
         process_response(data, :multiple) {|json| Kaui::PaymentMethod.new(json) }
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -389,7 +364,6 @@ module Kaui
         data = call_killbill :get, "/1.0/kb/paymentMethods/#{payment_method_id}?withPluginInfo=true"
         process_response(data, :single) {|json| Kaui::PaymentMethod.new(json) }
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -403,7 +377,6 @@ module Kaui
                                    "X-Killbill-Comment" => "#{comment}"
         return data[:code] < 300
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -418,45 +391,31 @@ module Kaui
                                     "X-Killbill-Comment" => "#{comment}"
         return data[:code] < 300
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
     ############## REFUND ##############
 
     def self.get_refund(refund_id)
-      begin
-        data = call_killbill :get, "/1.0/kb/refunds/#{refund_id}"
-        process_response(data, :single) { |json| Kaui::Refund.new(json) }
-      rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
-      end
+      data = call_killbill :get, "/1.0/kb/refunds/#{refund_id}"
+      process_response(data, :single) { |json| Kaui::Refund.new(json) }
     end
 
     def self.get_refunds_for_payment(payment_id)
-      begin
-        data = call_killbill :get, "/1.0/kb/payments/#{payment_id}/refunds"
-        process_response(data, :multiple) {|json| Kaui::Refund.new(json) }
-      rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
-      end
+      data = call_killbill :get, "/1.0/kb/payments/#{payment_id}/refunds"
+      process_response(data, :multiple) {|json| Kaui::Refund.new(json) }
     end
 
     def self.create_refund(payment_id, refund, current_user = nil, reason = nil, comment = nil)
-      begin
-        refund_data = Kaui::Refund.camelize(refund.to_hash)
+      refund_data = Kaui::Refund.camelize(refund.to_hash)
 
-        data = call_killbill :post,
-                      "/1.0/kb/payments/#{payment_id}/refunds",
-                      ActiveSupport::JSON.encode(refund_data, :root => false),
-                      :content_type => "application/json",
-                      "X-Killbill-CreatedBy" => current_user,
-                      "X-Killbill-Reason" => extract_reason_code(reason),
-                      "X-Killbill-Comment" => "#{comment}"
-        return data[:code] < 300
-      rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
-      end
+      call_killbill :post,
+                    "/1.0/kb/payments/#{payment_id}/refunds",
+                    ActiveSupport::JSON.encode(refund_data, :root => false),
+                    :content_type => "application/json",
+                    "X-Killbill-CreatedBy" => current_user,
+                    "X-Killbill-Reason" => extract_reason_code(reason),
+                    "X-Killbill-Comment" => "#{comment}"
     end
 
     ############## CHARGEBACK ##############
@@ -466,7 +425,6 @@ module Kaui
         data = call_killbill :get, "/1.0/kb/chargebacks/payments/#{payment_id}"
         process_response(data, :multiple) {|json| Kaui::Chargeback.new(json) }
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -483,7 +441,6 @@ module Kaui
                              "X-Killbill-Comment" => "#{comment}"
         return data[:code] < 300
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -501,7 +458,6 @@ module Kaui
                              "X-Killbill-Comment" => "#{comment}"
         return data[:code] < 300
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -512,7 +468,6 @@ module Kaui
         data = call_killbill :get, "/1.0/kb/tagDefinitions"
         process_response(data, :single) {|json| Kaui::Tag.new(json) }
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
         []
       end
     end
@@ -522,7 +477,6 @@ module Kaui
         data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/tags"
         return data[:json]
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -531,7 +485,6 @@ module Kaui
         data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}/tags"
         return data[:json]
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -549,7 +502,6 @@ module Kaui
           return data[:code] == 201
         end
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -566,7 +518,6 @@ module Kaui
           return data[:code] == 201
         end
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 

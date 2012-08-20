@@ -42,31 +42,36 @@ class Kaui::BundlesController < Kaui::EngineController
     bundle_id = params[:id]
     key = params[:new_account_key]
     if key.present?
-      # support id (UUID) and external key search
-      if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
-        result = Kaui::KillbillHelper.get_account(key)
-      else
-        result = Kaui::KillbillHelper.get_account_by_external_key(key)
+      begin
+        result = Kaui::KillbillHelper.get_account_by_key(key, false)
+      rescue => e
+        flash[:error] = "Error while retrieving account for #{key}: #{e.message} #{e.response}"
+        render :action => :index
+        return
       end
       if bundle_id.present? && result.is_a?(Kaui::Account)
         @new_account = result
-        success = Kaui::KillbillHelper::transfer_bundle(bundle_id, @new_account.account_id)
-        if success
-          flash[:info] = "Bundle transfered successfully"
-          redirect_to Kaui.account_home_path.call(@new_account.external_key)
-          return
-        else
-          flash[:error] = "Error transfering bundle"
+        begin
+          Kaui::KillbillHelper::transfer_bundle(bundle_id, @new_account.account_id)
+        rescue => e
+          flash[:error] = "Error transfering bundle #{e.message} #{e.response}"
         end
+        redirect_to Kaui.account_home_path.call(@new_account.external_key)
+        return
       else
         flash[:error] = "Could not retrieve account #{result}"
       end
     else
       flash[:error] = "No account key given"
     end
-    @bundle = Kaui::KillbillHelper::get_bundle(bundle_id)
-    @account = Kaui::KillbillHelper::get_account_by_bundle_id(bundle_id)
-    render :transfer
+
+    begin
+      @bundle = Kaui::KillbillHelper::get_bundle(bundle_id)
+      @account = Kaui::KillbillHelper::get_account_by_bundle_id(bundle_id)
+    rescue => e
+      flash[:error] = "Error while redirecting: #{e.message} #{e.response}"
+      render :transfer
+    end
   end
 
 end

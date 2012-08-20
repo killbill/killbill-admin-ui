@@ -11,11 +11,12 @@ class Kaui::AccountsController < Kaui::EngineController
   def show
     key = params[:id]
     if key.present?
-      # support id (UUID) and external key search
-      if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
-        @account = Kaui::KillbillHelper::get_account(key, true)
-      else
-        @account = Kaui::KillbillHelper::get_account_by_external_key(key, true)
+      begin
+        @account = Kaui::KillbillHelper::get_account_by_key(key, true)
+      rescue => e
+        flash[:error] = "Error while retrieving the account for #{id}: #{e.message} #{e.response}"
+        render :action => :index
+        return
       end
 
       if @account.present? and @account.is_a? Kaui::Account
