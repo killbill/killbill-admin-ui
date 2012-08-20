@@ -20,17 +20,21 @@ class Kaui::AccountsController < Kaui::EngineController
       end
 
       if @account.present? and @account.is_a? Kaui::Account
-        @tags = Kaui::KillbillHelper::get_tags_for_account(@account.account_id).sort
-        @account_emails = Kaui::AccountEmail.where(:account_id => @account.account_id)
-        @payment_methods = Kaui::KillbillHelper::get_payment_methods(@account.account_id)
-        @bundles = Kaui::KillbillHelper::get_bundles(@account.account_id)
-        @subscriptions_by_bundle_id = {}
+        begin
+          @tags = Kaui::KillbillHelper::get_tags_for_account(@account.account_id).sort
+          @account_emails = Kaui::AccountEmail.where(:account_id => @account.account_id)
+          @payment_methods = Kaui::KillbillHelper::get_payment_methods(@account.account_id)
+          @bundles = Kaui::KillbillHelper::get_bundles(@account.account_id)
+          @subscriptions_by_bundle_id = {}
 
-        @bundles.each do |bundle|
-          subscriptions = Kaui::KillbillHelper::get_subscriptions_for_bundle(bundle.bundle_id)
-          if subscriptions.present?
-            @subscriptions_by_bundle_id[bundle.bundle_id.to_s] = (@subscriptions_by_bundle_id[bundle.bundle_id.to_s] || []) + subscriptions
+          @bundles.each do |bundle|
+            subscriptions = Kaui::KillbillHelper::get_subscriptions_for_bundle(bundle.bundle_id)
+            if subscriptions.present?
+              @subscriptions_by_bundle_id[bundle.bundle_id.to_s] = (@subscriptions_by_bundle_id[bundle.bundle_id.to_s] || []) + subscriptions
+            end
           end
+        rescue => e
+          flash[:error] = "Error while retrieving account information for account: #{e.message} #{e.response}"
         end
       else
         flash[:error] = "Account #{@account_id} not found: #{@account}"

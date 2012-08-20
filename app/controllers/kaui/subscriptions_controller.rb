@@ -18,13 +18,17 @@ class Kaui::SubscriptionsController < Kaui::EngineController
   def new
     bundle_id = params[:bundle_id]
     @base_subscription = params[:base_subscription]
-    @bundle = Kaui::KillbillHelper::get_bundle(bundle_id)
-    if @base_subscription.present?
-      @catalog = Kaui::KillbillHelper::get_available_addons(@base_subscription)
-    else
-      @catalog = Kaui::KillbillHelper::get_available_base_plans()
-    end
+    begin
+      @bundle = Kaui::KillbillHelper::get_bundle(bundle_id)
 
+      if @base_subscription.present?
+        @catalog = Kaui::KillbillHelper::get_available_addons(@base_subscription)
+      else
+        @catalog = Kaui::KillbillHelper::get_available_base_plans()
+      end
+    rescue => e
+      flash[:error] = "Error while trying to start new subscription creation: #{e.message} #{e.response}"
+    end
     @subscription = Kaui::Subscription.new("bundleId" => bundle_id)
   end
 
@@ -50,7 +54,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       Kaui::KillbillHelper::create_subscription(@subscription, current_user)
       redirect_to Kaui.bundle_home_path.call(@bundle.external_key)
     rescue => e
-      flash[:error] = e.message
+      flash[:error] = "Error while creating the new subscription: #{e.message} #{e.response}"
       render :new
     end
   end
@@ -64,14 +68,18 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     @billing_period = params[:billing_period]
     @price_list = params[:price_list]
 
-    @subscription = Kaui::Subscription.new(:bundle_id => @bundle_id,
-                                           :product_name => @product_name,
-                                           :product_category => @product_category,
-                                           :billing_period => @billing_period,
-                                           :price_list => @price_list)
+    begin
+      @subscription = Kaui::Subscription.new(:bundle_id => @bundle_id,
+                                             :product_name => @product_name,
+                                             :product_category => @product_category,
+                                             :billing_period => @billing_period,
+                                             :price_list => @price_list)
 
-    @bundle = Kaui::KillbillHelper.get_bundle(subscription.bundle_id)
-    @available_plans = Kaui::KillbillHelper.get_available_addons(params[:base_product_name])
+      @bundle = Kaui::KillbillHelper.get_bundle(subscription.bundle_id)
+      @available_plans = Kaui::KillbillHelper.get_available_addons(params[:base_product_name])
+    rescue => e
+      flash[:error] = "Error while adding an addon: #{e.message} #{e.response}"
+    end
   end
 
   def edit
@@ -95,21 +103,26 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
   def update
     if params.has_key?(:subscription) && params[:subscription].has_key?(:subscription_id)
-      subscription = Kaui::KillbillHelper::get_subscription(params[:subscription][:subscription_id])
-      bundle = Kaui::KillbillHelper::get_bundle(subscription.bundle_id)
-      catalog = Kaui::KillbillHelper::get_available_base_plans
 
-      plan = catalog[params[:plan_name]]
-      requested_date = params[:requested_date]
+      begin
+        subscription = Kaui::KillbillHelper::get_subscription(params[:subscription][:subscription_id])
+        bundle = Kaui::KillbillHelper::get_bundle(subscription.bundle_id)
+        catalog = Kaui::KillbillHelper::get_available_base_plans
 
-      subscription.billing_period = plan["billingPeriod"]
-      subscription.product_category = plan["productCategory"]
-      subscription.product_name = plan["productName"]
-      subscription.price_list = plan["priceListName"]
-      subscription.subscription_id = params[:subscription][:subscription_id]
+        plan = catalog[params[:plan_name]]
+        requested_date = params[:requested_date]
 
-      Kaui::KillbillHelper::update_subscription(subscription, requested_date, current_user)
-      redirect_to Kaui.bundle_home_path.call(bundle.external_key)
+        subscription.billing_period = plan["billingPeriod"]
+        subscription.product_category = plan["productCategory"]
+        subscription.product_name = plan["productName"]
+        subscription.price_list = plan["priceListName"]
+        subscription.subscription_id = params[:subscription][:subscription_id]
+
+        Kaui::KillbillHelper::update_subscription(subscription, requested_date, current_user)
+        redirect_to Kaui.bundle_home_path.call(bundle.external_key)
+      rescue => e
+        flash[:error] = "Error while updating subscription: #{e.message} #{e.response}"
+      end
     else
       flash[:error] = "No subscription given"
       redirect_to :back
