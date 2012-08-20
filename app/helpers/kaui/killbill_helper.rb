@@ -223,7 +223,8 @@ module Kaui
       begin
         subscription_data = Kaui::Subscription.camelize(subscription.to_hash)
         date_param = "?requestedDate=" + requested_date.to_s unless requested_date.blank?
-
+        # We don't want to pass events
+        subscription_data.delete(:events)
         data = call_killbill :put,
                              "/1.0/kb/subscriptions/#{subscription.subscription_id}#{date_param}",
                              ActiveSupport::JSON.encode(subscription_data, :root => false),
