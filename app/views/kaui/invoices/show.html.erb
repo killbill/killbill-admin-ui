@@ -51,7 +51,7 @@
         <% bundle = @bundles[item.bundle_id] %>
         <tr id=<%= "invoice_item_#{item.invoice_item_id}_#{item.linked_invoice_item_id}" %>>
           <td>
-            <%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.bundle_id) if bundle.present? and bundle.external_key.present? %>
+            <%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.external_key) if bundle.present? and bundle.external_key.present? %>
           </td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.description %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= format_date(item.start_date).html_safe if item.start_date %></td>
