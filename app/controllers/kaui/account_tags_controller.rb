@@ -42,7 +42,7 @@ class Kaui::AccountTagsController < Kaui::EngineController
     Kaui::KillbillHelper::remove_tags_for_account(params[:account_id], tags_to_remove)
     Kaui::KillbillHelper::add_tags_for_account(params[:account_id], tags_to_add)
 
-    redirect_to Kaui.account_home_path.call(params[:account_id])
+    redirect_to kaui_engine.account_path(params[:account_id])
   end
 
 end

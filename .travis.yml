@@ -25,3 +25,6 @@ matrix:
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-head
+
+env:
+  - MYSQL_PASSWORD=''

@@ -42,6 +42,6 @@ class Kaui::ChargebacksController < Kaui::EngineController
     else
       flash[:error] = "No chargeback to process"
     end
-    redirect_to account_timeline_path(:id => params[:account_id])
+    redirect_to kaui_engine.account_timeline_path(:id => params[:account_id])
   end
 end

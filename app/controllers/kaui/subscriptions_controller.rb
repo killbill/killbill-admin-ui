@@ -3,7 +3,7 @@ require 'kaui/product'
 class Kaui::SubscriptionsController < Kaui::EngineController
   def index
     if params[:subscription_id].present?
-      redirect_to subscription_path(params[:subscription_id])
+      redirect_to kaui_engine.subscription_path(params[:subscription_id])
     end
   end
 
@@ -105,12 +105,11 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       subscription.billing_period = plan["billingPeriod"]
       subscription.product_category = plan["productCategory"]
       subscription.product_name = plan["productName"]
-      subscription.price_list = params[:subscription][:price_list]
+      subscription.price_list = plan["priceListName"]
       subscription.subscription_id = params[:subscription][:subscription_id]
-      # TODO: need to use entered start_date (or current date if none entered)
 
       Kaui::KillbillHelper::update_subscription(subscription, requested_date, current_user)
-      redirect_to Kaui.bundle_home_path.call(bundle.bundle_id)
+      redirect_to Kaui.bundle_home_path.call(bundle.external_key)
     else
       flash[:error] = "No subscription given"
       redirect_to :back

@@ -4,18 +4,19 @@ require 'json'
 class Kaui::AccountsController < Kaui::EngineController
   def index
     if params[:account_id].present?
-      redirect_to account_path(params[:account_id])
+      redirect_to kaui_engine.account_path(params[:account_id])
     end
   end
 
   def show
     key = params[:id]
     if key.present?
-      # support id (UUID) and external key search
-      if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
-        @account = Kaui::KillbillHelper::get_account(key, true)
-      else
-        @account = Kaui::KillbillHelper::get_account_by_external_key(key, true)
+      begin
+        @account = Kaui::KillbillHelper::get_account_by_key(key, true)
+      rescue => e
+        flash[:error] = "Error while retrieving the account for #{id}: #{e.message} #{e.response}"
+        render :action => :index
+        return
       end
 
       if @account.present? and @account.is_a? Kaui::Account
@@ -108,7 +109,7 @@ class Kaui::AccountsController < Kaui::EngineController
 
       if success
         flash[:info] = "Payment method created"
-        redirect_to account_timeline_path(@account.account_id)
+        redirect_to kaui_engine.account_timeline_path(@account.account_id)
         return
       else
         flash[:error] = "Error while adding payment method"

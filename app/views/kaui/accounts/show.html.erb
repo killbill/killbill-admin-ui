@@ -31,12 +31,12 @@
     <dt>External key:</dt>
     <dd><%= @account.external_key %>&nbsp;</dd>
     <dt>Account balance:</dt>
-    <% if @account.balance.nil? %>    
-        <dd>unknown &nbsp;</dd>    
+    <% if @account.balance.nil? %>
+        <dd>unknown &nbsp;</dd>
     <% elsif @account.balance <= 0  %>
         <dd><span class="label label-success" ><%= @account.balance %></span> &nbsp;</dd>
     <% else %>
-        <dd><span class="label label-important" ><%= @account.balance %></span>&nbsp;</dd>    
+        <dd><span class="label label-important" ><%= @account.balance %></span>&nbsp;</dd>
     <% end %>
     <dt>Notified for inv?</dt>
     <dd><%= @account.is_notified_for_invoices %>&nbsp;<%= link_to "Toggle", kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post, :class => 'btn btn-mini' %></dd>
@@ -54,7 +54,7 @@
   <% @bundles.each do |bundle| %>
     <% subs = @subscriptions_by_bundle_id[bundle.bundle_id] %>
     <% if subs.present? %>
-      <h2>Bundle <%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.bundle_id) if bundle.external_key.present? %>&nbsp;</h2>
+      <h2>Bundle <%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.external_key) if bundle.external_key.present? %>&nbsp;</h2>
       <%= render :partial => "kaui/subscriptions/subscriptions_table", :locals => { :subscriptions => subs } %>
     <% end %>
   <% end %>

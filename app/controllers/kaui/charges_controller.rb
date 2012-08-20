@@ -26,7 +26,7 @@ class Kaui::ChargesController < Kaui::EngineController
     else
       flash[:error] = "No charge to process"
     end
-    redirect_to account_timeline_path(:id => charge.account_id)
+    redirect_to kaui_engine.account_timeline_path(:id => charge.account_id)
   end
 
 end
