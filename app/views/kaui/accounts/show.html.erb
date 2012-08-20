@@ -34,9 +34,9 @@
     <% if @account.balance.nil? %>
         <dd>unknown &nbsp;</dd>
     <% elsif @account.balance <= 0  %>
-        <dd><span class="label label-success" ><%= @account.balance %></span> &nbsp;</dd>
+        <dd><span class="label label-success" ><%= @account.balance.abs %></span> &nbsp;</dd>
     <% else %>
-        <dd><span class="label label-important" ><%= @account.balance %></span>&nbsp;</dd>
+        <dd><span class="label label-important" ><%= @account.balance.abs %></span>&nbsp;</dd>
     <% end %>
     <dt>Notified for inv?</dt>
     <dd><%= @account.is_notified_for_invoices %>&nbsp;<%= link_to "Toggle", kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post, :class => 'btn btn-mini' %></dd>
