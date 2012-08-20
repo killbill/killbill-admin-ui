@@ -64,7 +64,7 @@
     <div class="control-group">
       <%= label_tag :requested_date, 'Requested Date:', :class => "control-label" %>
       <div class="controls">
-        <%= text_field_tag :requested_date, nil, :class => 'input-xlarge date-picker' %>
+        <%= text_field_tag :requested_date, Time.now.utc.iso8601, :class => 'input-xlarge date-picker' %>
       </div>
     </div>
     <div class="control-group">
