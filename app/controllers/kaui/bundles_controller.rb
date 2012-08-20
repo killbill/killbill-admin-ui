@@ -9,19 +9,18 @@ class Kaui::BundlesController < Kaui::EngineController
   def show
     key = params[:id]
     if key.present?
-      # support id (UUID) and external key search
-      if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
-        @bundle = Kaui::KillbillHelper.get_bundle(key)
-      else
-        @bundle = Kaui::KillbillHelper.get_bundle_by_external_key(key, params[:account_id])
-      end
+      begin
+        @bundle = Kaui::KillbillHelper::get_bundle_by_key(key, params[:account_id])
 
-      if @bundle.present?
-        @account = Kaui::KillbillHelper::get_account_by_bundle_id(@bundle.bundle_id)
-        @subscriptions = Kaui::KillbillHelper.get_subscriptions_for_bundle(@bundle.bundle_id)
-      else
-        flash[:error] = "Bundle #{key} not found"
-        render :action => :index
+        if @bundle.present?
+          @account = Kaui::KillbillHelper::get_account_by_bundle_id(@bundle.bundle_id)
+          @subscriptions = Kaui::KillbillHelper::get_subscriptions_for_bundle(@bundle.bundle_id)
+        else
+          flash[:error] = "Bundle #{key} not found"
+          render :action => :index
+        end
+      rescue => e
+        flash[:error] = "Error while retrieving bundle information for #{key}: #{e.message} #{e.response}"
       end
     else
       flash[:error] = "No id given"

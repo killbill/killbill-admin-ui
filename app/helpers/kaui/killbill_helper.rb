@@ -105,7 +105,6 @@ module Kaui
                              "X-Killbill-Comment" => "#{comment}"
         return data[:code] < 300
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
@@ -121,77 +120,60 @@ module Kaui
                              "X-Killbill-Comment" => "#{comment}"
         return data[:code] = 200
       rescue => e
-        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
     ############## BUNDLE ##############
 
-    def self.get_bundles(account_id)
-      begin
-        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/bundles"
-        process_response(data, :multiple) {|json| Kaui::Bundle.new(json) }
-      rescue RestClient::BadRequest
-        []
-      rescue => e
+    def self.get_bundle_by_key(key, account_id)
+      # support id (UUID) and external key search
+      if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
+        @bundle = Kaui::KillbillHelper::get_bundle(key)
+      else
+        @bundle = Kaui::KillbillHelper::get_bundle_by_external_key(key, account_id)
       end
+    end
+
+    def self.get_bundles(account_id)
+      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/bundles"
+      process_response(data, :multiple) {|json| Kaui::Bundle.new(json) }
     end
 
     def self.get_bundle_by_external_key(account_id, external_key)
-      begin
-        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/bundles?externalKey=#{external_key}"
-        process_response(data, :single) {|json| Kaui::Bundle.new(json) }
-      rescue => e
-      end
+      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/bundles?externalKey=#{external_key}"
+      process_response(data, :single) {|json| Kaui::Bundle.new(json) }
     end
 
     def self.get_bundle(bundle_id)
-      begin
-        data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}"
-        process_response(data, :single) {|json| Kaui::Bundle.new(json) }
-      rescue => e
-      end
+      data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}"
+      process_response(data, :single) {|json| Kaui::Bundle.new(json) }
     end
 
     def self.transfer_bundle(bundle_id, new_account_id, cancel_immediately = false, transfer_addons = true, current_user = nil, reason = nil, comment = nil)
-      begin
-        data = call_killbill :put,
-                             "/1.0/kb/bundles/#{bundle_id}?cancelImmediately=#{cancel_immediately}&transferAddOn=#{transfer_addons}",
-                             ActiveSupport::JSON.encode("accountId" => new_account_id),
-                             :content_type => :json,
-                             "X-Killbill-CreatedBy" => current_user,
-                             "X-Killbill-Reason" => "#{reason}",
-                             "X-Killbill-Comment" => "#{comment}"
-        return data[:code] < 300
-
-      rescue => e
-      end
+      data = call_killbill :put,
+                           "/1.0/kb/bundles/#{bundle_id}?cancelImmediately=#{cancel_immediately}&transferAddOn=#{transfer_addons}",
+                           ActiveSupport::JSON.encode("accountId" => new_account_id),
+                           :content_type => :json,
+                           "X-Killbill-CreatedBy" => current_user,
+                           "X-Killbill-Reason" => "#{reason}",
+                           "X-Killbill-Comment" => "#{comment}"
+      return data[:code] < 300
     end
 
     ############## SUBSCRIPTION ##############
 
     def self.get_subscriptions_for_bundle(bundle_id)
-      begin
-        data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}/subscriptions"
-        process_response(data, :multiple) {|json| Kaui::Subscription.new(json) }
-      rescue RestClient::BadRequest
-        []
-      rescue => e
-      end
+      data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}/subscriptions"
+      process_response(data, :multiple) {|json| Kaui::Subscription.new(json) }
     end
 
     def self.get_subscriptions(account_id)
-      begin
         subscriptions = []
         bundles = get_bundles(account_id)
         bundles.each do |bundle|
           subscriptions += get_subscriptions_for_bundle(bundle.bundle_id)
         end
         subscriptions
-      rescue RestClient::BadRequest
-        []
-      rescue => e
-      end
     end
 
     def self.get_subscription(subscription_id)
@@ -338,22 +320,16 @@ module Kaui
     ############## CATALOG ##############
 
     def self.get_available_addons(base_product_name)
-      begin
-        data = call_killbill :get, "/1.0/kb/catalog/availableAddons?baseProductName=#{base_product_name}"
-        if data.has_key?(:json)
-          data[:json].inject({}) {|catalog_hash, item| catalog_hash.merge!(item["planName"] => item) }
-        end
-      rescue => e
+      data = call_killbill :get, "/1.0/kb/catalog/availableAddons?baseProductName=#{base_product_name}"
+      if data.has_key?(:json)
+        data[:json].inject({}) {|catalog_hash, item| catalog_hash.merge!(item["planName"] => item) }
       end
     end
 
     def self.get_available_base_plans()
-      begin
-        data = call_killbill :get, "/1.0/kb/catalog/availableBasePlans"
-        if data.has_key?(:json)
-          data[:json].inject({}) {|catalog_hash, item| catalog_hash.merge!(item["planName"] => item) }
-        end
-      rescue => e
+      data = call_killbill :get, "/1.0/kb/catalog/availableBasePlans"
+      if data.has_key?(:json)
+        data[:json].inject({}) {|catalog_hash, item| catalog_hash.merge!(item["planName"] => item) }
       end
     end
 
