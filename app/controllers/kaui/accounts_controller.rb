@@ -11,12 +11,17 @@ class Kaui::AccountsController < Kaui::EngineController
   def show
     key = params[:id]
     if key.present?
+      # Remove extra whitespaces
+      key.strip!
+
       begin
         @account = Kaui::KillbillHelper::get_account_by_key(key, true)
+      rescue URI::InvalidURIError => e
+        flash[:error] = "Error while retrieving the account for #{key}: #{e.message}"
+        render :action => :index and return
       rescue => e
-        flash[:error] = "Error while retrieving the account for #{id}: #{e.message} #{e.response}"
-        render :action => :index
-        return
+        flash[:error] = "Error while retrieving the account for #{key}: #{e.message} #{e.response}"
+        render :action => :index and return
       end
 
       if @account.present? and @account.is_a? Kaui::Account

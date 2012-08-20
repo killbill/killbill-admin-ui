@@ -30,7 +30,7 @@ test:
   database: kaui_test
   pool: 5
   username: root
-  password: root
+  password: <%= ENV['MYSQL_PASSWORD'] || 'root' %>
 
 production:
   adapter: mysql2

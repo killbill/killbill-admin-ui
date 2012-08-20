@@ -27,7 +27,7 @@ class Kaui::BundleTagsController < Kaui::EngineController
       tags = params[:tags]
 
       Kaui::KillbillHelper::set_tags_for_bundle(bundle.bundle_id, tags)
-      redirect_to Kaui.bundle_home_path.call(bundle.external_key)
+      redirect_to Kaui.bundle_home_path.call(bundle.bundle_id)
     rescue => e
       flash[:error] = "Error while updating tags: #{e.message} #{e.response}"
     end
