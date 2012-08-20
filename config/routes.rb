@@ -1,4 +1,6 @@
 Kaui::Engine.routes.draw do
+  resources :tag_definitions
+
   root :to => "home#index"
 
   resources :accounts, :only => [ :index, :show ] do
@@ -8,8 +10,11 @@ Kaui::Engine.routes.draw do
       get :add_payment_method
       post :do_add_payment_method
       delete :delete_payment_method
+      post :toggle_email_notifications
 		end
   end
+
+  resources :account_emails, :only => [ :create, :new, :show, :destroy ]
 
   resources :account_timelines, :only => [ :index, :show ] do
     member do

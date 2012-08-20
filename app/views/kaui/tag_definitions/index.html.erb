@@ -1,0 +1,34 @@
+<h2>Tag definitions</h2>
+
+<table id='invoice_table' class='table table-condensed data-table'>
+  <thead>
+    <tr>
+      <th style='width: 30%'>Id</th>
+      <th style='width: 20%'>Name</th>
+      <th style='width: 35%'>Description</th>
+      <th style='width: 5%'></th>
+      <!-- <th style='width: 5%'></th> -->
+      <th style='width: 5%'></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tag_definitions.each do |tag_definition| %>
+      <tr>
+        <td><%= tag_definition.id %></td>
+        <td><%= tag_definition.name %></td>
+        <td><%= tag_definition.description %></td>
+        <td><%= link_to 'Show', tag_definition %></td>
+        <!-- ><td><%= link_to 'Edit', edit_tag_definition_path(tag_definition) %></td> -->
+        <td>
+          <% unless tag_definition.is_system_tag? %>
+            <%= link_to 'Destroy', tag_definition, :confirm => 'Are you sure?', :method => :delete %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Tag definition', kaui_engine.new_tag_definition_path, :class => 'btn btn-primary' %>

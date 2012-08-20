@@ -35,6 +35,6 @@ class Kaui::CreditsController < Kaui::EngineController
       flash[:error] = "Error while creating credit"
     end
     account = Kaui::KillbillHelper::get_account(credit.account_id)
-    redirect_to Kaui.account_home_path.call(account.external_key)
+    redirect_to kaui_engine.account_home_path.call(account.external_key)
   end
 end

@@ -2,7 +2,7 @@ class Kaui::BundlesController < Kaui::EngineController
 
   def index
     if params[:bundle_id].present?
-      redirect_to bundle_path(params[:bundle_id])
+      redirect_to kaui_engine.bundle_path(params[:bundle_id])
     end
   end
 
@@ -53,6 +53,7 @@ class Kaui::BundlesController < Kaui::EngineController
         @new_account = result
         begin
           Kaui::KillbillHelper::transfer_bundle(bundle_id, @new_account.account_id)
+          flash[:info] = "Bundle transfered successfully"
         rescue => e
           flash[:error] = "Error transfering bundle #{e.message} #{e.response}"
         end

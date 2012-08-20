@@ -20,7 +20,7 @@ class Kaui::PaymentsController < Kaui::EngineController
     else
       flash[:error] = "No payment to process"
     end
-    redirect_to account_timeline_path(:id => payment.account_id)
+    redirect_to kaui_engine.account_timeline_path(:id => payment.account_id)
   end
 
 end

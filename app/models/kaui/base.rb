@@ -3,6 +3,8 @@ class Kaui::Base
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
+  attr_reader :errors
+
   @@attribute_names = {}
 
   def self.define_attr(*args)
@@ -42,6 +44,12 @@ class Kaui::Base
       val = send("#{name}")
       send("#{name}=", []) if val.nil? and !type_desc.nil? and type_desc[:cardinality] == :many
     end
+
+    # Mark the record as persisted if we have an id
+    @persisted = to_param.present?
+
+    # Errors for form validations
+    @errors = ActiveModel::Errors.new(self)
   end
 
   def attributes=(values)
@@ -117,6 +125,54 @@ class Kaui::Base
   end
 
   def persisted?
+    @persisted
+  end
+
+  def new_record?
+    !persisted?
+  end
+
+  def to_param
+    # id is a string (killbill UUID)
+    @id
+  end
+
+  def read_attribute_for_validation(attr)
+    send(attr)
+  end
+
+  def self.human_attribute_name(attr, options = {})
+    attr
+  end
+
+  def self.lookup_ancestors
+    [self]
+  end
+
+  def self.all
+    []
+  end
+
+  def self.count
+    all.count
+  end
+
+  def self.find(id)
+    nil
+  end
+
+  def save
+    @errors.add(:save, 'Saving this object is not yet supported')
+    false
+  end
+
+  def update_attributes(tag_definition)
+    @errors.add(:update, 'Updating this object is not yet supported')
+    false
+  end
+
+  def destroy
+    @errors.add(:destroy, 'Destroying this object is not yet supported')
     false
   end
 end

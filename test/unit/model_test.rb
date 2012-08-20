@@ -8,7 +8,7 @@ module Kaui
         {
            "payments": [
              {
-               "account": 125.0,
+               "amount": 125.0,
                "invoice_id": "the_invoice_id_1",
                "requested_date": "2012-03-15T15:35:23.000Z",
                "effective_date": "2012-03-15T15:35:23.000Z",
@@ -16,7 +16,7 @@ module Kaui
                "payment_id": "the_payment_id_1"
              },
              {
-               "account": 33.45,
+               "amount": 33.45,
                "invoice_id": "the_invoice_id_2",
                "requested_date": "2012-03-21T15:35:23.000Z",
                "effective_date": "2012-03-21T15:35:23.000Z",
@@ -24,7 +24,7 @@ module Kaui
                "payment_id": "the_payment_id_2"
              },
              {
-               "account": 75.34,
+               "amount": 75.34,
                "invoice_id": "the_invoice_id_3",
                "requested_date": "2012-05-12T15:34:23.000Z",
                "effective_date": "2012-05-12T15:34:23.000Z",

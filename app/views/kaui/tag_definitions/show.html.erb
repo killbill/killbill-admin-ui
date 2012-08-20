@@ -1,0 +1,12 @@
+<h2>Tag definition</h2>
+<dl class='dl-horizontal'>
+  <dt>Id:</dt>
+  <dd><%= @tag_definition.id %>&nbsp;</dd>
+  <dt>Name:</dt>
+  <dd><%= @tag_definition.name %>&nbsp;</dd>
+  <dt>Description:</dt>
+  <dd><%= @tag_definition.description %>&nbsp;</dd>
+</dl>
+
+<!-- <%= link_to 'Edit', kaui_engine.edit_tag_definition_path(@tag_definition), :class => 'btn btn-primary' %> -->
+<%= link_to 'Back', kaui_engine.tag_definitions_path, :class => 'btn' %>

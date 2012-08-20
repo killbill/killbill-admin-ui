@@ -71,6 +71,60 @@ module Kaui
       end
     end
 
+    def self.get_account_emails(account_id)
+      begin
+        data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/emails"
+        process_response(data, :multiple) { |json| Kaui::AccountEmail.new(json) }
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
+    def self.add_account_email(account_email, current_user = nil, reason = nil, comment = nil)
+      begin
+        account_email_data = Kaui::AccountEmail.camelize(account_email.to_hash)
+        data = call_killbill :post,
+                             "/1.0/kb/accounts/#{account_email.account_id}/emails",
+                             ActiveSupport::JSON.encode(account_email_data, :root => false),
+                             :content_type => "application/json",
+                             "X-Killbill-CreatedBy" => current_user,
+                             "X-Killbill-Reason" => extract_reason_code(reason),
+                             "X-Killbill-Comment" => "#{comment}"
+        return data[:code] = 201
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
+    def self.remove_account_email(account_email, current_user = nil, reason = nil, comment = nil)
+      begin
+        data = call_killbill :delete,
+                             "/1.0/kb/accounts/#{account_email.account_id}/emails/#{account_email.email}",
+                             "X-Killbill-CreatedBy" => current_user,
+                             "X-Killbill-Reason" => "#{reason}",
+                             "X-Killbill-Comment" => "#{comment}"
+        return data[:code] < 300
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
+    def self.update_email_notifications(account_id, is_notified, current_user = nil, reason = nil, comment = nil)
+      begin
+        email_data = { :isNotifiedForInvoices => is_notified }
+        data = call_killbill :put,
+                             "/1.0/kb/accounts/#{account_id}/emailNotifications",
+                             ActiveSupport::JSON.encode(email_data, :root => false),
+                             :content_type => "application/json",
+                             "X-Killbill-CreatedBy" => current_user,
+                             "X-Killbill-Reason" => extract_reason_code(reason),
+                             "X-Killbill-Comment" => "#{comment}"
+        return data[:code] = 200
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
     ############## BUNDLE ##############
 
     def self.get_bundles(account_id)
@@ -151,6 +205,8 @@ module Kaui
     def self.create_subscription(subscription, current_user = nil, reason = nil, comment = nil)
       begin
         subscription_data = Kaui::Subscription.camelize(subscription.to_hash)
+        # We don't want to pass events
+        subscription_data.delete(:events)
         data = call_killbill :post,
                              "/1.0/kb/subscriptions",
                              ActiveSupport::JSON.encode(subscription_data, :root => false),
@@ -466,16 +522,55 @@ module Kaui
     def self.get_tag_definitions
       begin
         data = call_killbill :get, "/1.0/kb/tagDefinitions"
-        process_response(data, :single) {|json| Kaui::Tag.new(json) }
+        process_response(data, :multiple) { |json| Kaui::TagDefinition.new(json) }
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+        []
+      end
+    end
+
+    def self.get_tag_definition(tag_definition_id)
+      begin
+        data = call_killbill :get, "/1.0/kb/tagDefinitions/#{tag_definition_id}"
+        process_response(data, :single) { |json| Kaui::TagDefinition.new(json) }
       rescue => e
         []
+      end
+    end
+
+    def self.create_tag_definition(tag_definition, current_user = nil, reason = nil, comment = nil)
+      begin
+        tag_definition_data = Kaui::TagDefinition.camelize(tag_definition.to_hash)
+        data = call_killbill :post,
+                             "/1.0/kb/tagDefinitions",
+                             ActiveSupport::JSON.encode(tag_definition_data, :root => false),
+                             :content_type => "application/json",
+                             "X-Killbill-CreatedBy" => current_user,
+                             "X-Killbill-Reason" => extract_reason_code(reason),
+                             "X-Killbill-Comment" => "#{comment}"
+        return data[:code] < 300
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
+    def self.delete_tag_definition(tag_definition_id, current_user = nil, reason = nil, comment = nil)
+      begin
+        data = call_killbill :delete,
+                             "/1.0/kb/tagDefinitions/#{tag_definition_id}",
+                             "X-Killbill-CreatedBy" => current_user,
+                             "X-Killbill-Reason" => "#{reason}",
+                             "X-Killbill-Comment" => "#{comment}"
+        return data[:code] < 300
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
       end
     end
 
     def self.get_tags_for_account(account_id)
       begin
         data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/tags"
-        return data[:json]
+        process_response(data, :multiple) { |json| Kaui::Tag.new(json) }
       rescue => e
       end
     end
@@ -489,18 +584,30 @@ module Kaui
     end
 
 
-    def self.set_tags_for_account(account_id, tags, current_user = nil, reason = nil, comment = nil)
+    def self.add_tags_for_account(account_id, tags, current_user = nil, reason = nil, comment = nil)
+      return true if !tags.present? || tags.size == 0
       begin
-        if tags.nil? || tags.empty?
-        else
-          data = call_killbill :post,
-                               "/1.0/kb/accounts/#{account_id}/tags?" + RestClient::Payload.generate(:tag_list => tags.join(",")).to_s,
-                               nil,
-                               "X-Killbill-CreatedBy" => current_user,
-                               "X-Killbill-Reason" => "#{reason}",
-                               "X-Killbill-Comment" => "#{comment}"
-          return data[:code] == 201
-        end
+        data = call_killbill :post,
+                             "/1.0/kb/accounts/#{account_id}/tags?" + RestClient::Payload.generate(:tagList => tags.join(",")).to_s,
+                             nil,
+                             "X-Killbill-CreatedBy" => current_user,
+                             "X-Killbill-Reason" => "#{reason}",
+                             "X-Killbill-Comment" => "#{comment}"
+        return data[:code] == 201
+      rescue => e
+        puts "#{$!}\n\t" + e.backtrace.join("\n\t")
+      end
+    end
+
+    def self.remove_tags_for_account(account_id, tags, current_user = nil, reason = nil, comment = nil)
+      return true if !tags.present? || tags.size == 0
+      begin
+        data = call_killbill :delete,
+                             "/1.0/kb/accounts/#{account_id}/tags?" + RestClient::Payload.generate(:tagList => tags.join(",")).to_s,
+                             "X-Killbill-CreatedBy" => current_user,
+                             "X-Killbill-Reason" => "#{reason}",
+                             "X-Killbill-Comment" => "#{comment}"
+        return data[:code] < 300
       rescue => e
       end
     end
