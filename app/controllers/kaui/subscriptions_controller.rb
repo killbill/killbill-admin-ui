@@ -48,7 +48,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
     begin
       Kaui::KillbillHelper::create_subscription(@subscription, current_user)
-      redirect_to Kaui.bundle_home_path.call(@bundle.external_key)
+      redirect_to Kaui.bundle_home_path.call(@bundle.bundle_id)
     rescue => e
       flash[:error] = e.message
       render :new
