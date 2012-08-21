@@ -34,9 +34,9 @@
     <% if @account.balance.nil? %>
         <dd>unknown
     <% elsif @account.balance <= 0  %>
-        <dd><span class="label label-success" ><%= @account.balance.abs %></span>
+        <dd><span class="label label-success" ><%= humanized_money_with_symbol @account.balance_to_money %></span>
     <% else %>
-        <dd><span class="label label-important" ><%= @account.balance.abs %></span>
+        <dd><span class="label label-important" ><%= humanized_money_with_symbol @account.balance_to_money %></span>
     <% end %>
         &nbsp;
         <nobr>

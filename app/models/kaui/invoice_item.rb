@@ -19,4 +19,8 @@ class Kaui::InvoiceItem < Kaui::Base
   define_attr :currency
   define_attr :linked_invoice_item_id
   define_attr :audit_logs
+
+  def amount_to_money
+    Kaui::Base.to_money(amount, currency)
+  end
 end

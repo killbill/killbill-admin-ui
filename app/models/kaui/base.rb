@@ -96,6 +96,14 @@ class Kaui::Base
     result
   end
 
+  def self.to_money(amount, currency)
+    begin
+      Money.new(amount.to_f * 100, currency)
+    rescue => e
+      Money.new(amount.to_f * 100, "USD")
+    end
+  end
+
   def self.camelize(value)
     case value
       when Array

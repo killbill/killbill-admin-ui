@@ -58,7 +58,7 @@
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= format_date(item.end_date).html_safe if item.end_date %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= format_date(sub.charged_through_date).html_safe if sub.present? %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= sub.price_list.downcase.capitalize if sub.present? and sub.price_list.present? %></td>
-          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.amount %>&nbsp;<%= item.currency %></td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= humanized_money_with_symbol item.amount_to_money %></td>
           <td><%= link_to "Adjust",
                           kaui_engine.edit_invoice_item_path(item.invoice_item_id, :invoice_id => @invoice.invoice_id),
                           :class => "btn btn-mini" if item.amount > 0 and item.subscription_id.present? %></td>

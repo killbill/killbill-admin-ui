@@ -26,4 +26,12 @@ class Kaui::Payment < Kaui::Base
   has_many :refunds, Kaui::Refund
   has_many :chargebacks, Kaui::Chargeback
   has_many :audit_logs, Kaui::AuditLog
+
+  def amount_to_money
+    Kaui::Base.to_money(amount, currency)
+  end
+
+  def paid_amount_to_money
+    Kaui::Base.to_money(paid_amount, currency)
+  end
 end
