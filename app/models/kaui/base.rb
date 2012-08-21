@@ -98,10 +98,10 @@ class Kaui::Base
 
   def self.to_money(amount, currency)
     begin
-      Money.new(amount.to_f * 100, currency)
+      return Money.new(amount.to_f * 100, currency)
     rescue => e
-      Money.new(amount.to_f * 100, "USD")
-    end
+    end if currency.present?
+    Money.new(amount.to_f * 100, "USD")
   end
 
   def self.camelize(value)
