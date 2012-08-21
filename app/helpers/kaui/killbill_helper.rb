@@ -75,21 +75,21 @@ module Kaui
 
     def self.add_account_email(account_email, current_user = nil, reason = nil, comment = nil)
       account_email_data = Kaui::AccountEmail.camelize(account_email.to_hash)
-      data = call_killbill :post,
-                           "/1.0/kb/accounts/#{account_email.account_id}/emails",
-                           ActiveSupport::JSON.encode(account_email_data, :root => false),
-                           :content_type => "application/json",
-                           "X-Killbill-CreatedBy" => current_user,
-                           "X-Killbill-Reason" => extract_reason_code(reason),
-                           "X-Killbill-Comment" => "#{comment}"
+      call_killbill :post,
+                    "/1.0/kb/accounts/#{account_email.account_id}/emails",
+                    ActiveSupport::JSON.encode(account_email_data, :root => false),
+                    :content_type => "application/json",
+                    "X-Killbill-CreatedBy" => current_user,
+                    "X-Killbill-Reason" => extract_reason_code(reason),
+                    "X-Killbill-Comment" => "#{comment}"
     end
 
     def self.remove_account_email(account_email, current_user = nil, reason = nil, comment = nil)
-      data = call_killbill :delete,
-                           "/1.0/kb/accounts/#{account_email.account_id}/emails/#{account_email.email}",
-                           "X-Killbill-CreatedBy" => current_user,
-                           "X-Killbill-Reason" => "#{reason}",
-                           "X-Killbill-Comment" => "#{comment}"
+      call_killbill :delete,
+                    "/1.0/kb/accounts/#{account_email.account_id}/emails/#{account_email.email}",
+                    "X-Killbill-CreatedBy" => current_user,
+                    "X-Killbill-Reason" => "#{reason}",
+                    "X-Killbill-Comment" => "#{comment}"
     end
 
     def self.update_email_notifications(account_id, is_notified, current_user = nil, reason = nil, comment = nil)
