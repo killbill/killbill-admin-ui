@@ -17,7 +17,7 @@
       <% subscriptions.each do |sub| %>
         <tr>
           <td><%= sub.product_category.downcase.capitalize if sub.product_category.present? %></td>
-          <td><%= sub.product_name.downcase.capitalize if sub.product_name.present? %> <%= sub.billing_period.downcase.capitalize if sub.billing_period.present? %> <% if sub.price_list.present? %> ( <%= sub.price_list.downcase.capitalize %> pricelist ) <% end %></td>
+          <td><%= sub.product_name.downcase.capitalize if sub.product_name.present? %> <%= sub.billing_period.downcase.capitalize if sub.billing_period.present? %> <% if sub.price_list.present? && sub.price_list.upcase != "DEFAULT" %> ( <%= sub.price_list.downcase.capitalize %> pricelist ) <% end %></td>
           <td><%= format_date(sub.start_date).html_safe  if sub.start_date.present? %></td>
           <td><%= format_date(sub.charged_through_date).html_safe if sub.charged_through_date.present? %></td>
           <td>
