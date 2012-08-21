@@ -20,8 +20,8 @@
         <tr>
           <td><%= format_date(payment.requested_date).html_safe if payment.requested_date.present? %></td>
           <td><%= format_date(payment.effective_date).html_safe if payment.effective_date.present? %></td>
-          <td><%= payment.amount %> <%= payment.currency if payment.amount.present? %></td>
-          <td><%= payment.paid_amount %> <%= payment.currency if payment.paid_amount.present? %></td>
+          <td><%= humanized_money_with_symbol payment.amount_to_money %></td>
+          <td><%= humanized_money_with_symbol payment.paid_amount_to_money %></td>
           <td></td>
           <td><%= payment.ext_first_payment_id_ref %> <%= " / " if payment.ext_second_payment_id_ref.present? %> <%= payment.ext_second_payment_id_ref %></td>
           <td><%= payment.retry_count %></td>

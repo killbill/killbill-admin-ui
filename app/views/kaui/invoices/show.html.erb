@@ -9,9 +9,9 @@
     <dt>Target date:</dt>
     <dd><%= format_date(@invoice.target_date).html_safe %>&nbsp;</dd>
     <dt>Amount:</dt>
-    <dd><%= @invoice.amount %>&nbsp;</dd>
+    <dd><%= humanized_money_with_symbol @invoice.amount_to_money(@account.currency) %>&nbsp;</dd>
     <dt>Balance:</dt>
-    <dd><%= @invoice.balance %>&nbsp;</dd>
+    <dd><%= humanized_money_with_symbol @invoice.balance_to_money(@account.currency) %>&nbsp;</dd>
   </dl>
   <div class="page-header">
     <h3>Invoice items</h3>
