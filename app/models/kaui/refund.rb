@@ -16,4 +16,8 @@ class Kaui::Refund < Kaui::Base
   define_attr :adjustments
 
   has_many :audit_logs, Kaui::AuditLog
+
+  def amount_to_money
+    Kaui::Base.to_money(amount, currency)
+  end
 end

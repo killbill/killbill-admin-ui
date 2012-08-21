@@ -23,7 +23,8 @@ class Kaui::CreditsController < Kaui::EngineController
     @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id) unless @invoice_id.nil?
     credit_amount = @invoice.balance unless @invoice.nil?
 
-    @credit = Kaui::Credit.new("accountId" => @account_id, "invoiceId" => @invoice_id, "creditAmount" => credit_amount)
+    @credit = Kaui::Credit.new("accountId" => @account_id, "invoiceId" => @invoice_id,
+                               "creditAmount" => credit_amount, "effectiveDate" => Time.now.utc.iso8601)
   end
 
   def create

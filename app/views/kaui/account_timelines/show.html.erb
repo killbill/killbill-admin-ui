@@ -62,16 +62,16 @@
             <% end %>
           </td>
           <td><%= "INVOICE" %></td>
-          <td><%= "Amount:" %> <%= invoice.amount %>  <%= @account.currency %><br/>
-              <%= "Balance:" %> <%= invoice.balance %> <%= @account.currency %><br/>
-              <% if invoice.credit_adjustment.present? &&  invoice.credit_adjustment > 0  %>
-                <%= "Credit adjustment:" %> <%= invoice.credit_adjustment %> <%= @account.currency %> <br/>
+          <td><%= "Amount:" %> <%= humanized_money_with_symbol invoice.amount_to_money(@account.currency) %><br/>
+              <%= "Balance:" %> <%= humanized_money_with_symbol invoice.balance_to_money(@account.currency) %><br/>
+              <% if invoice.credit_adjustment.present? && invoice.credit_adjustment > 0  %>
+                <%= "Credit adjustment:" %> <%= humanized_money_with_symbol invoice.credit_adjustment_to_money(@account.currency) %><br/>
               <% end %>
-              <% if invoice.credit_balance_adjustment.present? &&  invoice.credit_balance_adjustment > 0  %>
-                <%= "Credit balance adjustment:" %> <%= invoice.credit_balance_adjustment %>  <%= @account.currency %> <br/>
+              <% if invoice.credit_balance_adjustment.present? && invoice.credit_balance_adjustment > 0  %>
+                <%= "Credit balance adjustment:" %> <%= humanized_money_with_symbol invoice.credit_balance_adjustment_to_money(@account.currency) %><br/>
               <% end %>
-              <% if invoice.refund_adjustment.present? &&  invoice.refund_adjustment < 0  %>
-                <%= "Refund adjustment:" %> <%= invoice.refund_adjustment %>  <%= @account.currency %> <br/>
+              <% if invoice.refund_adjustment.present? && invoice.refund_adjustment < 0  %>
+                <%= "Refund adjustment:" %> <%= humanized_money_with_symbol invoice.refund_adjustment_to_money(@account.currency) %><br/>
               <% end %>
               <%= "Invoice #" %>
               <%= link_to invoice.invoice_number, invoice_path(:id => invoice.invoice_id) %>
@@ -136,7 +136,7 @@
             <td>
               <%= "Adjusted:" %> <% if refund.adjusted %>yes<% else %>no<% end %><br/>
               <%= "Payment id:" %> <%= refund.payment_id %><br/>
-              <%= "Refund Amount:" %> <%= refund.amount %><br/>
+              <%= "Refund Amount:" %> <%= humanized_money_with_symbol refund.amount_to_money %><br/>
             </td>
             <td>
               <% if refund.audit_logs.present? %>
@@ -175,7 +175,7 @@
           <td><%= "CHARGEBACK" %></td>
           <td>
             <%= "Payment id:" %> <%= chargeback.payment_id %><br/>
-            <%= "Chargeback Amount:" %> <%= chargeback.chargeback_amount %><br/>
+            <%= "Chargeback Amount:" %> <%= humanized_money_with_symbol chargeback.chargeback_amount_to_money(@account.currency) %><br/>
           </td>
           <td>
             <% if chargeback.audit_logs.present? %>
@@ -219,8 +219,8 @@
           <td><%= "PAYMENT" %></td>
           <td>
             <%= "Payment id:" %> <%= payment.payment_id %><br/>
-            <%= "Total amount:" %> <%= payment.amount %> <%= @account.currency if payment.amount.present? %><br/>
-            <%= "Paid amount:" %> <%= payment.paid_amount %> <%= @account.currency %><br/>
+            <%= "Total amount:" %> <%= humanized_money_with_symbol payment.amount_to_money %><br/>
+            <%= "Paid amount:" %> <%= humanized_money_with_symbol payment.paid_amount_to_money %><br/>
             <span <% if payment.status == 'FAILED' %>class="alert-error" <% elsif payment.status == 'SUCCESS' %>class="alert-success" <% end %>>
               <%= payment.status %>
             </span>

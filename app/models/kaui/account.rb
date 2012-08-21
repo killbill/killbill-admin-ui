@@ -42,4 +42,8 @@ class Kaui::Account < Kaui::Base
   def to_param
     @account_id
   end
+
+  def balance_to_money
+    Kaui::Base.to_money(balance.abs, currency)
+  end
 end
