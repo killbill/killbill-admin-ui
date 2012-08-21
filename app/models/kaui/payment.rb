@@ -22,6 +22,7 @@ class Kaui::Payment < Kaui::Base
   define_attr :ext_second_payment_id_ref
   define_attr :gateway_error_code
   define_attr :gateway_error_msg
+  define_attr :external
 
   has_many :refunds, Kaui::Refund
   has_many :chargebacks, Kaui::Chargeback

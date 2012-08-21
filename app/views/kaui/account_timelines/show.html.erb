@@ -92,17 +92,9 @@
                             :class => "btn btn-mini" %>
               </nobr>
               <nobr>
-                <%= link_to "External Payment",
-                            kaui_engine.new_payment_path(:params => { :account_id => invoice.account_id,
-                                                                      :invoice_id => invoice.invoice_id,
-                                                                      :external => "true" }),
-                            :class => "btn btn-mini" %>
-              </nobr>
-              <nobr>
                 <%= link_to "Payment",
                             kaui_engine.new_payment_path(:params => { :account_id => invoice.account_id,
-                                                                      :invoice_id => invoice.invoice_id,
-                                                                      :external => "false" }),
+                                                                      :invoice_id => invoice.invoice_id }),
                             :class => "btn btn-mini" %>
               </nobr>
             <% end %>

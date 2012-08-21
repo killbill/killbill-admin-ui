@@ -50,6 +50,14 @@
       </div>
     <% end %>
     <div class="control-group">
+      <%= f.label :external, "External Payment?", :class => "control-label" %>
+      <div class="controls">
+        <label class="checkbox">
+          <%= f.check_box :external %>
+        </label>
+      </div>
+    </div>
+    <div class="control-group">
       <%= f.label :amount, "Amount", :class => "control-label" %>
       <div class="controls">
         <%= f.text_field :amount, :id => 'payment_amount', :class => 'input-small' %>

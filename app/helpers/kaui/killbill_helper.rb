@@ -358,6 +358,11 @@ module Kaui
         payment_data = Kaui::Payment.camelize(payment.to_hash)
 
         if payment.invoice_id.present?
+          # We should use different model for POST and GEt, this seems fragile...
+          payment_data.delete(:external)
+          payment_data.delete(:refunds)
+          payment_data.delete(:chargebacks)
+          payment_data.delete(:audit_logs)
           data = call_killbill :post,
                                "/1.0/kb/invoices/#{payment.invoice_id}/payments?externalPayment=#{external}",
                                ActiveSupport::JSON.encode(payment_data, :root => false),
