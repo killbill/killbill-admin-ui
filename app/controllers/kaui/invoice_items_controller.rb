@@ -15,12 +15,12 @@ class Kaui::InvoiceItemsController < Kaui::EngineController
 
   def update
     @invoice_item = Kaui::InvoiceItem.new(params[:invoice_item])
-    success = Kaui::KillbillHelper.adjust_invoice(@invoice_item, current_user, params[:reason], params[:comment])
-    if success
+    begin
+      Kaui::KillbillHelper.adjust_invoice(@invoice_item, current_user, params[:reason], params[:comment])
       flash[:notice] = "Adjustment item created"
       redirect_to kaui_engine.invoice_path(@invoice_item.invoice_id)
-    else
-      flash[:error] = "Unable to create adjustment item"
+    rescue => e
+      flash[:error] = "Error while updating the invoice item: #{e.message} #{e.response}"
       render :action => "edit"
     end
   end
@@ -31,7 +31,11 @@ class Kaui::InvoiceItemsController < Kaui::EngineController
     invoice_item_id = params[:id]
     invoice_id = params[:invoice_id]
     if invoice_item_id.present? and invoice_id.present?
-      @invoice_item = Kaui::KillbillHelper.get_invoice_item(invoice_id, invoice_item_id)
+      begin
+        @invoice_item = Kaui::KillbillHelper.get_invoice_item(invoice_id, invoice_item_id)
+      rescue => e
+        flash[:error] = "Error while trying to find the invoice item: #{e.message} #{e.response}"
+      end
       unless @invoice_item.present?
         flash[:error] = "Invoice for id #{invoice_id} and invoice item id #{invoice_item_id} not found"
         render :action => :index

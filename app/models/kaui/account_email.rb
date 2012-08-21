@@ -13,7 +13,12 @@ class Kaui::AccountEmail < Kaui::Base
   end
 
   def self.where(conditions)
-    account_emails = Kaui::KillbillHelper.get_account_emails(conditions[:account_id]) || []
+    begin
+      account_emails = Kaui::KillbillHelper.get_account_emails(conditions[:account_id]) || []
+    rescue => e
+      flash[:error] = "Error while getting account emails: #{e.message} #{e.response}"
+    end
+
     return account_emails.sort unless conditions[:email].present?
 
     account_emails.each do |account_email|

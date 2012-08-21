@@ -26,9 +26,11 @@ class Kaui::AccountTimelinesController < Kaui::EngineController
     unless @timeline.nil?
       @timeline.payments.each do |payment|
         if payment.invoice_id.present? && payment.payment_id.present?
-
-          @invoices_by_id[payment.invoice_id] = Kaui::KillbillHelper::get_invoice(payment.invoice_id)
-
+          begin
+            @invoices_by_id[payment.invoice_id] = Kaui::KillbillHelper::get_invoice(payment.invoice_id)
+          rescue => e
+            flash[:error] = "Could not get invoice information for the timeline #{@account_id}: #{e.message} #{e.response}"
+          end
           payment.bundle_keys.split(",").each do |bundle_key|
             unless @bundle_names.has_key?(bundle_key)
               @bundle_names[bundle_key] = Kaui.bundle_key_display_string.call(bundle_key)
@@ -38,7 +40,11 @@ class Kaui::AccountTimelinesController < Kaui::EngineController
       end
       @timeline.invoices.each do |invoice|
         if invoice.invoice_id.present? && !@invoices_by_id.has_key?(invoice.invoice_id)
-          @invoices_by_id[invoice.invoice_id] = Kaui::KillbillHelper::get_invoice(invoice.invoice_id)
+          begin
+            @invoices_by_id[invoice.invoice_id] = Kaui::KillbillHelper::get_invoice(invoice.invoice_id)
+          rescue => e
+            flash[:error] = "Could not get invoice information for the timeline #{@account_id}: #{e.message} #{e.response}"
+          end
           invoice.bundle_keys.split(",").each do |bundle_key|
             unless @bundle_names.has_key?(bundle_key)
               @bundle_names[bundle_key] = Kaui.bundle_key_display_string.call(bundle_key)

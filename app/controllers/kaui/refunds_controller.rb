@@ -39,10 +39,15 @@ class Kaui::RefundsController < Kaui::EngineController
 
     @refund = Kaui::Refund.new('adjusted' => true)
 
-    @account = Kaui::KillbillHelper::get_account(@account_id)
-    @payment = Kaui::KillbillHelper::get_payment(@payment_id)
-    @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
-    @payment_method = Kaui::KillbillHelper::get_payment_method(@payment.payment_method_id)
+    begin
+      @account = Kaui::KillbillHelper::get_account(@account_id)
+      @payment = Kaui::KillbillHelper::get_payment(@payment_id)
+      @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
+      @payment_method = Kaui::KillbillHelper::get_payment_method(@payment.payment_method_id)
+    rescue => e
+      flash[:error] = "Error while processing refund: #{e.message} #{e.response}"
+      redirect_to kaui_engine.account_timeline_path(:id => params[:account_id])
+    end
   end
 
   def create

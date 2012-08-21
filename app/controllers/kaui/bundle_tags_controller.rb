@@ -3,7 +3,11 @@ class Kaui::BundleTagsController < Kaui::EngineController
   def show
     bundle_id = params[:id]
     if bundle_id.present?
-      tags = Kaui::KillbillHelper::get_tags_for_bundle(bundle_id)
+      begin
+        tags = Kaui::KillbillHelper::get_tags_for_bundle(bundle_id)
+      rescue => e
+        flash[:error] = "Error while retrieving tags information: #{e.message} #{e.response}"
+      end
     else
       flash[:error] = "No account id given"
     end

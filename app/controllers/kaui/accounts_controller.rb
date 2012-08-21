@@ -53,7 +53,11 @@ class Kaui::AccountsController < Kaui::EngineController
   def payment_methods
     @account_id = params[:id]
     if @account_id.present?
-      @payment_methods = Kaui::KillbillHelper::get_payment_methods(@account_id)
+      begin
+        @payment_methods = Kaui::KillbillHelper::get_payment_methods(@account_id)
+      rescue => e
+        flash[:error] = "Error while getting payment methods: #{e.message} #{e.response}"
+      end
       unless @payment_methods.is_a?(Array)
         flash[:notice] = "No payment methods for account_id '#{@account_id}'"
         redirect_to :action => :index
@@ -66,7 +70,11 @@ class Kaui::AccountsController < Kaui::EngineController
 
   def add_payment_method
     account_id = params[:id]
-    @account = Kaui::KillbillHelper::get_account(account_id)
+    begin
+      @account = Kaui::KillbillHelper::get_account(account_id)
+    rescue => e
+      flash[:error] = "Error while adding payment methods: #{e.message} #{e.response}"
+    end
     if @account.nil?
       flash[:error] = "Account not found for id #{account_id}"
       redirect_to :back
@@ -77,7 +85,11 @@ class Kaui::AccountsController < Kaui::EngineController
 
   def do_add_payment_method
     account_id = params[:id]
-    @account = Kaui::KillbillHelper::get_account(account_id)
+    begin
+      @account = Kaui::KillbillHelper::get_account(account_id)
+    rescue => e
+      flash[:error] = "Error while adding payment method: #{e.message} #{e.response}"
+    end
 
     # Implementation example using standard credit card fields
     @card_type = params[:card_type]
@@ -114,14 +126,13 @@ class Kaui::AccountsController < Kaui::EngineController
                                                'pluginName' => Kaui.creditcard_plugin_name.call,
                                                'pluginInfo' => plugin_info)
 
-      success = Kaui::KillbillHelper::add_payment_method(payment_method, current_user, @reason, @comment)
-
-      if success
+      begin
+        Kaui::KillbillHelper::add_payment_method(payment_method, current_user, @reason, @comment)
         flash[:info] = "Payment method created"
         redirect_to kaui_engine.account_timeline_path(@account.account_id)
         return
-      else
-        flash[:error] = "Error while adding payment method"
+      rescue => e
+        flash[:error] = "Error while adding payment method #{invoice_id}: #{e.message} #{e.response}"
       end
     end
     render "kaui/payment_methods/new"
@@ -131,7 +142,11 @@ class Kaui::AccountsController < Kaui::EngineController
     @account_id = params[:id]
     @payment_method_id = params[:payment_method_id]
     if @account_id.present? && @payment_method_id.present?
-      @payment_methods = Kaui::KillbillHelper::set_payment_method_as_default(@account_id, @payment_method_id)
+      begin
+        @payment_methods = Kaui::KillbillHelper::set_payment_method_as_default(@account_id, @payment_method_id)
+      rescue => e
+        flash[:error] = "Error while setting payment method as default #{invoice_id}: #{e.message} #{e.response}"
+      end
     else
       flash[:notice] = "No account_id or payment_method_id given"
     end
@@ -139,8 +154,12 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def toggle_email_notifications
-    @account = Kaui::KillbillHelper::update_email_notifications(params[:id], params[:is_notified])
-    flash[:notice] = "Email preferences updated"
-    redirect_to :back
+    begin
+      @account = Kaui::KillbillHelper::update_email_notifications(params[:id], params[:is_notified])
+      flash[:notice] = "Email preferences updated"
+      redirect_to :back
+    rescue => e
+      flash[:error] = "Error while switching email notifications #{invoice_id}: #{e.message} #{e.response}"
+    end
   end
 end

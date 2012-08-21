@@ -3,7 +3,11 @@ class Kaui::ChargebacksController < Kaui::EngineController
   def show
     @payment_id = params[:id]
     if @payment_id.present?
-      data = Kaui::KillbillHelper::get_chargebacks_for_payment(@payment_id)
+      begin
+        data = Kaui::KillbillHelper::get_chargebacks_for_payment(@payment_id)
+      rescue => e
+        flash[:error] = "Error while getting chargeback information: #{e.message} #{e.response}"
+      end
       if data.present?
         @chargeback = Kaui::Chargeback.new(data)
       else
@@ -19,25 +23,30 @@ class Kaui::ChargebacksController < Kaui::EngineController
     @account_id = params[:account_id]
     @invoice_id = params[:invoice_id]
 
-    # @payment_attempt = Kaui::KillbillHelper::get_payment_attempt(@external_key, @invoice_id, @payment_id)
-    @account = Kaui::KillbillHelper::get_account(@account_id)
-    @payment = Kaui::KillbillHelper::get_payment(@payment_id)
-    @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
-    @payment_method = Kaui::KillbillHelper::get_payment_method(@payment.payment_method_id)
+    begin
+      @account = Kaui::KillbillHelper::get_account(@account_id)
+      @payment = Kaui::KillbillHelper::get_payment(@payment_id)
+      @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
+      @payment_method = Kaui::KillbillHelper::get_payment_method(@payment.payment_method_id)
+    rescue => e
+      flash[:error] = "Error while starting a new chargeback: #{e.message} #{e.response}"
+      redirect_to kaui_engine.account_timeline_path(:id => params[:account_id])
+    end
 
-    @chargeback = Kaui::Chargeback.new("payment_id" => @payment_id,
-                                       "chargeback_amount" => @payment.amount)
+    @chargeback = Kaui::Chargeback.new("paymentId" => @payment_id,
+                                       "chargebackAmount" => @payment.amount)
   end
 
   def create
     account_id = params[:account_id]
     chargeback = Kaui::Chargeback.new(params[:chargeback])
+
     if chargeback.present?
-      success = Kaui::KillbillHelper::create_chargeback(chargeback, params[:reason], params[:comment])
-      if success
+      begin
+        Kaui::KillbillHelper::create_chargeback(chargeback, params[:reason], params[:comment])
         flash[:info] = "Chargeback created"
-      else
-        flash[:error] = "Could not process chargeback"
+      rescue => e
+        flash[:error] = "Error while creating a new chargeback: #{e.message} #{e.response}"
       end
     else
       flash[:error] = "No chargeback to process"

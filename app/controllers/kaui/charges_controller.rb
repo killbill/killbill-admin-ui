@@ -3,30 +3,32 @@ class Kaui::ChargesController < Kaui::EngineController
   def new
     @account_id = params[:account_id]
     @invoice_id = params[:invoice_id]
+    begin
+      @account = Kaui::KillbillHelper::get_account(@account_id)
 
-    @account = Kaui::KillbillHelper::get_account(@account_id)
-
-    if @invoice_id.present?
-      @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
-      @charge = Kaui::Charge.new("accountId" => @account_id, "invoiceId" => @invoice_id)
-    else
-      @charge = Kaui::Charge.new("accountId" => @account_id)
+      if @invoice_id.present?
+        @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
+        @charge = Kaui::Charge.new("accountId" => @account_id, "invoiceId" => @invoice_id)
+      else
+        @charge = Kaui::Charge.new("accountId" => @account_id)
+      end
+    rescue => e
+      flash[:error] = "Error while creating a charge: #{e.message} #{e.response}"
     end
-
   end
 
   def create
     charge = Kaui::Charge.new(params[:charge])
 
     if charge.present?
-      success = Kaui::KillbillHelper::create_charge(charge, params[:requested_date], current_user, nil, params[:comment])
-      if success
+      begin
+        Kaui::KillbillHelper::create_charge(charge, params[:requested_date], current_user, nil, params[:comment])
         flash[:info] = "Charge created"
+        redirect_to kaui_engine.account_timeline_path(:id => charge.account_id)
+      rescue => e
+        flash[:error] = "Error while creating a charge: #{e.message} #{e.response}"
       end
-    else
-      flash[:error] = "No charge to process"
     end
-    redirect_to kaui_engine.account_timeline_path(:id => charge.account_id)
   end
 
 end

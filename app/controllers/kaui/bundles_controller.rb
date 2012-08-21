@@ -29,9 +29,12 @@ class Kaui::BundlesController < Kaui::EngineController
 
   def transfer
     bundle_id = params[:id]
-    @bundle = Kaui::KillbillHelper::get_bundle(bundle_id)
-    @account = Kaui::KillbillHelper::get_account_by_bundle_id(bundle_id)
-
+    begin
+      @bundle = Kaui::KillbillHelper::get_bundle(bundle_id)
+      @account = Kaui::KillbillHelper::get_account_by_bundle_id(bundle_id)
+    rescue => e
+      flash[:error] = "Error while preparing to transfer bundle: #{e.message} #{e.response}"
+    end
     if @account.nil?
       flash[:error] = "Account not found for bundle id #{bundle_id}"
     end
