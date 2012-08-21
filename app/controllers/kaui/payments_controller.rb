@@ -11,9 +11,9 @@ class Kaui::PaymentsController < Kaui::EngineController
 
   def create
     payment = Kaui::Payment.new(params[:payment])
-
     if payment.present?
-      success = Kaui::KillbillHelper::create_payment(payment, params[:external], current_user, params[:reason], params[:comment])
+      payment.external = (payment.external == "1")
+      success = Kaui::KillbillHelper::create_payment(payment, payment.external, current_user, params[:reason], params[:comment])
       if success
         flash[:info] = "Payment created"
       end
