@@ -67,7 +67,7 @@
     <div class="control-group">
       <%= f.label :amount, "Refund amount", :class => "control-label" %>
       <div class="controls">
-        <%= f.text_field :amount, :value => @payment.amount, :class => 'input-small' %>
+        <%= f.text_field :amount, :id => 'refund_amount', :value => @payment.amount, :class => 'input-small' %>
         <p class="help-inline"><%= @account.currency %></p>
       </div>
     </div>
@@ -88,4 +88,11 @@
       <%= link_to 'Back', :back, :class => 'btn' %>
     </div>
   </fieldset>
+<% end %>
+<%= javascript_tag do %>
+  $(document).ready(function() {
+    $("#refund_amount").keydown(function(event) {
+      preventNonNumericValues(event);
+    });
+  });
 <% end %>

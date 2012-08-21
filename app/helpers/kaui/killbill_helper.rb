@@ -176,7 +176,8 @@ module Kaui
     def self.update_subscription(subscription, requested_date = nil, current_user = nil, reason = nil, comment = nil)
       subscription_data = Kaui::Subscription.camelize(subscription.to_hash)
       date_param = "?requestedDate=" + requested_date.to_s unless requested_date.blank?
-
+      # We don't want to pass events
+      subscription_data.delete(:events)
       data = call_killbill :put,
                            "/1.0/kb/subscriptions/#{subscription.subscription_id}#{date_param}",
                            ActiveSupport::JSON.encode(subscription_data, :root => false),
@@ -295,6 +296,11 @@ module Kaui
       payment_data = Kaui::Payment.camelize(payment.to_hash)
 
       if payment.invoice_id.present?
+        # We should use different model for POST and GEt, this seems fragile...
+        payment_data.delete(:external)
+        payment_data.delete(:refunds)
+        payment_data.delete(:chargebacks)
+        payment_data.delete(:audit_logs)
         data = call_killbill :post,
                              "/1.0/kb/invoices/#{payment.invoice_id}/payments?externalPayment=#{external}",
                              ActiveSupport::JSON.encode(payment_data, :root => false),

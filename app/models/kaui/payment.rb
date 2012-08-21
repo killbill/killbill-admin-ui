@@ -22,8 +22,17 @@ class Kaui::Payment < Kaui::Base
   define_attr :ext_second_payment_id_ref
   define_attr :gateway_error_code
   define_attr :gateway_error_msg
+  define_attr :external
 
   has_many :refunds, Kaui::Refund
   has_many :chargebacks, Kaui::Chargeback
   has_many :audit_logs, Kaui::AuditLog
+
+  def amount_to_money
+    Kaui::Base.to_money(amount, currency)
+  end
+
+  def paid_amount_to_money
+    Kaui::Base.to_money(paid_amount, currency)
+  end
 end

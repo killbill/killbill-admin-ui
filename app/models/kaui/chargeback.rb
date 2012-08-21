@@ -30,4 +30,8 @@ class Kaui::Chargeback < Kaui::Base
 
   has_many :audit_logs, Kaui::AuditLog
 
+  # TODO - fix chargeback json to return the currency
+  def chargeback_amount_to_money(currency)
+    Kaui::Base.to_money(chargeback_amount, currency)
+  end
 end
