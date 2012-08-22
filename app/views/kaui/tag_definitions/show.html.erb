@@ -6,6 +6,10 @@
   <dd><%= @tag_definition.name %>&nbsp;</dd>
   <dt>Description:</dt>
   <dd><%= @tag_definition.description %>&nbsp;</dd>
+  <dt>System tag?:</dt>
+  <dd><%= @tag_definition.is_system_tag? %>&nbsp;</dd>
+  <dt>Applicable types:</dt>
+  <dd><%= @tag_definition.applicable_object_types.join(', ') %>&nbsp;</dd>
 </dl>
 
 <!-- <%= link_to 'Edit', kaui_engine.edit_tag_definition_path(@tag_definition), :class => 'btn btn-primary' %> -->

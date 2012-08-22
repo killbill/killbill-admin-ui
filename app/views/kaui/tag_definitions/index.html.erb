@@ -5,7 +5,9 @@
     <tr>
       <th style='width: 30%'>Id</th>
       <th style='width: 20%'>Name</th>
-      <th style='width: 35%'>Description</th>
+      <th style='width: 20%'>Description</th>
+      <th style='width: 5%'>System tag?</th>
+      <th style='width: 15%'>Applicable types</th>
       <th style='width: 5%'></th>
       <!-- <th style='width: 5%'></th> -->
       <th style='width: 5%'></th>
@@ -17,6 +19,8 @@
         <td><%= tag_definition.id %></td>
         <td><%= tag_definition.name %></td>
         <td><%= tag_definition.description %></td>
+        <td><%= tag_definition.is_system_tag? %></td>
+        <td><%= !tag_definition.is_system_tag? ? 'Any' : tag_definition.applicable_object_types.join(', ') %></td>
         <td><%= link_to 'Show', tag_definition %></td>
         <!-- ><td><%= link_to 'Edit', edit_tag_definition_path(tag_definition) %></td> -->
         <td>
