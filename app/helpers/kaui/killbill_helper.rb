@@ -480,5 +480,12 @@ module Kaui
                       "X-Killbill-Comment" => "#{comment}"
       end
     end
+
+    ############## ANALYTICS ##############
+
+    def self.get_accounts_created_over_time
+      data = call_killbill :get, "/1.0/kb/analytics/accountsCreatedOverTime"
+      process_response(data, :single) { |json| Kaui::TimeSeriesData.new(json) }
+    end
   end
 end

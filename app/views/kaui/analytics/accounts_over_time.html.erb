@@ -2,6 +2,6 @@
 
 <%= javascript_tag do %>
   $(document).ready(function() {
-    drawGraph(<%=raw @accounts[:dates].to_json %>, <%=raw @accounts[:values].to_json %>, "chart");
+    drawGraph(<%=raw @accounts.dates.to_json %>, <%=raw @accounts.values.to_json %>, "chart");
   });
 <% end %>
