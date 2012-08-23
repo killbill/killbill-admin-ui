@@ -1,1 +1,12 @@
-<%= link_to "Accounts over time", kaui_engine.analytics_accounts_over_time_path %>
+<h2>Analytics dashboards</h2>
+
+<ul>
+  <li><%= link_to 'Accounts over time', kaui_engine.analytics_accounts_over_time_path %></li>
+  <li>Subscriptions over time
+    <ul>
+      <% @slugs.each do |slug| %>
+        <li><%= link_to slug, kaui_engine.analytics_subscriptions_over_time_path(:slug => slug, :product_type => @product_type) %></li>
+      <% end %>
+    </ul>
+  </li>
+</ul>

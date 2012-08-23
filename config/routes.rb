@@ -64,6 +64,7 @@ Kaui::Engine.routes.draw do
   scope "/analytics" do
     match "/" => "analytics#index", :via => :get, :as => "analytics"
     match "/accounts_over_time" => "analytics#accounts_over_time", :via => :get, :as => "analytics_accounts_over_time"
+    match "/subscriptions_over_time" => "analytics#subscriptions_over_time", :via => :get, :as => "analytics_subscriptions_over_time"
   end
 
   scope "/account_tags" do
