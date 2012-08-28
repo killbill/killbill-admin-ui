@@ -10,7 +10,7 @@ class Kaui::RefundsController < Kaui::EngineController
       begin
         data = Kaui::KillbillHelper::get_refund(params[:id])
       rescue => e
-        flash[:error] = "Error while retrieving the refund with id #{params[:id]}: #{e.message} #{e.response}"
+        flash[:error] = "Error while retrieving the refund with id #{params[:id]}: #{as_string(e)}"
       end
       if data.present?
         @refunds = [data]
@@ -22,7 +22,7 @@ class Kaui::RefundsController < Kaui::EngineController
             render :action => :index
           end
         rescue => e
-          flash[:error] = "Error while retrieving the refunds for the payment: #{e.message} #{e.response}"
+          flash[:error] = "Error while retrieving the refunds for the payment: #{as_string(e)}"
           render :action => :index
         end
       end
@@ -45,7 +45,7 @@ class Kaui::RefundsController < Kaui::EngineController
       @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
       @payment_method = Kaui::KillbillHelper::get_payment_method(@payment.payment_method_id)
     rescue => e
-      flash[:error] = "Error while processing refund: #{e.message} #{e.response}"
+      flash[:error] = "Error while processing refund: #{as_string(e)}"
       redirect_to kaui_engine.account_timeline_path(:id => params[:account_id])
     end
   end
@@ -61,7 +61,7 @@ class Kaui::RefundsController < Kaui::EngineController
         Kaui::KillbillHelper::create_refund(params[:payment_id], refund, current_user, params[:reason], params[:comment])
         flash[:info] = "Refund created"
       rescue => e
-        flash[:error] = "Error while processing refund: #{e.message} #{e.response}"
+        flash[:error] = "Error while processing refund: #{as_string(e)}"
       end
     else
       flash[:error] = "No refund to process"

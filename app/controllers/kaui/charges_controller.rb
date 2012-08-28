@@ -13,7 +13,7 @@ class Kaui::ChargesController < Kaui::EngineController
         @charge = Kaui::Charge.new("accountId" => @account_id)
       end
     rescue => e
-      flash[:error] = "Error while creating a charge: #{e.message} #{e.response}"
+      flash[:error] = "Error while creating a charge: #{as_string(e)}"
     end
   end
 
@@ -26,7 +26,7 @@ class Kaui::ChargesController < Kaui::EngineController
         flash[:info] = "Charge created"
         redirect_to kaui_engine.account_timeline_path(:id => charge.account_id)
       rescue => e
-        flash[:error] = "Error while creating a charge: #{e.message} #{e.response}"
+        flash[:error] = "Error while creating a charge: #{as_string(e)}"
       end
     end
   end

@@ -6,7 +6,7 @@ class Kaui::ChargebacksController < Kaui::EngineController
       begin
         data = Kaui::KillbillHelper::get_chargebacks_for_payment(@payment_id)
       rescue => e
-        flash[:error] = "Error while getting chargeback information: #{e.message} #{e.response}"
+        flash[:error] = "Error while getting chargeback information: #{as_string(e)}"
       end
       if data.present?
         @chargeback = Kaui::Chargeback.new(data)
@@ -29,7 +29,7 @@ class Kaui::ChargebacksController < Kaui::EngineController
       @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
       @payment_method = Kaui::KillbillHelper::get_payment_method(@payment.payment_method_id)
     rescue => e
-      flash[:error] = "Error while starting a new chargeback: #{e.message} #{e.response}"
+      flash[:error] = "Error while starting a new chargeback: #{as_string(e)}"
       redirect_to kaui_engine.account_timeline_path(:id => params[:account_id])
     end
 
@@ -46,7 +46,7 @@ class Kaui::ChargebacksController < Kaui::EngineController
         Kaui::KillbillHelper::create_chargeback(chargeback, params[:reason], params[:comment])
         flash[:info] = "Chargeback created"
       rescue => e
-        flash[:error] = "Error while creating a new chargeback: #{e.message} #{e.response}"
+        flash[:error] = "Error while creating a new chargeback: #{as_string(e)}"
       end
     else
       flash[:error] = "No chargeback to process"

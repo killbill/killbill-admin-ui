@@ -33,7 +33,7 @@ class Kaui::InvoicesController < Kaui::EngineController
           render :action => :index
         end
       rescue => e
-        flash[:error] = "Error while getting information for invoice #{invoice_id}: #{e.message} #{e.response}"
+        flash[:error] = "Error while getting information for invoice #{invoice_id}: #{as_string(e)}"
       end
     else
       flash[:error] = "No id given"
@@ -44,7 +44,7 @@ class Kaui::InvoicesController < Kaui::EngineController
     begin
       render :text => Kaui::KillbillHelper.get_invoice_html(params[:id])
     rescue => e
-      flash[:error] = "Error rendering invoice html #{invoice_id}: #{e.message} #{e.response}"
+      flash[:error] = "Error rendering invoice html #{invoice_id}: #{as_string(e)}"
     end
   end
 end

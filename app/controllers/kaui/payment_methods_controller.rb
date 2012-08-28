@@ -11,7 +11,7 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
       begin
         Kaui::KillbillHelper.delete_payment_method(payment_method_id, params[:set_auto_pay_off])
       rescue => e
-        flash[:error] = "Error while deleting payment method #{payment_method_id}: #{e.message} #{e.response}"
+        flash[:error] = "Error while deleting payment method #{payment_method_id}: #{as_string(e)}"
       end
     else
       flash[:notice] = "Did not get the payment method id"

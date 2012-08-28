@@ -20,7 +20,7 @@ class Kaui::AccountsController < Kaui::EngineController
         flash[:error] = "Error while retrieving the account for #{key}: #{e.message}"
         render :action => :index and return
       rescue => e
-        flash[:error] = "Error while retrieving the account for #{key}: #{e.message} #{e.response}"
+        flash[:error] = "Error while retrieving the account for #{key}: #{as_string(e)}"
         render :action => :index and return
       end
 
@@ -39,7 +39,7 @@ class Kaui::AccountsController < Kaui::EngineController
             end
           end
         rescue => e
-          flash[:error] = "Error while retrieving account information for account: #{e.message} #{e.response}"
+          flash[:error] = "Error while retrieving account information for account: #{as_string(e)}"
         end
       else
         flash[:error] = "Account #{@account_id} not found: #{@account}"
@@ -56,7 +56,7 @@ class Kaui::AccountsController < Kaui::EngineController
       begin
         @payment_methods = Kaui::KillbillHelper::get_payment_methods(@account_id)
       rescue => e
-        flash[:error] = "Error while getting payment methods: #{e.message} #{e.response}"
+        flash[:error] = "Error while getting payment methods: #{as_string(e)}"
       end
       unless @payment_methods.is_a?(Array)
         flash[:notice] = "No payment methods for account_id '#{@account_id}'"
@@ -73,7 +73,7 @@ class Kaui::AccountsController < Kaui::EngineController
     begin
       @account = Kaui::KillbillHelper::get_account(account_id)
     rescue => e
-      flash[:error] = "Error while adding payment methods: #{e.message} #{e.response}"
+      flash[:error] = "Error while adding payment methods: #{as_string(e)}"
     end
     if @account.nil?
       flash[:error] = "Account not found for id #{account_id}"
@@ -88,7 +88,7 @@ class Kaui::AccountsController < Kaui::EngineController
     begin
       @account = Kaui::KillbillHelper::get_account(account_id)
     rescue => e
-      flash[:error] = "Error while adding payment method: #{e.message} #{e.response}"
+      flash[:error] = "Error while adding payment method: #{as_string(e)}"
     end
 
     # Implementation example using standard credit card fields
@@ -132,7 +132,7 @@ class Kaui::AccountsController < Kaui::EngineController
         redirect_to kaui_engine.account_timeline_path(@account.account_id)
         return
       rescue => e
-        flash[:error] = "Error while adding payment method #{invoice_id}: #{e.message} #{e.response}"
+        flash[:error] = "Error while adding payment method #{invoice_id}: #{as_string(e)}"
       end
     end
     render "kaui/payment_methods/new"
@@ -145,7 +145,7 @@ class Kaui::AccountsController < Kaui::EngineController
       begin
         @payment_methods = Kaui::KillbillHelper::set_payment_method_as_default(@account_id, @payment_method_id)
       rescue => e
-        flash[:error] = "Error while setting payment method as default #{invoice_id}: #{e.message} #{e.response}"
+        flash[:error] = "Error while setting payment method as default #{invoice_id}: #{as_string(e)}"
       end
     else
       flash[:notice] = "No account_id or payment_method_id given"
@@ -159,7 +159,7 @@ class Kaui::AccountsController < Kaui::EngineController
       flash[:notice] = "Email preferences updated"
       redirect_to :back
     rescue => e
-      flash[:error] = "Error while switching email notifications #{invoice_id}: #{e.message} #{e.response}"
+      flash[:error] = "Error while switching email notifications #{invoice_id}: #{as_string(e)}"
     end
   end
 end

@@ -7,7 +7,8 @@ class Kaui::AccountTagsController < Kaui::EngineController
       begin
         tags = Kaui::KillbillHelper::get_tags_for_account(account_id)
       rescue => e
-        flash[:error] = "Error while getting tags: #{e.message} #{e.response}"
+        flash[:error] = "Error while getting tags: #{as_string(e)}"
+
       end
     else
       flash[:error] = "No account id given"
@@ -21,7 +22,7 @@ class Kaui::AccountTagsController < Kaui::EngineController
       @account = Kaui::KillbillHelper::get_account(@account_id)
       @tag_names = Kaui::KillbillHelper::get_tags_for_account(@account.account_id).map { |tag| tag.tag_definition_name }
     rescue => e
-      flash[:error] = "Error while editing tags: #{e.message} #{e.response}"
+      flash[:error] = "Error while editing tags: #{as_string(e)}"
     end
   end
 
@@ -51,7 +52,7 @@ class Kaui::AccountTagsController < Kaui::EngineController
       Kaui::KillbillHelper::remove_tags_for_account(params[:account_id], tags_to_remove)
       Kaui::KillbillHelper::add_tags_for_account(params[:account_id], tags_to_add)
     rescue => e
-      flash[:error] = "Error while updating tags: #{e.message} #{e.response}"
+      flash[:error] = "Error while updating tags: #{as_string(e)}"
     end
     redirect_to kaui_engine.account_path(params[:account_id])
   end

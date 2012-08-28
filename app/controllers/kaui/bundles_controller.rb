@@ -20,7 +20,7 @@ class Kaui::BundlesController < Kaui::EngineController
           render :action => :index
         end
       rescue => e
-        flash[:error] = "Error while retrieving bundle information for #{key}: #{e.message} #{e.response}"
+        flash[:error] = "Error while retrieving bundle information for #{key}: #{as_string(e)}"
       end
     else
       flash[:error] = "No id given"
@@ -33,7 +33,7 @@ class Kaui::BundlesController < Kaui::EngineController
       @bundle = Kaui::KillbillHelper::get_bundle(bundle_id)
       @account = Kaui::KillbillHelper::get_account_by_bundle_id(bundle_id)
     rescue => e
-      flash[:error] = "Error while preparing to transfer bundle: #{e.message} #{e.response}"
+      flash[:error] = "Error while preparing to transfer bundle: #{as_string(e)}"
     end
     if @account.nil?
       flash[:error] = "Account not found for bundle id #{bundle_id}"
@@ -47,7 +47,7 @@ class Kaui::BundlesController < Kaui::EngineController
       begin
         result = Kaui::KillbillHelper.get_account_by_key(key, false)
       rescue => e
-        flash[:error] = "Error while retrieving account for #{key}: #{e.message} #{e.response}"
+        flash[:error] = "Error while retrieving account for #{key}: #{as_string(e)}"
         render :action => :index
         return
       end
@@ -57,7 +57,7 @@ class Kaui::BundlesController < Kaui::EngineController
           Kaui::KillbillHelper::transfer_bundle(bundle_id, @new_account.account_id)
           flash[:info] = "Bundle transfered successfully"
         rescue => e
-          flash[:error] = "Error transfering bundle #{e.message} #{e.response}"
+          flash[:error] = "Error transfering bundle #{as_string(e)}"
         end
         redirect_to Kaui.account_home_path.call(@new_account.external_key)
         return
@@ -72,7 +72,7 @@ class Kaui::BundlesController < Kaui::EngineController
       @bundle = Kaui::KillbillHelper::get_bundle(bundle_id)
       @account = Kaui::KillbillHelper::get_account_by_bundle_id(bundle_id)
     rescue => e
-      flash[:error] = "Error while redirecting: #{e.message} #{e.response}"
+      flash[:error] = "Error while redirecting: #{as_string(e)}"
       render :transfer
     end
   end

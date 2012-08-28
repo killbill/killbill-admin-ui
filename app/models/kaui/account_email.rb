@@ -1,4 +1,7 @@
+require 'kaui/error_helper'
+
 class Kaui::AccountEmail < Kaui::Base
+  include Kaui::ErrorHelper
 
   define_attr :account_id
   define_attr :email
@@ -21,7 +24,7 @@ class Kaui::AccountEmail < Kaui::Base
         return account_email if account_email.email == conditions[:email]
       end
     rescue => e
-      @errors.add(:where, "Error while getting account emails: #{e.message} #{e.response}")
+      @errors.add(:where, "Error while getting account emails: #{as_string(e)}")
     end
     []
   end
@@ -31,7 +34,7 @@ class Kaui::AccountEmail < Kaui::Base
       Kaui::KillbillHelper.add_account_email(self)
       true
     rescue => e
-      @errors.add(:save, "Error while trying to add an account email: #{e.message} #{e.response}")
+      @errors.add(:save, "Error while trying to add an account email: #{as_string(e)}")
       false
     end
   end
@@ -41,7 +44,7 @@ class Kaui::AccountEmail < Kaui::Base
       Kaui::KillbillHelper.remove_account_email(self)
       true
     rescue => e
-      @errors.add(:destroy, "Error while trying to delete an account email: #{e.message} #{e.response}")
+      @errors.add(:destroy, "Error while trying to delete an account email: #{as_string(e)}")
     end
   end
 

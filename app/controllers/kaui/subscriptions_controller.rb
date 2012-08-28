@@ -15,7 +15,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
         redirect_to :back
       end
     rescue => e
-      flash[:error] = "Error while getting subscription information: #{e.message} #{e.response}"
+      flash[:error] = "Error while getting subscription information: #{as_string(e)}"
     end
   end
 
@@ -31,7 +31,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
         @catalog = Kaui::KillbillHelper::get_available_base_plans()
       end
     rescue => e
-      flash[:error] = "Error while trying to start new subscription creation: #{e.message} #{e.response}"
+      flash[:error] = "Error while trying to start new subscription creation: #{as_string(e)}"
     end
     @subscription = Kaui::Subscription.new("bundleId" => bundle_id)
   end
@@ -59,7 +59,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       Kaui::KillbillHelper::create_subscription(@subscription, current_user)
       redirect_to Kaui.bundle_home_path.call(@bundle.bundle_id)
     rescue => e
-      flash[:error] = "Error while creating the new subscription: #{e.message} #{e.response}"
+      flash[:error] = "Error while creating the new subscription: #{as_string(e)}"
       render :new
     end
   end
@@ -83,7 +83,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       @bundle = Kaui::KillbillHelper.get_bundle(subscription.bundle_id)
       @available_plans = Kaui::KillbillHelper.get_available_addons(params[:base_product_name])
     rescue => e
-      flash[:error] = "Error while adding an addon: #{e.message} #{e.response}"
+      flash[:error] = "Error while adding an addon: #{as_string(e)}"
     end
   end
 
@@ -106,7 +106,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
         redirect_to :back
       end
     rescue => e
-      flash[:error] = "Error while editing subscription: #{e.message} #{e.response}"
+      flash[:error] = "Error while editing subscription: #{as_string(e)}"
     end
   end
 
@@ -129,7 +129,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
         Kaui::KillbillHelper::update_subscription(subscription, requested_date, current_user)
       rescue => e
-        flash[:error] = "Error while updating subscription: #{e.message} #{e.response}"
+        flash[:error] = "Error while updating subscription: #{as_string(e)}"
       end
     else
       flash[:error] = "No subscription given"
@@ -144,7 +144,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
         Kaui::KillbillHelper::reinstate_subscription(subscription_id, current_user)
         flash[:info] = "Subscription reinstated"
       rescue => e
-        flash[:error] = "Error while reinstating subscription: #{e.message} #{e.response}"
+        flash[:error] = "Error while reinstating subscription: #{as_string(e)}"
       end
     else
       flash[:error] = "No subscription id given"
@@ -158,7 +158,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       begin
         Kaui::KillbillHelper::delete_subscription(subscription_id, current_user)
       rescue => e
-        flash[:error] = "Error while reinstating subscription: #{e.message} #{e.response}"
+        flash[:error] = "Error while reinstating subscription: #{as_string(e)}"
       end
     else
       flash[:error] = "No subscription id given"

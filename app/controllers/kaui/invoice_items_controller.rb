@@ -20,7 +20,7 @@ class Kaui::InvoiceItemsController < Kaui::EngineController
       flash[:notice] = "Adjustment item created"
       redirect_to kaui_engine.invoice_path(@invoice_item.invoice_id)
     rescue => e
-      flash[:error] = "Error while updating the invoice item: #{e.message} #{e.response}"
+      flash[:error] = "Error while updating the invoice item: #{as_string(e)}"
       render :action => "edit"
     end
   end
@@ -34,7 +34,7 @@ class Kaui::InvoiceItemsController < Kaui::EngineController
       begin
         @invoice_item = Kaui::KillbillHelper.get_invoice_item(invoice_id, invoice_item_id)
       rescue => e
-        flash[:error] = "Error while trying to find the invoice item: #{e.message} #{e.response}"
+        flash[:error] = "Error while trying to find the invoice item: #{as_string(e)}"
       end
       unless @invoice_item.present?
         flash[:error] = "Invoice for id #{invoice_id} and invoice item id #{invoice_item_id} not found"
