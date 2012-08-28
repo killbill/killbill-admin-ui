@@ -265,6 +265,11 @@ module Kaui
 
     ############## CATALOG ##############
 
+    def self.get_full_catalog
+      data = call_killbill :get, "/1.0/kb/catalog/simpleCatalog"
+      data[:json]
+    end
+
     def self.get_available_addons(base_product_name)
       data = call_killbill :get, "/1.0/kb/catalog/availableAddons?baseProductName=#{base_product_name}"
       if data.has_key?(:json)
@@ -479,6 +484,18 @@ module Kaui
                       "X-Killbill-Reason" => "#{reason}",
                       "X-Killbill-Comment" => "#{comment}"
       end
+    end
+
+    ############## ANALYTICS ##############
+
+    def self.get_accounts_created_over_time
+      data = call_killbill :get, "/1.0/kb/analytics/accountsCreatedOverTime"
+      process_response(data, :single) { |json| Kaui::TimeSeriesData.new(json) }
+    end
+
+    def self.get_subscriptions_created_over_time(product_type, slug)
+      data = call_killbill :get, "/1.0/kb/analytics/subscriptionsCreatedOverTime?productType=#{product_type}&slug=#{slug}"
+      process_response(data, :single) { |json| Kaui::TimeSeriesData.new(json) }
     end
   end
 end

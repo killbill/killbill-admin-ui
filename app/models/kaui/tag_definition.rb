@@ -3,6 +3,8 @@ class Kaui::TagDefinition < Kaui::Base
   define_attr :id
   define_attr :name
   define_attr :description
+  define_attr :is_control_tag
+  define_attr :applicable_object_types
 
   def self.all
     Kaui::KillbillHelper.get_tag_definitions
@@ -10,6 +12,14 @@ class Kaui::TagDefinition < Kaui::Base
 
   def self.find(tag_definition_id)
     Kaui::KillbillHelper.get_tag_definition(tag_definition_id)
+  end
+
+  # See com.ning.billing.util.dao.ObjectType in killbill-api
+  %w(ACCOUNT ACCOUNT_EMAIL BUNDLE INVOICE PAYMENT INVOICE_ITEM INVOICE_PAYMENT
+     SUBSCRIPTION SUBSCRIPTION_EVENT PAYMENT_METHOD REFUND TAG_DEFINITION).each do |object_type|
+       define_singleton_method "all_for_#{object_type.downcase}" do
+         self.all.delete_if { |tag_definition| !tag_definition.applicable_object_types.include? object_type }
+       end
   end
 
   def save

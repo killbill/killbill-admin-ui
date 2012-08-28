@@ -2,8 +2,19 @@ payment_plan:
   id: f88080f3-57ba-4ab1-ac5e-8a61371132ae
   name: Payment-plan
   description: Accounts on a special payment plan
+  isControlTag: false
+  applicableObjectTypes: ['ACCOUNT', 'TAG_DEFINITION']
 
 auto_pay_off:
   id: 00000000-0000-0000-0000-000000000001
   name: AUTO_PAY_OFF
   description: Suspends payments until removed.
+  isControlTag: true
+  applicableObjectTypes: ['ACCOUNT']
+
+some_user_tag_for_invoice:
+  id: bc018d37-b758-45fb-9135-b1996d43bcc8
+  name: Foo
+  description: Is the new bar
+  isControlTag: false
+  applicableObjectTypes: ['INVOICE']

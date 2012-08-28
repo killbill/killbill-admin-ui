@@ -18,7 +18,7 @@ class Kaui::AccountTagsController < Kaui::EngineController
   def edit
     @account_id = params[:account_id]
     begin
-      @available_tags = Kaui::KillbillHelper::get_tag_definitions.sort
+      @available_tags = Kaui::TagDefinition.all_for_account.sort
       @account = Kaui::KillbillHelper::get_account(@account_id)
       @tag_names = Kaui::KillbillHelper::get_tags_for_account(@account.account_id).map { |tag| tag.tag_definition_name }
     rescue => e
