@@ -18,3 +18,12 @@ module Kaui
   self.bundle_key_display_string =  lambda {|bundle_key| bundle_key }
   self.creditcard_plugin_name =  lambda { nil }
 end
+
+# ruby-1.8 compatibility
+module Kernel
+  def define_singleton_method(*args, &block)
+    class << self
+      self
+    end.send(:define_method, *args, &block)
+  end
+end
