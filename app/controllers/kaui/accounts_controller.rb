@@ -28,7 +28,7 @@ class Kaui::AccountsController < Kaui::EngineController
         begin
           @tags = Kaui::KillbillHelper::get_tags_for_account(@account.account_id).sort
           @account_emails = Kaui::AccountEmail.where(:account_id => @account.account_id)
-          @payment_methods = Kaui::KillbillHelper::get_payment_methods(@account.account_id)
+          @payment_methods = Kaui::KillbillHelper::get_non_external_payment_methods(@account.account_id)
           @bundles = Kaui::KillbillHelper::get_bundles(@account.account_id)
           @subscriptions_by_bundle_id = {}
 
@@ -54,7 +54,7 @@ class Kaui::AccountsController < Kaui::EngineController
     @account_id = params[:id]
     if @account_id.present?
       begin
-        @payment_methods = Kaui::KillbillHelper::get_payment_methods(@account_id)
+        @payment_methods = Kaui::KillbillHelper::get_non_external_payment_methods(@account_id)
       rescue => e
         flash[:error] = "Error while getting payment methods: #{as_string(e)}"
       end

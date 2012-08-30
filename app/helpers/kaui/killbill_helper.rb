@@ -331,6 +331,10 @@ module Kaui
                     "X-Killbill-Comment" => "#{comment}"
     end
 
+    def self.get_non_external_payment_methods(account_id)
+      self.get_payment_methods(account_id).reject { |x| x.plugin_name == '__EXTERNAL_PAYMENT__' }
+    end
+
     def self.get_payment_methods(account_id)
       data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/paymentMethods?withPluginInfo=true"
       process_response(data, :multiple) {|json| Kaui::PaymentMethod.new(json) }
