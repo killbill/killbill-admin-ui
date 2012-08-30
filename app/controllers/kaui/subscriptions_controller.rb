@@ -120,6 +120,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
         plan = catalog[params[:plan_name]]
         requested_date = params[:requested_date]
+        policy = params[:policy]
 
         subscription.billing_period = plan["billingPeriod"]
         subscription.product_category = plan["productCategory"]
@@ -127,7 +128,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
         subscription.price_list = plan["priceListName"]
         subscription.subscription_id = params[:subscription][:subscription_id]
 
-        Kaui::KillbillHelper::update_subscription(subscription, requested_date, current_user)
+        Kaui::KillbillHelper::update_subscription(subscription, requested_date, policy, current_user)
       rescue => e
         flash[:error] = "Error while updating subscription: #{as_string(e)}"
       end

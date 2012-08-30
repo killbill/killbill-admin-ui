@@ -173,13 +173,17 @@ module Kaui
                     "X-Killbill-Comment" => "#{comment}"
     end
 
-    def self.update_subscription(subscription, requested_date = nil, current_user = nil, reason = nil, comment = nil)
+    def self.update_subscription(subscription, requested_date = nil, policy = nil, current_user = nil, reason = nil, comment = nil)
       subscription_data = Kaui::Subscription.camelize(subscription.to_hash)
-      date_param = "?requestedDate=" + requested_date.to_s unless requested_date.blank?
+
+      params = "?"
+      params = "#{params}requestedDate=#{requested_date.to_s}&" unless requested_date.blank?
+      params = "#{params}policy=#{policy}" unless policy.blank?
+
       # We don't want to pass events
       subscription_data.delete(:events)
       call_killbill :put,
-                    "/1.0/kb/subscriptions/#{subscription.subscription_id}#{date_param}",
+                    "/1.0/kb/subscriptions/#{subscription.subscription_id}#{params}",
                     ActiveSupport::JSON.encode(subscription_data, :root => false),
                     :content_type => :json,
                     "X-Killbill-CreatedBy" => current_user,

@@ -28,6 +28,12 @@
       <%= text_field_tag :requested_date, Time.now.utc.iso8601, :class => 'input-xlarge date-picker' %>
     </div>
   </div>
+  <div class="control-group">
+    <%= label_tag :policy, "Policy (leave blank for default):", :class => "control-label" %>
+    <div class="controls">
+      <%= select_tag :policy, options_for_select(['', 'IMMEDIATE', 'END_OF_TERM']) %>
+    </div>
+  </div>
   <div class="form-actions">
     <%= f.submit "Change", :class => 'btn btn-primary' %>
     <%= link_to 'Back', :back, :class => 'btn' %>
