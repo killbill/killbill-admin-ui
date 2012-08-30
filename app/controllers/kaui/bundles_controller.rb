@@ -15,6 +15,7 @@ class Kaui::BundlesController < Kaui::EngineController
         if @bundle.present?
           @account = Kaui::KillbillHelper::get_account_by_bundle_id(@bundle.bundle_id)
           @subscriptions = Kaui::KillbillHelper::get_subscriptions_for_bundle(@bundle.bundle_id)
+          @overdue_state = Kaui::KillbillHelper::get_overdue_state_for_bundle(@bundle.bundle_id)
         else
           flash[:error] = "Bundle #{key} not found"
           render :action => :index
