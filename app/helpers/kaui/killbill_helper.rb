@@ -494,6 +494,13 @@ module Kaui
       end
     end
 
+    ############## OVERDUE ##############
+
+    def self.get_overdue_state_for_bundle(bundle_id)
+      data = call_killbill :get, "/1.0/kb/overdue/bundles/#{bundle_id}"
+      process_response(data, :single) { |json| Kaui::OverdueState.new(json) }
+    end
+
     ############## ANALYTICS ##############
 
     def self.get_accounts_created_over_time

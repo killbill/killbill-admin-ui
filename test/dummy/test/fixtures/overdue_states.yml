@@ -1,0 +1,8 @@
+od1:
+  name: OD1
+  externalMessage: OD1 message
+  daysBetweenPaymentRetries: 1
+  disableEntitlementAndChangesBlocked: false
+  blockChanges: true
+  clearState: false
+  reevaluationIntervalDays: 5
