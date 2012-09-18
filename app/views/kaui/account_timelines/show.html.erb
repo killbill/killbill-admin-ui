@@ -296,8 +296,7 @@
 <%= javascript_tag do %>
   function disableLinks() {
     $('a.btn.disabled').click(function (e) {
-      // e.preventDefault(); is not enough here
-      return false;
+      e.preventDefault();
     });
   }
 
