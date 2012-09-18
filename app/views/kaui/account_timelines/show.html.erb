@@ -84,20 +84,18 @@
             <% end %>
           </td>
           <td>
-            <% if invoice.balance > 0 %>
-              <nobr>
-                <%= link_to "Credit",
-                            kaui_engine.new_credit_path(:params => { :account_id => invoice.account_id,
-                                                                     :invoice_id => invoice.invoice_id }),
-                            :class => "btn btn-mini" %>
-              </nobr>
-              <nobr>
-                <%= link_to "Payment",
-                            kaui_engine.new_payment_path(:params => { :account_id => invoice.account_id,
-                                                                      :invoice_id => invoice.invoice_id }),
-                            :class => "btn btn-mini" %>
-              </nobr>
-            <% end %>
+            <nobr>
+              <%= link_to "Payment",
+                          kaui_engine.new_payment_path(:params => { :account_id => invoice.account_id,
+                                                                    :invoice_id => invoice.invoice_id }),
+                          :class => "btn btn-mini #{"disabled" unless invoice.balance > 0}" %>
+            </nobr>
+            <nobr>
+              <%= link_to "Credit",
+                          kaui_engine.new_credit_path(:params => { :account_id => invoice.account_id,
+                                                                   :invoice_id => invoice.invoice_id }),
+                          :class => "btn btn-mini" %>
+            </nobr>
             <nobr>
               <%= link_to "Charge",
                           kaui_engine.new_charge_path(:params => { :account_id => invoice.account_id,
@@ -235,23 +233,18 @@
             <% end %>
           </td>
           <td>
-            <% if payment.payment_id.present? %>
-              <nobr>
-                <%= link_to 'Refund', kaui_engine.new_refund_path(:params => { :payment_id => payment.payment_id,
-                                                                               :account_id => @account.account_id,
-                                                                               :invoice_id => payment.invoice_id }),
-                                                                  :class => "btn btn-mini" %>
-                <%= link_to 'Chargeback', kaui_engine.new_chargeback_path(:params => { :payment_id => payment.payment_id,
-                                                                                       :account_id => @account.account_id,
-                                                                                       :invoice_id => payment.invoice_id }),
-                                                                          :class => "btn btn-mini" %>
-              </nobr>
-              <% elsif invoice.balance > 0 %>
-                <%= link_to 'Pay', kaui_engine.new_payment_path(:params => { :payment_id => payment.payment_id,
+            <nobr>
+              <%= link_to 'Refund', kaui_engine.new_refund_path(:params => { :payment_id => payment.payment_id,
                                                                              :account_id => @account.account_id,
                                                                              :invoice_id => payment.invoice_id }),
-                                                                :class => "btn btn-mini" %>
-            <% end %>
+                                                                :class => "btn btn-mini #{"disabled" unless payment.payment_id.present?}" %>
+            </nobr>
+            <nobr>
+              <%= link_to 'Chargeback', kaui_engine.new_chargeback_path(:params => { :payment_id => payment.payment_id,
+                                                                                     :account_id => @account.account_id,
+                                                                                     :invoice_id => payment.invoice_id }),
+                                                                        :class => "btn btn-mini #{"disabled" unless payment.payment_id.present?}" %>
+            </nobr>
           </td>
         </tr>
       <% end %>
@@ -301,6 +294,12 @@
   <%= link_to 'Back', :back, :class => 'btn' %>
 </div>
 <%= javascript_tag do %>
+  function disableLinks() {
+    $('a.btn.disabled').click(function (e) {
+      e.preventDefault()
+    });
+  }
+
   function filterBundles() {
     var bundle = $("#bundles").val();
     var dataTable = $("#timeline-table").dataTable();
@@ -317,6 +316,8 @@
     dataTable.fnDraw();
   }
   $(document).ready(function() {
+    disableLinks();
+
     $("#bundles").change(filterBundles);
     filterBundles();
   });
