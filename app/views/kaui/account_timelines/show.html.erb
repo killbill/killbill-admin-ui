@@ -317,6 +317,10 @@
   }
   $(document).ready(function() {
     disableLinks();
+    // When going through the pages of the table, disable links as needed
+    $('#timeline-table').bind('draw', function (e) {
+      disableLinks();
+    });
 
     $("#bundles").change(filterBundles);
     filterBundles();
