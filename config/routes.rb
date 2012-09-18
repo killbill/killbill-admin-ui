@@ -11,6 +11,7 @@ Kaui::Engine.routes.draw do
       post :do_add_payment_method
       delete :delete_payment_method
       post :toggle_email_notifications
+      post :pay_all_invoices
 		end
   end
 

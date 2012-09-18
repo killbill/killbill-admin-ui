@@ -40,13 +40,20 @@
     <% end %>
         &nbsp;
         <nobr>
-          <%= link_to 'Charge',
-                      kaui_engine.new_charge_path(:params => { :account_id => @account.account_id }),
-                      :class => "btn btn-mini" %>
+          <!-- Payment, Credit then Charge. Same ordering as in the billing timeline -->
+          <%= link_to 'Payment',
+                      kaui_engine.pay_all_invoices_account_path(@account.account_id),
+                      :method => :post,
+                      :class => "btn btn-mini #{"disabled" if !@account.balance.nil? and @account.balance <= 0}" %>
         </nobr>
         <nobr>
           <%= link_to 'Credit',
                       kaui_engine.new_credit_path(:params => { :account_id => @account.account_id }),
+                      :class => "btn btn-mini" %>
+        </nobr>
+        <nobr>
+          <%= link_to 'Charge',
+                      kaui_engine.new_charge_path(:params => { :account_id => @account.account_id }),
                       :class => "btn btn-mini" %>
         </nobr>
         </dd>
@@ -78,4 +85,16 @@
   <% end %>
 <% else %>
   <p>Account not found</p>
+<% end %>
+
+<%= javascript_tag do %>
+  function disableLinks() {
+    $('a.btn.disabled').click(function (e) {
+      e.preventDefault()
+    });
+  }
+
+  $(document).ready(function() {
+    disableLinks();
+  });
 <% end %>

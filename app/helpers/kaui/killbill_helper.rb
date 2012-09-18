@@ -301,11 +301,21 @@ module Kaui
       return response_data
     end
 
+    def self.pay_all_invoices(account_id, external = false, current_user = nil, reason = nil, comment = nil)
+      call_killbill :post,
+                     "/1.0/kb/invoices/payments?externalPayment=#{external}",
+                     ActiveSupport::JSON.encode({:accountId => account_id}, :root => false),
+                     :content_type => "application/json",
+                     "X-Killbill-CreatedBy" => current_user,
+                     "X-Killbill-Reason" => extract_reason_code(reason),
+                     "X-Killbill-Comment" => "#{comment}"
+    end
+
     def self.create_payment(payment, external, current_user = nil, reason = nil, comment = nil)
       payment_data = Kaui::Payment.camelize(payment.to_hash)
 
       if payment.invoice_id.present?
-        # We should use different model for POST and GEt, this seems fragile...
+        # We should use different model for POST and GET, this seems fragile...
         payment_data.delete(:external)
         payment_data.delete(:refunds)
         payment_data.delete(:chargebacks)
