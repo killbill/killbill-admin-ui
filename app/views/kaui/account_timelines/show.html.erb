@@ -15,13 +15,13 @@
   </div>
 </form>
 <hr/>
-<table id="timeline-table" class="table table-condensed data-table">
+<table id="timeline-table" class="table table-condensed">
   <thead>
     <tr>
-      <th class="sort-title-string">Requested Date</th>
-      <th class="data-table-sort-desc sort-title-string">Effective Date</th>
+      <th>Requested Date</th>
+      <th>Effective Date</th>
       <th>Bundle Name</th>
-      <th class="data-table-sort-desc">Event Type</th>
+      <th>Event Type</th>
       <th>Details</th>
       <th>Reason Code / Comments</th>
       <th>Actions</th>
@@ -41,14 +41,12 @@
         <tr title="<%= bundles %>">
           <td>
             <% if invoice.invoice_date.present? %>
-              <span class="hide" title="<%= invoice.invoice_date %>"></span>
               <%= invoice.invoice_date %>
             <% else %>
               [unknown]
             <% end %>
           <td>
             <% if invoice.target_date.present? %>
-              <span class="hide" title="<%= invoice.target_date %>"></span>
               <%= invoice.target_date %>
             <% else %>
               [unknown]
@@ -62,7 +60,8 @@
             <% end %>
           </td>
           <td><%= "INVOICE" %></td>
-          <td><%= "Amount:" %> <%= humanized_money_with_symbol invoice.amount_to_money(@account.currency) %><br/>
+          <td><span class="hide" title="<%= invoice.invoice_number %>"></span>
+              <%= "Amount:" %> <%= humanized_money_with_symbol invoice.amount_to_money(@account.currency) %><br/>
               <%= "Balance:" %> <%= humanized_money_with_symbol invoice.balance_to_money(@account.currency) %><br/>
               <% if invoice.credit_adjustment.present? && invoice.credit_adjustment > 0  %>
                 <%= "Credit adjustment:" %> <%= humanized_money_with_symbol invoice.credit_adjustment_to_money(@account.currency) %><br/>
@@ -111,7 +110,6 @@
           <tr title="<%= bundles %>">
             <td>
               <% if refund.requested_date.present? %>
-                <span class="hide" title="<%= refund.requested_date %>"></span>
                 <%= format_date(refund.requested_date).html_safe %>
               <% else %>
                 [unknown]
@@ -119,7 +117,6 @@
             </td>
             <td>
               <% if refund.effective_date.present? %>
-                <span class="hide" title="<%= refund.effective_date %>"></span>
                 <%= format_date(refund.effective_date).html_safe %>
               <% else %>
                 [unknown]
@@ -151,7 +148,6 @@
         <tr title="<%= bundles %>">
           <td>
             <% if chargeback.effective_date.present? %>
-              <span class="hide" title="<%= chargeback.effective_date %>"></span>
               <%= format_date(chargeback.effective_date).html_safe %>
             <% else %>
               [unknown]
@@ -159,7 +155,6 @@
           </td>
           <td>
             <% if chargeback.effective_date.present? %>
-              <span class="hide" title="<%= chargeback.effective_date %>"></span>
               <%= format_date(chargeback.effective_date).html_safe %>
             <% else %>
               [unknown]
@@ -195,7 +190,6 @@
         <tr title="<%= bundles %>">
           <td>
             <% if payment.requested_date.present? %>
-              <span class="hide" title="<%= payment.requested_date %>"></span>
               <%= format_date(payment.requested_date).html_safe %>
             <% else %>
               [unknown]
@@ -203,7 +197,6 @@
           </td>
           <td>
             <% if payment.effective_date.present? %>
-              <span class="hide" title="<%= payment.effective_date %>"></span>
               <%= format_date(payment.effective_date).html_safe %>
             <% else %>
               [unknown]
@@ -216,6 +209,7 @@
           </td>
           <td><%= "PAYMENT" %></td>
           <td>
+            <span class="hide" title="<%= invoice.invoice_number %>"></span>
             <%= "Payment id:" %> <%= payment.payment_id %><br/>
             <%= "Total amount:" %> <%= humanized_money_with_symbol payment.amount_to_money %><br/>
             <%= "Paid amount:" %> <%= humanized_money_with_symbol payment.paid_amount_to_money %><br/>
@@ -256,7 +250,6 @@
             <tr title="<%= @bundle_names[bundle.external_key] %>">
               <td>
                 <% if event.requested_date.present? %>
-                  <span class="hide" title="<%= event.requested_date %>"></span>
                   <%= format_date(event.requested_date).html_safe %>
                 <% else %>
                   [unknown]
@@ -264,7 +257,6 @@
               </td>
               <td>
                 <% if event.effective_date.present? %>
-                  <span class="hide" title="<%= event.effective_date %>"></span>
                   <%= format_date(event.effective_date).html_safe %>
                 <% else %>
                   [unknown]
@@ -274,7 +266,7 @@
                 <%= link_to @bundle_names[bundle.external_key], Kaui.bundle_home_path.call(bundle.external_key) %><br/>
               </td>
               <td><%= event.event_type %></td>
-              <td><%= event.product %> <%= event.billing_period == 'NO_BILLING_PERIOD' || event.billing_period.nil? ? "" : event.billing_period.downcase.capitalize %> <%= event.phase.downcase.capitalize if event.phase.present? %></td>
+              <td><span class="hide" title="<%= sub.product_category %>"></span><%= event.product %> <%= event.billing_period == 'NO_BILLING_PERIOD' || event.billing_period.nil? ? "" : event.billing_period.downcase.capitalize %> <%= event.phase.downcase.capitalize if event.phase.present? %></td>
               <td>
                 <% if event.audit_logs.present? %>
                   <% event.audit_logs.each do |entry| %>
@@ -300,10 +292,68 @@
     });
   }
 
+  eventsOrder = ["CREATE", "PHASE", "CHANGE", "CANCEL", "INVOICE", "PAYMENT", "REFUND", "CHARGEBACK"];
+
+  jQuery.fn.dataTableExt.oSort['timeline-event-asc']  = function(e1,e2) {
+    var x = eventsOrder.indexOf(e1);
+    var y = eventsOrder.indexOf(e2);
+    return ((x < y) ? -1 : ((x > y) ?  1 : 0));
+  };
+
+  jQuery.fn.dataTableExt.oSort['timeline-event-desc'] = function(e1,e2) {
+    var x = eventsOrder.indexOf(e1);
+    var y = eventsOrder.indexOf(e2);
+    return ((x < y) ?  1 : ((x > y) ? -1 : 0));
+  };
+
+  function extractTitleAttributeFromText(txt) {
+    // Ugly - better way of doing this?
+    var matches = txt.match(/title="\w+"/g);
+    if (matches == null || matches.size == 0) {
+      return null;
+    }
+    return matches[0].split('=')[1];
+  }
+
+  jQuery.fn.dataTableExt.oSort['timeline-details-asc']  = function(e1,e2) {
+    var x = extractTitleAttributeFromText(e1);
+    var y = extractTitleAttributeFromText(e2);
+    return ((x < y) ? -1 : ((x > y) ?  1 : 0));
+  };
+
+  jQuery.fn.dataTableExt.oSort['timeline-details-desc'] = function(e1,e2) {
+    var x = extractTitleAttributeFromText(e1);
+    var y = extractTitleAttributeFromText(e2);
+    return ((x < y) ?  1 : ((x > y) ? -1 : 0));
+  };
+
+  function initTable() {
+    return $("#timeline-table").dataTable({
+       "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+       "sPaginationType": "bootstrap",
+       "oLanguage": {
+         "sLengthMenu": "_MENU_ records per page"
+       },
+       "iDisplayLength": 100,
+       "bRetrieve": true,
+       // Force a predictive order for event types, invoices and payments
+       "aaSortingFixed": [[1, 'desc'], [4, 'desc'], [3, 'desc']],
+       "aoColumns": [
+           { "sType": 'date' },
+           { "sType": 'date' },
+           null,
+           { "sType": 'timeline-event' },
+           { "sType": 'timeline-details' },
+           null,
+           null
+       ]
+    });
+  }
+
   function filterBundles() {
     var bundle = $("#bundles").val();
-    var dataTable = $("#timeline-table").dataTable();
 
+    var dataTable = initTable();
     $(dataTable.fnGetNodes()).each(function() {
       var tr = $(this);
       if (bundle == "" || tr.attr("title").split(",").indexOf(bundle) >= 0) {
@@ -315,12 +365,15 @@
     });
     dataTable.fnDraw();
   }
+
   $(document).ready(function() {
     disableLinks();
     // When going through the pages of the table, disable links as needed
     $('#timeline-table').bind('draw', function (e) {
       disableLinks();
     });
+
+    initTable();
 
     $("#bundles").change(filterBundles);
     filterBundles();
