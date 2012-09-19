@@ -201,9 +201,10 @@ module Kaui
                     "X-Killbill-Comment" => "#{comment}"
     end
 
-    def self.delete_subscription(subscription_id, current_user = nil, reason = nil, comment = nil)
+    def self.delete_subscription(subscription_id, policy = nil, current_user = nil, reason = nil, comment = nil)
+      params = "?policy=#{policy}" unless policy.blank?
       call_killbill :delete,
-                    "/1.0/kb/subscriptions/#{subscription_id}",
+                    "/1.0/kb/subscriptions/#{subscription_id}#{params}",
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => "#{reason}",
                     "X-Killbill-Comment" => "#{comment}"
