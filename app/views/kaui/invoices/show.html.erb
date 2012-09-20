@@ -59,9 +59,20 @@
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= format_date(sub.charged_through_date).html_safe if sub.present? %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= sub.price_list.downcase.capitalize if sub.present? and sub.price_list.present? %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= humanized_money_with_symbol item.amount_to_money %></td>
-          <td><%= link_to "Adjust",
+          <td>
+            <nobr>
+              <%= link_to "Adjust",
                           kaui_engine.edit_invoice_item_path(item.invoice_item_id, :invoice_id => @invoice.invoice_id),
-                          :class => "btn btn-mini" if item.amount > 0 and item.subscription_id.present? %></td>
+                          :class => "btn btn-mini #{"disabled" unless item.amount > 0 and item.subscription_id.present?}" %>
+            </nobr>
+            <nobr>
+              <%= link_to "Delete",
+                          kaui_engine.invoice_item_path(item.invoice_item_id, :account_id => @invoice.account_id, :invoice_id => @invoice.invoice_id),
+                          :confirm => 'Are you sure?',
+                          :method => :delete,
+                          :class => "btn btn-mini #{"disabled" unless item.description =~ /account credit/ and item.amount > 0 and item.linked_invoice_item_id.nil? and !@cba_items_not_deleteable.include?(item.invoice_item_id)}" %>
+            </nobr>
+          </td>
         </tr>
       <% end %>
     </tbody>
@@ -76,3 +87,15 @@
 <% end %>
 <%= link_to 'Back', :back, :class => 'btn' %>
 <%= link_to "View customer invoice html", kaui_engine.show_html_invoice_path(@invoice.invoice_id), :class => 'btn', :target => "_blank" %>
+<%= javascript_tag do %>
+  function disableLinks() {
+    $('a.btn.disabled').click(function (e) {
+      // preventDefault is not enough due to the confirmation popup
+      return false;
+    });
+  }
+
+  $(document).ready(function() {
+    disableLinks();
+  });
+<% end %>

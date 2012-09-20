@@ -268,6 +268,14 @@ module Kaui
       end
     end
 
+    def self.delete_cba(account_id, invoice_id, invoice_item_id, current_user = nil, reason = nil, comment = nil)
+      call_killbill :delete,
+                    "/1.0/kb/invoices/#{invoice_id}/#{invoice_item_id}/cba?accountId=#{account_id}",
+                    "X-Killbill-CreatedBy" => current_user,
+                    "X-Killbill-Reason" => "#{reason}",
+                    "X-Killbill-Comment" => "#{comment}"
+    end
+
     ############## CATALOG ##############
 
     def self.get_full_catalog
