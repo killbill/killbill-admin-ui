@@ -57,6 +57,15 @@
                       :class => "btn btn-mini" %>
         </nobr>
         </dd>
+    <dt>Account credit:</dt>
+    <% if @account.cba.nil? %>
+        <dd>unknown
+    <% elsif @account.cba >= 0  %>
+        <dd><span class="label label-success" ><%= humanized_money_with_symbol @account.cba_to_money %></span>
+    <% else %>
+        <dd><span class="label label-important" ><%= humanized_money_with_symbol @account.cba_to_money %></span>
+    <% end %>
+    </dd>
     <dt>Notified for inv?</dt>
     <dd><%= @account.is_notified_for_invoices %>&nbsp;<%= link_to "Toggle", kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post, :class => 'btn btn-mini' %></dd>
     <%= render :partial => "kaui/tags/tags_table",
