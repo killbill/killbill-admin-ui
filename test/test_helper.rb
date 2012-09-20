@@ -14,7 +14,11 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 module Kaui::KillbillHelper
   @@fixtures ||= {}
 
-  def self.get_account(account_id, with_account_id=false)
+  def self.get_account_by_key_with_balance_and_cba(key)
+    self.get_account_by_key(key, false, true)
+  end
+
+  def self.get_account(account_id, with_balance = false, with_balance_and_cba = false)
     find_among_fixtures(Kaui::Account, account_id)
   end
 
@@ -22,7 +26,7 @@ module Kaui::KillbillHelper
     []
   end
 
-  def self.get_account_by_external_key(account_id, with_account_id=false)
+  def self.get_account_by_external_key(account_id, with_balance = false, with_balance_and_cba = false)
     find_among_fixtures(Kaui::Account, account_id)
   end
 
