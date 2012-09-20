@@ -380,6 +380,8 @@ module Kaui
 
     def self.create_refund(payment_id, refund, current_user = nil, reason = nil, comment = nil)
       refund_data = Kaui::Refund.camelize(refund.to_hash)
+      # We don't want to pass adjustment_type
+      refund_data.delete(:adjustmentType)
 
       call_killbill :post,
                     "/1.0/kb/payments/#{payment_id}/refunds",

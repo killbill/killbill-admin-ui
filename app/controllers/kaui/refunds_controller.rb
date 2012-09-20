@@ -53,9 +53,19 @@ class Kaui::RefundsController < Kaui::EngineController
   def create
     payment_id = params[:payment_id]
     account_id = params[:account_id]
-
     refund = Kaui::Refund.new(params[:refund])
-    refund.adjusted = (refund.adjusted == "1")
+    refund.adjusted = (refund.adjustment_type != "noInvoiceAdjustment")
+    if refund.adjustment_type == "invoiceItemAdjustment"
+      refund.adjustments = []
+      params[:adjustments].each_with_index do |ii, idx|
+        h = Hash.new
+        h[:invoice_item_id] = ii[0]
+        h[:amount] = ii[1]
+        kaui_ii = Kaui::InvoiceItem.new(h)
+        puts "Got #{kaui_ii.inspect}"
+        refund.adjustments[idx] = kaui_ii
+      end
+    end
     if refund.present?
       begin
         Kaui::KillbillHelper::create_refund(params[:payment_id], refund, current_user, params[:reason], params[:comment])

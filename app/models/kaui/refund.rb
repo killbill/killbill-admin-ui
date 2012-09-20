@@ -13,9 +13,10 @@ class Kaui::Refund < Kaui::Base
   define_attr :currency
   define_attr :requested_date
   define_attr :effective_date
-  define_attr :adjustments
+  define_attr :adjustment_type
 
   has_many :audit_logs, Kaui::AuditLog
+  has_many :adjustments, Kaui::InvoiceItem
 
   def amount_to_money
     Kaui::Base.to_money(amount, currency)

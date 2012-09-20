@@ -2,6 +2,7 @@
   <h1>Refund Payment</h1>
 </div>
 <%= form_for(@refund, :url => { :action => :create }, :html => { :class => "form-horizontal" }) do |f| %>
+
   <%= hidden_field_tag :account_id, @account_id %>
   <%= hidden_field_tag :payment_id, @payment_id %>
   <fieldset>
@@ -49,25 +50,52 @@
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :adjusted, "Adjust Invoice?", :class => "control-label" %>
+	   <%= f.label :adjustment_type, "Adjustment Type", :class => "control-label" %>
+	   <div class="controls">
+       <label class="radio">
+			  <%= f.radio_button :adjustment_type, 'noInvoiceAdjustment', :checked => true %>
+		      No Invoice Adjustment
+		    </label>
+	   </div>
+	   <div class="controls">
+       <label class="radio">
+			  <%= f.radio_button :adjustment_type, 'invoiceAdjustment' %>
+		     Invoice Adjustment
+		    </label>
+	   </div>
+	   <div class="controls">
+       <label class="radio">
+			  <%= f.radio_button :adjustment_type, 'invoiceItemAdjustment' %>
+		      Invoice Item Adjustment
+		   </label>
+	    </div>
+    </div>
+    <div id="invoiceItems" style="display:none">
+      <% @invoice.items.each_with_index do |ii, index | %>
+         <% if ii.amount > 0 and ii.subscription_id.present?  %>
+           <div id=<%= "div_#{ii.invoice_item_id}" %> class="control-group">
+               <label class="control-label"></label>
+               <div class="controls">
+                   <input type="checkbox" id=<%= "cb_adj_#{ii.invoice_item_id}" %>>
+                   <%= "Item #{index + 1} : #{ii.description} " %>
+                   <%= text_field_tag "adjustments[#{ii.invoice_item_id}]", index,  :id => "tf_adj_#{ii.invoice_item_id}" , :value => ii.amount, :class => 'input-small' %>
+               </div>
+           </div>
+         <% end %>
+      <% end %>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Paid Amount</label>
       <div class="controls">
         <label class="checkbox">
-          <%= f.check_box :adjusted %>
+          <%= @payment.paid_amount %> <%= @account.currency if @payment.paid_amount.present? %>
         </label>
       </div>
     </div>
-    <div class="control-group">
-      <label class="control-label">Payment</label>
-      <div class="controls">
-        <label class="checkbox">
-          <%= @payment.amount %> <%= @account.currency if @payment.amount.present? %>
-        </label>
-      </div>
-    </div>
-    <div class="control-group">
+    <div id="div_refund_amount" class="control-group">
       <%= f.label :amount, "Refund amount", :class => "control-label" %>
       <div class="controls">
-        <%= f.text_field :amount, :id => 'refund_amount', :value => @payment.amount, :class => 'input-small' %>
+        <%= f.text_field :amount, :id => 'refund_amount', :value => @payment.paid_amount, :class => 'input-small' %>
         <p class="help-inline"><%= @account.currency %></p>
       </div>
     </div>
@@ -84,15 +112,184 @@
       </div>
     </div>
     <div class="form-actions">
-      <%= button_tag "Create refund", :class =>"btn btn-primary" %>
+      <%= button_tag "Create refund", :id => "submit", :class =>"btn btn-primary" %>
       <%= link_to 'Back', :back, :class => 'btn' %>
     </div>
   </fieldset>
 <% end %>
 <%= javascript_tag do %>
-  $(document).ready(function() {
-    $("#refund_amount").keydown(function(event) {
-      preventNonNumericValues(event);
+
+    var textToDivId = function(textId) {
+        return "div_" + textId.split("tf_adj_")[1];
+    };
+    
+    var textToCheckboxId = function(textId) {
+        return "cb_adj_" + textId.split("tf_adj_")[1];
+    };
+
+    var checkboxToTextId = function(cbId) {
+        return "tf_adj_" + cbId.split("cb_adj_")[1];
+    };
+    
+    var setClassForElement = function(id, newClass) {
+        var currentClasses = $(id).attr('class').split(' ');
+        for (var i=0; i<currentClasses.length; i++) {
+            $(id).removeClass(currentClasses[i]);
+        }
+        $(id).addClass(newClass);
+    };
+
+    var validateInvoiceItemAmount = function(id) {
+        var divId = textToDivId(id);
+        if (Number($("#" + id).attr('value')) > Number($("#" + id).attr('originalValue'))) {
+            setClassForElement($("#" + divId), "control-group error");
+        } else {
+            setClassForElement($("#" + divId), "control-group");
+        }
+    };
+
+    var validateRefundAmount = function() {
+        if (Number($("#refund_amount").attr('value')) > <%= @payment.paid_amount %> ||
+          Number($("#refund_amount").attr('value')) <= 0) {
+          setClassForElement("#div_refund_amount", "control-group error");
+          $("#submit").prop('disabled', true);
+        } else {
+          setClassForElement("#div_refund_amount", "control-group");
+          $("#submit").prop('disabled', false);
+        }
+    };
+
+    /*
+    * Disabled unwanted invoice item at the time we submit the form
+    */
+    var disableNonCheckedInvoiceItem = function() {
+        $('input').filter(function() {
+            return this.id.match(/cb_adj_/);
+        }).each(function() {
+            var id = checkboxToTextId(this.id);
+            if (! $(this).is(':checked')) {
+                $("#" + id).prop('disabled', true);
+            }
+        });
+    };
+
+    /*
+     * Recompute refund amount based on adjustment type:
+     * - For Invoice Item Adjustment, recompute price based on selection and invalidate text area to make it match exact selection
+     * _ For Invoice adjustment or no adjustment, default to payment amount
+     */
+    var recomputeRefundAmountAndValidateAmount = function() {
+        var computedRefundAmount = <%= @payment.paid_amount %>;
+        if ($("#refund_adjustment_type_invoiceitemadjustment").is(':checked')) {
+            var x = 0; $('input').filter(function() { return this.id.match(/tf_adj_/) }).each(function() {
+                var id = textToCheckboxId(this.id);
+                if ($("#" + id).is(':checked')) {
+                    x = x + Number(this.value);
+                }
+            });
+            computedRefundAmount = x.toFixed(2);
+            $("#refund_amount").attr('value', computedRefundAmount);
+            $("#refund_amount").prop('readonly', true);
+        } else {
+            $("#refund_amount").attr('value', computedRefundAmount);
+            $("#refund_amount").prop('readonly', false);
+        }
+        validateRefundAmount();
+    };
+    
+    /*
+    * When clicking checkbox for each item, disable amount and recompute total refund amount
+    */
+    var onClickInvoiceItemAdjustment = function(event) {
+        var id = checkboxToTextId(this.id);
+        if ($(this).is(':checked')) {
+            $("#" + id).prop('readonly', true);
+        } else {
+            $("#" + id).prop('readonly', false);
+            $("#" + id).attr('value', $("#" + id).attr('originalValue'));
+        }
+        recomputeRefundAmountAndValidateAmount();
+        validateInvoiceItemAmount(id);
+    };
+
+    /*
+    * When selecting Invoice Adjustment or No Adjustment, hide invoice items and recompute refund Amount
+    */
+    var onClickWithInvoiceOrNoAdjustment = function(event) {
+        $("#invoiceItems").hide();
+        recomputeRefundAmountAndValidateAmount();
+    };
+
+    /*
+    * When selecting Invoice Item Adjustment, show items and recompute refund amount
+    */
+    var onClickWithInvoiceItemAdjustment = function(event) {
+        $("#invoiceItems").show();
+        recomputeRefundAmountAndValidateAmount();
+    };
+
+    /*
+    * Attach all handlers when page loads
+    */
+    $(document).ready(function() {
+
+        /*
+        * For refund amount text area, attach handler to disable 'ENTER' and also prevent bad values
+        */
+        $("#refund_amount").keydown(function(event) {
+            preventNonNumericValues(event);
+        }).bind('keypress', function(e) {
+            if ((e.keyCode || e.which) == 13) {
+                return false;
+            }
+        }).blur(function(e) {
+            validateRefundAmount();
+        });
+
+        /*
+        * If doing invoice Item adjustment, disable entries that were not selected, so the controllers does not
+        * get them
+        */
+        $("#submit").click(disableNonCheckedInvoiceItem);
+
+        /*
+        * Adjustment type handlers
+        */
+        $("#refund_adjustment_type_noinvoiceadjustment")
+        .click(onClickWithInvoiceOrNoAdjustment);
+        $("#refund_adjustment_type_invoiceadjustment")
+        .click(onClickWithInvoiceOrNoAdjustment);
+        $("#refund_adjustment_type_invoiceitemadjustment")
+        .click(onClickWithInvoiceItemAdjustment);
+
+        /*
+        * Attach handler onClickInvoiceItemAdjustment for all invoice item checkbox
+        */
+        $('input').filter(function() {
+            return this.id.match(/cb_adj_/);
+        }).click(onClickInvoiceItemAdjustment);
+
+        /*
+        * Attach handler for all invoice item text areas so that:
+        * - We disable posting form when pressing 'ENTER'
+        * - Automatically select the matching checkbox on 'ENTER' and disable checkbox
+        */
+        $('input').filter(function() {
+            return this.id.match(/tf_adj_/);
+        }).each( function() {
+            var originalValue = this.value;
+            $(this).attr('originalValue', originalValue);
+            $(this).bind('keypress', function(e) {
+                if ((e.keyCode || e.which) == 13) {
+                    var id = textToCheckboxId(this.id);
+                    $("#" + id).attr('checked', true);
+                    $(this).prop('readonly', true);
+                    recomputeRefundAmountAndValidateAmount();
+                    validateInvoiceItemAmount(this.id);
+                    return false;
+                }
+            });
+        });
     });
-  });
+
 <% end %>

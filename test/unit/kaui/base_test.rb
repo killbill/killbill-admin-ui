@@ -24,18 +24,24 @@ class Kaui::BaseTest < ActiveSupport::TestCase
   end
 
   test "convert camelcase hash into snake case hash" do
-    # Happy path
-    new_hash = Kaui::Base.convert_hash_keys({:accountId=>12, :data_id=>14})
-    assert_equal 12, new_hash[:account_id]
-    assert_equal 14, new_hash[:data_id]
-    assert_nil new_hash[:accountId]
+     # Happy path
+     new_hash = Kaui::Base.convert_hash_keys({:accountId=>12, :data_id=>14})
+     assert_equal 12, new_hash[:account_id]
+     assert_equal 14, new_hash[:data_id]
+     assert_nil new_hash[:accountId]
 
-    # Edge cases
-    assert_nil Kaui::Base.convert_hash_keys(nil)
-    assert_equal [], Kaui::Base.convert_hash_keys([])
-    assert_equal Hash.new, Kaui::Base.convert_hash_keys({})
-    assert_equal 1, Kaui::Base.convert_hash_keys(1)
-  end
+     # Edge cases
+     assert_nil Kaui::Base.convert_hash_keys(nil)
+     assert_equal [], Kaui::Base.convert_hash_keys([])
+     assert_equal Hash.new, Kaui::Base.convert_hash_keys({})
+     assert_equal 1, Kaui::Base.convert_hash_keys(1)
+   end
+
+   test "convert nested snake case into camel case" do
+      new_hash = Kaui::Base.camelize({:account_id=>12, :my_nested_field=> {:not_good => 32}})
+      assert_equal 12, new_hash[:accountId]
+      assert_equal 32, new_hash[:myNestedField][:notGood]
+   end
 
   test "can convert to money" do
     # Happy path
