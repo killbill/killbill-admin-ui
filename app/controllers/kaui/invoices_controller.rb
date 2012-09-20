@@ -16,8 +16,11 @@ class Kaui::InvoicesController < Kaui::EngineController
 
           @subscriptions = {}
           @bundles = {}
+          @cba_items_not_deleteable = []
           if @invoice.items.present?
             @invoice.items.each do |item|
+              @cba_items_not_deleteable << item.linked_invoice_item_id if item.description =~ /account credit/ and item.amount < 0
+
               unless item.subscription_id.nil? || @subscriptions.has_key?(item.subscription_id)
                 @subscriptions[item.subscription_id] = Kaui::KillbillHelper.get_subscription(item.subscription_id)
               end

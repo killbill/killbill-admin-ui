@@ -32,13 +32,35 @@
                   <%= link_to "Reinstate", kaui_engine.reinstate_subscription_path(:id => sub.subscription_id), :method => :put, :class => "btn btn-mini" %>
                 <% elsif !sub.canceled_date.present? %>
                   <%= link_to "Change", kaui_engine.edit_subscription_path(sub.subscription_id), :class => "btn btn-mini" %>
-                  <%= link_to "Cancel", kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete, :class => "btn btn-mini" %>
+                  <div class="btn-group">
+                    <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+                      Cancel
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to "Cancel (default policy)", kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete %></li>
+                      <li><%= link_to "Cancel immediately", kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'IMMEDIATE'), :method => :delete %></li>
+                      <li><%= link_to "Cancel end of term", kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'END_OF_TERM'), :method => :delete %></li>
+                    </ul>
+                  </div>
                   <%= link_to "Add Addons", kaui_engine.new_subscription_path(:params => { :bundle_id => sub.bundle_id, :base_subscription => sub.product_name }), :class => "btn btn-mini" %>
-                <% end%>
+                <% end %>
               <% else %>
               <% end %>
               <% if sub.product_category == 'ADD_ON' %>
-                <%= link_to "Cancel", kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete, :class => "btn btn-mini" unless sub.canceled_date.present? %>
+                <% if !sub.canceled_date.present? %>
+                  <div class="btn-group">
+                    <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+                      Cancel
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to "Cancel (default policy)", kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete %></li>
+                      <li><%= link_to "Cancel immediately", kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'IMMEDIATE'), :method => :delete %></li>
+                      <li><%= link_to "Cancel end of term", kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'END_OF_TERM'), :method => :delete %></li>
+                    </ul>
+                  </div>
+                <% end %>
                 <% if sub.canceled_date.present? && Time.parse(sub.canceled_date) > Time.now %>
                   <%= link_to "Reinstate", kaui_engine.reinstate_subscription_path(:id => sub.subscription_id), :method => :put, :class => "btn btn-mini" %>
                 <% end %>

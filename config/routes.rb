@@ -11,6 +11,7 @@ Kaui::Engine.routes.draw do
       post :do_add_payment_method
       delete :delete_payment_method
       post :toggle_email_notifications
+      post :pay_all_invoices
 		end
   end
 
@@ -46,7 +47,7 @@ Kaui::Engine.routes.draw do
     end
   end
 
-  resources :invoice_items, :only => [ :index, :show, :edit, :update ]
+  resources :invoice_items, :only => [ :index, :show, :edit, :update, :destroy ]
 
   resources :bundles, :only => [ :index, :show ] do
     member do

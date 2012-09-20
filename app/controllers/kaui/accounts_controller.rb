@@ -161,9 +161,19 @@ class Kaui::AccountsController < Kaui::EngineController
     begin
       @account = Kaui::KillbillHelper::update_email_notifications(params[:id], params[:is_notified])
       flash[:notice] = "Email preferences updated"
-      redirect_to :back
     rescue => e
       flash[:error] = "Error while switching email notifications #{invoice_id}: #{as_string(e)}"
     end
+    redirect_to :back
+  end
+
+  def pay_all_invoices
+    begin
+      @account = Kaui::KillbillHelper::pay_all_invoices(params[:id], false, current_user, params[:reason], params[:comment])
+      flash[:notice] = "Successfully triggered a payment for all unpaid invoices"
+    rescue => e
+      flash[:error] = "Error while triggering payments: #{as_string(e)}"
+    end
+    redirect_to :back
   end
 end

@@ -201,9 +201,10 @@ module Kaui
                     "X-Killbill-Comment" => "#{comment}"
     end
 
-    def self.delete_subscription(subscription_id, current_user = nil, reason = nil, comment = nil)
+    def self.delete_subscription(subscription_id, policy = nil, current_user = nil, reason = nil, comment = nil)
+      params = "?policy=#{policy}" unless policy.blank?
       call_killbill :delete,
-                    "/1.0/kb/subscriptions/#{subscription_id}",
+                    "/1.0/kb/subscriptions/#{subscription_id}#{params}",
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => "#{reason}",
                     "X-Killbill-Comment" => "#{comment}"
@@ -267,6 +268,14 @@ module Kaui
       end
     end
 
+    def self.delete_cba(account_id, invoice_id, invoice_item_id, current_user = nil, reason = nil, comment = nil)
+      call_killbill :delete,
+                    "/1.0/kb/invoices/#{invoice_id}/#{invoice_item_id}/cba?accountId=#{account_id}",
+                    "X-Killbill-CreatedBy" => current_user,
+                    "X-Killbill-Reason" => "#{reason}",
+                    "X-Killbill-Comment" => "#{comment}"
+    end
+
     ############## CATALOG ##############
 
     def self.get_full_catalog
@@ -301,11 +310,21 @@ module Kaui
       return response_data
     end
 
+    def self.pay_all_invoices(account_id, external = false, current_user = nil, reason = nil, comment = nil)
+      call_killbill :post,
+                     "/1.0/kb/invoices/payments?externalPayment=#{external}",
+                     ActiveSupport::JSON.encode({:accountId => account_id}, :root => false),
+                     :content_type => "application/json",
+                     "X-Killbill-CreatedBy" => current_user,
+                     "X-Killbill-Reason" => extract_reason_code(reason),
+                     "X-Killbill-Comment" => "#{comment}"
+    end
+
     def self.create_payment(payment, external, current_user = nil, reason = nil, comment = nil)
       payment_data = Kaui::Payment.camelize(payment.to_hash)
 
       if payment.invoice_id.present?
-        # We should use different model for POST and GEt, this seems fragile...
+        # We should use different model for POST and GET, this seems fragile...
         payment_data.delete(:external)
         payment_data.delete(:refunds)
         payment_data.delete(:chargebacks)

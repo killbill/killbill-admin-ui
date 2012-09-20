@@ -25,6 +25,17 @@ class Kaui::InvoiceItemsController < Kaui::EngineController
     end
   end
 
+  def destroy
+    begin
+      Kaui::KillbillHelper.delete_cba(params[:account_id], params[:invoice_id], params[:id], current_user, params[:reason], params[:comment])
+      flash[:notice] = "CBA deleted"
+      redirect_to kaui_engine.invoice_path(params[:invoice_id])
+    rescue => e
+      flash[:error] = "Error while deleting the CBA: #{as_string(e)}"
+      redirect_to kaui_engine.invoice_path(params[:invoice_id])
+    end
+  end
+
   private
 
   def find_invoice_item
