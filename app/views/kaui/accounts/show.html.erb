@@ -34,9 +34,9 @@
     <% if @account.balance.nil? %>
         <dd>unknown
     <% elsif @account.balance <= 0  %>
-        <dd><span class="label label-success" ><%= humanized_money_with_symbol @account.balance_to_money %></span>
+        <dd><span class="label label-success" ><%= humanized_money_with_symbol @account.balance_to_money %> (<%= @account.currency %>)</span>
     <% else %>
-        <dd><span class="label label-important" ><%= humanized_money_with_symbol @account.balance_to_money %></span>
+        <dd><span class="label label-important" ><%= humanized_money_with_symbol @account.balance_to_money %> (<%= @account.currency %>)</span>
     <% end %>
         &nbsp;
         <nobr>
@@ -61,9 +61,9 @@
     <% if @account.cba.nil? %>
         <dd>unknown
     <% elsif @account.cba >= 0  %>
-        <dd><span class="label label-success" ><%= humanized_money_with_symbol @account.cba_to_money %></span>
+        <dd><span class="label label-success" ><%= humanized_money_with_symbol @account.cba_to_money %> (<%= @account.currency %>)</span>
     <% else %>
-        <dd><span class="label label-important" ><%= humanized_money_with_symbol @account.cba_to_money %></span>
+        <dd><span class="label label-important" ><%= humanized_money_with_symbol @account.cba_to_money %> (<%= @account.currency %>)</span>
     <% end %>
     </dd>
     <dt>Notified for inv?</dt>
