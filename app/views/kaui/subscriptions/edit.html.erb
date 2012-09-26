@@ -29,7 +29,7 @@
     </div>
   </div>
   <div class="control-group">
-    <%= label_tag :policy, "Policy (leave blank for default):", :class => "control-label" %>
+    <%= label_tag :policy, "Policy Override (leave blank for default; select an option to force plan change):", :class => "control-label" %>
     <div class="controls">
       <%= select_tag :policy, options_for_select(['', 'IMMEDIATE', 'END_OF_TERM']) %>
     </div>

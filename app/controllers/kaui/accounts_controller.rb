@@ -15,7 +15,7 @@ class Kaui::AccountsController < Kaui::EngineController
       key.strip!
 
       begin
-        @account = Kaui::KillbillHelper::get_account_by_key(key, true)
+        @account = Kaui::KillbillHelper::get_account_by_key_with_balance_and_cba(key)
       rescue URI::InvalidURIError => e
         flash[:error] = "Error while retrieving the account for #{key}: #{e.message}"
         render :action => :index and return

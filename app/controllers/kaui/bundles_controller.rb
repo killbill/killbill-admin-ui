@@ -46,7 +46,7 @@ class Kaui::BundlesController < Kaui::EngineController
     key = params[:new_account_key]
     if key.present?
       begin
-        result = Kaui::KillbillHelper.get_account_by_key(key, false)
+        result = Kaui::KillbillHelper.get_account_by_key(key)
       rescue => e
         flash[:error] = "Error while retrieving account for #{key}: #{as_string(e)}"
         render :action => :index

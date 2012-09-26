@@ -16,6 +16,7 @@ class Kaui::Account < Kaui::Base
   define_attr :country
   define_attr :phone
   define_attr :balance
+  define_attr :cba
   define_attr :is_notified_for_invoices
   has_one :bill_cycle_day, Kaui::BillCycleDay
 
@@ -36,6 +37,7 @@ class Kaui::Account < Kaui::Base
           :phone => data['phone'],
           :bill_cycle_day => data['billCycleDay'],
           :balance => data['accountBalance'],
+          :cba => data['accountCBA'],
           :is_notified_for_invoices => data['isNotifiedForInvoices'])
   end
 
@@ -45,5 +47,9 @@ class Kaui::Account < Kaui::Base
 
   def balance_to_money
     Kaui::Base.to_money(balance.abs, currency)
+  end
+
+  def cba_to_money
+    Kaui::Base.to_money(cba.abs, currency)
   end
 end

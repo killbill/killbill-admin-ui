@@ -39,12 +39,16 @@ module Kaui
 
     ############## ACCOUNT ##############
 
-    def self.get_account_by_key(key, with_balance)
+    def self.get_account_by_key_with_balance_and_cba(key)
+      self.get_account_by_key(key, false, true)
+    end
+
+    def self.get_account_by_key(key, with_balance = false, with_balance_and_cba = false)
       # support id (UUID) and external key search
       if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
-        Kaui::KillbillHelper.get_account(key, with_balance)
+        Kaui::KillbillHelper.get_account(key, with_balance, with_balance_and_cba)
       else
-        Kaui::KillbillHelper.get_account_by_external_key(key, with_balance)
+        Kaui::KillbillHelper.get_account_by_external_key(key, with_balance, with_balance_and_cba)
       end
     end
 
@@ -53,13 +57,13 @@ module Kaui
       process_response(data, :single) {|json| Kaui::AccountTimeline.new(json) }
     end
 
-    def self.get_account(account_id, with_balance=false)
-      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}?accountWithBalance=#{with_balance}"
+    def self.get_account(account_id, with_balance = false, with_balance_and_cba = false)
+      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}?accountWithBalance=#{with_balance}&accountWithBalanceAndCBA=#{with_balance_and_cba}"
       process_response(data, :single) {|json| Kaui::Account.new(json) }
     end
 
-    def self.get_account_by_external_key(external_key, with_balance=false)
-      data = call_killbill :get, "/1.0/kb/accounts?externalKey=#{external_key}&accountWithBalance=#{with_balance}"
+    def self.get_account_by_external_key(external_key, with_balance = false, with_balance_and_cba = false)
+      data = call_killbill :get, "/1.0/kb/accounts?externalKey=#{external_key}&accountWithBalance=#{with_balance}&accountWithBalanceAndCBA=#{with_balance_and_cba}"
       process_response(data, :single) {|json| Kaui::Account.new(json) }
     end
 
