@@ -49,8 +49,8 @@ class Kaui::AccountTagsController < Kaui::EngineController
         tags_to_add << new_tag_definition_id unless current_tags.include?(new_tag_definition_id)
       end
 
-      Kaui::KillbillHelper::remove_tags_for_account(params[:account_id], tags_to_remove)
-      Kaui::KillbillHelper::add_tags_for_account(params[:account_id], tags_to_add)
+      Kaui::KillbillHelper::remove_tags_for_account(params[:account_id], tags_to_remove) unless tags_to_remove.empty?
+      Kaui::KillbillHelper::add_tags_for_account(params[:account_id], tags_to_add) unless tags_to_add.empty?
     rescue => e
       flash[:error] = "Error while updating tags: #{as_string(e)}"
     end
