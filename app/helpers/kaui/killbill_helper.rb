@@ -1,4 +1,5 @@
 require 'rest_client'
+require 'time'
 
 module Kaui
   module KillbillHelper
@@ -205,13 +206,32 @@ module Kaui
                     "X-Killbill-Comment" => "#{comment}"
     end
 
-    def self.delete_subscription(subscription_id, policy = nil, current_user = nil, reason = nil, comment = nil)
-      params = "?policy=#{policy}" unless policy.blank?
+    def self.delete_subscription(subscription_id, policy = nil, ctd = nil, billing_period = nil, current_user = nil, reason = nil, comment = nil)
+      prev_ctd = compute_previous_ctd(ctd, billing_period)
+      params = "?"
+      params += "policy=#{policy}&" unless policy.blank?
+      params += "requestedDate=#{prev_ctd.strftime('%Y-%m-%dT%H:%M:%S')}" unless prev_ctd.nil?
       call_killbill :delete,
                     "/1.0/kb/subscriptions/#{subscription_id}#{params}",
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => "#{reason}",
                     "X-Killbill-Comment" => "#{comment}"
+    end
+
+    def self.compute_previous_ctd(ctd, billing_period)
+      return nil if ctd.nil? or billing_period.nil?
+
+      ctd = DateTime.parse(ctd)
+      billing_period = billing_period.upcase
+      if billing_period == 'MONTHLY'
+        ctd.prev_month(1)
+      elsif billing_period == 'QUARTERLY'
+        ctd.prev_month(3)
+      elsif billing_period == 'ANNUAL'
+        ctd.prev_month(12)
+      else
+        nil
+      end
     end
 
     ############## INVOICE ##############

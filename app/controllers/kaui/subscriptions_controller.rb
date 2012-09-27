@@ -157,9 +157,9 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     subscription_id = params[:id]
     if subscription_id.present?
       begin
-        Kaui::KillbillHelper::delete_subscription(subscription_id, params[:policy], current_user)
+        Kaui::KillbillHelper::delete_subscription(subscription_id, params[:policy], params[:ctd], params[:billing_period], current_user)
       rescue => e
-        flash[:error] = "Error while reinstating subscription: #{as_string(e)}"
+        flash[:error] = "Error while canceling subscription: #{as_string(e)}"
       end
     else
       flash[:error] = "No subscription id given"
