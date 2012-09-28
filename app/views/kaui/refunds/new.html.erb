@@ -40,16 +40,6 @@
       </div>
     </div>
     <div class="control-group">
-      <label class="control-label">Payment method</label>
-      <div class="controls">
-        <label class="checkbox">
-          <% if @payment_method.present? %>
-            <%= @payment_method.type %> <%= @payment_method.card_type %> <%= @payment_method.mask_number %>
-          <% end %>
-        </label>
-      </div>
-    </div>
-    <div class="control-group">
 	   <%= f.label :adjustment_type, "Adjustment Type", :class => "control-label" %>
 	   <div class="controls">
        <label class="radio">
