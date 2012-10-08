@@ -539,6 +539,13 @@ module Kaui
       end
     end
 
+    ############## CUSTOM FIELDS ##############
+
+    def self.get_custom_fields_for_account(account_id)
+      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/customFields"
+      process_response(data, :multiple) { |json| Kaui::CustomField.new(json) }
+    end
+
     ############## OVERDUE ##############
 
     def self.get_overdue_state_for_bundle(bundle_id)
