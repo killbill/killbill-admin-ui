@@ -21,8 +21,8 @@
         <td><%= link_to refund.payment_id, payment_path(refund.payment_id) %></td>
         <td><%= refund.amount %>&nbsp;<%= refund.currency %></td>
         <td><%= refund.adjusted %></td>
-        <td><%= format_date(refund.requested_date).html_safe %></td>
-        <td><%= format_date(refund.effective_date).html_safe %></td>
+        <td><%= format_date(refund.requested_date, @account.timezone).html_safe %></td>
+        <td><%= format_date(refund.effective_date, @account.timezone).html_safe %></td>
         <td><%= refund.adjustments %></td>
       </tr>
     <% end %>

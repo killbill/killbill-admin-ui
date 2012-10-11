@@ -17,7 +17,7 @@
     <% end %>
     <%= link_to "Transfer Ownership", kaui_engine.transfer_bundle_path(@bundle.bundle_id), :class => "btn btn-mini" %></dd>
   <% if @subscriptions.present? %>
-    <%= render :partial => "kaui/subscriptions/subscriptions_table", :locals => { :subscriptions => @subscriptions } %>
+    <%= render :partial => "kaui/subscriptions/subscriptions_table", :locals => { :subscriptions => @subscriptions, :account => @account } %>
   <% end %>
 <% else %>
   <p>Bundle not found</p>

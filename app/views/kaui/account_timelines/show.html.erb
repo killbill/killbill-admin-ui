@@ -110,14 +110,14 @@
           <tr title="<%= bundles %>">
             <td>
               <% if refund.requested_date.present? %>
-                <%= format_date(refund.requested_date).html_safe %>
+                <%= format_date(refund.requested_date, @account.timezone).html_safe %>
               <% else %>
                 [unknown]
               <% end %>
             </td>
             <td>
               <% if refund.effective_date.present? %>
-                <%= format_date(refund.effective_date).html_safe %>
+                <%= format_date(refund.effective_date, @account.timezone).html_safe %>
               <% else %>
                 [unknown]
               <% end %>
@@ -148,14 +148,14 @@
         <tr title="<%= bundles %>">
           <td>
             <% if chargeback.effective_date.present? %>
-              <%= format_date(chargeback.effective_date).html_safe %>
+              <%= format_date(chargeback.effective_date, @account.timezone).html_safe %>
             <% else %>
               [unknown]
             <% end %>
           </td>
           <td>
             <% if chargeback.effective_date.present? %>
-              <%= format_date(chargeback.effective_date).html_safe %>
+              <%= format_date(chargeback.effective_date, @account.timezone).html_safe %>
             <% else %>
               [unknown]
             <% end %>
@@ -190,14 +190,14 @@
         <tr title="<%= bundles %>">
           <td>
             <% if payment.requested_date.present? %>
-              <%= format_date(payment.requested_date).html_safe %>
+              <%= format_date(payment.requested_date, @account.timezone).html_safe %>
             <% else %>
               [unknown]
             <% end %>
           </td>
           <td>
             <% if payment.effective_date.present? %>
-              <%= format_date(payment.effective_date).html_safe %>
+              <%= format_date(payment.effective_date, @account.timezone).html_safe %>
             <% else %>
               [unknown]
             <% end %>
@@ -250,14 +250,14 @@
             <tr title="<%= @bundle_names[bundle.external_key] %>">
               <td>
                 <% if event.requested_date.present? %>
-                  <%= format_date(event.requested_date).html_safe %>
+                  <%= format_date(event.requested_date, @account.timezone).html_safe %>
                 <% else %>
                   [unknown]
                 <% end %>
               </td>
               <td>
                 <% if event.effective_date.present? %>
-                  <%= format_date(event.effective_date).html_safe %>
+                  <%= format_date(event.effective_date, @account.timezone).html_safe %>
                 <% else %>
                   [unknown]
                 <% end %>

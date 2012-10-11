@@ -14,6 +14,12 @@ class Kaui::SubscriptionsController < Kaui::EngineController
         flash[:error] = "No subscription id given or subscription not found"
         redirect_to :back
       end
+
+      @account = Kaui::KillbillHelper::get_account_by_bundle_id(@subscription.bundle_id)
+      unless @account.present?
+        flash[:error] = "Unable to retrieve account for bundle #{@subscription.bundle_id}"
+        redirect_to :back
+      end
     rescue => e
       flash[:error] = "Error while getting subscription information: #{as_string(e)}"
     end

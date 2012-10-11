@@ -26,6 +26,21 @@ class Kaui::RefundsController < Kaui::EngineController
           render :action => :index
         end
       end
+
+      if @refunds.size > 0
+        begin
+          # Retrieve the account via the payment
+          payment = Kaui::KillbillHelper::get_payment(@refunds[0].payment_id)
+          unless payment.present?
+            flash[:error] = "Account for payment id #{@refunds[0].payment_id} couldn't be found"
+            render :action => :index
+          end
+          @account = Kaui::KillbillHelper::get_account(payment.account_id)
+        rescue => e
+          flash[:error] = "Error while retrieving the account for the refund: #{as_string(e)}"
+          render :action => :index
+        end
+      end
     else
       flash[:error] = "A refund or payment id should be specifed"
       render :action => :index

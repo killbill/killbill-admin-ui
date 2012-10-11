@@ -18,8 +18,8 @@
     <% if @payments.present? %>
       <% @payments.each do |payment| %>
         <tr>
-          <td><%= format_date(payment.requested_date).html_safe if payment.requested_date.present? %></td>
-          <td><%= format_date(payment.effective_date).html_safe if payment.effective_date.present? %></td>
+          <td><%= format_date(payment.requested_date, @account.timezone).html_safe if payment.requested_date.present? %></td>
+          <td><%= format_date(payment.effective_date, @account.timezone).html_safe if payment.effective_date.present? %></td>
           <td><%= humanized_money_with_symbol payment.amount_to_money %> (<%= payment.currency %>)</td>
           <td><%= humanized_money_with_symbol payment.paid_amount_to_money %> (<%= payment.currency %>)</td>
           <td></td>

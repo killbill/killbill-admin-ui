@@ -10,11 +10,11 @@
     <dt>Period</dt>
     <dd><%= @subscription.billing_period.downcase.capitalize if @subscription.billing_period.present? %></dd>
     <dt>Charged through</dt>
-    <dd> <%= format_date(@subscription.charged_through_date).html_safe if @subscription.charged_through_date.present? %>
+    <dd> <%= format_date(@subscription.charged_through_date, @account.timezone).html_safe if @subscription.charged_through_date.present? %>
     <dt>Price List</dt>
     <dd><%= @subscription.price_list %></dd>
     <dt>Start Date</dt>
-    <dd> <%= format_date(@subscription.start_date).html_safe if @subscription.start_date.present? %>
+    <dd> <%= format_date(@subscription.start_date, @account.timezone).html_safe if @subscription.start_date.present? %>
   </dl>
   <hr/>
   <%= link_to "Change", kaui_engine.edit_subscription_path(@subscription.subscription_id), :class => "btn btn-mini" %>

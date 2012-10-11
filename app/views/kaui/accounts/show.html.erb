@@ -89,7 +89,7 @@
       <% else %>
           <span class='label label-important'><%= @overdue_state_by_bundle_id[bundle.bundle_id].name %></span>
       <% end %>
-      <%= render :partial => "kaui/subscriptions/subscriptions_table", :locals => { :subscriptions => subs } %>
+      <%= render :partial => "kaui/subscriptions/subscriptions_table", :locals => { :subscriptions => subs, :account => @account } %>
     <% end %>
   <% end %>
 <% else %>
