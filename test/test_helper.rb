@@ -122,6 +122,24 @@ module Kaui::KillbillHelper
 end
 
 class ActiveRecord::Fixtures
+  require 'json'
+
+  class File
+    def rows
+      return @rows if @rows
+
+      begin
+        # Note the .to_json! We want to enforce JSON-type data here,
+        # which is what we get over the network when querying Killbill
+        data = JSON.parse(YAML.load(render(IO.read(@file))).to_json)
+      rescue *RESCUE_ERRORS => error
+        raise Fixture::FormatError, "a YAML error occurred parsing #{@file}. Please note that YAML must be consistently indented using spaces. Tabs are not allowed. Please have a look at http://www.yaml.org/faq.html\nThe exact error was:\n  #{error.class}: #{error}", error.backtrace
+      end
+      # Skip validation since we modified the data
+      @rows = data ? data.to_a : []
+    end
+  end
+
   # Monkey-patch the create_fixtures method not to rely on a database
   def self.create_fixtures(fixtures_directory, table_names, class_names = {})
     table_names = [table_names].flatten.map { |n| n.to_s }
