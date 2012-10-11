@@ -5,9 +5,9 @@
     <dd><%= @account.name %>&nbsp;</dd>
     <dd><%= link_to @account.email, Kaui.account_home_path.call(@account.external_key) %>&nbsp;</dd>
     <dt>Invoice date:</dt>
-    <dd><%= format_date(@invoice.invoice_date).html_safe %>&nbsp;</dd>
+    <dd><%= @invoice.invoice_date.html_safe %>&nbsp;</dd>
     <dt>Target date:</dt>
-    <dd><%= format_date(@invoice.target_date).html_safe %>&nbsp;</dd>
+    <dd><%= @invoice.target_date.html_safe %>&nbsp;</dd>
     <dt>Amount:</dt>
     <dd><%= humanized_money_with_symbol @invoice.amount_to_money(@account.currency) %> (<%= @account.currency %>)&nbsp;</dd>
     <dt>Balance:</dt>
@@ -54,8 +54,8 @@
             <%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.bundle_id) if bundle.present? and bundle.external_key.present? %>
           </td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.description %></td>
-          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= format_date(item.start_date).html_safe if item.start_date %></td>
-          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= format_date(item.end_date).html_safe if item.end_date %></td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.start_date.html_safe if item.start_date %></td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.end_date.html_safe if item.end_date %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= format_date(sub.charged_through_date).html_safe if sub.present? %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= sub.price_list.downcase.capitalize if sub.present? and sub.price_list.present? %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= humanized_money_with_symbol item.amount_to_money %> (<%= item.currency %>)</td>
