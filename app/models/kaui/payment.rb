@@ -13,6 +13,7 @@ class Kaui::Payment < Kaui::Base
   define_attr :paid_amount
   define_attr :payment_id
   define_attr :payment_method_id
+  # TODO - is this used?
   define_attr :refund_amount
   define_attr :requested_date
   define_attr :retry_count
@@ -34,5 +35,10 @@ class Kaui::Payment < Kaui::Base
 
   def paid_amount_to_money
     Kaui::Base.to_money(paid_amount, currency)
+  end
+
+  def is_fully_refunded?
+    # paid_amount is the original payment amount minus the refunds
+    paid_amount == 0
   end
 end
