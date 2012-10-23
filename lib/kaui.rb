@@ -17,6 +17,10 @@ module Kaui
   self.invoice_home_path = lambda {|invoice_id| Kaui::Engine.routes.url_helpers.invoice_path(:id => invoice_id) }
   self.bundle_key_display_string =  lambda {|bundle_key| bundle_key }
   self.creditcard_plugin_name =  lambda { nil }
+
+  def self.config(&block)
+    # TODO
+  end
 end
 
 # ruby-1.8 compatibility
