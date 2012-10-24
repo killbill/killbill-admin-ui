@@ -1,10 +1,8 @@
-= Kaui
+Getting started
+===============
 
-This project rocks and uses MIT-LICENSE.
-
-== Getting started
-
-=== Running Kaui
+Running Kaui
+------------
 
 You can run Kaui locally using the dummy app in the test directory:
 
@@ -12,7 +10,9 @@ You can run Kaui locally using the dummy app in the test directory:
   export KILLBILL_URL="http://killbill.company.com:8080"
   cd test/dummy && rails s
 
-=== Mounting Kaui into your own Rails app
+
+Mounting Kaui into your own Rails app
+-------------------------------------
 
 Kaui expects the container app to define the <tt>current_user</tt> method, which returns the
 name of the logged-in user. This is used by Killbill for auditing purposes.
@@ -24,7 +24,9 @@ Gem dependencies:
   gem 'rest-client', '~> 1.6.7'
   gem 'money-rails', '~> 0.5.0'
 
-=== Running tests
+
+Running tests
+-------------
 
 Prepare a kaui_test database locally to be able to run the test suite:
 
@@ -35,9 +37,12 @@ You can run tests using rake:
 
   rake test
 
-== Development
 
-=== Working with the kaui script
+Development
+===========
+
+Working with the kaui script
+----------------------------
 
 In order to generate the Rubygems-friendly `kaui` script, you need to build the gem
 and install it locally.
