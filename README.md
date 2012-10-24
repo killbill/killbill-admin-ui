@@ -14,15 +14,13 @@ You can run Kaui locally using the dummy app in the test directory:
 Mounting Kaui into your own Rails app
 -------------------------------------
 
+The Kaui gem comes with a `kaui` script to mount it in your existing Rails app. See the [Getting Started](http://killbilling.org/start.html#kaui_deployment) guide.
+
 Kaui expects the container app to define the <tt>current_user</tt> method, which returns the
 name of the logged-in user. This is used by Killbill for auditing purposes.
 
-You also need to install validation.js into your asset pipeline.
-
-Gem dependencies:
-
-    gem 'rest-client', '~> 1.6.7'
-    gem 'money-rails', '~> 0.5.0'
+Finally, Killbill server needs to be running for Kaui to fetch its information. Set the `KILLBILL_URL`
+variable to point to your existing Killbill installation (e.g. http://killbill.company.com:8080).
 
 
 Running tests
