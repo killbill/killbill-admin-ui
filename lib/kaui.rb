@@ -20,6 +20,9 @@ module Kaui
 
   def self.config(&block)
     # TODO
+    {
+      :layout => 'kaui/layouts/kaui_application'
+    }
   end
 end
 
