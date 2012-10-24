@@ -86,7 +86,7 @@
   <p>Invoice not found</p>
 <% end %>
 <%= link_to 'Back', :back, :class => 'btn' %>
-<%= link_to "View customer invoice html", kaui_engine.show_html_invoice_path(@invoice.invoice_id), :class => 'btn', :target => "_blank" %>
+<%= link_to "View customer invoice html", kaui_engine.show_html_invoice_path(@invoice.invoice_id), :class => 'btn', :target => "_blank" unless @invoice.blank? %>
 <%= javascript_tag do %>
   function disableLinks() {
     $('a.btn.disabled').click(function (e) {

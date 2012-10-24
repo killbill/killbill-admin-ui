@@ -36,7 +36,7 @@ class Kaui::InvoicesController < Kaui::EngineController
           render :action => :index
         end
       rescue => e
-        flash[:error] = "Error while getting information for invoice #{invoice_id}: #{as_string(e)}"
+        flash[:error] = "Error while getting information for invoice #{@invoice_id}: #{as_string(e)}"
       end
     else
       flash[:error] = "No id given"
