@@ -34,3 +34,24 @@ Prepare a kaui_test database locally to be able to run the test suite:
 You can run tests using rake:
 
   rake test
+
+== Development
+
+=== Working with the kaui script
+
+In order to generate the Rubygems-friendly `kaui` script, you need to build the gem
+and install it locally.
+
+First, build the gem in the `pkg` directory:
+
+  rake build
+
+Then, install and run it from a local directory:
+
+  mkdir foo
+  gem install pkg/kaui-0.1.18.gem -i foo
+  GEM_PATH=$PWD/foo:$GEM_PATH ./foo/bin/kaui
+
+Alternatively, you can run the `kaui` script under `bin` by setting your loadpath correctly:
+
+   ruby -Ilib bin/kaui /path/to/rails/app --path=$PWD --skip-bundle
