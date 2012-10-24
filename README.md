@@ -52,8 +52,8 @@ First, build the gem in the `pkg` directory:
 Then, install and run it from a local directory:
 
     mkdir foo
-    gem install pkg/kaui-0.1.18.gem -i foo
-    GEM_PATH=$PWD/foo:$GEM_PATH ./foo/bin/kaui
+    gem install pkg/kaui-*.gem -i foo
+    GEM_PATH=$PWD/foo:$GEM_PATH ./foo/bin/kaui /path/to/rails/app --path=$PWD --skip-bundle
 
 Alternatively, you can run the `kaui` script under `bin` by setting your loadpath correctly:
 
