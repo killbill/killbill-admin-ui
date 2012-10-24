@@ -1,22 +1,31 @@
 module Kaui
-  class AnalyticsController < ApplicationController
+  class AnalyticsController < Kaui::EngineController
     def index
       @slugs = []
-      catalog = Kaui::KillbillHelper::get_full_catalog()
-      catalog['products'].each do |product|
-        product['plans'].each do |plan|
-          name = plan['name']
-          plan['phases'].each do |phase|
-            type = phase['type']
-            @slugs << "#{name.downcase}-#{type.downcase}"
+      begin
+        catalog = Kaui::KillbillHelper::get_full_catalog()
+        catalog['products'].each do |product|
+          product['plans'].each do |plan|
+            name = plan['name']
+            plan['phases'].each do |phase|
+              type = phase['type']
+              @slugs << "#{name.downcase}-#{type.downcase}"
+            end
           end
         end
+        @product_type = catalog['name']
+      rescue => e
+        flash[:error] = "Error while retrieving catalog: #{as_string(e)}"
       end
-      @product_type = catalog['name']
     end
 
     def accounts_over_time
-      @accounts = Analytics.accounts_over_time
+      begin
+        @accounts = Analytics.accounts_over_time
+      rescue => e
+        flash[:error] = "Error while retrieving data: #{as_string(e)}"
+        @accounts = Kaui::TimeSeriesData.empty
+      end
     end
 
     def subscriptions_over_time
