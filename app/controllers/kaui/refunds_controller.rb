@@ -19,11 +19,11 @@ class Kaui::RefundsController < Kaui::EngineController
           @refunds = Kaui::KillbillHelper::get_refunds_for_payment(params[:id])
           unless @refunds.present?
             flash[:error] = "Refund for id or payment id #{params[:id]} couldn't be found"
-            render :action => :index
+            render :action => :index and return
           end
         rescue => e
           flash[:error] = "Error while retrieving the refunds for the payment: #{as_string(e)}"
-          render :action => :index
+          render :action => :index and return
         end
       end
 
