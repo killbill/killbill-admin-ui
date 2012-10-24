@@ -1,9 +1,14 @@
 module Kaui
-  class TagDefinitionsController < ApplicationController
+  class TagDefinitionsController < Kaui::EngineController
     # GET /tag_definitions
     # GET /tag_definitions.json
     def index
-      @tag_definitions = TagDefinition.all
+      begin
+        @tag_definitions = TagDefinition.all
+      rescue => e
+        flash[:error] = "Error while retrieving tag definitions: #{as_string(e)}"
+        @tag_definitions = []
+      end
 
       respond_to do |format|
         format.html # index.html.erb
