@@ -4,7 +4,7 @@ Kaui::Engine.routes.draw do
   root :to => "home#index"
 
   resources :accounts, :only => [ :index, :show ] do
-  	member do
+    member do
       get :payment_methods
       put :set_default_payment_method
       get :add_payment_method
@@ -12,7 +12,7 @@ Kaui::Engine.routes.draw do
       delete :delete_payment_method
       post :toggle_email_notifications
       post :pay_all_invoices
-		end
+    end
   end
 
   resources :account_emails, :only => [ :create, :new, :show, :destroy ]
