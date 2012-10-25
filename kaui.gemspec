@@ -23,5 +23,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'jquery-rails', '~> 2.0'
   s.add_dependency 'rest-client', '~> 1.6.7'
   s.add_dependency 'money-rails', '~> 0.5.0'
-  s.add_dependency 'd3_rails', '~> 2.10.0'
+  s.add_dependency 'd3_rails', '~> 2.10.3'
 end
