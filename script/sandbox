@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+
+require 'pathname'
+KAUI_ROOT_PATH = Pathname.new(__FILE__).realpath.dirname.parent
+SANDBOX_ROOT_PATH = "#{KAUI_ROOT_PATH}/sandbox"
+
+require 'fileutils'
+require 'rails/generators'
+require 'rails/generators/rails/app/app_generator'
+
+$:.unshift("#{KAUI_ROOT_PATH}/lib")
+require 'kaui/installer/installer'
+
+puts "Deleting old sandbox #{SANDBOX_ROOT_PATH}"
+FileUtils.rm_rf SANDBOX_ROOT_PATH
+
+puts 'Creating the new Rails app'
+ARGV = [SANDBOX_ROOT_PATH, '--skip-bundle', '--skip-active-record']
+Rails::Generators::AppGenerator.start
+
+puts 'Setting up Kaui'
+ARGV = [SANDBOX_ROOT_PATH, "--path=#{KAUI_ROOT_PATH}", '--skip-bundle']
+KauiCmd::Installer.start
+FileUtils.rm_f "#{SANDBOX_ROOT_PATH}/public/index.html"
