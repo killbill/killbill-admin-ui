@@ -1,5 +1,3 @@
-require 'active_model'
-
 class Kaui::PluginInfoProperty < Kaui::Base
   define_attr :key
   define_attr :value

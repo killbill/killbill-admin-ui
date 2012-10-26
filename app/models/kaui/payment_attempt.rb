@@ -1,5 +1,3 @@
-require 'active_model'
-
 class Kaui::PaymentAttempt < Kaui::Base
   define_attr :account_id
   define_attr :invoice_id

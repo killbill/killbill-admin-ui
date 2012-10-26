@@ -1,5 +1,3 @@
-require 'active_model'
-
 class Kaui::PaymentMethod < Kaui::Base
   define_attr :account_id
   define_attr :is_default

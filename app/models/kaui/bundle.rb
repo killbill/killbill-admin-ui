@@ -1,5 +1,3 @@
-require 'active_model'
-
 class Kaui::Bundle < Kaui::Base
   define_attr :account_id
   define_attr :external_key

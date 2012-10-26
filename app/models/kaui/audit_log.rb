@@ -1,5 +1,3 @@
-require 'active_model'
-
 class Kaui::AuditLog < Kaui::Base
   define_attr :change_date
   define_attr :change_type

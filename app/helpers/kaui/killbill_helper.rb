@@ -1,6 +1,3 @@
-require 'rest_client'
-require 'time'
-
 module Kaui
   module KillbillHelper
 

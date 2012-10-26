@@ -1,6 +1,3 @@
-require 'rest_client'
-require 'json'
-
 class Kaui::AccountsController < Kaui::EngineController
   def index
     if params[:account_id].present?

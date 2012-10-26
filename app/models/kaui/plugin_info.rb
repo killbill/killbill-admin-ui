@@ -1,5 +1,3 @@
-require 'active_model'
-
 class Kaui::PluginInfo < Kaui::Base
   define_attr :external_payment_id
 

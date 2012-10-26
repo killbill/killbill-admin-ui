@@ -1,5 +1,3 @@
-require 'active_model'
-
 class Kaui::Invoice < Kaui::Base
   define_attr :amount
   define_attr :balance

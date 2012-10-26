@@ -1,5 +1,3 @@
-require 'active_model'
-
 class Kaui::AccountTimeline < Kaui::Base
   has_one :account, Kaui::Account
   has_many :payments, Kaui::Payment

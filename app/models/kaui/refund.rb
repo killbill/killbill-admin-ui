@@ -1,5 +1,3 @@
-require 'active_model'
-
 class Kaui::Refund < Kaui::Base
   SAMPLE_REASON_CODES = [ "500 - Courtesy",
                           "501 - Billing Error",

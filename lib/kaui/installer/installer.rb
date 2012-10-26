@@ -55,8 +55,6 @@ module KauiCmd
     def add_gems
       inside @app_path do
         gem :kaui, @kaui_gem_options
-        # TODO Adding it as a transitive dependency in the gemspec doesn't seem to work
-        gem 'd3_rails', { :version => '2.10.3' }
         run 'bundle install', :capture => true unless options[:skip_bundle]
       end
     end

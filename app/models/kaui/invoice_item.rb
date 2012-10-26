@@ -1,5 +1,3 @@
-require 'active_model'
-
 class Kaui::InvoiceItem < Kaui::Base
   SAMPLE_REASON_CODES = [ "100 - Courtesy",
                           "101 - Billing Error",

@@ -1,5 +1,3 @@
-require 'active_model'
-
 class Kaui::Payment < Kaui::Base
 
   SAMPLE_REASON_CODES = [ "600 - Alt payment method",
