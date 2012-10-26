@@ -10,6 +10,8 @@ module Kaui
   mattr_accessor :invoice_home_path
   mattr_accessor :bundle_key_display_string
   mattr_accessor :creditcard_plugin_name
+  mattr_accessor :layout
+  mattr_accessor :killbill_url
 
   self.killbill_finder = lambda { self.config[:killbill_url] }
   self.account_home_path = lambda {|account_id| Kaui::Engine.routes.url_helpers.account_path(account_id) }
@@ -21,8 +23,8 @@ module Kaui
   def self.config(&block)
     # TODO
     {
-      :layout => 'kaui/layouts/kaui_application',
-      :killbill_url => ENV['KILLBILL_URL'] || 'http://127.0.0.1:8080'
+      :layout => layout || 'kaui/layouts/kaui_application',
+      :killbill_url => killbill_url || ENV['KILLBILL_URL'] || 'http://127.0.0.1:8080'
     }
   end
 end
