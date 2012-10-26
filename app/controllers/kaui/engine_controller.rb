@@ -5,14 +5,14 @@ class Kaui::EngineController < ApplicationController
 
   layout :get_layout
 
+  # Used for auditing purposes
+  def current_user
+    super rescue Kaui.config[:default_current_user]
+  end
+
   protected
 
     def get_layout
       layout ||= Kaui.config[:layout]
     end
-
-  # This is a semi-isolated engine (https://bibwild.wordpress.com/2012/05/10/the-semi-isolated-rails-engine/)
-  # We expect that the hosting app's ApplicationController has these methods defined:
-  #
-  #   current_user - returns the id of the current user
 end
