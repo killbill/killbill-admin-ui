@@ -1,19 +1,24 @@
-<h2>Analytics dashboards</h2>
+<div class="page-header">
+  <h1>Analytics dashboards and data</h1>
+</div>
 
-<ul>
-  <li><%= link_to 'Accounts over time', kaui_engine.analytics_accounts_over_time_path %></li>
-  <li>Subscriptions over time
-    <ul>
-      <% @slugs.each do |slug| %>
-        <li><%= link_to slug, kaui_engine.analytics_subscriptions_over_time_path(:slug => slug, :product_type => @product_type) %></li>
-      <% end %>
-    </ul>
-  </li>
-</ul>
+<div class="btn-group">
+  <%= link_to 'Accounts over time', kaui_engine.analytics_accounts_over_time_path, { :class => 'btn btn-mini' } %>
+  <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+    Subscriptions over time
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% @slugs.each do |slug| %>
+      <li><%= link_to slug, kaui_engine.analytics_subscriptions_over_time_path(:slug => slug, :product_type => @product_type) %></li>
+    <% end %>
+  </ul>
+</div>
+
+<hr/>
 
 <%= form_tag account_snapshot_path, :class => "form-horizontal", :method => :get do %>
   <fieldset>
-    <legend>Please enter account id</legend>
     <div class="control-group">
       <label class="control-label" for="account_id"><%=t :account %></label>
       <div class="controls">
