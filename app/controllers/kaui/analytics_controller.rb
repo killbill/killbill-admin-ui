@@ -36,7 +36,7 @@ module Kaui
       rescue => e
         flash[:error] = "Error while refreshing account: #{as_string(e)}"
       end
-      redirect_to :account_snapshot, :account_id => params[:account_id]
+      redirect_to account_snapshot_path(:account_id => params[:account_id])
     end
 
     def accounts_over_time
