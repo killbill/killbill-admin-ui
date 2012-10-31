@@ -552,6 +552,11 @@ module Kaui
 
     ############## ANALYTICS ##############
 
+    def self.get_account_snapshot(account_id)
+      data = call_killbill :get, "/1.0/kb/analytics/#{account_id}"
+      process_response(data, :single) { |json| Kaui::BusinessSnapshot.new(json) }
+    end
+
     def self.get_accounts_created_over_time
       data = call_killbill :get, "/1.0/kb/analytics/accountsCreatedOverTime"
       process_response(data, :single) { |json| Kaui::TimeSeriesData.new(json) }

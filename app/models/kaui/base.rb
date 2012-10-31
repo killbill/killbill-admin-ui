@@ -14,6 +14,7 @@ class Kaui::Base
       @@attribute_names[self.name][attr_name.to_sym] = { :cardinality => :one }
     end
   end
+  define_attr :audit_logs
 
   def self.has_one(attr_name, type = nil)
     send("attr_accessor".to_sym, attr_name)
