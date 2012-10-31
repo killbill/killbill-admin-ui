@@ -18,7 +18,7 @@ function makeDataTable(tableObj) {
     }
   });
 
-  var numRows = 10;
+  var numRows = 25;
   var rowRegexp = /(\d+)rows/;
   var classes = (tableObj.attr('class') || "").split(/\s+/);
   for (var idx = 0; idx < classes.length; idx++) {
