@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require d3.v2
-//= require bootstrap.v2.0.4.min
-//= require jquery.dataTables.v1.9.3.min
+//= require js/bootstrap.v2.0.4.min
+//= require js/jquery.dataTables.v1.9.3.min
 //= require kaui/bootstrap-tweaks
 //= require kaui/validation
 //= require kaui/analytics
