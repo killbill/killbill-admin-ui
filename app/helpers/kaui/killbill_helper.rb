@@ -557,6 +557,15 @@ module Kaui
       process_response(data, :single) { |json| Kaui::BusinessSnapshot.new(json) }
     end
 
+    def self.refresh_account(account_id, current_user = nil, reason = nil, comment = nil)
+      call_killbill :put,
+                    "/1.0/kb/analytics/#{account_id}",
+                    nil,
+                    "X-Killbill-CreatedBy" => current_user,
+                    "X-Killbill-Reason" => "#{reason}",
+                    "X-Killbill-Comment" => "#{comment}"
+    end
+
     def self.get_accounts_created_over_time
       data = call_killbill :get, "/1.0/kb/analytics/accountsCreatedOverTime"
       process_response(data, :single) { |json| Kaui::TimeSeriesData.new(json) }

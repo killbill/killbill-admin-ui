@@ -10,3 +10,18 @@
     </ul>
   </li>
 </ul>
+
+<%= form_tag account_snapshot_path, :class => "form-horizontal", :method => :get do %>
+  <fieldset>
+    <legend>Please enter account id</legend>
+    <div class="control-group">
+      <label class="control-label" for="account_id"><%=t :account %></label>
+      <div class="controls">
+        <%= text_field_tag 'account_id', nil, :class => "input-xlarge", :id => "account_id" %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= button_tag "Get account snapshot", :class =>"btn btn-primary" %>
+    </div>
+  </fieldset>
+<% end %>

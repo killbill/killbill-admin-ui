@@ -1,0 +1,213 @@
+<%= button_to "Refresh!", { :action => "refresh_account", :account_id => @account.account_id } %>
+
+<h2>Account</h2>
+<table class="table table-condensed table-striped data-table">
+  <thead>
+    <tr>
+      <th>External key</th>
+      <th>Name</th>
+      <th>Currency</th>
+      <th>Balance</th>
+      <th>Last invoice date</th>
+      <th>Total invoice balance</th>
+      <th>Last payment status</th>
+      <th>Default payment method type</th>
+      <th>Default credit card type</th>
+      <th>Default billing address country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= link_to @snapshot.business_account.external_key, Kaui.account_home_path.call(@snapshot.business_account.external_key) %></td>
+      <td><%= @snapshot.business_account.name %></td>
+      <td><%= @snapshot.business_account.currency %></td>
+      <td><span <% if    @snapshot.business_account.balance > 0 %>class="alert-error"
+                <% elsif @snapshot.business_account.balance <= 0 %>class="alert-success"
+                <% end %>><%= @snapshot.business_account.balance %></td>
+      <td><%= @snapshot.business_account.last_invoice_date %></td>
+      <td><span <% if    @snapshot.business_account.total_invoice_balance > 0 %>class="alert-error"
+                <% elsif @snapshot.business_account.total_invoice_balance <= 0 %>class="alert-success"
+                <% end %>><%= @snapshot.business_account.total_invoice_balance %></td>
+      <td><span <% if    @snapshot.business_account.last_payment_status == 'FAILED' %>class="alert-error"
+                <% elsif @snapshot.business_account.last_payment_status == 'SUCCESS' %>class="alert-success"
+                <% end %>><%= @snapshot.business_account.last_payment_status %></td>
+      <td><%= @snapshot.business_account.default_payment_method_type %></td>
+      <td><%= @snapshot.business_account.default_credit_card_type %></td>
+      <td><%= @snapshot.business_account.default_billing_address_country %></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Subscriptions</h2>
+<table class="table table-condensed table-striped data-table">
+  <thead>
+    <tr>
+      <th>Bundle key</th>
+      <th>Requested date</th>
+      <th>Event</th>
+      <th>Prev start date</th>
+      <th>Prev slug</th>
+      <th>Prev price</th>
+      <th>Prev mrr</th>
+      <th>Next start date</th>
+      <th>Next slug</th>
+      <th>Next price</th>
+      <th>Next mrr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @snapshot.business_subscription_transitions.each do |business_subscription_transition| %>
+      <tr>
+        <td><%= link_to Kaui.bundle_key_display_string.call(business_subscription_transition.external_key), Kaui.bundle_home_path.call(business_subscription_transition.external_key) %></td>
+        <td><%= format_date(business_subscription_transition.requested_timestamp, @account.timezone).html_safe %></td>
+        <td><%= business_subscription_transition.event_type %>_<%= business_subscription_transition.category || 'MISC' %></td>
+        <td><%= format_date(business_subscription_transition.prev_start_date, @account.timezone).html_safe unless business_subscription_transition.prev_start_date.nil?%></td>
+        <td><%= business_subscription_transition.prev_slug %></td>
+        <td><%= business_subscription_transition.prev_price %></td>
+        <td><%= business_subscription_transition.prev_mrr %></td>
+        <td><%= format_date(business_subscription_transition.next_start_date, @account.timezone).html_safe unless business_subscription_transition.next_start_date.nil? %></td>
+        <td><%= business_subscription_transition.next_slug %></td>
+        <td><%= business_subscription_transition.next_price %></td>
+        <td><%= business_subscription_transition.next_mrr %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Invoices</h2>
+<table class="table table-condensed table-striped data-table">
+  <thead>
+    <tr>
+      <th>Invoice number</th>
+      <th>Invoice date</th>
+      <th>Target date</th>
+      <th>Currency</th>
+      <th>Balance</th>
+      <th>Amount paid</th>
+      <th>Amount charged</th>
+      <th>Amount credited</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @snapshot.business_invoices.each do |business_invoice| %>
+      <tr>
+        <td><%= link_to business_invoice.invoice_number, invoice_path(:id => business_invoice.invoice_id) %></td>
+        <td><%= business_invoice.invoice_date %></td>
+        <td><%= business_invoice.target_date %></td>
+        <td><%= business_invoice.currency %></td>
+        <td><span <% if    business_invoice.balance > 0 %>class="alert-error"
+                  <% elsif business_invoice.balance <= 0 %>class="alert-success"
+                  <% end %>><%= business_invoice.balance %></td>
+        <td><%= business_invoice.amount_paid %></td>
+        <td><%= business_invoice.amount_charged %></td>
+        <td><%= business_invoice.amount_credited %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Payments</h2>
+<table class="table table-condensed table-striped data-table">
+  <thead>
+    <tr>
+      <th>Invoice id</th>
+      <th>Effective date</th>
+      <th>Amount</th>
+      <th>Requested Amount</th>
+      <th>Currency</th>
+      <th>Error</th>
+      <th>Status</th>
+      <th>Plugin name</th>
+      <th>Payment type</th>
+      <th>Payment method</th>
+      <th>Card type</th>
+      <th>Invoice payment type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @snapshot.business_invoice_payments.each do |business_invoice_payment| %>
+      <tr>
+        <td><%= link_to business_invoice_payment.invoice_id, invoice_path(:id => business_invoice_payment.invoice_id) %></td>
+        <td><%= format_date(business_invoice_payment.effective_date, @account.timezone).html_safe %></td>
+        <td><%= business_invoice_payment.amount %></td>
+        <td><%= business_invoice_payment.requested_amount %></td>
+        <td><%= business_invoice_payment.currency %></td>
+        <td><%= business_invoice_payment.payment_error %></td>
+        <td><span <% if business_invoice_payment.processing_status != 'SUCCESS' %>class="alert-error"
+                  <% else %>class="alert-success"
+                  <% end %>><%= business_invoice_payment.processing_status %></td>
+        <td><%= business_invoice_payment.plugin_name %></td>
+        <td><%= business_invoice_payment.payment_type %></td>
+        <td><%= business_invoice_payment.payment_method %></td>
+        <td><%= business_invoice_payment.card_type %></td>
+        <td><%= business_invoice_payment.invoice_payment_type %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Tags</h2>
+<table class="table table-condensed table-striped data-table">
+  <thead>
+    <tr>
+      <th>Object type</th>
+      <th>Id</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @snapshot.business_tags.each do |business_tag| %>
+      <tr>
+        <td><%= business_tag.object_type %></td>
+        <td>
+          <% if business_tag.object_type == 'ACCOUNT' %>
+            <%= link_to business_tag.id, account_path(:id => business_tag.id) %>
+          <% elsif business_tag.object_type == 'INVOICE' %>
+            <%= link_to business_tag.id, invoice_path(:id => business_tag.id) %>
+          <% elsif business_tag.object_type == 'PAYMENT' %>
+            <%= link_to business_tag.id, payment_path(:id => business_tag.id) %>
+          <% elsif business_tag.object_type == 'BUNDLE' %>
+            <%= link_to business_tag.id, bundle_path(:id => business_tag.id) %>
+          <% else %>
+            <%= business_field.id %>
+          <% end %>
+        </td>
+        <td><%= business_tag.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Custom fields</h2>
+<table class="table table-condensed table-striped data-table">
+  <thead>
+    <tr>
+      <th>Object type</th>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @snapshot.business_fields.each do |business_field| %>
+      <tr>
+        <td><%= business_field.object_type %></td>
+        <td>
+          <% if business_field.object_type == 'ACCOUNT' %>
+            <%= link_to business_field.id, account_path(:id => business_field.id) %>
+          <% elsif business_field.object_type == 'INVOICE' %>
+            <%= link_to business_field.id, invoice_path(:id => business_field.id) %>
+          <% elsif business_field.object_type == 'PAYMENT' %>
+            <%= link_to business_field.id, payment_path(:id => business_field.id) %>
+          <% elsif business_field.object_type == 'BUNDLE' %>
+            <%= link_to business_field.id, bundle_path(:id => business_field.id) %>
+          <% else %>
+            <%= business_field.id %>
+          <% end %>
+        </td>
+        <td><%= business_field.name %></td>
+        <td><%= business_field.value %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
