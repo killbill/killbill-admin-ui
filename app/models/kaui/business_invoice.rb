@@ -12,4 +12,20 @@ class Kaui::BusinessInvoice < Kaui::Base
   define_attr :amount_credited
 
   has_many :invoice_items, Kaui::BusinessInvoiceItem
+
+  def balance_to_money
+    Kaui::Base.to_money(balance.abs, currency)
+  end
+
+  def amount_paid_to_money
+    Kaui::Base.to_money(amount_paid.abs, currency)
+  end
+
+  def amount_charged_to_money
+    Kaui::Base.to_money(amount_charged.abs, currency)
+  end
+
+  def amount_credited_to_money
+    Kaui::Base.to_money(amount_credited.abs, currency)
+  end
 end

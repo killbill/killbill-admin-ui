@@ -4,6 +4,7 @@ class Kaui::BusinessInvoicePayment < Kaui::Base
   define_attr :ext_second_payment_ref_id
   define_attr :account_key
   define_attr :invoice_id
+  define_attr :invoice_number
   define_attr :effective_date
   define_attr :amount
   define_attr :currency
@@ -17,4 +18,8 @@ class Kaui::BusinessInvoicePayment < Kaui::Base
   define_attr :card_country
   define_attr :invoice_payment_type
   define_attr :linked_invoice_payment_id
+
+  def amount_to_money
+    Kaui::Base.to_money(amount.abs, currency)
+  end
 end

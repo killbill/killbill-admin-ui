@@ -1,19 +1,17 @@
 <%= button_to "Refresh!", { :action => "refresh_account", :account_id => @account.account_id } %>
 
 <h2>Account</h2>
-<table class="table table-condensed table-striped data-table">
+<table class="table table-condensed table-striped right-aligned">
   <thead>
     <tr>
       <th>External key</th>
       <th>Name</th>
       <th>Currency</th>
       <th>Balance</th>
-      <th>Last invoice date</th>
-      <th>Total invoice balance</th>
+      <th>Inv. balance</th>
+      <th>Last inv. date</th>
       <th>Last payment status</th>
-      <th>Default payment method type</th>
-      <th>Default credit card type</th>
-      <th>Default billing address country</th>
+      <th>Default payment method</th>
     </tr>
   </thead>
   <tbody>
@@ -24,31 +22,27 @@
       <td><span <% if    @snapshot.business_account.balance > 0 %>class="alert-error"
                 <% elsif @snapshot.business_account.balance <= 0 %>class="alert-success"
                 <% end %>><%= @snapshot.business_account.balance %></td>
-      <td><%= @snapshot.business_account.last_invoice_date %></td>
       <td><span <% if    @snapshot.business_account.total_invoice_balance > 0 %>class="alert-error"
                 <% elsif @snapshot.business_account.total_invoice_balance <= 0 %>class="alert-success"
                 <% end %>><%= @snapshot.business_account.total_invoice_balance %></td>
+                <td><%= @snapshot.business_account.last_invoice_date %></td>
       <td><span <% if    @snapshot.business_account.last_payment_status == 'FAILED' %>class="alert-error"
                 <% elsif @snapshot.business_account.last_payment_status == 'SUCCESS' %>class="alert-success"
                 <% end %>><%= @snapshot.business_account.last_payment_status %></td>
       <td><%= @snapshot.business_account.default_payment_method_type %></td>
-      <td><%= @snapshot.business_account.default_credit_card_type %></td>
-      <td><%= @snapshot.business_account.default_billing_address_country %></td>
     </tr>
   </tbody>
 </table>
 
+<hr />
+
 <h2>Subscriptions</h2>
-<table class="table table-condensed table-striped data-table">
+<table class="table table-condensed table-striped data-table right-aligned">
   <thead>
     <tr>
       <th>Bundle key</th>
       <th>Requested date</th>
       <th>Event</th>
-      <th>Prev start date</th>
-      <th>Prev slug</th>
-      <th>Prev price</th>
-      <th>Prev mrr</th>
       <th>Next start date</th>
       <th>Next slug</th>
       <th>Next price</th>
@@ -57,25 +51,27 @@
   </thead>
   <tbody>
     <% @snapshot.business_subscription_transitions.each do |business_subscription_transition| %>
-      <tr>
+      <tr <% if business_subscription_transition.event_type == 'ADD' %>class="success"
+          <% elsif business_subscription_transition.event_type == 'CHANGE' %>class="info"
+          <% elsif business_subscription_transition.event_type == 'CANCEL' %>class="warning"
+          <% elsif business_subscription_transition.event_type == 'SYSTEM_CANCEL' %>class="error"
+          <% end %>>
         <td><%= link_to Kaui.bundle_key_display_string.call(business_subscription_transition.external_key), Kaui.bundle_home_path.call(business_subscription_transition.external_key) %></td>
         <td><%= format_date(business_subscription_transition.requested_timestamp, @account.timezone).html_safe %></td>
-        <td><%= business_subscription_transition.event_type %>_<%= business_subscription_transition.category || 'MISC' %></td>
-        <td><%= format_date(business_subscription_transition.prev_start_date, @account.timezone).html_safe unless business_subscription_transition.prev_start_date.nil?%></td>
-        <td><%= business_subscription_transition.prev_slug %></td>
-        <td><%= business_subscription_transition.prev_price %></td>
-        <td><%= business_subscription_transition.prev_mrr %></td>
+        <td><%= business_subscription_transition.event_type %></td>
         <td><%= format_date(business_subscription_transition.next_start_date, @account.timezone).html_safe unless business_subscription_transition.next_start_date.nil? %></td>
         <td><%= business_subscription_transition.next_slug %></td>
-        <td><%= business_subscription_transition.next_price %></td>
-        <td><%= business_subscription_transition.next_mrr %></td>
+        <td><%= humanized_money business_subscription_transition.next_price_to_money unless business_subscription_transition.next_price.nil? %></td>
+        <td><%= humanized_money business_subscription_transition.next_mrr_to_money unless business_subscription_transition.next_mrr.nil? %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<hr />
+
 <h2>Invoices</h2>
-<table class="table table-condensed table-striped data-table">
+<table class="table table-condensed table-striped data-table right-aligned">
   <thead>
     <tr>
       <th>Invoice number</th>
@@ -97,27 +93,27 @@
         <td><%= business_invoice.currency %></td>
         <td><span <% if    business_invoice.balance > 0 %>class="alert-error"
                   <% elsif business_invoice.balance <= 0 %>class="alert-success"
-                  <% end %>><%= business_invoice.balance %></td>
-        <td><%= business_invoice.amount_paid %></td>
-        <td><%= business_invoice.amount_charged %></td>
-        <td><%= business_invoice.amount_credited %></td>
+                  <% end %>><%= humanized_money business_invoice.balance_to_money %></td>
+        <td><%= humanized_money business_invoice.amount_paid_to_money %></td>
+        <td><%= humanized_money business_invoice.amount_charged_to_money %></td>
+        <td><%= humanized_money business_invoice.amount_credited_to_money %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<hr />
+
 <h2>Payments</h2>
-<table class="table table-condensed table-striped data-table">
+<table class="table table-condensed table-striped data-table right-aligned">
   <thead>
     <tr>
-      <th>Invoice id</th>
+      <th>Inv. number</th>
       <th>Effective date</th>
-      <th>Amount</th>
-      <th>Requested Amount</th>
       <th>Currency</th>
+      <th>Amount</th>
       <th>Error</th>
       <th>Status</th>
-      <th>Plugin name</th>
       <th>Payment type</th>
       <th>Payment method</th>
       <th>Card type</th>
@@ -126,17 +122,15 @@
   </thead>
   <tbody>
     <% @snapshot.business_invoice_payments.each do |business_invoice_payment| %>
-      <tr>
-        <td><%= link_to business_invoice_payment.invoice_id, invoice_path(:id => business_invoice_payment.invoice_id) %></td>
+      <tr <% if business_invoice_payment.processing_status == 'SUCCESS' %>class="success"
+          <% else %>class="error"
+          <% end %>>
+        <td><%= link_to business_invoice_payment.invoice_number, invoice_path(:id => business_invoice_payment.invoice_id) %></td>
         <td><%= format_date(business_invoice_payment.effective_date, @account.timezone).html_safe %></td>
-        <td><%= business_invoice_payment.amount %></td>
-        <td><%= business_invoice_payment.requested_amount %></td>
         <td><%= business_invoice_payment.currency %></td>
+        <td><%= humanized_money business_invoice_payment.amount_to_money %></td>
         <td><%= business_invoice_payment.payment_error %></td>
-        <td><span <% if business_invoice_payment.processing_status != 'SUCCESS' %>class="alert-error"
-                  <% else %>class="alert-success"
-                  <% end %>><%= business_invoice_payment.processing_status %></td>
-        <td><%= business_invoice_payment.plugin_name %></td>
+        <td><%= business_invoice_payment.processing_status %></td>
         <td><%= business_invoice_payment.payment_type %></td>
         <td><%= business_invoice_payment.payment_method %></td>
         <td><%= business_invoice_payment.card_type %></td>
@@ -145,6 +139,8 @@
     <% end %>
   </tbody>
 </table>
+
+<hr />
 
 <h2>Tags</h2>
 <table class="table table-condensed table-striped data-table">
@@ -177,6 +173,8 @@
     <% end %>
   </tbody>
 </table>
+
+<hr />
 
 <h2>Custom fields</h2>
 <table class="table table-condensed table-striped data-table">

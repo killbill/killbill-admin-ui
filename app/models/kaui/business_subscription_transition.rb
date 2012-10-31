@@ -35,4 +35,20 @@ class Kaui::BusinessSubscriptionTransition < Kaui::Base
   define_attr :next_currency
   define_attr :next_start_date
   define_attr :next_state
+
+  def prev_price_to_money
+    Kaui::Base.to_money(prev_price.abs, prev_currency)
+  end
+
+  def prev_mrr_to_money
+    Kaui::Base.to_money(prev_mrr.abs, prev_currency)
+  end
+
+  def next_price_to_money
+    Kaui::Base.to_money(next_price.abs, next_currency)
+  end
+
+  def next_mrr_to_money
+    Kaui::Base.to_money(next_mrr.abs, next_currency)
+  end
 end

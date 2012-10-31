@@ -1,3 +1,7 @@
+table.right-aligned th, table.right-aligned td {
+  text-align: right;
+}
+
 path {
   stroke: steelblue;
   stroke-width: 1;
