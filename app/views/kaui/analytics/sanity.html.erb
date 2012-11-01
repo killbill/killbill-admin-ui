@@ -1,0 +1,47 @@
+<h2>Accounts not passing sanity checks</h2>
+<table class="table table-condensed table-striped data-table right-aligned">
+  <thead>
+    <tr>
+      <th>Check</th>
+      <th>Account id</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sanity.check_entitlement.each do |account_id| %>
+      <tr class="error">
+        <td>Entitlement</td>
+        <td><%= link_to account_id, account_path(account_id) %></td>
+        <td><%= button_to "Refresh!", { :action => "refresh_account", :account_id => account_id } %></td>
+      </tr>
+    <% end %>
+    <% @sanity.check_invoice.each do |account_id| %>
+      <tr class="error">
+        <td>Invoice</td>
+        <td><%= link_to account_id, account_path(account_id) %></td>
+        <td><%= button_to "Refresh!", { :action => "refresh_account", :account_id => account_id } %></td>
+      </tr>
+    <% end %>
+    <% @sanity.check_payment.each do |account_id| %>
+      <tr class="error">
+        <td>Payment</td>
+        <td><%= link_to account_id, account_path(account_id) %></td>
+        <td><%= button_to "Refresh!", { :action => "refresh_account", :account_id => account_id } %></td>
+      </tr>
+    <% end %>
+    <% @sanity.check_tag.each do |account_id| %>
+      <tr class="error">
+        <td>Tag</td>
+        <td><%= link_to account_id, account_path(account_id) %></td>
+        <td><%= button_to "Refresh!", { :action => "refresh_account", :account_id => account_id } %></td>
+      </tr>
+    <% end %>
+    <% @sanity.check_consistency.each do |account_id| %>
+      <tr class="error">
+        <td>Consistency</td>
+        <td><%= link_to account_id, account_path(account_id) %></td>
+        <td><%= button_to "Refresh!", { :action => "refresh_account", :account_id => account_id } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

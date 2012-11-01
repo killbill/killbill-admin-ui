@@ -575,5 +575,10 @@ module Kaui
       data = call_killbill :get, "/1.0/kb/analytics/subscriptionsCreatedOverTime?productType=#{product_type}&slug=#{slug}"
       process_response(data, :single) { |json| Kaui::TimeSeriesData.new(json) }
     end
+
+    def self.check_analytics_sanity
+      data = call_killbill :get, "/1.0/kb/analytics/sanity"
+      process_response(data, :single) { |json| Kaui::AnalyticsSanity.new(json) }
+    end
   end
 end

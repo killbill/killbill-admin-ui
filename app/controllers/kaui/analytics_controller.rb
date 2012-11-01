@@ -54,5 +54,14 @@ module Kaui
       @slug = params[:slug]
       @subscriptions = Analytics.subscriptions_over_time(@product_type, @slug)
     end
+
+    def sanity
+      begin
+        @sanity = Kaui::KillbillHelper::check_analytics_sanity
+      rescue => e
+        flash[:error] = "Error while checking Analytics sanity: #{as_string(e)}"
+        redirect_to :analytics
+      end
+    end
   end
 end
