@@ -45,6 +45,8 @@
         <label class="checkbox">
           <% if @payment_method.present? %>
             <%= @payment_method.type %> <%= @payment_method.card_type %> <%= @payment_method.mask_number %>
+          <% else %>
+            <p class="text-error">DELETED</p>
           <% end %>
         </label>
       </div>

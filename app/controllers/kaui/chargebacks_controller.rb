@@ -27,11 +27,13 @@ class Kaui::ChargebacksController < Kaui::EngineController
       @account = Kaui::KillbillHelper::get_account(@account_id)
       @payment = Kaui::KillbillHelper::get_payment(@payment_id)
       @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
-      @payment_method = Kaui::KillbillHelper::get_payment_method(@payment.payment_method_id)
     rescue => e
       flash[:error] = "Error while starting a new chargeback: #{as_string(e)}"
       redirect_to kaui_engine.account_timeline_path(:id => params[:account_id])
     end
+
+    # The payment method may have been deleted
+    @payment_method = Kaui::KillbillHelper::get_payment_method(@payment.payment_method_id) rescue nil
 
     @chargeback = Kaui::Chargeback.new("paymentId" => @payment_id,
                                        "chargebackAmount" => @payment.amount)
