@@ -22,7 +22,7 @@
           <td><%= format_date(payment.effective_date, @account.timezone).html_safe if payment.effective_date.present? %></td>
           <td><%= humanized_money_with_symbol payment.amount_to_money %> (<%= payment.currency %>)</td>
           <td><%= humanized_money_with_symbol payment.paid_amount_to_money %> (<%= payment.currency %>)</td>
-          <td></td>
+          <td><%= "#{@payment_methods[payment.payment_id].type} #{@payment_methods[payment.payment_id].card_type} #{@payment_methods[payment.payment_id].mask_number}" if @payment_methods.present? and @payment_methods[payment.payment_id].present? %></td>
           <td><%= payment.ext_first_payment_id_ref %> <%= " / " if payment.ext_second_payment_id_ref.present? %> <%= payment.ext_second_payment_id_ref %></td>
           <td><%= payment.retry_count %></td>
           <td><%= payment.status %> <%=  payment.gateway_error_code unless payment.status == 'SUCCESS' %> <%= payment.gateway_error_msg %></td>

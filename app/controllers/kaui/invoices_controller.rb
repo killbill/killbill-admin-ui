@@ -13,6 +13,11 @@ class Kaui::InvoicesController < Kaui::EngineController
         if @invoice.present?
           @account = Kaui::KillbillHelper.get_account(@invoice.account_id)
           @payments = Kaui::KillbillHelper.get_payments(@invoice_id)
+          @payment_methods = {}
+          @payments.each do |payment|
+            # The payment method may have been deleted
+            @payment_methods[payment.payment_id] = Kaui::KillbillHelper::get_payment_method(payment.payment_method_id) rescue nil
+          end
 
           @subscriptions = {}
           @bundles = {}
