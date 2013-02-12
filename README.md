@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/killbill/killbill-admin-ui.png?branch=master)](https://travis-ci.org/killbill/killbill-admin-ui)
+[![Code Climate](https://codeclimate.com/github/killbill/killbill-admin-ui.png)](https://codeclimate.com/github/killbill/killbill-admin-ui)
+
 Getting started
 ===============
 
