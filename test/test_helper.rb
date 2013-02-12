@@ -10,6 +10,9 @@ Rails.backtrace_cleaner.remove_silencers!
 # Load support files
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
+# Load helpers
+Dir["#{File.dirname(__FILE__)}/unit/helpers/kaui/*.rb"].each { |f| require f }
+
 # Mock killbill-server and serve data from the fixtures
 module Kaui::KillbillHelper
   @@fixtures ||= {}
