@@ -16,7 +16,7 @@ class Kaui::Account < Kaui::Base
   define_attr :balance
   define_attr :cba
   define_attr :is_notified_for_invoices
-  has_one :bill_cycle_day, Kaui::BillCycleDay
+  define_attr :bill_cycle_day
 
   def initialize(data = {})
     super(:account_id => data['accountId'],
@@ -33,7 +33,7 @@ class Kaui::Account < Kaui::Base
           :state => data['state'],
           :country => data['country'],
           :phone => data['phone'],
-          :bill_cycle_day => data['billCycleDay'],
+          :bill_cycle_day => data['billCycleDayLocal'],
           :balance => data['accountBalance'],
           :cba => data['accountCBA'],
           :is_notified_for_invoices => data['isNotifiedForInvoices'])

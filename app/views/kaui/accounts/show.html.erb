@@ -8,7 +8,7 @@
     <dd><%= @account.email %>&nbsp;</dd>
     <dt>Bill cycle day:</dt>
     <% if @account.bill_cycle_day %>
-      <dd><%= @account.bill_cycle_day.day_of_month_local %> (user timezone) / <%= @account.bill_cycle_day.day_of_month_utc %> (UTC)</dd>
+      <dd><%= @account.bill_cycle_day %> (user timezone)</dd>
     <% else %>
       <dd><%=t :unknown_bcd %></dd>
     <% end %>
