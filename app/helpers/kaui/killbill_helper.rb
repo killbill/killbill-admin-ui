@@ -395,10 +395,10 @@ module Kaui
                     "X-Killbill-Comment" => "#{comment}"
     end
 
-    def self.add_payment_method(payment_method, current_user = nil, reason = nil, comment = nil)
+    def self.add_payment_method(account_id, is_default, payment_method, current_user = nil, reason = nil, comment = nil)
       payment_method_data = Kaui::Refund.camelize(payment_method.to_hash)
         call_killbill :post,
-                      "/1.0/kb/accounts/#{payment_method.account_id}/paymentMethods?isDefault=#{payment_method.is_default}",
+                      "/1.0/kb/accounts/#{account_id}/paymentMethods?isDefault=#{is_default}",
                       ActiveSupport::JSON.encode(payment_method_data, :root => false),
                       :content_type => :json,
                       "X-Killbill-CreatedBy" => current_user,

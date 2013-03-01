@@ -122,18 +122,16 @@ class Kaui::AccountsController < Kaui::EngineController
                      Kaui::PluginInfoProperty.new('key' => 'state', 'value' => @state) ]
 
       plugin_info = Kaui::PluginInfo.new('properties' => properties)
-      payment_method = Kaui::PaymentMethod.new('accountId' => @account.account_id,
-                                               'isDefault' => @is_default == 1,
-                                               'pluginName' => Kaui.creditcard_plugin_name.call,
+      payment_method = Kaui::PaymentMethod.new('pluginName' => Kaui.creditcard_plugin_name.call,
                                                'pluginInfo' => plugin_info)
 
       begin
-        Kaui::KillbillHelper::add_payment_method(payment_method, current_user, @reason, @comment)
+        Kaui::KillbillHelper::add_payment_method(@account.account_id, @is_default == 1, payment_method, current_user, @reason, @comment)
         flash[:info] = "Payment method created"
         redirect_to kaui_engine.account_timeline_path(@account.account_id)
         return
       rescue => e
-        flash[:error] = "Error while adding payment method #{invoice_id}: #{as_string(e)}"
+        flash[:error] = "Error while adding payment method: #{as_string(e)}"
       end
     end
     render "kaui/payment_methods/new"
