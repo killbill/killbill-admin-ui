@@ -142,12 +142,12 @@ class Kaui::AccountsController < Kaui::EngineController
     @payment_method_id = params[:payment_method_id]
     if @account_id.present? && @payment_method_id.present?
       begin
-        @payment_methods = Kaui::KillbillHelper::set_payment_method_as_default(@account_id, @payment_method_id)
+        @payment_methods = Kaui::KillbillHelper::set_payment_method_as_default(@account_id, @payment_method_id, current_user, params[:reason], params[:comment])
       rescue => e
-        flash[:error] = "Error while setting payment method as default #{invoice_id}: #{as_string(e)}"
+        flash[:error] = "Error while setting payment method as default #{@payment_method_id}: #{as_string(e)}"
       end
     else
-      flash[:notice] = "No account_id or payment_method_id given"
+      flash[:notice] = 'No account_id or payment_method_id given'
     end
     redirect_to :back
   end

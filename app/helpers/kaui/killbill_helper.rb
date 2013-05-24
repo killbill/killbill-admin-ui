@@ -1,3 +1,5 @@
+require 'killbill_client'
+
 module Kaui
   module KillbillHelper
 
@@ -363,12 +365,7 @@ module Kaui
     ############## PAYMENT METHOD ##############
 
     def self.delete_payment_method(payment_method_id, set_auto_pay_off = false, current_user = nil, reason = nil, comment = nil)
-      set_auto_pay_off_param = "?deleteDefaultPmWithAutoPayOff=true" if set_auto_pay_off
-      call_killbill :delete,
-                    "/1.0/kb/paymentMethods/#{payment_method_id}#{set_auto_pay_off_param}",
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}"
+      KillBillClient::Model::PaymentMethod.destroy payment_method_id, set_auto_pay_off, current_user, reason, comment
     end
 
     def self.get_non_external_payment_methods(account_id)
@@ -376,34 +373,19 @@ module Kaui
     end
 
     def self.get_payment_methods(account_id)
-      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/paymentMethods?withPluginInfo=true"
-      process_response(data, :multiple) { |json| Kaui::PaymentMethod.new(json) }
+      KillBillClient::Model::PaymentMethod.find_all_by_account_id account_id, true
     end
 
     def self.get_payment_method(payment_method_id)
-      data = call_killbill :get, "/1.0/kb/paymentMethods/#{payment_method_id}?withPluginInfo=true"
-      process_response(data, :single) { |json| Kaui::PaymentMethod.new(json) }
+      KillBillClient::Model::PaymentMethod.find_by_id payment_method_id, true
     end
 
     def self.set_payment_method_as_default(account_id, payment_method_id, current_user = nil, reason = nil, comment = nil)
-      call_killbill :put,
-                    "/1.0/kb/accounts/#{account_id}/paymentMethods/#{payment_method_id}/setDefault",
-                    "",
-                    :content_type => :json,
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => extract_reason_code(reason),
-                    "X-Killbill-Comment" => "#{comment}"
+      KillBillClient::Model::PaymentMethod.set_default payment_method_id, account_id, current_user, reason, comment
     end
 
-    def self.add_payment_method(account_id, is_default, payment_method, current_user = nil, reason = nil, comment = nil)
-      payment_method_data = Kaui::Refund.camelize(payment_method.to_hash)
-      call_killbill :post,
-                    "/1.0/kb/accounts/#{account_id}/paymentMethods?isDefault=#{is_default}",
-                    ActiveSupport::JSON.encode(payment_method_data, :root => false),
-                    :content_type => :json,
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => extract_reason_code(reason),
-                    "X-Killbill-Comment" => "#{comment}"
+    def self.add_payment_method(is_default, payment_method, current_user = nil, reason = nil, comment = nil)
+      payment_method.create is_default, current_user, reason, comment
     end
 
     ############## REFUND ##############
@@ -580,5 +562,23 @@ module Kaui
       data = call_killbill :get, "/1.0/kb/analytics/sanity"
       process_response(data, :single) { |json| Kaui::AnalyticsSanity.new(json) }
     end
+
+    def self.before_all
+      methods.each do |method_name|
+        method = method(method_name)
+        (
+        class << self;
+          self
+        end
+        ).instance_eval {
+          define_method(method_name) do |*args, &block|
+            yield
+            method.(*args, &block)
+          end
+        }
+      end
+    end
+
+    before_all { KillBillClient.url = Kaui.killbill_finder.call }
   end
 end
