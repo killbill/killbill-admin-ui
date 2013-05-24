@@ -41,6 +41,7 @@ GEM
       thor (~> 0.14)
     json (1.7.0)
     json (1.7.0-java)
+    killbill-client (0.1.0)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -101,6 +102,7 @@ PLATFORMS
 DEPENDENCIES
   d3_rails (~> 2.10.0)
   jquery-rails
+  killbill-client (~> 0.1.0)
   money-rails (~> 0.5.0)
   mysql2
   rails (~> 3.2.3)
