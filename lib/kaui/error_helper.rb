@@ -1,5 +1,3 @@
-require 'rest_client'
-
 module Kaui
   module ErrorHelper
     def as_string(e)

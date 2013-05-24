@@ -37,7 +37,7 @@ Kaui::Engine.routes.draw do
 
   resources :payments, :only => [ :create, :new, :index, :show ]
 
-  resources :payment_methods, :only => [ :show, :destroy ]
+  resources :payment_methods, :only => [ :index, :show, :destroy ]
 
   resources :refunds, :only => [ :index, :show, :create, :new ]
 

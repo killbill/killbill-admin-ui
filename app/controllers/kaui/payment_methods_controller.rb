@@ -1,8 +1,24 @@
 require 'kaui/killbill_helper'
 
 class Kaui::PaymentMethodsController < Kaui::EngineController
+  def index
+    if params[:account_id]
+      begin
+        @payment_methods = Kaui::KillbillHelper.get_payment_methods params[:account_id]
+        render :show
+      rescue => e
+        flash.now[:error] = "Error while retrieving payment method for account #{params[:id]}: #{as_string(e)}"
+      end
+    end
+  end
+
   def show
-    @payment_method = Kaui::KillbillHelper.get_payment_method params[:id]
+    @payment_methods = []
+    begin
+      @payment_methods << Kaui::KillbillHelper.get_payment_method(params[:id])
+    rescue => e
+      flash.now[:error] = "Error while retrieving payment method #{params[:id]}: #{as_string(e)}"
+    end
   end
 
   def destroy
@@ -14,7 +30,7 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
         flash[:error] = "Error while deleting payment method #{payment_method_id}: #{as_string(e)}"
       end
     else
-      flash[:notice] = "Did not get the payment method id"
+      flash[:notice] = 'Did not get the payment method id'
     end
     redirect_to :back
   end

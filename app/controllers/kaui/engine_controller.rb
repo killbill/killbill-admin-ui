@@ -12,7 +12,7 @@ class Kaui::EngineController < ApplicationController
 
   protected
 
-    def get_layout
-      layout ||= Kaui.config[:layout]
-    end
+  def get_layout
+    layout ||= Kaui.config[:layout]
+  end
 end

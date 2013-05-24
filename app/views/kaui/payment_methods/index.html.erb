@@ -1,14 +1,15 @@
 <%= form_tag payment_methods_path, :class => "form-horizontal", :method => :get do %>
-  <fieldset>
-    <legend>Please enter account id</legend>
-    <div class="control-group">
-      <label class="control-label" for="account_id">Account</label>
-      <div class="controls">
-        <%= text_field_tag 'account_id', nil, :class => "input-xlarge", :id => "account_id" %>
+    <fieldset>
+      <legend>Please enter account id</legend>
+      <div class="control-group">
+        <label class="control-label" for="account_id">Account</label>
+
+        <div class="controls">
+          <%= text_field_tag 'account_id', nil, :class => "input-xlarge", :id => "account_id" %>
+        </div>
       </div>
-    </div>
-    <div class="form-actions">
-      <%= button_tag "Search", :class =>"btn btn-primary" %>
-    </div>
-  </fieldset>
+      <div class="form-actions">
+        <%= button_tag "Search", :class => "btn btn-primary" %>
+      </div>
+    </fieldset>
 <% end %>
