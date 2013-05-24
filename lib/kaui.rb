@@ -19,7 +19,7 @@ module Kaui
   self.bundle_home_path = lambda {|bundle_id| Kaui::Engine.routes.url_helpers.bundle_path(:id => bundle_id) }
   self.invoice_home_path = lambda {|invoice_id| Kaui::Engine.routes.url_helpers.invoice_path(:id => invoice_id) }
   self.bundle_key_display_string =  lambda {|bundle_key| bundle_key }
-  self.creditcard_plugin_name =  lambda { nil }
+  self.creditcard_plugin_name =  lambda { '__EXTERNAL_PAYMENT__' }
 
   def self.config(&block)
     # TODO

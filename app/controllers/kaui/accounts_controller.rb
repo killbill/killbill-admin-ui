@@ -86,11 +86,8 @@ class Kaui::AccountsController < Kaui::EngineController
 
   def do_add_payment_method
     account_id = params[:id]
-    begin
-      @account = Kaui::KillbillHelper::get_account(account_id)
-    rescue => e
-      flash[:error] = "Error while adding payment method: #{as_string(e)}"
-    end
+    # Needed in the failure case scenario
+    @account = Kaui::KillbillHelper::get_account(account_id)
 
     # Implementation example using standard credit card fields
     @card_type = params[:card_type]
@@ -108,33 +105,31 @@ class Kaui::AccountsController < Kaui::EngineController
     @reason = params[:reason]
     @comment = params[:comment]
 
-    if @account.present?
-      properties = [ Kaui::PluginInfoProperty.new('key' => 'type', 'value' => 'CreditCard'),
-                     Kaui::PluginInfoProperty.new('key' => 'cardType', 'value' => @card_type),
-                     Kaui::PluginInfoProperty.new('key' => 'cardHolderName', 'value' => @card_holder_name),
-                     Kaui::PluginInfoProperty.new('key' => 'expirationDate', 'value' => "#{@expiration_year}-#{@expiration_month}"),
-                     Kaui::PluginInfoProperty.new('key' => 'maskNumber', 'value' => @credit_card_number),
-                     Kaui::PluginInfoProperty.new('key' => 'address1', 'value' => @address1),
-                     Kaui::PluginInfoProperty.new('key' => 'address2', 'value' => @address2),
-                     Kaui::PluginInfoProperty.new('key' => 'city', 'value' => @city),
-                     Kaui::PluginInfoProperty.new('key' => 'country', 'value' => @country),
-                     Kaui::PluginInfoProperty.new('key' => 'postalCode', 'value' => @postal_code),
-                     Kaui::PluginInfoProperty.new('key' => 'state', 'value' => @state) ]
+    payment_method = KillBillClient::Model::PaymentMethod.new
+    payment_method.account_id = account_id
+    payment_method.plugin_name = params[:plugin_name] || Kaui.creditcard_plugin_name.call
+    payment_method.plugin_info = {
+        'type' => 'CreditCard',
+        'cardType' => @card_type,
+        'cardHolderName' => @card_holder_name,
+        'expirationDate' => "#{@expiration_year}-#{@expiration_month}",
+        'maskNumber' => @credit_card_number,
+        'address1' => @address1,
+        'address2' => @address2,
+        'city' => @city,
+        'country' => @country,
+        'postalCode' => @postal_code,
+        'state' => @state
+    }
 
-      plugin_info = Kaui::PluginInfo.new('properties' => properties)
-      payment_method = Kaui::PaymentMethod.new('pluginName' => Kaui.creditcard_plugin_name.call,
-                                               'pluginInfo' => plugin_info)
-
-      begin
-        Kaui::KillbillHelper::add_payment_method(@account.account_id, @is_default == 1, payment_method, current_user, @reason, @comment)
-        flash[:info] = "Payment method created"
-        redirect_to kaui_engine.account_timeline_path(@account.account_id)
-        return
-      rescue => e
-        flash[:error] = "Error while adding payment method: #{as_string(e)}"
-      end
+    begin
+      Kaui::KillbillHelper::add_payment_method(@is_default == 1, payment_method, current_user, @reason, @comment)
+      flash[:info] = 'Payment method created'
+      redirect_to kaui_engine.account_timeline_path(account_id)
+    rescue => e
+      flash[:error] = "Error while adding payment method: #{as_string(e)}"
+      render "kaui/payment_methods/new"
     end
-    render "kaui/payment_methods/new"
   end
 
   def set_default_payment_method
