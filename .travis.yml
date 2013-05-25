@@ -2,7 +2,7 @@ language: ruby
 
 notifications:
   email:
-    - ri-dev@ning.com
+    - killbilling-dev@googlegroups.com
 
 rvm:
   - 1.9.3
