@@ -27,12 +27,12 @@ Gem::Specification.new do |s|
   s.add_dependency 'rest-client', '~> 1.6.7'
   s.add_dependency 'money-rails', '~> 0.5.0'
   s.add_dependency 'd3_rails', '~> 2.10.3'
-  s.add_dependency 'killbill-client', '~> 0.1.0'
+  s.add_dependency 'killbill-client', '~> 0.1.1'
 
   if defined?(JRUBY_VERSION)
     s.add_development_dependency 'activerecord-jdbc-adapter', '~> 1.2.2'
     s.add_development_dependency 'activerecord-jdbcmysql-adapter', '~> 1.2.2'
-    s.add_development_dependency 'jdbc-mysql', :require => false
+    #s.add_development_dependency 'jdbc-mysql', :require => false
   else
     s.add_development_dependency 'mysql2'
   end
