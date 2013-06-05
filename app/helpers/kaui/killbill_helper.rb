@@ -573,7 +573,7 @@ module Kaui
         ).instance_eval {
           define_method(method_name) do |*args, &block|
             yield
-            method.(*args, &block)
+            method.call(*args, &block)
           end
         }
       end
