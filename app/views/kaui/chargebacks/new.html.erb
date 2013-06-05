@@ -43,10 +43,10 @@
       <label class="control-label">Payment method</label>
       <div class="controls">
         <label class="checkbox">
-          <% if @payment_method.present? %>
-            <%= @payment_method.type %> <%= @payment_method.card_type %> <%= @payment_method.mask_number %>
+          <% if @payment_method.present? and @payment_method.plugin_info.present? %>
+              <%= @payment_method.plugin_info.type %> <%= @payment_method.plugin_info.cc_type %> <%= @payment_method.plugin_info.cc_last4 %>
           <% else %>
-            <p class="text-error">DELETED</p>
+              <p class="text-error">DELETED</p>
           <% end %>
         </label>
       </div>
