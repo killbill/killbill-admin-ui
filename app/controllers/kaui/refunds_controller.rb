@@ -65,16 +65,18 @@ class Kaui::RefundsController < Kaui::EngineController
   end
 
   def create
-    payment_id = params[:payment_id]
-    account_id = params[:account_id]
+    invoice = Kaui::KillbillHelper::get_invoice(params[:invoice_id])
     refund = Kaui::Refund.new(params[:refund])
     refund.adjusted = (refund.adjustment_type != "noInvoiceAdjustment")
     if refund.adjustment_type == "invoiceItemAdjustment"
       refund.adjustments = []
       params[:adjustments].each_with_index do |ii, idx|
+        original_item = find_original_item(invoice.items, ii[0])
         h = Hash.new
         h[:invoice_item_id] = ii[0]
-        h[:amount] = ii[1]
+        # If we tried to do a partial item adjustment, we pass the value, if not we don't send any value and let the system
+        # decide what is the maxium amount we can have on that item
+        h[:amount] = (ii[1].to_f == original_item.amount) ? nil : ii[1]
         kaui_ii = Kaui::InvoiceItem.new(h)
         puts "Got #{kaui_ii.inspect}"
         refund.adjustments[idx] = kaui_ii
@@ -91,6 +93,17 @@ class Kaui::RefundsController < Kaui::EngineController
       flash[:error] = "No refund to process"
     end
     redirect_to kaui_engine.account_timeline_path(:id => params[:account_id])
+  end
+
+  private
+
+  def find_original_item(items, item_id)
+    items.each do |ii|
+      if ii.invoice_item_id == item_id
+        return ii
+      end
+    end
+    nil
   end
 
 end
