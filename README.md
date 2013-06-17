@@ -11,7 +11,11 @@ You can run Kaui locally using the dummy app in the test directory:
 
     # Point to your killbill installation
     export KILLBILL_URL="http://killbill.company.com:8080"
-    cd test/dummy && rails s
+    # Run the sandbox script
+    script/sandbox 
+    # Start the Rails app
+    cd sandbox
+    rails s
 
 
 Mounting Kaui into your own Rails app
