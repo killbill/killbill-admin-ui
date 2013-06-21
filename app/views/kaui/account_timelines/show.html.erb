@@ -8,6 +8,12 @@
     <div class="controls">
       <%= select_tag "bundles", options_for_select([ "" ] + @bundle_names.values.sort, @selected_bundle || 'all') %>
     </div>
+
+    <label for="events" class="control-label">Filter by event type</label>
+    <div class="controls">
+      <%= select_tag "event_types", options_for_select('<option value="all">ALL</option><option value="create">CREATE</option><option value="phase">PHASE</option><option value="change">CHANGE</option><option value="cancel">CANCEL</option><option value="invoice">INVOICE</option><option value="payment">PAYMENT</option><option value="refund">REFUND</option><option value="chargeback">CHARGEBACK</option>'.html_safe) %>
+    </div>
+
     <dl class="dl-horizontal">
       <dt>Billing timezone:</dt>
       <dd><%= @account.timezone %></dd>
@@ -38,7 +44,7 @@
         <% else %>
           <% invoice = invoice_stub %>
         <% end %>
-        <tr title="<%= bundles %>">
+        <tr title="<%= bundles %>" data-event_type="INVOICE">
           <td>
             <% if invoice.invoice_date.present? %>
               <%= invoice.invoice_date %>
@@ -107,7 +113,7 @@
       <% @timeline.payments.each do |payment| %>
         <% payment.refunds.each do |refund| %>
           <% bundles = payment.bundle_keys.split(",").map {|bundle_key| @bundle_names[bundle_key] }.join(",") %>
-          <tr title="<%= bundles %>">
+          <tr title="<%= bundles %>" data-event_type="REFUND">
             <td>
               <% if refund.requested_date.present? %>
                 <%= format_date(refund.requested_date, @account.timezone).html_safe %>
@@ -145,7 +151,7 @@
       <% @timeline.payments.each do |payment| %>
         <% payment.chargebacks.each do |chargeback| %>
         <% bundles = payment.bundle_keys.split(",").map {|bundle_key| @bundle_names[bundle_key] }.join(",") %>
-        <tr title="<%= bundles %>">
+        <tr title="<%= bundles %>" data-event_type="CHARGEBACK">
           <td>
             <% if chargeback.effective_date.present? %>
               <%= format_date(chargeback.effective_date, @account.timezone).html_safe %>
@@ -187,7 +193,7 @@
         <% else %>
           <% invoice = nil %>
         <% end %>
-        <tr title="<%= bundles %>">
+        <tr title="<%= bundles %>" data-event_type="PAYMENT">
           <td>
             <% if payment.requested_date.present? %>
               <%= format_date(payment.requested_date, @account.timezone).html_safe %>
@@ -247,7 +253,7 @@
           <% sub.events.each do |event| %>
             <!-- SKIP UNCANCEL SINCE MATCHING CANCEL EVENT IS NOT RETURNED AS IT WAS INVALIDED -->
             <% next if event.event_type == 'UNCANCEL' %>
-            <tr title="<%= @bundle_names[bundle.external_key] %>">
+            <tr title="<%= @bundle_names[bundle.external_key] %>" data-event_type="<%= event.event_type %>">
               <td>
                 <% if event.requested_date.present? %>
                   <%= format_date(event.requested_date, @account.timezone).html_safe %>
@@ -350,32 +356,68 @@
     });
   }
 
-  function filterBundles() {
+function filterBundles(rows) {
     var bundle = $("#bundles").val();
 
-    var dataTable = initTable();
-    $(dataTable.fnGetNodes()).each(function() {
-      var tr = $(this);
-      if (bundle == "" || tr.attr("title").split(",").indexOf(bundle) >= 0) {
-        tr.removeClass("hide");
-      }
-      else {
-        tr.addClass("hide");
-      }
-    });
-    dataTable.fnDraw();
-  }
+    for (i = 0; i < rows.length; i++)
+    {
+        tr = $(rows[i]);
+        if (bundle == "" || tr.attr("title").split(",").indexOf(bundle) >= 0) {
+            //first level filtering, so can remove hide
+            tr.removeClass("hide");
+        }
+        else {
+            //remove tr's not under this filter mode
+            tr.addClass("hide");
+        }
+    }
+    return rows;
+}
 
-  $(document).ready(function() {
+function filterEvents(rows) {
+    var event = $('#event_types').val().toUpperCase();
+
+    for (i = 0; i < rows.length; i++)
+    {
+        tr = $(rows[i]);
+        tr_data = tr.data();
+        if (
+            "ALL" != event || 
+            tr_data.event_type != event
+        ){
+            //add hide to all who dont deserve to be here
+            //caution: do not unhide anyone
+            tr.addClass("hide");
+        }
+    }
+
+    return rows;
+}
+
+function filterTable()
+{
+    var dataTable = initTable();
+    var all_nodes = dataTable.fnGetNodes();
+    
+    rows = filterBundles(all_nodes); //this filter should always be first
+    rows = filterEvents(rows);
+    //add more cascading filters here and pass rows....
+    
+    //my rows are filtered, draw table
+    dataTable.fnDraw();
+}
+
+
+$(document).ready(function() {
     disableLinks();
     // When going through the pages of the table, disable links as needed
     $('#timeline-table').bind('draw', function (e) {
-      disableLinks();
+        disableLinks();
     });
 
     initTable();
 
-    $("#bundles").change(filterBundles);
-    filterBundles();
-  });
+    $("#bundles, #event_types").change(filterTable);
+    filterTable();
+});
 <% end %>
