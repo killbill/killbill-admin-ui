@@ -7,7 +7,7 @@ Getting started
 Running Kaui
 ------------
 
-You can run Kaui locally using the dummy app in the test directory:
+You can run Kaui locally using the sandbox script:
 
     # Point to your killbill installation
     export KILLBILL_URL="http://killbill.company.com:8080"
