@@ -343,15 +343,15 @@
        "iDisplayLength": 100,
        "bRetrieve": true,
        // Force a predictive order for event types, invoices and payments
-       "aaSortingFixed": [[1, 'desc'], [4, 'desc'], [3, 'desc']],
+       "aaSorting": [[1, 'desc']],
        "aoColumns": [
-           { "sType": 'date' },
-           { "sType": 'date' },
-           null,
-           { "sType": 'timeline-event' },
+           null, //auto will scan stypes
+           null, //auto will scan the dates
+           { "bSortable" : false},
+           { "bSortable" : false },
            { "sType": 'timeline-details' },
-           null,
-           null
+           { "bSortable" : false },
+           { "bSortable" : false }
        ]
     });
   }
@@ -376,17 +376,15 @@ function filterBundles(rows) {
 
 function filterEvents(rows) {
     var event = $('#event_types').val().toUpperCase();
+    if("ALL" == event) return rows;
 
     for (i = 0; i < rows.length; i++)
     {
         tr = $(rows[i]);
         tr_data = tr.data();
-        if (
-            "ALL" != event || 
-            tr_data.event_type != event
-        ){
+        if (tr_data.event_type != event){
             //add hide to all who dont deserve to be here
-            //caution: do not unhide anyone
+            //caution: do not unhide(any row hidden in previous filters may be destroyed)
             tr.addClass("hide");
         }
     }
