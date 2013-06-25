@@ -11,7 +11,7 @@
 
     <label for="events" class="control-label">Filter by event type</label>
     <div class="controls">
-      <%= select_tag "event_types", options_for_select('<option value="all">ALL</option><option value="create">CREATE</option><option value="phase">PHASE</option><option value="change">CHANGE</option><option value="cancel">CANCEL</option><option value="invoice">INVOICE</option><option value="payment">PAYMENT</option><option value="refund">REFUND</option><option value="chargeback">CHARGEBACK</option>'.html_safe) %>
+      <%= select_tag "event_types", options_for_select('<option value="all">ALL</option><option value="invoice">INVOICE</option><option value="payment">PAYMENT</option><option value="refund">REFUND</option><option value="chargeback">CHARGEBACK</option><option value="entitlement">ENTITLEMENTS</option>'.html_safe) %>
     </div>
 
     <dl class="dl-horizontal">
@@ -343,25 +343,28 @@
        "iDisplayLength": 100,
        "bRetrieve": true,
        // Force a predictive order for event types, invoices and payments
-       "aaSorting": [[1, 'desc']],
+       "aaSorting": [[1, 'desc'], [4, 'desc'], [3, 'desc']],
        "aoColumns": [
-           null, //auto will scan stypes
-           null, //auto will scan the dates
-           { "bSortable" : false},
-           { "bSortable" : false },
+           { "sType": 'date' },
+           { "sType": 'date' },
+           null,
+           { "sType": 'timeline-event' },
            { "sType": 'timeline-details' },
-           { "bSortable" : false },
-           { "bSortable" : false }
+           null,
+           null
        ]
     });
   }
 
-function filterBundles(rows) {
+function filterEachNode(rows) {
     var bundle = $("#bundles").val();
+    var event_to_filter = $('#event_types').val().toUpperCase();
 
     for (i = 0; i < rows.length; i++)
     {
         tr = $(rows[i]);
+
+        //filter bundles
         if (bundle == "" || tr.attr("title").split(",").indexOf(bundle) >= 0) {
             //first level filtering, so can remove hide
             tr.removeClass("hide");
@@ -370,26 +373,35 @@ function filterBundles(rows) {
             //remove tr's not under this filter mode
             tr.addClass("hide");
         }
+
+        //filter events
+        if ("ALL" != event_to_filter)
+            filterEvents(tr, event_to_filter);
+
+        //add more filters here
+        //do not unhide any rows
     }
-    return rows;
+
 }
 
-function filterEvents(rows) {
-    var event = $('#event_types').val().toUpperCase();
-    if("ALL" == event) return rows;
+function filterEvents(tr, event_to_filter) {
+    tr_event_type = tr.data().event_type;
+    
+    core_events = ["INVOICE", "PAYMENT", "REFUND", "CHARGEBACK"]; //events which are not entitlements
 
-    for (i = 0; i < rows.length; i++)
+    //is tr event not an event in question
+    tr_event_does_not_match_filter = ("ENTITLEMENT" != event_to_filter && 
+                                   tr_event_type != event_to_filter);
+
+    //tr event is not an entitlement
+    tr_event_is_not_entitlement = ("ENTITLEMENT" == event_to_filter && 
+                                core_events.indexOf(tr_event_type) >= 0);
+
+    if ( tr_event_does_not_match_filter || tr_event_is_not_entitlement )
     {
-        tr = $(rows[i]);
-        tr_data = tr.data();
-        if (tr_data.event_type != event){
-            //add hide to all who dont deserve to be here
-            //caution: do not unhide(any row hidden in previous filters may be destroyed)
-            tr.addClass("hide");
-        }
+        //add hide to all who dont deserve the filter
+        tr.addClass("hide");
     }
-
-    return rows;
 }
 
 function filterTable()
@@ -397,9 +409,7 @@ function filterTable()
     var dataTable = initTable();
     var all_nodes = dataTable.fnGetNodes();
     
-    rows = filterBundles(all_nodes); //this filter should always be first
-    rows = filterEvents(rows);
-    //add more cascading filters here and pass rows....
+    filterEachNode(all_nodes);
     
     //my rows are filtered, draw table
     dataTable.fnDraw();
