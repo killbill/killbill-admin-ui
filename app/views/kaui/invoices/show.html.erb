@@ -82,6 +82,13 @@
       <%= render :partial => "kaui/payments/payments_table" %>
     <% end %>
   </div>
+
+  <div class="page-header">
+    <% if @payments.present? %>
+      <%= render :partial => "kaui/refunds/refunds_table" %>
+    <% end %>
+  </div>
+
 <% else %>
   <p>Invoice not found</p>
 <% end %>
