@@ -17,6 +17,9 @@ class Kaui::InvoicesController < Kaui::EngineController
           @payments.each do |payment|
             # The payment method may have been deleted
             @payment_methods[payment.payment_id] = Kaui::KillbillHelper::get_payment_method(payment.payment_method_id) rescue nil
+
+            #get the refunds for the payment
+            payment.refunds = Kaui::KillbillHelper::get_refunds_for_payment(payment.payment_id) rescue []
           end
 
           @subscriptions = {}
