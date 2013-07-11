@@ -4,7 +4,7 @@ class Kaui::InvoicesControllerTest < ActionController::TestCase
   fixtures :accounts, :invoices
 
   test "should get index" do
-    get :index
+    get :index, :use_route => 'kaui'
     assert_response :success
   end
 
@@ -12,7 +12,7 @@ class Kaui::InvoicesControllerTest < ActionController::TestCase
     pierre = accounts(:pierre)
     invoice = invoices(:invoice_for_pierre)
 
-    get :show, :id => invoice["invoiceId"]
+    get :show, :id => invoice["invoiceId"], :use_route => 'kaui'
     assert_response :success
     assert_equal assigns(:account).account_id, pierre["accountId"]
     assert_equal assigns(:invoice).invoice_id, invoice["invoiceId"]
