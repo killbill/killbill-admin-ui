@@ -12,14 +12,14 @@ class Kaui::AccountsControllerTest < ActionController::TestCase
   fixtures :accounts
 
   test "should get index" do
-    get :index
+    get :index, :use_route => 'kaui'
     assert_response :success
   end
 
   test "should find account by id" do
     pierre = accounts(:pierre)
 
-    get :show, :id => pierre["accountId"]
+    get :show, :id => pierre["accountId"], :use_route => 'kaui'
     assert_response :success
     assert_equal assigns(:account).account_id, pierre["accountId"]
   end
@@ -28,7 +28,7 @@ class Kaui::AccountsControllerTest < ActionController::TestCase
   test "should find correct positive balance" do
     accnt = accounts(:account_with_positive_balance)
 
-    get :show, :id => accnt["accountId"]
+    get :show, :id => accnt["accountId"], :use_route => 'kaui'
     assert_response :success
     assert assigns(:account).balance > 0
 
@@ -48,14 +48,14 @@ end
 test "should find correct negative balance" do
   accnt = accounts(:account_with_negative_balance)
 
-  get :show, :id => accnt["accountId"]
+  get :show, :id => accnt["accountId"], :use_route => 'kaui'
   assert_response :success
   assert assigns(:account).balance < 0
 end
 
 test "should find correct zero balance" do
   accnt = accounts(:account_with_zero_balance)
-  get :show, :id => accnt["accountId"]
+  get :show, :id => accnt["accountId"], :use_route => 'kaui'
   assert_response :success
   assert assigns(:account).balance == 0
 end
