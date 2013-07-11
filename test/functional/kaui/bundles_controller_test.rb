@@ -4,7 +4,7 @@ class Kaui::BundlesControllerTest < ActionController::TestCase
   fixtures :accounts, :bundles
 
   test "should get index" do
-    get :index
+    get :index, :use_route => 'kaui'
     assert_response :success
   end
 
@@ -12,7 +12,7 @@ class Kaui::BundlesControllerTest < ActionController::TestCase
     pierre = accounts(:pierre)
     bundle = bundles(:bundle_for_pierre)
 
-    get :show, :id => bundle["bundleId"]
+    get :show, :id => bundle["bundleId"], :use_route => 'kaui'
     assert_response :success
     assert_equal assigns(:account).account_id, pierre["accountId"]
     assert_equal assigns(:bundle).bundle_id, bundle["bundleId"]
