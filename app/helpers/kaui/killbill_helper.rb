@@ -53,8 +53,9 @@ module Kaui
     end
 
     def self.get_account_timeline(account_id)
-      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/timeline?audit=MINIMAL"
-      process_response(data, :single) { |json| Kaui::AccountTimeline.new(json) }
+      #data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/timeline?audit=MINIMAL"
+      #process_response(data, :single) { |json| Kaui::AccountTimeline.new(json) }
+       KillBillClient::Model::AccountTimeline.get_timeline account_id
     end
 
     def self.get_account(account_id, with_balance = false, with_balance_and_cba = false)
@@ -235,9 +236,8 @@ module Kaui
 
     ############## INVOICE ##############
 
-    def self.get_invoice(invoice_id)
-      data = call_killbill :get, "/1.0/kb/invoices/#{invoice_id}?withItems=true"
-      process_response(data, :single) { |json| Kaui::Invoice.new(json) }
+    def self.get_invoice id_or_number, with_items = true
+      KillBillClient::Model::Invoice.get_invoice id_or_number
     end
 
     def self.get_invoice_item(invoice_id, invoice_item_id)

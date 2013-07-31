@@ -12,7 +12,7 @@ class Kaui::Invoice < Kaui::Base
   define_attr :payment_dt
   define_attr :target_date
   define_attr :bundle_keys
-
+  
   has_many :items, Kaui::InvoiceItem
   has_many :audit_logs, Kaui::AuditLog
 

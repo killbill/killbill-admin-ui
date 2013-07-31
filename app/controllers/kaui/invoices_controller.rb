@@ -8,6 +8,7 @@ class Kaui::InvoicesController < Kaui::EngineController
   def show
     @invoice_id = params[:id]
     if @invoice_id.present?
+      @invoice_id.gsub!(/INV/, '') #remove the INV if invoiceNumber
       begin
         @invoice = Kaui::KillbillHelper.get_invoice(@invoice_id)
         if @invoice.present?
