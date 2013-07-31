@@ -53,8 +53,6 @@ module Kaui
     end
 
     def self.get_account_timeline(account_id)
-      #data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/timeline?audit=MINIMAL"
-      #process_response(data, :single) { |json| Kaui::AccountTimeline.new(json) }
        KillBillClient::Model::AccountTimeline.get_timeline account_id
     end
 

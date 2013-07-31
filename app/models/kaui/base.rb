@@ -38,7 +38,6 @@ class Kaui::Base
     # with camel cased keys) or from e.g. Rails forms (attributes will be a hash with
     # snake cased keys).
     # Either way, convert the keys to snake case as our attributes are snake cased.
-
     self.attributes = Kaui::Base.convert_hash_keys(attributes)
 
     # Make has_many associations return [] instead of nil by default
@@ -59,7 +58,6 @@ class Kaui::Base
       type_desc = @@attribute_names[self.class.name][name.to_sym]
       unless type_desc.nil?
         type = type_desc[:type]
-
         if type_desc[:cardinality] == :many && !type.nil? && value.is_a?(Array)
           newValue = []
           value.each do |val|
