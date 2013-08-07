@@ -72,8 +72,8 @@
               <% if invoice.credit_adj.present? && invoice.credit_adj > 0  %>
                 <%= "Credit adjustment:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(invoice.credit_adj, @account.currency) %>  (<%= @account.currency %>)<br/>
               <% end %>
-              <% if invoice.cba.present? && invoice.cba > 0  %>
-                <%= "Credit balance adjustment:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(invoice.cba, @account.currency) %>  (<%= @account.currency %>)<br/>
+              <% if invoice.credits.present? && invoice.credits > 0  %>
+                <%= "Credit balance adjustment:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(invoice.credits, @account.currency) %>  (<%= @account.currency %>)<br/>
               <% end %>
               <% if invoice.refund_adj.present? && invoice.refund_adj < 0  %>
                 <%= "Refund adjustment:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(invoice.refund_adj, @account.currency) %>  (<%= @account.currency %>)<br/>

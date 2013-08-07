@@ -52,8 +52,8 @@ module Kaui
       end
     end
 
-    def self.get_account_timeline(account_id)
-       KillBillClient::Model::AccountTimeline.get_timeline account_id
+    def self.get_account_timeline(account_id, audit = "MINIMAL")
+      KillBillClient::Model::AccountTimeline.find_by_account_id account_id, audit
     end
 
     def self.get_account(account_id, with_balance = false, with_balance_and_cba = false)
@@ -235,7 +235,7 @@ module Kaui
     ############## INVOICE ##############
 
     def self.get_invoice id_or_number, with_items = true
-      KillBillClient::Model::Invoice.get_invoice id_or_number
+      KillBillClient::Model::Invoice.find_by_id_or_number id_or_number, with_items
     end
 
     def self.get_invoice_item(invoice_id, invoice_item_id)
@@ -370,8 +370,14 @@ module Kaui
       self.get_payment_methods(account_id).reject { |x| x.plugin_name == '__EXTERNAL_PAYMENT__' }
     end
 
-    def self.get_payment_methods(account_id)
-      KillBillClient::Model::PaymentMethod.find_all_by_account_id account_id, true
+    def self.get_payment_methods key
+      if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
+        #looks like its account_id
+        KillBillClient::Model::PaymentMethod.find_all_by_account_id key, true
+      else
+        #any search key
+        KillBillClient::Model::PaymentMethod.find_all_by_search_key key, true
+      end
     end
 
     def self.get_payment_method(payment_method_id)

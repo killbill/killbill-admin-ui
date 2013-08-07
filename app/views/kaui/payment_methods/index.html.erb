@@ -1,11 +1,11 @@
 <%= form_tag payment_methods_path, :class => "form-horizontal", :method => :get do %>
     <fieldset>
-      <legend>Please enter account id</legend>
+      <legend>Payment Methods</legend>
       <div class="control-group">
-        <label class="control-label" for="account_id">Account</label>
+        <label class="control-label" for="key">Account</label>
 
         <div class="controls">
-          <%= text_field_tag 'account_id', nil, :class => "input-xlarge", :id => "account_id" %>
+          <%= text_field_tag 'key', nil, :class => "input-xlarge", :id => "key", :placeholder => "accountId, PayPalEmail, BAID, Last4cc" %>
         </div>
       </div>
       <div class="form-actions">

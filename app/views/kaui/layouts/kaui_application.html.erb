@@ -18,6 +18,7 @@
             <li <%= "class='active'" if params[:controller] == 'chargebacks' %>><%= link_to "Chargebacks", kaui_engine.chargebacks_path %></li>
             <li <%= "class='active'" if params[:controller] == 'credits' %>><%= link_to "Credits", kaui_engine.credits_path %></li>
             <li <%= "class='active'" if params[:controller] == 'external_payments' %>><%= link_to "External payments", kaui_engine.external_payments_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'payment_methods' %>><%= link_to "Payment methods", kaui_engine.payment_methods_path %></li>
             <li <%= "class='active'" if params[:controller] == 'refunds' %>><%= link_to "Refunds", kaui_engine.refunds_path %></li>
             <li <%= "class='active'" if params[:controller] == 'invoices' %>><%= link_to "Invoices", kaui_engine.invoices_path %></li>
             <li <%= "class='active'" if params[:controller] == 'invoice_items' %>><%= link_to "Invoice items", kaui_engine.invoice_items_path %></li>

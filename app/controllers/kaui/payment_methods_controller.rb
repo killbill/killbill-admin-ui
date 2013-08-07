@@ -2,12 +2,13 @@ require 'kaui/killbill_helper'
 
 class Kaui::PaymentMethodsController < Kaui::EngineController
   def index
-    if params[:account_id]
+    if params[:key]
+      params[:key].strip!
       begin
-        @payment_methods = Kaui::KillbillHelper.get_payment_methods params[:account_id]
+        @payment_methods = Kaui::KillbillHelper.get_payment_methods params[:key]
         render :show
       rescue => e
-        flash.now[:error] = "Error while retrieving payment method for account #{params[:id]}: #{as_string(e)}"
+        flash.now[:error] = "Error while retrieving payment method for account: #{params[:key]}: #{as_string(e)}"
       end
     end
   end
