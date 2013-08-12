@@ -1,6 +1,8 @@
 require 'kaui/error_helper'
 
 class Kaui::EngineController < ApplicationController
+  before_filter :authenticate_user!
+
   include Kaui::ErrorHelper
 
   layout :get_layout

@@ -10,6 +10,7 @@ require 'json'
 require 'money-rails'
 require 'rest_client'
 require 'killbill_client'
+require 'devise'
 
 module Kaui
   class Engine < ::Rails::Engine

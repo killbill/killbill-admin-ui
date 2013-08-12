@@ -16,10 +16,15 @@ puts "Deleting old sandbox #{SANDBOX_ROOT_PATH}"
 FileUtils.rm_rf SANDBOX_ROOT_PATH
 
 puts 'Creating the new Rails app'
-ARGV = [SANDBOX_ROOT_PATH, '--skip-bundle', '--skip-active-record']
+ARGV = [SANDBOX_ROOT_PATH, '--skip-bundle']
 Rails::Generators::AppGenerator.start
 
 puts 'Setting up Kaui'
 ARGV = [SANDBOX_ROOT_PATH, "--path=#{KAUI_ROOT_PATH}", '--skip-bundle']
 KauiCmd::Installer.start
 FileUtils.rm_f "#{SANDBOX_ROOT_PATH}/public/index.html"
+
+puts 'Running migrations'
+Dir.chdir SANDBOX_ROOT_PATH
+system 'rake kaui:install:migrations'
+system 'rake db:migrate'

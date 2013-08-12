@@ -1,4 +1,6 @@
 Kaui::Engine.routes.draw do
+  devise_for :users, :class_name => 'Kaui::User', :module => :devise
+
   resources :tag_definitions
 
   root :to => "home#index"
