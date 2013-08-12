@@ -33,6 +33,10 @@ module Kaui::KillbillHelper
     find_among_fixtures(Kaui::Account, account_id)
   end
 
+  def self.get_overdue_state_for_bundle(bundle_id)
+    find_among_fixtures(Kaui::OverdueState, bundle_id)
+  end
+
   def self.get_invoice(invoice_id)
     find_among_fixtures(Kaui::Invoice, invoice_id)
   end
