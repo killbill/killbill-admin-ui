@@ -6,11 +6,13 @@ class Kaui::InvoicesController < Kaui::EngineController
   end
 
   def show
-    @invoice_id = params[:id]
-    if @invoice_id.present?
+    invoice_id_or_number = params[:id]
+    if invoice_id_or_number.present?
+
       begin
-        @invoice = Kaui::KillbillHelper.get_invoice(@invoice_id)
+        @invoice = Kaui::KillbillHelper.get_invoice(invoice_id_or_number)
         if @invoice.present?
+          @invoice_id = @invoice.invoice_id
           @account = Kaui::KillbillHelper.get_account(@invoice.account_id)
           @payments = Kaui::KillbillHelper.get_payments(@invoice_id)
           @payment_methods = {}
@@ -40,11 +42,11 @@ class Kaui::InvoicesController < Kaui::EngineController
             flash[:error] = "Invoice items for #{@invoice_id} not found"
           end
         else
-          flash[:error] = "Invoice #{@invoice_id} not found"
+          flash[:error] = "Invoice #{invoice_id_or_number} not found"
           render :action => :index
         end
       rescue => e
-        flash[:error] = "Error while getting information for invoice #{@invoice_id}: #{as_string(e)}"
+        flash[:error] = "Error while getting information for invoice #{invoice_id_or_number}: #{as_string(e)}"
       end
     else
       flash[:error] = "No id given"

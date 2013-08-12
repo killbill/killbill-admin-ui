@@ -13,16 +13,17 @@ class Kaui::AuditLog < Kaui::Base
           :reason_code => data['reasonCode'])
   end
 
-  def description
-    if changed_by.present?
-      changed_str = "Performed by #{changed_by} on #{ActionController::Base.helpers.format_date(change_date)}"
-      if reason_code.blank? && comments.blank?
+  def self.description(log)
+    if log.changed_by.present?
+      changed_str = "Performed by #{log.changed_by} on #{ActionController::Base.helpers.format_date(log.change_date)}"
+      if log.reason_code.blank? && log.comments.blank?
         changed_str
-      elsif reason_code.blank?
-        "#{changed_str}: #{comments}"
+      elsif log.reason_code.blank?
+        "#{changed_str}: #{log.comments}"
       else
-        "#{changed_str} (#{reason_code} #{comments})"
+        "#{changed_str} (#{log.reason_code} #{log.comments})"
       end
     end
   end
+
 end
