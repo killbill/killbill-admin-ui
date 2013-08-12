@@ -57,6 +57,7 @@ class Kaui::AccountTimelinesController < Kaui::EngineController
           @bundle_names[bundle.external_key] = Kaui.bundle_key_display_string.call(bundle.external_key)
         end
       end
+
       if params.has_key?(:external_key)
         @selected_bundle = @bundle_names[params[:external_key]]
       end
