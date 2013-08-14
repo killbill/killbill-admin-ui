@@ -41,25 +41,29 @@
       </div>
     </div>
     <div class="control-group">
-	   <%= f.label :adjustment_type, "Adjustment Type", :class => "control-label" %>
-	   <div class="controls">
-       <label class="radio">
-			  <%= f.radio_button :adjustment_type, 'noInvoiceAdjustment', :checked => true %>
-		      No Invoice Adjustment
-		    </label>
-	   </div>
-	   <div class="controls">
-       <label class="radio">
-			  <%= f.radio_button :adjustment_type, 'invoiceAdjustment' %>
-		     Invoice Adjustment
-		    </label>
-	   </div>
-	   <div class="controls">
-       <label class="radio">
-			  <%= f.radio_button :adjustment_type, 'invoiceItemAdjustment' %>
-		      Invoice Item Adjustment
-		   </label>
-	    </div>
+      <%= f.label :adjustment_type, "Adjustment Type", :class => "control-label" %>
+      <div class="controls">
+        <label class="radio">
+          <%= f.radio_button :adjustment_type, 'noInvoiceAdjustment', :checked => true %>
+              No Invoice Adjustment
+        </label>
+      </div>
+      <% if can? :adjust, Kaui::Invoice %>
+        <div class="controls">
+          <label class="radio">
+            <%= f.radio_button :adjustment_type, 'invoiceAdjustment' %>
+                Invoice Adjustment
+          </label>
+        </div>
+      <% end %>
+      <% if can? :item_adjust, Kaui::Invoice %>
+        <div class="controls">
+          <label class="radio">
+            <%= f.radio_button :adjustment_type, 'invoiceItemAdjustment' %>
+                Invoice Item Adjustment
+          </label>
+        </div>
+      <% end %>
     </div>
     <div id="invoiceItems" style="display:none">
       <% @invoice.items.each_with_index do |ii, index | %>

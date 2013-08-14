@@ -46,16 +46,20 @@
                       :method => :post,
                       :class => "btn btn-mini #{"disabled" if !@account.balance.nil? and @account.balance <= 0}" %>
         </nobr>
-        <nobr>
-          <%= link_to 'Credit',
-                      kaui_engine.new_credit_path(:params => { :account_id => @account.account_id }),
-                      :class => "btn btn-mini" %>
-        </nobr>
-        <nobr>
-          <%= link_to 'Charge',
-                      kaui_engine.new_charge_path(:params => { :account_id => @account.account_id }),
-                      :class => "btn btn-mini" %>
-        </nobr>
+        <% if can? :credit, Kaui::Account %>
+          <nobr>
+            <%= link_to 'Credit',
+                        kaui_engine.new_credit_path(:params => { :account_id => @account.account_id }),
+                        :class => "btn btn-mini" %>
+          </nobr>
+        <% end %>
+        <% if can? :charge, Kaui::Account %>
+          <nobr>
+            <%= link_to 'Charge',
+                        kaui_engine.new_charge_path(:params => { :account_id => @account.account_id }),
+                        :class => "btn btn-mini" %>
+          </nobr>
+        <% end %>
         </dd>
     <dt>Account credit:</dt>
     <% if @account.cba.nil? %>

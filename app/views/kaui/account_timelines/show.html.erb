@@ -95,18 +95,22 @@
                                                                     :invoice_id => invoice.invoice_id }),
                           :class => "btn btn-mini #{"disabled" unless invoice.balance > 0}" %>
             </nobr>
-            <nobr>
-              <%= link_to "Credit",
-                          kaui_engine.new_credit_path(:params => { :account_id => invoice.account_id,
-                                                                   :invoice_id => invoice.invoice_id }),
-                          :class => "btn btn-mini" %>
-            </nobr>
-            <nobr>
-              <%= link_to "Charge",
-                          kaui_engine.new_charge_path(:params => { :account_id => invoice.account_id,
-                                                                   :invoice_id => invoice.invoice_id }),
-                          :class => "btn btn-mini" %>
-            </nobr>
+            <% if can? :credit, Kaui::Invoice %>
+              <nobr>
+                <%= link_to "Credit",
+                            kaui_engine.new_credit_path(:params => { :account_id => invoice.account_id,
+                                                                     :invoice_id => invoice.invoice_id }),
+                            :class => "btn btn-mini" %>
+              </nobr>
+            <% end %>
+            <% if can? :charge, Kaui::Invoice %>
+              <nobr>
+                <%= link_to "Charge",
+                            kaui_engine.new_charge_path(:params => { :account_id => invoice.account_id,
+                                                                     :invoice_id => invoice.invoice_id }),
+                            :class => "btn btn-mini" %>
+              </nobr>
+            <% end %>
           </td>
         </tr>
       <% end %>
@@ -233,18 +237,22 @@
             <% end %>
           </td>
           <td>
-            <nobr>
-              <%= link_to 'Refund', kaui_engine.new_refund_path(:params => { :payment_id => payment.payment_id,
-                                                                             :account_id => @account.account_id,
-                                                                             :invoice_id => payment.invoice_id }),
-                                                                :class => "btn btn-mini #{"disabled" unless payment.payment_id.present? and payment.status == 'SUCCESS' and !payment.is_fully_refunded?}" %>
-            </nobr>
-            <nobr>
-              <%= link_to 'Chargeback', kaui_engine.new_chargeback_path(:params => { :payment_id => payment.payment_id,
-                                                                                     :account_id => @account.account_id,
-                                                                                     :invoice_id => payment.invoice_id }),
-                                                                        :class => "btn btn-mini #{"disabled" unless payment.payment_id.present? and payment.status == 'SUCCESS'}" %>
-            </nobr>
+            <% if can? :refund, Kaui::Payment %>
+              <nobr>
+                <%= link_to 'Refund', kaui_engine.new_refund_path(:params => { :payment_id => payment.payment_id,
+                                                                               :account_id => @account.account_id,
+                                                                               :invoice_id => payment.invoice_id }),
+                                                                  :class => "btn btn-mini #{"disabled" unless payment.payment_id.present? and payment.status == 'SUCCESS' and !payment.is_fully_refunded?}" %>
+              </nobr>
+            <% end %>
+            <% if can? :chargeback, Kaui::Payment %>
+              <nobr>
+                <%= link_to 'Chargeback', kaui_engine.new_chargeback_path(:params => { :payment_id => payment.payment_id,
+                                                                                       :account_id => @account.account_id,
+                                                                                       :invoice_id => payment.invoice_id }),
+                                                                          :class => "btn btn-mini #{"disabled" unless payment.payment_id.present? and payment.status == 'SUCCESS'}" %>
+              </nobr>
+            <% end %>
           </td>
         </tr>
       <% end %>

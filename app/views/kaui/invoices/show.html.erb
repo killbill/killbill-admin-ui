@@ -60,11 +60,13 @@
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= sub.price_list.downcase.capitalize if sub.present? and sub.price_list.present? %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= humanized_money_with_symbol item.amount_to_money %> (<%= item.currency %>)</td>
           <td>
-            <nobr>
-              <%= link_to "Adjust",
-                          kaui_engine.edit_invoice_item_path(item.invoice_item_id, :invoice_id => @invoice.invoice_id),
-                          :class => "btn btn-mini #{"disabled" unless item.amount > 0 and item.subscription_id.present?}" %>
-            </nobr>
+            <% if can? :item_adjust, Kaui::Invoice %>
+              <nobr>
+                <%= link_to "Adjust",
+                            kaui_engine.edit_invoice_item_path(item.invoice_item_id, :invoice_id => @invoice.invoice_id),
+                            :class => "btn btn-mini #{"disabled" unless item.amount > 0 and item.subscription_id.present?}" %>
+              </nobr>
+            <% end %>
             <nobr>
               <%= link_to "Delete",
                           kaui_engine.invoice_item_path(item.invoice_item_id, :account_id => @invoice.account_id, :invoice_id => @invoice.invoice_id),
