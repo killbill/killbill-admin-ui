@@ -1,5 +1,8 @@
 Kaui::Engine.routes.draw do
-  devise_for :users, :class_name => 'Kaui::User', :module => :devise
+  devise_for :users,
+             :class_name => 'Kaui::User',
+             :module => :devise,
+             :controllers => { :sessions => 'kaui/sessions' }
 
   resources :tag_definitions
 

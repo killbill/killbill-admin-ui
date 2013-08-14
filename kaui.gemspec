@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'd3_rails', '~> 3.2.8'
   s.add_dependency 'killbill-client', '~> 0.1.1'
   s.add_dependency 'devise', '~> 3.0.2'
+  s.add_dependency 'cancan', '~> 1.6.10'
 
   if defined?(JRUBY_VERSION)
     s.add_development_dependency 'activerecord-jdbc-adapter', '~> 1.2.2'

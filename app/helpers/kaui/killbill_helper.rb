@@ -1,4 +1,5 @@
 require 'killbill_client'
+require 'base64'
 
 module Kaui
   module KillbillHelper
@@ -7,6 +8,14 @@ module Kaui
       url = Kaui.killbill_finder.call + uri
       Rails.logger.info "Performing #{method} request to #{url}"
       begin
+        # Temporary hacks until we get rid of this class
+        # Multi-tenancy hack
+        args[0] ||= {}
+        args[0]["X-Killbill-ApiKey"] = KillBillClient.api_key
+        args[0]["X-Killbill-ApiSecret"] = KillBillClient.api_secret
+        # RBAC hack
+        args[0]["Authorization"] = 'Basic ' + Base64.encode64("#{KillBillClient.username}:#{KillBillClient.password}").chomp
+
         response = RestClient.send(method.to_sym, url, *args)
         data = {:code => response.code}
         if response.code < 300 && response.body.present?

@@ -12,6 +12,11 @@ class Kaui::EngineController < ApplicationController
     super rescue Kaui.config[:default_current_user]
   end
 
+  def current_ability
+    # Redefined here to namespace Ability in the correct module
+    @current_ability ||= Kaui::Ability.new(current_user)
+  end
+
   protected
 
   def get_layout

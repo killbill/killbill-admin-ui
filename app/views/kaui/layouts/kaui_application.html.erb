@@ -23,6 +23,9 @@
             <li <%= "class='active'" if params[:controller] == 'invoice_items' %>><%= link_to "Invoice items", kaui_engine.invoice_items_path %></li>
             <li <%= "class='active'" if params[:controller] == 'tag_definitions' %>><%= link_to "Tag definitions", kaui_engine.tag_definitions_path %></li>
             <li <%= "class='active'" if params[:controller] == 'analytics' %>><%= link_to "Analytics", kaui_engine.analytics_path %></li>
+            <% if user_signed_in? -%>
+              <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+            <% end -%>
           </ul>
         </div>
       </div>

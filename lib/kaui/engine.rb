@@ -11,6 +11,7 @@ require 'money-rails'
 require 'rest_client'
 require 'killbill_client'
 require 'devise'
+require 'cancan'
 
 module Kaui
   class Engine < ::Rails::Engine
