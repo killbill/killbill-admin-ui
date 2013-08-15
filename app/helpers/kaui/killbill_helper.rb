@@ -9,12 +9,13 @@ module Kaui
       Rails.logger.info "Performing #{method} request to #{url}"
       begin
         # Temporary hacks until we get rid of this class
+        args[0] = {} if args.empty?
         # Multi-tenancy hack
-        args[0] ||= {}
-        args[0]["X-Killbill-ApiKey"] = KillBillClient.api_key
-        args[0]["X-Killbill-ApiSecret"] = KillBillClient.api_secret
+        args[-1] ||= {}
+        args[-1]["X-Killbill-ApiKey"] = KillBillClient.api_key
+        args[-1]["X-Killbill-ApiSecret"] = KillBillClient.api_secret
         # RBAC hack
-        args[0]["Authorization"] = 'Basic ' + Base64.encode64("#{KillBillClient.username}:#{KillBillClient.password}").chomp
+        args[-1]["Authorization"] = 'Basic ' + Base64.encode64("#{KillBillClient.username}:#{KillBillClient.password}").chomp
 
         response = RestClient.send(method.to_sym, url, *args)
         data = {:code => response.code}

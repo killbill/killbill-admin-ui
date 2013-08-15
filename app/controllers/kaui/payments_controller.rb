@@ -20,7 +20,7 @@ class Kaui::PaymentsController < Kaui::EngineController
       payment.external = (payment.external == "1")
       begin
         Kaui::KillbillHelper::create_payment(payment, payment.external, current_user, params[:reason], params[:comment])
-        flash[:info] = "Payment created"
+        flash[:notice] = "Payment created"
       rescue => e
         flash[:error] = "Error while creating a new payment: #{as_string(e)}"
       end

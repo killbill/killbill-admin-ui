@@ -13,7 +13,7 @@ class Kaui::ChargesController < Kaui::EngineController
         @charge = Kaui::Charge.new("accountId" => @account_id)
       end
     rescue => e
-      flash[:error] = "Error while creating a charge: #{as_string(e)}"
+      flash.now[:error] = "Error while creating a charge: #{as_string(e)}"
     end
   end
 
@@ -23,10 +23,10 @@ class Kaui::ChargesController < Kaui::EngineController
     if charge.present?
       begin
         Kaui::KillbillHelper::create_charge(charge, params[:requested_date], current_user, nil, params[:comment])
-        flash[:info] = "Charge created"
+        flash[:notice] = "Charge created"
         redirect_to kaui_engine.account_timeline_path(:id => charge.account_id)
       rescue => e
-        flash[:error] = "Error while creating a charge: #{as_string(e)}"
+        flash.now[:error] = "Error while creating a charge: #{as_string(e)}"
       end
     end
   end

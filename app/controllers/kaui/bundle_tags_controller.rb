@@ -6,10 +6,10 @@ class Kaui::BundleTagsController < Kaui::EngineController
       begin
         tags = Kaui::KillbillHelper::get_tags_for_bundle(bundle_id)
       rescue => e
-        flash[:error] = "Error while retrieving tags information: #{as_string(e)}"
+        flash.now[:error] = "Error while retrieving tags information: #{as_string(e)}"
       end
     else
-      flash[:error] = "No account id given"
+      flash.now[:error] = "No account id given"
     end
   end
 
@@ -21,7 +21,7 @@ class Kaui::BundleTagsController < Kaui::EngineController
       @bundle = Kaui::KillbillHelper::get_bundle(@bundle_id)
       @tags = Kaui::KillbillHelper::get_tags_for_bundle(@bundle_id)
     rescue => e
-      flash[:error] = "Error while retrieving tags information: #{as_string(e)}"
+      flash.now[:error] = "Error while retrieving tags information: #{as_string(e)}"
     end
   end
 
@@ -33,7 +33,7 @@ class Kaui::BundleTagsController < Kaui::EngineController
       Kaui::KillbillHelper::set_tags_for_bundle(bundle.bundle_id, tags)
       redirect_to Kaui.bundle_home_path.call(bundle.bundle_id)
     rescue => e
-      flash[:error] = "Error while updating tags: #{as_string(e)}"
+      flash.now[:error] = "Error while updating tags: #{as_string(e)}"
     end
   end
 

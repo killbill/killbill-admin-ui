@@ -6,7 +6,7 @@ module Kaui
       begin
         @tag_definitions = TagDefinition.all
       rescue => e
-        flash[:error] = "Error while retrieving tag definitions: #{as_string(e)}"
+        flash.now[:error] = "Error while retrieving tag definitions: #{as_string(e)}"
         @tag_definitions = []
       end
 
@@ -82,7 +82,7 @@ module Kaui
       @tag_definition.destroy
 
       respond_to do |format|
-        format.html { redirect_to tag_definitions_url }
+        format.html { redirect_to tag_definitions_url, :notice => 'Tag definition was successfully destroyed.' }
         format.json { head :no_content }
       end
     end

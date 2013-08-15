@@ -20,7 +20,7 @@ class Kaui::InvoiceItemsController < Kaui::EngineController
       flash[:notice] = "Adjustment item created"
       redirect_to kaui_engine.invoice_path(@invoice_item.invoice_id)
     rescue => e
-      flash[:error] = "Error while updating the invoice item: #{as_string(e)}"
+      flash.now[:error] = "Error while updating the invoice item: #{as_string(e)}"
       render :action => "edit"
     end
   end

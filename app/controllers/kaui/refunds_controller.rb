@@ -10,7 +10,7 @@ class Kaui::RefundsController < Kaui::EngineController
       begin
         data = Kaui::KillbillHelper::get_refund(params[:id])
       rescue => e
-        flash[:error] = "Error while retrieving the refund with id #{params[:id]}: #{as_string(e)}"
+        flash.now[:error] = "Error while retrieving the refund with id #{params[:id]}: #{as_string(e)}"
       end
       if data.present?
         @refunds = [data]
@@ -18,11 +18,11 @@ class Kaui::RefundsController < Kaui::EngineController
         begin
           @refunds = Kaui::KillbillHelper::get_refunds_for_payment(params[:id])
           unless @refunds.present?
-            flash[:error] = "Refund for id or payment id #{params[:id]} couldn't be found"
+            flash.now[:error] = "Refund for id or payment id #{params[:id]} couldn't be found"
             render :action => :index and return
           end
         rescue => e
-          flash[:error] = "Error while retrieving the refunds for the payment: #{as_string(e)}"
+          flash.now[:error] = "Error while retrieving the refunds for the payment: #{as_string(e)}"
           render :action => :index and return
         end
       end
@@ -32,17 +32,17 @@ class Kaui::RefundsController < Kaui::EngineController
           # Retrieve the account via the payment
           payment = Kaui::KillbillHelper::get_payment(@refunds[0].payment_id)
           unless payment.present?
-            flash[:error] = "Account for payment id #{@refunds[0].payment_id} couldn't be found"
+            flash.now[:error] = "Account for payment id #{@refunds[0].payment_id} couldn't be found"
             render :action => :index
           end
           @account = Kaui::KillbillHelper::get_account(payment.account_id)
         rescue => e
-          flash[:error] = "Error while retrieving the account for the refund: #{as_string(e)}"
+          flash.now[:error] = "Error while retrieving the account for the refund: #{as_string(e)}"
           render :action => :index
         end
       end
     else
-      flash[:error] = "A refund or payment id should be specifed"
+      flash.now[:error] = "A refund or payment id should be specifed"
       render :action => :index
     end
   end
@@ -85,7 +85,7 @@ class Kaui::RefundsController < Kaui::EngineController
     if refund.present?
       begin
         Kaui::KillbillHelper::create_refund(params[:payment_id], refund, current_user, params[:reason], params[:comment])
-        flash[:info] = "Refund created"
+        flash[:notice] = "Refund created"
       rescue => e
         flash[:error] = "Error while processing refund: #{as_string(e)}"
       end

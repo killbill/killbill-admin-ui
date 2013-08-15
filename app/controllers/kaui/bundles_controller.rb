@@ -17,14 +17,14 @@ class Kaui::BundlesController < Kaui::EngineController
           @subscriptions = Kaui::KillbillHelper::get_subscriptions_for_bundle(@bundle.bundle_id)
           @overdue_state = Kaui::KillbillHelper::get_overdue_state_for_bundle(@bundle.bundle_id)
         else
-          flash[:error] = "Bundle #{key} not found"
+          flash.now[:error] = "Bundle #{key} not found"
           render :action => :index
         end
       rescue => e
-        flash[:error] = "Error while retrieving bundle information for #{key}: #{as_string(e)}"
+        flash.now[:error] = "Error while retrieving bundle information for #{key}: #{as_string(e)}"
       end
     else
-      flash[:error] = "No id given"
+      flash.now[:error] = "No id given"
     end
   end
 
@@ -34,10 +34,10 @@ class Kaui::BundlesController < Kaui::EngineController
       @bundle = Kaui::KillbillHelper::get_bundle(bundle_id)
       @account = Kaui::KillbillHelper::get_account_by_bundle_id(bundle_id)
     rescue => e
-      flash[:error] = "Error while preparing to transfer bundle: #{as_string(e)}"
+      flash.now[:error] = "Error while preparing to transfer bundle: #{as_string(e)}"
     end
     if @account.nil?
-      flash[:error] = "Account not found for bundle id #{bundle_id}"
+      flash.now[:error] = "Account not found for bundle id #{bundle_id}"
     end
   end
 
@@ -48,7 +48,7 @@ class Kaui::BundlesController < Kaui::EngineController
       begin
         result = Kaui::KillbillHelper.get_account_by_key(key)
       rescue => e
-        flash[:error] = "Error while retrieving account for #{key}: #{as_string(e)}"
+        flash.now[:error] = "Error while retrieving account for #{key}: #{as_string(e)}"
         render :action => :index
         return
       end
@@ -56,24 +56,24 @@ class Kaui::BundlesController < Kaui::EngineController
         @new_account = result
         begin
           Kaui::KillbillHelper::transfer_bundle(bundle_id, @new_account.account_id)
-          flash[:info] = "Bundle transfered successfully"
+          flash[:notice] = "Bundle transfered successfully"
         rescue => e
           flash[:error] = "Error transfering bundle #{as_string(e)}"
         end
         redirect_to Kaui.account_home_path.call(@new_account.external_key)
         return
       else
-        flash[:error] = "Could not retrieve account #{result}"
+        flash.now[:error] = "Could not retrieve account #{result}"
       end
     else
-      flash[:error] = "No account key given"
+      flash.now[:error] = "No account key given"
     end
 
     begin
       @bundle = Kaui::KillbillHelper::get_bundle(bundle_id)
       @account = Kaui::KillbillHelper::get_account_by_bundle_id(bundle_id)
     rescue => e
-      flash[:error] = "Error while redirecting: #{as_string(e)}"
+      flash.now[:error] = "Error while redirecting: #{as_string(e)}"
       render :transfer
     end
   end

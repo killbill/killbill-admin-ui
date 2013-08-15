@@ -6,7 +6,7 @@ class Kaui::ChargebacksController < Kaui::EngineController
       begin
         data = Kaui::KillbillHelper::get_chargebacks_for_payment(@payment_id)
       rescue => e
-        flash[:error] = "Error while getting chargeback information: #{as_string(e)}"
+        flash.now[:error] = "Error while getting chargeback information: #{as_string(e)}"
       end
       if data.present?
         @chargeback = Kaui::Chargeback.new(data)
@@ -14,7 +14,7 @@ class Kaui::ChargebacksController < Kaui::EngineController
         Rails.logger.warn("Did not get back chargebacks #{response_body}")
       end
     else
-      flash[:notice] = "No id given"
+      flash.now[:notice] = "No id given"
     end
   end
 
@@ -46,7 +46,7 @@ class Kaui::ChargebacksController < Kaui::EngineController
     if chargeback.present?
       begin
         Kaui::KillbillHelper::create_chargeback(chargeback, params[:reason], params[:comment])
-        flash[:info] = "Chargeback created"
+        flash[:notice] = "Chargeback created"
       rescue => e
         flash[:error] = "Error while creating a new chargeback: #{as_string(e)}"
       end

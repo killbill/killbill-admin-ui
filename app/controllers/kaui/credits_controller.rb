@@ -8,7 +8,7 @@ class Kaui::CreditsController < Kaui::EngineController
       # invoice id can be nil for account level credit
         data = Kaui::KillbillHelper::get_credits(@account_id, @invoice_id)
       rescue => e
-        flash[:error] = "Error getting credit information: #{as_string(e)}"
+        flash.now[:error] = "Error getting credit information: #{as_string(e)}"
       end
       if data.present?
         @credit = Kaui::Credit.new(data)
@@ -16,7 +16,7 @@ class Kaui::CreditsController < Kaui::EngineController
         Rails.logger.warn("Did not get back external payments #{response_body}")
       end
     else
-      flash[:notice] = "No id given"
+      flash.now[:notice] = "No id given"
     end
   end
 
@@ -28,7 +28,7 @@ class Kaui::CreditsController < Kaui::EngineController
       @account = Kaui::KillbillHelper::get_account(@account_id)
       @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id) unless @invoice_id.nil?
     rescue => e
-      flash[:error] = "Error while starting to create credit: #{as_string(e)}"
+      flash.now[:error] = "Error while starting to create credit: #{as_string(e)}"
     end
 
     credit_amount = @invoice.balance unless @invoice.nil?
@@ -42,10 +42,10 @@ class Kaui::CreditsController < Kaui::EngineController
     begin
       Kaui::KillbillHelper::create_credit(credit, current_user, params[:reason], params[:comment])
       account = Kaui::KillbillHelper::get_account(credit.account_id)
-      flash[:info] = "Credit created"
+      flash[:notice] = "Credit created"
     rescue => e
       flash[:error] = "Error while starting to create credit: #{as_string(e)}"
     end
-    redirect_to Kaui.account_home_path.call(account.external_key)
+    redirect_to Kaui.account_home_path.call(credit.account_id)
   end
 end
