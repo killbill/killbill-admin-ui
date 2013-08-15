@@ -28,3 +28,6 @@ matrix:
 
 env:
   - MYSQL_PASSWORD=''
+
+#force travis to use only 'bundle install' instead of 'bundle install --deployments'
+bundler_args: ''

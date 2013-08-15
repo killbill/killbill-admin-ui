@@ -15,6 +15,7 @@
             <li <%= "class='active'" if params[:controller] == 'account_timelines' %>><%= link_to "Account timelines", kaui_engine.account_timelines_path %></li>
             <li <%= "class='active'" if params[:controller] == 'bundles' %>><%= link_to "Bundles", kaui_engine.bundles_path %></li>
             <li <%= "class='active'" if params[:controller] == 'subscriptions' %>><%= link_to "Subscriptions", kaui_engine.subscriptions_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'payment_methods' %>><%= link_to "Payment methods", kaui_engine.payment_methods_path %></li>
             <li <%= "class='active'" if params[:controller] == 'refunds' %>><%= link_to "Refunds", kaui_engine.refunds_path %></li>
             <li <%= "class='active'" if params[:controller] == 'invoices' %>><%= link_to "Invoices", kaui_engine.invoices_path %></li>
             <li <%= "class='active'" if params[:controller] == 'invoice_items' %>><%= link_to "Invoice items", kaui_engine.invoice_items_path %></li>

@@ -25,6 +25,7 @@ class Kaui::AccountsController < Kaui::EngineController
         begin
           @tags = Kaui::KillbillHelper::get_tags_for_account(@account.account_id).sort
           @account_emails = Kaui::AccountEmail.where(:account_id => @account.account_id)
+
           @payment_methods = Kaui::KillbillHelper::get_non_external_payment_methods(@account.account_id)
           @bundles = Kaui::KillbillHelper::get_bundles(@account.account_id)
 
@@ -108,18 +109,20 @@ class Kaui::AccountsController < Kaui::EngineController
     payment_method = KillBillClient::Model::PaymentMethod.new
     payment_method.account_id = account_id
     payment_method.plugin_name = params[:plugin_name] || Kaui.creditcard_plugin_name.call
+
     payment_method.plugin_info = {
-        'type' => 'CreditCard',
-        'cardType' => @card_type,
-        'cardHolderName' => @card_holder_name,
-        'expirationDate' => "#{@expiration_year}-#{@expiration_month}",
-        'maskNumber' => @credit_card_number,
-        'address1' => @address1,
-        'address2' => @address2,
-        'city' => @city,
-        'country' => @country,
-        'postalCode' => @postal_code,
-        'state' => @state
+      'type' => 'CreditCard',
+      'ccType' => @card_type,
+      'ccName' => @card_holder_name,
+      'ccExpirationMonth' => @expiration_month,
+      'ccExpirationYear' => @expiration_year,
+      'ccLast4' => @credit_card_number[-4,4],
+      'address1' => @address1,
+      'address2' => @address2,
+      'city' => @city,
+      'country' => @country,
+      'zip' => @postal_code,
+      'state' => @state
     }
 
     begin
