@@ -6,18 +6,18 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def show
-    key = params[:id]
-    if key.present?
+    @key = params[:id]
+    if @key.present?
       # Remove extra whitespaces
-      key.strip!
+      @key.strip!
 
       begin
-        @account = Kaui::KillbillHelper::get_account_by_key_with_balance_and_cba(key, options_for_klient)
+        @account = Kaui::KillbillHelper::get_account_by_key_with_balance_and_cba(@key, options_for_klient)
       rescue URI::InvalidURIError => e
-        flash.now[:error] = "Error while retrieving the account for #{key}: #{e.message}"
+        flash.now[:error] = "Error while retrieving the account for #{@key}: #{e.message}"
         render :action => :index and return
       rescue => e
-        flash.now[:error] = "Error while retrieving the account for #{key}: #{as_string(e)}"
+        flash.now[:error] = "Error while retrieving the account for #{@key}: #{as_string(e)}"
         render :action => :index and return
       end
 
