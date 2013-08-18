@@ -15,9 +15,9 @@ class Kaui::AccountEmail < Kaui::Base
     @persisted = false
   end
 
-  def self.where(conditions)
+  def self.where(conditions, options_for_klient = {})
     begin
-      account_emails = Kaui::KillbillHelper.get_account_emails(conditions[:account_id]) || []
+      account_emails = Kaui::KillbillHelper.get_account_emails(conditions[:account_id], options_for_klient) || []
       return account_emails.sort unless conditions[:email].present?
 
       account_emails.each do |account_email|
@@ -29,9 +29,9 @@ class Kaui::AccountEmail < Kaui::Base
     []
   end
 
-  def save
+  def save(options_for_klient = {})
     begin
-      Kaui::KillbillHelper.add_account_email(self)
+      Kaui::KillbillHelper.add_account_email(self, options_for_klient)
       true
     rescue => e
       @errors.add(:save, "Error while trying to add an account email: #{as_string(e)}")
@@ -39,9 +39,9 @@ class Kaui::AccountEmail < Kaui::Base
     end
   end
 
-  def destroy
+  def destroy(options_for_klient = {})
     begin
-      Kaui::KillbillHelper.remove_account_email(self)
+      Kaui::KillbillHelper.remove_account_email(self, options_for_klient)
       true
     rescue => e
       @errors.add(:destroy, "Error while trying to delete an account email: #{as_string(e)}")

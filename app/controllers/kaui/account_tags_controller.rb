@@ -5,7 +5,7 @@ class Kaui::AccountTagsController < Kaui::EngineController
 
     if account_id.present?
       begin
-        tags = Kaui::KillbillHelper::get_tags_for_account(account_id)
+        @tags = Kaui::KillbillHelper::get_tags_for_account(account_id, options_for_klient)
       rescue => e
         flash.now[:error] = "Error while getting tags: #{as_string(e)}"
       end
@@ -18,8 +18,8 @@ class Kaui::AccountTagsController < Kaui::EngineController
     @account_id = params[:account_id]
     begin
       @available_tags = Kaui::TagDefinition.all_for_account.sort
-      @account = Kaui::KillbillHelper::get_account(@account_id)
-      @tag_names = Kaui::KillbillHelper::get_tags_for_account(@account.account_id).map { |tag| tag.tag_definition_name }
+      @account = Kaui::KillbillHelper::get_account(@account_id, options_for_klient)
+      @tag_names = Kaui::KillbillHelper::get_tags_for_account(@account.account_id, options_for_klient).map { |tag| tag.tag_definition_name }
     rescue => e
       flash.now[:error] = "Error while editing tags: #{as_string(e)}"
     end
@@ -27,7 +27,7 @@ class Kaui::AccountTagsController < Kaui::EngineController
 
   def update
     begin
-      current_tags = Kaui::KillbillHelper::get_tags_for_account(params[:account_id]).map { |tag| tag.tag_definition_id }
+      current_tags = Kaui::KillbillHelper::get_tags_for_account(params[:account_id], options_for_klient).map { |tag| tag.tag_definition_id }
 
       new_tags = []
       params.each do |tag, tag_name|
@@ -48,8 +48,8 @@ class Kaui::AccountTagsController < Kaui::EngineController
         tags_to_add << new_tag_definition_id unless current_tags.include?(new_tag_definition_id)
       end
 
-      Kaui::KillbillHelper::remove_tags_for_account(params[:account_id], tags_to_remove) unless tags_to_remove.empty?
-      Kaui::KillbillHelper::add_tags_for_account(params[:account_id], tags_to_add) unless tags_to_add.empty?
+      Kaui::KillbillHelper::remove_tags_for_account(params[:account_id], tags_to_remove, options_for_klient) unless tags_to_remove.empty?
+      Kaui::KillbillHelper::add_tags_for_account(params[:account_id], tags_to_add, options_for_klient) unless tags_to_add.empty?
     rescue => e
       flash[:error] = "Error while updating tags: #{as_string(e)}"
     end

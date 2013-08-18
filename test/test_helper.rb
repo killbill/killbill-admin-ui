@@ -17,72 +17,72 @@ Dir["#{File.dirname(__FILE__)}/unit/helpers/kaui/*.rb"].each { |f| require f }
 module Kaui::KillbillHelper
   @@fixtures ||= {}
 
-  def self.get_account_by_key_with_balance_and_cba(key)
-    self.get_account_by_key(key, false, true)
+  def self.get_account_by_key_with_balance_and_cba(key, options = {})
+    self.get_account_by_key(key, false, true, options)
   end
 
-  def self.get_account(account_id, with_balance = false, with_balance_and_cba = false)
+  def self.get_account(account_id, with_balance = false, with_balance_and_cba = false, options = {})
     find_among_fixtures(Kaui::Account, account_id)
   end
 
-  def self.get_account_emails(account_id)
+  def self.get_account_emails(account_id, options = {})
     []
   end
 
-  def self.get_account_by_external_key(account_id, with_balance = false, with_balance_and_cba = false)
+  def self.get_account_by_external_key(account_id, with_balance = false, with_balance_and_cba = false, options = {})
     find_among_fixtures(Kaui::Account, account_id)
   end
 
-  def self.get_overdue_state_for_bundle(bundle_id)
+  def self.get_overdue_state_for_bundle(bundle_id, options = {})
     find_among_fixtures(Kaui::OverdueState, bundle_id)
   end
 
-  def self.get_invoice(invoice_id)
+  def self.get_invoice(invoice_id, options = {})
     find_among_fixtures(Kaui::Invoice, invoice_id)
   end
 
-  def self.get_invoice_item(invoice_id, invoice_item_id)
+  def self.get_invoice_item(invoice_id, invoice_item_id, options = {})
     find_among_fixtures(Kaui::InvoiceItem, invoice_item_id)
   end
 
-  def self.get_bundle(bundle_id)
+  def self.get_bundle(bundle_id, options = {})
     find_among_fixtures(Kaui::Bundle, bundle_id)
   end
 
-  def self.get_payments(invoice_id)
+  def self.get_payments(invoice_id, options = {})
     []
   end
 
-  def self.get_payment_methods(account_id)
+  def self.get_payment_methods(account_id, options = {})
     []
   end
 
-  def self.get_bundles(account_id)
+  def self.get_bundles(account_id, options = {})
     []
   end
 
-  def self.get_subscriptions_for_bundle(bundle_id)
+  def self.get_subscriptions_for_bundle(bundle_id, options = {})
     []
   end
 
-  def self.get_tags_for_account(account_id)
+  def self.get_tags_for_account(account_id, options = {})
     []
   end
 
-  def self.get_tag_definitions
+  def self.get_tag_definitions(options = {})
     find_all_among_fixtures(Kaui::TagDefinition)
   end
 
-  def self.get_tag_definition(tag_definition_id)
+  def self.get_tag_definition(tag_definition_id, options = {})
     find_among_fixtures(Kaui::TagDefinition, tag_definition_id, 'id')
   end
 
-  def self.create_tag_definition(tag_definition)
+  def self.create_tag_definition(tag_definition, options = {})
     tag_definition.id = SecureRandom.uuid
     add_fixture(tag_definition, Kaui::TagDefinition)
   end
 
-  def self.delete_tag_definition(tag_definition_id)
+  def self.delete_tag_definition(tag_definition_id, options = {})
     delete_fixture(Kaui::TagDefinition, tag_definition_id, 'id')
   end
 

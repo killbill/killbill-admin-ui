@@ -3,7 +3,7 @@ module Kaui
     def index
       @slugs = []
       begin
-        catalog = Kaui::KillbillHelper::get_full_catalog()
+        catalog = Kaui::KillbillHelper::get_full_catalog(options_for_klient)
         catalog['products'].each do |product|
           product['plans'].each do |plan|
             name = plan['name']
@@ -22,8 +22,8 @@ module Kaui
     def account_snapshot
       # params[:account_id] can either be a uuid or an external key
       begin
-        @account = Kaui::KillbillHelper::get_account_by_key(params[:account_id])
-        @snapshot = Kaui::KillbillHelper::get_account_snapshot(@account.account_id)
+        @account = Kaui::KillbillHelper::get_account_by_key(params[:account_id], options_for_klient)
+        @snapshot = Kaui::KillbillHelper::get_account_snapshot(@account.account_id, options_for_klient)
       rescue => e
         flash[:error] = "Error while retrieving account snapshot: #{as_string(e)}"
         redirect_to :analytics
@@ -32,7 +32,7 @@ module Kaui
 
     def refresh_account
       begin
-        Kaui::KillbillHelper::refresh_account(params[:account_id])
+        Kaui::KillbillHelper::refresh_account(params[:account_id], options_for_klient)
         flash[:notice] = "Account successfully refreshed!"
       rescue => e
         flash[:error] = "Error while refreshing account: #{as_string(e)}"
@@ -57,7 +57,7 @@ module Kaui
 
     def sanity
       begin
-        @sanity = Kaui::KillbillHelper::check_analytics_sanity
+        @sanity = Kaui::KillbillHelper::check_analytics_sanity(options_for_klient)
       rescue => e
         flash[:error] = "Error while checking Analytics sanity: #{as_string(e)}"
         redirect_to :analytics

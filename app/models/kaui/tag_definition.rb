@@ -6,12 +6,12 @@ class Kaui::TagDefinition < Kaui::Base
   define_attr :is_control_tag
   define_attr :applicable_object_types
 
-  def self.all
-    Kaui::KillbillHelper.get_tag_definitions
+  def self.all(options_for_klient = {})
+    Kaui::KillbillHelper.get_tag_definitions(options_for_klient)
   end
 
-  def self.find(tag_definition_id)
-    Kaui::KillbillHelper.get_tag_definition(tag_definition_id)
+  def self.find(tag_definition_id, options_for_klient = {})
+    Kaui::KillbillHelper.get_tag_definition(tag_definition_id, options_for_klient)
   end
 
   # See com.ning.billing.util.dao.ObjectType in killbill-api
@@ -22,14 +22,14 @@ class Kaui::TagDefinition < Kaui::Base
        end
   end
 
-  def save
-    Kaui::KillbillHelper.create_tag_definition(self)
+  def save(options_for_klient = {})
+    Kaui::KillbillHelper.create_tag_definition(self, options_for_klient)
     # TODO - we should return the newly created id and update the model
     # @persisted = true
   end
 
-  def destroy
-    Kaui::KillbillHelper.delete_tag_definition(@id)
+  def destroy(options_for_klient = {})
+    Kaui::KillbillHelper.delete_tag_definition(@id, options_for_klient)
     @persisted = false
   end
 

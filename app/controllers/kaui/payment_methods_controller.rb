@@ -5,7 +5,7 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
     if params[:key]
       params[:key].strip!
       begin
-        @payment_methods = Kaui::KillbillHelper.get_payment_methods params[:key]
+        @payment_methods = Kaui::KillbillHelper.get_payment_methods(params[:key], options_for_klient)
         render :show
       rescue => e
         flash.now[:error] = "Error while retrieving payment method for account: #{params[:key]}: #{as_string(e)}"
@@ -16,7 +16,7 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
   def show
     @payment_methods = []
     begin
-      @payment_methods << Kaui::KillbillHelper.get_payment_method(params[:id])
+      @payment_methods << Kaui::KillbillHelper.get_payment_method(params[:id], options_for_klient)
     rescue => e
       flash.now[:error] = "Error while retrieving payment method #{params[:id]}: #{as_string(e)}"
     end
@@ -26,7 +26,7 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
     payment_method_id = params[:id]
     if payment_method_id.present?
       begin
-        Kaui::KillbillHelper.delete_payment_method(payment_method_id, params[:set_auto_pay_off], current_user, params[:reason], params[:comment])
+        Kaui::KillbillHelper.delete_payment_method(payment_method_id, params[:set_auto_pay_off], current_user, params[:reason], params[:comment], options_for_klient)
       rescue => e
         flash[:error] = "Error while deleting payment method #{payment_method_id}: #{as_string(e)}"
       end

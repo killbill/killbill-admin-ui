@@ -7,6 +7,16 @@ class Kaui::EngineController < ApplicationController
 
   layout :get_layout
 
+  # Common options for the Kill Bill client
+  def options_for_klient(options = {})
+    {
+      :api_key => KillBillClient.api_key,
+      :api_secret => KillBillClient.api_secret,
+      :username => current_user.kb_username || KillBillClient.username,
+      :password => current_user.password || KillBillClient.password
+    }.merge(options)
+  end
+
   # Used for auditing purposes
   def current_user
     super rescue Kaui.config[:default_current_user]

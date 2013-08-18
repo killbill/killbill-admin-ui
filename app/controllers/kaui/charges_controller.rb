@@ -4,10 +4,10 @@ class Kaui::ChargesController < Kaui::EngineController
     @account_id = params[:account_id]
     @invoice_id = params[:invoice_id]
     begin
-      @account = Kaui::KillbillHelper::get_account(@account_id)
+      @account = Kaui::KillbillHelper::get_account(@account_id, options_for_klient)
 
       if @invoice_id.present?
-        @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
+        @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id, options_for_klient)
         @charge = Kaui::Charge.new("accountId" => @account_id, "invoiceId" => @invoice_id)
       else
         @charge = Kaui::Charge.new("accountId" => @account_id)
@@ -22,7 +22,7 @@ class Kaui::ChargesController < Kaui::EngineController
 
     if charge.present?
       begin
-        Kaui::KillbillHelper::create_charge(charge, params[:requested_date], current_user, nil, params[:comment])
+        Kaui::KillbillHelper::create_charge(charge, params[:requested_date], current_user, nil, params[:comment], options_for_klient)
         flash[:notice] = "Charge created"
         redirect_to kaui_engine.account_timeline_path(:id => charge.account_id)
       rescue => e

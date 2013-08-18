@@ -8,7 +8,7 @@ class Kaui::RefundsController < Kaui::EngineController
   def show
     if params[:id].present?
       begin
-        data = Kaui::KillbillHelper::get_refund(params[:id])
+        data = Kaui::KillbillHelper::get_refund(params[:id], options_for_klient)
       rescue => e
         flash.now[:error] = "Error while retrieving the refund with id #{params[:id]}: #{as_string(e)}"
       end
@@ -16,7 +16,7 @@ class Kaui::RefundsController < Kaui::EngineController
         @refunds = [data]
       else
         begin
-          @refunds = Kaui::KillbillHelper::get_refunds_for_payment(params[:id])
+          @refunds = Kaui::KillbillHelper::get_refunds_for_payment(params[:id], options_for_klient)
           unless @refunds.present?
             flash.now[:error] = "Refund for id or payment id #{params[:id]} couldn't be found"
             render :action => :index and return
@@ -30,12 +30,12 @@ class Kaui::RefundsController < Kaui::EngineController
       if @refunds.size > 0
         begin
           # Retrieve the account via the payment
-          payment = Kaui::KillbillHelper::get_payment(@refunds[0].payment_id)
+          payment = Kaui::KillbillHelper::get_payment(@refunds[0].payment_id, options_for_klient)
           unless payment.present?
             flash.now[:error] = "Account for payment id #{@refunds[0].payment_id} couldn't be found"
             render :action => :index
           end
-          @account = Kaui::KillbillHelper::get_account(payment.account_id)
+          @account = Kaui::KillbillHelper::get_account(payment.account_id, options_for_klient)
         rescue => e
           flash.now[:error] = "Error while retrieving the account for the refund: #{as_string(e)}"
           render :action => :index
@@ -55,9 +55,9 @@ class Kaui::RefundsController < Kaui::EngineController
     @refund = Kaui::Refund.new('adjusted' => true)
 
     begin
-      @account = Kaui::KillbillHelper::get_account(@account_id)
-      @payment = Kaui::KillbillHelper::get_payment(@payment_id)
-      @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
+      @account = Kaui::KillbillHelper::get_account(@account_id, options_for_klient)
+      @payment = Kaui::KillbillHelper::get_payment(@payment_id, options_for_klient)
+      @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id, options_for_klient)
     rescue => e
       flash[:error] = "Error while processing refund: #{as_string(e)}"
       redirect_to kaui_engine.account_timeline_path(:id => params[:account_id])
@@ -65,7 +65,7 @@ class Kaui::RefundsController < Kaui::EngineController
   end
 
   def create
-    invoice = Kaui::KillbillHelper::get_invoice(params[:invoice_id])
+    invoice = Kaui::KillbillHelper::get_invoice(params[:invoice_id], options_for_klient)
     refund = Kaui::Refund.new(params[:refund])
     refund.adjusted = (refund.adjustment_type != "noInvoiceAdjustment")
     if refund.adjustment_type == "invoiceItemAdjustment"
@@ -84,7 +84,7 @@ class Kaui::RefundsController < Kaui::EngineController
     end
     if refund.present?
       begin
-        Kaui::KillbillHelper::create_refund(params[:payment_id], refund, current_user, params[:reason], params[:comment])
+        Kaui::KillbillHelper::create_refund(params[:payment_id], refund, current_user, params[:reason], params[:comment], options_for_klient)
         flash[:notice] = "Refund created"
       rescue => e
         flash[:error] = "Error while processing refund: #{as_string(e)}"

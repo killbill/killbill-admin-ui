@@ -10,12 +10,12 @@ class Kaui::BundlesController < Kaui::EngineController
     key = params[:id]
     if key.present?
       begin
-        @bundle = Kaui::KillbillHelper::get_bundle_by_key(key, params[:account_id])
+        @bundle = Kaui::KillbillHelper::get_bundle_by_key(key, params[:account_id], options_for_klient)
 
         if @bundle.present?
-          @account = Kaui::KillbillHelper::get_account_by_bundle_id(@bundle.bundle_id)
-          @subscriptions = Kaui::KillbillHelper::get_subscriptions_for_bundle(@bundle.bundle_id)
-          @overdue_state = Kaui::KillbillHelper::get_overdue_state_for_bundle(@bundle.bundle_id)
+          @account = Kaui::KillbillHelper::get_account_by_bundle_id(@bundle.bundle_id, options_for_klient)
+          @subscriptions = Kaui::KillbillHelper::get_subscriptions_for_bundle(@bundle.bundle_id, options_for_klient)
+          @overdue_state = Kaui::KillbillHelper::get_overdue_state_for_bundle(@bundle.bundle_id, options_for_klient)
         else
           flash.now[:error] = "Bundle #{key} not found"
           render :action => :index
@@ -31,8 +31,8 @@ class Kaui::BundlesController < Kaui::EngineController
   def transfer
     bundle_id = params[:id]
     begin
-      @bundle = Kaui::KillbillHelper::get_bundle(bundle_id)
-      @account = Kaui::KillbillHelper::get_account_by_bundle_id(bundle_id)
+      @bundle = Kaui::KillbillHelper::get_bundle(bundle_id, options_for_klient)
+      @account = Kaui::KillbillHelper::get_account_by_bundle_id(bundle_id, options_for_klient)
     rescue => e
       flash.now[:error] = "Error while preparing to transfer bundle: #{as_string(e)}"
     end
@@ -46,7 +46,7 @@ class Kaui::BundlesController < Kaui::EngineController
     key = params[:new_account_key]
     if key.present?
       begin
-        result = Kaui::KillbillHelper.get_account_by_key(key)
+        result = Kaui::KillbillHelper.get_account_by_key(key, options_for_klient)
       rescue => e
         flash.now[:error] = "Error while retrieving account for #{key}: #{as_string(e)}"
         render :action => :index
@@ -55,7 +55,7 @@ class Kaui::BundlesController < Kaui::EngineController
       if bundle_id.present? && result.is_a?(Kaui::Account)
         @new_account = result
         begin
-          Kaui::KillbillHelper::transfer_bundle(bundle_id, @new_account.account_id)
+          Kaui::KillbillHelper::transfer_bundle(bundle_id, @new_account.account_id, options_for_klient)
           flash[:notice] = "Bundle transfered successfully"
         rescue => e
           flash[:error] = "Error transfering bundle #{as_string(e)}"
@@ -70,8 +70,8 @@ class Kaui::BundlesController < Kaui::EngineController
     end
 
     begin
-      @bundle = Kaui::KillbillHelper::get_bundle(bundle_id)
-      @account = Kaui::KillbillHelper::get_account_by_bundle_id(bundle_id)
+      @bundle = Kaui::KillbillHelper::get_bundle(bundle_id, options_for_klient)
+      @account = Kaui::KillbillHelper::get_account_by_bundle_id(bundle_id, options_for_klient)
     rescue => e
       flash.now[:error] = "Error while redirecting: #{as_string(e)}"
       render :transfer

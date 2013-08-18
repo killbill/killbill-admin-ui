@@ -4,7 +4,7 @@ module Kaui
     # GET /tag_definitions.json
     def index
       begin
-        @tag_definitions = TagDefinition.all
+        @tag_definitions = TagDefinition.all(options_for_klient)
       rescue => e
         flash.now[:error] = "Error while retrieving tag definitions: #{as_string(e)}"
         @tag_definitions = []
@@ -19,7 +19,7 @@ module Kaui
     # GET /tag_definitions/1
     # GET /tag_definitions/1.json
     def show
-      @tag_definition = TagDefinition.find(params[:id])
+      @tag_definition = TagDefinition.find(params[:id], options_for_klient)
 
       respond_to do |format|
         format.html # show.html.erb
@@ -40,7 +40,7 @@ module Kaui
 
     # GET /tag_definitions/1/edit
     def edit
-      @tag_definition = TagDefinition.find(params[:id])
+      @tag_definition = TagDefinition.find(params[:id], options_for_klient)
     end
 
     # POST /tag_definitions
@@ -62,7 +62,7 @@ module Kaui
     # PUT /tag_definitions/1
     # PUT /tag_definitions/1.json
     def update
-      @tag_definition = TagDefinition.find(params[:id])
+      @tag_definition = TagDefinition.find(params[:id], options_for_klient)
 
       respond_to do |format|
         if @tag_definition.update_attributes(params[:tag_definition])
@@ -78,7 +78,7 @@ module Kaui
     # DELETE /tag_definitions/1
     # DELETE /tag_definitions/1.json
     def destroy
-      @tag_definition = TagDefinition.find(params[:id])
+      @tag_definition = TagDefinition.find(params[:id], options_for_klient)
       @tag_definition.destroy
 
       respond_to do |format|

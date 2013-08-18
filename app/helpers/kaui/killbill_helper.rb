@@ -12,10 +12,10 @@ module Kaui
         args[0] = {} if args.empty?
         # Multi-tenancy hack
         args[-1] ||= {}
-        args[-1]["X-Killbill-ApiKey"] = KillBillClient.api_key
-        args[-1]["X-Killbill-ApiSecret"] = KillBillClient.api_secret
+        args[-1]["X-Killbill-ApiKey"] = options[:api_key]
+        args[-1]["X-Killbill-ApiSecret"] = options[:api_secret]
         # RBAC hack
-        args[-1]["Authorization"] = 'Basic ' + Base64.encode64("#{KillBillClient.username}:#{KillBillClient.password}").chomp
+        args[-1]["Authorization"] = 'Basic ' + Base64.encode64("#{options[:username]}:#{options[:password]}").chomp
 
         response = RestClient.send(method.to_sym, url, *args)
         data = {:code => response.code}
@@ -49,44 +49,44 @@ module Kaui
 
     ############## ACCOUNT ##############
 
-    def self.get_account_by_key_with_balance_and_cba(key)
+    def self.get_account_by_key_with_balance_and_cba(key, options = {})
       self.get_account_by_key(key, false, true)
     end
 
-    def self.get_account_by_key(key, with_balance = false, with_balance_and_cba = false)
+    def self.get_account_by_key(key, with_balance = false, with_balance_and_cba = false, options = {})
       # support id (UUID) and external key search
       if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
-        Kaui::KillbillHelper.get_account(key, with_balance, with_balance_and_cba)
+        Kaui::KillbillHelper.get_account(key, with_balance, with_balance_and_cba, options)
       else
-        Kaui::KillbillHelper.get_account_by_external_key(key, with_balance, with_balance_and_cba)
+        Kaui::KillbillHelper.get_account_by_external_key(key, with_balance, with_balance_and_cba, options)
       end
     end
 
-    def self.get_account_timeline(account_id, audit = "MINIMAL")
-      KillBillClient::Model::AccountTimeline.find_by_account_id account_id, audit
+    def self.get_account_timeline(account_id, audit = "MINIMAL", options = {})
+      KillBillClient::Model::AccountTimeline.find_by_account_id account_id, audit, options
     end
 
-    def self.get_account(account_id, with_balance = false, with_balance_and_cba = false)
-      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}?accountWithBalance=#{with_balance}&accountWithBalanceAndCBA=#{with_balance_and_cba}"
+    def self.get_account(account_id, with_balance = false, with_balance_and_cba = false, options = {})
+      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}?accountWithBalance=#{with_balance}&accountWithBalanceAndCBA=#{with_balance_and_cba}", options
       process_response(data, :single) { |json| Kaui::Account.new(json) }
     end
 
-    def self.get_account_by_external_key(external_key, with_balance = false, with_balance_and_cba = false)
-      data = call_killbill :get, "/1.0/kb/accounts?externalKey=#{external_key}&accountWithBalance=#{with_balance}&accountWithBalanceAndCBA=#{with_balance_and_cba}"
+    def self.get_account_by_external_key(external_key, with_balance = false, with_balance_and_cba = false, options = {})
+      data = call_killbill :get, "/1.0/kb/accounts?externalKey=#{external_key}&accountWithBalance=#{with_balance}&accountWithBalanceAndCBA=#{with_balance_and_cba}", options
       process_response(data, :single) { |json| Kaui::Account.new(json) }
     end
 
-    def self.get_account_by_bundle_id(bundle_id)
+    def self.get_account_by_bundle_id(bundle_id, options = {})
       bundle = get_bundle(bundle_id)
       account = get_account(bundle.account_id)
     end
 
-    def self.get_account_emails(account_id)
-      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/emails"
+    def self.get_account_emails(account_id, options = {})
+      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/emails", options
       process_response(data, :multiple) { |json| Kaui::AccountEmail.new(json) }
     end
 
-    def self.add_account_email(account_email, current_user = nil, reason = nil, comment = nil)
+    def self.add_account_email(account_email, current_user = nil, reason = nil, comment = nil, options = {})
       account_email_data = Kaui::AccountEmail.camelize(account_email.to_hash)
       call_killbill :post,
                     "/1.0/kb/accounts/#{account_email.account_id}/emails",
@@ -94,18 +94,20 @@ module Kaui
                     :content_type => "application/json",
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => extract_reason_code(reason),
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
-    def self.remove_account_email(account_email, current_user = nil, reason = nil, comment = nil)
+    def self.remove_account_email(account_email, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :delete,
                     "/1.0/kb/accounts/#{account_email.account_id}/emails/#{account_email.email}",
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
-    def self.update_email_notifications(account_id, is_notified, current_user = nil, reason = nil, comment = nil)
+    def self.update_email_notifications(account_id, is_notified, current_user = nil, reason = nil, comment = nil, options = {})
       email_data = {:isNotifiedForInvoices => is_notified}
       call_killbill :put,
                     "/1.0/kb/accounts/#{account_id}/emailNotifications",
@@ -113,53 +115,55 @@ module Kaui
                     :content_type => "application/json",
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => extract_reason_code(reason),
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
     ############## BUNDLE ##############
 
-    def self.get_bundle_by_key(key, account_id)
+    def self.get_bundle_by_key(key, account_id, options = {})
       # support id (UUID) and external key search
       if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
-        @bundle = Kaui::KillbillHelper::get_bundle(key)
+        @bundle = Kaui::KillbillHelper::get_bundle(key, options)
       else
-        @bundle = Kaui::KillbillHelper::get_bundle_by_external_key(key, account_id)
+        @bundle = Kaui::KillbillHelper::get_bundle_by_external_key(key, account_id, options)
       end
     end
 
-    def self.get_bundles(account_id)
-      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/bundles"
+    def self.get_bundles(account_id, options = {})
+      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/bundles", options
       process_response(data, :multiple) { |json| Kaui::Bundle.new(json) }
     end
 
-    def self.get_bundle_by_external_key(account_id, external_key)
-      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/bundles?externalKey=#{external_key}"
+    def self.get_bundle_by_external_key(account_id, external_key, options = {})
+      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/bundles?externalKey=#{external_key}", options
       process_response(data, :single) { |json| Kaui::Bundle.new(json) }
     end
 
-    def self.get_bundle(bundle_id)
-      data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}"
+    def self.get_bundle(bundle_id, options = {})
+      data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}", options
       process_response(data, :single) { |json| Kaui::Bundle.new(json) }
     end
 
-    def self.transfer_bundle(bundle_id, new_account_id, cancel_immediately = false, transfer_addons = true, current_user = nil, reason = nil, comment = nil)
+    def self.transfer_bundle(bundle_id, new_account_id, cancel_immediately = false, transfer_addons = true, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :put,
                     "/1.0/kb/bundles/#{bundle_id}?cancelImmediately=#{cancel_immediately}&transferAddOn=#{transfer_addons}",
                     ActiveSupport::JSON.encode("accountId" => new_account_id),
                     :content_type => :json,
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
     ############## SUBSCRIPTION ##############
 
-    def self.get_subscriptions_for_bundle(bundle_id)
-      data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}/subscriptions"
+    def self.get_subscriptions_for_bundle(bundle_id, options = {})
+      data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}/subscriptions", options
       process_response(data, :multiple) { |json| Kaui::Subscription.new(json) }
     end
 
-    def self.get_subscriptions(account_id)
+    def self.get_subscriptions(account_id, options = {})
       subscriptions = []
       bundles = get_bundles(account_id)
       bundles.each do |bundle|
@@ -168,12 +172,12 @@ module Kaui
       subscriptions
     end
 
-    def self.get_subscription(subscription_id)
-      data = call_killbill :get, "/1.0/kb/subscriptions/#{subscription_id}"
+    def self.get_subscription(subscription_id, options = {})
+      data = call_killbill :get, "/1.0/kb/subscriptions/#{subscription_id}", options
       process_response(data, :single) { |json| Kaui::Subscription.new(json) }
     end
 
-    def self.create_subscription(subscription, current_user = nil, reason = nil, comment = nil)
+    def self.create_subscription(subscription, current_user = nil, reason = nil, comment = nil, options = {})
       subscription_data = Kaui::Subscription.camelize(subscription.to_hash)
       # We don't want to pass events
       subscription_data.delete(:events)
@@ -183,10 +187,11 @@ module Kaui
                     :content_type => "application/json",
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
-    def self.update_subscription(subscription, requested_date = nil, policy = nil, current_user = nil, reason = nil, comment = nil)
+    def self.update_subscription(subscription, requested_date = nil, policy = nil, current_user = nil, reason = nil, comment = nil, options = {})
       subscription_data = Kaui::Subscription.camelize(subscription.to_hash)
 
       params = "?"
@@ -201,20 +206,22 @@ module Kaui
                     :content_type => :json,
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
-    def self.reinstate_subscription(subscription_id, current_user = nil, reason = nil, comment = nil)
+    def self.reinstate_subscription(subscription_id, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :put,
                     "/1.0/kb/subscriptions/#{subscription_id}/uncancel",
                     "",
                     :content_type => :json,
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
-    def self.delete_subscription(subscription_id, policy = nil, ctd = nil, billing_period = nil, current_user = nil, reason = nil, comment = nil)
+    def self.delete_subscription(subscription_id, policy = nil, ctd = nil, billing_period = nil, current_user = nil, reason = nil, comment = nil, options = {})
       prev_ctd = compute_previous_ctd(ctd, billing_period)
       params = "?"
       params += "policy=#{policy}&" unless policy.blank?
@@ -223,10 +230,11 @@ module Kaui
                     "/1.0/kb/subscriptions/#{subscription_id}#{params}",
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
-    def self.compute_previous_ctd(ctd, billing_period)
+    def self.compute_previous_ctd(ctd, billing_period, options = {})
       return nil if ctd.nil? or billing_period.nil?
 
       ctd = DateTime.parse(ctd)
@@ -244,14 +252,14 @@ module Kaui
 
     ############## INVOICE ##############
 
-    def self.get_invoice id_or_number, with_items = true
-      KillBillClient::Model::Invoice.find_by_id_or_number id_or_number, with_items
+    def self.get_invoice(id_or_number, with_items = true, options = {})
+      KillBillClient::Model::Invoice.find_by_id_or_number id_or_number, with_items, options
     end
 
-    def self.get_invoice_item(invoice_id, invoice_item_id)
+    def self.get_invoice_item(invoice_id, invoice_item_id, options = {})
       # Find the item from the invoice
       # TODO add killbill-server API
-      invoice = Kaui::KillbillHelper.get_invoice(invoice_id)
+      invoice = Kaui::KillbillHelper.get_invoice(invoice_id, options)
       if invoice.present? and invoice.items.present?
         invoice.items.each do |item|
           return item if item.invoice_item_id == invoice_item_id
@@ -260,12 +268,12 @@ module Kaui
       nil
     end
 
-    def self.get_invoice_html(invoice_id)
-      data = call_killbill :get, "/1.0/kb/invoices/#{invoice_id}/html"
+    def self.get_invoice_html(invoice_id, options = {})
+      data = call_killbill :get, "/1.0/kb/invoices/#{invoice_id}/html", options
       data[:body] if data.present?
     end
 
-    def self.adjust_invoice(invoice_item, current_user = nil, reason = nil, comment = nil)
+    def self.adjust_invoice(invoice_item, current_user = nil, reason = nil, comment = nil, options = {})
       invoice_data = Kaui::InvoiceItem.camelize(invoice_item.to_hash)
       call_killbill :post,
                     "/1.0/kb/invoices/#{invoice_item.invoice_id}",
@@ -273,10 +281,11 @@ module Kaui
                     :content_type => :json,
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
-    def self.create_charge(charge, requested_date, current_user = nil, reason = nil, comment = nil)
+    def self.create_charge(charge, requested_date, current_user = nil, reason = nil, comment = nil, options = {})
       charge_data = Kaui::Charge.camelize(charge.to_hash)
       date_param = "?requestedDate=" + requested_date unless requested_date.blank?
 
@@ -287,7 +296,8 @@ module Kaui
                       :content_type => "application/json",
                       "X-Killbill-CreatedBy" => current_user,
                       "X-Killbill-Reason" => extract_reason_code(reason),
-                      "X-Killbill-Comment" => "#{comment}"
+                      "X-Killbill-Comment" => "#{comment}",
+                      **options
       else
         call_killbill :post,
                       "/1.0/kb/invoices/charges#{date_param}",
@@ -295,34 +305,36 @@ module Kaui
                       :content_type => "application/json",
                       "X-Killbill-CreatedBy" => current_user,
                       "X-Killbill-Reason" => extract_reason_code(reason),
-                      "X-Killbill-Comment" => "#{comment}"
+                      "X-Killbill-Comment" => "#{comment}",
+                      **options
       end
     end
 
-    def self.delete_cba(account_id, invoice_id, invoice_item_id, current_user = nil, reason = nil, comment = nil)
+    def self.delete_cba(account_id, invoice_id, invoice_item_id, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :delete,
                     "/1.0/kb/invoices/#{invoice_id}/#{invoice_item_id}/cba?accountId=#{account_id}",
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
     ############## CATALOG ##############
 
-    def self.get_full_catalog
-      data = call_killbill :get, "/1.0/kb/catalog/simpleCatalog"
+    def self.get_full_catalog(options = {})
+      data = call_killbill :get, "/1.0/kb/catalog/simpleCatalog", options
       data[:json]
     end
 
-    def self.get_available_addons(base_product_name)
-      data = call_killbill :get, "/1.0/kb/catalog/availableAddons?baseProductName=#{base_product_name}"
+    def self.get_available_addons(base_product_name, options = {})
+      data = call_killbill :get, "/1.0/kb/catalog/availableAddons?baseProductName=#{base_product_name}", options
       if data.has_key?(:json)
         data[:json].inject({}) { |catalog_hash, item| catalog_hash.merge!(item["planName"] => item) }
       end
     end
 
-    def self.get_available_base_plans()
-      data = call_killbill :get, "/1.0/kb/catalog/availableBasePlans"
+    def self.get_available_base_plans(options = {})
+      data = call_killbill :get, "/1.0/kb/catalog/availableBasePlans", options
       if data.has_key?(:json)
         data[:json].inject({}) { |catalog_hash, item| catalog_hash.merge!(item["planName"] => item) }
       end
@@ -330,28 +342,29 @@ module Kaui
 
     ############## PAYMENT ##############
 
-    def self.get_payment(payment_id)
-      data = call_killbill :get, "/1.0/kb/payments/#{payment_id}"
+    def self.get_payment(payment_id, options = {})
+      data = call_killbill :get, "/1.0/kb/payments/#{payment_id}", options
       process_response(data, :single) { |json| Kaui::Payment.new(json) }
     end
 
-    def self.get_payments(invoice_id)
-      data = call_killbill :get, "/1.0/kb/invoices/#{invoice_id}/payments"
+    def self.get_payments(invoice_id, options = {})
+      data = call_killbill :get, "/1.0/kb/invoices/#{invoice_id}/payments", options
       response_data = process_response(data, :multiple) { |json| Kaui::Payment.new(json) }
       return response_data
     end
 
-    def self.pay_all_invoices(account_id, external = false, current_user = nil, reason = nil, comment = nil)
+    def self.pay_all_invoices(account_id, external = false, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :post,
                     "/1.0/kb/invoices/payments?externalPayment=#{external}",
                     ActiveSupport::JSON.encode({:accountId => account_id}, :root => false),
                     :content_type => "application/json",
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => extract_reason_code(reason),
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
-    def self.create_payment(payment, external, current_user = nil, reason = nil, comment = nil)
+    def self.create_payment(payment, external, current_user = nil, reason = nil, comment = nil, options = {})
       payment_data = Kaui::Payment.camelize(payment.to_hash)
 
       if payment.invoice_id.present?
@@ -366,55 +379,56 @@ module Kaui
                       :content_type => "application/json",
                       "X-Killbill-CreatedBy" => current_user,
                       "X-Killbill-Reason" => extract_reason_code(reason),
-                      "X-Killbill-Comment" => "#{comment}"
+                      "X-Killbill-Comment" => "#{comment}",
+                      **options
       end
     end
 
     ############## PAYMENT METHOD ##############
 
-    def self.delete_payment_method(payment_method_id, set_auto_pay_off = false, current_user = nil, reason = nil, comment = nil)
-      KillBillClient::Model::PaymentMethod.destroy payment_method_id, set_auto_pay_off, current_user, reason, comment
+    def self.delete_payment_method(payment_method_id, set_auto_pay_off = false, current_user = nil, reason = nil, comment = nil, options = {})
+      KillBillClient::Model::PaymentMethod.destroy payment_method_id, set_auto_pay_off, current_user, reason, comment, options
     end
 
-    def self.get_non_external_payment_methods(account_id)
+    def self.get_non_external_payment_methods(account_id, options = {})
       self.get_payment_methods(account_id).reject { |x| x.plugin_name == '__EXTERNAL_PAYMENT__' }
     end
 
     def self.get_payment_methods key
       if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
         #looks like its account_id
-        KillBillClient::Model::PaymentMethod.find_all_by_account_id key, true
+        KillBillClient::Model::PaymentMethod.find_all_by_account_id key, true, options
       else
         #any search key
-        KillBillClient::Model::PaymentMethod.find_all_by_search_key key, true
+        KillBillClient::Model::PaymentMethod.find_all_by_search_key key, true, options
       end
     end
 
-    def self.get_payment_method(payment_method_id)
-      KillBillClient::Model::PaymentMethod.find_by_id payment_method_id, true
+    def self.get_payment_method(payment_method_id, options = {})
+      KillBillClient::Model::PaymentMethod.find_by_id payment_method_id, true, options
     end
 
-    def self.set_payment_method_as_default(account_id, payment_method_id, current_user = nil, reason = nil, comment = nil)
-      KillBillClient::Model::PaymentMethod.set_default payment_method_id, account_id, current_user, reason, comment
+    def self.set_payment_method_as_default(account_id, payment_method_id, current_user = nil, reason = nil, comment = nil, options = {})
+      KillBillClient::Model::PaymentMethod.set_default payment_method_id, account_id, current_user, reason, comment, options
     end
 
-    def self.add_payment_method(is_default, payment_method, current_user = nil, reason = nil, comment = nil)
-      payment_method.create is_default, current_user, reason, comment
+    def self.add_payment_method(is_default, payment_method, current_user = nil, reason = nil, comment = nil, options = {})
+      payment_method.create is_default, current_user, reason, comment, options
     end
 
     ############## REFUND ##############
 
-    def self.get_refund(refund_id)
-      data = call_killbill :get, "/1.0/kb/refunds/#{refund_id}"
+    def self.get_refund(refund_id, options = {})
+      data = call_killbill :get, "/1.0/kb/refunds/#{refund_id}", options
       process_response(data, :single) { |json| Kaui::Refund.new(json) }
     end
 
-    def self.get_refunds_for_payment(payment_id)
-      data = call_killbill :get, "/1.0/kb/payments/#{payment_id}/refunds"
+    def self.get_refunds_for_payment(payment_id, options = {})
+      data = call_killbill :get, "/1.0/kb/payments/#{payment_id}/refunds", options
       process_response(data, :multiple) { |json| Kaui::Refund.new(json) }
     end
 
-    def self.create_refund(payment_id, refund, current_user = nil, reason = nil, comment = nil)
+    def self.create_refund(payment_id, refund, current_user = nil, reason = nil, comment = nil, options = {})
       refund_data = Kaui::Refund.camelize(refund.to_hash)
       # We don't want to pass adjustment_type
       refund_data.delete(:adjustmentType)
@@ -425,17 +439,18 @@ module Kaui
                     :content_type => "application/json",
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => extract_reason_code(reason),
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
     ############## CHARGEBACK ##############
 
-    def self.get_chargebacks_for_payment(payment_id)
-      data = call_killbill :get, "/1.0/kb/chargebacks/payments/#{payment_id}"
+    def self.get_chargebacks_for_payment(payment_id, options = {})
+      data = call_killbill :get, "/1.0/kb/chargebacks/payments/#{payment_id}", options
       process_response(data, :multiple) { |json| Kaui::Chargeback.new(json) }
     end
 
-    def self.create_chargeback(chargeback, current_user = nil, reason = nil, comment = nil)
+    def self.create_chargeback(chargeback, current_user = nil, reason = nil, comment = nil, options = {})
       chargeback_data = Kaui::Refund.camelize(chargeback.to_hash)
 
       call_killbill :post,
@@ -444,12 +459,13 @@ module Kaui
                     :content_type => "application/json",
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => extract_reason_code(reason),
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
     ############## CREDIT ##############
 
-    def self.create_credit(credit, current_user = nil, reason = nil, comment = nil)
+    def self.create_credit(credit, current_user = nil, reason = nil, comment = nil, options = {})
       credit_data = Kaui::Credit.camelize(credit.to_hash)
       call_killbill :post,
                     "/1.0/kb/credits",
@@ -457,22 +473,23 @@ module Kaui
                     :content_type => "application/json",
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => extract_reason_code(reason),
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
     ############## TAG ##############
 
-    def self.get_tag_definitions
-      data = call_killbill :get, "/1.0/kb/tagDefinitions"
+    def self.get_tag_definitions(options = {})
+      data = call_killbill :get, "/1.0/kb/tagDefinitions", options
       process_response(data, :multiple) { |json| Kaui::TagDefinition.new(json) }
     end
 
-    def self.get_tag_definition(tag_definition_id)
-      data = call_killbill :get, "/1.0/kb/tagDefinitions/#{tag_definition_id}"
+    def self.get_tag_definition(tag_definition_id, options = {})
+      data = call_killbill :get, "/1.0/kb/tagDefinitions/#{tag_definition_id}", options
       process_response(data, :single) { |json| Kaui::TagDefinition.new(json) }
     end
 
-    def self.create_tag_definition(tag_definition, current_user = nil, reason = nil, comment = nil)
+    def self.create_tag_definition(tag_definition, current_user = nil, reason = nil, comment = nil, options = {})
       tag_definition_data = Kaui::TagDefinition.camelize(tag_definition.to_hash)
       call_killbill :post,
                     "/1.0/kb/tagDefinitions",
@@ -480,47 +497,51 @@ module Kaui
                     :content_type => "application/json",
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => extract_reason_code(reason),
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
-    def self.delete_tag_definition(tag_definition_id, current_user = nil, reason = nil, comment = nil)
+    def self.delete_tag_definition(tag_definition_id, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :delete,
                     "/1.0/kb/tagDefinitions/#{tag_definition_id}",
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
-    def self.get_tags_for_account(account_id)
-      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/tags"
+    def self.get_tags_for_account(account_id, options = {})
+      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/tags", options
       process_response(data, :multiple) { |json| Kaui::Tag.new(json) }
     end
 
-    def self.get_tags_for_bundle(bundle_id)
-      data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}/tags"
+    def self.get_tags_for_bundle(bundle_id, options = {})
+      data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}/tags", options
       return data[:json]
     end
 
 
-    def self.add_tags_for_account(account_id, tags, current_user = nil, reason = nil, comment = nil)
+    def self.add_tags_for_account(account_id, tags, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :post,
                     "/1.0/kb/accounts/#{account_id}/tags?" + RestClient::Payload.generate(:tagList => tags.join(",")).to_s,
                     nil,
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
-    def self.remove_tags_for_account(account_id, tags, current_user = nil, reason = nil, comment = nil)
+    def self.remove_tags_for_account(account_id, tags, current_user = nil, reason = nil, comment = nil, options = {})
       return if !tags.present? || tags.size == 0
       call_killbill :delete,
                     "/1.0/kb/accounts/#{account_id}/tags?" + RestClient::Payload.generate(:tagList => tags.join(",")).to_s,
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
-    def self.set_tags_for_bundle(bundle_id, tags, current_user = nil, reason = nil, comment = nil)
+    def self.set_tags_for_bundle(bundle_id, tags, current_user = nil, reason = nil, comment = nil, options = {})
       if tags.nil? || tags.empty?
       else
         call_killbill :post,
@@ -528,52 +549,54 @@ module Kaui
                       nil,
                       "X-Killbill-CreatedBy" => current_user,
                       "X-Killbill-Reason" => "#{reason}",
-                      "X-Killbill-Comment" => "#{comment}"
+                      "X-Killbill-Comment" => "#{comment}",
+                      **options
       end
     end
 
     ############## CUSTOM FIELDS ##############
 
-    def self.get_custom_fields_for_account(account_id)
-      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/customFields"
+    def self.get_custom_fields_for_account(account_id, options = {})
+      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/customFields", options
       process_response(data, :multiple) { |json| Kaui::CustomField.new(json) }
     end
 
     ############## OVERDUE ##############
 
-    def self.get_overdue_state_for_bundle(bundle_id)
-      data = call_killbill :get, "/1.0/kb/overdue/bundles/#{bundle_id}"
+    def self.get_overdue_state_for_bundle(bundle_id, options = {})
+      data = call_killbill :get, "/1.0/kb/overdue/bundles/#{bundle_id}", options
       process_response(data, :single) { |json| Kaui::OverdueState.new(json) }
     end
 
     ############## ANALYTICS ##############
 
-    def self.get_account_snapshot(account_id)
-      data = call_killbill :get, "/1.0/kb/analytics/#{account_id}"
+    def self.get_account_snapshot(account_id, options = {})
+      data = call_killbill :get, "/1.0/kb/analytics/#{account_id}", options
       process_response(data, :single) { |json| Kaui::BusinessSnapshot.new(json) }
     end
 
-    def self.refresh_account(account_id, current_user = nil, reason = nil, comment = nil)
+    def self.refresh_account(account_id, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :put,
                     "/1.0/kb/analytics/#{account_id}",
                     nil,
                     "X-Killbill-CreatedBy" => current_user,
                     "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}"
+                    "X-Killbill-Comment" => "#{comment}",
+                    **options
     end
 
-    def self.get_accounts_created_over_time
-      data = call_killbill :get, "/1.0/kb/analytics/accountsCreatedOverTime"
+    def self.get_accounts_created_over_time(options = {})
+      data = call_killbill :get, "/1.0/kb/analytics/accountsCreatedOverTime", options
       process_response(data, :single) { |json| Kaui::TimeSeriesData.new(json) }
     end
 
-    def self.get_subscriptions_created_over_time(product_type, slug)
-      data = call_killbill :get, "/1.0/kb/analytics/subscriptionsCreatedOverTime?productType=#{product_type}&slug=#{slug}"
+    def self.get_subscriptions_created_over_time(product_type, slug, options = {})
+      data = call_killbill :get, "/1.0/kb/analytics/subscriptionsCreatedOverTime?productType=#{product_type}&slug=#{slug}", options
       process_response(data, :single) { |json| Kaui::TimeSeriesData.new(json) }
     end
 
-    def self.check_analytics_sanity
-      data = call_killbill :get, "/1.0/kb/analytics/sanity"
+    def self.check_analytics_sanity(options = {})
+      data = call_killbill :get, "/1.0/kb/analytics/sanity", options
       process_response(data, :single) { |json| Kaui::AnalyticsSanity.new(json) }
     end
 

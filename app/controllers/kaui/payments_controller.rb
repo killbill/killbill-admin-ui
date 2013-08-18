@@ -4,8 +4,8 @@ class Kaui::PaymentsController < Kaui::EngineController
     @account_id = params[:account_id]
     @invoice_id = params[:invoice_id]
     begin
-      @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id)
-      @account = Kaui::KillbillHelper::get_account(@account_id)
+      @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id, options_for_klient)
+      @account = Kaui::KillbillHelper::get_account(@account_id, options_for_klient)
     rescue => e
       flash[:error] = "Error while creating a new payment: #{as_string(e)}"
       redirect_to kaui_engine.account_timeline_path(:id => payment.account_id)
@@ -19,7 +19,7 @@ class Kaui::PaymentsController < Kaui::EngineController
     if payment.present?
       payment.external = (payment.external == "1")
       begin
-        Kaui::KillbillHelper::create_payment(payment, payment.external, current_user, params[:reason], params[:comment])
+        Kaui::KillbillHelper::create_payment(payment, payment.external, current_user, params[:reason], params[:comment], options_for_klient)
         flash[:notice] = "Payment created"
       rescue => e
         flash[:error] = "Error while creating a new payment: #{as_string(e)}"
