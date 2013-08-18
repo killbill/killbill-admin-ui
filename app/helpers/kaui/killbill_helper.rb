@@ -50,7 +50,7 @@ module Kaui
     ############## ACCOUNT ##############
 
     def self.get_account_by_key_with_balance_and_cba(key, options = {})
-      self.get_account_by_key(key, false, true)
+      self.get_account_by_key(key, false, true, options)
     end
 
     def self.get_account_by_key(key, with_balance = false, with_balance_and_cba = false, options = {})
@@ -391,7 +391,7 @@ module Kaui
     end
 
     def self.get_non_external_payment_methods(account_id, options = {})
-      self.get_payment_methods(account_id).reject { |x| x.plugin_name == '__EXTERNAL_PAYMENT__' }
+      self.get_payment_methods(account_id, options).reject { |x| x.plugin_name == '__EXTERNAL_PAYMENT__' }
     end
 
     def self.get_payment_methods key
