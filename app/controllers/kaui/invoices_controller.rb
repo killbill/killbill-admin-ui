@@ -8,7 +8,6 @@ class Kaui::InvoicesController < Kaui::EngineController
   def show
     invoice_id_or_number = params[:id]
     if invoice_id_or_number.present?
-
       begin
         @invoice = Kaui::KillbillHelper.get_invoice(invoice_id_or_number, true, options_for_klient)
         if @invoice.present?

@@ -4,6 +4,11 @@ module Kaui
   class User < ActiveRecord::Base
     devise :killbill_authenticatable
 
+    # Managed by Devise
+    attr_writer :password
+
+    attr_accessible :kb_tenant_id, :kb_username, :password
+
     # Called by Devise to perform authentication
     # Throws KillBillClient::API::Unauthorized on failure
     def self.find_permissions(kb_username, kb_password, api_key=KillBillClient.api_key, api_secret=KillBillClient.api_secret)

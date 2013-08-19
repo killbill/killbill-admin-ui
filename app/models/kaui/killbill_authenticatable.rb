@@ -5,10 +5,6 @@ module Devise
     module KillbillAuthenticatable
       extend ActiveSupport::Concern
 
-      included do
-        attr_accessor :password     # Managed by devise
-      end
-
       def valid_killbill_password?(kb_username, kb_password, api_key, api_secret)
         # Simply try to look-up the permissions for that user - this will
         # Take care of the auth part

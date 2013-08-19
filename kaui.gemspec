@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.executables = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
   s.require_paths = %w(lib)
 
-  s.add_dependency 'rails', '~> 4.0.0'
+  s.add_dependency 'rails', '~> 3.2.14'
   s.add_dependency 'jquery-rails', '~> 3.0.4'
   s.add_dependency 'rest-client', '~> 1.6.7'
   s.add_dependency 'money-rails', '~> 0.8.1'
