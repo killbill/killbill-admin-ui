@@ -10,10 +10,10 @@ class Kaui::InvoicesController < Kaui::EngineController
     if invoice_id_or_number.present?
 
       begin
-        @invoice = Kaui::KillbillHelper.get_invoice(invoice_id_or_number, options_for_klient)
+        @invoice = Kaui::KillbillHelper.get_invoice(invoice_id_or_number, true, options_for_klient)
         if @invoice.present?
           @invoice_id = @invoice.invoice_id
-          @account = Kaui::KillbillHelper.get_account(@invoice.account_id, options_for_klient)
+          @account = Kaui::KillbillHelper.get_account(@invoice.account_id, false, false, options_for_klient)
           @payments = Kaui::KillbillHelper.get_payments(@invoice_id, options_for_klient)
           @payment_methods = {}
           @payments.each do |payment|

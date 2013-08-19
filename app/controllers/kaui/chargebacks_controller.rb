@@ -24,9 +24,9 @@ class Kaui::ChargebacksController < Kaui::EngineController
     @invoice_id = params[:invoice_id]
 
     begin
-      @account = Kaui::KillbillHelper::get_account(@account_id, options_for_klient)
+      @account = Kaui::KillbillHelper::get_account(@account_id, false, false, options_for_klient)
       @payment = Kaui::KillbillHelper::get_payment(@payment_id, options_for_klient)
-      @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id, options_for_klient)
+      @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id, true, options_for_klient)
     rescue => e
       flash[:error] = "Error while starting a new chargeback: #{as_string(e)}"
       redirect_to kaui_engine.account_timeline_path(:id => params[:account_id])

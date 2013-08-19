@@ -25,8 +25,8 @@ class Kaui::CreditsController < Kaui::EngineController
     @invoice_id = params[:invoice_id]
 
     begin
-      @account = Kaui::KillbillHelper::get_account(@account_id, options_for_klient)
-      @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id, options_for_klient) unless @invoice_id.nil?
+      @account = Kaui::KillbillHelper::get_account(@account_id, false, false, options_for_klient)
+      @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id, true, options_for_klient) unless @invoice_id.nil?
     rescue => e
       flash.now[:error] = "Error while starting to create credit: #{as_string(e)}"
     end
@@ -41,7 +41,7 @@ class Kaui::CreditsController < Kaui::EngineController
     credit = Kaui::Credit.new(params[:credit])
     begin
       Kaui::KillbillHelper::create_credit(credit, current_user, params[:reason], params[:comment], options_for_klient)
-      account = Kaui::KillbillHelper::get_account(credit.account_id, options_for_klient)
+      account = Kaui::KillbillHelper::get_account(credit.account_id, false, false, options_for_klient)
       flash[:notice] = "Credit created"
     rescue => e
       flash[:error] = "Error while starting to create credit: #{as_string(e)}"

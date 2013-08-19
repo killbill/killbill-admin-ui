@@ -13,8 +13,8 @@ class Kaui::AccountTimelinesController < Kaui::EngineController
       return
     end
     begin
-      @account = Kaui::KillbillHelper::get_account(@account_id, options_for_klient)
-      @timeline = Kaui::KillbillHelper::get_account_timeline(@account_id, options_for_klient)
+      @account = Kaui::KillbillHelper::get_account(@account_id, false, false, options_for_klient)
+      @timeline = Kaui::KillbillHelper::get_account_timeline(@account_id, "MINIMAL", options_for_klient)
     rescue => e
       flash[:error] = "Could not load the account timeline for #{@account_id}: #{as_string(e)}"
       redirect_to :action => :index
@@ -27,7 +27,7 @@ class Kaui::AccountTimelinesController < Kaui::EngineController
       @timeline.payments.each do |payment|
         if payment.invoice_id.present? && payment.payment_id.present?
           begin
-            @invoices_by_id[payment.invoice_id] = Kaui::KillbillHelper::get_invoice(payment.invoice_id, options_for_klient)
+            @invoices_by_id[payment.invoice_id] = Kaui::KillbillHelper::get_invoice(payment.invoice_id, true, options_for_klient)
           rescue => e
             flash.now[:error] = "Could not get invoice information for the timeline #{@account_id}: #{as_string(e)}"
           end
@@ -41,7 +41,7 @@ class Kaui::AccountTimelinesController < Kaui::EngineController
       @timeline.invoices.each do |invoice|
         if invoice.invoice_id.present? && !@invoices_by_id.has_key?(invoice.invoice_id)
           begin
-            @invoices_by_id[invoice.invoice_id] = Kaui::KillbillHelper::get_invoice(invoice.invoice_id, options_for_klient)
+            @invoices_by_id[invoice.invoice_id] = Kaui::KillbillHelper::get_invoice(invoice.invoice_id, true, options_for_klient)
           rescue => e
             flash.now[:error] = "Could not get invoice information for the timeline #{@account_id}: #{as_string(e)}"
           end

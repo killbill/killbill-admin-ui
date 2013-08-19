@@ -83,7 +83,7 @@ module Kaui
 
     def self.get_account_by_bundle_id(bundle_id, options = {})
       bundle = get_bundle(bundle_id)
-      account = get_account(bundle.account_id)
+      get_account(bundle.account_id, false, false, options)
     end
 
     def self.get_account_emails(account_id, options = {})
@@ -399,7 +399,7 @@ module Kaui
       self.get_payment_methods(account_id, options).reject { |x| x.plugin_name == '__EXTERNAL_PAYMENT__' }
     end
 
-    def self.get_payment_methods key
+    def self.get_payment_methods(key, options = {})
       if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
         #looks like its account_id
         KillBillClient::Model::PaymentMethod.find_all_by_account_id key, true, options

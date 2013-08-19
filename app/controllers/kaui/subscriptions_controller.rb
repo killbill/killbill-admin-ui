@@ -99,7 +99,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
       if @subscription.present?
         @bundle = Kaui::KillbillHelper::get_bundle(@subscription.bundle_id, options_for_klient)
-        @account = Kaui::KillbillHelper::get_account(@bundle.account_id, options_for_klient)
+        @account = Kaui::KillbillHelper::get_account(@bundle.account_id, false, false, options_for_klient)
         @catalog = Kaui::KillbillHelper::get_available_base_plans(options_for_klient)
 
         @current_plan = "#{@subscription.product_name} #{@subscription.billing_period}".humanize

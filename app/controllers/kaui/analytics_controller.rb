@@ -22,7 +22,7 @@ module Kaui
     def account_snapshot
       # params[:account_id] can either be a uuid or an external key
       begin
-        @account = Kaui::KillbillHelper::get_account_by_key(params[:account_id], options_for_klient)
+        @account = Kaui::KillbillHelper::get_account_by_key(params[:account_id], false, false, options_for_klient)
         @snapshot = Kaui::KillbillHelper::get_account_snapshot(@account.account_id, options_for_klient)
       rescue => e
         flash[:error] = "Error while retrieving account snapshot: #{as_string(e)}"

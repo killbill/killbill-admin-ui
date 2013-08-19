@@ -18,7 +18,7 @@ class Kaui::AccountTagsController < Kaui::EngineController
     @account_id = params[:account_id]
     begin
       @available_tags = Kaui::TagDefinition.all_for_account.sort
-      @account = Kaui::KillbillHelper::get_account(@account_id, options_for_klient)
+      @account = Kaui::KillbillHelper::get_account(@account_id, false, false, options_for_klient)
       @tag_names = Kaui::KillbillHelper::get_tags_for_account(@account.account_id, options_for_klient).map { |tag| tag.tag_definition_name }
     rescue => e
       flash.now[:error] = "Error while editing tags: #{as_string(e)}"

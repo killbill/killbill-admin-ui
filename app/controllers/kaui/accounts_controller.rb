@@ -24,7 +24,7 @@ class Kaui::AccountsController < Kaui::EngineController
       if @account.present? and @account.is_a? Kaui::Account
         begin
           @tags = Kaui::KillbillHelper::get_tags_for_account(@account.account_id, options_for_klient).sort
-          @account_emails = Kaui::AccountEmail.where(:account_id => @account.account_id)
+          @account_emails = Kaui::AccountEmail.where({ :account_id => @account.account_id }, options_for_klient)
 
           @payment_methods = Kaui::KillbillHelper::get_non_external_payment_methods(@account.account_id, options_for_klient)
           @bundles = Kaui::KillbillHelper::get_bundles(@account.account_id, options_for_klient)
@@ -42,6 +42,7 @@ class Kaui::AccountsController < Kaui::EngineController
           end
         rescue => e
           flash.now[:error] = "Error while retrieving account information for account: #{as_string(e)}"
+          render :action => :index
         end
       else
         flash.now[:error] = "Account #{@account_id} not found: #{@account}"
@@ -73,7 +74,7 @@ class Kaui::AccountsController < Kaui::EngineController
   def add_payment_method
     account_id = params[:id]
     begin
-      @account = Kaui::KillbillHelper::get_account(account_id, options_for_klient)
+      @account = Kaui::KillbillHelper::get_account(account_id, false, false, options_for_klient)
     rescue => e
       flash.now[:error] = "Error while adding payment methods: #{as_string(e)}"
     end
@@ -88,7 +89,7 @@ class Kaui::AccountsController < Kaui::EngineController
   def do_add_payment_method
     account_id = params[:id]
     # Needed in the failure case scenario
-    @account = Kaui::KillbillHelper::get_account(account_id, options_for_klient)
+    @account = Kaui::KillbillHelper::get_account(account_id, false, false, options_for_klient)
 
     # Implementation example using standard credit card fields
     @card_type = params[:card_type]

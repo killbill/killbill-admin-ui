@@ -4,10 +4,10 @@ class Kaui::ChargesController < Kaui::EngineController
     @account_id = params[:account_id]
     @invoice_id = params[:invoice_id]
     begin
-      @account = Kaui::KillbillHelper::get_account(@account_id, options_for_klient)
+      @account = Kaui::KillbillHelper::get_account(@account_id, false, false, options_for_klient)
 
       if @invoice_id.present?
-        @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id, options_for_klient)
+        @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id, true, options_for_klient)
         @charge = Kaui::Charge.new("accountId" => @account_id, "invoiceId" => @invoice_id)
       else
         @charge = Kaui::Charge.new("accountId" => @account_id)
