@@ -42,6 +42,7 @@
                   <%= link_to "Delete", kaui_engine.payment_method_path(payment_method.payment_method_id), :method => :delete, :confirm => "Are you sure you want to delete this payment method?", :class => "btn btn-mini" %>
               <% end %>
               <%= link_to "Details", kaui_engine.payment_method_path(payment_method.payment_method_id), :class => "btn btn-mini" %>
+              <%= link_to "Go to Account", kaui_engine.account_path(payment_method.account_id), :class => "btn btn-mini", :target => '_blank' %>
             </td>
           </tr>
       <% end %>
