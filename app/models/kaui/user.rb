@@ -5,9 +5,9 @@ module Kaui
     devise :killbill_authenticatable
 
     # Managed by Devise
-    attr_writer :password
+    attr_accessor :password
 
-    attr_accessible :kb_tenant_id, :kb_username, :password
+    attr_accessible :kb_tenant_id, :kb_username, :kb_session_id, :password
 
     # Called by Devise to perform authentication
     # Throws KillBillClient::API::Unauthorized on failure
