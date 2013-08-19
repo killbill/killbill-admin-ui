@@ -12,10 +12,15 @@ module Kaui
         args[0] = {} if args.empty?
         # Multi-tenancy hack
         args[-1] ||= {}
-        args[-1]["X-Killbill-ApiKey"] = options[:api_key]
-        args[-1]["X-Killbill-ApiSecret"] = options[:api_secret]
+        args[-1]["X-Killbill-ApiKey"] = args[-1][:api_key]
+        args[-1]["X-Killbill-ApiSecret"] = args[-1][:api_secret]
         # RBAC hack
-        args[-1]["Authorization"] = 'Basic ' + Base64.encode64("#{options[:username]}:#{options[:password]}").chomp
+        if args[-1][:username] and args[-1][:password]
+          args[-1]["Authorization"] = 'Basic ' + Base64.encode64("#{args[-1][:username]}:#{args[-1][:password]}").chomp
+        end
+        if args[-1][:session_id]
+          args[-1]["Cookie"] = "JSESSIONID=#{args[-1][:session_id]}"
+        end
 
         response = RestClient.send(method.to_sym, url, *args)
         data = {:code => response.code}

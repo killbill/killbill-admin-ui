@@ -1,14 +1,21 @@
 <h2>Sign in</h2>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :kb_tenant_id %><br />
-  <%= f.text_field :kb_tenant_id, :autofocus => true %></div>
-
-  <div><%= f.label :kb_username %><br />
-  <%= f.text_field :kb_username %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.submit "Sign in" %></div>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => "form-horizontal" }) do |f| %>
+  <div class="control-group">
+    <%= f.label :kb_username, 'Username', :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :kb_username, :autofocus => true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password, :class => "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Sign in", :class => 'btn' %>
+    </div>
+  </div>
 <% end %>

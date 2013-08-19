@@ -28,12 +28,15 @@
       </div>
     </div>
     <div class="container">
-      <% if flash[:error] %>
-        <div class="row-fluid">
-          <div class="span12">
-            <div class="alert alert-error"><%= flash[:error] %></div>
+      <%- # :alert used by devise -%>
+      <% [:error, :alert].each do |key| %>
+        <% if flash[key] %>
+          <div class="row-fluid">
+            <div class="span12">
+              <div class="alert alert-error"><%= flash[key] %></div>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
       <% if flash[:notice] %>
         <div class="row-fluid">

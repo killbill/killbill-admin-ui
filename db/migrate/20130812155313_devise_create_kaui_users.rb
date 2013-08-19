@@ -4,6 +4,7 @@ class DeviseCreateKauiUsers < ActiveRecord::Migration
       # From Kill Bill
       t.string :kb_tenant_id, :null => true
       t.string :kb_username,  :null => false
+      t.string :kb_session_id,  :null => true
 
       t.timestamps
     end

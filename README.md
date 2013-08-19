@@ -30,6 +30,19 @@ Finally, Killbill server needs to be running for Kaui to fetch its information. 
 variable to point to your existing Killbill installation (e.g. http://killbill.company.com:8080).
 
 
+Multi-Tenancy
+-------------
+
+If you are using Kaui against a single tenant, specify your api key and secret in ```config/initializers/killbill_client.rb```:
+
+```
+KillBillClient.api_key = 'bob'
+KillBillClient.api_secret = 'lazar'
+```
+
+Sharing a Kaui instance across multiple tenants is not supported yet (you need to spawn one instance per tenant).
+
+
 Running tests
 -------------
 
