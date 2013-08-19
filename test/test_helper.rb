@@ -13,6 +13,31 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 # Load helpers
 Dir["#{File.dirname(__FILE__)}/unit/helpers/kaui/*.rb"].each { |f| require f }
 
+# Include Devise helpers
+class ActionController::TestCase
+  include Devise::TestHelpers
+
+  setup do
+    @user = Kaui::User.create!({
+                                 :kb_tenant_id => "tenant_id_test",
+                                 :kb_username => "username_test",
+                                 :kb_session_id => "session_id_test"
+                               })
+    sign_in @user
+  end
+end
+
+module Kaui
+  class User < ActiveRecord::Base
+
+    private
+
+    def self.do_find_permissions(options = {})
+      ["*:*"]
+    end
+  end
+end
+
 # Mock killbill-server and serve data from the fixtures
 module Kaui::KillbillHelper
   @@fixtures ||= {}
@@ -37,7 +62,7 @@ module Kaui::KillbillHelper
     find_among_fixtures(Kaui::OverdueState, bundle_id)
   end
 
-  def self.get_invoice(invoice_id, options = {})
+  def self.get_invoice(invoice_id, with_items = true, options = {})
     find_among_fixtures(Kaui::Invoice, invoice_id)
   end
 
