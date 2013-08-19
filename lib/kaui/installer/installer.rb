@@ -68,7 +68,7 @@ module KauiCmd
     private
 
       def rails_project?
-        File.exists? File.join(@app_path, 'script', 'rails')
+        File.exists?(File.join(@app_path, 'script', 'rails')) || File.exists?(File.join(@app_path, 'bin', 'rails'))
       end
 
       def gem(name, gem_options={})
