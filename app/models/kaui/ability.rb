@@ -8,7 +8,16 @@ module Kaui
         # permission is something like invoice:item_adjust or payment:refund
         # We rely on a naming convention where the left part refers to a Kaui model
         model, action = permission.split(':')
-        can action.to_sym, ('Kaui::' + model.capitalize).constantize
+        if model == '*' and action == '*'
+          # All permissions!
+          can :manage, :all
+        elsif model == '*' and action != '*'
+          # TODO
+        elsif action == '*'
+          can :all, ('Kaui::' + model.capitalize).constantize
+        else
+          can action.to_sym, ('Kaui::' + model.capitalize).constantize
+        end
       end
     rescue KillBillClient::API::Unauthorized => e
     end
