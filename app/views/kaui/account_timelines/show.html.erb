@@ -242,7 +242,7 @@
                 <%= link_to 'Refund', kaui_engine.new_refund_path(:params => { :payment_id => payment.payment_id,
                                                                                :account_id => @account.account_id,
                                                                                :invoice_id => payment.invoice_id }),
-                                                                  :class => "btn btn-mini #{"disabled" unless payment.payment_id.present? and payment.status == 'SUCCESS' and !payment.is_fully_refunded?}" %>
+                                                                  :class => "btn btn-mini #{"disabled" unless payment.payment_id.present? and payment.status == 'SUCCESS' and payment.paid_amount != 0}" %>
               </nobr>
             <% end %>
             <% if can? :chargeback, Kaui::Payment %>
