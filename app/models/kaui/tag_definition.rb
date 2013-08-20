@@ -17,7 +17,7 @@ class Kaui::TagDefinition < Kaui::Base
   # See com.ning.billing.util.dao.ObjectType in killbill-api
   %w(ACCOUNT ACCOUNT_EMAIL BUNDLE INVOICE PAYMENT INVOICE_ITEM INVOICE_PAYMENT
      SUBSCRIPTION SUBSCRIPTION_EVENT PAYMENT_METHOD REFUND TAG_DEFINITION).each do |object_type|
-       define_singleton_method "all_for_#{object_type.downcase}" do |options_for_klient|
+       define_singleton_method "all_for_#{object_type.downcase}" do |options_for_klient = {}|
          self.all(options_for_klient).delete_if { |tag_definition| !tag_definition.applicable_object_types.include? object_type }
        end
   end
