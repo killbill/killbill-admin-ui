@@ -49,7 +49,7 @@ module Kaui
       @tag_definition = TagDefinition.new(params[:tag_definition])
 
       respond_to do |format|
-        if @tag_definition.save
+        if @tag_definition.save(current_user, params[:reason], params[:comment], options_for_klient)
           format.html { redirect_to @tag_definition, :notice => 'Tag definition was successfully created.' }
           format.json { render :json => @tag_definition, :status => :created, :location => @tag_definition }
         else
@@ -79,7 +79,7 @@ module Kaui
     # DELETE /tag_definitions/1.json
     def destroy
       @tag_definition = TagDefinition.find(params[:id], options_for_klient)
-      @tag_definition.destroy
+      @tag_definition.destroy(current_user, params[:reason], params[:comment], options_for_klient)
 
       respond_to do |format|
         format.html { redirect_to tag_definitions_url, :notice => 'Tag definition was successfully destroyed.' }

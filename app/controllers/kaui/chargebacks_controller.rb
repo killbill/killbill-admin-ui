@@ -44,7 +44,7 @@ class Kaui::ChargebacksController < Kaui::EngineController
 
     if chargeback.present?
       begin
-        Kaui::KillbillHelper::create_chargeback(chargeback, params[:reason], params[:comment], options_for_klient)
+        Kaui::KillbillHelper::create_chargeback(chargeback, current_user, params[:reason], params[:comment], options_for_klient)
         flash[:notice] = "Chargeback created"
       rescue => e
         flash[:error] = "Error while creating a new chargeback: #{as_string(e)}"

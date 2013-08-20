@@ -27,5 +27,4 @@ class Kaui::PaymentsController < Kaui::EngineController
     end
     redirect_to kaui_engine.account_timeline_path(:id => payment.account_id)
   end
-
 end

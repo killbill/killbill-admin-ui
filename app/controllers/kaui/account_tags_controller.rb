@@ -17,7 +17,7 @@ class Kaui::AccountTagsController < Kaui::EngineController
   def edit
     @account_id = params[:account_id]
     begin
-      @available_tags = Kaui::TagDefinition.all_for_account.sort
+      @available_tags = Kaui::TagDefinition.all_for_account(options_for_klient).sort
       @account = Kaui::KillbillHelper::get_account(@account_id, false, false, options_for_klient)
       @tag_names = Kaui::KillbillHelper::get_tags_for_account(@account.account_id, options_for_klient).map { |tag| tag.tag_definition_name }
     rescue => e
@@ -48,12 +48,11 @@ class Kaui::AccountTagsController < Kaui::EngineController
         tags_to_add << new_tag_definition_id unless current_tags.include?(new_tag_definition_id)
       end
 
-      Kaui::KillbillHelper::remove_tags_for_account(params[:account_id], tags_to_remove, options_for_klient) unless tags_to_remove.empty?
-      Kaui::KillbillHelper::add_tags_for_account(params[:account_id], tags_to_add, options_for_klient) unless tags_to_add.empty?
+      Kaui::KillbillHelper::remove_tags_for_account(params[:account_id], tags_to_remove, current_user, params[:reason], params[:comment], options_for_klient) unless tags_to_remove.empty?
+      Kaui::KillbillHelper::add_tags_for_account(params[:account_id], tags_to_add, current_user, params[:reason], params[:comment], options_for_klient) unless tags_to_add.empty?
     rescue => e
       flash[:error] = "Error while updating tags: #{as_string(e)}"
     end
     redirect_to kaui_engine.account_path(params[:account_id])
   end
-
 end

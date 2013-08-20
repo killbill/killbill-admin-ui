@@ -55,7 +55,7 @@ class Kaui::BundlesController < Kaui::EngineController
       if bundle_id.present? && result.is_a?(Kaui::Account)
         @new_account = result
         begin
-          Kaui::KillbillHelper::transfer_bundle(bundle_id, @new_account.account_id, options_for_klient)
+          Kaui::KillbillHelper::transfer_bundle(bundle_id, @new_account.account_id, current_user, params[:reason], params[:comment], options_for_klient)
           flash[:notice] = "Bundle transfered successfully"
         rescue => e
           flash[:error] = "Error transfering bundle #{as_string(e)}"
@@ -77,5 +77,4 @@ class Kaui::BundlesController < Kaui::EngineController
       render :transfer
     end
   end
-
 end

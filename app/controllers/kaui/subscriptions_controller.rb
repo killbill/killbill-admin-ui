@@ -62,7 +62,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       @subscription.product_name = plan["productName"]
       @subscription.price_list = plan["priceListName"]
 
-      Kaui::KillbillHelper::create_subscription(@subscription, current_user, options_for_klient)
+      Kaui::KillbillHelper::create_subscription(@subscription, current_user, params[:reason], params[:comment], options_for_klient)
       redirect_to Kaui.bundle_home_path.call(@bundle.bundle_id)
     rescue => e
       flash.now[:error] = "Error while creating the new subscription: #{as_string(e)}"
@@ -134,7 +134,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
         subscription.price_list = plan["priceListName"]
         subscription.subscription_id = params[:subscription][:subscription_id]
 
-        Kaui::KillbillHelper::update_subscription(subscription, requested_date, policy, current_user, options_for_klient)
+        Kaui::KillbillHelper::update_subscription(subscription, requested_date, policy, current_user, params[:reason], params[:comment], options_for_klient)
       rescue => e
         flash[:error] = "Error while updating subscription: #{as_string(e)}"
       end
@@ -148,7 +148,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     subscription_id = params[:id]
     if subscription_id.present?
       begin
-        Kaui::KillbillHelper::reinstate_subscription(subscription_id, current_user, options_for_klient)
+        Kaui::KillbillHelper::reinstate_subscription(subscription_id, current_user, params[:reason], params[:comment], options_for_klient)
         flash[:notice] = "Subscription reinstated"
       rescue => e
         flash[:error] = "Error while reinstating subscription: #{as_string(e)}"
@@ -163,7 +163,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     subscription_id = params[:id]
     if subscription_id.present?
       begin
-        Kaui::KillbillHelper::delete_subscription(subscription_id, params[:policy], params[:ctd], params[:billing_period], current_user, options_for_klient)
+        Kaui::KillbillHelper::delete_subscription(subscription_id, params[:policy], params[:ctd], params[:billing_period], current_user, params[:reason], params[:comment], options_for_klient)
       rescue => e
         flash[:error] = "Error while canceling subscription: #{as_string(e)}"
       end

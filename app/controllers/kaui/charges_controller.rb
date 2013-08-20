@@ -22,7 +22,7 @@ class Kaui::ChargesController < Kaui::EngineController
 
     if charge.present?
       begin
-        Kaui::KillbillHelper::create_charge(charge, params[:requested_date], current_user, nil, params[:comment], options_for_klient)
+        Kaui::KillbillHelper::create_charge(charge, params[:requested_date], current_user, params[:reason], params[:comment], options_for_klient)
         flash[:notice] = "Charge created"
         redirect_to kaui_engine.account_timeline_path(:id => charge.account_id)
       rescue => e

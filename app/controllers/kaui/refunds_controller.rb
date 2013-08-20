@@ -105,5 +105,4 @@ class Kaui::RefundsController < Kaui::EngineController
     end
     nil
   end
-
 end

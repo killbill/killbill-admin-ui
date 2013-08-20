@@ -17,19 +17,19 @@ class Kaui::TagDefinition < Kaui::Base
   # See com.ning.billing.util.dao.ObjectType in killbill-api
   %w(ACCOUNT ACCOUNT_EMAIL BUNDLE INVOICE PAYMENT INVOICE_ITEM INVOICE_PAYMENT
      SUBSCRIPTION SUBSCRIPTION_EVENT PAYMENT_METHOD REFUND TAG_DEFINITION).each do |object_type|
-       define_singleton_method "all_for_#{object_type.downcase}" do
-         self.all.delete_if { |tag_definition| !tag_definition.applicable_object_types.include? object_type }
+       define_singleton_method "all_for_#{object_type.downcase}" do |options_for_klient|
+         self.all(options_for_klient).delete_if { |tag_definition| !tag_definition.applicable_object_types.include? object_type }
        end
   end
 
-  def save(options_for_klient = {})
-    Kaui::KillbillHelper.create_tag_definition(self, options_for_klient)
+  def save(user = nil, reason = nil, comment = nil, options_for_klient = {})
+    Kaui::KillbillHelper.create_tag_definition(self, user, reason, comment, options_for_klient)
     # TODO - we should return the newly created id and update the model
     # @persisted = true
   end
 
-  def destroy(options_for_klient = {})
-    Kaui::KillbillHelper.delete_tag_definition(@id, options_for_klient)
+  def destroy(user = nil, reason = nil, comment = nil, options_for_klient = {})
+    Kaui::KillbillHelper.delete_tag_definition(@id, user, reason, comment, options_for_klient)
     @persisted = false
   end
 

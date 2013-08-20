@@ -30,11 +30,10 @@ class Kaui::BundleTagsController < Kaui::EngineController
       bundle = Kaui::KillbillHelper::get_bundle(params[:bundle_id], options_for_klient)
       tags = params[:tags]
 
-      Kaui::KillbillHelper::set_tags_for_bundle(bundle.bundle_id, tags, options_for_klient)
+      Kaui::KillbillHelper::set_tags_for_bundle(bundle.bundle_id, tags, current_user, params[:reason], params[:comment], options_for_klient)
       redirect_to Kaui.bundle_home_path.call(bundle.bundle_id)
     rescue => e
       flash.now[:error] = "Error while updating tags: #{as_string(e)}"
     end
   end
-
 end

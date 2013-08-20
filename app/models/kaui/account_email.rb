@@ -12,22 +12,18 @@ class Kaui::AccountEmail < Kaui::Base
   end
 
   def self.where(conditions, options_for_klient = {})
-    begin
-      account_emails = Kaui::KillbillHelper.get_account_emails(conditions[:account_id], options_for_klient) || []
-      return account_emails.sort unless conditions[:email].present?
+    account_emails = Kaui::KillbillHelper.get_account_emails(conditions[:account_id], options_for_klient) || []
+    return account_emails.sort unless conditions[:email].present?
 
-      account_emails.each do |account_email|
-        return account_email if account_email.email == conditions[:email]
-      end
-    rescue => e
-      @errors.add(:where, "Error while getting account emails: #{e}")
+    account_emails.each do |account_email|
+      return account_email if account_email.email == conditions[:email]
     end
     []
   end
 
-  def save(options_for_klient = {})
+  def save(user = nil, reason = nil, comment = nil, options_for_klient = {})
     begin
-      Kaui::KillbillHelper.add_account_email(self, options_for_klient)
+      Kaui::KillbillHelper.add_account_email(self, user, reason, comment, options_for_klient)
       true
     rescue => e
       @errors.add(:save, "Error while trying to add an account email: #{e}")
@@ -35,9 +31,9 @@ class Kaui::AccountEmail < Kaui::Base
     end
   end
 
-  def destroy(options_for_klient = {})
+  def destroy(user = nil, reason = nil, comment = nil, options_for_klient = {})
     begin
-      Kaui::KillbillHelper.remove_account_email(self, options_for_klient)
+      Kaui::KillbillHelper.remove_account_email(self, user, reason, comment, options_for_klient)
       true
     rescue => e
       @errors.add(:destroy, "Error while trying to delete an account email: #{e}")

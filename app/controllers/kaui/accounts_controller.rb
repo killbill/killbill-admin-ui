@@ -153,7 +153,7 @@ class Kaui::AccountsController < Kaui::EngineController
 
   def toggle_email_notifications
     begin
-      @account = Kaui::KillbillHelper::update_email_notifications(params[:id], params[:is_notified], options_for_klient)
+      @account = Kaui::KillbillHelper::update_email_notifications(params[:id], params[:is_notified], current_user, params[:reason], params[:comment], options_for_klient)
       flash[:notice] = "Email preferences updated"
     rescue => e
       flash[:error] = "Error while switching email notifications #{invoice_id}: #{as_string(e)}"
