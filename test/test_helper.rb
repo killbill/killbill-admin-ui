@@ -102,12 +102,12 @@ module Kaui::KillbillHelper
     find_among_fixtures(Kaui::TagDefinition, tag_definition_id, 'id')
   end
 
-  def self.create_tag_definition(tag_definition, options = {})
+  def self.create_tag_definition(tag_definition, user, reason, comment, options = {})
     tag_definition.id = SecureRandom.uuid
     add_fixture(tag_definition, Kaui::TagDefinition)
   end
 
-  def self.delete_tag_definition(tag_definition_id, options = {})
+  def self.delete_tag_definition(tag_definition_id, user, reason, comment, options = {})
     delete_fixture(Kaui::TagDefinition, tag_definition_id, 'id')
   end
 
