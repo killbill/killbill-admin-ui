@@ -21,6 +21,7 @@ module Kaui
         if args[-1][:session_id]
           args[-1]["Cookie"] = "JSESSIONID=#{args[-1][:session_id]}"
         end
+        [:api_key, :api_secret, :username, :password, :session_id].each { |k| args[-1].delete(k) }
 
         response = RestClient.send(method.to_sym, url, *args)
         data = {:code => response.code}
@@ -49,7 +50,22 @@ module Kaui
     end
 
     def self.extract_reason_code(reason)
+      reason_code = reason
       reason_code = $1 if reason =~ /\s*(\d+).*/
+      reason_code
+    end
+
+    def self.build_audit_headers(current_user, reason, comment, options)
+      {
+        :content_type => "application/json",
+        "X-Killbill-CreatedBy" => extract_created_by(current_user),
+        "X-Killbill-Reason" => extract_reason_code(reason),
+        "X-Killbill-Comment" => "#{comment}",
+      }.merge(options)
+    end
+
+    def self.extract_created_by(current_user)
+      current_user.respond_to?(:kb_username) ? current_user.kb_username : current_user.to_s
     end
 
     ############## ACCOUNT ##############
@@ -96,20 +112,13 @@ module Kaui
       call_killbill :post,
                     "/1.0/kb/accounts/#{account_email.account_id}/emails",
                     ActiveSupport::JSON.encode(account_email_data, :root => false),
-                    :content_type => "application/json",
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => extract_reason_code(reason),
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     def self.remove_account_email(account_email, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :delete,
                     "/1.0/kb/accounts/#{account_email.account_id}/emails/#{account_email.email}",
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     def self.update_email_notifications(account_id, is_notified, current_user = nil, reason = nil, comment = nil, options = {})
@@ -117,11 +126,7 @@ module Kaui
       call_killbill :put,
                     "/1.0/kb/accounts/#{account_id}/emailNotifications",
                     ActiveSupport::JSON.encode(email_data, :root => false),
-                    :content_type => "application/json",
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => extract_reason_code(reason),
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     ############## BUNDLE ##############
@@ -154,11 +159,7 @@ module Kaui
       call_killbill :put,
                     "/1.0/kb/bundles/#{bundle_id}?cancelImmediately=#{cancel_immediately}&transferAddOn=#{transfer_addons}",
                     ActiveSupport::JSON.encode("accountId" => new_account_id),
-                    :content_type => :json,
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     ############## SUBSCRIPTION ##############
@@ -189,11 +190,7 @@ module Kaui
       call_killbill :post,
                     "/1.0/kb/subscriptions",
                     ActiveSupport::JSON.encode(subscription_data, :root => false),
-                    :content_type => "application/json",
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     def self.update_subscription(subscription, requested_date = nil, policy = nil, current_user = nil, reason = nil, comment = nil, options = {})
@@ -208,22 +205,14 @@ module Kaui
       call_killbill :put,
                     "/1.0/kb/subscriptions/#{subscription.subscription_id}#{params}",
                     ActiveSupport::JSON.encode(subscription_data, :root => false),
-                    :content_type => :json,
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     def self.reinstate_subscription(subscription_id, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :put,
                     "/1.0/kb/subscriptions/#{subscription_id}/uncancel",
                     "",
-                    :content_type => :json,
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     def self.delete_subscription(subscription_id, policy = nil, ctd = nil, billing_period = nil, current_user = nil, reason = nil, comment = nil, options = {})
@@ -233,10 +222,7 @@ module Kaui
       params += "requestedDate=#{prev_ctd.strftime('%Y-%m-%dT%H:%M:%S')}" unless prev_ctd.nil?
       call_killbill :delete,
                     "/1.0/kb/subscriptions/#{subscription_id}#{params}",
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     def self.compute_previous_ctd(ctd, billing_period, options = {})
@@ -283,11 +269,7 @@ module Kaui
       call_killbill :post,
                     "/1.0/kb/invoices/#{invoice_item.invoice_id}",
                     ActiveSupport::JSON.encode(invoice_data, :root => false),
-                    :content_type => :json,
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     def self.create_charge(charge, requested_date, current_user = nil, reason = nil, comment = nil, options = {})
@@ -298,30 +280,19 @@ module Kaui
         call_killbill :post,
                       "/1.0/kb/invoices/#{charge.invoice_id}/charges#{date_param}",
                       ActiveSupport::JSON.encode(charge_data, :root => false),
-                      :content_type => "application/json",
-                      "X-Killbill-CreatedBy" => current_user,
-                      "X-Killbill-Reason" => extract_reason_code(reason),
-                      "X-Killbill-Comment" => "#{comment}",
-                      **options
+                      build_audit_headers(current_user, reason, comment, options)
       else
         call_killbill :post,
                       "/1.0/kb/invoices/charges#{date_param}",
                       ActiveSupport::JSON.encode(charge_data, :root => false),
-                      :content_type => "application/json",
-                      "X-Killbill-CreatedBy" => current_user,
-                      "X-Killbill-Reason" => extract_reason_code(reason),
-                      "X-Killbill-Comment" => "#{comment}",
-                      **options
+                      build_audit_headers(current_user, reason, comment, options)
       end
     end
 
     def self.delete_cba(account_id, invoice_id, invoice_item_id, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :delete,
                     "/1.0/kb/invoices/#{invoice_id}/#{invoice_item_id}/cba?accountId=#{account_id}",
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     ############## CATALOG ##############
@@ -362,11 +333,7 @@ module Kaui
       call_killbill :post,
                     "/1.0/kb/invoices/payments?externalPayment=#{external}",
                     ActiveSupport::JSON.encode({:accountId => account_id}, :root => false),
-                    :content_type => "application/json",
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => extract_reason_code(reason),
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     def self.create_payment(payment, external, current_user = nil, reason = nil, comment = nil, options = {})
@@ -381,18 +348,14 @@ module Kaui
         call_killbill :post,
                       "/1.0/kb/invoices/#{payment.invoice_id}/payments?externalPayment=#{external}",
                       ActiveSupport::JSON.encode(payment_data, :root => false),
-                      :content_type => "application/json",
-                      "X-Killbill-CreatedBy" => current_user,
-                      "X-Killbill-Reason" => extract_reason_code(reason),
-                      "X-Killbill-Comment" => "#{comment}",
-                      **options
+                      build_audit_headers(current_user, reason, comment, options)
       end
     end
 
     ############## PAYMENT METHOD ##############
 
     def self.delete_payment_method(payment_method_id, set_auto_pay_off = false, current_user = nil, reason = nil, comment = nil, options = {})
-      KillBillClient::Model::PaymentMethod.destroy payment_method_id, set_auto_pay_off, current_user, reason, comment, options
+      KillBillClient::Model::PaymentMethod.destroy payment_method_id, set_auto_pay_off, extract_created_by(current_user), extract_reason_code(reason), comment, options
     end
 
     def self.get_non_external_payment_methods(account_id, options = {})
@@ -414,11 +377,11 @@ module Kaui
     end
 
     def self.set_payment_method_as_default(account_id, payment_method_id, current_user = nil, reason = nil, comment = nil, options = {})
-      KillBillClient::Model::PaymentMethod.set_default payment_method_id, account_id, current_user, reason, comment, options
+      KillBillClient::Model::PaymentMethod.set_default payment_method_id, account_id, extract_created_by(current_user), extract_reason_code(reason), comment, options
     end
 
     def self.add_payment_method(is_default, payment_method, current_user = nil, reason = nil, comment = nil, options = {})
-      payment_method.create is_default, current_user, reason, comment, options
+      payment_method.create is_default, extract_created_by(current_user), extract_reason_code(reason), comment, options
     end
 
     ############## REFUND ##############
@@ -441,11 +404,7 @@ module Kaui
       call_killbill :post,
                     "/1.0/kb/payments/#{payment_id}/refunds",
                     ActiveSupport::JSON.encode(refund_data, :root => false),
-                    :content_type => "application/json",
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => extract_reason_code(reason),
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     ############## CHARGEBACK ##############
@@ -461,11 +420,7 @@ module Kaui
       call_killbill :post,
                     "/1.0/kb/chargebacks",
                     ActiveSupport::JSON.encode(chargeback_data, :root => false),
-                    :content_type => "application/json",
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => extract_reason_code(reason),
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     ############## CREDIT ##############
@@ -475,11 +430,7 @@ module Kaui
       call_killbill :post,
                     "/1.0/kb/credits",
                     ActiveSupport::JSON.encode(credit_data, :root => false),
-                    :content_type => "application/json",
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => extract_reason_code(reason),
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     ############## TAG ##############
@@ -499,20 +450,13 @@ module Kaui
       call_killbill :post,
                     "/1.0/kb/tagDefinitions",
                     ActiveSupport::JSON.encode(tag_definition_data, :root => false),
-                    :content_type => "application/json",
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => extract_reason_code(reason),
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     def self.delete_tag_definition(tag_definition_id, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :delete,
                     "/1.0/kb/tagDefinitions/#{tag_definition_id}",
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     def self.get_tags_for_account(account_id, options = {})
@@ -525,25 +469,18 @@ module Kaui
       return data[:json]
     end
 
-
     def self.add_tags_for_account(account_id, tags, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :post,
                     "/1.0/kb/accounts/#{account_id}/tags?" + RestClient::Payload.generate(:tagList => tags.join(",")).to_s,
                     nil,
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     def self.remove_tags_for_account(account_id, tags, current_user = nil, reason = nil, comment = nil, options = {})
       return if !tags.present? || tags.size == 0
       call_killbill :delete,
                     "/1.0/kb/accounts/#{account_id}/tags?" + RestClient::Payload.generate(:tagList => tags.join(",")).to_s,
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     def self.set_tags_for_bundle(bundle_id, tags, current_user = nil, reason = nil, comment = nil, options = {})
@@ -552,10 +489,7 @@ module Kaui
         call_killbill :post,
                       "/1.0/kb/bundles/#{bundle_id}/tags?" + RestClient::Payload.generate(:tag_list => tags.join(",")).to_s,
                       nil,
-                      "X-Killbill-CreatedBy" => current_user,
-                      "X-Killbill-Reason" => "#{reason}",
-                      "X-Killbill-Comment" => "#{comment}",
-                      **options
+                      build_audit_headers(current_user, reason, comment, options)
       end
     end
 
@@ -584,10 +518,7 @@ module Kaui
       call_killbill :put,
                     "/1.0/kb/analytics/#{account_id}",
                     nil,
-                    "X-Killbill-CreatedBy" => current_user,
-                    "X-Killbill-Reason" => "#{reason}",
-                    "X-Killbill-Comment" => "#{comment}",
-                    **options
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     def self.get_accounts_created_over_time(options = {})
