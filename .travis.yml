@@ -21,6 +21,11 @@ jdk:
 before_script:
   - mysql -e 'create database kaui_test;'
 
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
+
 matrix:
   allow_failures:
     - rvm: ruby-head
