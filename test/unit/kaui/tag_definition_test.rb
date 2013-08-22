@@ -27,8 +27,8 @@ class Kaui::TagDefinitionTest < ActiveSupport::TestCase
 
   test "can find all per object type" do
     assert_equal 3, Kaui::TagDefinition.all.size
-    assert_equal 2, Kaui::TagDefinition.all_for_account.size
-    assert_equal 1, Kaui::TagDefinition.all_for_invoice.size
-    assert_equal 1, Kaui::TagDefinition.all_for_tag_definition.size
+    assert_equal 2, Kaui::TagDefinition.all_for_account({}).size
+    assert_equal 1, Kaui::TagDefinition.all_for_invoice({}).size
+    assert_equal 1, Kaui::TagDefinition.all_for_tag_definition({}).size
   end
 end
