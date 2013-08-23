@@ -71,7 +71,7 @@
         </dd>
     <dt>Account credit:</dt>
     <% if @account.cba.nil? %>
-        <dd>unknown</dd>
+        <dd>unknown
     <% elsif @account.cba >= 0  %>
         <dd><span class="label label-success" ><%= humanized_money_with_symbol @account.cba_to_money %> (<%= @account.currency %>)</span>
     <% else %>
