@@ -210,7 +210,7 @@ module Kaui
 
     def self.reinstate_subscription(subscription_id, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :put,
-                    "/1.0/kb/enitlements/#{subscription_id}/uncancel",
+                    "/1.0/kb/entitlements/#{subscription_id}/uncancel",
                     "",
                     build_audit_headers(current_user, reason, comment, options)
     end
