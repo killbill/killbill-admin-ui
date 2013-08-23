@@ -7,14 +7,6 @@
     <dd><%= link_to @account.email, Kaui.account_home_path.call(@account.external_key) %>&nbsp;</dd>
     <dt>Bundle key:</dt>
     <dd><%= @bundle.external_key %>&nbsp;</dd>
-    <dt>Overdue status:</dt>
-    <% if @overdue_state.nil? %>
-        <dd>unknown<dd>
-    <% elsif @overdue_state.clear_state  %>
-        <dd><span class='label label-success'>Good</span><dd>
-    <% else %>
-        <dd><span class='label label-important'><%= @overdue_state.name %></span><dd>
-    <% end %>
     <%= link_to "Transfer Ownership", kaui_engine.transfer_bundle_path(@bundle.bundle_id), :class => "btn btn-mini" %></dd>
   <% if @subscriptions.present? %>
     <%= render :partial => "kaui/subscriptions/subscriptions_table", :locals => { :subscriptions => @subscriptions, :account => @account } %>

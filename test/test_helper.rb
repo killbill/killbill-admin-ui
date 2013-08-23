@@ -58,8 +58,8 @@ module Kaui::KillbillHelper
     find_among_fixtures(Kaui::Account, account_id)
   end
 
-  def self.get_overdue_state_for_bundle(bundle_id, options = {})
-    find_among_fixtures(Kaui::OverdueState, bundle_id)
+  def self.get_overdue_state_for_account(account_id, options = {})
+    find_among_fixtures(Kaui::OverdueState, account_id)
   end
 
   def self.get_invoice(invoice_id, with_items = true, options = {})

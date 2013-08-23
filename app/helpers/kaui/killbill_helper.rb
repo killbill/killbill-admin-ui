@@ -98,7 +98,7 @@ module Kaui
     end
 
     def self.get_account_by_bundle_id(bundle_id, options = {})
-      bundle = get_bundle(bundle_id)
+      bundle = get_bundle(bundle_id, options)
       get_account(bundle.account_id, false, false, options)
     end
 
@@ -188,7 +188,7 @@ module Kaui
       # We don't want to pass events
       subscription_data.delete(:events)
       call_killbill :post,
-                    "/1.0/kb/subscriptions",
+                    "/1.0/kb/entitlements",
                     ActiveSupport::JSON.encode(subscription_data, :root => false),
                     build_audit_headers(current_user, reason, comment, options)
     end
@@ -203,14 +203,14 @@ module Kaui
       # We don't want to pass events
       subscription_data.delete(:events)
       call_killbill :put,
-                    "/1.0/kb/subscriptions/#{subscription.subscription_id}#{params}",
+                    "/1.0/kb/entitlements/#{subscription.subscription_id}#{params}",
                     ActiveSupport::JSON.encode(subscription_data, :root => false),
                     build_audit_headers(current_user, reason, comment, options)
     end
 
     def self.reinstate_subscription(subscription_id, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :put,
-                    "/1.0/kb/subscriptions/#{subscription_id}/uncancel",
+                    "/1.0/kb/enitlements/#{subscription_id}/uncancel",
                     "",
                     build_audit_headers(current_user, reason, comment, options)
     end
@@ -221,7 +221,7 @@ module Kaui
       params += "policy=#{policy}&" unless policy.blank?
       params += "requestedDate=#{prev_ctd.strftime('%Y-%m-%dT%H:%M:%S')}" unless prev_ctd.nil?
       call_killbill :delete,
-                    "/1.0/kb/subscriptions/#{subscription_id}#{params}",
+                    "/1.0/kb/entitlements/#{subscription_id}#{params}",
                     build_audit_headers(current_user, reason, comment, options)
     end
 
@@ -502,8 +502,8 @@ module Kaui
 
     ############## OVERDUE ##############
 
-    def self.get_overdue_state_for_bundle(bundle_id, options = {})
-      data = call_killbill :get, "/1.0/kb/overdue/bundles/#{bundle_id}", options
+    def self.get_overdue_state_for_account(account_id, options = {})
+      data = call_killbill :get, "/1.0/kb/overdue/accounts/#{account_id}", options
       process_response(data, :single) { |json| Kaui::OverdueState.new(json) }
     end
 
