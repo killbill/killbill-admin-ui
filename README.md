@@ -46,14 +46,18 @@ Sharing a Kaui instance across multiple tenants is not supported yet (you need t
 Running tests
 -------------
 
-Prepare a kaui_test database locally to be able to run the test suite:
+Go into 'test/dummy': 
+> cd test/dummy/
 
-    create database kaui_test;
-    grant all privileges on kaui_test.* to 'root'@'localhost' identified by '';
+Run mkigrations:
+> export RAILS_ENV=test
+> rake kaui:install:migrations
+> rake db:migrate
 
-You can run tests using rake:
-
-    rake test
+Run the tests:
+(Move back to top level)
+> cd ../..
+> rake test
 
 
 Development
