@@ -32,7 +32,7 @@
     <dd><%= @account.external_key %>&nbsp;</dd>
     <dt>Overdue status:</dt>
     <% if @overdue_state.nil? %>
-         <dd>unknown<dd>
+         <dd>unknown</dd>
     <% elsif @overdue_state.clear_state  %>
          <dd><span class='label label-success'>Good</span><dd>
     <% else %>
@@ -40,7 +40,7 @@
     <% end %>
     <dt>Account balance:</dt>
     <% if @account.balance.nil? %>
-        <dd>unknown
+        <dd>unknown</dd>
     <% elsif @account.balance <= 0  %>
         <dd><span class="label label-success" ><%= humanized_money_with_symbol @account.balance_to_money %> (<%= @account.currency %>)</span>
     <% else %>
@@ -71,7 +71,7 @@
         </dd>
     <dt>Account credit:</dt>
     <% if @account.cba.nil? %>
-        <dd>unknown
+        <dd>unknown</dd>
     <% elsif @account.cba >= 0  %>
         <dd><span class="label label-success" ><%= humanized_money_with_symbol @account.cba_to_money %> (<%= @account.currency %>)</span>
     <% else %>
@@ -93,7 +93,7 @@
   <% @bundles.each do |bundle| %>
     <% subs = @subscriptions_by_bundle_id[bundle.bundle_id] %>
     <% if subs.present? %>
-      <h2>Bundle <%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.bundle_id) if bundle.external_key.present? %>
+      <h2>Bundle <%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.bundle_id) if bundle.external_key.present? %></h2>
       <%= render :partial => "kaui/subscriptions/subscriptions_table", :locals => { :subscriptions => subs, :account => @account } %>
     <% end %>
   <% end %>
