@@ -58,6 +58,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       end
 
       plan = @catalog[@plan_name]
+      @subscription.account_id =  @bundle.account_id
       @subscription.billing_period = plan["billingPeriod"]
       @subscription.product_name = plan["productName"]
       @subscription.price_list = plan["priceListName"]
@@ -73,6 +74,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
   def add_addon
     @base_product_name = params[:base_product_name]
 
+    @account_id = params[:account_id]
     @bundle_id = params[:bundle_id]
     @product_name = params[:product_name]
     @product_category = params[:product_category]
@@ -80,7 +82,8 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     @price_list = params[:price_list]
 
     begin
-      @subscription = Kaui::Subscription.new(:bundle_id => @bundle_id,
+      @subscription = Kaui::Subscription.new(:account_id => @account_id,
+                                             :bundle_id => @bundle_id,
                                              :product_name => @product_name,
                                              :product_category => @product_category,
                                              :billing_period => @billing_period,

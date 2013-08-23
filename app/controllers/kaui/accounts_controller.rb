@@ -25,16 +25,13 @@ class Kaui::AccountsController < Kaui::EngineController
         begin
           @tags = Kaui::KillbillHelper::get_tags_for_account(@account.account_id, options_for_klient).sort
           @account_emails = Kaui::AccountEmail.where({ :account_id => @account.account_id }, options_for_klient)
-
+          @overdue_state = Kaui::KillbillHelper::get_overdue_state_for_account(@account.account_id, options_for_klient)
           @payment_methods = Kaui::KillbillHelper::get_non_external_payment_methods(@account.account_id, options_for_klient)
           @bundles = Kaui::KillbillHelper::get_bundles(@account.account_id, options_for_klient)
 
-          @overdue_state_by_bundle_id = {}
           @subscriptions_by_bundle_id = {}
 
           @bundles.each do |bundle|
-            @overdue_state_by_bundle_id[bundle.bundle_id] = Kaui::KillbillHelper::get_overdue_state_for_bundle(bundle.bundle_id, options_for_klient)
-
             subscriptions = Kaui::KillbillHelper::get_subscriptions_for_bundle(bundle.bundle_id, options_for_klient)
             if subscriptions.present?
               @subscriptions_by_bundle_id[bundle.bundle_id.to_s] = (@subscriptions_by_bundle_id[bundle.bundle_id.to_s] || []) + subscriptions

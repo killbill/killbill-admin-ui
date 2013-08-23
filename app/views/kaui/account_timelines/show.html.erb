@@ -259,8 +259,8 @@
       <% @timeline.bundles.each do |bundle| %>
         <% bundle.subscriptions.each do |sub| %>
           <% sub.events.each do |event| %>
-            <!-- SKIP UNCANCEL SINCE MATCHING CANCEL EVENT IS NOT RETURNED AS IT WAS INVALIDED -->
-            <% next if event.event_type == 'UNCANCEL' %>
+            <!-- SKIP SERVICE_STATE_CHANGE  -->
+            <% next if event.event_type == 'SERVICE_STATE_CHANGE' %>
             <tr title="<%= @bundle_names[bundle.external_key] %>" data-event_type="<%= event.event_type %>">
               <td>
                 <% if event.requested_date.present? %>
@@ -306,7 +306,7 @@
     });
   }
 
-  eventsOrder = ["CREATE", "PHASE", "CHANGE", "CANCEL", "INVOICE", "PAYMENT", "REFUND", "CHARGEBACK"];
+  eventsOrder = ["START_ENTITLEMENT", "START_BILLING", "PAUSE_ENTITLEMENT", "PAUSE_BILLING", "RESUME_ENTITLEMENT", "RESUME_BILLING", "PHASE", "CHANGE", , "STOP_ENTITLEMENT", "STOP_BILLING", "INVOICE", "PAYMENT", "REFUND", "CHARGEBACK"];
 
   jQuery.fn.dataTableExt.oSort['timeline-event-asc']  = function(e1,e2) {
     var x = eventsOrder.indexOf(e1);

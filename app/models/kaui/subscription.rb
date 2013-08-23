@@ -1,4 +1,5 @@
 class Kaui::Subscription < Kaui::Base
+  define_attr :account_id
   define_attr :subscription_id
   define_attr :bundle_id
   define_attr :product_category
@@ -12,7 +13,8 @@ class Kaui::Subscription < Kaui::Base
   has_many :events, Kaui::Event
 
   def initialize(data = {})
-    super(:subscription_id => data['subscriptionId'] || data['subscription_id'],
+    super(:account_id =>  data['accountId'] || data['account_id'],
+          :subscription_id => data['subscriptionId'] || data['subscription_id'],
           :bundle_id => data['bundleId'] || data['bundle_id'],
           :product_category => data['productCategory'] || data['product_category'],
           :product_name => data['productName'] || data['product_name'],
