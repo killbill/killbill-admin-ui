@@ -19,7 +19,7 @@
   <hr/>
   <%= link_to "Change", kaui_engine.edit_subscription_path(@subscription.subscription_id), :class => "btn btn-mini" %>
   <%= link_to "Cancel", kaui_engine.subscription_path(@subscription.subscription_id), :method => :delete, :confirm => "Are you sure?", :class => "btn btn-mini" %>
-  <%= link_to "Add Addons", kaui_engine.new_subscription_path(:params => { :bundle_id => @subscription.bundle_id, :base_subscription => @subscription.product_name }), :class => "btn btn-mini" %>
+  <%= link_to "Add Addons", kaui_engine.new_subscription_path(:params => { :bundle_id => @subscription.bundle_id, :base_subscription => @subscription.product_name, :product_category => "ADD_ON" }), :class => "btn btn-mini" %>
 <% else %>
   <p>Subscription not found</p>
 <% end %>

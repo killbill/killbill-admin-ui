@@ -183,18 +183,33 @@ module Kaui
       process_response(data, :single) { |json| Kaui::Subscription.new(json) }
     end
 
+    def self.get_created_entitlement(uri, options = {})
+      data = call_killbill :get, uri, options
+      process_response(data, :single) { |json| Kaui::Subscription.new(json) }
+    end
+
     def self.create_subscription(subscription, current_user = nil, reason = nil, comment = nil, options = {})
       subscription_data = Kaui::Subscription.camelize(subscription.to_hash)
       # We don't want to pass events
       subscription_data.delete(:events)
-      call_killbill :post,
+      res = call_killbill :post,
                     "/1.0/kb/entitlements",
                     ActiveSupport::JSON.encode(subscription_data, :root => false),
                     build_audit_headers(current_user, reason, comment, options)
+
+
+      if res[:code] == 201
+        return res[:json]
+      else
+        res
+      end
     end
 
     def self.update_subscription(subscription, requested_date = nil, policy = nil, current_user = nil, reason = nil, comment = nil, options = {})
       subscription_data = Kaui::Subscription.camelize(subscription.to_hash)
+      # We don't want to pass events
+      subscription_data.delete(:events)
+      subscription_data.delete(:chargedThroughDate)
 
       params = "?"
       params = "#{params}requestedDate=#{requested_date.to_s}&" unless requested_date.blank?

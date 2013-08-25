@@ -26,45 +26,50 @@ class Kaui::SubscriptionsController < Kaui::EngineController
   end
 
   def new
+    @account_id = params[:account_id]
     bundle_id = params[:bundle_id]
     @base_subscription = params[:base_subscription]
+    @product_category = params[:product_category]
     begin
-      @bundle = Kaui::KillbillHelper::get_bundle(bundle_id, options_for_klient)
 
-      if @base_subscription.present?
+      if @product_category == "ADD_ON"
+        @bundle = Kaui::KillbillHelper::get_bundle(bundle_id, options_for_klient)
         @catalog = Kaui::KillbillHelper::get_available_addons(@base_subscription, options_for_klient)
-      else
+      elsif @product_category == "BASE"
         @catalog = Kaui::KillbillHelper::get_available_base_plans(options_for_klient)
       end
     rescue => e
       flash.now[:error] = "Error while trying to start new subscription creation: #{as_string(e)}"
     end
-    @subscription = Kaui::Subscription.new("bundleId" => bundle_id)
+    @subscription = Kaui::Subscription.new("bundleId" => bundle_id, "accountId" => @account_id, "product_category" => @product_category)
   end
 
   def create
-    @base_subscription = params[:base_subscription]
+
+    @subscription = Kaui::Subscription.new(params[:subscription])
+
     @plan_name = params[:plan_name]
 
     begin
-      @subscription = Kaui::Subscription.new(params[:subscription])
-      @bundle = Kaui::KillbillHelper::get_bundle(@subscription.bundle_id, options_for_klient)
-      if @base_subscription.present?
+      if @subscription.product_category == "ADD_ON"
+        @base_subscription = params[:base_subscription]
+        @bundle = Kaui::KillbillHelper::get_bundle(@subscription.bundle_id, options_for_klient)
         @catalog = Kaui::KillbillHelper::get_available_addons(@base_subscription, options_for_klient)
-        @subscription.product_category = "ADD_ON"
+        @subscription.account_id = @bundle.account_id
       else
         @catalog = Kaui::KillbillHelper::get_available_base_plans(options_for_klient)
-        @subscription.product_category = "BASE"
+        @subscription.external_key = params[:external_key]
       end
 
       plan = @catalog[@plan_name]
-      @subscription.account_id =  @bundle.account_id
       @subscription.billing_period = plan["billingPeriod"]
       @subscription.product_name = plan["productName"]
       @subscription.price_list = plan["priceListName"]
 
-      Kaui::KillbillHelper::create_subscription(@subscription, current_user, params[:reason], params[:comment], options_for_klient)
-      redirect_to Kaui.bundle_home_path.call(@bundle.bundle_id)
+      res = Kaui::KillbillHelper::create_subscription(@subscription, current_user, params[:reason], params[:comment], options_for_klient)
+
+      res = Kaui::KillbillHelper::get_created_entitlement(res["uri"])
+      redirect_to Kaui.bundle_home_path.call(res.bundle_id)
     rescue => e
       flash.now[:error] = "Error while creating the new subscription: #{as_string(e)}"
       render :new

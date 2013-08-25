@@ -44,7 +44,7 @@
                   </ul>
                 </div>
                 <% if sub.product_category == 'BASE' %>
-                  <%= link_to "Add Addons", kaui_engine.new_subscription_path(:params => { :bundle_id => sub.bundle_id, :base_subscription => sub.product_name }), :class => "btn btn-mini" %>
+                  <%= link_to "Add Addons", kaui_engine.new_subscription_path(:params => { :bundle_id => sub.bundle_id, :base_subscription => sub.product_name, :product_category => "ADD_ON" }), :class => "btn btn-mini" %>
                 <% end %>
               <% end %>
             </nobr>

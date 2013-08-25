@@ -2,6 +2,7 @@ class Kaui::Subscription < Kaui::Base
   define_attr :account_id
   define_attr :subscription_id
   define_attr :bundle_id
+  define_attr :external_key
   define_attr :product_category
   define_attr :product_name
   define_attr :billing_period
@@ -16,6 +17,7 @@ class Kaui::Subscription < Kaui::Base
     super(:account_id =>  data['accountId'] || data['account_id'],
           :subscription_id => data['subscriptionId'] || data['subscription_id'],
           :bundle_id => data['bundleId'] || data['bundle_id'],
+          :external_key => data['externalKey'] || data['external_key'],
           :product_category => data['productCategory'] || data['product_category'],
           :product_name => data['productName'] || data['product_name'],
           :billing_period => data['billingPeriod'] || data['billing_period'],
