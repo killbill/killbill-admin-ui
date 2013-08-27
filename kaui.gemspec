@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rest-client', '~> 1.6.7'
   s.add_dependency 'money-rails', '~> 0.8.1'
   s.add_dependency 'd3_rails', '~> 3.2.8'
-  s.add_dependency 'killbill-client', '~> 0.3.1'
+  s.add_dependency 'killbill-client', '~> 0.3.2'
   s.add_dependency 'devise', '~> 3.0.2'
   s.add_dependency 'cancan', '~> 1.6.10'
 
