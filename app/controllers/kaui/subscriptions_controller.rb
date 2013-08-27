@@ -68,7 +68,6 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
       res = Kaui::KillbillHelper::create_subscription(@subscription, current_user, params[:reason], params[:comment], options_for_klient)
 
-      res = Kaui::KillbillHelper::get_created_entitlement(res["uri"])
       redirect_to Kaui.bundle_home_path.call(res.bundle_id)
     rescue => e
       flash.now[:error] = "Error while creating the new subscription: #{as_string(e)}"
@@ -152,26 +151,19 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     redirect_to Kaui.bundle_home_path.call(bundle.bundle_id)
   end
 
-  def reinstate
-    subscription_id = params[:id]
-    if subscription_id.present?
-      begin
-        Kaui::KillbillHelper::reinstate_subscription(subscription_id, current_user, params[:reason], params[:comment], options_for_klient)
-        flash[:notice] = "Subscription reinstated"
-      rescue => e
-        flash[:error] = "Error while reinstating subscription: #{as_string(e)}"
-      end
-    else
-      flash[:error] = "No subscription id given"
-    end
-    redirect_to :back
-  end
-
   def destroy
+
+
     subscription_id = params[:id]
+
+    puts "calling destroy id = #{subscription_id}"
+
     if subscription_id.present?
       begin
-        Kaui::KillbillHelper::delete_subscription(subscription_id, params[:policy], params[:ctd], params[:billing_period], current_user, params[:reason], params[:comment], options_for_klient)
+
+        puts "current_user = #{current_user}"
+
+        Kaui::KillbillHelper::delete_subscription(subscription_id, current_user, params[:reason], params[:comment], params[:policy], options_for_klient)
       rescue => e
         flash[:error] = "Error while canceling subscription: #{as_string(e)}"
       end
