@@ -258,14 +258,14 @@ module Kaui
 
     ############## INVOICE ##############
 
-    def self.get_invoice(id_or_number, with_items = true, options = {})
-      KillBillClient::Model::Invoice.find_by_id_or_number id_or_number, with_items, options
+    def self.get_invoice(id_or_number, with_items = true, audit = "NONE", options = {})
+      KillBillClient::Model::Invoice.find_by_id_or_number id_or_number, with_items, audit, options
     end
 
     def self.get_invoice_item(invoice_id, invoice_item_id, options = {})
       # Find the item from the invoice
       # TODO add killbill-server API
-      invoice = Kaui::KillbillHelper.get_invoice(invoice_id, options)
+      invoice = Kaui::KillbillHelper.get_invoice(invoice_id, true, "NONE", options)
       if invoice.present? and invoice.items.present?
         invoice.items.each do |item|
           return item if item.invoice_item_id == invoice_item_id

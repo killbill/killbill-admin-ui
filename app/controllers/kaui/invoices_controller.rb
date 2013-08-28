@@ -9,7 +9,7 @@ class Kaui::InvoicesController < Kaui::EngineController
     invoice_id_or_number = params[:id]
     if invoice_id_or_number.present?
       begin
-        @invoice = Kaui::KillbillHelper.get_invoice(invoice_id_or_number, true, options_for_klient)
+        @invoice = Kaui::KillbillHelper.get_invoice(invoice_id_or_number, true, "FULL", options_for_klient)
         if @invoice.present?
           @invoice_id = @invoice.invoice_id
           @account = Kaui::KillbillHelper.get_account(@invoice.account_id, false, false, options_for_klient)
@@ -47,6 +47,7 @@ class Kaui::InvoicesController < Kaui::EngineController
       rescue => e
         flash.now[:error] = "Error while getting information for invoice #{invoice_id_or_number}: #{as_string(e)}"
       end
+debugger
     else
       flash.now[:error] = "No id given"
     end

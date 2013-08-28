@@ -21,4 +21,5 @@ class Kaui::InvoiceItem < Kaui::Base
   def amount_to_money
     Kaui::Base.to_money(amount, currency)
   end
+
 end

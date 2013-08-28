@@ -14,7 +14,7 @@ class Kaui::InvoiceItemsController < Kaui::EngineController
   end
 
   def update
-    @invoice_item = Kaui::InvoiceItem.new(params[:invoice_item])
+    @invoice_item = Kaui::InvoiceItem.new(params[:kill_bill_client_model_invoice_item])
     begin
       Kaui::KillbillHelper.adjust_invoice(@invoice_item, current_user, params[:reason], params[:comment], options_for_klient)
       flash[:notice] = "Adjustment item created"
@@ -43,7 +43,7 @@ class Kaui::InvoiceItemsController < Kaui::EngineController
     invoice_id = params[:invoice_id]
     if invoice_item_id.present? and invoice_id.present?
       begin
-        @invoice_item = Kaui::KillbillHelper.get_invoice_item(invoice_id, invoice_item_id, options_for_klient)
+        @invoice_item = Kaui::KillbillHelper.get_invoice_item invoice_id, invoice_item_id, options_for_klient
       rescue => e
         flash[:error] = "Error while trying to find the invoice item: #{as_string(e)}"
       end
