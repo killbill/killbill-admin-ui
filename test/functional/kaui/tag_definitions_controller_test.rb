@@ -10,13 +10,13 @@ module Kaui
     end
 
     test "should get index" do
-      get :index, :use_route => 'kaui'
+      get :index
       assert_response :success
       assert_not_nil assigns(:tag_definitions)
     end
 
     test "should get new" do
-      get :new, :use_route => 'kaui'
+      get :new
       assert_response :success
     end
 
@@ -31,12 +31,12 @@ module Kaui
     end
 
     test "should show tag_definition" do
-      get :show, :id => @tag_definition, :use_route => 'kaui'
+      get :show, :id => @tag_definition
       assert_response :success
     end
 
     test "should get edit" do
-      get :edit, :id => @tag_definition, :use_route => 'kaui'
+      get :edit, :id => @tag_definition
       assert_response :success
     end
 
