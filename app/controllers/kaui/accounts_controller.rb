@@ -28,7 +28,7 @@ class Kaui::AccountsController < Kaui::EngineController
           @overdue_state = Kaui::KillbillHelper::get_overdue_state_for_account(@account.account_id, options_for_klient)
           @payment_methods = Kaui::KillbillHelper::get_non_external_payment_methods(@account.account_id, options_for_klient)
           @bundles = Kaui::KillbillHelper::get_bundles(@account.account_id, options_for_klient)
-debugger
+
           @subscriptions_by_bundle_id = {}
 
           @bundles.each do |bundle|

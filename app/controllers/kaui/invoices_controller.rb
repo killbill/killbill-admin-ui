@@ -47,7 +47,6 @@ class Kaui::InvoicesController < Kaui::EngineController
       rescue => e
         flash.now[:error] = "Error while getting information for invoice #{invoice_id_or_number}: #{as_string(e)}"
       end
-debugger
     else
       flash.now[:error] = "No id given"
     end

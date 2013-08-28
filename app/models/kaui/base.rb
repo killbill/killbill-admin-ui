@@ -5,8 +5,6 @@ class Kaui::Base
 
   @@attribute_names = {}
 
-  
-
   def self.define_attr(*args)
     send("attr_accessor".to_sym, *args)
     args.each do |attr_name|
