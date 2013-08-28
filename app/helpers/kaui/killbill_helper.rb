@@ -183,61 +183,35 @@ module Kaui
       process_response(data, :single) { |json| Kaui::Subscription.new(json) }
     end
 
-    def self.get_created_entitlement(uri, options = {})
-      data = call_killbill :get, uri, options
-      process_response(data, :single) { |json| Kaui::Subscription.new(json) }
-    end
-
     def self.create_subscription(subscription, current_user = nil, reason = nil, comment = nil, options = {})
-      subscription_data = Kaui::Subscription.camelize(subscription.to_hash)
-      # We don't want to pass events
-      subscription_data.delete(:events)
-      res = call_killbill :post,
-                    "/1.0/kb/entitlements",
-                    ActiveSupport::JSON.encode(subscription_data, :root => false),
-                    build_audit_headers(current_user, reason, comment, options)
+
+      entitlement = KillBillClient::Model::EntitlementNoEvents.new
+      entitlement.account_id = subscription.account_id
+      entitlement.bundle_id = subscription.bundle_id
+      entitlement.external_key = subscription.external_key
+      entitlement.product_name = subscription.product_name
+      entitlement.product_category = subscription.product_category
+      entitlement.billing_period = subscription.billing_period
+      entitlement.price_list = subscription.price_list
 
 
-      if res[:code] == 201
-        return res[:json]
-      else
-        res
-      end
+      entitlement.create(extract_created_by(current_user), extract_reason_code(reason), comment, options)
     end
 
     def self.update_subscription(subscription, requested_date = nil, policy = nil, current_user = nil, reason = nil, comment = nil, options = {})
-      subscription_data = Kaui::Subscription.camelize(subscription.to_hash)
-      # We don't want to pass events
-      subscription_data.delete(:events)
-      subscription_data.delete(:chargedThroughDate)
 
-      params = "?"
-      params = "#{params}requestedDate=#{requested_date.to_s}&" unless requested_date.blank?
-      params = "#{params}policy=#{policy}" unless policy.blank?
-
-      # We don't want to pass events
-      subscription_data.delete(:events)
-      call_killbill :put,
-                    "/1.0/kb/entitlements/#{subscription.subscription_id}#{params}",
-                    ActiveSupport::JSON.encode(subscription_data, :root => false),
-                    build_audit_headers(current_user, reason, comment, options)
+      requested_date = requested_date.to_s unless requested_date.blank?
+      entitlement = KillBillClient::Model::EntitlementNoEvents.new
+      entitlement.subscription_id = subscription.subscription_id
+      entitlement.change_plan({:productName => subscription.product_name, :billingPeriod => subscription.billing_period, :priceList => subscription.price_list},
+                              extract_created_by(current_user), extract_reason_code(reason), comment, requested_date, policy, false, options)
     end
 
-    def self.reinstate_subscription(subscription_id, current_user = nil, reason = nil, comment = nil, options = {})
-      call_killbill :put,
-                    "/1.0/kb/entitlements/#{subscription_id}/uncancel",
-                    "",
-                    build_audit_headers(current_user, reason, comment, options)
-    end
+    def self.delete_subscription(subscription_id, current_user = nil, reason = nil, comment = nil,  policy = nil, options = {})
 
-    def self.delete_subscription(subscription_id, policy = nil, ctd = nil, billing_period = nil, current_user = nil, reason = nil, comment = nil, options = {})
-      prev_ctd = compute_previous_ctd(ctd, billing_period)
-      params = "?"
-      params += "policy=#{policy}&" unless policy.blank?
-      params += "requestedDate=#{prev_ctd.strftime('%Y-%m-%dT%H:%M:%S')}" unless prev_ctd.nil?
-      call_killbill :delete,
-                    "/1.0/kb/entitlements/#{subscription_id}#{params}",
-                    build_audit_headers(current_user, reason, comment, options)
+      entitlement = KillBillClient::Model::EntitlementNoEvents.new
+      entitlement.subscription_id = subscription_id
+      entitlement.cancel(extract_created_by(current_user), extract_reason_code(reason), comment, nil, policy, options)
     end
 
     def self.compute_previous_ctd(ctd, billing_period, options = {})
