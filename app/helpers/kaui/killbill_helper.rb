@@ -248,6 +248,15 @@ module Kaui
       nil
     end
 
+    def self.new_invoice_item(invoice_item)
+      item = KillBillClient::Model::InvoiceItem.new
+      invoice_item.each do |attribute, value|
+        item.methods.include?("#{attribute}=".to_sym) ? 
+        item.send("#{attribute}=".to_sym, value) : next
+      end
+      item
+    end
+
     def self.get_invoice_html(invoice_id, options = {})
       data = call_killbill :get, "/1.0/kb/invoices/#{invoice_id}/html", options
       data[:body] if data.present?

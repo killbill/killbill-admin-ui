@@ -14,7 +14,7 @@ class Kaui::InvoiceItemsController < Kaui::EngineController
   end
 
   def update
-    @invoice_item = Kaui::InvoiceItem.new(params[:kill_bill_client_model_invoice_item])
+    @invoice_item = Kaui::KillbillHelper.new_invoice_item(params[:kill_bill_client_model_invoice_item])
     begin
       Kaui::KillbillHelper.adjust_invoice(@invoice_item, current_user, params[:reason], params[:comment], options_for_klient)
       flash[:notice] = "Adjustment item created"
