@@ -57,7 +57,7 @@ class Kaui::RefundsController < Kaui::EngineController
     begin
       @account = Kaui::KillbillHelper::get_account(@account_id, false, false, options_for_klient)
       @payment = Kaui::KillbillHelper::get_payment(@payment_id, options_for_klient)
-      @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id, true, options_for_klient)
+      @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id, true, "NONE", options_for_klient)
     rescue => e
       flash[:error] = "Error while processing refund: #{as_string(e)}"
       redirect_to kaui_engine.account_timeline_path(:id => params[:account_id])
@@ -65,7 +65,7 @@ class Kaui::RefundsController < Kaui::EngineController
   end
 
   def create
-    invoice = Kaui::KillbillHelper::get_invoice(params[:invoice_id], true, options_for_klient)
+    invoice = Kaui::KillbillHelper::get_invoice(params[:invoice_id], true, "NONE", options_for_klient)
     refund = Kaui::Refund.new(params[:refund])
     refund.adjusted = (refund.adjustment_type != "noInvoiceAdjustment")
     if refund.adjustment_type == "invoiceItemAdjustment"

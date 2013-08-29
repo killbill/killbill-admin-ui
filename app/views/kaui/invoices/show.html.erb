@@ -36,12 +36,13 @@
     <thead>
       <tr>
         <th style="width: 10%">External Key</th>
-        <th style="width: 30%">Description</th>
+        <th style="width: 20%">Description</th>
         <th style="width: 10%">Start date</th>
         <th style="width: 10%">End date</th>
         <th style="width: 10%">Charged through date</th>
         <th style="width: 10%">Price list</th>
         <th style="width: 10%">Amount</th>
+        <th style="width: 10%">Comments</th>
         <th style="width: 10%"></th>
       </tr>
     </thead>
@@ -59,6 +60,7 @@
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= format_date(sub.charged_through_date, @account.timezone).html_safe if sub.present? %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= sub.price_list.downcase.capitalize if sub.present? and sub.price_list.present? %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= humanized_money_with_symbol Kaui::Base.to_money(item.amount, item.currency) %> (<%= item.currency %>)</td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.audit_logs.map {|log| log.comments}.compact.join('<br/>') if item.audit_logs.present? %></td>
           <td>
             <% if can? :item_adjust, Kaui::Invoice %>
               <nobr>
