@@ -9,7 +9,7 @@ class Kaui::InvoicesController < Kaui::EngineController
     invoice_id_or_number = params[:id]
     if invoice_id_or_number.present?
       begin
-        @invoice = Kaui::KillbillHelper.get_invoice(invoice_id_or_number, true, options_for_klient)
+        @invoice = Kaui::KillbillHelper.get_invoice(invoice_id_or_number, true, "FULL", options_for_klient)
         if @invoice.present?
           @invoice_id = @invoice.invoice_id
           @account = Kaui::KillbillHelper.get_account(@invoice.account_id, false, false, options_for_klient)

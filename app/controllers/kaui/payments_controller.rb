@@ -4,7 +4,7 @@ class Kaui::PaymentsController < Kaui::EngineController
     @account_id = params[:account_id]
     @invoice_id = params[:invoice_id]
     begin
-      @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id, true, options_for_klient)
+      @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id, true, "NONE", options_for_klient)
       @account = Kaui::KillbillHelper::get_account(@account_id, false, false, options_for_klient)
     rescue => e
       flash[:error] = "Error while creating a new payment: #{as_string(e)}"
