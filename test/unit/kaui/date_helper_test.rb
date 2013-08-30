@@ -8,6 +8,6 @@ class Kaui::DateHelperTest < ActiveSupport::TestCase
   end
 
   test "can parse from date" do
-    assert_equal "2012-06-30", format_date(Date.new(2012, 7, 1))
+    assert_equal "2012-07-01", format_date(Date.new(2012, 7, 1))
   end
 end
