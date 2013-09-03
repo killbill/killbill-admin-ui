@@ -1,10 +1,29 @@
-<dt>Tags:</dt>
-<dd>       
-  <% if tags.present? %>
-    <% tags.sort.each_with_index do |tag, idx| %>
-      <span><%= tag %><% if idx < tags.length - 1 %>, <% end %></span>
-    <% end %>
-    <br/>
-  <% end %>
-  <%= link_to 'Add/Remove', kaui_engine.tags_url_or_path, :class => "btn btn-mini" %>
-</dd>
+<div class="page-header">
+  <h3>Tags for <%= (link_to @account.name, account_path(@account.account_id)) if @account.present? %></h3>
+</div>
+<table class="table table-condensed table-striped data-table">
+  <thead>
+    <tr>
+      <th>Tag Name</th>
+      <th>Executed date</th>
+      <th>Execution type</th>
+      <th>Executed by</th>
+      <th>Comments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @tags.present? %>
+      <% @tags.each do |tag| %>
+        <% log = tag.audit_logs.first if tag.audit_logs.present? %>
+        <tr>
+          <td><%= link_to tag.tag_definition_name, tag_definition_path(:id => tag.tag_definition_id) %></td>
+          <td><%= format_date(log.change_date, @account.timezone).html_safe if log.change_date.present? %></td>
+          <td><%= log.change_type if log.change_type.present? %></td>
+          <td><%= log.changed_by if log.changed_by.present? %></td>
+          <td><%= log.reason_code if log.reason_code.present? %> <%= log.comments if log.comments.present? %></td>
+        </tr>
+      <% end #end tag%>
+    <% end #end if tags present%>
+  </tbody>
+</table>
+

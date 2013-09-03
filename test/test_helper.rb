@@ -90,7 +90,7 @@ module Kaui::KillbillHelper
     []
   end
 
-  def self.get_tags_for_account(account_id, options = {})
+  def self.get_tags_for_account(account_id, audit = "NONE", options = {})
     []
   end
 
