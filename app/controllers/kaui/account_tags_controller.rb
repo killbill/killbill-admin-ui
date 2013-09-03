@@ -1,11 +1,12 @@
 class Kaui::AccountTagsController < Kaui::EngineController
 
   def show
-    account_id = params[:id]
+    account_id = params[:account_id]
 
     if account_id.present?
       begin
-        @tags = Kaui::KillbillHelper::get_tags_for_account(account_id, options_for_klient)
+        @tags = Kaui::KillbillHelper::get_tags_for_account(account_id, "FULL", options_for_klient)
+        @account = Kaui::KillbillHelper::get_account(account_id, false, false, options_for_klient)
       rescue => e
         flash.now[:error] = "Error while getting tags: #{as_string(e)}"
       end
@@ -19,7 +20,7 @@ class Kaui::AccountTagsController < Kaui::EngineController
     begin
       @available_tags = Kaui::TagDefinition.all_for_account(options_for_klient).sort
       @account = Kaui::KillbillHelper::get_account(@account_id, false, false, options_for_klient)
-      @tag_names = Kaui::KillbillHelper::get_tags_for_account(@account.account_id, options_for_klient).map { |tag| tag.tag_definition_name }
+      @tag_names = Kaui::KillbillHelper::get_tags_for_account(@account.account_id, "NONE", options_for_klient).map { |tag| tag.tag_definition_name }
     rescue => e
       flash.now[:error] = "Error while editing tags: #{as_string(e)}"
     end
@@ -27,7 +28,7 @@ class Kaui::AccountTagsController < Kaui::EngineController
 
   def update
     begin
-      current_tags = Kaui::KillbillHelper::get_tags_for_account(params[:account_id], options_for_klient).map { |tag| tag.tag_definition_id }
+      current_tags = Kaui::KillbillHelper::get_tags_for_account(params[:account_id], "NONE", options_for_klient).map { |tag| tag.tag_definition_id }
 
       new_tags = []
       params.each do |tag, tag_name|

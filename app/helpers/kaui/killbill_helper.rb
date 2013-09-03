@@ -457,9 +457,8 @@ module Kaui
                     build_audit_headers(current_user, reason, comment, options)
     end
 
-    def self.get_tags_for_account(account_id, options = {})
-      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/tags", options
-      process_response(data, :multiple) { |json| Kaui::Tag.new(json) }
+    def self.get_tags_for_account(account_id, audit = "NONE", options = {})
+      KillBillClient::Model::Tag.find_all_by_account_id account_id, audit, options
     end
 
     def self.get_tags_for_bundle(bundle_id, options = {})
