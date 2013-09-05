@@ -70,7 +70,11 @@ class Kaui::Base
           value = type.to_s.constantize.new(value)
         end
       end
-      send("#{name}=", value)
+      begin
+        send("#{name}=", value)
+      rescue NoMethodError => e
+        # Ignore new API fields
+      end
     end
   end
 

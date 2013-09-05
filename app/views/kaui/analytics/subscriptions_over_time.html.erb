@@ -1,9 +1,0 @@
-<h2>Number of <%= @slug %> <%= @product_type %> subscriptions created over time</h2>
-
-<div id="chart"></div>
-
-<%= javascript_tag do %>
-  $(document).ready(function() {
-    drawGraph(<%=raw @subscriptions.dates.to_json %>, <%=raw @subscriptions.values.to_json %>, "chart");
-  });
-<% end %>

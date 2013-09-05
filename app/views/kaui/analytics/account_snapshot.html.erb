@@ -8,7 +8,7 @@
       <th>Name</th>
       <th>Currency</th>
       <th>Balance</th>
-      <th>Inv. balance</th>
+      <th>Last inv. balance</th>
       <th>Last inv. date</th>
       <th>Last payment status</th>
       <th>Default payment method</th>
@@ -16,15 +16,15 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= link_to @snapshot.business_account.external_key, Kaui.account_home_path.call(@snapshot.business_account.external_key) %></td>
-      <td><%= @snapshot.business_account.name %></td>
+      <td><%= link_to @snapshot.business_account.account_external_key, Kaui.account_home_path.call(@snapshot.business_account.account_external_key) %></td>
+      <td><%= @snapshot.business_account.account_name %></td>
       <td><%= @snapshot.business_account.currency %></td>
-      <td><span <% if    @snapshot.business_account.balance > 0 %>class="alert-error"
-                <% elsif @snapshot.business_account.balance <= 0 %>class="alert-success"
+      <td><span <% if    @snapshot.business_account.balance.present? and @snapshot.business_account.balance > 0 %>class="alert-error"
+                <% elsif @snapshot.business_account.balance.present? and @snapshot.business_account.balance <= 0 %>class="alert-success"
                 <% end %>><%= @snapshot.business_account.balance %></td>
-      <td><span <% if    @snapshot.business_account.total_invoice_balance > 0 %>class="alert-error"
-                <% elsif @snapshot.business_account.total_invoice_balance <= 0 %>class="alert-success"
-                <% end %>><%= @snapshot.business_account.total_invoice_balance %></td>
+      <td><span <% if    @snapshot.business_account.last_invoice_balance.present? and @snapshot.business_account.last_invoice_balance > 0 %>class="alert-error"
+                <% elsif @snapshot.business_account.last_invoice_balance.present? and @snapshot.business_account.last_invoice_balance <= 0 %>class="alert-success"
+                <% end %>><%= @snapshot.business_account.last_invoice_balance %></td>
                 <td><%= @snapshot.business_account.last_invoice_date %></td>
       <td><span <% if    @snapshot.business_account.last_payment_status == 'FAILED' %>class="alert-error"
                 <% elsif @snapshot.business_account.last_payment_status == 'SUCCESS' %>class="alert-success"
@@ -51,14 +51,14 @@
   </thead>
   <tbody>
     <% @snapshot.business_subscription_transitions.each do |business_subscription_transition| %>
-      <tr <% if business_subscription_transition.event_type == 'ADD' %>class="success"
-          <% elsif business_subscription_transition.event_type == 'CHANGE' %>class="info"
-          <% elsif business_subscription_transition.event_type == 'CANCEL' %>class="warning"
-          <% elsif business_subscription_transition.event_type == 'SYSTEM_CANCEL' %>class="error"
+      <tr <% if business_subscription_transition.event.start_with? 'START_' %>class="success"
+          <% elsif business_subscription_transition.event.start_with? 'CHANGE_' %>class="info"
+          <% elsif business_subscription_transition.event.start_with? 'PAUSE_' %>class="warning"
+          <% elsif business_subscription_transition.event.start_with? 'STOP_' %>class="error"
           <% end %>>
-        <td><%= link_to Kaui.bundle_key_display_string.call(business_subscription_transition.external_key), Kaui.bundle_home_path.call(business_subscription_transition.external_key) %></td>
+        <td><%= link_to Kaui.bundle_key_display_string.call(business_subscription_transition.bundle_external_key), Kaui.bundle_home_path.call(business_subscription_transition.bundle_external_key) %></td>
         <td><%= format_date(business_subscription_transition.requested_timestamp, @account.timezone).html_safe %></td>
-        <td><%= business_subscription_transition.event_type %></td>
+        <td><%= business_subscription_transition.event %></td>
         <td><%= format_date(business_subscription_transition.next_start_date, @account.timezone).html_safe unless business_subscription_transition.next_start_date.nil? %></td>
         <td><%= business_subscription_transition.next_slug %></td>
         <td><%= humanized_money business_subscription_transition.next_price_to_money unless business_subscription_transition.next_price.nil? %></td>
@@ -157,13 +157,13 @@
         <td><%= business_tag.object_type %></td>
         <td>
           <% if business_tag.object_type == 'ACCOUNT' %>
-            <%= link_to business_tag.id, account_path(:id => business_tag.id) %>
+            <%= link_to business_tag.object_id, account_path(:id => business_tag.object_id) %>
           <% elsif business_tag.object_type == 'INVOICE' %>
-            <%= link_to business_tag.id, invoice_path(:id => business_tag.id) %>
+            <%= link_to business_tag.object_id, invoice_path(:id => business_tag.object_id) %>
           <% elsif business_tag.object_type == 'PAYMENT' %>
-            <%= link_to business_tag.id, payment_path(:id => business_tag.id) %>
+            <%= link_to business_tag.object_id, payment_path(:id => business_tag.object_id) %>
           <% elsif business_tag.object_type == 'BUNDLE' %>
-            <%= link_to business_tag.id, bundle_path(:id => business_tag.id) %>
+            <%= link_to business_tag.object_id, bundle_path(:id => business_tag.object_id) %>
           <% else %>
             <%= business_field.id %>
           <% end %>
@@ -192,13 +192,13 @@
         <td><%= business_field.object_type %></td>
         <td>
           <% if business_field.object_type == 'ACCOUNT' %>
-            <%= link_to business_field.id, account_path(:id => business_field.id) %>
+            <%= link_to business_field.object_id, account_path(:id => business_field.object_id) %>
           <% elsif business_field.object_type == 'INVOICE' %>
-            <%= link_to business_field.id, invoice_path(:id => business_field.id) %>
+            <%= link_to business_field.object_id, invoice_path(:id => business_field.object_id) %>
           <% elsif business_field.object_type == 'PAYMENT' %>
-            <%= link_to business_field.id, payment_path(:id => business_field.id) %>
+            <%= link_to business_field.object_id, payment_path(:id => business_field.object_id) %>
           <% elsif business_field.object_type == 'BUNDLE' %>
-            <%= link_to business_field.id, bundle_path(:id => business_field.id) %>
+            <%= link_to business_field.object_id, bundle_path(:id => business_field.object_id) %>
           <% else %>
             <%= business_field.id %>
           <% end %>

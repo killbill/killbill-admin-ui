@@ -1,14 +1,13 @@
 class Kaui::BusinessSubscriptionTransition < Kaui::Base
   define_attr :total_ordering
   define_attr :bundle_id
-  define_attr :external_key
+  define_attr :bundle_external_key
   define_attr :account_id
-  define_attr :account_key
+  define_attr :account_external_key
   define_attr :subscription_id
 
   define_attr :requested_timestamp
-  define_attr :event_type
-  define_attr :category
+  define_attr :event
 
   define_attr :prev_product_name
   define_attr :prev_product_type

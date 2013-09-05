@@ -26,9 +26,10 @@ module Kaui
         response = RestClient.send(method.to_sym, url, *args)
         data = {:code => response.code}
         if response.code < 300 && response.body.present?
-          if response.headers[:content_type] =~ /application\/json.*/
+          # Hack for Analytics plugin (no content-type header returned)
+          begin
             data[:json] = JSON.parse(response.body)
-          else
+          rescue => e
             data[:body] = response.body
           end
         end
@@ -508,30 +509,15 @@ module Kaui
     ############## ANALYTICS ##############
 
     def self.get_account_snapshot(account_id, options = {})
-      data = call_killbill :get, "/1.0/kb/analytics/#{account_id}", options
+      data = call_killbill :get, "/plugins/killbill-analytics/#{account_id}", options
       process_response(data, :single) { |json| Kaui::BusinessSnapshot.new(json) }
     end
 
     def self.refresh_account(account_id, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :put,
-                    "/1.0/kb/analytics/#{account_id}",
+                    "/plugins/killbill-analytics/#{account_id}",
                     nil,
                     build_audit_headers(current_user, reason, comment, options)
-    end
-
-    def self.get_accounts_created_over_time(options = {})
-      data = call_killbill :get, "/1.0/kb/analytics/accountsCreatedOverTime", options
-      process_response(data, :single) { |json| Kaui::TimeSeriesData.new(json) }
-    end
-
-    def self.get_subscriptions_created_over_time(product_type, slug, options = {})
-      data = call_killbill :get, "/1.0/kb/analytics/subscriptionsCreatedOverTime?productType=#{product_type}&slug=#{slug}", options
-      process_response(data, :single) { |json| Kaui::TimeSeriesData.new(json) }
-    end
-
-    def self.check_analytics_sanity(options = {})
-      data = call_killbill :get, "/1.0/kb/analytics/sanity", options
-      process_response(data, :single) { |json| Kaui::AnalyticsSanity.new(json) }
     end
 
     def self.before_all
