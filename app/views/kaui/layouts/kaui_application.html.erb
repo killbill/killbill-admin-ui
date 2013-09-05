@@ -12,14 +12,14 @@
         <div class="container">
           <ul class="nav">
             <li <%= "class='active'" if params[:controller] == 'accounts' %>><%= link_to "Accounts", kaui_engine.accounts_path %></li>
-            <li <%= "class='active'" if params[:controller] == 'account_timelines' %>><%= link_to "Account timelines", kaui_engine.account_timelines_path %></li>
             <li <%= "class='active'" if params[:controller] == 'bundles' %>><%= link_to "Bundles", kaui_engine.bundles_path %></li>
-            <li <%= "class='active'" if params[:controller] == 'subscriptions' %>><%= link_to "Subscriptions", kaui_engine.subscriptions_path %></li>
             <li <%= "class='active'" if params[:controller] == 'payment_methods' %>><%= link_to "Payment methods", kaui_engine.payment_methods_path %></li>
-            <li <%= "class='active'" if params[:controller] == 'refunds' %>><%= link_to "Refunds", kaui_engine.refunds_path %></li>
             <li <%= "class='active'" if params[:controller] == 'invoices' %>><%= link_to "Invoices", kaui_engine.invoices_path %></li>
-            <li <%= "class='active'" if params[:controller] == 'invoice_items' %>><%= link_to "Invoice items", kaui_engine.invoice_items_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'refunds' %>><%= link_to "Refunds", kaui_engine.refunds_path %></li>
             <li <%= "class='active'" if params[:controller] == 'tag_definitions' %>><%= link_to "Tag definitions", kaui_engine.tag_definitions_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'analytics' %>><%= link_to "Analytics", kaui_engine.analytics_path %></li>
+          </ul>
+          <ul class="nav pull-right">
             <% if user_signed_in? -%>
               <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
             <% end -%>
