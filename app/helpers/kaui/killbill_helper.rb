@@ -213,7 +213,7 @@ module Kaui
       entitlement = KillBillClient::Model::EntitlementNoEvents.new
       entitlement.subscription_id = subscription_id
       # We are using same entitlement/billing policy here for now
-      entitlement.cancel(extract_created_by(current_user), extract_reason_code(reason), comment, nil, policy, policy, options)
+      entitlement.cancel(extract_created_by(current_user), extract_reason_code(reason), comment, nil, policy, policy, true, options)
     end
 
     def self.compute_previous_ctd(ctd, billing_period, options = {})
