@@ -186,7 +186,7 @@ module Kaui
 
     def self.create_subscription(subscription, current_user = nil, reason = nil, comment = nil, options = {})
 
-      entitlement = KillBillClient::Model::EntitlementNoEvents.new
+      entitlement = KillBillClient::Model::Subscription.new
       entitlement.account_id = subscription.account_id
       entitlement.bundle_id = subscription.bundle_id
       entitlement.external_key = subscription.external_key
@@ -202,7 +202,7 @@ module Kaui
     def self.update_subscription(subscription, requested_date = nil, policy = nil, current_user = nil, reason = nil, comment = nil, options = {})
 
       requested_date = requested_date.to_s unless requested_date.blank?
-      entitlement = KillBillClient::Model::EntitlementNoEvents.new
+      entitlement = KillBillClient::Model::Subscription.new
       entitlement.subscription_id = subscription.subscription_id
       entitlement.change_plan({:productName => subscription.product_name, :billingPeriod => subscription.billing_period, :priceList => subscription.price_list},
                               extract_created_by(current_user), extract_reason_code(reason), comment, requested_date, policy, false, options)
@@ -210,7 +210,7 @@ module Kaui
 
     def self.delete_subscription(subscription_id, current_user = nil, reason = nil, comment = nil,  policy = nil, options = {})
 
-      entitlement = KillBillClient::Model::EntitlementNoEvents.new
+      entitlement = KillBillClient::Model::Subscription.new
       entitlement.subscription_id = subscription_id
       # We are using same entitlement/billing policy here for now
       entitlement.cancel(extract_created_by(current_user), extract_reason_code(reason), comment, nil, policy, policy, true, options)
