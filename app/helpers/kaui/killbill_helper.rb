@@ -387,24 +387,27 @@ module Kaui
     ############## REFUND ##############
 
     def self.get_refund(refund_id, options = {})
-      data = call_killbill :get, "/1.0/kb/refunds/#{refund_id}", options
-      process_response(data, :single) { |json| Kaui::Refund.new(json) }
+      KillBillClient::Model::Refund.find_by_id refund_id, options
     end
 
     def self.get_refunds_for_payment(payment_id, options = {})
-      data = call_killbill :get, "/1.0/kb/payments/#{payment_id}/refunds", options
-      process_response(data, :multiple) { |json| Kaui::Refund.new(json) }
+      KillBillClient::Model::Refund.find_all_by_payment_id payment_id, options
     end
 
     def self.create_refund(payment_id, refund, current_user = nil, reason = nil, comment = nil, options = {})
-      refund_data = Kaui::Refund.camelize(refund.to_hash)
-      # We don't want to pass adjustment_type
-      refund_data.delete(:adjustmentType)
 
-      call_killbill :post,
-                    "/1.0/kb/payments/#{payment_id}/refunds",
-                    ActiveSupport::JSON.encode(refund_data, :root => false),
-                    build_audit_headers(current_user, reason, comment, options)
+      new_refund = KillBillClient::Model::Refund.new
+      new_refund.amount = refund["amount"]
+      new_refund.adjusted = refund["adjusted"]
+      new_refund.adjustments = refund["adjustments"]
+      #no need to pass adjustment_type
+
+      new_refund.create(payment_id,
+                        refund,
+                        extract_created_by(current_user),
+                        extract_reason_code(reason),
+                        comment,
+                        options)
     end
 
     ############## CHARGEBACK ##############

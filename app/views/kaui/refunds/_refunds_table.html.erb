@@ -19,7 +19,7 @@
         <tr>
           <td><%= format_date(refund.requested_date, @account.timezone).html_safe if refund.requested_date.present? %></td>
           <td><%= format_date(refund.effective_date, @account.timezone).html_safe if refund.effective_date.present? %></td>
-          <td><%= humanized_money_with_symbol refund.amount_to_money %> (<%= refund.currency %>)</td>
+          <td><%= humanized_money_with_symbol Kaui::Base.to_money(refund.amount, refund.currency) %> (<%= refund.currency %>)</td>
           <td><%= refund.adjusted %></td>
           <td><%= link_to refund.refund_id, refund_path(refund.refund_id) %></td>
           <td><%= refund.payment_id %></td>

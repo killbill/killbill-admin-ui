@@ -179,7 +179,7 @@
           <td><%= "CHARGEBACK" %></td>
           <td>
             <%= "Payment id:" %> <%= chargeback.payment_id %><br/>
-            <%= "Chargeback Amount:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(chargeback.chargeback_amount, payment.currency) %> (<%= payment.currency %>)<br/>
+            <%= "Chargeback Amount:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(chargeback.amount, payment.currency) %> (<%= payment.currency %>)<br/>
           </td>
           <td>
             <% if chargeback.audit_logs.present? %>
