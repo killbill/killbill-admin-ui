@@ -66,10 +66,12 @@ class Kaui::RefundsController < Kaui::EngineController
 
   def create
     invoice = Kaui::KillbillHelper::get_invoice(params[:invoice_id], true, "NONE", options_for_klient)
-    refund = Kaui::Refund.new(params[:refund])
-    refund.adjusted = (refund.adjustment_type != "noInvoiceAdjustment")
-    if refund.adjustment_type == "invoiceItemAdjustment"
-      refund.adjustments = []
+    refund = {}
+    refund.merge! params[:refund]
+    refund["adjusted"] = (refund["adjustment_type"] != "noInvoiceAdjustment")
+
+    if refund["adjustment_type"] == "invoiceItemAdjustment"
+      refund["adjustments"] = []
       params[:adjustments].each_with_index do |ii, idx|
         original_item = find_original_item(invoice.items, ii[0])
         h = Hash.new
@@ -79,7 +81,7 @@ class Kaui::RefundsController < Kaui::EngineController
         h[:amount] = (ii[1].to_f == original_item.amount) ? nil : ii[1]
         kaui_ii = Kaui::InvoiceItem.new(h)
         puts "Got #{kaui_ii.inspect}"
-        refund.adjustments[idx] = kaui_ii
+        refund["adjustments"][idx] = kaui_ii
       end
     end
     if refund.present?
