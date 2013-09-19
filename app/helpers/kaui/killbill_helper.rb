@@ -180,7 +180,7 @@ module Kaui
     end
 
     def self.get_subscription(subscription_id, options = {})
-      data = call_killbill :get, "/1.0/kb/subscriptions/#{subscription_id}", options
+      data = call_killbill :get, "/1.0/kb/entitlements/#{subscription_id}", options
       process_response(data, :single) { |json| Kaui::Subscription.new(json) }
     end
 
@@ -397,14 +397,20 @@ module Kaui
     def self.create_refund(payment_id, refund, current_user = nil, reason = nil, comment = nil, options = {})
 
       new_refund = KillBillClient::Model::Refund.new
+      new_refund.payment_id = payment_id
       new_refund.amount = refund["amount"]
       new_refund.adjusted = refund["adjusted"]
-      new_refund.adjustments = refund["adjustments"]
+      if ! refund["adjustments"].nil?
+        new_refund.adjustments = []
+        refund["adjustments"].each do |a|
+          item = KillBillClient::Model::InvoiceItemAttributes.new
+          item.invoice_item_id = a.invoice_item_id
+          item.amount = a.amount
+          new_refund.adjustments << item
+        end
+      end
       #no need to pass adjustment_type
-
-      new_refund.create(payment_id,
-                        refund,
-                        extract_created_by(current_user),
+      new_refund.create(extract_created_by(current_user),
                         extract_reason_code(reason),
                         comment,
                         options)
@@ -418,12 +424,14 @@ module Kaui
     end
 
     def self.create_chargeback(chargeback, current_user = nil, reason = nil, comment = nil, options = {})
-      chargeback_data = Kaui::Refund.camelize(chargeback.to_hash)
 
-      call_killbill :post,
-                    "/1.0/kb/chargebacks",
-                    ActiveSupport::JSON.encode(chargeback_data, :root => false),
-                    build_audit_headers(current_user, reason, comment, options)
+      new_chargeback = KillBillClient::Model::Chargeback.new
+      new_chargeback.payment_id = chargeback.payment_id
+      new_chargeback.amount = chargeback.chargeback_amount
+      new_chargeback.create(extract_created_by(current_user),
+                            extract_reason_code(reason),
+                            comment,
+                            options)
     end
 
     ############## CREDIT ##############
@@ -505,8 +513,9 @@ module Kaui
     ############## OVERDUE ##############
 
     def self.get_overdue_state_for_account(account_id, options = {})
-      data = call_killbill :get, "/1.0/kb/overdue/accounts/#{account_id}", options
-      process_response(data, :single) { |json| Kaui::OverdueState.new(json) }
+      account = KillBillClient::Model::Account.new
+      account.account_id = account_id
+      account.overdue(options)
     end
 
     ############## ANALYTICS ##############

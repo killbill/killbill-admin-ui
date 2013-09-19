@@ -69,7 +69,7 @@
           <td><%= "INVOICE" %></td>
           <td><span class="hide" title="<%= invoice.invoice_number %>"></span>
               <%= "Amount:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(invoice.amount, @account.currency) %>  (<%= @account.currency %>)<br/>
-              <%= "Balance:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(invoice.amount, @account.currency) %>  (<%= @account.currency %>)<br/>
+              <%= "Balance:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(invoice.balance, @account.currency) %>  (<%= @account.currency %>)<br/>
               <% if invoice.credit_adj.present? && invoice.credit_adj > 0  %>
                 <%= "Credit adjustment:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(invoice.credit_adj, @account.currency) %>  (<%= @account.currency %>)<br/>
               <% end %>

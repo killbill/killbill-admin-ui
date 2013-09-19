@@ -103,7 +103,6 @@ class Kaui::SubscriptionsController < Kaui::EngineController
   def edit
     begin
       @subscription = Kaui::KillbillHelper.get_subscription(params[:id], options_for_klient)
-
       if @subscription.present?
         @bundle = Kaui::KillbillHelper::get_bundle(@subscription.bundle_id, options_for_klient)
         @account = Kaui::KillbillHelper::get_account(@bundle.account_id, false, false, options_for_klient)
@@ -133,7 +132,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
         plan = catalog[params[:plan_name]]
         requested_date = params[:requested_date]
-        policy = params[:policy]
+        policy = params[:policy] unless params[:policy].empty?
 
         subscription.billing_period = plan["billingPeriod"]
         subscription.product_category = plan["productCategory"]

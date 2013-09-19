@@ -34,7 +34,7 @@ class Kaui::CreditsController < Kaui::EngineController
     credit_amount = @invoice.balance unless @invoice.nil?
 
     @credit = Kaui::Credit.new("accountId" => @account_id, "invoiceId" => @invoice_id,
-                               "creditAmount" => credit_amount, "effectiveDate" => Time.now.utc.iso8601)
+                               "creditAmount" => credit_amount, "effectiveDate" => Date.parse(Time.now.to_s).to_s)
   end
 
   def create
