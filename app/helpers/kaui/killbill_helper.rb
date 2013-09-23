@@ -405,7 +405,7 @@ module Kaui
         refund["adjustments"].each do |a|
           item = KillBillClient::Model::InvoiceItemAttributes.new
           item.invoice_item_id = a.invoice_item_id
-          item.amount = a.amount
+          item.amount = a.amount.to_f unless a.amount.nil?
           new_refund.adjustments << item
         end
       end
