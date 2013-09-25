@@ -180,7 +180,7 @@ module Kaui
     end
 
     def self.get_subscription(subscription_id, options = {})
-      data = call_killbill :get, "/1.0/kb/entitlements/#{subscription_id}", options
+      data = call_killbill :get, "/1.0/kb/subscriptions/#{subscription_id}", options
       process_response(data, :single) { |json| Kaui::Subscription.new(json) }
     end
 
