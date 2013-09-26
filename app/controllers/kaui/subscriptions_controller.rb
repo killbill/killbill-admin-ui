@@ -171,4 +171,20 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     end
     redirect_to :back
   end
+
+  def reinstate
+    subscription_id = params[:id]
+    if subscription_id.present?
+      begin
+        Kaui::KillbillHelper::reinstate_subscription(subscription_id, current_user, params[:reason], params[:comment], options_for_klient)
+        flash[:notice] = "Subscription reinstated"
+      rescue => e
+        flash[:error] = "Error while reinstating subscription: #{as_string(e)}"
+      end
+    else
+      flash[:error] = "No subscription id given"
+    end
+    redirect_to :back
+  end
+
 end

@@ -216,6 +216,13 @@ module Kaui
       entitlement.cancel(extract_created_by(current_user), extract_reason_code(reason), comment, nil, policy, policy, true, options)
     end
 
+    def self.reinstate_subscription(subscription_id, current_user = nil, reason = nil, comment = nil, options = {})
+      call_killbill :put,
+                    "/1.0/kb/subscriptions/#{subscription_id}/uncancel",
+                    "",
+                    build_audit_headers(current_user, reason, comment, options)
+    end
+
     def self.compute_previous_ctd(ctd, billing_period, options = {})
       return nil if ctd.nil? or billing_period.nil?
 
