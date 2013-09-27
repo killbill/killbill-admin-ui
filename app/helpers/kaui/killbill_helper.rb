@@ -148,7 +148,8 @@ module Kaui
 
     def self.get_bundle_by_external_key(account_id, external_key, options = {})
       data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/bundles?externalKey=#{external_key}", options
-      process_response(data, :single) { |json| Kaui::Bundle.new(json) }
+      bundles = process_response(data, :multiple) { |json| Kaui::Bundle.new(json) }
+      bundles.empty? ? nil : bundles[-1]
     end
 
     def self.get_bundle(bundle_id, options = {})
