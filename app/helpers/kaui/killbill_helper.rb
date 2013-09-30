@@ -445,11 +445,16 @@ module Kaui
     ############## CREDIT ##############
 
     def self.create_credit(credit, current_user = nil, reason = nil, comment = nil, options = {})
-      credit_data = Kaui::Credit.camelize(credit.to_hash)
-      call_killbill :post,
-                    "/1.0/kb/credits",
-                    ActiveSupport::JSON.encode(credit_data, :root => false),
-                    build_audit_headers(current_user, reason, comment, options)
+      new_credit = KillBillClient::Model::Credit.new
+      new_credit.credit_amount = credit['credit_amount']
+      new_credit.invoice_id = credit['invoice_id']
+      new_credit.effective_date = credit['effective_date']
+      new_credit.account_id = credit['account_id']
+      
+      new_credit.create(extract_created_by(current_user),
+                        extract_reason_code(reason),
+                        comment,
+                        options)
     end
 
     ############## TAG ##############
