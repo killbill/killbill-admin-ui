@@ -12,7 +12,7 @@ You can run Kaui locally using the sandbox script:
     # Point to your killbill installation
     export KILLBILL_URL="http://killbill.company.com:8080"
     # Run the sandbox script
-    script/sandbox 
+    bundle exec script/sandbox
     # Start the Rails app
     cd sandbox
     rails s
@@ -49,7 +49,7 @@ Running tests
 Go into 'test/dummy': 
 > cd test/dummy/
 
-Run mkigrations:
+Run migrations:
 > export RAILS_ENV=test
 > rake kaui:install:migrations
 > rake db:migrate
