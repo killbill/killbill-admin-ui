@@ -148,7 +148,8 @@ module Kaui
 
     def self.get_bundle_by_external_key(account_id, external_key, options = {})
       data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/bundles?externalKey=#{external_key}", options
-      process_response(data, :single) { |json| Kaui::Bundle.new(json) }
+      bundles = process_response(data, :multiple) { |json| Kaui::Bundle.new(json) }
+      bundles.empty? ? nil : bundles[-1]
     end
 
     def self.get_bundle(bundle_id, options = {})
@@ -180,7 +181,7 @@ module Kaui
     end
 
     def self.get_subscription(subscription_id, options = {})
-      data = call_killbill :get, "/1.0/kb/entitlements/#{subscription_id}", options
+      data = call_killbill :get, "/1.0/kb/subscriptions/#{subscription_id}", options
       process_response(data, :single) { |json| Kaui::Subscription.new(json) }
     end
 
@@ -214,6 +215,13 @@ module Kaui
       entitlement.subscription_id = subscription_id
       # We are using same entitlement/billing policy here for now
       entitlement.cancel(extract_created_by(current_user), extract_reason_code(reason), comment, nil, policy, policy, true, options)
+    end
+
+    def self.reinstate_subscription(subscription_id, current_user = nil, reason = nil, comment = nil, options = {})
+      call_killbill :put,
+                    "/1.0/kb/subscriptions/#{subscription_id}/uncancel",
+                    "",
+                    build_audit_headers(current_user, reason, comment, options)
     end
 
     def self.compute_previous_ctd(ctd, billing_period, options = {})
@@ -405,7 +413,7 @@ module Kaui
         refund["adjustments"].each do |a|
           item = KillBillClient::Model::InvoiceItemAttributes.new
           item.invoice_item_id = a.invoice_item_id
-          item.amount = a.amount
+          item.amount = a.amount.to_f unless a.amount.nil?
           new_refund.adjustments << item
         end
       end
@@ -437,11 +445,16 @@ module Kaui
     ############## CREDIT ##############
 
     def self.create_credit(credit, current_user = nil, reason = nil, comment = nil, options = {})
-      credit_data = Kaui::Credit.camelize(credit.to_hash)
-      call_killbill :post,
-                    "/1.0/kb/credits",
-                    ActiveSupport::JSON.encode(credit_data, :root => false),
-                    build_audit_headers(current_user, reason, comment, options)
+      new_credit = KillBillClient::Model::Credit.new
+      new_credit.credit_amount = credit['credit_amount']
+      new_credit.invoice_id = credit['invoice_id']
+      new_credit.effective_date = credit['effective_date']
+      new_credit.account_id = credit['account_id']
+      
+      new_credit.create(extract_created_by(current_user),
+                        extract_reason_code(reason),
+                        comment,
+                        options)
     end
 
     ############## TAG ##############
