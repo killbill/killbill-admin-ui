@@ -21,9 +21,11 @@ class Kaui::BundlesController < Kaui::EngineController
         end
       rescue => e
         flash.now[:error] = "Error while retrieving bundle information for #{key}: #{as_string(e)}"
+        render :action => :index
       end
     else
       flash.now[:error] = "No id given"
+      render :action => :index
     end
   end
 
