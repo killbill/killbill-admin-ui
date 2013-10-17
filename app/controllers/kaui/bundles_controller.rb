@@ -13,7 +13,7 @@ class Kaui::BundlesController < Kaui::EngineController
         @bundle = Kaui::KillbillHelper::get_bundle_by_key(key, params[:account_id], options_for_klient)
 
         if @bundle.present?
-          @account = Kaui::KillbillHelper::get_account_by_bundle_id(@bundle.bundle_id, options_for_klient)
+          @account = Kaui::KillbillHelper::get_account(@bundle.account_id, false, false, options_for_klient)
           @subscriptions = Kaui::KillbillHelper::get_subscriptions_for_bundle(@bundle.bundle_id, options_for_klient)
         else
           flash.now[:error] = "Bundle #{key} not found"
