@@ -314,7 +314,7 @@ module Kaui
 
     def self.pay_all_invoices(account_id, external = false, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :post,
-                    "/1.0/kb/invoices/payments?externalPayment=#{external}",
+                    "/1.0/kb/accounts/#{account_id}/payments?externalPayment=#{external}",
                     ActiveSupport::JSON.encode({:accountId => account_id}, :root => false),
                     build_audit_headers(current_user, reason, comment, options)
     end
