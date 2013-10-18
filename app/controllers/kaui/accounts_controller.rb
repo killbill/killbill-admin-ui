@@ -32,10 +32,7 @@ class Kaui::AccountsController < Kaui::EngineController
           @subscriptions_by_bundle_id = {}
 
           @bundles.each do |bundle|
-            subscriptions = Kaui::KillbillHelper::get_subscriptions_for_bundle(bundle.bundle_id, options_for_klient)
-            if subscriptions.present?
-              @subscriptions_by_bundle_id[bundle.bundle_id.to_s] = (@subscriptions_by_bundle_id[bundle.bundle_id.to_s] || []) + subscriptions
-            end
+            @subscriptions_by_bundle_id[bundle.bundle_id.to_s] = (@subscriptions_by_bundle_id[bundle.bundle_id.to_s] || []) + bundle.subscriptions
           end
         rescue => e
           flash.now[:error] = "Error while retrieving account information for account: #{as_string(e)}"

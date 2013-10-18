@@ -132,29 +132,24 @@ module Kaui
 
     ############## BUNDLE ##############
 
-    def self.get_bundle_by_key(key, account_id, options = {})
+    def self.get_bundle_by_key(key, account_id = nil, options = {})
       # support id (UUID) and external key search
       if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
-        @bundle = Kaui::KillbillHelper::get_bundle(key, options)
+        Kaui::KillbillHelper::get_bundle(key, options)
       else
-        @bundle = Kaui::KillbillHelper::get_bundle_by_external_key(key, account_id, options)
+        raise ArgumentError.new("account id not specified") if account_id.blank?
+        bundles = KillBillClient::Model::Bundle.find_all_by_account_id_and_external_key account_id, key, options
+        bundles.empty? ? nil : bundles[-1]
       end
     end
 
     def self.get_bundles(account_id, options = {})
-      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/bundles", options
-      process_response(data, :multiple) { |json| Kaui::Bundle.new(json) }
-    end
-
-    def self.get_bundle_by_external_key(account_id, external_key, options = {})
-      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/bundles?externalKey=#{external_key}", options
-      bundles = process_response(data, :multiple) { |json| Kaui::Bundle.new(json) }
-      bundles.empty? ? nil : bundles[-1]
+      account = KillBillClient::Model::Account.find_by_id account_id, options
+      account.bundles
     end
 
     def self.get_bundle(bundle_id, options = {})
-      data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}", options
-      process_response(data, :single) { |json| Kaui::Bundle.new(json) }
+      KillBillClient::Model::Bundle::find_by_id(bundle_id, options)
     end
 
     def self.transfer_bundle(bundle_id, new_account_id, cancel_immediately = false, transfer_addons = true, current_user = nil, reason = nil, comment = nil, options = {})
@@ -166,27 +161,11 @@ module Kaui
 
     ############## SUBSCRIPTION ##############
 
-    def self.get_subscriptions_for_bundle(bundle_id, options = {})
-      data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}/subscriptions", options
-      process_response(data, :multiple) { |json| Kaui::Subscription.new(json) }
-    end
-
-    def self.get_subscriptions(account_id, options = {})
-      subscriptions = []
-      bundles = get_bundles(account_id)
-      bundles.each do |bundle|
-        subscriptions += get_subscriptions_for_bundle(bundle.bundle_id)
-      end
-      subscriptions
-    end
-
     def self.get_subscription(subscription_id, options = {})
-      data = call_killbill :get, "/1.0/kb/subscriptions/#{subscription_id}", options
-      process_response(data, :single) { |json| Kaui::Subscription.new(json) }
+      KillBillClient::Model::Subscription::find_by_id(subscription_id, options)
     end
 
     def self.create_subscription(subscription, current_user = nil, reason = nil, comment = nil, options = {})
-
       entitlement = KillBillClient::Model::Subscription.new
       entitlement.account_id = subscription.account_id
       entitlement.bundle_id = subscription.bundle_id
@@ -196,12 +175,10 @@ module Kaui
       entitlement.billing_period = subscription.billing_period
       entitlement.price_list = subscription.price_list
 
-
       entitlement.create(extract_created_by(current_user), extract_reason_code(reason), comment, options)
     end
 
     def self.update_subscription(subscription, requested_date = nil, policy = nil, current_user = nil, reason = nil, comment = nil, options = {})
-
       requested_date = requested_date.to_s unless requested_date.blank?
       entitlement = KillBillClient::Model::Subscription.new
       entitlement.subscription_id = subscription.subscription_id
@@ -209,12 +186,10 @@ module Kaui
                               extract_created_by(current_user), extract_reason_code(reason), comment, requested_date, policy, false, options)
     end
 
-    def self.delete_subscription(subscription_id, current_user = nil, reason = nil, comment = nil,  policy = nil, options = {})
-
+    def self.delete_subscription(subscription_id, current_user = nil, reason = nil, comment = nil,  entitlement_policy = nil, billing_policy = nil, options = {})
       entitlement = KillBillClient::Model::Subscription.new
       entitlement.subscription_id = subscription_id
-      # We are using same entitlement/billing policy here for now
-      entitlement.cancel(extract_created_by(current_user), extract_reason_code(reason), comment, nil, policy, policy, true, options)
+      entitlement.cancel(extract_created_by(current_user), extract_reason_code(reason), comment, nil, entitlement_policy, billing_policy, true, options)
     end
 
     def self.reinstate_subscription(subscription_id, current_user = nil, reason = nil, comment = nil, options = {})

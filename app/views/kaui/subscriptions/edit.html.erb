@@ -1,5 +1,5 @@
 <% @page_title = "Edit Subscription" %>
-<%= form_for(@subscription, :url => subscription_path(@subscription.subscription_id), :html => { :method => :put, :class => "form-horizontal" }) do |f| %>
+<%= form_for(@subscription, :as => :subscription, :url => subscription_path(@subscription.subscription_id), :html => { :method => :put, :class => "form-horizontal" }) do |f| %>
   <%= f.hidden_field :subscription_id %>
   <%= f.hidden_field :price_list %>
   <div class="control-group">
