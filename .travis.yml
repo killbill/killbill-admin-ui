@@ -2,19 +2,21 @@ language: ruby
 
 notifications:
   email:
-    - killbilling-dev@googlegroups.com
+    - kill-bill-commits@googlegroups.com
 
 rvm:
-  - 1.9.3
   - 1.9.2
-  - jruby-19mode
+  - 1.9.3
+  - 2.0.0
   - ruby-head
+  - jruby-19mode
+  - jruby-20mode
   - jruby-head
 
 jdk:
+  - openjdk6
   - openjdk7
   - oraclejdk7
-  - openjdk6
 
 before_script:
   - mysql -e 'create database kaui_test;'
