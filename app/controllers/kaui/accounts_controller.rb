@@ -5,6 +5,36 @@ class Kaui::AccountsController < Kaui::EngineController
     end
   end
 
+  def pagination
+    json = { :sEcho => params[:sEcho], :iTotalRecords => 0, :iTotalDisplayRecords => 0, :aaData => [] }
+
+    search_key = params[:sSearch]
+    if search_key.present?
+      accounts = Kaui::KillbillHelper::search_accounts(search_key, params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
+      json[:iTotalDisplayRecords] = accounts.pagination_nb_results
+    else
+      accounts = Kaui::KillbillHelper::get_accounts(params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
+      json[:iTotalDisplayRecords] = accounts.pagination_total_nb_results
+    end
+    # Total number of accounts
+    json[:iTotalRecords] = accounts.pagination_total_nb_results
+
+    accounts.each do |account|
+      json[:aaData] << [
+                         view_context.link_to(account.account_id, view_context.url_for(:action => :show, :id => account.account_id)),
+                         account.name,
+                         account.external_key,
+                         account.currency,
+                         account.city,
+                         account.country
+                       ]
+    end
+
+    respond_to do |format|
+      format.json { render :json => json }
+    end
+  end
+
   def show
     @key = params[:id]
     if @key.present?

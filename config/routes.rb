@@ -8,6 +8,9 @@ Kaui::Engine.routes.draw do
 
   root :to => "home#index"
 
+  scope "/accounts" do
+    match "/pagination" => "accounts#pagination", :via => :get, :as => "accounts_pagination"
+  end
   resources :accounts, :only => [ :index, :show ] do
     member do
       get :payment_methods

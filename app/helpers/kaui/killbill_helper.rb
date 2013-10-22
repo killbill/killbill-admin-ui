@@ -71,6 +71,14 @@ module Kaui
 
     ############## ACCOUNT ##############
 
+    def self.get_accounts(offset, limit, options = {})
+      KillBillClient::Model::Account.find_in_batches offset, limit, false, false, options
+    end
+
+    def self.search_accounts(search_key, offset, limit, options = {})
+      KillBillClient::Model::Account.find_in_batches_by_search_key search_key, offset, limit, false, false, options
+    end
+
     def self.get_account_by_key_with_balance_and_cba(key, options = {})
       self.get_account_by_key(key, false, true, options)
     end

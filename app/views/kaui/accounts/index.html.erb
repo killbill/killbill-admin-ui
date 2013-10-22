@@ -1,14 +1,29 @@
-<%= form_tag accounts_path, :class => "form-horizontal", :method => :get do %>
-  <fieldset>
-    <legend>Search accounts by id or external key</legend>
-    <div class="control-group">
-      <label class="control-label" for="account_id"><%=t :account %></label>
-      <div class="controls">
-        <%= text_field_tag 'account_id', @key, :class => "input-xlarge", :id => "account_id", :placeholder => "accountId, externalKey" %>
-      </div>
-    </div>
-    <div class="form-actions">
-      <%= button_tag "Search", :class =>"btn btn-primary" %>
-    </div>
-  </fieldset>
+<table id="accounts-table" class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Account ID</th>
+      <th>Name</th>
+      <th>External key</th>
+      <th>Currency</th>
+      <th>City</th>
+      <th>Country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" class="dataTables_empty">Loading data from server</td>
+    </tr>
+  </tbody>
+</table>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $('#accounts-table').dataTable({
+    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+    "sPaginationType": "bootstrap",
+    "bProcessing": true,
+    "bServerSide": true,
+    "sAjaxSource": "<%= accounts_pagination_path :format => :json %>"
+  });
+});
 <% end %>
