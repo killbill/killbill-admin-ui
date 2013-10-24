@@ -11,13 +11,11 @@ class Kaui::AccountsController < Kaui::EngineController
     search_key = params[:sSearch]
     if search_key.present?
       accounts = Kaui::KillbillHelper::search_accounts(search_key, params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
-      json[:iTotalDisplayRecords] = accounts.pagination_nb_results
     else
       accounts = Kaui::KillbillHelper::get_accounts(params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
-      json[:iTotalDisplayRecords] = accounts.pagination_total_nb_results
     end
-    # Total number of accounts
-    json[:iTotalRecords] = accounts.pagination_total_nb_results
+    json[:iTotalDisplayRecords] = accounts.pagination_total_nb_records
+    json[:iTotalRecords] = accounts.pagination_max_nb_records
 
     accounts.each do |account|
       json[:aaData] << [

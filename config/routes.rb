@@ -45,6 +45,9 @@ Kaui::Engine.routes.draw do
 
   resources :payments, :only => [ :create, :new, :index, :show ]
 
+  scope "/payment_methods" do
+    match "/pagination" => "payment_methods#pagination", :via => :get, :as => "payment_methods_pagination"
+  end
   resources :payment_methods, :only => [ :index, :show, :destroy ]
 
   resources :refunds, :only => [ :index, :show, :create, :new ]

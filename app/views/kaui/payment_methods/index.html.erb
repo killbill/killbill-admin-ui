@@ -1,15 +1,28 @@
-<%= form_tag payment_methods_path, :class => "form-horizontal", :method => :get do %>
-    <fieldset>
-      <legend>Payment Methods</legend>
-      <div class="control-group">
-        <label class="control-label" for="key">Enter Key</label>
+<table id="paymentMethods-table" class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Account ID</th>
+      <th>External ID</th>
+      <th>Type</th>
+      <th>CC name</th>
+      <th>CC last 4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" class="dataTables_empty">Loading data from server</td>
+    </tr>
+  </tbody>
+</table>
 
-        <div class="controls">
-          <%= text_field_tag 'key', nil, :class => "input-xlarge", :id => "key", :placeholder => "accountId, PayPalEmail, BAID, Last4cc" %>
-        </div>
-      </div>
-      <div class="form-actions">
-        <%= button_tag "Search", :class => "btn btn-primary" %>
-      </div>
-    </fieldset>
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $('#paymentMethods-table').dataTable({
+    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+    "sPaginationType": "bootstrap",
+    "bProcessing": true,
+    "bServerSide": true,
+    "sAjaxSource": "<%= payment_methods_pagination_path :format => :json %>"
+  });
+});
 <% end %>

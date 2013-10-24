@@ -345,22 +345,20 @@ module Kaui
 
     ############## PAYMENT METHOD ##############
 
+    def self.get_payment_methods(offset, limit, options = {})
+      KillBillClient::Model::PaymentMethod.find_in_batches offset, limit, options
+    end
+
+    def self.search_payment_methods(search_key, offset, limit, options = {})
+      KillBillClient::Model::PaymentMethod.find_in_batches_by_search_key search_key, offset, limit, options
+    end
+
     def self.delete_payment_method(payment_method_id, set_auto_pay_off = false, current_user = nil, reason = nil, comment = nil, options = {})
       KillBillClient::Model::PaymentMethod.destroy payment_method_id, set_auto_pay_off, extract_created_by(current_user), extract_reason_code(reason), comment, options
     end
 
     def self.get_non_external_payment_methods(account_id, options = {})
-      self.get_payment_methods(account_id, options).reject { |x| x.plugin_name == '__EXTERNAL_PAYMENT__' }
-    end
-
-    def self.get_payment_methods(key, options = {})
-      if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
-        #looks like its account_id
-        KillBillClient::Model::PaymentMethod.find_all_by_account_id key, true, options
-      else
-        #any search key
-        KillBillClient::Model::PaymentMethod.find_all_by_search_key key, true, options
-      end
+      KillBillClient::Model::PaymentMethod.find_all_by_account_id(account_id, true, options).reject { |x| x.plugin_name == '__EXTERNAL_PAYMENT__' }
     end
 
     def self.get_payment_method(payment_method_id, options = {})
