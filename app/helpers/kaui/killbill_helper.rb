@@ -152,8 +152,8 @@ module Kaui
     end
 
     def self.get_bundles(account_id, options = {})
-      account = KillBillClient::Model::Account.find_by_id account_id, options
-      account.bundles
+      account = KillBillClient::Model::Account.find_by_id account_id, false, false, options
+      account.bundles options
     end
 
     def self.get_bundle(bundle_id, options = {})
