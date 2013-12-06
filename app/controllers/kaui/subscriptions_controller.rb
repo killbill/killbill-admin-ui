@@ -151,18 +151,11 @@ class Kaui::SubscriptionsController < Kaui::EngineController
   end
 
   def destroy
-
-
     subscription_id = params[:id]
-
-    puts "calling destroy id = #{subscription_id}"
 
     if subscription_id.present?
       begin
-
-        puts "current_user = #{current_user}"
-
-        Kaui::KillbillHelper::delete_subscription(subscription_id, current_user, params[:reason], params[:comment], params[:policy], options_for_klient)
+        Kaui::KillbillHelper::delete_subscription(subscription_id, current_user, params[:reason], params[:comment], params[:policy], params[:policy], options_for_klient)
       rescue => e
         flash[:error] = "Error while canceling subscription: #{as_string(e)}"
       end

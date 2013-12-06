@@ -143,6 +143,10 @@
               <%= "Adjusted:" %> <% if refund.adjusted %>yes<% else %>no<% end %><br/>
               <%= "Payment id:" %> <%= refund.payment_id %><br/>
               <%= "Refund Amount:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(refund.amount, refund.currency) %> (<%= refund.currency %>)<br/>
+              <span <% if refund.status != 'COMPLETED' %>class="alert-error" <% else %>class="alert-success" <% end %>>
+                <%= refund.status %>
+              </span>
+              <br/>
             </td>
             <td>
               <% if refund.audit_logs.present? %>
@@ -307,7 +311,7 @@
     });
   }
 
-  eventsOrder = ["START_ENTITLEMENT", "START_BILLING", "PAUSE_ENTITLEMENT", "PAUSE_BILLING", "RESUME_ENTITLEMENT", "RESUME_BILLING", "PHASE", "CHANGE", , "STOP_ENTITLEMENT", "STOP_BILLING", "INVOICE", "PAYMENT", "REFUND", "CHARGEBACK"];
+  eventsOrder = ["START_ENTITLEMENT", "START_BILLING", "PAUSE_ENTITLEMENT", "PAUSE_BILLING", "RESUME_ENTITLEMENT", "RESUME_BILLING", "PHASE", "CHANGE", "STOP_ENTITLEMENT", "STOP_BILLING", "INVOICE", "PAYMENT", "REFUND", "CHARGEBACK"];
 
   jQuery.fn.dataTableExt.oSort['timeline-event-asc']  = function(e1,e2) {
     var x = eventsOrder.indexOf(e1);
@@ -352,7 +356,7 @@
        "iDisplayLength": 100,
        "bRetrieve": true,
        // Force a predictive order for event types, invoices and payments
-       "aaSorting": [[1, 'desc'], [4, 'desc'], [3, 'desc']],
+       "aaSorting": [[1, 'desc'], [4, 'asc'], [3, 'desc']],
        "aoColumns": [
            { "sType": 'date' },
            { "sType": 'date' },

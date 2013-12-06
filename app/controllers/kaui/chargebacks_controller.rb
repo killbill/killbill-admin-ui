@@ -41,14 +41,36 @@ class Kaui::ChargebacksController < Kaui::EngineController
 
   def create
     chargeback = Kaui::Chargeback.new(params[:chargeback])
+    should_cancel_subs = (params[:cancel_all_subs] == "1")
 
     if chargeback.present?
       begin
         Kaui::KillbillHelper::create_chargeback(chargeback, current_user, params[:reason], params[:comment], options_for_klient)
-        flash[:notice] = "Chargeback created"
       rescue => e
         flash[:error] = "Error while creating a new chargeback: #{as_string(e)}"
+        redirect_to kaui_engine.account_timeline_path(:id => params[:account_id]) and return
       end
+
+      # Cancel all subscriptions on the account, if required
+      if should_cancel_subs
+        begin
+          bundles = Kaui::KillbillHelper::get_bundles(params[:account_id], options_for_klient)
+          bundles.each do |bundle|
+            bundle.subscriptions.each do |subscription|
+              # Already cancelled?
+              next unless subscription.billing_end_date.blank?
+
+              # Cancel the entitlement immediately but use the default billing policy
+              Kaui::KillbillHelper::delete_subscription(subscription.subscription_id, current_user, params[:reason], params[:comment], 'IMMEDIATE', nil, options_for_klient)
+            end
+          end
+        rescue => e
+          flash[:error] = "Error while cancelling subscriptions: #{as_string(e)}"
+          redirect_to kaui_engine.account_timeline_path(:id => params[:account_id]) and return
+        end
+      end
+
+      flash[:notice] = "Chargeback created"
     else
       flash[:error] = "No chargeback to process"
     end

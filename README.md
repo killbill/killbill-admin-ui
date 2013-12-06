@@ -12,7 +12,7 @@ You can run Kaui locally using the sandbox script:
     # Point to your killbill installation
     export KILLBILL_URL="http://killbill.company.com:8080"
     # Run the sandbox script
-    script/sandbox 
+    bundle exec script/sandbox
     # Start the Rails app
     cd sandbox
     rails s
@@ -21,7 +21,7 @@ You can run Kaui locally using the sandbox script:
 Mounting Kaui into your own Rails app
 -------------------------------------
 
-The Kaui gem comes with a `kaui` script to mount it in your existing Rails app. See the [Getting Started](http://killbilling.org/start.html#kaui_deployment) guide.
+The Kaui gem comes with a `kaui` script to mount it in your existing Rails app.
 
 Kaui expects the container app to define the <tt>current_user</tt> method, which returns the
 name of the logged-in user. This is used by Killbill for auditing purposes.
@@ -49,7 +49,7 @@ Running tests
 Go into 'test/dummy': 
 > cd test/dummy/
 
-Run mkigrations:
+Run migrations:
 > export RAILS_ENV=test
 > rake kaui:install:migrations
 > rake db:migrate

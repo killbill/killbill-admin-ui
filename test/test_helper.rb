@@ -78,6 +78,10 @@ module Kaui::KillbillHelper
     []
   end
 
+  def self.get_non_external_payment_methods(account_id, options = {})
+    []
+  end
+
   def self.get_payment_methods(account_id, options = {})
     []
   end

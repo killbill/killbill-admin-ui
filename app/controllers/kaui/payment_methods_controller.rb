@@ -2,14 +2,33 @@ require 'kaui/killbill_helper'
 
 class Kaui::PaymentMethodsController < Kaui::EngineController
   def index
-    if params[:key]
-      params[:key].strip!
-      begin
-        @payment_methods = Kaui::KillbillHelper.get_payment_methods(params[:key], options_for_klient)
-        render :show
-      rescue => e
-        flash.now[:error] = "Error while retrieving payment method for account: #{params[:key]}: #{as_string(e)}"
-      end
+  end
+
+  def pagination
+    json = { :sEcho => params[:sEcho], :iTotalRecords => 0, :iTotalDisplayRecords => 0, :aaData => [] }
+
+    search_key = params[:sSearch]
+    if search_key.present?
+      payment_methods = Kaui::KillbillHelper::search_payment_methods(search_key, params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
+    else
+      payment_methods = Kaui::KillbillHelper::get_payment_methods(params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
+    end
+    json[:iTotalDisplayRecords] = payment_methods.pagination_total_nb_records
+    json[:iTotalRecords] = payment_methods.pagination_max_nb_records
+
+    payment_methods.each do |payment_method|
+      info_plugin = payment_method.plugin_info || OpenStruct.new
+      json[:aaData] << [
+                         view_context.link_to(payment_method.account_id, view_context.url_for(:controller => :accounts, :action => :show, :id => payment_method.account_id)),
+                         info_plugin.external_payment_id,
+                         info_plugin.type,
+                         info_plugin.cc_name,
+                         info_plugin.cc_last4,
+                       ]
+    end
+
+    respond_to do |format|
+      format.json { render :json => json }
     end
   end
 

@@ -89,6 +89,14 @@
       </div>
     </div>
     <div class="control-group">
+      <%= label_tag :cancel_all_subs, "Cancel account subscriptions?", :class => "control-label" %>
+      <div class="controls">
+        <label class="checkbox">
+          <%= check_box_tag :cancel_all_subs %>
+        </label>
+      </div>
+    </div>
+    <div class="control-group">
       <%= label_tag :comment, "Comment", :class => "control-label" %>
       <div class="controls">
         <%= text_area_tag :comment, "", :rows => 3, :class => 'input-xlarge' %>
