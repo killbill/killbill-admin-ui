@@ -143,6 +143,10 @@
               <%= "Adjusted:" %> <% if refund.adjusted %>yes<% else %>no<% end %><br/>
               <%= "Payment id:" %> <%= refund.payment_id %><br/>
               <%= "Refund Amount:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(refund.amount, refund.currency) %> (<%= refund.currency %>)<br/>
+              <span <% if refund.status != 'COMPLETED' %>class="alert-error" <% else %>class="alert-success" <% end %>>
+                <%= refund.status %>
+              </span>
+              <br/>
             </td>
             <td>
               <% if refund.audit_logs.present? %>
