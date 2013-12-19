@@ -25,6 +25,13 @@
       </div>
     </div>
 
+    <div class='control-group'>
+      <%= label_tag :comment, 'Comment', :class => "control-label" %>
+      <div class="controls">
+        <%= text_area_tag :comment, '', :rows => 3, :class => 'input-xlarge' %>
+      </div>
+    </div>
+
     <div class='form-actions'>
       <%= button_tag 'Update', :class =>'btn btn-primary' %>
       <%= link_to 'Back', :back, :class => 'btn' %>

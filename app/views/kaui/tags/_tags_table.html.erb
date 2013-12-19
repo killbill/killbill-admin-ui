@@ -1,5 +1,5 @@
 <dt>Tags:</dt>
-<dd>       
+<dd>
   <% if tags.present? %>
     <% tags.each_with_index do |tag, idx| %>
       <span><%= tag.tag_definition_name %><% if idx < tags.length - 1 %>, <% end %></span>
