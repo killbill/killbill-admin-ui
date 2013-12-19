@@ -51,7 +51,7 @@ class Kaui::AccountsController < Kaui::EngineController
 
       if @account.present? and @account.is_a? Kaui::Account
         begin
-          @tags = Kaui::KillbillHelper::get_tags_for_account(@account.account_id, "NONE", options_for_klient).sort { |tag_a, tag_b| tag_a.tag_definition_name.downcase <=> tag_b.tag_definition_name.downcase }
+          @tags = Kaui::KillbillHelper::get_tags_for_account(@account.account_id, false, "NONE", options_for_klient).sort { |tag_a, tag_b| tag_a.tag_definition_name.downcase <=> tag_b.tag_definition_name.downcase }
           @account_emails = Kaui::AccountEmail.where({ :account_id => @account.account_id }, options_for_klient)
           @overdue_state = Kaui::KillbillHelper::get_overdue_state_for_account(@account.account_id, options_for_klient)
           @payment_methods = Kaui::KillbillHelper::get_non_external_payment_methods(@account.account_id, options_for_klient)

@@ -14,16 +14,17 @@
   <tbody>
     <% if @tags.present? %>
       <% @tags.each do |tag| %>
-        <% log = tag.audit_logs.first if tag.audit_logs.present? %>
-        <tr>
-          <td><%= link_to tag.tag_definition_name, tag_definition_path(:id => tag.tag_definition_id) %></td>
-          <td><%= format_date(log.change_date, @account.timezone).html_safe if log.change_date.present? %></td>
-          <td><%= log.change_type if log.change_type.present? %></td>
-          <td><%= log.changed_by if log.changed_by.present? %></td>
-          <td><%= log.reason_code if log.reason_code.present? %> <%= log.comments if log.comments.present? %></td>
-        </tr>
-      <% end #end tag%>
-    <% end #end if tags present%>
+        <% tag.audit_logs.each do |log| %>
+          <tr>
+            <td><%= link_to tag.tag_definition_name, tag_definition_path(:id => tag.tag_definition_id) %></td>
+            <td><%= format_date(log.change_date, @account.timezone).html_safe if log.change_date.present? %></td>
+            <td><span <% if log.change_type != 'INSERT' %>class='alert-error' <% else %>class='alert-success' <% end %>><%= log.change_type %></span></td>
+            <td><%= log.changed_by %></td>
+            <td><%= log.reason_code %> <%= log.comments %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    <% end %>
   </tbody>
 </table>
 

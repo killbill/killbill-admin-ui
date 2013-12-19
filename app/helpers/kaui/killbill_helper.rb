@@ -464,8 +464,8 @@ module Kaui
                     build_audit_headers(current_user, reason, comment, options)
     end
 
-    def self.get_tags_for_account(account_id, audit = "NONE", options = {})
-      KillBillClient::Model::Tag.find_all_by_account_id account_id, audit, options
+    def self.get_tags_for_account(account_id, included_deleted = false, audit = "NONE", options = {})
+      KillBillClient::Model::Tag.find_all_by_account_id account_id, included_deleted, audit, options
     end
 
     def self.get_tags_for_bundle(bundle_id, options = {})

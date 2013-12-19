@@ -94,7 +94,7 @@ module Kaui::KillbillHelper
     []
   end
 
-  def self.get_tags_for_account(account_id, audit = "NONE", options = {})
+  def self.get_tags_for_account(account_id, included_deleted = false, audit = "NONE", options = {})
     []
   end
 
