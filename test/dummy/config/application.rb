@@ -8,6 +8,9 @@ require "jquery-rails"
 
 module Dummy
   class Application < Rails::Application
+    # See https://github.com/svenfuchs/i18n/commit/3b6e56e06fd70f6e4507996b017238505e66608c
+    config.i18n.enforce_available_locales = true
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
