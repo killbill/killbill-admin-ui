@@ -13,7 +13,7 @@ class Kaui::InvoicesController < Kaui::EngineController
         if @invoice.present?
           @invoice_id = @invoice.invoice_id
           @account = Kaui::KillbillHelper.get_account(@invoice.account_id, false, false, options_for_klient)
-          @payments = Kaui::KillbillHelper.get_payments(@invoice_id, options_for_klient)
+          @payments = Kaui::KillbillHelper.get_payments_for_invoice(@invoice_id, options_for_klient)
           @payment_methods = {}
           @payments.each do |payment|
             # The payment method may have been deleted

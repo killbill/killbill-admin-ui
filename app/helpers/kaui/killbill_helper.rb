@@ -244,7 +244,7 @@ module Kaui
     def self.new_invoice_item(invoice_item)
       item = KillBillClient::Model::InvoiceItem.new
       invoice_item.each do |attribute, value|
-        item.methods.include?("#{attribute}=".to_sym) ? 
+        item.methods.include?("#{attribute}=".to_sym) ?
         item.send("#{attribute}=".to_sym, value) : next
       end
       item
@@ -309,12 +309,20 @@ module Kaui
 
     ############## PAYMENT ##############
 
+    def self.get_payments(offset, limit, options = {})
+      KillBillClient::Model::Payment.find_in_batches offset, limit, options
+    end
+
+    def self.search_payments(search_key, offset, limit, options = {})
+      KillBillClient::Model::Payment.find_in_batches_by_search_key search_key, offset, limit, options
+    end
+
     def self.get_payment(payment_id, options = {})
       data = call_killbill :get, "/1.0/kb/payments/#{payment_id}", options
       process_response(data, :single) { |json| Kaui::Payment.new(json) }
     end
 
-    def self.get_payments(invoice_id, options = {})
+    def self.get_payments_for_invoice(invoice_id, options = {})
       data = call_killbill :get, "/1.0/kb/invoices/#{invoice_id}/payments", options
       response_data = process_response(data, :multiple) { |json| Kaui::Payment.new(json) }
       return response_data
@@ -431,7 +439,7 @@ module Kaui
       new_credit.invoice_id = credit['invoice_id']
       new_credit.effective_date = credit['effective_date']
       new_credit.account_id = credit['account_id']
-      
+
       new_credit.create(extract_created_by(current_user),
                         extract_reason_code(reason),
                         comment,

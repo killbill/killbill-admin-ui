@@ -13,6 +13,7 @@
           <ul class="nav">
             <li <%= "class='active'" if params[:controller] == 'accounts' %>><%= link_to "Accounts", kaui_engine.accounts_path %></li>
             <li <%= "class='active'" if params[:controller] == 'bundles' %>><%= link_to "Bundles", kaui_engine.bundles_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'payments' %>><%= link_to "Payments", kaui_engine.payments_path %></li>
             <li <%= "class='active'" if params[:controller] == 'payment_methods' %>><%= link_to "Payment methods", kaui_engine.payment_methods_path %></li>
             <li <%= "class='active'" if params[:controller] == 'invoices' %>><%= link_to "Invoices", kaui_engine.invoices_path %></li>
             <li <%= "class='active'" if params[:controller] == 'refunds' %>><%= link_to "Refunds", kaui_engine.refunds_path %></li>
