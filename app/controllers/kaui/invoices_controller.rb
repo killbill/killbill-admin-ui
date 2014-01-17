@@ -5,6 +5,28 @@ class Kaui::InvoicesController < Kaui::EngineController
     end
   end
 
+  def pagination
+    json = { :sEcho => params[:sEcho], :iTotalRecords => 0, :iTotalDisplayRecords => 0, :aaData => [] }
+
+    invoices = Kaui::KillbillHelper::get_invoices(params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
+    json[:iTotalDisplayRecords] = invoices.pagination_total_nb_records
+    json[:iTotalRecords] = invoices.pagination_max_nb_records
+
+    invoices.each do |invoice|
+      json[:aaData] << [
+                         view_context.link_to(invoice.invoice_id, view_context.url_for(:controller => :invoices, :action => :show, :id => invoice.invoice_id)),
+                         invoice.invoice_number,
+                         view_context.format_date(invoice.invoice_date),
+                         view_context.humanized_money_with_symbol(Kaui::Base.to_money(invoice.amount, invoice.currency)),
+                         view_context.humanized_money_with_symbol(Kaui::Base.to_money(invoice.balance, invoice.currency))
+                       ]
+    end
+
+    respond_to do |format|
+      format.json { render :json => json }
+    end
+  end
+
   def show
     invoice_id_or_number = params[:id]
     if invoice_id_or_number.present?

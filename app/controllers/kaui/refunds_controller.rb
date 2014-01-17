@@ -1,7 +1,35 @@
 class Kaui::RefundsController < Kaui::EngineController
+
   def index
     if params[:refund_id].present?
       redirect_to kaui_engine.refund_path(params[:refund_id])
+    end
+  end
+
+  def pagination
+    json = { :sEcho => params[:sEcho], :iTotalRecords => 0, :iTotalDisplayRecords => 0, :aaData => [] }
+
+    search_key = params[:sSearch]
+    if search_key.present?
+      refunds = Kaui::KillbillHelper::search_refunds(search_key, params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
+    else
+      refunds = Kaui::KillbillHelper::get_refunds(params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
+    end
+    json[:iTotalDisplayRecords] = refunds.pagination_total_nb_records
+    json[:iTotalRecords] = refunds.pagination_max_nb_records
+
+    refunds.each do |refund|
+      json[:aaData] << [
+                         view_context.link_to(refund.refund_id, view_context.url_for(:controller => :refunds, :action => :show, :id => refund.refund_id)),
+                         view_context.format_date(refund.effective_date),
+                         view_context.humanized_money_with_symbol(Kaui::Base.to_money(refund.amount, refund.currency)),
+                         refund.adjusted,
+                         refund.status
+                       ]
+    end
+
+    respond_to do |format|
+      format.json { render :json => json }
     end
   end
 

@@ -18,6 +18,8 @@
             <li <%= "class='active'" if params[:controller] == 'invoices' %>><%= link_to "Invoices", kaui_engine.invoices_path %></li>
             <li <%= "class='active'" if params[:controller] == 'refunds' %>><%= link_to "Refunds", kaui_engine.refunds_path %></li>
             <li <%= "class='active'" if params[:controller] == 'tag_definitions' %>><%= link_to "Tag definitions", kaui_engine.tag_definitions_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'tags' %>><%= link_to "Tags", kaui_engine.tags_path %></li>
+            <li <%= "class='active'" if params[:controller] == 'custom_fields' %>><%= link_to "Custom Fields", kaui_engine.custom_fields_path %></li>
             <li <%= "class='active'" if params[:controller] == 'analytics' %>><%= link_to "Analytics", kaui_engine.analytics_path %></li>
           </ul>
           <ul class="nav pull-right">

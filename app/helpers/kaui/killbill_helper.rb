@@ -225,6 +225,10 @@ module Kaui
 
     ############## INVOICE ##############
 
+    def self.get_invoices(offset, limit, options = {})
+      KillBillClient::Model::Invoice.find_in_batches offset, limit, options
+    end
+
     def self.get_invoice(id_or_number, with_items = true, audit = "NONE", options = {})
       KillBillClient::Model::Invoice.find_by_id_or_number id_or_number, with_items, audit, options
     end
@@ -383,6 +387,14 @@ module Kaui
 
     ############## REFUND ##############
 
+    def self.get_refunds(offset, limit, options = {})
+      KillBillClient::Model::Refund.find_in_batches offset, limit, options
+    end
+
+    def self.search_refunds(search_key, offset, limit, options = {})
+      KillBillClient::Model::Refund.find_in_batches_by_search_key search_key, offset, limit, options
+    end
+
     def self.get_refund(refund_id, options = {})
       KillBillClient::Model::Refund.find_by_id refund_id, options
     end
@@ -448,6 +460,14 @@ module Kaui
 
     ############## TAG ##############
 
+    def self.get_tags(offset, limit, options = {})
+      KillBillClient::Model::Tag.find_in_batches offset, limit, options
+    end
+
+    def self.search_tags(search_key, offset, limit, options = {})
+      KillBillClient::Model::Tag.find_in_batches_by_search_key search_key, offset, limit, options
+    end
+
     def self.get_tag_definitions(options = {})
       data = call_killbill :get, "/1.0/kb/tagDefinitions", options
       process_response(data, :multiple) { |json| Kaui::TagDefinition.new(json) }
@@ -506,6 +526,14 @@ module Kaui
     end
 
     ############## CUSTOM FIELDS ##############
+
+    def self.get_custom_fields(offset, limit, options = {})
+      KillBillClient::Model::CustomField.find_in_batches offset, limit, options
+    end
+
+    def self.search_custom_fields(search_key, offset, limit, options = {})
+      KillBillClient::Model::CustomField.find_in_batches_by_search_key search_key, offset, limit, options
+    end
 
     def self.get_custom_fields_for_account(account_id, options = {})
       data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/customFields", options

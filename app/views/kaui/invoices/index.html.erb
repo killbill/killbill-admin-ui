@@ -12,3 +12,32 @@
     </div>
   </fieldset>
 <% end %>
+
+<table id="invoices-table" class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Invoice ID</th>
+      <th>Invoice number</th>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" class="dataTables_empty">Loading data from server</td>
+    </tr>
+  </tbody>
+</table>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $('#invoices-table').dataTable({
+    "sDom": "<'row-fluid'<'span6'l><'span6'>r>t<'row-fluid'<'span6'i><'span6'p>>",
+    "sPaginationType": "bootstrap",
+    "bProcessing": true,
+    "bServerSide": true,
+    "sAjaxSource": "<%= invoices_pagination_path :format => :json %>"
+  });
+});
+<% end %>

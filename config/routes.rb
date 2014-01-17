@@ -53,8 +53,14 @@ Kaui::Engine.routes.draw do
   end
   resources :payment_methods, :only => [ :index, :show, :destroy ]
 
+  scope "/refunds" do
+    match "/pagination" => "refunds#pagination", :via => :get, :as => "refunds_pagination"
+  end
   resources :refunds, :only => [ :index, :show, :create, :new ]
 
+  scope "/invoices" do
+    match "/pagination" => "invoices#pagination", :via => :get, :as => "invoices_pagination"
+  end
   resources :invoices, :only => [ :index, :show ] do
     member do
       get :show_html
@@ -97,4 +103,13 @@ Kaui::Engine.routes.draw do
     match "/edit" => "bundle_tags#update", :via => :post, :as => "update_bundle_tags"
   end
 
+  scope "/tags" do
+    match "/pagination" => "tags#pagination", :via => :get, :as => "tags_pagination"
+  end
+  resources :tags, :only => [ :create, :new, :index, :show ]
+
+  scope "/custom_fields" do
+    match "/pagination" => "custom_fields#pagination", :via => :get, :as => "custom_fields_pagination"
+  end
+  resources :custom_fields, :only => [ :create, :new, :index, :show ]
 end

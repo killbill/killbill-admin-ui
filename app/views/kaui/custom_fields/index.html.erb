@@ -1,0 +1,26 @@
+<table id="custom_fields-table" class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Tag ID</th>
+      <th>Object type</th>
+      <th>Tag definition name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" class="dataTables_empty">Loading data from server</td>
+    </tr>
+  </tbody>
+</table>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $('#custom_fields-table').dataTable({
+    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+    "sPaginationType": "bootstrap",
+    "bProcessing": true,
+    "bServerSide": true,
+    "sAjaxSource": "<%= custom_fields_pagination_path :format => :json %>"
+  });
+});
+<% end %>

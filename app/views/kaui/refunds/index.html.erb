@@ -12,3 +12,32 @@
     </div>
   </fieldset>
 <% end %>
+
+<table id="refunds-table" class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Refund ID</th>
+      <th>Date</th>
+      <th>Amount</th>
+      <th>Adjusted?</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" class="dataTables_empty">Loading data from server</td>
+    </tr>
+  </tbody>
+</table>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $('#refunds-table').dataTable({
+    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+    "sPaginationType": "bootstrap",
+    "bProcessing": true,
+    "bServerSide": true,
+    "sAjaxSource": "<%= refunds_pagination_path :format => :json %>"
+  });
+});
+<% end %>
