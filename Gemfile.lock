@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kaui (0.6.3)
+    kaui (0.6.4)
       cancan (~> 1.6.10)
       d3_rails (~> 3.2.8)
       devise (~> 3.0.2)
