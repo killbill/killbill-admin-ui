@@ -1,12 +1,12 @@
 PATH
   remote: .
   specs:
-    kaui (0.6.4)
+    kaui (0.6.5)
       cancan (~> 1.6.10)
       d3_rails (~> 3.2.8)
       devise (~> 3.0.2)
       jquery-rails (~> 3.0.4)
-      killbill-client (~> 0.5.9)
+      killbill-client (~> 0.6.0)
       money-rails (~> 0.8.1)
       rails (~> 3.2.14)
       rest-client (~> 1.6.7)
@@ -60,7 +60,7 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
-    killbill-client (0.5.9)
+    killbill-client (0.6.0)
       json (~> 1.8.0)
     mail (2.5.4)
       mime-types (~> 1.16)
