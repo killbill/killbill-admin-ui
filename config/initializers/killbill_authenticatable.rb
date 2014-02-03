@@ -31,6 +31,14 @@ end
 
 Warden::Strategies.add(:killbill_authenticatable, Devise::Strategies::KillbillAuthenticatable)
 
+Warden::Manager.after_set_user do |user, auth, opts|
+  unless user.authenticated_with_killbill?
+    scope = opts[:scope]
+    auth.logout(scope)
+    throw(:warden, :scope => scope, :reason => "Kill Bill session expired")
+  end
+end
+
 Devise.add_module(:killbill_authenticatable,
                   :strategy => true,
                   :route => :session,
