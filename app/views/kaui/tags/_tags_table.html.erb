@@ -6,6 +6,8 @@
     <% end %>
     <br/>
   <% end %>
-  <%= link_to 'Add/Remove', tags_url_or_path, :class => 'btn btn-mini' %>
+  <% if can? :add, Kaui::Tag or can? :remove, Kaui::Tag %>
+    <%= link_to 'Add/Remove', tags_url_or_path, :class => 'btn btn-mini' %>
+  <% end %>
   <%= link_to 'Tags Audit', tags_show_path, :class => 'btn btn-mini' %>
 </dd>
