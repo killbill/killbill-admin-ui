@@ -27,9 +27,9 @@
           </td>
           <td>
             <nobr>
-              <% if sub.cancelled_date.present? && Time.parse(sub.cancelled_date) > Time.now %>
+              <% if sub.billing_end_date.present? && Time.parse(sub.billing_end_date) > Time.now %>
                 <%= link_to "Reinstate", kaui_engine.reinstate_subscription_path(:id => sub.subscription_id), :method => :put, :class => "btn btn-mini" %>
-              <% elsif !sub.cancelled_date.present? %>
+              <% elsif !sub.billing_end_date.present? %>
                 <%= link_to "Change", kaui_engine.edit_subscription_path(sub.subscription_id), :class => "btn btn-mini" %>
                 <div class="btn-group">
                   <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
