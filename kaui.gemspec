@@ -31,6 +31,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'devise', '~> 3.0.2'
   s.add_dependency 'cancan', '~> 1.6.10'
 
+  s.add_development_dependency "fakeweb", '~> 1.3'
+
   if defined?(JRUBY_VERSION)
     s.add_development_dependency 'activerecord-jdbc-adapter', '~> 1.2.2'
     s.add_development_dependency 'activerecord-jdbcmysql-adapter', '~> 1.2.2'

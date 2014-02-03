@@ -1,3 +1,5 @@
+require 'fakeweb'
+
 # Configure Rails Environment
 ENV["RAILS_ENV"] = "test"
 
@@ -12,6 +14,11 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 # Load helpers
 Dir["#{File.dirname(__FILE__)}/unit/helpers/kaui/*.rb"].each { |f| require f }
+
+# Setup Kill Bill stubs
+FakeWeb.allow_net_connect = false
+FakeWeb.register_uri(:get, "http://127.0.0.1:8080/1.0/kb/security/subject", body: "{\"is_authenticated\":true}", :content_type => "application/json")
+FakeWeb.register_uri(:any, %r|http://127.0.0.1:8080|, body: "{}", :content_type => "application/json")
 
 # Include Devise helpers
 class ActionController::TestCase
