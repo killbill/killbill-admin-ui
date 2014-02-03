@@ -69,6 +69,9 @@ Kaui::Engine.routes.draw do
 
   resources :invoice_items, :only => [ :index, :show, :edit, :update, :destroy ]
 
+  scope "/bundles" do
+    match "/pagination" => "bundles#pagination", :via => :get, :as => "bundles_pagination"
+  end
   resources :bundles, :only => [ :index, :show ] do
     member do
       put :do_transfer

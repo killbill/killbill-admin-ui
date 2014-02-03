@@ -8,7 +8,12 @@ class Kaui::InvoicesController < Kaui::EngineController
   def pagination
     json = { :sEcho => params[:sEcho], :iTotalRecords => 0, :iTotalDisplayRecords => 0, :aaData => [] }
 
-    invoices = Kaui::KillbillHelper::get_invoices(params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
+    search_key = params[:sSearch]
+    if search_key.present?
+      invoices = Kaui::KillbillHelper::search_invoices(search_key, params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
+    else
+      invoices = Kaui::KillbillHelper::get_invoices(params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
+    end
     json[:iTotalDisplayRecords] = invoices.pagination_total_nb_records
     json[:iTotalRecords] = invoices.pagination_max_nb_records
 

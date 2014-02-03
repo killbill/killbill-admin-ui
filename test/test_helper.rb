@@ -86,7 +86,7 @@ module Kaui::KillbillHelper
     []
   end
 
-  def self.get_bundles(account_id, options = {})
+  def self.get_bundles_for_account(account_id, options = {})
     []
   end
 

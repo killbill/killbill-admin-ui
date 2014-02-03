@@ -151,7 +151,15 @@ module Kaui
       end
     end
 
-    def self.get_bundles(account_id, options = {})
+    def self.get_bundles(offset, limit, options = {})
+      KillBillClient::Model::Bundle.find_in_batches offset, limit, options
+    end
+
+    def self.search_bundles(search_key, offset, limit, options = {})
+      KillBillClient::Model::Bundle.find_in_batches_by_search_key search_key, offset, limit, options
+    end
+
+    def self.get_bundles_for_account(account_id, options = {})
       account = KillBillClient::Model::Account.find_by_id account_id, false, false, options
       account.bundles options
     end
@@ -227,6 +235,10 @@ module Kaui
 
     def self.get_invoices(offset, limit, options = {})
       KillBillClient::Model::Invoice.find_in_batches offset, limit, options
+    end
+
+    def self.search_invoices(search_key, offset, limit, options = {})
+      KillBillClient::Model::Invoice.find_in_batches_by_search_key search_key, offset, limit, options
     end
 
     def self.get_invoice(id_or_number, with_items = true, audit = "NONE", options = {})

@@ -6,6 +6,32 @@ class Kaui::BundlesController < Kaui::EngineController
     end
   end
 
+  def pagination
+    json = { :sEcho => params[:sEcho], :iTotalRecords => 0, :iTotalDisplayRecords => 0, :aaData => [] }
+
+    search_key = params[:sSearch]
+    if search_key.present?
+      bundles = Kaui::KillbillHelper::search_bundles(search_key, params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
+    else
+      bundles = Kaui::KillbillHelper::get_bundles(params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
+    end
+    json[:iTotalDisplayRecords] = bundles.pagination_total_nb_records
+    json[:iTotalRecords] = bundles.pagination_max_nb_records
+
+    bundles.each do |bundle|
+      json[:aaData] << [
+                         view_context.link_to(bundle.bundle_id, view_context.url_for(:action => :show, :id => bundle.bundle_id)),
+                         view_context.link_to(bundle.account_id, view_context.url_for(:controller => :accounts, :action => :show, :id => bundle.account_id)),
+                         bundle.external_key,
+                         bundle.subscriptions.nil? ? '' : (bundle.subscriptions.map { |s| s.product_name }).join(', ')
+                       ]
+    end
+
+    respond_to do |format|
+      format.json { render :json => json }
+    end
+  end
+
   def show
     key = params[:id]
     if key.present?

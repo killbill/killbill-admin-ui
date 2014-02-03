@@ -54,7 +54,7 @@ class Kaui::ChargebacksController < Kaui::EngineController
       # Cancel all subscriptions on the account, if required
       if should_cancel_subs
         begin
-          bundles = Kaui::KillbillHelper::get_bundles(params[:account_id], options_for_klient)
+          bundles = Kaui::KillbillHelper::get_bundles_for_account(params[:account_id], options_for_klient)
           bundles.each do |bundle|
             bundle.subscriptions.each do |subscription|
               # Already cancelled?

@@ -1,14 +1,27 @@
-<%= form_tag bundles_path, :class => "form-horizontal", :method => :get do %>
-  <fieldset>
-    <legend>Please enter bundle id</legend>
-    <div class="control-group">
-      <label class="control-label" for="bundle_id">Bundle</label>
-      <div class="controls">
-        <%= text_field_tag 'bundle_id', nil, :class => "input-xlarge", :id => "bundle_id" %>
-      </div>
-    </div>
-    <div class="form-actions">
-      <%= button_tag "Search", :class =>"btn btn-primary" %>
-    </div>
-  </fieldset>
+<table id="bundles-table" class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Bundle ID</th>
+      <th>Account ID</th>
+      <th>External key</th>
+      <th>Subscriptions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" class="dataTables_empty">Loading data from server</td>
+    </tr>
+  </tbody>
+</table>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $('#bundles-table').dataTable({
+    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+    "sPaginationType": "bootstrap",
+    "bProcessing": true,
+    "bServerSide": true,
+    "sAjaxSource": "<%= bundles_pagination_path :format => :json %>"
+  });
+});
 <% end %>
