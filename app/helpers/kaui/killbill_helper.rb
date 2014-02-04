@@ -304,11 +304,6 @@ module Kaui
 
     ############## CATALOG ##############
 
-    def self.get_full_catalog(options = {})
-      data = call_killbill :get, "/1.0/kb/catalog/simpleCatalog", options
-      data[:json]
-    end
-
     def self.get_available_addons(base_product_name, options = {})
       data = call_killbill :get, "/1.0/kb/catalog/availableAddons?baseProductName=#{base_product_name}", options
       if data.has_key?(:json)
@@ -416,7 +411,6 @@ module Kaui
     end
 
     def self.create_refund(payment_id, refund, current_user = nil, reason = nil, comment = nil, options = {})
-
       new_refund = KillBillClient::Model::Refund.new
       new_refund.payment_id = payment_id
       new_refund.amount = refund["amount"]
@@ -445,7 +439,6 @@ module Kaui
     end
 
     def self.create_chargeback(chargeback, current_user = nil, reason = nil, comment = nil, options = {})
-
       new_chargeback = KillBillClient::Model::Chargeback.new
       new_chargeback.payment_id = chargeback.payment_id
       new_chargeback.amount = chargeback.chargeback_amount
@@ -545,11 +538,6 @@ module Kaui
 
     def self.search_custom_fields(search_key, offset, limit, options = {})
       KillBillClient::Model::CustomField.find_in_batches_by_search_key search_key, offset, limit, options
-    end
-
-    def self.get_custom_fields_for_account(account_id, options = {})
-      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/customFields", options
-      process_response(data, :multiple) { |json| Kaui::CustomField.new(json) }
     end
 
     ############## OVERDUE ##############
