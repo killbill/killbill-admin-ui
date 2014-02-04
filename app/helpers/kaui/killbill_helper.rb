@@ -147,9 +147,37 @@ module Kaui
       else
         raise ArgumentError.new("account id not specified") if account_id.blank?
         bundles = KillBillClient::Model::Bundle.find_all_by_account_id_and_external_key account_id, key, options
-        bundles.empty? ? nil : bundles[-1]
+        get_active_bundle_or_latest_created(bundles)
       end
     end
+
+    def self.get_active_bundle_or_latest_created(bundles)
+
+      if bundles.empty?
+        return nil
+      end
+
+      latest_start_date = nil
+      latest_bundle = nil
+
+      bundles.each do |b|
+        b.subscriptions.each do |s|
+          if s.product_category != 'ADD_ON'
+            if latest_start_date.nil? || latest_start_date < s.start_date
+              latest_start_date = s.start_date
+              latest_bundle = b
+            end
+
+            if s.cancelled_date.nil? || s.cancelled_date > Time.now
+              return b
+            end
+          end
+        end
+      end
+
+      latest_bundle
+    end
+
 
     def self.get_bundles(offset, limit, options = {})
       KillBillClient::Model::Bundle.find_in_batches offset, limit, options
