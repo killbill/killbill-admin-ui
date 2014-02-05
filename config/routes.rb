@@ -35,7 +35,7 @@ Kaui::Engine.routes.draw do
     end
   end
 
-  resources :chargebacks, :only => [ :show, :create, :new ]
+  resources :chargebacks, :only => [ :create, :new ]
 
   resources :credits, :only => [ :create, :new ]
 

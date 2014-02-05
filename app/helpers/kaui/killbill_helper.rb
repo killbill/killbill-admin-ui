@@ -461,11 +461,6 @@ module Kaui
 
     ############## CHARGEBACK ##############
 
-    def self.get_chargebacks_for_payment(payment_id, options = {})
-      data = call_killbill :get, "/1.0/kb/chargebacks/payments/#{payment_id}", options
-      process_response(data, :multiple) { |json| Kaui::Chargeback.new(json) }
-    end
-
     def self.create_chargeback(chargeback, current_user = nil, reason = nil, comment = nil, options = {})
       new_chargeback = KillBillClient::Model::Chargeback.new
       new_chargeback.payment_id = chargeback.payment_id

@@ -1,23 +1,4 @@
 class Kaui::ChargebacksController < Kaui::EngineController
-
-  def show
-    @payment_id = params[:id]
-    if @payment_id.present?
-      begin
-        data = Kaui::KillbillHelper::get_chargebacks_for_payment(@payment_id, options_for_klient)
-      rescue => e
-        flash.now[:error] = "Error while getting chargeback information: #{as_string(e)}"
-      end
-      if data.present?
-        @chargeback = Kaui::Chargeback.new(data)
-      else
-        Rails.logger.warn("Did not get back chargebacks #{response_body}")
-      end
-    else
-      flash.now[:notice] = "No id given"
-    end
-  end
-
   def new
     @payment_id = params[:payment_id]
     @account_id = params[:account_id]
