@@ -28,6 +28,9 @@ name of the logged-in user. This is used by Killbill for auditing purposes.
 
 Finally, Killbill server needs to be running for Kaui to fetch its information. Set the `KILLBILL_URL`
 variable to point to your existing Killbill installation (e.g. http://killbill.company.com:8080).
+The default login credentials are admin/password.  Users, Credentials, Roles and Permissions are 
+passed through to Kill Bill. It uses Basic Auth by default, but the backend is pluggable (LDAP, 
+ActiveDirectory, etc.).
 
 
 Multi-Tenancy
