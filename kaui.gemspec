@@ -34,9 +34,9 @@ Gem::Specification.new do |s|
   s.add_development_dependency "fakeweb", '~> 1.3'
 
   if defined?(JRUBY_VERSION)
-    s.add_development_dependency 'activerecord-jdbc-adapter', '~> 1.2.2'
-    s.add_development_dependency 'activerecord-jdbcmysql-adapter', '~> 1.2.2'
-    s.add_development_dependency 'activerecord-jdbcsqlite3-adapter', '~> 1.2.2'
+    s.add_development_dependency 'activerecord-jdbc-adapter', '~> 1.3.9'
+    s.add_development_dependency 'activerecord-jdbcmysql-adapter', '~> 1.3.9'
+    s.add_development_dependency 'activerecord-jdbcsqlite3-adapter', '~> 1.3.9'
     s.add_development_dependency 'jdbc-mysql', '~> 5.1.25'
   else
     s.add_development_dependency 'sqlite3'
