@@ -39,6 +39,7 @@ Multi-Tenancy
 If you are using Kaui against a single tenant, specify your api key and secret in ```config/initializers/killbill_client.rb```:
 
 ```
+KillBillClient.url = 'http://127.0.0.1:8080/'
 KillBillClient.api_key = 'bob'
 KillBillClient.api_secret = 'lazar'
 ```
