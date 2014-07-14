@@ -1,4 +1,4 @@
-class Kaui::Payment < KillBillClient::Model::Payment
+class Kaui::InvoicePayment < KillBillClient::Model::InvoicePayment
 
   SAMPLE_REASON_CODES = [ '600 - Alt payment method',
                           '699 - OTHER']

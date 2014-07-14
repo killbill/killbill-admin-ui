@@ -348,14 +348,6 @@ module Kaui
 
     ############## PAYMENT ##############
 
-    def self.get_payments(offset, limit, options = {})
-      KillBillClient::Model::Payment.find_in_batches offset, limit, options
-    end
-
-    def self.search_payments(search_key, offset, limit, options = {})
-      KillBillClient::Model::Payment.find_in_batches_by_search_key search_key, offset, limit, options
-    end
-
     def self.get_payment(payment_id, options = {})
       data = call_killbill :get, "/1.0/kb/payments/#{payment_id}", options
       process_response(data, :single) { |json| Kaui::Payment.new(json) }
