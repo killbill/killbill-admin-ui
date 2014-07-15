@@ -92,15 +92,6 @@ module Kaui
       end
     end
 
-    def self.get_account_timeline(account_id, audit = "MINIMAL", options = {})
-      KillBillClient::Model::AccountTimeline.find_by_account_id account_id, audit, options
-    end
-
-    def self.get_account(account_id, with_balance = false, with_balance_and_cba = false, options = {})
-      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}?accountWithBalance=#{with_balance}&accountWithBalanceAndCBA=#{with_balance_and_cba}", options
-      process_response(data, :single) { |json| Kaui::Account.new(json) }
-    end
-
     def self.get_account_by_external_key(external_key, with_balance = false, with_balance_and_cba = false, options = {})
       data = call_killbill :get, "/1.0/kb/accounts?externalKey=#{external_key}&accountWithBalance=#{with_balance}&accountWithBalanceAndCBA=#{with_balance_and_cba}", options
       process_response(data, :single) { |json| Kaui::Account.new(json) }
@@ -267,10 +258,6 @@ module Kaui
 
     def self.search_invoices(search_key, offset, limit, options = {})
       KillBillClient::Model::Invoice.find_in_batches_by_search_key search_key, offset, limit, options
-    end
-
-    def self.get_invoice(id_or_number, with_items = true, audit = "NONE", options = {})
-      KillBillClient::Model::Invoice.find_by_id_or_number id_or_number, with_items, audit, options
     end
 
     def self.get_invoice_item(invoice_id, invoice_item_id, options = {})

@@ -23,15 +23,13 @@ module Kaui
     end
 
     test 'should create payments' do
-      invoice_item = create_charge
-
       # Verify we can pre-populate the payment
-      get :new, :account_id => invoice_item.account_id, :invoice_id => invoice_item.invoice_id
+      get :new, :account_id => @invoice_item.account_id, :invoice_id => @invoice_item.invoice_id
       assert_response 200
       assert_not_nil assigns(:payment)
 
       # Create the payment
-      post :create, :invoice_payment => {:account_id => invoice_item.account_id, :target_invoice_id => invoice_item.invoice_id, :purchased_amount => invoice_item.amount }, :external => 1
+      post :create, :invoice_payment => {:account_id => @invoice_item.account_id, :target_invoice_id => @invoice_item.invoice_id, :purchased_amount => @invoice_item.amount }, :external => 1
       assert_response 302
 
       # Test pagination

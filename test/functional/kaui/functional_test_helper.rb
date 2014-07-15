@@ -9,6 +9,13 @@ module Kaui
     #
 
     def setup_functional_test
+      # Create useful data to exercise the code
+      @tenant            = create_tenant
+      @account           = create_account(@tenant)
+      @invoice_item      = create_charge(@account, @tenant)
+      @paid_invoice_item = create_charge(@account, @tenant)
+      @payment           = create_payment(@paid_invoice_item, @account, @tenant)
+
       @routes                        = Engine.routes
       @request.env['devise.mapping'] = Devise.mappings[:user]
 
@@ -48,7 +55,7 @@ module Kaui
     # Return a new test account
     def create_account(tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
       tenant       = create_tenant if tenant.nil?
-      external_key = Time.now.to_i.to_s
+      external_key = SecureRandom.uuid.to_s
 
       account                          = KillBillClient::Model::Account.new
       account.name                     = 'Kaui'
@@ -71,8 +78,8 @@ module Kaui
 
     # Return the created external charge
     def create_charge(account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
-      tenant  = create_tenant if tenant.nil?
-      account = create_account(tenant) if account.nil?
+      tenant  = create_tenant(user, reason, comment) if tenant.nil?
+      account = create_account(tenant, username, password, user, reason, comment) if account.nil?
 
       invoice_item            = KillBillClient::Model::InvoiceItem.new
       invoice_item.account_id = account.account_id
@@ -82,9 +89,18 @@ module Kaui
       invoice_item.create(user, reason, comment, build_options(tenant, username, password))
     end
 
+    def create_payment(invoice_item = nil, account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
+      tenant       = create_tenant(user, reason, comment) if tenant.nil?
+      account      = create_account(tenant, username, password, user, reason, comment) if account.nil?
+      invoice_item = create_charge(account, tenant, username, password, user, reason, comment) if invoice_item.nil?
+
+      payment = Kaui::InvoicePayment.new({:account_id => account.account_id, :target_invoice_id => invoice_item.invoice_id, :purchased_amount => invoice_item.amount})
+      payment.create(true, user, reason, comment, build_options(tenant, username, password))
+    end
+
     # Return a new test tenant
     def create_tenant(user = 'Kaui test', reason = nil, comment = nil)
-      api_key    = Time.now.to_i.to_s
+      api_key    = SecureRandom.uuid.to_s
       api_secret = 'S4cr3333333t!!!!!!lolz'
 
       tenant            = KillBillClient::Model::Tenant.new
