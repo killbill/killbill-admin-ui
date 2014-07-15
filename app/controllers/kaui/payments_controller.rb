@@ -18,19 +18,18 @@ class Kaui::PaymentsController < Kaui::EngineController
     payments.each do |payment|
       created_date = nil
       payment.transactions.each do |transaction|
-        # TODO
-        #transaction_date = Date.parse(transaction.effective_date)
-        #if created_date.nil? or transaction_date < created_date
-        #  created_date = transaction_date
-        #end
+        transaction_date = Date.parse(transaction.effective_date)
+        if created_date.nil? or transaction_date < created_date
+          created_date = transaction_date
+        end
       end
 
       json[:aaData] << [
           view_context.link_to(payment.account_id, view_context.url_for(:controller => :accounts, :action => :show, :id => payment.account_id)),
           payment.payment_number,
           view_context.format_date(created_date),
-          view_context.humanized_money_with_symbol(Kaui::Base.to_money(payment.captured_amount + payment.purchased_amount, payment.currency)),
-          view_context.humanized_money_with_symbol(Kaui::Base.to_money(payment.refunded_amount + payment.credited_amount, payment.currency))
+          view_context.humanized_money_with_symbol(payment.paid_amount_to_money),
+          view_context.humanized_money_with_symbol(payment.returned_amount_to_money)
       ]
     end
 
@@ -55,7 +54,7 @@ class Kaui::PaymentsController < Kaui::EngineController
     end
 
     begin
-      @invoice = Kaui::KillbillHelper::get_invoice(invoice_id, true, "NONE", options_for_klient)
+      @invoice = Kaui::Invoice.find_by_id_or_number(invoice_id, true, 'NONE', options_for_klient)
       amount   = @invoice.balance
     rescue => e
       flash[:error] = "Unable to retrieve invoice: #{as_string(e)}"
@@ -63,7 +62,7 @@ class Kaui::PaymentsController < Kaui::EngineController
     end
 
     begin
-      @account = Kaui::KillbillHelper::get_account(account_id, false, false, options_for_klient)
+      @account = Kaui::Account.find_by_id(account_id, false, false, options_for_klient)
     rescue => e
       flash[:error] = "Unable to retrieve account: #{as_string(e)}"
       render :action => :index and return
@@ -73,7 +72,7 @@ class Kaui::PaymentsController < Kaui::EngineController
   end
 
   def create
-    payment          = Kaui::InvoicePayment.new(params[:invoice_payment])
+    payment = Kaui::InvoicePayment.new(params[:invoice_payment])
 
     begin
       payment        = payment.create(params[:external] == '1', current_user, params[:reason], params[:comment], options_for_klient)

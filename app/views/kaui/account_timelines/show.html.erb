@@ -178,21 +178,23 @@
                 <% end %>
               </td>
               <td>
-                <% if can? :refund, Kaui::Payment %>
-                    <nobr>
-                      <%= link_to 'Refund', kaui_engine.new_refund_path(:params => {:payment_id => payment.payment_id,
-                                                                                    :account_id => @account.account_id,
-                                                                                    :invoice_id => payment.target_invoice_id}),
-                                  :class => "btn btn-mini #{"disabled" unless payment.payment_id.present? and transaction.status == 'SUCCESS' }" %>
-                    </nobr>
-                <% end %>
-                <% if can? :chargeback, Kaui::Payment %>
-                    <nobr>
-                      <%= link_to 'Chargeback', kaui_engine.new_chargeback_path(:params => {:payment_id => payment.payment_id,
-                                                                                            :account_id => @account.account_id,
-                                                                                            :invoice_id => payment.target_invoice_id}),
-                                  :class => "btn btn-mini #{"disabled" unless payment.payment_id.present? and transaction.status == 'SUCCESS'}" %>
-                    </nobr>
+                <% if %w(CAPTURE PURCHASE).include?(transaction.transaction_type) %>
+                    <% if can? :refund, Kaui::Payment %>
+                        <nobr>
+                          <%= link_to 'Refund', kaui_engine.new_refund_path(:params => {:payment_id => payment.payment_id,
+                                                                                        :account_id => @account.account_id,
+                                                                                        :invoice_id => payment.target_invoice_id}),
+                                      :class => "btn btn-mini #{"disabled" unless payment.payment_id.present? and transaction.status == 'SUCCESS' }" %>
+                        </nobr>
+                    <% end %>
+                    <% if can? :chargeback, Kaui::Payment %>
+                        <nobr>
+                          <%= link_to 'Chargeback', kaui_engine.new_chargeback_path(:params => {:payment_id => payment.payment_id,
+                                                                                                :account_id => @account.account_id,
+                                                                                                :invoice_id => payment.target_invoice_id}),
+                                      :class => "btn btn-mini #{"disabled" unless payment.payment_id.present? and transaction.status == 'SUCCESS'}" %>
+                        </nobr>
+                    <% end %>
                 <% end %>
               </td>
             </tr>

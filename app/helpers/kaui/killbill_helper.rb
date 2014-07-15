@@ -252,14 +252,6 @@ module Kaui
 
     ############## INVOICE ##############
 
-    def self.get_invoices(offset, limit, options = {})
-      KillBillClient::Model::Invoice.find_in_batches offset, limit, options
-    end
-
-    def self.search_invoices(search_key, offset, limit, options = {})
-      KillBillClient::Model::Invoice.find_in_batches_by_search_key search_key, offset, limit, options
-    end
-
     def self.get_invoice_item(invoice_id, invoice_item_id, options = {})
       # Find the item from the invoice
       # TODO add killbill-server API
@@ -279,11 +271,6 @@ module Kaui
         item.send("#{attribute}=".to_sym, value) : next
       end
       item
-    end
-
-    def self.get_invoice_html(invoice_id, options = {})
-      data = call_killbill :get, "/1.0/kb/invoices/#{invoice_id}/html", options
-      data[:body] if data.present?
     end
 
     def self.adjust_invoice(invoice_item, current_user = nil, reason = nil, comment = nil, options = {})
@@ -415,27 +402,6 @@ module Kaui
 
     def self.get_refunds_for_payment(payment_id, options = {})
       KillBillClient::Model::Refund.find_all_by_payment_id payment_id, options
-    end
-
-    def self.create_refund(payment_id, refund, current_user = nil, reason = nil, comment = nil, options = {})
-      new_refund = KillBillClient::Model::Refund.new
-      new_refund.payment_id = payment_id
-      new_refund.amount = refund["amount"]
-      new_refund.adjusted = refund["adjusted"]
-      if ! refund["adjustments"].nil?
-        new_refund.adjustments = []
-        refund["adjustments"].each do |a|
-          item = KillBillClient::Model::InvoiceItemAttributes.new
-          item.invoice_item_id = a.invoice_item_id
-          item.amount = a.amount.to_f unless a.amount.nil?
-          new_refund.adjustments << item
-        end
-      end
-      #no need to pass adjustment_type
-      new_refund.create(extract_created_by(current_user),
-                        extract_reason_code(reason),
-                        comment,
-                        options)
     end
 
     ############## CHARGEBACK ##############

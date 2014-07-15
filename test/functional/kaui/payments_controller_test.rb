@@ -10,6 +10,11 @@ module Kaui
       setup_functional_test
     end
 
+    test 'should get index' do
+      get :index
+      assert_response 200
+    end
+
     test 'should list payments' do
       # Test pagination
       get :pagination, :format => :json

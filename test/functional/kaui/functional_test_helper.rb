@@ -20,8 +20,6 @@ module Kaui
       @request.env['devise.mapping'] = Devise.mappings[:user]
 
       # Login
-      get :index
-      assert_redirected_to :new_user_session
       login_as_admin
     end
 
@@ -29,6 +27,7 @@ module Kaui
       assert_response 200
 
       body = MultiJson.decode(@response.body)
+      # We could probably do better checks here since each test runs in its own tenant
       assert body['iTotalRecords'] >= min
       assert body['iTotalDisplayRecords'] >= min
       assert body['aaData'].instance_of?(Array)
@@ -36,6 +35,7 @@ module Kaui
 
     def login_as_admin
       wrap_with_controller do
+        get :new
         post :create, {:user => {:kb_username => USERNAME, :password => PASSWORD}}
       end
     end
@@ -70,7 +70,7 @@ module Kaui
       account.city                     = 'SnakeCase'
       account.state                    = 'Awesome'
       account.country                  = 'LalaLand'
-      account.locale                   = 'FR_fr'
+      account.locale                   = 'fr_FR'
       account.is_notified_for_invoices = false
 
       account.create(user, reason, comment, build_options(tenant, username, password))

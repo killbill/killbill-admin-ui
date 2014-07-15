@@ -1,21 +1,47 @@
 require 'test_helper'
+require 'functional/kaui/functional_test_helper'
 
-class Kaui::InvoicesControllerTest < ActionController::TestCase
-  fixtures :accounts, :invoices
+module Kaui
+  class InvoicesControllerTest < ActionController::TestCase
 
-  test "should get index" do
-    get :index, :use_route => 'kaui'
-    assert_response :success
-  end
+    include FunctionalTestHelper
 
-  test "should find invoice by id" do
-    pierre = accounts(:pierre)
-    invoice = invoices(:invoice_for_pierre)
+    setup do
+      setup_functional_test
+    end
 
-    get :show, :id => invoice["invoiceId"], :use_route => 'kaui'
-    assert_response :success
-    assert_equal assigns(:account).account_id, pierre["accountId"]
-    assert_equal assigns(:invoice).invoice_id, invoice["invoiceId"]
-    assert_equal assigns(:invoice).account_id, pierre["accountId"]
+    test 'should get index' do
+      get :index
+      assert_response 200
+    end
+
+    test 'should list invoices' do
+      # Test pagination
+      get :pagination, :format => :json
+      verify_pagination_results!
+    end
+
+    test 'should search invoices' do
+      # Test search
+      get :pagination, :sSearch => 'foo', :format => :json
+      verify_pagination_results!
+    end
+
+    test 'should find invoice by id' do
+      get :show, :id => @invoice_item.invoice_id
+      assert_response 200
+
+      assert_not_nil assigns(:account)
+      assert_not_nil assigns(:invoice)
+
+      assert_equal assigns(:account).account_id, @account.account_id
+      assert_equal assigns(:invoice).invoice_id, @invoice_item.invoice_id
+    end
+
+    test 'should render HTML invoice' do
+      get :show_html, :id => @invoice_item.invoice_id
+      assert_response 200
+      assert_nil flash.now[:error]
+    end
   end
 end

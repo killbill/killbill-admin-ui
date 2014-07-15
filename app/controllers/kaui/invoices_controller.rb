@@ -10,9 +10,9 @@ class Kaui::InvoicesController < Kaui::EngineController
 
     search_key = params[:sSearch]
     if search_key.present?
-      invoices = Kaui::KillbillHelper::search_invoices(search_key, params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
+      invoices = Kaui::Invoice.find_in_batches_by_search_key(search_key, params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
     else
-      invoices = Kaui::KillbillHelper::get_invoices(params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
+      invoices = Kaui::Invoice.find_in_batches(params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
     end
     json[:iTotalDisplayRecords] = invoices.pagination_total_nb_records
     json[:iTotalRecords] = invoices.pagination_max_nb_records
@@ -22,8 +22,8 @@ class Kaui::InvoicesController < Kaui::EngineController
                          view_context.link_to(invoice.invoice_id, view_context.url_for(:controller => :invoices, :action => :show, :id => invoice.invoice_id)),
                          invoice.invoice_number,
                          view_context.format_date(invoice.invoice_date),
-                         view_context.humanized_money_with_symbol(Kaui::Base.to_money(invoice.amount, invoice.currency)),
-                         view_context.humanized_money_with_symbol(Kaui::Base.to_money(invoice.balance, invoice.currency))
+                         view_context.humanized_money_with_symbol(invoice.amount_to_money),
+                         view_context.humanized_money_with_symbol(invoice.balance.to_money)
                        ]
     end
 
@@ -75,13 +75,13 @@ class Kaui::InvoicesController < Kaui::EngineController
         flash.now[:error] = "Error while getting information for invoice #{invoice_id_or_number}: #{as_string(e)}"
       end
     else
-      flash.now[:error] = "No id given"
+      flash.now[:error] = 'No id given'
     end
   end
 
   def show_html
     begin
-      render :text => Kaui::KillbillHelper.get_invoice_html(params[:id], options_for_klient)
+      render :text => Kaui::Invoice.as_html(params[:id], options_for_klient)
     rescue => e
       flash.now[:error] = "Error rendering invoice html #{params[:id]}: #{as_string(e)}"
       render :action => :index
