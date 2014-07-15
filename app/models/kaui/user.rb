@@ -33,6 +33,8 @@ module Kaui
                                                              :api_key => api_key,
                                                              :api_secret => api_secret
       subject.is_authenticated
+    rescue KillBillClient::API::Unauthorized => e
+      false
     end
 
     private
