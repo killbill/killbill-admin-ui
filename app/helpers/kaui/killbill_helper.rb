@@ -480,20 +480,6 @@ module Kaui
       account.overdue(options)
     end
 
-    ############## ANALYTICS ##############
-
-    def self.get_account_snapshot(account_id, options = {})
-      data = call_killbill :get, "/plugins/killbill-analytics/#{account_id}", options
-      process_response(data, :single) { |json| Kaui::BusinessSnapshot.new(json) }
-    end
-
-    def self.refresh_account(account_id, current_user = nil, reason = nil, comment = nil, options = {})
-      call_killbill :put,
-                    "/plugins/killbill-analytics/#{account_id}",
-                    nil,
-                    build_audit_headers(current_user, reason, comment, options)
-    end
-
     def self.before_all
       methods.each do |method_name|
         method = method(method_name)
