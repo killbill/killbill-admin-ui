@@ -79,24 +79,6 @@ module Kaui
       KillBillClient::Model::Account.find_in_batches_by_search_key search_key, offset, limit, false, false, options
     end
 
-    def self.get_account_by_key_with_balance_and_cba(key, options = {})
-      self.get_account_by_key(key, false, true, options)
-    end
-
-    def self.get_account_by_key(key, with_balance = false, with_balance_and_cba = false, options = {})
-      # support id (UUID) and external key search
-      if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
-        Kaui::KillbillHelper.get_account(key, with_balance, with_balance_and_cba, options)
-      else
-        Kaui::KillbillHelper.get_account_by_external_key(key, with_balance, with_balance_and_cba, options)
-      end
-    end
-
-    def self.get_account_by_external_key(external_key, with_balance = false, with_balance_and_cba = false, options = {})
-      data = call_killbill :get, "/1.0/kb/accounts?externalKey=#{external_key}&accountWithBalance=#{with_balance}&accountWithBalanceAndCBA=#{with_balance_and_cba}", options
-      process_response(data, :single) { |json| Kaui::Account.new(json) }
-    end
-
     def self.get_account_by_bundle_id(bundle_id, options = {})
       bundle = get_bundle(bundle_id, options)
       get_account(bundle.account_id, false, false, options)
@@ -176,11 +158,6 @@ module Kaui
 
     def self.search_bundles(search_key, offset, limit, options = {})
       KillBillClient::Model::Bundle.find_in_batches_by_search_key search_key, offset, limit, options
-    end
-
-    def self.get_bundles_for_account(account_id, options = {})
-      account = KillBillClient::Model::Account.find_by_id account_id, false, false, options
-      account.bundles options
     end
 
     def self.transfer_bundle(bundle_id, new_account_id, cancel_immediately = false, transfer_addons = true, current_user = nil, reason = nil, comment = nil, options = {})
@@ -356,10 +333,6 @@ module Kaui
       KillBillClient::Model::PaymentMethod.destroy payment_method_id, set_auto_pay_off, extract_created_by(current_user), extract_reason_code(reason), comment, options
     end
 
-    def self.get_non_external_payment_methods(account_id, options = {})
-      KillBillClient::Model::PaymentMethod.find_all_by_account_id(account_id, true, options).reject { |x| x.plugin_name == '__EXTERNAL_PAYMENT__' }
-    end
-
     def self.set_payment_method_as_default(account_id, payment_method_id, current_user = nil, reason = nil, comment = nil, options = {})
       KillBillClient::Model::PaymentMethod.set_default payment_method_id, account_id, extract_created_by(current_user), extract_reason_code(reason), comment, options
     end
@@ -429,10 +402,6 @@ module Kaui
                     build_audit_headers(current_user, reason, comment, options)
     end
 
-    def self.get_tags_for_account(account_id, included_deleted = false, audit = "NONE", options = {})
-      KillBillClient::Model::Tag.find_all_by_account_id account_id, included_deleted, audit, options
-    end
-
     def self.get_tags_for_bundle(bundle_id, options = {})
       data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}/tags", options
       return data[:json]
@@ -470,14 +439,6 @@ module Kaui
 
     def self.search_custom_fields(search_key, offset, limit, options = {})
       KillBillClient::Model::CustomField.find_in_batches_by_search_key search_key, offset, limit, options
-    end
-
-    ############## OVERDUE ##############
-
-    def self.get_overdue_state_for_account(account_id, options = {})
-      account = KillBillClient::Model::Account.new
-      account.account_id = account_id
-      account.overdue(options)
     end
 
     def self.before_all

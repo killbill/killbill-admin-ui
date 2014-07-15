@@ -208,14 +208,14 @@
                 <tr title="<%= @bundle_names[bundle.external_key] %>" data-event_type="<%= event.event_type %>">
                   <td>
                     <% if event.requested_date.present? %>
-                        <%= format_date(event.requested_date, @account.timezone).html_safe %>
+                        <%= format_date(event.requested_date, @account.time_zone).html_safe %>
                     <% else %>
                         [unknown]
                     <% end %>
                   </td>
                   <td>
                     <% if event.effective_date.present? %>
-                        <%= format_date(event.effective_date, @account.timezone).html_safe %>
+                        <%= format_date(event.effective_date, @account.time_zone).html_safe %>
                     <% else %>
                         [unknown]
                     <% end %>

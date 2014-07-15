@@ -7,15 +7,15 @@
     <dt>Email:</dt>
     <dd><%= @account.email %>&nbsp;</dd>
     <dt>Bill cycle day:</dt>
-    <% if @account.bill_cycle_day %>
-      <dd><%= @account.bill_cycle_day %> (user timezone)</dd>
+    <% if @account.bill_cycle_day_local %>
+      <dd><%= @account.bill_cycle_day_local %> (user timezone)</dd>
     <% else %>
       <dd><%=t :unknown_bcd %></dd>
     <% end %>
     <dt>Currency:</dt>
     <dd><%= @account.currency %>&nbsp;</dd>
     <dt>Timezone:</dt>
-    <dd><%= @account.timezone %>&nbsp;</dd>
+    <dd><%= @account.time_zone %>&nbsp;</dd>
     <dt>Address 1:</dt>
     <dd><%= @account.address1 %>&nbsp;</dd>
     <dt>Address 2:</dt>
@@ -39,9 +39,9 @@
          <dd><span class='label label-important'><%= @overdue_state.name %></span><dd>
     <% end %>
     <dt>Account balance:</dt>
-    <% if @account.balance.nil? %>
+    <% if @account.account_balance.nil? %>
         <dd>unknown</dd>
-    <% elsif @account.balance <= 0  %>
+    <% elsif @account.account_balance <= 0  %>
         <dd><span class="label label-success" ><%= humanized_money_with_symbol @account.balance_to_money %> (<%= @account.currency %>)</span>
     <% else %>
         <dd><span class="label label-important" ><%= humanized_money_with_symbol @account.balance_to_money %> (<%= @account.currency %>)</span>
@@ -52,7 +52,7 @@
           <%= link_to 'Payment',
                       kaui_engine.pay_all_invoices_account_path(@account.account_id),
                       :method => :post,
-                      :class => "btn btn-mini #{"disabled" if !@account.balance.nil? and @account.balance <= 0}" %>
+                      :class => "btn btn-mini #{"disabled" if !@account.account_balance.nil? and @account.account_balance <= 0}" %>
         </nobr>
         <% if can? :credit, Kaui::Account %>
           <nobr>
@@ -70,9 +70,9 @@
         <% end %>
         </dd>
     <dt>Account credit:</dt>
-    <% if @account.cba.nil? %>
+    <% if @account.account_cba.nil? %>
         <dd>unknown
-    <% elsif @account.cba >= 0  %>
+    <% elsif @account.account_cba >= 0  %>
         <dd><span class="label label-success" ><%= humanized_money_with_symbol @account.cba_to_money %> (<%= @account.currency %>)</span>
     <% else %>
         <dd><span class="label label-important" ><%= humanized_money_with_symbol @account.cba_to_money %> (<%= @account.currency %>)</span>

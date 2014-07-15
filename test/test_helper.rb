@@ -27,4 +27,6 @@ class ActionController::TestCase
   end
 end
 
+require 'killbill_test_helper'
 require 'functional/kaui/functional_test_helper'
+require 'integration/kaui/integration_test_helper'

@@ -6,7 +6,7 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def pagination
-    json = { :sEcho => params[:sEcho], :iTotalRecords => 0, :iTotalDisplayRecords => 0, :aaData => [] }
+    json = {:sEcho => params[:sEcho], :iTotalRecords => 0, :iTotalDisplayRecords => 0, :aaData => []}
 
     search_key = params[:sSearch]
     if search_key.present?
@@ -15,17 +15,17 @@ class Kaui::AccountsController < Kaui::EngineController
       accounts = Kaui::KillbillHelper::get_accounts(params[:iDisplayStart] || 0, params[:iDisplayLength] || 10, options_for_klient)
     end
     json[:iTotalDisplayRecords] = accounts.pagination_total_nb_records
-    json[:iTotalRecords] = accounts.pagination_max_nb_records
+    json[:iTotalRecords]        = accounts.pagination_max_nb_records
 
     accounts.each do |account|
       json[:aaData] << [
-                         view_context.link_to(account.account_id, view_context.url_for(:action => :show, :id => account.account_id)),
-                         account.name,
-                         account.external_key,
-                         account.currency,
-                         account.city,
-                         account.country
-                       ]
+          view_context.link_to(account.account_id, view_context.url_for(:action => :show, :id => account.account_id)),
+          account.name,
+          account.external_key,
+          account.currency,
+          account.city,
+          account.country
+      ]
     end
 
     respond_to do |format|
@@ -35,43 +35,37 @@ class Kaui::AccountsController < Kaui::EngineController
 
   def show
     @key = params[:id]
-    if @key.present?
-      # Remove extra whitespaces
-      @key.strip!
+    unless @key.present?
+      flash.now[:error] = 'No id given' and return
+    end
+    # Remove extra whitespaces
+    @key.strip!
 
-      begin
-        @account = Kaui::KillbillHelper::get_account_by_key_with_balance_and_cba(@key, options_for_klient)
-      rescue URI::InvalidURIError => e
-        flash.now[:error] = "Error while retrieving the account for #{@key}: #{e.message}"
-        render :action => :index and return
-      rescue => e
-        flash.now[:error] = "Error while retrieving the account for #{@key}: #{as_string(e)}"
-        render :action => :index and return
-      end
-
-      if @account.present? and @account.is_a? Kaui::Account
-        begin
-          @tags = Kaui::KillbillHelper::get_tags_for_account(@account.account_id, false, "NONE", options_for_klient).sort { |tag_a, tag_b| tag_a.tag_definition_name.downcase <=> tag_b.tag_definition_name.downcase }
-          @account_emails = Kaui::AccountEmail.where({ :account_id => @account.account_id }, options_for_klient)
-          @overdue_state = Kaui::KillbillHelper::get_overdue_state_for_account(@account.account_id, options_for_klient)
-          @payment_methods = Kaui::KillbillHelper::get_non_external_payment_methods(@account.account_id, options_for_klient)
-          @bundles = Kaui::KillbillHelper::get_bundles_for_account(@account.account_id, options_for_klient)
-
-          @subscriptions_by_bundle_id = {}
-
-          @bundles.each do |bundle|
-            @subscriptions_by_bundle_id[bundle.bundle_id.to_s] = (@subscriptions_by_bundle_id[bundle.bundle_id.to_s] || []) + bundle.subscriptions
-          end
-        rescue => e
-          flash.now[:error] = "Error while retrieving account information for account: #{as_string(e)}"
-          render :action => :index
-        end
+    begin
+      if @key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
+        @account = Kaui::Account::find_by_id(@key, true, true, options_for_klient)
       else
-        flash.now[:error] = "Account #{@account_id} not found: #{@account}"
-        render :action => :index
+        @account = Kaui::Account::find_by_external_key(@key, true, true, options_for_klient)
       end
-    else
-      flash.now[:error] = "No id given"
+    rescue => e
+      flash.now[:error] = "Error while retrieving the account for #{@key}: #{as_string(e)}"
+      render :action => :index and return
+    end
+
+    begin
+      @tags            = Kaui::Tag.find_all_by_account_id(@account.account_id, false, 'NONE', options_for_klient).sort { |tag_a, tag_b| tag_a.tag_definition_name.downcase <=> tag_b.tag_definition_name.downcase }
+      @account_emails  = Kaui::AccountEmail.where({:account_id => @account.account_id}, options_for_klient)
+      @payment_methods = Kaui::PaymentMethod.find_all_by_account_id(@account.account_id, true, options_for_klient).reject { |x| x.plugin_name == '__EXTERNAL_PAYMENT__' }
+      @overdue_state   = @account.overdue(options_for_klient)
+      @bundles         = @account.bundles(options_for_klient)
+    rescue => e
+      flash.now[:error] = "Error while retrieving account information for account: #{as_string(e)}"
+      render :action => :index and return
+    end
+
+    @subscriptions_by_bundle_id = {}
+    @bundles.each do |bundle|
+      @subscriptions_by_bundle_id[bundle.bundle_id.to_s] = (@subscriptions_by_bundle_id[bundle.bundle_id.to_s] || []) + bundle.subscriptions
     end
   end
 
@@ -109,43 +103,43 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def do_add_payment_method
-    account_id = params[:id]
+    account_id          = params[:id]
     # Needed in the failure case scenario
-    @account = Kaui::KillbillHelper::get_account(account_id, false, false, options_for_klient)
+    @account            = Kaui::KillbillHelper::get_account(account_id, false, false, options_for_klient)
 
     # Implementation example using standard credit card fields
-    @card_type = params[:card_type]
-    @card_holder_name = params[:card_holder_name]
-    @expiration_year = params[:expiration_year]
-    @expiration_month = params[:expiration_month]
+    @card_type          = params[:card_type]
+    @card_holder_name   = params[:card_holder_name]
+    @expiration_year    = params[:expiration_year]
+    @expiration_month   = params[:expiration_month]
     @credit_card_number = params[:credit_card_number]
-    @address1 = params[:address1]
-    @address2 = params[:address2]
-    @city = params[:city]
-    @country = params[:country]
-    @postal_code = params[:postal_code]
-    @state = params[:state]
-    @is_default = params[:is_default]
-    @reason = params[:reason]
-    @comment = params[:comment]
+    @address1           = params[:address1]
+    @address2           = params[:address2]
+    @city               = params[:city]
+    @country            = params[:country]
+    @postal_code        = params[:postal_code]
+    @state              = params[:state]
+    @is_default         = params[:is_default]
+    @reason             = params[:reason]
+    @comment            = params[:comment]
 
-    payment_method = KillBillClient::Model::PaymentMethod.new
-    payment_method.account_id = account_id
+    payment_method             = KillBillClient::Model::PaymentMethod.new
+    payment_method.account_id  = account_id
     payment_method.plugin_name = params[:plugin_name] || Kaui.creditcard_plugin_name.call
 
     payment_method.plugin_info = {
-      'type' => 'CreditCard',
-      'ccType' => @card_type,
-      'ccName' => @card_holder_name,
-      'ccExpirationMonth' => @expiration_month,
-      'ccExpirationYear' => @expiration_year,
-      'ccLast4' => @credit_card_number[-4,4],
-      'address1' => @address1,
-      'address2' => @address2,
-      'city' => @city,
-      'country' => @country,
-      'zip' => @postal_code,
-      'state' => @state
+        'type'              => 'CreditCard',
+        'ccType'            => @card_type,
+        'ccName'            => @card_holder_name,
+        'ccExpirationMonth' => @expiration_month,
+        'ccExpirationYear'  => @expiration_year,
+        'ccLast4'           => @credit_card_number[-4, 4],
+        'address1'          => @address1,
+        'address2'          => @address2,
+        'city'              => @city,
+        'country'           => @country,
+        'zip'               => @postal_code,
+        'state'             => @state
     }
 
     begin
@@ -159,7 +153,7 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def set_default_payment_method
-    @account_id = params[:id]
+    @account_id        = params[:id]
     @payment_method_id = params[:payment_method_id]
     if @account_id.present? && @payment_method_id.present?
       begin
@@ -175,7 +169,7 @@ class Kaui::AccountsController < Kaui::EngineController
 
   def toggle_email_notifications
     begin
-      @account = Kaui::KillbillHelper::update_email_notifications(params[:id], params[:is_notified], current_user, params[:reason], params[:comment], options_for_klient)
+      @account       = Kaui::KillbillHelper::update_email_notifications(params[:id], params[:is_notified], current_user, params[:reason], params[:comment], options_for_klient)
       flash[:notice] = "Email preferences updated"
     rescue => e
       flash[:error] = "Error while switching email notifications #{invoice_id}: #{as_string(e)}"
@@ -185,7 +179,7 @@ class Kaui::AccountsController < Kaui::EngineController
 
   def pay_all_invoices
     begin
-      @account = Kaui::KillbillHelper::pay_all_invoices(params[:id], false, current_user, params[:reason], params[:comment], options_for_klient)
+      @account       = Kaui::KillbillHelper::pay_all_invoices(params[:id], false, current_user, params[:reason], params[:comment], options_for_klient)
       flash[:notice] = "Successfully triggered a payment for all unpaid invoices"
     rescue => e
       flash[:error] = "Error while triggering payments: #{as_string(e)}"
