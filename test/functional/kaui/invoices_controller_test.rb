@@ -1,14 +1,7 @@
 require 'test_helper'
-require 'functional/kaui/functional_test_helper'
 
 module Kaui
-  class InvoicesControllerTest < ActionController::TestCase
-
-    include FunctionalTestHelper
-
-    setup do
-      setup_functional_test
-    end
+  class InvoicesControllerTest < FunctionalTestHelper
 
     test 'should get index' do
       get :index
@@ -27,7 +20,7 @@ module Kaui
       verify_pagination_results!
     end
 
-    test 'should find invoice by id' do
+    test 'should find unpaid invoice by id' do
       get :show, :id => @invoice_item.invoice_id
       assert_response 200
 
@@ -36,6 +29,18 @@ module Kaui
 
       assert_equal assigns(:account).account_id, @account.account_id
       assert_equal assigns(:invoice).invoice_id, @invoice_item.invoice_id
+    end
+
+    # Test the rendering of the partials
+    test 'should find paid invoice by id' do
+      get :show, :id => @paid_invoice_item.invoice_id
+      assert_response 200
+
+      assert_not_nil assigns(:account)
+      assert_not_nil assigns(:invoice)
+
+      assert_equal assigns(:account).account_id, @account.account_id
+      assert_equal assigns(:invoice).invoice_id, @paid_invoice_item.invoice_id
     end
 
     test 'should render HTML invoice' do

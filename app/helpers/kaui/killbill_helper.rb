@@ -183,10 +183,6 @@ module Kaui
       account.bundles options
     end
 
-    def self.get_bundle(bundle_id, options = {})
-      KillBillClient::Model::Bundle::find_by_id(bundle_id, options)
-    end
-
     def self.transfer_bundle(bundle_id, new_account_id, cancel_immediately = false, transfer_addons = true, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :put,
                     "/1.0/kb/bundles/#{bundle_id}?cancelImmediately=#{cancel_immediately}&transferAddOn=#{transfer_addons}",
@@ -195,10 +191,6 @@ module Kaui
     end
 
     ############## SUBSCRIPTION ##############
-
-    def self.get_subscription(subscription_id, options = {})
-      KillBillClient::Model::Subscription::find_by_id(subscription_id, options)
-    end
 
     def self.create_subscription(subscription, current_user = nil, reason = nil, comment = nil, options = {})
       entitlement = KillBillClient::Model::Subscription.new
@@ -327,12 +319,6 @@ module Kaui
       process_response(data, :single) { |json| Kaui::Payment.new(json) }
     end
 
-    def self.get_payments_for_invoice(invoice_id, options = {})
-      data = call_killbill :get, "/1.0/kb/invoices/#{invoice_id}/payments", options
-      response_data = process_response(data, :multiple) { |json| Kaui::Payment.new(json) }
-      return response_data
-    end
-
     def self.pay_all_invoices(account_id, external = false, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :post,
                     "/1.0/kb/accounts/#{account_id}/payments?externalPayment=#{external}",
@@ -374,34 +360,12 @@ module Kaui
       KillBillClient::Model::PaymentMethod.find_all_by_account_id(account_id, true, options).reject { |x| x.plugin_name == '__EXTERNAL_PAYMENT__' }
     end
 
-    def self.get_payment_method(payment_method_id, options = {})
-      KillBillClient::Model::PaymentMethod.find_by_id payment_method_id, true, options
-    end
-
     def self.set_payment_method_as_default(account_id, payment_method_id, current_user = nil, reason = nil, comment = nil, options = {})
       KillBillClient::Model::PaymentMethod.set_default payment_method_id, account_id, extract_created_by(current_user), extract_reason_code(reason), comment, options
     end
 
     def self.add_payment_method(is_default, payment_method, current_user = nil, reason = nil, comment = nil, options = {})
       payment_method.create is_default, extract_created_by(current_user), extract_reason_code(reason), comment, options
-    end
-
-    ############## REFUND ##############
-
-    def self.get_refunds(offset, limit, options = {})
-      KillBillClient::Model::Refund.find_in_batches offset, limit, options
-    end
-
-    def self.search_refunds(search_key, offset, limit, options = {})
-      KillBillClient::Model::Refund.find_in_batches_by_search_key search_key, offset, limit, options
-    end
-
-    def self.get_refund(refund_id, options = {})
-      KillBillClient::Model::Refund.find_by_id refund_id, options
-    end
-
-    def self.get_refunds_for_payment(payment_id, options = {})
-      KillBillClient::Model::Refund.find_all_by_payment_id payment_id, options
     end
 
     ############## CHARGEBACK ##############

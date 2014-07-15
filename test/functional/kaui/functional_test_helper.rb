@@ -1,8 +1,20 @@
 module Kaui
-  module FunctionalTestHelper
+  class FunctionalTestHelper < ActionController::TestCase
 
     USERNAME = 'admin'
     PASSWORD = 'password'
+
+    # Called before every single test
+    setup do
+      setup_functional_test
+    end
+
+    # Called after every single test
+    teardown do
+      teardown_functional_test
+    end
+
+    protected
 
     #
     # Rails helpers
@@ -21,6 +33,12 @@ module Kaui
 
       # Login
       login_as_admin
+    end
+
+    def teardown_functional_test
+      assert flash.now.nil? || (flash.now[:alert].nil? && flash.now[:error].nil?)
+      assert_nil flash[:alert]
+      assert_nil flash[:error]
     end
 
     def verify_pagination_results!(min = 0)

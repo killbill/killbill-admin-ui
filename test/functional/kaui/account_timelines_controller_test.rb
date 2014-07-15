@@ -1,14 +1,7 @@
 require 'test_helper'
-require 'functional/kaui/functional_test_helper'
 
 module Kaui
-  class AccountTimelinesControllerTest < ActionController::TestCase
-
-    include FunctionalTestHelper
-
-    setup do
-      setup_functional_test
-    end
+  class AccountTimelinesControllerTest < FunctionalTestHelper
 
     test 'should show the lookup page' do
       get :index

@@ -1,14 +1,7 @@
 require 'test_helper'
-require 'functional/kaui/functional_test_helper'
 
 module Kaui
-  class RefundsControllerTest < ActionController::TestCase
-
-    include FunctionalTestHelper
-
-    setup do
-      setup_functional_test
-    end
+  class RefundsControllerTest < FunctionalTestHelper
 
     test 'should create refunds' do
       get :new, :account_id => @account.account_id, :invoice_id => @paid_invoice_item.invoice_id, :payment_id => @payment.payment_id

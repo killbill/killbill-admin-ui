@@ -1,14 +1,7 @@
 require 'test_helper'
-require 'functional/kaui/functional_test_helper'
 
 module Kaui
-  class PaymentsControllerTest < ActionController::TestCase
-
-    include FunctionalTestHelper
-
-    setup do
-      setup_functional_test
-    end
+  class PaymentsControllerTest < FunctionalTestHelper
 
     test 'should get index' do
       get :index

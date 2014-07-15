@@ -26,3 +26,5 @@ class ActionController::TestCase
     sign_in @user
   end
 end
+
+require 'functional/kaui/functional_test_helper'
