@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'killbill-client', '~> 0.6.1'
   s.add_dependency 'devise', '~> 3.0.2'
   s.add_dependency 'cancan', '~> 1.6.10'
+  s.add_dependency 'carmen-rails', '~> 1.0.0'
 
   s.add_development_dependency "fakeweb", '~> 1.3'
   s.add_development_dependency 'rake', '>= 0.8.7'

@@ -1,63 +1,41 @@
 require 'test_helper'
 
+module Kaui
+  class AccountsControllerTest < FunctionalTestHelper
 
-def test_regex(str)
-  /Account balance/.match(str)
-end
-
-test_regex("<dt>Account balance:</dt>")
-
-
-class Kaui::AccountsControllerTest < ActionController::TestCase
-  fixtures :accounts
-
-  test "should get index" do
-    get :index, :use_route => 'kaui'
-    assert_response :success
-  end
-
-  test "should find account by id" do
-    pierre = accounts(:pierre)
-
-    get :show, :id => pierre["accountId"], :use_route => 'kaui'
-    assert_response :success
-    assert_equal assigns(:account).account_id, pierre["accountId"]
-  end
-
-
-  test "should find correct positive balance" do
-    accnt = accounts(:account_with_positive_balance)
-
-    get :show, :id => accnt["accountId"], :use_route => 'kaui'
-    assert_response :success
-    assert assigns(:account).balance > 0
-
-    #puts @response.body
-
-    assert_select "dd" do |elements|
-      elements.each do |element|
-        if /span/.match(element.to_s)
-          assert_select "span" do |inner|
-            assert /"label label-important"/.match(inner[0].to_s)
-          end
-        end
-      end
+    test 'should get index' do
+      get :index
+      assert_response 200
     end
-end
 
-test "should find correct negative balance" do
-  accnt = accounts(:account_with_negative_balance)
+    test 'should list accounts' do
+      # Test pagination
+      get :pagination, :format => :json
+      verify_pagination_results!
+    end
 
-  get :show, :id => accnt["accountId"], :use_route => 'kaui'
-  assert_response :success
-  assert assigns(:account).balance < 0
-end
+    test 'should search accounts' do
+      # Test search
+      get :pagination, :sSearch => 'foo', :format => :json
+      verify_pagination_results!
+    end
 
-test "should find correct zero balance" do
-  accnt = accounts(:account_with_zero_balance)
-  get :show, :id => accnt["accountId"], :use_route => 'kaui'
-  assert_response :success
-  assert assigns(:account).balance == 0
-end
+    test 'should find account by id' do
+      get :show, :id => @account.account_id
+      assert_response 200
+      assert_not_nil assigns(:tags)
+      assert_not_nil assigns(:account_emails)
+      assert_not_nil assigns(:overdue_state)
+      assert_not_nil assigns(:payment_methods)
+      assert_not_nil assigns(:bundles)
+    end
 
+    test 'should find correct positive balance' do
+      accnt = accounts(:account_with_positive_balance)
+
+      get :show, :id => accnt["accountId"], :use_route => 'kaui'
+      assert_response :success
+      assert assigns(:account).balance > 0
+    end
+  end
 end

@@ -1,106 +1,108 @@
-<% if @account.present? %>
-  <dl class="dl-horizontal">
-    <dt>Id:</dt>
-    <dd><%= @account.account_id %>&nbsp;</dd>
-    <dt>Name:</dt>
-    <dd><%= @account.name %>&nbsp;</dd>
-    <dt>Email:</dt>
-    <dd><%= @account.email %>&nbsp;</dd>
-    <dt>Bill cycle day:</dt>
-    <% if @account.bill_cycle_day_local %>
+<dl class="dl-horizontal">
+  <dt>Id:</dt>
+  <dd><%= @account.account_id %>&nbsp;</dd>
+  <dt>Name:</dt>
+  <dd><%= @account.name %>&nbsp;</dd>
+  <dt>Email:</dt>
+  <dd><%= @account.email %>&nbsp;</dd>
+  <dt>Bill cycle day:</dt>
+  <% if @account.bill_cycle_day_local %>
       <dd><%= @account.bill_cycle_day_local %> (user timezone)</dd>
-    <% else %>
-      <dd><%=t :unknown_bcd %></dd>
-    <% end %>
-    <dt>Currency:</dt>
-    <dd><%= @account.currency %>&nbsp;</dd>
-    <dt>Timezone:</dt>
-    <dd><%= @account.time_zone %>&nbsp;</dd>
-    <dt>Address 1:</dt>
-    <dd><%= @account.address1 %>&nbsp;</dd>
-    <dt>Address 2:</dt>
-    <dd><%= @account.address2 %>&nbsp;</dd>
-    <dt>Company:</dt>
-    <dd><%= @account.company %>&nbsp;</dd>
-    <dt>State:</dt>
-    <dd><%= @account.state %>&nbsp;</dd>
-    <dt>Country:</dt>
-    <dd><%= @account.country %>&nbsp;</dd>
-    <dt>Phone:</dt>
-    <dd><%= @account.phone %>&nbsp;</dd>
-    <dt>External key:</dt>
-    <dd><%= @account.external_key %>&nbsp;</dd>
-    <dt>Overdue status:</dt>
-    <% if @overdue_state.nil? %>
-         <dd>unknown</dd>
-    <% elsif @overdue_state.clear_state  %>
-         <dd><span class='label label-success'>Good</span><dd>
-    <% else %>
-         <dd><span class='label label-important'><%= @overdue_state.name %></span><dd>
-    <% end %>
-    <dt>Account balance:</dt>
-    <% if @account.account_balance.nil? %>
-        <dd>unknown</dd>
-    <% elsif @account.account_balance <= 0  %>
-        <dd><span class="label label-success" ><%= humanized_money_with_symbol @account.balance_to_money %> (<%= @account.currency %>)</span>
-    <% else %>
-        <dd><span class="label label-important" ><%= humanized_money_with_symbol @account.balance_to_money %> (<%= @account.currency %>)</span>
-    <% end %>
-        &nbsp;
-        <nobr>
-          <!-- Payment, Credit then Charge. Same ordering as in the billing timeline -->
-          <%= link_to 'Payment',
-                      kaui_engine.pay_all_invoices_account_path(@account.account_id),
-                      :method => :post,
-                      :class => "btn btn-mini #{"disabled" if !@account.account_balance.nil? and @account.account_balance <= 0}" %>
-        </nobr>
-        <% if can? :credit, Kaui::Account %>
-          <nobr>
-            <%= link_to 'Credit',
-                        kaui_engine.new_credit_path(:params => { :account_id => @account.account_id }),
-                        :class => "btn btn-mini" %>
-          </nobr>
-        <% end %>
-        <% if can? :charge, Kaui::Account %>
-          <nobr>
-            <%= link_to 'Charge',
-                        kaui_engine.new_charge_path(:params => { :account_id => @account.account_id }),
-                        :class => "btn btn-mini" %>
-          </nobr>
-        <% end %>
-        </dd>
-    <dt>Account credit:</dt>
-    <% if @account.account_cba.nil? %>
-        <dd>unknown
-    <% elsif @account.account_cba >= 0  %>
-        <dd><span class="label label-success" ><%= humanized_money_with_symbol @account.cba_to_money %> (<%= @account.currency %>)</span>
-    <% else %>
-        <dd><span class="label label-important" ><%= humanized_money_with_symbol @account.cba_to_money %> (<%= @account.currency %>)</span>
-    <% end %>
-    </dd>
-    <dt>Notified for inv?</dt>
-    <dd><%= @account.is_notified_for_invoices %>&nbsp;<%= link_to "Toggle", kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post, :class => 'btn btn-mini' %></dd>
-    <%= render :partial => "kaui/tags/tags_table",
-               :locals => { :tags => @tags, :tags_url_or_path => kaui_engine.edit_account_tags_path(:params => { :account_id => @account.account_id }), :tags_show_path => kaui_engine.account_tags_path(:account_id => @account.account_id) } %>
-    <%= render :partial => "kaui/account_emails/account_emails_table",
-               :locals => { :account_emails => @account_emails, :account_id => @account.account_id } %>
-    <dt>New base subscription:</dt>
-    <dd><%= link_to "Create", kaui_engine.new_subscription_path(:params => { :account_id => @account.account_id, :product_category => "BASE" }), :class => "btn btn-mini" %></dd>
-  </dl>
-  <h2><%= link_to "Billing timeline", kaui_engine.account_timeline_path(@account.account_id) %></h2>
-  <% if @payment_methods.present? %>
-    <%= render :partial => "kaui/payment_methods/payment_methods_table", :locals => { :account_id => @account.account_id, :payment_methods => @payment_methods } %>
+  <% else %>
+      <dd><%= t :unknown_bcd %></dd>
   <% end %>
-  <%= link_to "Add payment method", kaui_engine.add_payment_method_account_path(@account.account_id), :class => "btn btn-mini" %>
-  <% @bundles.each do |bundle| %>
+  <dt>Currency:</dt>
+  <dd><%= @account.currency %>&nbsp;</dd>
+  <dt>Timezone:</dt>
+  <dd><%= @account.time_zone %>&nbsp;</dd>
+  <dt>Address 1:</dt>
+  <dd><%= @account.address1 %>&nbsp;</dd>
+  <dt>Address 2:</dt>
+  <dd><%= @account.address2 %>&nbsp;</dd>
+  <dt>Company:</dt>
+  <dd><%= @account.company %>&nbsp;</dd>
+  <dt>State:</dt>
+  <dd><%= @account.state %>&nbsp;</dd>
+  <dt>Country:</dt>
+  <dd><%= @account.country %>&nbsp;</dd>
+  <dt>Phone:</dt>
+  <dd><%= @account.phone %>&nbsp;</dd>
+  <dt>External key:</dt>
+  <dd><%= @account.external_key %>&nbsp;</dd>
+  <dt>Overdue status:</dt>
+  <% if @overdue_state.nil? %>
+      <dd>unknown</dd>
+  <% elsif @overdue_state.clear_state %>
+      <dd><span class='label label-success'>Good</span>
+      <dd>
+  <% else %>
+      <dd><span class='label label-important'><%= @overdue_state.name %></span>
+      <dd>
+  <% end %>
+  <dt>Account balance:</dt>
+  <% if @account.account_balance.nil? %>
+      <dd>unknown</dd>
+  <% elsif @account.account_balance <= 0 %>
+      <dd><span class="label label-success"><%= humanized_money_with_symbol @account.balance_to_money %>
+        (<%= @account.currency %>)</span>
+  <% else %>
+      <dd><span class="label label-important"><%= humanized_money_with_symbol @account.balance_to_money %>
+        (<%= @account.currency %>)</span>
+  <% end %>
+  &nbsp;
+  <nobr>
+    <!-- Payment, Credit then Charge. Same ordering as in the billing timeline -->
+    <%= link_to 'Payment',
+                kaui_engine.pay_all_invoices_account_path(@account.account_id),
+                :method => :post,
+                :class  => "btn btn-mini #{"disabled" if !@account.account_balance.nil? and @account.account_balance <= 0}" %>
+  </nobr>
+  <% if can? :credit, Kaui::Account %>
+      <nobr>
+        <%= link_to 'Credit',
+                    kaui_engine.new_credit_path(:params => {:account_id => @account.account_id}),
+                    :class => "btn btn-mini" %>
+      </nobr>
+  <% end %>
+  <% if can? :charge, Kaui::Account %>
+      <nobr>
+        <%= link_to 'Charge',
+                    kaui_engine.new_charge_path(:params => {:account_id => @account.account_id}),
+                    :class => "btn btn-mini" %>
+      </nobr>
+  <% end %>
+  </dd>
+  <dt>Account credit:</dt>
+  <% if @account.account_cba.nil? %>
+      <dd>unknown
+  <% elsif @account.account_cba >= 0 %>
+      <dd><span class="label label-success"><%= humanized_money_with_symbol @account.cba_to_money %>
+        (<%= @account.currency %>)</span>
+  <% else %>
+      <dd><span class="label label-important"><%= humanized_money_with_symbol @account.cba_to_money %>
+        (<%= @account.currency %>)</span>
+  <% end %>
+  </dd>
+  <dt>Notified for inv?</dt>
+  <dd><%= @account.is_notified_for_invoices %>&nbsp;<%= link_to "Toggle", kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post, :class => 'btn btn-mini' %></dd>
+  <%= render :partial => "kaui/tags/tags_table",
+             :locals  => {:tags => @tags, :tags_url_or_path => kaui_engine.edit_account_tags_path(:params => {:account_id => @account.account_id}), :tags_show_path => kaui_engine.account_tags_path(:account_id => @account.account_id)} %>
+  <%= render :partial => "kaui/account_emails/account_emails_table",
+             :locals  => {:account_emails => @account_emails, :account_id => @account.account_id} %>
+  <dt>New base subscription:</dt>
+  <dd><%= link_to "Create", kaui_engine.new_subscription_path(:params => {:account_id => @account.account_id, :product_category => "BASE"}), :class => "btn btn-mini" %></dd>
+</dl>
+<h2><%= link_to "Billing timeline", kaui_engine.account_timeline_path(@account.account_id) %></h2>
+<% if @payment_methods.present? %>
+    <%= render :partial => "kaui/payment_methods/payment_methods_table", :locals => {:account_id => @account.account_id, :payment_methods => @payment_methods} %>
+<% end %>
+<%= link_to "Add payment method", kaui_engine.new_payment_method_path(:account_id => @account.account_id), :class => "btn btn-mini" %>
+<% @bundles.each do |bundle| %>
     <% subs = @subscriptions_by_bundle_id[bundle.bundle_id] %>
     <% if subs.present? %>
-      <h2>Bundle <%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.bundle_id) if bundle.external_key.present? %></h2>
-      <%= render :partial => "kaui/subscriptions/subscriptions_table", :locals => { :subscriptions => subs, :account => @account } %>
+        <h2>Bundle <%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), Kaui.bundle_home_path.call(bundle.bundle_id) if bundle.external_key.present? %></h2>
+        <%= render :partial => "kaui/subscriptions/subscriptions_table", :locals => {:subscriptions => subs, :account => @account} %>
     <% end %>
-  <% end %>
-<% else %>
-  <p>Account not found</p>
 <% end %>
 
 <%= javascript_tag do %>

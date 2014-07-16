@@ -1,20 +1,22 @@
 <table id="accounts-table" class="table table-condensed">
   <thead>
-    <tr>
-      <th>Account ID</th>
-      <th>Name</th>
-      <th>External key</th>
-      <th>Currency</th>
-      <th>City</th>
-      <th>Country</th>
-    </tr>
+  <tr>
+    <th>Account ID</th>
+    <th>Name</th>
+    <th>External key</th>
+    <th>Currency</th>
+    <th>City</th>
+    <th>Country</th>
+  </tr>
   </thead>
   <tbody>
-    <tr>
-      <td colspan="1" class="dataTables_empty">Loading data from server</td>
-    </tr>
+  <tr>
+    <td colspan="1" class="dataTables_empty">Loading data from server</td>
+  </tr>
   </tbody>
 </table>
+
+<h3><%= link_to 'Create new account', new_account_path %></h3>
 
 <%= javascript_tag do %>
 $(document).ready(function() {
