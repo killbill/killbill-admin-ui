@@ -1,9 +1,9 @@
 <%= form_for @account, :html => {:class => 'form-horizontal'} do |f| %>
     <fieldset>
       <div class="control-group">
-        <%= f.label :name, 'Name', :class => 'control-label' %>
+        <%= f.label :name, 'Name *', :class => 'control-label' %>
         <div class="controls">
-          <%= f.text_field :name, :class => 'input-small' %>
+          <%= f.text_field :name, :class => 'input-small', :required => true %>
         </div>
       </div>
       <div class="control-group">
@@ -13,15 +13,15 @@
         </div>
       </div>
       <div class="control-group">
-        <%= f.label :external_key, 'External key', :class => 'control-label' %>
+        <%= f.label :external_key, 'External key *', :class => 'control-label' %>
         <div class="controls">
-          <%= f.text_field :external_key, :class => 'input-small' %>
+          <%= f.text_field :external_key, :class => 'input-small', :required => true %>
         </div>
       </div>
       <div class="control-group">
-        <%= f.label :email, 'Email', :class => 'control-label' %>
+        <%= f.label :email, 'Email *', :class => 'control-label' %>
         <div class="controls">
-          <%= f.text_field :email, :class => 'input-small' %>
+          <%= f.text_field :email, :class => 'input-small', :required => true %>
         </div>
       </div>
       <div class="control-group">

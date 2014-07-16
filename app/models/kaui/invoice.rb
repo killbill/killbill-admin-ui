@@ -1,11 +1,9 @@
 class Kaui::Invoice < KillBillClient::Model::Invoice
 
-  def amount_to_money
-    Kaui::Base.to_money(amount, currency)
-  end
-
-  def balance_to_money
-    Kaui::Base.to_money(balance, currency)
+  [:amount, :balance].each do |type|
+    define_method "#{type}_to_money" do
+      Kaui::Base.to_money(send(type), currency)
+    end
   end
 
   def refund_adjustment_to_money

@@ -1,42 +1,14 @@
 require 'test_helper'
 
 class Kaui::AccountTest < ActiveSupport::TestCase
-  fixtures :accounts
 
-  test "can serialize from json" do
-    as_json = accounts(:pierre)
-    pierre = Kaui::Account.new(as_json)
+  test 'can convert to money' do
+    account = Kaui::Account.new(:account_balance => 12.42, :account_cba => 54.32, :currency => 'USD')
 
-    assert_equal as_json["accountId"], pierre.account_id
-    assert_equal as_json["address1"], pierre.address1
-    assert_equal as_json["address2"], pierre.address2
-    assert_equal as_json["company"], pierre.company
-    assert_equal as_json["country"], pierre.country
-    assert_equal as_json["currency"], pierre.currency
-    assert_equal as_json["email"], pierre.email
-    assert_equal as_json["externalKey"], pierre.external_key
-    assert_equal as_json["name"], pierre.name
-    assert_equal as_json["paymentMethodId"], pierre.payment_method_id
-    assert_equal as_json["phone"], pierre.phone
-    assert_equal as_json["state"], pierre.state
-    assert_equal as_json["timeZone"], pierre.timezone
-  end
-  
-  test "can read correct positive balance" do
-    as_json = accounts(:account_with_positive_balance)
-    t = Kaui::Account.new(as_json)
-    assert(t.balance > 0)
-  end
+    assert_equal 1242, account.balance_to_money.cents
+    assert_equal 'USD', account.balance_to_money.currency_as_string
 
-  test "can read correct negative balance" do
-    as_json = accounts(:account_with_negative_balance)
-    t = Kaui::Account.new(as_json)
-    assert(t.balance < 0)
-  end
-
-  test "can read correct zero balance" do
-    as_json = accounts(:account_with_zero_balance)
-    t = Kaui::Account.new(as_json)
-    assert(t.balance == 0)
+    assert_equal 5432, account.cba_to_money.cents
+    assert_equal 'USD', account.cba_to_money.currency_as_string
   end
 end

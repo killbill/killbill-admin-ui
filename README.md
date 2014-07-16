@@ -63,6 +63,7 @@ Run the tests:
 > cd ../..
 > rake test
 
+Note: functional and integration tests require an instance of Kill Bill to test against.
 
 Development
 ===========

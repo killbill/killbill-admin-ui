@@ -1,6 +1,7 @@
 module Kaui
   class FunctionalTestHelper < ActionController::TestCase
 
+    include Devise::TestHelpers
     include KillbillTestHelper
 
     # Called before every single test

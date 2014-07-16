@@ -71,14 +71,6 @@ module Kaui
 
     ############## ACCOUNT ##############
 
-    def self.get_accounts(offset, limit, options = {})
-      KillBillClient::Model::Account.find_in_batches offset, limit, false, false, options
-    end
-
-    def self.search_accounts(search_key, offset, limit, options = {})
-      KillBillClient::Model::Account.find_in_batches_by_search_key search_key, offset, limit, false, false, options
-    end
-
     def self.get_account_by_bundle_id(bundle_id, options = {})
       bundle = get_bundle(bundle_id, options)
       get_account(bundle.account_id, false, false, options)
@@ -100,14 +92,6 @@ module Kaui
     def self.remove_account_email(account_email, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :delete,
                     "/1.0/kb/accounts/#{account_email.account_id}/emails/#{account_email.email}",
-                    build_audit_headers(current_user, reason, comment, options)
-    end
-
-    def self.update_email_notifications(account_id, is_notified, current_user = nil, reason = nil, comment = nil, options = {})
-      email_data = {:isNotifiedForInvoices => is_notified}
-      call_killbill :put,
-                    "/1.0/kb/accounts/#{account_id}/emailNotifications",
-                    ActiveSupport::JSON.encode(email_data, :root => false),
                     build_audit_headers(current_user, reason, comment, options)
     end
 
@@ -296,13 +280,6 @@ module Kaui
       process_response(data, :single) { |json| Kaui::Payment.new(json) }
     end
 
-    def self.pay_all_invoices(account_id, external = false, current_user = nil, reason = nil, comment = nil, options = {})
-      call_killbill :post,
-                    "/1.0/kb/accounts/#{account_id}/payments?externalPayment=#{external}",
-                    ActiveSupport::JSON.encode({:accountId => account_id}, :root => false),
-                    build_audit_headers(current_user, reason, comment, options)
-    end
-
     def self.create_payment(payment, external, current_user = nil, reason = nil, comment = nil, options = {})
       payment_data = Kaui::Payment.camelize(payment.to_hash)
 
@@ -320,22 +297,6 @@ module Kaui
     end
 
     ############## PAYMENT METHOD ##############
-
-    def self.get_payment_methods(offset, limit, options = {})
-      KillBillClient::Model::PaymentMethod.find_in_batches offset, limit, options
-    end
-
-    def self.search_payment_methods(search_key, offset, limit, options = {})
-      KillBillClient::Model::PaymentMethod.find_in_batches_by_search_key search_key, offset, limit, options
-    end
-
-    def self.delete_payment_method(payment_method_id, set_auto_pay_off = false, current_user = nil, reason = nil, comment = nil, options = {})
-      KillBillClient::Model::PaymentMethod.destroy payment_method_id, set_auto_pay_off, extract_created_by(current_user), extract_reason_code(reason), comment, options
-    end
-
-    def self.set_payment_method_as_default(account_id, payment_method_id, current_user = nil, reason = nil, comment = nil, options = {})
-      KillBillClient::Model::PaymentMethod.set_default payment_method_id, account_id, extract_created_by(current_user), extract_reason_code(reason), comment, options
-    end
 
     def self.add_payment_method(is_default, payment_method, current_user = nil, reason = nil, comment = nil, options = {})
       payment_method.create is_default, extract_created_by(current_user), extract_reason_code(reason), comment, options

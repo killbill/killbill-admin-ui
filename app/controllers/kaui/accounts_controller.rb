@@ -38,15 +38,15 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def create
-    @account = Kaui::Account.new(params[:account].delete_if { |key, value| value.blank? })
+    @account                          = Kaui::Account.new(params[:account].delete_if { |key, value| value.blank? })
 
     # Transform "1" into boolean
-    @account.is_migrated = @account.is_migrated == '1'
+    @account.is_migrated              = @account.is_migrated == '1'
     @account.is_notified_for_invoices = @account.is_notified_for_invoices == '1'
 
     begin
-      created_account = @account.create(current_user, params[:reason], params[:comment], options_for_klient)
-      redirect_to account_path(created_account.account_id), :notice => 'Account was successfully created'
+      @account = @account.create(current_user, params[:reason], params[:comment], options_for_klient)
+      redirect_to account_path(@account.account_id), :notice => 'Account was successfully created'
     rescue => e
       flash.now[:error] = "Error while creating account: #{as_string(e)}"
       render :action => :new
@@ -74,37 +74,42 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def set_default_payment_method
-    @account_id        = params[:id]
-    @payment_method_id = params[:payment_method_id]
-    if @account_id.present? && @payment_method_id.present?
-      begin
-        @payment_methods = Kaui::KillbillHelper::set_payment_method_as_default(@account_id, @payment_method_id, current_user, params[:reason], params[:comment], options_for_klient)
-      rescue => e
-        flash[:error] = "Error while setting payment method as default #{@payment_method_id}: #{as_string(e)}"
-      end
-    else
-      flash[:notice] = 'No account_id or payment_method_id given'
+    account_id        = params[:id]
+    payment_method_id = params[:payment_method_id]
+
+    begin
+      Kaui::PaymentMethod.set_default(payment_method_id, account_id, current_user, params[:reason], params[:comment], options_for_klient)
+      flash[:notice] = "Successfully set #{payment_method_id} as default"
+    rescue => e
+      flash[:error] = "Error while setting payment method #{payment_method_id} as default: #{as_string(e)}"
     end
-    redirect_to :back
+
+    redirect_to account_path(account_id)
   end
 
   def toggle_email_notifications
+    account = Kaui::Account.new(:account_id => params[:id], :is_notified_for_invoices => params[:is_notified])
+
     begin
-      @account       = Kaui::KillbillHelper::update_email_notifications(params[:id], params[:is_notified], current_user, params[:reason], params[:comment], options_for_klient)
-      flash[:notice] = "Email preferences updated"
+      account.update_email_notifications(current_user, params[:reason], params[:comment], options_for_klient)
+      flash[:notice] = 'Email preferences updated'
     rescue => e
-      flash[:error] = "Error while switching email notifications #{invoice_id}: #{as_string(e)}"
+      flash[:error] = "Error while setting email notifications: #{as_string(e)}"
     end
-    redirect_to :back
+
+    redirect_to account_path(account.account_id)
   end
 
   def pay_all_invoices
+    payment = Kaui::InvoicePayment.new(:account_id => params[:id])
+
     begin
-      @account       = Kaui::KillbillHelper::pay_all_invoices(params[:id], false, current_user, params[:reason], params[:comment], options_for_klient)
-      flash[:notice] = "Successfully triggered a payment for all unpaid invoices"
+      payment.bulk_create(params[:is_external_payment], current_user, params[:reason], params[:comment], options_for_klient)
+      flash[:notice] = 'Successfully triggered a payment for all unpaid invoices'
     rescue => e
       flash[:error] = "Error while triggering payments: #{as_string(e)}"
     end
-    redirect_to :back
+
+    redirect_to account_path(payment.account_id)
   end
 end

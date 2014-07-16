@@ -24,6 +24,7 @@ module Kaui
     def setup_test_data
       @tenant            = create_tenant
       @account           = create_account(@tenant)
+      @payment_method    = create_payment_method(true, @account, @tenant)
       @invoice_item      = create_charge(@account, @tenant)
       @paid_invoice_item = create_charge(@account, @tenant)
       @payment           = create_payment(@paid_invoice_item, @account, @tenant)
@@ -51,6 +52,14 @@ module Kaui
       account.is_notified_for_invoices = false
 
       account.create(user, reason, comment, build_options(tenant, username, password))
+    end
+
+    # Return a new test payment method
+    def create_payment_method(set_default = false, account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
+      account = create_account(tenant, username, password, user, reason, comment) if account.nil?
+
+      payment_method = Kaui::PaymentMethod.new(:account_id => account.account_id, :plugin_name => '__EXTERNAL_PAYMENT__', :is_default => false)
+      payment_method.create(user, reason, comment, build_options(tenant, username, password))
     end
 
     # Return the created external charge

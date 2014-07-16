@@ -1,11 +1,11 @@
 class Kaui::InvoicePayment < KillBillClient::Model::InvoicePayment
 
-  SAMPLE_REASON_CODES = [ '600 - Alt payment method',
-                          '699 - OTHER']
+  SAMPLE_REASON_CODES = ['600 - Alt payment method',
+                         '699 - OTHER']
 
   [:auth, :captured, :purchased, :refunded, :credited].each do |type|
     define_method "#{type}_amount_to_money" do
-      Kaui::Base.to_money("#{type}_amount", currency)
+      Kaui::Base.to_money(send("#{type}_amount"), currency)
     end
   end
 

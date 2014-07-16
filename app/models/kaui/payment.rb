@@ -5,7 +5,7 @@ class Kaui::Payment < KillBillClient::Model::Payment
 
   [:auth, :captured, :purchased, :refunded, :credited].each do |type|
     define_method "#{type}_amount_to_money" do
-      Kaui::Base.to_money("#{type}_amount", currency)
+      Kaui::Base.to_money(send("#{type}_amount"), currency)
     end
   end
 
