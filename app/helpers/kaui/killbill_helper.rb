@@ -76,25 +76,6 @@ module Kaui
       get_account(bundle.account_id, false, false, options)
     end
 
-    def self.get_account_emails(account_id, options = {})
-      data = call_killbill :get, "/1.0/kb/accounts/#{account_id}/emails", options
-      process_response(data, :multiple) { |json| Kaui::AccountEmail.new(json) }
-    end
-
-    def self.add_account_email(account_email, current_user = nil, reason = nil, comment = nil, options = {})
-      account_email_data = Kaui::AccountEmail.camelize(account_email.to_hash)
-      call_killbill :post,
-                    "/1.0/kb/accounts/#{account_email.account_id}/emails",
-                    ActiveSupport::JSON.encode(account_email_data, :root => false),
-                    build_audit_headers(current_user, reason, comment, options)
-    end
-
-    def self.remove_account_email(account_email, current_user = nil, reason = nil, comment = nil, options = {})
-      call_killbill :delete,
-                    "/1.0/kb/accounts/#{account_email.account_id}/emails/#{account_email.email}",
-                    build_audit_headers(current_user, reason, comment, options)
-    end
-
     ############## BUNDLE ##############
 
     def self.get_bundle_by_key(key, account_id = nil, options = {})

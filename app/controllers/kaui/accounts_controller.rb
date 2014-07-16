@@ -60,7 +60,7 @@ class Kaui::AccountsController < Kaui::EngineController
       @bundles       = @account.bundles(options_for_klient)
 
       @tags            = Kaui::Tag.find_all_sorted_by_account_id(@account.account_id, false, 'NONE', options_for_klient)
-      @account_emails  = Kaui::AccountEmail.where({:account_id => @account.account_id}, options_for_klient)
+      @account_emails  = Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', options_for_klient)
       @payment_methods = Kaui::PaymentMethod.find_non_external_by_account_id(@account.account_id, true, options_for_klient)
     rescue => e
       flash.now[:error] = "Error while retrieving account information: #{as_string(e)}"
