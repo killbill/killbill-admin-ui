@@ -24,6 +24,8 @@ module Kaui
     def setup_test_data
       @tenant            = create_tenant
       @account           = create_account(@tenant)
+      @account2          = create_account(@tenant)
+      @bundle            = create_bundle(@account, @tenant)
       @payment_method    = create_payment_method(true, @account, @tenant)
       @invoice_item      = create_charge(@account, @tenant)
       @paid_invoice_item = create_charge(@account, @tenant)
@@ -54,11 +56,27 @@ module Kaui
       account.create(user, reason, comment, build_options(tenant, username, password))
     end
 
+    # Return the created bundle
+    def create_bundle(account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
+      tenant  = create_tenant(user, reason, comment) if tenant.nil?
+      account = create_account(tenant, username, password, user, reason, comment) if account.nil?
+
+      entitlement = KillBillClient::Model::Subscription.new(:account_id       => account.account_id,
+                                                            :external_key     => SecureRandom.uuid,
+                                                            :product_name     => 'Sports',
+                                                            :product_category => 'BASE',
+                                                            :billing_period   => 'MONTHLY',
+                                                            :price_list       => 'DEFAULT')
+      entitlement = entitlement.create(user, reason, comment, build_options(tenant, username, password))
+
+      KillBillClient::Model::Bundle.find_by_id(entitlement.bundle_id, build_options(tenant, username, password))
+    end
+
     # Return a new test payment method
     def create_payment_method(set_default = false, account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
 
-      payment_method = Kaui::PaymentMethod.new(:account_id => account.account_id, :plugin_name => '__EXTERNAL_PAYMENT__', :is_default => false)
+      payment_method = Kaui::PaymentMethod.new(:account_id => account.account_id, :plugin_name => '__EXTERNAL_PAYMENT__', :is_default => set_default)
       payment_method.create(user, reason, comment, build_options(tenant, username, password))
     end
 
@@ -103,6 +121,10 @@ module Kaui
           :username   => username,
           :password   => password
       }
+    end
+
+    def options
+      build_options(@tenant)
     end
   end
 end

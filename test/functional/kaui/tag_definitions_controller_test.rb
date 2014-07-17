@@ -1,6 +1,4 @@
 require 'test_helper'
 
-module Kaui
-  class TagDefinitionsControllerTest < ActionController::TestCase
-  end
+class Kaui::TagDefinitionsControllerTest < Kaui::FunctionalTestHelper
 end

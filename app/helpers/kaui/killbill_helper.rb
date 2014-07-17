@@ -69,69 +69,6 @@ module Kaui
       current_user.respond_to?(:kb_username) ? current_user.kb_username : current_user.to_s
     end
 
-    ############## ACCOUNT ##############
-
-    def self.get_account_by_bundle_id(bundle_id, options = {})
-      bundle = get_bundle(bundle_id, options)
-      get_account(bundle.account_id, false, false, options)
-    end
-
-    ############## BUNDLE ##############
-
-    def self.get_bundle_by_key(key, account_id = nil, options = {})
-      # support id (UUID) and external key search
-      if key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
-        Kaui::KillbillHelper::get_bundle(key, options)
-      else
-        raise ArgumentError.new("account id not specified") if account_id.blank?
-        bundles = KillBillClient::Model::Bundle.find_all_by_account_id_and_external_key account_id, key, options
-        get_active_bundle_or_latest_created(bundles)
-      end
-    end
-
-    def self.get_active_bundle_or_latest_created(bundles)
-
-      if bundles.empty?
-        return nil
-      end
-
-      latest_start_date = nil
-      latest_bundle = nil
-
-      bundles.each do |b|
-        b.subscriptions.each do |s|
-          if s.product_category != 'ADD_ON'
-            if latest_start_date.nil? || latest_start_date < s.start_date
-              latest_start_date = s.start_date
-              latest_bundle = b
-            end
-
-            if s.cancelled_date.nil? || s.cancelled_date > Time.now
-              return b
-            end
-          end
-        end
-      end
-
-      latest_bundle
-    end
-
-
-    def self.get_bundles(offset, limit, options = {})
-      KillBillClient::Model::Bundle.find_in_batches offset, limit, options
-    end
-
-    def self.search_bundles(search_key, offset, limit, options = {})
-      KillBillClient::Model::Bundle.find_in_batches_by_search_key search_key, offset, limit, options
-    end
-
-    def self.transfer_bundle(bundle_id, new_account_id, cancel_immediately = false, transfer_addons = true, current_user = nil, reason = nil, comment = nil, options = {})
-      call_killbill :put,
-                    "/1.0/kb/bundles/#{bundle_id}?cancelImmediately=#{cancel_immediately}&transferAddOn=#{transfer_addons}",
-                    ActiveSupport::JSON.encode("accountId" => new_account_id),
-                    build_audit_headers(current_user, reason, comment, options)
-    end
-
     ############## SUBSCRIPTION ##############
 
     def self.create_subscription(subscription, current_user = nil, reason = nil, comment = nil, options = {})
