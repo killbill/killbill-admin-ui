@@ -9,6 +9,15 @@ class Kaui::InvoicePayment < KillBillClient::Model::InvoicePayment
     end
   end
 
+  def paid_amount_to_money
+    captured_amount_to_money + purchased_amount_to_money
+  end
+
+  # TODO Better name?
+  def returned_amount_to_money
+    refunded_amount_to_money + credited_amount_to_money
+  end
+
   def is_fully_refunded?
     refunded_amount == captured_amount || refunded_amount == purchased_amount
   end

@@ -155,12 +155,6 @@ module Kaui
                               extract_created_by(current_user), extract_reason_code(reason), comment, requested_date, policy, false, options)
     end
 
-    def self.delete_subscription(subscription_id, current_user = nil, reason = nil, comment = nil,  entitlement_policy = nil, billing_policy = nil, options = {})
-      entitlement = KillBillClient::Model::Subscription.new
-      entitlement.subscription_id = subscription_id
-      entitlement.cancel(extract_created_by(current_user), extract_reason_code(reason), comment, nil, entitlement_policy, billing_policy, true, options)
-    end
-
     def self.reinstate_subscription(subscription_id, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :put,
                     "/1.0/kb/subscriptions/#{subscription_id}/uncancel",
@@ -256,10 +250,6 @@ module Kaui
 
     ############## PAYMENT ##############
 
-    def self.get_payment(payment_id, options = {})
-      data = call_killbill :get, "/1.0/kb/payments/#{payment_id}", options
-      process_response(data, :single) { |json| Kaui::Payment.new(json) }
-    end
 
     def self.create_payment(payment, external, current_user = nil, reason = nil, comment = nil, options = {})
       payment_data = Kaui::Payment.camelize(payment.to_hash)
@@ -281,18 +271,6 @@ module Kaui
 
     def self.add_payment_method(is_default, payment_method, current_user = nil, reason = nil, comment = nil, options = {})
       payment_method.create is_default, extract_created_by(current_user), extract_reason_code(reason), comment, options
-    end
-
-    ############## CHARGEBACK ##############
-
-    def self.create_chargeback(chargeback, current_user = nil, reason = nil, comment = nil, options = {})
-      new_chargeback = KillBillClient::Model::Chargeback.new
-      new_chargeback.payment_id = chargeback.payment_id
-      new_chargeback.amount = chargeback.chargeback_amount
-      new_chargeback.create(extract_created_by(current_user),
-                            extract_reason_code(reason),
-                            comment,
-                            options)
     end
 
     ############## CREDIT ##############

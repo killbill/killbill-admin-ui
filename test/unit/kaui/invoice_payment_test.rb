@@ -24,6 +24,12 @@ class Kaui::InvoicePaymentTest < ActiveSupport::TestCase
 
     assert_equal 500, payment.credited_amount_to_money.cents
     assert_equal 'USD', payment.credited_amount_to_money.currency_as_string
+
+    assert_equal 2220, payment.paid_amount_to_money.cents
+    assert_equal 'USD', payment.paid_amount_to_money.currency_as_string
+
+    assert_equal 1400, payment.returned_amount_to_money.cents
+    assert_equal 'USD', payment.returned_amount_to_money.currency_as_string
   end
 
   test 'can check for full refunds' do

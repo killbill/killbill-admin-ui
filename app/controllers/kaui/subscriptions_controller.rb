@@ -1,5 +1,3 @@
-require 'kaui/product'
-
 class Kaui::SubscriptionsController < Kaui::EngineController
   def index
     if params[:subscription_id].present?

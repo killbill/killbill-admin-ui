@@ -1,17 +1,10 @@
 class Kaui::AccountTimelinesController < Kaui::EngineController
 
   def index
-    if params[:account_id].present?
-      redirect_to kaui_engine.account_timeline_path(params[:account_id])
-    end
   end
 
   def show
     @account_id = params[:id]
-    unless @account_id.present?
-      flash[:notice] = 'No id given'
-      render :action => :index and return
-    end
 
     begin
       @account  = Kaui::Account.find_by_id(@account_id, false, false, options_for_klient)

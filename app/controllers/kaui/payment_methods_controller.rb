@@ -36,7 +36,8 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
   end
 
   def new
-    @payment_method = Kaui::PaymentMethod.new(:account_id => params[:account_id], :plugin_name => params[:plugin_name] || Kaui.creditcard_plugin_name.call)
+    @payment_method = Kaui::PaymentMethod.new(:account_id  => params[:account_id],
+                                              :plugin_name => params[:plugin_name] || Kaui.creditcard_plugin_name.call)
   end
 
   def create
