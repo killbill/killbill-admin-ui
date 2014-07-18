@@ -63,7 +63,7 @@ module Kaui
 
       entitlement = KillBillClient::Model::Subscription.new(:account_id       => account.account_id,
                                                             :external_key     => SecureRandom.uuid,
-                                                            :product_name     => 'Sports',
+                                                            :product_name     => 'Sports', # Sports, so we can add addons
                                                             :product_category => 'BASE',
                                                             :billing_period   => 'MONTHLY',
                                                             :price_list       => 'DEFAULT')

@@ -69,52 +69,6 @@ module Kaui
       current_user.respond_to?(:kb_username) ? current_user.kb_username : current_user.to_s
     end
 
-    ############## SUBSCRIPTION ##############
-
-    def self.create_subscription(subscription, current_user = nil, reason = nil, comment = nil, options = {})
-      entitlement = KillBillClient::Model::Subscription.new
-      entitlement.account_id = subscription.account_id
-      entitlement.bundle_id = subscription.bundle_id
-      entitlement.external_key = subscription.external_key
-      entitlement.product_name = subscription.product_name
-      entitlement.product_category = subscription.product_category
-      entitlement.billing_period = subscription.billing_period
-      entitlement.price_list = subscription.price_list
-
-      entitlement.create(extract_created_by(current_user), extract_reason_code(reason), comment, options)
-    end
-
-    def self.update_subscription(subscription, requested_date = nil, policy = nil, current_user = nil, reason = nil, comment = nil, options = {})
-      requested_date = requested_date.to_s unless requested_date.blank?
-      entitlement = KillBillClient::Model::Subscription.new
-      entitlement.subscription_id = subscription.subscription_id
-      entitlement.change_plan({:productName => subscription.product_name, :billingPeriod => subscription.billing_period, :priceList => subscription.price_list},
-                              extract_created_by(current_user), extract_reason_code(reason), comment, requested_date, policy, false, options)
-    end
-
-    def self.reinstate_subscription(subscription_id, current_user = nil, reason = nil, comment = nil, options = {})
-      call_killbill :put,
-                    "/1.0/kb/subscriptions/#{subscription_id}/uncancel",
-                    "",
-                    build_audit_headers(current_user, reason, comment, options)
-    end
-
-    def self.compute_previous_ctd(ctd, billing_period, options = {})
-      return nil if ctd.nil? or billing_period.nil?
-
-      ctd = DateTime.parse(ctd)
-      billing_period = billing_period.upcase
-      if billing_period == 'MONTHLY'
-        ctd.prev_month(1)
-      elsif billing_period == 'QUARTERLY'
-        ctd.prev_month(3)
-      elsif billing_period == 'ANNUAL'
-        ctd.prev_month(12)
-      else
-        nil
-      end
-    end
-
     ############## INVOICE ##############
 
     def self.get_invoice_item(invoice_id, invoice_item_id, options = {})
@@ -167,22 +121,6 @@ module Kaui
       call_killbill :delete,
                     "/1.0/kb/invoices/#{invoice_id}/#{invoice_item_id}/cba?accountId=#{account_id}",
                     build_audit_headers(current_user, reason, comment, options)
-    end
-
-    ############## CATALOG ##############
-
-    def self.get_available_addons(base_product_name, options = {})
-      data = call_killbill :get, "/1.0/kb/catalog/availableAddons?baseProductName=#{base_product_name}", options
-      if data.has_key?(:json)
-        data[:json].inject({}) { |catalog_hash, item| catalog_hash.merge!(item["planName"] => item) }
-      end
-    end
-
-    def self.get_available_base_plans(options = {})
-      data = call_killbill :get, "/1.0/kb/catalog/availableBasePlans", options
-      if data.has_key?(:json)
-        data[:json].inject({}) { |catalog_hash, item| catalog_hash.merge!(item["planName"] => item) }
-      end
     end
 
     ############## PAYMENT ##############

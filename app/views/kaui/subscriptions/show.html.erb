@@ -1,26 +1,23 @@
-<% if @subscription.present? %>
-  <div class="page-header">
-    <h2>Subscription <%= @subscription.subscription_id %></h2>
-  </div>
-  <dl class="dl-horizontal">
-    <dt>Category</dt>
-    <dd><%= @subscription.product_category.downcase.capitalize if @subscription.product_category.present? %></dd>
-    <dt>Product</dt>
-    <dd><%= @subscription.product_name.downcase.capitalize if @subscription.product_name.present? %></dd>
-    <dt>Period</dt>
-    <dd><%= @subscription.billing_period.downcase.capitalize if @subscription.billing_period.present? %></dd>
-    <dt>Charged through</dt>
-    <dd> <%= format_date(@subscription.charged_through_date, @account.timezone).html_safe if @subscription.charged_through_date.present? %>
-    <dt>Price List</dt>
-    <dd><%= @subscription.price_list %></dd>
-    <dt>Start Date</dt>
-    <dd> <%= format_date(@subscription.start_date, @account.timezone).html_safe if @subscription.start_date.present? %>
-  </dl>
-  <hr/>
-  <%= link_to "Change", kaui_engine.edit_subscription_path(@subscription.subscription_id), :class => "btn btn-mini" %>
-  <%= link_to "Cancel", kaui_engine.subscription_path(@subscription.subscription_id), :method => :delete, :confirm => "Are you sure?", :class => "btn btn-mini" %>
-  <%= link_to "Add Addons", kaui_engine.new_subscription_path(:params => { :bundle_id => @subscription.bundle_id, :base_subscription => @subscription.product_name, :product_category => "ADD_ON" }), :class => "btn btn-mini" %>
-<% else %>
-  <p>Subscription not found</p>
-<% end %>
-<%= link_to 'Back', :back, :class => 'btn' %>
+<div class="page-header">
+  <h2>Subscription <%= @subscription.subscription_id %></h2>
+</div>
+<dl class="dl-horizontal">
+  <dt>Category</dt>
+  <dd><%= @subscription.product_category.downcase.capitalize if @subscription.product_category.present? %></dd>
+  <dt>Product</dt>
+  <dd><%= @subscription.product_name.downcase.capitalize if @subscription.product_name.present? %></dd>
+  <dt>Period</dt>
+  <dd><%= @subscription.billing_period.downcase.capitalize if @subscription.billing_period.present? %></dd>
+  <dt>Charged through</dt>
+  <dd> <%= format_date(@subscription.charged_through_date, @account.time_zone).html_safe if @subscription.charged_through_date.present? %>
+  <dt>Price List</dt>
+  <dd><%= @subscription.price_list %></dd>
+  <dt>Start Date</dt>
+  <dd> <%= format_date(@subscription.start_date, @account.time_zone).html_safe if @subscription.start_date.present? %>
+</dl>
+<hr/>
+<%= link_to 'Change', kaui_engine.edit_subscription_path(@subscription.subscription_id), :class => 'btn btn-mini' %>
+<%= link_to 'Cancel', kaui_engine.subscription_path(@subscription.subscription_id), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini' %>
+<%= link_to 'Add Addons', kaui_engine.new_subscription_path(:params => {:bundle_id => @subscription.bundle_id, :base_product_name => @subscription.product_name, :product_category => 'ADD_ON'}), :class => 'btn btn-mini' %>
+&nbsp;
+<%= link_to 'Go to bundle', kaui_engine.bundle_path(@subscription.bundle_id), :class => 'btn btn-mini' %>
