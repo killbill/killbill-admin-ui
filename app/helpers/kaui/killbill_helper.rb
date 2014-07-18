@@ -106,46 +106,6 @@ module Kaui
                     build_audit_headers(current_user, reason, comment, options)
     end
 
-    ############## PAYMENT ##############
-
-
-    def self.create_payment(payment, external, current_user = nil, reason = nil, comment = nil, options = {})
-      payment_data = Kaui::Payment.camelize(payment.to_hash)
-
-      if payment.invoice_id.present?
-        # We should use different model for POST and GET, this seems fragile...
-        payment_data.delete(:external)
-        payment_data.delete(:refunds)
-        payment_data.delete(:chargebacks)
-        payment_data.delete(:audit_logs)
-        call_killbill :post,
-                      "/1.0/kb/invoices/#{payment.invoice_id}/payments?externalPayment=#{external}",
-                      ActiveSupport::JSON.encode(payment_data, :root => false),
-                      build_audit_headers(current_user, reason, comment, options)
-      end
-    end
-
-    ############## PAYMENT METHOD ##############
-
-    def self.add_payment_method(is_default, payment_method, current_user = nil, reason = nil, comment = nil, options = {})
-      payment_method.create is_default, extract_created_by(current_user), extract_reason_code(reason), comment, options
-    end
-
-    ############## CREDIT ##############
-
-    def self.create_credit(credit, current_user = nil, reason = nil, comment = nil, options = {})
-      new_credit = KillBillClient::Model::Credit.new
-      new_credit.credit_amount = credit['credit_amount']
-      new_credit.invoice_id = credit['invoice_id']
-      new_credit.effective_date = credit['effective_date']
-      new_credit.account_id = credit['account_id']
-
-      new_credit.create(extract_created_by(current_user),
-                        extract_reason_code(reason),
-                        comment,
-                        options)
-    end
-
     ############## TAG ##############
 
     def self.get_tags(offset, limit, options = {})

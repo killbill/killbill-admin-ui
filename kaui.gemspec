@@ -32,8 +32,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'cancan', '~> 1.6.10'
   s.add_dependency 'carmen-rails', '~> 1.0.0'
 
-  s.add_development_dependency "fakeweb", '~> 1.3'
+  s.add_development_dependency 'fakeweb', '~> 1.3'
   s.add_development_dependency 'rake', '>= 0.8.7'
+  s.add_development_dependency 'simplecov'
 
   if defined?(JRUBY_VERSION)
     s.add_development_dependency 'activerecord-jdbc-adapter', '~> 1.3.9'
