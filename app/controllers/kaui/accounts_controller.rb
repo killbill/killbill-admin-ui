@@ -58,8 +58,8 @@ class Kaui::AccountsController < Kaui::EngineController
       @account       = Kaui::Account::find_by_id_or_key(params[:id], true, true, options_for_klient)
       @overdue_state = @account.overdue(options_for_klient)
       @bundles       = @account.bundles(options_for_klient)
+      @tags          = @account.tags(false, 'NONE', options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b }
 
-      @tags            = Kaui::Tag.find_all_sorted_by_account_id(@account.account_id, false, 'NONE', options_for_klient)
       @account_emails  = Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', options_for_klient)
       @payment_methods = Kaui::PaymentMethod.find_non_external_by_account_id(@account.account_id, true, options_for_klient)
     rescue => e

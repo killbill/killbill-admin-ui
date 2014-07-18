@@ -79,59 +79,6 @@ module Kaui
       KillBillClient::Model::Tag.find_in_batches_by_search_key search_key, offset, limit, options
     end
 
-    def self.get_tag_definitions(options = {})
-      data = call_killbill :get, "/1.0/kb/tagDefinitions", options
-      process_response(data, :multiple) { |json| Kaui::TagDefinition.new(json) }
-    end
-
-    def self.get_tag_definition(tag_definition_id, options = {})
-      data = call_killbill :get, "/1.0/kb/tagDefinitions/#{tag_definition_id}", options
-      process_response(data, :single) { |json| Kaui::TagDefinition.new(json) }
-    end
-
-    def self.create_tag_definition(tag_definition, current_user = nil, reason = nil, comment = nil, options = {})
-      tag_definition_data = Kaui::TagDefinition.camelize(tag_definition.to_hash)
-      call_killbill :post,
-                    "/1.0/kb/tagDefinitions",
-                    ActiveSupport::JSON.encode(tag_definition_data, :root => false),
-                    build_audit_headers(current_user, reason, comment, options)
-    end
-
-    def self.delete_tag_definition(tag_definition_id, current_user = nil, reason = nil, comment = nil, options = {})
-      call_killbill :delete,
-                    "/1.0/kb/tagDefinitions/#{tag_definition_id}",
-                    build_audit_headers(current_user, reason, comment, options)
-    end
-
-    def self.get_tags_for_bundle(bundle_id, options = {})
-      data = call_killbill :get, "/1.0/kb/bundles/#{bundle_id}/tags", options
-      return data[:json]
-    end
-
-    def self.add_tags_for_account(account_id, tags, current_user = nil, reason = nil, comment = nil, options = {})
-      call_killbill :post,
-                    "/1.0/kb/accounts/#{account_id}/tags?" + RestClient::Payload.generate(:tagList => tags.join(",")).to_s,
-                    nil,
-                    build_audit_headers(current_user, reason, comment, options)
-    end
-
-    def self.remove_tags_for_account(account_id, tags, current_user = nil, reason = nil, comment = nil, options = {})
-      return if !tags.present? || tags.size == 0
-      call_killbill :delete,
-                    "/1.0/kb/accounts/#{account_id}/tags?" + RestClient::Payload.generate(:tagList => tags.join(",")).to_s,
-                    build_audit_headers(current_user, reason, comment, options)
-    end
-
-    def self.set_tags_for_bundle(bundle_id, tags, current_user = nil, reason = nil, comment = nil, options = {})
-      if tags.nil? || tags.empty?
-      else
-        call_killbill :post,
-                      "/1.0/kb/bundles/#{bundle_id}/tags?" + RestClient::Payload.generate(:tag_list => tags.join(",")).to_s,
-                      nil,
-                      build_audit_headers(current_user, reason, comment, options)
-      end
-    end
-
     ############## CUSTOM FIELDS ##############
 
     def self.get_custom_fields(offset, limit, options = {})
