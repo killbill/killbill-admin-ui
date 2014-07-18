@@ -100,23 +100,6 @@ module Kaui
                     build_audit_headers(current_user, reason, comment, options)
     end
 
-    def self.create_charge(charge, requested_date, current_user = nil, reason = nil, comment = nil, options = {})
-      charge_data = Kaui::Charge.camelize(charge.to_hash)
-      date_param = "?requestedDate=" + requested_date unless requested_date.blank?
-
-      if charge.invoice_id.present?
-        call_killbill :post,
-                      "/1.0/kb/invoices/#{charge.invoice_id}/charges#{date_param}",
-                      ActiveSupport::JSON.encode(charge_data, :root => false),
-                      build_audit_headers(current_user, reason, comment, options)
-      else
-        call_killbill :post,
-                      "/1.0/kb/invoices/charges#{date_param}",
-                      ActiveSupport::JSON.encode(charge_data, :root => false),
-                      build_audit_headers(current_user, reason, comment, options)
-      end
-    end
-
     def self.delete_cba(account_id, invoice_id, invoice_item_id, current_user = nil, reason = nil, comment = nil, options = {})
       call_killbill :delete,
                     "/1.0/kb/invoices/#{invoice_id}/#{invoice_item_id}/cba?accountId=#{account_id}",
