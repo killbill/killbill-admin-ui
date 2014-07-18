@@ -28,6 +28,7 @@ module Kaui
       @bundle            = create_bundle(@account, @tenant)
       @payment_method    = create_payment_method(true, @account, @tenant)
       @invoice_item      = create_charge(@account, @tenant)
+      @cba               = create_cba(@invoice_item.invoice_id, @account, @tenant)
       @paid_invoice_item = create_charge(@account, @tenant)
       @payment           = create_payment(@paid_invoice_item, @account, @tenant)
     end
@@ -91,6 +92,18 @@ module Kaui
       invoice_item.amount     = 123.98
 
       invoice_item.create(user, reason, comment, build_options(tenant, username, password))
+    end
+
+    # Return the created credit
+    def create_cba(invoice_id = nil, account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
+      tenant  = create_tenant(user, reason, comment) if tenant.nil?
+      account = create_account(tenant, username, password, user, reason, comment) if account.nil?
+
+      credit = KillBillClient::Model::Credit.new(:invoice_id => invoice_id, :account_id => account.account_id, :credit_amount => 23.22)
+      credit = credit.create(user, reason, comment, build_options(tenant, username, password))
+
+      invoice = KillBillClient::Model::Invoice.find_by_id_or_number(credit.invoice_id, true, 'NONE', build_options(tenant, username, password))
+      invoice.items.find { |ii| ii.amount == -credit.credit_amount }
     end
 
     def create_payment(invoice_item = nil, account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)

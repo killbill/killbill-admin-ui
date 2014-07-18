@@ -26,7 +26,7 @@ class Kaui::PaymentsControllerTest < Kaui::FunctionalTestHelper
     assert_not_nil assigns(:payment)
 
     # Create the payment
-    post :create, :invoice_payment => {:account_id => @invoice_item.account_id, :target_invoice_id => @invoice_item.invoice_id, :purchased_amount => @invoice_item.amount}, :external => 1
+    post :create, :invoice_payment => {:account_id => @invoice_item.account_id, :target_invoice_id => @invoice_item.invoice_id, :purchased_amount => 10}, :external => 1
     assert_response 302
 
     # Test pagination

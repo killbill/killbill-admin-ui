@@ -69,43 +69,6 @@ module Kaui
       current_user.respond_to?(:kb_username) ? current_user.kb_username : current_user.to_s
     end
 
-    ############## INVOICE ##############
-
-    def self.get_invoice_item(invoice_id, invoice_item_id, options = {})
-      # Find the item from the invoice
-      # TODO add killbill-server API
-      invoice = Kaui::KillbillHelper.get_invoice(invoice_id, true, "NONE", options)
-      if invoice.present? and invoice.items.present?
-        invoice.items.each do |item|
-          return item if item.invoice_item_id == invoice_item_id
-        end
-      end
-      nil
-    end
-
-    def self.new_invoice_item(invoice_item)
-      item = KillBillClient::Model::InvoiceItem.new
-      invoice_item.each do |attribute, value|
-        item.methods.include?("#{attribute}=".to_sym) ?
-        item.send("#{attribute}=".to_sym, value) : next
-      end
-      item
-    end
-
-    def self.adjust_invoice(invoice_item, current_user = nil, reason = nil, comment = nil, options = {})
-      invoice_data = Kaui::InvoiceItem.camelize(invoice_item.to_hash)
-      call_killbill :post,
-                    "/1.0/kb/invoices/#{invoice_item.invoice_id}",
-                    ActiveSupport::JSON.encode(invoice_data, :root => false),
-                    build_audit_headers(current_user, reason, comment, options)
-    end
-
-    def self.delete_cba(account_id, invoice_id, invoice_item_id, current_user = nil, reason = nil, comment = nil, options = {})
-      call_killbill :delete,
-                    "/1.0/kb/invoices/#{invoice_id}/#{invoice_item_id}/cba?accountId=#{account_id}",
-                    build_audit_headers(current_user, reason, comment, options)
-    end
-
     ############## TAG ##############
 
     def self.get_tags(offset, limit, options = {})
