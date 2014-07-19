@@ -69,16 +69,6 @@ module Kaui
       current_user.respond_to?(:kb_username) ? current_user.kb_username : current_user.to_s
     end
 
-    ############## TAG ##############
-
-    def self.get_tags(offset, limit, options = {})
-      KillBillClient::Model::Tag.find_in_batches offset, limit, options
-    end
-
-    def self.search_tags(search_key, offset, limit, options = {})
-      KillBillClient::Model::Tag.find_in_batches_by_search_key search_key, offset, limit, options
-    end
-
     ############## CUSTOM FIELDS ##############
 
     def self.get_custom_fields(offset, limit, options = {})
