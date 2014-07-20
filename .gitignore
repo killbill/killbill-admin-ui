@@ -11,3 +11,4 @@ foo
 # Local testing credentials
 config/initializers/killbill_client.rb
 coverage
+.DS_Store
