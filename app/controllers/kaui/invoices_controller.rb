@@ -24,7 +24,7 @@ class Kaui::InvoicesController < Kaui::EngineController
           invoice.invoice_number,
           view_context.format_date(invoice.invoice_date),
           view_context.humanized_money_with_symbol(invoice.amount_to_money),
-          view_context.humanized_money_with_symbol(invoice.balance.to_money)
+          view_context.humanized_money_with_symbol(invoice.balance_to_money)
       ]
     end
 

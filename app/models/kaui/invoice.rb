@@ -1,6 +1,6 @@
 class Kaui::Invoice < KillBillClient::Model::Invoice
 
-  [:amount, :balance].each do |type|
+  [:amount, :balance, :credits].each do |type|
     define_method "#{type}_to_money" do
       Kaui::Base.to_money(send(type), currency)
     end

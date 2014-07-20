@@ -71,20 +71,20 @@
           </td>
           <td><%= "INVOICE" %></td>
           <td><span class="hide" title="<%= invoice.invoice_number %>"></span>
-            <%= "Amount:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(invoice.amount, @account.currency) %>
+            <%= "Amount:" %> <%= humanized_money_with_symbol invoice.amount_to_money %>
             (<%= @account.currency %>)<br/>
-            <%= "Balance:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(invoice.balance, @account.currency) %>
+            <%= "Balance:" %> <%= humanized_money_with_symbol invoice.balance_to_money %>
             (<%= @account.currency %>)<br/>
             <% if invoice.credit_adj.present? && invoice.credit_adj > 0 %>
-                <%= "Credit adjustment:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(invoice.credit_adj, @account.currency) %>
+                <%= "Credit adjustment:" %> <%= humanized_money_with_symbol invoice.credit_adjustment_to_money %>
                 (<%= @account.currency %>)<br/>
             <% end %>
             <% if invoice.credits.present? && invoice.credits > 0 %>
-                <%= "Credit balance adjustment:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(invoice.credits, @account.currency) %>
+                <%= "Credit balance adjustment:" %> <%= humanized_money_with_symbol invoice.credits_to_money %>
                 (<%= @account.currency %>)<br/>
             <% end %>
             <% if invoice.refund_adj.present? && invoice.refund_adj < 0 %>
-                <%= "Refund adjustment:" %> <%= humanized_money_with_symbol Kaui::Base.to_money(invoice.refund_adj, @account.currency) %>
+                <%= "Refund adjustment:" %> <%= humanized_money_with_symbol invoice.refund_adjustment_to_money %>
                 (<%= @account.currency %>)<br/>
             <% end %>
             <%= "Invoice #" %>
@@ -159,7 +159,7 @@
                 <span class="hide" title="<%= invoice.invoice_number %>"></span>
                 <%= 'Transaction id:' %> <%= transaction.transaction_id %>
                 <br/>
-                <%= 'Amount:' %> <%= humanized_money_with_symbol Kaui::Base.to_money(transaction.amount, transaction.currency) %>
+                <%= 'Amount:' %> <%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
                 (<%= transaction.currency %>)<br/>
             <span
             <% if transaction.status == 'FAILED' %>class="alert-error"
