@@ -1,5 +1,3 @@
-require 'kaui/killbill_helper'
-
 class Kaui::PaymentMethodsController < Kaui::EngineController
 
   def index

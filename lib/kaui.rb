@@ -29,6 +29,8 @@ module Kaui
       :killbill_url => killbill_url || ENV['KILLBILL_URL'] || 'http://127.0.0.1:8080'
     }
   end
+
+  KillBillClient.url = Kaui.killbill_finder.call
 end
 
 # ruby-1.8 compatibility
