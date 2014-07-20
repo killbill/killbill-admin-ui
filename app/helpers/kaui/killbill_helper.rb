@@ -69,16 +69,6 @@ module Kaui
       current_user.respond_to?(:kb_username) ? current_user.kb_username : current_user.to_s
     end
 
-    ############## CUSTOM FIELDS ##############
-
-    def self.get_custom_fields(offset, limit, options = {})
-      KillBillClient::Model::CustomField.find_in_batches offset, limit, options
-    end
-
-    def self.search_custom_fields(search_key, offset, limit, options = {})
-      KillBillClient::Model::CustomField.find_in_batches_by_search_key search_key, offset, limit, options
-    end
-
     def self.before_all
       methods.each do |method_name|
         method = method(method_name)
