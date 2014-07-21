@@ -45,11 +45,7 @@ class Kaui::InvoicesController < Kaui::EngineController
       @invoice_id      = @invoice.invoice_id
       @account         = Kaui::Account.find_by_id(@invoice.account_id, false, false, options_for_klient)
       @payments        = Kaui::Invoice.new(:invoice_id => @invoice_id).payments(false, 'FULL', options_for_klient)
-      @payment_methods = {}
-      @payments.each do |payment|
-        # The payment method may have been deleted
-        @payment_methods[payment.payment_id] = Kaui::PaymentMethod.find_by_id(payment.payment_method_id, true, options) rescue nil
-      end
+      @payment_methods = Kaui::PaymentMethod.payment_methods_for_payments(@payments, options_for_klient)
 
       @subscriptions            = {}
       @bundles                  = {}

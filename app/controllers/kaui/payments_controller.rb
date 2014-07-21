@@ -84,4 +84,15 @@ class Kaui::PaymentsController < Kaui::EngineController
 
     redirect_to kaui_engine.account_timeline_path(:id => payment.account_id)
   end
+
+  def show
+    begin
+      @payments        = [Kaui::InvoicePayment.find_by_id(params[:id], true, options_for_klient)]
+      @account         = Kaui::Account.find_by_id(@payments.first.account_id, false, false, options_for_klient)
+      @payment_methods = Kaui::PaymentMethod.payment_methods_for_payments(@payments, options_for_klient)
+    rescue => e
+      flash.now[:error] = "Error while looking up payment: #{as_string(e)}"
+      render :action => :index
+    end
+  end
 end

@@ -7,13 +7,13 @@
     <label for="bundles" class="control-label">Filter by bundle name</label>
 
     <div class="controls">
-      <%= select_tag "bundles", options_for_select([""] + @bundle_names.values.sort, @selected_bundle || 'all') %>
+      <%= select_tag 'bundles', options_for_select([''] + @bundle_names.values.sort, @selected_bundle || 'all') %>
     </div>
 
     <label for="events" class="control-label">Filter by event type</label>
 
     <div class="controls">
-      <%= select_tag "event_types", options_for_select('<option value="all">ALL</option><option value="invoice">INVOICE</option><option value="payment">PAYMENT</option><option value="entitlement">ENTITLEMENTS</option>'.html_safe) %>
+      <%= select_tag 'event_types', options_for_select('<option value="all">ALL</option><option value="invoice">INVOICE</option><option value="payment">PAYMENT</option><option value="entitlement">ENTITLEMENTS</option>'.html_safe) %>
     </div>
 
     <dl class="dl-horizontal">
@@ -39,7 +39,7 @@
 <% if @account.present? && @timeline.present? %>
     <% @timeline.invoices.each do |invoice_stub| %>
         <% if invoice_stub.bundle_keys.present? %>
-            <% bundles = invoice_stub.bundle_keys.split(",").map { |bundle_key| @bundle_names[bundle_key] }.join(",") %>
+            <% bundles = invoice_stub.bundle_keys.split(',').map { |bundle_key| @bundle_names[bundle_key] }.join(',') %>
         <% end %>
         <% if invoice_stub.invoice_id.present? && @invoices_by_id.has_key?(invoice_stub.invoice_id) %>
             <% invoice = @invoices_by_id[invoice_stub.invoice_id] %>
@@ -63,31 +63,31 @@
           </td>
           <td>
             <% if invoice_stub.bundle_keys.present? %>
-                <% invoice_stub.bundle_keys.split(",").each do |bundle_key| %>
+                <% invoice_stub.bundle_keys.split(',').each do |bundle_key| %>
                     <%= link_to @bundle_names[bundle_key], Kaui.bundle_home_path.call(bundle_key) %>
                     <br/>
                 <% end %>
             <% end %>
           </td>
-          <td><%= "INVOICE" %></td>
+          <td><%= 'INVOICE' %></td>
           <td><span class="hide" title="<%= invoice.invoice_number %>"></span>
-            <%= "Amount:" %> <%= humanized_money_with_symbol invoice.amount_to_money %>
+            <%= 'Amount:' %> <%= humanized_money_with_symbol invoice.amount_to_money %>
             (<%= @account.currency %>)<br/>
-            <%= "Balance:" %> <%= humanized_money_with_symbol invoice.balance_to_money %>
+            <%= 'Balance:' %> <%= humanized_money_with_symbol invoice.balance_to_money %>
             (<%= @account.currency %>)<br/>
             <% if invoice.credit_adj.present? && invoice.credit_adj > 0 %>
-                <%= "Credit adjustment:" %> <%= humanized_money_with_symbol invoice.credit_adjustment_to_money %>
+                <%= 'Credit adjustment:' %> <%= humanized_money_with_symbol invoice.credit_adjustment_to_money %>
                 (<%= @account.currency %>)<br/>
             <% end %>
             <% if invoice.credits.present? && invoice.credits > 0 %>
-                <%= "Credit balance adjustment:" %> <%= humanized_money_with_symbol invoice.credits_to_money %>
+                <%= 'Credit balance adjustment:' %> <%= humanized_money_with_symbol invoice.credits_to_money %>
                 (<%= @account.currency %>)<br/>
             <% end %>
             <% if invoice.refund_adj.present? && invoice.refund_adj < 0 %>
-                <%= "Refund adjustment:" %> <%= humanized_money_with_symbol invoice.refund_adjustment_to_money %>
+                <%= 'Refund adjustment:' %> <%= humanized_money_with_symbol invoice.refund_adjustment_to_money %>
                 (<%= @account.currency %>)<br/>
             <% end %>
-            <%= "Invoice #" %>
+            <%= 'Invoice #' %>
             <%= link_to invoice.invoice_number, invoice_path(:id => invoice.invoice_id) %>
           </td>
           <td>
@@ -100,25 +100,25 @@
           </td>
           <td>
             <nobr>
-              <%= link_to "Payment",
+              <%= link_to 'Payment',
                           kaui_engine.new_payment_path(:params => {:account_id => invoice.account_id,
                                                                    :invoice_id => invoice.invoice_id}),
-                          :class => "btn btn-mini #{"disabled" unless invoice.balance > 0}" %>
+                          :class => "btn btn-mini #{'disabled' unless invoice.balance > 0}" %>
             </nobr>
             <% if can? :credit, Kaui::Invoice %>
                 <nobr>
-                  <%= link_to "Credit",
+                  <%= link_to 'Credit',
                               kaui_engine.new_credit_path(:params => {:account_id => invoice.account_id,
                                                                       :invoice_id => invoice.invoice_id}),
-                              :class => "btn btn-mini" %>
+                              :class => 'btn btn-mini' %>
                 </nobr>
             <% end %>
             <% if can? :charge, Kaui::Invoice %>
                 <nobr>
-                  <%= link_to "Charge",
+                  <%= link_to 'Charge',
                               kaui_engine.new_charge_path(:params => {:account_id => invoice.account_id,
                                                                       :invoice_id => invoice.invoice_id}),
-                              :class => "btn btn-mini" %>
+                              :class => 'btn btn-mini' %>
                 </nobr>
             <% end %>
           </td>
@@ -156,8 +156,8 @@
               </td>
               <td><%= transaction.transaction_type %></td>
               <td>
-                <span class="hide" title="<%= invoice.invoice_number %>"></span>
-                <%= 'Transaction id:' %> <%= transaction.transaction_id %>
+                <span class="hide" title="<%= invoice.invoice_number unless invoice.nil? %>"></span>
+                <%= 'Transaction id:' %> <%= truncate_uuid(transaction.transaction_id) %>
                 <br/>
                 <%= 'Amount:' %> <%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
                 (<%= transaction.currency %>)<br/>
@@ -167,7 +167,10 @@
               <%= transaction.status %>
             </span>
                 <br/>
-                <%= "Invoice #" %> <%= link_to invoice.invoice_number, invoice_path(:id => invoice.invoice_id) %>
+                <%= 'Payment #' %> <%= link_to payment.payment_number, payment_path(:id => payment.payment_id) %>
+                <% unless invoice.nil? %>
+                    <br/><%= 'Invoice #' %> <%= link_to invoice.invoice_number, invoice_path(:id => invoice.invoice_id) %>
+                <% end %>
               </td>
               <td>
                 <% if transaction.audit_logs.present? %>
@@ -178,13 +181,13 @@
                 <% end %>
               </td>
               <td>
-                <% if %w(CAPTURE PURCHASE).include?(transaction.transaction_type) %>
+                <% if invoice.present? and %w(CAPTURE PURCHASE).include?(transaction.transaction_type) %>
                     <% if can? :refund, Kaui::Payment %>
                         <nobr>
                           <%= link_to 'Refund', kaui_engine.new_refund_path(:params => {:payment_id => payment.payment_id,
                                                                                         :account_id => @account.account_id,
                                                                                         :invoice_id => payment.target_invoice_id}),
-                                      :class => "btn btn-mini #{"disabled" unless payment.payment_id.present? and transaction.status == 'SUCCESS' }" %>
+                                      :class => "btn btn-mini #{'disabled' unless payment.payment_id.present? and transaction.status == 'SUCCESS' }" %>
                         </nobr>
                     <% end %>
                     <% if can? :chargeback, Kaui::Payment %>
@@ -192,8 +195,32 @@
                           <%= link_to 'Chargeback', kaui_engine.new_chargeback_path(:params => {:payment_id => payment.payment_id,
                                                                                                 :account_id => @account.account_id,
                                                                                                 :invoice_id => payment.target_invoice_id}),
-                                      :class => "btn btn-mini #{"disabled" unless payment.payment_id.present? and transaction.status == 'SUCCESS'}" %>
+                                      :class => "btn btn-mini #{'disabled' unless payment.payment_id.present? and transaction.status == 'SUCCESS'}" %>
                         </nobr>
+                    <% end %>
+                <% elsif !invoice.present? %>
+                    <% if transaction.transaction_type == 'AUTHORIZE' %>
+                        <% %w(CAPTURE VOID).each do |transaction_type| %>
+                            <nobr>
+                              <%= link_to transaction_type.downcase.capitalize, kaui_engine.new_transaction_path(:account_id        => payment.account_id,
+                                                                                                                 :payment_id        => transaction.payment_id,
+                                                                                                                 :payment_method_id => payment.payment_method_id,
+                                                                                                                 :amount            => transaction.amount,
+                                                                                                                 :currency          => transaction.currency,
+                                                                                                                 :transaction_type  => transaction_type), :class => 'btn btn-mini' %>
+                            </nobr>
+                        <% end %>
+                    <% elsif %w(CAPTURE PURCHASE).include?(transaction.transaction_type) %>
+                        <% %w(REFUND CHARGEBACK).each do |transaction_type| %>
+                            <nobr>
+                              <%= link_to transaction_type.downcase.capitalize, kaui_engine.new_transaction_path(:account_id        => payment.account_id,
+                                                                                                                 :payment_id        => transaction.payment_id,
+                                                                                                                 :payment_method_id => payment.payment_method_id,
+                                                                                                                 :amount            => transaction.amount,
+                                                                                                                 :currency          => transaction.currency,
+                                                                                                                 :transaction_type  => transaction_type), :class => 'btn btn-mini' %>
+                            </nobr>
+                        <% end %>
                     <% end %>
                 <% end %>
               </td>
@@ -226,7 +253,7 @@
                   </td>
                   <td><%= event.event_type %></td>
                   <td>
-                    <span class="hide" title="<%= sub.product_category %>"></span><%= event.product %> <%= event.billing_period == 'NO_BILLING_PERIOD' || event.billing_period.nil? ? "" : event.billing_period.downcase.capitalize %> <%= event.phase.downcase.capitalize if event.phase.present? %>
+                    <span class="hide" title="<%= sub.product_category %>"></span><%= event.product %> <%= event.billing_period == 'NO_BILLING_PERIOD' || event.billing_period.nil? ? '' : event.billing_period.downcase.capitalize %> <%= event.phase.downcase.capitalize if event.phase.present? %>
                   </td>
                   <td>
                     <% if event.audit_logs.present? %>

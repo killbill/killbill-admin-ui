@@ -6,7 +6,7 @@
   <tr>
     <th>Effective date</th>
     <th>Transaction type</th>
-    <th>Paid amount</th>
+    <th>Amount</th>
     <th>Payment method</th>
     <th>First / Second reference id</th>
     <th>Status</th>
@@ -20,10 +20,18 @@
               <tr>
                 <td><%= format_date(transaction.effective_date, @account.time_zone).html_safe if transaction.effective_date.present? %></td>
                 <td><%= transaction.transaction_type %></td>
-                <td><%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %> (<%= transaction.currency %>)</td>
-                <td><%= link_to @payment_methods[transaction.payment_id].payment_method_id, kaui_engine.transaction_method_path(@payment_methods[transaction.payment_id].payment_method_id) if @payment_methods.present? and @payment_methods[transaction.payment_id].present? %></td>
+                <td><% if transaction.amount.present? %><%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
+                  (<%= transaction.currency %>)<% end %>
+                </td>
+                <td><%= link_to truncate_uuid(@payment_methods[transaction.payment_id].payment_method_id), kaui_engine.payment_method_path(@payment_methods[transaction.payment_id].payment_method_id) if @payment_methods.present? and @payment_methods[transaction.payment_id].present? %></td>
                 <td><%= transaction.first_payment_reference_id %> <%= " / " if transaction.second_payment_reference_id.present? %> <%= transaction.second_payment_reference_id %></td>
-                <td><%= transaction.status %> <%= transaction.gateway_error_code unless transaction.status == 'SUCCESS' %> <%= transaction.gateway_error_msg %></td>
+                <td>
+                  <span
+                  <% if transaction.status != 'SUCCESS' %>class='alert-error'
+                  <% else %>class='alert-success' <% end %>>
+                  <%= transaction.status %> <%= transaction.gateway_error_code unless transaction.status == 'SUCCESS' %> <%= transaction.gateway_error_msg %>
+                  </span>
+                </td>
                 <td><%= transaction.gateway_error_msg %></td>
               </tr>
           <% end %>
