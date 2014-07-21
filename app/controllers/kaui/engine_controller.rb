@@ -17,7 +17,7 @@ class Kaui::EngineController < ApplicationController
 
   # Used for auditing purposes
   def current_user
-    super rescue Kaui.config[:default_current_user]
+    super
   end
 
   def current_ability

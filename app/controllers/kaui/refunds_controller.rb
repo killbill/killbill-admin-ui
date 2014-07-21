@@ -36,7 +36,7 @@ class Kaui::RefundsController < Kaui::EngineController
     end
 
     begin
-      KillBillClient::Model::InvoicePayment.refund(params[:payment_id], params[:amount], items, current_user, params[:reason], params[:comment], options_for_klient)
+      KillBillClient::Model::InvoicePayment.refund(params[:payment_id], params[:amount], items, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       flash[:notice] = 'Refund created'
     rescue => e
       flash[:error] = "Error while processing refund: #{as_string(e)}"

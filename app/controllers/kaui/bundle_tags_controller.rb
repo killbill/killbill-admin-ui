@@ -40,7 +40,7 @@ class Kaui::BundleTagsController < Kaui::EngineController
 
     begin
       bundle = Kaui::Bundle.new(:bundle_id => bundle_id)
-      bundle.set_tags(tags, current_user, params[:reason], params[:comment], options_for_klient)
+      bundle.set_tags(tags, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       redirect_to kaui_engine.bundle_tags_path(:bundle_id => bundle_id), :notice => 'Bundle tags successfully set'
     rescue => e
       flash[:error] = "Error while updating tags: #{as_string(e)}"

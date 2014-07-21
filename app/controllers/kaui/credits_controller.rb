@@ -27,7 +27,7 @@ class Kaui::CreditsController < Kaui::EngineController
     @credit = Kaui::Credit.new(params[:credit].delete_if { |key, value| value.blank? })
 
     begin
-      @credit = @credit.create(current_user, params[:reason], params[:comment], options_for_klient)
+      @credit = @credit.create(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       redirect_to kaui_engine.invoice_path(:id => @credit.invoice_id), :notice => 'Credit was successfully created'
     rescue => e
       flash.now[:error] = "Error while creating a credit: #{as_string(e)}"

@@ -1,5 +1,6 @@
 <%= form_for @payment_method, :html => {:class => 'form-horizontal'} do |f| %>
     <fieldset>
+      <%= f.hidden_field :account_id %>
       <div class="control-group">
         <%= f.label :external_key, 'External key *', :class => 'control-label' %>
         <div class="controls">

@@ -19,8 +19,8 @@ class Kaui::BundlesController < Kaui::EngineController
 
     bundles.each do |bundle|
       json[:aaData] << [
-          view_context.link_to(bundle.bundle_id, view_context.url_for(:action => :show, :id => bundle.bundle_id)),
-          view_context.link_to(bundle.account_id, view_context.url_for(:controller => :accounts, :action => :show, :id => bundle.account_id)),
+          view_context.link_to(view_context.truncate_uuid(bundle.bundle_id), view_context.url_for(:action => :show, :id => bundle.bundle_id)),
+          view_context.link_to(view_context.truncate_uuid(bundle.account_id), view_context.url_for(:controller => :accounts, :action => :show, :id => bundle.account_id)),
           bundle.external_key,
           bundle.subscriptions.nil? ? '' : (bundle.subscriptions.map { |s| s.product_name }).join(', ')
       ]
@@ -35,6 +35,7 @@ class Kaui::BundlesController < Kaui::EngineController
     begin
       @bundle  = Kaui::Bundle::find_by_id_or_key(params[:id], nil, options_for_klient)
       @account = Kaui::Account::find_by_id(@bundle.account_id, false, false, options_for_klient)
+      @tags    = @bundle.tags(false, 'NONE', options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b }
     rescue => e
       flash.now[:error] = "Error while retrieving bundle information: #{as_string(e)}"
       render :action => :index
@@ -70,7 +71,7 @@ class Kaui::BundlesController < Kaui::EngineController
       billing_policy = params[:billing_policy]
 
       bundle = Kaui::Bundle::new(:bundle_id => params[:id], :account_id => new_account.account_id)
-      bundle.transfer(nil, billing_policy, current_user, params[:reason], params[:comment], options_for_klient)
+      bundle.transfer(nil, billing_policy, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
 
       redirect_to account_path(new_account.account_id), :notice => 'Bundle was successfully transferred'
     rescue => e

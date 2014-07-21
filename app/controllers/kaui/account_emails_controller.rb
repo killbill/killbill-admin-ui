@@ -14,7 +14,7 @@ class Kaui::AccountEmailsController < Kaui::EngineController
 
     account = Kaui::Account.new(:account_id => @account_email.account_id)
     begin
-      account.add_email(@account_email.email, current_user, params[:reason], params[:comment], options_for_klient)
+      account.add_email(@account_email.email, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       redirect_to account_email_path(account.account_id), :notice => 'Account email was successfully added'
     rescue => e
       flash.now[:error] = "Error while adding the email: #{as_string(e)}"
@@ -26,7 +26,7 @@ class Kaui::AccountEmailsController < Kaui::EngineController
     account = Kaui::Account.new(:account_id => params[:id])
 
     begin
-      account.remove_email(params[:email], current_user, params[:reason], params[:comment], options_for_klient)
+      account.remove_email(params[:email], current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       redirect_to account_email_path(account.account_id), :notice => 'Account email was successfully deleted'
     rescue => e
       flash.now[:error] = "Error while deleting account email: #{as_string(e)}"

@@ -20,8 +20,8 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
     payment_methods.each do |payment_method|
       info_plugin = payment_method.plugin_info || OpenStruct.new
       json[:aaData] << [
-          view_context.link_to(payment_method.payment_method_id, view_context.url_for(:controller => :payment_methods, :action => :show, :id => payment_method.payment_method_id)),
-          view_context.link_to(payment_method.account_id, view_context.url_for(:controller => :accounts, :action => :show, :id => payment_method.account_id)),
+          view_context.link_to(view_context.truncate_uuid(payment_method.payment_method_id), view_context.url_for(:controller => :payment_methods, :action => :show, :id => payment_method.payment_method_id)),
+          view_context.link_to(view_context.truncate_uuid(payment_method.account_id), view_context.url_for(:controller => :accounts, :action => :show, :id => payment_method.account_id)),
           info_plugin.external_payment_id,
           find_value_from_properties(info_plugin.properties, 'ccName'),
           find_value_from_properties(info_plugin.properties, 'ccLast4'),
@@ -74,7 +74,7 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
     }
 
     begin
-      @payment_method = @payment_method.create(current_user, @reason, @comment, options_for_klient)
+      @payment_method = @payment_method.create(current_user.kb_username, @reason, @comment, options_for_klient)
       redirect_to payment_method_path(@payment_method.payment_method_id), :notice => 'Payment method was successfully created'
     rescue => e
       flash.now[:error] = "Error while creating payment method: #{as_string(e)}"
@@ -95,7 +95,7 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
     payment_method_id = params[:id]
 
     begin
-      Kaui::PaymentMethod.destroy(payment_method_id, params[:set_auto_pay_off], current_user, params[:reason], params[:comment], options_for_klient)
+      Kaui::PaymentMethod.destroy(payment_method_id, params[:set_auto_pay_off], current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       redirect_to payment_methods_path, :notice => "Payment method #{payment_method_id} successfully deleted"
     rescue => e
       flash.now[:error] = "Error while deleting payment method #{payment_method_id}: #{as_string(e)}"

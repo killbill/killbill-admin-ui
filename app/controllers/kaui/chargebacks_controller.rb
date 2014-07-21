@@ -18,7 +18,7 @@ class Kaui::ChargebacksController < Kaui::EngineController
     should_cancel_subs = (params[:cancel_all_subs] == '1')
 
     begin
-      payment = @chargeback.chargeback(current_user, params[:reason], params[:comment], options_for_klient)
+      payment = @chargeback.chargeback(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
     rescue => e
       flash.now[:error] = "Error while creating a new chargeback: #{as_string(e)}"
       render :action => :new and return
@@ -35,7 +35,7 @@ class Kaui::ChargebacksController < Kaui::EngineController
 
             # Cancel the entitlement immediately but use the default billing policy
             entitlement = Kaui::Subscription.new(:subscription_id => subscription.subscription_id)
-            entitlement.cancel_entitlement_immediately(current_user, params[:reason], params[:comment], options_for_klient)
+            entitlement.cancel_entitlement_immediately(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
           end
         end
       rescue => e

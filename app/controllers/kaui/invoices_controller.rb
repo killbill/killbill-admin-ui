@@ -20,7 +20,7 @@ class Kaui::InvoicesController < Kaui::EngineController
 
     invoices.each do |invoice|
       json[:aaData] << [
-          view_context.link_to(invoice.invoice_id, view_context.url_for(:controller => :invoices, :action => :show, :id => invoice.invoice_id)),
+          view_context.link_to(view_context.truncate_uuid(invoice.invoice_id), view_context.url_for(:controller => :invoices, :action => :show, :id => invoice.invoice_id)),
           invoice.invoice_number,
           view_context.format_date(invoice.invoice_date),
           view_context.humanized_money_with_symbol(invoice.amount_to_money),

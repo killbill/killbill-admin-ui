@@ -21,6 +21,8 @@ module Kaui
       ActiveSupport.on_load :action_controller do
         helper Kaui::DateHelper
         helper Kaui::MoneyHelper
+        helper Kaui::SubscriptionHelper
+        helper Kaui::UuidHelper
       end
     end
   end

@@ -10,7 +10,6 @@ module Kaui
   mattr_accessor :invoice_home_path
   mattr_accessor :bundle_key_display_string
   mattr_accessor :creditcard_plugin_name
-  mattr_accessor :default_current_user
   mattr_accessor :layout
   mattr_accessor :killbill_url
 
@@ -24,7 +23,6 @@ module Kaui
   def self.config(&block)
     # TODO
     {
-      :default_current_user => default_current_user || 'Kaui admin user',
       :layout => layout || 'kaui/layouts/kaui_application',
       :killbill_url => killbill_url || ENV['KILLBILL_URL'] || 'http://127.0.0.1:8080'
     }

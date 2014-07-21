@@ -19,7 +19,7 @@ class Kaui::AccountsController < Kaui::EngineController
 
     accounts.each do |account|
       json[:aaData] << [
-          view_context.link_to(account.account_id, view_context.url_for(:action => :show, :id => account.account_id)),
+          view_context.link_to(view_context.truncate_uuid(account.account_id), view_context.url_for(:action => :show, :id => account.account_id)),
           account.name,
           account.external_key,
           account.currency,
@@ -45,7 +45,7 @@ class Kaui::AccountsController < Kaui::EngineController
     @account.is_notified_for_invoices = @account.is_notified_for_invoices == '1'
 
     begin
-      @account = @account.create(current_user, params[:reason], params[:comment], options_for_klient)
+      @account = @account.create(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       redirect_to account_path(@account.account_id), :notice => 'Account was successfully created'
     rescue => e
       flash.now[:error] = "Error while creating account: #{as_string(e)}"
@@ -78,7 +78,7 @@ class Kaui::AccountsController < Kaui::EngineController
     payment_method_id = params[:payment_method_id]
 
     begin
-      Kaui::PaymentMethod.set_default(payment_method_id, account_id, current_user, params[:reason], params[:comment], options_for_klient)
+      Kaui::PaymentMethod.set_default(payment_method_id, account_id, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       flash[:notice] = "Successfully set #{payment_method_id} as default"
     rescue => e
       flash[:error] = "Error while setting payment method #{payment_method_id} as default: #{as_string(e)}"
@@ -91,7 +91,7 @@ class Kaui::AccountsController < Kaui::EngineController
     account = Kaui::Account.new(:account_id => params[:id], :is_notified_for_invoices => params[:is_notified])
 
     begin
-      account.update_email_notifications(current_user, params[:reason], params[:comment], options_for_klient)
+      account.update_email_notifications(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       flash[:notice] = 'Email preferences updated'
     rescue => e
       flash[:error] = "Error while setting email notifications: #{as_string(e)}"
@@ -104,7 +104,7 @@ class Kaui::AccountsController < Kaui::EngineController
     payment = Kaui::InvoicePayment.new(:account_id => params[:id])
 
     begin
-      payment.bulk_create(params[:is_external_payment], current_user, params[:reason], params[:comment], options_for_klient)
+      payment.bulk_create(params[:is_external_payment], current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       flash[:notice] = 'Successfully triggered a payment for all unpaid invoices'
     rescue => e
       flash[:error] = "Error while triggering payments: #{as_string(e)}"

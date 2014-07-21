@@ -39,7 +39,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       @subscription.product_name   = plan_details.product
       @subscription.price_list     = plan_details.price_list
 
-      @subscription = @subscription.create(current_user, params[:reason], params[:comment], options_for_klient)
+      @subscription = @subscription.create(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       redirect_to bundle_path(@subscription.bundle_id), :notice => 'Subscription was successfully created'
     rescue => e
       @plans            = plans_details.nil? ? [] : plans_details.map { |p| p.plan }
@@ -90,7 +90,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
                                    :billingPeriod => new_plan_details.final_phase_billing_period,
                                    :priceList     => new_plan_details.price_list
                                },
-                               current_user,
+                               current_user.kb_username,
                                params[:reason],
                                params[:comment],
                                requested_date,
@@ -115,7 +115,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     subscription = Kaui::Subscription.new(:subscription_id => params[:id])
 
     begin
-      subscription.cancel(current_user, params[:reason], params[:comment], requested_date, entitlement_policy, billing_policy, use_requested_date_for_billing, options_for_klient)
+      subscription.cancel(current_user.kb_username, params[:reason], params[:comment], requested_date, entitlement_policy, billing_policy, use_requested_date_for_billing, options_for_klient)
       flash[:notice] = 'Subscription was successfully cancelled'
     rescue => e
       flash[:error] = "Error while canceling subscription: #{as_string(e)}"
@@ -128,7 +128,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     subscription = Kaui::Subscription.new(:subscription_id => params[:id])
 
     begin
-      subscription.uncancel(current_user, params[:reason], params[:comment], options_for_klient)
+      subscription.uncancel(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       flash[:notice] = 'Subscription was successfully reinstated'
     rescue => e
       flash[:error] = "Error while reinstating subscription: #{as_string(e)}"

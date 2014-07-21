@@ -25,7 +25,7 @@ class Kaui::PaymentsController < Kaui::EngineController
       end
 
       json[:aaData] << [
-          view_context.link_to(payment.account_id, view_context.url_for(:controller => :accounts, :action => :show, :id => payment.account_id)),
+          view_context.link_to(view_context.truncate_uuid(payment.account_id), view_context.url_for(:controller => :accounts, :action => :show, :id => payment.account_id)),
           payment.payment_number,
           view_context.format_date(created_date),
           view_context.humanized_money_with_symbol(payment.paid_amount_to_money),
@@ -75,7 +75,7 @@ class Kaui::PaymentsController < Kaui::EngineController
     payment = Kaui::InvoicePayment.new(params[:invoice_payment])
 
     begin
-      payment        = payment.create(params[:external] == '1', current_user, params[:reason], params[:comment], options_for_klient)
+      payment        = payment.create(params[:external] == '1', current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       flash[:notice] = 'Payment created'
     rescue => e
       flash[:error] = "Error while creating a new payment: #{as_string(e)}"

@@ -18,7 +18,7 @@ class Kaui::InvoiceItemsController < Kaui::EngineController
     @invoice_item = Kaui::InvoiceItem.new(params[:invoice_item])
 
     begin
-      invoice = @invoice_item.update(current_user, params[:reason], params[:comment], options_for_klient)
+      invoice = @invoice_item.update(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       redirect_to kaui_engine.invoice_path(invoice.invoice_id), :notice => 'Adjustment item was successfully created'
     rescue => e
       flash.now[:error] = "Error while adjusting invoice item: #{as_string(e)}"
@@ -32,7 +32,7 @@ class Kaui::InvoiceItemsController < Kaui::EngineController
                                           :account_id      => params[:account_id])
 
     begin
-      @invoice_item.delete(current_user, params[:reason], params[:comment], options_for_klient)
+      @invoice_item.delete(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       redirect_to kaui_engine.invoice_path(@invoice_item.invoice_id), :notice => 'CBA item was successfully deleted'
     rescue => e
       flash.now[:error] = "Error while deleting CBA item: #{as_string(e)}"

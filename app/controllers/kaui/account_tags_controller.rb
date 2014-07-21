@@ -37,7 +37,7 @@ class Kaui::AccountTagsController < Kaui::EngineController
 
     begin
       account = Kaui::Account.new(:account_id => account_id)
-      account.set_tags(tags, current_user, params[:reason], params[:comment], options_for_klient)
+      account.set_tags(tags, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       redirect_to kaui_engine.account_tags_path(:account_id => account_id), :notice => 'Account tags successfully set'
     rescue => e
       flash[:error] = "Error while updating tags: #{as_string(e)}"
