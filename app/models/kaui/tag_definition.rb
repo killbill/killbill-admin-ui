@@ -21,7 +21,7 @@ class Kaui::TagDefinition < KillBillClient::Model::TagDefinition
      TENANT
      TENANT_KVS).each do |object_type|
     define_singleton_method "all_for_#{object_type.downcase}" do |options_for_klient|
-      (self.all(options_for_klient).delete_if { |tag_definition| !tag_definition.applicable_object_types.include? object_type }).sort
+      (self.all('NONE', options_for_klient).delete_if { |tag_definition| !tag_definition.applicable_object_types.include? object_type }).sort
     end
   end
 
