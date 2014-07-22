@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kaui (0.6.6)
+    kaui (0.7.0)
       cancan (~> 1.6.10)
       carmen-rails (~> 1.0.0)
       d3_rails (~> 3.2.8)
