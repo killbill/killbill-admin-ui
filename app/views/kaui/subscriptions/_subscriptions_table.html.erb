@@ -3,54 +3,49 @@
 </div>
 <table class="table table-condensed table-striped data-table">
   <thead>
-    <tr>
-      <th>Product category</th>
-      <th>Product name</th>
-      <th>Start date</th>
-      <th>Charged through date</th>
-      <th>Notes</th>
-      <th>Actions</th>
-    </tr>
+  <tr>
+    <th>Product category</th>
+    <th>Product name</th>
+    <th>Start date</th>
+    <th>Charged through date</th>
+    <th>Notes</th>
+    <th>Actions</th>
+  </tr>
   </thead>
   <tbody>
-    <% if subscriptions.present? && !subscriptions.nil? %>
+  <% if subscriptions.present? && !subscriptions.nil? %>
       <% subscriptions.each do |sub| %>
-        <tr>
-          <td><%= sub.product_category.downcase.capitalize if sub.product_category.present? %></td>
-          <td><%= sub.product_name.downcase.capitalize if sub.product_name.present? %> <%= sub.billing_period.downcase.capitalize if sub.billing_period.present? %> <% if sub.price_list.present? && sub.price_list.upcase != "DEFAULT" %> ( <%= sub.price_list.downcase.capitalize %> pricelist ) <% end %></td>
-          <td><%= format_date(sub.start_date, account.timezone).html_safe  if sub.start_date.present? %></td>
-          <td><%= format_date(sub.charged_through_date, account.timezone).html_safe if sub.charged_through_date.present? %></td>
-          <td>
-            <% if sub.cancelled_date.present? && !sub.cancelled_date.nil? %>
-              <% if Time.parse(sub.cancelled_date) > Time.now %> <%= "Pending cancellation on " %> <% else %> <%= "Canceled on " %> <% end %> <%= format_date(sub.cancelled_date, account.timezone).html_safe %>
-            <% end %>
-          </td>
-          <td>
-            <nobr>
-              <% if sub.billing_end_date.present? && Time.parse(sub.billing_end_date) > Time.now %>
-                <%= link_to "Reinstate", kaui_engine.reinstate_subscription_path(:id => sub.subscription_id), :method => :put, :class => "btn btn-mini" %>
-              <% elsif !sub.billing_end_date.present? %>
-                <%= link_to "Change", kaui_engine.edit_subscription_path(sub.subscription_id), :class => "btn btn-mini" %>
-                <div class="btn-group">
-                  <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
-                    Cancel
-                    <span class="caret"></span>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li><%= link_to "Cancel (default policy)", kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'END_OF_TERM'), :method => :delete %></li>
-                    <li><%= link_to "Cancel at previous CTD (no proration)", kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'IMMEDIATE', :ctd => sub.charged_through_date, :billing_period => sub.billing_period), :method => :delete %></li>
-                    <li><%= link_to "Cancel immediately (generate proration)", kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'IMMEDIATE'), :method => :delete %></li>
-                    <li><%= link_to "Cancel end of term", kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'END_OF_TERM'), :method => :delete %></li>
-                  </ul>
-                </div>
-                <% if sub.product_category == 'BASE' %>
-                  <%= link_to "Add Addons", kaui_engine.new_subscription_path(:params => { :bundle_id => sub.bundle_id, :base_subscription => sub.product_name, :product_category => "ADD_ON" }), :class => "btn btn-mini" %>
-                <% end %>
+          <tr>
+            <td><%= humanized_product_category(sub) %></td>
+            <td><%= humanized_full_product_name(sub) %></td>
+            <td><%= humanized_start_date(sub, account) %></td>
+            <td><%= humanized_charged_through_date(sub, account) %></td>
+            <td><%= humanized_cancelled_date(sub, account) %></td>
+            <td>
+              <%= link_to 'Details', kaui_engine.subscription_path(:id => sub.subscription_id), :class => 'btn btn-mini' %>
+              <% if is_future_cancelled?(sub) %>
+                  <%= link_to 'Reinstate', kaui_engine.reinstate_subscription_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-mini' %>
+              <% elsif is_cancelled?(sub) %>
+                  <%= link_to 'Change', kaui_engine.edit_subscription_path(sub.subscription_id), :class => 'btn btn-mini' %>
+                  <div class="btn-group">
+                    <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+                      Cancel
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to 'Cancel (default policy)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'END_OF_TERM'), :method => :delete %></li>
+                      <li><%= link_to 'Cancel at previous CTD (no proration)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'IMMEDIATE', :ctd => sub.charged_through_date, :billing_period => sub.billing_period), :method => :delete %></li>
+                      <li><%= link_to 'Cancel immediately (generate proration)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'IMMEDIATE'), :method => :delete %></li>
+                      <li><%= link_to 'Cancel end of term', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'END_OF_TERM'), :method => :delete %></li>
+                    </ul>
+                  </div>
+                  <% if sub.product_category == 'BASE' %>
+                      <%= link_to 'Add add-ons', kaui_engine.new_subscription_path(:params => {:bundle_id => sub.bundle_id, :base_product_name => sub.product_name, :product_category => 'ADD_ON'}), :class => 'btn btn-mini' %>
+                  <% end %>
               <% end %>
-            </nobr>
-          </td>
-        </tr>
+            </td>
+          </tr>
       <% end %>
-    <% end %>
+  <% end %>
   </tbody>
 </table>

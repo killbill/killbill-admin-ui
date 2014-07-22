@@ -1,54 +1,36 @@
-module Kaui
-  class AccountEmailsController < EngineController
-    # GET /account_emails/1
-    # GET /account_emails/1.json
-    def show
-      @account_id = params[:id]
-      @account_emails = AccountEmail.where({ :account_id => @account_id }, options_for_klient)
+class Kaui::AccountEmailsController < Kaui::EngineController
 
-      respond_to do |format|
-        format.html # show.html.erb
-        format.json { render :json => @account_email }
-      end
+  def show
+    @account_id     = params[:id]
+    @account_emails = Kaui::AccountEmail.find_all_sorted_by_account_id(@account_id, 'NONE', options_for_klient)
+  end
+
+  def new
+    @account_email = Kaui::AccountEmail.new(:account_id => params[:account_id])
+  end
+
+  def create
+    @account_email = Kaui::AccountEmail.new(params[:account_email])
+
+    account = Kaui::Account.new(:account_id => @account_email.account_id)
+    begin
+      account.add_email(@account_email.email, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+      redirect_to account_email_path(account.account_id), :notice => 'Account email was successfully added'
+    rescue => e
+      flash.now[:error] = "Error while adding the email: #{as_string(e)}"
+      render :action => :new
     end
+  end
 
-    # GET /account_emails/new
-    # GET /account_emails/new.json
-    def new
-      @account_email = AccountEmail.new(:account_id => params[:account_id])
+  def destroy
+    account = Kaui::Account.new(:account_id => params[:id])
 
-      respond_to do |format|
-        format.html # new.html.erb
-        format.json { render :json => @account_email }
-      end
-    end
-
-    # POST /account_emails
-    # POST /account_emails.json
-    def create
-      @account_email = AccountEmail.new(params[:account_email])
-
-      respond_to do |format|
-        if @account_email.save(current_user, params[:reason], params[:comment], options_for_klient)
-          format.html { redirect_to kaui_engine.account_email_path(@account_email), :notice => 'Account email was successfully created.' }
-          format.json { render :json => @account_email, :status => :created, :location => @account_email }
-        else
-          format.html { render :action => "new" }
-          format.json { render :json => @account_email.errors, :status => :unprocessable_entity }
-        end
-      end
-    end
-
-    # DELETE /account_emails/1
-    # DELETE /account_emails/1.json
-    def destroy
-      @account_email = AccountEmail.where({ :account_id => params[:id], :email => params[:email] }, options_for_klient)
-      @account_email.destroy(current_user, params[:reason], params[:comment], options_for_klient)
-
-      respond_to do |format|
-        format.html { redirect_to kaui_engine.account_email_path(params[:id]) }
-        format.json { head :no_content }
-      end
+    begin
+      account.remove_email(params[:email], current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+      redirect_to account_email_path(account.account_id), :notice => 'Account email was successfully deleted'
+    rescue => e
+      flash.now[:error] = "Error while deleting account email: #{as_string(e)}"
+      render :action => :show, :id => account.account_id
     end
   end
 end

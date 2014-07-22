@@ -1,41 +1,30 @@
-<% @page_title = "Edit Subscription" %>
-<%= form_for(@subscription, :as => :subscription, :url => subscription_path(@subscription.subscription_id), :html => { :method => :put, :class => "form-horizontal" }) do |f| %>
-  <%= f.hidden_field :subscription_id %>
-  <%= f.hidden_field :price_list %>
-  <div class="control-group">
-    <label class="control-label">Account timezone</label>
-    <div class="controls">
-      <label class="checkbox">
-        <%= @account.timezone %>
-      </label>
+<% @page_title = 'Edit Subscription' %>
+<%= form_for(@subscription, :url => subscription_path(@subscription.subscription_id), :html => {:method => :put, :class => 'form-horizontal'}) do |f| %>
+    <div class="control-group">
+      <%= label_tag :current_plan, 'Current plan:', :class => 'control-label' %>
+      <div class="controls">
+        <%= text_field_tag :current_plan, @current_plan, :class => 'input-xlarge disabled', :disabled => 'disabled' %>
+      </div>
     </div>
-  </div>
-  <div class="control-group">
-    <%= label_tag :current_plan, 'Current plan:', :class => "control-label" %>
-    <div class="controls">
-      <%= text_field_tag :current_plan, @current_plan, :class => 'input-xlarge disabled', :disabled => "disabled" %>
+    <div class="control-group">
+      <%= label_tag :plan_name, 'New plan:', :class => 'control-label' %>
+      <div class="controls">
+        <%= select_tag :plan_name, options_for_select(@plans) %>
+      </div>
     </div>
-  </div>
-  <div class="control-group">
-    <%= label_tag :plan_name, "New plan:", :class => "control-label" %>
-    <div class="controls">
-      <%= select_tag :plan_name, options_for_select(@catalog.keys, @plan_name) %>
+    <div class="control-group">
+      <%= label_tag :requested_date, 'Change Date:', :class => 'control-label' %>
+      <div class="controls">
+        <%= text_field_tag :requested_date, Date.parse(Time.now.to_s).to_s, :class => 'input-xlarge date-picker' %>
+      </div>
     </div>
-  </div>
-  <div class="control-group">
-    <%= label_tag :requested_date, 'Change Date:', :class => "control-label" %>
-    <div class="controls">
-      <%= text_field_tag :requested_date, Date.parse(Time.now.to_s).to_s, :class => 'input-xlarge date-picker' %>
+    <div class="control-group">
+      <%= label_tag :policy, 'Policy Override (leave blank for default; select an option to force plan change):', :class => 'control-label' %>
+      <div class="controls">
+        <%= select_tag :policy, options_for_select(['', 'IMMEDIATE', 'END_OF_TERM']) %>
+      </div>
     </div>
-  </div>
-  <div class="control-group">
-    <%= label_tag :policy, "Policy Override (leave blank for default; select an option to force plan change):", :class => "control-label" %>
-    <div class="controls">
-      <%= select_tag :policy, options_for_select(['', 'IMMEDIATE', 'END_OF_TERM']) %>
+    <div class="form-actions">
+      <%= f.submit 'Change', :class => 'btn btn-primary' %>
     </div>
-  </div>
-  <div class="form-actions">
-    <%= f.submit "Change", :class => 'btn btn-primary' %>
-    <%= link_to 'Back', :back, :class => 'btn' %>
-  </div>
 <% end %>

@@ -1,30 +1,10 @@
-class Kaui::Subscription < Kaui::Base
-  define_attr :account_id
-  define_attr :subscription_id
-  define_attr :bundle_id
-  define_attr :external_key
-  define_attr :product_category
-  define_attr :product_name
-  define_attr :billing_period
-  define_attr :charged_through_date
-  define_attr :price_list
-  define_attr :start_date
-  define_attr :canceled_date
+class Kaui::Subscription < KillBillClient::Model::Subscription
 
-  has_many :events, Kaui::Event
-
-  def initialize(data = {})
-    super(:account_id =>  data['accountId'] || data['account_id'],
-          :subscription_id => data['subscriptionId'] || data['subscription_id'],
-          :bundle_id => data['bundleId'] || data['bundle_id'],
-          :external_key => data['externalKey'] || data['external_key'],
-          :product_category => data['productCategory'] || data['product_category'],
-          :product_name => data['productName'] || data['product_name'],
-          :billing_period => data['billingPeriod'] || data['billing_period'],
-          :charged_through_date => data['chargedThroughDate'] || data['charged_through_date'],
-          :price_list => data['priceList'] || data['price_list'],
-          :start_date => data['startDate'] || data['start_date'],
-          :canceled_date => data['cancelledDate'] || data['canceled_date'],
-          :events => data['events'])
+  def cancel_entitlement_immediately(user = nil, reason = nil, comment = nil, options = {})
+    requested_date                 = nil
+    entitlement_policy             = 'IMMEDIATE'
+    billing_policy                 = nil
+    use_requested_date_for_billing = true
+    cancel(user, reason, comment, requested_date, entitlement_policy, billing_policy, use_requested_date_for_billing, options)
   end
 end

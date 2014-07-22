@@ -1,60 +1,34 @@
 require 'test_helper'
 
-module Kaui
-  class TagDefinitionsControllerTest < ActionController::TestCase
-    fixtures :tag_definitions
+class Kaui::TagDefinitionsControllerTest < Kaui::FunctionalTestHelper
 
-    setup do
-      @tag_definition = TagDefinition.new(tag_definitions(:payment_plan))
-      @routes = Kaui::Engine.routes
-    end
+  test 'should list tag definitions' do
+    get :index
+    assert_response 200
+  end
 
-    test "should get index" do
-      get :index
-      assert_response :success
-      assert_not_nil assigns(:tag_definitions)
-    end
+  test 'should show tag definition' do
+    get :show, :id => '00000000-0000-0000-0000-000000000001'
+    assert_response 200
+    assert_equal 'AUTO_PAY_OFF', assigns(:tag_definition).name
+  end
 
-    test "should get new" do
-      get :new
-      assert_response :success
-    end
+  test 'should add and destroy tag definition' do
+    get :new
+    assert_response 200
+    assert_not_nil assigns(:tag_definition)
 
-    test "should create tag_definition" do
-      assert_difference('TagDefinition.count') do
-        post :create, :tag_definition => { :description => @tag_definition.description, :name => @tag_definition.name }
-      end
+    tag_definition = SecureRandom.uuid[0..5]
+    post :create,
+         :tag_definition => {
+             :name        => tag_definition,
+             :description => SecureRandom.uuid
+         }
+    assert_redirected_to tag_definition_path(assigns(:tag_definition).id)
+    assert_equal 'Tag definition successfully created', flash[:notice]
 
-      # TODO - for now, we redirect to the main page as we don't get the id back
-      assert_redirected_to tag_definitions_path
-      # assert_redirected_to tag_definition_path(assigns(:tag_definition))
-    end
-
-    test "should show tag_definition" do
-      get :show, :id => @tag_definition
-      assert_response :success
-    end
-
-    test "should get edit" do
-      get :edit, :id => @tag_definition
-      assert_response :success
-    end
-
-    # TODO - not supported yet
-    # test "should update tag_definition" do
-    #   put :update, id: @tag_definition, tag_definition: { description: @tag_definition.description, id: @tag_definition.id, name: @tag_definition.name }
-    #   assert_redirected_to tag_definition_path(assigns(:tag_definition))
-    # end
-
-    test "should destroy tag_definition" do
-      post :create, :tag_definition => { :description => @tag_definition.description, :name => @tag_definition.name }
-      new_id = assigns(:tag_definition).id
-
-      assert_difference('TagDefinition.count', -1) do
-        delete :destroy, :id => new_id
-      end
-
-      assert_redirected_to tag_definitions_path
-    end
+    delete :destroy, :id => assigns(:tag_definition).id
+    assert_redirected_to tag_definitions_path
+    assert_equal 'Tag definition successfully deleted', flash[:notice]
   end
 end

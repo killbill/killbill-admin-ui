@@ -1,49 +1,12 @@
 <div class="page-header">
-  <% if @product_category == "ADD_ON" %>
-      <h1>Add ADD_ON subscription
+  <% if @subscription.product_category == 'ADD_ON' %>
+      <h1>Add add-on subscription
         <% if @bundle.external_key %> to <%= Kaui.bundle_key_display_string.call(@bundle.external_key) %>
-        <% end %></h1>
+        <% end %>
+      </h1>
   <% else %>
-      <h1>Create new base subscription
-        <% if @account_id %> to account  <%= @account_id %>
-        <% end %></h1>
+      <h1>Create new base subscription to account <%= @subscription.account_id %></h1>
   <% end %>
 </div>
-<%= form_for(@subscription, :url => {:action => :create}, :html => {:class => "form-horizontal"}) do |f| %>
-    <fieldset>
-      <% if @product_category == "ADD_ON" %>
-          <%= f.hidden_field :bundle_id %>
-          <%= f.hidden_field :product_category %>
-          <%= hidden_field_tag :base_subscription, @base_subscription %>
-          <div class="control-group">
-            <%= label_tag :plan_name, "Available Plans:", :class => "control-label" %>
-            <div class="controls">
-              <%= select_tag :plan_name, options_for_select(@catalog.keys, @plan_name) %>
-              <p class="help-block">
-                Proration on customer's invoice will be done automatically.
-              </p>
-            </div>
-          </div>
-      <% else %>
-          <%= f.hidden_field :account_id %>
-          <%= f.hidden_field :product_category %>
-          <div class="control-group">
-            <%= label_tag :external_key, "Bundle External Key:", :class => "control-label" %>
-            <div class="controls">
-              <%= text_field_tag :external_key, params[:external_key], :class => 'input-xlarge', :id => "external_key" %>
-            </div>
-          </div>
-          <div class="control-group">
-            <%= label_tag :plan_name, "Available Plans:", :class => "control-label" %>
-            <div class="controls">
-              <%= select_tag :plan_name, options_for_select(@catalog.keys, @plan_name) %>
-            </div>
-          </div>
-      <% end %>
-      <div class="form-actions">
-        <%= f.submit 'Create Subscription', :class => 'btn btn-primary' %>
-        <%= link_to 'Back', :back, :class => 'btn' %>
-      </div>
 
-    </fieldset>
-<% end %>
+<%= render 'form' %>

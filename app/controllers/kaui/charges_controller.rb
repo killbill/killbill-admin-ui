@@ -1,34 +1,32 @@
 class Kaui::ChargesController < Kaui::EngineController
 
   def new
-    @account_id = params[:account_id]
-    @invoice_id = params[:invoice_id]
-    begin
-      @account = Kaui::KillbillHelper::get_account(@account_id, false, false, options_for_klient)
+    invoice_id = params[:invoice_id]
+    account_id = params[:account_id]
+    currency   = params[:currency] || 'USD'
 
-      if @invoice_id.present?
-        @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id, true, "NONE", options_for_klient)
-        @charge = Kaui::Charge.new("accountId" => @account_id, "invoiceId" => @invoice_id)
-      else
-        @charge = Kaui::Charge.new("accountId" => @account_id)
+    if invoice_id.present?
+      begin
+        @invoice   = Kaui::Invoice.find_by_id_or_number(invoice_id, true, 'NONE', options_for_klient)
+        account_id = @invoice.account_id
+        currency   = @invoice.currency
+      rescue => e
+        flash.now[:error] = "Unable to retrieve invoice: #{as_string(e)}"
       end
-    rescue => e
-      flash.now[:error] = "Error while creating a charge: #{as_string(e)}"
     end
+
+    @charge = Kaui::InvoiceItem.new(:account_id => account_id, :invoice_id => invoice_id, :currency => currency)
   end
 
   def create
-    charge = Kaui::Charge.new(params[:charge])
+    @charge = Kaui::InvoiceItem.new(params[:invoice_item].delete_if { |key, value| value.blank? })
 
-    if charge.present?
-      begin
-        Kaui::KillbillHelper::create_charge(charge, params[:requested_date], current_user, params[:reason], params[:comment], options_for_klient)
-        flash[:notice] = "Charge created"
-        redirect_to kaui_engine.account_timeline_path(:id => charge.account_id)
-      rescue => e
-        flash.now[:error] = "Error while creating a charge: #{as_string(e)}"
-      end
+    begin
+      @charge = @charge.create(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+      redirect_to kaui_engine.invoice_path(:id => @charge.invoice_id), :notice => 'Charge was successfully created'
+    rescue => e
+      flash.now[:error] = "Error while creating a charge: #{as_string(e)}"
+      render :action => :new
     end
   end
-
 end

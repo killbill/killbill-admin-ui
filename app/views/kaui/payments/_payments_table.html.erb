@@ -3,31 +3,39 @@
 </div>
 <table class="table table-condensed table-striped data-table">
   <thead>
-    <tr>
-      <th>Requested date</th>
-      <th>Effective date</th>
-      <th>Total amount</th>
-      <th>Paid amount</th>
-      <th>Payment method</th>
-      <th>External payment id / Secondary payment id</th>
-      <th>Retry count</th>
-      <th>Status</th>
-    </tr>
+  <tr>
+    <th>Effective date</th>
+    <th>Transaction type</th>
+    <th>Amount</th>
+    <th>Payment method</th>
+    <th>First / Second reference id</th>
+    <th>Status</th>
+    <th>Gateway message</th>
+  </tr>
   </thead>
   <tbody>
-    <% if @payments.present? %>
+  <% if @payments.present? %>
       <% @payments.each do |payment| %>
-        <tr>
-          <td><%= format_date(payment.requested_date, @account.timezone).html_safe if payment.requested_date.present? %></td>
-          <td><%= format_date(payment.effective_date, @account.timezone).html_safe if payment.effective_date.present? %></td>
-          <td><%= humanized_money_with_symbol payment.amount_to_money %> (<%= payment.currency %>)</td>
-          <td><%= humanized_money_with_symbol payment.paid_amount_to_money %> (<%= payment.currency %>)</td>
-          <td><%= "#{@payment_methods[payment.payment_id].plugin_info.type} #{@payment_methods[payment.payment_id].plugin_info.cc_type} #{@payment_methods[payment.payment_id].plugin_info.cc_last4}" if @payment_methods.present? and @payment_methods[payment.payment_id].present? and @payment_methods[payment.payment_id].plugin_info.present? %></td>
-          <td><%= payment.ext_first_payment_id_ref %> <%= " / " if payment.ext_second_payment_id_ref.present? %> <%= payment.ext_second_payment_id_ref %></td>
-          <td><%= payment.retry_count %></td>
-          <td><%= payment.status %> <%=  payment.gateway_error_code unless payment.status == 'SUCCESS' %> <%= payment.gateway_error_msg %></td>
-        </tr>
+          <% payment.transactions.each do |transaction| %>
+              <tr>
+                <td><%= format_date(transaction.effective_date, @account.time_zone).html_safe if transaction.effective_date.present? %></td>
+                <td><%= transaction.transaction_type %></td>
+                <td><% if transaction.amount.present? %><%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
+                  (<%= transaction.currency %>)<% end %>
+                </td>
+                <td><%= link_to truncate_uuid(@payment_methods[transaction.payment_id].payment_method_id), kaui_engine.payment_method_path(@payment_methods[transaction.payment_id].payment_method_id) if @payment_methods.present? and @payment_methods[transaction.payment_id].present? %></td>
+                <td><%= transaction.first_payment_reference_id %> <%= " / " if transaction.second_payment_reference_id.present? %> <%= transaction.second_payment_reference_id %></td>
+                <td>
+                  <span
+                  <% if transaction.status != 'SUCCESS' %>class='alert-error'
+                  <% else %>class='alert-success' <% end %>>
+                  <%= transaction.status %> <%= transaction.gateway_error_code unless transaction.status == 'SUCCESS' %> <%= transaction.gateway_error_msg %>
+                  </span>
+                </td>
+                <td><%= transaction.gateway_error_msg %></td>
+              </tr>
+          <% end %>
       <% end %>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
