@@ -74,7 +74,7 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
     }
 
     begin
-      @payment_method = @payment_method.create(current_user.kb_username, @reason, @comment, options_for_klient)
+      @payment_method = @payment_method.create(@payment_method.is_default, current_user.kb_username, @reason, @comment, options_for_klient)
       redirect_to payment_method_path(@payment_method.payment_method_id), :notice => 'Payment method was successfully created'
     rescue => e
       flash.now[:error] = "Error while creating payment method: #{as_string(e)}"

@@ -78,7 +78,7 @@ module Kaui
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
 
       payment_method = Kaui::PaymentMethod.new(:account_id => account.account_id, :plugin_name => '__EXTERNAL_PAYMENT__', :is_default => set_default)
-      payment_method.create(user, reason, comment, build_options(tenant, username, password))
+      payment_method.create(true, user, reason, comment, build_options(tenant, username, password))
     end
 
     # Return the created external charge
