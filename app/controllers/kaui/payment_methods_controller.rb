@@ -51,6 +51,7 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
     @expiration_year            = params[:expiration_year]
     @expiration_month           = params[:expiration_month]
     @credit_card_number         = params[:credit_card_number]
+    @verification_value         = params[:verification_value]
     @address1                   = params[:address1]
     @address2                   = params[:address2]
     @city                       = params[:city]
@@ -58,19 +59,22 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
     @state                      = params[:state]
     @country                    = params[:country]
 
+    # Magic from lib/killbill/helpers/active_merchant/payment_plugin.rb
     @payment_method.plugin_info = {
-        'type'              => 'CreditCard',
-        'ccType'            => @card_type,
-        'ccName'            => @card_holder_name,
-        'ccExpirationMonth' => @expiration_month,
-        'ccExpirationYear'  => @expiration_year,
-        'ccLast4'           => @credit_card_number[-4, 4],
-        'address1'          => @address1,
-        'address2'          => @address2,
-        'city'              => @city,
-        'country'           => @country,
-        'zip'               => @postal_code,
-        'state'             => @state
+        'type'                => 'CreditCard',
+        'ccType'              => @card_type,
+        'ccFirstName'         => @card_holder_name,
+        'ccLastName'          => @card_holder_name,
+        'ccExpirationMonth'   => @expiration_month,
+        'ccExpirationYear'    => @expiration_year,
+        'ccNumber'            => @credit_card_number,
+        'ccVerificationValue' => @verification_value,
+        'address1'            => @address1,
+        'address2'            => @address2,
+        'city'                => @city,
+        'country'             => @country,
+        'zip'                 => @postal_code,
+        'state'               => @state
     }
 
     begin
