@@ -7,10 +7,8 @@ Getting started
 Running Kaui
 ------------
 
-You can run Kaui locally using the sandbox script:
+You can run Kaui locally by using the sandbox script:
 
-    # Point to your killbill installation
-    export KILLBILL_URL="http://killbill.company.com:8080"
     # Run the sandbox script
     bundle exec script/sandbox
     # Start the Rails app
@@ -24,19 +22,18 @@ Mounting Kaui into your own Rails app
 The Kaui gem comes with a `kaui` script to mount it in your existing Rails app.
 
 Kaui expects the container app to define the <tt>current_user</tt> method, which returns the
-name of the logged-in user. This is used by Killbill for auditing purposes.
+name of the logged-in user. This is used by Kill Bill for auditing purposes.
 
-Finally, Killbill server needs to be running for Kaui to fetch its information. Set the `KILLBILL_URL`
-variable to point to your existing Killbill installation (e.g. http://killbill.company.com:8080).
+Finally, a Kill Bill server needs to be running for Kaui to fetch its information (see the Configuration section below).
 The default login credentials are admin/password.  Users, Credentials, Roles and Permissions are 
 passed through to Kill Bill. It uses Basic Auth by default, but the backend is pluggable (LDAP, 
 ActiveDirectory, etc.).
 
 
-Multi-Tenancy
+Configuration
 -------------
 
-If you are using Kaui against a single tenant, specify your api key and secret in ```config/initializers/killbill_client.rb```:
+Specify your Kill Bill server url, api key and secret in ```config/initializers/killbill_client.rb```:
 
 ```
 KillBillClient.url = 'http://127.0.0.1:8080/'

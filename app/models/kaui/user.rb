@@ -28,7 +28,6 @@ module Kaui
 
     # Verify the Kill Bill session hasn't timed-out
     def authenticated_with_killbill?(api_key=KillBillClient.api_key, api_secret=KillBillClient.api_secret)
-      KillBillClient.url = Kaui.killbill_finder.call
       subject = KillBillClient::Model::Security.find_subject :session_id => kb_session_id,
                                                              :api_key => api_key,
                                                              :api_secret => api_secret
@@ -40,7 +39,6 @@ module Kaui
     private
 
     def self.do_find_permissions(options = {})
-      KillBillClient.url = Kaui.killbill_finder.call
       KillBillClient::Model::Security.find_permissions options
     end
   end

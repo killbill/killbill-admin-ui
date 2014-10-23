@@ -4,16 +4,13 @@
 require "kaui/engine"
 
 module Kaui
-  mattr_accessor :killbill_finder
   mattr_accessor :account_home_path
   mattr_accessor :bundle_home_path
   mattr_accessor :invoice_home_path
   mattr_accessor :bundle_key_display_string
   mattr_accessor :creditcard_plugin_name
   mattr_accessor :layout
-  mattr_accessor :killbill_url
 
-  self.killbill_finder = lambda { self.config[:killbill_url] }
   self.account_home_path = lambda {|account_id| Kaui::Engine.routes.url_helpers.account_path(account_id) }
   self.bundle_home_path = lambda {|bundle_id| Kaui::Engine.routes.url_helpers.bundle_path(:id => bundle_id) }
   self.invoice_home_path = lambda {|invoice_id| Kaui::Engine.routes.url_helpers.invoice_path(:id => invoice_id) }
@@ -24,11 +21,8 @@ module Kaui
     # TODO
     {
       :layout => layout || 'kaui/layouts/kaui_application',
-      :killbill_url => killbill_url || ENV['KILLBILL_URL'] || 'http://127.0.0.1:8080'
     }
   end
-
-  KillBillClient.url = Kaui.killbill_finder.call
 end
 
 # ruby-1.8 compatibility
