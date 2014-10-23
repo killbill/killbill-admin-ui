@@ -31,6 +31,11 @@ module Kaui
       @cba               = create_cba(@invoice_item.invoice_id, @account, @tenant)
       @paid_invoice_item = create_charge(@account, @tenant)
       @payment           = create_payment(@paid_invoice_item, @account, @tenant)
+
+      KillBillClient.api_key = @tenant.api_key
+      KillBillClient.api_secret = @tenant.api_secret
+      KillBillClient.username = USERNAME
+      KillBillClient.password = PASSWORD
     end
 
     # Return a new test account
@@ -124,7 +129,12 @@ module Kaui
       tenant.api_key    = api_key
       tenant.api_secret = api_secret
 
-      tenant.create(user, reason, comment, build_options)
+      tenant = tenant.create(user, reason, comment, build_options)
+
+      # Re-hydrate the secret, which is not returned
+      tenant.api_secret = api_secret
+
+      tenant
     end
 
     def build_options(tenant = nil, username = USERNAME, password = PASSWORD)
