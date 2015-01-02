@@ -19,5 +19,14 @@ Rake::TestTask.new(:test) do |t|
   t.verbose = false
 end
 
+namespace :test do
+  desc 'Runs all the unit tests'
+  Rake::TestTask.new(:units) do |t|
+    t.libs << 'lib'
+    t.libs << 'test'
+    t.pattern = 'test/unit/**/*_test.rb'
+    t.verbose = false
+  end
+end
 
 task :default => :test

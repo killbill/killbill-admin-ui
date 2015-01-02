@@ -23,7 +23,7 @@ before_script:
 
 script:
   - pushd test/dummy && RAILS_ENV=test bundle exec rake db:migrate --trace && RAILS_ENV=test bundle exec rake db:test:prepare && popd
-  - bundle exec rake
+  - bundle exec rake test:units
 
 matrix:
   allow_failures:
