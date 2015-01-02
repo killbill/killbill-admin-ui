@@ -26,6 +26,7 @@ module Kaui
       @account           = create_account(@tenant)
       @account2          = create_account(@tenant)
       @bundle            = create_bundle(@account, @tenant)
+      @bundle_invoice    = @account.invoices(true, build_options(@tenant)).first
       @payment_method    = create_payment_method(true, @account, @tenant)
       @invoice_item      = create_charge(@account, @tenant)
       @cba               = create_cba(@invoice_item.invoice_id, @account, @tenant)
