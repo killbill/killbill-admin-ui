@@ -5,10 +5,10 @@ module Devise
     module KillbillAuthenticatable
       extend ActiveSupport::Concern
 
-      def valid_killbill_password?(kb_username, kb_password, api_key, api_secret)
+      def valid_killbill_password?(kb_username, kb_password)
         # Simply try to look-up the permissions for that user - this will
         # Take care of the auth part
-        response = Kaui::User.find_permissions(kb_username, kb_password, api_key, api_secret)
+        response = Kaui::User.find_permissions(kb_username, kb_password)
         # Auth was successful, update the session id
         self.kb_session_id = response.session_id
         true

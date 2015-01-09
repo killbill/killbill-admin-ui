@@ -16,7 +16,7 @@ module Devise
         return fail(:not_found_in_database) unless resource
 
         # Validate the credentials
-        if validate(resource){ resource.valid_killbill_password?(kb_username, kb_password, api_key, api_secret) }
+        if validate(resource){ resource.valid_killbill_password?(kb_username, kb_password) }
           # Create the user if needed
           resource.after_killbill_authentication
           # Tell warden to halt the strategy and set the user in the appropriate scope
