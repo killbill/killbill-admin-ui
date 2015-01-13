@@ -3,28 +3,30 @@
 </div>
 <table class="table table-condensed table-striped data-table">
   <thead>
-    <tr>
-      <th>Tag Name</th>
-      <th>Executed date</th>
-      <th>Execution type</th>
-      <th>Executed by</th>
-      <th>Comments</th>
-    </tr>
+  <tr>
+    <th>Tag Name</th>
+    <th>Executed date</th>
+    <th>Execution type</th>
+    <th>Executed by</th>
+    <th>Comments</th>
+  </tr>
   </thead>
   <tbody>
-    <% if @tags.present? %>
+  <% if @tags.present? %>
       <% @tags.each do |tag| %>
-        <% tag.audit_logs.each do |log| %>
-          <tr>
-            <td><%= link_to tag.tag_definition_name, tag_definition_path(:id => tag.tag_definition_id) %></td>
-            <td><%= format_date(log.change_date, @account.timezone).html_safe if log.change_date.present? %></td>
-            <td><span <% if log.change_type != 'INSERT' %>class='alert-error' <% else %>class='alert-success' <% end %>><%= log.change_type %></span></td>
-            <td><%= log.changed_by %></td>
-            <td><%= log.reason_code %> <%= log.comments %></td>
-          </tr>
-        <% end %>
+          <% tag.audit_logs.each do |log| %>
+              <tr>
+                <td><%= link_to tag.tag_definition_name, tag_definition_path(:id => tag.tag_definition_id) %></td>
+                <td><%= format_date(log.change_date, @account.time_zone).html_safe if log.change_date.present? %></td>
+                <td><span
+                <% if log.change_type != 'INSERT' %>class='alert-error'
+                <% else %>class='alert-success' <% end %>><%= log.change_type %></span></td>
+                <td><%= log.changed_by %></td>
+                <td><%= log.reason_code %> <%= log.comments %></td>
+              </tr>
+          <% end %>
       <% end %>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 

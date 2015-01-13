@@ -1,0 +1,73 @@
+<%= form_for(@charge, :url => {:action => :create}, :html => {:class => 'form-horizontal'}) do |f| %>
+    <%= f.hidden_field :account_id %>
+    <fieldset>
+      <% if @invoice.present? %>
+          <%= f.hidden_field :invoice_id %>
+          <%= f.hidden_field :currency %>
+          <div class="control-group">
+            <label class="control-label">Invoice number</label>
+            <div class="controls">
+              <label class="checkbox">
+                <%= @invoice.invoice_number %><br/>
+              </label>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Invoice amount</label>
+            <div class="controls">
+              <label class="checkbox">
+                <%= @invoice.amount %> <%= @invoice.currency %>
+              </label>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">Balance</label>
+            <div class="controls">
+              <label class="checkbox">
+                <%= @invoice.balance.nil? ? '0.00' : @invoice.balance %> <%= @invoice.currency %>
+              </label>
+            </div>
+          </div>
+      <% end %>
+      <div class="control-group">
+        <%= f.label :amount, 'Charge amount', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :amount, :id => 'charge_amount', :class => 'input-small' %>
+          <% if @invoice.present? %>
+              <p class="help-inline"><%= @invoice.currency %></p>
+          <% end %>
+        </div>
+      </div>
+      <% unless @invoice.present? %>
+          <div class="control-group">
+            <%= f.label :currency, 'Currency', :class => 'control-label' %>
+            <div class="controls">
+              <%= f.select :currency, currencies, {}, :class => 'input-small' %>
+            </div>
+          </div>
+      <% end %>
+      <div class="control-group">
+        <%= label_tag :comment, 'Comment', :class => 'control-label' %>
+        <div class="controls">
+          <%= text_area_tag :comment, '', :rows => 3, :class => 'input-xlarge' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :description, 'Description (Viewable on the invoice that the customer will see)', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_area :description, :rows => 3, :class => 'input-xlarge' %>
+        </div>
+      </div>
+      <div class="form-actions">
+        <%= button_tag 'Create charge', :class => 'btn btn-primary' %>
+        <%= link_to 'Back', :back, :class => 'btn' %>
+      </div>
+    </fieldset>
+<% end %>
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $("#charge_amount").keydown(function(event) {
+    preventNonNumericValues(event);
+  });
+});
+<% end %>

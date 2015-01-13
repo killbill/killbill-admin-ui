@@ -2,24 +2,24 @@
 
 <table id='invoice_table' class='table table-condensed data-table'>
   <thead>
-    <tr>
-      <th style='width: 45%'>Account id</th>
-      <th style='width: 45%'>Email</th>
-      <th style='width: 10%'></th>
-    </tr>
+  <tr>
+    <th style='width: 45%'>Account id</th>
+    <th style='width: 45%'>Email</th>
+    <th style='width: 10%'></th>
+  </tr>
   </thead>
   <tbody>
-    <% @account_emails.each do |account_email| %>
+  <% @account_emails.each do |account_email| %>
       <tr>
-        <td><%= link_to account_email.account_id, kaui_engine.account_path(account_email.account_id) %></td>
+        <td><%= link_to truncate_uuid(account_email.account_id), kaui_engine.account_path(account_email.account_id) %></td>
         <td><%= account_email.email %></td>
         <td><%= link_to 'Destroy', kaui_engine.account_email_path(account_email.account_id, :email => account_email.email), :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
-<br />
+<br/>
 
 <%= link_to 'New account email', kaui_engine.new_account_email_path(:account_id => @account_id), :class => 'btn btn-primary' %>
 <%= link_to 'Back to account', kaui_engine.account_path(@account_id), :class => 'btn' %>

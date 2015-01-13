@@ -1,59 +1,47 @@
 class Kaui::AccountTagsController < Kaui::EngineController
 
   def show
-    account_id = params[:account_id]
+    account_id_or_key = params[:account_id]
 
-    if account_id.present?
-      begin
-        @tags = Kaui::KillbillHelper::get_tags_for_account(account_id, true, "FULL", options_for_klient)
-        @account = Kaui::KillbillHelper::get_account(account_id, false, false, options_for_klient)
-      rescue => e
-        flash.now[:error] = "Error while getting tags: #{as_string(e)}"
-      end
-    else
-      flash.now[:error] = "No account id given"
+    begin
+      @account = Kaui::Account::find_by_id_or_key(account_id_or_key, false, false, options_for_klient)
+      @tags    = @account.tags(true, 'FULL', options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b }
+    rescue => e
+      flash[:error] = "Error while getting tags: #{as_string(e)}"
+      redirect_to :back
     end
   end
 
   def edit
-    @account_id = params[:account_id]
+    account_id_or_key = params[:account_id]
+
     begin
-      @available_tags = Kaui::TagDefinition.all_for_account(options_for_klient).sort
-      @account = Kaui::KillbillHelper::get_account(@account_id, false, false, options_for_klient)
-      @tag_names = Kaui::KillbillHelper::get_tags_for_account(@account.account_id, false, "NONE", options_for_klient).map { |tag| tag.tag_definition_name }
+      @account        = Kaui::Account::find_by_id_or_key(account_id_or_key, false, false, options_for_klient)
+      @tag_names      = (@account.tags(false, 'NONE', options_for_klient).map { |tag| tag.tag_definition_name }).sort
+      @available_tags = Kaui::TagDefinition.all_for_account(options_for_klient)
     rescue => e
-      flash.now[:error] = "Error while editing tags: #{as_string(e)}"
+      flash[:error] = "Error while editing tags: #{as_string(e)}"
+      redirect_to kaui_engine.account_tags_path(:account_id => account_id_or_key)
     end
   end
 
   def update
+    account_id = params[:account_id]
+
+    tags = []
+    params.each do |tag, tag_name|
+      tag_info = tag.split('_')
+      next if tag_info.size != 2 or tag_info[0] != 'tag'
+      tags << tag_info[1]
+    end
+
     begin
-      current_tags = Kaui::KillbillHelper::get_tags_for_account(params[:account_id], false, "NONE", options_for_klient).map { |tag| tag.tag_definition_id }
-
-      new_tags = []
-      params.each do |tag, tag_name|
-        tag_info = tag.split('_')
-        next if tag_info.size != 2 or tag_info[0] != 'tag'
-        new_tags << tag_info[1]
-      end
-
-      # Find tags to remove
-      tags_to_remove = []
-      current_tags.each do |current_tag_definition_id|
-        tags_to_remove << current_tag_definition_id unless new_tags.include?(current_tag_definition_id)
-      end
-
-      # Find tags to add
-      tags_to_add = []
-      new_tags.each do |new_tag_definition_id|
-        tags_to_add << new_tag_definition_id unless current_tags.include?(new_tag_definition_id)
-      end
-
-      Kaui::KillbillHelper::remove_tags_for_account(params[:account_id], tags_to_remove, current_user, params[:reason], params[:comment], options_for_klient) unless tags_to_remove.empty?
-      Kaui::KillbillHelper::add_tags_for_account(params[:account_id], tags_to_add, current_user, params[:reason], params[:comment], options_for_klient) unless tags_to_add.empty?
+      account = Kaui::Account.new(:account_id => account_id)
+      account.set_tags(tags, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+      redirect_to kaui_engine.account_tags_path(:account_id => account_id), :notice => 'Account tags successfully set'
     rescue => e
       flash[:error] = "Error while updating tags: #{as_string(e)}"
+      redirect_to kaui_engine.account_tags_path(:account_id => account_id)
     end
-    redirect_to kaui_engine.account_path(params[:account_id])
   end
 end

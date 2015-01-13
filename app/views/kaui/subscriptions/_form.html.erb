@@ -1,0 +1,36 @@
+<%= form_for(@subscription, :html => {:class => 'form-horizontal'}) do |f| %>
+    <fieldset>
+      <%= f.hidden_field :bundle_id %>
+      <%= f.hidden_field :account_id %>
+      <%= f.hidden_field :product_category %>
+      <% if @subscription.product_category == 'ADD_ON' %>
+          <%= hidden_field_tag :base_product_name, @base_product_name %>
+          <div class="control-group">
+            <%= label_tag :plan_name, 'Available Plans:', :class => 'control-label' %>
+            <div class="controls">
+              <%= select_tag :plan_name, options_for_select(@plans) %>
+              <p class="help-block">
+                Proration on customer's invoice will be done automatically.
+              </p>
+            </div>
+          </div>
+      <% else %>
+          <div class="control-group">
+            <%= f.label :external_key, 'Bundle External Key:', :class => 'control-label' %>
+            <div class="controls">
+              <%= f.text_field :external_key, :class => 'input-xlarge', :id => 'external_key' %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= label_tag :plan_name, 'Available Plans:', :class => 'control-label' %>
+            <div class="controls">
+              <%= select_tag :plan_name, options_for_select(@plans) %>
+            </div>
+          </div>
+      <% end %>
+      <div class="form-actions">
+        <%= f.submit 'Create Subscription', :class => 'btn btn-primary' %>
+        <%= link_to 'Back', :back, :class => 'btn' %>
+      </div>
+    </fieldset>
+<% end %>

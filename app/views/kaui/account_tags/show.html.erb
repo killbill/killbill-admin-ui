@@ -1,3 +1,6 @@
-<%= render "account_tags_table" %>
-<%= link_to 'Back', :back, :class => 'btn' %>
-<%= link_to 'Add/Remove Tags', kaui_engine.edit_account_tags_path(:account_id => @account), :class => 'btn' %>
+<%= render 'account_tags_table' %>
+
+<% if can? :add, Kaui::Tag or can? :remove, Kaui::Tag %>
+    <%= link_to 'Add/Remove Tags', kaui_engine.edit_account_tags_path(:account_id => @account.account_id), :class => 'btn' %>
+<% end %>
+<%= link_to 'Go to account', kaui_engine.account_path(:id => @account.account_id), :class => 'btn' %>

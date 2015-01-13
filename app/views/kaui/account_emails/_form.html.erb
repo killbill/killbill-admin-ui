@@ -1,33 +1,13 @@
 <%= form_for(@account_email) do |f| %>
-  <% if @account_email.errors.any? %>
-    <div class='alert alert-error'>
-      <h2><%= pluralize(@account_email.errors.count, 'error') %> prohibited this account email from being saved:</h2>
+    <%= f.hidden_field :account_id %>
+    <div class='control-group'>
+      <%= f.label :email, 'Email *', :class => 'control-label' %>
+      <div class='controls'>
+        <%= f.text_field :email, :required => true %>
+      </div>
+    </div>
 
-      <ul>
-      <% @account_email.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="form-actions">
+      <%= button_tag 'Create email', :class => 'btn btn-primary' %>
     </div>
-  <% end %>
-
-  <div class='control-group'>
-    <%= f.label :account_id, 'Account Id:', :class => 'control-label' %>
-    <div class='controls'>
-      <%= f.text_field :account_id, :class => 'input-xlarge' %>
-    </div>
-  </div>
-  <div class='control-group'>
-    <%= f.label :email, 'Email:', :class => 'control-label' %>
-    <div class='controls'>
-        <%= f.text_field :email %>
-    </div>
-  </div>
-  <div class='form-actions'>
-    <%= f.submit @account_email.new_record? ? 'Create' : 'Update', :class => 'btn btn-primary' %>
-    <% unless @account_email.new_record? %>
-      <%= link_to 'Show', @account_email, :class => 'btn' %>
-    <% end %>
-    <%= link_to 'Back', :back, :class => 'btn' %>
-  </div>
 <% end %>

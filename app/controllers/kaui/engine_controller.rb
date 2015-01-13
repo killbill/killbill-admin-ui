@@ -6,18 +6,18 @@ class Kaui::EngineController < ApplicationController
   # Common options for the Kill Bill client
   def options_for_klient(options = {})
     {
-      # TODO Kaui doesn't support multi-tenancy yet
-      :api_key => KillBillClient.api_key,
-      :api_secret => KillBillClient.api_secret,
-      :username => current_user.kb_username || KillBillClient.username,
-      :password => current_user.password || KillBillClient.password,
-      :session_id => current_user.kb_session_id
+        # TODO Kaui doesn't support multi-tenancy yet
+        :api_key    => KillBillClient.api_key,
+        :api_secret => KillBillClient.api_secret,
+        :username   => current_user.kb_username || KillBillClient.username,
+        :password   => current_user.password || KillBillClient.password,
+        :session_id => current_user.kb_session_id
     }.merge(options)
   end
 
   # Used for auditing purposes
   def current_user
-    super rescue Kaui.config[:default_current_user]
+    super
   end
 
   def current_ability
@@ -28,9 +28,7 @@ class Kaui::EngineController < ApplicationController
   protected
 
   def as_string(e)
-    if e.is_a?(RestClient::Exception)
-      "#{e.message}, server response: #{as_string_from_response(e.response)}".split(/\n/).take(5).join("\n")
-    elsif e.is_a?(KillBillClient::API::ResponseError)
+    if e.is_a?(KillBillClient::API::ResponseError)
       "Error #{e.response.code}: #{as_string_from_response(e.response.body)}"
     else
       e.message

@@ -1,11 +1,12 @@
 module Kaui
   module RailsMethods
-    
-    # let all the rails mocks and overrides be here
+
     def self.included(base_class)
       base_class.class_eval do
+        # Required to build urls in views
         extend  ActiveModel::Naming
         include ActiveModel::Validations
+        # Required to make form_for work
         include ActiveModel::Conversion
 
         def ==(other)
@@ -13,7 +14,8 @@ module Kaui
         end
 
         def persisted?
-          @persisted
+          # Hard to know...
+          false
         end
 
         def new_record?
@@ -21,8 +23,8 @@ module Kaui
         end
 
         def to_param
-          # id is a string (killbill UUID)
-          @id
+          # Hard to know (depends on the model)...
+          nil
         end
 
         def read_attribute_for_validation(attr)
@@ -66,11 +68,7 @@ module Kaui
         def self.find(id)
           nil
         end
-
       end # end class methods
-
     end # end def included
-
-
   end
 end

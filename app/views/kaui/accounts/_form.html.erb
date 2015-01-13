@@ -1,0 +1,116 @@
+<%= form_for @account, :html => {:class => 'form-horizontal'} do |f| %>
+    <fieldset>
+      <div class="control-group">
+        <%= f.label :name, 'Name *', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :name, :class => 'input-small', :required => true %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :first_name_length, 'First name length', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :first_name_length, :class => 'input-small' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :external_key, 'External key *', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :external_key, :class => 'input-small', :required => true %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :email, 'Email *', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :email, :class => 'input-small', :required => true %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :bill_cycle_day_local, 'Bill cycle day', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :bill_cycle_day_local, :class => 'input-small' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :currency, 'Currency', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.select :currency, currencies, {}, :class => 'input-small' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :time_zone, 'Timezone', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.collection_select :time_zone, ActiveSupport::TimeZone.all, :formatted_offset, :to_s, :class => 'input-large' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :address1, 'Address line 1', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :address1, :class => 'input-small' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :address2, 'Address line 2', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :address2, :class => 'input-small' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :postal_code, 'Zip code', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :postal_code, :class => 'input-small' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :company, 'Company', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :company, :class => 'input-small' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :city, 'City', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :city, :class => 'input-small' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :state, 'State', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :state, :class => 'input-small' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :country, 'Country', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.country_select :country, {priority: %w(US CA), prompt: 'Please select a country'}, :class => 'input-large' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :locale, 'Locale', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :locale, :class => 'input-small' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :phone, 'Phone', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :phone, :class => 'input-small' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :is_migrated, 'Migrated?', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.check_box :is_migrated, :class => 'input-small' %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :is_notified_for_invoices, 'Notified for invoices?', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.check_box :is_notified_for_invoices, :class => 'input-small' %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= button_tag 'Create account', :class => 'btn btn-primary' %>
+      </div>
+    </fieldset>
+<% end %>

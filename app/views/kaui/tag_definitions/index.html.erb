@@ -9,23 +9,21 @@
       <th style='width: 5%'>System tag?</th>
       <th style='width: 15%'>Applicable types</th>
       <th style='width: 5%'></th>
-      <!-- <th style='width: 5%'></th> -->
       <th style='width: 5%'></th>
     </tr>
   </thead>
   <tbody>
     <% @tag_definitions.each do |tag_definition| %>
       <tr>
-        <td><%= tag_definition.id %></td>
+        <td><%= truncate_uuid(tag_definition.id) %></td>
         <td><%= tag_definition.name %></td>
         <td><%= tag_definition.description %></td>
         <td><%= tag_definition.is_system_tag? %></td>
         <td><%= !tag_definition.is_system_tag? ? 'Any' : tag_definition.applicable_object_types.join(', ') %></td>
-        <td><%= link_to 'Show', tag_definition %></td>
-        <!-- ><td><%= link_to 'Edit', edit_tag_definition_path(tag_definition) %></td> -->
+        <td><%= link_to 'Show', kaui_engine.tag_definition_path(tag_definition.id) %></td>
         <td>
           <% unless tag_definition.is_system_tag? %>
-            <%= link_to 'Destroy', tag_definition, :confirm => 'Are you sure?', :method => :delete %>
+            <%= link_to 'Destroy', kaui_engine.tag_definition_path(tag_definition.id), :confirm => 'Are you sure?', :method => :delete %>
           <% end %>
         </td>
       </tr>

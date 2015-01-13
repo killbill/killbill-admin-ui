@@ -1,51 +1,37 @@
 class Kaui::CreditsController < Kaui::EngineController
-  def show
-    @account_id = params[:account_id]
-    @invoice_id = params[:invoice_id]
-
-    if params.has_key?(:account_id)
-      begin
-      # invoice id can be nil for account level credit
-        data = Kaui::KillbillHelper::get_credits(@account_id, @invoice_id, options_for_klient)
-      rescue => e
-        flash.now[:error] = "Error getting credit information: #{as_string(e)}"
-      end
-      if data.present?
-        @credit = Kaui::Credit.new(data)
-      else
-        Rails.logger.warn("Did not get back external payments #{response_body}")
-      end
-    else
-      flash.now[:notice] = "No id given"
-    end
-  end
 
   def new
-    @account_id = params[:account_id]
-    @invoice_id = params[:invoice_id]
+    invoice_id = params[:invoice_id]
+    account_id = params[:account_id]
+    amount     = params[:amount]
+    currency   = params[:currency] || 'USD'
 
-    begin
-      @account = Kaui::KillbillHelper::get_account(@account_id, false, false, options_for_klient)
-      @invoice = Kaui::KillbillHelper::get_invoice(@invoice_id, true, "NONE", options_for_klient) unless @invoice_id.nil?
-    rescue => e
-      flash.now[:error] = "Error while starting to create credit: #{as_string(e)}"
+    if invoice_id.present?
+      begin
+        @invoice   = Kaui::Invoice.find_by_id_or_number(invoice_id, true, 'NONE', options_for_klient)
+        account_id = @invoice.account_id
+        amount     ||= @invoice.balance
+        currency   = @invoice.currency
+      rescue => e
+        flash.now[:error] = "Unable to retrieve invoice: #{as_string(e)}"
+      end
     end
 
-    credit_amount = @invoice.balance unless @invoice.nil?
-
-    @credit = Kaui::Credit.new("accountId" => @account_id, "invoiceId" => @invoice_id,
-                               "creditAmount" => credit_amount, "effectiveDate" => Date.parse(Time.now.to_s).to_s)
+    # TODO Specifying a custom currency is not supported yet
+    @credit = Kaui::Credit.new(:invoice_id    => invoice_id,
+                               :account_id    => account_id,
+                               :credit_amount => amount)
   end
 
   def create
-    credit = params[:credit]
+    @credit = Kaui::Credit.new(params[:credit].delete_if { |key, value| value.blank? })
+
     begin
-      Kaui::KillbillHelper::create_credit(credit, current_user, params[:reason], params[:comment], options_for_klient)
-      account = Kaui::KillbillHelper::get_account(credit['account_id'], false, false, options_for_klient)
-      flash[:notice] = "Credit created"
+      @credit = @credit.create(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+      redirect_to kaui_engine.invoice_path(:id => @credit.invoice_id), :notice => 'Credit was successfully created'
     rescue => e
-      flash[:error] = "Error while starting to create credit: #{as_string(e)}"
+      flash.now[:error] = "Error while creating a credit: #{as_string(e)}"
+      render :action => :new
     end
-    redirect_to Kaui.account_home_path.call(credit['account_id'])
   end
 end

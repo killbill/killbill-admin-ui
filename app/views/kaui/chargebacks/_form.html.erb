@@ -1,0 +1,44 @@
+<%= form_for(@chargeback, :html => {:class => 'form-horizontal'}) do |f| %>
+    <fieldset>
+      <%= f.hidden_field :payment_id %>
+      <%= f.hidden_field :currency %>
+      <div class="control-group">
+        <%= f.label :amount, 'Chargeback amount', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :amount, :id => 'chargeback_amount', :class => 'input-small' %>
+          <p class="help-inline"><%= @chargeback.currency %></p>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= label_tag :reason, 'Reason', :class => 'control-label' %>
+        <div class="controls">
+          <%= select_tag :reason, options_for_select(Kaui::Chargeback::SAMPLE_REASON_CODES) %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= label_tag :cancel_all_subs, 'Cancel account subscriptions?', :class => 'control-label' %>
+        <div class="controls">
+          <label class="checkbox">
+            <%= check_box_tag :cancel_all_subs %>
+          </label>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= label_tag :comment, 'Comment', :class => 'control-label' %>
+        <div class="controls">
+          <%= text_area_tag :comment, '', :rows => 3, :class => 'input-xlarge' %>
+        </div>
+      </div>
+      <div class="form-actions">
+        <%= button_tag 'Apply chargeback', :class => 'btn btn-primary' %>
+      </div>
+    </fieldset>
+<% end %>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $("#chargeback_amount").keydown(function(event) {
+    preventNonNumericValues(event);
+  });
+});
+<% end %>
