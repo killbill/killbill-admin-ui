@@ -8,11 +8,10 @@ module Devise
         creds = params[:user] || {}
         kb_username = creds[:kb_username]
         kb_password = password
-        api_key = creds[:api_key] || KillBillClient.api_key
-        api_secret = creds[:api_password] || KillBillClient.api_secret
+        kb_tenant_id = creds[:kb_tenant_id]
 
         # Find the associated user object
-        resource = valid_password? && mapping.to.find_for_killbill_authentication(kb_username, kb_password, api_key, api_secret)
+        resource = valid_password? && mapping.to.find_for_killbill_authentication(kb_username, kb_tenant_id)
         return fail(:not_found_in_database) unless resource
 
         # Validate the credentials

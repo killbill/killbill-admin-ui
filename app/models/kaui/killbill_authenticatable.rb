@@ -24,20 +24,7 @@ module Devise
 
         # Invoked by the KillbillAuthenticatable strategy to lookup the user
         # before attempting authentication
-        def find_for_killbill_authentication(kb_username, kb_password, api_key, api_secret)
-          kb_tenant_id = nil
-
-          # Only in the Multi-Tenancy usecase
-          if api_key.present?
-            tenant = KillBillClient::Model::Tenant.find_by_api_key api_key, {
-                                                                              :username => kb_username,
-                                                                              :password => kb_password,
-                                                                              :api_key => api_key,
-                                                                              :api_secret => api_secret
-                                                                            }
-            kb_tenant_id = tenant.tenant_id if tenant.present?
-          end
-
+        def find_for_killbill_authentication(kb_username, kb_tenant_id)
           find_for_authentication(:kb_tenant_id => kb_tenant_id, :kb_username => kb_username) ||
           new(:kb_tenant_id => kb_tenant_id, :kb_username => kb_username)
         rescue KillBillClient::API::Unauthorized => e

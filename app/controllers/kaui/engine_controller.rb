@@ -5,19 +5,29 @@ class Kaui::EngineController < ApplicationController
 
   # Common options for the Kill Bill client
   def options_for_klient(options = {})
-    {
-      # TODO Kaui doesn't support multi-tenancy yet
-      :api_key => KillBillClient.api_key,
-      :api_secret => KillBillClient.api_secret,
-      :username => current_user.kb_username || KillBillClient.username,
-      :password => current_user.password || KillBillClient.password,
-      :session_id => current_user.kb_session_id
-    }.merge(options)
+    user_tenant_options = current_tenant_user
+    user_tenant_options.merge(options)
+    user_tenant_options
   end
 
   # Used for auditing purposes
   def current_user
     super rescue Kaui.config[:default_current_user]
+  end
+
+  def current_tenant_user
+    user = current_user
+    user_tenant = user.kaui_tenant
+    result = {
+        :username => user.kb_username,
+        :password => user.password,
+        :session_id => user.kb_session_id,
+    }
+    if user_tenant
+      result[:api_key] = user_tenant.api_key
+      result[:api_secret] = user_tenant.api_secret
+    end
+    result
   end
 
   def current_ability

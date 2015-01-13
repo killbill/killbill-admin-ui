@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130819152643) do
+ActiveRecord::Schema.define(:version => 20150109223455) do
+
+  create_table "kaui_tenants", :force => true do |t|
+    t.string   "name"
+    t.string   "kb_tenant_id"
+    t.string   "api_key"
+    t.string   "api_secret"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "kaui_users", :force => true do |t|
     t.string   "kb_tenant_id"

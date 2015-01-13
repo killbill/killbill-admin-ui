@@ -9,6 +9,10 @@ module Kaui
 
     attr_accessible :kb_tenant_id, :kb_username, :kb_session_id, :password
 
+    belongs_to :kaui_tenant, {:class_name => 'Kaui::Tenant',
+                              :primary_key => 'kb_tenant_id',
+                              :foreign_key => 'kb_tenant_id'}
+
     # Called by Devise to perform authentication
     # Throws KillBillClient::API::Unauthorized on failure
     def self.find_permissions(kb_username, kb_password)
@@ -18,7 +22,7 @@ module Kaui
 
     # Called by CanCan to perform authorization
     # Throws KillBillClient::API::Unauthorized on failure
-    def permissions(api_key=KillBillClient.api_key, api_secret=KillBillClient.api_secret)
+    def permissions()
       User.do_find_permissions :session_id => kb_session_id,
                                :api_key => api_key,
                                :api_secret => api_secret

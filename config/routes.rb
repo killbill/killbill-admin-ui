@@ -1,12 +1,15 @@
 Kaui::Engine.routes.draw do
+
   devise_for :users,
              :class_name => 'Kaui::User',
              :module => :devise,
-             :controllers => { :sessions => 'kaui/sessions' }
+             :controllers => { :sessions => 'kaui/sessions'}
 
   resources :tag_definitions
 
+  # STEPH_TENANT We 'd like to keep home#index as the root and have Devise redirect to "tenants#index" when configured in multi-tenant mode.
   root :to => "home#index"
+  #root :to => "tenants#index"
 
   scope "/accounts" do
     match "/pagination" => "accounts#pagination", :via => :get, :as => "accounts_pagination"
@@ -114,5 +117,16 @@ Kaui::Engine.routes.draw do
   scope "/custom_fields" do
     match "/pagination" => "custom_fields#pagination", :via => :get, :as => "custom_fields_pagination"
   end
+
+  scope "/tenants" do
+    match "/" => "tenants#index", :via => :get, :as => "tenants"
+    match "/select_tenant" => "tenants#select_tenant", :via => :post, :as => "select_tenant"
+  end
+
+  scope "/home" do
+    match "/" => "home#index", :via => :get, :as => "home"
+  end
+
+
   resources :custom_fields, :only => [ :create, :new, :index, :show ]
 end
