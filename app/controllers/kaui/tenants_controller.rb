@@ -3,10 +3,19 @@ module Kaui
 
     def index
       begin
-        @tenants = Kaui::Tenant.all
+
+        # Retrieve current user and extract allowed list of tenants
+        user = current_user
+        allowed_user = Kaui::AllowedUser.find_by_kb_username(user.kb_username)
+        @tenants = (allowed_user.kaui_tenants if allowed_user) || []
+
+        #
+        # If there is nothing we check for override with KillBillClient.api_key/KillBillClient.api_secret
+        # If there is only one, we skip the tenant screen since the choice is obvious
+        # If not, we allow user to chose what he wants
+        #
         case @tenants.size
           when 0
-            user = current_user
             # If KillBillClient.api_key and KillBillClient.api_secret are not set, the client library will throw
             # an KillBillClient::API::Unauthorized exception which will end up in the rescue below
             tenant = KillBillClient::Model::Tenant.find_by_api_key(KillBillClient.api_key, {

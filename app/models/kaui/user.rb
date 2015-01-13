@@ -23,9 +23,7 @@ module Kaui
     # Called by CanCan to perform authorization
     # Throws KillBillClient::API::Unauthorized on failure
     def permissions()
-      User.do_find_permissions :session_id => kb_session_id,
-                               :api_key => api_key,
-                               :api_secret => api_secret
+      User.do_find_permissions :session_id => kb_session_id
     end
 
     # Verify the Kill Bill session hasn't timed-out

@@ -7,9 +7,7 @@ Kaui::Engine.routes.draw do
 
   resources :tag_definitions
 
-  # STEPH_TENANT We 'd like to keep home#index as the root and have Devise redirect to "tenants#index" when configured in multi-tenant mode.
   root :to => "home#index"
-  #root :to => "tenants#index"
 
   scope "/accounts" do
     match "/pagination" => "accounts#pagination", :via => :get, :as => "accounts_pagination"

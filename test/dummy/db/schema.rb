@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150109223455) do
+ActiveRecord::Schema.define(:version => 20150113023551) do
+
+  create_table "kaui_allowed_users", :force => true do |t|
+    t.string   "kb_username"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "kaui_allowed_users_tenants", :force => true do |t|
+    t.integer  "kaui_allowed_user_id"
+    t.integer  "kaui_tenant_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "kaui_allowed_users_tenants", ["kaui_allowed_user_id", "kaui_tenant_id"], :name => "kaui_allowed_users_tenants_uniq", :unique => true
 
   create_table "kaui_tenants", :force => true do |t|
     t.string   "name"
