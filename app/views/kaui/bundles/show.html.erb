@@ -1,16 +1,18 @@
-<% if @bundle.present? %>
-  <dl class="dl-horizontal">
-    <dt>Id:</dt>
-    <dd><%= @bundle.bundle_id %>&nbsp;</dd>
-    <dt>Account:</dt>
-    <dd><%= @account.name %>&nbsp;</dd>
-    <dd><%= link_to @account.email, Kaui.account_home_path.call(@account.external_key) %>&nbsp;</dd>
-    <dt>Bundle key:</dt>
-    <dd><%= @bundle.external_key %>&nbsp;</dd>
-    <%= link_to "Transfer Ownership", kaui_engine.transfer_bundle_path(@bundle.bundle_id), :class => "btn btn-mini" %></dd>
-  <% if @subscriptions.present? %>
-    <%= render :partial => "kaui/subscriptions/subscriptions_table", :locals => { :subscriptions => @subscriptions, :account => @account } %>
+<dl class="dl-horizontal">
+  <dt>Id:</dt>
+  <dd><%= @bundle.bundle_id %>&nbsp;</dd>
+  <dt>Account:</dt>
+  <dd><%= @account.name %>&nbsp;</dd>
+  <dd><%= link_to @account.email, Kaui.account_home_path.call(@account.external_key) %>&nbsp;</dd>
+  <dt>Bundle key:</dt>
+  <dd>
+    <%= @bundle.external_key %>&nbsp;
+    <%= link_to 'Transfer Ownership', kaui_engine.transfer_bundle_path(@bundle.bundle_id), :class => 'btn btn-mini' %>
+  </dd>
+  <%= render :partial => 'kaui/tags/tags_table',
+             :locals  => {:tags => @tags, :tags_url_or_path => kaui_engine.edit_bundle_tags_path(:params => {:bundle_id => @bundle.bundle_id}), :tags_show_path => kaui_engine.bundle_tags_path(:bundle_id => @bundle.bundle_id)} %>
+  <% if @bundle.subscriptions.present? %>
+      <%= render :partial => 'kaui/subscriptions/subscriptions_table', :locals => {:subscriptions => @bundle.subscriptions, :account => @account} %>
   <% end %>
-<% else %>
-  <p>Bundle not found</p>
-<% end %>
+</dl>
+<%= link_to 'Go to account', kaui_engine.account_path(:id => @account.account_id), :class => 'btn' %>

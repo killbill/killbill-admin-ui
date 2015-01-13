@@ -8,10 +8,10 @@ require 'jquery-rails'
 require 'd3_rails'
 require 'json'
 require 'money-rails'
-require 'rest_client'
 require 'killbill_client'
 require 'devise'
 require 'cancan'
+require 'carmen-rails'
 
 module Kaui
   class Engine < ::Rails::Engine
@@ -20,6 +20,9 @@ module Kaui
     initializer 'kaui_engine.action_controller' do |app|
       ActiveSupport.on_load :action_controller do
         helper Kaui::DateHelper
+        helper Kaui::MoneyHelper
+        helper Kaui::SubscriptionHelper
+        helper Kaui::UuidHelper
       end
     end
   end

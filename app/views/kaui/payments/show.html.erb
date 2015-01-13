@@ -1,0 +1,3 @@
+<%= render :partial => 'kaui/payments/payments_table' %>
+
+<%= link_to 'Go to Account', kaui_engine.account_path(@payments.first.account_id), :class => 'btn', :target => '_blank' %>

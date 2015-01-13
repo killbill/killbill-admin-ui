@@ -1,18 +1,32 @@
 require 'test_helper'
 
-class Kaui::InvoiceItemsControllerTest < ActionController::TestCase
-  fixtures :invoice_items
+class Kaui::InvoiceItemsControllerTest < Kaui::FunctionalTestHelper
 
-  test "should get index" do
-    get :index, :use_route => 'kaui'
-    assert_response :success
+  test 'should get edit' do
+    get :edit, :invoice_id => @invoice_item.invoice_id, :id => @invoice_item.invoice_item_id
+    assert_response 200
+    assert_equal @invoice_item.invoice_item_id, assigns(:invoice_item).invoice_item_id
   end
 
-  test "should find invoice item by id" do
-    item = invoice_items(:recurring_item_for_pierre)
+  test 'should adjust invoice item' do
+    put :update,
+        :id           => @invoice_item.invoice_item_id,
+        :invoice_item => {
+            :account_id      => @account.account_id,
+            :invoice_id      => @invoice_item.invoice_id,
+            :invoice_item_id => @invoice_item.invoice_item_id,
+            :amount          => 5.34
+        }
+    assert_redirected_to invoice_path(assigns(:invoice_item).invoice_id)
+    assert_equal 'Adjustment item was successfully created', flash[:notice]
+  end
 
-    get :show, :id => item["invoiceItemId"], :invoice_id => item["invoiceId"], :use_route => 'kaui'
-    assert_response :success
-    assert_equal assigns(:invoice_item).invoice_item_id, item["invoiceItemId"]
+  test 'should delete CBA' do
+    delete :destroy,
+           :id         => @cba.invoice_item_id,
+           :invoice_id => @cba.invoice_id,
+           :account_id => @account.account_id
+    assert_redirected_to invoice_path(assigns(:invoice_item).invoice_id)
+    assert_equal 'CBA item was successfully deleted', flash[:notice]
   end
 end

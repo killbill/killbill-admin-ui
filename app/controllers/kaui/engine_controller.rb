@@ -12,7 +12,7 @@ class Kaui::EngineController < ApplicationController
 
   # Used for auditing purposes
   def current_user
-    super rescue Kaui.config[:default_current_user]
+    super
   end
 
   def current_tenant_user
@@ -38,9 +38,7 @@ class Kaui::EngineController < ApplicationController
   protected
 
   def as_string(e)
-    if e.is_a?(RestClient::Exception)
-      "#{e.message}, server response: #{as_string_from_response(e.response)}".split(/\n/).take(5).join("\n")
-    elsif e.is_a?(KillBillClient::API::ResponseError)
+    if e.is_a?(KillBillClient::API::ResponseError)
       "Error #{e.response.code}: #{as_string_from_response(e.response.body)}"
     else
       e.message

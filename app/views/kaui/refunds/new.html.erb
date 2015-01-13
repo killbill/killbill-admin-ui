@@ -1,123 +1,115 @@
 <div class="page-header">
   <h1>Refund Payment</h1>
 </div>
-<%= form_for(@refund, :url => { :action => :create }, :html => { :class => "form-horizontal" }) do |f| %>
-
-    <%= hidden_field_tag :account_id, @account_id %>
-    <%= hidden_field_tag :payment_id, @payment_id %>
-    <%= hidden_field_tag :invoice_id, @invoice_id%>
-  <fieldset>
-    <div class="control-group">
-      <label class="control-label">Date</label>
-      <div class="controls">
-        <label class="checkbox">
-          <%= DateTime.now.to_s(:pretty) %>
-        </label>
+<%= form_for(@refund, :url => {:action => :create}, :html => {:class => "form-horizontal"}) do |f| %>
+    <%= hidden_field_tag :account_id, @account.account_id %>
+    <%= hidden_field_tag :payment_id, @payment.payment_id %>
+    <%= hidden_field_tag :invoice_id, @invoice.invoice_id %>
+    <fieldset>
+      <div class="control-group">
+        <label class="control-label">Date</label>
+        <div class="controls">
+          <label class="checkbox">
+            <%= DateTime.now.to_s(:pretty) %>
+          </label>
+        </div>
       </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label">Invoice number</label>
-      <div class="controls">
-        <label class="checkbox">
+      <div class="control-group">
+        <label class="control-label">Invoice number</label>
+        <div class="controls">
+          <label class="checkbox">
             <%= @invoice.invoice_number %><br/>
-        </label>
+          </label>
+        </div>
       </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label">Account name</label>
-      <div class="controls">
-        <label class="checkbox">
-          <%= @account.name %><br/>
-          <%= @account.email %>
-        </label>
+      <div class="control-group">
+        <label class="control-label">Account name</label>
+        <div class="controls">
+          <label class="checkbox">
+            <%= @account.name %><br/>
+            <%= @account.email %>
+          </label>
+        </div>
       </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label">Status</label>
-      <div class="controls">
-        <label class="checkbox">
-          <%= @payment.status %>
-        </label>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :adjustment_type, "Adjustment Type", :class => "control-label" %>
-      <div class="controls">
-        <label class="radio">
-          <%= f.radio_button :adjustment_type, 'noInvoiceAdjustment', :checked => true %>
-              No Invoice Adjustment
-        </label>
-      </div>
-      <% if can? :adjust, Kaui::Invoice %>
+      <div class="control-group">
+        <%= label_tag :adjustment_type, 'Adjustment Type', :class => 'control-label' %>
         <div class="controls">
           <label class="radio">
-            <%= f.radio_button :adjustment_type, 'invoiceAdjustment' %>
+            <%= radio_button_tag :adjustment_type, 'noInvoiceAdjustment', :checked => true %>
+            No Invoice Adjustment
+          </label>
+        </div>
+        <% if can? :adjust, Kaui::Invoice %>
+            <div class="controls">
+              <label class="radio">
+                <%= radio_button_tag :adjustment_type, 'invoiceAdjustment' %>
                 Invoice Adjustment
-          </label>
-        </div>
-      <% end %>
-      <% if can? :item_adjust, Kaui::Invoice %>
-        <div class="controls">
-          <label class="radio">
-            <%= f.radio_button :adjustment_type, 'invoiceItemAdjustment' %>
+              </label>
+            </div>
+        <% end %>
+        <% if can? :item_adjust, Kaui::Invoice %>
+            <div class="controls">
+              <label class="radio">
+                <%= radio_button_tag :adjustment_type, 'invoiceItemAdjustment' %>
                 Invoice Item Adjustment
+              </label>
+            </div>
+        <% end %>
+      </div>
+      <div id="invoiceItems" style="display:none">
+        <% @invoice.items.each_with_index do |ii, index| %>
+            <% if ii.amount > 0 %>
+                <div id=<%= "div_#{ii.invoice_item_id}" %> class="control-group">
+                  <label class="control-label"></label>
+
+                  <div class="controls">
+                    <input type="checkbox" id=<%= "cb_adj_#{ii.invoice_item_id}" %>>
+                    <%= "Item #{index + 1} : #{ii.description} " %>
+                    <%= text_field_tag "adjustments[#{ii.invoice_item_id}]", index, :id => "tf_adj_#{ii.invoice_item_id}", :value => ii.amount, :class => 'input-small' %>
+                  </div>
+                </div>
+            <% end %>
+        <% end %>
+      </div>
+      <div class="control-group">
+        <label class="control-label">Paid Amount</label>
+        <div class="controls">
+          <label class="checkbox">
+            <%= @payment.purchased_amount %> <%= @account.currency if @payment.purchased_amount.present? %>
           </label>
         </div>
-      <% end %>
-    </div>
-    <div id="invoiceItems" style="display:none">
-      <% @invoice.items.each_with_index do |ii, index | %>
-         <% if ii.amount > 0 and ii.subscription_id.present?  %>
-           <div id=<%= "div_#{ii.invoice_item_id}" %> class="control-group">
-               <label class="control-label"></label>
-               <div class="controls">
-                   <input type="checkbox" id=<%= "cb_adj_#{ii.invoice_item_id}" %>>
-                   <%= "Item #{index + 1} : #{ii.description} " %>
-                   <%= text_field_tag "adjustments[#{ii.invoice_item_id}]", index,  :id => "tf_adj_#{ii.invoice_item_id}" , :value => ii.amount, :class => 'input-small' %>
-               </div>
-           </div>
-         <% end %>
-      <% end %>
-    </div>
-    <div class="control-group">
-      <label class="control-label">Paid Amount</label>
-      <div class="controls">
-        <label class="checkbox">
-          <%= @payment.paid_amount %> <%= @account.currency if @payment.paid_amount.present? %>
-        </label>
       </div>
-    </div>
-    <div id="div_refund_amount" class="control-group">
-      <%= f.label :amount, "Refund amount", :class => "control-label" %>
-      <div class="controls">
-        <%= f.text_field :amount, :id => 'refund_amount', :value => @payment.paid_amount, :class => 'input-small' %>
-        <p class="help-inline"><%= @account.currency %></p>
+      <div id="div_refund_amount" class="control-group">
+        <%= label_tag :amount, 'Refund amount', :class => 'control-label' %>
+        <div class="controls">
+          <%= text_field_tag :amount, @payment.purchased_amount, :id => 'refund_amount', :class => 'input-small' %>
+          <p class="help-inline"><%= @account.currency %></p>
+        </div>
       </div>
-    </div>
-    <div class="control-group">
-      <%= label_tag :reason, "Reason", :class => "control-label" %>
-      <div class="controls">
-        <%= select_tag :reason, options_for_select(Kaui::Refund::SAMPLE_REASON_CODES) %>
+      <div class="control-group">
+        <%= label_tag :reason, "Reason", :class => "control-label" %>
+        <div class="controls">
+          <%= select_tag :reason, options_for_select(Kaui::Refund::SAMPLE_REASON_CODES) %>
+        </div>
       </div>
-    </div>
-    <div class="control-group">
-      <%= label_tag :comment, "Comment", :class => "control-label" %>
-      <div class="controls">
-        <%= text_area_tag :comment, "", :rows => 3, :class => 'input-xlarge' %>
+      <div class="control-group">
+        <%= label_tag :comment, "Comment", :class => "control-label" %>
+        <div class="controls">
+          <%= text_area_tag :comment, "", :rows => 3, :class => 'input-xlarge' %>
+        </div>
       </div>
-    </div>
-    <div class="form-actions">
-      <%= button_tag "Create refund", :id => "submit", :class =>"btn btn-primary" %>
-      <%= link_to 'Back', :back, :class => 'btn' %>
-    </div>
-  </fieldset>
+      <div class="form-actions">
+        <%= button_tag "Create refund", :id => "submit", :class => "btn btn-primary" %>
+        <%= link_to 'Back', :back, :class => 'btn' %>
+      </div>
+    </fieldset>
 <% end %>
 <%= javascript_tag do %>
 
     var textToDivId = function(textId) {
         return "div_" + textId.split("tf_adj_")[1];
     };
-    
+
     var textToCheckboxId = function(textId) {
         return "cb_adj_" + textId.split("tf_adj_")[1];
     };
@@ -125,7 +117,7 @@
     var checkboxToTextId = function(cbId) {
         return "tf_adj_" + cbId.split("cb_adj_")[1];
     };
-    
+
     var setClassForElement = function(id, newClass) {
         var currentClasses = $(id).attr('class').split(' ');
         for (var i=0; i<currentClasses.length; i++) {
@@ -144,7 +136,7 @@
     };
 
     var validateRefundAmount = function() {
-        if (Number($("#refund_amount").attr('value')) > <%= @payment.paid_amount %> ||
+        if (Number($("#refund_amount").attr('value')) > <%= @payment.purchased_amount %> ||
           Number($("#refund_amount").attr('value')) <= 0) {
           setClassForElement("#div_refund_amount", "control-group error");
           $("#submit").prop('disabled', true);
@@ -174,8 +166,8 @@
      * _ For Invoice adjustment or no adjustment, default to payment amount
      */
     var recomputeRefundAmountAndValidateAmount = function() {
-        var computedRefundAmount = <%= @payment.paid_amount %>;
-        if ($("#refund_adjustment_type_invoiceitemadjustment").is(':checked')) {
+        var computedRefundAmount = <%= @payment.purchased_amount %>;
+        if ($("#adjustment_type_invoiceItemAdjustment").is(':checked')) {
             var x = 0; $('input').filter(function() { return this.id.match(/tf_adj_/) }).each(function() {
                 var id = textToCheckboxId(this.id);
                 if ($("#" + id).is(':checked')) {
@@ -191,7 +183,7 @@
         }
         validateRefundAmount();
     };
-    
+
     /*
     * When clicking checkbox for each item, disable amount and recompute total refund amount
     */
@@ -250,11 +242,11 @@
         /*
         * Adjustment type handlers
         */
-        $("#refund_adjustment_type_noinvoiceadjustment")
+        $("#adjustment_type_noInvoiceAdjustment")
         .click(onClickWithInvoiceOrNoAdjustment);
-        $("#refund_adjustment_type_invoiceadjustment")
+        $("#adjustment_type_invoiceAdjustment")
         .click(onClickWithInvoiceOrNoAdjustment);
-        $("#refund_adjustment_type_invoiceitemadjustment")
+        $("#adjustment_type_invoiceItemAdjustment")
         .click(onClickWithInvoiceItemAdjustment);
 
         /*

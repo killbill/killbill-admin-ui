@@ -1,20 +1,20 @@
 require 'test_helper'
 
 class Kaui::InvoiceTest < ActiveSupport::TestCase
-  fixtures :invoices
 
-  test "can serialize from json" do
-    as_json = invoices(:invoice_for_pierre)
-    invoice = Kaui::Invoice.new(as_json)
-    
-    assert_equal as_json["amount"], invoice.amount
-    assert_equal as_json["cba"], invoice.credit_balance_adjustment
-    assert_equal as_json["creditAdj"], invoice.credit_adjustment
-    assert_equal as_json["refundAdj"], invoice.refund_adjustment
-    assert_equal as_json["invoiceId"], invoice.invoice_id
-    assert_equal as_json["invoiceDate"], invoice.invoice_date
-    assert_equal as_json["targetDate"], invoice.target_date
-    assert_equal as_json["invoiceNumber"], invoice.invoice_number
-    assert_equal as_json["accountId"], invoice.account_id
+  test 'can convert to money' do
+    invoice = Kaui::Invoice.new(:amount => 12.42, :balance => 54.32, :refund_adj => 48, :credit_adj => 1.2, :currency => 'USD')
+
+    assert_equal 1242, invoice.amount_to_money.cents
+    assert_equal 'USD', invoice.amount_to_money.currency_as_string
+
+    assert_equal 5432, invoice.balance_to_money.cents
+    assert_equal 'USD', invoice.balance_to_money.currency_as_string
+
+    assert_equal 4800, invoice.refund_adjustment_to_money.cents
+    assert_equal 'USD', invoice.refund_adjustment_to_money.currency_as_string
+
+    assert_equal 120, invoice.credit_adjustment_to_money.cents
+    assert_equal 'USD', invoice.credit_adjustment_to_money.currency_as_string
   end
 end

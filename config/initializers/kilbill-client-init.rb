@@ -1,4 +1,4 @@
-# hack to make the killbillclient models work as rails models
+# hack to make the killbill client models work as rails models
 
 module KillBillClient
   module Model

@@ -31,12 +31,13 @@ module Kaui
       KillBillClient.url = Kaui.killbill_finder.call
       subject = KillBillClient::Model::Security.find_subject :session_id => kb_session_id
       subject.is_authenticated
+    rescue KillBillClient::API::Unauthorized => e
+      false
     end
 
     private
 
     def self.do_find_permissions(options = {})
-      KillBillClient.url = Kaui.killbill_finder.call
       KillBillClient::Model::Security.find_permissions options
     end
   end

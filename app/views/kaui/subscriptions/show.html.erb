@@ -1,26 +1,33 @@
-<% if @subscription.present? %>
-  <div class="page-header">
-    <h2>Subscription <%= @subscription.subscription_id %></h2>
-  </div>
-  <dl class="dl-horizontal">
-    <dt>Category</dt>
-    <dd><%= @subscription.product_category.downcase.capitalize if @subscription.product_category.present? %></dd>
-    <dt>Product</dt>
-    <dd><%= @subscription.product_name.downcase.capitalize if @subscription.product_name.present? %></dd>
-    <dt>Period</dt>
-    <dd><%= @subscription.billing_period.downcase.capitalize if @subscription.billing_period.present? %></dd>
-    <dt>Charged through</dt>
-    <dd> <%= format_date(@subscription.charged_through_date, @account.timezone).html_safe if @subscription.charged_through_date.present? %>
-    <dt>Price List</dt>
-    <dd><%= @subscription.price_list %></dd>
-    <dt>Start Date</dt>
-    <dd> <%= format_date(@subscription.start_date, @account.timezone).html_safe if @subscription.start_date.present? %>
-  </dl>
-  <hr/>
-  <%= link_to "Change", kaui_engine.edit_subscription_path(@subscription.subscription_id), :class => "btn btn-mini" %>
-  <%= link_to "Cancel", kaui_engine.subscription_path(@subscription.subscription_id), :method => :delete, :confirm => "Are you sure?", :class => "btn btn-mini" %>
-  <%= link_to "Add Addons", kaui_engine.new_subscription_path(:params => { :bundle_id => @subscription.bundle_id, :base_subscription => @subscription.product_name, :product_category => "ADD_ON" }), :class => "btn btn-mini" %>
-<% else %>
-  <p>Subscription not found</p>
+<div class="page-header">
+  <h2>Subscription <%= @subscription.subscription_id %></h2>
+</div>
+<dl class="dl-horizontal">
+  <dt>Category</dt>
+  <dd><%= humanized_product_category(@subscription) || '&nbsp;'.html_safe %></dd>
+  <dt>Product</dt>
+  <dd><%= humanized_product_name(@subscription) || '&nbsp;'.html_safe %></dd>
+  <dt>Period</dt>
+  <dd><%= humanized_billing_period(@subscription) || '&nbsp;'.html_safe %></dd>
+  <dt>Charged through</dt>
+  <dd><%= humanized_charged_through_date(@subscription, @account) || '&nbsp;'.html_safe %>
+  <dt>Price list</dt>
+  <dd><%= humanized_price_list(@subscription) || '&nbsp;'.html_safe %></dd>
+  <dt>Start date</dt>
+  <dd><%= humanized_start_date(@subscription, @account) || '&nbsp;'.html_safe %></dd>
+  <dt>Cancelled date</dt>
+  <dd><%= humanized_cancelled_date(@subscription, @account) || '&nbsp;'.html_safe %></dd>
+  <dt>Billing start date</dt>
+  <dd><%= humanized_billing_start_date(@subscription, @account) || '&nbsp;'.html_safe %></dd>
+  <dt>Billing end date</dt>
+  <dd><%= humanized_billing_end_date(@subscription, @account) || '&nbsp;'.html_safe %></dd>
+</dl>
+<hr/>
+<% if is_future_cancelled?(@subscription) %>
+    <%= link_to 'Reinstate', kaui_engine.reinstate_subscription_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-mini' %>
+<% elsif is_cancelled?(@subscription) %>
+    <%= link_to 'Change', kaui_engine.edit_subscription_path(@subscription.subscription_id), :class => 'btn btn-mini' %>
+    <%= link_to 'Cancel', kaui_engine.subscription_path(@subscription.subscription_id), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini' %>
+    <%= link_to 'Add Addons', kaui_engine.new_subscription_path(:params => {:bundle_id => @subscription.bundle_id, :base_product_name => @subscription.product_name, :product_category => 'ADD_ON'}), :class => 'btn btn-mini' %>
 <% end %>
-<%= link_to 'Back', :back, :class => 'btn' %>
+&nbsp;
+<%= link_to 'Go to bundle', kaui_engine.bundle_path(@subscription.bundle_id), :class => 'btn btn-mini' %>

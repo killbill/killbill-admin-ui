@@ -12,12 +12,9 @@ Kaui::Engine.routes.draw do
   scope "/accounts" do
     match "/pagination" => "accounts#pagination", :via => :get, :as => "accounts_pagination"
   end
-  resources :accounts, :only => [ :index, :show ] do
+  resources :accounts, :only => [ :index, :new, :create, :show ] do
     member do
-      get :payment_methods
       put :set_default_payment_method
-      get :add_payment_method
-      post :do_add_payment_method
       delete :delete_payment_method
       post :toggle_email_notifications
       post :pay_all_invoices
@@ -48,11 +45,12 @@ Kaui::Engine.routes.draw do
     match "/pagination" => "payments#pagination", :via => :get, :as => "payments_pagination"
   end
   resources :payments, :only => [ :create, :new, :index, :show ]
+  resources :transactions, :only => [ :create, :new ]
 
   scope "/payment_methods" do
     match "/pagination" => "payment_methods#pagination", :via => :get, :as => "payment_methods_pagination"
   end
-  resources :payment_methods, :only => [ :index, :show, :destroy ]
+  resources :payment_methods, :only => [ :index, :new, :create, :show, :destroy ]
 
   scope "/refunds" do
     match "/pagination" => "refunds#pagination", :via => :get, :as => "refunds_pagination"
@@ -84,15 +82,6 @@ Kaui::Engine.routes.draw do
     member do
       put :reinstate
     end
-  end
-
-  scope "/analytics" do
-    match "/" => "analytics#index", :via => :get, :as => "analytics"
-    match "/account_snapshot" => "analytics#account_snapshot", :via => :get, :as => "account_snapshot"
-    match "/refresh_account" => "analytics#refresh_account", :via => :post, :as => "refresh_account"
-    match "/accounts_over_time" => "analytics#accounts_over_time", :via => :get, :as => "analytics_accounts_over_time"
-    match "/subscriptions_over_time" => "analytics#subscriptions_over_time", :via => :get, :as => "analytics_subscriptions_over_time"
-    match "/sanity" => "analytics#sanity", :via => :get, :as => "analytics_sanity"
   end
 
   scope "/account_tags" do

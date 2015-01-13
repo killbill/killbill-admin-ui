@@ -1,23 +1,5 @@
 <div class="page-header">
   <h1>Add Payment Method</h1>
 </div>
-<%= form_tag do_add_payment_method_account_path(@account.account_id), :class => "form-horizontal" do %>
-  <fieldset>
-    <div class="control-group">
-      <label class="control-label">Account name</label>
-      <div class="controls">
-        <label class="checkbox">
-          <%= @account.name %><br/>
-          <%= @account.email %>
-        </label>
-      </div>
-    </div>
-    <div id="creditcard">
-      <%= render :partial => "kaui/payment_methods/new_creditcard_payment_method" %>
-    </div>
-    <div class="form-actions">
-      <%= button_tag "Create payment method", :class =>"btn btn-primary" %>
-      <%= link_to 'Back', :back, :class => 'btn' %>
-    </div>
-  </fieldset>
-<% end %>
+
+<%= render 'form' %>

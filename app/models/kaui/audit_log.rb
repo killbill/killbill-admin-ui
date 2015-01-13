@@ -1,17 +1,4 @@
-class Kaui::AuditLog < Kaui::Base
-  define_attr :change_date
-  define_attr :change_type
-  define_attr :changed_by
-  define_attr :comments
-  define_attr :reason_code
-
-  def initialize(data = {})
-    super(:change_date => data['changeDate'],
-          :change_type => data['changeType'],
-          :changed_by => data['changedBy'],
-          :comments => data['comments'],
-          :reason_code => data['reasonCode'])
-  end
+class Kaui::AuditLog
 
   def self.description(log)
     if log.changed_by.present?
@@ -25,5 +12,4 @@ class Kaui::AuditLog < Kaui::Base
       end
     end
   end
-
 end

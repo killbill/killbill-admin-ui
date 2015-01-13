@@ -9,9 +9,9 @@
     <dt>Target date:</dt>
     <dd><%= @invoice.target_date.html_safe %>&nbsp;</dd>
     <dt>Amount:</dt>
-    <dd><%= humanized_money_with_symbol Kaui::Base.to_money(@invoice.amount, @account.currency) %> (<%= @account.currency %>)&nbsp;</dd>
+    <dd><%= humanized_money_with_symbol @invoice.amount_to_money %> (<%= @account.currency %>)&nbsp;</dd>
     <dt>Balance:</dt>
-    <dd><%= humanized_money_with_symbol Kaui::Base.to_money(@invoice.balance, @account.currency) %> (<%= @account.currency %>)&nbsp;</dd>
+    <dd><%= humanized_money_with_symbol @invoice.balance_to_money %> (<%= @account.currency %>)&nbsp;</dd>
   </dl>
   <div class="page-header">
     <h3>Invoice items</h3>
@@ -57,9 +57,9 @@
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.description %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.start_date.html_safe if item.start_date %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.end_date.html_safe if item.end_date %></td>
-          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= format_date(sub.charged_through_date, @account.timezone).html_safe if sub.present? %></td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= format_date(sub.charged_through_date, @account.time_zone).html_safe if sub.present? %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= sub.price_list.downcase.capitalize if sub.present? and sub.price_list.present? %></td>
-          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= humanized_money_with_symbol Kaui::Base.to_money(item.amount, item.currency) %> (<%= item.currency %>)</td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= humanized_money_with_symbol Kaui::InvoiceItem.amount_to_money(item) %> (<%= item.currency %>)</td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.audit_logs.map {|log| log.comments}.compact.join('<br/>') if item.audit_logs.present? %></td>
           <td>
             <% if can? :item_adjust, Kaui::Invoice %>
@@ -86,13 +86,6 @@
       <%= render :partial => "kaui/payments/payments_table" %>
     <% end %>
   </div>
-
-  <div class="page-header">
-    <% if @payments.present? %>
-      <%= render :partial => "kaui/refunds/refunds_table" %>
-    <% end %>
-  </div>
-
 <% else %>
   <p>Invoice not found</p>
 <% end %>
