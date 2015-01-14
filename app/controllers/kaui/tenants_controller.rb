@@ -34,16 +34,24 @@ module Kaui
             end
         end
       rescue => e
-        # STEPH_TENANT what should we do? Why flash does not work?
-        flash.now[:error] = "Error while retrieving tenants #{as_string(e)}"
+        flash[:error] = "Error while retrieving tenants: No tenants configured for users AND {KillBillClient.api_key, KillBillClient.api_secret} have not been set "
         @tenants = []
+        # If we remove the user, Devise will redirect us to login screen with default flash "You need to sign in or sign up before continuing" which prevent the user from
+        # understanding what is happening
+        #user.delete if user
+
+        #
+        # It would be nice to redirect to main login screen (Kaui.new_user_session_path.call) but browser complains there is a redirect loop;
+        # In any case some 'admin' action needs to happen
+        #
+        redirect_to Kaui.home_path.call
       end
 
     end
 
     def select_tenant
       @tenant_name = params[:tenant_name]
-      # STEPH_TENANT could we pass the tenant_id as a hidden field instead ?
+      # STEPH_TENANT : Could we pass the tenant_id as a hidden field instead
       selected_tenant =  Kaui::Tenant.find_by_name(@tenant_name)
       select_tenant_for_tenant_id(selected_tenant.kb_tenant_id)
     end
@@ -57,8 +65,7 @@ module Kaui
         user.save
         redirect_to Kaui.home_path.call
       rescue => e
-        flash.now[:error] = "Error selecting the tenants #{@tenant_name if @tenant_name} #{as_string(e) if e}"
-        # STEPH_TENANT flash does not seem to work...
+        flash[:error] = "Error selecting the tenants #{@tenant_name if @tenant_name} #{as_string(e) if e}"
         redirect_to :action => :index and return
       end
     end

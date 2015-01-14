@@ -28,7 +28,6 @@ module Kaui
 
     # Verify the Kill Bill session hasn't timed-out
     def authenticated_with_killbill?()
-      KillBillClient.url = Kaui.killbill_finder.call
       subject = KillBillClient::Model::Security.find_subject :session_id => kb_session_id
       subject.is_authenticated
     rescue KillBillClient::API::Unauthorized => e
