@@ -11,5 +11,6 @@ Rails.backtrace_cleaner.remove_silencers!
 
 # Include helpers
 require 'killbill_test_helper'
+require 'functional/kaui/functional_test_helper_nosetup'
 require 'functional/kaui/functional_test_helper'
 require 'integration/kaui/integration_test_helper'

@@ -9,7 +9,7 @@ module Kaui
 
       # Verify log-in
       post_via_redirect SIGN_IN_PATH, {:user => {:kb_username => USERNAME, :password => PASSWORD}}
-      assert_equal TENANTS_PATH, path
+      assert_equal HOME_PATH, path
       assert_equal 'Signed in successfully.', flash[:notice]
 
       # User goes to search for the account

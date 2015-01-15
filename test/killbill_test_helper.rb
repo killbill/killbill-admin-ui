@@ -21,8 +21,8 @@ module Kaui
     # Kill Bill specific helpers
     #
 
-    def setup_test_data
-      @tenant            = create_tenant
+    def setup_test_data(nb_configured_tenants =  1, setup_tenant_key_secret = true)
+      @tenant            = setup_and_create_test_tenant(nb_configured_tenants)
       @account           = create_account(@tenant)
       @account2          = create_account(@tenant)
       @bundle            = create_bundle(@account, @tenant)
@@ -33,10 +33,50 @@ module Kaui
       @paid_invoice_item = create_charge(@account, @tenant)
       @payment           = create_payment(@paid_invoice_item, @account, @tenant)
 
-      KillBillClient.api_key = @tenant.api_key
-      KillBillClient.api_secret = @tenant.api_secret
+      if setup_tenant_key_secret
+        KillBillClient.api_key = @tenant.api_key
+        KillBillClient.api_secret = @tenant.api_secret
+      else
+        KillBillClient.api_key = nil
+        KillBillClient.api_secret = nil
+      end
       KillBillClient.username = USERNAME
       KillBillClient.password = PASSWORD
+    end
+
+    def setup_and_create_test_tenant(nb_configured_tenants)
+
+      # If we need to configure 0 tenant, we still create one with Kill Bill but add nothing in the kaui_tenants and kaui_allowed_users tables
+      if nb_configured_tenants == 0
+        return create_tenant
+      end
+
+      # Setup AllowedUser
+      au = Kaui::AllowedUser.new
+      au.kb_username = 'admin'
+      au.description = 'Admin User'
+      au.save
+      au = Kaui::AllowedUser.find_by_kb_username('admin')
+
+      # Create the tenant with Kill Bill
+      all_tenants = []
+      test_tenant = nil
+      (1..nb_configured_tenants).each do |i|
+        cur_tenant = create_tenant
+        test_tenant = cur_tenant if test_tenant.nil?
+
+        t = Kaui::Tenant.new
+        t.kb_tenant_id = cur_tenant.tenant_id
+        t.name = 'Test'
+        t.api_key = cur_tenant.api_key
+        t.api_secret = cur_tenant.api_secret
+        t.save
+        all_tenants << t
+      end
+
+      # setup kaui_tenants
+      all_tenants.each { |e| au.kaui_tenants  << e } if all_tenants.size > 0
+      test_tenant
     end
 
     # Return a new test account

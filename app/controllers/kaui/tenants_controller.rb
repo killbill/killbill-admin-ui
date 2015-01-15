@@ -34,7 +34,7 @@ module Kaui
             end
         end
       rescue => e
-        flash[:error] = "Error while retrieving tenants: No tenants configured for users AND {KillBillClient.api_key, KillBillClient.api_secret} have not been set "
+        flash[:error] = "Error while retrieving tenants: No tenants configured for users AND KillBillClient.api_key, KillBillClient.api_secret have not been set"
         @tenants = []
         # If we remove the user, Devise will redirect us to login screen with default flash "You need to sign in or sign up before continuing" which prevent the user from
         # understanding what is happening
@@ -63,6 +63,11 @@ module Kaui
         user = current_user
         user.kb_tenant_id = kb_tenant_id
         user.save
+        # If we come from sign-in screen which redirected us to that controller, we want to pass the existing flash
+        # so the user sees it (and our test pass)
+        if flash[:notice] == 'Signed in successfully.'
+          flash[:notice] = 'Signed in successfully.'
+        end
         redirect_to Kaui.home_path.call
       rescue => e
         flash[:error] = "Error selecting the tenants #{@tenant_name if @tenant_name} #{as_string(e) if e}"

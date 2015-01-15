@@ -3,6 +3,7 @@ module Kaui
 
     BASE_PATH    = '/kaui'
     TENANTS_PATH    = '/kaui/tenants'
+    HOME_PATH    = '/kaui/home'
     SIGN_IN_PATH = BASE_PATH + '/users/sign_in'
     SIGN_OUT_PATH = BASE_PATH + '/users/sign_out'
     ACCOUNTS_PATH = BASE_PATH + '/accounts'
