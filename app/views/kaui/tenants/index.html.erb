@@ -3,7 +3,7 @@
       <div class="control-group">
         <%= label_tag :tenant_name, "Available Tenants:", :class => "control-label" %>
         <div class="controls">
-          <%= select_tag :tenant_name, options_for_select(@tenants.map {|t| t.name }, @tenant_name) %>
+          <%= select_tag :kb_tenant_id, options_for_select(@tenants.map {|t|  [t.name, t.kb_tenant_id] }) %>
         </div>
       </div>
       <div class="form-actions">

@@ -50,10 +50,8 @@ module Kaui
     end
 
     def select_tenant
-      @tenant_name = params[:tenant_name]
-      # STEPH_TENANT : Could we pass the tenant_id as a hidden field instead
-      selected_tenant =  Kaui::Tenant.find_by_name(@tenant_name)
-      select_tenant_for_tenant_id(selected_tenant.kb_tenant_id)
+      kb_tenant_id = params[:kb_tenant_id]
+      select_tenant_for_tenant_id(kb_tenant_id)
     end
 
     private
