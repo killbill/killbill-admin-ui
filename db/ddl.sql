@@ -13,7 +13,7 @@ CREATE TABLE `kaui_tenants` (
   `name` varchar(255) DEFAULT NULL,
   `kb_tenant_id` varchar(255) DEFAULT NULL,
   `api_key` varchar(255) DEFAULT NULL,
-  `api_secret` varchar(255) DEFAULT NULL,
+  `encrypted_api_secret` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)

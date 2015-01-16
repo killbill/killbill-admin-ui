@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150112232813) do
+ActiveRecord::Schema.define(:version => 20150116052159) do
 
   create_table "kaui_allowed_user_tenants", :force => true do |t|
     t.integer  "kaui_allowed_user_id"
@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(:version => 20150112232813) do
     t.string   "name"
     t.string   "kb_tenant_id"
     t.string   "api_key"
-    t.string   "api_secret"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "encrypted_api_secret"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "kaui_users", :force => true do |t|

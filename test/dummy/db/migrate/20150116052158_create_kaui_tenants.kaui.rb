@@ -5,7 +5,7 @@ class CreateKauiTenants < ActiveRecord::Migration
       t.string :name
       t.string :kb_tenant_id
       t.string :api_key
-      t.string :api_secret
+      t.string :encrypted_api_secret
 
       t.timestamps
     end
