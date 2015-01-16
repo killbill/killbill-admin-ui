@@ -36,15 +36,7 @@ module Kaui
       rescue => e
         flash[:error] = "Error while retrieving tenants: No tenants configured for users AND KillBillClient.api_key, KillBillClient.api_secret have not been set"
         @tenants = []
-        # If we remove the user, Devise will redirect us to login screen with default flash "You need to sign in or sign up before continuing" which prevent the user from
-        # understanding what is happening
-        #user.delete if user
-
-        #
-        # It would be nice to redirect to main login screen (Kaui.new_user_session_path.call) but browser complains there is a redirect loop;
-        # In any case some 'admin' action needs to happen
-        #
-        redirect_to Kaui.home_path.call
+        # We then display the view with NO tenants and the flash error so user understands he does not have any configured tenants available
       end
 
     end
