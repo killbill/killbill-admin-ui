@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150113023551) do
+ActiveRecord::Schema.define(:version => 20150112232813) do
+
+  create_table "kaui_allowed_user_tenants", :force => true do |t|
+    t.integer  "kaui_allowed_user_id"
+    t.integer  "kaui_tenant_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "kaui_allowed_user_tenants", ["kaui_allowed_user_id", "kaui_tenant_id"], :name => "kaui_allowed_user_tenants_uniq", :unique => true
 
   create_table "kaui_allowed_users", :force => true do |t|
     t.string   "kb_username"
@@ -20,14 +29,7 @@ ActiveRecord::Schema.define(:version => 20150113023551) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "kaui_allowed_users_tenants", :force => true do |t|
-    t.integer  "kaui_allowed_user_id"
-    t.integer  "kaui_tenant_id"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-  end
-
-  add_index "kaui_allowed_users_tenants", ["kaui_allowed_user_id", "kaui_tenant_id"], :name => "kaui_allowed_users_tenants_uniq", :unique => true
+  add_index "kaui_allowed_users", ["kb_username"], :name => "index_kaui_allowed_users_on_kb_username", :unique => true
 
   create_table "kaui_tenants", :force => true do |t|
     t.string   "name"
@@ -39,13 +41,12 @@ ActiveRecord::Schema.define(:version => 20150113023551) do
   end
 
   create_table "kaui_users", :force => true do |t|
-    t.string   "kb_tenant_id"
     t.string   "kb_username",   :null => false
     t.string   "kb_session_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
 
-  add_index "kaui_users", ["kb_tenant_id", "kb_username"], :name => "index_kaui_users_on_kb_tenant_id_and_kb_username", :unique => true
+  add_index "kaui_users", ["kb_username"], :name => "index_kaui_users_on_kb_username", :unique => true
 
 end

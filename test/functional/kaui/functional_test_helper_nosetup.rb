@@ -11,13 +11,15 @@ class Kaui::FunctionalTestHelperNoSetup < ActionController::TestCase
 
   def setup_functional_test(nb_configured_tenants = 1, setup_tenant_key_secret=true)
     # Create useful data to exercise the code
-    setup_test_data(nb_configured_tenants, setup_tenant_key_secret)
+    created_tenant = setup_test_data(nb_configured_tenants, setup_tenant_key_secret)
 
     @routes                        = Kaui::Engine.routes
     @request.env['devise.mapping'] = Devise.mappings[:user]
 
     # Login
     login_as_admin
+    # Set the tenant parameter in the session manually since  login_as_admin will erase the previous value
+    session[:kb_tenant_id] = created_tenant.tenant_id
   end
 
   def teardown_functional_test

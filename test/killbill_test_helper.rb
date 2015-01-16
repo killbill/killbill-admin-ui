@@ -42,6 +42,7 @@ module Kaui
       end
       KillBillClient.username = USERNAME
       KillBillClient.password = PASSWORD
+      @tenant
     end
 
     def setup_and_create_test_tenant(nb_configured_tenants)

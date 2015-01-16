@@ -25,15 +25,23 @@ class Kaui::EngineController < ApplicationController
     #  If we are trying to configure the tenant either by showing the view or selecting the tenant, there is nothing to verify
     return if Kaui.tenant_home_path.call == request.fullpath || Kaui.select_tenant.call == request.fullpath
 
+    #
+    # If those are set in config initializer then we bypass the check
+    # For multi-tenant production deployment, those should not be set!
+    #
+    return if KillBillClient.api_key.present? && KillBillClient.api_secret.present?
+
     user = current_user
     kb_tenant_id = session[:kb_tenant_id]
     if kb_tenant_id.nil?
+      flash[:error] = "Session does not have a tenant_id"
       redirect_to Kaui.tenant_home_path.call and return
     end
 
     au = Kaui::AllowedUser.find_by_kb_username(user.kb_username)
-    tenant = au.kaui_tenants.select { |t| t.kb_tenant_id == kb_tenant_id }.first
+    tenant = au.kaui_tenants.select { |t| t.kb_tenant_id == kb_tenant_id }.first if au
     if tenant.nil?
+      flash[:error] = "Error while retrieving tenants: No tenants configured for users AND KillBillClient.api_key, KillBillClient.api_secret have not been set"
       session[:kb_tenant_id] = nil
       redirect_to Kaui.tenant_home_path.call and return
     end
