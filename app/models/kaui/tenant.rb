@@ -7,8 +7,8 @@ module Kaui
         :primary_key => 'kb_tenant_id',
         :foreign_key => 'kb_tenant_id'}
 
-    has_many :kaui_allowed_users_tenants, :class_name => 'Kaui::AllowedUserTenant', :foreign_key => 'kaui_tenant_id'
-    has_many :kaui_allowed_users, :through => :kaui_allowed_users_tenants, :source => :kaui_allowed_user
+    has_many :kaui_allowed_user_tenants, :class_name => 'Kaui::AllowedUserTenant', :foreign_key => 'kaui_tenant_id'
+    has_many :kaui_allowed_users, :through => :kaui_allowed_user_tenants, :source => :kaui_allowed_user
 
   end
 end
