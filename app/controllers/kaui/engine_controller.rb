@@ -22,9 +22,6 @@ class Kaui::EngineController < ApplicationController
   end
 
   def verify_tenant_info
-    #  If we are trying to configure the tenant either by showing the view or selecting the tenant, there is nothing to verify
-    return if Kaui.tenant_home_path.call == request.fullpath || Kaui.select_tenant.call == request.fullpath
-
     #
     # If those are set in config initializer then we bypass the check
     # For multi-tenant production deployment, those should not be set!

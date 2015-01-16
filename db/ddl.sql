@@ -17,7 +17,7 @@ CREATE TABLE `kaui_tenants` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `kaui_allowed_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -27,7 +27,7 @@ CREATE TABLE `kaui_allowed_users` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `kaui_allowed_users_idx` (`kb_username`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `kaui_allowed_user_tenants` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -37,5 +37,5 @@ CREATE TABLE `kaui_allowed_user_tenants` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `kaui_allowed_users_tenants_uniq` (`kaui_allowed_user_id`,`kaui_tenant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

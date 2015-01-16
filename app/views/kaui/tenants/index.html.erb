@@ -1,15 +1,17 @@
-<%= form_for((@tenants.nil? || @tenants.size == 0) ? Kaui::Tenant.new : @tenants, :url => {:action => :select_tenant}, :html => {:method => :post, :class => "form-horizontal"}) do |f| %>
-    <fieldset>
-      <div class="control-group">
-        <%= label_tag :tenant_name, "Available Tenants:", :class => "control-label" %>
-        <div class="controls">
-          <%= select_tag :kb_tenant_id, options_for_select(@tenants.map {|t|  [t.name, t.kb_tenant_id] }) %>
-        </div>
-      </div>
-      <div class="form-actions">
-        <%= f.submit 'Chose Tenant', :class => 'btn btn-primary' %>
-        <%= link_to 'Back', :back, :class => 'btn' %>
-      </div>
+<% unless @tenants.empty? %>
+    <%= form_for(@tenants, :url => {:action => :select_tenant}, :html => {:method => :post, :class => "form-horizontal"}) do |f| %>
+        <fieldset>
+          <div class="control-group">
+            <%= label_tag :tenant_name, "Available Tenants:", :class => "control-label" %>
+            <div class="controls">
+              <%= select_tag :kb_tenant_id, options_for_select(@tenants.map { |t| [t.name, t.kb_tenant_id] }) %>
+            </div>
+          </div>
+          <div class="form-actions">
+            <%= f.submit 'Chose Tenant', :class => 'btn btn-primary' %>
+            <%= link_to 'Back', :back, :class => 'btn' %>
+          </div>
 
-    </fieldset>
+        </fieldset>
+    <% end %>
 <% end %>
