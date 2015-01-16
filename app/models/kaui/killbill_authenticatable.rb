@@ -24,9 +24,9 @@ module Devise
 
         # Invoked by the KillbillAuthenticatable strategy to lookup the user
         # before attempting authentication
-        def find_for_killbill_authentication(kb_username, kb_tenant_id)
-          find_for_authentication(:kb_tenant_id => kb_tenant_id, :kb_username => kb_username) ||
-          new(:kb_tenant_id => kb_tenant_id, :kb_username => kb_username)
+        def find_for_killbill_authentication(kb_username)
+          find_for_authentication(:kb_username => kb_username) ||
+          new(:kb_username => kb_username)
         rescue KillBillClient::API::Unauthorized => e
           # Multi-Tenancy was enabled, but the tenant_id couldn't be retrieved because of bad credentials
           nil

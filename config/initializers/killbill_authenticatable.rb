@@ -5,13 +5,12 @@ module Devise
     class KillbillAuthenticatable < Authenticatable
       # Invoked by warden to execute the strategy
       def authenticate!
+
         creds = params[:user] || {}
         kb_username = creds[:kb_username]
         kb_password = password
-        kb_tenant_id = creds[:kb_tenant_id]
-
         # Find the associated user object
-        resource = valid_password? && mapping.to.find_for_killbill_authentication(kb_username, kb_tenant_id)
+        resource = valid_password? && mapping.to.find_for_killbill_authentication(kb_username)
         return fail(:not_found_in_database) unless resource
 
         # Validate the credentials

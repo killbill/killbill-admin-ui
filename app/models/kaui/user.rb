@@ -7,11 +7,7 @@ module Kaui
     # Managed by Devise
     attr_accessor :password
 
-    attr_accessible :kb_tenant_id, :kb_username, :kb_session_id, :password
-
-    belongs_to :kaui_tenant, {:class_name => 'Kaui::Tenant',
-                              :primary_key => 'kb_tenant_id',
-                              :foreign_key => 'kb_tenant_id'}
+    attr_accessible :kb_username, :kb_session_id, :password
 
     # Called by Devise to perform authentication
     # Throws KillBillClient::API::Unauthorized on failure

@@ -59,20 +59,9 @@ module Kaui
     private
 
     def select_tenant_for_tenant_id(kb_tenant_id)
-      begin
-        user = current_user
-        user.kb_tenant_id = kb_tenant_id
-        user.save
-        # If we come from sign-in screen which redirected us to that controller, we want to pass the existing flash
-        # so the user sees it (and our test pass)
-        if flash[:notice] == 'Signed in successfully.'
-          flash[:notice] = 'Signed in successfully.'
-        end
-        redirect_to Kaui.home_path.call
-      rescue => e
-        flash[:error] = "Error selecting the tenants #{@tenant_name if @tenant_name} #{as_string(e) if e}"
-        redirect_to :action => :index and return
-      end
+      # Set kb_tenant_id in the session
+      session[:kb_tenant_id] = kb_tenant_id
+      redirect_to Kaui.home_path.call
     end
 
   end

@@ -10,6 +10,7 @@ module Kaui
   mattr_accessor :bundle_home_path
   mattr_accessor :invoice_home_path
   mattr_accessor :tenant_home_path
+  mattr_accessor :select_tenant
   mattr_accessor :new_user_session_path
 
   mattr_accessor :bundle_key_display_string
@@ -21,6 +22,7 @@ module Kaui
   self.bundle_home_path = lambda {|bundle_id| Kaui::Engine.routes.url_helpers.bundle_path(:id => bundle_id) }
   self.invoice_home_path = lambda {|invoice_id| Kaui::Engine.routes.url_helpers.invoice_path(:id => invoice_id) }
   self.tenant_home_path = lambda { Kaui::Engine.routes.url_helpers.tenants_path }
+  self.select_tenant = lambda { Kaui::Engine.routes.url_helpers.select_tenant_path }
   self.new_user_session_path = lambda { Kaui::Engine.routes.url_helpers.new_user_session_path }
 
 
