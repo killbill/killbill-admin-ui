@@ -5,7 +5,7 @@ require 'kaui/version'
 Gem::Specification.new do |s|
   s.name = 'kaui'
   s.version = Kaui::VERSION
-  s.summary = 'Killbill Admin UI plugin'
+  s.summary = 'Killbill Admin UI mountable engine'
   s.description = 'Rails UI plugin for Killbill administration.'
 
   s.required_ruby_version = '>= 1.8.7'
@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.author = 'Killbill core team'
   s.email = 'killbilling-users@googlegroups.com'
-  s.homepage = 'http://www.killbilling.org'
+  s.homepage = 'http://www.killbill.io'
 
   s.files = `git ls-files`.split("\n")
   s.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")

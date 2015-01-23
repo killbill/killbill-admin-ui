@@ -4,16 +4,19 @@
 Getting started
 ===============
 
-Running Kaui
-------------
+Running Kaui locally
+---------------------
 
-You can run Kaui locally by using the sandbox script:
-
-    # Run the sandbox script
-    bundle exec script/sandbox
-    # Start the Rails app
-    cd sandbox
-    rails s
+You can run Kaui locally by using the test/dummy app provided:
+```
+> bundle install
+> cd test/dummy
+> export RAILS_ENV=development
+> bundle install
+> rake kaui:install:migrations
+> rake db:migrate
+> rails server
+```
 
 
 Mounting Kaui into your own Rails app
