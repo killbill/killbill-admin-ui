@@ -110,6 +110,10 @@ Kaui::Engine.routes.draw do
     match "/select_tenant" => "tenants#select_tenant", :via => :post, :as => "select_tenant"
   end
 
+  scope "/login_proxy" do
+    match "/check_login" => "login_proxy#check_login", :via => :get, :as => "check_login"
+  end
+
   scope "/home" do
     match "/" => "home#index", :via => :get, :as => "home"
   end
