@@ -1,11 +1,11 @@
 class Kaui::EngineController < ApplicationController
-  before_filter :authenticate_user!, :verify_tenant_info
+  before_filter :authenticate_user!, :check_for_redirect_to_tenant_screen
 
   layout :get_layout
 
   # Common options for the Kill Bill client
   def options_for_klient(options = {})
-    user_tenant_options = current_tenant_user
+    user_tenant_options = Kaui.current_tenant_user_options(current_user, session)
     user_tenant_options.merge(options)
     user_tenant_options
   end
@@ -21,28 +21,14 @@ class Kaui::EngineController < ApplicationController
     @current_ability ||= Kaui::Ability.new(current_user)
   end
 
-  def verify_tenant_info
-    #
-    # If those are set in config initializer then we bypass the check
-    # For multi-tenant production deployment, those should not be set!
-    #
-    return if KillBillClient.api_key.present? && KillBillClient.api_secret.present?
-
-    user = current_user
-    kb_tenant_id = session[:kb_tenant_id]
-    if kb_tenant_id.nil?
-      flash[:error] = "Session does not have a tenant_id"
-      redirect_to Kaui.tenant_home_path.call and return
-    end
-
-    au = Kaui::AllowedUser.find_by_kb_username(user.kb_username)
-    tenant = au.kaui_tenants.select { |t| t.kb_tenant_id == kb_tenant_id }.first if au
-    if tenant.nil?
-      flash[:error] = "Error while retrieving tenants: No tenants configured for users AND KillBillClient.api_key, KillBillClient.api_secret have not been set"
+  def check_for_redirect_to_tenant_screen
+    if !Kaui.is_user_assigned_valid_tenant?(current_user, session)
+      flash[:error] = "No tenants configured for users AND KillBillClient.api_key, KillBillClient.api_secret have not been set"
       session[:kb_tenant_id] = nil
       redirect_to Kaui.tenant_home_path.call and return
     end
   end
+
 
   protected
 

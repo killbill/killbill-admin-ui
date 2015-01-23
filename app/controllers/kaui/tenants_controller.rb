@@ -1,7 +1,7 @@
 module Kaui
   class TenantsController < Kaui::EngineController
 
-    skip_before_filter :verify_tenant_info
+    skip_before_filter :check_for_redirect_to_tenant_screen
 
     def index
       begin

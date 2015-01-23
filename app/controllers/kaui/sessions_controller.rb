@@ -3,6 +3,8 @@ module Kaui
   class SessionsController < Devise::SessionsController
     layout Kaui.config[:layout]
 
+    skip_before_filter :check_for_redirect_to_tenant_screen
+
     protected
 
     # Override after_sign_in_path_for to not have to rely on the default 'root' config which we want to keep on home#index
