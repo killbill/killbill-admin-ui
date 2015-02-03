@@ -7,10 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require d3
-//= require js/bootstrap.v2.2.1.min
-//= require js/bootstrap-datepicker.cd46d38
-//= require js/jquery.dataTables.v1.9.3.min
+//= require twitter/bootstrap
+//= require jquery.dataTables.min
 //= require kaui/bootstrap-tweaks
 //= require kaui/validation
-//= require kaui/analytics
-//= require_tree .

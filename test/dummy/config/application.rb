@@ -4,7 +4,10 @@ require 'rails/all'
 
 Bundler.require
 require "kaui"
+
 require "jquery-rails"
+require "twitter-bootstrap-rails"
+require "d3_rails"
 
 module Dummy
   class Application < Rails::Application
