@@ -1,0 +1,21 @@
+<% unless @tenants.empty? %>
+    <table id="tenants-table" class="table table-condensed">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Tenant Id</th>
+        <th>Api Key</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @tenants.each do |t | %>
+          <tr>
+            <td><%= t.name %></td>
+            <td><%= t.kb_tenant_id %></td>
+            <td><%= t.api_key %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
+<h3><%= link_to 'Configure a New Tenant', new_admin_tenant_path %></h3>

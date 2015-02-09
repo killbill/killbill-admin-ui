@@ -118,6 +118,10 @@ Kaui::Engine.routes.draw do
     match "/" => "home#index", :via => :get, :as => "home"
   end
 
+  resources :admin_tenants, :only => [ :index, :new, :create, :show ]
+  scope "/admin_tenants" do
+    match "/upload_catalog" => "admin_tenants#upload_catalog", :via => :post, :as => "admin_tenant_upload_catalog"
+  end
 
   resources :custom_fields, :only => [ :create, :new, :index, :show ]
 end
