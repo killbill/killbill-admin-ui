@@ -10,7 +10,7 @@
       <tbody>
       <% @tenants.each do |t | %>
           <tr>
-            <td><%= t.name %></td>
+            <td><%= link_to t.name, admin_tenant_path(t.id) %></td>
             <td><%= t.kb_tenant_id %></td>
             <td><%= t.api_key %></td>
           </tr>
