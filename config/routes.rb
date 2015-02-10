@@ -123,5 +123,7 @@ Kaui::Engine.routes.draw do
     match "/upload_catalog" => "admin_tenants#upload_catalog", :via => :post, :as => "admin_tenant_upload_catalog"
   end
 
+  resources :admin_allowed_users, :only => [ :index, :new, :create, :show ]
+
   resources :custom_fields, :only => [ :create, :new, :index, :show ]
 end

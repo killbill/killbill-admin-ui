@@ -1,0 +1,19 @@
+<% unless @allowed_users.empty? %>
+    <table id="allowed-users-table" class="table table-condensed">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @allowed_users.each do |u | %>
+          <tr>
+            <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
+            <td><%= u.description %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
+<h3><%= link_to 'Add a new Allowed User', new_admin_allowed_user_path %></h3>

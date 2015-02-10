@@ -1,0 +1,23 @@
+<%= form_for @allowed_user, url: admin_allowed_users_path, :html => {:class => 'form-horizontal'} do |f| %>
+    <fieldset>
+
+      <div class="control-group">
+        <%= f.label :kb_username, 'Name', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :kb_username, :class => 'input-small', :required => true %>
+        </div>
+      </div>
+
+
+      <div class="control-group">
+        <%= f.label :description, 'Description', :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :description, :class => 'input-small', :required => false %>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= button_tag 'Configure a new Allowed User', :class => 'btn btn-primary' %>
+      </div>
+    </fieldset>
+<% end %>
