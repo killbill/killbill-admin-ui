@@ -1,27 +1,29 @@
-<dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @tenant.name %>&nbsp;</dd>
-  <dt>Tenant ID:</dt>
-  <dd><%= @tenant.kb_tenant_id %>&nbsp;</dd>
-  <dt>API Key:</dt>
-  <dd><%= @tenant.api_key %>&nbsp;</dd>
-</dl>
+<% if can? :view, Kaui::AdminTenant %>
+    <dl class="dl-horizontal">
+      <dt>Name:</dt>
+      <dd><%= @tenant.name %>&nbsp;</dd>
+      <dt>Tenant ID:</dt>
+      <dd><%= @tenant.kb_tenant_id %>&nbsp;</dd>
+      <dt>API Key:</dt>
+      <dd><%= @tenant.api_key %>&nbsp;</dd>
+    </dl>
+<% end %>
+<% if can? :create, Kaui::AdminTenant %>
+    <%= form_tag({action: :upload_catalog}, method: 'post', multipart: true) do %>
 
-<%= form_tag({action: :upload_catalog}, method: 'post', multipart: true) do %>
+        <%= hidden_field_tag(:id, @tenant.id) %>
 
-    <%= hidden_field_tag(:id, @tenant.id) %>
-
-    <div class="control-group">
-      <%= label_tag :catalog, 'Tenant Catalog XML', :class => 'control-label' %>
-      <div class="controls">
-        <%= file_field_tag 'catalog' %>
-      </div>
-    </div>
-
-    <div class="actions">
-      <%= submit_tag 'Upload' %>
+        <div class="control-group">
+          <%= label_tag :catalog, 'Tenant Catalog XML', :class => 'control-label' %>
+          <div class="controls">
+            <%= file_field_tag 'catalog' %>
+          </div>
+        </div>
+        <div class="actions">
+          <%= submit_tag 'Upload' %>
+        </div>
+    <% end %>
+    <div class="form-actions">
+      <%= link_to 'Back', :back, :class => 'btn' %>
     </div>
 <% end %>
-<div class="form-actions">
-  <%= link_to 'Back', :back, :class => 'btn' %>
-</div>

@@ -14,9 +14,10 @@ module Kaui
         elsif model == '*' and action != '*'
           # TODO
         elsif action == '*'
-          can :all, ('Kaui::' + model.capitalize).constantize rescue nil
+          # TODO Not sure the :all is really working (but we don't use it)
+          can :all, ('Kaui::' + model.camelize).constantize rescue nil
         else
-          can action.to_sym, ('Kaui::' + model.capitalize).constantize rescue nil
+          can action.to_sym, ('Kaui::' + model.camelize).constantize rescue nil
         end
       end
     rescue KillBillClient::API::Unauthorized => e

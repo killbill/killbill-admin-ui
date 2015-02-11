@@ -1,7 +1,10 @@
 module Kaui
-  class AdminTenantsController < Kaui::AdminEngineController
+  class AdminTenantsController < Kaui::EngineController
+
+    skip_before_filter :check_for_redirect_to_tenant_screen
 
     def index
+
       # Display the configured tenants in KAUI (which could be different than the existing tenants known by Kill Bill)
       @tenants = Kaui::Tenant.all
       render

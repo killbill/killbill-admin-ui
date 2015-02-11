@@ -1,21 +1,25 @@
-<% unless @tenants.empty? %>
-    <table id="tenants-table" class="table table-condensed">
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Tenant Id</th>
-        <th>Api Key</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @tenants.each do |t | %>
+<% if can? :view, Kaui::AdminTenant %>
+    <% unless @tenants.empty? %>
+        <table id="tenants-table" class="table table-condensed">
+          <thead>
           <tr>
-            <td><%= link_to t.name, admin_tenant_path(t.id) %></td>
-            <td><%= t.kb_tenant_id %></td>
-            <td><%= t.api_key %></td>
+            <th>Name</th>
+            <th>Tenant Id</th>
+            <th>Api Key</th>
           </tr>
-      <% end %>
-      </tbody>
-    </table>
+          </thead>
+          <tbody>
+          <% @tenants.each do |t| %>
+              <tr>
+                <td><%= link_to t.name, admin_tenant_path(t.id) %></td>
+                <td><%= t.kb_tenant_id %></td>
+                <td><%= t.api_key %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+    <% end %>
 <% end %>
-<h3><%= link_to 'Configure a New Tenant', new_admin_tenant_path %></h3>
+<% if can? :create, Kaui::AdminTenant %>
+    <h3><%= link_to 'Configure a New Tenant', new_admin_tenant_path %></h3>
+<% end %>

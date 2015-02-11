@@ -1,5 +1,7 @@
 module Kaui
-  class AdminAllowedUsersController < Kaui::AdminEngineController
+  class AdminAllowedUsersController < Kaui::EngineController
+
+    skip_before_filter :check_for_redirect_to_tenant_screen
 
     def index
       @allowed_users = Kaui::AllowedUser.all
@@ -24,7 +26,6 @@ module Kaui
       new_user.save!
 
       redirect_to admin_allowed_user_path(new_user[:id]), :notice => 'Allowed User was successfully configured'
-
     end
 
     def show

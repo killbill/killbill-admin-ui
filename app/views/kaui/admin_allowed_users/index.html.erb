@@ -1,4 +1,5 @@
-<% unless @allowed_users.empty? %>
+<% if can? :view, Kaui::AdminTenant %>
+    <% unless @allowed_users.empty? %>
     <table id="allowed-users-table" class="table table-condensed">
       <thead>
       <tr>
@@ -15,5 +16,8 @@
       <% end %>
       </tbody>
     </table>
+    <% end %>
 <% end %>
+<% if can? :create, Kaui::AdminTenant %>
 <h3><%= link_to 'Add a new Allowed User', new_admin_allowed_user_path %></h3>
+<% end %>
