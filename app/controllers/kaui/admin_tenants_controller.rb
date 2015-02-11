@@ -4,7 +4,6 @@ module Kaui
     skip_before_filter :check_for_redirect_to_tenant_screen
 
     def index
-
       # Display the configured tenants in KAUI (which could be different than the existing tenants known by Kill Bill)
       @tenants = Kaui::Tenant.all
       render
@@ -29,13 +28,15 @@ module Kaui
         new_tenant.api_key = param_tenant[:api_key]
         new_tenant.api_secret = param_tenant[:api_secret]
 
-        # STEPH Fix user/pwd
-        options = {
-            :username => 'admin',
-            :password => 'password'
-        }
+        options = tenant_options_for_client
+        new_tenant = new_tenant.create(options[:username], nil, comment, options)
 
-        tenant_model = new_tenant.create('admin', nil, nil, options)
+        # Transform object to Kaui model
+        tenant_model = Kaui::Tenant.new
+        tenant_model.name = new_tenant.external_key
+        tenant_model.kb_tenant_id = new_tenant.tenant_id
+        tenant_model.api_key = new_tenant.api_key
+        tenant_model.api_secret = param_tenant[:api_secret]
 
         # Save in KAUI tables
         tenant_model.save!
@@ -56,21 +57,31 @@ module Kaui
 
       current_tenant = Kaui::Tenant.find_by_id(params[:id])
 
-      # STEPH Fix user/pwd
-      options = {
-          :username => 'admin',
-          :password => 'password',
-          :api_key => current_tenant.api_key,
-          :api_secret => current_tenant.api_secret
-      }
+      options = tenant_options_for_client
+      options[:api_key] = current_tenant.api_key
+      options[:api_secret] = current_tenant.api_secret
 
       uploaded_catalog = params[:catalog]
       catalog_xml = uploaded_catalog.read
 
-
-      Kaui::AdminTenant.upload_catalog(catalog_xml, 'admin', nil, nil, options)
+      Kaui::AdminTenant.upload_catalog(catalog_xml, options[:username], nil, comment, options)
 
       redirect_to admin_tenants_path, :notice => 'Catalog was successfully uploaded'
+    end
+
+    private
+
+    def tenant_options_for_client
+      user = current_user
+      {
+          :username => user.kb_username,
+          :password => user.password,
+          :session_id => user.kb_session_id
+      }
+    end
+
+    def comment
+      'Multi-tenant Administrative operation'
     end
   end
 end
