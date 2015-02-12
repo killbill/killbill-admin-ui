@@ -121,9 +121,13 @@ Kaui::Engine.routes.draw do
   resources :admin_tenants, :only => [ :index, :new, :create, :show ]
   scope "/admin_tenants" do
     match "/upload_catalog" => "admin_tenants#upload_catalog", :via => :post, :as => "admin_tenant_upload_catalog"
+    match "/remove_allowed_user" => "admin_tenants#remove_allowed_user", :via => :delete, :as => "remove_allowed_user"
   end
 
   resources :admin_allowed_users, :only => [ :index, :new, :create, :show ]
+  scope "/admin_allowed_users" do
+    match "/add_tenant" => "admin_allowed_users#add_tenant", :via => :post, :as => "add_tenant"
+  end
 
   resources :custom_fields, :only => [ :create, :new, :index, :show ]
 end

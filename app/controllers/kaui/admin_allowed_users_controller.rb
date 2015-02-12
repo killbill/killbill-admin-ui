@@ -30,7 +30,19 @@ module Kaui
 
     def show
       @allowed_user = Kaui::AllowedUser.find(params[:id])
+      @tenants = Kaui::Tenant.all
       render
+    end
+
+    def add_tenant
+
+      allowed_user_id = params[:allowed_user][:id]
+      allowed_user = Kaui::AllowedUser.find(allowed_user_id)
+      tenant = Kaui::Tenant.find_by_id(params[:tenant_id])
+      # Add new tenant for that user
+      allowed_user.kaui_tenants << tenant
+
+      redirect_to admin_allowed_user_path(allowed_user_id), :notice => 'Successfully added tenant'
     end
   end
 end

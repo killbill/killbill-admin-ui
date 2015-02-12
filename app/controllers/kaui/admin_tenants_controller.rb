@@ -15,9 +15,9 @@ module Kaui
 
     def create
       param_tenant = params[:tenant]
-      old_tenant = Kaui::Tenant.find_by_name(param_tenant['name'])
+      old_tenant = Kaui::Tenant.find_by_name(param_tenant[:name])
       if old_tenant
-        flash[:error] = "Tenant with name #{param_tenant['name']} already exists!"
+        flash[:error] = "Tenant with name #{param_tenant[:name]} already exists!"
         redirect_to admin_tenants_path and return
       end
 
@@ -67,6 +67,16 @@ module Kaui
       Kaui::AdminTenant.upload_catalog(catalog_xml, options[:username], nil, comment, options)
 
       redirect_to admin_tenants_path, :notice => 'Catalog was successfully uploaded'
+    end
+
+
+    def remove_allowed_user
+
+      current_tenant = Kaui::Tenant.find_by_id(params[:id])
+      au = Kaui::AllowedUser.find(params[:allowed_user][:id])
+      # remove the association
+      au.kaui_tenants.delete current_tenant
+      render :json => '{}', :status => 200
     end
 
     private
