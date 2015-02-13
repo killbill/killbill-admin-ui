@@ -1,26 +1,30 @@
 require 'test_helper'
 
 module Kaui
-  class AdminAllowedUsersControllerTest < ActionController::TestCase
+  class AdminAllowedUsersControllerTest < Kaui::FunctionalTestHelper
     test "should get new" do
-      get :new
+      post :new
       assert_response :success
     end
 
     test "should get create" do
-      get :create
-      assert_response :success
+      post :create, :allowed_user => { :kb_username => 'Albator', :description => 'My french super hero'}
+      assert_response 302
     end
 
-    test "should get index" do
+    test 'should get index' do
       get :index
-      assert_response :success
+      assert_response 200
     end
+
 
     test "should get show" do
-      get :show
+      au = Kaui::AllowedUser.new
+      au.kb_username = 'Mad Max'
+      au.description = 'My super hero'
+      au.save!
+      get :show, :id => au.id
       assert_response :success
     end
-
   end
 end
