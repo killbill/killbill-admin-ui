@@ -7,8 +7,4 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
     end
   end
 
-  def create(admin_user = nil, reason = nil, comment = nil, options = {})
-    super(admin_user, reason, comment, options)
-  end
-
 end
