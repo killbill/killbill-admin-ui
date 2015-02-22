@@ -1,5 +1,5 @@
 # This migration comes from kaui (originally 20150109214021)
-class CreateKauiTenants < ActiveRecord::Migration
+class CreateKauiDummyTenants < ActiveRecord::Migration
   def change
     create_table :kaui_tenants do |t|
       t.string :name

@@ -1,5 +1,5 @@
 # This migration comes from kaui (originally 20130812155313)
-class DeviseCreateKauiUsers < ActiveRecord::Migration
+class DeviseCreateKauiDummyUsers < ActiveRecord::Migration
   def change
     create_table(:kaui_users) do |t|
       # From Kill Bill

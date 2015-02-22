@@ -1,5 +1,5 @@
 # This migration comes from kaui (originally 20150112232813)
-class CreateKauiAllowedUsers < ActiveRecord::Migration
+class CreateKauiDummyAllowedUsers < ActiveRecord::Migration
   def change
     create_table :kaui_allowed_users do |t|
       t.string :kb_username
