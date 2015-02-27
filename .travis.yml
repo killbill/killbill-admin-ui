@@ -19,10 +19,9 @@ jdk:
 
 before_script:
   - mysql -e 'create database kaui_test;'
-  - RAILS_ENV=test rake db:migrate
+  - RAILS_ENV=test bundle exec rake db:migrate
 
 script:
-  - pushd test/dummy && RAILS_ENV=test bundle exec rake db:migrate --trace && RAILS_ENV=test bundle exec rake db:test:prepare && popd
   - bundle exec rake test:units
 
 matrix:
