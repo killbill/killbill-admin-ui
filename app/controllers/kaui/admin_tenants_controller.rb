@@ -22,14 +22,22 @@ module Kaui
       end
 
       begin
-        # Create the tenant in Kill Bill
-        new_tenant = Kaui::AdminTenant.new
-        new_tenant.external_key = param_tenant[:name]
-        new_tenant.api_key = param_tenant[:api_key]
-        new_tenant.api_secret = param_tenant[:api_secret]
 
         options = tenant_options_for_client
-        new_tenant = new_tenant.create(options[:username], nil, comment, options)
+        new_tenant = nil
+
+        if params[:create_tenant]
+          # Create the tenant in Kill Bill
+          new_tenant = Kaui::AdminTenant.new
+          new_tenant.external_key = param_tenant[:name]
+          new_tenant.api_key = param_tenant[:api_key]
+          new_tenant.api_secret = param_tenant[:api_secret]
+          new_tenant = new_tenant.create(options[:username], nil, comment, options)
+        else
+          options[:api_key] = param_tenant[:api_key]
+          options[:api_secret] = param_tenant[:api_secret]
+          new_tenant = Kaui::AdminTenant.find_by_api_key(param_tenant[:api_key], options)
+        end
 
         # Transform object to Kaui model
         tenant_model = Kaui::Tenant.new
