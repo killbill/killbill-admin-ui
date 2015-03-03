@@ -84,15 +84,65 @@ module Kaui
       options[:api_key] = current_tenant.api_key
       options[:api_secret] = current_tenant.api_secret
 
-      uploaded_overdue_config = params[:catalog]
+      uploaded_overdue_config = params[:overdue]
       overdue_config_xml = uploaded_overdue_config.read
 
       Kaui::AdminTenant.upload_overdue_config(overdue_config_xml, options[:username], nil, comment, options)
 
       redirect_to admin_tenants_path, :notice => 'Overdue config was successfully uploaded'
+    end
+
+
+    def upload_invoice_template
+      current_tenant = Kaui::Tenant.find_by_id(params[:id])
+
+      options = tenant_options_for_client
+      options[:api_key] = current_tenant.api_key
+      options[:api_secret] = current_tenant.api_secret
+
+      is_manual_pay = params[:manual_pay]
+      uploaded_invoice_template = params[:invoice_template]
+      invoice_template = uploaded_invoice_template.read
+
+      Kaui::AdminTenant.upload_invoice_template(invoice_template, is_manual_pay, true, options[:username], nil, comment, options)
+
+      redirect_to admin_tenants_path, :notice => 'Invoice template was successfully uploaded'
 
     end
 
+    def upload_invoice_translation
+      current_tenant = Kaui::Tenant.find_by_id(params[:id])
+
+      options = tenant_options_for_client
+      options[:api_key] = current_tenant.api_key
+      options[:api_secret] = current_tenant.api_secret
+
+      locale = params[:translation_locale]
+      uploaded_invoice_translation = params[:invoice_translation]
+      invoice_translation = uploaded_invoice_translation.read
+
+      Kaui::AdminTenant.upload_invoice_translation(invoice_translation, locale, true, options[:username], nil, comment, options)
+
+      redirect_to admin_tenants_path, :notice => 'Invoice translation was successfully uploaded'
+
+    end
+
+    def upload_catalog_translation
+
+      current_tenant = Kaui::Tenant.find_by_id(params[:id])
+
+      options = tenant_options_for_client
+      options[:api_key] = current_tenant.api_key
+      options[:api_secret] = current_tenant.api_secret
+
+      locale = params[:translation_locale]
+      uploaded_catalog_translation = params[:catalog_translation]
+      catalog_translation = uploaded_catalog_translation.read
+
+      Kaui::AdminTenant.upload_catalog_translation(catalog_translation, locale, true, options[:username], nil, comment, options)
+
+      redirect_to admin_tenants_path, :notice => 'Catalog translation was successfully uploaded'
+    end
 
     def remove_allowed_user
 
