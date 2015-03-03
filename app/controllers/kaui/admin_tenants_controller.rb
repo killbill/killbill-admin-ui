@@ -144,6 +144,25 @@ module Kaui
       redirect_to admin_tenants_path, :notice => 'Catalog translation was successfully uploaded'
     end
 
+
+    def  upload_plugin_config
+
+      current_tenant = Kaui::Tenant.find_by_id(params[:id])
+
+      options = tenant_options_for_client
+      options[:api_key] = current_tenant.api_key
+      options[:api_secret] = current_tenant.api_secret
+
+      plugin_name = params[:plugin_name]
+      uploaded_plugin_config = params[:plugin_config]
+      plugin_config = uploaded_plugin_config.read
+
+      Kaui::AdminTenant.upload_tenant_plugin_config(plugin_name, plugin_config, options[:username], nil, comment, options)
+
+      redirect_to admin_tenants_path, :notice => 'Config for plugin was successfully uploaded'
+
+    end
+
     def remove_allowed_user
 
       current_tenant = Kaui::Tenant.find_by_id(params[:id])
