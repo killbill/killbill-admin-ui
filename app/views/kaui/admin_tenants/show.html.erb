@@ -51,6 +51,25 @@
     <div class="form-actions">
       <%= link_to 'Back', :back, :class => 'btn' %>
     </div>
+
+    <%= form_tag({action: :upload_overdue_config}, method: 'post', multipart: true) do %>
+
+        <%= hidden_field_tag(:id, @tenant.id) %>
+
+        <div class="control-group">
+          <%= label_tag :catalog, 'Tenant Overdue Config XML', :class => 'control-label' %>
+          <div class="controls">
+            <%= file_field_tag 'catalog' %>
+          </div>
+        </div>
+        <div class="actions">
+          <%= submit_tag 'Upload' %>
+        </div>
+    <% end %>
+    <div class="form-actions">
+      <%= link_to 'Back', :back, :class => 'btn' %>
+    </div>
+
 <% end %>
 
 <%= javascript_tag do %>

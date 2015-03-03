@@ -77,6 +77,22 @@ module Kaui
       redirect_to admin_tenants_path, :notice => 'Catalog was successfully uploaded'
     end
 
+    def upload_overdue_config
+      current_tenant = Kaui::Tenant.find_by_id(params[:id])
+
+      options = tenant_options_for_client
+      options[:api_key] = current_tenant.api_key
+      options[:api_secret] = current_tenant.api_secret
+
+      uploaded_overdue_config = params[:catalog]
+      overdue_config_xml = uploaded_overdue_config.read
+
+      Kaui::AdminTenant.upload_overdue_config(overdue_config_xml, options[:username], nil, comment, options)
+
+      redirect_to admin_tenants_path, :notice => 'Overdue config was successfully uploaded'
+
+    end
+
 
     def remove_allowed_user
 
