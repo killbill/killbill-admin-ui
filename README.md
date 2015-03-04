@@ -97,7 +97,7 @@ KAUI has been enhanced to support multi-tenancy. In order to benefit from that m
 Admin User Roles
 -------------------------
 
-In multi-tenancy mode, there are two kind of users:
+In multi-tenancy mode, there are two kinds of users:
 
 * The **multi-tenant admin** user, which has the rights to configure the tenant information (creation of tenant, add allowed users for specific tenant, upload catalog, ...)
 * The **per-tenant admin** user, which operates just a given tenant
@@ -116,7 +116,7 @@ Multi-tenancy screens
 
 KAUI has been enriched with new models and new screens to manage the multi-tenancy, and those are available for the multi-tenant admin user:
 
-* The `kaui_tenants` table will list the available tenants (from KAUI point of view); note that this is redundant with the Kill Bill `tenants` table, and the reason is that the `api_secret` needs to maintained in KAUI as well, so listing the existing tenants from Kill Bill would not work since that key is encrypted and cannot be returned. A new screen mounted on `/admin_tenants` allows to configure new tenants. The view allows to create the new tenant in Kill Bill or simply updates the local KAUI config if the tenant already exists.
+* The `kaui_tenants` table will list the available tenants (from KAUI point of view); note that this is redundant with the Kill Bill `tenants` table, and the reason is that the `api_secret` needs to be maintained in KAUI as well, so listing the existing tenants from Kill Bill would not work since that key is encrypted and cannot be returned. A new screen mounted on `/admin_tenants` allows to configure new tenants. The view allows to create the new tenant in Kill Bill or simply updates the local KAUI config if the tenant already exists.
 * The `kaui_allowed_users` table along with the join table `kaui_allowed_user_tenants` will list all the users in the system that can access specific tenants. The join table is required since a given user could access multiple tenants (e.g multi-tenant admin user), and at the same time many users could access the same tenant. A new screen mounted on `/admin_allowed_users` allows to configure the set of allowed users associated to specific tenants.
 
 
