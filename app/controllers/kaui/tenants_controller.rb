@@ -23,11 +23,12 @@ module Kaui
             tenant = KillBillClient::Model::Tenant.find_by_api_key(KillBillClient.api_key, {
                 :session_id => user.kb_session_id
             })
-            kb_tenant_id = tenant.tenant_id if tenant.present?
-            select_tenant_for_tenant_id(kb_tenant_id)
+            if tenant.present?
+              select_tenant_for_tenant_id(tenant.tenant_id, tenant.external_key)
+            end
           when 1
             # If there is only one tenant defined we skip the screen and set the tenant for the user
-            select_tenant_for_tenant_id(@tenants[0].kb_tenant_id)
+            select_tenant_for_tenant_id(@tenants[0].kb_tenant_id, @tenants[0].name)
           else
             # Jump to default view allowing to chose which tenant to pick
             respond_to do |format|
@@ -45,14 +46,16 @@ module Kaui
 
     def select_tenant
       kb_tenant_id = params[:kb_tenant_id]
-      select_tenant_for_tenant_id(kb_tenant_id)
+      tenant = Kaui::Tenant.find_by_kb_tenant_id(kb_tenant_id)
+      select_tenant_for_tenant_id(tenant.kb_tenant_id, tenant.name)
     end
 
     private
 
-    def select_tenant_for_tenant_id(kb_tenant_id)
+    def select_tenant_for_tenant_id(kb_tenant_id, kb_tenant_name_or_key)
       # Set kb_tenant_id in the session
       session[:kb_tenant_id] = kb_tenant_id
+      session[:kb_tenant_name] = kb_tenant_name_or_key
       redirect_to Kaui.home_path.call
     end
 

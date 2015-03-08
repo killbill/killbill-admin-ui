@@ -22,7 +22,11 @@
           </ul>
           <ul class="nav pull-right">
             <% if user_signed_in? -%>
-              <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+                <% if session[:kb_tenant_name].present? %>
+                    <li><%= link_to "Sign out [tenant: #{session[:kb_tenant_name]}]", destroy_user_session_path, method: :delete %></li>
+                <% else %>
+                    <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+                <% end %>
             <% end -%>
           </ul>
         </div>

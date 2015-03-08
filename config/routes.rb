@@ -121,6 +121,11 @@ Kaui::Engine.routes.draw do
   resources :admin_tenants, :only => [ :index, :new, :create, :show ]
   scope "/admin_tenants" do
     match "/upload_catalog" => "admin_tenants#upload_catalog", :via => :post, :as => "admin_tenant_upload_catalog"
+    match "/upload_overdue_config" => "admin_tenants#upload_overdue_config", :via => :post, :as => "admin_tenant_upload_overdue_config"
+    match "/upload_invoice_template" => "admin_tenants#upload_invoice_template", :via => :post, :as => "admin_tenant_upload_invoice_template"
+    match "/upload_invoice_translation" => "admin_tenants#upload_invoice_translation", :via => :post, :as => "admin_tenant_upload_invoice_translation"
+    match "/upload_catalog_translation" => "admin_tenants#upload_catalog_translation", :via => :post, :as => "admin_tenant_upload_catalog_translation"
+    match "/upload_plugin_config" => "admin_tenants#upload_plugin_config", :via => :post, :as => "admin_tenant_upload_plugin_config"
     match "/remove_allowed_user" => "admin_tenants#remove_allowed_user", :via => :delete, :as => "remove_allowed_user"
   end
 

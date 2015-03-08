@@ -24,6 +24,13 @@
             </div>
           </div>
 
+          <div class="control-group">
+            <%= f.label :create_tenant, 'Create tenant', :class => 'control-label' %>
+            <div class="controls">
+              <%= check_box_tag(:create_tenant) %>
+            </div>
+          </div>
+
           <div class="form-actions">
             <%= button_tag 'Configure a new Tenant', :class => 'btn btn-primary' %>
           </div>

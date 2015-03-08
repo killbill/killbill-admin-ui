@@ -51,6 +51,125 @@
     <div class="form-actions">
       <%= link_to 'Back', :back, :class => 'btn' %>
     </div>
+
+    <%= form_tag({action: :upload_overdue_config}, method: 'post', multipart: true) do %>
+
+        <%= hidden_field_tag(:id, @tenant.id) %>
+
+        <div class="control-group">
+          <%= label_tag :overdue, 'Tenant Overdue Config XML', :class => 'control-label' %>
+          <div class="controls">
+            <%= file_field_tag 'overdue' %>
+          </div>
+        </div>
+        <div class="actions">
+          <%= submit_tag 'Upload' %>
+        </div>
+    <% end %>
+    <div class="form-actions">
+      <%= link_to 'Back', :back, :class => 'btn' %>
+    </div>
+
+    <%= form_tag({action: :upload_invoice_template}, method: 'post', multipart: true) do %>
+
+        <%= hidden_field_tag(:id, @tenant.id) %>
+
+        <div class="control-group">
+          <%= label_tag :invoice_template, 'Invoice template', :class => 'control-label' %>
+          <div class="controls">
+            <%= file_field_tag 'invoice_template' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= label_tag :manual_pay, 'Manual Pay', :class => 'control-label' %>
+          <div class="controls">
+            <%= check_box_tag(:manual_pay) %>
+          </div>
+        </div>
+        <div class="actions">
+          <%= submit_tag 'Upload' %>
+        </div>
+    <% end %>
+    <div class="form-actions">
+      <%= link_to 'Back', :back, :class => 'btn' %>
+    </div>
+
+
+    <%= form_tag({action: :upload_invoice_translation}, method: 'post', multipart: true) do %>
+
+        <%= hidden_field_tag(:id, @tenant.id) %>
+
+        <div class="control-group">
+          <%= label_tag :invoice_translation, 'Invoice translation', :class => 'control-label' %>
+          <div class="controls">
+            <%= file_field_tag 'invoice_translation' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= label_tag :translation_locale, 'Locale', :class => 'control-label' %>
+          <div class="controls">
+            <%= text_field_tag(:translation_locale) %>
+          </div>
+        </div>
+        <div class="actions">
+          <%= submit_tag 'Upload' %>
+        </div>
+    <% end %>
+    <div class="form-actions">
+      <%= link_to 'Back', :back, :class => 'btn' %>
+    </div>
+
+
+    <%= form_tag({action: :upload_catalog_translation}, method: 'post', multipart: true) do %>
+
+        <%= hidden_field_tag(:id, @tenant.id) %>
+
+        <div class="control-group">
+          <%= label_tag :catalog_translation, 'Catalog translation', :class => 'control-label' %>
+          <div class="controls">
+            <%= file_field_tag 'catalog_translation' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= label_tag :translation_locale, 'Locale', :class => 'control-label' %>
+          <div class="controls">
+            <%= text_field_tag(:translation_locale) %>
+          </div>
+        </div>
+        <div class="actions">
+          <%= submit_tag 'Upload' %>
+        </div>
+    <% end %>
+    <div class="form-actions">
+      <%= link_to 'Back', :back, :class => 'btn' %>
+    </div>
+
+    <%= form_tag({action: :upload_plugin_config}, method: 'post', multipart: true) do %>
+
+        <%= hidden_field_tag(:id, @tenant.id) %>
+
+        <div class="control-group">
+          <%= label_tag :plugin_config, 'Plugin config', :class => 'control-label' %>
+          <div class="controls">
+            <%= file_field_tag 'plugin_config' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= label_tag :plugin_name, 'Plugin name', :class => 'control-label' %>
+          <div class="controls">
+            <%= text_field_tag(:plugin_name) %>
+          </div>
+        </div>
+        <div class="actions">
+          <%= submit_tag 'Upload' %>
+        </div>
+    <% end %>
+    <div class="form-actions">
+      <%= link_to 'Back', :back, :class => 'btn' %>
+    </div>
+
+
+
 <% end %>
 
 <%= javascript_tag do %>
