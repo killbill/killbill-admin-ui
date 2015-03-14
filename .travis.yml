@@ -29,7 +29,7 @@ matrix:
     - rvm: jruby-head
 
 env:
-  - MYSQL_PASSWORD=''
+  - MYSQL_PASSWORD='' MYSQL_USER='travis'
 
 #force travis to use only 'bundle install' instead of 'bundle install --deployments'
 bundler_args: ''
