@@ -11,10 +11,10 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
     begin
       if @subscription.product_category == 'ADD_ON'
-        @bundle       = Kaui::Bundle::find_by_id(@subscription.bundle_id, options_for_klient)
-        plans_details = Kaui::Catalog::available_addons(@base_product_name, options_for_klient)
+        @bundle       = Kaui::Bundle.find_by_id(@subscription.bundle_id, options_for_klient)
+        plans_details = Kaui::Catalog.available_addons(@base_product_name, options_for_klient)
       else
-        plans_details = Kaui::Catalog::available_base_plans(options_for_klient)
+        plans_details = Kaui::Catalog.available_base_plans(options_for_klient)
       end
       @plans = plans_details.map { |p| p.plan }
     rescue => e
@@ -28,10 +28,10 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
     begin
       if @subscription.product_category == 'ADD_ON'
-        @bundle       = Kaui::Bundle::find_by_id(@subscription.bundle_id, options_for_klient)
-        plans_details = Kaui::Catalog::available_addons(params[:base_product_name], options_for_klient)
+        @bundle       = Kaui::Bundle.find_by_id(@subscription.bundle_id, options_for_klient)
+        plans_details = Kaui::Catalog.available_addons(params[:base_product_name], options_for_klient)
       else
-        plans_details = Kaui::Catalog::available_base_plans(options_for_klient)
+        plans_details = Kaui::Catalog.available_base_plans(options_for_klient)
       end
 
       plan_details                 = plans_details.find { |p| p.plan == params[:plan_name] }

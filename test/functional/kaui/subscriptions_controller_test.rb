@@ -21,7 +21,7 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
         :bundle_id         => @bundle.bundle_id,
         :account           => @account.account_id,
         :product_category  => 'ADD_ON'
-    assert assigns(:plans).size > 0
+    assert assigns(:plans).size > 0, 'Plans were not created'
   end
 
   test 'should create a new base subscription' do
@@ -44,7 +44,7 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
          },
          :base_product_name => 'Sports',
          :plan_name         => 'oilslick-monthly'
-    assert_response 302
+    assert_response :success
   end
 
   test 'should show subscription' do
