@@ -14,15 +14,13 @@
 ActiveRecord::Schema.define(version: 20150112232813) do
 
   create_table "kaui_allowed_user_tenants", force: :cascade do |t|
-    t.integer  "kaui_allowed_user_id", limit: 4
-    t.integer  "kaui_tenant_id",       limit: 4
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.integer  "kaui_allowed_user_id", limit: 11
+    t.integer  "kaui_tenant_id",       limit: 11
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   add_index "kaui_allowed_user_tenants", ["kaui_allowed_user_id", "kaui_tenant_id"], name: "kaui_allowed_user_tenants_uniq", unique: true, using: :btree
-  add_index "kaui_allowed_user_tenants", ["kaui_allowed_user_id"], name: "index_kaui_allowed_user_tenants_on_kaui_allowed_user_id", using: :btree
-  add_index "kaui_allowed_user_tenants", ["kaui_tenant_id"], name: "index_kaui_allowed_user_tenants_on_kaui_tenant_id", using: :btree
 
   create_table "kaui_allowed_users", force: :cascade do |t|
     t.string   "kb_username", limit: 255
