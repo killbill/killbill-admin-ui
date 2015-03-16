@@ -10,10 +10,9 @@ module Kaui
 
     test "should get create" do
       now = Time.now.to_s
-      post :create, :tenant => { :name => 'Goldorak_' + now, :api_key => '12345_' + now, :api_secret => 'ItH@st0beComplic@ted'}
+      post :create, { :tenant => { :name => 'Goldorak_' + now, :api_key => '12345_' + now, :api_secret => 'ItH@st0beComplic@ted'}, :create_tenant => true}
       assert_response 302
     end
-
 
     test "should get show" do
       tenant = Kaui::Tenant.new
@@ -31,5 +30,6 @@ module Kaui
       get :index
       assert_response :success
     end
+
   end
 end
