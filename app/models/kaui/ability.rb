@@ -33,9 +33,15 @@ module Kaui
       #
       to_be_model, action = permission.split(':')
       # Currently the only actions implemented for overdue and catalog (upload_config) are those implemented at the tenant level:
-      if to_be_model == 'tenant' || 'overdue' || 'catalog'
+      if to_be_model == 'tenant' ||
+          to_be_model == 'overdue' ||
+          to_be_model == 'catalog'
         to_be_model = 'admin_tenant'
       end
+      if to_be_model == 'entitlement'
+        to_be_model = 'subscription'
+      end
+
       [to_be_model, action]
     end
   end
