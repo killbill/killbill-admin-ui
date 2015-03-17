@@ -1,13 +1,13 @@
-<% if can? :view, Kaui::AdminTenant %>
-    <dl class="dl-horizontal">
-      <dt>Name:</dt>
-      <dd><%= @tenant.name %>&nbsp;</dd>
-      <dt>Tenant ID:</dt>
-      <dd><%= @tenant.kb_tenant_id %>&nbsp;</dd>
-      <dt>API Key:</dt>
-      <dd><%= @tenant.api_key %>&nbsp;</dd>
-    </dl>
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @tenant.name %>&nbsp;</dd>
+  <dt>Tenant ID:</dt>
+  <dd><%= @tenant.kb_tenant_id %>&nbsp;</dd>
+  <dt>API Key:</dt>
+  <dd><%= @tenant.api_key %>&nbsp;</dd>
+</dl>
 
+<% if can? :view, Kaui::AdminTenant %>
     <% unless @tenant.kaui_allowed_users.empty? %>
         <h3>Allowed Users:</h3>
         <table id="allowed-users-for-tenant-table" class="table table-condensed">

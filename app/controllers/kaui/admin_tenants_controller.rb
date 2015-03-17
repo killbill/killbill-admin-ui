@@ -58,6 +58,11 @@ module Kaui
 
     def show
       @tenant = Kaui::Tenant.find(params[:id])
+      user = current_user
+      if @tenant.kaui_allowed_users.index { |e| e.kb_username == user.kb_username}.nil?
+        flash[:error] = "Does not have permissions to see tenant id #{params[:id]}"
+        redirect_to admin_tenants_path and return
+      end
       render
     end
 
