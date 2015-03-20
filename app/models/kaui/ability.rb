@@ -36,6 +36,10 @@ module Kaui
       if ['tenant', 'overdue', 'catalog'].include?(to_be_model)
         to_be_model = 'admin_tenant'
       end
+      if to_be_model == 'entitlement'
+        to_be_model = 'subscription'
+      end
+
       [to_be_model, action]
     end
   end
