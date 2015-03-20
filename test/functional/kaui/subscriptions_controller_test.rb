@@ -44,7 +44,7 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
          },
          :base_product_name => 'Sports',
          :plan_name         => 'oilslick-monthly'
-    assert_response :success
+         assert_includes((200..399), response.code.to_i)
   end
 
   test 'should show subscription' do
