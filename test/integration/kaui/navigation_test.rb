@@ -33,8 +33,8 @@ module Kaui
       assert_not_nil assigns(:timeline)
 
       # Verify log-out
-      delete_via_redirect kaui.destroy_user_session_path
-      assert_equal kaui.new_user_session_path, path
+      delete_via_redirect SIGN_OUT_PATH
+      assert_equal SIGN_IN_PATH, path
       assert_equal 'You need to sign in or sign up before continuing.', flash[:alert]
     end
   end

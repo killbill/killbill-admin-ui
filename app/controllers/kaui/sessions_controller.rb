@@ -14,5 +14,8 @@ module Kaui
       Kaui.tenant_home_path.call
     end
 
+    def after_sign_out_path_for(resource)
+      kaui_path
+    end
   end
 end
