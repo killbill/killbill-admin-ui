@@ -1,3 +1,5 @@
+<h3 class="pageHeader">Accounts: <%= link_to 'Create new account', new_account_path %></h3>
+
 <table id="accounts-table" class="table table-condensed">
   <thead>
   <tr>
@@ -16,12 +18,10 @@
   </tbody>
 </table>
 
-<h3><%= link_to 'Create new account', new_account_path %></h3>
-
 <%= javascript_tag do %>
 $(document).ready(function() {
   $('#accounts-table').dataTable({
-    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+    "sDom": "<'row-fluid'<'span6'l><'span6 tableSearch'f>r>t<'row-fluid clearfix'<'span6 pull-left'i><'span6 pages pull-right'p>>",
     "sPaginationType": "bootstrap",
     "bProcessing": true,
     "bServerSide": true,
