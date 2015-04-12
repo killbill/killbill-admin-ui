@@ -276,140 +276,139 @@
 </div>
 <%= javascript_tag do %>
     function disableLinks() {
-    $('a.btn.disabled').click(function (e) {
-    e.preventDefault();
-    });
+        $('a.btn.disabled').click(function (e) {
+            e.preventDefault();
+        });
     }
 
     eventsOrder = ["START_ENTITLEMENT", "START_BILLING", "PAUSE_ENTITLEMENT", "PAUSE_BILLING", "RESUME_ENTITLEMENT",
     "RESUME_BILLING", "PHASE", "CHANGE", "STOP_ENTITLEMENT", "STOP_BILLING", "INVOICE", "PAYMENT"];
 
     jQuery.fn.dataTableExt.oSort['timeline-event-asc'] = function(e1,e2) {
-    var x = eventsOrder.indexOf(e1);
-    var y = eventsOrder.indexOf(e2);
-    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        var x = eventsOrder.indexOf(e1);
+        var y = eventsOrder.indexOf(e2);
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
     };
 
     jQuery.fn.dataTableExt.oSort['timeline-event-desc'] = function(e1,e2) {
-    var x = eventsOrder.indexOf(e1);
-    var y = eventsOrder.indexOf(e2);
-    return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+        var x = eventsOrder.indexOf(e1);
+        var y = eventsOrder.indexOf(e2);
+        return ((x < y) ? 1 : ((x > y) ? -1 : 0));
     };
 
     function extractTitleAttributeFromText(txt) {
-    // Ugly - better way of doing this?
-    var matches = txt.match(/title="\w+"/g);
-    if (matches == null || matches.size == 0) {
-    return null;
-    }
-    return matches[0].split('=')[1];
+        // Ugly - better way of doing this?
+        var matches = txt.match(/title="\w+"/g);
+        if (matches == null || matches.size == 0) {
+            return null;
+        }
+        return matches[0].split('=')[1];
     }
 
     jQuery.fn.dataTableExt.oSort['timeline-details-asc'] = function(e1,e2) {
-    var x = extractTitleAttributeFromText(e1);
-    var y = extractTitleAttributeFromText(e2);
-    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        var x = extractTitleAttributeFromText(e1);
+        var y = extractTitleAttributeFromText(e2);
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
     };
 
     jQuery.fn.dataTableExt.oSort['timeline-details-desc'] = function(e1,e2) {
-    var x = extractTitleAttributeFromText(e1);
-    var y = extractTitleAttributeFromText(e2);
-    return ((x < y) ? 1 : ((x > y) ? -1 : 0));
+        var x = extractTitleAttributeFromText(e1);
+        var y = extractTitleAttributeFromText(e2);
+        return ((x < y) ? 1 : ((x > y) ? -1 : 0));
     };
 
     function initTable() {
-    return $("#timeline-table").dataTable({
-    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
-    "sPaginationType": "bootstrap",
-    "oLanguage": {
-    "sLengthMenu": "_MENU_ records per page"
-    },
-    "iDisplayLength": 100,
-    "bRetrieve": true,
-    // Force a predictive order for event types, invoices and payments
-    "aaSorting": [[1, 'desc'], [4, 'asc'], [3, 'desc']],
-    "aoColumns": [
-    { "sType": 'date' },
-    { "sType": 'date' },
-    null,
-    { "sType": 'timeline-event' },
-    { "sType": 'timeline-details' },
-    null,
-    null
-    ]
-    });
+        return $("#timeline-table").dataTable({
+            "sDom": "<'row-fluid'<'span6'l><'span6 tableSearch'f>r>t<'row-fluid clearfix'<'span6 pull-left'i><'span6 pages pull-right'p>>",
+            "sPaginationType": "bootstrap",
+            "oLanguage": {
+                "sLengthMenu": "_MENU_ records per page"
+            },
+            "iDisplayLength": 100,
+            "bRetrieve": true,
+            // Force a predictive order for event types, invoices and payments
+            "aaSorting": [[1, 'desc'], [4, 'asc'], [3, 'desc']],
+            "aoColumns": [
+                { "sType": 'date' },
+                { "sType": 'date' },
+                null,
+                { "sType": 'timeline-event' },
+                { "sType": 'timeline-details' },
+                null,
+                null
+            ]
+        });
     }
 
     function filterEachNode(rows) {
-    var bundle = $("#bundles").val();
-    var event_to_filter = $('#event_types').val().toUpperCase();
+        var bundle = $("#bundles").val();
+        var event_to_filter = $('#event_types').val().toUpperCase();
 
     for (i = 0; i < rows.length; i++)
     {
-    tr = $(rows[i]);
+        tr = $(rows[i]);
 
-    //filter bundles
-    if (bundle == "" || tr.attr("title").split(",").indexOf(bundle) >= 0) {
-    //first level filtering, so can remove hide
-    tr.removeClass("hide");
-    }
-    else {
-    //remove tr's not under this filter mode
-    tr.addClass("hide");
-    }
+        //filter bundles
+        if (bundle == "" || tr.attr("title").split(",").indexOf(bundle) >= 0) {
+            //first level filtering, so can remove hide
+            tr.removeClass("hide");
+        }
+        else {
+            //remove tr's not under this filter mode
+            tr.addClass("hide");
+        }
 
-    //filter events
-    if ("ALL" != event_to_filter)
-    filterEvents(tr, event_to_filter);
+        //filter events
+        if ("ALL" != event_to_filter)
+            filterEvents(tr, event_to_filter);
 
-    //add more filters here
-    //do not unhide any rows
-    }
-
+            //add more filters here
+            //do not unhide any rows
+        }
     }
 
     function filterEvents(tr, event_to_filter) {
-    tr_event_type = tr.data().event_type;
+        tr_event_type = tr.data().event_type;
 
-    core_events = ["INVOICE", "PAYMENT"]; //events which are not entitlements
+        core_events = ["INVOICE", "PAYMENT"]; //events which are not entitlements
 
-    //is tr event not an event in question
-    tr_event_does_not_match_filter = ("ENTITLEMENT" != event_to_filter &&
-    tr_event_type != event_to_filter);
+        //is tr event not an event in question
+        tr_event_does_not_match_filter = ("ENTITLEMENT" != event_to_filter &&
+        tr_event_type != event_to_filter);
 
-    //tr event is not an entitlement
-    tr_event_is_not_entitlement = ("ENTITLEMENT" == event_to_filter &&
-    core_events.indexOf(tr_event_type) >= 0);
+        //tr event is not an entitlement
+        tr_event_is_not_entitlement = ("ENTITLEMENT" == event_to_filter &&
+        core_events.indexOf(tr_event_type) >= 0);
 
-    if ( tr_event_does_not_match_filter || tr_event_is_not_entitlement )
-    {
-    //add hide to all who dont deserve the filter
-    tr.addClass("hide");
-    }
+        if ( tr_event_does_not_match_filter || tr_event_is_not_entitlement )
+        {
+            //add hide to all who dont deserve the filter
+            tr.addClass("hide");
+        }
     }
 
     function filterTable()
     {
-    var dataTable = initTable();
-    var all_nodes = dataTable.fnGetNodes();
+        var dataTable = initTable();
+        var all_nodes = dataTable.fnGetNodes();
 
-    filterEachNode(all_nodes);
+        filterEachNode(all_nodes);
 
-    //my rows are filtered, draw table
-    dataTable.fnDraw();
+        //my rows are filtered, draw table
+        dataTable.fnDraw();
     }
 
 
     $(document).ready(function() {
-    disableLinks();
-    // When going through the pages of the table, disable links as needed
-    $('#timeline-table').bind('draw', function (e) {
-    disableLinks();
-    });
+        disableLinks();
+        // When going through the pages of the table, disable links as needed
+        $('#timeline-table').bind('draw', function (e) {
+            disableLinks();
+        });
 
-    initTable();
+        initTable();
 
-    $("#bundles, #event_types").change(filterTable);
-    filterTable();
+        $("#bundles, #event_types").change(filterTable);
+        filterTable();
     });
 <% end %>

@@ -1,3 +1,5 @@
+<h3 class="pageHeader">Tags</h3>
+
 <table id="tags-table" class="table table-condensed">
   <thead>
     <tr>
@@ -16,7 +18,7 @@
 <%= javascript_tag do %>
 $(document).ready(function() {
   $('#tags-table').dataTable({
-    "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+    "sDom": "<'row-fluid'<'span6'l><'span6 tableSearch'f>r>t<'row-fluid clearfix'<'span6 pull-left'i><'span6 pages pull-right'p>>",
     "sPaginationType": "bootstrap",
     "bProcessing": true,
     "bServerSide": true,
