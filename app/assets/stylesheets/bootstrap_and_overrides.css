@@ -14,21 +14,34 @@
 }
 
 /* Moving pagination to right side of page */
-.pages .pagination {
+.pagination {
   margin: 0;
 }
-.pages .pagination ul {
+.pagination ul {
   float: right;
 }
 
 /* Moving search to right side of page */
-.tableSearch .dataTables_filter label {
+.dataTables_filter label {
   float: right;
 }
 
+.dataTables_length select {
+  width: auto;
+}
 
-/** Account page **/
+/* Removing header margin */
 .pageHeader {
   margin: 0 0 20px 0;
   line-height: 30px;
+}
+
+
+/** New account page **/
+.newAccountForm .form-actions {
+  background: none;
+  border: none;
+}
+.groupWrapper {
+  margin: 0;
 }
