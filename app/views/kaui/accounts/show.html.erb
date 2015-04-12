@@ -1,3 +1,5 @@
+<h3 class="pageHeader">Account: <%= link_to "Billing timeline", kaui_engine.account_timeline_path(@account.account_id) %></h3>
+
 <dl class="dl-horizontal">
   <dt>Id:</dt>
   <dd><%= @account.account_id %>&nbsp;</dd>
@@ -92,7 +94,6 @@
   <dt>New base subscription:</dt>
   <dd><%= link_to "Create", kaui_engine.new_subscription_path(:params => {:account_id => @account.account_id, :product_category => "BASE"}), :class => "btn btn-mini" %></dd>
 </dl>
-<h2><%= link_to "Billing timeline", kaui_engine.account_timeline_path(@account.account_id) %></h2>
 <% if @payment_methods.present? %>
     <%= render :partial => "kaui/payment_methods/payment_methods_table", :locals => {:account_id => @account.account_id, :payment_methods => @payment_methods} %>
 <% end %>

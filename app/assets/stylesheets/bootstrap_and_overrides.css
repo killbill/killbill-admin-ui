@@ -36,12 +36,13 @@
   line-height: 30px;
 }
 
-
-/** New account page **/
-.newAccountForm .form-actions {
+/* Removing form action background and border */
+.form-actions {
   background: none;
   border: none;
 }
+
+/** New account page **/
 .groupWrapper {
   margin: 0;
 }
