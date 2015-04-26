@@ -65,7 +65,7 @@
                   <div class="controls">
                     <input type="checkbox" id=<%= "cb_adj_#{ii.invoice_item_id}" %>>
                     <%= "Item #{index + 1} : #{ii.description} " %>
-                    <%= text_field_tag "adjustments[#{ii.invoice_item_id}]", index, :id => "tf_adj_#{ii.invoice_item_id}", :value => ii.amount, :class => 'input-small' %>
+                    <%= text_field_tag "adjustments[#{ii.invoice_item_id}]", index, :id => "tf_adj_#{ii.invoice_item_id}", :value => ii.amount, :class => 'input-sm' %>
                   </div>
                 </div>
             <% end %>
@@ -82,7 +82,7 @@
       <div id="div_refund_amount" class="control-group">
         <%= label_tag :amount, 'Refund amount', :class => 'control-label' %>
         <div class="controls">
-          <%= text_field_tag :amount, @payment.purchased_amount, :id => 'refund_amount', :class => 'input-small' %>
+          <%= text_field_tag :amount, @payment.purchased_amount, :id => 'refund_amount', :class => 'input-sm' %>
           <p class="help-inline"><%= @account.currency %></p>
         </div>
       </div>
