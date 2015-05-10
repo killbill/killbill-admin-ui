@@ -3,8 +3,13 @@
 }
 
 .top_navbar{
-  & li{
+  li{
     display: inline-block;
+
+    a{
+      color: #B3B3B3;
+      &:hover { color: black; }
+    }
   }
 }
 
