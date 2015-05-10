@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'protected_attributes', '~> 1.0.6'
 
   s.add_dependency 'jquery-rails', '~> 3.0.4'
+  s.add_dependency 'jquery-datatables-rails', '~> 3.3.0'
   s.add_dependency 'money-rails', '~> 1.3.0'
   s.add_dependency 'd3_rails', '~> 3.2.8'
   s.add_dependency 'twitter-bootstrap-rails', '~> 3.2.0'
@@ -36,6 +37,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'cancan', '~> 1.6.10'
   s.add_dependency 'carmen-rails', '~> 1.0.0'
   s.add_dependency 'symmetric-encryption', '~> 3.6.0'
+  s.add_dependency 'sass-rails', '~> 5.0.2'
 
   s.add_development_dependency 'fakeweb', '~> 1.3'
   s.add_development_dependency 'rake', '>= 0.8.7'
