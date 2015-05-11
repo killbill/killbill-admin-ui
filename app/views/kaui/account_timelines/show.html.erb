@@ -103,14 +103,14 @@
               <%= link_to 'Payment',
                           kaui_engine.new_payment_path(:params => {:account_id => invoice.account_id,
                                                                    :invoice_id => invoice.invoice_id}),
-                          :class => "btn btn-mini #{'disabled' unless invoice.balance > 0}" %>
+                          :class => "btn btn-xs #{'disabled' unless invoice.balance > 0}" %>
             </nobr>
             <% if can? :credit, Kaui::Invoice %>
                 <nobr>
                   <%= link_to 'Credit',
                               kaui_engine.new_credit_path(:params => {:account_id => invoice.account_id,
                                                                       :invoice_id => invoice.invoice_id}),
-                              :class => 'btn btn-mini' %>
+                              :class => 'btn btn-xs' %>
                 </nobr>
             <% end %>
             <% if can? :charge, Kaui::Invoice %>
@@ -118,7 +118,7 @@
                   <%= link_to 'Charge',
                               kaui_engine.new_charge_path(:params => {:account_id => invoice.account_id,
                                                                       :invoice_id => invoice.invoice_id}),
-                              :class => 'btn btn-mini' %>
+                              :class => 'btn btn-xs' %>
                 </nobr>
             <% end %>
           </td>
@@ -187,7 +187,7 @@
                           <%= link_to 'Refund', kaui_engine.new_refund_path(:params => {:payment_id => payment.payment_id,
                                                                                         :account_id => @account.account_id,
                                                                                         :invoice_id => payment.target_invoice_id}),
-                                      :class => "btn btn-mini #{'disabled' unless payment.payment_id.present? and transaction.status == 'SUCCESS' }" %>
+                                      :class => "btn btn-xs #{'disabled' unless payment.payment_id.present? and transaction.status == 'SUCCESS' }" %>
                         </nobr>
                     <% end %>
                     <% if can? :chargeback, Kaui::Payment %>
@@ -195,7 +195,7 @@
                           <%= link_to 'Chargeback', kaui_engine.new_chargeback_path(:params => {:payment_id => payment.payment_id,
                                                                                                 :account_id => @account.account_id,
                                                                                                 :invoice_id => payment.target_invoice_id}),
-                                      :class => "btn btn-mini #{'disabled' unless payment.payment_id.present? and transaction.status == 'SUCCESS'}" %>
+                                      :class => "btn btn-xs #{'disabled' unless payment.payment_id.present? and transaction.status == 'SUCCESS'}" %>
                         </nobr>
                     <% end %>
                 <% elsif !invoice.present? %>
@@ -207,7 +207,7 @@
                                                                                                                  :payment_method_id => payment.payment_method_id,
                                                                                                                  :amount            => transaction.amount,
                                                                                                                  :currency          => transaction.currency,
-                                                                                                                 :transaction_type  => transaction_type), :class => 'btn btn-mini' %>
+                                                                                                                 :transaction_type  => transaction_type), :class => 'btn btn-xs' %>
                             </nobr>
                         <% end %>
                     <% elsif %w(CAPTURE PURCHASE).include?(transaction.transaction_type) %>
@@ -218,7 +218,7 @@
                                                                                                                  :payment_method_id => payment.payment_method_id,
                                                                                                                  :amount            => transaction.amount,
                                                                                                                  :currency          => transaction.currency,
-                                                                                                                 :transaction_type  => transaction_type), :class => 'btn btn-mini' %>
+                                                                                                                 :transaction_type  => transaction_type), :class => 'btn btn-xs' %>
                             </nobr>
                         <% end %>
                     <% end %>
@@ -318,26 +318,26 @@
     };
 
     function initTable() {
-        return $("#timeline-table").dataTable({
-            "sDom": "<'row-fluid'<'span6'l><'span6 tableSearch'f>r>t<'row-fluid clearfix'<'span6 pull-left'i><'span6 pages pull-right'p>>",
-            "sPaginationType": "bootstrap",
-            "oLanguage": {
-                "sLengthMenu": "_MENU_ records per page"
-            },
-            "iDisplayLength": 100,
-            "bRetrieve": true,
-            // Force a predictive order for event types, invoices and payments
-            "aaSorting": [[1, 'desc'], [4, 'asc'], [3, 'desc']],
-            "aoColumns": [
-                { "sType": 'date' },
-                { "sType": 'date' },
-                null,
-                { "sType": 'timeline-event' },
-                { "sType": 'timeline-details' },
-                null,
-                null
-            ]
-        });
+    return $("#timeline-table").dataTable({
+    "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+    "sPaginationType": "bootstrap",
+    "oLanguage": {
+    "sLengthMenu": "_MENU_ records per page"
+    },
+    "iDisplayLength": 100,
+    "bRetrieve": true,
+    // Force a predictive order for event types, invoices and payments
+    "aaSorting": [[1, 'desc'], [4, 'asc'], [3, 'desc']],
+    "aoColumns": [
+    { "sType": 'date' },
+    { "sType": 'date' },
+    null,
+    { "sType": 'timeline-event' },
+    { "sType": 'timeline-details' },
+    null,
+    null
+    ]
+    });
     }
 
     function filterEachNode(rows) {

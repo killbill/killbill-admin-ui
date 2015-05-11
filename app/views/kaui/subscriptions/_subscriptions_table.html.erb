@@ -22,13 +22,13 @@
             <td><%= humanized_charged_through_date(sub, account) %></td>
             <td><%= humanized_cancelled_date(sub, account) %></td>
             <td>
-              <%= link_to 'Details', kaui_engine.subscription_path(:id => sub.subscription_id), :class => 'btn btn-mini' %>
+              <%= link_to 'Details', kaui_engine.subscription_path(:id => sub.subscription_id), :class => 'btn btn-xs' %>
               <% if is_future_cancelled?(sub) %>
-                  <%= link_to 'Reinstate', kaui_engine.reinstate_subscription_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-mini' %>
+                  <%= link_to 'Reinstate', kaui_engine.reinstate_subscription_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-xs' %>
               <% elsif is_cancelled?(sub) %>
-                  <%= link_to 'Change', kaui_engine.edit_subscription_path(sub.subscription_id), :class => 'btn btn-mini' %>
+                  <%= link_to 'Change', kaui_engine.edit_subscription_path(sub.subscription_id), :class => 'btn btn-xs' %>
                   <div class="btn-group">
-                    <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+                    <a class="btn btn-xs dropdown-toggle" data-toggle="dropdown" href="#">
                       Cancel
                       <span class="caret"></span>
                     </a>
@@ -40,7 +40,7 @@
                     </ul>
                   </div>
                   <% if sub.product_category == 'BASE' %>
-                      <%= link_to 'Add add-ons', kaui_engine.new_subscription_path(:params => {:bundle_id => sub.bundle_id, :base_product_name => sub.product_name, :product_category => 'ADD_ON'}), :class => 'btn btn-mini' %>
+                      <%= link_to 'Add add-ons', kaui_engine.new_subscription_path(:params => {:bundle_id => sub.bundle_id, :base_product_name => sub.product_name, :product_category => 'ADD_ON'}), :class => 'btn btn-xs' %>
                   <% end %>
               <% end %>
             </td>

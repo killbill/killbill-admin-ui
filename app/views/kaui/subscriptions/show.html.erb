@@ -23,11 +23,11 @@
 </dl>
 <hr/>
 <% if is_future_cancelled?(@subscription) %>
-    <%= link_to 'Reinstate', kaui_engine.reinstate_subscription_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-mini' %>
+    <%= link_to 'Reinstate', kaui_engine.reinstate_subscription_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-xs' %>
 <% elsif is_cancelled?(@subscription) %>
-    <%= link_to 'Change', kaui_engine.edit_subscription_path(@subscription.subscription_id), :class => 'btn btn-mini' %>
-    <%= link_to 'Cancel', kaui_engine.subscription_path(@subscription.subscription_id), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini' %>
-    <%= link_to 'Add Addons', kaui_engine.new_subscription_path(:params => {:bundle_id => @subscription.bundle_id, :base_product_name => @subscription.product_name, :product_category => 'ADD_ON'}), :class => 'btn btn-mini' %>
+    <%= link_to 'Change', kaui_engine.edit_subscription_path(@subscription.subscription_id), :class => 'btn btn-xs' %>
+    <%= link_to 'Cancel', kaui_engine.subscription_path(@subscription.subscription_id), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-xs' %>
+    <%= link_to 'Add Addons', kaui_engine.new_subscription_path(:params => {:bundle_id => @subscription.bundle_id, :base_product_name => @subscription.product_name, :product_category => 'ADD_ON'}), :class => 'btn btn-xs' %>
 <% end %>
 &nbsp;
-<%= link_to 'Go to bundle', kaui_engine.bundle_path(@subscription.bundle_id), :class => 'btn btn-mini' %>
+<%= link_to 'Go to bundle', kaui_engine.bundle_path(@subscription.bundle_id), :class => 'btn btn-xs' %>
