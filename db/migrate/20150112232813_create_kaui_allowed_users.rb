@@ -9,8 +9,8 @@ class CreateKauiAllowedUsers < ActiveRecord::Migration
     add_index :kaui_allowed_users, [:kb_username], :unique => true
 
     create_table :kaui_allowed_user_tenants do |t|
-      t.belongs_to :kaui_allowed_user, :index => true
-      t.belongs_to :kaui_tenant, :index => true
+      t.belongs_to :kaui_allowed_user
+      t.belongs_to :kaui_tenant
       t.timestamps null: false
     end
 

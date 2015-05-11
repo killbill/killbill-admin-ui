@@ -12,6 +12,7 @@ require 'killbill_client'
 require 'devise'
 require 'cancan'
 require 'carmen-rails'
+require 'protected_attributes'
 
 module Kaui
   class Engine < ::Rails::Engine

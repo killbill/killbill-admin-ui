@@ -7,7 +7,7 @@ Kaui::Engine.routes.draw do
 
   resources :tag_definitions
 
-  root :to => "home#index"
+  root :to => "home#index", as: 'kaui'
 
   scope "/accounts" do
     match "/pagination" => "accounts#pagination", :via => :get, :as => "accounts_pagination"

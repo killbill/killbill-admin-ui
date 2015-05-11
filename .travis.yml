@@ -18,9 +18,9 @@ jdk:
 
 before_script:
   - mysql -e 'create database kaui_test;'
+  - RAILS_ENV=test bundle exec rake db:migrate
 
 script:
-  - pushd test/dummy && RAILS_ENV=test bundle exec rake db:migrate --trace && RAILS_ENV=test bundle exec rake db:test:prepare && popd
   - bundle exec rake test:units
 
 matrix:
@@ -29,7 +29,7 @@ matrix:
     - rvm: jruby-head
 
 env:
-  - MYSQL_PASSWORD=''
+  - MYSQL_PASSWORD='' MYSQL_USER='travis'
 
 #force travis to use only 'bundle install' instead of 'bundle install --deployments'
 bundler_args: ''
