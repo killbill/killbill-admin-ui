@@ -1,5 +1,5 @@
 <% unless @tenants.empty? %>
-    <%= form_for(@tenants, :url => {:action => :select_tenant}, :html => {:method => :post, :class => "form-horizontal"}) do |f| %>
+    <%= form_for(:tenants, :url => {:action => :select_tenant}, :html => {:method => :post, :class => "form-horizontal"}) do |f| %>
         <fieldset>
           <div class="control-group">
             <%= label_tag :tenant_name, "Available Tenants:", :class => "control-label" %>

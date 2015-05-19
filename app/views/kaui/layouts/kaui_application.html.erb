@@ -10,7 +10,7 @@
     <div class="navbar navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
-          <ul class="nav">
+          <ul class="nav top_navbar">
             <li <%= "class='active'" if params[:controller] == 'accounts' %>><%= link_to "Accounts", kaui_engine.accounts_path %></li>
             <li <%= "class='active'" if params[:controller] == 'bundles' %>><%= link_to "Bundles", kaui_engine.bundles_path %></li>
             <li <%= "class='active'" if params[:controller] == 'payments' %>><%= link_to "Payments", kaui_engine.payments_path %></li>
@@ -19,13 +19,11 @@
             <li <%= "class='active'" if params[:controller] == 'tag_definitions' %>><%= link_to "Tag definitions", kaui_engine.tag_definitions_path %></li>
             <li <%= "class='active'" if params[:controller] == 'tags' %>><%= link_to "Tags", kaui_engine.tags_path %></li>
             <li <%= "class='active'" if params[:controller] == 'custom_fields' %>><%= link_to "Custom Fields", kaui_engine.custom_fields_path %></li>
-          </ul>
-          <ul class="nav pull-right">
             <% if user_signed_in? -%>
                 <% if session[:kb_tenant_name].present? %>
-                    <li><%= link_to "Sign out [tenant: #{session[:kb_tenant_name]}]", destroy_user_session_path, method: :delete %></li>
+                    <li class="pull-right"><%= link_to "Sign out [tenant: #{session[:kb_tenant_name]}]", destroy_user_session_path, method: :delete %></li>
                 <% else %>
-                    <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+                    <li class="pull-right"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
                 <% end %>
             <% end -%>
           </ul>
@@ -36,21 +34,27 @@
       <%- # :alert used by devise -%>
       <% [:error, :alert].each do |key| %>
         <% if flash[key] %>
-          <div class="row-fluid">
-            <div class="span12">
+          <div class="row">
+            <div class="col-md-12">
               <div class="alert alert-error"><%= flash[key] %></div>
             </div>
           </div>
         <% end %>
       <% end %>
       <% if flash[:notice] %>
-        <div class="row-fluid">
-          <div class="span12">
+        <div class="row">
+          <div class="col-md-12">
             <div class="alert alert-info"><%= flash[:notice] %></div>
           </div>
         </div>
       <% end %>
-      <%= yield %>
+      <div class="row">
+        <div class="col-md-12">
+          <%= yield %>
+        </div>
+      </div>
     </div>
+    <footer class="main-footer">
+    </footer>
   </body>
 </html>

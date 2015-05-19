@@ -30,21 +30,21 @@
             </td>
             <td>
               <% if payment_method.is_default %>
-                  <i class="icon-ok"></i>
+                  <i class="fa fa-ok"></i>
               <% else %>
-                  <%= link_to 'Make Default', kaui_engine.set_default_payment_method_account_path(payment_method.account_id, :params => {:payment_method_id => payment_method.payment_method_id}), :method => :put, :confirm => 'Are you sure you want to make this payment method default?', :class => 'btn btn-mini' %>
+                  <%= link_to 'Make Default', kaui_engine.set_default_payment_method_account_path(payment_method.account_id, :params => {:payment_method_id => payment_method.payment_method_id}), :method => :put, :confirm => 'Are you sure you want to make this payment method default?', :class => 'btn btn-xs' %>
               <% end %>
             </td>
             <td>
               <% if payment_method.is_default %>
-                  <%= link_to 'Delete', kaui_engine.payment_method_path(payment_method.payment_method_id, :params => {:set_auto_pay_off => 'true'}), :method => :delete, :confirm => 'Are you sure you want to delete this payment method?', :class => 'btn btn-mini' %>
+                  <%= link_to 'Delete', kaui_engine.payment_method_path(payment_method.payment_method_id, :params => {:set_auto_pay_off => 'true'}), :method => :delete, :confirm => 'Are you sure you want to delete this payment method?', :class => 'btn btn-xs' %>
               <% else %>
-                  <%= link_to 'Delete', kaui_engine.payment_method_path(payment_method.payment_method_id), :method => :delete, :confirm => 'Are you sure you want to delete this payment method?', :class => 'btn btn-mini' %>
+                  <%= link_to 'Delete', kaui_engine.payment_method_path(payment_method.payment_method_id), :method => :delete, :confirm => 'Are you sure you want to delete this payment method?', :class => 'btn btn-xs' %>
               <% end %>
               <% %w(AUTHORIZE PURCHASE CREDIT).each do |transaction_type| %>
                   <%= link_to transaction_type, kaui_engine.new_transaction_path(:account_id        => payment_method.account_id,
                                                                                  :payment_method_id => payment_method.payment_method_id,
-                                                                                 :transaction_type  => transaction_type), :class => 'btn btn-mini' %>
+                                                                                 :transaction_type  => transaction_type), :class => 'btn btn-xs' %>
               <% end %>
             </td>
           </tr>
