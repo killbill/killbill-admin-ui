@@ -39,6 +39,7 @@ module Kaui
       rescue => e
         flash[:error] = "Error while retrieving tenants: No tenants configured for users AND KillBillClient.api_key, KillBillClient.api_secret have not been set"
         @tenants = []
+        Rails.logger.log(e.message << e.backtrace.join("\n"))
         # We then display the view with NO tenants and the flash error so user understands he does not have any configured tenants available
       end
 
