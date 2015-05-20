@@ -79,7 +79,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     billing_policy      = params[:policy] unless params[:policy].blank?
     wait_for_completion = params[:wait_for_completion] == '1'
 
-    subscription = Kaui::Subscription.new(:subscription_id => params[:id])
+    subscription = Kaui::Subscription.find_by_id(params[:id], options_for_klient)
 
     begin
       plans_details    = Kaui::Catalog::available_base_plans(options_for_klient)
