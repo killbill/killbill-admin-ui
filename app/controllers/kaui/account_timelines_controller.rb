@@ -32,13 +32,7 @@ class Kaui::AccountTimelinesController < Kaui::EngineController
     end
 
     # Lookup all invoices
-    @invoices_by_id = {}
-    @timeline.payments.each do |payment|
-      load_invoice_id_for_timeline(payment.target_invoice_id)
-    end
-    @timeline.invoices.each do |invoice|
-      load_invoice_id_for_timeline(invoice.invoice_id)
-    end
+    load_invoices_for_timeline
 
     if params.has_key?(:external_key)
       @selected_bundle = @bundle_names[params[:external_key]]
@@ -49,6 +43,14 @@ class Kaui::AccountTimelinesController < Kaui::EngineController
 
   def load_bundle_name_for_timeline(bundle_key)
     @bundle_names[bundle_key] ||= Kaui.bundle_key_display_string.call(bundle_key)
+  end
+
+  def load_invoices_for_timeline
+    all_invoices = @account.invoices(true, options_for_klient)
+    return {} if all_invoices.nil? || all_invoices.empty?
+
+    # Convert into Kaui::Invoice to benefit from additional methods xxx_to_money
+    @invoices_by_id = all_invoices.inject({}) {|hsh, invoice| hsh[invoice.invoice_id] = Kaui::Invoice.new(invoice); hsh}
   end
 
   def load_invoice_id_for_timeline(invoice_id)
