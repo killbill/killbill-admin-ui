@@ -50,16 +50,6 @@ class Kaui::AccountTimelinesController < Kaui::EngineController
     return {} if all_invoices.nil? || all_invoices.empty?
 
     # Convert into Kaui::Invoice to benefit from additional methods xxx_to_money
-    @invoices_by_id = all_invoices.inject({}) {|hsh, invoice| hsh[invoice.invoice_id] = Kaui::Invoice.new(invoice); hsh}
-  end
-
-  def load_invoice_id_for_timeline(invoice_id)
-    return if invoice_id.blank? or @invoices_by_id.has_key?(invoice_id)
-
-    begin
-      @invoices_by_id[invoice_id] = Kaui::Invoice.find_by_id_or_number(invoice_id, true, 'NONE', options_for_klient)
-    rescue => e
-      flash.now[:error] = "Could not get invoice information for the timeline #{@account_id}: #{as_string(e)}"
-    end
+    @invoices_by_id = all_invoices.inject({}) {|hsh, invoice| hsh[invoice.invoice_id] = Kaui::Invoice.build_from_raw_invoice(invoice); hsh}
   end
 end

@@ -1,22 +1,25 @@
 class Kaui::Invoice < KillBillClient::Model::Invoice
 
-  def initialize(raw_invoice)
+  def self.build_from_raw_invoice(raw_invoice)
     # There is probably a meta-programming trick to avoid writing that copy ctor by hand...
-    @amount = raw_invoice.amount
-    @currency = raw_invoice.currency
-    @credit_adj = raw_invoice.credit_adj
-    @refund_adj = raw_invoice.refund_adj
-    @invoice_id = raw_invoice.invoice_id
-    @invoice_date = raw_invoice.invoice_date
-    @target_date = raw_invoice.target_date
-    @invoice_number = raw_invoice.invoice_number
-    @balance = raw_invoice.balance
-    @account_id = raw_invoice.account_id
-    @external_bundle_keys = raw_invoice.external_bundle_keys
-    @credits = raw_invoice.credits
-    @items = raw_invoice.items
-    @audit_logs = raw_invoice.audit_logs
+    result = Kaui::Invoice.new
+    result.amount = raw_invoice.amount
+    result.currency = raw_invoice.currency
+    result.credit_adj = raw_invoice.credit_adj
+    result.refund_adj = raw_invoice.refund_adj
+    result.invoice_id = raw_invoice.invoice_id
+    result.invoice_date = raw_invoice.invoice_date
+    result.target_date = raw_invoice.target_date
+    result.invoice_number = raw_invoice.invoice_number
+    result.balance = raw_invoice.balance
+    result.account_id = raw_invoice.account_id
+    result.external_bundle_keys = raw_invoice.external_bundle_keys
+    result.credits = raw_invoice.credits
+    result.items = raw_invoice.items
+    result.audit_logs = raw_invoice.audit_logs
+    result
   end
+
 
   [:amount, :balance, :credits].each do |type|
     define_method "#{type}_to_money" do
