@@ -1,4 +1,5 @@
 require 'simplecov'
+require 'pry'
 SimpleCov.start 'rails'
 
 # Configure the Rails Environment

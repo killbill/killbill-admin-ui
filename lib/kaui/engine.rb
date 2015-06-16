@@ -5,6 +5,7 @@
 #
 # See also https://github.com/carlhuda/bundler/issues/49
 require 'jquery-rails'
+require 'jquery-datatables-rails'
 require 'd3_rails'
 require 'json'
 require 'money-rails'
@@ -12,6 +13,7 @@ require 'killbill_client'
 require 'devise'
 require 'cancan'
 require 'carmen-rails'
+require 'protected_attributes'
 
 module Kaui
   class Engine < ::Rails::Engine

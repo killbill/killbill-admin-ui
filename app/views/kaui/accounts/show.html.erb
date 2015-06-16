@@ -57,20 +57,20 @@
     <%= link_to 'Payment',
                 kaui_engine.pay_all_invoices_account_path(@account.account_id),
                 :method => :post,
-                :class  => "btn btn-mini #{"disabled" if !@account.account_balance.nil? and @account.account_balance <= 0}" %>
+                :class  => "btn btn-xs #{"disabled" if !@account.account_balance.nil? and @account.account_balance <= 0}" %>
   </nobr>
   <% if can? :credit, Kaui::Account %>
       <nobr>
         <%= link_to 'Credit',
                     kaui_engine.new_credit_path(:params => {:account_id => @account.account_id}),
-                    :class => "btn btn-mini" %>
+                    :class => "btn btn-xs" %>
       </nobr>
   <% end %>
   <% if can? :charge, Kaui::Account %>
       <nobr>
         <%= link_to 'Charge',
                     kaui_engine.new_charge_path(:params => {:account_id => @account.account_id}),
-                    :class => "btn btn-mini" %>
+                    :class => "btn btn-xs" %>
       </nobr>
   <% end %>
   </dd>
@@ -86,18 +86,18 @@
   <% end %>
   </dd>
   <dt>Notified for inv?</dt>
-  <dd><%= @account.is_notified_for_invoices %>&nbsp;<%= link_to "Toggle", kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post, :class => 'btn btn-mini' %></dd>
+  <dd><%= @account.is_notified_for_invoices %>&nbsp;<%= link_to "Toggle", kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post, :class => 'btn btn-xs' %></dd>
   <%= render :partial => "kaui/tags/tags_table",
              :locals  => {:tags => @tags, :tags_url_or_path => kaui_engine.edit_account_tags_path(:params => {:account_id => @account.account_id}), :tags_show_path => kaui_engine.account_tags_path(:account_id => @account.account_id)} %>
   <%= render :partial => "kaui/account_emails/account_emails_table",
              :locals  => {:account_emails => @account_emails, :account_id => @account.account_id} %>
   <dt>New base subscription:</dt>
-  <dd><%= link_to "Create", kaui_engine.new_subscription_path(:params => {:account_id => @account.account_id, :product_category => "BASE"}), :class => "btn btn-mini" %></dd>
+  <dd><%= link_to "Create", kaui_engine.new_subscription_path(:params => {:account_id => @account.account_id, :product_category => "BASE"}), :class => "btn btn-xs" %></dd>
 </dl>
 <% if @payment_methods.present? %>
     <%= render :partial => "kaui/payment_methods/payment_methods_table", :locals => {:account_id => @account.account_id, :payment_methods => @payment_methods} %>
 <% end %>
-<%= link_to "Add payment method", kaui_engine.new_payment_method_path(:account_id => @account.account_id), :class => "btn btn-mini" %>
+<%= link_to "Add payment method", kaui_engine.new_payment_method_path(:account_id => @account.account_id), :class => "btn btn-xs" %>
 <% @bundles.each do |bundle| %>
     <% subs = @subscriptions_by_bundle_id[bundle.bundle_id] %>
     <% if subs.present? %>

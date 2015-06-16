@@ -26,11 +26,11 @@ module Kaui
       @account           = create_account(@tenant)
       @account2          = create_account(@tenant)
       @bundle            = create_bundle(@account, @tenant)
+      @invoice_item      = create_charge(@account, @tenant)
+      @paid_invoice_item = create_charge(@account, @tenant)
       @bundle_invoice    = @account.invoices(true, build_options(@tenant)).first
       @payment_method    = create_payment_method(true, @account, @tenant)
-      @invoice_item      = create_charge(@account, @tenant)
       @cba               = create_cba(@invoice_item.invoice_id, @account, @tenant)
-      @paid_invoice_item = create_charge(@account, @tenant)
       @payment           = create_payment(@paid_invoice_item, @account, @tenant)
 
       if setup_tenant_key_secret
@@ -53,11 +53,8 @@ module Kaui
       end
 
       # Setup AllowedUser
-      au = Kaui::AllowedUser.new
-      au.kb_username = 'admin'
-      au.description = 'Admin User'
-      au.save
-      au = Kaui::AllowedUser.find_by_kb_username('admin')
+      au = Kaui::AllowedUser
+        .find_or_create_by(kb_username: 'admin', description: 'Admin User')
 
       # Create the tenant with Kill Bill
       all_tenants = []
@@ -115,7 +112,7 @@ module Kaui
                                                             :product_category => 'BASE',
                                                             :billing_period   => 'MONTHLY',
                                                             :price_list       => 'DEFAULT')
-      entitlement = entitlement.create(user, reason, comment, build_options(tenant, username, password))
+      entitlement = entitlement.create(user, reason, comment, nil, false, build_options(tenant, username, password))
 
       KillBillClient::Model::Bundle.find_by_id(entitlement.bundle_id, build_options(tenant, username, password))
     end
@@ -139,6 +136,8 @@ module Kaui
       invoice_item.amount     = 123.98
 
       invoice_item.create(user, reason, comment, build_options(tenant, username, password))
+    rescue
+      nil
     end
 
     # Return the created credit

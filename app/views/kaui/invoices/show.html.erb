@@ -66,7 +66,7 @@
               <nobr>
                 <%= link_to "Adjust",
                             kaui_engine.edit_invoice_item_path(item.invoice_item_id, :invoice_id => @invoice.invoice_id),
-                            :class => "btn btn-mini #{"disabled" unless item.amount > 0 and item.subscription_id.present?}" %>
+                            :class => "btn btn-xs #{"disabled" unless item.amount > 0 and item.subscription_id.present?}" %>
               </nobr>
             <% end %>
             <nobr>
@@ -74,7 +74,7 @@
                           kaui_engine.invoice_item_path(item.invoice_item_id, :account_id => @invoice.account_id, :invoice_id => @invoice.invoice_id),
                           :confirm => 'Are you sure?',
                           :method => :delete,
-                          :class => "btn btn-mini #{"disabled" unless item.description =~ /account credit/ and item.amount > 0 and item.linked_invoice_item_id.nil? and !@cba_items_not_deleteable.include?(item.invoice_item_id) and @invoice.balance - item.amount >= 0}" %>
+                          :class => "btn btn-xs #{"disabled" unless item.description =~ /account credit/ and item.amount > 0 and item.linked_invoice_item_id.nil? and !@cba_items_not_deleteable.include?(item.invoice_item_id) and @invoice.balance - item.amount >= 0}" %>
             </nobr>
           </td>
         </tr>

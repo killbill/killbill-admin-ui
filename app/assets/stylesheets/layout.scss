@@ -1,0 +1,19 @@
+.navbar{
+  border-radius: 0;
+}
+
+.top_navbar{
+  li{
+    display: inline-block;
+
+    a{
+      color: #B3B3B3;
+      &:hover { color: black; }
+    }
+  }
+}
+
+.main-footer{
+  min-height: 50px;
+  margin-top: 100px;
+}

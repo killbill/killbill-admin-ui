@@ -32,7 +32,7 @@
       <div class="control-group">
         <%= f.label :amount, 'Charge amount', :class => 'control-label' %>
         <div class="controls">
-          <%= f.text_field :amount, :id => 'charge_amount', :class => 'input-small' %>
+          <%= f.text_field :amount, :id => 'charge_amount', :class => 'input-sm' %>
           <% if @invoice.present? %>
               <p class="help-inline"><%= @invoice.currency %></p>
           <% end %>
@@ -42,7 +42,7 @@
           <div class="control-group">
             <%= f.label :currency, 'Currency', :class => 'control-label' %>
             <div class="controls">
-              <%= f.select :currency, currencies, {}, :class => 'input-small' %>
+              <%= f.select :currency, currencies, {}, :class => 'input-sm' %>
             </div>
           </div>
       <% end %>
