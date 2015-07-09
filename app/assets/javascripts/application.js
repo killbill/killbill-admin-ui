@@ -8,7 +8,6 @@
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
-//= require dataTables/jquery.dataTables
 //= require d3
 //= require twitter/bootstrap
 //= require kaui/bootstrap-tweaks
