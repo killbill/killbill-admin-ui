@@ -19,7 +19,7 @@
 $(document).ready(function() {
   $('#tags-table').dataTable({
     "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-    "sPaginationType": "bootstrap",
+    "sPaginationType": "simple_numbers",
     "bProcessing": true,
     "bServerSide": true,
     "sAjaxSource": "<%= tags_pagination_path :format => :json %>"
