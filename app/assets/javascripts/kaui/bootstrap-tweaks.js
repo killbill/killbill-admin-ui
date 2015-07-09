@@ -94,7 +94,7 @@ $(document).ready(function() {
           }
         };
 
-        $(nPaging).addClass('pagination').append('<ul>' + '<li class="prev disabled"><a href="#">&larr; ' + oLang.sPrevious + '</a></li>' + '<li class="next disabled"><a href="#">' + oLang.sNext + ' &rarr; </a></li>' + '</ul>');
+        $(nPaging).addClass('pagination').append('<ul class="pagination">' + '<li class="prev disabled"><a href="#">&larr; ' + oLang.sPrevious + '</a></li>' + '<li class="next disabled"><a href="#">' + oLang.sNext + ' &rarr; </a></li>' + '</ul>');
         var els = $('a', nPaging);
         $(els[0]).bind('click.DT', {
           action: "previous"
