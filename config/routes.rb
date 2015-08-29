@@ -116,6 +116,7 @@ Kaui::Engine.routes.draw do
 
   scope "/home" do
     match "/" => "home#index", :via => :get, :as => "home"
+    match "/search" => "home#search", :via => :get, :as => "search"
   end
 
   resources :admin_tenants, :only => [ :index, :new, :create, :show ]

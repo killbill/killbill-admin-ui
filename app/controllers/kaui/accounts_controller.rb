@@ -1,6 +1,7 @@
 class Kaui::AccountsController < Kaui::EngineController
 
   def index
+    @search_query = params[:q]
   end
 
   def pagination
