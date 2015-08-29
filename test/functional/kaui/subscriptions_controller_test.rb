@@ -2,11 +2,6 @@ require 'test_helper'
 
 class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
 
-  test 'should get index' do
-    get :index
-    assert_response 200
-  end
-
   test 'should get new page for base plan' do
     get :new,
         :bundle_id        => @bundle.bundle_id,
@@ -45,13 +40,6 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
          :base_product_name => 'Sports',
          :plan_name         => 'oilslick-monthly'
          assert_includes((200..399), response.code.to_i)
-  end
-
-  test 'should show subscription' do
-    get :show, :id => @bundle.subscriptions.first.subscription_id
-    assert_response 200
-    assert_not_nil assigns(:subscription)
-    assert_not_nil assigns(:account)
   end
 
   test 'should get edit page' do

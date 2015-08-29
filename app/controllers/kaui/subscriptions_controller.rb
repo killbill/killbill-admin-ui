@@ -1,8 +1,5 @@
 class Kaui::SubscriptionsController < Kaui::EngineController
 
-  def index
-  end
-
   def new
     @base_product_name = params[:base_product_name]
     @subscription      = Kaui::Subscription.new(:bundle_id        => params[:bundle_id],
@@ -45,17 +42,6 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       @plans            = plans_details.nil? ? [] : plans_details.map { |p| p.plan }
       flash.now[:error] = "Error while creating the subscription: #{as_string(e)}"
       render :new
-    end
-  end
-
-  def show
-    begin
-      @subscription = Kaui::Subscription.find_by_id(params[:id], options_for_klient)
-      # Need to retrieve the account for the timezone
-      @account      = Kaui::Account::find_by_id(@subscription.account_id, false, false, options_for_klient)
-    rescue => e
-      flash.now[:error] = "Error while getting subscription information: #{as_string(e)}"
-      render :action => :index
     end
   end
 
@@ -102,7 +88,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       flash[:error] = "Error while changing subscription plan: #{as_string(e)}"
     end
 
-    redirect_to subscription_path(subscription.subscription_id)
+    redirect_to kaui_engine.account_bundles_path(subscription.account_id)
   end
 
   def destroy
@@ -112,7 +98,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     # true by default
     use_requested_date_for_billing = (params[:use_requested_date_for_billing] || '1') == '1'
 
-    subscription = Kaui::Subscription.new(:subscription_id => params[:id])
+    subscription = Kaui::Subscription.find_by_id(params[:id], options_for_klient)
 
     begin
       subscription.cancel(current_user.kb_username, params[:reason], params[:comment], requested_date, entitlement_policy, billing_policy, use_requested_date_for_billing, options_for_klient)
@@ -121,11 +107,11 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       flash[:error] = "Error while canceling subscription: #{as_string(e)}"
     end
 
-    redirect_to subscription_path(subscription.subscription_id)
+    redirect_to kaui_engine.account_bundles_path(subscription.account_id)
   end
 
   def reinstate
-    subscription = Kaui::Subscription.new(:subscription_id => params[:id])
+    subscription = Kaui::Subscription.find_by_id(params[:id], options_for_klient)
 
     begin
       subscription.uncancel(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
@@ -134,6 +120,6 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       flash[:error] = "Error while reinstating subscription: #{as_string(e)}"
     end
 
-    redirect_to subscription_path(subscription.subscription_id)
+    redirect_to kaui_engine.account_bundles_path(subscription.account_id)
   end
 end

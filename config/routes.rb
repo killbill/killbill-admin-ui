@@ -75,7 +75,7 @@ Kaui::Engine.routes.draw do
     get '/:id/transfer', :to => 'bundles#transfer', :as => 'transfer_bundle'
   end
 
-  resources :subscriptions do
+  resources :subscriptions, :only => [:new, :create, :edit, :update, :destroy] do
     member do
       put :reinstate
     end
