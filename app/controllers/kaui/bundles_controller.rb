@@ -24,18 +24,20 @@ class Kaui::BundlesController < Kaui::EngineController
   end
 
   def do_transfer
+    old_account_id = params[:old_account_id]
+
     key = params[:new_account_key]
     unless key.present?
-      flash.now[:error] = 'No new account key given'
-      render :action => :index and return
+      flash[:error] = 'No new account key given'
+      redirect_to kaui_engine.account_bundles_path(old_account_id) and return
     end
 
     begin
       # Retrieve the new account to get the account id
       new_account = Kaui::Account::find_by_id_or_key(params[:new_account_key], false, false, options_for_klient)
     rescue => e
-      flash.now[:error] = "Error while retrieving new account: #{as_string(e)}"
-      render :action => :index and return
+      flash[:error] = "Error while retrieving new account: #{as_string(e)}"
+      redirect_to kaui_engine.account_bundles_path(old_account_id) and return
     end
 
     begin
@@ -44,10 +46,10 @@ class Kaui::BundlesController < Kaui::EngineController
       bundle = Kaui::Bundle::new(:bundle_id => params[:id], :account_id => new_account.account_id)
       bundle.transfer(nil, billing_policy, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
 
-      redirect_to account_path(new_account.account_id), :notice => 'Bundle was successfully transferred'
+      redirect_to kaui_engine.account_bundles_path(new_account.account_id), :notice => 'Bundle was successfully transferred'
     rescue => e
-      flash.now[:error] = "Error while transferring bundle: #{as_string(e)}"
-      render :action => :index
+      flash[:error] = "Error while transferring bundle: #{as_string(e)}"
+      redirect_to kaui_engine.account_bundles_path(old_account_id)
     end
   end
 end
