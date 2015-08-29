@@ -17,7 +17,7 @@
           <tr>
             <td><%= payment_method.plugin_name %></a></td>
             <td>
-              <%= payment_method.plugin_info.external_payment_id unless payment_method.plugin_info.blank? %>
+              <%= payment_method.plugin_info.external_payment_method_id unless payment_method.plugin_info.blank? %>
             </td>
             <td>
               <% unless payment_method.plugin_info.blank? and payment_method.plugin_info.properties.blank? %>
