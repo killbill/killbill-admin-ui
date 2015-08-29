@@ -1,9 +1,7 @@
 class Kaui::InvoicesController < Kaui::EngineController
 
   def index
-    if params[:invoice_id].present?
-      redirect_to kaui_engine.invoice_path(params[:invoice_id])
-    end
+    @search_query = params[:account_id]
   end
 
   def pagination

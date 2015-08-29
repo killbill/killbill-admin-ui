@@ -3,7 +3,7 @@ require 'test_helper'
 class Kaui::InvoicesControllerTest < Kaui::FunctionalTestHelper
 
   test 'should get index' do
-    get :index
+    get :index, :account_id => @invoice_item.account_id
     assert_response 200
   end
 

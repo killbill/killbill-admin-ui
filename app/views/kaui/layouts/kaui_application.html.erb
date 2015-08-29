@@ -14,7 +14,6 @@
             <li <%= "class='active'" if params[:controller] == 'accounts' %>><%= link_to "Accounts", kaui_engine.accounts_path %></li>
             <li <%= "class='active'" if params[:controller] == 'payments' %>><%= link_to "Payments", kaui_engine.payments_path %></li>
             <li <%= "class='active'" if params[:controller] == 'payment_methods' %>><%= link_to "Payment Methods", kaui_engine.payment_methods_path %></li>
-            <li <%= "class='active'" if params[:controller] == 'invoices' %>><%= link_to "Invoices", kaui_engine.invoices_path %></li>
             <li <%= "class='active'" if params[:controller] == 'tag_definitions' %>><%= link_to "Tag Definitions", kaui_engine.tag_definitions_path %></li>
             <li <%= "class='active'" if params[:controller] == 'tags' %>><%= link_to "Tags", kaui_engine.tags_path %></li>
             <li <%= "class='active'" if params[:controller] == 'custom_fields' %>><%= link_to "Custom Fields", kaui_engine.custom_fields_path %></li>

@@ -24,6 +24,7 @@ $(document).ready(function() {
     "sPaginationType": "simple_numbers",
     "bProcessing": true,
     "bServerSide": true,
+    "oSearch": {"sSearch": "<%= @search_query %>"},
     "sAjaxSource": "<%= invoices_pagination_path :format => :json %>"
   });
 });

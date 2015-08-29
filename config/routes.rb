@@ -21,6 +21,7 @@ Kaui::Engine.routes.draw do
     end
 
     resources :bundles, :only => [:index]
+    resources :invoices, :only => [:index]
   end
 
   resources :account_emails, :only => [ :create, :new, :show, :destroy ]
@@ -62,7 +63,7 @@ Kaui::Engine.routes.draw do
   scope "/invoices" do
     match "/pagination" => "invoices#pagination", :via => :get, :as => "invoices_pagination"
   end
-  resources :invoices, :only => [ :index, :show ] do
+  resources :invoices, :only => [ :show ] do
     member do
       get :show_html
     end
