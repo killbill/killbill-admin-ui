@@ -40,7 +40,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       @subscription.price_list     = plan_details.price_list
 
       @subscription = @subscription.create(current_user.kb_username, params[:reason], params[:comment], nil, false, options_for_klient)
-      redirect_to bundle_path(@subscription.bundle_id), :notice => 'Subscription was successfully created'
+      redirect_to kaui_engine.account_bundles_path(@subscription.account_id), :notice => 'Subscription was successfully created'
     rescue => e
       @plans            = plans_details.nil? ? [] : plans_details.map { |p| p.plan }
       flash.now[:error] = "Error while creating the subscription: #{as_string(e)}"

@@ -26,7 +26,6 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     assert_not_nil assigns(:account_emails)
     assert_not_nil assigns(:overdue_state)
     assert_not_nil assigns(:payment_methods)
-    assert_not_nil assigns(:bundles)
   end
 
   test 'should create account' do

@@ -30,4 +30,4 @@
     <%= link_to 'Add Addons', kaui_engine.new_subscription_path(:params => {:bundle_id => @subscription.bundle_id, :base_product_name => @subscription.product_name, :product_category => 'ADD_ON'}), :class => 'btn btn-xs' %>
 <% end %>
 &nbsp;
-<%= link_to 'Go to bundle', kaui_engine.bundle_path(@subscription.bundle_id), :class => 'btn btn-xs' %>
+<%= link_to 'Go to bundle', kaui_engine.account_bundles_path(@subscription.account_id), :class => 'btn btn-xs' %>

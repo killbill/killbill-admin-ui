@@ -3,4 +3,4 @@
 <% if can? :add, Kaui::Tag or can? :remove, Kaui::Tag %>
     <%= link_to 'Add/Remove Tags', kaui_engine.edit_bundle_tags_path(:bundle_id => @bundle.bundle_id), :class => 'btn' %>
 <% end %>
-<%= link_to 'Go to bundle', kaui_engine.bundle_path(:id => @bundle.bundle_id), :class => 'btn' %>
+<%= link_to 'Go to bundle', kaui_engine.account_bundles_path(@bundle.account_id), :class => 'btn' %>

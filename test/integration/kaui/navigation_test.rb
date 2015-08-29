@@ -23,7 +23,6 @@ module Kaui
       assert_not_nil assigns(:account_emails)
       assert_not_nil assigns(:overdue_state)
       assert_not_nil assigns(:payment_methods)
-      assert_not_nil assigns(:bundles)
 
       # He now clicks on the timeline link
       get ACCOUNT_TIMELINE_PATH + '/' + @account.account_id

@@ -1,29 +1,27 @@
-<h3 class="pageHeader">Bundles</h3>
+<dl class="dl-horizontal">
+  <dt>New base subscription:</dt>
+  <dd><%= link_to 'Create',
+                  kaui_engine.new_subscription_path(:params => {:account_id => @account.account_id, :product_category => 'BASE'}),
+                  :class => 'btn btn-xs' %></dd>
+</dl>
 
-<table id="bundles-table" class="table table-condensed">
-  <thead>
-  <tr>
-    <th>Bundle ID</th>
-    <th>Account ID</th>
-    <th>External key</th>
-    <th>Subscriptions</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td colspan="1" class="dataTables_empty">Loading data from server</td>
-  </tr>
-  </tbody>
-</table>
+<% @bundles.each do |bundle| %>
+    <dl class="dl-horizontal">
+      <dt>Id:</dt>
+      <dd><%= bundle.bundle_id %>&nbsp;</dd>
+      <dt>Bundle key:</dt>
+      <dd>
+        <%= bundle.external_key %>&nbsp;
+        <%= link_to 'Transfer Ownership', kaui_engine.transfer_bundle_path(bundle.bundle_id), :class => 'btn btn-xs' %>
+      </dd>
 
-<%= javascript_tag do %>
-$(document).ready(function() {
-  $('#bundles-table').dataTable({
-    "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-    "sPaginationType": "simple_numbers",
-    "bProcessing": true,
-    "bServerSide": true,
-    "sAjaxSource": "<%= bundles_pagination_path :format => :json %>"
-  });
-});
+      <%= render :partial => 'kaui/tags/tags_table',
+                 :locals => {:tags => @tags_per_bundle[bundle.bundle_id],
+                             :tags_url_or_path => kaui_engine.edit_bundle_tags_path(:params => {:bundle_id => bundle.bundle_id}),
+                             :tags_show_path => kaui_engine.bundle_tags_path(:bundle_id => bundle.bundle_id)} %>
+
+      <% if bundle.subscriptions.present? %>
+          <%= render :partial => 'kaui/subscriptions/subscriptions_table', :locals => {:subscriptions => bundle.subscriptions, :account => @account} %>
+      <% end %>
+    </dl>
 <% end %>

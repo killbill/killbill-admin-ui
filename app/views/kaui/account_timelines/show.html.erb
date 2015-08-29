@@ -64,7 +64,7 @@
           <td>
             <% if invoice_stub.bundle_keys.present? %>
                 <% invoice_stub.bundle_keys.split(',').each do |bundle_key| %>
-                    <%= link_to @bundle_names[bundle_key], Kaui.bundle_home_path.call(bundle_key) %>
+                    <%= link_to @bundle_names[bundle_key], kaui_engine.account_bundles_path(invoice.account_id) %>
                     <br/>
                 <% end %>
             <% end %>
@@ -150,7 +150,7 @@
               </td>
               <td>
                 <% (@bundle_keys_by_invoice_id[payment.target_invoice_id] || []).each do |bundle_key| %>
-                    <%= link_to @bundle_names[bundle_key], Kaui.bundle_home_path.call(bundle_key) %>
+                    <%= link_to @bundle_names[bundle_key], kaui_engine.account_bundles_path(payment.account_id) %>
                     <br/>
                 <% end %>
               </td>
@@ -248,7 +248,7 @@
                     <% end %>
                   </td>
                   <td>
-                    <%= link_to @bundle_names[bundle.external_key], Kaui.bundle_home_path.call(bundle.external_key) %>
+                    <%= link_to @bundle_names[bundle.external_key], kaui_engine.account_bundles_path(bundle.account_id) %>
                     <br/>
                   </td>
                   <td><%= event.event_type %></td>

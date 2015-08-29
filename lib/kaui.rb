@@ -20,7 +20,6 @@ module Kaui
 
   self.home_path = lambda { Kaui::Engine.routes.url_helpers.home_path }
   self.account_home_path = lambda {|account_id| Kaui::Engine.routes.url_helpers.account_path(account_id) }
-  self.bundle_home_path = lambda {|bundle_id| Kaui::Engine.routes.url_helpers.bundle_path(:id => bundle_id) }
   self.invoice_home_path = lambda {|invoice_id| Kaui::Engine.routes.url_helpers.invoice_path(:id => invoice_id) }
   self.tenant_home_path = lambda { Kaui::Engine.routes.url_helpers.tenants_path }
   self.select_tenant = lambda { Kaui::Engine.routes.url_helpers.select_tenant_path }

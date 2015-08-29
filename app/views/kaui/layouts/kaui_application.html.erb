@@ -12,7 +12,6 @@
         <div class="container">
           <ul class="nav top_navbar">
             <li <%= "class='active'" if params[:controller] == 'accounts' %>><%= link_to "Accounts", kaui_engine.accounts_path %></li>
-            <li <%= "class='active'" if params[:controller] == 'bundles' %>><%= link_to "Bundles", kaui_engine.bundles_path %></li>
             <li <%= "class='active'" if params[:controller] == 'payments' %>><%= link_to "Payments", kaui_engine.payments_path %></li>
             <li <%= "class='active'" if params[:controller] == 'payment_methods' %>><%= link_to "Payment Methods", kaui_engine.payment_methods_path %></li>
             <li <%= "class='active'" if params[:controller] == 'invoices' %>><%= link_to "Invoices", kaui_engine.invoices_path %></li>

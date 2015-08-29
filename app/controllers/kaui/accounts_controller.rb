@@ -58,7 +58,6 @@ class Kaui::AccountsController < Kaui::EngineController
     begin
       @account       = Kaui::Account::find_by_id_or_key(params[:id], true, true, options_for_klient)
       @overdue_state = @account.overdue(options_for_klient)
-      @bundles       = @account.bundles(options_for_klient)
       @tags          = @account.tags(false, 'NONE', options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b }
 
       @account_emails  = Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', options_for_klient)
@@ -66,11 +65,6 @@ class Kaui::AccountsController < Kaui::EngineController
     rescue => e
       flash.now[:error] = "Error while retrieving account information: #{as_string(e)}"
       render :action => :index and return
-    end
-
-    @subscriptions_by_bundle_id = {}
-    @bundles.each do |bundle|
-      @subscriptions_by_bundle_id[bundle.bundle_id.to_s] = (@subscriptions_by_bundle_id[bundle.bundle_id.to_s] || []) + bundle.subscriptions
     end
   end
 

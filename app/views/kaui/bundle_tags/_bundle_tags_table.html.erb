@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h3>Tags for <%= (link_to @bundle.external_key, bundle_path(@bundle.bundle_id)) if @bundle.present? %></h3>
+  <h3>Tags for <%= (link_to @bundle.external_key, kaui_engine.account_bundles_path(@bundle.account_id)) if @bundle.present? %></h3>
 </div>
 <table class="table table-condensed table-striped data-table">
   <thead>

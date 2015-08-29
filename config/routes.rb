@@ -19,6 +19,8 @@ Kaui::Engine.routes.draw do
       post :toggle_email_notifications
       post :pay_all_invoices
     end
+
+    resources :bundles, :only => [:index]
   end
 
   resources :account_emails, :only => [ :create, :new, :show, :destroy ]
@@ -68,14 +70,9 @@ Kaui::Engine.routes.draw do
 
   resources :invoice_items, :only => [ :index, :show, :edit, :update, :destroy ]
 
-  scope "/bundles" do
-    match "/pagination" => "bundles#pagination", :via => :get, :as => "bundles_pagination"
-  end
-  resources :bundles, :only => [ :index, :show ] do
-    member do
-      put :do_transfer
-      get :transfer
-    end
+  scope '/bundles' do
+    put '/:id/do_transfer', :to => 'bundles#do_transfer', :as => 'do_transfer_bundle'
+    get '/:id/transfer', :to => 'bundles#transfer', :as => 'transfer_bundle'
   end
 
   resources :subscriptions do

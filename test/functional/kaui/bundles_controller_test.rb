@@ -3,27 +3,11 @@ require 'test_helper'
 class Kaui::BundlesControllerTest < Kaui::FunctionalTestHelper
 
   test 'should get index' do
-    get :index
+    get :index, :account_id => @bundle.account_id
     assert_response 200
-  end
-
-  test 'should list bundles' do
-    # Test pagination
-    get :pagination, :format => :json
-    verify_pagination_results!
-  end
-
-  test 'should search bundles' do
-    # Test search
-    get :pagination, :sSearch => 'foo', :format => :json
-    verify_pagination_results!
-  end
-
-  test 'should find bundle by id' do
-    get :show, :id => @bundle.bundle_id
-    assert_response 200
-    assert_not_nil assigns(:bundle)
     assert_not_nil assigns(:account)
+    assert_not_nil assigns(:bundles)
+    assert_not_nil assigns(:tags_per_bundle)
   end
 
   test 'should get transfer' do
