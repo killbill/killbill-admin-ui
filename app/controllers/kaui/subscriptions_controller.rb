@@ -25,7 +25,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       @subscription.product_name = plan_details.product
       @subscription.price_list = plan_details.price_list
 
-      @subscription = @subscription.create(current_user.kb_username, params[:reason], params[:comment], nil, false, options_for_klient)
+      @subscription = @subscription.create(current_user.kb_username, params[:reason], params[:comment], params[:requested_date], false, options_for_klient)
       redirect_to kaui_engine.account_bundles_path(@subscription.account_id), :notice => 'Subscription was successfully created'
     rescue => e
       @plans = plans_details.nil? ? [] : plans_details.map { |p| p.plan }

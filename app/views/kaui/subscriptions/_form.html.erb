@@ -28,6 +28,12 @@
             </div>
           </div>
       <% end %>
+      <div class="control-group">
+        <%= label_tag :requested_date, 'Requested date:', :class => 'control-label' %>
+        <div class="controls">
+          <%= text_field_tag :requested_date, Date.parse(Time.now.to_s).to_s, :class => 'input-xlarge date-picker' %>
+        </div>
+      </div>
       <div class="form-actions">
         <%= f.submit 'Create Subscription', :class => 'btn btn-primary' %>
         <%= link_to 'Back', :back, :class => 'btn' %>
