@@ -4,7 +4,7 @@
     <% account_emails.each_with_index do |account_email, idx| %>
       <span>
         <%= account_email.email %>
-        <%= link_to ' (destroy)', kaui_engine.account_email_path(account_email.account_id, :email => account_email.email), :method => :delete %>
+        <%= link_to ' (destroy)', kaui_engine.account_email_path(:account_id => account_email.account_id, :email => account_email.email), :method => :delete %>
         <% if idx < account_emails.length - 1 %>, <% end %>
       </span>
     <% end %>

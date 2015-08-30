@@ -32,6 +32,15 @@ class Kaui::EngineController < ApplicationController
     end
   end
 
+  rescue_from(ActionController::ParameterMissing) do |parameter_missing_exception|
+    flash[:error] = "Required parameter missing: #{parameter_missing_exception.param}"
+    perform_redirect_after_error
+  end
+
+  rescue_from(KillBillClient::API::ResponseError) do |killbill_exception|
+    flash[:error] = "Error while communicating with the Kill Bill server: #{as_string(killbill_exception)}"
+    perform_redirect_after_error
+  end
 
   private
 
@@ -51,4 +60,12 @@ class Kaui::EngineController < ApplicationController
     result
   end
 
+  def perform_redirect_after_error
+    account_id = nested_hash_value(params, :account_id)
+    if account_id.present?
+      redirect_to kaui_engine.account_path(account_id)
+    else
+      redirect_to kaui_engine.home_path
+    end
+  end
 end

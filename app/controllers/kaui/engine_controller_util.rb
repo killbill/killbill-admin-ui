@@ -34,4 +34,15 @@ module Kaui::EngineControllerUtil
     error_message[0..1000]
   end
 
+  def nested_hash_value(obj, key)
+    if obj.respond_to?(:key?) && obj.key?(key)
+      obj[key]
+    elsif obj.is_a?(Hash) or obj.is_a?(Array)
+      r = nil
+      obj.find { |*a| r = nested_hash_value(a.last, key) }
+      r
+    else
+      nil
+    end
+  end
 end

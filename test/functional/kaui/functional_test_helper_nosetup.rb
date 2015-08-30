@@ -23,7 +23,6 @@ class Kaui::FunctionalTestHelperNoSetup < ActionController::TestCase
   end
 
   def teardown_functional_test
-    check_no_flash_error
   end
 
   def verify_pagination_results!(min = 0)

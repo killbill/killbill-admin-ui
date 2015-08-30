@@ -24,7 +24,10 @@ Kaui::Engine.routes.draw do
     resources :invoices, :only => [:index]
   end
 
-  resources :account_emails, :only => [ :new, :create, :destroy ]
+  scope '/account_emails' do
+    match '/' => 'account_emails#destroy', :via => :delete, :as => 'account_email'
+  end
+  resources :account_emails, :only => [:new, :create]
 
   resources :account_timelines, :only => [ :index, :show ] do
     member do
