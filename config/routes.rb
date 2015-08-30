@@ -69,7 +69,7 @@ Kaui::Engine.routes.draw do
     end
   end
 
-  resources :invoice_items, :only => [ :index, :show, :edit, :update, :destroy ]
+  resources :invoice_items, :only => [:edit, :update, :destroy]
 
   scope '/bundles' do
     put '/:id/do_transfer', :to => 'bundles#do_transfer', :as => 'do_transfer_bundle'

@@ -1,21 +1,17 @@
 class Kaui::InvoiceItemsController < Kaui::EngineController
 
   def edit
-    invoice_item_id = params[:id]
-    invoice_id      = params[:invoice_id]
+    invoice_item_id = params.require(:id)
+    invoice_id = params.require(:invoice_id)
 
-    begin
-      invoice = Kaui::Invoice.find_by_id_or_number(invoice_id, true, 'NONE', options_for_klient)
-    rescue => e
-      flash[:error] = "Error while getting information for invoice #{invoice_id}: #{as_string(e)}"
-      redirect_to :back
-    end
+    invoice = Kaui::Invoice.find_by_id_or_number(invoice_id, true, 'NONE', options_for_klient)
 
     @invoice_item = invoice.items.find { |ii| ii.invoice_item_id == invoice_item_id }
+    raise "Unable to find invoice item #{invoice_item_id}" if @invoice_item.nil?
   end
 
   def update
-    @invoice_item = Kaui::InvoiceItem.new(params[:invoice_item])
+    @invoice_item = Kaui::InvoiceItem.new(params.require(:invoice_item))
 
     begin
       invoice = @invoice_item.update(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
@@ -27,9 +23,9 @@ class Kaui::InvoiceItemsController < Kaui::EngineController
   end
 
   def destroy
-    @invoice_item = Kaui::InvoiceItem.new(:invoice_item_id => params[:id],
-                                          :invoice_id      => params[:invoice_id],
-                                          :account_id      => params[:account_id])
+    @invoice_item = Kaui::InvoiceItem.new(:invoice_item_id => params.require(:id),
+                                          :invoice_id => params.require(:invoice_id),
+                                          :account_id => params.require(:account_id))
 
     begin
       @invoice_item.delete(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
