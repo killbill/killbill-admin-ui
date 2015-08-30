@@ -1,38 +1,5 @@
 class Kaui::PaymentMethodsController < Kaui::EngineController
 
-  def index
-  end
-
-  def pagination
-    search_key = params[:sSearch]
-    offset     = params[:iDisplayStart] || 0
-    limit      = params[:iDisplayLength] || 10
-
-    payment_methods = Kaui::PaymentMethod.list_or_search(search_key, offset, limit, options_for_klient)
-
-    json = {
-        :sEcho                => params[:sEcho],
-        :iTotalRecords        => payment_methods.pagination_max_nb_records,
-        :iTotalDisplayRecords => payment_methods.pagination_total_nb_records,
-        :aaData               => []
-    }
-
-    payment_methods.each do |payment_method|
-      info_plugin = payment_method.plugin_info || OpenStruct.new
-      json[:aaData] << [
-          view_context.link_to(view_context.truncate_uuid(payment_method.payment_method_id), view_context.url_for(:controller => :payment_methods, :action => :show, :id => payment_method.payment_method_id)),
-          view_context.link_to(view_context.truncate_uuid(payment_method.account_id), view_context.url_for(:controller => :accounts, :action => :show, :id => payment_method.account_id)),
-          info_plugin.external_payment_id,
-          find_value_from_properties(info_plugin.properties, 'ccName'),
-          find_value_from_properties(info_plugin.properties, 'ccLast4'),
-      ]
-    end
-
-    respond_to do |format|
-      format.json { render :json => json }
-    end
-  end
-
   def new
     @payment_method = Kaui::PaymentMethod.new(:account_id  => params[:account_id],
                                               :plugin_name => params[:plugin_name] || Kaui.creditcard_plugin_name.call)
@@ -79,31 +46,23 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
 
     begin
       @payment_method = @payment_method.create(@payment_method.is_default, current_user.kb_username, @reason, @comment, options_for_klient)
-      redirect_to payment_method_path(@payment_method.payment_method_id), :notice => 'Payment method was successfully created'
+      redirect_to kaui_engine.account_path(@payment_method.account_id), :notice => 'Payment method was successfully created'
     rescue => e
       flash.now[:error] = "Error while creating payment method: #{as_string(e)}"
       render :action => :new
     end
   end
 
-  def show
-    begin
-      @payment_methods = [Kaui::PaymentMethod.find_by_id(params[:id], true, options_for_klient)]
-    rescue => e
-      flash.now[:error] = "Error while retrieving payment method #{params[:id]}: #{as_string(e)}"
-      render :action => :index
-    end
-  end
-
   def destroy
     payment_method_id = params[:id]
 
+    payment_method = Kaui::PaymentMethod.find_by_id(payment_method_id, false, options_for_klient)
     begin
       Kaui::PaymentMethod.destroy(payment_method_id, params[:set_auto_pay_off], current_user.kb_username, params[:reason], params[:comment], options_for_klient)
-      redirect_to payment_methods_path, :notice => "Payment method #{payment_method_id} successfully deleted"
+      redirect_to kaui_engine.account_path(payment_method.account_id), :notice => "Payment method #{payment_method_id} successfully deleted"
     rescue => e
-      flash.now[:error] = "Error while deleting payment method #{payment_method_id}: #{as_string(e)}"
-      render :action => :index
+      flash[:error] = "Error while deleting payment method #{payment_method_id}: #{as_string(e)}"
+      redirect_to kaui_engine.account_path(payment_method.account_id)
     end
   end
 
