@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        Kaui
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <%= form_tag search_path, :class => 'navbar-form navbar-left', :role => 'search', :method => 'get' do %>
+          <div class="form-group">
+            <%= text_field_tag :q, '', :class => 'form-control', :placeholder => 'Search' %>
+          </div>
+          <%= button_tag 'Search', :class => 'btn btn-default' %>
+      <% end %>
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Create new account', kaui_engine.new_account_path %></li>
+        <li <%= "class='active'" if params[:controller] == 'tags' %>><%= link_to 'Tags', kaui_engine.tags_path %></li>
+        <li <%= "class='active'" if params[:controller] == 'custom_fields' %>><%= link_to 'Custom Fields', kaui_engine.custom_fields_path %></li>
+        <% if user_signed_in? -%>
+            <li class="pull-right">
+              <%= link_to session[:kb_tenant_name].present? ? "#{current_user.kb_username} / #{session[:kb_tenant_name]} Sign out" : "#{current_user.kb_username} Sign out", destroy_user_session_path, method: :delete %>
+            </li>
+        <% end -%>
+      </ul>
+    </div>
+  </div>
+</nav>

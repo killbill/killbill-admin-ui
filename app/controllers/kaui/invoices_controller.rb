@@ -2,6 +2,9 @@ class Kaui::InvoicesController < Kaui::EngineController
 
   def index
     @search_query = params[:account_id]
+    @account = Kaui::Account::find_by_id_or_key(params[:account_id], false, false, options_for_klient)
+
+    render_with_account_navbar
   end
 
   def pagination
@@ -65,6 +68,8 @@ class Kaui::InvoicesController < Kaui::EngineController
     rescue => e
       flash.now[:error] = "Error while getting information for invoice #{invoice_id_or_number}: #{as_string(e)}"
     end
+
+    render_with_account_navbar
   end
 
   def show_html

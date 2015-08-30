@@ -8,6 +8,8 @@ class Kaui::BundlesController < Kaui::EngineController
     @bundles.each do |bundle|
       @tags_per_bundle[bundle.bundle_id] = bundle.tags(false, 'NONE', options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b }
     end
+
+    render_with_account_navbar
   rescue => e
     flash[:error] = "Error while retrieving account information: #{as_string(e)}"
     redirect_to home_path

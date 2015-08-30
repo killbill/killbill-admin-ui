@@ -62,6 +62,8 @@ class Kaui::AccountsController < Kaui::EngineController
 
       @account_emails  = Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', options_for_klient)
       @payment_methods = Kaui::PaymentMethod.find_non_external_by_account_id(@account.account_id, true, options_for_klient)
+
+      render_with_account_navbar
     rescue => e
       flash.now[:error] = "Error while retrieving account information: #{as_string(e)}"
       render :action => :index and return

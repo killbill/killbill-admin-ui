@@ -6,6 +6,10 @@ module Kaui::EngineControllerUtil
     layout ||= Kaui.config[:layout]
   end
 
+  def render_with_account_navbar
+    render :layout => 'kaui/layouts/kaui_application_with_account_nav'
+  end
+
   def as_string(e)
     if e.is_a?(KillBillClient::API::ResponseError)
       "Error #{e.response.code}: #{as_string_from_response(e.response.body)}"
