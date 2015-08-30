@@ -19,6 +19,13 @@ class Kaui::InvoicesControllerTest < Kaui::FunctionalTestHelper
     verify_pagination_results!
   end
 
+  test 'should handle Kill Bill errors in show screen' do
+    invoice_id = SecureRandom.uuid.to_s
+    get :show, :id => invoice_id
+    assert_redirected_to home_path
+    assert_equal "Error while communicating with the Kill Bill server: Error 500: Object id=#{invoice_id} type=INVOICE doesn't exist!", flash[:error]
+  end
+
   test 'should find unpaid invoice by id' do
     get :show, :id => @invoice_item.invoice_id
     assert_response 200
@@ -62,6 +69,13 @@ class Kaui::InvoicesControllerTest < Kaui::FunctionalTestHelper
 
     assert_equal assigns(:account).account_id, @account.account_id
     assert_equal assigns(:invoice).invoice_id, @paid_invoice_item.invoice_id
+  end
+
+  test 'should handle Kill Bill errors in show_html screen' do
+    invoice_id = SecureRandom.uuid.to_s
+    get :show_html, :id => invoice_id
+    assert_redirected_to home_path
+    assert_equal "Error while communicating with the Kill Bill server: Error 500: Object id=#{invoice_id} type=INVOICE doesn't exist!", flash[:error]
   end
 
   test 'should render HTML invoice' do
