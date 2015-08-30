@@ -2,11 +2,6 @@ require 'test_helper'
 
 class Kaui::AccountEmailsControllerTest < Kaui::FunctionalTestHelper
 
-  test 'should list emails' do
-    get :show, :id => @account.account_id
-    assert_response 200
-  end
-
   test 'should add and destroy email' do
     get :new, :account_id => @account.account_id
     assert_response 200
@@ -18,11 +13,11 @@ class Kaui::AccountEmailsControllerTest < Kaui::FunctionalTestHelper
              :account_id => @account.account_id,
              :email      => email
          }
-    assert_redirected_to account_email_path(@account.account_id)
+    assert_redirected_to account_path(@account.account_id)
     assert_equal 'Account email was successfully added', flash[:notice]
 
     delete :destroy, :id => @account.account_id, :email => email
-    assert_redirected_to account_email_path(@account.account_id)
+    assert_redirected_to account_path(@account.account_id)
     assert_equal 'Account email was successfully deleted', flash[:notice]
   end
 end
