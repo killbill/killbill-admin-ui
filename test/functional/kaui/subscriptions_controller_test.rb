@@ -2,10 +2,16 @@ require 'test_helper'
 
 class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
 
+  test 'should handle Kill Bill errors in new screen' do
+    bundle_id = SecureRandom.uuid.to_s
+    get :new, :bundle_id => bundle_id, :account_id => @account.account_id, :product_category => 'ADD_ON'
+    assert_redirected_to account_path(@account.account_id)
+    assert_equal "Error while communicating with the Kill Bill server: Error 500: Object id=#{bundle_id} type=BUNDLE doesn't exist!", flash[:error]
+  end
+
   test 'should get new page for base plan' do
     get :new,
-        :bundle_id        => @bundle.bundle_id,
-        :account          => @account.account_id,
+        :account_id => @account.account_id,
         :product_category => 'BASE'
     assert assigns(:plans).size > 0
   end
@@ -13,33 +19,63 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
   test 'should get new page for base addon' do
     get :new,
         :base_product_name => 'Sports',
-        :bundle_id         => @bundle.bundle_id,
-        :account           => @account.account_id,
-        :product_category  => 'ADD_ON'
+        :bundle_id => @bundle.bundle_id,
+        :account_id => @account.account_id,
+        :product_category => 'ADD_ON'
     assert assigns(:plans).size > 0, 'Plans were not created'
+  end
+
+  test 'should handle errors during creation' do
+    post :create,
+         :subscription => {
+             :bundle_id => @bundle.bundle_id,
+             :account_id => @account.account_id,
+             :product_category => 'ADD_ON'
+         },
+         :base_product_name => 'Sports'
+    assert_redirected_to account_path(@account.account_id)
+    assert_equal 'Required parameter missing: plan_name', flash[:error]
+
+    post :create,
+         :subscription => {
+             :bundle_id => @bundle.bundle_id,
+             :account_id => @account.account_id,
+             :product_category => 'ADD_ON'
+         },
+         :base_product_name => 'Sports',
+         :plan_name => 'not-exists'
+    assert_template :new
+    assert_equal 'Error while creating the subscription: Unable to find plan not-exists', flash[:error]
   end
 
   test 'should create a new base subscription' do
     post :create,
          :subscription => {
-             :account_id       => @account.account_id,
-             :external_key     => SecureRandom.uuid,
+             :account_id => @account.account_id,
+             :external_key => SecureRandom.uuid,
              :product_category => 'BASE'
          },
-         :plan_name    => 'standard-monthly'
+         :plan_name => 'standard-monthly'
     assert_response 302
   end
 
   test 'should create a new addon subscription' do
     post :create,
-         :subscription      => {
-             :bundle_id        => @bundle.bundle_id,
-             :account_id       => @account.account_id,
+         :subscription => {
+             :bundle_id => @bundle.bundle_id,
+             :account_id => @account.account_id,
              :product_category => 'ADD_ON'
          },
          :base_product_name => 'Sports',
-         :plan_name         => 'oilslick-monthly'
-         assert_includes((200..399), response.code.to_i)
+         :plan_name => 'oilslick-monthly'
+    assert_includes((200..399), response.code.to_i)
+  end
+
+  test 'should handle Kill Bill errors in edit screen' do
+    subscription_id = SecureRandom.uuid.to_s
+    get :edit, :id => subscription_id
+    assert_redirected_to home_path
+    assert_equal "Error while communicating with the Kill Bill server: Error 500: Object id=#{subscription_id} type=SUBSCRIPTION doesn't exist!", flash[:error]
   end
 
   test 'should get edit page' do
@@ -50,17 +86,46 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
     assert_not_nil assigns(:current_plan)
   end
 
+  test 'should handle errors during update' do
+    post :update, :id => @bundle.subscriptions.first.subscription_id
+    assert_redirected_to home_path
+    assert_equal 'Required parameter missing: plan_name', flash[:error]
+
+    subscription_id = SecureRandom.uuid.to_s
+    post :update, :id => subscription_id, :plan_name => 'super-monthly'
+    assert_redirected_to home_path
+    assert_equal "Error while communicating with the Kill Bill server: Error 500: Object id=#{subscription_id} type=SUBSCRIPTION doesn't exist!", flash[:error]
+
+    post :update, :id => @bundle.subscriptions.first.subscription_id, :plan_name => 'not-exists'
+    assert_redirected_to home_path
+    assert_equal 'Error: Unable to find plan not-exists', flash[:error]
+  end
+
   test 'should update' do
     post :update,
-         :id        => @bundle.subscriptions.first.subscription_id,
+         :id => @bundle.subscriptions.first.subscription_id,
          :plan_name => 'super-monthly'
     assert_response 302
   end
 
+  test 'should handle errors during destroy' do
+    subscription_id = SecureRandom.uuid.to_s
+    delete :destroy, :id => subscription_id, :plan_name => 'super-monthly'
+    assert_redirected_to home_path
+    assert_equal "Error while communicating with the Kill Bill server: Error 500: Object id=#{subscription_id} type=SUBSCRIPTION doesn't exist!", flash[:error]
+  end
+
+  test 'should handle errors during reinstate' do
+    subscription_id = SecureRandom.uuid.to_s
+    put :reinstate, :id => subscription_id
+    assert_redirected_to home_path
+    assert_equal "Error while communicating with the Kill Bill server: Error 500: Object id=#{subscription_id} type=SUBSCRIPTION doesn't exist!", flash[:error]
+  end
+
   test 'should cancel and reinstate subscription' do
     delete :destroy,
-           :id                             => @bundle.subscriptions.first.subscription_id,
-           :requested_date                 => (Date.today >> 1).to_time.utc.iso8601,
+           :id => @bundle.subscriptions.first.subscription_id,
+           :requested_date => (Date.today >> 1).to_time.utc.iso8601,
            :use_requested_date_for_billing => '1'
     assert_response 302
 

@@ -32,6 +32,12 @@ class Kaui::EngineController < ApplicationController
     end
   end
 
+  # Note! Order matters, StandardError needs to be first
+  rescue_from(StandardError) do |error|
+    flash[:error] = "Error: #{error.to_s}"
+    perform_redirect_after_error
+  end
+
   rescue_from(ActionController::ParameterMissing) do |parameter_missing_exception|
     flash[:error] = "Required parameter missing: #{parameter_missing_exception.param}"
     perform_redirect_after_error
