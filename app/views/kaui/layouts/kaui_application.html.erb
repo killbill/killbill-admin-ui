@@ -4,6 +4,9 @@
   <body>
   <%= render :template => 'kaui/layouts/kaui_navbar' %>
   <div class="container">
+    <% if params[:account_id].present? %>
+        <%= render :template => 'kaui/layouts/kaui_account_navbar' %>
+    <% end %>
     <%= render :template => 'kaui/layouts/kaui_flash' %>
     <div class="row">
       <div class="col-md-12">

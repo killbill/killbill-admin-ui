@@ -1,3 +1,18 @@
+module ActionDispatch
+  module Routing
+    class Mapper
+      module Resources
+        class Resource
+          def nested_param
+            # Fix an issue where nested param would be account_account_id
+            param.to_s.start_with?(singular) ? param : super
+          end
+        end
+      end
+    end
+  end
+end
+
 Kaui::Engine.routes.draw do
 
   devise_for :users,
@@ -12,7 +27,7 @@ Kaui::Engine.routes.draw do
   scope "/accounts" do
     match "/pagination" => "accounts#pagination", :via => :get, :as => "accounts_pagination"
   end
-  resources :accounts, :only => [ :index, :new, :create, :show ] do
+  resources :accounts, :only => [ :index, :new, :create, :show ], :param => :account_id do
     member do
       put :set_default_payment_method
       delete :delete_payment_method

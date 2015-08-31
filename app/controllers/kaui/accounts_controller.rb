@@ -20,7 +20,7 @@ class Kaui::AccountsController < Kaui::EngineController
 
     accounts.each do |account|
       json[:aaData] << [
-          view_context.link_to(view_context.truncate_uuid(account.account_id), view_context.url_for(:action => :show, :id => account.account_id)),
+          view_context.link_to(view_context.truncate_uuid(account.account_id), view_context.url_for(:action => :show, :account_id => account.account_id)),
           account.name,
           account.external_key,
           account.currency,
@@ -55,18 +55,16 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def show
-    @account = Kaui::Account::find_by_id_or_key(params.require(:id), true, true, options_for_klient)
+    @account = Kaui::Account::find_by_id_or_key(params.require(:account_id), true, true, options_for_klient)
     @overdue_state = @account.overdue(options_for_klient)
     @tags = @account.tags(false, 'NONE', options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b }
 
     @account_emails = Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', options_for_klient)
     @payment_methods = Kaui::PaymentMethod.find_non_external_by_account_id(@account.account_id, true, options_for_klient)
-
-    render_with_account_navbar
   end
 
   def set_default_payment_method
-    account_id = params.require(:id)
+    account_id = params.require(:account_id)
     payment_method_id = params.require(:payment_method_id)
 
     Kaui::PaymentMethod.set_default(payment_method_id, account_id, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
@@ -75,7 +73,7 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def toggle_email_notifications
-    account = Kaui::Account.new(:account_id => params.require(:id), :is_notified_for_invoices => params[:is_notified] == 'true')
+    account = Kaui::Account.new(:account_id => params.require(:account_id), :is_notified_for_invoices => params[:is_notified] == 'true')
 
     account.update_email_notifications(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
 
@@ -83,7 +81,7 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def pay_all_invoices
-    payment = Kaui::InvoicePayment.new(:account_id => params.require(:id))
+    payment = Kaui::InvoicePayment.new(:account_id => params.require(:account_id))
 
     payment.bulk_create(params[:is_external_payment] == 'true', current_user.kb_username, params[:reason], params[:comment], options_for_klient)
 

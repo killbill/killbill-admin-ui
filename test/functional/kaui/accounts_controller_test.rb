@@ -21,13 +21,13 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
 
   test 'should handle Kill Bill errors when showing account details' do
     account_id = SecureRandom.uuid.to_s
-    get :show, :id => account_id
-    assert_redirected_to home_path
+    get :show, :account_id => account_id
+    assert_redirected_to account_path(account_id)
     assert_equal "Error while communicating with the Kill Bill server: Error 404: Account does not exist for id #{account_id}", flash[:error]
   end
 
   test 'should find account by id' do
-    get :show, :id => @account.account_id
+    get :show, :account_id => @account.account_id
     assert_response 200
     assert_not_nil assigns(:tags)
     assert_not_nil assigns(:account_emails)
@@ -73,44 +73,44 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
   end
 
   test 'should be redirected if no payment_method_id is specified when setting default payment method' do
-    put :set_default_payment_method, :id => @account.account_id
-    assert_redirected_to home_path
+    put :set_default_payment_method, :account_id => @account.account_id
+    assert_redirected_to account_path(@account.account_id)
     assert_equal 'Required parameter missing: payment_method_id', flash[:error]
   end
 
   test 'should handle Kill Bill errors when setting default payment method' do
     account_id = SecureRandom.uuid.to_s
-    put :set_default_payment_method, :id => account_id, :payment_method_id => @payment_method.payment_method_id
-    assert_redirected_to home_path
+    put :set_default_payment_method, :account_id => account_id, :payment_method_id => @payment_method.payment_method_id
+    assert_redirected_to account_path(account_id)
     assert_equal "Error while communicating with the Kill Bill server: Error 404: Account does not exist for id #{account_id}", flash[:error]
   end
 
   test 'should set default payment method' do
-    put :set_default_payment_method, :id => @account.account_id, :payment_method_id => @payment_method.payment_method_id
+    put :set_default_payment_method, :account_id => @account.account_id, :payment_method_id => @payment_method.payment_method_id
     assert_response 302
   end
 
   test 'should handle Kill Bill errors when toggling email notifications' do
     account_id = SecureRandom.uuid.to_s
-    put :toggle_email_notifications, :id => account_id, :is_notified => true
-    assert_redirected_to home_path
+    put :toggle_email_notifications, :account_id => account_id, :is_notified => true
+    assert_redirected_to account_path(account_id)
     assert_equal "Error while communicating with the Kill Bill server: Error 404: Account does not exist for id #{account_id}", flash[:error]
   end
 
   test 'should toggle email notifications' do
-    put :toggle_email_notifications, :id => @account.account_id, :is_notified => true
+    put :toggle_email_notifications, :account_id => @account.account_id, :is_notified => true
     assert_response 302
   end
 
   test 'should handle Kill Bill errors when paying all invoices' do
     account_id = SecureRandom.uuid.to_s
-    post :pay_all_invoices, :id => account_id
-    assert_redirected_to home_path
+    post :pay_all_invoices, :account_id => account_id
+    assert_redirected_to account_path(account_id)
     assert_equal "Error while communicating with the Kill Bill server: Error 404: Account does not exist for id #{account_id}", flash[:error]
   end
 
   test 'should pay all invoices' do
-    post :pay_all_invoices, :id => @account.account_id, :is_external_payment => true
+    post :pay_all_invoices, :account_id => @account.account_id, :is_external_payment => true
     assert_response 302
   end
 end

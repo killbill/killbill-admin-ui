@@ -3,8 +3,6 @@ class Kaui::InvoicesController < Kaui::EngineController
   def index
     @search_query = params[:account_id]
     @account = Kaui::Account::find_by_id_or_key(params[:account_id], false, false, options_for_klient)
-
-    render_with_account_navbar
   end
 
   def pagination
@@ -56,8 +54,6 @@ class Kaui::InvoicesController < Kaui::EngineController
         @bundles[item.bundle_id] = Kaui::Bundle::find_by_id(item.bundle_id, options_for_klient)
       end
     end
-
-    render_with_account_navbar
   end
 
   def show_html
