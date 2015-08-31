@@ -108,16 +108,14 @@
             <% if can? :credit, Kaui::Invoice %>
                 <nobr>
                   <%= link_to 'Credit',
-                              kaui_engine.new_credit_path(:params => {:account_id => invoice.account_id,
-                                                                      :invoice_id => invoice.invoice_id}),
+                              kaui_engine.new_account_credit_path(invoice.account_id, :invoice_id => invoice.invoice_id),
                               :class => 'btn btn-xs' %>
                 </nobr>
             <% end %>
             <% if can? :charge, Kaui::Invoice %>
                 <nobr>
                   <%= link_to 'Charge',
-                              kaui_engine.new_charge_path(:params => {:account_id => invoice.account_id,
-                                                                      :invoice_id => invoice.invoice_id}),
+                              kaui_engine.new_account_charge_path(invoice.account_id, :invoice_id => invoice.invoice_id),
                               :class => 'btn btn-xs' %>
                 </nobr>
             <% end %>

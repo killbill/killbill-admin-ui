@@ -30,10 +30,26 @@
   <dd><%= @account.company %></dd>
   <%= render :partial => 'kaui/account_emails/account_emails_table',
              :locals => {:account_emails => @account_emails} %>
-  <%= link_to 'New account email', kaui_engine.new_account_email_path(:account_id => @account.account_id), :class => 'btn' %>
 </dl>
 
 <h3>Billing Information</h3>
+
+<!-- Payment, Credit then Charge. Same ordering as in the billing timeline -->
+<%= link_to 'Pay all invoices',
+            kaui_engine.pay_all_invoices_account_path(@account.account_id),
+            :method => :post,
+            :class => 'btn btn-xs' %>
+<% if can? :credit, Kaui::Account %>
+    <%= link_to 'Add credit',
+                kaui_engine.new_account_credit_path(@account.account_id, :currency => @account.currency),
+                :class => 'btn btn-xs' %>
+<% end %>
+<% if can? :charge, Kaui::Account %>
+    <%= link_to 'Create charge',
+                kaui_engine.new_account_charge_path(@account.account_id, :currency => @account.currency),
+                :class => 'btn btn-xs' %>
+<% end %>
+
 <dl class="dl-horizontal">
   <dt>Account balance:</dt>
   <% if @account.account_balance.nil? %>
@@ -75,30 +91,6 @@
   <% end %>
   <dt>Notified for inv?</dt>
   <dd><%= @account.is_notified_for_invoices %>&nbsp;<%= link_to 'Toggle', kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post, :class => 'btn btn-xs' %></dd>
-  <dt>Actions:</dt>
-  <dd>
-    <nobr>
-      <!-- Payment, Credit then Charge. Same ordering as in the billing timeline -->
-      <%= link_to 'Pay all invoices',
-                  kaui_engine.pay_all_invoices_account_path(@account.account_id),
-                  :method => :post,
-                  :class => "btn btn-xs #{'disabled' if !@account.account_balance.nil? and @account.account_balance <= 0}" %>
-    </nobr>
-    <% if can? :credit, Kaui::Account %>
-        <nobr>
-          <%= link_to 'Add credit',
-                      kaui_engine.new_credit_path(:params => {:account_id => @account.account_id}),
-                      :class => 'btn btn-xs' %>
-        </nobr>
-    <% end %>
-    <% if can? :charge, Kaui::Account %>
-        <nobr>
-          <%= link_to 'Create charge',
-                      kaui_engine.new_charge_path(:params => {:account_id => @account.account_id}),
-                      :class => 'btn btn-xs' %>
-        </nobr>
-    <% end %>
-  </dd>
 </dl>
 
 <% if @payment_methods.present? %>
