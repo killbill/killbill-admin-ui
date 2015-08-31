@@ -20,14 +20,11 @@ Kaui::Engine.routes.draw do
       post :pay_all_invoices
     end
 
+    # The id is the email itself
+    resources :account_emails, :only => [:new, :create, :destroy], :constraints => { :id => /[\w+\-;@\.]+/ }
     resources :bundles, :only => [:index]
     resources :invoices, :only => [:index]
   end
-
-  scope '/account_emails' do
-    match '/' => 'account_emails#destroy', :via => :delete, :as => 'account_email'
-  end
-  resources :account_emails, :only => [:new, :create]
 
   resources :account_timelines, :only => [ :index, :show ] do
     member do

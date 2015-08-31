@@ -7,7 +7,7 @@ class Kaui::AccountEmailsController < Kaui::EngineController
   def create
     @account_email = Kaui::AccountEmail.new(account_email_params)
 
-    account = Kaui::Account.new(:account_id => @account_email.account_id)
+    account = Kaui::Account.new(:account_id => params.require(:account_id))
     begin
       account.add_email(@account_email.email, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       redirect_to kaui_engine.account_path(account.account_id), :notice => 'Account email was successfully added'
@@ -20,7 +20,7 @@ class Kaui::AccountEmailsController < Kaui::EngineController
   def destroy
     account = Kaui::Account.new(:account_id => params.require(:account_id))
 
-    account.remove_email(params.require(:email), current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    account.remove_email(params.require(:id), current_user.kb_username, params[:reason], params[:comment], options_for_klient)
 
     redirect_to kaui_engine.account_path(account.account_id), :notice => 'Account email was successfully deleted'
   end
@@ -29,7 +29,6 @@ class Kaui::AccountEmailsController < Kaui::EngineController
 
   def account_email_params
     account_email = params.require(:account_email)
-    account_email.require(:account_id)
     account_email.require(:email)
     account_email
   end
