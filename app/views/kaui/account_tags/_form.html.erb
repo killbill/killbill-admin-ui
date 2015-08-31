@@ -1,40 +1,31 @@
 <%= form_tag update_account_tags_path, :class => 'form-horizontal' do %>
     <%= hidden_field_tag :account_id, @account.account_id %>
-    <fieldset>
-      <div class='control-group'>
-        <label class='control-label'>Account name</label>
 
-        <div class='controls'>
-          <label class='checkbox'>
-            <%= link_to @account.name, @account %><br/>
-            <%= @account.email %>
-          </label>
-        </div>
-      </div>
-      <div class='control-group'>
-        <%= label_tag :name, 'Tag', :class => 'control-label' %>
-        <div class='controls'>
-          <% @available_tags.each do |tag| %>
-              <label class='checkbox'>
+    <div class='form-group'>
+      <div class="col-sm-offset-2 col-sm-10">
+        <% @available_tags.each do |tag| %>
+            <div class="checkbox">
+              <label>
                 <%= check_box_tag "tag_#{tag.id}", tag.name, @tag_names.include?(tag.name) %>
-                <span href='#' class='tag-description' rel='tooltip' title='<%= tag.description %>'><%= tag.name %></span>
+                <span class='tag-description' rel='tooltip' title='<%= tag.description %>'><%= tag.name %></span>
               </label>
-          <% end %>
-        </div>
+            </div>
+        <% end %>
       </div>
-
-      <div class='control-group'>
-        <%= label_tag :comment, 'Comment', :class => "control-label" %>
-        <div class="controls">
-          <%= text_area_tag :comment, '', :rows => 3, :class => 'input-xlarge' %>
-        </div>
+    </div>
+    <div class="form-group">
+      <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
       </div>
-
-      <div class='form-actions'>
-        <%= button_tag 'Update', :class => 'btn btn-primary' %>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= submit_tag 'Update', :class => 'btn btn-default' %>
       </div>
-    </fieldset>
+    </div>
 <% end %>
+
 <%= javascript_tag do %>
 $(function() {
   $('.tag-description').tooltip();

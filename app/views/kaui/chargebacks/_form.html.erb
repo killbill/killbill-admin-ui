@@ -1,38 +1,40 @@
-<%= form_for(@chargeback, :html => {:class => 'form-horizontal'}) do |f| %>
-    <fieldset>
-      <%= f.hidden_field :payment_id %>
-      <%= f.hidden_field :currency %>
-      <div class="control-group">
-        <%= f.label :amount, 'Chargeback amount', :class => 'control-label' %>
-        <div class="controls">
-          <%= f.text_field :amount, :id => 'chargeback_amount', :class => 'input-sm' %>
-          <p class="help-inline"><%= @chargeback.currency %></p>
+<%= form_for @chargeback, :html => {:class => 'form-horizontal'} do |f| %>
+    <%= f.hidden_field :payment_id %>
+    <%= f.hidden_field :currency %>
+
+    <div class="form-group">
+      <%= f.label :amount, 'Chargeback amount', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :amount, :id => 'chargeback_amount', :class => 'form-control' %>
+        <p class="help-block"><%= @chargeback.currency %></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label_tag :reason, 'Reason', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= select_tag :reason, options_for_select(Kaui::Chargeback::SAMPLE_REASON_CODES), :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <%= label_tag :cancel_all_subs do %>
+              <%= check_box_tag :cancel_all_subs %>Cancel account subscriptions?
+          <% end %>
         </div>
       </div>
-      <div class="control-group">
-        <%= label_tag :reason, 'Reason', :class => 'control-label' %>
-        <div class="controls">
-          <%= select_tag :reason, options_for_select(Kaui::Chargeback::SAMPLE_REASON_CODES) %>
-        </div>
+    </div>
+    <div class="form-group">
+      <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
       </div>
-      <div class="control-group">
-        <%= label_tag :cancel_all_subs, 'Cancel account subscriptions?', :class => 'control-label' %>
-        <div class="controls">
-          <label class="checkbox">
-            <%= check_box_tag :cancel_all_subs %>
-          </label>
-        </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= submit_tag 'Apply chargeback', :class => 'btn btn-default' %>
       </div>
-      <div class="control-group">
-        <%= label_tag :comment, 'Comment', :class => 'control-label' %>
-        <div class="controls">
-          <%= text_area_tag :comment, '', :rows => 3, :class => 'input-xlarge' %>
-        </div>
-      </div>
-      <div class="form-actions">
-        <%= button_tag 'Apply chargeback', :class => 'btn btn-primary' %>
-      </div>
-    </fieldset>
+    </div>
 <% end %>
 
 <%= javascript_tag do %>

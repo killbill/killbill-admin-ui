@@ -1,12 +1,6 @@
-<%= form_tag search_path, :class => 'form-horizontal', :method => 'get' do %>
-    <fieldset>
-      <div class="control-group">
-        <div class="controls">
-          <%= text_field_tag :q, @search_query, :class => 'input-xlarge' %>
-        </div>
-      </div>
-      <div class="form-actions">
-        <%= button_tag 'Search', :class => 'btn btn-primary' %>
-      </div>
-    </fieldset>
+<%= form_tag search_path, :class => 'form-inline', :method => 'get' do %>
+    <div class="form-group">
+      <%= text_field_tag :q, @search_query, :class => 'form-control' %>
+    </div>
+    <%= button_tag 'Search', :class => 'btn btn-primary' %>
 <% end %>

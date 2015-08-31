@@ -1,30 +1,21 @@
 <h3>Transfer <%= link_to Kaui.bundle_key_display_string.call(@bundle.external_key), kaui_engine.account_bundles_path(@bundle.account_id) if @bundle.external_key.present? %>&nbsp;</h3>
-<%= form_tag do_transfer_bundle_path(@bundle.bundle_id), :class => 'form-horizontal', :method => :put do %>
-    <div class="control-group">
-      <%= label_tag :current_owner, 'Current account', :class => 'control-label' %>
-      <div class="controls">
-        <label class="checkbox">
-          <%= link_to @account.name, Kaui.account_home_path.call(@account.external_key) %><br/>
-          <%= link_to @account.email, Kaui.account_home_path.call(@account.external_key) %><br/>
-          <%= link_to @account.external_key, Kaui.account_home_path.call(@account.external_key) %>
-        </label>
-      </div>
-    </div>
-    <div class="control-group">
-      <label class="control-label" for="new_account_key">New Account</label>
 
-      <div class="controls">
-        <%= text_field_tag :new_account_key, nil, :class => 'input-xlarge' %>
+<%= form_tag do_transfer_bundle_path(@bundle.bundle_id), :class => 'form-horizontal', :method => :put do %>
+    <div class="form-group">
+      <%= label_tag :new_account_key, 'New Account', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= text_field_tag :new_account_key, nil, :class => 'form-control', :placeholder => 'New account id or external key' %>
       </div>
     </div>
-    <div class="control-group">
-      <%= label_tag :comment, 'Comment', :class => 'control-label' %>
-      <div class="controls">
-        <%= text_area_tag :comment, '', :rows => 3, :class => 'input-xlarge' %>
+    <div class="form-group">
+      <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-actions">
-      <%= submit_tag 'Change', :class => 'btn btn-primary' %>
-      <%= link_to 'Back', :back, :class => 'btn' %>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= submit_tag 'Change', :class => 'btn btn-default' %>
+      </div>
     </div>
 <% end %>

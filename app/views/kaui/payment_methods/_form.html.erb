@@ -1,30 +1,33 @@
 <%= form_for @payment_method, :html => {:class => 'form-horizontal'} do |f| %>
-    <fieldset>
-      <%= f.hidden_field :account_id %>
-      <div class="control-group">
-        <%= f.label :external_key, 'External key *', :class => 'control-label' %>
-        <div class="controls">
-          <%= f.text_field :external_key, :class => 'input-sm', :required => true %>
-        </div>
-      </div>
-      <div class="control-group">
-        <%= f.label :plugin_name, 'Plugin name *', :class => 'control-label' %>
-        <div class="controls">
-          <%= f.text_field :plugin_name, :class => 'input-sm', :required => true %>
-        </div>
-      </div>
-      <div id="creditcard">
-        <%= render :partial => 'new_creditcard_payment_method' %>
-      </div>
-      <div class="control-group">
-        <%= f.label :is_default, 'Default payment method?', :class => 'control-label' %>
-        <div class="controls">
-          <%= f.check_box :is_default, :class => 'input-sm' %>
-        </div>
-      </div>
+    <%= f.hidden_field :account_id %>
 
-      <div class="form-actions">
-        <%= button_tag 'Create payment method', :class => 'btn btn-primary' %>
+    <div class="form-group">
+      <%= f.label :external_key, 'External key', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :external_key, :class => 'form-control' %>
       </div>
-    </fieldset>
+    </div>
+    <div class="form-group">
+      <%= f.label :plugin_name, 'Plugin name', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :plugin_name, :class => 'form-control', :required => true %>
+      </div>
+    </div>
+    <div id="creditcard">
+      <%= render :partial => 'new_creditcard_payment_method' %>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <%= f.label :is_default do %>
+              <%= f.check_box :is_default %>Default payment method?
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= submit_tag 'Create payment method', :class => 'btn btn-default' %>
+      </div>
+    </div>
 <% end %>

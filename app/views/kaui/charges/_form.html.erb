@@ -1,69 +1,42 @@
-<%= form_for(@charge, :url => {:action => :create}, :html => {:class => 'form-horizontal'}) do |f| %>
+<%= form_for @charge, :url => {:action => :create}, :html => {:class => 'form-horizontal'} do |f| %>
     <%= f.hidden_field :account_id %>
-    <fieldset>
-      <% if @invoice.present? %>
-          <%= f.hidden_field :invoice_id %>
-          <%= f.hidden_field :currency %>
-          <div class="control-group">
-            <label class="control-label">Invoice number</label>
-            <div class="controls">
-              <label class="checkbox">
-                <%= @invoice.invoice_number %><br/>
-              </label>
-            </div>
+
+    <div class="form-group">
+      <%= f.label :amount, 'Charge amount', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :amount, :id => 'charge_amount', :class => 'form-control' %>
+        <% if @invoice.present? %>
+            <p class="help-block"><%= @invoice.currency %></p>
+        <% end %>
+      </div>
+    </div>
+    <% unless @invoice.present? %>
+        <div class="form-group">
+          <%= f.label :currency, 'Currency', :class => 'col-sm-2 control-label' %>
+          <div class="col-sm-10">
+            <%= f.select :currency, currencies, {:selected => 'USD'}, :class => 'form-control' %>
           </div>
-          <div class="control-group">
-            <label class="control-label">Invoice amount</label>
-            <div class="controls">
-              <label class="checkbox">
-                <%= @invoice.amount %> <%= @invoice.currency %>
-              </label>
-            </div>
-          </div>
-          <div class="control-group">
-            <label class="control-label">Balance</label>
-            <div class="controls">
-              <label class="checkbox">
-                <%= @invoice.balance.nil? ? '0.00' : @invoice.balance %> <%= @invoice.currency %>
-              </label>
-            </div>
-          </div>
-      <% end %>
-      <div class="control-group">
-        <%= f.label :amount, 'Charge amount', :class => 'control-label' %>
-        <div class="controls">
-          <%= f.text_field :amount, :id => 'charge_amount', :class => 'input-sm' %>
-          <% if @invoice.present? %>
-              <p class="help-inline"><%= @invoice.currency %></p>
-          <% end %>
         </div>
+    <% end %>
+    <div class="form-group">
+      <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
       </div>
-      <% unless @invoice.present? %>
-          <div class="control-group">
-            <%= f.label :currency, 'Currency', :class => 'control-label' %>
-            <div class="controls">
-              <%= f.select :currency, currencies, {}, :class => 'input-sm' %>
-            </div>
-          </div>
-      <% end %>
-      <div class="control-group">
-        <%= label_tag :comment, 'Comment', :class => 'control-label' %>
-        <div class="controls">
-          <%= text_area_tag :comment, '', :rows => 3, :class => 'input-xlarge' %>
-        </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, 'Description (Viewable on the invoice that the customer will see)', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_area :description, :rows => 3, :class => 'form-control' %>
       </div>
-      <div class="control-group">
-        <%= f.label :description, 'Description (Viewable on the invoice that the customer will see)', :class => 'control-label' %>
-        <div class="controls">
-          <%= f.text_area :description, :rows => 3, :class => 'input-xlarge' %>
-        </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= submit_tag 'Create charge', :class => 'btn btn-default' %>
       </div>
-      <div class="form-actions">
-        <%= button_tag 'Create charge', :class => 'btn btn-primary' %>
-        <%= link_to 'Back', :back, :class => 'btn' %>
-      </div>
-    </fieldset>
+    </div>
 <% end %>
+
 <%= javascript_tag do %>
 $(document).ready(function() {
   $("#charge_amount").keydown(function(event) {
