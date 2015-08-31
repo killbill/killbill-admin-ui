@@ -20,10 +20,10 @@ class Kaui::AccountsController < Kaui::EngineController
 
     accounts.each do |account|
       json[:aaData] << [
-          view_context.link_to(view_context.truncate_uuid(account.account_id), view_context.url_for(:action => :show, :account_id => account.account_id)),
-          account.name,
+          view_context.link_to(account.name, view_context.url_for(:action => :show, :account_id => account.account_id)),
+          view_context.truncate_uuid(account.account_id),
           account.external_key,
-          account.currency,
+          view_context.humanized_money_with_symbol(account.balance_to_money),
           account.city,
           account.country
       ]

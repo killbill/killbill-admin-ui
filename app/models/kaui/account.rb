@@ -20,9 +20,9 @@ class Kaui::Account < KillBillClient::Model::Account
 
   def self.list_or_search(search_key = nil, offset = 0, limit = 10, options = {})
     if search_key.present?
-      find_in_batches_by_search_key(search_key, offset, limit, false, false, options)
+      find_in_batches_by_search_key(search_key, offset, limit, true, false, options)
     else
-      find_in_batches(offset, limit, false, false, options)
+      find_in_batches(offset, limit, true, false, options)
     end
   end
 
