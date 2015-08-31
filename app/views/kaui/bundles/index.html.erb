@@ -1,27 +1,31 @@
-<dl class="dl-horizontal">
-  <dt>New base subscription:</dt>
-  <dd><%= link_to 'Create',
-                  kaui_engine.new_subscription_path(:params => {:account_id => @account.account_id, :product_category => 'BASE'}),
-                  :class => 'btn btn-xs' %></dd>
-</dl>
+<h3>
+  New base subscription:
+  <%= link_to 'Create',
+              kaui_engine.new_subscription_path(:params => {:account_id => @account.account_id, :product_category => 'BASE'}),
+              :class => 'btn btn-xs' %>
+</h3>
+
+<hr/>
 
 <% @bundles.each do |bundle| %>
+    <h3>Subscription Bundle</h3>
     <dl class="dl-horizontal">
       <dt>Id:</dt>
-      <dd><%= bundle.bundle_id %>&nbsp;</dd>
-      <dt>Bundle key:</dt>
-      <dd>
-        <%= bundle.external_key %>&nbsp;
-        <%= link_to 'Transfer Ownership', kaui_engine.transfer_bundle_path(bundle.bundle_id), :class => 'btn btn-xs' %>
-      </dd>
+      <dd><%= bundle.bundle_id %></dd>
+      <% unless bundle.bundle_id == bundle.external_key %>
+          <dt>Bundle key:</dt>
+          <dd><%= bundle.external_key %></dd>
+      <% end %>
+      <dt></dt>
+      <dd><%= link_to 'Transfer Ownership', kaui_engine.transfer_bundle_path(bundle.bundle_id), :class => 'btn btn-xs' %></dd>
 
       <%= render :partial => 'kaui/tags/tags_table',
                  :locals => {:tags => @tags_per_bundle[bundle.bundle_id],
-                             :tags_url_or_path => kaui_engine.edit_bundle_tags_path(:params => {:bundle_id => bundle.bundle_id}),
-                             :tags_show_path => kaui_engine.bundle_tags_path(:bundle_id => bundle.bundle_id)} %>
+                             :tags_url_or_path => kaui_engine.edit_bundle_tags_path(:params => {:bundle_id => bundle.bundle_id})} %>
 
       <% if bundle.subscriptions.present? %>
-          <%= render :partial => 'kaui/subscriptions/subscriptions_table', :locals => {:subscriptions => bundle.subscriptions, :account => @account} %>
+          <%= render :partial => 'kaui/subscriptions/subscriptions_table', :locals => {:bundle => bundle, :account => @account} %>
+          <hr/>
       <% end %>
     </dl>
 <% end %>
