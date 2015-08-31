@@ -26,6 +26,11 @@ Kaui::Engine.routes.draw do
 
   scope "/accounts" do
     match "/pagination" => "accounts#pagination", :via => :get, :as => "accounts_pagination"
+
+    scope '/:account_id/account_tags' do
+      match '/edit' => 'account_tags#edit', :via => :get, :as => 'edit_account_tags'
+      match '/edit' => 'account_tags#update', :via => :post, :as => 'update_account_tags'
+    end
   end
   resources :accounts, :only => [ :index, :new, :create, :show ], :param => :account_id do
     member do
@@ -92,12 +97,6 @@ Kaui::Engine.routes.draw do
     member do
       put :reinstate
     end
-  end
-
-  scope "/account_tags" do
-    match "/" => "account_tags#show", :via => :get, :as => "account_tags"
-    match "/edit" => "account_tags#edit", :via => :get, :as => "edit_account_tags"
-    match "/edit" => "account_tags#update", :via => :post, :as => "update_account_tags"
   end
 
   scope "/bundle_tags" do
