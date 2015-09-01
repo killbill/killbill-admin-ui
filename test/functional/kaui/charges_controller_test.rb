@@ -54,7 +54,7 @@ class Kaui::ChargesControllerTest < Kaui::FunctionalTestHelper
              :currency => 'USD',
              :description => SecureRandom.uuid
          }
-    assert_response :redirect
+    assert_redirected_to account_invoice_path(@account.account_id, @invoice_item.invoice_id)
     assert_equal 'Charge was successfully created', flash[:notice]
   end
 end

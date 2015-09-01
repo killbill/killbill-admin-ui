@@ -48,7 +48,7 @@ class Kaui::CreditsControllerTest < Kaui::FunctionalTestHelper
              :invoice_id => @invoice_item.invoice_id,
              :credit_amount => 5.34
          }
-    assert_redirected_to account_path(@account.account_id)
+    assert_redirected_to account_invoice_path(@account.account_id, @invoice_item.invoice_id)
     assert_equal 'Credit was successfully created', flash[:notice]
   end
 end

@@ -47,7 +47,7 @@ class Kaui::InvoiceItemsControllerTest < Kaui::FunctionalTestHelper
             :invoice_item_id => @invoice_item.invoice_item_id,
             :amount => 5.34
         }
-    assert_redirected_to invoice_path(assigns(:invoice_item).invoice_id)
+    assert_redirected_to account_invoice_path(@account.account_id, assigns(:invoice_item).invoice_id)
     assert_equal 'Adjustment item was successfully created', flash[:notice]
   end
 
@@ -74,7 +74,7 @@ class Kaui::InvoiceItemsControllerTest < Kaui::FunctionalTestHelper
            :id => @cba.invoice_item_id,
            :invoice_id => @cba.invoice_id,
            :account_id => @account.account_id
-    assert_redirected_to invoice_path(assigns(:invoice_item).invoice_id)
+    assert_redirected_to account_invoice_path(@account.account_id, assigns(:invoice_item).invoice_id)
     assert_equal 'CBA item was successfully deleted', flash[:notice]
   end
 end

@@ -19,7 +19,16 @@ class Kaui::CreditsController < Kaui::EngineController
     credit = Kaui::Credit.new(params[:credit].delete_if { |key, value| value.blank? })
     credit.account_id ||= params.require(:account_id)
 
+    # No need to show the newly created invoice for account level credits
+    should_redirect_to_invoice = credit.invoice_id.present?
+
     credit = credit.create(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
-    redirect_to kaui_engine.account_path(credit.account_id), :notice => 'Credit was successfully created'
+    flash[:notice] = 'Credit was successfully created'
+
+    if should_redirect_to_invoice
+      redirect_to kaui_engine.account_invoice_path(credit.account_id, credit.invoice_id)
+    else
+      redirect_to kaui_engine.account_path(credit.account_id)
+    end
   end
 end
