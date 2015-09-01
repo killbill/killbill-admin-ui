@@ -3,7 +3,7 @@ require 'test_helper'
 class Kaui::PaymentsControllerTest < Kaui::FunctionalTestHelper
 
   test 'should get index' do
-    get :index
+    get :index, :account_id => @invoice_item.account_id
     assert_response 200
   end
 
@@ -15,7 +15,7 @@ class Kaui::PaymentsControllerTest < Kaui::FunctionalTestHelper
 
   test 'should search payments' do
     # Test search
-    get :pagination, :sSearch => 'foo', :format => :json
+    get :pagination, :search => {:search => 'foo'}, :format => :json
     verify_pagination_results!
   end
 
@@ -32,5 +32,10 @@ class Kaui::PaymentsControllerTest < Kaui::FunctionalTestHelper
     # Test pagination
     get :pagination, :format => :json
     verify_pagination_results!(1)
+  end
+
+  test 'should expose restful endpoint' do
+    get :restful_show, :id => @payment.payment_id
+    assert_redirected_to account_payment_path(@payment.account_id, @payment.payment_id)
   end
 end

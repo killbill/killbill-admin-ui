@@ -21,12 +21,14 @@
 <%= javascript_tag do %>
 $(document).ready(function() {
   $('#accounts-table').dataTable({
-    "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-    "sPaginationType": "simple_numbers",
-    "bProcessing": true,
-    "bServerSide": true,
-    "oSearch": {"sSearch": "<%= @search_query %>"},
-    "sAjaxSource": "<%= accounts_pagination_path :format => :json %>"
+    "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+    "pagingType": "full_numbers",
+    "pageLength": 50,
+    "order": [[ 0, "asc" ]],
+    "processing": true,
+    "serverSide": true,
+    "search": {"search": "<%= @search_query %>"},
+    "ajax": "<%= accounts_pagination_path :format => :json %>"
   });
 });
 <% end %>

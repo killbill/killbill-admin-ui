@@ -4,29 +4,26 @@ class Kaui::TagsController < Kaui::EngineController
   end
 
   def pagination
-    search_key = params[:sSearch]
-    offset     = params[:iDisplayStart] || 0
-    limit      = params[:iDisplayLength] || 10
+    searcher = lambda do |search_key, offset, limit|
+      Kaui::Tag.list_or_search(search_key, offset, limit, options_for_klient)
+    end
 
-    tags = Kaui::Tag.list_or_search(search_key, offset, limit, options_for_klient)
-
-    json = {
-        :sEcho                => params[:sEcho],
-        :iTotalRecords        => tags.pagination_max_nb_records,
-        :iTotalDisplayRecords => tags.pagination_total_nb_records,
-        :aaData               => []
-    }
-
-    tags.each do |tag|
-      json[:aaData] << [
+    data_extractor = lambda do |tag, column|
+      [
           tag.tag_id,
           tag.object_type,
-          tag.tag_definition_name,
+          tag.tag_definition_name
+      ][column]
+    end
+
+    formatter = lambda do |tag|
+      [
+          tag.tag_id,
+          tag.object_type,
+          tag.tag_definition_name
       ]
     end
 
-    respond_to do |format|
-      format.json { render :json => json }
-    end
+    paginate searcher, data_extractor, formatter
   end
 end

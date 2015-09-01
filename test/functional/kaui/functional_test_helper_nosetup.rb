@@ -30,9 +30,10 @@ class Kaui::FunctionalTestHelperNoSetup < ActionController::TestCase
 
     body = MultiJson.decode(@response.body)
     # We could probably do better checks here since each test runs in its own tenant
-    assert body['iTotalRecords'] >= min
-    assert body['iTotalDisplayRecords'] >= min
-    assert body['aaData'].instance_of?(Array)
+    assert body['recordsTotal'] >= min
+    assert body['recordsFiltered'] >= min
+    assert body['data'].instance_of?(Array)
+    assert body['error'].nil?
   end
 
   def login_as_admin

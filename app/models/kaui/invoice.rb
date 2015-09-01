@@ -1,25 +1,20 @@
 class Kaui::Invoice < KillBillClient::Model::Invoice
 
   def self.build_from_raw_invoice(raw_invoice)
-    # There is probably a meta-programming trick to avoid writing that copy ctor by hand...
     result = Kaui::Invoice.new
-    result.amount = raw_invoice.amount
-    result.currency = raw_invoice.currency
-    result.credit_adj = raw_invoice.credit_adj
-    result.refund_adj = raw_invoice.refund_adj
-    result.invoice_id = raw_invoice.invoice_id
-    result.invoice_date = raw_invoice.invoice_date
-    result.target_date = raw_invoice.target_date
-    result.invoice_number = raw_invoice.invoice_number
-    result.balance = raw_invoice.balance
-    result.account_id = raw_invoice.account_id
-    result.external_bundle_keys = raw_invoice.external_bundle_keys
-    result.credits = raw_invoice.credits
-    result.items = raw_invoice.items
-    result.audit_logs = raw_invoice.audit_logs
+    KillBillClient::Model::InvoiceAttributes.instance_variable_get('@json_attributes').each do |attr|
+      result.send("#{attr}=", raw_invoice.send(attr))
+    end
     result
   end
 
+  def self.list_or_search(search_key = nil, offset = 0, limit = 10, options = {})
+    if search_key.present?
+      find_in_batches_by_search_key(search_key, offset, limit, options)
+    else
+      find_in_batches(offset, limit, options)
+    end
+  end
 
   [:amount, :balance, :credits].each do |type|
     define_method "#{type}_to_money" do

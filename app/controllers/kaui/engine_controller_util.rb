@@ -6,6 +6,43 @@ module Kaui::EngineControllerUtil
     layout ||= Kaui.config[:layout]
   end
 
+  def paginate(searcher, data_extractor, formatter)
+    search_key = (params[:search] || {})[:value].presence
+    offset = (params[:start] || 0).to_i
+    limit = (params[:length] || 10).to_i
+
+    limit = 2147483647 if limit == -1
+
+    begin
+      pages = searcher.call(search_key, offset, limit)
+    rescue => e
+      error = e.to_s
+    end
+
+    json = {
+        :draw => (params[:draw] || 0).to_i,
+        :recordsTotal => pages.nil? ? 0 : pages.pagination_max_nb_records,
+        :recordsFiltered => pages.nil? ? 0 : pages.pagination_total_nb_records,
+        :data => []
+    }
+    json[:error] = error unless error.nil?
+
+    pages ||= []
+
+    # Until we support server-side sorting
+    ordering = ((params[:order] || {})[:'0'] || {})
+    ordering_column = (ordering[:column] || 0).to_i
+    ordering_dir = ordering[:dir] || 'asc'
+    pages.sort! { |a, b| data_extractor.call(a, ordering_column) <=> data_extractor.call(b, ordering_column) }
+    pages.reverse! if ordering_dir == 'desc'
+
+    pages.each { |page| json[:data] << formatter.call(page) }
+
+    respond_to do |format|
+      format.json { render :json => json }
+    end
+  end
+
   def as_string(e)
     if e.is_a?(KillBillClient::API::ResponseError)
       "Error #{e.response.code}: #{as_string_from_response(e.response.body)}"

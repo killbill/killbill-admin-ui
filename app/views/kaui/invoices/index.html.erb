@@ -3,7 +3,6 @@
 <table id="invoices-table" class="table table-condensed">
   <thead>
     <tr>
-      <th>Invoice ID</th>
       <th>Invoice number</th>
       <th>Date</th>
       <th>Amount</th>
@@ -20,12 +19,13 @@
 <%= javascript_tag do %>
 $(document).ready(function() {
   $('#invoices-table').dataTable({
-    "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-    "sPaginationType": "simple_numbers",
-    "bProcessing": true,
-    "bServerSide": true,
-    "oSearch": {"sSearch": "<%= @search_query %>"},
-    "sAjaxSource": "<%= invoices_pagination_path :format => :json %>"
+    "dom": "t",
+    "paging": false,
+    "order": [[ 0, "desc" ]],
+    "processing": true,
+    "serverSide": true,
+    "search": {"search": "<%= @search_query %>"},
+    "ajax": "<%= invoices_pagination_path :format => :json %>"
   });
 });
 <% end %>

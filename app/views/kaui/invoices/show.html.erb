@@ -5,10 +5,20 @@
   <dt>Target date:</dt>
   <dd><%= @invoice.target_date.html_safe %>&nbsp;</dd>
   <dt>Amount:</dt>
-  <dd><%= humanized_money_with_symbol @invoice.amount_to_money %> (<%= @account.currency %>)&nbsp;</dd>
+  <dd><%= humanized_money_with_symbol @invoice.amount_to_money %> (<%= @invoice.currency %>)&nbsp;</dd>
   <dt>Balance:</dt>
-  <dd><%= humanized_money_with_symbol @invoice.balance_to_money %> (<%= @account.currency %>)&nbsp;</dd>
+  <dd><%= humanized_money_with_symbol @invoice.balance_to_money %> (<%= @invoice.currency %>)&nbsp;</dd>
 </dl>
+<% if can? :credit, Kaui::Account %>
+    <%= link_to 'Add credit',
+                kaui_engine.new_account_credit_path(@invoice.account_id, :currency => @invoice.currency, :invoice_id => @invoice.invoice_id),
+                :class => 'btn btn-xs' %>
+<% end %>
+<% if can? :charge, Kaui::Account %>
+    <%= link_to 'Create charge',
+                kaui_engine.new_account_charge_path(@invoice.account_id, :currency => @invoice.currency, :invoice_id => @invoice.invoice_id),
+                :class => 'btn btn-xs' %>
+<% end %>
 <div class="page-header">
   <h3>Invoice items</h3>
 </div>
@@ -28,33 +38,25 @@
         });
     }
 </script>
-<table id="invoice_table" class="table table-condensed data-table">
+<table id="invoice-table" class="table table-condensed">
   <thead>
   <tr>
-    <th style="width: 10%">External Key</th>
-    <th style="width: 20%">Description</th>
-    <th style="width: 10%">Start date</th>
-    <th style="width: 10%">End date</th>
-    <th style="width: 10%">Charged through date</th>
-    <th style="width: 10%">Price list</th>
-    <th style="width: 10%">Amount</th>
-    <th style="width: 10%">Comments</th>
-    <th style="width: 10%"></th>
+    <th>Description</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Subscription ID</th>
+    <th>Amount</th>
+    <th>Comments</th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
   <% @invoice.items.each do |item| %>
-      <% sub = @subscriptions[item.subscription_id] %>
-      <% bundle = @bundles[item.bundle_id] %>
       <tr id=<%= "invoice_item_#{item.invoice_item_id}_#{item.linked_invoice_item_id}" %>>
-        <td>
-          <%= link_to Kaui.bundle_key_display_string.call(bundle.external_key), kaui_engine.account_bundles_path(bundle.account_id) if bundle.present? and bundle.external_key.present? %>
-        </td>
         <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.description %></td>
         <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.start_date.html_safe if item.start_date %></td>
         <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.end_date.html_safe if item.end_date %></td>
-        <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= format_date(sub.charged_through_date, @account.time_zone).html_safe if sub.present? %></td>
-        <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= sub.price_list.downcase.capitalize if sub.present? and sub.price_list.present? %></td>
+        <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.subscription_id %></td>
         <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= humanized_money_with_symbol Kaui::InvoiceItem.amount_to_money(item) %>
           (<%= item.currency %>)
         </td>
@@ -67,13 +69,6 @@
                             :class => "btn btn-xs #{'disabled' unless item.amount > 0}" %>
               </nobr>
           <% end %>
-          <nobr>
-            <%= link_to 'Delete',
-                        kaui_engine.invoice_item_path(item.invoice_item_id, :account_id => @invoice.account_id, :invoice_id => @invoice.invoice_id),
-                        :confirm => 'Are you sure?',
-                        :method => :delete,
-                        :class => "btn btn-xs #{'disabled' unless item.description =~ /account credit/ and item.amount > 0 and item.linked_invoice_item_id.nil? and !@cba_items_not_deleteable.include?(item.invoice_item_id) and @invoice.balance - item.amount >= 0}" %>
-          </nobr>
         </td>
       </tr>
   <% end %>
@@ -94,5 +89,20 @@
 
   $(document).ready(function() {
     disableLinks();
+
+    $('#invoice-table').dataTable({
+      "dom": "t",
+      "paging": false,
+      "order": [[ 1, "asc" ]],
+      "columns": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        { "orderable": false }
+      ]
+    });
   });
 <% end %>

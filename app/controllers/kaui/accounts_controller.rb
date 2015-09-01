@@ -5,21 +5,23 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def pagination
-    search_key = params[:sSearch]
-    offset = params[:iDisplayStart] || 0
-    limit = params[:iDisplayLength] || 10
+    searcher = lambda do |search_key, offset, limit|
+      Kaui::Account.list_or_search(search_key, offset, limit, options_for_klient)
+    end
 
-    accounts = Kaui::Account.list_or_search(search_key, offset, limit, options_for_klient)
+    data_extractor = lambda do |account, column|
+      [
+          account.name,
+          account.account_id,
+          account.external_key,
+          account.account_balance,
+          account.city,
+          account.country
+      ][column]
+    end
 
-    json = {
-        :sEcho => params[:sEcho],
-        :iTotalRecords => accounts.pagination_max_nb_records,
-        :iTotalDisplayRecords => accounts.pagination_total_nb_records,
-        :aaData => []
-    }
-
-    accounts.each do |account|
-      json[:aaData] << [
+    formatter = lambda do |account|
+      [
           view_context.link_to(account.name, view_context.url_for(:action => :show, :account_id => account.account_id)),
           view_context.truncate_uuid(account.account_id),
           account.external_key,
@@ -29,9 +31,7 @@ class Kaui::AccountsController < Kaui::EngineController
       ]
     end
 
-    respond_to do |format|
-      format.json { render :json => json }
-    end
+    paginate searcher, data_extractor, formatter
   end
 
   def new

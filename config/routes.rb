@@ -24,8 +24,8 @@ Kaui::Engine.routes.draw do
 
   root :to => "home#index", as: 'kaui'
 
-  scope "/accounts" do
-    match "/pagination" => "accounts#pagination", :via => :get, :as => "accounts_pagination"
+  scope '/accounts' do
+    match '/pagination' => 'accounts#pagination', :via => :get, :as => 'accounts_pagination'
 
     scope '/:account_id' do
       scope '/account_tags' do
@@ -51,7 +51,8 @@ Kaui::Engine.routes.draw do
     resources :bundles, :only => [:index]
     resources :charges, :only => [:new, :create]
     resources :credits, :only => [:new, :create]
-    resources :invoices, :only => [:index]
+    resources :invoices, :only => [:index, :show]
+    resources :payments, :only => [:index, :show]
   end
 
   resources :account_timelines, :only => [ :index, :show ] do
@@ -68,10 +69,6 @@ Kaui::Engine.routes.draw do
 
   resources :external_payments, :only => [ :create, :new ]
 
-  scope "/payments" do
-    match "/pagination" => "payments#pagination", :via => :get, :as => "payments_pagination"
-  end
-  resources :payments, :only => [ :create, :new, :index, :show ]
   resources :transactions, :only => [ :create, :new ]
 
   resources :payment_methods, :only => [ :new, :create, :destroy ]
@@ -81,16 +78,19 @@ Kaui::Engine.routes.draw do
   end
   resources :refunds, :only => [ :index, :show, :create, :new ]
 
-  scope "/invoices" do
-    match "/pagination" => "invoices#pagination", :via => :get, :as => "invoices_pagination"
-  end
-  resources :invoices, :only => [ :show ] do
-    member do
-      get :show_html
-    end
+  scope '/invoices' do
+    match '/pagination' => 'invoices#pagination', :via => :get, :as => 'invoices_pagination'
+    match '/:id/show_html' => 'invoices#show_html', :via => :get, :as => 'show_html_invoice'
+    match '/:id' => 'invoices#restful_show', :via => :get, :as => 'invoice'
   end
 
   resources :invoice_items, :only => [:edit, :update, :destroy]
+
+  scope '/payments' do
+    match '/pagination' => 'payments#pagination', :via => :get, :as => 'payments_pagination'
+    match '/:id' => 'payments#restful_show', :via => :get, :as => 'payment'
+  end
+  resources :payments, :only => [:new, :create]
 
   scope '/bundles' do
     put '/:id/do_transfer', :to => 'bundles#do_transfer', :as => 'do_transfer_bundle'

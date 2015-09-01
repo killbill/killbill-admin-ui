@@ -3,9 +3,8 @@
 <table id="custom_fields-table" class="table table-condensed">
   <thead>
     <tr>
-      <th>Tag ID</th>
-      <th>Object type</th>
-      <th>Tag definition name</th>
+      <th>Custom field name</th>
+      <th>Custom field value</th>
     </tr>
   </thead>
   <tbody>
@@ -18,11 +17,11 @@
 <%= javascript_tag do %>
 $(document).ready(function() {
   $('#custom_fields-table').dataTable({
-    "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-    "sPaginationType": "simple_numbers",
-    "bProcessing": true,
-    "bServerSide": true,
-    "sAjaxSource": "<%= custom_fields_pagination_path :format => :json %>"
+    "dom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+    "pagingType": "full_numbers",
+    "processing": true,
+    "serverSide": true,
+    "ajax": "<%= custom_fields_pagination_path :format => :json %>"
   });
 });
 <% end %>
