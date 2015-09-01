@@ -1,3 +1,30 @@
-<%= render :partial => 'kaui/payments/payments_table' %>
+<h3>Payment number: <%= @payment.payment_number %></h3>
+<%= render :partial => 'kaui/payments/payments_table',
+           :locals => {:payment => @payment, :account => @account} %>
 
-<%= link_to 'Go to Account', kaui_engine.account_path(@payments.first.account_id), :class => 'btn', :target => '_blank' %>
+<% if @payment_method.nil? %>
+    The Payment method has been deleted.
+<% else %>
+    <dl class="dl-horizontal">
+      <dt>Plugin name:</dt>
+      <dd><%= @payment_method.plugin_name %></dd>
+      <% unless @payment_method.plugin_info.blank? %>
+          <% unless @payment_method.plugin_info.external_payment_method_id.blank? %>
+              <dt>External ID:</dt>
+              <dd><%= @payment_method.plugin_info.external_payment_method_id %></dd>
+          <% end %>
+          <% unless @payment_method.plugin_info.properties.blank? %>
+              <dt>Properties:</dt>
+              <dd>
+                <ul>
+                  <% @payment_method.plugin_info.properties.each do |property| %>
+                      <% unless property.value.blank? %>
+                          <li><%= property.key %>: <%= property.value %></li>
+                      <% end %>
+                  <% end %>
+                </ul>
+              </dd>
+          <% end %>
+      <% end %>
+    </dl>
+<% end %>

@@ -38,7 +38,7 @@ class Kaui::PaymentsController < Kaui::EngineController
 
     formatter = lambda do |payment|
       [
-          view_context.link_to(payment.payment_number, view_context.url_for(:controller => :payments, :action => :show, :id => payment.payment_id)),
+          view_context.link_to(payment.payment_number, view_context.url_for(:controller => :payments, :action => :show, :account_id => payment.account_id, :id => payment.payment_id)),
           view_context.format_date(payment.payment_date),
           view_context.humanized_money_with_symbol(payment.paid_amount_to_money),
           view_context.humanized_money_with_symbol(payment.returned_amount_to_money)
@@ -96,14 +96,10 @@ class Kaui::PaymentsController < Kaui::EngineController
   end
 
   def show
-    begin
-      @payments = [Kaui::InvoicePayment.find_by_id(params[:id], true, options_for_klient)]
-      @account = Kaui::Account.find_by_id(@payments.first.account_id, false, false, options_for_klient)
-      @payment_methods = Kaui::PaymentMethod.payment_methods_for_payments(@payments, options_for_klient)
-    rescue => e
-      flash.now[:error] = "Error while looking up payment: #{as_string(e)}"
-      render :action => :index
-    end
+    @payment = Kaui::InvoicePayment.find_by_id(params.require(:id), true, options_for_klient)
+    @account = Kaui::Account.find_by_id(@payment.account_id, false, false, options_for_klient)
+    # The payment method may have been deleted
+    @payment_method = Kaui::PaymentMethod.find_by_id(@payment.payment_method_id, true, options_for_klient) rescue nil
   end
 
   def restful_show

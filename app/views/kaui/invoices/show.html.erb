@@ -1,4 +1,4 @@
-<h3>Invoice number: INV<%= @invoice.invoice_number %></h3>
+<h2>Invoice number: INV<%= @invoice.invoice_number %></h2>
 <dl class="dl-horizontal">
   <dt>Invoice date:</dt>
   <dd><%= @invoice.invoice_date.html_safe %>&nbsp;</dd>
@@ -19,9 +19,8 @@
                 kaui_engine.new_account_charge_path(@invoice.account_id, :currency => @invoice.currency, :invoice_id => @invoice.invoice_id),
                 :class => 'btn btn-xs' %>
 <% end %>
-<div class="page-header">
-  <h3>Invoice items</h3>
-</div>
+
+<h3>Invoice items</h3>
 <script language="javascript">
     function hightlightLinkedItems(invoice_item_id, linked_invoice_item_id) {
         $("#invoice_table tr:gt(0)").each(function (index) {
@@ -74,9 +73,15 @@
   <% end %>
   </tbody>
 </table>
-<div class="page-header">
-  <%= render :partial => 'kaui/payments/payments_table' %>
-</div>
+
+<% unless @payments.empty? %>
+    <h3>Payments</h3>
+<% end %>
+<% @payments.each do |payment| %>
+    <h4>Payment number: <%= link_to payment.payment_number, account_payment_path(@account.account_id, payment.payment_id) %></h4>
+    <%= render :partial => 'kaui/payments/payments_table',
+               :locals => {:payment => payment, :account => @account, :payment_methods => @payment_methods} %>
+<% end %>
 
 <%= link_to 'View customer invoice html', kaui_engine.show_html_invoice_path(@invoice.invoice_id), :class => 'btn', :target => '_blank' unless @invoice.blank? %>
 <%= javascript_tag do %>

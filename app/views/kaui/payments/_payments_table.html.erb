@@ -1,41 +1,48 @@
-<div class="page-header">
-  <h3>Payments</h3>
-</div>
-<table class="table table-condensed table-striped data-table">
+<table id="payment_<%= payment.payment_id %>" class="table table-condensed table-striped">
   <thead>
   <tr>
-    <th>Effective date</th>
-    <th>Transaction type</th>
+    <th>Date</th>
+    <th>Type</th>
     <th>Amount</th>
-    <th>Payment method</th>
-    <th>First / Second reference id</th>
-    <th>Status</th>
+    <th>First id</th>
+    <th>Second id</th>
+    <th>Gateway code</th>
     <th>Gateway message</th>
+    <th>Status</th>
   </tr>
   </thead>
   <tbody>
-  <% if @payments.present? %>
-      <% @payments.each do |payment| %>
-          <% payment.transactions.each do |transaction| %>
-              <tr>
-                <td><%= format_date(transaction.effective_date, @account.time_zone).html_safe if transaction.effective_date.present? %></td>
-                <td><%= transaction.transaction_type %></td>
-                <td><% if transaction.amount.present? %><%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
-                  (<%= transaction.currency %>)<% end %>
-                </td>
-                <td><%= link_to truncate_uuid(@payment_methods[transaction.payment_id].payment_method_id), kaui_engine.payment_method_path(@payment_methods[transaction.payment_id].payment_method_id) if @payment_methods.present? and @payment_methods[transaction.payment_id].present? %></td>
-                <td><%= transaction.first_payment_reference_id %> <%= " / " if transaction.second_payment_reference_id.present? %> <%= transaction.second_payment_reference_id %></td>
-                <td>
-                  <span
-                  <% if transaction.status != 'SUCCESS' %>class='alert-error'
-                  <% else %>class='alert-success' <% end %>>
-                  <%= transaction.status %> <%= transaction.gateway_error_code unless transaction.status == 'SUCCESS' %> <%= transaction.gateway_error_msg %>
-                  </span>
-                </td>
-                <td><%= transaction.gateway_error_msg %></td>
-              </tr>
+  <% (payment.transactions || []).each do |transaction| %>
+      <tr>
+        <td><%= format_date(transaction.effective_date, account.time_zone).html_safe %></td>
+        <td><%= transaction.transaction_type %></td>
+        <td>
+          <% if transaction.amount.present? %>
+              <%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
+              (<%= transaction.currency %>)
           <% end %>
-      <% end %>
+        </td>
+        <td><%= transaction.first_payment_reference_id %></td>
+        <td><%= transaction.second_payment_reference_id %></td>
+        <td><%= transaction.gateway_error_code %></td>
+        <td><%= transaction.gateway_error_msg %></td>
+        <td>
+          <span
+          <% if transaction.status != 'SUCCESS' %>class='alert-danger'
+          <% else %>class='alert-success' <% end %>>
+          <%= transaction.status %>
+          </span>
+        </td>
+      </tr>
   <% end %>
   </tbody>
 </table>
+
+<%= javascript_tag do %>
+  $(document).ready(function() {
+    $('#payment_<%= payment.payment_id %>').dataTable({
+      "dom": "t",
+      "paginate": false
+    });
+  });
+<% end %>

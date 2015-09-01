@@ -39,6 +39,7 @@ class Kaui::InvoicesController < Kaui::EngineController
     @invoice = Kaui::Invoice.find_by_id_or_number(params.require(:id), true, 'FULL', options_for_klient)
     @payments = Kaui::Invoice.new(:invoice_id => @invoice.invoice_id).payments(false, 'FULL', options_for_klient)
     @account = Kaui::Account.find_by_id(@invoice.account_id, false, false, options_for_klient)
+    @payment_methods = Kaui::PaymentMethod.payment_methods_for_payments(@payments, options_for_klient)
   end
 
   def restful_show
