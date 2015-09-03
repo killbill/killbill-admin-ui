@@ -1,111 +1,74 @@
 <div class="page-header">
   <h1>Refund Payment</h1>
 </div>
-<%= form_for(@refund, :url => {:action => :create}, :html => {:class => "form-horizontal"}) do |f| %>
+
+<%= form_for @refund, :url => {:action => :create}, :html => {:class => 'form-horizontal'} do |f| %>
     <%= hidden_field_tag :account_id, @account.account_id %>
     <%= hidden_field_tag :payment_id, @payment.payment_id %>
     <%= hidden_field_tag :invoice_id, @invoice.invoice_id %>
-    <fieldset>
-      <div class="control-group">
-        <label class="control-label">Date</label>
-        <div class="controls">
-          <label class="checkbox">
-            <%= DateTime.now.to_s(:pretty) %>
-          </label>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <%= label_tag :adjustment_type do %>
+              <%= radio_button_tag :adjustment_type, 'noInvoiceAdjustment', :checked => true %>
+              No Invoice Adjustment
+          <% end %>
         </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Invoice number</label>
-        <div class="controls">
-          <label class="checkbox">
-            <%= @invoice.invoice_number %><br/>
-          </label>
-        </div>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Account name</label>
-        <div class="controls">
-          <label class="checkbox">
-            <%= @account.name %><br/>
-            <%= @account.email %>
-          </label>
-        </div>
-      </div>
-      <div class="control-group">
-        <%= label_tag :adjustment_type, 'Adjustment Type', :class => 'control-label' %>
-        <div class="controls">
-          <label class="radio">
-            <%= radio_button_tag :adjustment_type, 'noInvoiceAdjustment', :checked => true %>
-            No Invoice Adjustment
-          </label>
-        </div>
-        <% if can? :adjust, Kaui::Invoice %>
-            <div class="controls">
-              <label class="radio">
-                <%= radio_button_tag :adjustment_type, 'invoiceAdjustment' %>
-                Invoice Adjustment
-              </label>
-            </div>
-        <% end %>
         <% if can? :item_adjust, Kaui::Invoice %>
-            <div class="controls">
-              <label class="radio">
-                <%= radio_button_tag :adjustment_type, 'invoiceItemAdjustment' %>
-                Invoice Item Adjustment
-              </label>
+            <div class="checkbox">
+              <%= label_tag :adjustment_type do %>
+                  <%= radio_button_tag :adjustment_type, 'invoiceItemAdjustment' %>
+                  Invoice Item Adjustment
+              <% end %>
             </div>
         <% end %>
       </div>
-      <div id="invoiceItems" style="display:none">
-        <% @invoice.items.each_with_index do |ii, index| %>
-            <% if ii.amount > 0 %>
-                <div id=<%= "div_#{ii.invoice_item_id}" %> class="control-group">
-                  <label class="control-label"></label>
+    </div>
 
-                  <div class="controls">
-                    <input type="checkbox" id=<%= "cb_adj_#{ii.invoice_item_id}" %>>
-                    <%= "Item #{index + 1} : #{ii.description} " %>
-                    <%= text_field_tag "adjustments[#{ii.invoice_item_id}]", index, :id => "tf_adj_#{ii.invoice_item_id}", :value => ii.amount, :class => 'input-sm' %>
-                  </div>
+    <div id="invoiceItems" style="display:none">
+      <% @invoice.items.each_with_index do |ii, index| %>
+          <% if ii.amount > 0 %>
+              <div id=<%= "div_#{ii.invoice_item_id}" %> class="form-group">
+                <label class="col-sm-2 control-label"></label>
+
+                <div class="col-sm-10">
+                  <input type="checkbox" id=<%= "cb_adj_#{ii.invoice_item_id}" %>>
+                  <%= "Item #{index + 1} : #{ii.description} " %>
+                  <%= text_field_tag "adjustments[#{ii.invoice_item_id}]", index, :id => "tf_adj_#{ii.invoice_item_id}", :value => ii.amount, :class => 'form-control' %>
                 </div>
-            <% end %>
-        <% end %>
-      </div>
-      <div class="control-group">
-        <label class="control-label">Paid Amount</label>
-        <div class="controls">
-          <label class="checkbox">
-            <%= @payment.purchased_amount %> <%= @account.currency if @payment.purchased_amount.present? %>
-          </label>
-        </div>
-      </div>
-      <div id="div_refund_amount" class="control-group">
-        <%= label_tag :amount, 'Refund amount', :class => 'control-label' %>
-        <div class="controls">
-          <%= text_field_tag :amount, @payment.purchased_amount, :id => 'refund_amount', :class => 'input-sm' %>
-          <p class="help-inline"><%= @account.currency %></p>
-        </div>
-      </div>
-      <div class="control-group">
-        <%= label_tag :reason, "Reason", :class => "control-label" %>
-        <div class="controls">
-          <%= select_tag :reason, options_for_select(Kaui::Refund::SAMPLE_REASON_CODES) %>
-        </div>
-      </div>
-      <div class="control-group">
-        <%= label_tag :comment, "Comment", :class => "control-label" %>
-        <div class="controls">
-          <%= text_area_tag :comment, "", :rows => 3, :class => 'input-xlarge' %>
-        </div>
-      </div>
-      <div class="form-actions">
-        <%= button_tag "Create refund", :id => "submit", :class => "btn btn-primary" %>
-        <%= link_to 'Back', :back, :class => 'btn' %>
-      </div>
-    </fieldset>
-<% end %>
-<%= javascript_tag do %>
+              </div>
+          <% end %>
+      <% end %>
+    </div>
 
+    <div id="div_refund_amount" class="form-group">
+      <%= label_tag :amount, 'Refund amount', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= text_field_tag :amount, @payment.purchased_amount, :id => 'refund_amount', :class => 'form-control' %>
+        <p class="help-block"><%= @account.currency %></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label_tag :reason, 'Reason', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= select_tag :reason, options_for_select(Kaui::Refund::SAMPLE_REASON_CODES), :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= submit_tag 'Create refund', :class => 'btn btn-default' %>
+      </div>
+    </div>
+<% end %>
+
+<%= javascript_tag do %>
     var textToDivId = function(textId) {
         return "div_" + textId.split("tf_adj_")[1];
     };
@@ -129,19 +92,19 @@
     var validateInvoiceItemAmount = function(id) {
         var divId = textToDivId(id);
         if (Number($("#" + id).attr('value')) > Number($("#" + id).attr('originalValue'))) {
-            setClassForElement($("#" + divId), "control-group error");
+            setClassForElement($("#" + divId), "form-group error");
         } else {
-            setClassForElement($("#" + divId), "control-group");
+            setClassForElement($("#" + divId), "form-group");
         }
     };
 
     var validateRefundAmount = function() {
         if (Number($("#refund_amount").attr('value')) > <%= @payment.purchased_amount %> ||
           Number($("#refund_amount").attr('value')) <= 0) {
-          setClassForElement("#div_refund_amount", "control-group error");
+          setClassForElement("#div_refund_amount", "form-group error");
           $("#submit").prop('disabled', true);
         } else {
-          setClassForElement("#div_refund_amount", "control-group");
+          setClassForElement("#div_refund_amount", "form-group");
           $("#submit").prop('disabled', false);
         }
     };
@@ -278,5 +241,4 @@
             });
         });
     });
-
 <% end %>
