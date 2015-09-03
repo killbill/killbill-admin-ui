@@ -39,12 +39,12 @@
 </table>
 
 <%= javascript_tag do %>
-    $(document).ready(function() {
+  $(document).ready(function() {
     $('#payment_<%= payment.payment_id %>').dataTable({
-    "dom": "t",
-    "paginate": false
+      "dom": "t",
+      "paging": false
     });
-    });
+  });
 <% end %>
 
 <h4>Actions</h4>
