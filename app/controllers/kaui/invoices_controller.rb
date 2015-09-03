@@ -37,7 +37,7 @@ class Kaui::InvoicesController < Kaui::EngineController
 
   def show
     @invoice = Kaui::Invoice.find_by_id_or_number(params.require(:id), true, 'FULL', options_for_klient)
-    @payments = Kaui::Invoice.new(:invoice_id => @invoice.invoice_id).payments(false, 'FULL', options_for_klient)
+    @payments = Kaui::Invoice.new(:invoice_id => @invoice.invoice_id).payments(true, 'FULL', options_for_klient).map { |payment| Kaui::InvoicePayment.build_from_raw_payment(payment) }
     @account = Kaui::Account.find_by_id(@invoice.account_id, false, false, options_for_klient)
     @payment_methods = Kaui::PaymentMethod.payment_methods_for_payments(@payments, options_for_klient)
   end

@@ -94,19 +94,19 @@
 </dl>
 
 <% if @payment_methods.present? %>
-    <%= render :partial => 'kaui/payment_methods/payment_methods_table', :locals => {:account_id => @account.account_id, :payment_methods => @payment_methods} %>
+    <%= render :partial => 'kaui/payment_methods/payment_methods_table', :locals => {:account => @account, :payment_methods => @payment_methods} %>
 <% end %>
 <%= link_to 'Add payment method', kaui_engine.new_payment_method_path(:account_id => @account.account_id), :class => 'btn btn-xs' %>
 
 <%= javascript_tag do %>
-    function disableLinks() {
+  function disableLinks() {
     $('a.btn.disabled').click(function (e) {
-    // e.preventDefault(); is not enough here
-    return false;
+      // e.preventDefault(); is not enough here
+      return false;
     });
-    }
+  }
 
-    $(document).ready(function() {
+  $(document).ready(function() {
     disableLinks();
-    });
+  });
 <% end %>

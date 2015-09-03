@@ -53,6 +53,7 @@ Kaui::Engine.routes.draw do
     resources :credits, :only => [:new, :create]
     resources :invoices, :only => [:index, :show]
     resources :payments, :only => [:index, :show]
+    resources :transactions, :only => [:new, :create]
   end
 
   resources :account_timelines, :only => [ :index, :show ] do
@@ -68,8 +69,6 @@ Kaui::Engine.routes.draw do
   resources :chargebacks, :only => [ :create, :new ]
 
   resources :external_payments, :only => [ :create, :new ]
-
-  resources :transactions, :only => [ :create, :new ]
 
   resources :payment_methods, :only => [ :new, :create, :destroy ]
 

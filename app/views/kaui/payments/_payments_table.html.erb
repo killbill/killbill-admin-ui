@@ -39,10 +39,70 @@
 </table>
 
 <%= javascript_tag do %>
-  $(document).ready(function() {
+    $(document).ready(function() {
     $('#payment_<%= payment.payment_id %>').dataTable({
-      "dom": "t",
-      "paginate": false
+    "dom": "t",
+    "paginate": false
     });
-  });
+    });
 <% end %>
+
+<h4>Actions</h4>
+<ul>
+  <% if payment.refundable? %>
+      <% if can? :refund, Kaui::Payment %>
+          <% if payment.target_invoice_id.present? %>
+              <li>
+                <%= link_to 'Refund', kaui_engine.new_refund_path(:params => {:payment_id => payment.payment_id,
+                                                                              :account_id => payment.account_id,
+                                                                              :invoice_id => payment.target_invoice_id}) %>
+              </li>
+          <% else %>
+              <li>
+                <%= link_to 'Refund', kaui_engine.new_account_transaction_path(payment.account_id,
+                                                                               :payment_id => payment.payment_id,
+                                                                               :payment_method_id => payment.payment_method_id,
+                                                                               :amount => payment.amount_refundable,
+                                                                               :currency => payment.currency,
+                                                                               :transaction_type => 'REFUND'), :class => 'btn btn-xs' %>
+              </li>
+          <% end %>
+      <% end %>
+      <% if can? :chargeback, Kaui::Payment %>
+          <% if payment.target_invoice_id.present? %>
+              <li>
+                <%= link_to 'Chargeback', kaui_engine.new_chargeback_path(:params => {:payment_id => payment.payment_id,
+                                                                                      :account_id => payment.account_id,
+                                                                                      :invoice_id => payment.target_invoice_id}) %>
+              </li>
+          <% else %>
+              <li>
+                <%= link_to 'Chargeback', kaui_engine.new_account_transaction_path(payment.account_id,
+                                                                                   :payment_id => payment.payment_id,
+                                                                                   :payment_method_id => payment.payment_method_id,
+                                                                                   :amount => payment.amount_refundable,
+                                                                                   :currency => payment.currency,
+                                                                                   :transaction_type => 'CHARGEBACK'), :class => 'btn btn-xs' %>
+              </li>
+          <% end %>
+      <% end %>
+  <% end %>
+  <% if payment.capturable? %>
+      <li>
+        <%= link_to 'Capture', kaui_engine.new_account_transaction_path(payment.account_id,
+                                                                        :payment_id => payment.payment_id,
+                                                                        :payment_method_id => payment.payment_method_id,
+                                                                        :amount => payment.amount_capturable,
+                                                                        :currency => payment.currency,
+                                                                        :transaction_type => 'CAPTURE'), :class => 'btn btn-xs' %>
+      </li>
+  <% end %>
+  <% if payment.voidable? %>
+      <li>
+        <%= link_to 'Void', kaui_engine.new_account_transaction_path(payment.account_id,
+                                                                     :payment_id => payment.payment_id,
+                                                                     :payment_method_id => payment.payment_method_id,
+                                                                     :transaction_type => 'VOID'), :class => 'btn btn-xs' %>
+      </li>
+  <% end %>
+</ul>

@@ -26,7 +26,7 @@ class Kaui::TransactionsControllerTest < Kaui::FunctionalTestHelper
              :currency             => 'USD',
              :transaction_type     => 'AUTHORIZE'
          }
-    assert_redirected_to account_timeline_path(@account.account_id)
+    assert_response :redirect
     assert_equal 'Transaction successfully created', flash[:notice]
   end
 end
