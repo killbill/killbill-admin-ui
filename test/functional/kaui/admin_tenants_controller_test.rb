@@ -2,24 +2,23 @@ require 'test_helper'
 
 module Kaui
   class AdminTenantsControllerTest < Kaui::FunctionalTestHelper
-    test "should get new" do
+    test 'should get new' do
       post :new
       assert_response :success
     end
 
-    test "should get create" do
+    test 'should get create' do
       now = Time.now.to_s
-      post :create, { :tenant => { :name => 'Goldorak_' + now, :api_key => '12345_' + now, :api_secret => 'ItH@st0beComplic@ted'}, :create_tenant => true}
+      post :create, {:tenant => {:name => 'Goldorak_' + now, :api_key => '12345_' + now, :api_secret => 'ItH@st0beComplic@ted'}, :create_tenant => true}
       assert_response 302
     end
 
-
-    test "should get index" do
+    test 'should get index' do
       get :index
       assert_response :success
     end
 
-    test "should get show with allowed user" do
+    test 'should get show with allowed user' do
       tenant = Kaui::Tenant.new
       tenant.name = 'foo'
       tenant.api_key = 'api_key'
@@ -35,7 +34,7 @@ module Kaui
       assert_response :success
     end
 
-    test "should get show with NO allowed user" do
+    test 'should get show with NO allowed user' do
       tenant = Kaui::Tenant.new
       tenant.name = 'foo'
       tenant.api_key = 'api_key'
@@ -45,9 +44,6 @@ module Kaui
 
       get :show, :id => tenant.id
       assert_response 302
-      # Clear it before we call check_no_flash_error
-      flash[:error] = nil
     end
-
   end
 end

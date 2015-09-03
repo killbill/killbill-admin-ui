@@ -1,48 +1,52 @@
-module Kaui
-  class AdminAllowedUsersController < Kaui::EngineController
+class Kaui::AdminAllowedUsersController < Kaui::EngineController
 
-    skip_before_filter :check_for_redirect_to_tenant_screen
+  skip_before_filter :check_for_redirect_to_tenant_screen
 
-    def index
-      @allowed_users = Kaui::AllowedUser.all
-    end
+  def index
+    @allowed_users = Kaui::AllowedUser.all
+  end
 
-    def new
-      @allowed_user = Kaui::AllowedUser.new
-    end
+  def new
+    @allowed_user = Kaui::AllowedUser.new
+  end
 
-    def create
+  def create
+    new_user = Kaui::AllowedUser.new(allowed_user_params)
 
-      param_allowed_user = params[:allowed_user]
-      existing_user = Kaui::AllowedUser.find_by_kb_username(param_allowed_user[:kb_username])
-      if existing_user
-        flash[:error] = "Allowed User with name #{param_allowed_user[:kb_username]} already exists!"
-        redirect_to admin_allowed_users_path and return
-      end
-
-      new_user = Kaui::AllowedUser.new
-      new_user.kb_username = param_allowed_user[:kb_username]
-      new_user.description = param_allowed_user[:description]
+    existing_user = Kaui::AllowedUser.find_by_kb_username(new_user.kb_username)
+    if existing_user
+      flash[:error] = "User with name #{new_user.kb_username} already exists!"
+      redirect_to admin_allowed_users_path
+    else
       new_user.save!
+      redirect_to admin_allowed_user_path(new_user.id), :notice => 'User was successfully configured'
+    end
+  end
 
-      redirect_to admin_allowed_user_path(new_user[:id]), :notice => 'Allowed User was successfully configured'
+  def show
+    @allowed_user = Kaui::AllowedUser.find(params.require(:id))
+    @tenants = Kaui::Tenant.all
+  end
+
+  def add_tenant
+    tenants = []
+    params.each do |tenant, _|
+      tenant_info = tenant.split('_')
+      next if tenant_info.size != 2 or tenant_info[0] != 'tenant'
+      tenants << tenant_info[1]
     end
 
-    def show
-      @allowed_user = Kaui::AllowedUser.find(params[:id])
-      @tenants = Kaui::Tenant.all
-      render
-    end
+    allowed_user = Kaui::AllowedUser.find(params.require(:allowed_user).require(:id))
+    allowed_user.kaui_tenant_ids = tenants
 
-    def add_tenant
+    redirect_to admin_allowed_user_path(allowed_user.id), :notice => 'Successfully set tenants for user'
+  end
 
-      allowed_user_id = params[:allowed_user][:id]
-      allowed_user = Kaui::AllowedUser.find(allowed_user_id)
-      tenant = Kaui::Tenant.find_by_id(params[:tenant_id])
-      # Add new tenant for that user
-      allowed_user.kaui_tenants << tenant
+  private
 
-      redirect_to admin_allowed_user_path(allowed_user_id), :notice => 'Successfully added tenant'
-    end
+  def allowed_user_params
+    allowed_user = params.require(:allowed_user)
+    allowed_user.require(:kb_username)
+    allowed_user
   end
 end

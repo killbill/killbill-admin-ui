@@ -1,0 +1,27 @@
+<table id="tenants-table" class="table table-condensed table-striped">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Tenant Id</th>
+    <th>Api Key</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% tenants.each do |t| %>
+      <tr>
+        <td><%= link_to t.name || t.api_key, admin_tenant_path(t.id) %></td>
+        <td><%= t.kb_tenant_id %></td>
+        <td><%= t.api_key %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= javascript_tag do %>
+  $(document).ready(function() {
+    $('#tenants-table').dataTable({
+      "dom": "t",
+      "paginate": false
+    });
+  });
+<% end %>

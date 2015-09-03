@@ -1,39 +1,35 @@
-<% if can? :create, Kaui::AdminTenant %>
-    <%= form_for @tenant, url: admin_tenants_path, :html => {:class => 'form-horizontal'} do |f| %>
-        <fieldset>
-
-          <div class="control-group">
-            <%= f.label :name, 'Name', :class => 'control-label' %>
-            <div class="controls">
-              <%= f.text_field :name, :class => 'input-sm', :required => true %>
-            </div>
-          </div>
-
-
-          <div class="control-group">
-            <%= f.label :api_key, 'API Key', :class => 'control-label' %>
-            <div class="controls">
-              <%= f.text_field :api_key, :class => 'input-sm', :required => true %>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <%= f.label :api_secret, 'API Secret', :class => 'control-label' %>
-            <div class="controls">
-              <%= f.password_field :api_secret, :class => 'input-sm', :required => true %>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <%= f.label :create_tenant, 'Create tenant', :class => 'control-label' %>
-            <div class="controls">
-              <%= check_box_tag(:create_tenant) %>
-            </div>
-          </div>
-
-          <div class="form-actions">
-            <%= button_tag 'Configure a new Tenant', :class => 'btn btn-primary' %>
-          </div>
-        </fieldset>
-    <% end %>
+<%= form_for @tenant, :url => admin_tenants_path, :html => {:class => 'form-horizontal'} do |f| %>
+    <div class="form-group">
+      <%= f.label :name, 'Name', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :name, :class => 'form-control', :required => true %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :api_key, 'API Key', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :api_key, :class => 'form-control', :required => true %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :api_secret, 'API Secret', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.password_field :api_secret, :class => 'form-control', :required => true %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label>
+            <%= check_box_tag :create_tenant %>
+            <span>Create tenant</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit 'Configure new tenant', :class => 'btn btn-default' %>
+      </div>
+    </div>
 <% end %>

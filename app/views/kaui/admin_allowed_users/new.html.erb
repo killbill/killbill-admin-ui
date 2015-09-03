@@ -1,22 +1,20 @@
-<% if can? :create, Kaui::AdminTenant %>
-    <%= form_for @allowed_user, url: admin_allowed_users_path, :html => {:class => 'form-horizontal'} do |f| %>
-        <fieldset>
-          <div class="control-group">
-            <%= f.label :kb_username, 'Name', :class => 'control-label' %>
-            <div class="controls">
-              <%= f.text_field :kb_username, :class => 'input-sm', :required => true %>
-            </div>
-          </div>
-          <div class="control-group">
-            <%= f.label :description, 'Description', :class => 'control-label' %>
-            <div class="controls">
-              <%= f.text_field :description, :class => 'input-sm', :required => false %>
-            </div>
-          </div>
-          <div class="form-actions">
-            <%= button_tag 'Configure a new Allowed User', :class => 'btn btn-primary' %>
-          </div>
-        </fieldset>
-    <% end %>
+<%= form_for @allowed_user, :url => admin_allowed_users_path, :html => {:class => 'form-horizontal'} do |f| %>
+    <div class="form-group">
+      <%= f.label :kb_username, 'Name', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :kb_username, :class => 'form-control', :required => true %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, 'Description', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :description, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit 'Create new allowed user', :class => 'btn btn-default' %>
+      </div>
+    </div>
 <% end %>
 

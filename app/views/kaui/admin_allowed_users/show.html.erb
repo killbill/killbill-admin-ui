@@ -1,53 +1,31 @@
-<% if can? :view, Kaui::AdminTenant %>
-    <dl class="dl-horizontal">
-      <dt>Name:</dt>
-      <dd><%= @allowed_user.kb_username %>&nbsp;</dd>
-      <dt>Tenant ID:</dt>
-      <dd><%= @allowed_user.description %>&nbsp;</dd>
-    </dl>
-
-    <% unless @allowed_user.kaui_tenants.empty? %>
-        <h3>Configured tenants:</h3>
-        <table id="allowed-user-tenants-table" class="table table-condensed">
-          <thead>
-          <tr>
-            <th>Name</th>
-            <th>Tenant Id</th>
-            <th>Api Key</th>
-          </tr>
-          </thead>
-          <tbody>
-          <% @allowed_user.kaui_tenants.each do |t| %>
-              <tr>
-                <td><%= link_to t.name, admin_tenant_path(t.id) %></td>
-                <td><%= t.kb_tenant_id %></td>
-                <td><%= t.api_key %></td>
-              </tr>
-          <% end %>
-          </tbody>
-        </table>
-    <% end %>
-<% end %>
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @allowed_user.kb_username %></dd>
+  <dt>Description:</dt>
+  <dd><%= @allowed_user.description %></dd>
+</dl>
 
 <% if can? :create, Kaui::AdminTenant %>
-    <%= form_for(@allowed_user, :url => {:action => :add_tenant}, :html => {:method => :post, :class => "form-horizontal"}) do |f| %>
+    <h3>Configured tenants</h3>
+    <%= form_for @allowed_user, :url => {:action => :add_tenant}, :html => {:method => :post, :class => 'form-horizontal'} do |f| %>
+        <%= f.hidden_field(:id) %>
 
-        <fieldset>
-          <%= f.hidden_field(:id) %>
-          <div class="control-group">
-            <%= label_tag :tenant_name, "Available Tenants:", :class => "control-label" %>
-            <div class="controls">
-              <%= select_tag :tenant_id, options_for_select(@tenants.map { |t| [t.name, t.id] }) %>
-            </div>
+        <div class='form-group'>
+          <div class="col-sm-offset-2 col-sm-10">
+            <% @tenants.each do |tenant| %>
+                <div class="checkbox">
+                  <label>
+                    <%= check_box_tag "tenant_#{tenant.id}", tenant.id, @allowed_user.kaui_tenants.map(&:id).include?(tenant.id) %>
+                    <span><%= tenant.name || tenant.api_key %></span>
+                  </label>
+                </div>
+            <% end %>
           </div>
-          <div class="form-actions">
-            <%= f.submit 'Chose Tenant', :class => 'btn btn-primary' %>
-            <%= link_to 'Back', :back, :class => 'btn' %>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= f.submit 'Configure tenants for user', :class => 'btn btn-default' %>
           </div>
-        </fieldset>
+        </div>
     <% end %>
 <% end %>
-
-<div class="form-actions">
-  <%= link_to 'Back', :back, :class => 'btn' %>
-</div>

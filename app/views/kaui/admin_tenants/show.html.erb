@@ -1,187 +1,191 @@
 <dl class="dl-horizontal">
   <dt>Name:</dt>
-  <dd><%= @tenant.name %>&nbsp;</dd>
+  <dd><%= @tenant.name %></dd>
   <dt>Tenant ID:</dt>
-  <dd><%= @tenant.kb_tenant_id %>&nbsp;</dd>
+  <dd><%= @tenant.kb_tenant_id %></dd>
   <dt>API Key:</dt>
-  <dd><%= @tenant.api_key %>&nbsp;</dd>
+  <dd><%= @tenant.api_key %></dd>
 </dl>
 
-<% if can? :view, Kaui::AdminTenant %>
-    <% unless @tenant.kaui_allowed_users.empty? %>
-        <h3>Allowed Users:</h3>
-        <table id="allowed-users-for-tenant-table" class="table table-condensed">
-          <thead>
+<% unless @tenant.kaui_allowed_users.empty? %>
+    <h3>Allowed Users</h3>
+    <table id="allowed-users-for-tenant-table" class="table table-condensed">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @tenant.kaui_allowed_users.each do |u| %>
           <tr>
-            <th>Name</th>
-            <th>Description</th>
+            <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
+            <td><%= u.description %></td>
+            <td>
+              <button type="button" class="btn btn-default btn-sm" id="<%= "allowed-user-remove-#{u.id}" %>">
+                <span class="fa fa-times"></span>
+              </button>
+            </td>
           </tr>
-          </thead>
-          <tbody>
-          <% @tenant.kaui_allowed_users.each do |u| %>
-              <tr>
-                <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
-                <td><%= u.description %></td>
-                <td>
-                  <button type="button" class="btn btn-default btn-sm" id="<%= "allowed-user-remove-#{u.id}" %>">
-                  <span class="glyphicon glyphicon-remove"></span>
-                  </button>
-                </td>
-              </tr>
-          <% end %>
-          </tbody>
-        </table>
+      <% end %>
+      </tbody>
+    </table>
+
+    <%= javascript_tag do %>
+      $(document).ready(function() {
+        $('#allowed-users-for-tenant-table').dataTable({
+          "dom": "t",
+          "paginate": false,
+          "order": [[ 0, "asc" ]],
+          "columns": [
+            null,
+            null,
+            { "orderable": false }
+          ]
+        });
+      });
     <% end %>
 <% end %>
+
 <% if can? :config_upload, Kaui::AdminTenant %>
-    <%= form_tag({action: :upload_catalog}, method: 'post', multipart: true) do %>
+    <h3>Tenant operations</h3>
 
+    <%= form_tag({:action => :upload_catalog}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
         <%= hidden_field_tag(:id, @tenant.id) %>
 
-        <div class="control-group">
-          <%= label_tag :catalog, 'Tenant Catalog XML', :class => 'control-label' %>
-          <div class="controls">
-            <%= file_field_tag 'catalog' %>
+        <div class="form-group">
+          <%= label_tag :catalog, 'Catalog', :class => 'col-sm-2 control-label' %>
+          <div class="col-sm-10">
+            <%= file_field_tag 'catalog', :class => 'form-control' %>
           </div>
         </div>
-        <div class="actions">
-          <%= submit_tag 'Upload' %>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= submit_tag 'Upload', :class => 'btn btn-default' %>
+          </div>
         </div>
     <% end %>
-    <div class="form-actions">
-      <%= link_to 'Back', :back, :class => 'btn' %>
-    </div>
-
-    <%= form_tag({action: :upload_overdue_config}, method: 'post', multipart: true) do %>
-
+    <hr/>
+    <%= form_tag({:action => :upload_overdue_config}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
         <%= hidden_field_tag(:id, @tenant.id) %>
 
-        <div class="control-group">
-          <%= label_tag :overdue, 'Tenant Overdue Config XML', :class => 'control-label' %>
-          <div class="controls">
-            <%= file_field_tag 'overdue' %>
+        <div class="form-group">
+          <%= label_tag :overdue, 'Overdue Config', :class => 'col-sm-2 control-label' %>
+          <div class="col-sm-10">
+            <%= file_field_tag 'overdue', :class => 'form-control' %>
           </div>
         </div>
-        <div class="actions">
-          <%= submit_tag 'Upload' %>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= submit_tag 'Upload', :class => 'btn btn-default' %>
+          </div>
         </div>
     <% end %>
-    <div class="form-actions">
-      <%= link_to 'Back', :back, :class => 'btn' %>
-    </div>
-
-    <%= form_tag({action: :upload_invoice_template}, method: 'post', multipart: true) do %>
-
+    <hr/>
+    <%= form_tag({:action => :upload_invoice_template}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
         <%= hidden_field_tag(:id, @tenant.id) %>
 
-        <div class="control-group">
-          <%= label_tag :invoice_template, 'Invoice template', :class => 'control-label' %>
-          <div class="controls">
-            <%= file_field_tag 'invoice_template' %>
+        <div class="form-group">
+          <%= label_tag :invoice_template, 'Invoice template', :class => 'col-sm-2 control-label' %>
+          <div class="col-sm-10">
+            <%= file_field_tag 'invoice_template', :class => 'form-control' %>
           </div>
         </div>
-        <div class="control-group">
-          <%= label_tag :manual_pay, 'Manual Pay', :class => 'control-label' %>
-          <div class="controls">
-            <%= check_box_tag(:manual_pay) %>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+              <label>
+                <%= check_box_tag :manual_pay %>
+                <span>Manual Pay</span>
+              </label>
+            </div>
           </div>
         </div>
-        <div class="actions">
-          <%= submit_tag 'Upload' %>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= submit_tag 'Upload', :class => 'btn btn-default' %>
+          </div>
         </div>
     <% end %>
-    <div class="form-actions">
-      <%= link_to 'Back', :back, :class => 'btn' %>
-    </div>
-
-
-    <%= form_tag({action: :upload_invoice_translation}, method: 'post', multipart: true) do %>
-
+    <hr/>
+    <%= form_tag({:action => :upload_invoice_translation}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
         <%= hidden_field_tag(:id, @tenant.id) %>
 
-        <div class="control-group">
-          <%= label_tag :invoice_translation, 'Invoice translation', :class => 'control-label' %>
-          <div class="controls">
-            <%= file_field_tag 'invoice_translation' %>
+        <div class="form-group">
+          <%= label_tag :invoice_translation, 'Invoice translation', :class => 'col-sm-2 control-label' %>
+          <div class="col-sm-10">
+            <%= file_field_tag 'invoice_translation', :class => 'form-control' %>
           </div>
         </div>
-        <div class="control-group">
-          <%= label_tag :translation_locale, 'Locale', :class => 'control-label' %>
-          <div class="controls">
-            <%= text_field_tag(:translation_locale) %>
+        <div class="form-group">
+          <%= label_tag :translation_locale, 'Locale', :class => 'col-sm-2 control-label' %>
+          <div class="col-sm-10">
+            <%= text_field_tag :translation_locale, nil, :class => 'form-control' %>
           </div>
         </div>
-        <div class="actions">
-          <%= submit_tag 'Upload' %>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= submit_tag 'Upload', :class => 'btn btn-default' %>
+          </div>
         </div>
     <% end %>
-    <div class="form-actions">
-      <%= link_to 'Back', :back, :class => 'btn' %>
-    </div>
-
-
-    <%= form_tag({action: :upload_catalog_translation}, method: 'post', multipart: true) do %>
-
+    <hr/>
+    <%= form_tag({:action => :upload_catalog_translation}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
         <%= hidden_field_tag(:id, @tenant.id) %>
 
-        <div class="control-group">
-          <%= label_tag :catalog_translation, 'Catalog translation', :class => 'control-label' %>
-          <div class="controls">
-            <%= file_field_tag 'catalog_translation' %>
+        <div class="form-group">
+          <%= label_tag :catalog_translation, 'Catalog translation', :class => 'col-sm-2 control-label' %>
+          <div class="col-sm-10">
+            <%= file_field_tag 'catalog_translation', :class => 'form-control' %>
           </div>
         </div>
-        <div class="control-group">
-          <%= label_tag :translation_locale, 'Locale', :class => 'control-label' %>
-          <div class="controls">
-            <%= text_field_tag(:translation_locale) %>
+        <div class="form-group">
+          <%= label_tag :translation_locale, 'Locale', :class => 'col-sm-2 control-label' %>
+          <div class="col-sm-10">
+            <%= text_field_tag :translation_locale, nil, :class => 'form-control' %>
           </div>
         </div>
-        <div class="actions">
-          <%= submit_tag 'Upload' %>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= submit_tag 'Upload', :class => 'btn btn-default' %>
+          </div>
         </div>
     <% end %>
-    <div class="form-actions">
-      <%= link_to 'Back', :back, :class => 'btn' %>
-    </div>
-
-    <%= form_tag({action: :upload_plugin_config}, method: 'post', multipart: true) do %>
-
+    <hr/>
+    <%= form_tag({:action => :upload_plugin_config}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
         <%= hidden_field_tag(:id, @tenant.id) %>
 
-        <div class="control-group">
-          <%= label_tag :plugin_config, 'Plugin config', :class => 'control-label' %>
-          <div class="controls">
-            <%= file_field_tag 'plugin_config' %>
+        <div class="form-group">
+          <%= label_tag :plugin_config, 'Plugin config', :class => 'col-sm-2 control-label' %>
+          <div class="col-sm-10">
+            <%= file_field_tag 'plugin_config', :class => 'form-control' %>
           </div>
         </div>
-        <div class="control-group">
-          <%= label_tag :plugin_name, 'Plugin name', :class => 'control-label' %>
-          <div class="controls">
-            <%= text_field_tag(:plugin_name) %>
+        <div class="form-group">
+          <%= label_tag :plugin_name, 'Plugin name', :class => 'col-sm-2 control-label' %>
+          <div class="col-sm-10">
+            <%= text_field_tag :plugin_name, nil, :class => 'form-control' %>
           </div>
         </div>
-        <div class="actions">
-          <%= submit_tag 'Upload' %>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= submit_tag 'Upload', :class => 'btn btn-default' %>
+          </div>
         </div>
     <% end %>
-    <div class="form-actions">
-      <%= link_to 'Back', :back, :class => 'btn' %>
-    </div>
-
-
-
 <% end %>
 
 <%= javascript_tag do %>
-    $(document).ready(function() {
+  $(document).ready(function() {
     $('[id^=allowed-user-remove-]').click(function() {
-        var allowedUser = $(this);
-        $.ajax({ type: "DELETE",
-                 url: "<%= remove_allowed_user_path :format => :json %>",
-                 data: { allowed_user: { id: this['id'].split('-')[3] }, id: <%= @tenant.id %>},
-                 success: function(data) {  allowedUser.parent().parent().hide(); return false; },
-                 error: function(request, textStatus, errorThrown) { console.log("AJAX FAILED!!!! request.status " + request.status + ", textStatus = " + textStatus); return false; }
-        });
+      var allowedUser = $(this);
+      $.ajax({ type: "DELETE",
+        url: "<%= remove_allowed_user_path :format => :json %>",
+        data: { allowed_user: { id: this['id'].split('-')[3] }, id: <%= @tenant.id %>},
+        success: function(data) {  allowedUser.parent().parent().hide(); return false; },
+        error: function(request, textStatus, errorThrown) { console.log("AJAX FAILED!!!! request.status " + request.status + ", textStatus = " + textStatus); return false; }
       });
     });
+  });
 <% end %>

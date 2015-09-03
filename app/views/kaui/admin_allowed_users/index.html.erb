@@ -1,6 +1,5 @@
-<% if can? :view, Kaui::AdminTenant %>
-    <% unless @allowed_users.empty? %>
-    <table id="allowed-users-table" class="table table-condensed">
+<% unless @allowed_users.empty? %>
+    <table id="allowed-users-table" class="table table-condensed table-striped">
       <thead>
       <tr>
         <th>Name</th>
@@ -8,7 +7,7 @@
       </tr>
       </thead>
       <tbody>
-      <% @allowed_users.each do |u | %>
+      <% @allowed_users.each do |u| %>
           <tr>
             <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
             <td><%= u.description %></td>
@@ -16,8 +15,17 @@
       <% end %>
       </tbody>
     </table>
-    <% end %>
 <% end %>
+
 <% if can? :create, Kaui::AdminTenant %>
-<h3><%= link_to 'Add a new Allowed User', new_admin_allowed_user_path %></h3>
+    <h3><%= link_to 'Add a new user', new_admin_allowed_user_path %></h3>
+<% end %>
+
+<%= javascript_tag do %>
+  $(document).ready(function() {
+      $('#allowed-users-table').dataTable({
+      "dom": "t",
+      "paginate": false
+    });
+  });
 <% end %>
