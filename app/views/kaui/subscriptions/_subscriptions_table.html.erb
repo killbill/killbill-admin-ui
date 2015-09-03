@@ -47,9 +47,8 @@
 <%= javascript_tag do %>
   $(document).ready(function() {
     $('#subscriptions_<%= bundle.bundle_id %>').dataTable({
-      "sDom": "t",
-      "sPaginationType": "bootstrap",
-      "iDisplayLength": <%= (bundle.subscriptions || []).size %>
+      "dom": "t",
+      "paginate": false
     });
   });
 <% end %>
