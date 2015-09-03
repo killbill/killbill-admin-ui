@@ -34,18 +34,22 @@ class Kaui::EngineController < ApplicationController
 
   # Note! Order matters, StandardError needs to be first
   rescue_from(StandardError) do |error|
+    log_rescue_error error
     flash[:error] = "Error: #{error.to_s}"
     perform_redirect_after_error
   end
 
   rescue_from(ActionController::ParameterMissing) do |parameter_missing_exception|
+    log_rescue_error parameter_missing_exception
     flash[:error] = "Required parameter missing: #{parameter_missing_exception.param}"
     perform_redirect_after_error
   end
 
   rescue_from(KillBillClient::API::ResponseError) do |killbill_exception|
+    log_rescue_error killbill_exception
     flash[:error] = "Error while communicating with the Kill Bill server: #{as_string(killbill_exception)}"
-    perform_redirect_after_error
+    try_to_redirect_to_account_path = !(killbill_exception.is_a?(KillBillClient::API::NotFound) && params[:controller].ends_with?('accounts'))
+    perform_redirect_after_error try_to_redirect_to_account_path
   end
 
   private
@@ -66,9 +70,13 @@ class Kaui::EngineController < ApplicationController
     result
   end
 
-  def perform_redirect_after_error
+  def log_rescue_error(error)
+    Rails.logger.warn "#{error.class} #{error.to_s}. #{error.backtrace.join("\n")}"
+  end
+
+  def perform_redirect_after_error(try_to_redirect_to_account_path = true)
     account_id = nested_hash_value(params, :account_id)
-    if account_id.present?
+    if try_to_redirect_to_account_path && account_id.present?
       redirect_to kaui_engine.account_path(account_id)
     else
       redirect_to kaui_engine.home_path

@@ -22,7 +22,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
   test 'should handle Kill Bill errors when showing account details' do
     account_id = SecureRandom.uuid.to_s
     get :show, :account_id => account_id
-    assert_redirected_to account_path(account_id)
+    assert_redirected_to home_path
     assert_equal "Error while communicating with the Kill Bill server: Error 404: Account does not exist for id #{account_id}", flash[:error]
   end
 
@@ -81,7 +81,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
   test 'should handle Kill Bill errors when setting default payment method' do
     account_id = SecureRandom.uuid.to_s
     put :set_default_payment_method, :account_id => account_id, :payment_method_id => @payment_method.payment_method_id
-    assert_redirected_to account_path(account_id)
+    assert_redirected_to home_path
     assert_equal "Error while communicating with the Kill Bill server: Error 404: Account does not exist for id #{account_id}", flash[:error]
   end
 
@@ -93,7 +93,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
   test 'should handle Kill Bill errors when toggling email notifications' do
     account_id = SecureRandom.uuid.to_s
     put :toggle_email_notifications, :account_id => account_id, :is_notified => true
-    assert_redirected_to account_path(account_id)
+    assert_redirected_to home_path
     assert_equal "Error while communicating with the Kill Bill server: Error 404: Account does not exist for id #{account_id}", flash[:error]
   end
 
@@ -105,7 +105,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
   test 'should handle Kill Bill errors when paying all invoices' do
     account_id = SecureRandom.uuid.to_s
     post :pay_all_invoices, :account_id => account_id
-    assert_redirected_to account_path(account_id)
+    assert_redirected_to home_path
     assert_equal "Error while communicating with the Kill Bill server: Error 404: Account does not exist for id #{account_id}", flash[:error]
   end
 
