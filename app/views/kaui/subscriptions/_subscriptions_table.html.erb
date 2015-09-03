@@ -48,7 +48,16 @@
   $(document).ready(function() {
     $('#subscriptions_<%= bundle.bundle_id %>').dataTable({
       "dom": "t",
-      "paginate": false
+      "paging": false,
+      "order": [[ 2, "asc" ]],
+      "columns": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      { "orderable": false }
+      ]
     });
   });
 <% end %>

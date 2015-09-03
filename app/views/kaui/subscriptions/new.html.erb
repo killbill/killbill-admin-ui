@@ -1,11 +1,8 @@
 <div class="page-header">
   <% if @subscription.product_category == 'ADD_ON' %>
-      <h1>Add input-group-addon subscription
-        <% if @bundle.external_key %> to <%= Kaui.bundle_key_display_string.call(@bundle.external_key) %>
-        <% end %>
-      </h1>
+      <h1>Add Add-On subscription</h1>
   <% else %>
-      <h1>Create new base subscription to account <%= @subscription.account_id %></h1>
+      <h1>Create new base subscription</h1>
   <% end %>
 </div>
 
