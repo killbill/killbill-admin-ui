@@ -183,8 +183,7 @@
                         <nobr>
                           <%= link_to 'Refund', kaui_engine.new_account_refund_path(@account.account_id, :params => {:payment_id => payment.payment_id,
                                                                                                                      :invoice_id => payment.target_invoice_id}),
-                                      :class => "btn btn-xs #{'disabled' unless payment.paym
-                                      ent_id.present? and transaction.status == 'SUCCESS' }" %>
+                                      :class => "btn btn-xs #{'disabled' unless payment.payment_id.present? and transaction.status == 'SUCCESS' }" %>
                         </nobr>
                     <% end %>
                     <% if can? :chargeback, Kaui::Payment %>
