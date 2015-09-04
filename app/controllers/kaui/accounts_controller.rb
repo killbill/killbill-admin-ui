@@ -60,7 +60,13 @@ class Kaui::AccountsController < Kaui::EngineController
     @tags = @account.tags(false, 'NONE', options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b }
 
     @account_emails = Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', options_for_klient)
-    @payment_methods = Kaui::PaymentMethod.find_non_external_by_account_id(@account.account_id, true, options_for_klient)
+
+    begin
+      @payment_methods = Kaui::PaymentMethod.find_non_external_by_account_id(@account.account_id, true, options_for_klient)
+    rescue KillBillClient::API::BadRequest
+      # Maybe the plugin(s) are not registered?
+      @payment_methods = Kaui::PaymentMethod.find_non_external_by_account_id(@account.account_id, false, options_for_klient)
+    end
   end
 
   def set_default_payment_method
