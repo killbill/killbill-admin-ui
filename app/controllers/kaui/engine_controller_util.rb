@@ -43,6 +43,27 @@ module Kaui::EngineControllerUtil
     end
   end
 
+  def run_in_parallel(*tasks)
+    latch = Concurrent::CountDownLatch.new(tasks.size)
+    exceptions = Concurrent::Array.new
+
+    tasks.each do |task|
+      Kaui.thread_pool.post do
+        begin
+          task.call
+        rescue => e
+          exceptions << e
+        ensure
+          latch.count_down
+        end
+      end
+    end
+    latch.wait
+
+    exception = exceptions.shift
+    raise exception unless exception.nil?
+  end
+
   def as_string(e)
     if e.is_a?(KillBillClient::API::ResponseError)
       "Error #{e.response.code}: #{as_string_from_response(e.response.body)}"

@@ -18,6 +18,8 @@ module Kaui
   mattr_accessor :creditcard_plugin_name
   mattr_accessor :layout
 
+  mattr_accessor :thread_pool
+
   self.home_path = lambda { Kaui::Engine.routes.url_helpers.home_path }
   self.account_home_path = lambda {|account_id| Kaui::Engine.routes.url_helpers.account_path(account_id) }
   self.invoice_home_path = lambda {|invoice_id| Kaui::Engine.routes.url_helpers.invoice_path(:id => invoice_id) }

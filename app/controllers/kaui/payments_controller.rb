@@ -49,8 +49,11 @@ class Kaui::PaymentsController < Kaui::EngineController
   end
 
   def new
-    @invoice = Kaui::Invoice.find_by_id_or_number(params.require(:invoice_id), true, 'NONE', options_for_klient)
-    @account = Kaui::Account.find_by_id(params.require(:account_id), false, false, options_for_klient)
+    fetch_invoice = lambda { @invoice = Kaui::Invoice.find_by_id_or_number(params.require(:invoice_id), true, 'NONE', options_for_klient) }
+    fetch_account = lambda { @account = Kaui::Account.find_by_id(params.require(:account_id), false, false, options_for_klient) }
+
+    run_in_parallel fetch_invoice, fetch_account
+
     @payment = Kaui::InvoicePayment.new('accountId' => @account.account_id, 'targetInvoiceId' => @invoice.invoice_id, 'purchasedAmount' => @invoice.balance)
   end
 
@@ -62,9 +65,12 @@ class Kaui::PaymentsController < Kaui::EngineController
 
   def show
     @payment = Kaui::InvoicePayment.find_by_id(params.require(:id), true, options_for_klient)
-    @account = Kaui::Account.find_by_id(@payment.account_id, false, false, options_for_klient)
+
+    fetch_account = lambda { @account = Kaui::Account.find_by_id(@payment.account_id, false, false, options_for_klient) }
     # The payment method may have been deleted
-    @payment_method = Kaui::PaymentMethod.find_by_id(@payment.payment_method_id, true, options_for_klient) rescue nil
+    fetch_payment_method = lambda { @payment_method = Kaui::PaymentMethod.find_by_id(@payment.payment_method_id, true, options_for_klient) rescue nil }
+
+    run_in_parallel fetch_account, fetch_payment_method
   end
 
   def restful_show

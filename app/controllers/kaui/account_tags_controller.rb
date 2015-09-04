@@ -2,8 +2,11 @@ class Kaui::AccountTagsController < Kaui::EngineController
 
   def edit
     @account_id = params.require(:account_id)
-    @tag_names = (Kaui::Tag.all_for_account(@account_id, false, 'NONE', options_for_klient).map { |tag| tag.tag_definition_name }).sort
-    @available_tags = Kaui::TagDefinition.all_for_account(options_for_klient)
+
+    fetch_tag_names = lambda { @tag_names = (Kaui::Tag.all_for_account(@account_id, false, 'NONE', options_for_klient).map { |tag| tag.tag_definition_name }).sort }
+    fetch_available_tags = lambda { @available_tags = Kaui::TagDefinition.all_for_account(options_for_klient) }
+
+    run_in_parallel fetch_tag_names, fetch_available_tags
   end
 
   def update

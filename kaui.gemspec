@@ -38,6 +38,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'carmen-rails', '~> 1.0.0'
   s.add_dependency 'symmetric-encryption', '~> 3.6.0'
   s.add_dependency 'sass-rails', '~> 5.0.2'
+  s.add_dependency 'concurrent-ruby', '~> 1.0.0.pre1'
 
   s.add_development_dependency 'fakeweb', '~> 1.3'
   s.add_development_dependency 'multi_json', '~> 1.11'

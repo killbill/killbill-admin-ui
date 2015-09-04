@@ -14,6 +14,7 @@ require 'devise'
 require 'cancan'
 require 'carmen-rails'
 require 'protected_attributes'
+require 'concurrent'
 
 module Kaui
   class Engine < ::Rails::Engine
@@ -26,6 +27,8 @@ module Kaui
         helper Kaui::SubscriptionHelper
         helper Kaui::UuidHelper
       end
+
+      Kaui.thread_pool = Concurrent::CachedThreadPool.new
     end
   end
 end
