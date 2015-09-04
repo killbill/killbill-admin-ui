@@ -101,8 +101,7 @@
           <td>
             <nobr>
               <%= link_to 'Payment',
-                          kaui_engine.new_payment_path(:params => {:account_id => invoice.account_id,
-                                                                   :invoice_id => invoice.invoice_id}),
+                          kaui_engine.new_account_payment_path(:account_id => invoice.account_id, :invoice_id => invoice.invoice_id),
                           :class => "btn btn-xs #{'disabled' unless invoice.balance > 0}" %>
             </nobr>
             <% if can? :credit, Kaui::Invoice %>
