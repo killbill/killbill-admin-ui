@@ -1,11 +1,8 @@
 class Kaui::BundleTagsController < Kaui::EngineController
 
   def edit
-    account_id = params.require(:account_id)
-    bundle_id_or_key = params.require(:bundle_id)
-
-    @bundle = Kaui::Bundle::find_by_id_or_key(bundle_id_or_key, account_id, options_for_klient)
-    @tag_names = (@bundle.tags(false, 'NONE', options_for_klient).map { |tag| tag.tag_definition_name }).sort
+    @bundle_id = params.require(:bundle_id)
+    @tag_names = (Kaui::Tag.all_for_bundle(@bundle_id, false, 'NONE', options_for_klient).map { |tag| tag.tag_definition_name }).sort
     @available_tags = Kaui::TagDefinition.all_for_bundle(options_for_klient)
   end
 
@@ -20,8 +17,7 @@ class Kaui::BundleTagsController < Kaui::EngineController
       tags << tag_info[1]
     end
 
-    bundle = Kaui::Bundle.new(:bundle_id => bundle_id)
-    bundle.set_tags(tags, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    Kaui::Tag.set_for_bundle(bundle_id, tags, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
     redirect_to kaui_engine.account_bundles_path(account_id), :notice => 'Bundle tags successfully set'
   end
 end

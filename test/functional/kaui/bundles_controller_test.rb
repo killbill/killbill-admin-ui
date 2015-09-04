@@ -17,13 +17,6 @@ class Kaui::BundlesControllerTest < Kaui::FunctionalTestHelper
     assert_not_nil assigns(:tags_per_bundle)
   end
 
-  test 'should handle Kill Bill errors when getting transfer screen' do
-    bundle_id = SecureRandom.uuid.to_s
-    get :transfer, :id => bundle_id
-    assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 500: Object id=#{bundle_id} type=BUNDLE doesn't exist!", flash[:error]
-  end
-
   test 'should handle Kill Bill errors during transfer' do
     post :do_transfer, :id => @bundle.bundle_id
     assert_redirected_to home_path
@@ -43,8 +36,7 @@ class Kaui::BundlesControllerTest < Kaui::FunctionalTestHelper
   test 'should get transfer' do
     get :transfer, :id => @bundle.bundle_id
     assert_response 200
-    assert_not_nil assigns(:bundle)
-    assert_not_nil assigns(:account)
+    assert_not_nil assigns(:bundle_id)
   end
 
   test 'should transfer bundle default policy' do

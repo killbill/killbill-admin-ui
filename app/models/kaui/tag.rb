@@ -8,6 +8,20 @@ class Kaui::Tag < KillBillClient::Model::Tag
     end
   end
 
+  class << self
+    [:account, :bundle].each do |model|
+      define_method "all_for_#{model.to_s}" do |model_id, included_deleted, audit, options|
+        instance = Kaui.const_get(model.to_s.camelize).new("#{model.to_s}_id".to_sym => model_id)
+        instance.tags(included_deleted, audit, options)
+      end
+
+      define_method "set_for_#{model.to_s}" do |model_id, tags, user, reason, comment, options|
+        instance = Kaui.const_get(model.to_s.camelize).new("#{model.to_s}_id".to_sym => model_id)
+        instance.set_tags(tags, user, reason, comment, options)
+      end
+    end
+  end
+
   def is_system_tag?
     Kaui::TagDefinition(:id => tag_definition_id).is_system_tag?
   end

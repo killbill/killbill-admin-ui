@@ -16,7 +16,7 @@ class Kaui::BundleTagsControllerTest < Kaui::FunctionalTestHelper
   test 'should get edit' do
     get :edit, :account_id => @account.account_id, :bundle_id => @bundle.bundle_id
     assert_response 200
-    assert_not_nil assigns(:bundle)
+    assert_not_nil assigns(:bundle_id)
     assert_not_nil assigns(:tag_names)
     assert_not_nil assigns(:available_tags)
   end

@@ -3,16 +3,16 @@ require 'test_helper'
 class Kaui::AccountTagsControllerTest < Kaui::FunctionalTestHelper
 
   test 'should handle Kill Bill errors when getting edit screen' do
-    account_id = SecureRandom.uuid.to_s
+    account_id = '1234'
     get :edit, :account_id => account_id
     assert_redirected_to account_path(account_id)
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Account does not exist for id #{account_id}", flash[:error]
+    assert_equal 'Error while communicating with the Kill Bill server: Error 404: ', flash[:error]
   end
 
   test 'should get edit' do
     get :edit, :account_id => @account.account_id
     assert_response 200
-    assert_not_nil assigns(:account)
+    assert_not_nil assigns(:account_id)
     assert_not_nil assigns(:tag_names)
     assert_not_nil assigns(:available_tags)
   end

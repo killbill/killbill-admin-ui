@@ -1,6 +1,6 @@
-<h3>Transfer <%= link_to Kaui.bundle_key_display_string.call(@bundle.external_key), kaui_engine.account_bundles_path(@bundle.account_id) if @bundle.external_key.present? %>&nbsp;</h3>
+<h3>Transfer</h3>
 
-<%= form_tag do_transfer_bundle_path(@bundle.bundle_id), :class => 'form-horizontal', :method => :put do %>
+<%= form_tag do_transfer_bundle_path(@bundle_id), :class => 'form-horizontal', :method => :put do %>
     <div class="form-group">
       <%= label_tag :new_account_key, 'New Account', :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10">
