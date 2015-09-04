@@ -20,8 +20,8 @@ class Kaui::RefundsController < Kaui::EngineController
   def create
     invoice = Kaui::Invoice.find_by_id_or_number(params[:invoice_id], true, 'NONE', options_for_klient)
 
-    items = []
     if params[:adjustment_type] == 'invoiceItemAdjustment'
+      items = []
       (params[:adjustments] || []).each do |ii|
         original_item       = find_original_item(invoice.items, ii[0])
 
@@ -42,7 +42,7 @@ class Kaui::RefundsController < Kaui::EngineController
       flash[:error] = "Error while processing refund: #{as_string(e)}"
     end
 
-    redirect_to kaui_engine.account_timeline_path(:id => params[:account_id])
+    redirect_to kaui_engine.account_invoice_path(invoice.account_id, invoice.invoice_id)
   end
 
   private
