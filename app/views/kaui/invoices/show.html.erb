@@ -19,6 +19,11 @@
                 kaui_engine.new_account_charge_path(@invoice.account_id, :currency => @invoice.currency, :invoice_id => @invoice.invoice_id),
                 :class => 'btn btn-xs' %>
 <% end %>
+<% if @invoice.balance > 0 %>
+    <%= link_to 'Enter payment',
+                kaui_engine.new_account_payment_path(@invoice.account_id, :invoice_id => @invoice.invoice_id),
+                :class => 'btn btn-xs' %>
+<% end %>
 
 <h3>Invoice items</h3>
 <script language="javascript">

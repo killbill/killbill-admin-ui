@@ -49,50 +49,15 @@ class Kaui::PaymentsController < Kaui::EngineController
   end
 
   def new
-    account_id = params[:account_id]
-    invoice_id = params[:invoice_id]
-    amount = 0
-
-    if invoice_id.nil?
-      flash[:error] = 'No invoice id specified'
-      render :action => :index and return
-    end
-
-    if account_id.nil?
-      flash[:error] = 'No account id specified'
-      render :action => :index and return
-    end
-
-    begin
-      @invoice = Kaui::Invoice.find_by_id_or_number(invoice_id, true, 'NONE', options_for_klient)
-      amount = @invoice.balance
-    rescue => e
-      flash[:error] = "Unable to retrieve invoice: #{as_string(e)}"
-      render :action => :index and return
-    end
-
-    begin
-      @account = Kaui::Account.find_by_id(account_id, false, false, options_for_klient)
-    rescue => e
-      flash[:error] = "Unable to retrieve account: #{as_string(e)}"
-      render :action => :index and return
-    end
-
-    @payment = Kaui::InvoicePayment.new('accountId' => account_id, 'targetInvoiceId' => invoice_id, 'purchasedAmount' => amount)
+    @invoice = Kaui::Invoice.find_by_id_or_number(params.require(:invoice_id), true, 'NONE', options_for_klient)
+    @account = Kaui::Account.find_by_id(params.require(:account_id), false, false, options_for_klient)
+    @payment = Kaui::InvoicePayment.new('accountId' => @account.account_id, 'targetInvoiceId' => @invoice.invoice_id, 'purchasedAmount' => @invoice.balance)
   end
 
   def create
-    payment = Kaui::InvoicePayment.new(params[:invoice_payment])
-
-    begin
-      payment = payment.create(params[:external] == '1', current_user.kb_username, params[:reason], params[:comment], options_for_klient)
-      flash[:notice] = 'Payment created'
-    rescue => e
-      flash[:error] = "Error while creating a new payment: #{as_string(e)}"
-      render :action => :index and return
-    end
-
-    redirect_to kaui_engine.account_timeline_path(:id => payment.account_id)
+    payment = Kaui::InvoicePayment.new(invoice_payment_params)
+    payment = payment.create(params[:external] == '1', current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    redirect_to kaui_engine.account_invoice_path(payment.account_id, payment.target_invoice_id), :notice => 'Payment created'
   end
 
   def show
@@ -105,5 +70,13 @@ class Kaui::PaymentsController < Kaui::EngineController
   def restful_show
     payment = Kaui::InvoicePayment.find_by_id(params.require(:id), options_for_klient)
     redirect_to account_payment_path(payment.account_id, payment.payment_id)
+  end
+
+  private
+
+  def invoice_payment_params
+    invoice_payment = params.require(:invoice_payment)
+    invoice_payment.require(:target_invoice_id)
+    invoice_payment
   end
 end

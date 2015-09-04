@@ -53,7 +53,7 @@ Kaui::Engine.routes.draw do
     resources :credits, :only => [:new, :create]
     resources :invoices, :only => [:index, :show]
     resources :invoice_items, :only => [:edit]
-    resources :payments, :only => [:index, :show]
+    resources :payments, :only => [:index, :show, :new, :create]
     resources :transactions, :only => [:new, :create]
   end
 
@@ -68,8 +68,6 @@ Kaui::Engine.routes.draw do
   end
 
   resources :chargebacks, :only => [ :create, :new ]
-
-  resources :external_payments, :only => [ :create, :new ]
 
   resources :payment_methods, :only => [ :new, :create, :destroy ]
 
@@ -90,7 +88,6 @@ Kaui::Engine.routes.draw do
     match '/pagination' => 'payments#pagination', :via => :get, :as => 'payments_pagination'
     match '/:id' => 'payments#restful_show', :via => :get, :as => 'payment'
   end
-  resources :payments, :only => [:new, :create]
 
   scope '/bundles' do
     put '/:id/do_transfer', :to => 'bundles#do_transfer', :as => 'do_transfer_bundle'
