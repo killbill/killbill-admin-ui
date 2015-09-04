@@ -3,23 +3,23 @@ require 'test_helper'
 class Kaui::InvoiceItemsControllerTest < Kaui::FunctionalTestHelper
 
   test 'should handle errors in edit screen' do
-    get :edit, :id => @invoice_item.invoice_item_id
-    assert_redirected_to home_path
+    get :edit, :account_id => @account.account_id, :id => @invoice_item.invoice_item_id
+    assert_redirected_to account_path(@account.account_id)
     assert_equal 'Required parameter missing: invoice_id', flash[:error]
 
     invoice_id = SecureRandom.uuid.to_s
-    get :edit, :id => @invoice_item.invoice_item_id, :invoice_id => invoice_id
-    assert_redirected_to home_path
+    get :edit, :account_id => @account.account_id, :id => @invoice_item.invoice_item_id, :invoice_id => invoice_id
+    assert_redirected_to account_path(@account.account_id)
     assert_equal "Error while communicating with the Kill Bill server: Error 500: Object id=#{invoice_id} type=INVOICE doesn't exist!", flash[:error]
 
     invoice_item_id = SecureRandom.uuid.to_s
-    get :edit, :id => invoice_item_id, :invoice_id => @invoice_item.invoice_id
-    assert_redirected_to home_path
-    assert_equal "Error: Unable to find invoice item #{invoice_item_id}", flash[:error]
+    get :edit, :account_id => @account.account_id, :id => invoice_item_id, :invoice_id => @invoice_item.invoice_id
+    assert_redirected_to account_invoice_path(@account.account_id, @invoice_item.invoice_id)
+    assert_equal "Unable to find invoice item #{invoice_item_id}", flash[:error]
   end
 
   test 'should get edit' do
-    get :edit, :invoice_id => @invoice_item.invoice_id, :id => @invoice_item.invoice_item_id
+    get :edit, :account_id => @account.account_id, :invoice_id => @invoice_item.invoice_id, :id => @invoice_item.invoice_item_id
     assert_response 200
     assert_equal @invoice_item.invoice_item_id, assigns(:invoice_item).invoice_item_id
   end
@@ -65,8 +65,8 @@ class Kaui::InvoiceItemsControllerTest < Kaui::FunctionalTestHelper
            :id => @cba.invoice_item_id,
            :invoice_id => invoice_id,
            :account_id => @account.account_id
-    assert_template :edit
-    assert_equal "Error while deleting CBA item: Error 404: No invoice could be found for id #{invoice_id}.", flash[:error]
+    assert_redirected_to account_path(@account.account_id)
+    assert_equal "Error while communicating with the Kill Bill server: Error 404: No invoice could be found for id #{invoice_id}.", flash[:error]
   end
 
   test 'should delete CBA' do
@@ -74,7 +74,7 @@ class Kaui::InvoiceItemsControllerTest < Kaui::FunctionalTestHelper
            :id => @cba.invoice_item_id,
            :invoice_id => @cba.invoice_id,
            :account_id => @account.account_id
-    assert_redirected_to account_invoice_path(@account.account_id, assigns(:invoice_item).invoice_id)
+    assert_redirected_to account_invoice_path(@account.account_id, @cba.invoice_id)
     assert_equal 'CBA item was successfully deleted', flash[:notice]
   end
 end

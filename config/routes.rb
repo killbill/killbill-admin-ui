@@ -52,6 +52,7 @@ Kaui::Engine.routes.draw do
     resources :charges, :only => [:new, :create]
     resources :credits, :only => [:new, :create]
     resources :invoices, :only => [:index, :show]
+    resources :invoice_items, :only => [:edit]
     resources :payments, :only => [:index, :show]
     resources :transactions, :only => [:new, :create]
   end
@@ -83,7 +84,7 @@ Kaui::Engine.routes.draw do
     match '/:id' => 'invoices#restful_show', :via => :get, :as => 'invoice'
   end
 
-  resources :invoice_items, :only => [:edit, :update, :destroy]
+  resources :invoice_items, :only => [:update, :destroy]
 
   scope '/payments' do
     match '/pagination' => 'payments#pagination', :via => :get, :as => 'payments_pagination'

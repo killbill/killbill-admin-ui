@@ -64,7 +64,7 @@
           <% if can? :item_adjust, Kaui::Invoice %>
               <nobr>
                 <%= link_to 'Adjust',
-                            kaui_engine.edit_invoice_item_path(item.invoice_item_id, :invoice_id => @invoice.invoice_id),
+                            kaui_engine.edit_account_invoice_item_path(@invoice.account_id, item.invoice_item_id, :invoice_id => @invoice.invoice_id),
                             :class => "btn btn-xs #{'disabled' unless item.amount > 0}" %>
               </nobr>
           <% end %>
