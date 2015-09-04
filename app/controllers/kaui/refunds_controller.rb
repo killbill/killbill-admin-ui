@@ -1,29 +1,19 @@
 class Kaui::RefundsController < Kaui::EngineController
 
   def new
-    payment_id = params[:payment_id]
-    invoice_id = params[:invoice_id]
-    account_id = params[:account_id]
+    @invoice = Kaui::Invoice.find_by_id_or_number(params.require(:invoice_id), true, 'NONE', options_for_klient)
+    @payment = Kaui::InvoicePayment::find_by_id(params.require(:payment_id), false, options_for_klient)
 
-    @refund = KillBillClient::Model::InvoiceItem.new
-
-    begin
-      @account = Kaui::Account.find_by_id(account_id, false, false, options_for_klient)
-      @payment = Kaui::InvoicePayment::find_by_id(payment_id, false, options_for_klient)
-      @invoice = Kaui::Invoice.find_by_id_or_number(invoice_id, true, 'NONE', options_for_klient)
-    rescue => e
-      flash[:error] = "Error while processing refund: #{as_string(e)}"
-      redirect_to kaui_engine.account_timeline_path(:id => account_id)
-    end
+    @refund = KillBillClient::Model::InvoiceItem.new(:invoice_id => @invoice.invoice_id)
   end
 
   def create
-    invoice = Kaui::Invoice.find_by_id_or_number(params[:invoice_id], true, 'NONE', options_for_klient)
+    invoice = Kaui::Invoice.find_by_id_or_number(params.require(:invoice_id), true, 'NONE', options_for_klient)
 
     if params[:adjustment_type] == 'invoiceItemAdjustment'
       items = []
       (params[:adjustments] || []).each do |ii|
-        original_item       = find_original_item(invoice.items, ii[0])
+        original_item = find_original_item(invoice.items, ii[0])
 
         item = KillBillClient::Model::InvoiceItem.new
         item.invoice_item_id = ii[0]
@@ -35,14 +25,8 @@ class Kaui::RefundsController < Kaui::EngineController
       end
     end
 
-    begin
-      KillBillClient::Model::InvoicePayment.refund(params[:payment_id], params[:amount], items, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
-      flash[:notice] = 'Refund created'
-    rescue => e
-      flash[:error] = "Error while processing refund: #{as_string(e)}"
-    end
-
-    redirect_to kaui_engine.account_invoice_path(invoice.account_id, invoice.invoice_id)
+    KillBillClient::Model::InvoicePayment.refund(params.require(:payment_id), params[:amount], items, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    redirect_to kaui_engine.account_invoice_path(invoice.account_id, invoice.invoice_id), :notice => 'Refund created'
   end
 
   private

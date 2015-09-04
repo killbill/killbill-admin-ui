@@ -53,9 +53,8 @@
       <% if can? :refund, Kaui::Payment %>
           <% if payment.target_invoice_id.present? %>
               <li>
-                <%= link_to 'Refund', kaui_engine.new_refund_path(:params => {:payment_id => payment.payment_id,
-                                                                              :account_id => payment.account_id,
-                                                                              :invoice_id => payment.target_invoice_id}) %>
+                <%= link_to 'Refund', kaui_engine.new_account_refund_path(payment.account_id, :params => {:payment_id => payment.payment_id,
+                                                                                                          :invoice_id => payment.target_invoice_id}) %>
               </li>
           <% else %>
               <li>
