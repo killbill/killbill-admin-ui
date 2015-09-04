@@ -69,6 +69,7 @@ GEM
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     concurrent-ruby (1.0.0.pre1)
+    concurrent-ruby (1.0.0.pre1-java)
     d3_rails (3.2.8)
       railties (>= 3.1.0)
     descendants_tracker (0.0.4)
