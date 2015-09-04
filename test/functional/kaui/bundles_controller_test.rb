@@ -45,7 +45,7 @@ class Kaui::BundlesControllerTest < Kaui::FunctionalTestHelper
     post :do_transfer,
          :id => @bundle.bundle_id,
          :new_account_key => @account2.external_key
-    assert_response 302
+    assert_redirected_to account_bundles_path(@account2.account_id)
     assert_equal 'Bundle was successfully transferred', flash[:notice]
 
     check_bundle_owner(@account2.account_id)
@@ -58,10 +58,18 @@ class Kaui::BundlesControllerTest < Kaui::FunctionalTestHelper
          :id => @bundle.bundle_id,
          :new_account_key => @account2.external_key,
          :billing_policy => 'IMMEDIATE'
-    assert_response 302
+    assert_redirected_to account_bundles_path(@account2.account_id)
     assert_equal 'Bundle was successfully transferred', flash[:notice]
 
     check_bundle_owner(@account2.account_id)
+  end
+
+  test 'should expose restful endpoint' do
+    get :restful_show, :id => @bundle.bundle_id
+    assert_redirected_to account_bundles_path(@bundle.account_id)
+
+    get :restful_show, :id => @bundle.external_key
+    assert_redirected_to account_bundles_path(@bundle.account_id)
   end
 
   private

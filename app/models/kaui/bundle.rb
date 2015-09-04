@@ -1,18 +1,13 @@
 class Kaui::Bundle < KillBillClient::Model::Bundle
 
-  def self.find_by_id_or_key(bundle_id_or_key, account_id = nil, options = {})
+  def self.find_by_id_or_key(bundle_id_or_key, options = {})
     if bundle_id_or_key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
-      find_by_id(bundle_id_or_key, options)
-    else
-      if account_id.blank?
-        # Return the active one
-        find_by_external_key(bundle_id_or_key, options)
-      else
-        # Return active and inactive ones
-        bundles = find_all_by_account_id_and_external_key(account_id, bundle_id_or_key, options)
-        get_active_bundle_or_latest_created(bundles)
-      end
+      bundle = find_by_id(bundle_id_or_key, options) rescue nil
+      return bundle unless bundle.nil?
     end
+
+    # Return the active one
+    find_by_external_key(bundle_id_or_key, options)
   end
 
   def self.list_or_search(search_key = nil, offset = 0, limit = 10, options = {})
