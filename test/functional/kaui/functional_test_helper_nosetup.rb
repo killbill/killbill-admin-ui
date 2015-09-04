@@ -5,6 +5,8 @@ class Kaui::FunctionalTestHelperNoSetup < ActionController::TestCase
 
   protected
 
+  self.fixture_path = Kaui::Engine.root.join('test', "fixtures")
+
   #
   # Rails helpers
   #

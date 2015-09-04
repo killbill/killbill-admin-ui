@@ -78,7 +78,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     Kaui::AdminTenant.upload_catalog(catalog_xml, options[:username], nil, comment, options)
 
-    redirect_to admin_tenants_path, :notice => 'Catalog was successfully uploaded'
+    redirect_to admin_tenant_path(current_tenant.id), :notice => 'Catalog was successfully uploaded'
   end
 
   def upload_overdue_config
@@ -93,7 +93,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     Kaui::AdminTenant.upload_overdue_config(overdue_config_xml, options[:username], nil, comment, options)
 
-    redirect_to admin_tenants_path, :notice => 'Overdue config was successfully uploaded'
+    redirect_to admin_tenant_path(current_tenant.id), :notice => 'Overdue config was successfully uploaded'
   end
 
 
@@ -110,7 +110,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     Kaui::AdminTenant.upload_invoice_template(invoice_template, is_manual_pay, true, options[:username], nil, comment, options)
 
-    redirect_to admin_tenants_path, :notice => 'Invoice template was successfully uploaded'
+    redirect_to admin_tenant_path(current_tenant.id), :notice => 'Invoice template was successfully uploaded'
   end
 
   def upload_invoice_translation
@@ -126,7 +126,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     Kaui::AdminTenant.upload_invoice_translation(invoice_translation, locale, true, options[:username], nil, comment, options)
 
-    redirect_to admin_tenants_path, :notice => 'Invoice translation was successfully uploaded'
+    redirect_to admin_tenant_path(current_tenant.id), :notice => 'Invoice translation was successfully uploaded'
   end
 
   def upload_catalog_translation
@@ -142,7 +142,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     Kaui::AdminTenant.upload_catalog_translation(catalog_translation, locale, true, options[:username], nil, comment, options)
 
-    redirect_to admin_tenants_path, :notice => 'Catalog translation was successfully uploaded'
+    redirect_to admin_tenant_path(current_tenant.id), :notice => 'Catalog translation was successfully uploaded'
   end
 
   def upload_plugin_config
@@ -158,7 +158,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     Kaui::AdminTenant.upload_tenant_plugin_config(plugin_name, plugin_config, options[:username], nil, comment, options)
 
-    redirect_to admin_tenants_path, :notice => 'Config for plugin was successfully uploaded'
+    redirect_to admin_tenant_path(current_tenant.id), :notice => 'Config for plugin was successfully uploaded'
   end
 
   def remove_allowed_user
