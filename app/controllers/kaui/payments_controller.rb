@@ -74,7 +74,7 @@ class Kaui::PaymentsController < Kaui::EngineController
   end
 
   def restful_show
-    payment = Kaui::InvoicePayment.find_by_id(params.require(:id), options_for_klient)
+    payment = Kaui::InvoicePayment.find_by_id(params.require(:id), false, options_for_klient)
     redirect_to account_payment_path(payment.account_id, payment.payment_id)
   end
 

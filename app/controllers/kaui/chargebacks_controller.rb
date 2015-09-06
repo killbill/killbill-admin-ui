@@ -1,20 +1,14 @@
 class Kaui::ChargebacksController < Kaui::EngineController
 
   def new
-    begin
-      payment = Kaui::Payment::find_by_id(params[:payment_id], options_for_klient)
-    rescue => e
-      flash[:error] = "Error while retrieving payment: #{as_string(e)}"
-      redirect_to :back
-    end
-
+    payment = Kaui::Payment::find_by_id(params.require(:payment_id), options_for_klient)
     @chargeback = Kaui::Chargeback.new(:payment_id => payment.payment_id,
-                                       :amount     => payment.paid_amount_to_money.to_f,
-                                       :currency   => payment.currency)
+                                       :amount => payment.paid_amount_to_money.to_f,
+                                       :currency => payment.currency)
   end
 
   def create
-    @chargeback        = Kaui::Chargeback.new(params[:chargeback])
+    @chargeback = Kaui::Chargeback.new(params.require(:chargeback))
     should_cancel_subs = (params[:cancel_all_subs] == '1')
 
     begin
@@ -44,6 +38,6 @@ class Kaui::ChargebacksController < Kaui::EngineController
       end
     end
 
-    redirect_to kaui_engine.account_timeline_path(:id => payment.account_id), :notice => 'Chargeback created'
+    redirect_to kaui_engine.account_payment_path(payment.account_id, payment.payment_id), :notice => 'Chargeback created'
   end
 end

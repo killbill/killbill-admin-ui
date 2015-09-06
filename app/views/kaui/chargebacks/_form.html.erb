@@ -1,4 +1,4 @@
-<%= form_for @chargeback, :html => {:class => 'form-horizontal'} do |f| %>
+<%= form_for @chargeback, :url => {:action => :create}, :html => {:class => 'form-horizontal'} do |f| %>
     <%= f.hidden_field :payment_id %>
     <%= f.hidden_field :currency %>
 

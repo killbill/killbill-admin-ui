@@ -70,9 +70,9 @@
       <% if can? :chargeback, Kaui::Payment %>
           <% if payment.target_invoice_id.present? %>
               <li>
-                <%= link_to 'Chargeback', kaui_engine.new_chargeback_path(:params => {:payment_id => payment.payment_id,
-                                                                                      :account_id => payment.account_id,
-                                                                                      :invoice_id => payment.target_invoice_id}) %>
+                <%= link_to 'Chargeback', kaui_engine.new_account_chargeback_path(payment.account_id,
+                                                                                  :payment_id => payment.payment_id,
+                                                                                  :invoice_id => payment.target_invoice_id) %>
               </li>
           <% else %>
               <li>

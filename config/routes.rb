@@ -50,6 +50,7 @@ Kaui::Engine.routes.draw do
     resources :account_emails, :only => [:new, :create, :destroy], :constraints => { :id => /[\w+\-;@\.]+/ }, :path => 'emails'
     resources :bundles, :only => [:index]
     resources :charges, :only => [:new, :create]
+    resources :chargebacks, :only => [:new, :create]
     resources :credits, :only => [:new, :create]
     resources :invoices, :only => [:index, :show]
     resources :invoice_items, :only => [:edit]
@@ -67,8 +68,6 @@ Kaui::Engine.routes.draw do
       post :charges, :as => "charges"
     end
   end
-
-  resources :chargebacks, :only => [ :create, :new ]
 
   resources :payment_methods, :only => [ :new, :create, :destroy ]
 
