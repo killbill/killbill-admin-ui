@@ -1,38 +1,30 @@
-<div class="page-header">
-  <h3>Account <%= @account.name %></h3>
-  <%= link_to @account.email, Kaui.account_home_path.call(@account.external_key) %>
-</div>
 <form class="form-horizontal">
-  <div class="control-group">
-    <label for="bundles" class="control-label">Filter by bundle name</label>
+  <div class="form-group">
+    <label for="bundles" class="col-sm-2 control-label">Filter by bundle</label>
 
-    <div class="controls">
-      <%= select_tag 'bundles', options_for_select([''] + @bundle_names.values.sort, @selected_bundle || 'all') %>
+    <div class="col-sm-10">
+      <%= select_tag 'bundles', options_for_select([''] + @bundle_names.values.sort, @selected_bundle || 'all'), :class => 'form-control' %>
     </div>
+  </div>
+  <div class="form-group">
+    <label for="events" class="col-sm-2 control-label">Filter by event type</label>
 
-    <label for="events" class="control-label">Filter by event type</label>
-
-    <div class="controls">
-      <%= select_tag 'event_types', options_for_select('<option value="all">ALL</option><option value="invoice">INVOICE</option><option value="payment">PAYMENT</option><option value="entitlement">ENTITLEMENTS</option>'.html_safe) %>
+    <div class="col-sm-10  ">
+      <%= select_tag 'event_types', options_for_select('<option value="all">ALL</option><option value="invoice">INVOICE</option><option value="payment">PAYMENT</option><option value="entitlement">ENTITLEMENTS</option>'.html_safe), :class => 'form-control' %>
     </div>
-
-    <dl class="dl-horizontal">
-      <dt>Billing timezone:</dt>
-      <dd><%= @account.time_zone %></dd>
-    </dl>
   </div>
 </form>
+
 <hr/>
+
 <table id="timeline-table" class="table table-condensed">
 <thead>
 <tr>
-  <th>Requested Date</th>
   <th>Effective Date</th>
-  <th>Bundle Name</th>
+  <th>Bundle</th>
   <th>Event Type</th>
   <th>Details</th>
   <th>Reason Code / Comments</th>
-  <th>Actions</th>
 </tr>
 </thead>
 <tbody>
@@ -48,13 +40,6 @@
         <% end %>
         <tr title="<%= bundles %>" data-event_type="INVOICE">
           <td>
-            <% if invoice.invoice_date.present? %>
-                <%= invoice.invoice_date %>
-            <% else %>
-                [unknown]
-            <% end %>
-          </td>
-          <td>
             <% if invoice.target_date.present? %>
                 <%= invoice.target_date %>
             <% else %>
@@ -63,60 +48,49 @@
           </td>
           <td>
             <% if invoice_stub.bundle_keys.present? %>
-                <% invoice_stub.bundle_keys.split(',').each do |bundle_key| %>
-                    <%= link_to @bundle_names[bundle_key], kaui_engine.account_bundles_path(invoice.account_id) %>
-                    <br/>
-                <% end %>
-            <% end %>
+                <ul>
+                  <% invoice_stub.bundle_keys.split(',').each do |bundle_key| %>
+                      <li><%= truncate_uuid(@bundle_names[bundle_key]) %></li>
+                  <% end %>
+                </ul>
+          <% end %>
           </td>
-          <td><%= 'INVOICE' %></td>
-          <td><span class="hide" title="<%= invoice.invoice_number %>"></span>
-            <%= 'Amount:' %> <%= humanized_money_with_symbol invoice.amount_to_money %>
-            (<%= @account.currency %>)<br/>
-            <%= 'Balance:' %> <%= humanized_money_with_symbol invoice.balance_to_money %>
-            (<%= @account.currency %>)<br/>
-            <% if invoice.credit_adj.present? && invoice.credit_adj > 0 %>
-                <%= 'Credit adjustment:' %> <%= humanized_money_with_symbol invoice.credit_adjustment_to_money %>
-                (<%= @account.currency %>)<br/>
-            <% end %>
-            <% if invoice.credits.present? && invoice.credits > 0 %>
-                <%= 'Credit balance adjustment:' %> <%= humanized_money_with_symbol invoice.credits_to_money %>
-                (<%= @account.currency %>)<br/>
-            <% end %>
-            <% if invoice.refund_adj.present? && invoice.refund_adj < 0 %>
-                <%= 'Refund adjustment:' %> <%= humanized_money_with_symbol invoice.refund_adjustment_to_money %>
-                (<%= @account.currency %>)<br/>
-            <% end %>
-            <%= 'Invoice #' %>
-            <%= link_to invoice.invoice_number, invoice_path(:id => invoice.invoice_id) %>
+          <td>INVOICE</td>
+          <td>
+            <ul>
+              <li><span class="hide" title="<%= invoice.invoice_number %>"></span>
+                <%= 'Amount:' %> <%= humanized_money_with_symbol invoice.amount_to_money %>
+                (<%= @account.currency %>)
+              </li>
+              <li><%= 'Balance:' %> <%= humanized_money_with_symbol invoice.balance_to_money %>
+                (<%= @account.currency %>)
+              </li>
+              </li>
+              <% if invoice.credit_adj.present? && invoice.credit_adj > 0 %>
+                  <li><%= 'Credit adjustment:' %> <%= humanized_money_with_symbol invoice.credit_adjustment_to_money %>
+                    (<%= @account.currency %>)
+                  </li>
+              <% end %>
+              <% if invoice.credits.present? && invoice.credits > 0 %>
+                  <li><%= 'Credit balance adjustment:' %> <%= humanized_money_with_symbol invoice.credits_to_money %>
+                    (<%= @account.currency %>)
+                  </li>
+              <% end %>
+              <% if invoice.refund_adj.present? && invoice.refund_adj < 0 %>
+                  <li><%= 'Refund adjustment:' %> <%= humanized_money_with_symbol invoice.refund_adjustment_to_money %>
+                    (<%= @account.currency %>)
+                  </li>
+              <% end %>
+              <li><%= 'Invoice #' %>&nbsp;<%= link_to invoice.invoice_number, account_invoice_path(invoice.account_id, invoice.invoice_id) %></li>
+            </ul>
           </td>
           <td>
             <% if invoice_stub.audit_logs.present? %>
-                <% invoice_stub.audit_logs.each do |entry| %>
-                    <%= Kaui::AuditLog.description(entry) unless entry.changed_by == 'Transition' %>
-                    <br/>
-                <% end %>
-            <% end %>
-          </td>
-          <td>
-            <nobr>
-              <%= link_to 'Payment',
-                          kaui_engine.new_account_payment_path(:account_id => invoice.account_id, :invoice_id => invoice.invoice_id),
-                          :class => "btn btn-xs #{'disabled' unless invoice.balance > 0}" %>
-            </nobr>
-            <% if can? :credit, Kaui::Invoice %>
-                <nobr>
-                  <%= link_to 'Credit',
-                              kaui_engine.new_account_credit_path(invoice.account_id, :invoice_id => invoice.invoice_id),
-                              :class => 'btn btn-xs' %>
-                </nobr>
-            <% end %>
-            <% if can? :charge, Kaui::Invoice %>
-                <nobr>
-                  <%= link_to 'Charge',
-                              kaui_engine.new_account_charge_path(invoice.account_id, :invoice_id => invoice.invoice_id),
-                              :class => 'btn btn-xs' %>
-                </nobr>
+                <ul>
+                  <% invoice_stub.audit_logs.each do |entry| %>
+                      <li><%= Kaui::AuditLog.description(entry) %></li>
+                  <% end %>
+                </ul>
             <% end %>
           </td>
         </tr>
@@ -139,85 +113,40 @@
                 <% end %>
               </td>
               <td>
-                <% if transaction.effective_date.present? %>
-                    <%= format_date(transaction.effective_date, @account.time_zone).html_safe %>
-                <% else %>
-                    [unknown]
-                <% end %>
-              </td>
-              <td>
-                <% (@bundle_keys_by_invoice_id[payment.target_invoice_id] || []).each do |bundle_key| %>
-                    <%= link_to @bundle_names[bundle_key], kaui_engine.account_bundles_path(payment.account_id) %>
-                    <br/>
+                <% if @bundle_keys_by_invoice_id[payment.target_invoice_id].present? %>
+                    <ul>
+                      <% @bundle_keys_by_invoice_id[payment.target_invoice_id].each do |bundle_key| %>
+                          <li><%= truncate_uuid(@bundle_names[bundle_key]) %></li>
+                      <% end %>
+                    </ul>
                 <% end %>
               </td>
               <td><%= transaction.transaction_type %></td>
               <td>
-                <span class="hide" title="<%= invoice.invoice_number unless invoice.nil? %>"></span>
-                <%= 'Transaction id:' %> <%= truncate_uuid(transaction.transaction_id) %>
-                <br/>
-                <%= 'Amount:' %> <%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
-                (<%= transaction.currency %>)<br/>
-            <span
-            <% if transaction.status == 'FAILED' %>class="alert-error"
-            <% elsif transaction.status == 'SUCCESS' %>class="alert-success" <% end %>>
-              <%= transaction.status %>
-            </span>
-                <br/>
-                <%= 'Payment #' %> <%= link_to payment.payment_number, payment_path(:id => payment.payment_id) %>
-                <% unless invoice.nil? %>
-                    <br/><%= 'Invoice #' %> <%= link_to invoice.invoice_number, invoice_path(:id => invoice.invoice_id) %>
-                <% end %>
+                <ul>
+                  <li><%= 'Amount:' %>&nbsp;<%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
+                    (<%= transaction.currency %>)
+                  </li>
+                  <li>
+                    <span
+                    <% if transaction.status != 'SUCCESS' %>class="alert-danger"
+                    <% else %>class="alert-success" <% end %>>
+                      <%= transaction.status %>
+                    </span>
+                  </li>
+                  <li><%= 'Payment #' %>&nbsp;<%= link_to payment.payment_number, account_payment_path(payment.account_id, payment.payment_id) %></li>
+                  <% unless invoice.nil? %>
+                      <li><%= 'Invoice #' %>&nbsp;<%= link_to invoice.invoice_number, account_invoice_path(invoice.account_id, invoice.invoice_id) %></li>
+                  <% end %>
+                </ul>
               </td>
               <td>
                 <% if transaction.audit_logs.present? %>
-                    <% transaction.audit_logs.each do |entry| %>
-                        <%= Kaui::AuditLog.description(entry) unless entry.changed_by == 'PaymentRequestProcessor' %>
-                        <br/>
-                    <% end %>
-                <% end %>
-              </td>
-              <td>
-                <% if invoice.present? and %w(CAPTURE PURCHASE).include?(transaction.transaction_type) %>
-                    <% if can? :refund, Kaui::Payment %>
-                        <nobr>
-                          <%= link_to 'Refund', kaui_engine.new_account_refund_path(@account.account_id, :params => {:payment_id => payment.payment_id,
-                                                                                                                     :invoice_id => payment.target_invoice_id}),
-                                      :class => "btn btn-xs #{'disabled' unless payment.payment_id.present? and transaction.status == 'SUCCESS' }" %>
-                        </nobr>
-                    <% end %>
-                    <% if can? :chargeback, Kaui::Payment %>
-                        <nobr>
-                          <%= link_to 'Chargeback', kaui_engine.new_account_chargeback_path(@account.account_id,
-                                                                                            :payment_id => payment.payment_id,
-                                                                                            :invoice_id => payment.target_invoice_id),
-                                      :class => "btn btn-xs #{'disabled' unless payment.payment_id.present? and transaction.status == 'SUCCESS'}" %>
-                        </nobr>
-                    <% end %>
-                <% elsif !invoice.present? %>
-                    <% if transaction.transaction_type == 'AUTHORIZE' %>
-                        <% %w(CAPTURE VOID).each do |transaction_type| %>
-                            <nobr>
-                              <%= link_to transaction_type.downcase.capitalize, kaui_engine.new_account_transaction_path(:account_id => payment.account_id,
-                                                                                                                         :payment_id => transaction.payment_id,
-                                                                                                                         :payment_method_id => payment.payment_method_id,
-                                                                                                                         :amount => transaction.amount,
-                                                                                                                         :currency => transaction.currency,
-                                                                                                                         :transaction_type => transaction_type), :class => 'btn btn-xs' %>
-                            </nobr>
-                        <% end %>
-                    <% elsif %w(CAPTURE PURCHASE).include?(transaction.transaction_type) %>
-                        <% %w(REFUND CHARGEBACK).each do |transaction_type| %>
-                            <nobr>
-                              <%= link_to transaction_type.downcase.capitalize, kaui_engine.new_account_transaction_path(:account_id => payment.account_id,
-                                                                                                                         :payment_id => transaction.payment_id,
-                                                                                                                         :payment_method_id => payment.payment_method_id,
-                                                                                                                         :amount => transaction.amount,
-                                                                                                                         :currency => transaction.currency,
-                                                                                                                         :transaction_type => transaction_type), :class => 'btn btn-xs' %>
-                            </nobr>
-                        <% end %>
-                    <% end %>
+                    <ul>
+                      <% transaction.audit_logs.each do |entry| %>
+                          <li><%= Kaui::AuditLog.description(entry) %></li>
+                      <% end %>
+                    </ul>
                 <% end %>
               </td>
             </tr>
@@ -230,13 +159,6 @@
                 <% next if event.event_type == 'SERVICE_STATE_CHANGE' %>
                 <tr title="<%= @bundle_names[bundle.external_key] %>" data-event_type="<%= event.event_type %>">
                   <td>
-                    <% if event.requested_date.present? %>
-                        <%= format_date(event.requested_date, @account.time_zone).html_safe %>
-                    <% else %>
-                        [unknown]
-                    <% end %>
-                  </td>
-                  <td>
                     <% if event.effective_date.present? %>
                         <%= format_date(event.effective_date, @account.time_zone).html_safe %>
                     <% else %>
@@ -244,22 +166,25 @@
                     <% end %>
                   </td>
                   <td>
-                    <%= link_to @bundle_names[bundle.external_key], kaui_engine.account_bundles_path(bundle.account_id) %>
-                    <br/>
+                    <ul>
+                      <li><%= truncate_uuid(@bundle_names[bundle.external_key]) %></li>
+                    </ul>
                   </td>
                   <td><%= event.event_type %></td>
                   <td>
-                    <span class="hide" title="<%= sub.product_category %>"></span><%= event.product %> <%= event.billing_period == 'NO_BILLING_PERIOD' || event.billing_period.nil? ? '' : event.billing_period.downcase.capitalize %> <%= event.phase.downcase.capitalize if event.phase.present? %>
+                    <ul>
+                      <li><span class="hide" title="<%= sub.product_category %>"></span><%= event.phase %></li>
+                    </ul>
                   </td>
                   <td>
                     <% if event.audit_logs.present? %>
-                        <% event.audit_logs.each do |entry| %>
-                            <%= Kaui::AuditLog.description(entry) %>
-                            <br/>
-                        <% end %>
+                        <ul>
+                          <% event.audit_logs.each do |entry| %>
+                              <li><%= Kaui::AuditLog.description(entry) %></li>
+                          <% end %>
+                        </ul>
                     <% end %>
                   </td>
-                  <td></td>
                 </tr>
             <% end %>
         <% end %>
@@ -314,26 +239,21 @@
     };
 
     function initTable() {
-    return $("#timeline-table").dataTable({
-    "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-    "sPaginationType": "simple_numbers",
-    "oLanguage": {
-    "sLengthMenu": "_MENU_ records per page"
-    },
-    "iDisplayLength": 100,
-    "bRetrieve": true,
-    // Force a predictive order for event types, invoices and payments
-    "aaSorting": [[1, 'desc'], [4, 'asc'], [3, 'desc']],
-    "aoColumns": [
-    { "sType": 'date' },
-    { "sType": 'date' },
-    null,
-    { "sType": 'timeline-event' },
-    { "sType": 'timeline-details' },
-    null,
-    null
-    ]
-    });
+      return $("#timeline-table").dataTable({
+        "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+        "pagingType": "full_numbers",
+        "iDisplayLength": 100,
+        "retrieve": true,
+        // Force a predictive order for event types, invoices and payments
+        "order": [[0, 'desc'], [2, 'desc']],
+        "columns": [
+          { "type": 'date' },
+          null,
+          { "type": 'timeline-event' },
+          { "type": 'timeline-details' },
+          null
+        ]
+      });
     }
 
     function filterEachNode(rows) {

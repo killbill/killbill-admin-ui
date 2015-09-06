@@ -36,6 +36,9 @@ Kaui::Engine.routes.draw do
         match '/edit' => 'bundle_tags#edit', :via => :get, :as => 'edit_bundle_tags'
         match '/edit' => 'bundle_tags#update', :via => :post, :as => 'update_bundle_tags'
       end
+      scope '/timeline' do
+        match '/' => 'account_timelines#show', :via => :get, :as => 'account_timeline'
+      end
     end
   end
   resources :accounts, :only => [ :index, :new, :create, :show ], :param => :account_id do
@@ -57,16 +60,6 @@ Kaui::Engine.routes.draw do
     resources :payments, :only => [:index, :show, :new, :create]
     resources :refunds, :only => [:new, :create]
     resources :transactions, :only => [:new, :create]
-  end
-
-  resources :account_timelines, :only => [ :index, :show ] do
-    member do
-      post :refunds, :as => "refunds"
-      post :chargebacks, :as => "chargebacks"
-      post :credits, :as => "credits"
-      post :payments, :as => "payments"
-      post :charges, :as => "charges"
-    end
   end
 
   resources :payment_methods, :only => [ :new, :create, :destroy ]

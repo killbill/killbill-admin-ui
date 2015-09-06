@@ -25,7 +25,7 @@ module Kaui
       assert_not_nil assigns(:payment_methods)
 
       # He now clicks on the timeline link
-      get ACCOUNT_TIMELINE_PATH + '/' + @account.account_id
+      get ACCOUNTS_PATH + '/' + @account.account_id + '/timeline'
       assert_response :success
       check_no_flash_error
       assert_not_nil assigns(:account)
