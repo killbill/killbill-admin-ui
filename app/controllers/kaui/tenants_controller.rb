@@ -41,6 +41,8 @@ class Kaui::TenantsController < Kaui::EngineController
     # Set kb_tenant_id in the session
     session[:kb_tenant_id] = kb_tenant_id
     session[:kb_tenant_name] = kb_tenant_name_or_key
-    redirect_to Kaui.home_path.call
+
+    # Devise will have stored the requested url while signed-out
+    redirect_to stored_location_for(:user) || Kaui.home_path.call
   end
 end

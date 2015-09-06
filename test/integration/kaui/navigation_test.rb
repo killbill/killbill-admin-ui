@@ -4,12 +4,12 @@ module Kaui
   class NavigationTest < IntegrationTestHelper
 
     test 'Browse one account' do
-      get BASE_PATH
+      get ACCOUNTS_PATH + '/' + @account.account_id
       assert_redirected_to SIGN_IN_PATH
 
-      # Verify log-in
+      # Verify log-in and redirect to the original page
       post_via_redirect SIGN_IN_PATH, {:user => {:kb_username => USERNAME, :password => PASSWORD}}
-      assert_equal HOME_PATH, path
+      assert_equal ACCOUNTS_PATH + '/' + @account.account_id, path
 
       # User goes to search for the account
       get ACCOUNTS_PATH
