@@ -33,4 +33,8 @@ class Kaui::Account < KillBillClient::Model::Account
   def cba_to_money
     Kaui::Base.to_money(account_cba.abs, currency)
   end
+
+  def persisted?
+    !account_id.blank?
+  end
 end

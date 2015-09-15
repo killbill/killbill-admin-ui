@@ -1,5 +1,9 @@
 <h3>Account Information</h3>
 
+<%= link_to 'Edit',
+            kaui_engine.edit_account_path(@account.account_id),
+            :class => 'btn btn-xs' %>
+
 <%= render :partial => 'kaui/tags/tags_table',
            :locals => {:tags => @tags, :tags_url_or_path => kaui_engine.edit_account_tags_path(@account.account_id)} %>
 

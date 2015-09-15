@@ -72,6 +72,21 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     assert !assigns(:account).is_notified_for_invoices
   end
 
+  test 'should update account' do
+    get :edit, :account_id => @account.account_id
+    assert_response 200
+    assert_not_nil assigns(:account)
+
+    put :update,
+        :account_id => @account.account_id,
+        :account => {
+            :name => SecureRandom.uuid.to_s,
+            :email => SecureRandom.uuid.to_s + '@example.com'
+        }
+    assert_redirected_to account_path(assigns(:account).account_id)
+    assert_equal 'Account successfully updated', flash[:notice]
+  end
+
   test 'should be redirected if no payment_method_id is specified when setting default payment method' do
     put :set_default_payment_method, :account_id => @account.account_id
     assert_redirected_to account_path(@account.account_id)

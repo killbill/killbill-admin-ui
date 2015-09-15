@@ -72,6 +72,26 @@ class Kaui::AccountsController < Kaui::EngineController
     run_in_parallel fetch_overdue_state, fetch_account_tags, fetch_account_emails, fetch_payment_methods
   end
 
+  def edit
+    @account = Kaui::Account::find_by_id_or_key(params.require(:account_id), false, false, options_for_klient)
+  end
+
+  def update
+    @account = Kaui::Account.new(params.require(:account).delete_if { |key, value| value.blank? })
+    @account.account_id = params.require(:account_id)
+
+    # Transform "1" into boolean
+    @account.is_migrated = @account.is_migrated == '1'
+    @account.is_notified_for_invoices = @account.is_notified_for_invoices == '1'
+
+    @account.update(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+
+    redirect_to account_path(@account.account_id), :notice => 'Account successfully updated'
+  rescue => e
+    flash.now[:error] = "Error while updating account: #{as_string(e)}"
+    render :action => :edit
+  end
+
   def set_default_payment_method
     account_id = params.require(:account_id)
     payment_method_id = params.require(:payment_method_id)
