@@ -20,7 +20,7 @@ Kaui::Engine.routes.draw do
              :module => :devise,
              :controllers => { :sessions => 'kaui/sessions'}
 
-  root :to => "home#index", as: 'kaui'
+  root :to => 'home#index', as: 'kaui'
 
   scope '/accounts' do
     match '/pagination' => 'accounts#pagination', :via => :get, :as => 'accounts_pagination'
@@ -99,33 +99,33 @@ Kaui::Engine.routes.draw do
   end
   resources :custom_fields, :only => [:index, :new, :create]
 
-  scope "/tenants" do
-    match "/" => "tenants#index", :via => :get, :as => "tenants"
-    match "/select_tenant" => "tenants#select_tenant", :via => :post, :as => "select_tenant"
+  scope '/tenants' do
+    match '/' => 'tenants#index', :via => :get, :as => 'tenants'
+    match '/select_tenant' => 'tenants#select_tenant', :via => :post, :as => 'select_tenant'
   end
 
-  scope "/login_proxy" do
-    match "/check_login" => "login_proxy#check_login", :via => :get, :as => "check_login"
+  scope '/login_proxy' do
+    match '/check_login' => 'login_proxy#check_login', :via => :get, :as => 'check_login'
   end
 
-  scope "/home" do
-    match "/" => "home#index", :via => :get, :as => "home"
-    match "/search" => "home#search", :via => :get, :as => "search"
+  scope '/home' do
+    match '/' => 'home#index', :via => :get, :as => 'home'
+    match '/search' => 'home#search', :via => :get, :as => 'search'
   end
 
   resources :admin_tenants, :only => [ :index, :new, :create, :show ]
-  scope "/admin_tenants" do
-    match "/upload_catalog" => "admin_tenants#upload_catalog", :via => :post, :as => "admin_tenant_upload_catalog"
-    match "/upload_overdue_config" => "admin_tenants#upload_overdue_config", :via => :post, :as => "admin_tenant_upload_overdue_config"
-    match "/upload_invoice_template" => "admin_tenants#upload_invoice_template", :via => :post, :as => "admin_tenant_upload_invoice_template"
-    match "/upload_invoice_translation" => "admin_tenants#upload_invoice_translation", :via => :post, :as => "admin_tenant_upload_invoice_translation"
-    match "/upload_catalog_translation" => "admin_tenants#upload_catalog_translation", :via => :post, :as => "admin_tenant_upload_catalog_translation"
-    match "/upload_plugin_config" => "admin_tenants#upload_plugin_config", :via => :post, :as => "admin_tenant_upload_plugin_config"
-    match "/remove_allowed_user" => "admin_tenants#remove_allowed_user", :via => :delete, :as => "remove_allowed_user"
+  scope '/admin_tenants' do
+    match '/upload_catalog' => 'admin_tenants#upload_catalog', :via => :post, :as => 'admin_tenant_upload_catalog'
+    match '/upload_overdue_config' => 'admin_tenants#upload_overdue_config', :via => :post, :as => 'admin_tenant_upload_overdue_config'
+    match '/upload_invoice_template' => 'admin_tenants#upload_invoice_template', :via => :post, :as => 'admin_tenant_upload_invoice_template'
+    match '/upload_invoice_translation' => 'admin_tenants#upload_invoice_translation', :via => :post, :as => 'admin_tenant_upload_invoice_translation'
+    match '/upload_catalog_translation' => 'admin_tenants#upload_catalog_translation', :via => :post, :as => 'admin_tenant_upload_catalog_translation'
+    match '/upload_plugin_config' => 'admin_tenants#upload_plugin_config', :via => :post, :as => 'admin_tenant_upload_plugin_config'
+    match '/remove_allowed_user' => 'admin_tenants#remove_allowed_user', :via => :delete, :as => 'remove_allowed_user'
   end
 
   resources :admin_allowed_users, :only => [ :index, :new, :create, :show ]
-  scope "/admin_allowed_users" do
-    match "/add_tenant" => "admin_allowed_users#add_tenant", :via => :post, :as => "add_tenant"
+  scope '/admin_allowed_users' do
+    match '/add_tenant' => 'admin_allowed_users#add_tenant', :via => :post, :as => 'add_tenant'
   end
 end
