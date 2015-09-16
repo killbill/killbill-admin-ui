@@ -20,8 +20,6 @@ Kaui::Engine.routes.draw do
              :module => :devise,
              :controllers => { :sessions => 'kaui/sessions'}
 
-  resources :tag_definitions
-
   root :to => "home#index", as: 'kaui'
 
   scope '/accounts' do
@@ -89,10 +87,12 @@ Kaui::Engine.routes.draw do
     end
   end
 
-  scope "/tags" do
-    match "/pagination" => "tags#pagination", :via => :get, :as => "tags_pagination"
+  scope '/tags' do
+    match '/pagination' => 'tags#pagination', :via => :get, :as => 'tags_pagination'
   end
-  resources :tags, :only => [ :create, :new, :index, :show ]
+  resources :tags, :only => [:index]
+
+  resources :tag_definitions, :only => [:index, :new, :create, :destroy]
 
   scope '/custom_fields' do
     match '/pagination' => 'custom_fields#pagination', :via => :get, :as => 'custom_fields_pagination'

@@ -1,6 +1,6 @@
 <h3 class="pageHeader">Tag Definitions: <%= link_to 'New Tag Definition', kaui_engine.new_tag_definition_path %></h3>
 
-<table id='invoice_table' class='table table-condensed data-table'>
+<table id='tag_definitions-table' class='table table-condensed'>
   <thead>
     <tr>
       <th style='width: 30%'>Id</th>
@@ -8,7 +8,6 @@
       <th style='width: 20%'>Description</th>
       <th style='width: 5%'>System tag?</th>
       <th style='width: 15%'>Applicable types</th>
-      <th style='width: 5%'></th>
       <th style='width: 5%'></th>
     </tr>
   </thead>
@@ -19,8 +18,7 @@
         <td><%= tag_definition.name %></td>
         <td><%= tag_definition.description %></td>
         <td><%= tag_definition.is_system_tag? %></td>
-        <td><%= !tag_definition.is_system_tag? ? 'Any' : tag_definition.applicable_object_types.join(', ') %></td>
-        <td><%= link_to 'Show', kaui_engine.tag_definition_path(tag_definition.id) %></td>
+        <td><%= tag_definition.pretty_applicable_object_types %></td>
         <td>
           <% unless tag_definition.is_system_tag? %>
             <%= link_to 'Destroy', kaui_engine.tag_definition_path(tag_definition.id), :confirm => 'Are you sure?', :method => :delete %>
@@ -31,4 +29,20 @@
   </tbody>
 </table>
 
-<br />
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $('#tag_definitions-table').dataTable({
+    "dom": "t",
+    "paging": "false",
+    "order": [],
+    "columns": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    { "orderable": false }
+    ]
+  });
+});
+<% end %>

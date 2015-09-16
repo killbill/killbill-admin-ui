@@ -1,7 +1,7 @@
 class Kaui::TagDefinition < KillBillClient::Model::TagDefinition
 
   # See org.killbill.billing.ObjectType in killbill-api
-  %w(ACCOUNT
+  ALL_OBJECT_TYPES = %w(ACCOUNT
      ACCOUNT_EMAIL
      BLOCKING_STATES
      BUNDLE
@@ -19,7 +19,9 @@ class Kaui::TagDefinition < KillBillClient::Model::TagDefinition
      TAG
      TAG_DEFINITION
      TENANT
-     TENANT_KVS).each do |object_type|
+     TENANT_KVS)
+
+  ALL_OBJECT_TYPES.each do |object_type|
     define_singleton_method "all_for_#{object_type.downcase}" do |options_for_klient|
       (self.all('NONE', options_for_klient).delete_if { |tag_definition| !tag_definition.applicable_object_types.include? object_type }).sort
     end
@@ -44,5 +46,9 @@ class Kaui::TagDefinition < KillBillClient::Model::TagDefinition
     return 1 if is_system_tag? and !tag_definition.is_system_tag?
     return -1 if !is_system_tag? and tag_definition.is_system_tag?
     name <=> tag_definition.name
+  end
+
+  def pretty_applicable_object_types
+    applicable_object_types == ALL_OBJECT_TYPES ? 'Any' : applicable_object_types.join(', ')
   end
 end

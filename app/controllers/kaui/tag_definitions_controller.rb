@@ -9,10 +9,6 @@ class Kaui::TagDefinitionsController < Kaui::EngineController
     end
   end
 
-  def show
-    @tag_definition = Kaui::TagDefinition.find_by_id(params[:id], 'NONE', options_for_klient)
-  end
-
   def new
     @tag_definition = Kaui::TagDefinition.new
   end
@@ -22,7 +18,7 @@ class Kaui::TagDefinitionsController < Kaui::EngineController
 
     begin
       @tag_definition = @tag_definition.create(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
-      redirect_to kaui_engine.tag_definition_path(@tag_definition.id), :notice => 'Tag definition successfully created'
+      redirect_to kaui_engine.tag_definitions_path, :notice => 'Tag definition successfully created'
     rescue => e
       flash.now[:error] = "Error while creating tag definition: #{as_string(e)}"
       render :action => :new
