@@ -94,9 +94,10 @@ Kaui::Engine.routes.draw do
   end
   resources :tags, :only => [ :create, :new, :index, :show ]
 
-  scope "/custom_fields" do
-    match "/pagination" => "custom_fields#pagination", :via => :get, :as => "custom_fields_pagination"
+  scope '/custom_fields' do
+    match '/pagination' => 'custom_fields#pagination', :via => :get, :as => 'custom_fields_pagination'
   end
+  resources :custom_fields, :only => [:index, :new, :create]
 
   scope "/tenants" do
     match "/" => "tenants#index", :via => :get, :as => "tenants"
@@ -127,6 +128,4 @@ Kaui::Engine.routes.draw do
   scope "/admin_allowed_users" do
     match "/add_tenant" => "admin_allowed_users#add_tenant", :via => :post, :as => "add_tenant"
   end
-
-  resources :custom_fields, :only => [ :create, :new, :index, :show ]
 end
