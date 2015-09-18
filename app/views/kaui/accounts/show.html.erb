@@ -76,7 +76,11 @@
         (<%= @account.currency %>)</span></dd>
   <% end %>
   <dt>Next invoice date:</dt>
-  <dd><span class="label label-warning">NOT IMPLEMENTED</span></dd>
+  <% if @next_invoice_date %>
+      <dd><%= @next_invoice_date %> (user timezone)</dd>
+  <% else %>
+      <dd>N/A</dd>
+  <% end %>
   <dt>Bill cycle day:</dt>
   <% if @account.bill_cycle_day_local %>
       <dd><%= @account.bill_cycle_day_local %> (user timezone)</dd>

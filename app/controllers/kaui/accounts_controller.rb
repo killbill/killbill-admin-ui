@@ -57,6 +57,10 @@ class Kaui::AccountsController < Kaui::EngineController
   def show
     @account = Kaui::Account::find_by_id_or_key(params.require(:account_id), true, true, options_for_klient)
 
+    fetch_upcoming_invoice_date = lambda {
+      next_invoice = Kaui::Invoice.trigger_invoice_dry_run(@account.account_id, nil, true, options_for_klient)
+      @next_invoice_date = next_invoice.target_date if next_invoice
+    }
     fetch_overdue_state = lambda { @overdue_state = @account.overdue(options_for_klient) }
     fetch_account_tags = lambda { @tags = @account.tags(false, 'NONE', options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b } }
     fetch_account_emails = lambda { @account_emails = Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', options_for_klient) }
@@ -68,8 +72,7 @@ class Kaui::AccountsController < Kaui::EngineController
         @payment_methods = Kaui::PaymentMethod.find_non_external_by_account_id(@account.account_id, false, options_for_klient)
       end
     end
-
-    run_in_parallel fetch_overdue_state, fetch_account_tags, fetch_account_emails, fetch_payment_methods
+    run_in_parallel fetch_upcoming_invoice_date, fetch_overdue_state, fetch_account_tags, fetch_account_emails, fetch_payment_methods
   end
 
   def edit
