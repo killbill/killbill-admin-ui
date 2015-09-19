@@ -2,13 +2,13 @@ class Kaui::BundlesController < Kaui::EngineController
 
   def index
     @account = Kaui::Account::find_by_id_or_key(params.require(:account_id), false, false, options_for_klient)
-    @bundles = @account.bundles(options_for_klient)
 
-    @tags_per_bundle = {}
-    @bundles.each do |bundle|
-      # See https://github.com/killbill/killbill/issues/392
-      @tags_per_bundle[bundle.bundle_id] = bundle.tags(false, 'NONE', options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b }
-    end
+    fetch_bundles = lambda { @bundles = @account.bundles(options_for_klient) }
+    fetch_bundle_tags = lambda {
+      all_bundle_tags = @account.all_tags(:BUNDLE, false, 'NONE', options_for_klient)
+      @tags_per_bundle = all_bundle_tags.inject({}) {|hsh, entry| hsh[entry.object_id] = [] if hsh[entry.object_id].nil?; hsh[entry.object_id]  << entry; hsh}
+    }
+    run_in_parallel fetch_bundles, fetch_bundle_tags
   end
 
   def transfer
