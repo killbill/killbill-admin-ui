@@ -28,8 +28,8 @@
 </tr>
 </thead>
 <tbody>
-<% if @account.present? && @timeline.present? %>
-    <% @timeline.invoices.each do |invoice_stub| %>
+<% if @account.present? %>
+    <% @invoices.each do |invoice_stub| %>
         <% if invoice_stub.bundle_keys.present? %>
             <% bundles = invoice_stub.bundle_keys.split(',').map { |bundle_key| @bundle_names[bundle_key] }.join(',') %>
         <% end %>
@@ -95,7 +95,7 @@
           </td>
         </tr>
     <% end %>
-    <% @timeline.payments.each do |payment| %>
+    <% @payments.each do |payment| %>
         <% if payment.target_invoice_id.present? %>
             <% bundles = @bundle_names_by_invoice_id[payment.target_invoice_id].to_a.join(',') %>
             <% invoice = @invoices_by_id[payment.target_invoice_id] %>
@@ -152,7 +152,7 @@
             </tr>
         <% end %>
     <% end %>
-    <% @timeline.bundles.each do |bundle| %>
+    <% @bundles.each do |bundle| %>
         <% bundle.subscriptions.each do |sub| %>
             <% sub.events.each do |event| %>
                 <!-- SKIP SERVICE_STATE_CHANGE  -->
