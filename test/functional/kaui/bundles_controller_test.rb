@@ -9,12 +9,22 @@ class Kaui::BundlesControllerTest < Kaui::FunctionalTestHelper
     assert_equal "Error while communicating with the Kill Bill server: Error 404: Account does not exist for id #{account_id}", flash[:error]
   end
 
-  test 'should get index' do
+  test 'should get index with existing tags' do
+
+    tag_definition_ids = []
+    def1 = create_tag_definition(SecureRandom.uuid.to_s, @tenant);
+    tag_definition_ids << def1
+    tag_definition_ids << def1
+    def2 = create_tag_definition(SecureRandom.uuid.to_s, @tenant);
+    tag_definition_ids << def2
+
+    add_tags(@bundle, tag_definition_ids, @tenant);
     get :index, :account_id => @bundle.account_id
     assert_response 200
     assert_not_nil assigns(:account)
     assert_not_nil assigns(:bundles)
     assert_not_nil assigns(:tags_per_bundle)
+    assert_equal 2, assigns(:tags_per_bundle)[@bundle.bundle_id].size
   end
 
   test 'should handle Kill Bill errors during transfer' do
@@ -74,6 +84,18 @@ class Kaui::BundlesControllerTest < Kaui::FunctionalTestHelper
 
   private
 
+  def create_tag_definition(tag_definition_name, tenant, username = USERNAME, password = PASSWORD, reason = nil, comment = nil)
+    input = Kaui::TagDefinition.new(tag_definition_name)
+    input.name = tag_definition_name
+    input.description = 'something'
+    tag_def = input.create(username, reason, comment, build_options(tenant, username, password))
+    tag_def.id
+  end
+
+  def add_tags(bundle, tag_definition_ids, tenant, username = USERNAME, password = PASSWORD, reason = nil, comment = nil)
+    bundle.set_tags(tag_definition_ids, username, reason, comment, build_options(tenant, username, password))
+  end
+  
   def check_bundle_owner(new_owner)
     assert_equal new_owner, Kaui::Bundle.find_by_external_key(@bundle.external_key, options).account_id
   end

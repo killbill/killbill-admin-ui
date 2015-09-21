@@ -6,7 +6,7 @@ class Kaui::BundlesController < Kaui::EngineController
     fetch_bundles = lambda { @bundles = @account.bundles(options_for_klient) }
     fetch_bundle_tags = lambda {
       all_bundle_tags = @account.all_tags(:BUNDLE, false, 'NONE', options_for_klient)
-      @tags_per_bundle = all_bundle_tags.inject({}) {|hsh, entry| (hsh[entry.object_id] || []) << entry; hsh}
+      @tags_per_bundle = all_bundle_tags.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
     }
     run_in_parallel fetch_bundles, fetch_bundle_tags
   end
