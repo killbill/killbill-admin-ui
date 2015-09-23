@@ -71,11 +71,6 @@
                     (<%= @account.currency %>)
                   </li>
               <% end %>
-              <% if invoice.credits.present? && invoice.credits > 0 %>
-                  <li><%= 'Credit balance adjustment:' %> <%= humanized_money_with_symbol invoice.credits_to_money %>
-                    (<%= @account.currency %>)
-                  </li>
-              <% end %>
               <% if invoice.refund_adj.present? && invoice.refund_adj < 0 %>
                   <li><%= 'Refund adjustment:' %> <%= humanized_money_with_symbol invoice.refund_adjustment_to_money %>
                     (<%= @account.currency %>)
