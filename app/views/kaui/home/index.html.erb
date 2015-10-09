@@ -1,6 +1,14 @@
-<%= form_tag search_path, :class => 'form-inline', :method => 'get' do %>
-    <div class="form-group">
-      <%= text_field_tag :q, @search_query, :class => 'form-control' %>
+<div class="home">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <%= form_tag search_path, :id => 'home_searchform', :class => 'form-inline', :method => 'get' do %>
+          <div class="form-group">
+            <%= text_field_tag :q, @search_query, :class => 'form-control', :placeholder => 'What are you looking for?' %>
+          </div>
+          <%= submit_tag 'What are you looking for?', :class => 'btn btn-primary' %>
+      <% end %>
     </div>
-    <%= button_tag 'Search', :class => 'btn btn-primary' %>
-<% end %>
+  </div>
+
+  <span class="duck_help">You can search for Account IDs, Names, Email addresses, Bundle IDs.</span>
+</div>
