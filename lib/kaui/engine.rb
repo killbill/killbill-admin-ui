@@ -7,6 +7,7 @@
 require 'jquery-rails'
 require 'jquery-datatables-rails'
 require 'd3_rails'
+require 'less-rails'
 require 'json'
 require 'money-rails'
 require 'killbill_client'

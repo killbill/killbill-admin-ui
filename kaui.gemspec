@@ -38,6 +38,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'carmen-rails', '~> 1.0.0'
   s.add_dependency 'symmetric-encryption', '~> 3.6.0'
   s.add_dependency 'sass-rails', '~> 5.0.2'
+  s.add_dependency 'less-rails', '~> 2.7.0'
   s.add_dependency 'concurrent-ruby', '~> 1.0.0.pre1'
 
   s.add_development_dependency 'fakeweb', '~> 1.3'
@@ -47,11 +48,15 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'simplecov'
 
   if defined?(JRUBY_VERSION)
+    s.add_dependency 'therubyrhino', '~> 2.0.4'
+
     s.add_development_dependency 'activerecord-jdbc-adapter', '~> 1.3.9'
     s.add_development_dependency 'activerecord-jdbcmysql-adapter', '~> 1.3.9'
     s.add_development_dependency 'activerecord-jdbcsqlite3-adapter', '~> 1.3.9'
     s.add_development_dependency 'jdbc-mysql', '~> 5.1.25'
   else
+    s.add_dependency 'therubyracer', '~> 0.12.2'
+
     s.add_development_dependency 'mysql2'
   end
 end
