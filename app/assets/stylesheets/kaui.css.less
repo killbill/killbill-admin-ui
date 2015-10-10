@@ -73,6 +73,21 @@ a {
 	text-transform: capitalize;
 }
 
+span {
+	&.success, &.fail {
+		display: inline-block;
+		font-size: 14px;
+		color: #fff;
+		font-weight: 400;
+		padding: 0px 10px;
+		background-color: #df4232;
+	}
+
+	&.success {
+		background-color: #5eca8f;
+	}
+}
+
 input, textarea, select {
 	border: 1px solid #cccccc;
 	border-radius: 0;
@@ -162,6 +177,7 @@ table {
 
 		@media (@phone) {
 			padding: 5px;
+			word-break: break-word;
 		}
 	}
 
@@ -178,6 +194,7 @@ table {
 
 		@media (@phone) {
 			padding: 5px;
+			word-break: break-word;
 		}
 	}
 
@@ -237,6 +254,7 @@ table {
 				display: block;
 				width: 100%;
 				font-size: 12px;
+				word-break: break-word;
 			}
 		}
 	}
@@ -417,11 +435,24 @@ header {
 	#home_searchform {
 		padding-top: 150px;
 
+		@media (@phone) {
+			padding-top: 50px;
+		}
+
 		#search {
 			line-height: 48px;
 			padding: 0 25px;
 			font-size: 18px;
 			width: 330px;
+			height: 50px;
+
+			@media (@phone) {
+			    line-height: 33px;
+			    padding: 0 10px;
+			    font-size: 16px;
+			    width: 220px;
+			    height: 35px;
+			}
 		}
 
 		input[type=submit] {
@@ -434,6 +465,13 @@ header {
 			border-radius: 25px;
 			vertical-align: top;
 			margin: 0 0 0 10px;
+
+			@media (@phone) {
+				height: 35px;
+				width: 42px;
+				border-radius: 15px;
+				background-size: 20px;
+			}
 		}
 	}
 
@@ -449,6 +487,18 @@ header {
 	    right: 20%;
 	    background: asset-url("kaui/duck.png") no-repeat center center;
 	    text-align: center;
+
+	    @media (@phone) {
+			position: relative;
+			right: initial;
+			bottom: initial;
+			width: 300px;
+			background-size: 300px auto;
+			font-size: 16px;
+			padding: 20px 120px 110px 40px;
+			top: 50px;
+			height: 220px;
+	    }
 	}
 }
 
@@ -812,7 +862,7 @@ header {
 			}
 		}
 
-		table {
+		table.transparent {
 			margin-bottom: 30px;
 
 			@media (@phone) {
@@ -979,4 +1029,205 @@ header {
 		}
 	}
 
+	.filter-select {
+		margin: 10px 20px 30px 0;
+	}
+
+	&.subscriptions {
+
+		.column-block {
+			h1 {
+
+				@media (@phone) {
+					float: left;
+				}
+
+				a {
+					float: right;
+					color: #00919d;
+					font-size: 12px;
+					padding: 3px 0;
+					font-weight: 400;
+
+					&:hover {
+						color: darken(#00919d, 20%);
+					}
+
+					@media (@phone) {
+						padding-top: 10px;
+					}
+				}
+			}
+		}
+
+		.account-info {
+			.tag-bar, table {
+				margin-bottom: 0;
+			}
+
+			table {
+				font-weight: 400;
+
+				@media (@phone) {
+					margin-bottom: 40px;
+				}
+
+				td:last-of-type {
+					a {
+						display: inline-block;
+						margin: 0 10px;
+						text-transform: uppercase;
+
+						@media (@phone) {
+							margin: 5px;
+						}
+					}
+				}
+
+				tr.expired {
+					td {
+						color: #cccccc;
+
+						&:first-of-type {
+							color: #777777;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&.invoices {
+
+		.title-nav-area {
+			margin-bottom: 30px;
+		}
+
+		table {
+			font-weight: 400;
+		}
+
+		small {
+			font-size: 14px;
+			display: inline-block;
+			margin-right: 50px;
+			margin-bottom: 10px;
+		}
+
+		table.result {
+			border-top: 0;
+			padding-top: 15px;
+
+			@media (@phone) {
+				tr:first-of-type {
+					th {
+						padding-top: 60px;
+					}
+				}
+			}
+
+			th, td {
+				padding: 5px;
+			}
+
+			th {
+				background-color: transparent;
+				text-transform: uppercase;
+				width: 80%;
+				text-align: right;
+				padding-right: 15px;
+
+				@media (@phone) {
+					width: 50%;
+				}
+			}
+
+			td {
+				width: 20%;
+
+				@media (@phone) {
+					width: 50%;
+				}
+			}
+
+			tr {
+				border: 0;
+			}
+
+			tr:last-of-type {
+				background-color: #c7e4e7;
+			}
+		}
+
+		h3 {
+			text-align: left;
+			border-left: 1px solid #f3f3f3;
+			border-right: 1px solid #f3f3f3;
+			border-bottom: 0;
+			margin: 0;
+			padding: 20px;
+			font-size: 16px;
+			font-weight: 700;
+			color: #777777;
+
+			&:first-of-type {
+				border-top: 1px solid #f3f3f3;
+			}
+		}
+
+		.payment-list {
+			table {
+				@media (@phone) {
+					margin-bottom: 60px;
+				}
+			}
+		}
+	}
+
+	&.payments {
+
+		.title-nav-area {
+			margin-bottom: 30px;
+		}
+
+		table {
+			font-weight: 400;
+		}
+
+		small {
+			font-size: 14px;
+			display: inline-block;
+			margin-left: 30px;
+			margin-bottom: 10px;
+			text-transform: uppercase;
+		}
+
+		.account-info {
+			.tag-bar {
+				margin-bottom: 0;
+			}
+		}
+
+		.fix-position {
+			padding-left: 45px;
+			padding-bottom: 30px;
+
+			@media (@phone) {
+				padding-left: 15px;
+			}
+		}
+
+		.mobile-data {
+			td:last-of-type {
+				a {
+					text-transform: uppercase;
+				}
+			}
+
+			@media (@phone) {
+				margin-bottom: 40px;
+			}
+		}
+
+	}
 }
