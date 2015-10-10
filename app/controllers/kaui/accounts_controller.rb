@@ -72,7 +72,8 @@ class Kaui::AccountsController < Kaui::EngineController
         @payment_methods = Kaui::PaymentMethod.find_non_external_by_account_id(@account.account_id, false, options_for_klient)
       end
     end
-    run_in_parallel fetch_upcoming_invoice_date, fetch_overdue_state, fetch_account_tags, fetch_account_emails, fetch_payment_methods
+    fetch_available_tags = lambda { @available_tags = Kaui::TagDefinition.all_for_account(options_for_klient) }
+    run_in_parallel fetch_upcoming_invoice_date, fetch_overdue_state, fetch_account_tags, fetch_account_emails, fetch_payment_methods, fetch_available_tags
   end
 
   def edit

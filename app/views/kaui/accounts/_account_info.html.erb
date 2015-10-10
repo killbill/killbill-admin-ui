@@ -16,8 +16,10 @@
 
           <div class="tag-select-box">
             <strong>Tag As:</strong>
-            <%= render :partial => 'kaui/tags/tags_table',
-                       :locals => {:tags => @tags, :tags_url_or_path => kaui_engine.edit_account_tags_path(@account.account_id)} %>
+            <%= render :partial => 'kaui/account_tags/form_bar',
+                       :locals => {:account_id => @account.account_id,
+                                   :tag_names => @tags.map { |tag| tag.tag_definition_name },
+                                   :available_tags => @available_tags} %>
           </div>
         </div>
 
