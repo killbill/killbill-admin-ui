@@ -1,13 +1,17 @@
-<%= form_for :tenants, :url => {:action => :select_tenant}, :html => {:class => 'form-horizontal'} do |f| %>
-    <div class="form-group">
-      <%= label_tag :tenant_name, 'Available Tenants', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
-        <%= select_tag :kb_tenant_id, options_for_select(@tenants.map { |t| [t.name || t.api_key, t.kb_tenant_id] }), :class => 'form-control' %>
-      </div>
+<div class="col-md-8 col-md-offset-2">
+
+  <div class="column-block">
+
+    <h1>Choose your tenant</h1>
+
+    <div class="text-center">
+      <%= form_for :tenants, :url => {:action => :select_tenant}, :html => {:class => 'login-form'} do |f| %>
+          <%= label_tag :tenant_name, 'Available Tenants', :class => 'control-label' %>
+          <%= select_tag :kb_tenant_id, options_for_select(@tenants.map { |t| [t.name || t.api_key, t.kb_tenant_id] }), :class => 'form-control' %>
+          <%= f.submit 'Choose Tenant', :class => 'btn btn-default' %>
+      <% end %>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <%= f.submit 'Choose Tenant', :class => 'btn btn-default' %>
-      </div>
-    </div>
-<% end %>
+
+  </div>
+
+</div>
