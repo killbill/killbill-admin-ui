@@ -8,6 +8,15 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
     @bundle, plans_details = lookup_bundle_and_plan_details(@subscription)
     @plans = plans_details.map { |p| p.plan }
+
+    if @plans.empty?
+      if @subscription.product_category == 'BASE'
+        flash[:error] = 'No available plan'
+      else
+        flash[:error] = "No available add-on for product #{@base_product_name}"
+      end
+      redirect_to kaui_engine.account_bundles_path(@subscription.account_id), :error => 'No available plan'
+    end
   end
 
   def create

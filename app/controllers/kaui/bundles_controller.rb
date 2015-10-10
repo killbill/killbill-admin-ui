@@ -8,7 +8,19 @@ class Kaui::BundlesController < Kaui::EngineController
       all_bundle_tags = @account.all_tags(:BUNDLE, false, 'NONE', options_for_klient)
       @tags_per_bundle = all_bundle_tags.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
     }
-    run_in_parallel fetch_bundles, fetch_bundle_tags
+
+    fetch_available_tags = lambda { @available_tags = Kaui::TagDefinition.all_for_bundle(options_for_klient) }
+
+    run_in_parallel fetch_bundles, fetch_bundle_tags, fetch_available_tags
+
+    @base_subscription = {}
+    @bundles.each do |bundle|
+      bundle.subscriptions.each do |sub|
+        next unless sub.product_category == 'BASE'
+        @base_subscription[bundle.bundle_id] = sub
+        break
+      end
+    end
   end
 
   def transfer

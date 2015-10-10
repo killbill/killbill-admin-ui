@@ -109,7 +109,7 @@ module Kaui
     end
 
     def is_cancelled?(sub)
-      sub.present? and !sub.billing_end_date.present?
+      sub.present? and sub.billing_end_date.present?
     end
   end
 end

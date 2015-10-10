@@ -1,4 +1,4 @@
-<table id="subscriptions_<%= bundle.bundle_id %>" class="table table-condensed table-striped">
+<table id="subscriptions_<%= bundle.bundle_id %>" class="table table-condensed table-striped mobile-data">
   <thead>
   <tr>
     <th>Product category</th>
@@ -11,16 +11,16 @@
   </thead>
   <tbody>
   <% (bundle.subscriptions || []).each do |sub| %>
-      <tr>
+      <tr class="<%= is_cancelled?(sub) ? 'expired' : 'non-expired' %>">
         <td><%= humanized_product_category(sub) %></td>
         <td><%= humanized_full_product_name(sub) %></td>
         <td><%= humanized_start_date(sub, account) %></td>
         <td><%= humanized_charged_through_date(sub, account) %></td>
         <td><%= humanized_cancelled_date(sub, account) %></td>
-        <td>
+        <td class="text-center">
           <% if is_future_cancelled?(sub) %>
               <%= link_to 'Reinstate', kaui_engine.reinstate_subscription_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-xs' %>
-          <% elsif is_cancelled?(sub) %>
+          <% elsif !is_cancelled?(sub) %>
               <%= link_to 'Change', kaui_engine.edit_subscription_path(sub.subscription_id), :class => 'btn btn-xs' %>
               <div class="btn-group">
                 <a class="btn btn-xs dropdown-toggle" data-toggle="dropdown" href="#">
@@ -34,9 +34,6 @@
                   <li><%= link_to 'Cancel end of term', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'END_OF_TERM'), :method => :delete %></li>
                 </ul>
               </div>
-              <% if sub.product_category == 'BASE' %>
-                  <%= link_to 'Add add-ons', kaui_engine.new_subscription_path(:params => {:bundle_id => sub.bundle_id, :base_product_name => sub.product_name, :product_category => 'ADD_ON'}), :class => 'btn btn-xs' %>
-              <% end %>
           <% end %>
         </td>
       </tr>
