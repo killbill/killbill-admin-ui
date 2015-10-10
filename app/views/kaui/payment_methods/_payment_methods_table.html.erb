@@ -40,7 +40,7 @@
                     <td><%= payment_method.plugin_info.external_payment_method_id %></td>
                   </tr>
               <% end %>
-              <% (payment_method.plugin_info.properties || []).each do |property| %>
+              <% (payment_method.plugin_info.properties || []).sort_by { |p| [p.key, p.value] }.each do |property| %>
                   <% next if property.value.blank? %>
                   <tr>
                     <th><%= property.key %></th>

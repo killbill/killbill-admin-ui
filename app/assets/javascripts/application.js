@@ -12,3 +12,4 @@
 //= require twitter/bootstrap
 //= require kaui/bootstrap-tweaks
 //= require kaui/validation
+//= require kaui/kaui
