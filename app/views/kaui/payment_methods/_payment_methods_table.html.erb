@@ -1,55 +1,56 @@
-<div class="page-header">
-  <h2>Payment methods</h2>
-</div>
-<table class="table table-condensed table-striped">
-  <thead>
-  <tr>
-    <th>Plugin</th>
-    <th>External id</th>
-    <th>Plugin info</th>
-    <th>Default Method</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% if payment_methods.present? && !payment_methods.nil? %>
-      <% payment_methods.each do |payment_method| %>
-          <tr>
-            <td><%= payment_method.plugin_name %></a></td>
-            <td>
-              <%= payment_method.plugin_info.external_payment_method_id unless payment_method.plugin_info.blank? %>
-            </td>
-            <td>
-              <% unless payment_method.plugin_info.blank? and payment_method.plugin_info.properties.blank? %>
-                  <ul>
-                    <% payment_method.plugin_info.properties.each do |property| %>
-                        <li><%= property.key %>: <%= property.value %></li>
-                    <% end %>
-                  </ul>
+<% payment_methods.each do |payment_method| %>
+    <div class="toggler">
+
+      <div class="first-line">
+        <% if payment_method.is_default %>
+            <i class="fa fa-star"></i>
+        <% else %>
+            <%= link_to '<i class="fa fa-star-o"></i>'.html_safe, kaui_engine.set_default_payment_method_account_path(payment_method.account_id, :params => {:payment_method_id => payment_method.payment_method_id}), :method => :put, :confirm => 'Are you sure you want to make this payment method default?', :class => 'btn btn-xs' %>
+        <% end %>
+
+        <%= payment_method.plugin_name %>
+
+        <% if payment_method.is_default %>
+            <%= link_to '<i class="fa fa-times"></i>'.html_safe, kaui_engine.payment_method_path(payment_method.payment_method_id, :params => {:set_auto_pay_off => 'true'}), :method => :delete, :confirm => 'Are you sure you want to delete this payment method?', :class => 'btn btn-xs' %>
+        <% else %>
+            <%= link_to '<i class="fa fa-times"></i>'.html_safe, kaui_engine.payment_method_path(payment_method.payment_method_id), :method => :delete, :confirm => 'Are you sure you want to delete this payment method?', :class => 'btn btn-xs' %>
+        <% end %>
+
+        <i class="fa fa-caret-down"></i>
+        <i class="fa fa-caret-up"></i>
+        <span class="expires"><!-- TODO --></span>
+      </div>
+
+      <div class="toggle">
+
+        <div class="actions">
+          <% %w(AUTHORIZE PURCHASE CREDIT).each do |transaction_type| %>
+              <%= link_to "<i class='fa fa-plus-square'></i>&nbsp;#{transaction_type.downcase.camelize}".html_safe, kaui_engine.new_account_transaction_path(payment_method.account_id,
+                                                                                                                                                             :currency => account.currency,
+                                                                                                                                                             :payment_method_id => payment_method.payment_method_id,
+                                                                                                                                                             :transaction_type => transaction_type), :class => 'btn btn-xs' %>
+          <% end %>
+        </div>
+
+        <table class="transparent">
+          <% unless payment_method.plugin_info.blank? %>
+              <% unless payment_method.plugin_info.external_payment_method_id.blank? %>
+                  <tr>
+                    <th>Key:</th>
+                    <td><%= payment_method.plugin_info.external_payment_method_id %></td>
+                  </tr>
               <% end %>
-            </td>
-            <td>
-              <% if payment_method.is_default %>
-                  <i class="fa fa-ok"></i>
-              <% else %>
-                  <%= link_to 'Make Default', kaui_engine.set_default_payment_method_account_path(payment_method.account_id, :params => {:payment_method_id => payment_method.payment_method_id}), :method => :put, :confirm => 'Are you sure you want to make this payment method default?', :class => 'btn btn-xs' %>
+              <% (payment_method.plugin_info.properties || []).each do |property| %>
+                  <% next if property.value.blank? %>
+                  <tr>
+                    <th><%= property.key %></th>
+                    <td><%= property.value %></td>
+                  </tr>
               <% end %>
-            </td>
-            <td>
-              <% if payment_method.is_default %>
-                  <%= link_to 'Delete', kaui_engine.payment_method_path(payment_method.payment_method_id, :params => {:set_auto_pay_off => 'true'}), :method => :delete, :confirm => 'Are you sure you want to delete this payment method?', :class => 'btn btn-xs' %>
-              <% else %>
-                  <%= link_to 'Delete', kaui_engine.payment_method_path(payment_method.payment_method_id), :method => :delete, :confirm => 'Are you sure you want to delete this payment method?', :class => 'btn btn-xs' %>
-              <% end %>
-              <% %w(AUTHORIZE PURCHASE CREDIT).each do |transaction_type| %>
-                  <%= link_to transaction_type, kaui_engine.new_account_transaction_path(payment_method.account_id,
-                                                                                         :currency => account.currency,
-                                                                                         :payment_method_id => payment_method.payment_method_id,
-                                                                                         :transaction_type => transaction_type), :class => 'btn btn-xs' %>
-              <% end %>
-            </td>
-          </tr>
-      <% end %>
-  <% end %>
-  </tbody>
-</table>
+          <% end %>
+        </table>
+
+      </div>
+
+    </div>
+<% end %>
