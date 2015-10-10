@@ -5,17 +5,20 @@ development:
   adapter: mysql2
   encoding: utf8
   database: kaui
-  username: root
-  password: root
+  username: <%= ENV.fetch('MYSQL_USER', 'root') %>
+  password: <%= ENV.fetch('MYSQL_PASSWORD', 'root') %>
   host: 127.0.0.1
   port: 3306
+  pool: 25
+  timeout: 5000
 
 test:
   adapter: mysql2
+  encoding: utf8
   database: kaui_test
   username: <%= ENV.fetch('MYSQL_USER', 'root') %>
   password: <%= ENV.fetch('MYSQL_PASSWORD', 'root') %>
   host: 127.0.0.1
   port: 3306
-  pool: 5
+  pool: 25
   timeout: 5000
