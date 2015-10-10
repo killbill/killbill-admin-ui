@@ -1,9 +1,13 @@
+table.dataTable {
+  padding: 0;
+}
+
 table.dataTable thead th {
   position: relative;
 }
 
 table.dataTable thead th,
-table.dataTable tbody td{
+table.dataTable tbody td {
   vertical-align: middle;
 }
 
