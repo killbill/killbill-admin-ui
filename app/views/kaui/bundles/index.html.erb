@@ -48,15 +48,18 @@
                 </div>
             <% end %>
 
-          </div><!-- tag-bar -->
+          </div>
+          <!-- tag-bar -->
 
           <% if bundle.subscriptions.present? %>
               <%= render :partial => 'kaui/subscriptions/subscriptions_table', :locals => {:bundle => bundle, :account => @account} %>
           <% end %>
 
-        </div><!-- account-info -->
+        </div>
+        <!-- account-info -->
 
-      </div><!-- column-block -->
+      </div>
+      <!-- column-block -->
   <% end %>
 
 </div>
