@@ -6,12 +6,9 @@
     <% if @subscription.product_category == 'ADD_ON' %>
         <%= hidden_field_tag :base_product_name, @base_product_name %>
         <div class="form-group">
-          <%= label_tag :plan_name, 'Available Plans:', :class => 'col-sm-2 control-label' %>
+          <%= label_tag :plan_name, 'Plan', :class => 'col-sm-2 control-label' %>
           <div class="col-sm-10">
             <%= select_tag :plan_name, options_for_select(@plans), :class => 'form-control' %>
-            <p class="help-block">
-              Proration on customer's invoice will be done automatically.
-            </p>
           </div>
         </div>
     <% else %>
