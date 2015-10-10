@@ -1,19 +1,10 @@
-<div class="col-md-8 col-md-offset-2">
+<div class="register">
+  <div class="col-md-8 col-md-offset-2">
 
-  <div class="column-block">
-
-    <h1>Login</h1>
-
-    <div class="text-center">
-      <%= form_for resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'login-form'} do |f| %>
-          <%= f.label :kb_username, 'Username', :class => 'col-sm-2 control-label' %>
-          <%= f.text_field :kb_username, :class => 'form-control', :autofocus => true %>
-          <%= f.label :password, :class => 'col-sm-2 control-label' %>
-          <%= f.password_field :password, :class => 'form-control' %>
-          <%= f.submit 'Sign in', :class => 'btn btn-default' %>
-      <% end %>
+    <div class="column-block">
+      <h1>Login</h1>
+      <%= render 'form' %>
     </div>
 
   </div>
-
 </div>

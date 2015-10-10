@@ -4,54 +4,54 @@
     <%= hidden_field_tag :payment_method_id, @payment_method_id %>
 
     <div class="form-group">
-      <%= f.label :transaction_type, 'Transaction type', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :transaction_type, 'Transaction type', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= f.select :transaction_type, %w(AUTHORIZE CAPTURE CHARGEBACK CREDIT PURCHASE REFUND VOID), {}, :class => 'form-control' %>
       </div>
     </div>
     <% unless @transaction.transaction_type == 'VOID' %>
         <div class="form-group">
-          <%= f.label :amount, 'Charge amount', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
+          <%= f.label :amount, 'Amount', :class => 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
             <%= f.text_field :amount, :id => 'charge_amount', :class => 'form-control' %>
           </div>
         </div>
         <div class="form-group">
-          <%= f.label :currency, 'Currency', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
+          <%= f.label :currency, 'Currency', :class => 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
             <%= f.select :currency, currencies, {}, :class => 'form-control' %>
           </div>
         </div>
     <% end %>
     <% unless @transaction.payment_id.present? %>
         <div class="form-group">
-          <%= f.label :payment_external_key, 'Payment external key', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
+          <%= f.label :payment_external_key, 'Payment key', :class => 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
             <%= f.text_field :payment_external_key, :class => 'form-control' %>
           </div>
         </div>
     <% end %>
     <div class="form-group">
-      <%= f.label :transaction_external_key, 'Transaction external key', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :transaction_external_key, 'Transaction key', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= f.text_field :transaction_external_key, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= label_tag :reason, 'Reason', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= label_tag :reason, 'Reason', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= select_tag :reason, options_for_select(Kaui::Payment::SAMPLE_REASON_CODES), :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= label_tag :comment, 'Comment', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <%= submit_tag 'Create transaction', :class => 'btn btn-default' %>
+      <div class="col-sm-offset-3 col-sm-9">
+        <%= submit_tag 'Save', :class => 'btn btn-default' %>
       </div>
     </div>
 <% end %>

@@ -1,108 +1,108 @@
 <% # Unclear why this url/method hack is needed %>
 <%= form_for @account, :url => @account.persisted? ? account_path(@account.account_id) : accounts_path, :method => @account.persisted? ? :put : :post, :html => {:class => 'form-horizontal'} do |f| %>
     <div class="form-group">
-      <%= f.label :name, 'Name', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :name, 'Name', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= f.text_field :name, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :first_name_length, 'First name length', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :first_name_length, 'First name length', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= f.text_field :first_name_length, :class => 'form-control' %>
       </div>
     </div>
     <% unless @account.persisted? %>
         <div class="form-group">
-          <%= f.label :external_key, 'External key', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
+          <%= f.label :external_key, 'External key', :class => 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
             <%= f.text_field :external_key, :class => 'form-control' %>
           </div>
         </div>
     <% end %>
     <div class="form-group">
-      <%= f.label :email, 'Email', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :email, 'Email', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= f.text_field :email, :class => 'form-control' %>
       </div>
     </div>
     <% unless @account.persisted? %>
         <div class="form-group">
-          <%= f.label :bill_cycle_day_local, 'Bill cycle day', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
+          <%= f.label :bill_cycle_day_local, 'Bill cycle day', :class => 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
             <%= f.text_field :bill_cycle_day_local, :class => 'form-control' %>
           </div>
         </div>
         <div class="form-group">
-          <%= f.label :currency, 'Currency', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
+          <%= f.label :currency, 'Currency', :class => 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
             <%= f.select :currency, currencies, {:selected => 'USD'}, :class => 'form-control' %>
           </div>
         </div>
         <div class="form-group">
-          <%= f.label :time_zone, 'Timezone', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
+          <%= f.label :time_zone, 'Timezone', :class => 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
             <%= f.collection_select :time_zone, ActiveSupport::TimeZone.all, :formatted_offset, :to_s, {:selected => Time.zone.formatted_offset}, :class => 'form-control' %>
           </div>
         </div>
     <% end %>
     <div class="form-group">
-      <%= f.label :address1, 'Address line 1', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :address1, 'Address line 1', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= f.text_field :address1, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :address2, 'Address line 2', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :address2, 'Address line 2', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= f.text_field :address2, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :postal_code, 'Zip code', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :postal_code, 'Zip code', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= f.text_field :postal_code, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :company, 'Company', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :company, 'Company', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= f.text_field :company, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :city, 'City', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :city, 'City', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= f.text_field :city, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :state, 'State', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :state, 'State', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= f.text_field :state, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :country, 'Country', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :country, 'Country', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= f.country_select :country, {:priority => %w(US CA), :selected => @account.country}, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :locale, 'Locale', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :locale, 'Locale', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= f.text_field :locale, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :phone, 'Phone', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :phone, 'Phone', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= f.text_field :phone, :class => 'form-control' %>
       </div>
     </div>
     <% unless @account.persisted? %>
         <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
+          <div class="col-sm-offset-3 col-sm-9">
             <div class="checkbox">
               <%= f.label :is_migrated do %>
                   <%= f.check_box :is_migrated, {:checked => @account.is_migrated} %>Migrated?
@@ -112,7 +112,7 @@
         </div>
     <% end %>
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
+      <div class="col-sm-offset-3 col-sm-9">
         <div class="checkbox">
           <%= f.label :is_notified_for_invoices do %>
               <%= f.check_box :is_notified_for_invoices, {:checked => @account.is_notified_for_invoices} %>Notified for invoices?
@@ -121,8 +121,8 @@
       </div>
     </div>
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <%= submit_tag 'Submit', :class => 'btn btn-default' %>
+      <div class="col-sm-offset-3 col-sm-9">
+        <%= submit_tag 'Save', :class => 'btn btn-default' %>
       </div>
     </div>
 <% end %>

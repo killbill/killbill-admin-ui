@@ -1,9 +1,15 @@
-<div class="page-header">
-  <% if @subscription.product_category == 'ADD_ON' %>
-      <h1>Add Add-On subscription</h1>
-  <% else %>
-      <h1>Create new base subscription</h1>
-  <% end %>
-</div>
+<div class="register">
+  <div class="col-md-8 col-md-offset-2">
 
-<%= render 'form' %>
+    <div class="column-block">
+      <% if @subscription.product_category == 'ADD_ON' %>
+          <h1>Add new add-on</h1>
+      <% else %>
+          <h1>Add new base subscription</h1>
+      <% end %>
+
+      <%= render 'form' %>
+    </div>
+
+  </div>
+</div>

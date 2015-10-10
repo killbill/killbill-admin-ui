@@ -3,10 +3,10 @@
     <%= f.hidden_field :currency %>
 
     <div class="form-group">
-      <%= f.label :amount, 'Chargeback amount', :class => 'col-sm-2 control-label' %>
+      <%= f.label :amount, 'Amount', :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10">
         <%= f.text_field :amount, :id => 'chargeback_amount', :class => 'form-control' %>
-        <p class="help-block"><%= @chargeback.currency %></p>
+        <p class="help-block">Currency: <%= @chargeback.currency %></p>
       </div>
     </div>
     <div class="form-group">
@@ -32,7 +32,7 @@
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <%= submit_tag 'Apply chargeback', :class => 'btn btn-default' %>
+        <%= submit_tag 'Save', :class => 'btn btn-default' %>
       </div>
     </div>
 <% end %>
