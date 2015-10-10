@@ -1,30 +1,53 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <%= link_to 'Kaui', kaui_engine.home_path, :class => 'navbar-brand' %>
-    </div>
-    <% if user_signed_in? -%>
-        <div class="collapse navbar-collapse">
-          <%= form_tag search_path, :class => 'navbar-form navbar-left', :role => 'search', :method => 'get' do %>
-              <div class="form-group">
-                <%= text_field_tag :q, '', :class => 'form-control', :placeholder => 'Search' %>
-              </div>
-              <%= button_tag 'Search', :class => 'btn btn-default' %>
-          <% end %>
-          <ul class="nav navbar-nav">
-            <li <%= 'class=active' if params[:controller].ends_with?('accounts') %>><%= link_to 'Create new account', kaui_engine.new_account_path %></li>
-            <li <%= 'class=active' if params[:controller].ends_with?('tags') %>><%= link_to 'Tags', kaui_engine.tags_path %></li>
-            <li <%= 'class=active' if params[:controller].ends_with?('tag_definitions') %>><%= link_to 'Tag definitions', kaui_engine.tag_definitions_path %></li>
-            <li <%= 'class=active' if params[:controller].ends_with?('custom_fields') %>><%= link_to 'Custom Fields', kaui_engine.custom_fields_path %></li>
-            <% if can? :view, Kaui::AdminTenant %>
-                <li <%= 'class=active' if params[:controller].ends_with?('admin_allowed_users') %>><%= link_to 'Users', kaui_engine.admin_allowed_users_path %></li>
-                <li <%= 'class=active' if params[:controller].ends_with?('admin_allowed_tenants') %>><%= link_to 'Tenants', kaui_engine.admin_tenants_path %></li>
+<header>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-6">
+        <%= link_to image_tag('kaui/logo.png', :alt => 'Kill Bill Logo'), kaui_engine.home_path %>
+
+        <% if user_signed_in? -%>
+            <%= form_tag search_path, :role => 'search', :id => 'searchform', :method => 'get' do %>
+                <%= text_field_tag :q, '', :placeholder => 'Search' %>
+                <%= submit_tag 'Search' %>
             <% end %>
-            <li class="pull-right">
-              <%= link_to session[:kb_tenant_name].present? ? "#{current_user.kb_username} / #{session[:kb_tenant_name]} Sign out" : "#{current_user.kb_username} Sign out", destroy_user_session_path, method: :delete %>
-            </li>
-          </ul>
+
+            <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Create new account'.html_safe, kaui_engine.new_account_path %>
+        <% end %>
+      </div>
+
+      <div class="col-md-6">
+        <div class="row">
+
+          <div class="col-xs-8 text-center">
+            <nav>
+              <ul>
+                <% if user_signed_in? -%>
+                    <li><%= link_to 'Tags', kaui_engine.tags_path %></li>
+                    <li><%= link_to 'Tag definitions', kaui_engine.tag_definitions_path %></li>
+                    <li><%= link_to 'Custom Fields', kaui_engine.custom_fields_path %></li>
+                    <% if can? :view, Kaui::AdminTenant %>
+                        <li><%= link_to 'Users', kaui_engine.admin_allowed_users_path %></li>
+                        <li><%= link_to 'Tenants', kaui_engine.admin_tenants_path %></li>
+                    <% end %>
+                <% end %>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="col-xs-4 text-right">
+            <nav>
+              <ul>
+                <% if user_signed_in? -%>
+                    <li><%= session[:kb_tenant_name].present? ? "#{current_user.kb_username} / #{session[:kb_tenant_name]}" : current_user.kb_username %></li>
+                    <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+                <% end %>
+              </ul>
+            </nav>
+          </div>
+
         </div>
-    <% end -%>
+      </div>
+
+    </div>
   </div>
-</nav>
+</header>
