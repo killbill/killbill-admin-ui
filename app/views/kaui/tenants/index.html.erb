@@ -1,17 +1,10 @@
-<div class="col-md-8 col-md-offset-2">
+<div class="register">
+  <div class="col-md-8 col-md-offset-2">
 
-  <div class="column-block">
-
-    <h1>Choose your tenant</h1>
-
-    <div class="text-center">
-      <%= form_for :tenants, :url => {:action => :select_tenant}, :html => {:class => 'login-form'} do |f| %>
-          <%= label_tag :tenant_name, 'Available Tenants', :class => 'control-label' %>
-          <%= select_tag :kb_tenant_id, options_for_select(@tenants.map { |t| [t.name || t.api_key, t.kb_tenant_id] }), :class => 'form-control' %>
-          <%= f.submit 'Choose Tenant', :class => 'btn btn-default' %>
-      <% end %>
+    <div class="column-block">
+      <h1>Choose tenant</h1>
+      <%= render 'form' %>
     </div>
 
   </div>
-
 </div>
