@@ -1,7 +1,9 @@
-<h3 class="pageHeader">Tag Definitions: <%= link_to 'New Tag Definition', kaui_engine.new_tag_definition_path %></h3>
+<div class="column-block">
 
-<table id='tag_definitions-table' class='table table-condensed'>
-  <thead>
+  <h1>Tag Definitions<%= link_to '&nbsp;<i class="fa fa-plus-square"></i>'.html_safe, kaui_engine.new_tag_definition_path %></h1>
+
+  <table id='tag_definitions-table' class='table table-condensed mobile-data'>
+    <thead>
     <tr>
       <th style='width: 30%'>Id</th>
       <th style='width: 20%'>Name</th>
@@ -10,24 +12,26 @@
       <th style='width: 15%'>Applicable types</th>
       <th style='width: 5%'></th>
     </tr>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
     <% @tag_definitions.each do |tag_definition| %>
-      <tr>
-        <td><%= truncate_uuid(tag_definition.id) %></td>
-        <td><%= tag_definition.name %></td>
-        <td><%= tag_definition.description %></td>
-        <td><%= tag_definition.is_system_tag? %></td>
-        <td><%= tag_definition.pretty_applicable_object_types %></td>
-        <td>
-          <% unless tag_definition.is_system_tag? %>
-            <%= link_to 'Destroy', kaui_engine.tag_definition_path(tag_definition.id), :confirm => 'Are you sure?', :method => :delete %>
-          <% end %>
-        </td>
-      </tr>
+        <tr>
+          <td><%= truncate_uuid(tag_definition.id) %></td>
+          <td><%= tag_definition.name %></td>
+          <td><%= tag_definition.description %></td>
+          <td><%= tag_definition.is_system_tag? %></td>
+          <td><%= tag_definition.pretty_applicable_object_types %></td>
+          <td>
+            <% unless tag_definition.is_system_tag? %>
+                <%= link_to 'Destroy', kaui_engine.tag_definition_path(tag_definition.id), :confirm => 'Are you sure?', :method => :delete %>
+            <% end %>
+          </td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+
+</div>
 
 <%= javascript_tag do %>
 $(document).ready(function() {
