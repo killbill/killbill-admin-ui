@@ -1,92 +1,42 @@
-<h2>Invoice number: INV<%= @invoice.invoice_number %></h2>
-<dl class="dl-horizontal">
-  <dt>Invoice date:</dt>
-  <dd><%= @invoice.invoice_date.html_safe %>&nbsp;</dd>
-  <dt>Target date:</dt>
-  <dd><%= @invoice.target_date.html_safe %>&nbsp;</dd>
-  <dt>Amount:</dt>
-  <dd><%= humanized_money_with_symbol @invoice.amount_to_money %> (<%= @invoice.currency %>)&nbsp;</dd>
-  <dt>Balance:</dt>
-  <dd><%= humanized_money_with_symbol @invoice.balance_to_money %> (<%= @invoice.currency %>)&nbsp;</dd>
-</dl>
-<% if can? :credit, Kaui::Account %>
-    <%= link_to 'Add credit',
-                kaui_engine.new_account_credit_path(@invoice.account_id, :currency => @invoice.currency, :invoice_id => @invoice.invoice_id),
-                :class => 'btn btn-xs' %>
-<% end %>
-<% if can? :charge, Kaui::Account %>
-    <%= link_to 'Create charge',
-                kaui_engine.new_account_charge_path(@invoice.account_id, :currency => @invoice.currency, :invoice_id => @invoice.invoice_id),
-                :class => 'btn btn-xs' %>
-<% end %>
-<% if @invoice.balance > 0 %>
-    <%= link_to 'Enter payment',
-                kaui_engine.new_account_payment_path(@invoice.account_id, :invoice_id => @invoice.invoice_id),
-                :class => 'btn btn-xs' %>
-<% end %>
+<div class="account invoices">
 
-<h3>Invoice items</h3>
-<script language="javascript">
-    function hightlightLinkedItems(invoice_item_id, linked_invoice_item_id) {
-        $("#invoice_table tr:gt(0)").each(function (index) {
-            var ids = $(this).attr("id").split("_");
-            var item_id = ids[2];
-            var linked_item_id = ids[3];
-            if ((invoice_item_id.length > 0 && item_id == invoice_item_id) ||
-                    (linked_invoice_item_id.length > 0 && item_id == linked_invoice_item_id) ||
-                    (invoice_item_id.length > 0 && invoice_item_id == linked_item_id)) {
-                $(this).css("background", "yellow");
-            } else {
-                $(this).css("background", "none");
-            }
-        });
-    }
-</script>
-<table id="invoice-table" class="table table-condensed">
-  <thead>
-  <tr>
-    <th>Description</th>
-    <th>Start date</th>
-    <th>End date</th>
-    <th>Subscription ID</th>
-    <th>Amount</th>
-    <th>Comments</th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @invoice.items.each do |item| %>
-      <tr id=<%= "invoice_item_#{item.invoice_item_id}_#{item.linked_invoice_item_id}" %>>
-        <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.description %></td>
-        <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.start_date.html_safe if item.start_date %></td>
-        <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.end_date.html_safe if item.end_date %></td>
-        <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.subscription_id %></td>
-        <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= humanized_money_with_symbol Kaui::InvoiceItem.amount_to_money(item) %>
-          (<%= item.currency %>)
-        </td>
-        <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.audit_logs.map { |log| log.comments }.compact.join('<br/>') if item.audit_logs.present? %></td>
-        <td>
-          <% if can? :item_adjust, Kaui::Invoice %>
-              <nobr>
-                <%= link_to 'Adjust',
-                            kaui_engine.edit_account_invoice_item_path(@invoice.account_id, item.invoice_item_id, :invoice_id => @invoice.invoice_id),
-                            :class => "btn btn-xs #{'disabled' unless item.amount > 0}" %>
-              </nobr>
+  <div class="column-block">
+
+    <h1>Invoice <%= @invoice.invoice_number %></h1>
+
+    <small>Invoice Date: <%= @invoice.invoice_date.html_safe %></small>
+    <small>Target Date: <%= @invoice.target_date.html_safe %></small>
+
+    <div class="account-info">
+      <%= render :partial => 'invoice_table' %>
+    </div>
+
+  </div>
+
+  <% unless @payments.empty? %>
+      <div class="col-md-12 payment-list">
+
+        <div class="column-block">
+
+          <h1 class="text-capitalize">Payment Details</h1>
+
+          <% @payments.each do |payment| %>
+
+              <h3>Payment <%= link_to payment.payment_number, account_payment_path(@account.account_id, payment.payment_id) %></h3>
+
+              <div class="account-info">
+                <%= render :partial => 'kaui/payments/payment_table',
+                           :locals => {:payment => payment, :account => @account, :payment_methods => @payment_methods} %>
+              </div>
+
           <% end %>
-        </td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
 
-<% unless @payments.empty? %>
-    <h3>Payments</h3>
-<% end %>
-<% @payments.each do |payment| %>
-    <h4>Payment number: <%= link_to payment.payment_number, account_payment_path(@account.account_id, payment.payment_id) %></h4>
-    <%= render :partial => 'kaui/payments/payments_table',
-               :locals => {:payment => payment, :account => @account, :payment_methods => @payment_methods} %>
-<% end %>
+        </div>
+
+      </div>
+  <% end %>
+
+</div>
 
 <%= link_to 'View customer invoice html', kaui_engine.show_html_invoice_path(@invoice.invoice_id), :class => 'btn', :target => '_blank' unless @invoice.blank? %>
 <%= javascript_tag do %>

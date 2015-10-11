@@ -2,14 +2,14 @@
 
   <div class="column-block">
 
-    <h1>Payment #<%= @payment.payment_number %></h1>
+    <h1>Payment <%= @payment.payment_number %></h1>
 
     <% if @payment.target_invoice_id.present? %>
         <%= link_to 'Invoice', account_invoice_path(@account.account_id, @payment.target_invoice_id) %>
     <% end %>
 
     <div class="account-info">
-      <%= render :partial => 'kaui/payments/payments_table',
+      <%= render :partial => 'kaui/payments/payment_table',
                  :locals => {:payment => @payment, :account => @account} %>
     </div>
 
