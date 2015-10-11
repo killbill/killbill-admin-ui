@@ -11,9 +11,11 @@
 
           <div class="tag-select-box">
             <!-- Payment, Credit then Charge. Same ordering as in the billing timeline -->
-            <%= link_to 'Pay all invoices',
-                        kaui_engine.pay_all_invoices_account_path(@account.account_id),
-                        :method => :post %>
+            <% if @account.account_balance.present? && @account.account_balance > 0 %>
+                <%= link_to 'Pay all invoices',
+                            kaui_engine.pay_all_invoices_account_path(@account.account_id),
+                            :method => :post %>
+            <% end %>
             <% if can? :credit, Kaui::Account %>
                 <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Add credit'.html_safe,
                             kaui_engine.new_account_credit_path(@account.account_id, :currency => @account.currency) %>
