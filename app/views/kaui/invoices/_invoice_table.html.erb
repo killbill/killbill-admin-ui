@@ -20,7 +20,7 @@
                       kaui_engine.new_account_charge_path(@invoice.account_id, :currency => @invoice.currency, :invoice_id => @invoice.invoice_id) %>
       <% end %>
       <% if @invoice.balance > 0 %>
-          <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Enter payment'.html_safe,
+          <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Make payment'.html_safe,
                       kaui_engine.new_account_payment_path(@invoice.account_id, :invoice_id => @invoice.invoice_id) %>
       <% end %>
 
