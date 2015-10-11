@@ -1,35 +1,33 @@
-<h3>Payment number: <%= @payment.payment_number %></h3>
+<div class="account payments">
 
-<% if @payment.target_invoice_id.present? %>
-    <%= link_to 'Invoice', account_invoice_path(@account.account_id, @payment.target_invoice_id) %>
-<% end %>
+  <div class="column-block">
 
-<%= render :partial => 'kaui/payments/payments_table',
-           :locals => {:payment => @payment, :account => @account} %>
+    <h1>Payment #<%= @payment.payment_number %></h1>
 
-<% if @payment_method.nil? %>
-    The Payment method has been deleted.
-<% else %>
-    <dl class="dl-horizontal">
-      <dt>Plugin name:</dt>
-      <dd><%= @payment_method.plugin_name %></dd>
-      <% unless @payment_method.plugin_info.blank? %>
-          <% unless @payment_method.plugin_info.external_payment_method_id.blank? %>
-              <dt>External ID:</dt>
-              <dd><%= @payment_method.plugin_info.external_payment_method_id %></dd>
-          <% end %>
-          <% unless @payment_method.plugin_info.properties.blank? %>
-              <dt>Properties:</dt>
-              <dd>
-                <ul>
-                  <% @payment_method.plugin_info.properties.each do |property| %>
-                      <% unless property.value.blank? %>
-                          <li><%= property.key %>: <%= property.value %></li>
-                      <% end %>
-                  <% end %>
-                </ul>
-              </dd>
-          <% end %>
+    <% if @payment.target_invoice_id.present? %>
+        <%= link_to 'Invoice', account_invoice_path(@account.account_id, @payment.target_invoice_id) %>
+    <% end %>
+
+    <div class="account-info">
+      <%= render :partial => 'kaui/payments/payments_table',
+                 :locals => {:payment => @payment, :account => @account} %>
+    </div>
+
+  </div>
+
+  <div class="column-block">
+
+    <h1>Payment Method Details</h1>
+
+    <div class="fix-position">
+      <% if @payment_method.nil? %>
+          The Payment method has been deleted.
+      <% else %>
+          <small>Plugin: <%= @payment_method.plugin_name %></small>
+          <%= render :partial => 'kaui/payment_methods/payment_methods_details_table', :locals => {:payment_method => @payment_method} %>
       <% end %>
-    </dl>
-<% end %>
+    </div>
+
+  </div>
+
+</div>

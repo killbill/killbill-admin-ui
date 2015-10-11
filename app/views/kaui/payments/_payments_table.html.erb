@@ -1,4 +1,65 @@
-<table id="payment_<%= payment.payment_id %>" class="table table-condensed table-striped">
+<div class="tag-bar">
+  <!--<div class="tag-select">-->
+  <!--<span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>-->
+  <!--<div class="tag-select-box">-->
+  <!--<strong>Tag As:</strong>-->
+  <!--</div>-->
+  <!--</div>-->
+
+  <div class="tag-select">
+    <span><i class="fa fa-credit-card"></i><i class="fa fa-caret-down"></i></span>
+
+    <div class="tag-select-box">
+
+      <% if payment.refundable? %>
+          <% if can? :refund, Kaui::Payment %>
+              <% if payment.target_invoice_id.present? %>
+                  <%= link_to '<i class="fa fa-money"></i>&nbsp;Refund'.html_safe, kaui_engine.new_account_refund_path(payment.account_id, :params => {:payment_id => payment.payment_id,
+                                                                                                                                                       :invoice_id => payment.target_invoice_id}) %>
+              <% else %>
+                  <%= link_to '<i class="fa fa-money"></i>&nbsp;Refund'.html_safe, kaui_engine.new_account_transaction_path(payment.account_id,
+                                                                                                                            :payment_id => payment.payment_id,
+                                                                                                                            :payment_method_id => payment.payment_method_id,
+                                                                                                                            :amount => payment.amount_refundable,
+                                                                                                                            :currency => payment.currency,
+                                                                                                                            :transaction_type => 'REFUND') %>
+              <% end %>
+          <% end %>
+          <% if can? :chargeback, Kaui::Payment %>
+              <% if payment.target_invoice_id.present? %>
+                  <%= link_to '<i class="fa fa-undo"></i>&nbsp;Chargeback'.html_safe, kaui_engine.new_account_chargeback_path(payment.account_id,
+                                                                                                                              :payment_id => payment.payment_id,
+                                                                                                                              :invoice_id => payment.target_invoice_id) %>
+              <% else %>
+                  <%= link_to '<i class="fa fa-undo"></i>&nbsp;Chargeback'.html_safe, kaui_engine.new_account_transaction_path(payment.account_id,
+                                                                                                                               :payment_id => payment.payment_id,
+                                                                                                                               :payment_method_id => payment.payment_method_id,
+                                                                                                                               :amount => payment.amount_refundable,
+                                                                                                                               :currency => payment.currency,
+                                                                                                                               :transaction_type => 'CHARGEBACK') %>
+              <% end %>
+          <% end %>
+      <% end %>
+      <% if payment.capturable? %>
+          <%= link_to '<i class="fa fa-credit-card"></i>&nbsp;Capture'.html_safe, kaui_engine.new_account_transaction_path(payment.account_id,
+                                                                                                                           :payment_id => payment.payment_id,
+                                                                                                                           :payment_method_id => payment.payment_method_id,
+                                                                                                                           :amount => payment.amount_capturable,
+                                                                                                                           :currency => payment.currency,
+                                                                                                                           :transaction_type => 'CAPTURE') %>
+      <% end %>
+      <% if payment.voidable? %>
+          <%= link_to '<i class="fa fa-times-circle-o"></i>&nbsp;Void'.html_safe, kaui_engine.new_account_transaction_path(payment.account_id,
+                                                                                                                           :payment_id => payment.payment_id,
+                                                                                                                           :payment_method_id => payment.payment_method_id,
+                                                                                                                           :transaction_type => 'VOID') %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+<table id="payment_<%= payment.payment_id %>" class="table table-condensed table-striped mobile-data">
   <thead>
   <tr>
     <th>Date</th>
@@ -47,61 +108,3 @@
   });
 <% end %>
 
-<h4>Actions</h4>
-<ul>
-  <% if payment.refundable? %>
-      <% if can? :refund, Kaui::Payment %>
-          <% if payment.target_invoice_id.present? %>
-              <li>
-                <%= link_to 'Refund', kaui_engine.new_account_refund_path(payment.account_id, :params => {:payment_id => payment.payment_id,
-                                                                                                          :invoice_id => payment.target_invoice_id}) %>
-              </li>
-          <% else %>
-              <li>
-                <%= link_to 'Refund', kaui_engine.new_account_transaction_path(payment.account_id,
-                                                                               :payment_id => payment.payment_id,
-                                                                               :payment_method_id => payment.payment_method_id,
-                                                                               :amount => payment.amount_refundable,
-                                                                               :currency => payment.currency,
-                                                                               :transaction_type => 'REFUND'), :class => 'btn btn-xs' %>
-              </li>
-          <% end %>
-      <% end %>
-      <% if can? :chargeback, Kaui::Payment %>
-          <% if payment.target_invoice_id.present? %>
-              <li>
-                <%= link_to 'Chargeback', kaui_engine.new_account_chargeback_path(payment.account_id,
-                                                                                  :payment_id => payment.payment_id,
-                                                                                  :invoice_id => payment.target_invoice_id) %>
-              </li>
-          <% else %>
-              <li>
-                <%= link_to 'Chargeback', kaui_engine.new_account_transaction_path(payment.account_id,
-                                                                                   :payment_id => payment.payment_id,
-                                                                                   :payment_method_id => payment.payment_method_id,
-                                                                                   :amount => payment.amount_refundable,
-                                                                                   :currency => payment.currency,
-                                                                                   :transaction_type => 'CHARGEBACK'), :class => 'btn btn-xs' %>
-              </li>
-          <% end %>
-      <% end %>
-  <% end %>
-  <% if payment.capturable? %>
-      <li>
-        <%= link_to 'Capture', kaui_engine.new_account_transaction_path(payment.account_id,
-                                                                        :payment_id => payment.payment_id,
-                                                                        :payment_method_id => payment.payment_method_id,
-                                                                        :amount => payment.amount_capturable,
-                                                                        :currency => payment.currency,
-                                                                        :transaction_type => 'CAPTURE'), :class => 'btn btn-xs' %>
-      </li>
-  <% end %>
-  <% if payment.voidable? %>
-      <li>
-        <%= link_to 'Void', kaui_engine.new_account_transaction_path(payment.account_id,
-                                                                     :payment_id => payment.payment_id,
-                                                                     :payment_method_id => payment.payment_method_id,
-                                                                     :transaction_type => 'VOID'), :class => 'btn btn-xs' %>
-      </li>
-  <% end %>
-</ul>

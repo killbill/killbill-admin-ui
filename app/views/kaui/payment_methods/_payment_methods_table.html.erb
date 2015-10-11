@@ -32,23 +32,7 @@
           <% end %>
         </div>
 
-        <table class="transparent">
-          <% unless payment_method.plugin_info.blank? %>
-              <% unless payment_method.plugin_info.external_payment_method_id.blank? %>
-                  <tr>
-                    <th>Key:</th>
-                    <td><%= payment_method.plugin_info.external_payment_method_id %></td>
-                  </tr>
-              <% end %>
-              <% (payment_method.plugin_info.properties || []).sort_by { |p| [p.key, p.value] }.each do |property| %>
-                  <% next if property.value.blank? %>
-                  <tr>
-                    <th><%= property.key %></th>
-                    <td><%= property.value %></td>
-                  </tr>
-              <% end %>
-          <% end %>
-        </table>
+        <%= render :partial => 'kaui/payment_methods/payment_methods_details_table', :locals => {:payment_method => payment_method} %>
 
       </div>
 
