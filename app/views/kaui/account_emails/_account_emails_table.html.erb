@@ -1,13 +1,14 @@
-<dt>Emails:</dt>
-<dd>
-  <% if account_emails.present? %>
-      <% account_emails.each_with_index do |account_email, idx| %>
-      <span>
-        <%= account_email.email %>
-        <%= link_to ' (destroy)', kaui_engine.account_account_email_path(account_email.account_id, account_email.email), :method => :delete %>
-        <% if idx < account_emails.length - 1 %>, <% end %>
-      </span>
-      <% end %>
-  <% end %>
-  <%= link_to 'Add', kaui_engine.new_account_account_email_path(@account.account_id) %>
-</dd>
+<tr>
+  <th>Contact emails:</th>
+  <td>
+    <% if account_emails.present? %>
+        <% account_emails.each_with_index do |account_email, idx| %>
+            <%= account_email.email %>
+            <%= link_to '&nbsp;<i class="fa fa-times"></i>'.html_safe, kaui_engine.account_account_email_path(account_email.account_id, account_email.email), :method => :delete %>
+            <% if idx < account_emails.length - 1 %>,
+            <% end %>
+        <% end %>
+    <% end %>
+    <%= link_to '&nbsp<i class="fa fa-plus"></i>'.html_safe, kaui_engine.new_account_account_email_path(@account.account_id) %>
+  </td>
+</tr>
