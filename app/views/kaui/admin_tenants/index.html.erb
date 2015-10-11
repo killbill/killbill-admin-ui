@@ -1,7 +1,12 @@
 <% unless @tenants.empty? %>
-    <%= render :partial => 'kaui/admin_tenants/tenants_table', :locals => {:tenants => @tenants} %>
-<% end %>
+    <div class="column-block">
 
-<% if can? :create, Kaui::AdminTenant %>
-    <h3><%= link_to 'Configure a new Tenant', new_admin_tenant_path %></h3>
+      <h1>Kaui tenants
+        <% if can? :create, Kaui::AdminTenant %>
+            <%= link_to '&nbsp;<i class="fa fa-plus-square"></i>'.html_safe, new_admin_tenant_path %>
+        <% end %></h1>
+
+      <%= render :partial => 'kaui/admin_tenants/tenants_table', :locals => {:tenants => @tenants} %>
+
+    </div>
 <% end %>
