@@ -1,0 +1,30 @@
+<%= form_for @invoice_item, :as => :invoice_item, :url => invoice_item_path(@invoice_item.invoice_item_id), :html => {:method => :put, :class => 'form-horizontal'} do |f| %>
+    <%= f.hidden_field :invoice_id %>
+    <%= f.hidden_field :invoice_item_id %>
+    <%= f.hidden_field :account_id %>
+
+    <div class="form-group">
+      <%= f.label :amount, 'Item amount', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :amount, :class => 'form-control' %>
+        <p class="help-block">Currency: <%= @invoice_item.currency %></p>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label_tag :reason, 'Reason', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= select_tag :reason, options_for_select(Kaui::InvoiceItem::SAMPLE_REASON_CODES), :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit 'Save', :class => 'btn btn-default' %>
+      </div>
+    </div>
+<% end %>
