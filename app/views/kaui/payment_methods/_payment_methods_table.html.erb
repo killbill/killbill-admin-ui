@@ -5,15 +5,15 @@
         <% if payment_method.is_default %>
             <i class="fa fa-star"></i>
         <% else %>
-            <%= link_to '<i class="fa fa-star-o"></i>'.html_safe, kaui_engine.set_default_payment_method_account_path(payment_method.account_id, :params => {:payment_method_id => payment_method.payment_method_id}), :method => :put, :confirm => 'Are you sure you want to make this payment method default?', :class => 'btn btn-xs' %>
+            <%= link_to '<i class="fa fa-star-o"></i>'.html_safe, kaui_engine.set_default_payment_method_account_path(payment_method.account_id, :params => {:payment_method_id => payment_method.payment_method_id}), :method => :put, :confirm => 'Are you sure you want to make this payment method default?' %>
         <% end %>
 
         <%= payment_method.plugin_name %>
 
         <% if payment_method.is_default %>
-            <%= link_to '<i class="fa fa-times"></i>'.html_safe, kaui_engine.payment_method_path(payment_method.payment_method_id, :params => {:set_auto_pay_off => 'true'}), :method => :delete, :confirm => 'Are you sure you want to delete this payment method?', :class => 'btn btn-xs' %>
+            <%= link_to '<i class="fa fa-times"></i>'.html_safe, kaui_engine.payment_method_path(payment_method.payment_method_id, :params => {:set_auto_pay_off => 'true'}), :method => :delete, :confirm => 'Are you sure you want to delete this payment method?' %>
         <% else %>
-            <%= link_to '<i class="fa fa-times"></i>'.html_safe, kaui_engine.payment_method_path(payment_method.payment_method_id), :method => :delete, :confirm => 'Are you sure you want to delete this payment method?', :class => 'btn btn-xs' %>
+            <%= link_to '<i class="fa fa-times"></i>'.html_safe, kaui_engine.payment_method_path(payment_method.payment_method_id), :method => :delete, :confirm => 'Are you sure you want to delete this payment method?' %>
         <% end %>
 
         <i class="fa fa-caret-down"></i>
@@ -28,7 +28,7 @@
               <%= link_to "<i class='fa fa-plus-square'></i>&nbsp;#{transaction_type.downcase.camelize}".html_safe, kaui_engine.new_account_transaction_path(payment_method.account_id,
                                                                                                                                                              :currency => account.currency,
                                                                                                                                                              :payment_method_id => payment_method.payment_method_id,
-                                                                                                                                                             :transaction_type => transaction_type), :class => 'btn btn-xs' %>
+                                                                                                                                                             :transaction_type => transaction_type) %>
           <% end %>
         </div>
 
