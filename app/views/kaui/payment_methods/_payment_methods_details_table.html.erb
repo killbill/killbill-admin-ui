@@ -14,7 +14,7 @@
           <% next if property.value.blank? %>
           <tr>
             <th><%= property.key %></th>
-            <td><%= property.value %></td>
+            <td><%= is_json?(property.value) ? "<pre>#{JSON.pretty_generate(JSON.parse(property.value))}</pre>".html_safe : property.value %></td>
           </tr>
       <% end %>
   <% end %>
