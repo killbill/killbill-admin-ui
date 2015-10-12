@@ -4,9 +4,9 @@
 
     <% if can? :external_payment, Kaui::Payment %>
         <div class='form-group'>
-          <div class="col-sm-offset-2 col-sm-10">
+          <div class="col-sm-offset-3 col-sm-9">
             <div class="checkbox">
-              <%= label_tag :external, :class => 'col-sm-2 control-label' do %>
+              <%= label_tag :external do %>
                   <%= check_box_tag :external %>External?
               <% end %>
             </div>
@@ -14,26 +14,33 @@
         </div>
     <% end %>
     <div class="form-group">
-      <%= f.label :purchased_amount, 'Amount', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :purchased_amount, 'Amount', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= f.text_field :purchased_amount, :id => 'payment_amount', :class => 'form-control' %>
         <p class="help-block">Currency: <%= @invoice.present? ? @invoice.currency : @account.currency %></p>
       </div>
     </div>
     <div class="form-group">
-      <%= label_tag :reason, 'Reason', :class => 'col-sm-2 col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= f.label :payment_method_id, 'Payment Method', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= f.collection_select :payment_method_id, @payment_methods, :payment_method_id, Proc.new { |pm| "#{pm.plugin_name} (#{pm.payment_method_id})" }, {:include_blank => true}, :class => 'form-control' %>
+        <p class="help-block">Leave blank to use account's default</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label_tag :reason, 'Reason', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= select_tag :reason, options_for_select(Kaui::Payment::SAMPLE_REASON_CODES), :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= label_tag :comment, 'Comment', :class => 'col-sm-2 col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      <%= label_tag :comment, 'Comment', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
+      <div class="col-sm-offset-3 col-sm-9">
         <%= submit_tag 'Save', :class => 'btn btn-default' %>
       </div>
     </div>

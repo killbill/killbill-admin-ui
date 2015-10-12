@@ -51,8 +51,9 @@ class Kaui::PaymentsController < Kaui::EngineController
   def new
     fetch_invoice = lambda { @invoice = Kaui::Invoice.find_by_id_or_number(params.require(:invoice_id), true, 'NONE', options_for_klient) }
     fetch_account = lambda { @account = Kaui::Account.find_by_id(params.require(:account_id), false, false, options_for_klient) }
+    fetch_payment_methods = lambda { @payment_methods = Kaui::PaymentMethod.find_all_by_account_id(params.require(:account_id), false, options_for_klient) }
 
-    run_in_parallel fetch_invoice, fetch_account
+    run_in_parallel fetch_invoice, fetch_account, fetch_payment_methods
 
     @payment = Kaui::InvoicePayment.new('accountId' => @account.account_id, 'targetInvoiceId' => @invoice.invoice_id, 'purchasedAmount' => @invoice.balance)
   end
