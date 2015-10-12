@@ -23,10 +23,7 @@ module Kaui
 
     initializer 'kaui_engine.action_controller' do |app|
       ActiveSupport.on_load :action_controller do
-        helper Kaui::DateHelper
-        helper Kaui::MoneyHelper
-        helper Kaui::SubscriptionHelper
-        helper Kaui::UuidHelper
+        helper Kaui::Engine.helpers
       end
 
       Kaui.thread_pool = Concurrent::CachedThreadPool.new

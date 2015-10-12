@@ -18,8 +18,9 @@ class Kaui::CustomFieldsController < Kaui::EngineController
     end
 
     formatter = lambda do |custom_field|
+      url_for_object = view_context.url_for_object(custom_field.object_id, custom_field.object_type)
       [
-          custom_field.object_id,
+          url_for_object ? view_context.link_to(custom_field.object_id, url_for_object) : custom_field.object_id,
           custom_field.object_type,
           custom_field.name,
           custom_field.value

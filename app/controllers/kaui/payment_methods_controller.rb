@@ -66,6 +66,11 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
     end
   end
 
+  def restful_show
+    payment_method = Kaui::PaymentMethod.find_by_id(params.require(:id), false, options_for_klient)
+    redirect_to kaui_engine.account_path(payment_method.account_id)
+  end
+
   private
 
   def find_value_from_properties(properties, key)

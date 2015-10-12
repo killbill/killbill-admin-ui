@@ -11,14 +11,17 @@ class Kaui::TagsController < Kaui::EngineController
     data_extractor = lambda do |tag, column|
       [
           tag.tag_id,
+          tag.object_id,
           tag.object_type,
           tag.tag_definition_name
       ][column]
     end
 
     formatter = lambda do |tag|
+      url_for_object = view_context.url_for_object(tag.object_id, tag.object_type)
       [
           tag.tag_id,
+          url_for_object ? view_context.link_to(tag.object_id, url_for_object) : tag.object_id,
           tag.object_type,
           tag.tag_definition_name
       ]

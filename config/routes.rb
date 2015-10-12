@@ -60,7 +60,11 @@ Kaui::Engine.routes.draw do
     resources :transactions, :only => [:new, :create]
   end
 
-  resources :payment_methods, :only => [ :new, :create, :destroy ]
+  resources :payment_methods, :only => [:new, :create, :destroy] do
+    member do
+      get '', :to => :restful_show
+    end
+  end
 
   scope '/invoices' do
     match '/pagination' => 'invoices#pagination', :via => :get, :as => 'invoices_pagination'
@@ -84,6 +88,7 @@ Kaui::Engine.routes.draw do
   resources :subscriptions, :only => [:new, :create, :edit, :update, :destroy] do
     member do
       put :reinstate
+      get '', :to => :restful_show
     end
   end
 
