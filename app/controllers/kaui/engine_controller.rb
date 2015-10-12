@@ -36,7 +36,8 @@ class Kaui::EngineController < ApplicationController
   rescue_from(StandardError) do |error|
     log_rescue_error error
     flash[:error] = "Error: #{error.to_s}"
-    perform_redirect_after_error
+    try_to_redirect_to_account_path = !params[:controller].ends_with?('accounts')
+    perform_redirect_after_error try_to_redirect_to_account_path
   end
 
   rescue_from(ActionController::ParameterMissing) do |parameter_missing_exception|
