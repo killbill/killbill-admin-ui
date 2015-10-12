@@ -2,14 +2,14 @@
 
   <div class="column-block">
 
-    <h1>Account Information</h1>
-    <%= link_to 'Edit',
-                kaui_engine.edit_account_path(@account.account_id),
-                :class => 'btn btn-xs' %>
+    <h1>Account Information
+      <%= link_to 'Edit',
+                  kaui_engine.edit_account_path(@account.account_id),
+                  :class => 'btn btn-xs' %></h1>
 
-    <div class="account-info">
+    <div class="info-wrapper">
 
-      <div class="tag-bar">
+      <div class="tag-bar tag-bar-breathe">
 
         <div class="tag-select">
           <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
@@ -93,10 +93,9 @@
           </table>
         </div>
       </div>
+
     </div>
-    <!-- Account Info -->
 
   </div>
-  <!-- Column Block-->
 
-</div><!-- col-md-12 -->
+</div>

@@ -1,35 +1,40 @@
-<div class="column-block">
+<div class="search">
 
-  <h1>Tag Definitions<%= link_to '&nbsp;<i class="fa fa-plus-square"></i>'.html_safe, kaui_engine.new_tag_definition_path %></h1>
+  <div class="column-block">
 
-  <table id='tag_definitions-table' class='table table-condensed mobile-data'>
-    <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>System tag?</th>
-      <th>Applicable types</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @tag_definitions.each do |tag_definition| %>
-        <tr>
-          <td><%= truncate_uuid(tag_definition.id) %></td>
-          <td><%= tag_definition.name %></td>
-          <td><%= tag_definition.description %></td>
-          <td><%= tag_definition.is_system_tag? %></td>
-          <td><%= tag_definition.pretty_applicable_object_types %></td>
-          <td>
-            <% unless tag_definition.is_system_tag? %>
-                <%= link_to 'Destroy', kaui_engine.tag_definition_path(tag_definition.id), :confirm => 'Are you sure?', :method => :delete %>
-            <% end %>
-          </td>
-        </tr>
-    <% end %>
-    </tbody>
-  </table>
+    <h1>Tag
+      Definitions<%= link_to '&nbsp;<i class="fa fa-plus-square"></i>'.html_safe, kaui_engine.new_tag_definition_path %></h1>
+
+    <table id='tag_definitions-table' class='table table-condensed mobile-data'>
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>System tag?</th>
+        <th>Applicable types</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @tag_definitions.each do |tag_definition| %>
+          <tr>
+            <td><%= truncate_uuid(tag_definition.id) %></td>
+            <td><%= tag_definition.name %></td>
+            <td><%= tag_definition.description %></td>
+            <td><%= tag_definition.is_system_tag? %></td>
+            <td><%= tag_definition.pretty_applicable_object_types %></td>
+            <td>
+              <% unless tag_definition.is_system_tag? %>
+                  <%= link_to 'Destroy', kaui_engine.tag_definition_path(tag_definition.id), :confirm => 'Are you sure?', :method => :delete %>
+              <% end %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+  </div>
 
 </div>
 

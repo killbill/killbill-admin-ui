@@ -1,36 +1,47 @@
-<dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @tenant.name %></dd>
-  <dt>Tenant ID:</dt>
-  <dd><%= @tenant.kb_tenant_id %></dd>
-  <dt>API Key:</dt>
-  <dd><%= @tenant.api_key %></dd>
-</dl>
+<div class="column-block">
+
+  <h1>Tenant details</h1>
+
+  <b>Name:</b> <%= @tenant.name %>
+  <br/>
+  <b>Tenant ID:</b> <%= @tenant.kb_tenant_id %>
+  <br/>
+  <b>API Key:</b> <%= @tenant.api_key %>
+
+</div>
 
 <% unless @tenant.kaui_allowed_users.empty? %>
-    <h3>Allowed Users</h3>
-    <table id="allowed-users-for-tenant-table" class="table table-condensed">
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @tenant.kaui_allowed_users.each do |u| %>
+    <div class="search">
+
+      <div class="column-block">
+
+        <h1>Allowed Users</h1>
+        <table id="allowed-users-for-tenant-table" class="table table-condensed">
+          <thead>
           <tr>
-            <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
-            <td><%= u.description %></td>
-            <td>
-              <button type="button" class="btn btn-default btn-sm" id="<%= "allowed-user-remove-#{u.id}" %>">
-                <span class="fa fa-times"></span>
-              </button>
-            </td>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
           </tr>
-      <% end %>
-      </tbody>
-    </table>
+          </thead>
+          <tbody>
+          <% @tenant.kaui_allowed_users.each do |u| %>
+              <tr>
+                <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
+                <td><%= u.description %></td>
+                <td>
+                  <button type="button" class="btn btn-default btn-sm" id="<%= "allowed-user-remove-#{u.id}" %>">
+                    <span class="fa fa-times"></span>
+                  </button>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
 
     <%= javascript_tag do %>
       $(document).ready(function() {

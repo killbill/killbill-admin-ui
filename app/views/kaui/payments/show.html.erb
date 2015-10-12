@@ -1,4 +1,4 @@
-<div class="account payments">
+<div class="search">
 
   <div class="column-block">
 
@@ -8,26 +8,23 @@
         <%= link_to 'Invoice', account_invoice_path(@account.account_id, @payment.target_invoice_id) %>
     <% end %>
 
-    <div class="account-info">
-      <%= render :partial => 'kaui/payments/payment_table',
-                 :locals => {:payment => @payment, :account => @account} %>
-    </div>
+    <%= render :partial => 'kaui/payments/payment_table',
+               :locals => {:payment => @payment, :account => @account} %>
 
   </div>
 
-  <div class="column-block">
+</div>
 
-    <h1>Payment Method Details</h1>
+<div class="column-block">
 
-    <div class="fix-position">
-      <% if @payment_method.nil? %>
-          The Payment method has been deleted.
-      <% else %>
-          <small>Plugin: <%= @payment_method.plugin_name %></small>
-          <%= render :partial => 'kaui/payment_methods/payment_methods_details_table', :locals => {:payment_method => @payment_method} %>
-      <% end %>
-    </div>
+  <h1>Payment Method Details</h1>
 
+  <div class="fix-position">
+    <% if @payment_method.nil? %>
+        The Payment method has been deleted.
+    <% else %>
+        <%= render :partial => 'kaui/payment_methods/payment_methods_details_table', :locals => {:payment_method => @payment_method} %>
+    <% end %>
   </div>
 
 </div>

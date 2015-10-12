@@ -1,12 +1,10 @@
-<div class="account">
-  <div class="title-nav-area">
+<div class="title-nav-area">
 
-    <div class="container">
-      <%= link_to 'Account', kaui_engine.account_path(params[:account_id]), :class => (params[:controller].ends_with?('accounts') ? 'current' : 'non-current') %>
-      <%= link_to 'Subscriptions', kaui_engine.account_bundles_path(params[:account_id]), :class => (params[:controller].ends_with?('bundles') ? 'current' : 'non-current') %>
-      <%= link_to 'Invoices', kaui_engine.account_invoices_path(params[:account_id]), :class => (params[:controller].ends_with?('invoices') ? 'current' : 'non-current') %>
-      <%= link_to 'Payments', kaui_engine.account_payments_path(params[:account_id]), :class => (params[:controller].ends_with?('payments') ? 'current' : 'non-current') %>
-    </div>
-
+  <div class="container">
+    <%= link_to 'Account', kaui_engine.account_path(params[:account_id]), :class => (params[:controller].ends_with?('accounts') ? 'current' : 'non-current') %>
+    <%= link_to 'Subscriptions', kaui_engine.account_bundles_path(params[:account_id]), :class => (params[:controller].ends_with?('bundles') ? 'current' : 'non-current') %>
+    <%= link_to 'Invoices', kaui_engine.account_invoices_path(params[:account_id]), :class => (params[:controller].ends_with?('invoices') ? 'current' : 'non-current') %>
+    <%= link_to 'Payments', kaui_engine.account_payments_path(params[:account_id]), :class => (params[:controller].ends_with?('payments') ? 'current' : 'non-current') %>
   </div>
+
 </div>

@@ -1,0 +1,149 @@
+.tag-bar {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 0;
+
+    .tag-select {
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+
+        @media (@phone) {
+            width: 35%;
+        }
+
+        span {
+            padding: 5px 20px;
+            text-align: center;
+            display: block;
+            border-right: 1px solid #ddd;
+
+            @media (@phone) {
+                border: 0;
+            }
+
+            i {
+                margin: 0 5px;
+                color: #515151;
+                font-size: 16px;
+
+                &.fa-caret-down {
+                    color: #999999;
+                    font-size: 12px;
+                }
+
+                &.fa-tag {
+                    font-size: 18px;
+                }
+
+                &.fa-money, &.fa-credit-card {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        &:hover {
+            .tag-select-box {
+                max-height: 500px;
+                padding: 20px 15px;
+                border: 1px solid #ddd;
+                box-shadow: 1px 3px 2px rgba(0, 0, 0, 0.11);
+            }
+        }
+
+        .tag-select-box {
+            position: absolute;
+            top: 100%;
+            left: -1px;
+            max-height: 0;
+            transition: all 0.5s;
+            background-color: #fff;
+            z-index: 100;
+            padding: 0 15px;
+            font-size: 12px;
+            color: #999999;
+            overflow: hidden;
+            width: 240px;
+            border-bottom: 0;
+
+            @media (@phone) {
+                border: 0;
+            }
+
+            strong {
+                display: block;
+                font-weight: 400;
+                margin: 0 0 10px;
+            }
+
+            input[type=checkbox] {
+                display: inline-block;
+                width: 15px;
+                margin: 0 5px 0 0;
+                line-height: 20px;
+                vertical-align: middle;
+            }
+
+            label {
+                font-size: 12px;
+                display: inline-block;
+                width: 89%;
+                line-height: 20px;
+                vertical-align: middle;
+                margin: 0;
+                font-weight: 400;
+            }
+
+            textarea {
+                resize: none;
+                height: 80px;
+                margin: 0 0 20px;
+                width: 100%;
+            }
+
+            a {
+                display: block;
+                font-size: 12px;
+                line-height: 20px;
+            }
+        }
+    }
+
+    .tag-selected {
+        display: inline-block;
+        padding: 2px 5px;
+        vertical-align: middle;
+
+        @media (@phone) {
+            width: 64%;
+            padding: 2px;
+            overflow: hidden;
+            border-left: 1px solid #ddd;
+        }
+
+        span {
+            display: inline-block;
+            font-size: 12px;
+            color: #777777;
+            background: #e5e5e5;
+            padding: 3px 20px;
+            margin: 0 5px;
+            transition: all 0.5s;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #cce9eb;
+            }
+
+            @media (@phone) {
+                font-size: 10px;
+                padding: 3px 5px;
+                display: block;
+                margin: 0 0 2px;
+            }
+        }
+    }
+}
+
+.tag-bar-breathe {
+    margin-bottom: 35px;
+}

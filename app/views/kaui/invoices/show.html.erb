@@ -1,22 +1,25 @@
-<div class="account invoices">
+<div class="search">
 
   <div class="column-block">
 
     <h1>Invoice <%= @invoice.invoice_number %></h1>
 
-    <small>Invoice Date: <%= @invoice.invoice_date.html_safe %></small>
-    <small>Target Date: <%= @invoice.target_date.html_safe %></small>
+    Invoice Date: <%= @invoice.invoice_date.html_safe %>
+    <br/>
+    Target Date: <%= @invoice.target_date.html_safe %>
 
-    <div class="account-info">
-      <%= render :partial => 'invoice_table' %>
-    </div>
+    <%= render :partial => 'invoice_table' %>
 
   </div>
 
-  <% unless @payments.empty? %>
-      <div class="col-md-12 payment-list">
+</div>
 
-        <div class="column-block">
+<% unless @payments.empty? %>
+    <div class="col-md-12">
+
+      <div class="search">
+
+        <div id="invoice-payments" class="column-block">
 
           <h1 class="text-capitalize">Payment Details</h1>
 
@@ -24,19 +27,17 @@
 
               <h3>Payment <%= link_to payment.payment_number, account_payment_path(@account.account_id, payment.payment_id) %></h3>
 
-              <div class="account-info">
-                <%= render :partial => 'kaui/payments/payment_table',
-                           :locals => {:payment => payment, :account => @account, :payment_methods => @payment_methods} %>
-              </div>
+              <%= render :partial => 'kaui/payments/payment_table',
+                         :locals => {:payment => payment, :account => @account, :payment_methods => @payment_methods} %>
 
           <% end %>
 
         </div>
 
       </div>
-  <% end %>
 
-</div>
+    </div>
+<% end %>
 
 <%= link_to 'View customer invoice html', kaui_engine.show_html_invoice_path(@invoice.invoice_id), :class => 'btn', :target => '_blank' unless @invoice.blank? %>
 <%= javascript_tag do %>

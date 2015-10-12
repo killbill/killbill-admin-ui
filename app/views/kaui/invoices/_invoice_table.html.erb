@@ -1,93 +1,97 @@
-<div class="tag-bar">
-  <!--<div class="tag-select">-->
-  <!--<span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>-->
-  <!--<div class="tag-select-box">-->
-  <!--<strong>Tag As:</strong>-->
-  <!--</div>-->
-  <!--</div>-->
+<div class="info-wrapper">
 
-  <div class="tag-select">
-    <span><i class="fa fa-credit-card"></i><i class="fa fa-caret-down"></i></span>
+  <div class="tag-bar">
+    <!--<div class="tag-select">-->
+    <!--<span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>-->
+    <!--<div class="tag-select-box">-->
+    <!--<strong>Tag As:</strong>-->
+    <!--</div>-->
+    <!--</div>-->
 
-    <div class="tag-select-box">
+    <div class="tag-select">
+      <span><i class="fa fa-credit-card"></i><i class="fa fa-caret-down"></i></span>
 
-      <% if can? :credit, Kaui::Account %>
-          <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Add credit'.html_safe,
-                      kaui_engine.new_account_credit_path(@invoice.account_id, :currency => @invoice.currency, :invoice_id => @invoice.invoice_id) %>
-      <% end %>
-      <% if can? :charge, Kaui::Account %>
-          <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Create charge'.html_safe,
-                      kaui_engine.new_account_charge_path(@invoice.account_id, :currency => @invoice.currency, :invoice_id => @invoice.invoice_id) %>
-      <% end %>
-      <% if @invoice.balance > 0 %>
-          <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Make payment'.html_safe,
-                      kaui_engine.new_account_payment_path(@invoice.account_id, :invoice_id => @invoice.invoice_id) %>
-      <% end %>
+      <div class="tag-select-box">
+
+        <% if can? :credit, Kaui::Account %>
+            <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Add credit'.html_safe,
+                        kaui_engine.new_account_credit_path(@invoice.account_id, :currency => @invoice.currency, :invoice_id => @invoice.invoice_id) %>
+        <% end %>
+        <% if can? :charge, Kaui::Account %>
+            <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Create charge'.html_safe,
+                        kaui_engine.new_account_charge_path(@invoice.account_id, :currency => @invoice.currency, :invoice_id => @invoice.invoice_id) %>
+        <% end %>
+        <% if @invoice.balance > 0 %>
+            <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Make payment'.html_safe,
+                        kaui_engine.new_account_payment_path(@invoice.account_id, :invoice_id => @invoice.invoice_id) %>
+        <% end %>
+
+      </div>
 
     </div>
-
   </div>
+
+  <table id="invoice-table" class="table table-condensed mobile-data">
+    <thead>
+    <tr>
+      <th>Description</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Subscription ID</th>
+      <th>Amount</th>
+      <th>Comments</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @invoice.items.each do |item| %>
+        <tr id=<%= "invoice_item_#{item.invoice_item_id}_#{item.linked_invoice_item_id}" %>>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.description %></td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.start_date.html_safe if item.start_date %></td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.end_date.html_safe if item.end_date %></td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.subscription_id %></td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= humanized_money_with_symbol Kaui::InvoiceItem.amount_to_money(item) %>
+            (<%= item.currency %>)
+          </td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.audit_logs.map { |log| log.comments }.compact.join('<br/>') if item.audit_logs.present? %></td>
+          <td>
+            <% if can? :item_adjust, Kaui::Invoice %>
+                <nobr>
+                  <%= link_to 'Adjust',
+                              kaui_engine.edit_account_invoice_item_path(@invoice.account_id, item.invoice_item_id, :invoice_id => @invoice.invoice_id),
+                              :class => "btn btn-xs #{'disabled' unless item.amount > 0}" %>
+                </nobr>
+            <% end %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <table class="invoice-totals">
+    <tr>
+      <th></th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Invoice Total:</th>
+      <td><%= humanized_money_with_symbol @invoice.amount_to_money %> (<%= @invoice.currency %>)</td>
+    </tr>
+    <tr>
+      <th>Credits:</th>
+      <td><%= humanized_money_with_symbol @invoice.credit_adjustment_to_money %> (<%= @invoice.currency %>)</td>
+    </tr>
+    <tr>
+      <th>Refunded:</th>
+      <td><%= humanized_money_with_symbol @invoice.refund_adjustment_to_money %> (<%= @invoice.currency %>)</td>
+    </tr>
+    <tr>
+      <th>Balance:</th>
+      <td><%= humanized_money_with_symbol @invoice.balance_to_money %> (<%= @invoice.currency %>)</td>
+    </tr>
+  </table>
+
 </div>
-
-<table id="invoice-table" class="table table-condensed mobile-data">
-  <thead>
-  <tr>
-    <th>Description</th>
-    <th>Start date</th>
-    <th>End date</th>
-    <th>Subscription ID</th>
-    <th>Amount</th>
-    <th>Comments</th>
-    <th></th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @invoice.items.each do |item| %>
-      <tr id=<%= "invoice_item_#{item.invoice_item_id}_#{item.linked_invoice_item_id}" %>>
-        <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.description %></td>
-        <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.start_date.html_safe if item.start_date %></td>
-        <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.end_date.html_safe if item.end_date %></td>
-        <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.subscription_id %></td>
-        <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= humanized_money_with_symbol Kaui::InvoiceItem.amount_to_money(item) %>
-          (<%= item.currency %>)
-        </td>
-        <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.audit_logs.map { |log| log.comments }.compact.join('<br/>') if item.audit_logs.present? %></td>
-        <td>
-          <% if can? :item_adjust, Kaui::Invoice %>
-              <nobr>
-                <%= link_to 'Adjust',
-                            kaui_engine.edit_account_invoice_item_path(@invoice.account_id, item.invoice_item_id, :invoice_id => @invoice.invoice_id),
-                            :class => "btn btn-xs #{'disabled' unless item.amount > 0}" %>
-              </nobr>
-          <% end %>
-        </td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<table class="result">
-  <tr>
-    <th></th>
-    <td></td>
-  </tr>
-  <tr>
-    <th>Invoice Total:</th>
-    <td><%= humanized_money_with_symbol @invoice.amount_to_money %> (<%= @invoice.currency %>)</td>
-  </tr>
-  <tr>
-    <th>Credits:</th>
-    <td><%= humanized_money_with_symbol @invoice.credit_adjustment_to_money %> (<%= @invoice.currency %>)</td>
-  </tr>
-  <tr>
-    <th>Refunded:</th>
-    <td><%= humanized_money_with_symbol @invoice.refund_adjustment_to_money %> (<%= @invoice.currency %>)</td>
-  </tr>
-  <tr>
-    <th>Balance:</th>
-    <td><%= humanized_money_with_symbol @invoice.balance_to_money %> (<%= @invoice.currency %>)</td>
-  </tr>
-</table>
 
 <script language="javascript">
     function hightlightLinkedItems(invoice_item_id, linked_invoice_item_id) {

@@ -1,27 +1,32 @@
 <% unless @allowed_users.empty? %>
-    <div class="column-block">
+    <div class="search">
 
-      <h1>Kaui users
-        <% if can? :create, Kaui::AdminTenant %>
-            <%= link_to '&nbsp;<i class="fa fa-plus-square"></i>'.html_safe, new_admin_allowed_user_path %>
-        <% end %></h1>
+      <div class="column-block">
 
-      <table id="allowed-users-table" class="table table-condensed table-striped mobile-data">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% @allowed_users.each do |u| %>
-            <tr>
-              <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
-              <td><%= u.description %></td>
-            </tr>
-        <% end %>
-        </tbody>
-      </table>
+        <h1>Kaui users
+          <% if can? :create, Kaui::AdminTenant %>
+              <%= link_to '&nbsp;<i class="fa fa-plus-square"></i>'.html_safe, new_admin_allowed_user_path %>
+          <% end %></h1>
+
+        <table id="allowed-users-table" class="table table-condensed table-striped mobile-data">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @allowed_users.each do |u| %>
+              <tr>
+                <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
+                <td><%= u.description %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+
+      </div>
+
     </div>
 <% end %>
 

@@ -4,15 +4,17 @@
 
     <h1>Billing Info</h1>
 
-    <div class="account-info">
+    <div class="info-wrapper">
+
       <div class="tag-bar">
+
         <div class="tag-select">
           <span><i class="fa fa-money"></i><i class="fa fa-caret-down"></i></span>
 
           <div class="tag-select-box">
             <!-- Payment, Credit then Charge. Same ordering as in the billing timeline -->
             <% if @account.account_balance.present? && @account.account_balance > 0 %>
-                <%= link_to 'Pay all invoices',
+                <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Pay all invoices'.html_safe,
                             kaui_engine.pay_all_invoices_account_path(@account.account_id),
                             :method => :post %>
             <% end %>
@@ -35,10 +37,10 @@
             N/A
         <% elsif @account.account_balance <= 0 %>
             <span class="label label-success"><%= humanized_money_with_symbol @account.balance_to_money %>
-              (<%= @account.currency %>)</span>
+              <%= "(#{@account.currency})" if @account.currency.present? %></span>
         <% else %>
             <span class="label label-danger"><%= humanized_money_with_symbol @account.balance_to_money %>
-              (<%= @account.currency %>)</span>
+              <%= "(#{@account.currency})" if @account.currency.present? %></span>
         <% end %>
         <br/>
         Account credit:
@@ -46,10 +48,10 @@
             N/A
         <% elsif @account.account_cba >= 0 %>
             <span class="label label-success"><%= humanized_money_with_symbol @account.cba_to_money %>
-              (<%= @account.currency %>)</span>
+              <%= "(#{@account.currency})" if @account.currency.present? %></span>
         <% else %>
             <span class="label label-danger"><%= humanized_money_with_symbol @account.cba_to_money %>
-              (<%= @account.currency %>)</span>
+              <%= "(#{@account.currency})" if @account.currency.present? %></span>
         <% end %>
         <br/>
         Overdue status:
@@ -74,6 +76,9 @@
         <span class="text-capitalize"><%= @account.is_notified_for_invoices %></span>&nbsp;<%= link_to '<i class="fa fa-toggle-on"></i>'.html_safe, kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post, :class => 'btn btn-xs' %>
 
       </p>
+
     </div>
+
   </div>
+
 </div>

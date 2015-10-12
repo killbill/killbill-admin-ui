@@ -2,12 +2,8 @@
     <%= hidden_field_tag :bundle_id, bundle_id %>
 
     <% available_tags.each do |tag| %>
-        <div class="checkbox">
-          <label>
-            <%= check_box_tag "tag_#{tag.id}", tag.name, tag_names.include?(tag.name) %>
-            <span class='tag-description' rel='tooltip' title='<%= tag.description %>'><%= tag.name %></span>
-          </label>
-        </div>
+        <%= check_box_tag "tag_#{tag.id}", tag.name, tag_names.include?(tag.name) %>
+        <label class='tag-description' rel='tooltip' title='<%= tag.description %>'><%= tag.name %></label>
     <% end %>
     <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label' %>
     <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>

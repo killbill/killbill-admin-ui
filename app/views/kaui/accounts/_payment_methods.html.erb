@@ -4,8 +4,10 @@
 
     <h1>Payment Methods</h1>
 
-    <div class="account-info payment">
+    <div class="info-wrapper">
+
       <div class="tag-bar">
+
         <div class="tag-select">
           <span><i class="fa fa-credit-card"></i><i class="fa fa-caret-down"></i></span>
 
@@ -18,5 +20,7 @@
       <%= render :partial => 'kaui/payment_methods/payment_methods_table', :locals => {:account => @account, :payment_methods => @payment_methods} %>
 
     </div>
+
   </div>
+
 </div>
