@@ -1,4 +1,8 @@
 <table class="transparent">
+  <tr>
+    <th>ID:</th>
+    <td><%= payment_method.payment_method_id %></td>
+  </tr>
   <% unless payment_method.plugin_info.blank? %>
       <% unless payment_method.plugin_info.external_payment_method_id.blank? %>
           <tr>
