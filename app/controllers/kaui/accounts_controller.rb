@@ -66,10 +66,10 @@ class Kaui::AccountsController < Kaui::EngineController
     fetch_account_emails = lambda { @account_emails = Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', options_for_klient) }
     fetch_payment_methods = lambda do
       begin
-        @payment_methods = Kaui::PaymentMethod.find_non_external_by_account_id(@account.account_id, true, options_for_klient)
+        @payment_methods = Kaui::PaymentMethod.find_all_by_account_id(@account.account_id, true, options_for_klient)
       rescue KillBillClient::API::BadRequest
         # Maybe the plugin(s) are not registered?
-        @payment_methods = Kaui::PaymentMethod.find_non_external_by_account_id(@account.account_id, false, options_for_klient)
+        @payment_methods = Kaui::PaymentMethod.find_all_by_account_id(@account.account_id, false, options_for_klient)
       end
     end
     fetch_available_tags = lambda { @available_tags = Kaui::TagDefinition.all_for_account(options_for_klient) }

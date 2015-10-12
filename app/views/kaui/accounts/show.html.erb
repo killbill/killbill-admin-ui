@@ -3,9 +3,7 @@
 
   <%= render :partial => 'billing_info' %>
 
-  <% if @payment_methods.present? %>
-      <%= render :partial => 'payment_methods' %>
-  <% end %>
+  <%= render :partial => 'payment_methods' %>
 </div>
 
 <%= javascript_tag do %>
