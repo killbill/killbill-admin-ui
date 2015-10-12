@@ -64,14 +64,7 @@ class Kaui::AccountsController < Kaui::EngineController
     fetch_overdue_state = lambda { @overdue_state = @account.overdue(options_for_klient) }
     fetch_account_tags = lambda { @tags = @account.tags(false, 'NONE', options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b } }
     fetch_account_emails = lambda { @account_emails = Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', options_for_klient) }
-    fetch_payment_methods = lambda do
-      begin
-        @payment_methods = Kaui::PaymentMethod.find_all_by_account_id(@account.account_id, true, options_for_klient)
-      rescue KillBillClient::API::BadRequest
-        # Maybe the plugin(s) are not registered?
-        @payment_methods = Kaui::PaymentMethod.find_all_by_account_id(@account.account_id, false, options_for_klient)
-      end
-    end
+    fetch_payment_methods = lambda { @payment_methods = Kaui::PaymentMethod.find_all_safely_by_account_id(@account.account_id, options_for_klient) }
     fetch_available_tags = lambda { @available_tags = Kaui::TagDefinition.all_for_account(options_for_klient) }
     run_in_parallel fetch_upcoming_invoice_date, fetch_overdue_state, fetch_account_tags, fetch_account_emails, fetch_payment_methods, fetch_available_tags
   end

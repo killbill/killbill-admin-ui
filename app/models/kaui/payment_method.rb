@@ -8,6 +8,15 @@ class Kaui::PaymentMethod < KillBillClient::Model::PaymentMethod
     end
   end
 
+  def self.find_all_safely_by_account_id(account_id, options = {})
+    begin
+      Kaui::PaymentMethod.find_all_by_account_id(account_id, true, options)
+    rescue KillBillClient::API::BadRequest
+      # Maybe the plugin(s) are not registered?
+      Kaui::PaymentMethod.find_all_by_account_id(account_id, false, options)
+    end
+  end
+
   def self.find_non_external_by_account_id(account_id, with_plugin_info = false, options = {})
     payment_methods = find_all_by_account_id(account_id, with_plugin_info, options)
     payment_methods.reject { |x| x.plugin_name == '__EXTERNAL_PAYMENT__' }
