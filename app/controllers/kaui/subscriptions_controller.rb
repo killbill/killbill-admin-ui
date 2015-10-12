@@ -102,6 +102,10 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     redirect_to kaui_engine.account_bundles_path(subscription.account_id), :notice => 'Subscription was successfully reinstated'
   end
 
+  def show
+    restful_show
+  end
+
   def restful_show
     subscription = Kaui::Subscription.find_by_id(params.require(:id), options_for_klient)
     redirect_to kaui_engine.account_bundles_path(subscription.account_id)
