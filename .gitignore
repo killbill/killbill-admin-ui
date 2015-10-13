@@ -13,3 +13,4 @@ foo
 config/initializers/killbill_client.rb
 coverage
 .DS_Store
+Gemfile.lock
