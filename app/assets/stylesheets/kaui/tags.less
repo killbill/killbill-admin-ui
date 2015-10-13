@@ -55,7 +55,6 @@
             top: 100%;
             left: -1px;
             max-height: 0;
-            transition: all 0.5s;
             background-color: #fff;
             z-index: 100;
             padding: 0 15px;
@@ -146,4 +145,14 @@
 
 .tag-bar-breathe {
     margin-bottom: 35px;
+}
+
+.tag-bar-no-border {
+    border-bottom: 0;
+
+    .tag-select {
+        span {
+            border-right: 0;
+        }
+    }
 }

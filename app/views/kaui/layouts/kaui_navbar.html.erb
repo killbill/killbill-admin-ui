@@ -18,21 +18,36 @@
       <div class="col-md-6">
         <div class="row">
 
-          <div class="col-xs-8 text-center">
-            <nav>
-              <ul>
-                <% if user_signed_in? -%>
-                    <li><%= link_to 'Tags', kaui_engine.tags_path %></li>
-                    <li><%= link_to 'Tag definitions', kaui_engine.tag_definitions_path %></li>
-                    <li><%= link_to 'Custom Fields', kaui_engine.custom_fields_path %></li>
-                    <% if can? :view, Kaui::AdminTenant %>
-                        <li><%= link_to 'Users', kaui_engine.admin_allowed_users_path %></li>
-                        <li><%= link_to 'Tenants', kaui_engine.admin_tenants_path %></li>
-                    <% end %>
-                <% end %>
-              </ul>
-            </nav>
-          </div>
+          <% if user_signed_in? -%>
+              <div class="col-xs-8">
+
+                <div class="tag-bar tag-bar-no-border">
+
+                  <div class="tag-select">
+                    <span><i class="fa fa-tags"></i><i class="fa fa-caret-down"></i></span>
+
+                    <div class="tag-select-box">
+                      <%= link_to 'Tags', kaui_engine.tags_path %>
+                      <%= link_to 'Tag definitions', kaui_engine.tag_definitions_path %>
+                      <%= link_to 'Custom Fields', kaui_engine.custom_fields_path %>
+                    </div>
+                  </div>
+
+                  <% if can? :view, Kaui::AdminTenant %>
+                      <div class="tag-select">
+                        <span><i class="fa fa-cogs"></i><i class="fa fa-caret-down"></i></span>
+
+                        <div class="tag-select-box">
+                          <%= link_to 'Users', kaui_engine.admin_allowed_users_path %>
+                          <%= link_to 'Tenants', kaui_engine.admin_tenants_path %>
+                        </div>
+                      </div>
+                  <% end %>
+
+                </div>
+
+              </div>
+          <% end %>
 
           <div class="col-xs-4 text-right">
             <nav>
