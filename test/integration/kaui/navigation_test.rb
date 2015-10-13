@@ -29,7 +29,6 @@ module Kaui
       assert_response :success
       check_no_flash_error
       assert_not_nil assigns(:account)
-      assert_not_nil assigns(:timeline)
 
       # Verify log-out
       delete_via_redirect SIGN_OUT_PATH

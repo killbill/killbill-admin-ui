@@ -7,7 +7,11 @@ class Kaui::AccountTimelinesControllerTest < Kaui::FunctionalTestHelper
     assert_response 200
 
     assert_not_nil assigns(:account)
-    assert_not_nil assigns(:timeline)
+    assert_not_nil assigns(:bundles)
+    assert_not_nil assigns(:bundle_keys_by_invoice_id)
+    assert_not_nil assigns(:bundle_names_by_invoice_id)
+    assert_not_nil assigns(:invoices)
+    assert_not_nil assigns(:payments)
     assert_not_nil assigns(:invoices_by_id)
 
     assert_equal @account.account_id, assigns(:account).account_id
