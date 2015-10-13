@@ -1,195 +1,201 @@
-<form class="form-horizontal">
-  <div class="form-group">
-    <label for="bundles" class="col-sm-2 control-label">Filter by bundle</label>
+<div class="search">
 
-    <div class="col-sm-10">
-      <%= select_tag 'bundles', options_for_select([''] + @bundle_names.values.sort, @selected_bundle || 'all'), :class => 'form-control' %>
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="events" class="col-sm-2 control-label">Filter by event type</label>
+  <div class="column-block">
 
-    <div class="col-sm-10  ">
-      <%= select_tag 'event_types', options_for_select('<option value="all">ALL</option><option value="invoice">INVOICE</option><option value="payment">PAYMENT</option><option value="entitlement">ENTITLEMENTS</option>'.html_safe), :class => 'form-control' %>
-    </div>
-  </div>
-</form>
+    <h1>Account timeline</h1>
 
-<hr/>
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="bundles" class="col-sm-2 control-label">Filter by bundle</label>
 
-<table id="timeline-table" class="table table-condensed">
-<thead>
-<tr>
-  <th>Effective Date</th>
-  <th>Bundle</th>
-  <th>Event Type</th>
-  <th>Details</th>
-  <th>Reason Code / Comments</th>
-</tr>
-</thead>
-<tbody>
-<% if @account.present? %>
-    <% @invoices.each do |invoice_stub| %>
-        <% if invoice_stub.bundle_keys.present? %>
-            <% bundles = invoice_stub.bundle_keys.split(',').map { |bundle_key| @bundle_names[bundle_key] }.join(',') %>
-        <% end %>
-        <% if invoice_stub.invoice_id.present? && @invoices_by_id.has_key?(invoice_stub.invoice_id) %>
-            <% invoice = @invoices_by_id[invoice_stub.invoice_id] %>
-        <% else %>
-            <% invoice = invoice_stub %>
-        <% end %>
-        <tr title="<%= bundles %>" data-event_type="INVOICE">
-          <td>
-            <% if invoice.target_date.present? %>
-                <%= invoice.target_date %>
-            <% else %>
-                [unknown]
-            <% end %>
-          </td>
-          <td>
-            <% if invoice_stub.bundle_keys.present? %>
-                <ul>
-                  <% invoice_stub.bundle_keys.split(',').each do |bundle_key| %>
-                      <li><%= truncate_uuid(@bundle_names[bundle_key]) %></li>
+        <div class="col-sm-10">
+          <%= select_tag 'bundles', options_for_select([''] + @bundle_names.values.sort, @selected_bundle || 'all'), :class => 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="events" class="col-sm-2 control-label">Filter by event type</label>
+
+        <div class="col-sm-10  ">
+          <%= select_tag 'event_types', options_for_select('<option value="all">ALL</option><option value="invoice">INVOICE</option><option value="payment">PAYMENT</option><option value="entitlement">ENTITLEMENTS</option>'.html_safe), :class => 'form-control' %>
+        </div>
+      </div>
+    </form>
+
+    <hr/>
+
+    <table id="timeline-table" class="table table-condensed mobile-data">
+      <thead>
+      <tr>
+        <th>Effective Date</th>
+        <th>Bundle</th>
+        <th>Event Type</th>
+        <th>Details</th>
+        <th>Reason Code / Comments</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% if @account.present? %>
+          <% @invoices.each do |invoice_stub| %>
+              <% if invoice_stub.bundle_keys.present? %>
+                  <% bundles = invoice_stub.bundle_keys.split(',').map { |bundle_key| @bundle_names[bundle_key] }.join(',') %>
+              <% end %>
+              <% if invoice_stub.invoice_id.present? && @invoices_by_id.has_key?(invoice_stub.invoice_id) %>
+                  <% invoice = @invoices_by_id[invoice_stub.invoice_id] %>
+              <% else %>
+                  <% invoice = invoice_stub %>
+              <% end %>
+              <tr title="<%= bundles %>" data-event_type="INVOICE">
+                <td>
+                  <% if invoice.target_date.present? %>
+                      <%= invoice.target_date %>
+                  <% else %>
+                      [unknown]
                   <% end %>
-                </ul>
+                </td>
+                <td>
+                  <% if invoice_stub.bundle_keys.present? %>
+                      <ul>
+                        <% invoice_stub.bundle_keys.split(',').each do |bundle_key| %>
+                            <li><%= truncate_uuid(@bundle_names[bundle_key]) %></li>
+                        <% end %>
+                      </ul>
+                  <% end %>
+                </td>
+                <td>INVOICE</td>
+                <td>
+                  <ul>
+                    <li><span class="hide" title="<%= invoice.invoice_number %>"></span>
+                      <%= 'Amount:' %> <%= humanized_money_with_symbol invoice.amount_to_money %>
+                      (<%= @account.currency %>)
+                    </li>
+                    <li><%= 'Balance:' %> <%= humanized_money_with_symbol invoice.balance_to_money %>
+                      (<%= @account.currency %>)
+                    </li>
+                    </li>
+                    <% if invoice.credit_adj.present? && invoice.credit_adj > 0 %>
+                        <li><%= 'Credit adjustment:' %> <%= humanized_money_with_symbol invoice.credit_adjustment_to_money %>
+                          (<%= @account.currency %>)
+                        </li>
+                    <% end %>
+                    <% if invoice.refund_adj.present? && invoice.refund_adj < 0 %>
+                        <li><%= 'Refund adjustment:' %> <%= humanized_money_with_symbol invoice.refund_adjustment_to_money %>
+                          (<%= @account.currency %>)
+                        </li>
+                    <% end %>
+                    <li><%= 'Invoice #' %>&nbsp;<%= link_to invoice.invoice_number, account_invoice_path(invoice.account_id, invoice.invoice_id) %></li>
+                  </ul>
+                </td>
+                <td>
+                  <% if invoice_stub.audit_logs.present? %>
+                      <ul>
+                        <% invoice_stub.audit_logs.each do |entry| %>
+                            <li><%= Kaui::AuditLog.description(entry) %></li>
+                        <% end %>
+                      </ul>
+                  <% end %>
+                </td>
+              </tr>
           <% end %>
-          </td>
-          <td>INVOICE</td>
-          <td>
-            <ul>
-              <li><span class="hide" title="<%= invoice.invoice_number %>"></span>
-                <%= 'Amount:' %> <%= humanized_money_with_symbol invoice.amount_to_money %>
-                (<%= @account.currency %>)
-              </li>
-              <li><%= 'Balance:' %> <%= humanized_money_with_symbol invoice.balance_to_money %>
-                (<%= @account.currency %>)
-              </li>
-              </li>
-              <% if invoice.credit_adj.present? && invoice.credit_adj > 0 %>
-                  <li><%= 'Credit adjustment:' %> <%= humanized_money_with_symbol invoice.credit_adjustment_to_money %>
-                    (<%= @account.currency %>)
-                  </li>
+          <% @payments.each do |payment| %>
+              <% if payment.target_invoice_id.present? %>
+                  <% bundles = @bundle_names_by_invoice_id[payment.target_invoice_id].to_a.join(',') %>
+                  <% invoice = @invoices_by_id[payment.target_invoice_id] %>
+              <% else %>
+                  <% bundles = nil %>
+                  <% invoice = nil %>
               <% end %>
-              <% if invoice.refund_adj.present? && invoice.refund_adj < 0 %>
-                  <li><%= 'Refund adjustment:' %> <%= humanized_money_with_symbol invoice.refund_adjustment_to_money %>
-                    (<%= @account.currency %>)
-                  </li>
-              <% end %>
-              <li><%= 'Invoice #' %>&nbsp;<%= link_to invoice.invoice_number, account_invoice_path(invoice.account_id, invoice.invoice_id) %></li>
-            </ul>
-          </td>
-          <td>
-            <% if invoice_stub.audit_logs.present? %>
-                <ul>
-                  <% invoice_stub.audit_logs.each do |entry| %>
-                      <li><%= Kaui::AuditLog.description(entry) %></li>
-                  <% end %>
-                </ul>
-            <% end %>
-          </td>
-        </tr>
-    <% end %>
-    <% @payments.each do |payment| %>
-        <% if payment.target_invoice_id.present? %>
-            <% bundles = @bundle_names_by_invoice_id[payment.target_invoice_id].to_a.join(',') %>
-            <% invoice = @invoices_by_id[payment.target_invoice_id] %>
-        <% else %>
-            <% bundles = nil %>
-            <% invoice = nil %>
-        <% end %>
-        <% payment.transactions.each do |transaction| %>
-            <tr title="<%= bundles %>" data-event_type="PAYMENT">
-              <td>
-                <% if transaction.effective_date.present? %>
-                    <%= format_date(transaction.effective_date, @account.time_zone).html_safe %>
-                <% else %>
-                    [unknown]
-                <% end %>
-              </td>
-              <td>
-                <% if @bundle_keys_by_invoice_id[payment.target_invoice_id].present? %>
-                    <ul>
-                      <% @bundle_keys_by_invoice_id[payment.target_invoice_id].each do |bundle_key| %>
-                          <li><%= truncate_uuid(@bundle_names[bundle_key]) %></li>
+              <% payment.transactions.each do |transaction| %>
+                  <tr title="<%= bundles %>" data-event_type="PAYMENT">
+                    <td>
+                      <% if transaction.effective_date.present? %>
+                          <%= format_date(transaction.effective_date, @account.time_zone).html_safe %>
+                      <% else %>
+                          [unknown]
                       <% end %>
-                    </ul>
-                <% end %>
-              </td>
-              <td><%= transaction.transaction_type %></td>
-              <td>
-                <ul>
-                  <li><%= 'Amount:' %>&nbsp;<%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
-                    (<%= transaction.currency %>)
-                  </li>
-                  <li>
+                    </td>
+                    <td>
+                      <% if @bundle_keys_by_invoice_id[payment.target_invoice_id].present? %>
+                          <ul>
+                            <% @bundle_keys_by_invoice_id[payment.target_invoice_id].each do |bundle_key| %>
+                                <li><%= truncate_uuid(@bundle_names[bundle_key]) %></li>
+                            <% end %>
+                          </ul>
+                      <% end %>
+                    </td>
+                    <td><%= transaction.transaction_type %></td>
+                    <td>
+                      <ul>
+                        <li><%= 'Amount:' %>&nbsp;<%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
+                          (<%= transaction.currency %>)
+                        </li>
+                        <li>
                     <span
                     <% if transaction.status != 'SUCCESS' %>class="alert-danger"
                     <% else %>class="alert-success" <% end %>>
                       <%= transaction.status %>
                     </span>
-                  </li>
-                  <li><%= 'Payment #' %>&nbsp;<%= link_to payment.payment_number, account_payment_path(payment.account_id, payment.payment_id) %></li>
-                  <% unless invoice.nil? %>
-                      <li><%= 'Invoice #' %>&nbsp;<%= link_to invoice.invoice_number, account_invoice_path(invoice.account_id, invoice.invoice_id) %></li>
-                  <% end %>
-                </ul>
-              </td>
-              <td>
-                <% if transaction.audit_logs.present? %>
-                    <ul>
-                      <% transaction.audit_logs.each do |entry| %>
-                          <li><%= Kaui::AuditLog.description(entry) %></li>
+                        </li>
+                        <li><%= 'Payment #' %>&nbsp;<%= link_to payment.payment_number, account_payment_path(payment.account_id, payment.payment_id) %></li>
+                        <% unless invoice.nil? %>
+                            <li><%= 'Invoice #' %>&nbsp;<%= link_to invoice.invoice_number, account_invoice_path(invoice.account_id, invoice.invoice_id) %></li>
+                        <% end %>
+                      </ul>
+                    </td>
+                    <td>
+                      <% if transaction.audit_logs.present? %>
+                          <ul>
+                            <% transaction.audit_logs.each do |entry| %>
+                                <li><%= Kaui::AuditLog.description(entry) %></li>
+                            <% end %>
+                          </ul>
                       <% end %>
-                    </ul>
-                <% end %>
-              </td>
-            </tr>
-        <% end %>
-    <% end %>
-    <% @bundles.each do |bundle| %>
-        <% bundle.subscriptions.each do |sub| %>
-            <% sub.events.each do |event| %>
-                <!-- SKIP SERVICE_STATE_CHANGE  -->
-                <% next if event.event_type == 'SERVICE_STATE_CHANGE' %>
-                <tr title="<%= @bundle_names[bundle.external_key] %>" data-event_type="<%= event.event_type %>">
-                  <td>
-                    <% if event.effective_date.present? %>
-                        <%= format_date(event.effective_date, @account.time_zone).html_safe %>
-                    <% else %>
-                        [unknown]
-                    <% end %>
-                  </td>
-                  <td>
-                    <ul>
-                      <li><%= truncate_uuid(@bundle_names[bundle.external_key]) %></li>
-                    </ul>
-                  </td>
-                  <td><%= event.event_type %></td>
-                  <td>
-                    <ul>
-                      <li><span class="hide" title="<%= sub.product_category %>"></span><%= event.phase %></li>
-                    </ul>
-                  </td>
-                  <td>
-                    <% if event.audit_logs.present? %>
-                        <ul>
-                          <% event.audit_logs.each do |entry| %>
-                              <li><%= Kaui::AuditLog.description(entry) %></li>
+                    </td>
+                  </tr>
+              <% end %>
+          <% end %>
+          <% @bundles.each do |bundle| %>
+              <% bundle.subscriptions.each do |sub| %>
+                  <% sub.events.each do |event| %>
+                      <!-- SKIP SERVICE_STATE_CHANGE  -->
+                      <% next if event.event_type == 'SERVICE_STATE_CHANGE' %>
+                      <tr title="<%= @bundle_names[bundle.external_key] %>" data-event_type="<%= event.event_type %>">
+                        <td>
+                          <% if event.effective_date.present? %>
+                              <%= format_date(event.effective_date, @account.time_zone).html_safe %>
+                          <% else %>
+                              [unknown]
                           <% end %>
-                        </ul>
-                    <% end %>
-                  </td>
-                </tr>
-            <% end %>
-        <% end %>
-    <% end %>
-<% end %>
-</tbody>
-</table>
-<div class="form-actions">
-  <%= link_to 'Back', :back, :class => 'btn' %>
+                        </td>
+                        <td>
+                          <ul>
+                            <li><%= truncate_uuid(@bundle_names[bundle.external_key]) %></li>
+                          </ul>
+                        </td>
+                        <td><%= event.event_type %></td>
+                        <td>
+                          <ul>
+                            <li><span class="hide" title="<%= sub.product_category %>"></span><%= event.phase %></li>
+                          </ul>
+                        </td>
+                        <td>
+                          <% if event.audit_logs.present? %>
+                              <ul>
+                                <% event.audit_logs.each do |entry| %>
+                                    <li><%= Kaui::AuditLog.description(entry) %></li>
+                                <% end %>
+                              </ul>
+                          <% end %>
+                        </td>
+                      </tr>
+                  <% end %>
+              <% end %>
+          <% end %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
+
 <%= javascript_tag do %>
     function disableLinks() {
         $('a.btn.disabled').click(function (e) {
@@ -235,8 +241,8 @@
 
     function initTable() {
       return $("#timeline-table").dataTable({
-        "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-        "pagingType": "full_numbers",
+        "dom": "t",
+        "paging": "false",
         "iDisplayLength": 100,
         "retrieve": true,
         // Force a predictive order for event types, invoices and payments
