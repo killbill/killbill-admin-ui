@@ -1,6 +1,3 @@
-[![Build Status](https://travis-ci.org/killbill/killbill-admin-ui.png)](https://travis-ci.org/killbill/killbill-admin-ui)
-[![Code Climate](https://codeclimate.com/github/killbill/killbill-admin-ui.png)](https://codeclimate.com/github/killbill/killbill-admin-ui)
-
 Getting started
 ===============
 
@@ -9,13 +6,13 @@ Running Kaui locally
 
 You can run Kaui locally by using the test/dummy app provided:
 ```
-> bundle install
-> cd test/dummy
-> export RAILS_ENV=development
-> bundle install
-> rake kaui:install:migrations
-> rake db:migrate
-> rails server
+bundle install
+cd test/dummy
+export RAILS_ENV=development
+bundle install
+rake kaui:install:migrations
+rake db:migrate
+rails server
 ```
 
 
@@ -40,8 +37,6 @@ Specify your Kill Bill server url, api key and secret in ```config/initializers/
 
 ```
 KillBillClient.url = 'http://127.0.0.1:8080/'
-KillBillClient.api_key = 'bob'
-KillBillClient.api_secret = 'lazar'
 ```
 
 Sharing a Kaui instance across multiple tenants is not supported yet (you need to spawn one instance per tenant).
@@ -90,12 +85,12 @@ Alternatively, you can run the `kaui` script under `bin` by setting your loadpat
     
 
 Multi-Tenancy
-===========
+=============
 
 KAUI has been enhanced to support multi-tenancy. In order to benefit from that mode, remove the properties `KillBillClient.api_key` and `KillBillClient.api_secret` from the config/initializers directory.
 
 Admin User Roles
--------------------------
+----------------
 
 In multi-tenancy mode, there are two kinds of users:
 
@@ -112,7 +107,7 @@ Those roles and permissions are defined the same way other permissions are defin
 The [enforcement in KAUI](https://github.com/killbill/killbill-admin-ui/blob/master/app/models/kaui/ability.rb) is based on the CanCan gem.
 
 Multi-tenancy screens
-------------------------------
+---------------------
 
 KAUI has been enriched with new models and new screens to manage the multi-tenancy, and those are available for the multi-tenant admin user:
 
