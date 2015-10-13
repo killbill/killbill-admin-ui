@@ -57,6 +57,6 @@ Gem::Specification.new do |s|
   else
     s.add_dependency 'therubyracer', '~> 0.12.2'
 
-    s.add_development_dependency 'mysql2'
+    s.add_development_dependency 'mysql2', '~> 0.3.20'
   end
 end
