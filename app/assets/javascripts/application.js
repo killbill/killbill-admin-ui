@@ -10,6 +10,7 @@
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require d3
 //= require twitter/bootstrap
+//= require bootstrap-datepicker
 //= require kaui/bootstrap-tweaks
 //= require kaui/validation
 //= require kaui/kaui

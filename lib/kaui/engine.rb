@@ -6,6 +6,7 @@
 # See also https://github.com/carlhuda/bundler/issues/49
 require 'jquery-rails'
 require 'jquery-datatables-rails'
+require 'bootstrap-datepicker-rails'
 require 'd3_rails'
 require 'less-rails'
 require 'json'
