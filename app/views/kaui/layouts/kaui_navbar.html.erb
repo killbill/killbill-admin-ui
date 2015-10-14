@@ -6,7 +6,7 @@
         <%= link_to image_tag('kaui/logo.png', :alt => 'Kill Bill Logo'), kaui_engine.home_path %>
 
         <% if user_signed_in? -%>
-            <%= form_tag search_path, :role => 'search', :id => 'searchform', :method => 'get' do %>
+            <%= form_tag kaui_engine.search_path, :role => 'search', :id => 'searchform', :method => 'get' do %>
                 <%= text_field_tag :q, '', :placeholder => 'Search' %>
                 <%= submit_tag 'Search' %>
             <% end %>
@@ -54,7 +54,7 @@
               <ul>
                 <% if user_signed_in? -%>
                     <li><%= session[:kb_tenant_name].present? ? "#{current_user.kb_username} / #{session[:kb_tenant_name]}" : current_user.kb_username %></li>
-                    <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+                    <li><%= link_to 'Sign Out', kaui_engine.destroy_user_session_path, :method => :delete %></li>
                 <% end %>
               </ul>
             </nav>
