@@ -93,5 +93,9 @@ jQuery(document).ready(function ($) {
         e.preventDefault();
         $(this).parent('.toggler').toggleClass('toggled');
     });
+    $('.toggler .first-line').on('click', 'a', function (e) {
+        e.stopPropagation();
+        return true;
+    });
 
 })
