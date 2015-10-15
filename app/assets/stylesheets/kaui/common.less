@@ -141,7 +141,8 @@ button, input[type="submit"] {
     transition: all 0.5s;
 
     &:hover {
-        background: darken(#00919d, 20%);
+        background: darken(#00919d, 10%);
+        color: #fff;
     }
 }
 
@@ -206,6 +207,7 @@ table {
             display: block;
             line-height: 0;
             position: relative;
+            font-size: 0;
             margin-bottom: 20px;
 
             > span {
@@ -233,18 +235,29 @@ table {
             }
 
             tbody {
-                display: block;
+                display: inline-block;
                 font-size: 0;
+                width: 50%;
+            }
+
+            thead {
+                display: inline-block;
+                width: 50%;
             }
 
             tr {
                 display: none;
                 line-height: initial;
-                width: 50%;
+                width: 100%;
             }
 
-            tr:first-of-type, tr:nth-of-type(2) {
+            tr:first-of-type {
                 display: inline-block;
+
+                th, td {
+                    width: 100% !important;
+                    box-sizing: border-box;
+                }
             }
 
             td, th {

@@ -17,8 +17,8 @@ jQuery(document).ready(function ($) {
 
         running = true;
 
-        var table = $(this).parent('table'),
-            current = table.find('tr:nth-of-type(2)'),
+        var table = $(this).parent('table').children('tbody'),
+            current = table.find('tr:first-of-type'),
             next = table.find('tr:last-of-type'),
             page = table.children('span.center').children('span.current'),
             number = parseInt(page.html()),
@@ -43,8 +43,8 @@ jQuery(document).ready(function ($) {
 
         running = true;
 
-        var table = $(this).parent('table'),
-            current = table.find('tr:nth-of-type(2)'),
+        var table = $(this).parent('table').children('tbody'),
+            current = table.find('tr:first-of-type'),
             last = table.find('tr:last-of-type'),
             page = table.children('span.center').children('span.current'),
             number = parseInt(page.html()),
