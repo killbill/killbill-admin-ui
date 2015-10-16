@@ -11,7 +11,7 @@
 
       <div class="tag-bar tag-bar-breathe">
 
-        <div class="tag-select">
+        <div class="tag-select" onclick="void(0)">
           <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
 
           <div class="tag-select-box">
@@ -53,46 +53,48 @@
           </div>
         </div>
         <div class="col-md-5 col-md-offset-1">
-          <table class="transparent">
-            <tr>
-              <th>Email:</th>
-              <td><%= @account.email %></td>
-            </tr>
-            <tr>
-              <th>Address1:</th>
-              <td><%= @account.address1 %></td>
-            </tr>
-            <tr>
-              <th>Address1:</th>
-              <td><%= @account.address2 %></td>
-            </tr>
-            <tr>
-              <th>City:</th>
-              <td><%= @account.city %></td>
-            </tr>
-            <tr>
-              <th>State:</th>
-              <td><%= @account.state %></td>
-            </tr>
-            <tr>
-              <th>Country:</th>
-              <td><%= @account.country %></td>
-            </tr>
-            <tr>
-              <th>Postal Code:</th>
-              <td><%= @account.postal_code %></td>
-            </tr>
-            <tr>
-              <th>Phone:</th>
-              <td><%= @account.phone %></td>
-            </tr>
-            <tr>
-              <th>Company:</th>
-              <td><%= @account.company %></td>
-            </tr>
-            <%= render :partial => 'kaui/account_emails/account_emails_table',
-                       :locals => {:account_emails => @account_emails} %>
-          </table>
+          <div class="fix-position">
+            <table class="transparent">
+              <tr>
+                <th>Email:</th>
+                <td><%= @account.email %></td>
+              </tr>
+              <tr>
+                <th>Address1:</th>
+                <td><%= @account.address1 %></td>
+              </tr>
+              <tr>
+                <th>Address1:</th>
+                <td><%= @account.address2 %></td>
+              </tr>
+              <tr>
+                <th>City:</th>
+                <td><%= @account.city %></td>
+              </tr>
+              <tr>
+                <th>State:</th>
+                <td><%= @account.state %></td>
+              </tr>
+              <tr>
+                <th>Country:</th>
+                <td><%= @account.country %></td>
+              </tr>
+              <tr>
+                <th>Postal Code:</th>
+                <td><%= @account.postal_code %></td>
+              </tr>
+              <tr>
+                <th>Phone:</th>
+                <td><%= @account.phone %></td>
+              </tr>
+              <tr>
+                <th>Company:</th>
+                <td><%= @account.company %></td>
+              </tr>
+              <%= render :partial => 'kaui/account_emails/account_emails_table',
+                         :locals => {:account_emails => @account_emails} %>
+            </table>
+          </div>
         </div>
       </div>
 
