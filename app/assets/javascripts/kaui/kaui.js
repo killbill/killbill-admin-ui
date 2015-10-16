@@ -89,13 +89,11 @@ jQuery(document).ready(function ($) {
     /*
      * Toggler activation
      */
-    $('.toggler .first-line').click(function (e) {
-        e.preventDefault();
-        $(this).parent('.toggler').toggleClass('toggled');
-    });
-    $('.toggler .first-line').on('click', 'a', function (e) {
-        e.stopPropagation();
-        return true;
+    $('.toggler .first-line').click( function(e){
+        if (! ($(e.target).is('a') || $(e.target).parent().is('a'))) {
+            e.preventDefault();
+            $(this).parent('.toggler').toggleClass('toggled');
+        }
     });
 
 })
