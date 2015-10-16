@@ -36,6 +36,10 @@ table.dataTable thead th.sorting_desc:after {
 table.dataTable {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
+
+    @media (@phone) {
+        margin-bottom: 30px !important;
+    }
 }
 
 table.dataTable thead th,
@@ -53,4 +57,10 @@ table.dataTable.no-footer {
 
 #invoice-table tbody tr {
     border-bottom: 1px solid #dddddd;
+}
+
+#accounts-table {
+    @media (@phone) {
+        width: 100% !important;
+    }
 }
