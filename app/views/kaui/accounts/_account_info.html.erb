@@ -26,29 +26,31 @@
       </div>
 
       <div class="row">
-        <div class="col-md-5 fix-position">
-          <table class="transparent">
-            <tr>
-              <th>Name:</th>
-              <td><%= @account.name %></td>
-            </tr>
-            <tr>
-              <th>ID:</th>
-              <td><%= @account.account_id %></td>
-            </tr>
-            <tr>
-              <th>External Key:</th>
-              <td><%= @account.external_key %></td>
-            </tr>
-            <tr>
-              <th>Currency:</th>
-              <td><%= @account.currency %></td>
-            </tr>
-            <tr>
-              <th>Timezone:</th>
-              <td><%= @account.time_zone %></td>
-            </tr>
-          </table>
+        <div class="col-md-5">
+          <div class="fix-position">
+            <table class="transparent">
+              <tr>
+                <th>Name:</th>
+                <td><%= @account.name %></td>
+              </tr>
+              <tr>
+                <th>ID:</th>
+                <td><%= @account.account_id %></td>
+              </tr>
+              <tr>
+                <th>External Key:</th>
+                <td><%= @account.external_key %></td>
+              </tr>
+              <tr>
+                <th>Currency:</th>
+                <td><%= @account.currency %></td>
+              </tr>
+              <tr>
+                <th>Timezone:</th>
+                <td><%= @account.time_zone %></td>
+              </tr>
+            </table>
+          </div>
         </div>
         <div class="col-md-5 col-md-offset-1">
           <table class="transparent">

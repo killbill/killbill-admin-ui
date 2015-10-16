@@ -34,7 +34,7 @@
         <br/>
         Account balance:
         <% if @account.account_balance.nil? %>
-            N/A
+            <span class='label'>N/A</span>
         <% elsif @account.account_balance <= 0 %>
             <span class="label label-success"><%= humanized_money_with_symbol @account.balance_to_money %>
               <%= "(#{@account.currency})" if @account.currency.present? %></span>
@@ -45,7 +45,7 @@
         <br/>
         Account credit:
         <% if @account.account_cba.nil? %>
-            N/A
+            <span class='label'>N/A</span>
         <% elsif @account.account_cba >= 0 %>
             <span class="label label-success"><%= humanized_money_with_symbol @account.cba_to_money %>
               <%= "(#{@account.currency})" if @account.currency.present? %></span>
@@ -56,7 +56,7 @@
         <br/>
         Overdue status:
         <% if @overdue_state.nil? %>
-            N/A
+            <span class='label'>N/A</span>
         <% elsif @overdue_state.clear_state %>
             <span class='label label-success'>Good</span>
         <% else %>
@@ -65,15 +65,15 @@
         <br/>
         Bill cycle day:
         <% if @account.bill_cycle_day_local %>
-            <%= @account.bill_cycle_day_local %> (user timezone)
+            <span class='label'><%= @account.bill_cycle_day_local %> (user timezone)</span>
         <% else %>
-            N/A
+            <span class='label'>N/A</span>
         <% end %>
         <br/>
-        Next Invoice Date: <span><%= @next_invoice_date %> (user timezone)</span>
+        Next Invoice Date: <span class='label'><%= @next_invoice_date %> (user timezone)</span>
         <br/>
         Notified For Invoice:
-        <span class="text-capitalize"><%= @account.is_notified_for_invoices %></span>&nbsp;<%= link_to '<i class="fa fa-toggle-on"></i>'.html_safe, kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post, :class => 'btn btn-xs' %>
+        <span class="label text-capitalize"><%= @account.is_notified_for_invoices %></span>&nbsp;<%= link_to '<i class="fa fa-toggle-on"></i>'.html_safe, kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post, :class => 'btn btn-xs' %>
 
       </p>
 

@@ -3,7 +3,7 @@
 
       <div class="first-line">
         <% if payment_method.is_default %>
-            <i class="fa fa-star"></i>
+            <a href="#"><i class="fa fa-star"></i></a>
         <% else %>
             <%= link_to '<i class="fa fa-star-o"></i>'.html_safe, kaui_engine.set_default_payment_method_account_path(payment_method.account_id, :params => {:payment_method_id => payment_method.payment_method_id}), :method => :put, :confirm => 'Are you sure you want to make this payment method default?' %>
         <% end %>

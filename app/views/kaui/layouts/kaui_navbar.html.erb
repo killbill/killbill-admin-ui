@@ -51,7 +51,7 @@
 
           <div class="col-xs-4 text-right">
             <nav>
-              <ul>
+              <ul class="account-menu">
                 <% if user_signed_in? -%>
                     <li><%= session[:kb_tenant_name].present? ? "#{current_user.kb_username} / #{session[:kb_tenant_name]}" : current_user.kb_username %></li>
                     <li><%= link_to 'Sign Out', kaui_engine.destroy_user_session_path, :method => :delete %></li>
