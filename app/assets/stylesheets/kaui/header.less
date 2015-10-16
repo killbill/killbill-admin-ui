@@ -94,7 +94,7 @@ header {
                     padding: 0 10px;
                     border-right: 1px solid #ccc;
 
-                    &:hover {
+                    &:hover, &:focus {
                         color: #000;
                     }
                 }
@@ -118,8 +118,8 @@ header {
     .container {
         @media (@phone) {
             text-align: center;
-            width: 290px;
-            padding: 0;
+            width: 100%;
+            padding: 0 15px;
         }
     }
 
@@ -136,23 +136,42 @@ header {
         vertical-align: top;
 
         @media (@phone) {
-            width: 140px;
+            width: 30%;
             padding: 12px 0;
             text-align: center;
-            box-sizing: content-box;
             border-bottom: 1px solid #fff;
 
-            &:last-of-type {
-                width: 281px;
+            &:nth-of-type(4), &:nth-of-type(5) {
+                width: 45%;
             }
 
-            &:nth-of-type(2n+2) {
-                width: 140px;
+            &:nth-of-type(3), &:nth-of-type(5) {
                 border-right: 1px solid #fff;
             }
         }
 
-        &:hover, &.current {
+        @media (@smphone) {
+            width: 50%;
+            border: 0;
+
+            &:nth-of-type(2), &:nth-of-type(4), &:nth-of-type(5) {
+                border-right: 1px solid #fff;
+            }
+
+            &:nth-of-type(3) {
+                border-right: 0;
+            }
+
+            &:nth-of-type(4) {
+                width: 50%;
+            }
+
+            &:nth-of-type(5) {
+                width: 100%;
+            }
+        }
+
+        &:hover, &:focus, &.current {
             color: #fff;
             background: #00919d;
         }
