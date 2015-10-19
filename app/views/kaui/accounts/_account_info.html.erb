@@ -3,9 +3,12 @@
   <div class="column-block">
 
     <h1>Account Information
-      <%= link_to 'Edit',
-                  kaui_engine.edit_account_path(@account.account_id),
-                  :class => 'btn btn-xs' %></h1>
+      <% if can? :update, Kaui::Account %>
+          <%= link_to 'Edit',
+                      kaui_engine.edit_account_path(@account.account_id),
+                      :class => 'btn btn-xs' %>
+      <% end %>
+    </h1>
 
     <div class="info-wrapper">
 

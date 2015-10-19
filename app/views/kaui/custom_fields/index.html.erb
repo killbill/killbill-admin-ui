@@ -3,7 +3,9 @@
   <div class="column-block">
 
     <h1>Custom Fields
-      <%= link_to '&nbsp;<i class="fa fa-plus-square"></i>'.html_safe, new_custom_field_path %>
+      <% if can? :add, Kaui::CustomField %>
+          <%= link_to '&nbsp;<i class="fa fa-plus-square"></i>'.html_safe, new_custom_field_path %>
+      <% end %>
     </h1>
 
     <table id="custom_fields-table" class="table table-condensed mobile-data">

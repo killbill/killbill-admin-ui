@@ -21,19 +21,23 @@
           <% if is_future_cancelled?(sub) %>
               <%= link_to 'Reinstate', kaui_engine.reinstate_subscription_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-xs' %>
           <% elsif !is_cancelled?(sub) %>
-              <%= link_to 'Change', kaui_engine.edit_subscription_path(sub.subscription_id), :class => 'btn btn-xs' %>
-              <div class="btn-group">
-                <a class="btn btn-xs dropdown-toggle" data-toggle="dropdown" href="#">
-                  Cancel
-                  <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><%= link_to 'Cancel (default policy)', kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete %></li>
-                  <li><%= link_to 'Cancel at previous CTD (no proration)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'IMMEDIATE', :ctd => sub.charged_through_date, :billing_period => sub.billing_period), :method => :delete %></li>
-                  <li><%= link_to 'Cancel immediately (generate proration)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'IMMEDIATE'), :method => :delete %></li>
-                  <li><%= link_to 'Cancel end of term', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'END_OF_TERM'), :method => :delete %></li>
-                </ul>
-              </div>
+              <% if can? :change_plan, Kaui::Subscription %>
+                  <%= link_to 'Change', kaui_engine.edit_subscription_path(sub.subscription_id), :class => 'btn btn-xs' %>
+              <% end %>
+              <% if can? :cancel, Kaui::Subscription %>
+                  <div class="btn-group">
+                    <a class="btn btn-xs dropdown-toggle" data-toggle="dropdown" href="#">
+                      Cancel
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to 'Cancel (default policy)', kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete %></li>
+                      <li><%= link_to 'Cancel at previous CTD (no proration)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'IMMEDIATE', :ctd => sub.charged_through_date, :billing_period => sub.billing_period), :method => :delete %></li>
+                      <li><%= link_to 'Cancel immediately (generate proration)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'IMMEDIATE'), :method => :delete %></li>
+                      <li><%= link_to 'Cancel end of term', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'END_OF_TERM'), :method => :delete %></li>
+                    </ul>
+                  </div>
+              <% end %>
           <% end %>
         </td>
       </tr>

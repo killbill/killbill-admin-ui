@@ -6,16 +6,18 @@
 
     <div class="info-wrapper">
 
-      <div class="tag-bar">
+      <% if can? :create, Kaui::PaymentMethod %>
+          <div class="tag-bar">
 
-        <div class="tag-select" onclick="void(0)">
-          <span><i class="fa fa-credit-card"></i><i class="fa fa-caret-down"></i></span>
+            <div class="tag-select" onclick="void(0)">
+              <span><i class="fa fa-credit-card"></i><i class="fa fa-caret-down"></i></span>
 
-          <div class="tag-select-box">
-            <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Add payment method'.html_safe, kaui_engine.new_payment_method_path(:account_id => @account.account_id) %>
+              <div class="tag-select-box">
+                <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Add payment method'.html_safe, kaui_engine.new_payment_method_path(:account_id => @account.account_id) %>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+      <% end %>
 
       <%= render :partial => 'kaui/payment_methods/payment_methods_table', :locals => {:account => @account, :payment_methods => @payment_methods} %>
 
