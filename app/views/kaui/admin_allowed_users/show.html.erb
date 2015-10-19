@@ -1,31 +1,43 @@
-<dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @allowed_user.kb_username %></dd>
-  <dt>Description:</dt>
-  <dd><%= @allowed_user.description %></dd>
-</dl>
+<div class="column-block">
+
+  <h1>User details</h1>
+
+  <b>Name:</b> <%= @allowed_user.kb_username %>
+  <br/>
+  <b>Description:</b> <%= @allowed_user.description %>
+
+</div>
 
 <% if can? :create, Kaui::AdminTenant %>
-    <h3>Configured tenants</h3>
-    <%= form_for @allowed_user, :url => {:action => :add_tenant}, :html => {:method => :post, :class => 'form-horizontal'} do |f| %>
-        <%= f.hidden_field(:id) %>
+    <div class="register">
+      <div class="col-md-8 col-md-offset-2">
 
-        <div class='form-group'>
-          <div class="col-sm-offset-2 col-sm-10">
-            <% @tenants.each do |tenant| %>
-                <div class="checkbox">
-                  <label>
-                    <%= check_box_tag "tenant_#{tenant.id}", tenant.id, @allowed_user.kaui_tenants.map(&:id).include?(tenant.id) %>
-                    <span><%= tenant.name || tenant.api_key %></span>
-                  </label>
+        <div class="column-block">
+          <h1>Configured tenants</h1>
+          <%= form_for @allowed_user, :url => {:action => :add_tenant}, :html => {:method => :post, :class => 'form-horizontal'} do |f| %>
+              <%= f.hidden_field(:id) %>
+
+              <div class='form-group'>
+                <div class="col-sm-offset-2 col-sm-10">
+                  <% @tenants.each do |tenant| %>
+                      <div class="checkbox">
+                        <label>
+                          <%= check_box_tag "tenant_#{tenant.id}", tenant.id, @allowed_user.kaui_tenants.map(&:id).include?(tenant.id) %>
+                          <span><%= tenant.name || tenant.api_key %></span>
+                        </label>
+                      </div>
+                  <% end %>
                 </div>
-            <% end %>
-          </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <%= f.submit 'Save', :class => 'btn btn-default' %>
+                </div>
+              </div>
+          <% end %>
+
         </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <%= f.submit 'Configure tenants for user', :class => 'btn btn-default' %>
-          </div>
-        </div>
-    <% end %>
+
+      </div>
+    </div>
 <% end %>
