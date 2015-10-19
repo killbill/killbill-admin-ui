@@ -2,7 +2,7 @@ class Kaui::AuditLog
 
   def self.description(log)
     if log.changed_by.present?
-      changed_str = "Done by #{log.changed_by.strip} on #{ActionController::Base.helpers.format_date(log.change_date)}"
+      changed_str = "Done by #{log.changed_by.strip}"
       if log.reason_code.blank? && log.comments.blank?
         changed_str
       elsif log.reason_code.blank?

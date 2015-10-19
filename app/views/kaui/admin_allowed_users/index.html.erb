@@ -1,13 +1,13 @@
-<% unless @allowed_users.empty? %>
-    <div class="search">
+<div class="search">
 
-      <div class="column-block">
+  <div class="column-block">
 
-        <h1>Kaui users
-          <% if can? :create, Kaui::AdminTenant %>
-              <%= link_to '&nbsp;<i class="fa fa-plus-square"></i>'.html_safe, new_admin_allowed_user_path %>
-          <% end %></h1>
+    <h1>Kaui users
+      <% if can? :create, Kaui::AdminTenant %>
+          <%= link_to '&nbsp;<i class="fa fa-plus-square"></i>'.html_safe, new_admin_allowed_user_path %>
+      <% end %></h1>
 
+    <% unless @allowed_users.empty? %>
         <table id="allowed-users-table" class="table table-condensed table-striped mobile-data">
           <thead>
           <tr>
@@ -24,11 +24,11 @@
           <% end %>
           </tbody>
         </table>
+    <% end %>
 
-      </div>
+  </div>
 
-    </div>
-<% end %>
+</div>
 
 <%= javascript_tag do %>
   $(document).ready(function() {
