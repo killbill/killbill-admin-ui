@@ -26,6 +26,8 @@ Kaui::Engine.routes.draw do
     match '/pagination' => 'accounts#pagination', :via => :get, :as => 'accounts_pagination'
 
     scope '/:account_id' do
+      match '/next_invoice_date' => 'accounts#next_invoice_date', :via => :get, :as => 'next_invoice_date'
+
       scope '/account_tags' do
         match '/edit' => 'account_tags#edit', :via => :get, :as => 'edit_account_tags'
         match '/edit' => 'account_tags#update', :via => :post, :as => 'update_account_tags'

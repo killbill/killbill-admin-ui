@@ -9,6 +9,8 @@ require "jquery-rails"
 require "twitter-bootstrap-rails"
 require "d3_rails"
 
+require "js-routes"
+
 module Dummy
   class Application < Rails::Application
     # See https://github.com/svenfuchs/i18n/commit/3b6e56e06fd70f6e4507996b017238505e66608c

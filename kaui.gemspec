@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
   # Transitional gems (for rails upgrade)
   s.add_dependency 'protected_attributes', '~> 1.0.6'
 
+  s.add_dependency 'js-routes', '~> 1.0.0'
   s.add_dependency 'jquery-rails', '~> 3.0.4'
   s.add_dependency 'jquery-datatables-rails', '~> 3.3.0'
   s.add_dependency 'money-rails', '~> 1.3.0'

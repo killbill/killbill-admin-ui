@@ -70,8 +70,10 @@
             <span class='label'>N/A</span>
         <% end %>
         <br/>
-        Next Invoice Date: <span class='label'><%= @next_invoice_date %> (user timezone)</span>
-        <br/>
+        <% if can? :trigger, Kaui::Invoice %>
+            Next Invoice Date: <span class='label' id='next-invoice-date'>N/A</span>
+            <br/>
+        <% end %>
         Notified For Invoice:
         <span class="label text-capitalize"><%= @account.is_notified_for_invoices %></span>&nbsp;<%= link_to '<i class="fa fa-toggle-on"></i>'.html_safe, kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post, :class => 'btn btn-xs' %>
 
@@ -82,3 +84,25 @@
   </div>
 
 </div>
+
+<%= javascript_tag do %>
+    $(document).ready(function() {
+      if ($("#next-invoice-date").length) {
+        var next_invoice_date_path = Routes.kaui_engine_next_invoice_date_path('<%= @account.account_id %>', {format: "json"});
+        var populateNextInvoiceDate = function (next_invoice_date) {
+          if (next_invoice_date === null) {
+            return;
+          }
+
+          $("#next-invoice-date").text(next_invoice_date);
+        };
+
+        $.ajax({
+          type: 'GET',
+          contentType: 'application/json',
+          dataType: 'json',
+          url: next_invoice_date_path
+        }).done(populateNextInvoiceDate);
+      }
+    });
+<% end %>
