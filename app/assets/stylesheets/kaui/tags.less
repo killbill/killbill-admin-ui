@@ -1,10 +1,10 @@
 .tag-bar {
     border-bottom: 1px solid #ddd;
     margin-bottom: 0;
+    position: relative;
 
     .tag-select {
         display: inline-block;
-        position: relative;
         vertical-align: middle;
 
         @media (@smphone) {
@@ -44,7 +44,7 @@
         &:hover {
             .tag-select-box {
                 max-height: 500px;
-                padding: 20px 15px;
+                padding: 20px 25px;
                 border: 1px solid #ddd;
                 box-shadow: 1px 3px 2px rgba(0, 0, 0, 0.11);
             }
@@ -61,8 +61,9 @@
             font-size: 12px;
             color: #999999;
             overflow: hidden;
-            width: 240px;
+            width: auto;
             border-bottom: 0;
+            display: inline-block;
 
             @media (@phone) {
                 border: 0;
@@ -72,6 +73,11 @@
                 display: block;
                 font-weight: 400;
                 margin: 0 0 10px;
+            }
+
+            form {
+                display: inline-block;
+                width: 210px;
             }
 
             input[type=checkbox] {
@@ -153,6 +159,17 @@
     .tag-select {
         span {
             border-right: 0;
+        }
+    }
+}
+
+#main-menu {
+    .tag-bar {
+        .tag-select {
+            position: relative;
+        }
+        .tag-select-box {
+            width: 170px;
         }
     }
 }
