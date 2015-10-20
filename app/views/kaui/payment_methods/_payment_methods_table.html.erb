@@ -3,12 +3,12 @@
 
       <div class="first-line">
         <% if payment_method.is_default %>
-            <a href="#"><i class="fa fa-star"></i></a>
+            <a href="#"><i class="fa fa-star default-payment-method"></i></a>
         <% else %>
             <% if can? :create, Kaui::PaymentMethod %>
-                <%= link_to '<i class="fa fa-star-o"></i>'.html_safe, kaui_engine.set_default_payment_method_account_path(payment_method.account_id, :params => {:payment_method_id => payment_method.payment_method_id}), :method => :put, :confirm => 'Are you sure you want to make this payment method default?' %>
+                <%= link_to '<i class="fa fa-star-o non-default-payment-method"></i>'.html_safe, kaui_engine.set_default_payment_method_account_path(payment_method.account_id, :params => {:payment_method_id => payment_method.payment_method_id}), :method => :put, :confirm => 'Are you sure you want to make this payment method default?' %>
             <% else %>
-                <a href="#"><i class="fa fa-star-o"></i></a>
+                <a href="#"><i class="fa fa-star-o non-default-payment-method"></i></a>
             <% end %>
         <% end %>
 
