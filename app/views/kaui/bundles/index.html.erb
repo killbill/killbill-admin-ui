@@ -1,8 +1,11 @@
 <div class="column-block">
   <h1>Subscription Bundles
-    <%= link_to '<i class="fa fa-plus-square"></i> &nbsp;Create New Subscription Bundle'.html_safe,
-                kaui_engine.new_subscription_path(:params => {:account_id => @account.account_id, :product_category => 'BASE'}),
-                :class => 'btn btn-xs' %></h1>
+    <% if can? :create, Kaui::Subscription %>
+        <%= link_to '<i class="fa fa-plus-square"></i> &nbsp;Create New Subscription Bundle'.html_safe,
+                    kaui_engine.new_subscription_path(:params => {:account_id => @account.account_id, :product_category => 'BASE'}),
+                    :class => 'btn btn-xs' %>
+    <% end %>
+  </h1>
 </div>
 
 
@@ -37,13 +40,17 @@
             </div>
           </div>
 
-          <% unless is_cancelled?(@base_subscription[bundle.bundle_id]) %>
+          <% if !is_cancelled?(@base_subscription[bundle.bundle_id]) && (can?(:create, Kaui::Subscription) || can?(:transfer, Kaui::Subscription)) %>
               <div class="tag-select" onclick="void(0)">
                 <span><i class="fa fa-gift"></i><i class="fa fa-caret-down"></i></span>
 
                 <div class="tag-select-box">
-                  <%= link_to '<i class="fa fa-plus"></i>&nbsp;Add add-on'.html_safe, kaui_engine.new_subscription_path(:params => {:account_id => bundle.account_id, :bundle_id => bundle.bundle_id, :base_product_name => @base_subscription[bundle.bundle_id].product_name, :product_category => 'ADD_ON'}) %>
-                  <%= link_to '<i class="fa fa-random"></i>&nbsp;Transfer Ownership'.html_safe, kaui_engine.transfer_bundle_path(bundle.bundle_id) %>
+                  <% if can? :create, Kaui::Subscription %>
+                      <%= link_to '<i class="fa fa-plus"></i>&nbsp;Add add-on'.html_safe, kaui_engine.new_subscription_path(:params => {:account_id => bundle.account_id, :bundle_id => bundle.bundle_id, :base_product_name => @base_subscription[bundle.bundle_id].product_name, :product_category => 'ADD_ON'}) %>
+                  <% end %>
+                  <% if can? :transfer, Kaui::Subscription %>
+                      <%= link_to '<i class="fa fa-random"></i>&nbsp;Transfer Ownership'.html_safe, kaui_engine.transfer_bundle_path(bundle.bundle_id) %>
+                  <% end %>
                 </div>
               </div>
           <% end %>

@@ -3,6 +3,12 @@ module Kaui
     include CanCan::Ability
 
     def initialize(user)
+      if Kaui.demo_mode
+        # Show the links, the server will enforce permissions
+        can :manage, :all
+        return
+      end
+
       # user is a Kaui::User object (from Devise)
       user.permissions.each do |permission|
         # permission is something like invoice:item_adjust or payment:refund
@@ -33,7 +39,7 @@ module Kaui
       #
       to_be_model, action = permission.split(':')
       # Currently the only actions implemented for overdue and catalog (upload_config) are those implemented at the tenant level:
-      if ['tenant', 'overdue', 'catalog'].include?(to_be_model)
+      if %w(tenant overdue catalog).include?(to_be_model)
         to_be_model = 'admin_tenant'
       end
       if to_be_model == 'entitlement'

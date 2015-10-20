@@ -2,8 +2,11 @@
 
   <div class="column-block">
 
-    <h1>Tag
-      Definitions<%= link_to '&nbsp;<i class="fa fa-plus-square"></i>'.html_safe, kaui_engine.new_tag_definition_path %></h1>
+    <h1>Tag Definitions
+      <% if can? :create_tag_definition, Kaui::Tag %>
+          <%= link_to '&nbsp;<i class="fa fa-plus-square"></i>'.html_safe, kaui_engine.new_tag_definition_path %>
+      <% end %>
+    </h1>
 
     <table id='tag_definitions-table' class='table table-condensed mobile-data'>
       <thead>

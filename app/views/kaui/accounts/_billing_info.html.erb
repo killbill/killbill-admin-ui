@@ -6,29 +6,32 @@
 
     <div class="info-wrapper">
 
-      <div class="tag-bar">
+      <% if can?(:trigger, Kaui::Payment) || can?(:credit, Kaui::Account) || can?(:charge, Kaui::Account) %>
+          <div class="tag-bar">
 
-        <div class="tag-select" onclick="void(0)">
-          <span><i class="fa fa-money"></i><i class="fa fa-caret-down"></i></span>
+            <div class="tag-select" onclick="void(0)">
+              <span><i class="fa fa-money"></i><i class="fa fa-caret-down"></i></span>
 
-          <div class="tag-select-box">
-            <!-- Payment, Credit then Charge. Same ordering as in the billing timeline -->
-            <% if @account.account_balance.present? && @account.account_balance > 0 %>
-                <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Pay all invoices'.html_safe,
-                            kaui_engine.pay_all_invoices_account_path(@account.account_id),
-                            :method => :post %>
-            <% end %>
-            <% if can? :credit, Kaui::Account %>
-                <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Add credit'.html_safe,
-                            kaui_engine.new_account_credit_path(@account.account_id, :currency => @account.currency) %>
-            <% end %>
-            <% if can? :charge, Kaui::Account %>
-                <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Create charge'.html_safe,
-                            kaui_engine.new_account_charge_path(@account.account_id, :currency => @account.currency) %>
-            <% end %>
+              <div class="tag-select-box">
+                <!-- Payment, Credit then Charge. Same ordering as in the billing timeline -->
+                <% if can? :trigger, Kaui::Payment && @account.account_balance.present? && @account.account_balance > 0 %>
+                    <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Pay all invoices'.html_safe,
+                                kaui_engine.pay_all_invoices_account_path(@account.account_id),
+                                :method => :post %>
+                <% end %>
+                <% if can? :credit, Kaui::Account %>
+                    <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Add credit'.html_safe,
+                                kaui_engine.new_account_credit_path(@account.account_id, :currency => @account.currency) %>
+                <% end %>
+                <% if can? :charge, Kaui::Account %>
+                    <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Create charge'.html_safe,
+                                kaui_engine.new_account_charge_path(@account.account_id, :currency => @account.currency) %>
+                <% end %>
+              </div>
+            </div>
+
           </div>
-        </div>
-      </div>
+      <% end %>
 
       <p class="text-uppercase fix-position">
         <br/>
@@ -75,7 +78,7 @@
             <br/>
         <% end %>
         Notified For Invoice:
-        <span class="label text-capitalize"><%= @account.is_notified_for_invoices %></span>&nbsp;<%= link_to '<i class="fa fa-toggle-on"></i>'.html_safe, kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post, :class => 'btn btn-xs' %>
+        <span class="label text-capitalize"><%= @account.is_notified_for_invoices %></span><% if can? :update, Kaui::Account %>&nbsp;<%= link_to '<i class="fa fa-toggle-on"></i>'.html_safe, kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post, :class => 'btn btn-xs' %><% end %>
 
       </p>
 

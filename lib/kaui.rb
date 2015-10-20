@@ -20,6 +20,8 @@ module Kaui
 
   mattr_accessor :thread_pool
 
+  mattr_accessor :demo_mode
+
   self.home_path = lambda { Kaui::Engine.routes.url_helpers.home_path }
   self.account_home_path = lambda {|account_id| Kaui::Engine.routes.url_helpers.account_path(account_id) }
   self.invoice_home_path = lambda {|invoice_id| Kaui::Engine.routes.url_helpers.invoice_path(:id => invoice_id) }
@@ -31,6 +33,7 @@ module Kaui
   self.bundle_key_display_string =  lambda {|bundle_key| bundle_key }
   self.creditcard_plugin_name =  lambda { '__EXTERNAL_PAYMENT__' }
 
+  self.demo_mode = false
 
   def self.is_user_assigned_valid_tenant?(user, session)
     #
