@@ -4,9 +4,14 @@
 
     <h1>Invoice <%= @invoice.invoice_number %></h1>
 
-    Invoice Date: <%= @invoice.invoice_date.html_safe %>
-    <br/>
-    Target Date: <%= @invoice.target_date.html_safe %>
+    <div class="invoice-date row">
+      <div class="col-md-4">
+        Invoice Date: <%= @invoice.invoice_date.html_safe %>
+      </div>
+      <div class="col-md-4">
+        Target Date: <%= @invoice.target_date.html_safe %>
+      </div>
+    </div>
 
     <%= render :partial => 'invoice_table' %>
 

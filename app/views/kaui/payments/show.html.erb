@@ -5,7 +5,9 @@
     <h1>Payment <%= @payment.payment_number %></h1>
 
     <% if @payment.target_invoice_id.present? %>
-        <%= link_to 'Invoice', account_invoice_path(@account.account_id, @payment.target_invoice_id) %>
+        <div class="invoice-payment-link">
+          <%= link_to 'Invoice', account_invoice_path(@account.account_id, @payment.target_invoice_id) %>
+        </div>
     <% end %>
 
     <%= render :partial => 'kaui/payments/payment_table',
