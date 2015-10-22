@@ -33,7 +33,12 @@ module Kaui::EngineControllerUtil
     ordering = ((params[:order] || {})[:'0'] || {})
     ordering_column = (ordering[:column] || 0).to_i
     ordering_dir = ordering[:dir] || 'asc'
-    pages.sort! { |a, b| data_extractor.call(a, ordering_column) <=> data_extractor.call(b, ordering_column) }
+    pages.sort! do |a, b|
+      a = data_extractor.call(a, ordering_column)
+      b = data_extractor.call(b, ordering_column)
+      sort = a <=> b
+      sort.nil? ? -1 : sort
+    end
     pages.reverse! if ordering_dir == 'desc'
 
     pages.each { |page| json[:data] << formatter.call(page) }

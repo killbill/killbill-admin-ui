@@ -22,7 +22,7 @@ class Kaui::AccountsController < Kaui::EngineController
 
     formatter = lambda do |account|
       [
-          view_context.link_to(account.name, view_context.url_for(:action => :show, :account_id => account.account_id)),
+          view_context.link_to(account.name || '(not set)', view_context.url_for(:action => :show, :account_id => account.account_id)),
           view_context.truncate_uuid(account.account_id),
           account.external_key,
           view_context.humanized_money_with_symbol(account.balance_to_money),
