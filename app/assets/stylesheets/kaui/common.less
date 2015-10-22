@@ -42,13 +42,19 @@ h3 {
 
 p {
     font-size: 12px;
-    color: rgb(119, 119, 119);
-    line-height: 30px;
+    color: #999;
+    line-height: 20px;
     text-align: left;
+    margin: 0 0 20px;
+    font-weight: 700;
 
     span {
         font-size: 14px;
         margin: 0 10px;
+    }
+
+    &.title-align {
+        padding-left: 30px;
     }
 }
 
@@ -171,6 +177,9 @@ button, input[type="submit"] {
 label {
     cursor: pointer;
     font-size: 100%;
+    color: #585858;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
 hr {
@@ -301,10 +310,14 @@ table {
             background-color: transparent;
         }
 
+        th {
+            text-transform: uppercase;
+            color: #585858 ;
+        }
+
         th, td {
             padding: 5px;
-            color: #777777;
-            font-weight: 400;
+            font-weight: 700;
             font-size: 12px;
 
             @media (@phone) {
@@ -314,11 +327,7 @@ table {
         }
 
         td {
-            font-size: 14px;
-
-            @media (@phone) {
-                font-size: 12px;
-            }
+            color: #999999;
         }
     }
 }
@@ -413,7 +422,7 @@ table.transparent {
 
     &.toggled {
         background-color: #f9f9f9;
-        max-height: 500px;
+        max-height: 1500px;
 
         .first-line {
             font-weight: 900;
