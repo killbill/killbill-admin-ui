@@ -15,25 +15,33 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     param_tenant = params[:tenant]
     old_tenant = Kaui::Tenant.find_by_name(param_tenant[:name])
     if old_tenant
-      flash[:error] = "Tenant with name #{param_tenant[:name]} already exists!"
-      redirect_to admin_tenants_path and return
+      flash.now[:error] = "Tenant with name #{param_tenant[:name]} already exists!"
+      @tenant = Kaui::Tenant.new
+      render :new and return
+    end
+
+    old_tenant = Kaui::Tenant.find_by_api_key(param_tenant[:api_key])
+    if old_tenant
+      flash.now[:error] = "Tenant with api key #{param_tenant[:api_key]} already exists!"
+      @tenant = Kaui::Tenant.new
+      render :new and return
     end
 
     begin
       options = tenant_options_for_client
       new_tenant = nil
 
-      if params[:create_tenant]
+      begin
+        options[:api_key] = param_tenant[:api_key]
+        options[:api_secret] = param_tenant[:api_secret]
+        new_tenant = Kaui::AdminTenant.find_by_api_key(param_tenant[:api_key], options)
+      rescue KillBillClient::API::Unauthorized, KillBillClient::API::NotFound
         # Create the tenant in Kill Bill
         new_tenant = Kaui::AdminTenant.new
         new_tenant.external_key = param_tenant[:name]
         new_tenant.api_key = param_tenant[:api_key]
         new_tenant.api_secret = param_tenant[:api_secret]
         new_tenant = new_tenant.create(options[:username], nil, comment, options)
-      else
-        options[:api_key] = param_tenant[:api_key]
-        options[:api_secret] = param_tenant[:api_secret]
-        new_tenant = Kaui::AdminTenant.find_by_api_key(param_tenant[:api_key], options)
       end
 
       # Transform object to Kaui model
@@ -49,7 +57,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
       # Make sure at least the current user can access the tenant
       tenant_model.kaui_allowed_users << Kaui::AllowedUser.where(:kb_username => current_user.kb_username).first_or_create
     rescue => e
-      flash[:error] = "Failed to create the tenant : #{as_string(e)}"
+      flash[:error] = "Failed to create the tenant: #{as_string(e)}"
       redirect_to admin_tenants_path and return
     end
 
