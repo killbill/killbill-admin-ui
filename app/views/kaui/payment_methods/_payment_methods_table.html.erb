@@ -42,7 +42,9 @@
             </div>
         <% end %>
 
-        <%= render :partial => 'kaui/payment_methods/payment_methods_details_table', :locals => {:payment_method => payment_method} %>
+        <div class="payment-method-details">
+          <%= render :partial => 'kaui/payment_methods/payment_methods_details_table', :locals => {:payment_method => payment_method} %>
+        </div>
 
       </div>
 
