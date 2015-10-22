@@ -22,6 +22,13 @@ module Kaui
 
   mattr_accessor :demo_mode
 
+  mattr_accessor :root_username
+  mattr_accessor :root_password
+  mattr_accessor :root_api_key
+  mattr_accessor :root_api_secret
+
+  mattr_accessor :default_roles
+
   self.home_path = lambda { Kaui::Engine.routes.url_helpers.home_path }
   self.account_home_path = lambda {|account_id| Kaui::Engine.routes.url_helpers.account_path(account_id) }
   self.invoice_home_path = lambda {|invoice_id| Kaui::Engine.routes.url_helpers.invoice_path(:id => invoice_id) }
@@ -34,6 +41,15 @@ module Kaui
   self.creditcard_plugin_name =  lambda { '__EXTERNAL_PAYMENT__' }
 
   self.demo_mode = false
+
+  # Root credentials for SaaS operations
+  self.root_username = 'admin'
+  self.root_password = 'password'
+  self.root_api_key = 'bob'
+  self.root_api_secret = 'lazar'
+
+  # Default roles for sign-ups
+  self.default_roles = ['tenant_admin']
 
   def self.is_user_assigned_valid_tenant?(user, session)
     #

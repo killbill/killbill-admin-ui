@@ -16,8 +16,8 @@ class Kaui::TenantsControllerTest < Kaui::FunctionalTestHelperNoSetup
   test 'should get index with 0 tenant with NO KillBillClient.api_key set' do
     setup_functional_test(0, false)
     get :index, :use_route => 'kaui'
-    assert_equal 'Error while retrieving tenants: No tenants configured for users AND KillBillClient.api_key, KillBillClient.api_secret have not been set', flash[:error]
-    assert_response :success
+    # Sign-up flow
+    assert_redirected_to new_admin_tenant_path
   end
 
   #

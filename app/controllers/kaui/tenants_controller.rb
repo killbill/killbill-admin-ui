@@ -14,20 +14,18 @@ class Kaui::TenantsController < Kaui::EngineController
     #
     case @tenants.size
       when 0
-        # If KillBillClient.api_key and KillBillClient.api_secret are not set, the client library will throw
-        # an KillBillClient::API::Unauthorized exception which will end up in the rescue below
-        tenant = KillBillClient::Model::Tenant.find_by_api_key(KillBillClient.api_key, :session_id => current_user.kb_session_id)
-        select_tenant_for_tenant_id(tenant.tenant_id, tenant.external_key) if tenant.present?
+        tenant = KillBillClient.api_key.nil? ? nil : KillBillClient::Model::Tenant.find_by_api_key(KillBillClient.api_key, :session_id => current_user.kb_session_id)
+        if tenant.present?
+          select_tenant_for_tenant_id(tenant.tenant_id, tenant.external_key)
+        else
+          redirect_to new_admin_tenant_path
+        end
       when 1
         # If there is only one tenant defined we skip the screen and set the tenant for the user
         select_tenant_for_tenant_id(@tenants[0].kb_tenant_id, @tenants[0].name)
       else
         # Jump to default view allowing to chose which tenant to pick
     end
-  rescue
-    flash.now[:error] = 'Error while retrieving tenants: No tenants configured for users AND KillBillClient.api_key, KillBillClient.api_secret have not been set'
-    @tenants = []
-    # We then display the view with NO tenants and the flash error so user understands he does not have any configured tenants available
   end
 
   def select_tenant

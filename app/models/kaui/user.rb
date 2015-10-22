@@ -2,7 +2,7 @@ require 'killbill_client'
 
 module Kaui
   class User < ActiveRecord::Base
-    devise :killbill_authenticatable
+    devise :killbill_authenticatable, :killbill_registerable
 
     # Managed by Devise
     attr_accessor :password
@@ -18,12 +18,12 @@ module Kaui
 
     # Called by CanCan to perform authorization
     # Throws KillBillClient::API::Unauthorized on failure
-    def permissions()
+    def permissions
       User.do_find_permissions :session_id => kb_session_id
     end
 
     # Verify the Kill Bill session hasn't timed-out
-    def authenticated_with_killbill?()
+    def authenticated_with_killbill?
       begin
         subject = KillBillClient::Model::Security.find_subject :session_id => kb_session_id
         result = subject.is_authenticated

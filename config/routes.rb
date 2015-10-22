@@ -18,7 +18,7 @@ Kaui::Engine.routes.draw do
   devise_for :users,
              :class_name => 'Kaui::User',
              :module => :devise,
-             :controllers => { :sessions => 'kaui/sessions'}
+             :controllers => { :sessions => 'kaui/sessions', :registrations => 'kaui/registrations' }
 
   root :to => 'home#index', as: 'kaui'
 
