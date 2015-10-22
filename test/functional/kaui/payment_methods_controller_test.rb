@@ -5,7 +5,8 @@ class Kaui::PaymentMethodsControllerTest < Kaui::FunctionalTestHelper
   test 'should create payment methods' do
     post :create,
          :payment_method     => {
-             :account_id => @account.account_id,
+             # Note that @account already has an external payment method
+             :account_id => @account2.account_id,
              :is_default => true
          },
          :card_type          => SecureRandom.uuid.to_s,
