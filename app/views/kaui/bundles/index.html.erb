@@ -48,7 +48,7 @@
                 <span><i class="fa fa-gift"></i><i class="fa fa-caret-down"></i></span>
 
                 <div class="tag-select-box">
-                  <% if can? :create, Kaui::Subscription %>
+                  <% if can?(:create, Kaui::Subscription) && @base_subscription[bundle.bundle_id].present? %>
                       <%= link_to '<i class="fa fa-plus"></i>&nbsp;Add add-on'.html_safe, kaui_engine.new_subscription_path(:params => {:account_id => bundle.account_id, :bundle_id => bundle.bundle_id, :base_product_name => @base_subscription[bundle.bundle_id].product_name, :product_category => 'ADD_ON'}) %>
                   <% end %>
                   <% if can? :transfer, Kaui::Subscription %>
