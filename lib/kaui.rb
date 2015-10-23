@@ -61,6 +61,9 @@ module Kaui
     # Not tenant in the session, returns right away...
     return false if session[:kb_tenant_id].nil?
 
+    # Signed-out?
+    return false if user.nil?
+
     # If there is a kb_tenant_id in the session then we check if the user is allowed to access it
     au = Kaui::AllowedUser.find_by_kb_username(user.kb_username)
     return false if au.nil?
