@@ -2,7 +2,11 @@
 
   <div class="column-block">
 
-    <h1>Showing search results for "<%= @search_query %>"</h1>
+    <% if @search_query.present? %>
+        <h1>Showing search results for "<%= @search_query %>"</h1>
+    <% else %>
+        <h1>Showing all accounts</h1>
+    <% end %>
 
     <table id="accounts-table" class="table table-condensed mobile-data">
       <thead>
