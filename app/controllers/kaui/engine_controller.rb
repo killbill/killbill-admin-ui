@@ -25,10 +25,31 @@ class Kaui::EngineController < ApplicationController
   end
 
   def check_for_redirect_to_tenant_screen
-    if !Kaui.is_user_assigned_valid_tenant?(current_user, session)
+    unless Kaui.is_user_assigned_valid_tenant?(current_user, session)
       flash[:error] = 'No tenants configured for users AND KillBillClient.api_key, KillBillClient.api_secret have not been set'
       session[:kb_tenant_id] = nil
       redirect_to Kaui.tenant_home_path.call
+    end
+  end
+
+  def retrieve_tenants_for_current_user
+    if Kaui.root_username == current_user.kb_username
+      Kaui::Tenant.all.map(&:kb_tenant_id)
+    else
+      Kaui::AllowedUser.preload(:kaui_tenants).find_by_kb_username(current_user.kb_username).kaui_tenants.map(&:kb_tenant_id)
+    end
+  end
+
+  def retrieve_allowed_users_for_current_user
+    tenants_for_current_user = retrieve_tenants_for_current_user
+
+    Kaui::AllowedUser.preload(:kaui_tenants).all.select do |user|
+      tenants_for_user = user.kaui_tenants.map(&:kb_tenant_id)
+      if tenants_for_user.empty?
+        Kaui.root_username == current_user.kb_username
+      else
+        (tenants_for_user - tenants_for_current_user).empty?
+      end
     end
   end
 

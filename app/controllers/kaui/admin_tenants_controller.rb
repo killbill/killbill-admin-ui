@@ -4,7 +4,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
   def index
     # Display the configured tenants in KAUI (which could be different than the existing tenants known by Kill Bill)
-    @tenants = Kaui::Tenant.all
+    tenants_for_current_user = retrieve_tenants_for_current_user
+    @tenants = Kaui::Tenant.all.select { |tenant| tenants_for_current_user.include?(tenant.kb_tenant_id) }
   end
 
   def new
@@ -69,17 +70,12 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def show
-    @tenant = Kaui::Tenant.find(params[:id])
-    user = current_user
-    if @tenant.kaui_allowed_users.index { |e| e.kb_username == user.kb_username }.nil?
-      flash[:error] = "Does not have permissions to see tenant id #{params[:id]}"
-      redirect_to admin_tenants_path and return
-    end
-    render
+    @tenant = safely_find_tenant_by_id(params[:id])
+    @allowed_users = retrieve_allowed_users_for_current_user
   end
 
   def upload_catalog
-    current_tenant = Kaui::Tenant.find_by_id(params[:id])
+    current_tenant = safely_find_tenant_by_id(params[:id])
 
     options = tenant_options_for_client
     options[:api_key] = current_tenant.api_key
@@ -94,7 +90,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def upload_overdue_config
-    current_tenant = Kaui::Tenant.find_by_id(params[:id])
+    current_tenant = safely_find_tenant_by_id(params[:id])
 
     options = tenant_options_for_client
     options[:api_key] = current_tenant.api_key
@@ -110,7 +106,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
 
   def upload_invoice_template
-    current_tenant = Kaui::Tenant.find_by_id(params[:id])
+    current_tenant = safely_find_tenant_by_id(params[:id])
 
     options = tenant_options_for_client
     options[:api_key] = current_tenant.api_key
@@ -126,7 +122,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def upload_invoice_translation
-    current_tenant = Kaui::Tenant.find_by_id(params[:id])
+    current_tenant = safely_find_tenant_by_id(params[:id])
 
     options = tenant_options_for_client
     options[:api_key] = current_tenant.api_key
@@ -142,7 +138,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def upload_catalog_translation
-    current_tenant = Kaui::Tenant.find_by_id(params[:id])
+    current_tenant = safely_find_tenant_by_id(params[:id])
 
     options = tenant_options_for_client
     options[:api_key] = current_tenant.api_key
@@ -158,7 +154,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def upload_plugin_config
-    current_tenant = Kaui::Tenant.find_by_id(params[:id])
+    current_tenant = safely_find_tenant_by_id(params[:id])
 
     options = tenant_options_for_client
     options[:api_key] = current_tenant.api_key
@@ -174,7 +170,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def remove_allowed_user
-    current_tenant = Kaui::Tenant.find_by_id(params[:id])
+    current_tenant = safely_find_tenant_by_id(params[:id])
     au = Kaui::AllowedUser.find(params[:allowed_user][:id])
     # remove the association
     au.kaui_tenants.delete current_tenant
@@ -182,6 +178,12 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   private
+
+  def safely_find_tenant_by_id(tenant_id)
+    tenant = Kaui::Tenant.find_by_id(tenant_id)
+    raise ActiveRecord::RecordNotFound.new('Could not find tenant ' + tenant_id) unless retrieve_tenants_for_current_user.include?(tenant.kb_tenant_id)
+    tenant
+  end
 
   def tenant_options_for_client
     user = current_user

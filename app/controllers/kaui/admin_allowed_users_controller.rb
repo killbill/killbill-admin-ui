@@ -3,7 +3,7 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
   skip_before_filter :check_for_redirect_to_tenant_screen
 
   def index
-    @allowed_users = Kaui::AllowedUser.all
+    @allowed_users = retrieve_allowed_users_for_current_user
   end
 
   def new
@@ -25,7 +25,10 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
 
   def show
     @allowed_user = Kaui::AllowedUser.find(params.require(:id))
-    @tenants = Kaui::Tenant.all
+    raise ActiveRecord::RecordNotFound.new("Could not find user #{@allowed_user.id}") unless (Kaui.root_username == current_user.kb_username || @allowed_user.kb_username == current_user.kb_username)
+
+    tenants_for_current_user = retrieve_tenants_for_current_user
+    @tenants = Kaui::Tenant.all.select { |tenant| tenants_for_current_user.include?(tenant.kb_tenant_id) }
   end
 
   def add_tenant
@@ -35,6 +38,9 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
       next if tenant_info.size != 2 or tenant_info[0] != 'tenant'
       tenants << tenant_info[1]
     end
+
+    tenants_for_current_user = retrieve_tenants_for_current_user
+    tenants = (Kaui::Tenant.where(:id => tenants).select { |tenant| tenants_for_current_user.include?(tenant.kb_tenant_id) }).map(&:id)
 
     allowed_user = Kaui::AllowedUser.find(params.require(:allowed_user).require(:id))
     allowed_user.kaui_tenant_ids = tenants

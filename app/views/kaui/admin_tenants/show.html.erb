@@ -10,7 +10,7 @@
 
 </div>
 
-<% unless @tenant.kaui_allowed_users.empty? %>
+<% unless @allowed_users.empty? %>
     <div class="search">
 
       <div class="column-block">
@@ -25,7 +25,7 @@
           </tr>
           </thead>
           <tbody>
-          <% @tenant.kaui_allowed_users.each do |u| %>
+          <% @allowed_users.each do |u| %>
               <tr>
                 <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
                 <td><%= u.description %></td>
