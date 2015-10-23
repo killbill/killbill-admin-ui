@@ -14,7 +14,7 @@
 
               <div class="tag-select-box">
                 <!-- Payment, Credit then Charge. Same ordering as in the billing timeline -->
-                <% if can? :trigger, Kaui::Payment && @account.account_balance.present? && @account.account_balance > 0 %>
+                <% if can?(:trigger, Kaui::Payment) && @account.account_balance.present? && @account.account_balance > 0 %>
                     <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Pay all invoices'.html_safe,
                                 kaui_engine.pay_all_invoices_account_path(@account.account_id),
                                 :method => :post %>
