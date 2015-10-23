@@ -41,7 +41,7 @@ h3 {
 }
 
 p {
-    font-size: 12px;
+    font-size: 14px;
     color: #999;
     line-height: 20px;
     text-align: left;
@@ -178,8 +178,8 @@ label {
     cursor: pointer;
     font-size: 100%;
     color: #585858;
-    text-transform: uppercase;
-    font-weight: 700;
+    text-transform: none;
+    font-weight: normal;
 }
 
 hr {
@@ -200,7 +200,7 @@ table {
     th {
         background: #f3f3f3;
         color: #989898;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 700;
         text-transform: uppercase;
         padding: 10px 20px;
@@ -295,7 +295,6 @@ table {
                 padding: 5px;
                 display: block;
                 width: 100%;
-                font-size: 12px;
                 word-break: break-word;
             }
         }
@@ -311,14 +310,13 @@ table {
         }
 
         th {
-            text-transform: uppercase;
+            font-weight: 700;
+            text-transform: none;
             color: #585858 ;
         }
 
         th, td {
             padding: 5px;
-            font-weight: 700;
-            font-size: 12px;
 
             @media (@phone) {
                 padding: 2px;
@@ -327,7 +325,8 @@ table {
         }
 
         td {
-            color: #999999;
+            font-weight: normal;
+            color: #777777;
         }
     }
 }
@@ -345,6 +344,13 @@ table.transparent {
             width: 60%;
             word-break: break-all;
         }
+    }
+}
+
+table.subtitle {
+    margin-bottom: 10px;
+    th, td {
+        padding-left: 0 !important;
     }
 }
 
@@ -379,12 +385,10 @@ table.transparent {
 
 .info-wrapper {
     border: 1px solid #ccc;
-    font-size: 12px;
 }
 
 .fix-position {
     padding-left: 45px;
-    padding-bottom: 30px;
 
     @media (@phone) {
         padding-left: 15px;
@@ -526,4 +530,9 @@ table.transparent {
 
 .filter-select {
     margin: 10px 20px 30px 0;
+}
+
+hr.breathe {
+    margin-top: 45px;
+    margin-bottom: 45px;
 }

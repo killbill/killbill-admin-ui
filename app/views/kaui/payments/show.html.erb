@@ -5,8 +5,15 @@
     <h1>Payment <%= @payment.payment_number %></h1>
 
     <% if @payment.target_invoice_id.present? %>
-        <div class="invoice-payment-link">
-          <%= link_to 'Invoice', account_invoice_path(@account.account_id, @payment.target_invoice_id) %>
+        <div class="row">
+          <div class="col-md-5">
+            <table class="transparent subtitle">
+              <tr>
+                <th>Invoice ID</th>
+                <td><%= link_to @payment.target_invoice_id, account_invoice_path(@account.account_id, @payment.target_invoice_id) %></td>
+              </tr>
+            </table>
+          </div>
         </div>
     <% end %>
 

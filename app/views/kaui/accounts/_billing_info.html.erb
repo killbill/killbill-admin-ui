@@ -7,7 +7,7 @@
     <div class="info-wrapper">
 
       <% if can?(:trigger, Kaui::Payment) || can?(:credit, Kaui::Account) || can?(:charge, Kaui::Account) %>
-          <div class="tag-bar">
+          <div class="tag-bar tag-bar-breathe">
 
             <div class="tag-select" onclick="void(0)">
               <span><i class="fa fa-money"></i><i class="fa fa-caret-down"></i></span>
@@ -33,54 +33,72 @@
           </div>
       <% end %>
 
-      <p class="text-uppercase fix-position">
-        <br/>
-        Account balance:
-        <% if @account.account_balance.nil? %>
-            <span class='label'>N/A</span>
-        <% elsif @account.account_balance <= 0 %>
-            <span class="label label-success"><%= humanized_money_with_symbol @account.balance_to_money %>
-              <%= "(#{@account.currency})" if @account.currency.present? %></span>
-        <% else %>
-            <span class="label label-danger"><%= humanized_money_with_symbol @account.balance_to_money %>
-              <%= "(#{@account.currency})" if @account.currency.present? %></span>
-        <% end %>
-        <br/>
-        Account credit:
-        <% if @account.account_cba.nil? %>
-            <span class='label'>N/A</span>
-        <% elsif @account.account_cba >= 0 %>
-            <span class="label label-success"><%= humanized_money_with_symbol @account.cba_to_money %>
-              <%= "(#{@account.currency})" if @account.currency.present? %></span>
-        <% else %>
-            <span class="label label-danger"><%= humanized_money_with_symbol @account.cba_to_money %>
-              <%= "(#{@account.currency})" if @account.currency.present? %></span>
-        <% end %>
-        <br/>
-        Overdue status:
-        <% if @overdue_state.nil? %>
-            <span class='label'>N/A</span>
-        <% elsif @overdue_state.clear_state %>
-            <span class='label label-success'>Good</span>
-        <% else %>
-            <span class='label label-danger'><%= @overdue_state.name %></span>
-        <% end %>
-        <br/>
-        Bill cycle day:
-        <% if @account.bill_cycle_day_local %>
-            <span class='label'><%= @account.bill_cycle_day_local %> (user timezone)</span>
-        <% else %>
-            <span class='label'>N/A</span>
-        <% end %>
-        <br/>
-        <% if can? :trigger, Kaui::Invoice %>
-            Next Invoice Date: <span class='label' id='next-invoice-date'>N/A</span>
-            <br/>
-        <% end %>
-        Notified For Invoice:
-        <span class="label text-capitalize"><%= @account.is_notified_for_invoices %></span><% if can? :update, Kaui::Account %>&nbsp;<%= link_to '<i class="fa fa-toggle-on"></i>'.html_safe, kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post, :class => 'btn btn-xs' %><% end %>
-
-      </p>
+      <div class="row">
+          <div class="fix-position">
+            <table class="transparent">
+              <tr>
+                <th>Account balance</th>
+                <td>
+                  <% if @account.account_balance.nil? %>
+                      <span class='label'>N/A</span>
+                  <% elsif @account.account_balance <= 0 %>
+                      <span class="label label-success"><%= humanized_money_with_symbol @account.balance_to_money %></span>
+                  <% else %>
+                      <span class="label label-danger"><%= humanized_money_with_symbol @account.balance_to_money %></span>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <th>Account credit</th>
+                <td>
+                  <% if @account.account_cba.nil? %>
+                      <span class='label'>N/A</span>
+                  <% elsif @account.account_cba >= 0 %>
+                      <span class="label label-success"><%= humanized_money_with_symbol @account.cba_to_money %></span>
+                  <% else %>
+                      <span class="label label-danger"><%= humanized_money_with_symbol @account.cba_to_money %></span>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <th>Overdue status</th>
+                <td>
+                  <% if @overdue_state.nil? %>
+                      <span class='label'>N/A</span>
+                  <% elsif @overdue_state.clear_state %>
+                      <span class='label label-success'>Good</span>
+                  <% else %>
+                      <span class='label label-danger'><%= @overdue_state.name %></span>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <th>Bill cycle day</th>
+                <td>
+                  <% if @account.bill_cycle_day_local %>
+                      <span class='label'><%= @account.bill_cycle_day_local %> (user timezone)</span>
+                  <% else %>
+                      <span class='label'>N/A</span>
+                  <% end %>
+                </td>
+              </tr>
+              <% if can? :trigger, Kaui::Invoice %>
+                  <tr>
+                    <th>Next Invoice Date</th>
+                    <td><span class='label' id='next-invoice-date'>N/A</span></td>
+                  </tr>
+              <% end %>
+              <tr>
+                <th>Notified For Invoice</th>
+                <td>
+                  <span class="label text-capitalize"><%= @account.is_notified_for_invoices %></span>
+                  <% if can? :update, Kaui::Account %>&nbsp;<%= link_to '<i class="fa fa-toggle-on"></i>'.html_safe, kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post %>
+                  <% end %>
+                </td>
+              </tr>
+            </table>
+          </div>
+      </div>
 
     </div>
 

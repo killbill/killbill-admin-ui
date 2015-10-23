@@ -4,12 +4,18 @@
 
     <h1>Invoice <%= @invoice.invoice_number %></h1>
 
-    <div class="invoice-date row">
-      <div class="col-md-4">
-        Invoice Date: <%= @invoice.invoice_date.html_safe %>
-      </div>
-      <div class="col-md-4">
-        Target Date: <%= @invoice.target_date.html_safe %>
+    <div class="row">
+      <div class="col-md-3">
+        <table class="transparent subtitle">
+          <tr>
+            <th>Invoice date</th>
+            <td><%= @invoice.invoice_date %></td>
+          </tr>
+          <tr>
+            <th>Target date</th>
+            <td><%= @invoice.target_date %></td>
+          </tr>
+        </table>
       </div>
     </div>
 
@@ -28,13 +34,25 @@
 
           <h1 class="text-capitalize">Payment Details</h1>
 
-          <% @payments.each do |payment| %>
+          <% @payments.each_with_index do |payment, idx| %>
 
-              <h3>Payment <%= link_to payment.payment_number, account_payment_path(@account.account_id, payment.payment_id) %></h3>
+              <div class="row">
+                <div class="col-md-1">
+                  <table class="transparent subtitle">
+                    <tr>
+                      <th>Payment</th>
+                      <td><%= link_to payment.payment_number, account_payment_path(@account.account_id, payment.payment_id) %></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
 
               <%= render :partial => 'kaui/payments/payment_table',
                          :locals => {:payment => payment, :account => @account, :payment_methods => @payment_methods} %>
 
+              <% if idx < @payments.size - 1 %>
+                  <hr class="breathe"/>
+              <% end %>
           <% end %>
 
         </div>
@@ -44,7 +62,6 @@
     </div>
 <% end %>
 
-<%= link_to 'View customer invoice html', kaui_engine.show_html_invoice_path(@invoice.invoice_id), :class => 'btn', :target => '_blank' unless @invoice.blank? %>
 <%= javascript_tag do %>
   function disableLinks() {
     $('a.btn.disabled').click(function (e) {

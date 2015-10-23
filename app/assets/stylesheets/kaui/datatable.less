@@ -44,6 +44,7 @@ table.dataTable {
 
 table.dataTable thead th,
 table.dataTable thead td {
+    font-size: 12px;
     border-bottom: 0;
 }
 
@@ -67,4 +68,8 @@ table.dataTable.no-footer {
 
 table.dataTable.table-condensed thead > tr > th {
     border-right: 1px solid #c9c9c9;
+
+    &:last-of-type {
+        border-right: 0;
+    }
 }

@@ -1,9 +1,9 @@
 <tr>
-  <th>Contact emails:</th>
+  <th>Contact emails</th>
   <td>
     <% if account_emails.present? %>
         <% account_emails.each_with_index do |account_email, idx| %>
-            <%= account_email.email %><% if can? :delete_emails, Kaui::Account -%><%= link_to '&nbsp;<i class="fa fa-times"></i>'.html_safe, kaui_engine.account_account_email_path(account_email.account_id, account_email.email), :method => :delete -%><% end -%><% if idx < account_emails.length - 1 %>,<% end %>
+            <%= account_email.email %><% if can? :delete_emails, Kaui::Account -%><%= link_to '&nbsp;<i class="fa fa-times"></i>'.html_safe, kaui_engine.account_account_email_path(account_email.account_id, account_email.email), :method => :delete -%><% end -%>&nbsp;
         <% end %>
     <% end %>
     <% if can? :add_emails, Kaui::Account %>

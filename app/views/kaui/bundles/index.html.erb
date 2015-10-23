@@ -1,71 +1,76 @@
-<div class="column-block">
+<div class="column-block subscription-bundle">
+
   <h1>Subscription Bundles
     <% if can? :create, Kaui::Subscription %>
-        <%= link_to '<i class="fa fa-plus-square"></i> &nbsp;Create New Subscription Bundle'.html_safe,
+        <%= link_to '<i class="fa fa-plus-square"></i>'.html_safe,
                     kaui_engine.new_subscription_path(:params => {:account_id => @account.account_id, :product_category => 'BASE'}),
                     :class => 'btn btn-xs' %>
     <% end %>
   </h1>
-</div>
 
+  <% @bundles.each_with_index do |bundle, idx| %>
+      <div class="row">
+        <div class="col-md-5">
+          <table class="transparent subtitle">
+            <tr>
+              <th>Bundle ID</th>
+              <td><%= bundle.bundle_id %></td>
+            </tr>
+            <% unless bundle.bundle_id == bundle.external_key %>
+                <tr>
+                  <th>External key</th>
+                  <td><%= bundle.external_key %></td>
+                </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
 
+      <div class="info-wrapper">
 
-<div class="column-block subscription-bundle">
+        <div class="tag-bar">
 
-  <h1>Subscription Bundle</h1>
+          <div class="tag-select" onclick="void(0)">
+            <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
 
-  <% @bundles.each do |bundle| %>
+            <div class="tag-select-box">
+              <strong>Tag as:</strong>
 
-    <p class="title-align">
-      <label>Bundle ID:</label> <%= bundle.bundle_id %>
-      </br />
-      <% unless bundle.bundle_id == bundle.external_key %>
-          <label>External key:</label> <%= bundle.external_key %>
-      <% end %>
-    </p>
-
-
-    <div class="info-wrapper">
-
-      <div class="tag-bar">
-
-        <div class="tag-select" onclick="void(0)">
-          <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
-
-          <div class="tag-select-box">
-            <strong>Tag as:</strong>
-
-            <%= render :partial => 'kaui/bundle_tags/form_bar',
-                       :locals => {:bundle_id => bundle.bundle_id,
-                                   :tag_names => (@tags_per_bundle[bundle.bundle_id] || []).map { |tag| tag.tag_definition_name },
-                                   :available_tags => @available_tags} %>
+              <%= render :partial => 'kaui/bundle_tags/form_bar',
+                         :locals => {:bundle_id => bundle.bundle_id,
+                                     :tag_names => (@tags_per_bundle[bundle.bundle_id] || []).map { |tag| tag.tag_definition_name },
+                                     :available_tags => @available_tags} %>
+            </div>
           </div>
+
+          <% if !is_cancelled?(@base_subscription[bundle.bundle_id]) && (can?(:create, Kaui::Subscription) || can?(:transfer, Kaui::Subscription)) %>
+              <div class="tag-select" onclick="void(0)">
+                <span><i class="fa fa-gift"></i><i class="fa fa-caret-down"></i></span>
+
+                <div class="tag-select-box">
+                  <% if can? :create, Kaui::Subscription %>
+                      <%= link_to '<i class="fa fa-plus"></i>&nbsp;Add add-on'.html_safe, kaui_engine.new_subscription_path(:params => {:account_id => bundle.account_id, :bundle_id => bundle.bundle_id, :base_product_name => @base_subscription[bundle.bundle_id].product_name, :product_category => 'ADD_ON'}) %>
+                  <% end %>
+                  <% if can? :transfer, Kaui::Subscription %>
+                      <%= link_to '<i class="fa fa-random"></i>&nbsp;Transfer Ownership'.html_safe, kaui_engine.transfer_bundle_path(bundle.bundle_id) %>
+                  <% end %>
+                </div>
+              </div>
+          <% end %>
+
         </div>
 
-        <% if !is_cancelled?(@base_subscription[bundle.bundle_id]) && (can?(:create, Kaui::Subscription) || can?(:transfer, Kaui::Subscription)) %>
-            <div class="tag-select" onclick="void(0)">
-              <span><i class="fa fa-gift"></i><i class="fa fa-caret-down"></i></span>
-
-              <div class="tag-select-box">
-                <% if can? :create, Kaui::Subscription %>
-                    <%= link_to '<i class="fa fa-plus"></i>&nbsp;Add add-on'.html_safe, kaui_engine.new_subscription_path(:params => {:account_id => bundle.account_id, :bundle_id => bundle.bundle_id, :base_product_name => @base_subscription[bundle.bundle_id].product_name, :product_category => 'ADD_ON'}) %>
-                <% end %>
-                <% if can? :transfer, Kaui::Subscription %>
-                    <%= link_to '<i class="fa fa-random"></i>&nbsp;Transfer Ownership'.html_safe, kaui_engine.transfer_bundle_path(bundle.bundle_id) %>
-                <% end %>
-              </div>
+        <% if bundle.subscriptions.present? %>
+            <div class="search">
+              <%= render :partial => 'kaui/subscriptions/subscriptions_table', :locals => {:bundle => bundle, :account => @account} %>
             </div>
         <% end %>
 
       </div>
 
-      <% if bundle.subscriptions.present? %>
-          <div class="search">
-            <%= render :partial => 'kaui/subscriptions/subscriptions_table', :locals => {:bundle => bundle, :account => @account} %>
-          </div>
+      <% if idx < @bundles.size - 1 %>
+          <hr class="breathe"/>
       <% end %>
-
-    </div>
   <% end %>
-  
+
 </div>
