@@ -43,7 +43,7 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     tenant.save!
 
     get :show, :id => tenant.id
-    assert_response 302
+    assert_response 200
   end
 
   test 'should upload catalog' do
