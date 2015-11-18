@@ -50,11 +50,15 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'simplecov'
 
   if defined?(JRUBY_VERSION)
+    s.add_development_dependency 'therubyrhino', '~> 2.0.4'
+
     s.add_development_dependency 'activerecord-jdbc-adapter', '~> 1.3.9'
     s.add_development_dependency 'activerecord-jdbcmysql-adapter', '~> 1.3.9'
     s.add_development_dependency 'activerecord-jdbcsqlite3-adapter', '~> 1.3.9'
     s.add_development_dependency 'jdbc-mysql', '~> 5.1.25'
   else
+    s.add_development_dependency 'therubyracer', '~> 0.12.2'
+
     s.add_development_dependency 'mysql2', '~> 0.3.20'
   end
 end
