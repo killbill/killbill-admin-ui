@@ -32,6 +32,13 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
   end
 
   def add_tenant
+    allowed_user = Kaui::AllowedUser.find(params.require(:allowed_user).require(:id))
+
+    if Kaui.root_username != current_user.kb_username
+      redirect_to admin_allowed_user_path(allowed_user.id), :alert => 'Only the root user can set tenants for user'
+      return
+    end
+
     tenants = []
     params.each do |tenant, _|
       tenant_info = tenant.split('_')
@@ -42,7 +49,6 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
     tenants_for_current_user = retrieve_tenants_for_current_user
     tenants = (Kaui::Tenant.where(:id => tenants).select { |tenant| tenants_for_current_user.include?(tenant.kb_tenant_id) }).map(&:id)
 
-    allowed_user = Kaui::AllowedUser.find(params.require(:allowed_user).require(:id))
     allowed_user.kaui_tenant_ids = tenants
 
     redirect_to admin_allowed_user_path(allowed_user.id), :notice => 'Successfully set tenants for user'

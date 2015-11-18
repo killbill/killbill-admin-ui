@@ -22,18 +22,20 @@
                   <% @tenants.each do |tenant| %>
                       <div class="checkbox">
                         <label>
-                          <%= check_box_tag "tenant_#{tenant.id}", tenant.id, @allowed_user.kaui_tenants.map(&:id).include?(tenant.id) %>
+                          <%= check_box_tag "tenant_#{tenant.id}", tenant.id, @allowed_user.kaui_tenants.map(&:id).include?(tenant.id), :disabled => Kaui.root_username != current_user.kb_username %>
                           <span><%= tenant.name || tenant.api_key %></span>
                         </label>
                       </div>
                   <% end %>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                  <%= f.submit 'Save', :class => 'btn btn-default' %>
-                </div>
-              </div>
+              <% unless Kaui.root_username != current_user.kb_username %>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <%= f.submit 'Save', :class => 'btn btn-default' %>
+                    </div>
+                  </div>
+              <% end %>
           <% end %>
 
         </div>
