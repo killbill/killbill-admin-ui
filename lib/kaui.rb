@@ -6,11 +6,7 @@ require "kaui/engine"
 module Kaui
 
   mattr_accessor :home_path
-  mattr_accessor :account_home_path
-  mattr_accessor :bundle_home_path
-  mattr_accessor :invoice_home_path
   mattr_accessor :tenant_home_path
-  mattr_accessor :select_tenant
   mattr_accessor :new_user_session_path
   mattr_accessor :destroy_user_session_path
 
@@ -29,11 +25,10 @@ module Kaui
 
   mattr_accessor :default_roles
 
-  self.home_path = lambda { Kaui::Engine.routes.url_helpers.home_path }
-  self.account_home_path = lambda {|account_id| Kaui::Engine.routes.url_helpers.account_path(account_id) }
-  self.invoice_home_path = lambda {|invoice_id| Kaui::Engine.routes.url_helpers.invoice_path(:id => invoice_id) }
-  self.tenant_home_path = lambda { Kaui::Engine.routes.url_helpers.tenants_path }
-  self.select_tenant = lambda { Kaui::Engine.routes.url_helpers.select_tenant_path }
+  # Pre-pending relative_url_root seems required when deploying in Tomcat sub-paths (not needed for session routes below though)
+  self.home_path = lambda { ActionController::Base.relative_url_root.to_s + Kaui::Engine.routes.url_helpers.home_path }
+  self.tenant_home_path = lambda { ActionController::Base.relative_url_root.to_s + Kaui::Engine.routes.url_helpers.tenants_path }
+
   self.new_user_session_path = lambda { Kaui::Engine.routes.url_helpers.new_user_session_path }
   self.destroy_user_session_path = lambda { Kaui::Engine.routes.url_helpers.destroy_user_session_path }
 
