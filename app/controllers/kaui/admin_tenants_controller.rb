@@ -71,7 +71,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
   def show
     @tenant = safely_find_tenant_by_id(params[:id])
-    @allowed_users = retrieve_allowed_users_for_current_user
+    @allowed_users = @tenant.kaui_allowed_users & retrieve_allowed_users_for_current_user
   end
 
   def upload_catalog
