@@ -171,7 +171,13 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
   def remove_allowed_user
     current_tenant = safely_find_tenant_by_id(params[:id])
-    au = Kaui::AllowedUser.find(params[:allowed_user][:id])
+    au = Kaui::AllowedUser.find(params.require(:allowed_user).require(:id))
+
+    if Kaui.root_username != current_user.kb_username
+      render :json => {:alert => 'Only the root user can remove users from tenants'}.to_json, :status => 401
+      return
+    end
+
     # remove the association
     au.kaui_tenants.delete current_tenant
     render :json => '{}', :status => 200

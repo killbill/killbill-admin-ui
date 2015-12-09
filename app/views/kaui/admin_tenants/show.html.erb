@@ -30,9 +30,11 @@
                 <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
                 <td><%= u.description %></td>
                 <td>
-                  <button type="button" class="btn btn-default btn-sm" id="<%= "allowed-user-remove-#{u.id}" %>">
-                    <span class="fa fa-times"></span>
-                  </button>
+                  <% if Kaui.root_username == current_user.kb_username %>
+                      <button type="button" class="btn btn-default btn-sm" id="<%= "allowed-user-remove-#{u.id}" %>">
+                        <span class="fa fa-times"></span>
+                      </button>
+                  <% end %>
                 </td>
               </tr>
           <% end %>
