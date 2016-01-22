@@ -1,5 +1,7 @@
 language: ruby
 
+sudo: false
+
 notifications:
   email:
     - kill-bill-commits@googlegroups.com
