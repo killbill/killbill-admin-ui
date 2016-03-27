@@ -1,9 +1,11 @@
-<header>
+<header class="main-header">
   <div class="container">
     <div class="row">
 
       <div class="col-md-6">
-        <%= link_to image_tag('kaui/logo.png', :alt => 'Kill Bill Logo'), kaui_engine.home_path %>
+        <%= link_to kaui_engine.home_path do %>
+          <%= image_tag('kaui/logo.png', :alt => 'Kill Bill Logo', class: 'logo') %>
+        <% end %>
 
         <% if user_signed_in? -%>
             <% if tenant_selected? %>
@@ -53,19 +55,16 @@
 
           </div>
 
-          <div class="col-xs-6 text-right">
-            <nav>
-              <ul class="account-menu">
-                <% if user_signed_in? -%>
-                    <li><%= session[:kb_tenant_name].present? ? "#{current_user.kb_username} / #{session[:kb_tenant_name]}" : current_user.kb_username %></li>
-                    <li><%= link_to 'Sign Out', kaui_engine.destroy_user_session_path, :method => :delete %></li>
-                <% else %>
-                    <li><%= link_to 'Login'.html_safe, kaui_engine.new_user_session_path %></li>
-                    <li><%= link_to 'Sign-up'.html_safe, kaui_engine.new_user_registration_path %></li>
-                <% end %>
-              </ul>
-            </nav>
-          </div>
+          <% if user_signed_in? -%>
+            <div class="col-xs-6 text-right">
+              <nav>
+                <ul class="account-menu">
+                  <li><%= session[:kb_tenant_name].present? ? "#{current_user.kb_username} / #{session[:kb_tenant_name]}" : current_user.kb_username %></li>
+                  <li><%= link_to 'Sign Out', kaui_engine.destroy_user_session_path, :method => :delete %></li>
+                </ul>
+              </nav>
+            </div>
+          <% end %>
 
         </div>
       </div>
