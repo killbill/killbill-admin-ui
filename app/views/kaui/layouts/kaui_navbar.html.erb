@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-md-6">
+      <div class="<%= user_signed_in? ? 'col-md-6 col-xs-6' : 'col-expanded-centered' %>">
         <%= link_to kaui_engine.home_path do %>
           <%= image_tag('kaui/logo.png', :alt => 'Kill Bill Logo', class: 'logo') %>
         <% end %>
@@ -21,12 +21,13 @@
         <% end %>
       </div>
 
-      <div class="col-md-6">
-        <div class="row">
+      <% if user_signed_in? %>
+        <div class="col-md-6">
+          <div class="row">
 
-          <div id="main-menu" class="col-xs-6">
+            <div id="main-menu" class="col-xs-6">
 
-            <% if user_signed_in? && tenant_selected? -%>
+              <% if user_signed_in? && tenant_selected? -%>
                 <div class="tag-bar tag-bar-no-border">
 
                   <div class="tag-select" onclick="void(0)">
@@ -40,34 +41,33 @@
                   </div>
 
                   <% if can? :view, Kaui::AdminTenant %>
-                      <div class="tag-select" onclick="void(0)">
-                        <span><i class="fa fa-cogs"></i><i class="fa fa-caret-down"></i></span>
+                    <div class="tag-select" onclick="void(0)">
+                      <span><i class="fa fa-cogs"></i><i class="fa fa-caret-down"></i></span>
 
-                        <div class="tag-select-box">
-                          <%= link_to 'Users', kaui_engine.admin_allowed_users_path %>
-                          <%= link_to 'Tenants', kaui_engine.admin_tenants_path %>
-                        </div>
+                      <div class="tag-select-box">
+                        <%= link_to 'Users', kaui_engine.admin_allowed_users_path %>
+                        <%= link_to 'Tenants', kaui_engine.admin_tenants_path %>
                       </div>
+                    </div>
                   <% end %>
 
                 </div>
-            <% end %>
+              <% end %>
+
+            </div>
+
+              <div class="col-xs-6 text-right">
+                <nav>
+                  <ul class="account-menu">
+                    <li><%= session[:kb_tenant_name].present? ? "#{current_user.kb_username} / #{session[:kb_tenant_name]}" : current_user.kb_username %></li>
+                    <li><%= link_to 'Sign Out', kaui_engine.destroy_user_session_path, :method => :delete %></li>
+                  </ul>
+                </nav>
+              </div>
 
           </div>
-
-          <% if user_signed_in? -%>
-            <div class="col-xs-6 text-right">
-              <nav>
-                <ul class="account-menu">
-                  <li><%= session[:kb_tenant_name].present? ? "#{current_user.kb_username} / #{session[:kb_tenant_name]}" : current_user.kb_username %></li>
-                  <li><%= link_to 'Sign Out', kaui_engine.destroy_user_session_path, :method => :delete %></li>
-                </ul>
-              </nav>
-            </div>
-          <% end %>
-
         </div>
-      </div>
+      <% end %>
 
     </div>
   </div>
