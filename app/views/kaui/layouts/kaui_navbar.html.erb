@@ -1,74 +1,102 @@
 <header class="main-header">
-  <div class="container">
-    <div class="row">
-
-      <div class="<%= user_signed_in? ? 'col-md-6 col-xs-6' : 'col-expanded-centered' %>">
-        <%= link_to kaui_engine.home_path do %>
-          <%= image_tag('kaui/logo.png', :alt => 'Kill Bill Logo', class: 'logo') %>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <% if signed_in? %>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
         <% end %>
+        <%= link_to '', kaui_engine.home_path, class: 'logo navbar-brand' %>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-menu">
 
         <% if user_signed_in? -%>
             <% if tenant_selected? %>
-                <%= form_tag kaui_engine.search_path, :role => 'search', :id => 'searchform', :method => 'get' do %>
-                    <%= text_field_tag :q, '', :placeholder => 'Search' %>
-                    <%= submit_tag 'Search' %>
+              <%= form_tag kaui_engine.search_path,
+                class: 'navbar-form navbar-left',
+                role: 'search', id: 'searchform', method: 'get' do %>
+                <div>
+                    <%= text_field_tag :q, '', :placeholder => 'Search', class: 'form-control' %>
+                  </div>
+                  <%= submit_tag 'Search' %>
                 <% end %>
             <% end %>
 
-            <% if can?(:create, Kaui::Account) && tenant_selected? %>
-                <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Create new account'.html_safe, kaui_engine.new_account_path %>
-            <% end %>
-        <% end %>
-      </div>
-
-      <% if user_signed_in? %>
-        <div class="col-md-6">
-          <div class="row">
-
-            <div id="main-menu" class="col-xs-6">
-
-              <% if user_signed_in? && tenant_selected? -%>
-                <div class="tag-bar tag-bar-no-border">
-
-                  <div class="tag-select" onclick="void(0)">
-                    <span><i class="fa fa-tags"></i><i class="fa fa-caret-down"></i></span>
-
-                    <div class="tag-select-box">
-                      <%= link_to 'Tags', kaui_engine.tags_path %>
-                      <%= link_to 'Tag definitions', kaui_engine.tag_definitions_path %>
-                      <%= link_to 'Custom Fields', kaui_engine.custom_fields_path %>
-                    </div>
-                  </div>
-
-                  <% if can? :view, Kaui::AdminTenant %>
-                    <div class="tag-select" onclick="void(0)">
-                      <span><i class="fa fa-cogs"></i><i class="fa fa-caret-down"></i></span>
-
-                      <div class="tag-select-box">
-                        <%= link_to 'Users', kaui_engine.admin_allowed_users_path %>
-                        <%= link_to 'Tenants', kaui_engine.admin_tenants_path %>
-                      </div>
-                    </div>
+            <ul class="nav navbar-nav">
+              <% if can?(:create, Kaui::Account) && tenant_selected? %>
+                <li>
+                  <%= link_to kaui_engine.new_account_path do %>
+                    <span class="fa fa-plus-square"></span>&nbsp;Create new account
                   <% end %>
-
-                </div>
+                </li>
               <% end %>
+              <% if tenant_selected? %>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                    role="button" aria-haspopup="true" aria-expanded="false">
+                    <span class="visible-xs icon-label">Tags</span>
+                    <span class="fa fa-tags"></span>
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <%= link_to 'Tags', kaui_engine.tags_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'Tag definitions', kaui_engine.tag_definitions_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'Custom Fields', kaui_engine.custom_fields_path %>
+                    </li>
+                  </ul>
+                </li>
+                <% if can? :view, Kaui::AdminTenant %>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                      role="button" aria-haspopup="true" aria-expanded="false">
+                      <span class="visible-xs icon-label">Settings</span>
+                      <span class="fa fa-cogs"></span>
+                      <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <%= link_to 'Users', kaui_engine.admin_allowed_users_path %>
+                      </li>
+                      <li>
+                        <%= link_to 'Tenants', kaui_engine.admin_tenants_path %>
+                      </li>
+                    </ul>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
 
-            </div>
+            <ul class="navbar navbar-right">
+              <li class="dropdown navbar-right">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                  role="button" aria-haspopup="true" aria-expanded="false">
+                  <span class="visible-xs icon-label">User</span>
+                  <span class="fa fa-user"></span>
+                  <span class="caret"></span>
 
-              <div class="col-xs-6 text-right">
-                <nav>
-                  <ul class="account-menu">
+                  <ul class="dropdown-menu">
                     <li><%= session[:kb_tenant_name].present? ? "#{current_user.kb_username} / #{session[:kb_tenant_name]}" : current_user.kb_username %></li>
                     <li><%= link_to 'Sign Out', kaui_engine.destroy_user_session_path, :method => :delete %></li>
                   </ul>
-                </nav>
-              </div>
+                </a>
+              </li>
+            </ul>
 
-          </div>
-        </div>
-      <% end %>
+        <% end %>
 
+
+      </div>
     </div>
-  </div>
+
+  </nav>
 </header>

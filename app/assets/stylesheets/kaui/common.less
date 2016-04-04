@@ -360,9 +360,13 @@ table.subtitle {
 }
 
 .container {
-    max-width: 80%;
+    max-width: 90%;
     width: 100%;
     margin: 0 auto;
+
+    @media(@phone){
+      max-width: 95%;
+    }
 }
 
 .text-uppercase {
