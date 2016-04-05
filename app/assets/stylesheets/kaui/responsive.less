@@ -33,4 +33,37 @@
     .collapse.in{
       display:block !important;
   }
+
+  .navbar-right .dropdown-menu {
+    left:auto;
+    right: 0
+  }
+
+  .navbar-right .dropdown-menu-left {
+    left: 0;
+    right: auto
+  }
+
+  .navbar-nav .open .dropdown-menu {
+    position:static;
+    float: none;
+    width: auto;
+    margin-top: 0;
+    background-color: transparent;
+    border: 0;
+    box-shadow: none
+  }
+
+  .navbar-nav .open .dropdown-menu>li>a,.navbar-nav .open .dropdown-menu .dropdown-header {
+    padding: 5px 15px 5px 25px
+  }
+
+  .navbar-nav .open .dropdown-menu>li>a {
+    line-height: 20px
+  }
+
+  .navbar-nav .open .dropdown-menu>li>a:hover,.navbar-nav .open .dropdown-menu>li>a:focus {
+    background-image: none
+  }
+
 }
