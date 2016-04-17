@@ -80,15 +80,17 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                   role="button" aria-haspopup="true" aria-expanded="false">
-                  <span class="visible-xs icon-label">User</span>
+                  <span class="icon-label">
+                    <%= session[:kb_tenant_name].present? ? "#{current_user.kb_username} / #{session[:kb_tenant_name]}" : current_user.kb_username %>
+                  </span>
+
                   <span class="fa fa-user"></span>
                   <span class="caret"></span>
-
-                  <ul class="dropdown-menu">
-                    <li><%= session[:kb_tenant_name].present? ? "#{current_user.kb_username} / #{session[:kb_tenant_name]}" : current_user.kb_username %></li>
-                    <li><%= link_to 'Sign Out', kaui_engine.destroy_user_session_path, :method => :delete %></li>
-                  </ul>
                 </a>
+
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Sign Out', kaui_engine.destroy_user_session_path, :method => :delete %></li>
+                </ul>
               </li>
             </ul>
 
