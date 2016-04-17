@@ -1,5 +1,5 @@
 <header class="main-header">
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default nav-container">
     <div class="container-fluid">
       <div class="navbar-header">
         <% if signed_in? %>
@@ -30,7 +30,7 @@
             <ul class="nav navbar-nav">
               <% if can?(:create, Kaui::Account) && tenant_selected? %>
                 <li>
-                  <%= link_to kaui_engine.new_account_path do %>
+                  <%= link_to kaui_engine.new_account_path, class: 'highlight' do %>
                     <span class="fa fa-plus-square"></span>&nbsp;Create new account
                   <% end %>
                 </li>

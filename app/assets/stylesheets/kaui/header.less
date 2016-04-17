@@ -2,12 +2,17 @@
  * Header Layout
  */
 .main-header {
-  background: #fff;
+  .nav-container{
+    background: #fff;
+    padding: 25px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 40px;
+    padding-left: 1em;
+  }
 
-  nav.navbar{
+  .container-fluid{
     max-width: 90%;
-    margin: 1em auto 1.8em;
-    border: none;
+    margin: 0 auto;
   }
 
   .logo{
@@ -22,8 +27,13 @@
     }
   }
 
+  li{
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
+
   #searchform {
-    margin: 0;
+    margin: 0 1em;
     position: relative;
 
     @media (@phone) {
@@ -32,6 +42,7 @@
 
     input[type="text"] {
       width: 100%;
+      border-radius: 0 !important;
     }
 
     input[type="submit"] {
@@ -62,6 +73,10 @@
       text-align: center;
       display: block;
     }
+  }
+
+  a.highlight{
+    color: #00919D !important;
   }
 
   .dropdown-menu{
@@ -98,9 +113,8 @@
         }
 
         a {
-          color: rgb(119, 119, 119);
+          color: #515151 !important;
           padding: 0 10px;
-          border-right: 1px solid #ccc;
 
           &:hover {
             color: #000;
