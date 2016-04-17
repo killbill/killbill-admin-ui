@@ -3,6 +3,11 @@
  */
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,900,300);
 
+html {
+  font-size: 16px;
+  min-height: 100%;
+}
+
 body {
     background: #f9f9f9;
     animation: all 0.5s;
@@ -355,9 +360,13 @@ table.subtitle {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 90%;
     width: 100%;
     margin: 0 auto;
+
+    @media(@phone){
+      max-width: 95%;
+    }
 }
 
 .text-uppercase {
@@ -369,12 +378,12 @@ table.subtitle {
 }
 
 .column-block {
-    padding: 30px 15px;
-    border-radius: 20px;
+    padding: 2rem 1rem;
+    border-radius: 1.2rem;
     border: 1px solid #ccc;
     background: #fff;
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 3.1rem;
 
     &.square {
         border-radius: 0;
@@ -535,4 +544,9 @@ table.subtitle {
 hr.breathe {
     margin-top: 45px;
     margin-bottom: 45px;
+}
+
+.col-expanded-centered{
+  text-align: center;
+  width: 100%;
 }
