@@ -134,3 +134,76 @@
     display: inline-block !important;
   }
 }
+
+.title-nav-area {
+  background: #c7e4e7;
+  margin: 0 0 30px;
+  font-size: 0;
+  margin-top: -40px;
+
+  .container {
+    @media (@phone) {
+      text-align: center;
+      width: 100%;
+      padding: 0 15px;
+    }
+  }
+
+  a {
+    display: inline-block;
+    padding: 12px 40px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #666666;
+    margin: 0;
+    border-left: 1px solid #fff;
+    line-height: 12px;
+    background: transparent;
+    vertical-align: top;
+
+    @media (@phone) {
+      width: 30%;
+      padding: 12px 0;
+      text-align: center;
+      border-bottom: 1px solid #fff;
+
+      &:nth-of-type(4), &:nth-of-type(5) {
+        width: 45%;
+      }
+
+      &:nth-of-type(3), &:nth-of-type(5) {
+        border-right: 1px solid #fff;
+      }
+    }
+
+    @media (@smphone) {
+      width: 50%;
+      border: 0;
+
+      &:nth-of-type(2), &:nth-of-type(4), &:nth-of-type(5) {
+        border-right: 1px solid #fff;
+      }
+
+      &:nth-of-type(3) {
+        border-right: 0;
+      }
+
+      &:nth-of-type(4) {
+        width: 50%;
+      }
+
+      &:nth-of-type(5) {
+        width: 100%;
+      }
+    }
+
+    &:hover, &.current {
+      color: #fff;
+      background: #00919d;
+    }
+
+    &:last-of-type {
+      border-right: 1px solid #fff;
+    }
+  }
+}
