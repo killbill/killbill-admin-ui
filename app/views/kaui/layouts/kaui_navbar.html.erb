@@ -14,18 +14,28 @@
             <% end %>
 
             <% if can?(:create, Kaui::Account) && tenant_selected? %>
-                <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Create new account'.html_safe, kaui_engine.new_account_path %>
+              <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Create new account'.html_safe, kaui_engine.new_account_path %>
             <% end %>
         <% end %>
       </div>
 
-      <div class="col-md-6">
+      <div class="navigation">
         <div class="row">
 
-          <div id="main-menu" class="col-xs-6">
+          <div id="main-menu" class="col-xs-7">
 
             <% if user_signed_in? && tenant_selected? -%>
                 <div class="tag-bar tag-bar-no-border">
+
+                  <div class="tag-select" onclick="void(0)">
+                    <span><i class="fa fa-plug"></i><i class="fa fa-caret-down"></i></span>
+
+                    <div class="tag-select-box">
+                      <%= link_to 'Analytics', '/analytics' %>
+                      <%= link_to 'OSGI Web', '#' %>
+                      <%= link_to 'Console', '#' %>
+                    </div>
+                  </div>
 
                   <div class="tag-select" onclick="void(0)">
                     <span><i class="fa fa-tags"></i><i class="fa fa-caret-down"></i></span>
@@ -53,7 +63,7 @@
 
           </div>
 
-          <div class="col-xs-6 text-right">
+          <div class="col-xs-5 text-right">
             <nav>
               <ul class="account-menu">
                 <% if user_signed_in? -%>
