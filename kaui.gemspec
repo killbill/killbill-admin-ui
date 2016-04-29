@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'money-rails', '~> 1.3.0'
   s.add_dependency 'd3_rails', '~> 3.2.8'
   s.add_dependency 'killbill-client', '~> 0.22'
-  s.add_dependency 'less-rails-bootstrap', '~> 3.3.0'
+  s.add_dependency 'twitter-bootstrap-rails', '~> 3.2.0'
   s.add_dependency 'bootstrap-datepicker-rails', '~> 1.4.0'
   s.add_dependency 'devise', '~> 3.4.1'
   s.add_dependency 'cancan', '~> 1.6.10'
