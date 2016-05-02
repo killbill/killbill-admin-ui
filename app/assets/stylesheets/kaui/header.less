@@ -8,8 +8,14 @@ header.kaui-navbar {
     margin-bottom: 40px;
 
     .main-links, .navigation{
-      .make-md-column(6);
       .make-sm-column(6);
+      .make-md-column(6);
+
+      @media(@tablet){
+        width: 100%;
+        float: none;
+      }
+
       display: table;
     }
 
