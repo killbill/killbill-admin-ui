@@ -3,7 +3,7 @@
     <div class="row">
 
       <div class="main-links">
-        <%= link_to image_tag('kaui/logo.png', :alt => 'Kill Bill Logo'), kaui_engine.home_path %>
+        <%= link_to image_tag('kaui/logo.png', :alt => 'Kill Bill Logo'), kaui_engine.home_path, class: 'logo' %>
 
         <% if user_signed_in? -%>
             <% if tenant_selected? %>
@@ -14,70 +14,58 @@
             <% end %>
 
             <% if can?(:create, Kaui::Account) && tenant_selected? %>
-              <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Create new account'.html_safe, kaui_engine.new_account_path %>
+              <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Create new account'.html_safe, kaui_engine.new_account_path, class: 'new-account' %>
             <% end %>
         <% end %>
       </div>
 
       <div class="navigation">
-        <div class="row">
 
-          <div id="main-menu" class="col-xs-7">
+        <div id="main-menu" class="dropdown-container">
 
-            <% if user_signed_in? && tenant_selected? -%>
-                <div class="tag-bar tag-bar-no-border">
+          <% if user_signed_in? && tenant_selected? -%>
+              <div class="tag-bar tag-bar-no-border">
 
-                  <div class="tag-select" onclick="void(0)">
-                    <span><i class="fa fa-plug"></i><i class="fa fa-caret-down"></i></span>
+                <div class="tag-select" onclick="void(0)">
+                  <span><i class="fa fa-tags"></i><i class="fa fa-caret-down"></i></span>
 
-                    <div class="tag-select-box">
-                      <%= link_to 'Analytics', '/analytics' %>
-                      <%= link_to 'OSGI Web', '#' %>
-                      <%= link_to 'Console', '#' %>
-                    </div>
+                  <div class="tag-select-box">
+                    <%= link_to 'Tags', kaui_engine.tags_path %>
+                    <%= link_to 'Tag definitions', kaui_engine.tag_definitions_path %>
+                    <%= link_to 'Custom Fields', kaui_engine.custom_fields_path %>
                   </div>
-
-                  <div class="tag-select" onclick="void(0)">
-                    <span><i class="fa fa-tags"></i><i class="fa fa-caret-down"></i></span>
-
-                    <div class="tag-select-box">
-                      <%= link_to 'Tags', kaui_engine.tags_path %>
-                      <%= link_to 'Tag definitions', kaui_engine.tag_definitions_path %>
-                      <%= link_to 'Custom Fields', kaui_engine.custom_fields_path %>
-                    </div>
-                  </div>
-
-                  <% if can? :view, Kaui::AdminTenant %>
-                      <div class="tag-select" onclick="void(0)">
-                        <span><i class="fa fa-cogs"></i><i class="fa fa-caret-down"></i></span>
-
-                        <div class="tag-select-box">
-                          <%= link_to 'Users', kaui_engine.admin_allowed_users_path %>
-                          <%= link_to 'Tenants', kaui_engine.admin_tenants_path %>
-                        </div>
-                      </div>
-                  <% end %>
-
                 </div>
-            <% end %>
 
-          </div>
+                <% if can? :view, Kaui::AdminTenant %>
+                    <div class="tag-select" onclick="void(0)">
+                      <span><i class="fa fa-cogs"></i><i class="fa fa-caret-down"></i></span>
 
-          <div class="col-xs-5 text-right">
-            <nav>
-              <ul class="account-menu">
-                <% if user_signed_in? -%>
-                    <li><%= session[:kb_tenant_name].present? ? "#{current_user.kb_username} / #{session[:kb_tenant_name]}" : current_user.kb_username %></li>
-                    <li><%= link_to 'Sign Out', kaui_engine.destroy_user_session_path, :method => :delete %></li>
-                <% else %>
-                    <li><%= link_to 'Login'.html_safe, kaui_engine.new_user_session_path %></li>
-                    <li><%= link_to 'Sign-up'.html_safe, kaui_engine.new_user_registration_path %></li>
+                      <div class="tag-select-box">
+                        <%= link_to 'Users', kaui_engine.admin_allowed_users_path %>
+                        <%= link_to 'Tenants', kaui_engine.admin_tenants_path %>
+                      </div>
+                    </div>
                 <% end %>
-              </ul>
-            </nav>
-          </div>
+
+              </div>
+          <% end %>
 
         </div>
+
+        <div class="account">
+          <nav>
+            <ul class="account-menu">
+              <% if user_signed_in? -%>
+                  <li><%= session[:kb_tenant_name].present? ? "#{current_user.kb_username} / #{session[:kb_tenant_name]}" : current_user.kb_username %></li>
+                  <li><%= link_to 'Sign Out', kaui_engine.destroy_user_session_path, :method => :delete %></li>
+              <% else %>
+                  <li><%= link_to 'Login'.html_safe, kaui_engine.new_user_session_path %></li>
+                  <li><%= link_to 'Sign-up'.html_safe, kaui_engine.new_user_registration_path %></li>
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+
       </div>
 
     </div>
