@@ -19,7 +19,7 @@ class Kaui::ChargesController < Kaui::EngineController
     charge = Kaui::InvoiceItem.new(params.require(:invoice_item).delete_if { |key, value| value.blank? })
     charge.account_id ||= params.require(:account_id)
 
-    charge = charge.create(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    charge = charge.create(true, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
     redirect_to kaui_engine.account_invoice_path(charge.account_id, charge.invoice_id), :notice => 'Charge was successfully created'
   end
 end

@@ -10,7 +10,7 @@ class Kaui::InvoiceItemsControllerTest < Kaui::FunctionalTestHelper
     invoice_id = SecureRandom.uuid.to_s
     get :edit, :account_id => @account.account_id, :id => @invoice_item.invoice_item_id, :invoice_id => invoice_id
     assert_redirected_to account_path(@account.account_id)
-    assert_equal "Error while communicating with the Kill Bill server: Error 500: Object id=#{invoice_id} type=INVOICE doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{invoice_id} type=INVOICE doesn't exist!", flash[:error]
 
     invoice_item_id = SecureRandom.uuid.to_s
     get :edit, :account_id => @account.account_id, :id => invoice_item_id, :invoice_id => @invoice_item.invoice_id
@@ -32,10 +32,11 @@ class Kaui::InvoiceItemsControllerTest < Kaui::FunctionalTestHelper
             :account_id => @account.account_id,
             :invoice_id => invoice_id,
             :invoice_item_id => @invoice_item.invoice_item_id,
-            :amount => 5.34
+            :amount => 5.34,
+            :currency => :USD
         }
     assert_template :edit
-    assert_equal "Error while adjusting invoice item: Error 500: Object id=#{invoice_id} type=INVOICE doesn't exist!", flash[:error]
+    assert_equal "Error while adjusting invoice item: Error 404: Object id=#{invoice_id} type=INVOICE doesn't exist!", flash[:error]
   end
 
   test 'should adjust invoice item' do
@@ -45,7 +46,8 @@ class Kaui::InvoiceItemsControllerTest < Kaui::FunctionalTestHelper
             :account_id => @account.account_id,
             :invoice_id => @invoice_item.invoice_id,
             :invoice_item_id => @invoice_item.invoice_item_id,
-            :amount => 5.34
+            :amount => 5.34,
+            :currency => :USD
         }
     assert_redirected_to account_invoice_path(@account.account_id, assigns(:invoice_item).invoice_id)
     assert_equal 'Adjustment item was successfully created', flash[:notice]

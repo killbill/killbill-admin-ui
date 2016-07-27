@@ -58,7 +58,7 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
 
     payment_method = Kaui::PaymentMethod.find_by_id(payment_method_id, false, options_for_klient)
     begin
-      Kaui::PaymentMethod.destroy(payment_method_id, params[:set_auto_pay_off], current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+      Kaui::PaymentMethod.destroy(payment_method_id, params[:set_auto_pay_off], false, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       redirect_to kaui_engine.account_path(payment_method.account_id), :notice => "Payment method #{payment_method_id} successfully deleted"
     rescue => e
       flash[:error] = "Error while deleting payment method #{payment_method_id}: #{as_string(e)}"

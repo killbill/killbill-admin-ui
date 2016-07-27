@@ -27,10 +27,10 @@ module Kaui
       @account2          = create_account(@tenant)
       @bundle            = create_bundle(@account, @tenant)
       @invoice_item      = create_charge(@account, @tenant)
-      @paid_invoice_item = create_charge(@account, @tenant)
+      @paid_invoice_item = create_charge(@account, @tenant, true)
       @bundle_invoice    = @account.invoices(true, build_options(@tenant)).first
       @payment_method    = create_payment_method(true, @account, @tenant)
-      @cba               = create_cba(@invoice_item.invoice_id, @account, @tenant)
+      @cba               = create_cba(@invoice_item.invoice_id, @account, @tenant, true)
       @payment           = create_payment(@paid_invoice_item, @account, @tenant)
 
       if setup_tenant_key_secret
@@ -126,7 +126,7 @@ module Kaui
     end
 
     # Return the created external charge
-    def create_charge(account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
+    def create_charge(account = nil, tenant = nil, auto_commit=false, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
       tenant  = create_tenant(user, reason, comment) if tenant.nil?
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
 
@@ -135,13 +135,13 @@ module Kaui
       invoice_item.currency   = account.currency
       invoice_item.amount     = 123.98
 
-      invoice_item.create(user, reason, comment, build_options(tenant, username, password))
+      invoice_item.create(auto_commit, user, reason, comment, build_options(tenant, username, password))
     rescue
       nil
     end
 
     # Return the created credit
-    def create_cba(invoice_id = nil, account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
+    def create_cba(invoice_id = nil, account = nil, tenant = nil,  auto_commit=false, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
       tenant  = create_tenant(user, reason, comment) if tenant.nil?
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
 
@@ -155,7 +155,7 @@ module Kaui
     def create_payment(invoice_item = nil, account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
       tenant       = create_tenant(user, reason, comment) if tenant.nil?
       account      = create_account(tenant, username, password, user, reason, comment) if account.nil?
-      invoice_item = create_charge(account, tenant, username, password, user, reason, comment) if invoice_item.nil?
+      invoice_item = create_charge(account, tenant, true, username, password, user, reason, comment) if invoice_item.nil?
 
       payment = Kaui::InvoicePayment.new({:account_id => account.account_id, :target_invoice_id => invoice_item.invoice_id, :purchased_amount => invoice_item.amount})
       payment.create(true, user, reason, comment, build_options(tenant, username, password))

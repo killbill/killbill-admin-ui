@@ -7,7 +7,7 @@ class Kaui::Bundle < KillBillClient::Model::Bundle
     end
 
     # Return the active one
-    find_by_external_key(bundle_id_or_key, options)
+    find_by_external_key(bundle_id_or_key, false, options)
   end
 
   def self.list_or_search(search_key = nil, offset = 0, limit = 10, options = {})

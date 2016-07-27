@@ -6,12 +6,12 @@ class Kaui::RefundsControllerTest < Kaui::FunctionalTestHelper
     invoice_id = SecureRandom.uuid.to_s
     get :new, :account_id => @account.account_id, :invoice_id => invoice_id, :payment_id => @payment.payment_id
     assert_redirected_to account_path(@account.account_id)
-    assert_equal "Error while communicating with the Kill Bill server: Error 500: Object id=#{invoice_id} type=INVOICE doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{invoice_id} type=INVOICE doesn't exist!", flash[:error]
 
     payment_id = SecureRandom.uuid.to_s
     get :new, :account_id => @account.account_id, :invoice_id => @paid_invoice_item.invoice_id, :payment_id => payment_id
     assert_redirected_to account_path(@account.account_id)
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Payment #{payment_id} does not exist", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{payment_id} type=PAYMENT doesn't exist!", flash[:error]
   end
 
   test 'should get new' do

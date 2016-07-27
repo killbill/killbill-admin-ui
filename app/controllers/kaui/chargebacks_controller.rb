@@ -1,7 +1,7 @@
 class Kaui::ChargebacksController < Kaui::EngineController
 
   def new
-    payment = Kaui::Payment::find_by_id(params.require(:payment_id), options_for_klient)
+    payment = Kaui::Payment::find_by_id(params.require(:payment_id), false, false, options_for_klient)
     @chargeback = Kaui::Chargeback.new(:payment_id => payment.payment_id,
                                        :amount => payment.paid_amount_to_money.to_f,
                                        :currency => payment.currency)

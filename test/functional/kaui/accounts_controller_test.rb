@@ -23,7 +23,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     account_id = SecureRandom.uuid.to_s
     get :show, :account_id => account_id
     assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Account does not exist for id #{account_id}", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
   end
 
   test 'should find account by id' do
@@ -97,7 +97,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     account_id = SecureRandom.uuid.to_s
     put :set_default_payment_method, :account_id => account_id, :payment_method_id => @payment_method.payment_method_id
     assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Account does not exist for id #{account_id}", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
   end
 
   test 'should set default payment method' do
@@ -109,7 +109,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     account_id = SecureRandom.uuid.to_s
     put :toggle_email_notifications, :account_id => account_id, :is_notified => true
     assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Account does not exist for id #{account_id}", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
   end
 
   test 'should toggle email notifications' do
@@ -121,7 +121,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     account_id = SecureRandom.uuid.to_s
     post :pay_all_invoices, :account_id => account_id
     assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Account does not exist for id #{account_id}", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
   end
 
   test 'should pay all invoices' do

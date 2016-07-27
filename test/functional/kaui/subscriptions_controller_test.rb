@@ -6,7 +6,7 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
     bundle_id = SecureRandom.uuid.to_s
     get :new, :bundle_id => bundle_id, :account_id => @account.account_id, :product_category => 'ADD_ON'
     assert_redirected_to account_path(@account.account_id)
-    assert_equal "Error while communicating with the Kill Bill server: Error 500: Object id=#{bundle_id} type=BUNDLE doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{bundle_id} type=BUNDLE doesn't exist!", flash[:error]
   end
 
   test 'should get new page for base plan' do
@@ -75,7 +75,7 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
     subscription_id = SecureRandom.uuid.to_s
     get :edit, :id => subscription_id
     assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 500: Object id=#{subscription_id} type=SUBSCRIPTION doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{subscription_id} type=SUBSCRIPTION doesn't exist!", flash[:error]
   end
 
   test 'should get edit page' do
@@ -94,7 +94,7 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
     subscription_id = SecureRandom.uuid.to_s
     post :update, :id => subscription_id, :plan_name => 'super-monthly'
     assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 500: Object id=#{subscription_id} type=SUBSCRIPTION doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{subscription_id} type=SUBSCRIPTION doesn't exist!", flash[:error]
 
     post :update, :id => @bundle.subscriptions.first.subscription_id, :plan_name => 'not-exists'
     assert_redirected_to home_path
@@ -112,14 +112,14 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
     subscription_id = SecureRandom.uuid.to_s
     delete :destroy, :id => subscription_id, :plan_name => 'super-monthly'
     assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 500: Object id=#{subscription_id} type=SUBSCRIPTION doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{subscription_id} type=SUBSCRIPTION doesn't exist!", flash[:error]
   end
 
   test 'should handle errors during reinstate' do
     subscription_id = SecureRandom.uuid.to_s
     put :reinstate, :id => subscription_id
     assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 500: Object id=#{subscription_id} type=SUBSCRIPTION doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{subscription_id} type=SUBSCRIPTION doesn't exist!", flash[:error]
   end
 
   test 'should cancel and reinstate subscription' do
