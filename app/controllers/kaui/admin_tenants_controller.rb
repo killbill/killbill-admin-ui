@@ -72,6 +72,10 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   def show
     @tenant = safely_find_tenant_by_id(params[:id])
     @allowed_users = @tenant.kaui_allowed_users & retrieve_allowed_users_for_current_user
+
+    @billing_period = [:DAILY, :WEEKLY, :BIWEEKLY, :THIRTY_DAYS, :MONTHLY, :QUARTERLY, :BIANNUAL, :ANNUAL, :BIENNIAL ]
+    @time_units = [:UNLIMITED, :DAYS, :MONTHS, :YEARS]
+    @simple_plan = Kaui::SimplePlan.new
   end
 
   def upload_catalog
@@ -87,6 +91,20 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     Kaui::AdminTenant.upload_catalog(catalog_xml, options[:username], nil, comment, options)
 
     redirect_to admin_tenant_path(current_tenant.id), :notice => 'Catalog was successfully uploaded'
+  end
+
+  def create_simple_plan
+
+    current_tenant = safely_find_tenant_by_id(params[:id])
+
+    options = tenant_options_for_client
+    options[:api_key] = current_tenant.api_key
+    options[:api_secret] = current_tenant.api_secret
+
+    simple_plan =  KillBillClient::Model::SimplePlanAttributes.new(params.require(:simple_plan).delete_if { |key, value| value.blank? })
+    Kaui::Catalog.add_tenant_catalog_simple_plan(simple_plan, options[:username], nil, comment, options)
+
+    redirect_to admin_tenant_path(current_tenant.id), :notice => 'Catalog plan was successfully added'
   end
 
   def upload_overdue_config

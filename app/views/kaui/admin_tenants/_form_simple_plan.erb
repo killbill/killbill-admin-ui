@@ -1,0 +1,51 @@
+<%= form_for @simple_plan, :url => {:action => :create_simple_plan}, :html => {:class => 'form-horizontal'} do |f| %>
+
+    <%= f.hidden_field_tag(:id, @tenant.id) %>
+    <div class="form-group">
+      <%= f.label :plan_id, 'Plan ID', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-4">
+        <%= f.text_field :plan_id, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :product_name, 'Product Name', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-4">
+        <%= f.text_field :product_name, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :amount, 'Amount', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-4">
+        <%= f.text_field :amount, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :currency, 'Currency', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-4">
+        <%= f.text_field :currency, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :billing_period, 'Billing Period', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-4">
+        <%= f.select :billing_period, options_for_select(@billing_period, :MONTHLY), :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :trial_length, 'Trial Length', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-4">
+        <%= f.text_field :trial_length, :value => 0, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :trial_time_unit, 'Trial Time Unit', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-4">
+        <%= f.select :trial_time_unit, options_for_select(@time_units, :UNLIMITED), :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <%= submit_tag 'Save', :class => 'btn btn-default' %>
+      </div>
+    </div>
+<% end %>

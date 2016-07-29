@@ -62,131 +62,28 @@
 <% end %>
 
 <% if can? :config_upload, Kaui::AdminTenant %>
-    <h3>Tenant operations</h3>
 
-    <%= form_tag({:action => :upload_catalog}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
-        <%= hidden_field_tag(:id, @tenant.id) %>
 
-        <div class="form-group">
-          <%= label_tag :catalog, 'Catalog', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
-            <%= file_field_tag 'catalog', :class => 'form-control' %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <%= submit_tag 'Upload', :class => 'btn btn-default' %>
-          </div>
-        </div>
-    <% end %>
-    <hr/>
-    <%= form_tag({:action => :upload_overdue_config}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
-        <%= hidden_field_tag(:id, @tenant.id) %>
+    <div class="container">
+      <ul class="nav nav-tabs">
+        <li class="nav active"><a href="#CatalogConfig" data-toggle="tab">Catalog Config</a></li>
+        <li class="nav"><a href="#OverdueConfig" data-toggle="tab">Overdue Config</a></li>
+        <li class="nav"><a href="#InvoiceTemplate" data-toggle="tab">Invoice Template</a></li>
+        <li class="nav"><a href="#InvoiceTranslation" data-toggle="tab">Invoice Translation</a></li>
+        <li class="nav"><a href="#CatalogTranslation" data-toggle="tab">Catalog Translation</a></li>
+        <li class="nav"><a href="#PluginConfig" data-toggle="tab">Plugin Config</a></li>
+      </ul>
 
-        <div class="form-group">
-          <%= label_tag :overdue, 'Overdue Config', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
-            <%= file_field_tag 'overdue', :class => 'form-control' %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <%= submit_tag 'Upload', :class => 'btn btn-default' %>
-          </div>
-        </div>
-    <% end %>
-    <hr/>
-    <%= form_tag({:action => :upload_invoice_template}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
-        <%= hidden_field_tag(:id, @tenant.id) %>
-
-        <div class="form-group">
-          <%= label_tag :invoice_template, 'Invoice template', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
-            <%= file_field_tag 'invoice_template', :class => 'form-control' %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <div class="checkbox">
-              <label>
-                <%= check_box_tag :manual_pay %>
-                <span>Manual Pay</span>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <%= submit_tag 'Upload', :class => 'btn btn-default' %>
-          </div>
-        </div>
-    <% end %>
-    <hr/>
-    <%= form_tag({:action => :upload_invoice_translation}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
-        <%= hidden_field_tag(:id, @tenant.id) %>
-
-        <div class="form-group">
-          <%= label_tag :invoice_translation, 'Invoice translation', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
-            <%= file_field_tag 'invoice_translation', :class => 'form-control' %>
-          </div>
-        </div>
-        <div class="form-group">
-          <%= label_tag :translation_locale, 'Locale', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
-            <%= text_field_tag :translation_locale, nil, :class => 'form-control' %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <%= submit_tag 'Upload', :class => 'btn btn-default' %>
-          </div>
-        </div>
-    <% end %>
-    <hr/>
-    <%= form_tag({:action => :upload_catalog_translation}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
-        <%= hidden_field_tag(:id, @tenant.id) %>
-
-        <div class="form-group">
-          <%= label_tag :catalog_translation, 'Catalog translation', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
-            <%= file_field_tag 'catalog_translation', :class => 'form-control' %>
-          </div>
-        </div>
-        <div class="form-group">
-          <%= label_tag :translation_locale, 'Locale', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
-            <%= text_field_tag :translation_locale, nil, :class => 'form-control' %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <%= submit_tag 'Upload', :class => 'btn btn-default' %>
-          </div>
-        </div>
-    <% end %>
-    <hr/>
-    <%= form_tag({:action => :upload_plugin_config}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
-        <%= hidden_field_tag(:id, @tenant.id) %>
-
-        <div class="form-group">
-          <%= label_tag :plugin_config, 'Plugin config', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
-            <%= file_field_tag 'plugin_config', :class => 'form-control' %>
-          </div>
-        </div>
-        <div class="form-group">
-          <%= label_tag :plugin_name, 'Plugin name', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
-            <%= text_field_tag :plugin_name, nil, :class => 'form-control' %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <%= submit_tag 'Upload', :class => 'btn btn-default' %>
-          </div>
-        </div>
-    <% end %>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <%= render :partial => 'form_catalog' %>
+        <%= render :partial => 'form_overdue' %>
+        <%= render :partial => 'form_invoice_template' %>
+        <%= render :partial => 'form_invoice_translation' %>
+        <%= render :partial => 'form_catalog_translation' %>
+        <%= render :partial => 'form_plugin_config' %>
+      </div>
+    </div>
 <% end %>
 
 <%= javascript_tag do %>
