@@ -53,33 +53,16 @@
 
 <%= javascript_tag do %>
 
-function hideCurrency(currency) {
-    var class_name = ".plan_currency_" + currency;
-    $(class_name).hide();
-}
 
-function showCurrency(currency) {
-    var class_name = ".plan_currency_" + currency;
-    $(class_name).show();
-}
-
-function selectCurrency() {
-    var currencies_opt = $("#select_currencies option");
-    res= [];
-    for (var i = 0; i < currencies_opt.length; i++) {
-        if (currencies_opt[i].selected) {
-            showCurrency(currencies_opt[i].value);
-        } else {
-            hideCurrency(currencies_opt[i].value);
-        }
-    }
-    return res;
+function displayAmountsForCurrency() {
+    $('[class^="plan_currency_"]').hide();
+    $("[class^=plan_currency_" + $("#select_currencies option").filter(function(idx, value) { return value.selected; })[0].value + "]").show();
 }
 
 $(document).ready(function() {
-    selectCurrency();
+    displayAmountsForCurrency();
     $("#select_currencies").change(function() {
-        selectCurrency();
+        displayAmountsForCurrency();
     });
 });
 <% end %>
