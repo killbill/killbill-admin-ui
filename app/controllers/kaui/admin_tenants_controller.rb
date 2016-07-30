@@ -73,10 +73,19 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     @tenant = safely_find_tenant_by_id(params[:id])
     @allowed_users = @tenant.kaui_allowed_users & retrieve_allowed_users_for_current_user
 
+    options = tenant_options_for_client
+    options[:api_key] = @tenant.api_key
+    options[:api_secret] = @tenant.api_secret
+
+    latest_catalog = get_latest_catalog(options)
+
+    @currencies = latest_catalog.currencies
+    @existing_simple_plans = build_existing_simple_plans(latest_catalog)
     @billing_period = [:DAILY, :WEEKLY, :BIWEEKLY, :THIRTY_DAYS, :MONTHLY, :QUARTERLY, :BIANNUAL, :ANNUAL, :BIENNIAL ]
     @time_units = [:UNLIMITED, :DAYS, :MONTHS, :YEARS]
     @simple_plan = Kaui::SimplePlan.new
   end
+
 
   def upload_catalog
     current_tenant = safely_find_tenant_by_id(params[:id])
@@ -202,6 +211,52 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   private
+
+
+  def get_latest_catalog(options)
+    catalogs = KillBillClient::Model::Catalog.get_tenant_catalog('json', nil, options)
+    catalogs.sort { |l, r| l.effective_date <=> r.effective_date }[catalogs.length - 1]
+  end
+
+  def build_existing_simple_plans(catalog)
+
+    tmp = catalog.products.map do |p|
+      p.plans.each do |plan|
+        class << plan
+          attr_accessor :product
+        end
+        plan.product = p.name;
+      end
+    end.flatten!
+
+    selected = tmp.select { |p| p.phases.length.to_i <= 2 && p.phases[p.phases.length - 1].type == "EVERGREEN" }
+
+    currencies = catalog.currencies
+
+    result = []
+    selected.each do |plan|
+      has_trial = plan.phases[0].type == 'TRIAL'
+
+      simple_plan = KillBillClient::Model::SimplePlanAttributes.new
+
+      # Embellish SimplePlanAttributes to contain a map currency -> amount (required in the view)
+      class << simple_plan
+        attr_accessor :prices
+      end
+      simple_plan.prices = plan.phases[-1].prices.inject({}) { |r, e| r[e.currency] = e.value; r }
+
+      simple_plan.plan_id = plan.name
+      simple_plan.product_name = plan.product
+      simple_plan.currency = currencies[0]
+      simple_plan.amount = simple_plan.prices[currencies[0]]
+      simple_plan.billing_period = plan.billing_period
+      simple_plan.trial_length = has_trial ? plan.phases[0].duration.number : 0
+      simple_plan.trial_time_unit = has_trial ? plan.phases[0].duration.unit : "N/A"
+
+      result << simple_plan
+    end
+    result
+  end
 
   def safely_find_tenant_by_id(tenant_id)
     tenant = Kaui::Tenant.find_by_id(tenant_id)

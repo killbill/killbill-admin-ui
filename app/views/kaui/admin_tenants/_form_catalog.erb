@@ -1,9 +1,40 @@
 <div class="tab-pane fade in active" id="CatalogConfig">
   <hr/>
-
-
+  <table id="existing-plans-for-tenants" class="table table-condensed">
+    <thead>
+    <tr>
+      <th>Plan Id</th>
+      <th>Product</th>
+      <th>Billing Period</th>
+      <th>
+        <select id="select_currencies" class="selectpicker show-menu-arrow">
+          <% @currencies.each_with_index do |c, i| %>
+              <option><%= c %></option>
+          <% end %>
+        </select>
+      </th>
+      <th>Trial</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @existing_simple_plans.each do |p| %>
+        <tr>
+          <td><%= p.plan_id %></td>
+          <td><%= p.product_name %></td>
+          <td><%= p.billing_period %></td>
+          <td>
+            <% @currencies.each do |c| %>
+                <span class="plan_currency_<%= c %>"><%= p.prices[c] %></span>
+            <% end %>
+          </td>
+          <td><%= p.trial_length != 0 ? "#{p.trial_length} #{p.trial_time_unit}" : "#{p.trial_time_unit}" %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <hr/>
   <%= render :partial => 'form_simple_plan' %>
-
+  <hr/>
   <%= form_tag({:action => :upload_catalog}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
       <%= hidden_field_tag(:id, @tenant.id) %>
 
@@ -19,3 +50,37 @@
       </div>
   <% end %>
 </div>
+
+<%= javascript_tag do %>
+
+function hideCurrency(currency) {
+    var class_name = ".plan_currency_" + currency;
+    $(class_name).hide();
+}
+
+function showCurrency(currency) {
+    var class_name = ".plan_currency_" + currency;
+    $(class_name).show();
+}
+
+function selectCurrency() {
+    var currencies_opt = $("#select_currencies option");
+    res= [];
+    for (var i = 0; i < currencies_opt.length; i++) {
+        if (currencies_opt[i].selected) {
+            showCurrency(currencies_opt[i].value);
+        } else {
+            hideCurrency(currencies_opt[i].value);
+        }
+    }
+    return res;
+}
+
+$(document).ready(function() {
+    selectCurrency();
+    $("#select_currencies").change(function() {
+        selectCurrency();
+    });
+});
+<% end %>
+
