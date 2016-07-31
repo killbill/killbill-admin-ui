@@ -47,7 +47,7 @@
 <%= javascript_tag do %>
 function displayAmountsForCurrency() {
     $('[class^="plan_currency_"]').hide();
-    $("[class^=plan_currency_" + $("#select_currencies option").filter(function(idx, value) { return value.selected; })[0].value + "]").show();
+    $("[class^=plan_currency_" + $("#select_currencies option:selected" ).text() + "]").show();
 }
 
 $(document).ready(function() {
