@@ -81,9 +81,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     @currencies = latest_catalog.currencies
     @existing_simple_plans = build_existing_simple_plans(latest_catalog)
-    @billing_period = [:DAILY, :WEEKLY, :BIWEEKLY, :THIRTY_DAYS, :MONTHLY, :QUARTERLY, :BIANNUAL, :ANNUAL, :BIENNIAL ]
-    @time_units = [:UNLIMITED, :DAYS, :MONTHS, :YEARS]
-    @simple_plan = Kaui::SimplePlan.new
   end
 
 
@@ -101,6 +98,15 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     redirect_to admin_tenant_path(current_tenant.id), :notice => 'Catalog was successfully uploaded'
   end
+
+  def new_catalog
+    @tenant = safely_find_tenant_by_id(params[:id])
+
+    @billing_period = [:DAILY, :WEEKLY, :BIWEEKLY, :THIRTY_DAYS, :MONTHLY, :QUARTERLY, :BIANNUAL, :ANNUAL, :BIENNIAL ]
+    @time_units = [:UNLIMITED, :DAYS, :MONTHS, :YEARS]
+    @simple_plan = Kaui::SimplePlan.new
+  end
+
 
   def create_simple_plan
 

@@ -1,5 +1,15 @@
-<div class="tab-pane fade in active" id="CatalogConfig">
+<div class="tab-pane fade in active" id="CatalogShow">
   <hr/>
+
+  <h1>Existing Plans
+    <% if can? :config_upload, Kaui::AdminTenant %>
+        <%= link_to '<i class="fa fa-plus-square"></i>'.html_safe,
+                    kaui_engine.admin_tenant_new_catalog_path(:id => 1),
+                    :class => 'btn btn-xs' %>
+    <% end %>
+  </h1>
+
+
   <table id="existing-plans-for-tenants" class="table table-condensed">
     <thead>
     <tr>
@@ -32,28 +42,9 @@
     <% end %>
     </tbody>
   </table>
-  <hr/>
-  <%= render :partial => 'form_simple_plan' %>
-  <hr/>
-  <%= form_tag({:action => :upload_catalog}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
-      <%= hidden_field_tag(:id, @tenant.id) %>
-
-      <div class="form-group">
-        <div class="col-sm-10">
-          <%= file_field_tag 'catalog', :class => 'form-control' %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-10">
-          <%= submit_tag 'Upload', :class => 'btn btn-default' %>
-        </div>
-      </div>
-  <% end %>
 </div>
 
 <%= javascript_tag do %>
-
-
 function displayAmountsForCurrency() {
     $('[class^="plan_currency_"]').hide();
     $("[class^=plan_currency_" + $("#select_currencies option").filter(function(idx, value) { return value.selected; })[0].value + "]").show();
