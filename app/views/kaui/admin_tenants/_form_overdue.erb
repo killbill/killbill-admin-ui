@@ -1,16 +1,18 @@
-<div class="tab-pane fade" id="OverdueConfig">
-  <%= form_tag({:action => :upload_overdue_config}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
-      <%= hidden_field_tag(:id, @tenant.id) %>
+<% if can? :config_upload, Kaui::AdminTenant %>
+    <div class="tab-pane fade" id="OverdueConfig">
+      <%= form_tag({:action => :upload_overdue_config}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
+          <%= hidden_field_tag(:id, @tenant.id) %>
 
-      <div class="form-group">
-        <div class="col-sm-10">
-          <%= file_field_tag 'overdue', :class => 'form-control' %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-10">
-          <%= submit_tag 'Upload', :class => 'btn btn-default' %>
-        </div>
-      </div>
-  <% end %>
-</div>
+          <div class="form-group">
+            <div class="col-sm-10">
+              <%= file_field_tag 'overdue', :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-10">
+              <%= submit_tag 'Upload', :class => 'btn btn-default' %>
+            </div>
+          </div>
+      <% end %>
+    </div>
+<% end %>

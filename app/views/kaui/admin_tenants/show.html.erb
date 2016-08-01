@@ -61,29 +61,26 @@
     <% end %>
 <% end %>
 
-<% if can? :config_upload, Kaui::AdminTenant %>
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="nav active"><a href="#CatalogShow" data-toggle="tab">Catalog Show</a></li>
+    <li class="nav"><a href="#OverdueConfig" data-toggle="tab">Overdue Config</a></li>
+    <li class="nav"><a href="#InvoiceTemplate" data-toggle="tab">Invoice Template</a></li>
+    <li class="nav"><a href="#InvoiceTranslation" data-toggle="tab">Invoice Translation</a></li>
+    <li class="nav"><a href="#CatalogTranslation" data-toggle="tab">Catalog Translation</a></li>
+    <li class="nav"><a href="#PluginConfig" data-toggle="tab">Plugin Config</a></li>
+  </ul>
 
-    <div class="container">
-      <ul class="nav nav-tabs">
-        <li class="nav active"><a href="#CatalogShow" data-toggle="tab">Catalog Show</a></li>
-        <li class="nav"><a href="#OverdueConfig" data-toggle="tab">Overdue Config</a></li>
-        <li class="nav"><a href="#InvoiceTemplate" data-toggle="tab">Invoice Template</a></li>
-        <li class="nav"><a href="#InvoiceTranslation" data-toggle="tab">Invoice Translation</a></li>
-        <li class="nav"><a href="#CatalogTranslation" data-toggle="tab">Catalog Translation</a></li>
-        <li class="nav"><a href="#PluginConfig" data-toggle="tab">Plugin Config</a></li>
-      </ul>
-
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <%= render :partial => 'show_catalog' %>
-        <%= render :partial => 'form_overdue' %>
-        <%= render :partial => 'form_invoice_template' %>
-        <%= render :partial => 'form_invoice_translation' %>
-        <%= render :partial => 'form_catalog_translation' %>
-        <%= render :partial => 'form_plugin_config' %>
-      </div>
-    </div>
-<% end %>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <%= render :partial => 'show_catalog' %>
+    <%= render :partial => 'form_overdue' %>
+    <%= render :partial => 'form_invoice_template' %>
+    <%= render :partial => 'form_invoice_translation' %>
+    <%= render :partial => 'form_catalog_translation' %>
+    <%= render :partial => 'form_plugin_config' %>
+  </div>
+</div>
 
 <%= javascript_tag do %>
   $(document).ready(function() {
