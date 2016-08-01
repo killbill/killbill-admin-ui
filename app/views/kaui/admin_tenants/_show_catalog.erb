@@ -17,7 +17,7 @@
     </span>
     <select id="select_catalog" class="selectpicker show-menu-arrow">
       <% @catalogs.each_with_index do |catalog, i| %>
-          <option idx="<%= catalog[:version] %>"><%= catalog[:version_date].split("T")[0] %></option>
+          <option idx="<%= catalog[:version] %>"><%= format_date(catalog[:version_date]) %></option>
       <% end %>
     </select>
 
