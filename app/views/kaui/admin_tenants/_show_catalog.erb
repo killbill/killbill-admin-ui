@@ -11,48 +11,76 @@
 
 
   <table id="existing-plans-for-tenants" class="table table-condensed">
+
+    <span class='label'>
+        <b>Catalog Versions:</b>
+    </span>
+    <select id="select_catalog" class="selectpicker show-menu-arrow">
+      <% @catalogs.each_with_index do |catalog, i| %>
+          <option idx="<%= catalog[:version] %>"><%= catalog[:version_date].split("T")[0] %></option>
+      <% end %>
+    </select>
+
     <thead>
     <tr>
       <th>Plan Id</th>
       <th>Product</th>
       <th>Billing Period</th>
-      <th>
-        <select id="select_currencies" class="selectpicker show-menu-arrow">
-          <% @currencies.each_with_index do |c, i| %>
-              <option><%= c %></option>
-          <% end %>
-        </select>
-      </th>
+      <% @catalogs.each do |catalog| %>
+          <th class="catalog_version_<%= catalog[:version] %>">
+            <select id="select_currencies_<%= catalog[:version] %>" class="selectpicker show-menu-arrow">
+              <% catalog[:currencies].each_with_index do |currency, i| %>
+                  <option><%= currency %></option>
+              <% end %>
+            </select>
+          </th>
+      <% end %>
       <th>Trial</th>
     </tr>
     </thead>
     <tbody>
-    <% @existing_simple_plans.each do |p| %>
-        <tr>
-          <td><%= p.plan_id %></td>
-          <td><%= p.product_name %></td>
-          <td><%= p.billing_period %></td>
-          <td>
-            <% @currencies.each do |c| %>
-                <span class="plan_currency_<%= c %>"><%= p.prices[c] %></span>
-            <% end %>
-          </td>
-          <td><%= p.trial_length != 0 ? "#{p.trial_length} #{p.trial_time_unit}" : "#{p.trial_time_unit}" %></td>
-        </tr>
+    <% @catalogs.each do |catalog| %>
+        <% catalog[:plans].each do |p| %>
+            <tr class="catalog_version_<%= catalog[:version] %>">
+              <td><%= p.plan_id %></td>
+              <td><%= p.product_name %></td>
+              <td><%= p.billing_period %></td>
+              <td>
+                <% catalog[:currencies].each do |c| %>
+                    <span class="plan_currency_<%= c %>"><%= p.prices[c] %></span>
+                <% end %>
+              </td>
+              <td><%= p.trial_length != 0 ? "#{p.trial_length} #{p.trial_time_unit}" : "#{p.trial_time_unit}" %></td>
+            </tr>
+        <% end %>
     <% end %>
     </tbody>
   </table>
 </div>
 
 <%= javascript_tag do %>
+
+function displayCatalogVersion() {
+    $('[class^="catalog_version_"]').hide();
+    $("[class^=catalog_version_" + $("#select_catalog option:selected" ).attr("idx") + "]").show();
+    displayAmountsForCurrency();
+}
+
 function displayAmountsForCurrency() {
+    var catalogVersion = $("#select_catalog option:selected" ).attr("idx");
     $('[class^="plan_currency_"]').hide();
-    $("[class^=plan_currency_" + $("#select_currencies option:selected" ).text() + "]").show();
+    $("[class^=plan_currency_" + $("#select_currencies_" + catalogVersion + " option:selected" ).text() + "]").show();
 }
 
 $(document).ready(function() {
+
+    displayCatalogVersion();
+    $("#select_catalog").change(function() {
+        displayCatalogVersion();
+    });
+
     displayAmountsForCurrency();
-    $("#select_currencies").change(function() {
+    $('[id^="select_currencies"]').change(function() {
         displayAmountsForCurrency();
     });
 });

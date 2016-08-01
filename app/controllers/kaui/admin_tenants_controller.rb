@@ -77,12 +77,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_key] = @tenant.api_key
     options[:api_secret] = @tenant.api_secret
 
-    latest_catalog = get_latest_catalog(options)
-
-    @currencies = latest_catalog.currencies
-    @existing_simple_plans = build_existing_simple_plans(latest_catalog)
+    @catalogs = build_catalog_versions(options)
   end
-
 
   def upload_catalog
     current_tenant = safely_find_tenant_by_id(params[:id])
@@ -219,10 +215,24 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   private
 
 
-  def get_latest_catalog(options)
+  def build_catalog_versions(options)
+
+    result = []
     catalogs = KillBillClient::Model::Catalog.get_tenant_catalog('json', nil, options)
-    catalogs.sort { |l, r| l.effective_date <=> r.effective_date }[catalogs.length - 1]
+
+    # Order by latest
+    catalogs.sort! { |l, r| r.effective_date <=> l.effective_date }
+
+    catalogs.each_with_index do |current_catalog, idx|
+      result << {:version => idx,
+                 :version_date => current_catalog.effective_date,
+                 :currencies => current_catalog.currencies,
+                 :plans => build_existing_simple_plans(current_catalog)}
+    end
+
+    result
   end
+
 
   def build_existing_simple_plans(catalog)
 
