@@ -3,9 +3,11 @@
 
   <h1>Existing Plans
     <% if can? :config_upload, Kaui::AdminTenant %>
+
+        <!-- :available_base_products => @catalogs[0][:plans].map { |p| p.product_name } -->
         <%= link_to '<i class="fa fa-plus-square"></i>'.html_safe,
-                    kaui_engine.admin_tenant_new_catalog_path(:id => 1),
-                    :class => 'btn btn-xs' %>
+                    kaui_engine.admin_tenant_new_catalog_path(:id => @tenant.id),
+                    :class => 'btn btn-xs'  %>
     <% end %>
   </h1>
 

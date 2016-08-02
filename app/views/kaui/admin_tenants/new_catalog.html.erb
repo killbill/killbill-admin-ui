@@ -20,6 +20,18 @@
           <%= f.text_field :product_name, :class => 'form-control' %>
         </div>
       </div>
+      <div class="form-group" id="form_category">
+        <%= f.label :product_category, 'Product Category', :class => 'col-sm-3 control-label' %>
+        <div class="col-sm-4">
+          <%= f.select :product_category, options_for_select(@product_categories, :BASE), :class => 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group" id="form_base_products">
+        <%= f.label :available_base_products, 'Available Base Products', :class => 'col-sm-3 control-label' %>
+        <div class="col-sm-4">
+          <%= f.select :available_base_products, options_for_select(@available_base_products), {}, {:multiple => true, :class => "form-control"} %>
+        </div>
+      </div>
       <div class="form-group">
         <%= f.label :amount, 'Amount', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
@@ -91,13 +103,27 @@ function switch_xml_config() {
     $('#catalog_xml').show();
 }
 
+function display_available_base_products_for_ao() {
+    if ($("#simple_plan_product_category option:selected" ).text() == 'ADD_ON') {
+        $('#form_base_products').show();
+    } else {
+        $('#form_base_products').hide();
+    }
+}
+
 function switch_basic_config() {
     $('#catalog_xml').hide();
     $('#catalog_simple').show();
 }
 
+
 $(document).ready(function() {
     switch_basic_config();
+
+    $('#simple_plan_product_category').change(function() {
+        display_available_base_products_for_ao();
+    });
+    display_available_base_products_for_ao();
 });
 
 <% end %>
