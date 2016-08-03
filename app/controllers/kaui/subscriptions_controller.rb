@@ -53,10 +53,12 @@ class Kaui::SubscriptionsController < Kaui::EngineController
   end
 
   def update
+
     plan_name = params.require(:plan_name)
 
-    requested_date = params[:requested_date].presence
-    billing_policy = params[:policy].presence
+    requested_date = params[:type_change] == "DATE" ? params[:requested_date].presence : nil
+    billing_policy = params[:type_change] == "POLICY" ? params[:policy].presence : nil
+
     wait_for_completion = params[:wait_for_completion] == '1'
 
     subscription = Kaui::Subscription.find_by_id(params.require(:id), options_for_klient)
