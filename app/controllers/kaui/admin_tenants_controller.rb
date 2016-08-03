@@ -96,7 +96,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def new_catalog
-
     @tenant = safely_find_tenant_by_id(params[:id])
 
     options = tenant_options_for_client
@@ -106,13 +105,22 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     latest_catalog = get_latest_catalog(options)
     @available_base_products = latest_catalog.products.select { |p| p.type == 'BASE' }.map { |p| p.name }
 
-
     @product_categories = [:BASE, :ADD_ON, :STANDALONE]
     @billing_period = [:DAILY, :WEEKLY, :BIWEEKLY, :THIRTY_DAYS, :MONTHLY, :QUARTERLY, :BIANNUAL, :ANNUAL, :BIENNIAL ]
     @time_units = [:UNLIMITED, :DAYS, :MONTHS, :YEARS]
 
     @simple_plan = Kaui::SimplePlan.new
+  end
 
+  def add_plan_currency
+    @tenant = safely_find_tenant_by_id(params[:id])
+
+    options = tenant_options_for_client
+    options[:api_key] = @tenant.api_key
+    options[:api_secret] = @tenant.api_secret
+
+    @simple_plan = Kaui::SimplePlan.new
+    @simple_plan.plan_id = params[:plan_id]
   end
 
 
@@ -126,7 +134,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     simple_plan = params.require(:simple_plan).delete_if { |e, value| value.blank? }
     # Fix issue in Rails where first entry in the multi-select array is an empty string
-    simple_plan["available_base_products"].reject!(&:blank?)
+    simple_plan["available_base_products"].reject!(&:blank?) if simple_plan["available_base_products"]
 
     simple_plan =  KillBillClient::Model::SimplePlanAttributes.new(simple_plan)
 
