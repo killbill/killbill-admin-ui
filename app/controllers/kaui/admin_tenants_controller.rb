@@ -260,9 +260,11 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     tmp = catalog.products.map do |p|
       p.plans.each do |plan|
         class << plan
-          attr_accessor :product
+          attr_accessor :product_name
+          attr_accessor :product_category
         end
-        plan.product = p.name;
+        plan.product_name = p.name
+        plan.product_category = p.type
       end
     end.flatten!
 
@@ -283,7 +285,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
       simple_plan.prices = plan.phases[-1].prices.inject({}) { |r, e| r[e.currency] = e.value; r }
 
       simple_plan.plan_id = plan.name
-      simple_plan.product_name = plan.product
+      simple_plan.product_name = plan.product_name
+      simple_plan.product_category = plan.product_category
       simple_plan.currency = currencies[0]
       simple_plan.amount = simple_plan.prices[currencies[0]]
       simple_plan.billing_period = plan.billing_period

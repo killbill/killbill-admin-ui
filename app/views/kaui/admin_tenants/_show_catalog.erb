@@ -27,6 +27,7 @@
     <tr>
       <th>Plan Id</th>
       <th>Product</th>
+      <th>Category</th>
       <th>Billing Period</th>
       <% @catalogs.each do |catalog| %>
           <th class="catalog_version_<%= catalog[:version] %>">
@@ -46,6 +47,7 @@
             <tr class="catalog_version_<%= catalog[:version] %>">
               <td><%= p.plan_id %></td>
               <td><%= p.product_name %></td>
+              <td><%= p.product_category %></td>
               <td><%= p.billing_period %></td>
               <td>
                 <% catalog[:currencies].each do |c| %>
