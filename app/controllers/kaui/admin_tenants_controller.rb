@@ -42,7 +42,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
         new_tenant.external_key = param_tenant[:name]
         new_tenant.api_key = param_tenant[:api_key]
         new_tenant.api_secret = param_tenant[:api_secret]
-        new_tenant = new_tenant.create(options[:username], nil, comment, options)
+        new_tenant = new_tenant.create(false, options[:username], nil, comment, options)
       end
 
       # Transform object to Kaui model
@@ -103,7 +103,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_secret] = @tenant.api_secret
 
     latest_catalog = get_latest_catalog(options)
-    @available_base_products = latest_catalog.products.select { |p| p.type == 'BASE' }.map { |p| p.name }
+    @available_base_products = latest_catalog && latest_catalog.products ?
+        latest_catalog.products.select { |p| p.type == 'BASE' }.map { |p| p.name } : []
 
     @product_categories = [:BASE, :ADD_ON, :STANDALONE]
     @billing_period = [:DAILY, :WEEKLY, :BIWEEKLY, :THIRTY_DAYS, :MONTHLY, :QUARTERLY, :BIANNUAL, :ANNUAL, :BIENNIAL ]
@@ -236,7 +237,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
   def get_latest_catalog(options)
     catalogs = KillBillClient::Model::Catalog.get_tenant_catalog('json', nil, options)
-    catalogs[catalogs.length - 1]
+    catalogs.length > 0 ? catalogs[catalogs.length - 1] : nil
   end
 
   def build_catalog_versions(options)
