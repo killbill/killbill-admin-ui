@@ -112,13 +112,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     @simple_plan = Kaui::SimplePlan.new
   end
 
-  def add_plan_currency
+  def new_plan_currency
     @tenant = safely_find_tenant_by_id(params[:id])
-
-    options = tenant_options_for_client
-    options[:api_key] = @tenant.api_key
-    options[:api_secret] = @tenant.api_secret
-
     @simple_plan = Kaui::SimplePlan.new
     @simple_plan.plan_id = params[:plan_id]
   end
