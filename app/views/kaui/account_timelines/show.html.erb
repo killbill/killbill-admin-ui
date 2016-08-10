@@ -204,7 +204,8 @@
     }
 
     eventsOrder = ["START_ENTITLEMENT", "START_BILLING", "PAUSE_ENTITLEMENT", "PAUSE_BILLING", "RESUME_ENTITLEMENT",
-    "RESUME_BILLING", "PHASE", "CHANGE", "STOP_ENTITLEMENT", "STOP_BILLING", "INVOICE", "PAYMENT"];
+    "RESUME_BILLING", "PHASE", "CHANGE", "STOP_ENTITLEMENT", "STOP_BILLING", "INVOICE", "AUTHORIZE", "PURCHASE", "CAPTURE",
+    "CREDIT", "REFUND", "VOID", "CHARGEBACK"];
 
     jQuery.fn.dataTableExt.oSort['timeline-event-asc'] = function(e1,e2) {
         var x = eventsOrder.indexOf(e1);
