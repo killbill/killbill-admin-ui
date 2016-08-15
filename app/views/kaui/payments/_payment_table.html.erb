@@ -93,11 +93,19 @@
           <td><%= transaction.gateway_error_code %></td>
           <td><%= transaction.gateway_error_msg %></td>
           <td>
-          <span
-          <% if transaction.status != 'SUCCESS' %>class='alert-danger'
-          <% else %>class='alert-success' <% end %>>
-          <%= transaction.status %>
-          </span>
+            <ul style="list-style: none">
+              <li>
+                <span <% if transaction.status != 'SUCCESS' %>class='alert-danger'<% else %>class='alert-success' <% end %>>
+                  <%= transaction.status %>
+                </span>
+              </li>
+              <% if transaction.next_retry_date %>
+                  <li>
+                    Scheduled retry:
+                    <%= format_date(transaction.next_retry_date) %>
+                  </li>
+              <% end %>
+            </ul>
           </td>
         </tr>
     <% end %>

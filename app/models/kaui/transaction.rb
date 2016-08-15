@@ -1,5 +1,7 @@
 class Kaui::Transaction < KillBillClient::Model::Transaction
 
+  attribute :next_retry_date
+
   def create(account_id = nil, payment_method_id = nil, user = nil, reason = nil, comment = nil, options = {})
     if transaction_type == 'AUTHORIZE'
       auth(account_id, payment_method_id, user, reason, comment, options)
