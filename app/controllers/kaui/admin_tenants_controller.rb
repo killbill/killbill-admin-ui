@@ -78,6 +78,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_secret] = @tenant.api_secret
 
     @catalogs = build_catalog_versions(options)
+
+    @catalogs_xml = build_catalog_xmls(options)
   end
 
   def upload_catalog
@@ -233,31 +235,17 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     render :json => '{}', :status => 200
   end
 
+  def display_catalog_xml
+    @catalog_xml = params.require(:xml)
+  end
+
+
   private
 
   def get_latest_catalog(options)
     catalogs = KillBillClient::Model::Catalog.get_tenant_catalog('json', nil, options)
     catalogs.length > 0 ? catalogs[catalogs.length - 1] : nil
   end
-
-  def build_catalog_versions(options)
-
-    result = []
-    catalogs = KillBillClient::Model::Catalog.get_tenant_catalog('json', nil, options)
-
-    # Order by latest
-    catalogs.sort! { |l, r| r.effective_date <=> l.effective_date }
-
-    catalogs.each_with_index do |current_catalog, idx|
-      result << {:version => idx,
-                 :version_date => current_catalog.effective_date,
-                 :currencies => current_catalog.currencies,
-                 :plans => build_existing_simple_plans(current_catalog)}
-    end
-
-    result
-  end
-
 
   def build_existing_simple_plans(catalog)
 
@@ -300,6 +288,69 @@ class Kaui::AdminTenantsController < Kaui::EngineController
       result << simple_plan
     end
     result
+  end
+
+  def build_catalog_versions(options)
+
+    result = []
+    catalogs = KillBillClient::Model::Catalog.get_tenant_catalog('json', nil, options)
+
+    # Order by latest
+    catalogs.sort! { |l, r| r.effective_date <=> l.effective_date }
+
+    catalogs.each_with_index do |current_catalog, idx|
+      result << {:version => idx,
+                 :version_date => current_catalog.effective_date,
+                 :currencies => current_catalog.currencies,
+                 :plans => build_existing_simple_plans(current_catalog)}
+    end
+
+    result
+  end
+
+  def build_catalog_xmls(options)
+
+    catalog_xml = KillBillClient::Model::Catalog.get_tenant_catalog('xml', nil, options)
+
+
+    parsed_catalog = parse_catalog_xml(catalog_xml)
+
+    result = []
+    parsed_catalog.keys.each_with_index do |version_date, i|
+      entry = {}
+      entry[:version] = i
+      entry[:version_date] = version_date
+      entry[:xml] = parsed_catalog[version_date]
+      result << entry
+    end
+    result
+  end
+
+
+  def parse_catalog_xml(input_xml)
+
+    require 'nokogiri'
+
+    doc = Nokogiri::XML(input_xml)
+    doc_versions = doc.xpath("//version")
+
+    doc_versions.inject({}) do |hsh, v|
+
+      # Replace node 'version' with 'catalog' and add the attributes
+      v.name = 'catalog'
+      v['xmlns:xsi'] = "http://www.w3.org/2001/XMLSchema-instance"
+      v['xsi:noNamespaceSchemaLocation'] = "CatalogSchema.xsd"
+      # Extract version
+      version = v.search("effectiveDate").text
+
+      # Add entry
+      hsh[version] = '<?xml version="1.0" encoding="utf-8"?>' + view_context.format_xml(v.to_s)
+
+      hsh
+    end
+
+    # Order by latest
+
   end
 
   def safely_find_tenant_by_id(tenant_id)
