@@ -79,6 +79,20 @@ class Kaui::PaymentsController < Kaui::EngineController
     redirect_to account_payment_path(payment.account_id, payment.payment_id)
   end
 
+  def cancel_scheduled_payment
+    begin
+      payment_transaction = Kaui::Transaction.new
+      payment_transaction.transaction_external_key = params.require(:transaction_external_key)
+
+      payment_transaction.cancel_scheduled_payment(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+
+      redirect_to kaui_engine.account_payment_path(params.require(:account_id), params.require(:id)), :notice => "Payment attempt retry successfully deleted"
+    rescue => e
+      flash[:error] = "Error deleting payment attempt retry: #{as_string(e)}"
+      redirect_to kaui_engine.account_path(params.require(:account_id))
+    end
+  end
+
   private
 
   def invoice_payment_params

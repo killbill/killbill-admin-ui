@@ -103,6 +103,9 @@
                   <li>
                     Scheduled retry:
                     <%= format_date(transaction.next_retry_date) %>
+                    <% if can? :trigger, Kaui::Payment %>
+                        <%= link_to '<i class="fa fa-times"></i>'.html_safe, kaui_engine.payment_cancel_scheduled_payment_path(payment.payment_id, :account_id => payment.account_id, :transaction_external_key => transaction.transaction_external_key), :method => :delete %>
+                    <% end %>
                   </li>
               <% end %>
             </ul>
