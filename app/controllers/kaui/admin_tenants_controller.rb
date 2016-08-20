@@ -237,6 +237,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
   def display_catalog_xml
     @catalog_xml = params.require(:xml)
+    render xml: @catalog_xml
   end
 
 
