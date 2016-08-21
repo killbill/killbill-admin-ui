@@ -1,9 +1,10 @@
-<%= render :partial => 'show_catalog_simple' %>
-<%= render :partial => 'show_catalog_xml' %>
+<div class="tab-pane fade in active" id="CatalogShow">
+  <%= render :partial => 'show_catalog_simple' %>
+  <%= render :partial => 'show_catalog_xml' %>
+</div>
 
 
 <%= javascript_tag do %>
-
 
 function switchBasicConfig() {
     $('#catalog_xml').hide();
