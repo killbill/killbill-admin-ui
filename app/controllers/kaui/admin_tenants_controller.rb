@@ -77,9 +77,9 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_key] = @tenant.api_key
     options[:api_secret] = @tenant.api_secret
 
-    @catalogs = build_catalog_versions(options)
+    @catalogs = Kaui::Catalog::get_catalog_json(false, options)
 
-    @catalogs_xml = build_catalog_xmls(options)
+    @catalogs_xml = Kaui::Catalog::get_catalog_xml(options)
   end
 
   def upload_catalog
@@ -104,7 +104,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_key] = @tenant.api_key
     options[:api_secret] = @tenant.api_secret
 
-    latest_catalog = get_latest_catalog(options)
+    latest_catalog = Kaui::Catalog::get_catalog_json(true, options)
     @available_base_products = latest_catalog && latest_catalog.products ?
         latest_catalog.products.select { |p| p.type == 'BASE' }.map { |p| p.name } : []
 
@@ -242,117 +242,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
 
   private
-
-  def get_latest_catalog(options)
-    catalogs = KillBillClient::Model::Catalog.get_tenant_catalog('json', nil, options)
-    catalogs.length > 0 ? catalogs[catalogs.length - 1] : nil
-  end
-
-  def build_existing_simple_plans(catalog)
-
-    tmp = catalog.products.map do |p|
-      p.plans.each do |plan|
-        class << plan
-          attr_accessor :product_name
-          attr_accessor :product_category
-        end
-        plan.product_name = p.name
-        plan.product_category = p.type
-      end
-    end.flatten!
-
-    selected = tmp.select { |p| p.phases.length.to_i <= 2 && p.phases[p.phases.length - 1].type == "EVERGREEN" }
-
-    currencies = catalog.currencies
-
-    result = []
-    selected.each do |plan|
-      has_trial = plan.phases[0].type == 'TRIAL'
-
-      simple_plan = KillBillClient::Model::SimplePlanAttributes.new
-
-      # Embellish SimplePlanAttributes to contain a map currency -> amount (required in the view)
-      class << simple_plan
-        attr_accessor :prices
-      end
-      simple_plan.prices = plan.phases[-1].prices.inject({}) { |r, e| r[e.currency] = e.value; r }
-
-      simple_plan.plan_id = plan.name
-      simple_plan.product_name = plan.product_name
-      simple_plan.product_category = plan.product_category
-      simple_plan.currency = currencies[0]
-      simple_plan.amount = simple_plan.prices[currencies[0]]
-      simple_plan.billing_period = plan.billing_period
-      simple_plan.trial_length = has_trial ? plan.phases[0].duration.number : 0
-      simple_plan.trial_time_unit = has_trial ? plan.phases[0].duration.unit : "N/A"
-
-      result << simple_plan
-    end
-    result
-  end
-
-  def build_catalog_versions(options)
-
-    result = []
-    catalogs = KillBillClient::Model::Catalog.get_tenant_catalog('json', nil, options)
-
-    # Order by latest
-    catalogs.sort! { |l, r| r.effective_date <=> l.effective_date }
-
-    catalogs.each_with_index do |current_catalog, idx|
-      result << {:version => idx,
-                 :version_date => current_catalog.effective_date,
-                 :currencies => current_catalog.currencies,
-                 :plans => build_existing_simple_plans(current_catalog)}
-    end
-
-    result
-  end
-
-  def build_catalog_xmls(options)
-
-    catalog_xml = KillBillClient::Model::Catalog.get_tenant_catalog('xml', nil, options)
-
-
-    parsed_catalog = parse_catalog_xml(catalog_xml)
-
-    result = []
-    parsed_catalog.keys.each_with_index do |version_date, i|
-      entry = {}
-      entry[:version] = i
-      entry[:version_date] = version_date
-      entry[:xml] = parsed_catalog[version_date]
-      result << entry
-    end
-    result
-  end
-
-
-  def parse_catalog_xml(input_xml)
-
-    require 'nokogiri'
-
-    doc = Nokogiri::XML(input_xml)
-    doc_versions = doc.xpath("//version")
-
-    doc_versions.inject({}) do |hsh, v|
-
-      # Replace node 'version' with 'catalog' and add the attributes
-      v.name = 'catalog'
-      v['xmlns:xsi'] = "http://www.w3.org/2001/XMLSchema-instance"
-      v['xsi:noNamespaceSchemaLocation'] = "CatalogSchema.xsd"
-      # Extract version
-      version = v.search("effectiveDate").text
-
-      # Add entry
-      hsh[version] = '<?xml version="1.0" encoding="utf-8"?>' + view_context.format_xml(v.to_s)
-
-      hsh
-    end
-
-    # Order by latest
-
-  end
 
   def safely_find_tenant_by_id(tenant_id)
     tenant = Kaui::Tenant.find_by_id(tenant_id)
