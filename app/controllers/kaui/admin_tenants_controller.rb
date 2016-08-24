@@ -77,9 +77,13 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_key] = @tenant.api_key
     options[:api_secret] = @tenant.api_secret
 
-    @catalogs = Kaui::Catalog::get_catalog_json(false, options)
-
-    @catalogs_xml = Kaui::Catalog::get_catalog_xml(options)
+    begin
+      @catalogs = Kaui::Catalog::get_catalog_json(false, options)
+      @catalogs_xml = Kaui::Catalog::get_catalog_xml(options)
+    rescue
+      @catalogs = []
+      @catalogs_xml = []
+    end
   end
 
   def upload_catalog

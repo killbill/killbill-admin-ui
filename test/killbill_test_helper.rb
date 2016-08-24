@@ -170,7 +170,7 @@ module Kaui
       tenant.api_key    = api_key
       tenant.api_secret = api_secret
 
-      tenant = tenant.create(user, reason, comment, build_options)
+      tenant = tenant.create(true, user, reason, comment, build_options)
 
       # Re-hydrate the secret, which is not returned
       tenant.api_secret = api_secret

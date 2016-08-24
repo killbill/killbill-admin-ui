@@ -1,6 +1,6 @@
 class Kaui::Transaction < KillBillClient::Model::Transaction
 
-  attribute :next_retry_date
+  attr_accessor :next_retry_date
 
   def create(account_id = nil, payment_method_id = nil, user = nil, reason = nil, comment = nil, options = {})
     if transaction_type == 'AUTHORIZE'

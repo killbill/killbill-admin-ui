@@ -98,7 +98,7 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
 
     post :update, :id => @bundle.subscriptions.first.subscription_id, :plan_name => 'not-exists'
     assert_redirected_to home_path
-    assert_equal 'Error: Unable to find plan not-exists', flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Error 400: Could not find any plans named 'not-exists'", flash[:error]
   end
 
   test 'should update' do
