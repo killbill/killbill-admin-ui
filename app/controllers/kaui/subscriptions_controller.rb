@@ -30,10 +30,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       plan_details = plans_details.find { |p| p.plan == plan_name }
       raise "Unable to find plan #{plan_name}" if plan_details.nil?
 
-      @subscription.billing_period = plan_details.final_phase_billing_period
-      @subscription.product_name = plan_details.product
-      @subscription.price_list = plan_details.price_list
-
+      @subscription.plan_name = plan_name
       requested_date = params[:type_change] == "DATE" ? params[:requested_date].presence : nil
       @subscription = @subscription.create(current_user.kb_username, params[:reason], params[:comment], requested_date, false, options_for_klient)
       redirect_to kaui_engine.account_bundles_path(@subscription.account_id), :notice => 'Subscription was successfully created'
@@ -63,14 +60,9 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     wait_for_completion = params[:wait_for_completion] == '1'
 
     subscription = Kaui::Subscription.find_by_id(params.require(:id), options_for_klient)
-    plans_details = Kaui::Catalog::available_base_plans(options_for_klient)
-    new_plan_details = plans_details.find { |p| p.plan == plan_name }
-    raise "Unable to find plan #{plan_name}" if new_plan_details.nil?
 
     subscription.change_plan({
-                                 :productName => new_plan_details.product,
-                                 :billingPeriod => new_plan_details.final_phase_billing_period,
-                                 :priceList => new_plan_details.price_list
+                                 :planName => plan_name
                              },
                              current_user.kb_username,
                              params[:reason],
