@@ -84,6 +84,12 @@ class Kaui::AdminTenantsController < Kaui::EngineController
       @catalogs = []
       @catalogs_xml = []
     end
+
+    begin
+      @overdue = Kaui::Overdue::get_overdue_json(options)
+    rescue
+      @overdue = []
+    end
   end
 
   def upload_catalog

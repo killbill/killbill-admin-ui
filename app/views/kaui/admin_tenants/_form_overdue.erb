@@ -1,5 +1,9 @@
-<% if can? :config_upload, Kaui::AdminTenant %>
-    <div class="tab-pane fade" id="OverdueConfig">
+<div id="overdue_xml">
+  <hr/>
+  <h1>Upload Overdue XML Config
+    <a class='btn btn-xs' href="javascript:void(0);" onclick="switchBasicOverdueConfig();">Enable Simple View</a>
+  </h1>
+  <% if can? :config_upload, Kaui::AdminTenant %>
       <%= form_tag({:action => :upload_overdue_config}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
           <%= hidden_field_tag(:id, @tenant.id) %>
 
@@ -14,5 +18,7 @@
             </div>
           </div>
       <% end %>
-    </div>
-<% end %>
+  <% else %>
+      You don't have the permission to upload the XML config
+  <% end %>
+</div>

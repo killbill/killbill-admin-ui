@@ -1,0 +1,25 @@
+<div class="tab-pane fade" id="OverdueShow">
+  <%= render :partial => 'show_overdue_simple' %>
+  <%= render :partial => 'form_overdue' %>
+</div>
+
+
+<%= javascript_tag do %>
+
+function switchBasicOverdueConfig() {
+    $('#overdue_xml').hide();
+    $('#overdue_simple').show();
+    $('#overdue_simple').show();
+}
+
+function switchXMLOverdueConfig() {
+    $('#overdue_simple').hide();
+    $('#overdue_xml').show();
+}
+
+$(document).ready(function() {
+    switchBasicOverdueConfig();
+});
+
+<% end %>
+

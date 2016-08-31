@@ -3,7 +3,6 @@
 
   <h1>Existing Plans
     <% if can? :config_upload, Kaui::AdminTenant %>
-
         <%= link_to '<i class="fa fa-plus-square"></i>'.html_safe,
                     kaui_engine.admin_tenant_new_catalog_path(:id => @tenant.id),
                     :class => 'btn btn-xs'  %>
