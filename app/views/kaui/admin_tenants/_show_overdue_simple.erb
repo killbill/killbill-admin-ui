@@ -8,57 +8,60 @@
   <table id="existing-overdue-config-for-tenants" class="table table-condensed">
 
     <span class='label'>
-        <b>Overdue Config</b>
     </span>
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>External Message</th>
-      <th>Actions</th>
-      <th>Conditions</th>
-      <th>Clear State</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @overdue.overdue_states.each do |state| %>
-        <tr class="overdue_state_<%= state %>">
-          <td><%= state.name %></td>
-          <td><%= state.external_message %></td>
-          <td>
-            <ul>
-              <% if state.block_changes  %>
-                  <li>
-                    <%= 'Block changes:' %><%= state.block_changes %>
-                  </li>
-              <% end %>
-              <% if state.disable_entitlement  %>
-                  <li>
-                    <%= 'Cancel subscriptions:' %><%= state.disable_entitlement %>(<%= 'policy:' %><%= state.subscription_cancellation_policy %>)
-                  </li>
-              <% end %>
-            </ul>
-          </td>
-          <td>
-            <% if state.condition %>
+    <% if @overdue.overdue_states.size == 0 || (@overdue.overdue_states.size == 1 && @overdue.overdue_states[0].is_clear_state) %>
+        No overdue configuration defined for tenant
+    <% else %>
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>External Message</th>
+          <th>Actions</th>
+          <th>Conditions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @overdue.overdue_states.reverse_each do |state| %>
+            <tr class="overdue_state_<%= state %>">
+              <td><%= state.name %></td>
+              <td><%= state.external_message %></td>
+              <td>
                 <ul>
-                  <% if state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds  %>
+                  <% if state.block_changes %>
                       <li>
-                        <%= 'Time Since earliest unpaid invoice >=' %> <%= state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.number %><%= state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.unit %>
+                        <%= 'Block changes:' %><%= state.block_changes %>
                       </li>
                   <% end %>
-                  <% if state.condition.control_tag_inclusion  %>
+                  <% if state.disable_entitlement %>
                       <li>
-                        <%= 'Control tag inclusion' %> <%= state.condition.control_tag_inclusion %>
-                      </li>
-                  <% end %>
-                  <% if state.condition.control_tag_exclusion  %>
-                      <li>
-                        <%= 'Control tag exclusion' %> <%= state.condition.control_tag_exclusion %>
+                        <%= 'Cancel subscriptions:' %><%= state.disable_entitlement %>
+                        (policy:<%= state.subscription_cancellation_policy %>)
                       </li>
                   <% end %>
                 </ul>
-            <% end %>
-        </tr>
+              </td>
+              <td>
+                <% if state.condition %>
+                    <ul>
+                      <% if state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds %>
+                          <li>
+                            <%= 'Time Since earliest unpaid invoice >=' %> <%= state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.number %><%= state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.unit %>
+                          </li>
+                      <% end %>
+                      <% if state.condition.control_tag_inclusion %>
+                          <li>
+                            <%= 'Control tag inclusion' %> <%= state.condition.control_tag_inclusion %>
+                          </li>
+                      <% end %>
+                      <% if state.condition.control_tag_exclusion %>
+                          <li>
+                            <%= 'Control tag exclusion' %> <%= state.condition.control_tag_exclusion %>
+                          </li>
+                      <% end %>
+                    </ul>
+                <% end %>
+                </tr>
+        <% end %>
     <% end %>
     </tbody>
   </table>
