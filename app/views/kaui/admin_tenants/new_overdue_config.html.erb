@@ -1,0 +1,67 @@
+<div id="overdue_config_simple">
+
+  <div>
+    <h1>Overdue Configuration
+      <a class='btn btn-xs' href="javascript:void(0);" onclick="switch_xml_config();">Enable Advanced Configuration (Upload XML)</a>
+    </h1>
+  </div>
+
+
+  <%= form_for @overdue, :url => {:action => :modify_overdue_config}, :html => {:class => 'form-horizontal'} do |f| %>
+      <%= f.hidden_field_tag(:id, @tenant.id) %>
+
+      <% @overdue.overdue_states.reverse_each do |state| %>
+          <%= f.fields_for 'states[]', state do |state_form| %>
+              <div class="form-group">
+                <%= label :name, 'State', :class => 'col-sm-1 control-label' %>
+                <div class="col-sm-1">
+                  <%= state_form.text_field :name %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= label :external_message, 'ExternalMessage', :class => 'col-sm-3 control-label' %>
+                <div class="col-sm-4">
+                  <%= state_form.text_field :external_message %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= label :block_changes, 'Block Changes', :class => 'col-sm-3 control-label' %>
+                <div class="col-sm-4">
+                  <%= state_form.text_field :block_changes %>
+                </div>
+              </div>
+              <div class="form-group">
+                <%= label :subscription_cancellation_policy, 'Cancel subscriptions', :class => 'col-sm-3 control-label' %>
+                <div class="col-sm-4">
+                  <%= state_form.select :subscription_cancellation_policy, options_for_select(@subscription_cancellation, :NO_CANCELLATION), :class => 'form-control' %>
+                </div>
+              </div>
+              <%= state_form.fields_for 'condition' do |condition| %>
+                  <div class="form-group">
+                    <%= label :time_since_earliest_unpaid_invoice_equals_or_exceeds, 'Time since earliest unpaid invoice', :class => 'col-sm-3 control-label' %>
+                    <div class="col-sm-4">
+                      <%= condition.text_field :time_since_earliest_unpaid_invoice_equals_or_exceeds %>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <%= label :control_tag_inclusion, 'Control tag inclusion', :class => 'col-sm-3 control-label' %>
+                    <div class="col-sm-4">
+                      <%= condition.text_field :control_tag_inclusion %>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <%= label :control_tag_exclusion, 'Control tag exclusion', :class => 'col-sm-3 control-label' %>
+                    <div class="col-sm-4">
+                      <%= condition.text_field :control_tag_exclusion %>
+                    </div>
+                  </div>
+              <% end %>
+          <% end %>
+      <% end %>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <%= submit_tag 'Save', :class => 'btn btn-default' %>
+        </div>
+      </div>
+  <% end %>
+</div>

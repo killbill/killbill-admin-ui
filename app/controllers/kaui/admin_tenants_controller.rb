@@ -77,19 +77,9 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_key] = @tenant.api_key
     options[:api_secret] = @tenant.api_secret
 
-    begin
-      @catalogs = Kaui::Catalog::get_catalog_json(false, options)
-      @catalogs_xml = Kaui::Catalog::get_catalog_xml(options)
-    rescue
-      @catalogs = []
-      @catalogs_xml = []
-    end
-
-    begin
-      @overdue = Kaui::Overdue::get_overdue_json(options)
-    rescue
-      @overdue = []
-    end
+    @catalogs = Kaui::Catalog::get_catalog_json(false, options) rescue @catalogs = []
+    @catalogs_xml = Kaui::Catalog::get_catalog_xml(options) rescue @catalogs_xml = []
+    @overdue = Kaui::Overdue::get_overdue_json(options) rescue @overdue = []
   end
 
   def upload_catalog
@@ -119,7 +109,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
         latest_catalog.products.select { |p| p.type == 'BASE' }.map { |p| p.name } : []
 
     @product_categories = [:BASE, :ADD_ON, :STANDALONE]
-    @billing_period = [:DAILY, :WEEKLY, :BIWEEKLY, :THIRTY_DAYS, :MONTHLY, :QUARTERLY, :BIANNUAL, :ANNUAL, :BIENNIAL ]
+    @billing_period = [:DAILY, :WEEKLY, :BIWEEKLY, :THIRTY_DAYS, :MONTHLY, :QUARTERLY, :BIANNUAL, :ANNUAL, :BIENNIAL]
     @time_units = [:UNLIMITED, :DAYS, :MONTHS, :YEARS]
 
     @simple_plan = Kaui::SimplePlan.new
@@ -144,12 +134,40 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     # Fix issue in Rails where first entry in the multi-select array is an empty string
     simple_plan["available_base_products"].reject!(&:blank?) if simple_plan["available_base_products"]
 
-    simple_plan =  KillBillClient::Model::SimplePlanAttributes.new(simple_plan)
+    simple_plan = KillBillClient::Model::SimplePlanAttributes.new(simple_plan)
 
     Kaui::Catalog.add_tenant_catalog_simple_plan(simple_plan, options[:username], nil, comment, options)
 
     redirect_to admin_tenant_path(current_tenant.id), :notice => 'Catalog plan was successfully added'
   end
+
+  def new_overdue_config
+    @tenant = safely_find_tenant_by_id(params[:id])
+
+    options = tenant_options_for_client
+    options[:api_key] = @tenant.api_key
+    options[:api_secret] = @tenant.api_secret
+
+    # We mix action of canceling or not with associated policy to simplify the view
+    @subscription_cancellation = [:NO_CANCELLATION, :POLICY_NONE, :POLICY_IMMEDIATE, :POLICY_END_OF_TERM]
+
+    @overdue = Kaui::Overdue::get_overdue_json(options)
+  end
+
+  def modify_overdue_config
+
+    current_tenant = safely_find_tenant_by_id(params[:id])
+
+    options = tenant_options_for_client
+    options[:api_key] = current_tenant.api_key
+    options[:api_secret] = current_tenant.api_secret
+
+    view_form_model = params.require(:kill_bill_client_model_overdue).delete_if { |e, value| value.blank? }
+    overdue = Kaui::Overdue::from_overdue_form_model(view_form_model)
+    overdue.modify_overdue_config(options[:username], nil, comment, options)
+    redirect_to admin_tenant_path(current_tenant.id), :notice => 'Overdue config was successfully added '
+  end
+
 
   def upload_overdue_config
     current_tenant = safely_find_tenant_by_id(params[:id])

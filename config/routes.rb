@@ -120,9 +120,11 @@ Kaui::Engine.routes.draw do
   scope '/admin_tenants' do
     match '/:id/new_catalog' => 'admin_tenants#new_catalog', :via => :get, :as => 'admin_tenant_new_catalog'
     match '/:id/new_plan_currency' => 'admin_tenants#new_plan_currency', :via => :get, :as => 'admin_tenant_new_plan_currency'
+    match '/:id/new_overdue_config' => 'admin_tenants#new_overdue_config', :via => :get, :as => 'admin_tenant_new_overdue_config'
     match '/upload_catalog' => 'admin_tenants#upload_catalog', :via => :post, :as => 'admin_tenant_upload_catalog'
     match '/display_catalog_xml' => 'admin_tenants#display_catalog_xml', :via => :post, :as => 'admin_tenant_display_catalog_xml'
     match '/create_simple_plan' => 'admin_tenants#create_simple_plan', :via => :post, :as => 'admin_tenant_create_simple_plan'
+    match '/modify_overdue_config' => 'admin_tenants#modify_overdue_config', :via => :post, :as => 'admin_tenant_modify_overdue_config'
     match '/upload_overdue_config' => 'admin_tenants#upload_overdue_config', :via => :post, :as => 'admin_tenant_upload_overdue_config'
     match '/upload_invoice_template' => 'admin_tenants#upload_invoice_template', :via => :post, :as => 'admin_tenant_upload_invoice_template'
     match '/upload_invoice_translation' => 'admin_tenants#upload_invoice_translation', :via => :post, :as => 'admin_tenant_upload_invoice_translation'

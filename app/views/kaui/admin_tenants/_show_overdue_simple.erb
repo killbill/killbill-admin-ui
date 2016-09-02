@@ -2,6 +2,11 @@
   <hr/>
 
   <h1>Existing Overdue Config
+    <% if can? :config_upload, Kaui::AdminTenant %>
+        <%= link_to '<i class="fa fa-plus-square"></i>'.html_safe,
+                    kaui_engine.admin_tenant_new_overdue_config_path(:id => @tenant.id),
+                    :class => 'btn btn-xs' %>
+    <% end %>
     <a class='btn btn-xs' href="javascript:void(0);" onclick="switchXMLOverdueConfig();">Enable XML View</a>
   </h1>
 
@@ -9,7 +14,7 @@
 
     <span class='label'>
     </span>
-    <% if @overdue.overdue_states.size == 0 || (@overdue.overdue_states.size == 1 && @overdue.overdue_states[0].is_clear_state) %>
+    <% if @overdue.has_states %>
         No overdue configuration defined for tenant
     <% else %>
         <thead>
@@ -60,7 +65,8 @@
                       <% end %>
                     </ul>
                 <% end %>
-                </tr>
+              </td>
+            </tr>
         <% end %>
     <% end %>
     </tbody>
