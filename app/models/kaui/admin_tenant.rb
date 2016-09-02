@@ -7,7 +7,7 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
     end
 
     def upload_overdue_config(overdue_config_xml, user = nil, reason = nil, comment = nil, options = {})
-      KillBillClient::Model::Overdue.upload_tenant_overdue_config(overdue_config_xml, user, reason, comment, options)
+      KillBillClient::Model::Overdue.upload_tenant_overdue_config_xml(overdue_config_xml, user, reason, comment, options)
     end
 
     def upload_invoice_template(invoice_template, is_manual_pay, delete_if_exists, user = nil, reason = nil, comment = nil, options = {})

@@ -36,6 +36,9 @@ class Kaui::Overdue < KillBillClient::Model::Overdue
 
         result.overdue_states << state
       end
+      # We reversed them to display on the form , so we have to reverse them back before uploading new config
+      result.overdue_states.reverse!
+
       result
     end
 
