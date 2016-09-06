@@ -2,7 +2,7 @@ class Kaui::RefundsController < Kaui::EngineController
 
   def new
     fetch_invoice = lambda { @invoice = Kaui::Invoice.find_by_id_or_number(params.require(:invoice_id), true, 'NONE', options_for_klient) }
-    fetch_payment = lambda { @payment = Kaui::InvoicePayment::find_by_id(params.require(:payment_id), false, options_for_klient) }
+    fetch_payment = lambda { @payment = Kaui::InvoicePayment::find_by_id(params.require(:payment_id), false, false, options_for_klient) }
 
     run_in_parallel fetch_invoice, fetch_payment
 
