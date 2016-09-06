@@ -98,10 +98,10 @@
         if (Number($("#refund_amount").attr('value')) > <%= @payment.purchased_amount %> ||
           Number($("#refund_amount").attr('value')) <= 0) {
           setClassForElement("#div_refund_amount", "form-group error");
-          $("#submit").prop('disabled', true);
+          $('#new_kill_bill_client_model_invoice_item :submit').prop('disabled', true);
         } else {
           setClassForElement("#div_refund_amount", "form-group");
-          $("#submit").prop('disabled', false);
+          $('#new_kill_bill_client_model_invoice_item :submit').prop('disabled', false);
         }
     };
 
@@ -109,6 +109,7 @@
     * Disabled unwanted invoice item at the time we submit the form
     */
     var disableNonCheckedInvoiceItem = function() {
+
         $('input').filter(function() {
             return this.id.match(/cb_adj_/);
         }).each(function() {
@@ -196,14 +197,12 @@
         * If doing invoice Item adjustment, disable entries that were not selected, so the controllers does not
         * get them
         */
-        $("#submit").click(disableNonCheckedInvoiceItem);
+        $('#new_kill_bill_client_model_invoice_item :submit').mousedown(disableNonCheckedInvoiceItem);
 
         /*
         * Adjustment type handlers
         */
         $("#adjustment_type_noInvoiceAdjustment")
-        .click(onClickWithInvoiceOrNoAdjustment);
-        $("#adjustment_type_invoiceAdjustment")
         .click(onClickWithInvoiceOrNoAdjustment);
         $("#adjustment_type_invoiceItemAdjustment")
         .click(onClickWithInvoiceItemAdjustment);
