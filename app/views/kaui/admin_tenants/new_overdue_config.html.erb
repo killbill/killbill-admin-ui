@@ -8,6 +8,9 @@
     </div>
 
     <%= form_for @overdue, :url => {:action => :modify_overdue_config}, :html => {:class => 'form-horizontal'} do |f| %>
+
+      <a class='btn btn-xs' href="javascript:void(0);" onclick="overdue_new_state();" id="new_state"><%= '<i class="fa fa-plus-square"></i>'.html_safe + " new overdue states" %></a>
+
         <table id="existing-overdue-config-for-tenants" class="table table-condensed">
           <thead>
           <tr>
@@ -51,11 +54,38 @@
 </div>
 <%= javascript_tag do %>
 
+function overdue_new_state() {
+    /* Compute max index value to assign new rows with unsued index */
+    var max_idx = $.map($('[id^=delete_state_]'), function(e, i) {
+        return e.id.split("delete_state_")[1] }
+    ).sort(function(a, b) {
+        return b - a
+    })[0];
+
+    /* Clone existing row and reset id based on max_idx */
+    var row = $('#existing-overdue-config-for-tenants tbody>tr:last').clone(true);
+    var row_idx = (parseInt(max_idx) + 1).toString();
+    row.attr('id', "tr_state_" + row_idx);
+    row.children("td:last").children('a').attr('id', "delete_state_" + row_idx);
+
+    /* Also reset the */
+    $('#' + row.attr('id') + ' :input').each( function() {
+        $(this).prop('disabled', false); }
+    );
+
+    /* Attach rom into dom */
+    row.insertAfter('#existing-overdue-config-for-tenants tbody>tr:last');
+
+    /* The cloned version may need to be displayed */
+    row.show();
+}
 
 function overdue_delete_state(obj) {
     var idx = obj.id.split("delete_state_")[1];
     /* Disable the entry in the form */
-    $("#tr_state_" + idx + " :input").each( function() { $(this).prop('disabled', true); });
+    $("#tr_state_" + idx + " :input").each( function() {
+        $(this).prop('disabled', true); }
+    );
     /* Hide the table row */
     $("#tr_state_" + idx).hide();
 };
