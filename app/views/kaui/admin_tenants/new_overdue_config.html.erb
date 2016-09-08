@@ -68,13 +68,13 @@ function overdue_new_state() {
     row.attr('id', "tr_state_" + row_idx);
     row.children("td:last").children('a').attr('id', "delete_state_" + row_idx);
 
-    /* Also reset the */
-    $('#' + row.attr('id') + ' :input').each( function() {
-        $(this).prop('disabled', false); }
-    );
-
     /* Attach rom into dom */
     row.insertAfter('#existing-overdue-config-for-tenants tbody>tr:last');
+
+    /* Also reset the disabled state */
+    $('#' + row.attr('id') + ' :input').each( function() {
+    $(this).prop('disabled', false); }
+    );
 
     /* The cloned version may need to be displayed */
     row.show();
