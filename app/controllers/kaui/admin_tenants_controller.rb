@@ -80,6 +80,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     @catalogs = Kaui::Catalog::get_catalog_json(false, options) rescue @catalogs = []
     @catalogs_xml = Kaui::Catalog::get_catalog_xml(options) rescue @catalogs_xml = []
     @overdue = Kaui::Overdue::get_overdue_json(options) rescue @overdue = []
+    @overdue_xml = Kaui::Overdue::get_tenant_overdue_config('xml', options) rescue @overdue_xml = nil
+
   end
 
   def upload_catalog
@@ -266,6 +268,11 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   def display_catalog_xml
     @catalog_xml = params.require(:xml)
     render xml: @catalog_xml
+  end
+
+
+  def display_overdue_xml
+    render xml: params.require(:xml)
   end
 
 

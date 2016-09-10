@@ -123,6 +123,7 @@ Kaui::Engine.routes.draw do
     match '/:id/new_overdue_config' => 'admin_tenants#new_overdue_config', :via => :get, :as => 'admin_tenant_new_overdue_config'
     match '/upload_catalog' => 'admin_tenants#upload_catalog', :via => :post, :as => 'admin_tenant_upload_catalog'
     match '/display_catalog_xml' => 'admin_tenants#display_catalog_xml', :via => :post, :as => 'admin_tenant_display_catalog_xml'
+    match '/display_overdue_xml' => 'admin_tenants#display_overdue_xml', :via => :post, :as => 'admin_tenant_display_overdue_xml'
     match '/create_simple_plan' => 'admin_tenants#create_simple_plan', :via => :post, :as => 'admin_tenant_create_simple_plan'
     match '/modify_overdue_config' => 'admin_tenants#modify_overdue_config', :via => :post, :as => 'admin_tenant_modify_overdue_config'
     match '/upload_overdue_config' => 'admin_tenants#upload_overdue_config', :via => :post, :as => 'admin_tenant_upload_overdue_config'
