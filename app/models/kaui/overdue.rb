@@ -11,11 +11,11 @@ class Kaui::Overdue < KillBillClient::Model::Overdue
 
         state = KillBillClient::Model::OverdueStateConfig.new
         state.name = state_model["name"]
-        state.auto_reevaluation_interval_days = nil # TODO
+        state.auto_reevaluation_interval_days = nil
         state.external_message = state_model["external_message"]
         state.is_clear_state = state_model["is_clear_state"].nil? ? false : state_model["is_clear_state"]
-        state.block_changes = state_model["block_changes"].nil? ? false : state_model["block_changes"]
-        if state_model["subscription_cancellation_policy"] == "NO_CANCELLATION"
+        state.block_changes = state_model["block_changes"]
+        if state_model["subscription_cancellation_policy"] == :NONE.to_s
           state.disable_entitlement = false
           state.subscription_cancellation_policy = nil
         else
@@ -30,8 +30,8 @@ class Kaui::Overdue < KillBillClient::Model::Overdue
             state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.unit = "DAYS"
             state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.number = state_model["condition"]["time_since_earliest_unpaid_invoice_equals_or_exceeds"]
           end
-          state.condition.control_tag_inclusion = state_model["condition"]["control_tag_inclusion"] if !state_model["condition"]["control_tag_inclusion"].blank?
-          state.condition.control_tag_exclusion = state_model["condition"]["control_tag_exclusion"] if !state_model["condition"]["control_tag_exclusion"].blank?
+          state.condition.control_tag_inclusion = format_tag_condition(state_model["condition"]["control_tag_inclusion"])
+          state.condition.control_tag_exclusion = format_tag_condition(state_model["condition"]["control_tag_exclusion"])
         end
 
         result.overdue_states << state
@@ -48,8 +48,28 @@ class Kaui::Overdue < KillBillClient::Model::Overdue
         attr_accessor :has_states
       end
       result.has_states = result.overdue_states.size > 0 && result.overdue_states[0].is_clear_state
+
+      result.overdue_states.each do |state|
+        class << state
+          attr_accessor :subscription_cancellation
+        end
+        if state.disable_entitlement
+          state.subscription_cancellation = state.subscription_cancellation_policy ? "POLICY_#{state.subscription_cancellation_policy}".to_sym : :NONE
+        else
+          state.subscription_cancellation = :NONE
+        end
+      end
       result
     end
+
+    def format_tag_condition(control_tag)
+      if control_tag.blank? || control_tag == :NONE.to_s
+        return nil
+      else
+        return control_tag
+      end
+    end
+
 
   end
 

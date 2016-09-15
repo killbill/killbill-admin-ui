@@ -82,6 +82,9 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     @overdue = Kaui::Overdue::get_overdue_json(options) rescue @overdue = []
     @overdue_xml = Kaui::Overdue::get_tenant_overdue_config('xml', options) rescue @overdue_xml = nil
 
+
+
+    puts "++++++++   show #{@overdue.inspect}"
   end
 
   def upload_catalog
@@ -149,10 +152,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options = tenant_options_for_client
     options[:api_key] = @tenant.api_key
     options[:api_secret] = @tenant.api_secret
-
-    # We mix action of canceling or not with associated policy to simplify the view
-    @subscription_cancellation = [:NO_CANCELLATION, :POLICY_NONE, :POLICY_IMMEDIATE, :POLICY_END_OF_TERM]
-
     @overdue = Kaui::Overdue::get_overdue_json(options)
   end
 
