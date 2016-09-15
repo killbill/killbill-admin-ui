@@ -22,7 +22,7 @@
       <div class="form-group">
         <%= f.label :currency, 'Currency', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.text_field :currency, :class => 'form-control' %>
+          <%= f.select :currency, currencies, {:selected => 'USD'}, :class => 'form-control' %>
         </div>
       </div>
       <div class="form-group">
