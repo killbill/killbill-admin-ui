@@ -45,15 +45,15 @@
         <% catalog[:plans].each do |p| %>
             <tr class="catalog_version_<%= catalog[:version] %>">
               <td><%= p.plan_id %></td>
-              <td><%= p.product_name %></td>
-              <td><%= p.product_category %></td>
-              <td><%= p.billing_period %></td>
+              <td><%= humanized_product_name(p.product_name) %></td>
+              <td><%= humanized_product_category(p.product_category) %></td>
+              <td><%= humanized_billing_period(p.billing_period) %></td>
               <td>
                 <% catalog[:currencies].each do |c| %>
                     <span class="plan_currency_<%= c %>"><%= p.prices[c] %></span>
                 <% end %>
               </td>
-              <td><%= p.trial_length != 0 ? "#{p.trial_length} #{p.trial_time_unit}" : "#{p.trial_time_unit}" %></td>
+              <td><%= p.trial_length != 0 ? "#{p.trial_length} #{humanized_time_unit(p.trial_time_unit)}" : "N/A" %></td>
               <td><%= link_to '<i class="fa fa-plus-square"></i>'.html_safe + " currency", kaui_engine.admin_tenant_new_plan_currency_path(:id => @tenant.id, :plan_id => p.plan_id),
                       :class => 'btn btn-xs' %></td>
             </tr>

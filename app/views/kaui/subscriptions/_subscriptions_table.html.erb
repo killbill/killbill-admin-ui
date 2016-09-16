@@ -11,16 +11,16 @@
   </thead>
   <tbody>
   <% (bundle.subscriptions || []).each do |sub| %>
-      <tr class="<%= is_cancelled?(sub) ? 'expired' : 'non-expired' %>">
-        <td><%= humanized_product_category(sub) %></td>
-        <td><%= humanized_full_product_name(sub) %></td>
-        <td><%= humanized_start_date(sub, account) %></td>
-        <td><%= humanized_charged_through_date(sub, account) %></td>
-        <td><%= humanized_cancelled_date(sub, account) %></td>
+      <tr class="<%= is_subscription_cancelled?(sub) ? 'expired' : 'non-expired' %>">
+        <td><%= humanized_subscription_product_category(sub) %></td>
+        <td><%= humanized_subscription_full_product_name(sub) %></td>
+        <td><%= humanized_subscription_start_date(sub, account) %></td>
+        <td><%= humanized_subscription_charged_through_date(sub, account) %></td>
+        <td><%= humanized_subscription_cancelled_date(sub, account) %></td>
         <td class="text-center">
-          <% if is_future_cancelled?(sub) %>
+          <% if is_subscription_future_cancelled?(sub) %>
               <%= link_to 'Reinstate', kaui_engine.reinstate_subscription_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-xs' %>
-          <% elsif !is_cancelled?(sub) %>
+          <% elsif !is_subscription_cancelled?(sub) %>
               <% if can? :change_plan, Kaui::Subscription %>
                   <%= link_to 'Change', kaui_engine.edit_subscription_path(sub.subscription_id), :class => 'btn btn-xs' %>
               <% end %>

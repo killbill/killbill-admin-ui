@@ -23,7 +23,7 @@
       <div class="form-group" id="form_category">
         <%= f.label :product_category, 'Product Category', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.select :product_category, options_for_select(@product_categories, :BASE), :class => 'form-control' %>
+          <%= f.select :product_category, options_for_select(@product_categories.map {|p| [humanized_product_category(p), p] }, :Base), :class => 'form-control' %>
         </div>
       </div>
       <div class="form-group" id="form_base_products">
@@ -47,7 +47,7 @@
       <div class="form-group">
         <%= f.label :billing_period, 'Billing Period', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.select :billing_period, options_for_select(@billing_period, :MONTHLY), :class => 'form-control' %>
+          <%= f.select :billing_period, options_for_select(@billing_period.map {|bp| [humanized_billing_period(bp), bp] }, :MONTHLY), :class => 'form-control' %>
         </div>
       </div>
       <div class="form-group">
@@ -59,7 +59,7 @@
       <div class="form-group">
         <%= f.label :trial_time_unit, 'Trial Time Unit', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.select :trial_time_unit, options_for_select(@time_units, :UNLIMITED), :class => 'form-control' %>
+          <%= f.select :trial_time_unit, options_for_select(@time_units.map {|tu| [humanized_time_unit(tu), tu]}, :UNLIMITED), :class => 'form-control' %>
         </div>
       </div>
       <div class="form-group">
