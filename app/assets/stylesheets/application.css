@@ -5,6 +5,7 @@
  *= require_self
  *= require bootstrap-datepicker3
  *= require dataTables/jquery.dataTables
+ *= require jquery-ui/autocomplete
  *= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
  *= require bootstrap_and_overrides
  *= require kaui/kaui

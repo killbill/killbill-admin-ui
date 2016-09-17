@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'js-routes', '~> 1.1'
   s.add_dependency 'jquery-rails', '~> 3.0.4'
+  s.add_dependency 'jquery-ui-rails', '~> 5.0.5'
   s.add_dependency 'jquery-datatables-rails', '~> 3.3.0'
   s.add_dependency 'money-rails', '~> 1.3.0'
   s.add_dependency 'd3_rails', '~> 3.2.8'

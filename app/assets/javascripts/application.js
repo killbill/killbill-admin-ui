@@ -6,6 +6,7 @@
 //
 //= require js-routes
 //= require jquery
+//= require jquery-ui/autocomplete
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap

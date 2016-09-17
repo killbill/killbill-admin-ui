@@ -108,7 +108,10 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     latest_catalog = Kaui::Catalog::get_catalog_json(true, options)
     @available_base_products = latest_catalog && latest_catalog.products ?
         latest_catalog.products.select { |p| p.type == 'BASE' }.map { |p| p.name } : []
-
+    @available_ao_products = latest_catalog && latest_catalog.products ?
+        latest_catalog.products.select { |p| p.type == 'ADD_ON' }.map { |p| p.name } : []
+    @available_standalone_products = latest_catalog && latest_catalog.products ?
+        latest_catalog.products.select { |p| p.type == 'STANDALONE' }.map { |p| p.name } : []
     @product_categories = [:BASE, :ADD_ON, :STANDALONE]
     @billing_period = [:DAILY, :WEEKLY, :BIWEEKLY, :THIRTY_DAYS, :MONTHLY, :QUARTERLY, :BIANNUAL, :ANNUAL, :BIENNIAL]
     @time_units = [:UNLIMITED, :DAYS, :MONTHS, :YEARS]
