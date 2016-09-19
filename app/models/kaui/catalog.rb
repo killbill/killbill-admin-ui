@@ -20,6 +20,20 @@ class Kaui::Catalog < KillBillClient::Model::Catalog
       result
     end
 
+    def build_ao_mapping(catalog)
+      tmp = {}
+      catalog.products.each do |p|
+        p.available.each do |ap|
+          if !tmp.has_key?(ap)
+            tmp[ap] = []
+          end
+          tmp[ap] << p.name
+        end
+      end
+      tmp.map { |e,v| res = "#{e}:#{v.join(",")}" }.join(";")
+    end
+
+
     def get_catalog_xml(options)
 
       catalog_xml = KillBillClient::Model::Catalog.get_tenant_catalog('xml', nil, options)
@@ -119,6 +133,8 @@ class Kaui::Catalog < KillBillClient::Model::Catalog
       formatter.write(pdoc, result)
       result
     end
-
   end
+
+
+
 end

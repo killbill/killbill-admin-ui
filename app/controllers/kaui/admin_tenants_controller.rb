@@ -106,6 +106,9 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_secret] = @tenant.api_secret
 
     latest_catalog = Kaui::Catalog::get_catalog_json(true, options)
+
+    @ao_mapping = Kaui::Catalog::build_ao_mapping(latest_catalog)
+
     @available_base_products = latest_catalog && latest_catalog.products ?
         latest_catalog.products.select { |p| p.type == 'BASE' }.map { |p| p.name } : []
     @available_ao_products = latest_catalog && latest_catalog.products ?

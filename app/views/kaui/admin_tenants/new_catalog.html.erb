@@ -15,15 +15,15 @@
         </div>
       </div>
       <div class="form-group">
-        <%= f.label :plan_id, 'Plan ID', :class => 'col-sm-3 control-label' %>
+        <%= f.label :product_name, 'Product Name', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.text_field :plan_id, :class => 'form-control' %>
+          <%= f.text_field :product_name, :class => 'form-control', :known_base => @available_base_products.join(","), :known_ao => @available_ao_products.join(","), :known_std => @available_standalone_products.join(","), :ao_mappings => @ao_mapping %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label :product_name, 'Product Name', :class => 'col-sm-3 control-label' %>
+        <%= f.label :plan_id, 'Plan Name', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.text_field :product_name, :class => 'form-control', :known_base => @available_base_products.join(","), :known_ao => @available_ao_products.join(","), :known_std => @available_standalone_products.join(",") %>
+          <%= f.text_field :plan_id, :class => 'form-control' %>
         </div>
       </div>
       <div class="form-group" id="form_base_products">
@@ -116,6 +116,26 @@ function switch_xml_config() {
     $('#catalog_xml').show();
 }
 
+function recompute_available_base_products_for_ao() {
+    if ($("#simple_plan_product_category option:selected" ).text() != 'Add_on') {
+        return;
+    }
+    var product_name = $('#simple_plan_product_name').val();
+
+    var ao_mappings_str = $('#simple_plan_product_name').attr('ao_mappings');
+    if (ao_mappings_str != "") {
+        var ao_mappings = {};
+        $.map(ao_mappings_str.split(";"), function(el) { sel = el.split(':'); ao_mappings[sel[0]] = sel[1].split(',') });
+        if (ao_mappings[product_name] !=  undefined) {
+            console.log("*****  Updating for AO " + product_name + ": " + ao_mappings[product_name].join(","));
+            $('#simple_plan_available_base_products').val(ao_mappings[product_name]);
+            return;
+        }
+    }
+    /* Unless we found a mapping to update, we clear the existing mapping */
+    $('#simple_plan_available_base_products').val([]);
+}
+
 function display_available_base_products_for_ao() {
     /* Reset prodcut name value; known_products from auto completion will also be updated accordingly */
     $('#simple_plan_product_name').val('');
@@ -146,6 +166,12 @@ $(document).ready(function() {
         display_available_base_products_for_ao();
     });
     display_available_base_products_for_ao();
+
+
+    $('#simple_plan_product_name').on('mouseleave', function() {
+        console.log('event has fired');
+        recompute_available_base_products_for_ao();
+    });
 });
 
 <% end %>
