@@ -25,5 +25,43 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
     def upload_tenant_plugin_config(plugin_name, plugin_config, user = nil, reason = nil, comment = nil, options = {})
       KillBillClient::Model::Tenant.upload_tenant_plugin_config(plugin_name, plugin_config, user, reason, comment, options)
     end
+
+    def get_oss_plugin_info
+
+      require 'open-uri'
+      require 'yaml'
+
+      source = URI.parse('https://raw.githubusercontent.com/killbill/killbill-cloud/master/kpm/lib/kpm/plugins_directory.yml').read
+      plugin_directory = YAML.load(source)
+
+      # Serialize the plugin state for the view:
+      #  plugin_name#plugin_type:prop1,prop2,prop3;plugin_name#plugin_type:prop1,prop2,prop3;...
+      #
+      plugin_config = plugin_directory.inject({}) do |hsh, (k,v)|
+        hsh["#{k}##{v[:type]}"] = v[:require] || []
+        hsh
+      end
+      plugin_config.map { |e,v| "#{e}:#{v.join(",")}" }.join(";")
+    end
+
+    def format_plugin_config(plugin_name, plugin_type, props)
+      if plugin_type == 'ruby'
+        require 'yaml'
+        hsh = {}
+        hsh[plugin_name.to_sym] = {}
+        props.each do |k,v|
+          hsh[plugin_name.to_sym][k.to_sym] = v.to_sym
+        end
+        hsh[plugin_name.to_sym]
+        hsh.to_yaml
+      else # java
+        res = ""
+        props.each do |k,v|
+          res = "#{res}#{k.to_s}=#{v.to_s}\n"
+        end
+        res
+      end
+
+    end
   end
 end

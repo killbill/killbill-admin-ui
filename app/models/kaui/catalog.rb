@@ -29,8 +29,8 @@ class Kaui::Catalog < KillBillClient::Model::Catalog
           end
           tmp[ap] << p.name
         end
-      end
-      tmp.map { |e,v| res = "#{e}:#{v.join(",")}" }.join(";")
+      end unless catalog.nil?
+      tmp.map { |e,v| "#{e}:#{v.join(",")}" }.join(";")
     end
 
 

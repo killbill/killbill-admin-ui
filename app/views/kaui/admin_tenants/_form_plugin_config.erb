@@ -1,18 +1,22 @@
 <% if can? :config_upload, Kaui::AdminTenant %>
+    </br>
+    <div>
+      <h1>Upload Plugin Configuration
+      </h1>
+    </div>
+
     <div class="tab-pane fade" id="PluginConfig">
       <%= form_tag({:action => :upload_plugin_config}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
           <%= hidden_field_tag(:id, @tenant.id) %>
 
           <div class="form-group">
-            <div class="col-sm-10">
-              <%= file_field_tag 'plugin_config', :class => 'form-control' %>
+            <%= label_tag :plugin_name, 'Plugin name', :class => 'col-sm-2 control-label' %>
+            <div class="col-sm-4">
+              <%= text_field_tag :plugin_name, nil, :class => 'form-control', :plugin_config => @plugin_config %>
             </div>
           </div>
-          <div class="form-group">
-            <%= label_tag :plugin_name, 'Plugin name', :class => 'col-sm-2 control-label' %>
-            <div class="col-sm-10">
-              <%= text_field_tag :plugin_name, nil, :class => 'form-control' %>
-            </div>
+          <!-- Anchor DIV that gets thrown away when switching plugins -->
+          <div id="plugin_config_properties" , plugin_name="" , class="col-sm-6">
           </div>
           <div class="form-group">
             <div class="col-sm-10">
@@ -21,4 +25,109 @@
           </div>
       <% end %>
     </div>
+<% end %>
+
+<%= javascript_tag do %>
+
+function get_selected_plugin_info() {
+    var plugin_name = $('#plugin_name').val();
+    var plugin_config_str = $('#plugin_name').attr('plugin_config');
+
+    var res = {}
+    /* Deserialize plugin/properties (see AdminTenant model)*/
+    $.each(plugin_config_str.split(';'), function(idx, el) {
+        var el_parts = el.split(':');
+        var el_parts_key = el_parts[0].split('#');
+        var el_plugin_name = el_parts_key[0];
+        var el_plugin_type = el_parts_key[1];
+        var el_plugin_props = el_parts[1];
+        if (el_plugin_name == plugin_name) {
+            res['type'] = el_plugin_type;
+            res['props'] = el_plugin_props == "" ? [] :  el_plugin_props.split(',');
+            return false;
+        }
+    });
+    return res;
+}
+
+function init_plugin_config_source() {
+    var plugin_config_str = $('#plugin_name').attr('plugin_config');
+    var res = []
+    $.map(plugin_config_str.split(";"), function(el) { res.push(el.split(':')[0].split('#')[0]) });
+    return res;
+}
+
+function add_properties_for_plugin(plugin_name, plugin_info) {
+    if ($('#plugin_config_properties').attr('plugin_name') == plugin_name) {
+        /* Already set...*/
+        return;
+    }
+
+
+
+    var type = plugin_info['type'];
+    var props = plugin_info['props']
+
+    /* Prune the tree to restart from scratch */
+    $('#plugin_config_properties').empty();
+
+    $('#plugin_config_properties').append('<input type="hidden" name="plugin_type" id="plugin_type" value="' + type + '" />');
+
+    $.each(props, function(idx, p) {
+        add_property_form_entry(format_label(p), p);
+    });
+
+    $('#plugin_config_properties').attr('plugin_name', plugin_name);
+}
+
+function format_label(input) {
+    /* Keep latest piece of a system property to keep it short */
+    var label_name = input.split('.').pop();
+    /* Replace underscore with comma */
+    label_name = label_name.replace(/_/g, ',');
+    /* Replace uppercase with comma + uppercase */
+    label_name = label_name.replace(/([A-Z]+)/g, ",$1");
+    /* Split name make sure each word starts with Uppercase */
+    var tmp1 = label_name.split(',');
+    var label_name_array = [];
+    $.map(tmp1, function(el) { label_name_array.push(el.charAt(0).toUpperCase() + el.slice(1)) });
+    label_name = label_name_array.join(' ');
+    return label_name;
+}
+
+function add_property_form_entry(property_label, property) {
+
+    var clone = $('#PluginConfig div').first().clone();
+    clone.children("label").attr('for', property).text(property_label);
+    clone.children("div").first().attr("name", property).attr("id", property);
+    clone.children("div").children("input").first().attr("name", "plugin_properties[" + property + "]").attr("id", property).attr('class', 'form-control').val('').removeAttr('plugin_config').removeAttr('autocomplete');
+
+    /* Attach clone object  */
+    $('#plugin_config_properties').append(clone);
+
+}
+
+
+function init_plugin_name_handlers() {
+    /* Intercept ENTER and potentially display property form if plugin is know */
+    $('#plugin_name').keyup(function (e) {
+        if (e.keyCode === 13) {
+        add_properties_for_plugin($('#plugin_name').val(), get_selected_plugin_info());
+        }
+    });
+
+    /* Intercept mouseleave and potentially display property form if plugin is know */
+    $('#plugin_name').on('mouseleave', function() {
+        add_properties_for_plugin($('#plugin_name').val(), get_selected_plugin_info());
+    });
+
+    /* Attach auto-completion source */
+    $('#plugin_name').autocomplete({
+    source: init_plugin_config_source()
+    });
+}
+
+$(document).ready(function() {
+    init_plugin_name_handlers();
+});
 <% end %>

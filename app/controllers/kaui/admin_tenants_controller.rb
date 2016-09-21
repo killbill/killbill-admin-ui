@@ -81,6 +81,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     @catalogs_xml = Kaui::Catalog::get_catalog_xml(options) rescue @catalogs_xml = []
     @overdue = Kaui::Overdue::get_overdue_json(options) rescue @overdue = []
     @overdue_xml = Kaui::Overdue::get_tenant_overdue_config('xml', options) rescue @overdue_xml = nil
+
+    @plugin_config =  Kaui::AdminTenant::get_oss_plugin_info  rescue @plugin_config = {}
   end
 
   def upload_catalog
@@ -244,10 +246,12 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_secret] = current_tenant.api_secret
 
     plugin_name = params[:plugin_name]
-    uploaded_plugin_config = params[:plugin_config]
-    plugin_config = uploaded_plugin_config.read
+    plugin_properties = params[:plugin_properties]
+    plugin_type = params[:plugin_type]
 
-    Kaui::AdminTenant.upload_tenant_plugin_config(plugin_name, plugin_config, options[:username], nil, comment, options)
+    plugin_config = Kaui::AdminTenant.format_plugin_config(plugin_name, plugin_type, plugin_properties)
+
+    Kaui::AdminTenant.upload_tenant_plugin_config("killbill-#{plugin_name}", plugin_config, options[:username], nil, comment, options)
 
     redirect_to admin_tenant_path(current_tenant.id), :notice => 'Config for plugin was successfully uploaded'
   end

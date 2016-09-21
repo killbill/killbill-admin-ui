@@ -127,7 +127,6 @@ function recompute_available_base_products_for_ao() {
         var ao_mappings = {};
         $.map(ao_mappings_str.split(";"), function(el) { sel = el.split(':'); ao_mappings[sel[0]] = sel[1].split(',') });
         if (ao_mappings[product_name] !=  undefined) {
-            console.log("*****  Updating for AO " + product_name + ": " + ao_mappings[product_name].join(","));
             $('#simple_plan_available_base_products').val(ao_mappings[product_name]);
             return;
         }
@@ -169,7 +168,6 @@ $(document).ready(function() {
 
 
     $('#simple_plan_product_name').on('mouseleave', function() {
-        console.log('event has fired');
         recompute_available_base_products_for_ao();
     });
 });
