@@ -1,11 +1,12 @@
 <% if can? :config_upload, Kaui::AdminTenant %>
-    </br>
-    <div>
-      <h1>Upload Plugin Configuration
-      </h1>
-    </div>
-
     <div class="tab-pane fade" id="PluginConfig">
+
+      </br>
+      <div>
+        <h1>Upload Plugin Configuration
+        </h1>
+      </div>
+
       <%= form_tag({:action => :upload_plugin_config}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
           <%= hidden_field_tag(:id, @tenant.id) %>
 

@@ -58,6 +58,14 @@ class Kaui::Overdue < KillBillClient::Model::Overdue
         else
           state.subscription_cancellation = :NONE
         end
+        if state.condition.nil?
+          state.condition = KillBillClient::Model::OverdueCondition.new
+          state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds = KillBillClient::Model::DurationAttributes.new
+          state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.unit = "DAYS"
+          state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.number = 0
+          state.condition.control_tag_inclusion = :NONE
+          state.condition.control_tag_exclusion = :NONE
+        end
       end
       result
     end
