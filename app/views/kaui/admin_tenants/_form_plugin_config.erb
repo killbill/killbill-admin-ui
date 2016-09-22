@@ -98,7 +98,7 @@ function format_label(input) {
 
 function add_property_form_entry(property_label, property) {
 
-    var clone = $('#PluginConfig div').first().clone();
+    var clone = $('#PluginConfig form div').first().clone();
     clone.children("label").attr('for', property).text(property_label);
     clone.children("div").first().attr("name", property).attr("id", property);
     clone.children("div").children("input").first().attr("name", "plugin_properties[" + property + "]").attr("id", property).attr('class', 'form-control').val('').removeAttr('plugin_config').removeAttr('autocomplete');
