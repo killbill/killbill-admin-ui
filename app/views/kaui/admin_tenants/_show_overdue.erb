@@ -16,7 +16,7 @@
 
     <span class='label'>
     </span>
-    <% if @overdue.has_states %>
+    <% if @overdue.nil? || @overdue.has_states %>
         No overdue configuration defined for tenant
     <% else %>
         <thead>

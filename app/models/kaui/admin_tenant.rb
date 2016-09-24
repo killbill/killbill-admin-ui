@@ -26,13 +26,16 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
       KillBillClient::Model::Tenant.upload_tenant_plugin_config(plugin_name, plugin_config, user, reason, comment, options)
     end
 
-    def get_oss_plugin_info
-
+    def get_plugin_repository
       require 'open-uri'
       require 'yaml'
 
       source = URI.parse('https://raw.githubusercontent.com/killbill/killbill-cloud/master/kpm/lib/kpm/plugins_directory.yml').read
-      plugin_directory = YAML.load(source)
+      YAML.load(source)
+    end
+
+    def get_oss_plugin_info(plugin_directory)
+
 
       # Serialize the plugin state for the view:
       #  plugin_name#plugin_type:prop1,prop2,prop3;plugin_name#plugin_type:prop1,prop2,prop3;...
@@ -43,6 +46,57 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
       end
       plugin_config.map { |e,v| "#{e}:#{v.join(",")}" }.join(";")
     end
+
+    def get_tenant_plugin_config(plugin_directory, options)
+
+      require 'yaml'
+
+      raw_tenant_config = KillBillClient::Model::Tenant::search_tenant_config("PLUGIN_CONFIG_", options)
+
+      tenant_config = raw_tenant_config.inject({}) do |hsh, e|
+
+        # Strip prefix '/PLUGIN_CONFIG_'
+        killbill_key = e.key.gsub!(/PLUGIN_CONFIG_/, '')
+
+        # Extract killbill key for oss plugins based on convention 'killbill-KEY'
+        plugin_key = killbill_key.gsub(/killbill-/, '') if killbill_key.start_with?('killbill-')
+        # If such key exists, lookup in plugin directory
+        plugin_repo_entry = plugin_directory[plugin_key.to_sym] unless plugin_key.nil?
+        # Extract plugin_type based on plugin_directory entry if exists
+        plugin_type = plugin_repo_entry.nil? ? :unknown : plugin_repo_entry[:type].to_sym
+
+        # Deserialize config based on type
+        if plugin_type == :ruby
+          yml = YAML.load(e.values[0])
+          # Hash of properties
+          hsh[plugin_key] = yml[plugin_key.to_sym]
+        elsif plugin_type == :java
+          # Construct hash of properties based on java properties (k1=v1\nk2=v2\n...)
+          hsh[plugin_key] = e.values[0].split("\n").inject({}) do |h, p0|
+            k, v = p0.split('=');
+            h[k] = v;
+            h
+          end
+        else
+          # Construct simple hash with one property :raw_config
+          hsh[killbill_key] = {:raw_config => e.values[0]}
+        end
+        hsh
+      end
+
+      # Serialize the whole thing a as string of the form:
+      # plugin_key1::key1=value1,key2=value2,..;plugin_key2::...
+      tenant_config.map do |plugin_key, props|
+        serialized_props = props.inject("") do |s, (k, v)|
+          e="#{k.to_s}=#{v.to_s}";
+          s == "" ? s="#{e}" : s="#{s},#{e}";
+          s
+        end
+        "#{plugin_key}::#{serialized_props}"
+      end.join(";")
+
+    end
+
 
     def format_plugin_config(plugin_name, plugin_type, props)
       if plugin_type == 'ruby'
