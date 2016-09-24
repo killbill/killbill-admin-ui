@@ -34,18 +34,20 @@ function get_existing_tenant_plugin_properties(plugin_name) {
 
     var tenant_plugin_properties = $('#plugin_name').attr('tenant_plugin_config');
     var res = {}
-    $.each(tenant_plugin_properties.split(';'), function(idx, el) {
-        var el_parts = el.split('::');
-        var el_plugin_name = el_parts[0];
-        var el_props = el_parts[1];
-        if (el_plugin_name == plugin_name) {
-            $.map(el_props.split(','), function(el) {
-                var parts = el.split('=');
-                res[parts[0]] = parts[1];
-            });
-            return false;
-        }
-    });
+    if (tenant_plugin_properties != undefined) {
+        $.each(tenant_plugin_properties.split(';'), function(idx, el) {
+            var el_parts = el.split('::');
+            var el_plugin_name = el_parts[0];
+            var el_props = el_parts[1];
+            if (el_plugin_name == plugin_name) {
+                $.map(el_props.split(','), function(el) {
+                    var parts = el.split('=');
+                    res[parts[0]] = parts[1];
+                });
+                return false;
+            }
+        });
+    }
     return res;
 }
 
@@ -103,11 +105,13 @@ function add_properties_for_plugin(plugin_name, plugin_info) {
     var existing_props = get_existing_tenant_plugin_properties(plugin_name);
 
     var merged_props_with_values = existing_props;
-    $.each(props, function(idx, p) {
-      if (merged_props_with_values[p] == undefined) {
-         merged_props_with_values[p] = '';
-      }
-    });
+    if (props != undefined) {
+        $.each(props, function(idx, p) {
+            if (merged_props_with_values[p] == undefined) {
+               merged_props_with_values[p] = '';
+            }
+        });
+    }
 
     $.each(merged_props_with_values, function(p, v) {
         add_property_form_entry(format_label(p), p, v);
@@ -136,7 +140,23 @@ function add_property_form_entry(property_label, property, current_value) {
     var clone = $('#PluginConfig form div').first().clone();
     clone.children("label").attr('for', property).text(property_label);
     clone.children("div").first().attr("name", property).attr("id", property);
-    clone.children("div").children("input").first().attr("name", "plugin_properties[" + property + "]").attr("id", property).attr('class', 'form-control').val(current_value).removeAttr('plugin_config').removeAttr('autocomplete');
+    var input = clone.children("div").children("input").first();
+    input.removeAttr('autocomplete').removeAttr('plugin_config');
+    if (property == 'raw_config') {
+       var text_area = $('<textarea name="plugin_properties[raw_config]" id="raw_config" rows="10" class="form-control">');
+       input.replaceWith(text_area);
+       text_area.attr("name", "plugin_properties[" + property + "]")
+         .attr("id", property)
+         .attr('class', 'form-control')
+         .val(current_value);
+
+       input.replaceWith('<textarea name="plugin_properties[raw_config]" id="raw_config" rows="10" class="form-control">').text(current_value);
+    } else {
+        input.attr("name", "plugin_properties[" + property + "]")
+         .attr("id", property)
+         .attr('class', 'form-control')
+         .val(current_value);
+   }
 
     /* Attach clone object  */
     $('#plugin_config_properties_anchor').append(clone);
