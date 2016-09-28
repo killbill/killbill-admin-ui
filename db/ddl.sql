@@ -10,13 +10,16 @@ CREATE TABLE `kaui_users` (
 
 CREATE TABLE `kaui_tenants` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
   `kb_tenant_id` varchar(255) DEFAULT NULL,
   `api_key` varchar(255) DEFAULT NULL,
   `encrypted_api_secret` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `kaui_tenants_kb_name` (`name`),
+  UNIQUE KEY `kaui_tenants_kb_tenant_id` (`kb_tenant_id`),
+  UNIQUE KEY `kaui_tenants_kb_api_key` (`api_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `kaui_allowed_users` (

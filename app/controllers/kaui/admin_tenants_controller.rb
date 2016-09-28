@@ -14,18 +14,11 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
   def create
     param_tenant = params[:tenant]
-    old_tenant = Kaui::Tenant.find_by_name(param_tenant[:name])
-    if old_tenant
-      flash.now[:error] = "Tenant with name #{param_tenant[:name]} already exists!"
-      @tenant = Kaui::Tenant.new
-      render :new and return
-    end
 
-    old_tenant = Kaui::Tenant.find_by_api_key(param_tenant[:api_key])
+    old_tenant = Kaui::Tenant.find_by_name(param_tenant[:name]) || Kaui::Tenant.find_by_api_key(param_tenant[:api_key])
     if old_tenant
-      flash.now[:error] = "Tenant with api key #{param_tenant[:api_key]} already exists!"
-      @tenant = Kaui::Tenant.new
-      render :new and return
+      old_tenant.kaui_allowed_users << Kaui::AllowedUser.where(:kb_username => current_user.kb_username).first_or_create
+      redirect_to admin_tenant_path(old_tenant[:id]), :notice => 'Tenant was successfully configured' and return
     end
 
     begin
@@ -37,6 +30,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
         options[:api_secret] = param_tenant[:api_secret]
         new_tenant = Kaui::AdminTenant.find_by_api_key(param_tenant[:api_key], options)
       rescue KillBillClient::API::Unauthorized, KillBillClient::API::NotFound
+
         # Create the tenant in Kill Bill
         new_tenant = Kaui::AdminTenant.new
         new_tenant.external_key = param_tenant[:name]
@@ -47,14 +41,13 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
       # Transform object to Kaui model
       tenant_model = Kaui::Tenant.new
-      tenant_model.name = new_tenant.external_key
-      tenant_model.kb_tenant_id = new_tenant.tenant_id
-      tenant_model.api_key = new_tenant.api_key
+      tenant_model.name = param_tenant[:name]
+      tenant_model.api_key = param_tenant[:api_key]
       tenant_model.api_secret = param_tenant[:api_secret]
+      tenant_model.kb_tenant_id = new_tenant.tenant_id
 
       # Save in KAUI tables
       tenant_model.save!
-
       # Make sure at least the current user can access the tenant
       tenant_model.kaui_allowed_users << Kaui::AllowedUser.where(:kb_username => current_user.kb_username).first_or_create
     rescue => e
