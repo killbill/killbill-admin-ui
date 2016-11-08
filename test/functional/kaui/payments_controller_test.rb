@@ -37,5 +37,9 @@ class Kaui::PaymentsControllerTest < Kaui::FunctionalTestHelper
   test 'should expose restful endpoint' do
     get :restful_show, :id => @payment.payment_id
     assert_redirected_to account_payment_path(@payment.account_id, @payment.payment_id)
+
+    # Search by external_key
+    get :restful_show, :id => @payment.payment_external_key
+    assert_redirected_to account_payment_path(@payment.account_id, @payment.payment_id)
   end
 end
