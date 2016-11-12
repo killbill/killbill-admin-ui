@@ -3,6 +3,7 @@
   <tr>
     <th>Product category</th>
     <th>Product name</th>
+    <th>Phase type</th>
     <th>Start date</th>
     <th>Charged through date</th>
     <th>Notes</th>
@@ -14,6 +15,7 @@
       <tr class="<%= is_subscription_cancelled?(sub) ? 'expired' : 'non-expired' %>">
         <td><%= humanized_subscription_product_category(sub) %></td>
         <td><%= humanized_subscription_full_product_name(sub) %></td>
+        <td><%= humanized_subscription_phase_type(sub) %></td>
         <td><%= humanized_subscription_start_date(sub, account) %></td>
         <td><%= humanized_subscription_charged_through_date(sub, account) %></td>
         <td><%= humanized_subscription_cancelled_date(sub, account) %></td>
@@ -50,8 +52,9 @@
     $('#subscriptions_<%= bundle.bundle_id %>').dataTable({
       "dom": "t",
       "paging": false,
-      "order": [[ 2, "asc" ]],
+      "order": [[ 3, "asc" ]],
       "columns": [
+      null,
       null,
       null,
       null,

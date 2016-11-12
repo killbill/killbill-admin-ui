@@ -75,6 +75,10 @@ module Kaui
       end
     end
 
+    def humanized_subscription_phase_type(sub)
+      sub.phase_type
+    end
+
     def humanized_subscription_start_date(sub, account)
       if !sub.present? or !sub.start_date.present? or !account.present? or !account.time_zone.present?
         nil
