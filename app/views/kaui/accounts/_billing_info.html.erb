@@ -8,28 +8,26 @@
 
       <% if can?(:trigger, Kaui::Payment) || can?(:credit, Kaui::Account) || can?(:charge, Kaui::Account) %>
           <div class="tag-bar tag-bar-breathe">
-
-            <div class="tag-select" onclick="void(0)">
-              <span><i class="fa fa-money"></i><i class="fa fa-caret-down"></i></span>
-
-              <div class="tag-select-box">
-                <!-- Payment, Credit then Charge. Same ordering as in the billing timeline -->
-                <% if can?(:trigger, Kaui::Payment) && @account.account_balance.present? && @account.account_balance > 0 %>
-                    <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Pay all invoices'.html_safe,
-                                kaui_engine.pay_all_invoices_account_path(@account.account_id),
-                                :method => :post %>
-                <% end %>
-                <% if can? :credit, Kaui::Account %>
-                    <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Add credit'.html_safe,
-                                kaui_engine.new_account_credit_path(@account.account_id, :currency => @account.currency) %>
-                <% end %>
-                <% if can? :charge, Kaui::Account %>
-                    <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Create charge'.html_safe,
-                                kaui_engine.new_account_charge_path(@account.account_id, :currency => @account.currency) %>
-                <% end %>
+            <div class="toggler">
+              <div class="toggle">
+                <div class="actions">
+                  <!-- Payment, Credit then Charge. Same ordering as in the billing timeline -->
+                  <% if can?(:trigger, Kaui::Payment) && @account.account_balance.present? && @account.account_balance > 0 %>
+                      <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Pay all invoices'.html_safe,
+                                  kaui_engine.pay_all_invoices_account_path(@account.account_id),
+                                  :method => :post %>
+                  <% end %>
+                  <% if can? :credit, Kaui::Account %>
+                      <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Add credit'.html_safe,
+                                  kaui_engine.new_account_credit_path(@account.account_id, :currency => @account.currency) %>
+                  <% end %>
+                  <% if can? :charge, Kaui::Account %>
+                      <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Create charge'.html_safe,
+                                  kaui_engine.new_account_charge_path(@account.account_id, :currency => @account.currency) %>
+                  <% end %>
+                </div>
               </div>
             </div>
-
           </div>
       <% end %>
 
