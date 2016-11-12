@@ -23,8 +23,8 @@ class Kaui::AccountEmailsControllerTest < Kaui::FunctionalTestHelper
          :account_email => {
              :email => 'toto@example.com'
          }
-    assert_template :new
-    assert_equal "Error while adding the email: Error 404: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
+    assert_redirected_to account_path(account_id)
+    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
   end
 
   test 'should handle Kill Bill errors during deletion' do
