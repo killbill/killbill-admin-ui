@@ -2,7 +2,7 @@ class Kaui::EngineController < ApplicationController
 
   include Kaui::EngineControllerUtil
 
-  before_filter :authenticate_user!, :check_for_redirect_to_tenant_screen
+  before_filter :authenticate_user!, :check_for_redirect_to_tenant_screen, :populate_account_details
 
   layout :get_layout
 
@@ -18,7 +18,6 @@ class Kaui::EngineController < ApplicationController
     super
   end
 
-
   def current_ability
     # Redefined here to namespace Ability in the correct module
     @current_ability ||= Kaui::Ability.new(current_user)
@@ -30,6 +29,10 @@ class Kaui::EngineController < ApplicationController
       session[:kb_tenant_id] = nil
       redirect_to Kaui.tenant_home_path.call
     end
+  end
+
+  def populate_account_details
+    @account ||= params[:account_id].present? ? Kaui::Account.find_by_id(params[:account_id], false, false, options_for_klient) : Kaui::Account.new
   end
 
   def retrieve_tenants_for_current_user

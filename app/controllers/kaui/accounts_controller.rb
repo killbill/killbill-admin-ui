@@ -55,6 +55,7 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def show
+    # Re-fetch the account with balance and CBA
     @account = Kaui::Account::find_by_id_or_key(params.require(:account_id), true, true, options_for_klient)
 
     fetch_overdue_state = lambda { @overdue_state = @account.overdue(options_for_klient) }
@@ -72,7 +73,6 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def edit
-    @account = Kaui::Account::find_by_id_or_key(params.require(:account_id), false, false, options_for_klient)
   end
 
   def update

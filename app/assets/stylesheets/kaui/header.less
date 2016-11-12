@@ -126,14 +126,11 @@ header {
         }
     }
 
-    a {
+    a,p {
         display: inline-block;
         padding: 12px 40px;
         font-size: 12px;
-        text-transform: uppercase;
-        color: #666666;
         margin: 0;
-        border-left: 1px solid #fff;
         line-height: 12px;
         background: transparent;
         vertical-align: top;
@@ -173,6 +170,12 @@ header {
                 width: 100%;
             }
         }
+    }
+
+    a {
+        color: #666666;
+        text-transform: uppercase;
+        border-left: 1px solid #fff;
 
         &:hover, &.current {
             color: #fff;
@@ -182,5 +185,9 @@ header {
         &:last-of-type {
             border-right: 1px solid #fff;
         }
+    }
+
+    p {
+        font-weight: normal;
     }
 }

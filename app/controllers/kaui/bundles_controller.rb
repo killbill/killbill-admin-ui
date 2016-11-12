@@ -1,8 +1,6 @@
 class Kaui::BundlesController < Kaui::EngineController
 
   def index
-    @account = Kaui::Account::find_by_id_or_key(params.require(:account_id), false, false, options_for_klient)
-
     fetch_bundles = lambda { @bundles = @account.bundles(options_for_klient) }
     fetch_bundle_tags = lambda {
       all_bundle_tags = @account.all_tags(:BUNDLE, false, 'NONE', options_for_klient)
