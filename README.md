@@ -8,7 +8,7 @@ Kill Bill compatibility
 
 | Kaui version | Kill Bill version |
 | -----------: | ----------------: |
-| 0.14. y      | 0.16.z            |
+| 0.14.y       | 0.16.z            |
 | 0.15.y       | 0.18.z            |
 
 Running Kaui locally
