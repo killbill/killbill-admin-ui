@@ -1,6 +1,16 @@
 Getting started
 ===============
 
+Kaui core mountable engine. For Kaui the UI, see [killbill-admin-ui-standalone](https://github.com/killbill/killbill-admin-ui-standalone).
+
+Kill Bill compatibility
+-----------------------
+
+| API version | Kill Bill version |
+| ----------: | ----------------: |
+| 0.14.y      | 0.16.z            |
+| 0.15.y      | 0.18.z            |
+
 Running Kaui locally
 ---------------------
 
