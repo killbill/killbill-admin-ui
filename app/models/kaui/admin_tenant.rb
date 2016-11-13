@@ -99,6 +99,7 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
 
 
     def format_plugin_config(plugin_name, plugin_type, props)
+      return nil unless props.present?
       if plugin_type == 'ruby'
         require 'yaml'
         hsh = {}
@@ -108,14 +109,15 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
         end
         hsh[plugin_name.to_sym]
         hsh.to_yaml
-      else # java
+      elsif plugin_type == 'java'
         res = ""
-        props.each do |k,v|
+        props.each do |k, v|
           res = "#{res}#{k.to_s}=#{v.to_s}\n"
         end
         res
+      else
+        props['raw_config']
       end
-
     end
   end
 end

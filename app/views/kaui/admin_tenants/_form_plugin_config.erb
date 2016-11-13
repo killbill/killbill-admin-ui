@@ -40,10 +40,14 @@ function get_existing_tenant_plugin_properties(plugin_name) {
             var el_plugin_name = el_parts[0];
             var el_props = el_parts[1];
             if (el_plugin_name == plugin_name) {
-                $.map(el_props.split(','), function(el) {
-                    var parts = el.split('=');
-                    res[parts[0]] = parts[1];
-                });
+                if (el_props.split('=')[0] == 'raw_config') {
+                    res['raw_config'] = el_props.substr(11);
+                } else {
+                    $.map(el_props.split(','), function(el) {
+                        var parts = el.split('=');
+                        res[parts[0]] = parts[1];
+                    });
+                }
                 return false;
             }
         });
@@ -65,10 +69,16 @@ function get_selected_plugin_info() {
         var el_plugin_props = el_parts[1];
         if (el_plugin_name == plugin_name) {
             res['type'] = el_plugin_type;
-            res['props'] = el_plugin_props == "" ? [] :  el_plugin_props.split(',');
+            res['props'] = el_plugin_props == "" ? [] : (el_plugin_type == "" ? ['raw_config'] : el_plugin_props.split(','));
             return false;
         }
     });
+
+    if (res['props'] == undefined) {
+        res['type'] = '';
+        res['props'] = ['raw_config'];
+    }
+
     return res;
 }
 

@@ -247,7 +247,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     plugin_config = Kaui::AdminTenant.format_plugin_config(plugin_name, plugin_type, plugin_properties)
 
-    Kaui::AdminTenant.upload_tenant_plugin_config("killbill-#{plugin_name}", plugin_config, options[:username], nil, comment, options)
+    key = plugin_type.present? ? "killbill-#{plugin_name}" : plugin_name
+    Kaui::AdminTenant.upload_tenant_plugin_config(key, plugin_config, options[:username], nil, comment, options)
 
     redirect_to admin_tenant_path(current_tenant.id), :notice => 'Config for plugin was successfully uploaded'
   end
