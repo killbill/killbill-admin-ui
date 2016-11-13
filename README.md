@@ -46,17 +46,23 @@ Running tests
 -------------
 
 Go into 'test/dummy': 
-> cd test/dummy/
+```
+cd test/dummy/
+```
 
 Run migrations:
-> export RAILS_ENV=test
-> rake kaui:install:migrations
-> rake db:migrate
+```
+export RAILS_ENV=test
+rake kaui:install:migrations
+rake db:migrate
+```
 
 Run the tests:
 (Move back to top level)
-> cd ../..
-> rake test
+```
+cd ../..
+rake test
+```
 
 Note: functional and integration tests require an instance of Kill Bill to test against.
 
