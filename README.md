@@ -12,6 +12,7 @@ export RAILS_ENV=development
 bundle install
 rake kaui:install:migrations
 rake db:migrate
+bundle exec rake assets:precompile
 rails server
 ```
 
