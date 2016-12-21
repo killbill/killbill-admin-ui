@@ -16,3 +16,4 @@
 //= require kaui/bootstrap-tweaks
 //= require kaui/validation
 //= require kaui/kaui
+//= require flexibility

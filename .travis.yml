@@ -18,6 +18,9 @@ jdk:
   - openjdk7
   - oraclejdk7
 
+before_install:
+  - gem install bundler -v '1.11.2'
+
 before_script:
   - mysql -e 'create database kaui_test;'
   - RAILS_ENV=test bundle exec rake db:migrate
