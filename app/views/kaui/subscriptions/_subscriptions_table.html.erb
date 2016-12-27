@@ -34,9 +34,9 @@
                     </a>
                     <ul class="dropdown-menu">
                       <li><%= link_to 'Cancel (default policy)', kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete %></li>
-                      <li><%= link_to 'Cancel at previous CTD (no proration)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'IMMEDIATE', :ctd => sub.charged_through_date, :billing_period => sub.billing_period), :method => :delete %></li>
-                      <li><%= link_to 'Cancel immediately (generate proration)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'IMMEDIATE'), :method => :delete %></li>
-                      <li><%= link_to 'Cancel end of term', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'END_OF_TERM'), :method => :delete %></li>
+                      <li><%= link_to 'Cancel start of term (full credit)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'START_OF_TERM'), :method => :delete %></li>
+                      <li><%= link_to 'Cancel immediately (partial credit)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'IMMEDIATE'), :method => :delete %></li>
+                      <li><%= link_to 'Cancel end of term (no credit)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'END_OF_TERM'), :method => :delete %></li>
                     </ul>
                   </div>
               <% end %>

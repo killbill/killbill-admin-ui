@@ -77,8 +77,10 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
   def destroy
     requested_date = params[:requested_date].presence
-    entitlement_policy = params[:policy].presence
-    billing_policy = entitlement_policy
+    billing_policy = params[:policy].presence
+    # START_OF_TERM is *not* a valid entitlement_policy and so would default to IMMEDIATE
+    entitlement_policy = billing_policy && billing_policy == 'START_OF_TERM' ? 'IMMEDIATE' : billing_policy
+
     # true by default
     use_requested_date_for_billing = (params[:use_requested_date_for_billing] || '1') == '1'
 
