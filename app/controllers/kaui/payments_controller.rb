@@ -1,7 +1,7 @@
 class Kaui::PaymentsController < Kaui::EngineController
 
   def index
-    @search_query = params[:account_id]
+    @search_query = params[:q] || params[:account_id]
 
     @limit = 50
     if @search_query.blank?
@@ -16,11 +16,24 @@ class Kaui::PaymentsController < Kaui::EngineController
 
   def pagination
     searcher = lambda do |search_key, offset, limit|
-      account = Kaui::Account::find_by_id_or_key(search_key, false, false, options_for_klient) rescue nil
-      if account.nil?
-        payments = Kaui::Payment.list_or_search(search_key, offset, limit, options_for_klient)
+      if %w(SUCCESS PENDING PAYMENT_FAILURE PLUGIN_FAILURE UNKNOWN).include?(search_key)
+        # Search is done by payment state on the server side, see http://docs.killbill.io/latest/userguide_payment.html#_payment_states
+        payment_state = if %w(PLUGIN_FAILURE UNKNOWN).include?(search_key)
+                          '_ERRORED'
+                        elsif search_key == 'PAYMENT_FAILURE'
+                          '_FAILED'
+                        else
+                          '_' + search_key
+                        end
+        payments = Kaui::Payment.list_or_search(payment_state, offset, limit, options_for_klient)
+        payments.reject! { |payment| payment.transactions[-1].status != search_key }
       else
-        payments = account.payments(options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_payment(payment) }
+        account = Kaui::Account::find_by_id_or_key(search_key, false, false, options_for_klient) rescue nil
+        if account.nil?
+          payments = Kaui::Payment.list_or_search(search_key, offset, limit, options_for_klient)
+        else
+          payments = account.payments(options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_payment(payment) }
+        end
       end
 
       payments.each do |payment|

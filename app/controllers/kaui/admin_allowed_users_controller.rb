@@ -25,7 +25,7 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
 
   def show
     @allowed_user = Kaui::AllowedUser.find(params.require(:id))
-    raise ActiveRecord::RecordNotFound.new("Could not find user #{@allowed_user.id}") unless (Kaui.root_username == current_user.kb_username || @allowed_user.kb_username == current_user.kb_username)
+    raise ActiveRecord::RecordNotFound.new("Could not find user #{@allowed_user.id}") unless (current_user.root? || @allowed_user.kb_username == current_user.kb_username)
 
     tenants_for_current_user = retrieve_tenants_for_current_user
     @tenants = Kaui::Tenant.all.select { |tenant| tenants_for_current_user.include?(tenant.kb_tenant_id) }
@@ -34,7 +34,7 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
   def add_tenant
     allowed_user = Kaui::AllowedUser.find(params.require(:allowed_user).require(:id))
 
-    if Kaui.root_username != current_user.kb_username
+    if !current_user.root?
       redirect_to admin_allowed_user_path(allowed_user.id), :alert => 'Only the root user can set tenants for user'
       return
     end

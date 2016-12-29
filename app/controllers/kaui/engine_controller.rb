@@ -36,7 +36,7 @@ class Kaui::EngineController < ApplicationController
   end
 
   def retrieve_tenants_for_current_user
-    if Kaui.root_username == current_user.kb_username
+    if current_user.root?
       Kaui::Tenant.all.map(&:kb_tenant_id)
     else
       Kaui::AllowedUser.preload(:kaui_tenants).find_by_kb_username(current_user.kb_username).kaui_tenants.map(&:kb_tenant_id)
@@ -49,7 +49,7 @@ class Kaui::EngineController < ApplicationController
     Kaui::AllowedUser.preload(:kaui_tenants).all.select do |user|
       tenants_for_user = user.kaui_tenants.map(&:kb_tenant_id)
       if tenants_for_user.empty?
-        Kaui.root_username == current_user.kb_username
+        current_user.root?
       else
         (tenants_for_user - tenants_for_current_user).empty?
       end
