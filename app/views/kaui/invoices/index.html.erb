@@ -27,9 +27,19 @@
 <%= javascript_tag do %>
 $(document).ready(function() {
   $('#invoices-table').dataTable({
-    "dom": "t",
-    "paging": false,
-    "order": [[ 0, "desc" ]],
+    <% if @search_query.blank? %>
+        "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+        "pagingType": "full_numbers",
+        "pageLength": <%= @limit %>,
+        "displayStart": <%= @offset %>,
+    <% else %>
+        // No paging for per-account listings
+        "dom": "t",
+        "paging": false,
+    <% end %>
+    <% unless @ordering.blank? %>
+        "order": [[ 0, "<%= @ordering %>" ]],
+    <% end %>
     "processing": true,
     "serverSide": true,
     "search": {"search": "<%= @search_query %>"},

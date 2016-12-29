@@ -8,13 +8,26 @@ class Kaui::PaymentMethod < KillBillClient::Model::PaymentMethod
     end
   end
 
+  def self.find_safely_by_id(id, options = {})
+    Kaui::PaymentMethod.find_by_id(id, true, options)
+  rescue => e
+    # Maybe the plugin is not registered or the plugin threw an exception
+    Rails.logger.warn(e)
+    Kaui::PaymentMethod.find_by_id(id, false, options) rescue nil # deleted pm?
+  end
+
   def self.find_all_safely_by_account_id(account_id, options = {})
-    begin
-      Kaui::PaymentMethod.find_all_by_account_id(account_id, true, options)
-    rescue KillBillClient::API::BadRequest
-      # Maybe the plugin(s) are not registered?
-      Kaui::PaymentMethod.find_all_by_account_id(account_id, false, options)
+    pms = Kaui::PaymentMethod.find_all_by_account_id(account_id, false, options)
+
+    pms.each_with_index do |pm, i|
+      begin
+        pms[i] = Kaui::PaymentMethod.find_by_id(pm.payment_method_id, true, options)
+      rescue => e
+        # Maybe the plugin is not registered or the plugin threw an exception
+        Rails.logger.warn(e)
+      end
     end
+    pms
   end
 
   def self.find_non_external_by_account_id(account_id, with_plugin_info = false, options = {})

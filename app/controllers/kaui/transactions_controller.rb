@@ -1,5 +1,10 @@
 class Kaui::TransactionsController < Kaui::EngineController
 
+  def restful_show
+    payment = Kaui::Payment.find_by_transaction_id(params.require(:id), false, true, options_for_klient)
+    redirect_to account_payment_path(payment.account_id, payment.payment_id)
+  end
+
   def new
     @account_id = params[:account_id]
     @payment_method_id = params[:payment_method_id]

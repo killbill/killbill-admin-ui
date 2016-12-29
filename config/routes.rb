@@ -69,6 +69,7 @@ Kaui::Engine.routes.draw do
     match '/:id/show_html' => 'invoices#show_html', :via => :get, :as => 'show_html_invoice'
     match '/:id' => 'invoices#restful_show', :via => :get, :as => 'invoice'
   end
+  resources :invoices, :only => [ :index ]
 
   resources :invoice_items, :only => [:update, :destroy]
 
@@ -76,6 +77,11 @@ Kaui::Engine.routes.draw do
     match '/pagination' => 'payments#pagination', :via => :get, :as => 'payments_pagination'
     match '/:id' => 'payments#restful_show', :via => :get, :as => 'payment'
     match '/:id/cancel_scheduled_payment' => 'payments#cancel_scheduled_payment', :via => :delete, :as => 'payment_cancel_scheduled_payment'
+  end
+  resources :payments, :only => [ :index ]
+
+  scope '/transactions' do
+    match '/:id' => 'transactions#restful_show', :via => :get, :as => 'transaction'
   end
 
   scope '/bundles' do
@@ -114,6 +120,11 @@ Kaui::Engine.routes.draw do
   scope '/home' do
     match '/' => 'home#index', :via => :get, :as => 'home'
     match '/search' => 'home#search', :via => :get, :as => 'search'
+  end
+
+  scope '/admin' do
+    match '/' => 'admin#index', :via => :get, :as => 'admin'
+    match '/clock' => 'admin#set_clock', :via => :put, :as => 'admin_set_clock'
   end
 
   resources :admin_tenants, :only => [ :index, :new, :create, :show ]

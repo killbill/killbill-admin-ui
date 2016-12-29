@@ -35,6 +35,10 @@ module Kaui
       end
     end
 
+    def root?
+      Kaui.root_username == kb_username
+    end
+
     private
 
     def self.do_find_permissions(options = {})

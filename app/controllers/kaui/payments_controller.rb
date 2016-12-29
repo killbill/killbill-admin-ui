@@ -1,16 +1,39 @@
 class Kaui::PaymentsController < Kaui::EngineController
 
   def index
-    @search_query = params[:account_id]
+    @search_query = params[:q] || params[:account_id]
+
+    @limit = 50
+    if @search_query.blank?
+      max_nb_records = Kaui::Payment.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records
+      @offset = [0, max_nb_records - @limit].max
+      @ordering = 'desc'
+    else
+      @offset = 0
+      @ordering = 'asc'
+    end
   end
 
   def pagination
     searcher = lambda do |search_key, offset, limit|
-      account = Kaui::Account::find_by_id_or_key(search_key, false, false, options_for_klient) rescue nil
-      if account.nil?
-        payments = Kaui::Payment.list_or_search(search_key, offset, limit, options_for_klient)
+      if %w(SUCCESS PENDING PAYMENT_FAILURE PLUGIN_FAILURE UNKNOWN).include?(search_key)
+        # Search is done by payment state on the server side, see http://docs.killbill.io/latest/userguide_payment.html#_payment_states
+        payment_state = if %w(PLUGIN_FAILURE UNKNOWN).include?(search_key)
+                          '_ERRORED'
+                        elsif search_key == 'PAYMENT_FAILURE'
+                          '_FAILED'
+                        else
+                          '_' + search_key
+                        end
+        payments = Kaui::Payment.list_or_search(payment_state, offset, limit, options_for_klient)
+        payments.reject! { |payment| payment.transactions[-1].status != search_key }
       else
-        payments = account.payments(options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_payment(payment) }
+        account = Kaui::Account::find_by_id_or_key(search_key, false, false, options_for_klient) rescue nil
+        if account.nil?
+          payments = Kaui::Payment.list_or_search(search_key, offset, limit, options_for_klient)
+        else
+          payments = account.payments(options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_payment(payment) }
+        end
       end
 
       payments.each do |payment|
@@ -65,11 +88,12 @@ class Kaui::PaymentsController < Kaui::EngineController
   end
 
   def show
-    @payment = Kaui::InvoicePayment.build_from_raw_payment(Kaui::InvoicePayment.find_by_id(params.require(:id), true, true, options_for_klient))
+    invoice_payment = Kaui::InvoicePayment.find_safely_by_id(params.require(:id), options_for_klient)
+    @payment = Kaui::InvoicePayment.build_from_raw_payment(invoice_payment)
 
     fetch_account = lambda { @account = Kaui::Account.find_by_id(@payment.account_id, false, false, options_for_klient) }
     # The payment method may have been deleted
-    fetch_payment_method = lambda { @payment_method = Kaui::PaymentMethod.find_by_id(@payment.payment_method_id, true, options_for_klient) rescue nil }
+    fetch_payment_method = lambda { @payment_method = Kaui::PaymentMethod.find_safely_by_id(@payment.payment_method_id, options_for_klient) }
 
     run_in_parallel fetch_account, fetch_payment_method
   end

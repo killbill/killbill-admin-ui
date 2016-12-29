@@ -257,7 +257,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     current_tenant = safely_find_tenant_by_id(params[:id])
     au = Kaui::AllowedUser.find(params.require(:allowed_user).require(:id))
 
-    if Kaui.root_username != current_user.kb_username
+    if !current_user.root?
       render :json => {:alert => 'Only the root user can remove users from tenants'}.to_json, :status => 401
       return
     end

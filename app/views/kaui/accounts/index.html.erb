@@ -35,8 +35,11 @@ $(document).ready(function() {
   $('#accounts-table').dataTable({
     "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
     "pagingType": "full_numbers",
-    "pageLength": 50,
-    "order": [[ 0, "asc" ]],
+    "pageLength": <%= @limit %>,
+    "displayStart": <%= @offset %>,
+    <% unless @ordering.blank? %>
+        "order": [[ 0, "<%= @ordering %>" ]],
+    <% end %>
     "processing": true,
     "serverSide": true,
     "search": {"search": "<%= @search_query %>"},
