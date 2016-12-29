@@ -7,6 +7,14 @@ class Kaui::InvoicePayment < KillBillClient::Model::InvoicePayment
 
   class << self
 
+    def find_safely_by_id(id, options = {})
+      Kaui::InvoicePayment.find_by_id(id, true, true, options)
+    rescue => e
+      # Maybe the plugin is not registered or the plugin threw an exception
+      Rails.logger.warn(e)
+      Kaui::InvoicePayment.find_by_id(id, false, true, options)
+    end
+
     def build_from_raw_payment(raw_payment)
 
       return nil if raw_payment.nil?

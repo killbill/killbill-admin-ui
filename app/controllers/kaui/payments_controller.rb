@@ -75,11 +75,12 @@ class Kaui::PaymentsController < Kaui::EngineController
   end
 
   def show
-    @payment = Kaui::InvoicePayment.build_from_raw_payment(Kaui::InvoicePayment.find_by_id(params.require(:id), true, true, options_for_klient))
+    invoice_payment = Kaui::InvoicePayment.find_safely_by_id(params.require(:id), options_for_klient)
+    @payment = Kaui::InvoicePayment.build_from_raw_payment(invoice_payment)
 
     fetch_account = lambda { @account = Kaui::Account.find_by_id(@payment.account_id, false, false, options_for_klient) }
     # The payment method may have been deleted
-    fetch_payment_method = lambda { @payment_method = Kaui::PaymentMethod.find_by_id(@payment.payment_method_id, true, options_for_klient) rescue nil }
+    fetch_payment_method = lambda { @payment_method = Kaui::PaymentMethod.find_safely_by_id(@payment.payment_method_id, options_for_klient) }
 
     run_in_parallel fetch_account, fetch_payment_method
   end
