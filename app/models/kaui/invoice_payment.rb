@@ -39,16 +39,25 @@ class Kaui::InvoicePayment < KillBillClient::Model::InvoicePayment
 
     # For each payment transaction, compute next_retry date by joining with payment attempts
     def build_transactions_next_retry_date!
-      (transactions || []).each do |transaction|
-        # Filter attempts matching that transaction and SCHEDULED for retry
-        transaction.next_retry_date = (payment_attempts || []).select do |attempt|
-          ((attempt.transaction_id && attempt.transaction_id == transaction.transaction_id) ||
-              (attempt.transaction_external_key && attempt.transaction_external_key == transaction.transaction_external_key)) &&
-              attempt.state_name == 'SCHEDULED'
-        end.map do |attempt|
-          attempt.effective_date
-        end.first
+
+      # Filter scheduled attempts: We could have several in parallel when multiple independent transactions occur at the same time
+      # (They would have different transaction_external_key)
+      scheduled_attempts = (payment_attempts || []).select do |a|
+        a.state_name == 'SCHEDULED'
       end
+
+      # Look for latest transaction associated with each such scheduled attempt and set retry date accordingly
+      scheduled_attempts.each do |a|
+
+        last_transaction_for_attempt = (transactions || []).select do |t|
+          t.transaction_external_key == a.transaction_external_key
+        end.sort_by do |t|
+          t.effective_date
+        end.last
+
+        last_transaction_for_attempt.next_retry_date = a.effective_date if last_transaction_for_attempt
+      end
+
     end
 
   end
