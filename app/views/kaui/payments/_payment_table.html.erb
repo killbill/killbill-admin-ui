@@ -1,4 +1,4 @@
-<div class="info-wrapper">
+<div class="info-wrapper" style="overflow-x: auto;">
 
   <% if payment.capturable? || payment.voidable? || (payment.refundable? && (can?(:refund, Kaui::Payment) || can?(:chargeback, Kaui::Payment))) %>
       <div class="tag-bar">
@@ -93,7 +93,7 @@
           <td><%= transaction.gateway_error_code %></td>
           <td><%= transaction.gateway_error_msg %></td>
           <td>
-            <ul style="list-style: none">
+            <ul style="list-style: none; padding-left: 0">
               <li>
                 <span <% if transaction.status != 'SUCCESS' %>class='alert-danger'<% else %>class='alert-success' <% end %>>
                   <%= transaction.status %>
@@ -107,6 +107,11 @@
                         <%= link_to '<i class="fa fa-times"></i>'.html_safe, kaui_engine.payment_cancel_scheduled_payment_path(payment.payment_id, :account_id => payment.account_id, :transaction_external_key => transaction.transaction_external_key), :method => :delete %>
                     <% end %>
                   </li>
+              <% end %>
+              <% (transaction.properties || []).sort_by { |p| p.key }.each do |property| %>
+                  <% next if property.value.blank? %>
+                  <li><%= property.key %>
+                    : <%= is_json?(property.value) ? "<pre>#{JSON.pretty_generate(JSON.parse(property.value))}</pre>".html_safe : property.value %></li>
               <% end %>
             </ul>
           </td>
