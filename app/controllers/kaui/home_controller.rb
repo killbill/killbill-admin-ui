@@ -10,6 +10,8 @@ class Kaui::HomeController < Kaui::EngineController
       redirect_to invoice_path(:id => search_query)
     elsif search_type == 'payment'
       redirect_to payment_path(:id => search_query)
+    elsif search_type == 'transaction'
+      redirect_to transaction_path(:id => search_query)
     else
       redirect_to accounts_path(:q => search_query)
     end
@@ -18,6 +20,6 @@ class Kaui::HomeController < Kaui::EngineController
   private
 
   def parse_query(query)
-    /((invoice|payment):)?(.*)/.match(query).captures.drop(1)
+    /((invoice|payment|transaction):)?(.*)/.match(query).captures.drop(1)
   end
 end

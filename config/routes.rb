@@ -80,6 +80,10 @@ Kaui::Engine.routes.draw do
   end
   resources :payments, :only => [ :index ]
 
+  scope '/transactions' do
+    match '/:id' => 'transactions#restful_show', :via => :get, :as => 'transaction'
+  end
+
   scope '/bundles' do
     put '/:id/do_transfer', :to => 'bundles#do_transfer', :as => 'do_transfer_bundle'
     get '/:id/transfer', :to => 'bundles#transfer', :as => 'transfer_bundle'
