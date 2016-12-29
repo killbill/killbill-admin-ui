@@ -124,6 +124,7 @@ Kaui::Engine.routes.draw do
 
   scope '/admin' do
     match '/' => 'admin#index', :via => :get, :as => 'admin'
+    match '/clock' => 'admin#set_clock', :via => :put, :as => 'admin_set_clock'
   end
 
   resources :admin_tenants, :only => [ :index, :new, :create, :show ]
