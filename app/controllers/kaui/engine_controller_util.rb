@@ -38,7 +38,7 @@ module Kaui::EngineControllerUtil
       b = data_extractor.call(b, ordering_column)
       sort = a <=> b
       sort.nil? ? -1 : sort
-    end
+    end unless search_key.nil? # Keep DB ordering when listing all entries
     pages.reverse! if ordering_dir == 'desc'
 
     pages.each { |page| json[:data] << formatter.call(page) }

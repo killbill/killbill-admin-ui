@@ -69,6 +69,7 @@ Kaui::Engine.routes.draw do
     match '/:id/show_html' => 'invoices#show_html', :via => :get, :as => 'show_html_invoice'
     match '/:id' => 'invoices#restful_show', :via => :get, :as => 'invoice'
   end
+  resources :invoices, :only => [ :index ]
 
   resources :invoice_items, :only => [:update, :destroy]
 
@@ -77,6 +78,7 @@ Kaui::Engine.routes.draw do
     match '/:id' => 'payments#restful_show', :via => :get, :as => 'payment'
     match '/:id/cancel_scheduled_payment' => 'payments#cancel_scheduled_payment', :via => :delete, :as => 'payment_cancel_scheduled_payment'
   end
+  resources :payments, :only => [ :index ]
 
   scope '/bundles' do
     put '/:id/do_transfer', :to => 'bundles#do_transfer', :as => 'do_transfer_bundle'

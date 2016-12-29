@@ -8,6 +8,13 @@
       <% end %>
 
     </div>
+    <div class="col-md-6 col-md-offset-3 legend">
+      <p class="text-center">
+        <%= link_to 'Latest accounts', kaui_engine.accounts_path %> /
+        <%= link_to 'Latest invoices', kaui_engine.invoices_path %> /
+        <%= link_to 'Latest payments', kaui_engine.payments_path %>
+      </p>
+    </div>
   </div>
   <span class="duck_help">You can search accounts by ID, external key, name, company or email address.</span>
 </div>
