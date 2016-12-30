@@ -1,6 +1,17 @@
 class Kaui::TagsController < Kaui::EngineController
 
   def index
+    @search_query = params[:q]
+
+    @limit = 50
+    if @search_query.blank?
+      max_nb_records = Kaui::Tag.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records
+      @offset = [0, max_nb_records - @limit].max
+      @ordering = 'desc'
+    else
+      @offset = 0
+      @ordering = 'asc'
+    end
   end
 
   def pagination

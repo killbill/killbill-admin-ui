@@ -1,16 +1,10 @@
-<div class="column-block">
+<%= render :partial => 'tenant_details' %>
 
-  <h1>Tenant details</h1>
-
-  <b>Name:</b> <%= @tenant.name %>
-  <br/>
-  <b>Tenant ID:</b> <%= @tenant.kb_tenant_id %>
-  <br/>
-  <b>API Key:</b> <%= @tenant.api_key %>
-
-</div>
+<%= render :partial => 'useful_links' %>
 
 <% unless @allowed_users.empty? %>
+  <div class="col-md-12">
+
     <div class="search">
 
       <div class="column-block">
@@ -44,6 +38,8 @@
       </div>
 
     </div>
+
+  </div>
 
     <%= javascript_tag do %>
       $(document).ready(function() {
