@@ -1,8 +1,20 @@
 class Kaui::Admin < KillBillClient::Model::Resource
 
+  KILLBILL_API_ADMIN_PREFIX = "#{KILLBILL_API_PREFIX}/admin"
   KILLBILL_API_CLOCK_PREFIX = "#{KILLBILL_API_PREFIX}/test/clock"
 
   class << self
+
+    def fix_transaction_state(payment_id, transaction_id, transaction_status, user = nil, reason = nil, comment = nil, options = {})
+      res = KillBillClient::API.put "#{KILLBILL_API_ADMIN_PREFIX}/payments/#{payment_id}/transactions/#{transaction_id}",
+                                    {:transactionStatus => transaction_status}.to_json,
+                                    {},
+                                    {
+                                        :user => user,
+                                        :reason => reason,
+                                        :comment => comment,
+                                    }.merge(options)
+    end
 
     def get_clock(time_zone, options)
       params = {}

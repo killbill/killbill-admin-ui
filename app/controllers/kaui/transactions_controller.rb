@@ -8,10 +8,17 @@ class Kaui::TransactionsController < Kaui::EngineController
   def new
     @account_id = params[:account_id]
     @payment_method_id = params[:payment_method_id]
-    @transaction = Kaui::Transaction.new(:payment_id => params[:payment_id],
-                                         :amount => params[:amount],
-                                         :currency => params[:currency],
-                                         :transaction_type => params[:transaction_type])
+
+    transaction_id = params[:transaction_id].presence
+    if transaction_id.nil?
+      @transaction = Kaui::Transaction.new(:payment_id => params[:payment_id],
+                                           :amount => params[:amount],
+                                           :currency => params[:currency],
+                                           :transaction_type => params[:transaction_type])
+    else
+      payment = Kaui::Payment.find_by_transaction_id(transaction_id, false, false, options_for_klient)
+      @transaction = Kaui::Transaction.build_from_raw_transaction(payment.transactions.find { |tx| tx.transaction_id == transaction_id })
+    end
   end
 
   def create
@@ -19,5 +26,16 @@ class Kaui::TransactionsController < Kaui::EngineController
 
     payment = transaction.create(params.require(:account_id), params[:payment_method_id], current_user.kb_username, params[:reason], params[:comment], options_for_klient)
     redirect_to kaui_engine.account_payment_path(payment.account_id, payment.payment_id), :notice => 'Transaction successfully created'
+  end
+
+  def fix_transaction_state
+    transaction = Kaui::Transaction.new(params[:transaction].delete_if { |key, value| value.blank? })
+    payment_id = transaction.payment_id
+    transaction_id = transaction.transaction_id
+    transaction_status = transaction.status
+
+    Kaui::Admin.fix_transaction_state(payment_id, transaction_id, transaction_status, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+
+    redirect_to kaui_engine.account_payment_path(params.require(:account_id), payment_id), :notice => "Transaction successfully transitioned to #{transaction_status}"
   end
 end

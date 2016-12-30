@@ -16,7 +16,7 @@ class Kaui::PaymentsController < Kaui::EngineController
 
   def pagination
     searcher = lambda do |search_key, offset, limit|
-      if %w(SUCCESS PENDING PAYMENT_FAILURE PLUGIN_FAILURE UNKNOWN).include?(search_key)
+      if Kaui::Payment::TRANSACTION_STATUSES.include?(search_key)
         # Search is done by payment state on the server side, see http://docs.killbill.io/latest/userguide_payment.html#_payment_states
         payment_state = if %w(PLUGIN_FAILURE UNKNOWN).include?(search_key)
                           '_ERRORED'

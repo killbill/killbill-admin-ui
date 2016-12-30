@@ -83,6 +83,7 @@ Kaui::Engine.routes.draw do
 
   scope '/transactions' do
     match '/:id' => 'transactions#restful_show', :via => :get, :as => 'transaction'
+    match '/fix_transaction_state' => 'transactions#fix_transaction_state', :via => :put, :as => 'fix_transaction_state'
   end
 
   scope '/bundles' do
