@@ -97,14 +97,21 @@
             </table>
 
             <% if can? :trigger, Kaui::Invoice %>
-                <div>
+                <div style="padding-bottom: 50px;">
                   <%= form_tag kaui_engine.trigger_invoice_path(params), :method => :post do %>
                       <div class="form-group">
                         <%= label_tag :target_date, 'Trigger invoice generation', :class => 'col-sm-6 control-label', :style => 'padding-left: 0;' %>
                         <div class="col-sm-3">
                           <input class="form-control" name="target_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
                         </div>
-                        <%= submit_tag 'Submit', :class => 'btn btn-default' %>
+                        <div style="width: 14.5%; float: left; padding: 0;">
+                          <%= label_tag :dry_run do %>
+                              <%= check_box_tag :dry_run, '1', true %>&nbsp;<small>Dry-run</small>
+                          <% end %>
+                        </div>
+                        <div class="col-xs-1" style="padding: 0;">
+                          <%= button_tag '<i class="fa fa-magic"></i>'.html_safe, :class => 'btn btn-xs' %>
+                        </div>
                       </div>
                   <% end %>
                 </div>

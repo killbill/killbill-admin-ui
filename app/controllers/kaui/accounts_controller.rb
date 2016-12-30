@@ -79,17 +79,26 @@ class Kaui::AccountsController < Kaui::EngineController
   def trigger_invoice
     account_id = params.require(:account_id)
     target_date = params[:target_date].presence
+    dry_run = params[:dry_run] == '1'
 
     invoice = nil
     begin
-      invoice = Kaui::Invoice.trigger_invoice(account_id, target_date, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+      invoice = dry_run ? Kaui::Invoice.trigger_invoice_dry_run(account_id, target_date, false, options_for_klient) :
+                          Kaui::Invoice.trigger_invoice(account_id, target_date, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
     rescue KillBillClient::API::NotFound
       # Null invoice
     end
 
     if invoice.nil?
       redirect_to account_path(account_id), :notice => "Nothing to generate for target date #{target_date.nil? ? 'today' : target_date}"
+    elsif dry_run
+      @invoice = Kaui::Invoice.build_from_raw_invoice(invoice)
+      @payments = []
+      @payment_methods = nil
+      @account = Kaui::Account.find_by_id(account_id, false, false, options_for_klient)
+      render :template => 'kaui/invoices/show'
     else
+      # Redirect to fetch payments, etc.
       redirect_to invoice_path(invoice.invoice_id, :account_id => account_id), :notice => "Generated invoice #{invoice.invoice_number} for target date #{invoice.target_date}"
     end
   end

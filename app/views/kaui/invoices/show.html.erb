@@ -4,6 +4,16 @@
 
     <h1>Invoice <%= @invoice.invoice_number %></h1>
 
+    <% dry_run = @invoice.invoice_number.blank? %>
+    <% if dry_run %>
+        <div class="alert alert-warning">
+          This is a dry-run invoice.
+          <% if can? :trigger, Kaui::Invoice %>
+              To persist it, <%= link_to 'trigger an invoice run', kaui_engine.trigger_invoice_path(:account_id => @invoice.account_id, :target_date => @invoice.target_date), :method => :post %>.
+          <% end %>
+        </div>
+    <% end %>
+
     <div class="row">
       <div class="col-md-3">
         <table class="transparent subtitle">
@@ -19,7 +29,7 @@
       </div>
     </div>
 
-    <%= render :partial => 'invoice_table' %>
+    <%= render :partial => 'kaui/invoices/invoice_table', :locals => {:dry_run => dry_run} %>
 
   </div>
 

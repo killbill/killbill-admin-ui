@@ -1,6 +1,6 @@
 <div class="info-wrapper">
 
-  <% if can?(:credit, Kaui::Account) || can?(:charge, Kaui::Account) || (@invoice.balance > 0 && can?(:trigger, Kaui::Payment)) %>
+  <% if !dry_run && (can?(:credit, Kaui::Account) || can?(:charge, Kaui::Account) || (@invoice.balance > 0 && can?(:trigger, Kaui::Payment))) %>
       <div class="tag-bar">
         <!--<div class="tag-select">-->
         <!--<span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>-->
