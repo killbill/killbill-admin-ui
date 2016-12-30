@@ -95,6 +95,20 @@
                 </td>
               </tr>
             </table>
+
+            <% if can? :trigger, Kaui::Invoice %>
+                <div>
+                  <%= form_tag kaui_engine.trigger_invoice_path(params), :method => :post do %>
+                      <div class="form-group">
+                        <%= label_tag :target_date, 'Trigger invoice generation', :class => 'col-sm-6 control-label', :style => 'padding-left: 0;' %>
+                        <div class="col-sm-3">
+                          <input class="form-control" name="target_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
+                        </div>
+                        <%= submit_tag 'Submit', :class => 'btn btn-default' %>
+                      </div>
+                  <% end %>
+                </div>
+            <% end %>
           </div>
       </div>
 

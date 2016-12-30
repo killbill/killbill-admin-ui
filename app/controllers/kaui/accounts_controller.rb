@@ -76,6 +76,24 @@ class Kaui::AccountsController < Kaui::EngineController
     run_in_parallel fetch_overdue_state, fetch_account_tags, fetch_account_emails, fetch_payment_methods, fetch_available_tags
   end
 
+  def trigger_invoice
+    account_id = params.require(:account_id)
+    target_date = params[:target_date].presence
+
+    invoice = nil
+    begin
+      invoice = Kaui::Invoice.trigger_invoice(account_id, target_date, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    rescue KillBillClient::API::NotFound
+      # Null invoice
+    end
+
+    if invoice.nil?
+      redirect_to account_path(account_id), :notice => "Nothing to generate for target date #{target_date.nil? ? 'today' : target_date}"
+    else
+      redirect_to invoice_path(invoice.invoice_id, :account_id => account_id), :notice => "Generated invoice #{invoice.invoice_number} for target date #{invoice.target_date}"
+    end
+  end
+
   # Fetched asynchronously, as it takes time. This also helps with enforcing permissions.
   def next_invoice_date
     next_invoice = Kaui::Invoice.trigger_invoice_dry_run(params.require(:account_id), nil, true, options_for_klient)

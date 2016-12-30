@@ -10,6 +10,15 @@
       <% end %>
     </h1>
 
+    <% unless @tags.find { |tag| tag.tag_definition_name == '__PARK__' }.nil? %>
+        <div class="alert alert-danger">
+          This account is parked, meaning the system detected inconsistent state which could lead to mis-billing. For safety, no more invoices will be generated.
+          <% if can? :trigger, Kaui::Invoice %>
+              Once the data is fixed, you can unpark it by manually <%= link_to 'triggering an invoice run', kaui_engine.trigger_invoice_path(params), :method => :post %>.
+          <% end %>
+        </div>
+    <% end %>
+
     <div class="info-wrapper">
 
       <div class="tag-bar tag-bar-breathe">

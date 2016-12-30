@@ -27,6 +27,7 @@ Kaui::Engine.routes.draw do
 
     scope '/:account_id' do
       match '/next_invoice_date' => 'accounts#next_invoice_date', :via => :get, :as => 'next_invoice_date'
+      match '/trigger_invoice' => 'accounts#trigger_invoice', :via => :post, :as => 'trigger_invoice'
 
       scope '/account_tags' do
         match '/edit' => 'account_tags#edit', :via => :get, :as => 'edit_account_tags'
