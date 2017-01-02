@@ -61,6 +61,7 @@ Kaui::Engine.routes.draw do
     resources :payments, :only => [:index, :show, :new, :create]
     resources :refunds, :only => [:new, :create]
     resources :transactions, :only => [:new, :create]
+    resources :queues, :only => [:index]
   end
 
   resources :payment_methods, :only => [:new, :create, :show, :destroy]
@@ -122,6 +123,10 @@ Kaui::Engine.routes.draw do
   scope '/home' do
     match '/' => 'home#index', :via => :get, :as => 'home'
     match '/search' => 'home#search', :via => :get, :as => 'search'
+  end
+
+  scope '/queues' do
+    match '/' => 'queues#index', :via => :get, :as => 'queues'
   end
 
   scope '/admin' do

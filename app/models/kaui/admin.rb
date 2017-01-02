@@ -2,8 +2,18 @@ class Kaui::Admin < KillBillClient::Model::Resource
 
   KILLBILL_API_ADMIN_PREFIX = "#{KILLBILL_API_PREFIX}/admin"
   KILLBILL_API_CLOCK_PREFIX = "#{KILLBILL_API_PREFIX}/test/clock"
+  KILLBILL_API_QUEUES_PREFIX = "#{KILLBILL_API_ADMIN_PREFIX}/queues"
 
   class << self
+
+    def get_queues_entries(account_id, options = {})
+      res = KillBillClient::API.get KILLBILL_API_QUEUES_PREFIX,
+                                    {
+                                        :accountId => account_id
+                                    },
+                                    options
+      JSON.parse res.body
+    end
 
     def fix_transaction_state(payment_id, transaction_id, transaction_status, user = nil, reason = nil, comment = nil, options = {})
       res = KillBillClient::API.put "#{KILLBILL_API_ADMIN_PREFIX}/payments/#{payment_id}/transactions/#{transaction_id}",

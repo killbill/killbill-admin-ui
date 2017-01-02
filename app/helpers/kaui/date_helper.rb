@@ -15,5 +15,9 @@ module Kaui
       parsed_date = DateTime.parse(date.to_s).in_time_zone(timezone)
       parsed_date.to_s(:date_only)
     end
+
+    def truncate_millis(date_s)
+      DateTime.parse(date_s).strftime('%FT%T')
+    end
   end
 end

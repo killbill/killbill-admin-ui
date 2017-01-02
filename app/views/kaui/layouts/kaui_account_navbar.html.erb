@@ -8,6 +8,10 @@
     <%= link_to 'Invoices', kaui_engine.account_invoices_path(params[:account_id]), :class => (params[:controller].ends_with?('invoices') ? 'current' : 'non-current') %>
     <%= link_to 'Payments', kaui_engine.account_payments_path(params[:account_id]), :class => (params[:controller].ends_with?('payments') ? 'current' : 'non-current') %>
     <%= link_to 'Timeline', kaui_engine.account_timeline_path(params[:account_id]), :class => (params[:controller].ends_with?('timelines') ? 'current' : 'non-current') %>
+
+    <% if current_user.root? %>
+        <%= link_to 'Queues', kaui_engine.account_queues_path(params[:account_id]), :class => (params[:controller].ends_with?('queues') ? 'current' : 'non-current') %>
+    <% end %>
   </div>
 
 </div>
