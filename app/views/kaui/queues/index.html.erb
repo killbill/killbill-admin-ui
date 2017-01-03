@@ -98,10 +98,10 @@
   $(document).ready(function() {
     $('#bus-table').dataTable({
     <% if nb_bus_entries <= 50 %>
-        "dom": "t",
+        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t",
         "paging": "false",
     <% else %>
-        "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
         "pagingType": "full_numbers",
         "displayStart": <%= [0, nb_bus_entries - 50].max %>,
     <% end %>
@@ -110,10 +110,10 @@
     });
     $('#notifications-table').dataTable({
     <% if nb_notifications_entries <= 50 %>
-        "dom": "t",
+        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t",
         "paging": "false",
     <% else %>
-        "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
         "pagingType": "full_numbers",
         "displayStart": 0,
     <% end %>
