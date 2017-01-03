@@ -1,3 +1,10 @@
+<p class="text-center">
+  <%= link_to 'Current or future entries', kaui_engine.queues_path(params.merge(:with_history => false)) %> /
+  <%= link_to 'Historical entries (last week)', kaui_engine.queues_path(params.merge(:with_history => true, :min_date => @now - 1.week)) %> /
+  <%= link_to 'Historical entries (last month)', kaui_engine.queues_path(params.merge(:with_history => true, :min_date => @now - 1.month)) %> /
+  <%= link_to 'All historical entries', kaui_engine.queues_path(params.merge(:with_history => true, :min_date => '1970-01-01')) %>
+</p>
+
 <div class="search">
 
   <% unless (@queues_entries['busEvents'] || []).empty? %>
@@ -20,7 +27,11 @@
             </thead>
             <tbody>
             <% @queues_entries['busEvents'].each do |bus_event| %>
-                <tr>
+                <% if bus_event['createdDate'].to_datetime < @now %>
+                    <tr class="disabled">
+                <% else %>
+                    <tr>
+                <% end %>
                   <td><%= truncate_millis(bus_event['createdDate']) %></td>
                   <td><%= truncate_class_name(bus_event['className']) %></td>
                   <td><%= "<pre>#{JSON.pretty_generate(bus_event['event'])}</pre>".html_safe %></td>
@@ -56,7 +67,11 @@
             </thead>
             <tbody>
             <% @queues_entries['notifications'].each do |notification| %>
-                <tr>
+                <% if notification['effectiveDate'].to_datetime < @now %>
+                    <tr class="disabled">
+                <% else %>
+                    <tr>
+                <% end %>
                   <td><%= truncate_millis(notification['effectiveDate']) %></td>
                   <td>
                     <%= notification['queueName'] %>
@@ -77,19 +92,33 @@
 
 </div>
 
+<% nb_bus_entries = (@queues_entries['busEvents'] || []).size %>
+<% nb_notifications_entries = (@queues_entries['notifications'] || []).size %>
 <%= javascript_tag do %>
   $(document).ready(function() {
     $('#bus-table').dataTable({
-      "dom": "t",
-      "paging": "false",
-      "order": [],
-      "columns": []
+    <% if nb_bus_entries <= 50 %>
+        "dom": "t",
+        "paging": "false",
+    <% else %>
+        "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+        "pagingType": "full_numbers",
+        "displayStart": <%= [0, nb_bus_entries - 50].max %>,
+    <% end %>
+      "pageLength": 50,
+      "order": []
     });
     $('#notifications-table').dataTable({
-      "dom": "t",
-      "paging": "false",
-      "order": [],
-      "columns": []
+    <% if nb_notifications_entries <= 50 %>
+        "dom": "t",
+        "paging": "false",
+    <% else %>
+        "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+        "pagingType": "full_numbers",
+        "displayStart": 0,
+    <% end %>
+      "pageLength": 50,
+      "order": []
     });
 });
 <% end %>

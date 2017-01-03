@@ -9,7 +9,9 @@ class Kaui::Admin < KillBillClient::Model::Resource
     def get_queues_entries(account_id, options = {})
       res = KillBillClient::API.get KILLBILL_API_QUEUES_PREFIX,
                                     {
-                                        :accountId => account_id
+                                        :accountId => account_id,
+                                        :withHistory => options[:withHistory],
+                                        :minDate => options[:minDate]
                                     },
                                     options
       JSON.parse res.body
