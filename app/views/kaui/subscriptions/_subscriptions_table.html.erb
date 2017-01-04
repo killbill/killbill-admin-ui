@@ -41,7 +41,7 @@
                     </div>
                 <% end %>
                 <% if can? :create, Kaui::Subscription %>
-                    <%= link_to 'Update BCD', kaui_engine.new_update_bcd_path(:id => sub.subscription_id),  :class => 'btn btn-xs' %>
+                    <%= link_to 'Update BCD', kaui_engine.edit_bcd_path(:id => sub.subscription_id),  :class => 'btn btn-xs' %>
                 <% end %>
             <% end %>
         </td>

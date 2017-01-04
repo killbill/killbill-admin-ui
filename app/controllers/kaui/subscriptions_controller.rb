@@ -99,7 +99,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     redirect_to kaui_engine.account_bundles_path(subscription.account_id), :notice => 'Subscription was successfully reinstated'
   end
 
-  def new_update_bcd
+  def edit_bcd
     @subscription_id = params[:id]
     @subscription = Kaui::Subscription.find_by_id(params.require(:id), options_for_klient)
   end

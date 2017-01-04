@@ -95,7 +95,7 @@ Kaui::Engine.routes.draw do
 
   resources :subscriptions, :only => [:new, :create, :show, :edit, :update, :destroy]
   scope '/subscriptions' do
-    match '/:id/new_update_bcd' => 'subscriptions#new_update_bcd', :via => :get, :as => 'new_update_bcd'
+    match '/:id/edit_bcd' => 'subscriptions#edit_bcd', :via => :get, :as => 'edit_bcd'
     match '/:id/update_bcd' => 'subscriptions#update_bcd', :via => :put, :as => 'update_bcd'
     match '/:id/reinstate' => 'subscriptions#reinstate', :via => :put, :as => 'reinstate'
   end
