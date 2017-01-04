@@ -93,10 +93,11 @@ Kaui::Engine.routes.draw do
     match '/:id' => 'bundles#restful_show', :via => :get, :as => 'bundle'
   end
 
-  resources :subscriptions, :only => [:new, :create, :show, :edit, :update, :destroy] do
-    member do
-      put :reinstate
-    end
+  resources :subscriptions, :only => [:new, :create, :show, :edit, :update, :destroy]
+  scope '/subscriptions' do
+    match '/:id/new_update_bcd' => 'subscriptions#new_update_bcd', :via => :get, :as => 'new_update_bcd'
+    match '/:id/update_bcd' => 'subscriptions#update_bcd', :via => :put, :as => 'update_bcd'
+    match '/:id/reinstate' => 'subscriptions#reinstate', :via => :put, :as => 'reinstate'
   end
 
   scope '/tags' do

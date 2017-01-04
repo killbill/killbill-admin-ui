@@ -99,6 +99,24 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     redirect_to kaui_engine.account_bundles_path(subscription.account_id), :notice => 'Subscription was successfully reinstated'
   end
 
+  def new_update_bcd
+    @subscription_id = params[:id]
+    @subscription = Kaui::Subscription.find_by_id(params.require(:id), options_for_klient)
+  end
+
+  def update_bcd
+    input_subscription = params.require(:subscription)
+    subscription =  Kaui::Subscription.new
+    subscription.subscription_id = params.require(:id)
+    subscription.account_id = input_subscription["account_id"]
+    subscription.bill_cycle_day_local = input_subscription["bill_cycle_day_local"]
+
+    effective_from_date = params["effective_from_date"]
+
+    subscription.update_bcd(current_user.kb_username, params[:reason], params[:comment], effective_from_date, options_for_klient)
+    redirect_to kaui_engine.account_bundles_path(subscription.account_id), :notice => 'Subscription BCD was successfully changed'
+  end
+
   def show
     restful_show
   end
