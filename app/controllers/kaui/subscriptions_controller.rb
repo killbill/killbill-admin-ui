@@ -111,7 +111,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
     effective_from_date = params["effective_from_date"]
 
-    subscription.update_bcd(current_user.kb_username, params[:reason], params[:comment], effective_from_date, options_for_klient)
+    subscription.update_bcd(current_user.kb_username, params[:reason], params[:comment], effective_from_date, nil, options_for_klient)
     redirect_to kaui_engine.account_bundles_path(input_subscription["account_id"]), :notice => 'Subscription BCD was successfully changed'
   end
 
