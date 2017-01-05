@@ -47,6 +47,12 @@
         </div>
     <% end %>
     <div class="form-group">
+        <%= f.label :locale, 'Locale', :class => 'col-sm-3 control-label' %>
+        <div class="col-sm-9">
+            <%= f.text_field :locale, :class => 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
       <%= f.label :address1, 'Address line 1', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
         <%= f.text_field :address1, :class => 'form-control' %>
@@ -86,12 +92,6 @@
       <%= f.label :country, 'Country', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
         <%= f.country_select :country, {:priority => %w(US CA), :selected => @account.country}, :class => 'form-control' %>
-      </div>
-    </div>
-    <div class="form-group">
-      <%= f.label :locale, 'Locale', :class => 'col-sm-3 control-label' %>
-      <div class="col-sm-9">
-        <%= f.text_field :locale, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
