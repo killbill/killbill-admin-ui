@@ -57,10 +57,18 @@
                 <th>Currency</th>
                 <td><%= @account.currency %></td>
               </tr>
-              <tr>
-                <th>Timezone</th>
-                <td><%= @account.time_zone %></td>
-              </tr>
+                <tr>
+                    <th>Timezone</th>
+                    <td><%= @account.time_zone %></td>
+                </tr>
+                <tr>
+                    <th>Notes</th>
+                    <% if @account.notes %>
+                        <td><textarea rows="3" class="form-control" readonly="true"><%= @account.notes %></textarea></td>
+                    <% else %>
+                        <td>N/A</td>
+                    <% end %>
+                </tr>
             </table>
           </div>
         </div>

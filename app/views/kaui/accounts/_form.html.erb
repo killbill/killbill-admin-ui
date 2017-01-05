@@ -95,10 +95,16 @@
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :phone, 'Phone', :class => 'col-sm-3 control-label' %>
-      <div class="col-sm-9">
-        <%= f.text_field :phone, :class => 'form-control' %>
-      </div>
+        <%= f.label :phone, 'Phone', :class => 'col-sm-3 control-label' %>
+        <div class="col-sm-9">
+            <%= f.text_field :phone, :class => 'form-control' %>
+        </div>
+    </div>
+    <div class="form-group">
+        <%= f.label :notes, 'Notes', :class => 'col-sm-3 control-label' %>
+        <div class="col-sm-9">
+            <%= f.text_field :notes, :class => 'form-control' %>
+        </div>
     </div>
     <% unless @account.persisted? %>
         <div class="form-group">
