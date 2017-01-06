@@ -81,6 +81,22 @@
 <%= javascript_tag do %>
 
 
+   function addParameterToURL(target) {
+      res = $.grep(location.href.split('?'), function(el) {
+        if (el.startsWith("active_tab")) {
+          return true;
+        }
+      });
+      if (res.length > 0) {
+        if (res[0].split('=')[1] == target) {
+          return;
+        }
+      }
+
+     var base_url = location.href.split('?')[0]
+     var newUrl = base_url + "?active_tab=" + target
+     location.href = newUrl
+   }
 
 
   $(document).ready(function() {
@@ -93,6 +109,12 @@
         error: function(request, textStatus, errorThrown) { console.log("AJAX FAILED!!!! request.status " + request.status + ", textStatus = " + textStatus); return false; }
       });
     });
+
+    $('#tenant_tabs li').on('shown.bs.tab', function (e) {
+      var target = $(e.target).attr("href");
+      addParameterToURL(target.split('#')[1])
+    });
+
 
     if ($('#tenant_tabs').attr('active_tab') != "") {
       $('#tenant_tabs a[href="#' + $('#tenant_tabs').attr('active_tab') + '"]').tab('show');
