@@ -63,6 +63,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def show
+
     @tenant = safely_find_tenant_by_id(params[:id])
     @allowed_users = @tenant.kaui_allowed_users & retrieve_allowed_users_for_current_user
 
@@ -79,6 +80,9 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     @plugin_config =  Kaui::AdminTenant::get_oss_plugin_info(plugin_repository) rescue @plugin_config = ""
     @tenant_plugin_config = Kaui::AdminTenant::get_tenant_plugin_config(plugin_repository, options) rescue @tenant_plugin_config = ""
+
+    # When reloading page from the view, it sends the last tab that was active
+    @active_tab = params[:active_tab]
   end
 
   def upload_catalog
@@ -97,6 +101,9 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def new_catalog
+
+    @back_url = setup_back_url_for_sticky_tabs(request, "CatalogShow")
+
     @tenant = safely_find_tenant_by_id(params[:id])
 
     options = tenant_options_for_client
@@ -147,6 +154,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def new_overdue_config
+
+    @back_url = setup_back_url_for_sticky_tabs(request, "OverdueShow")
     @tenant = safely_find_tenant_by_id(params[:id])
 
     options = tenant_options_for_client
@@ -279,6 +288,12 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
 
   private
+
+  # Each form from the tabs will compute a back URL that includes the TAB we want to see active
+  def setup_back_url_for_sticky_tabs(request, tab_id)
+    "#{request.env["HTTP_REFERER"].split('?')[0] + "?active_tab=" + tab_id }"
+  end
+
 
   def safely_find_tenant_by_id(tenant_id)
     tenant = Kaui::Tenant.find_by_id(tenant_id)

@@ -58,7 +58,7 @@
 <% end %>
 
 <div class="container">
-  <ul class="nav nav-tabs">
+  <ul class="nav nav-tabs" id="tenant_tabs" active_tab="<%= @active_tab %>">
     <li class="nav active"><a href="#CatalogShow" data-toggle="tab">Catalog Show</a></li>
     <li class="nav"><a href="#OverdueShow" data-toggle="tab">Overdue Show</a></li>
     <li class="nav"><a href="#InvoiceTemplate" data-toggle="tab">Invoice Template</a></li>
@@ -79,6 +79,10 @@
 </div>
 
 <%= javascript_tag do %>
+
+
+
+
   $(document).ready(function() {
     $('[id^=allowed-user-remove-]').click(function() {
       var allowedUser = $(this);
@@ -89,5 +93,9 @@
         error: function(request, textStatus, errorThrown) { console.log("AJAX FAILED!!!! request.status " + request.status + ", textStatus = " + textStatus); return false; }
       });
     });
+
+    if ($('#tenant_tabs').attr('active_tab') != "") {
+      $('#tenant_tabs a[href="#' + $('#tenant_tabs').attr('active_tab') + '"]').tab('show');
+    }
   });
 <% end %>
