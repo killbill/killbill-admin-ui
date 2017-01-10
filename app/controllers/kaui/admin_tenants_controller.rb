@@ -81,7 +81,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     @tenant_plugin_config = Kaui::AdminTenant::get_tenant_plugin_config(plugin_repository, options) rescue @tenant_plugin_config = ""
 
     # When reloading page from the view, it sends the last tab that was active
-    @active_tab = params[:active_tab]
+    @active_tab = params[:active_tab] || "CatalogShow"
   end
 
   def upload_catalog

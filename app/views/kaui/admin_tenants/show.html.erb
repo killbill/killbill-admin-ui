@@ -81,7 +81,8 @@
 <%= javascript_tag do %>
 
 
-   function addParameterToURL(target) {
+   function updateBrowserHistory(target) {
+      // Check if we are already on the right tab
       res = $.grep(location.href.split('?'), function(el) {
         if (el.startsWith("active_tab")) {
           return true;
@@ -93,10 +94,13 @@
         }
       }
 
+     // If not update the browser history
      var base_url = location.href.split('?')[0]
      var newUrl = base_url + "?active_tab=" + target
-     location.href = newUrl
-   }
+
+     var stateObj = { tenantTab: target };
+     history.pushState(stateObj, "New tab ", newUrl);
+    }
 
 
   $(document).ready(function() {
@@ -112,7 +116,7 @@
 
     $('#tenant_tabs li').on('shown.bs.tab', function (e) {
       var target = $(e.target).attr("href");
-      addParameterToURL(target.split('#')[1])
+      updateBrowserHistory(target.split('#')[1])
     });
 
 
