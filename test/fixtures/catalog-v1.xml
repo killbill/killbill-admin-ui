@@ -25,7 +25,6 @@
     </changeAlignment>
     <cancelPolicy>
       <cancelPolicyCase>
-        <productCategory>BASE</productCategory>
         <policy>END_OF_TERM</policy>
       </cancelPolicyCase>
     </cancelPolicy>
