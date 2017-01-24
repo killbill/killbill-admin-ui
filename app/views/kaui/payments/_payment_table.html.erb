@@ -96,7 +96,7 @@
             <td>
               <ul style="list-style: none; padding-left: 0">
                 <li>
-                  <span <% if transaction.status != 'SUCCESS' %>class='alert-danger'<% else %>class='alert-success' <% end %>><%= transaction.status %></span>
+                  <%= colored_transaction_status(transaction.status) %>
                   <% if current_user.root? %>
                       <%= link_to '&nbsp;<i class="fa fa-eraser"></i>'.html_safe, kaui_engine.new_account_transaction_path(payment.account_id,
                                                                                                                            :payment_id => payment.payment_id,

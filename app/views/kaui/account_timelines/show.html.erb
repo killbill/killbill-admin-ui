@@ -129,11 +129,7 @@
                           (<%= transaction.currency %>)
                         </li>
                         <li>
-                    <span
-                    <% if transaction.status != 'SUCCESS' %>class="alert-danger"
-                    <% else %>class="alert-success" <% end %>>
-                      <%= transaction.status %>
-                    </span>
+                          <%= colored_transaction_status(transaction.status) %>
                         </li>
                         <li><%= 'Payment #' %>&nbsp;<%= link_to payment.payment_number, account_payment_path(payment.account_id, payment.payment_id) %></li>
                         <% unless invoice.nil? %>

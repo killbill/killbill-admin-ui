@@ -26,7 +26,6 @@ class Kaui::PaymentsController < Kaui::EngineController
                           '_' + search_key
                         end
         payments = Kaui::Payment.list_or_search(payment_state, offset, limit, options_for_klient)
-        payments.reject! { |payment| payment.transactions[-1].status != search_key }
       else
         account = Kaui::Account::find_by_id_or_key(search_key, false, false, options_for_klient) rescue nil
         if account.nil?
@@ -55,7 +54,8 @@ class Kaui::PaymentsController < Kaui::EngineController
           payment.payment_number.to_i,
           payment.payment_date,
           payment.paid_amount_to_money,
-          payment.returned_amount_to_money
+          payment.returned_amount_to_money,
+          payment.transactions.empty? ? nil : payment.transactions[-1].status
       ][column]
     end
 
@@ -64,7 +64,8 @@ class Kaui::PaymentsController < Kaui::EngineController
           view_context.link_to(payment.payment_number, view_context.url_for(:controller => :payments, :action => :show, :account_id => payment.account_id, :id => payment.payment_id)),
           view_context.format_date(payment.payment_date),
           view_context.humanized_money_with_symbol(payment.paid_amount_to_money),
-          view_context.humanized_money_with_symbol(payment.returned_amount_to_money)
+          view_context.humanized_money_with_symbol(payment.returned_amount_to_money),
+          payment.transactions.empty? ? nil : view_context.colored_transaction_status(payment.transactions[-1].status)
       ]
     end
 
