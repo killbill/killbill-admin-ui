@@ -5,6 +5,11 @@
       <%= form_tag search_path, :id => 'home_searchform', :method => 'get' do %>
           <%= text_field_tag :q, @search_query, :id => 'search', :placeholder => 'What are you looking for?' %>
           <%= submit_tag 'Search' %>
+          <div class="checkbox">
+            <%= label_tag :fast do %>
+                <%= check_box_tag :fast %>Fast search (find first exact match)
+            <% end %>
+          </div>
       <% end %>
 
     </div>

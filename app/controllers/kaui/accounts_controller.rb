@@ -3,6 +3,16 @@ class Kaui::AccountsController < Kaui::EngineController
   def index
     @search_query = params[:q]
 
+    if params[:fast] == '1' && !@search_query.blank?
+      account = Kaui::Account.list_or_search(@search_query, -1, 1, options_for_klient).first
+      if account.nil?
+        flash[:error] = "No account matches \"#{@search_query}\""
+        redirect_to kaui_engine.home_path and return
+      else
+        redirect_to kaui_engine.account_path(account.account_id) and return
+      end
+    end
+
     @limit = 50
     if @search_query.blank?
       max_nb_records = Kaui::Account.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records

@@ -13,7 +13,7 @@ class Kaui::HomeController < Kaui::EngineController
     elsif search_type == 'transaction'
       redirect_to transaction_path(:id => search_query)
     else
-      redirect_to accounts_path(:q => search_query)
+      redirect_to accounts_path(:q => search_query, :fast => params[:fast])
     end
   end
 
