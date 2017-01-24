@@ -130,7 +130,7 @@ class Kaui::AccountsController < Kaui::EngineController
     @account.is_migrated = @account.is_migrated == '1'
     @account.is_notified_for_invoices = @account.is_notified_for_invoices == '1'
 
-    @account.update(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    @account.update(true, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
 
     redirect_to account_path(@account.account_id), :notice => 'Account successfully updated'
   rescue => e

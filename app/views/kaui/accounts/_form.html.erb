@@ -19,6 +19,8 @@
             <%= f.text_field :external_key, :class => 'form-control' %>
           </div>
         </div>
+    <% else %>
+        <%= f.hidden_field :external_key %>
     <% end %>
     <div class="form-group">
       <%= f.label :email, 'Email', :class => 'col-sm-3 control-label' %>
@@ -45,6 +47,10 @@
             <%= f.collection_select :time_zone, ActiveSupport::TimeZone.all, :formatted_offset, :to_s, {:selected => Time.zone.formatted_offset}, :class => 'form-control' %>
           </div>
         </div>
+    <% else %>
+        <%= f.hidden_field :bill_cycle_day_local %>
+        <%= f.hidden_field :currency %>
+        <%= f.hidden_field :time_zone %>
     <% end %>
     <div class="form-group">
         <%= f.label :locale, 'Locale', :class => 'col-sm-3 control-label' %>
@@ -116,6 +122,8 @@
             </div>
           </div>
         </div>
+    <% else %>
+        <%= f.hidden_field :is_migrated %>
     <% end %>
     <div class="form-group">
       <div class="col-sm-offset-3 col-sm-9">
