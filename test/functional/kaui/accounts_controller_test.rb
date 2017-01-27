@@ -77,12 +77,13 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     assert_response 200
     assert_not_nil assigns(:account)
 
+    latest_account_attributes = assigns(:account).to_hash
     put :update,
         :account_id => @account.account_id,
-        :account => {
+        :account => latest_account_attributes.merge({
             :name => SecureRandom.uuid.to_s,
             :email => SecureRandom.uuid.to_s + '@example.com'
-        }
+        })
     assert_redirected_to account_path(assigns(:account).account_id)
     assert_equal 'Account successfully updated', flash[:notice]
   end
