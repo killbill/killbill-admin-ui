@@ -8,18 +8,22 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
 
   def new
     @allowed_user = Kaui::AllowedUser.new
+    @roles = []
   end
 
   def create
-    new_user = Kaui::AllowedUser.new(allowed_user_params)
+    @allowed_user = Kaui::AllowedUser.new(allowed_user_params)
 
-    existing_user = Kaui::AllowedUser.find_by_kb_username(new_user.kb_username)
+    existing_user = Kaui::AllowedUser.find_by_kb_username(@allowed_user.kb_username)
     if existing_user
-      flash[:error] = "User with name #{new_user.kb_username} already exists!"
-      redirect_to admin_allowed_users_path
+      flash[:error] = "User with name #{@allowed_user.kb_username} already exists!"
+      render :new and return
     else
-      new_user.save!
-      redirect_to admin_allowed_user_path(new_user.id), :notice => 'User was successfully configured'
+      roles = params[:roles].split(',')
+
+      # Create locally and in KB
+      @allowed_user.create_in_kb!(params.require(:password), roles, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+      redirect_to kaui_engine.admin_allowed_user_path(@allowed_user.id), :notice => 'User was successfully configured'
     end
   end
 
@@ -27,8 +31,44 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
     @allowed_user = Kaui::AllowedUser.find(params.require(:id))
     raise ActiveRecord::RecordNotFound.new("Could not find user #{@allowed_user.id}") unless (current_user.root? || @allowed_user.kb_username == current_user.kb_username)
 
+    @roles = Kaui::UserRole.find_roles_by_username(@allowed_user.kb_username, options_for_klient).map(&:presence).compact || []
+
     tenants_for_current_user = retrieve_tenants_for_current_user
     @tenants = Kaui::Tenant.all.select { |tenant| tenants_for_current_user.include?(tenant.kb_tenant_id) }
+  end
+
+  def edit
+    @allowed_user = Kaui::AllowedUser.find(params.require(:id))
+
+    @roles = Kaui::UserRole.find_roles_by_username(@allowed_user.kb_username, options_for_klient).map(&:presence).compact || []
+  end
+
+  def update
+    @allowed_user = Kaui::AllowedUser.find(params.require(:id))
+
+    @allowed_user.description = params[:allowed_user][:description].presence
+
+    @allowed_user.update_in_kb!(params[:password].presence,
+                                params[:roles].presence.split(','),
+                                current_user.kb_username,
+                                params[:reason],
+                                params[:comment],
+                                options_for_klient)
+
+    redirect_to kaui_engine.admin_allowed_user_path(@allowed_user.id), :notice => 'User was successfully updated'
+  end
+
+  def destroy
+    allowed_user = Kaui::AllowedUser.find(params.require(:id))
+
+    if allowed_user
+      # Delete locally and in KB
+      allowed_user.destroy_in_kb!(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+      redirect_to kaui_engine.admin_allowed_users_path, :notice => 'User was successfully deleted'
+    else
+      flash[:error] = "User #{params.require(:id)} not found"
+      redirect_to kaui_engine.admin_allowed_users_path
+    end
   end
 
   def add_tenant

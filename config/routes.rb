@@ -153,8 +153,10 @@ Kaui::Engine.routes.draw do
     match '/remove_allowed_user' => 'admin_tenants#remove_allowed_user', :via => :delete, :as => 'remove_allowed_user'
   end
 
-  resources :admin_allowed_users, :only => [ :index, :new, :create, :show ]
+  resources :admin_allowed_users
   scope '/admin_allowed_users' do
     match '/add_tenant' => 'admin_allowed_users#add_tenant', :via => :post, :as => 'add_tenant'
   end
+
+  resources :role_definitions, :only => [ :new, :create ]
 end
