@@ -100,6 +100,10 @@ Alternatively, you can run the `kaui` script under `bin` by setting your loadpat
 
     ruby -Ilib bin/kaui /path/to/rails/app --path=$PWD --skip-bundle
     
+Releases
+========
+
+The releases are done using Jruby and require the following property `export JRUBY_OPTS='--2.0 -J-Xmx1024m'`
 
 Multi-Tenancy
 =============
