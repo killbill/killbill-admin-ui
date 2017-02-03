@@ -125,8 +125,11 @@
                     <td><%= transaction.transaction_type %></td>
                     <td>
                       <ul>
-                        <li><%= 'Amount:' %>&nbsp;<%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
-                          (<%= transaction.currency %>)
+                        <li>
+                          <% unless transaction.transaction_type == 'VOID' %>
+                            <%= 'Amount:' %>&nbsp;<%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
+                            (<%= transaction.currency %>)
+                          <% end %>
                         </li>
                         <li>
                           <%= colored_transaction_status(transaction.status) %>
