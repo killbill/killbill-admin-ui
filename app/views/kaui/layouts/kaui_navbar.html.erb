@@ -64,7 +64,17 @@
             <nav>
               <ul class="account-menu">
                 <% if user_signed_in? -%>
-                    <li><%= session[:kb_tenant_name].present? ? "#{current_user.kb_username} / #{session[:kb_tenant_name]}" : current_user.kb_username %></li>
+                    <li>
+                      <% if session[:kb_tenant_name].present? %>
+                          <% if session[:tenant_id].present? %>
+                              <%= link_to("#{current_user.kb_username} / #{session[:kb_tenant_name]}", admin_tenant_path(session[:tenant_id])) %>
+                          <% else %>
+                              <%= "#{current_user.kb_username} / #{session[:kb_tenant_name]}" %>
+                          <% end %>
+                      <% else %>
+                          <%= current_user.kb_username %>
+                      <% end %>
+                    </li>
                     <li><%= link_to 'Sign Out', kaui_engine.destroy_user_session_path, :method => :delete %></li>
                 <% else %>
                     <li><%= link_to 'Login'.html_safe, kaui_engine.new_user_session_path %></li>

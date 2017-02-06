@@ -58,6 +58,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     # Select the tenant, see TenantsController
     session[:kb_tenant_id] = tenant_model.kb_tenant_id
     session[:kb_tenant_name] = tenant_model.name
+    session[:tenant_id] = tenant_model.id
 
     redirect_to admin_tenant_path(tenant_model[:id]), :notice => 'Tenant was successfully configured'
   end
