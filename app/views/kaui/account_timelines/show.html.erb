@@ -143,8 +143,12 @@
                     <td>
                       <% if transaction.audit_logs.present? %>
                           <ul>
-                            <% transaction.audit_logs.each do |entry| %>
-                                <li><%= Kaui::AuditLog.description(entry) %></li>
+                            <% transaction.audit_logs
+                                   .map { |entry| Kaui::AuditLog.description(entry) }
+                                   .chunk { |x| x }
+                                   .map(&:first)
+                                   .each do |entry| %>
+                                <li><%= entry %></li>
                             <% end %>
                           </ul>
                       <% end %>
