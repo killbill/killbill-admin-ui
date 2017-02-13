@@ -38,7 +38,7 @@ class Kaui::PaymentsController < Kaui::EngineController
       payments.each do |payment|
         created_date = nil
         payment.transactions.each do |transaction|
-          transaction_date = Date.parse(transaction.effective_date)
+          transaction_date = DateTime.parse(transaction.effective_date)
           if created_date.nil? or transaction_date < created_date
             created_date = transaction_date
           end
