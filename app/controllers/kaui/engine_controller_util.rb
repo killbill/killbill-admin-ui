@@ -1,5 +1,8 @@
 module Kaui::EngineControllerUtil
 
+  # See DefaultPaginationSqlDaoHelper.java
+  SIMPLE_PAGINATION_THRESHOLD = 20000
+
   protected
 
   def get_layout
@@ -11,8 +14,7 @@ module Kaui::EngineControllerUtil
     offset = (params[:start] || 0).to_i
     limit = (params[:length] || 10).to_i
 
-    limit = 2147483647 if limit == -1
-
+    limit = -limit if params[:ordering] == 'desc'
     begin
       pages = searcher.call(search_key, offset, limit)
     rescue => e
@@ -21,8 +23,9 @@ module Kaui::EngineControllerUtil
 
     json = {
         :draw => (params[:draw] || 0).to_i,
-        :recordsTotal => pages.nil? ? 0 : pages.pagination_max_nb_records,
-        :recordsFiltered => pages.nil? ? 0 : pages.pagination_total_nb_records,
+        # We need to fill-in a number to make DataTables happy
+        :recordsTotal => pages.nil? ? 0 : (pages.pagination_max_nb_records || SIMPLE_PAGINATION_THRESHOLD),
+        :recordsFiltered => pages.nil? ? 0 : (pages.pagination_total_nb_records || SIMPLE_PAGINATION_THRESHOLD),
         :data => []
     }
     json[:error] = error unless error.nil?
@@ -39,7 +42,7 @@ module Kaui::EngineControllerUtil
       sort = a <=> b
       sort.nil? ? -1 : sort
     end unless search_key.nil? # Keep DB ordering when listing all entries
-    pages.reverse! if ordering_dir == 'desc'
+    pages.reverse! if ordering_dir == 'desc' && limit >= 0 || ordering_dir == 'asc' && limit < 0
 
     pages.each { |page| json[:data] << formatter.call(page) }
 
