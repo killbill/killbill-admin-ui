@@ -1,7 +1,9 @@
 <p class="text-center">
   <%= link_to 'Current or future entries', kaui_engine.queues_path(params.merge(:with_history => false)) %> /
-  <%= link_to 'Historical entries (last week)', kaui_engine.queues_path(params.merge(:with_history => true, :min_date => @now - 1.week)) %> /
-  <%= link_to 'Historical entries (last month)', kaui_engine.queues_path(params.merge(:with_history => true, :min_date => @now - 1.month)) %> /
+  <% unless params[:account_id].present? -%>
+    <%= link_to 'Historical entries (last week)', kaui_engine.queues_path(params.merge(:with_history => true, :min_date => @now - 1.week)) %> /
+    <%= link_to 'Historical entries (last month)', kaui_engine.queues_path(params.merge(:with_history => true, :min_date => @now - 1.month)) %> /
+  <% end -%>
   <%= link_to 'All historical entries', kaui_engine.queues_path(params.merge(:with_history => true, :min_date => '1970-01-01')) %>
 </p>
 
