@@ -17,6 +17,7 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
     existing_user = Kaui::AllowedUser.find_by_kb_username(@allowed_user.kb_username)
     if existing_user
       flash[:error] = "User with name #{@allowed_user.kb_username} already exists!"
+      @roles = roles_for_user(existing_user)
       render :new and return
     else
       roles = params[:roles].split(',')
@@ -31,7 +32,7 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
     @allowed_user = Kaui::AllowedUser.find(params.require(:id))
     raise ActiveRecord::RecordNotFound.new("Could not find user #{@allowed_user.id}") unless (current_user.root? || @allowed_user.kb_username == current_user.kb_username)
 
-    @roles = Kaui::UserRole.find_roles_by_username(@allowed_user.kb_username, options_for_klient).map(&:presence).compact || []
+    @roles = roles_for_user(@allowed_user)
 
     tenants_for_current_user = retrieve_tenants_for_current_user
     @tenants = Kaui::Tenant.all.select { |tenant| tenants_for_current_user.include?(tenant.kb_tenant_id) }
@@ -40,7 +41,7 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
   def edit
     @allowed_user = Kaui::AllowedUser.find(params.require(:id))
 
-    @roles = Kaui::UserRole.find_roles_by_username(@allowed_user.kb_username, options_for_klient).map(&:presence).compact || []
+    @roles = roles_for_user(@allowed_user)
   end
 
   def update
@@ -100,5 +101,9 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
     allowed_user = params.require(:allowed_user)
     allowed_user.require(:kb_username)
     allowed_user
+  end
+
+  def roles_for_user(allowed_user)
+    Kaui::UserRole.find_roles_by_username(allowed_user.kb_username, options_for_klient).map(&:presence).compact || []
   end
 end
