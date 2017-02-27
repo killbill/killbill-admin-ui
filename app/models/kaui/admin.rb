@@ -11,7 +11,8 @@ class Kaui::Admin < KillBillClient::Model::Resource
                                     {
                                         :accountId => account_id,
                                         :withHistory => options[:withHistory],
-                                        :minDate => options[:minDate]
+                                        :minDate => options[:minDate],
+                                        :maxDate => options[:maxDate]
                                     },
                                     options
       JSON.parse res.body
