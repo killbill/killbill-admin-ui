@@ -38,4 +38,36 @@ class Kaui::BundlesController < Kaui::EngineController
     bundle = Kaui::Bundle.find_by_id_or_key(params.require(:id), options_for_klient)
     redirect_to kaui_engine.account_bundles_path(bundle.account_id)
   end
+
+  def pause_resume
+    @bundle = Kaui::Bundle.find_by_id_or_key(params.require(:id), options_for_klient)
+    @base_subscription = @bundle.subscriptions.find { |sub| sub.product_category == 'BASE' }
+  end
+
+  def do_pause_resume
+    bundle = Kaui::Bundle::new(:bundle_id => params.require(:id))
+
+    paused = false
+    resumed = false
+
+    if params[:pause_requested_date].present?
+      bundle.pause(params[:pause_requested_date], current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+      paused = true
+    end
+
+    if params[:resume_requested_date].present?
+      bundle.resume(params[:resume_requested_date], current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+      resumed = true
+    end
+
+    msg = 'Bundle was successfully '
+    if paused && !resumed
+      msg += 'paused'
+    elsif !paused && resumed
+      msg += 'resumed'
+    else
+      msg += 'updated'
+    end
+    redirect_to kaui_engine.account_bundles_path(@account.account_id), :notice => msg
+  end
 end
