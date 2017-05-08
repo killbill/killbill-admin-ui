@@ -7,11 +7,8 @@ notifications:
     - kill-bill-commits@googlegroups.com
 
 rvm:
-  - 1.9.3
-  - 2.0.0
+  - 2.2.0
   - ruby-head
-  - jruby-19mode
-  - jruby-20mode
   - jruby-head
 
 jdk:
