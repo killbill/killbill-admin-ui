@@ -12,10 +12,10 @@ class Kaui::BundlesControllerTest < Kaui::FunctionalTestHelper
   test 'should get index with existing tags' do
 
     tag_definition_ids = []
-    def1 = create_tag_definition(SecureRandom.uuid.to_s, @tenant);
+    def1 = create_tag_definition(SecureRandom.uuid.to_s[0..19], @tenant);
     tag_definition_ids << def1
     tag_definition_ids << def1
-    def2 = create_tag_definition(SecureRandom.uuid.to_s, @tenant);
+    def2 = create_tag_definition(SecureRandom.uuid.to_s[0..19], @tenant);
     tag_definition_ids << def2
 
     add_tags(@bundle, tag_definition_ids, @tenant);
