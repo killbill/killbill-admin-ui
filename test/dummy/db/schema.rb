@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010235259) do
+ActiveRecord::Schema.define(version: 20150112232813) do
 
   create_table "kaui_allowed_user_tenants", force: :cascade do |t|
     t.integer  "kaui_allowed_user_id", limit: 4
