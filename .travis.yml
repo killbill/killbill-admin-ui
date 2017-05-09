@@ -9,14 +9,14 @@ services:
 dist: trusty
 
 before_install:
-  - gem install bundler
-  - curl -LO 'https://search.maven.org/remotecontent?filepath=org/kill-bill/billing/killbill-profiles-killbill/0.18.8/killbill-profiles-killbill-0.18.8-jetty-console.war' && java -jar killbill-profiles-killbill-0.18.8-jetty-console.war --port 8080 --headless & sleep 60 && curl -v -X POST -u 'admin:password' -H 'Content-Type:application/json' -H 'X-Killbill-CreatedBy:admin' -d '{"apiKey":"bob", "apiSecret":"lazar"}' "http://127.0.0.1:8080/1.0/kb/tenants"
+  - travis_retry gem install bundler
+  - travis_retry curl -LO 'https://search.maven.org/remotecontent?filepath=org/kill-bill/billing/killbill-profiles-killbill/0.18.8/killbill-profiles-killbill-0.18.8-jetty-console.war' && java -jar killbill-profiles-killbill-0.18.8-jetty-console.war --port 8080 --headless & sleep 80 && travis_retry curl -v -X POST -u 'admin:password' -H 'Content-Type:application/json' -H 'X-Killbill-CreatedBy:admin' -d '{"apiKey":"bob", "apiSecret":"lazar"}' "http://127.0.0.1:8080/1.0/kb/tenants"
   - mysql -uroot -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('root')"
   - mysql -uroot -proot -e 'create database kaui_test;'
 
 before_script:
   - jdk_switcher use $JDK
-  - cd test/dummy/ ; bundle exec rake kaui:install:migrations ; bundle exec rake db:migrate ; cd -
+  - bundle exec rake db:migrate
 
 script:
   - bundle exec rake test
