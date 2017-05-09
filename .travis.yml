@@ -23,15 +23,15 @@ notifications:
 
 env:
   global:
-    - MYSQL_PASSWORD='' MYSQL_USER='travis' JRUBY_OPTS='--2.0 -J-Xmx1024m'
+    - MYSQL_PASSWORD='' MYSQL_USER='root' JRUBY_OPTS='--2.0 -J-Xmx1024m'
 
 matrix:
   include:
     - rvm: 2.2.0
     - rvm: ruby-head
-    - rvm: jruby-1.7.20
+    - rvm: jruby-1.7.26
       env: JDK=oraclejdk8
-    - rvm: jruby-1.7.20
+    - rvm: jruby-1.7.26
       env: JDK=openjdk8
     - rvm: jruby-head
       env: JDK=oraclejdk8
