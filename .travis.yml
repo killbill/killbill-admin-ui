@@ -5,9 +5,6 @@ cache: bundler
 
 dist: trusty
 
-services:
-  - mysql
-
 before_install:
   - curl -LO 'https://search.maven.org/remotecontent?filepath=org/kill-bill/billing/killbill-profiles-killbill/0.18.8/killbill-profiles-killbill-0.18.8-jetty-console.war' && java -jar killbill-profiles-killbill-0.18.8-jetty-console.war --port 8080 --headless & sleep 60 && curl -v -X POST -u 'admin:password' -H 'Content-Type:application/json' -H 'X-Killbill-CreatedBy:admin' -d '{"apiKey":"bob", "apiSecret":"lazar"}' "http://127.0.0.1:8080/1.0/kb/tenants"
   - mysql -uroot -e 'create database kaui_test;'
@@ -30,16 +27,18 @@ env:
 matrix:
   include:
     - rvm: 2.2.0
+    - rvm: ruby-head
     - rvm: jruby-1.7.20
       env: JDK=oraclejdk8
     - rvm: jruby-1.7.20
+      env: JDK=openjdk8
+    - rvm: jruby-head
+      env: JDK=oraclejdk8
+    - rvm: jruby-head
       env: JDK=openjdk8
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-head
-      env: JDK=oraclejdk8
-    - rvm: jruby-head
-      env: JDK=openjdk8
   fast_finish: true
 
 #force travis to use only 'bundle install' instead of 'bundle install --deployments'
