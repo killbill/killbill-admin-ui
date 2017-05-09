@@ -1,6 +1,15 @@
 language: ruby
 
 sudo: false
+cache: bundler
+
+services:
+  - mysql
+
+before_install:
+  - curl -LO 'https://search.maven.org/remotecontent?filepath=org/kill-bill/billing/killbill-profiles-killbill/0.18.8/killbill-profiles-killbill-0.18.8-jetty-console.war' && java -jar killbill-profiles-killbill-0.18.8-jetty-console.war --port 8080 --headless & sleep 40 && curl -v -X POST -u 'admin:password' -H 'Content-Type:application/json' -H 'X-Killbill-CreatedBy:admin' -d '{"apiKey":"bob", "apiSecret":"lazar"}' "http://127.0.0.1:8080/1.0/kb/tenants"
+  - mysql -uroot -e 'create database kaui_test;'
+  - RAILS_ENV=test bundle exec rake db:migrate
 
 notifications:
   email:
@@ -12,23 +21,21 @@ rvm:
   - jruby-head
 
 jdk:
-  - openjdk7
-  - oraclejdk7
-
-before_script:
-  - mysql -e 'create database kaui_test;'
-  - RAILS_ENV=test bundle exec rake db:migrate
+  - openjdk8
+  - oraclejdk8
 
 script:
-  - bundle exec rake test:units
+  - bundle exec rake test
 
 matrix:
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-head
+  fast_finish: true
 
 env:
   - MYSQL_PASSWORD='' MYSQL_USER='travis'
+  - JRUBY_OPTS='--2.0 -J-Xmx1024m'
 
 #force travis to use only 'bundle install' instead of 'bundle install --deployments'
 bundler_args: ''
