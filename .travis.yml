@@ -11,8 +11,8 @@ dist: trusty
 before_install:
   - gem install bundler
   - curl -LO 'https://search.maven.org/remotecontent?filepath=org/kill-bill/billing/killbill-profiles-killbill/0.18.8/killbill-profiles-killbill-0.18.8-jetty-console.war' && java -jar killbill-profiles-killbill-0.18.8-jetty-console.war --port 8080 --headless & sleep 60 && curl -v -X POST -u 'admin:password' -H 'Content-Type:application/json' -H 'X-Killbill-CreatedBy:admin' -d '{"apiKey":"bob", "apiSecret":"lazar"}' "http://127.0.0.1:8080/1.0/kb/tenants"
-  - mysql -u root -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('')"
-  - mysql -uroot -e 'create database kaui_test;'
+  - mysql -uroot -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('root')"
+  - mysql -uroot -proot -e 'create database kaui_test;'
 
 before_script:
   - jdk_switcher use $JDK
@@ -27,7 +27,7 @@ notifications:
 
 env:
   global:
-    - MYSQL_PASSWORD='' MYSQL_USER='root' JRUBY_OPTS='--2.0 -J-Xmx1024m'
+    - MYSQL_PASSWORD='root' MYSQL_USER='root' JRUBY_OPTS='--2.0 -J-Xmx1024m'
 
 matrix:
   include:
