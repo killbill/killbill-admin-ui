@@ -3,39 +3,44 @@ language: ruby
 sudo: false
 cache: bundler
 
+dist: trusty
+
 services:
   - mysql
 
 before_install:
-  - curl -LO 'https://search.maven.org/remotecontent?filepath=org/kill-bill/billing/killbill-profiles-killbill/0.18.8/killbill-profiles-killbill-0.18.8-jetty-console.war' && java -jar killbill-profiles-killbill-0.18.8-jetty-console.war --port 8080 --headless & sleep 40 && curl -v -X POST -u 'admin:password' -H 'Content-Type:application/json' -H 'X-Killbill-CreatedBy:admin' -d '{"apiKey":"bob", "apiSecret":"lazar"}' "http://127.0.0.1:8080/1.0/kb/tenants"
+  - curl -LO 'https://search.maven.org/remotecontent?filepath=org/kill-bill/billing/killbill-profiles-killbill/0.18.8/killbill-profiles-killbill-0.18.8-jetty-console.war' && java -jar killbill-profiles-killbill-0.18.8-jetty-console.war --port 8080 --headless & sleep 60 && curl -v -X POST -u 'admin:password' -H 'Content-Type:application/json' -H 'X-Killbill-CreatedBy:admin' -d '{"apiKey":"bob", "apiSecret":"lazar"}' "http://127.0.0.1:8080/1.0/kb/tenants"
   - mysql -uroot -e 'create database kaui_test;'
   - RAILS_ENV=test bundle exec rake db:migrate
+
+before_script:
+  - jdk_switcher use $JDK
+
+script:
+  - bundle exec rake test
 
 notifications:
   email:
     - kill-bill-commits@googlegroups.com
 
-rvm:
-  - 2.2.0
-  - ruby-head
-  - jruby-head
-
-jdk:
-  - openjdk8
-  - oraclejdk8
-
-script:
-  - bundle exec rake test
+env:
+  global:
+    - MYSQL_PASSWORD='' MYSQL_USER='travis' JRUBY_OPTS='--2.0 -J-Xmx1024m'
 
 matrix:
+  include:
+    - rvm: 2.2.0
+    - rvm: jruby-1.7.20
+      env: JDK=oraclejdk8
+    - rvm: jruby-1.7.20
+      env: JDK=openjdk8
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-head
+      env: JDK=oraclejdk8
+    - rvm: jruby-head
+      env: JDK=openjdk8
   fast_finish: true
-
-env:
-  - MYSQL_PASSWORD='' MYSQL_USER='travis'
-  - JRUBY_OPTS='--2.0 -J-Xmx1024m'
 
 #force travis to use only 'bundle install' instead of 'bundle install --deployments'
 bundler_args: ''
