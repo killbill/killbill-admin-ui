@@ -16,7 +16,7 @@ before_install:
 
 before_script:
   - jdk_switcher use $JDK
-  - cd test/dummy/ ; RAILS_ENV=test bundle exec rake kaui:install:migrations ; RAILS_ENV=test bundle exec rake db:migrate ; cd -
+  - cd test/dummy/ ; bundle exec rake kaui:install:migrations ; bundle exec rake db:migrate ; cd -
 
 script:
   - bundle exec rake test
@@ -27,7 +27,7 @@ notifications:
 
 env:
   global:
-    - MYSQL_PASSWORD='root' MYSQL_USER='root' JRUBY_OPTS='--2.0 -J-Xmx1024m'
+    - RAILS_ENV=test MYSQL_PASSWORD='root' MYSQL_USER='root' JRUBY_OPTS='--2.0 -J-Xmx1024m'
 
 matrix:
   include:
