@@ -1,6 +1,6 @@
 language: ruby
 
-sudo: false
+sudo: required
 cache: bundler
 
 services:
@@ -9,6 +9,8 @@ services:
 dist: trusty
 
 before_install:
+  - sudo sysctl -w net.ipv4.tcp_fin_timeout=15
+  - sudo sysctl -w net.ipv4.tcp_tw_reuse=1
   - travis_retry gem install bundler
   - travis_retry curl -LO 'https://search.maven.org/remotecontent?filepath=org/kill-bill/billing/killbill-profiles-killbill/0.18.8/killbill-profiles-killbill-0.18.8-jetty-console.war' && java -Djava.security.egd=file:/dev/./urandom -Dorg.slf4j.simpleLogger.defaultLogLevel=WARN -jar killbill-profiles-killbill-0.18.8-jetty-console.war --port 8080 --headless 2>&1 | egrep -v "lvl='INFO'| < | > |[ \t]*at [ \ta-zA-Z0-9\.\:\(\)]+" & sleep 80 && travis_retry curl -v -X POST -u 'admin:password' -H 'Content-Type:application/json' -H 'X-Killbill-CreatedBy:admin' -d '{"apiKey":"bob", "apiSecret":"lazar"}' "http://127.0.0.1:8080/1.0/kb/tenants"
   - mysql -uroot -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('root')"
@@ -42,6 +44,7 @@ matrix:
     - rvm: jruby-head
       env: JDK=openjdk8
   allow_failures:
+    - rvm: 2.2.0
     - rvm: ruby-head
     - rvm: jruby-head
   fast_finish: true
