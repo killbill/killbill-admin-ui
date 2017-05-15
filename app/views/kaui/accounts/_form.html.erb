@@ -1,5 +1,7 @@
 <% # Unclear why this url/method hack is needed %>
 <%= form_for @account, :url => @account.persisted? ? account_path(@account.account_id) : accounts_path, :method => @account.persisted? ? :put : :post, :html => {:class => 'form-horizontal'} do |f| %>
+    <%= f.hidden_field :payment_method_id %>
+
     <div class="form-group">
       <%= f.label :name, 'Name', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
