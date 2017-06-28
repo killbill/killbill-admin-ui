@@ -138,6 +138,7 @@ Kaui::Engine.routes.draw do
   resources :admin_tenants, :only => [ :index, :new, :create, :show ]
   scope '/admin_tenants' do
     match '/:id/new_catalog' => 'admin_tenants#new_catalog', :via => :get, :as => 'admin_tenant_new_catalog'
+    match '/:id/delete_catalog' => 'admin_tenants#delete_catalog', :via => :delete, :as => 'admin_tenant_delete_catalog'
     match '/:id/new_plan_currency' => 'admin_tenants#new_plan_currency', :via => :get, :as => 'admin_tenant_new_plan_currency'
     match '/:id/new_overdue_config' => 'admin_tenants#new_overdue_config', :via => :get, :as => 'admin_tenant_new_overdue_config'
     match '/upload_catalog' => 'admin_tenants#upload_catalog', :via => :post, :as => 'admin_tenant_upload_catalog'

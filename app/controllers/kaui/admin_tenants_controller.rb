@@ -126,6 +126,19 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     @simple_plan = Kaui::SimplePlan.new
   end
 
+  def delete_catalog
+
+    tenant = safely_find_tenant_by_id(params[:id])
+
+    options = tenant_options_for_client
+    options[:api_key] = tenant.api_key
+    options[:api_secret] = tenant.api_secret
+
+    Kaui::Admin.delete_catalog(options[:username], "KAUI wrong catalog", "KAUI test", options)
+
+    redirect_to admin_tenant_path(tenant.id), :notice => 'Catalog was successfully deleted'
+  end
+
   def new_plan_currency
     @tenant = safely_find_tenant_by_id(params[:id])
     @simple_plan = Kaui::SimplePlan.new

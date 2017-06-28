@@ -1,8 +1,10 @@
 class Kaui::Admin < KillBillClient::Model::Resource
 
   KILLBILL_API_ADMIN_PREFIX = "#{KILLBILL_API_PREFIX}/admin"
-  KILLBILL_API_CLOCK_PREFIX = "#{KILLBILL_API_PREFIX}/test/clock"
   KILLBILL_API_QUEUES_PREFIX = "#{KILLBILL_API_ADMIN_PREFIX}/queues"
+
+  KILLBILL_API_CLOCK_PREFIX = "#{KILLBILL_API_PREFIX}/test/clock"
+  KILLBILL_API_CATALOG_PREFIX = "#{KILLBILL_API_PREFIX}/test/catalog"
 
   class << self
 
@@ -71,5 +73,19 @@ class Kaui::Admin < KillBillClient::Model::Resource
 
       JSON.parse res.body
     end
+
+    def delete_catalog(user = nil, reason = nil, comment = nil, options)
+      KillBillClient::API.delete KILLBILL_API_CATALOG_PREFIX,
+                                 {},
+                                 {},
+                                 {
+                                     :user => user,
+                                     :reason => reason,
+                                     :comment => comment,
+                                 }.merge(options)
+
+    end
+
+
   end
 end
