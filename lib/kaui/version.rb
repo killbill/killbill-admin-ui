@@ -1,3 +1,3 @@
 module Kaui
-  VERSION = '0.15.2'
+  VERSION = '0.15.5'
 end

@@ -15,15 +15,14 @@ Running Kaui locally
 ---------------------
 
 You can run Kaui locally by using the test/dummy app provided:
+
 ```
-bundle install
-cd test/dummy
 export RAILS_ENV=development
 bundle install
-rake kaui:install:migrations
-rake db:migrate
+bundle exec rake db:migrate
+cd test/dummy
 bundle exec rake assets:precompile
-rails server
+bundle exec rails server
 ```
 
 
@@ -35,9 +34,15 @@ The Kaui gem comes with a `kaui` script to mount it in your existing Rails app.
 Kaui expects the container app to define the <tt>current_user</tt> method, which returns the
 name of the logged-in user. This is used by Kill Bill for auditing purposes.
 
+Migrations can be copied over to your app via:
+
+```
+bundle exec rake kaui:install:migrations
+```
+
 Finally, a Kill Bill server needs to be running for Kaui to fetch its information (see the Configuration section below).
-The default login credentials are admin/password.  Users, Credentials, Roles and Permissions are 
-passed through to Kill Bill. It uses Basic Auth by default, but the backend is pluggable (LDAP, 
+The default login credentials are admin/password.  Users, Credentials, Roles and Permissions are
+passed through to Kill Bill. It uses Basic Auth by default, but the backend is pluggable (LDAP,
 ActiveDirectory, etc.).
 
 
@@ -56,23 +61,13 @@ Sharing a Kaui instance across multiple tenants is not supported yet (you need t
 Running tests
 -------------
 
-Go into 'test/dummy': 
-```
-cd test/dummy/
-```
+At the top level:
 
-Run migrations:
 ```
 export RAILS_ENV=test
-rake kaui:install:migrations
-rake db:migrate
-```
-
-Run the tests:
-(Move back to top level)
-```
-cd ../..
-rake test
+bundle install
+bundle exec rake db:migrate
+bundle exec rake test
 ```
 
 Note: functional and integration tests require an instance of Kill Bill to test against.
@@ -99,7 +94,7 @@ Then, install and run it from a local directory:
 Alternatively, you can run the `kaui` script under `bin` by setting your loadpath correctly:
 
     ruby -Ilib bin/kaui /path/to/rails/app --path=$PWD --skip-bundle
-    
+
 Releases
 ========
 
@@ -123,7 +118,7 @@ Those roles and permissions are defined the same way other permissions are defin
 * TENANT_CAN_VIEW
 * TENANT_CAN_CREATE
 * OVERDUE_CAN_UPLOAD
-* CATALOG_CAN_UPLOAD 
+* CATALOG_CAN_UPLOAD
 
 The [enforcement in KAUI](https://github.com/killbill/killbill-admin-ui/blob/master/app/models/kaui/ability.rb) is based on the CanCan gem.
 

@@ -32,6 +32,9 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
 
       source = URI.parse('https://raw.githubusercontent.com/killbill/killbill-cloud/master/kpm/lib/kpm/plugins_directory.yml').read
       YAML.load(source)
+    rescue
+      # Ignore gracefully
+      {}
     end
 
     def get_oss_plugin_info(plugin_directory)

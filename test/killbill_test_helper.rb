@@ -146,7 +146,7 @@ module Kaui
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
 
       credit = KillBillClient::Model::Credit.new(:invoice_id => invoice_id, :account_id => account.account_id, :credit_amount => 23.22)
-      credit = credit.create(user, reason, comment, build_options(tenant, username, password))
+      credit = credit.create(true, user, reason, comment, build_options(tenant, username, password))
 
       invoice = KillBillClient::Model::Invoice.find_by_id_or_number(credit.invoice_id, true, 'NONE', build_options(tenant, username, password))
       invoice.items.find { |ii| ii.amount == -credit.credit_amount }

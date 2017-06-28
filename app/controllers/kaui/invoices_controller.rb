@@ -3,15 +3,11 @@ class Kaui::InvoicesController < Kaui::EngineController
   def index
     @search_query = params[:account_id]
 
-    @limit = 50
-    if @search_query.blank?
-      max_nb_records = Kaui::Invoice.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records
-      @offset = [0, max_nb_records - @limit].max
-      @ordering = 'desc'
-    else
-      @offset = 0
-      @ordering = 'asc'
-    end
+    @ordering = params[:ordering] || (@search_query.blank? ? 'desc' : 'asc')
+    @offset = params[:offset] || 0
+    @limit = params[:limit] || 50
+
+    @max_nb_records = @search_query.blank? ? Kaui::Invoice.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records : 0
   end
 
   def pagination

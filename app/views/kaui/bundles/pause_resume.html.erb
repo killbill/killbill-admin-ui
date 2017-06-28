@@ -1,0 +1,42 @@
+<div class="register">
+  <div class="col-md-8 col-md-offset-2">
+
+    <div class="column-block">
+      <% if @base_subscription.state == 'BLOCKED' %>
+          <h1>Resume</h1>
+      <% else %>
+          <h1>Pause / Resume</h1>
+      <% end %>
+
+      <%= form_tag do_pause_resume_bundle_path(:account_id => @account.account_id, :id => @bundle.bundle_id), :class => 'form-horizontal', :method => :put do %>
+          <% if @base_subscription.state != 'BLOCKED' %>
+              <div class="form-group">
+                <%= label_tag :pause_requested_date, 'Pause date', :class => 'col-sm-2 control-label' %>
+                <div class="col-sm-3">
+                  <input class="form-control" name="pause_requested_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
+                </div>
+              </div>
+          <% end %>
+          <div class="form-group">
+            <%= label_tag :resume_requested_date, 'Resume date', :class => 'col-sm-2 control-label' %>
+            <div class="col-sm-3">
+              <input class="form-control" name="resume_requested_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
+            </div>
+          </div>
+          <div class="form-group">
+            <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label' %>
+            <div class="col-sm-10">
+              <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <%= submit_tag @base_subscription.state == 'BLOCKED' ? 'Resume' : 'Pause / Resume', :class => 'btn btn-default' %>
+            </div>
+          </div>
+      <% end %>
+
+    </div>
+
+  </div>
+</div>
