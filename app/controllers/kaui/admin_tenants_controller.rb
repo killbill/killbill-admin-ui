@@ -134,7 +134,12 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_key] = tenant.api_key
     options[:api_secret] = tenant.api_secret
 
-    Kaui::Admin.delete_catalog(options[:username], "KAUI wrong catalog", "KAUI test", options)
+    begin
+      Kaui::Admin.delete_catalog(options[:username], "KAUI wrong catalog", "KAUI test", options)
+    rescue KillBillClient::API::NotFound => e
+      flash[:error] = "Failed to delete catalog: Kill Bill server needs to be started with system property `org.killbill.server.test.mode=true`"
+      redirect_to admin_tenants_path and return
+    end
 
     redirect_to admin_tenant_path(tenant.id), :notice => 'Catalog was successfully deleted'
   end

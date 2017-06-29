@@ -1,0 +1,3 @@
+class Kaui::Test
+end
+

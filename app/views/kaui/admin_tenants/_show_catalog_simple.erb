@@ -1,16 +1,17 @@
 <div id="catalog_simple">
   <hr/>
 
-  <h1>Existing Plans
-    <% if can? :config_upload, Kaui::AdminTenant %>
-        <%= link_to '<i class="fa fa-plus-square"></i>'.html_safe,
-                    kaui_engine.admin_tenant_new_catalog_path(:id => @tenant.id),
-                    :class => 'btn btn-xs'  %>
-    <% end %>
-    <%= link_to '<i class="fa fa-times"></i>'.html_safe, kaui_engine.admin_tenant_delete_catalog_path(:id => @tenant.id), :method => :delete %>
-
-    <a class='btn btn-xs' href="javascript:void(0);" onclick="switchXMLConfig();">Enable XML View</a>
-  </h1>
+    <h1>Existing Plans
+        <% if can? :config_upload, Kaui::AdminTenant %>
+            <%= link_to '<i class="fa fa-plus-square"></i>'.html_safe,
+                        kaui_engine.admin_tenant_new_catalog_path(:id => @tenant.id),
+                        :class => 'btn btn-xs' %>
+        <% end %>
+        <% if can?(:all, Kaui::Test) %>
+            <%= link_to '<i class="fa fa-times"></i>'.html_safe, kaui_engine.admin_tenant_delete_catalog_path(:id => @tenant.id), :method => :delete %>
+        <% end %>
+        <a class='btn btn-xs' href="javascript:void(0);" onclick="switchXMLConfig();">Enable XML View</a>
+    </h1>
 
   <table id="existing-plans-for-tenants" class="table table-condensed">
 
