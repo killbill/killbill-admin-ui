@@ -3,7 +3,12 @@ class Kaui::AdminController < Kaui::EngineController
   skip_before_filter :check_for_redirect_to_tenant_screen
 
   def index
-    @clock = Kaui::Admin.get_clock(nil, options_for_klient)
+    begin
+      @clock = Kaui::Admin.get_clock(nil, options_for_klient)
+    rescue KillBillClient::API::NotFound
+      flash[:error] = "Failed to get current KB clock: Kill Bill server must be started with system property org.killbill.server.test.mode=true"
+      redirect_to admin_tenants_path and return
+    end
 
     respond_to do |format|
       format.html
@@ -21,7 +26,13 @@ class Kaui::AdminController < Kaui::EngineController
       new_datetime = nil
       msg = 'Clock was successfully reset'
     end
-    Kaui::Admin.set_clock(new_datetime, nil, options_for_klient)
+    begin
+      Kaui::Admin.set_clock(new_datetime, nil, options_for_klient)
+    rescue KillBillClient::API::NotFound
+      flash[:error] = "Failed to set current KB clock: Kill Bill server must be started with system property org.killbill.server.test.mode=true"
+      redirect_to admin_tenants_path and return
+    end
+
     redirect_to admin_path, :notice => msg
   end
 end
