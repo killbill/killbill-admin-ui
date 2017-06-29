@@ -7,7 +7,7 @@
                         kaui_engine.admin_tenant_new_catalog_path(:id => @tenant.id),
                         :class => 'btn btn-xs' %>
         <% end %>
-        <% if can?(:all, Kaui::Test) %>
+        <% if can?(:delete, Kaui::AdminTenant) %>
             <%= link_to '<i class="fa fa-times"></i>'.html_safe, kaui_engine.admin_tenant_delete_catalog_path(:id => @tenant.id), :method => :delete %>
         <% end %>
         <a class='btn btn-xs' href="javascript:void(0);" onclick="switchXMLConfig();">Enable XML View</a>
