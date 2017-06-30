@@ -6,7 +6,7 @@ class Kaui::QueuesController < Kaui::EngineController
       @now = Kaui::Admin.get_clock(nil, options_for_klient)['currentUtcTime'].to_datetime
     rescue KillBillClient::API::NotFound
       # If TestResource is not bound, then clock has not been manipulated, we can default to NOW
-      @now = DateTime.now
+      @now = DateTime.now.in_time_zone("UTC")
     end
 
     min_date = params[:min_date] || '1970-01-01'
