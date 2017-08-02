@@ -72,12 +72,18 @@ module Kaui::EngineControllerUtil
     raise exception unless exception.nil?
   end
 
+  # Used to format flash error messages
   def as_string(e)
     if e.is_a?(KillBillClient::API::ResponseError)
       "Error #{e.response.code}: #{as_string_from_response(e.response.body)}"
     else
+      log_rescue_error(e)
       e.message
     end
+  end
+
+  def log_rescue_error(error)
+    Rails.logger.warn "#{error.class} #{error.to_s}. #{error.backtrace.join("\n")}"
   end
 
   def as_string_from_response(response)

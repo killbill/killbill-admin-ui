@@ -58,8 +58,7 @@ class Kaui::EngineController < ApplicationController
 
   # Note! Order matters, StandardError needs to be first
   rescue_from(StandardError) do |error|
-    log_rescue_error error
-    flash[:error] = "Error: #{error.to_s}"
+    flash[:error] = "Error: #{as_string(error)}"
     try_to_redirect_to_account_path = !params[:controller].ends_with?('accounts')
     perform_redirect_after_error try_to_redirect_to_account_path
   end
@@ -71,7 +70,6 @@ class Kaui::EngineController < ApplicationController
   end
 
   rescue_from(KillBillClient::API::ResponseError) do |killbill_exception|
-    log_rescue_error killbill_exception
     flash[:error] = "Error while communicating with the Kill Bill server: #{as_string(killbill_exception)}"
     try_to_redirect_to_account_path = !(killbill_exception.is_a?(KillBillClient::API::NotFound) && params[:controller].ends_with?('accounts'))
     perform_redirect_after_error try_to_redirect_to_account_path
@@ -93,10 +91,6 @@ class Kaui::EngineController < ApplicationController
       result[:api_secret] = user_tenant.api_secret
     end
     result
-  end
-
-  def log_rescue_error(error)
-    Rails.logger.warn "#{error.class} #{error.to_s}. #{error.backtrace.join("\n")}"
   end
 
   def perform_redirect_after_error(try_to_redirect_to_account_path = true)
