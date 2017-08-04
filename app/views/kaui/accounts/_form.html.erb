@@ -46,7 +46,7 @@
         <div class="form-group">
           <%= f.label :time_zone, 'Timezone', :class => 'col-sm-3 control-label' %>
           <div class="col-sm-9">
-            <%= f.collection_select :time_zone, ActiveSupport::TimeZone.all, :formatted_offset, :to_s, {:selected => Time.zone.formatted_offset}, :class => 'form-control' %>
+            <%= f.select :time_zone, ActiveSupport::TimeZone.all.collect { |tz| [tz.to_s, tz.tzinfo.name] }, {:selected => 'Etc/UTC'}, :class => 'form-control' %>
           </div>
         </div>
     <% else %>
