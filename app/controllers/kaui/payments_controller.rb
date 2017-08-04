@@ -82,7 +82,9 @@ class Kaui::PaymentsController < Kaui::EngineController
 
   def create
     payment = Kaui::InvoicePayment.new(invoice_payment_params)
-    payment = payment.create(params[:external] == '1', current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    external_payment = params[:external] == '1'
+    payment.payment_method_id = nil if external_payment
+    payment = payment.create(external_payment, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
     redirect_to kaui_engine.account_invoice_path(payment.account_id, payment.target_invoice_id), :notice => 'Payment created'
   end
 
