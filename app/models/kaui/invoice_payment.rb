@@ -2,9 +2,6 @@ class Kaui::InvoicePayment < KillBillClient::Model::InvoicePayment
 
   include Kaui::PaymentState
 
-  SAMPLE_REASON_CODES = ['600 - Alt payment method',
-                         '699 - OTHER']
-
   class << self
 
     def find_safely_by_id(id, options = {})

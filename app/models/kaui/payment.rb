@@ -6,9 +6,6 @@ class Kaui::Payment < KillBillClient::Model::Payment
 
   TRANSACTION_STATUSES = %w(SUCCESS PENDING PAYMENT_FAILURE PLUGIN_FAILURE UNKNOWN)
 
-  SAMPLE_REASON_CODES = ['600 - Alt payment method',
-                         '699 - OTHER']
-
   def self.build_from_raw_payment(raw_payment)
     result = Kaui::Payment.new
     KillBillClient::Model::PaymentAttributes.instance_variable_get('@json_attributes').each do |attr|

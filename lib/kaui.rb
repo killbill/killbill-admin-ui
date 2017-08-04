@@ -25,6 +25,13 @@ module Kaui
 
   mattr_accessor :default_roles
 
+  mattr_accessor :chargeback_reason_codes
+  mattr_accessor :credit_reason_codes
+  mattr_accessor :invoice_item_reason_codes
+  mattr_accessor :invoice_payment_reason_codes
+  mattr_accessor :payment_reason_codes
+  mattr_accessor :refund_reason_codes
+
   # Pre-pending relative_url_root seems required when deploying in Tomcat sub-paths (not needed for session routes below though)
   self.home_path = lambda { ActionController::Base.relative_url_root.to_s + Kaui::Engine.routes.url_helpers.home_path }
   self.tenant_home_path = lambda { ActionController::Base.relative_url_root.to_s + Kaui::Engine.routes.url_helpers.tenants_path }
@@ -45,6 +52,49 @@ module Kaui
 
   # Default roles for sign-ups
   self.default_roles = ['tenant_admin']
+
+  # Default reason codes
+  self.chargeback_reason_codes = ['400 - Canceled Recurring Transaction',
+                                  '401 - Cardholder Disputes Quality of Goods or Services',
+                                  '402 - Cardholder Does Not Recognize Transaction',
+                                  '403 - Cardholder Request Due to Dispute',
+                                  '404 - Credit Not Processed',
+                                  '405 - Duplicate Processing',
+                                  '406 - Fraud Investigation',
+                                  '407 - Fraudulent Transaction - Card Absent Environment',
+                                  '408 - Incorrect Transaction Amount or Account Number',
+                                  '409 - No Cardholder Authorization',
+                                  '410 - Non receipt of Merchandise',
+                                  '411 - Not as Described or Defective Merchandise',
+                                  '412 - Recurring Payment',
+                                  '413 - Request for Copy Bearing Signature',
+                                  '414 - Requested Transaction Data Not Received',
+                                  '415 - Services Not Provided or Merchandise not Received',
+                                  '416 - Transaction Amount Differs',
+                                  '417 - Validity Challenged',
+                                  '418 - Unauthorized Payment',
+                                  '419 - Unauthorized Claim',
+                                  '420 - Not as Described',
+                                  '499 - OTHER']
+
+  self.credit_reason_codes = ['100 - Courtesy',
+                              '101 - Billing Error',
+                              '199 - OTHER']
+
+  self.invoice_item_reason_codes = ['100 - Courtesy',
+                                    '101 - Billing Error',
+                                    '199 - OTHER']
+
+  self.invoice_payment_reason_codes = ['600 - Alt payment method',
+                                       '699 - OTHER']
+
+  self.payment_reason_codes = ['600 - Alt payment method',
+                               '699 - OTHER']
+
+  self.refund_reason_codes = ['500 - Courtesy',
+                              '501 - Billing Error',
+                              '502 - Alt payment method',
+                              '599 - OTHER']
 
   def self.is_user_assigned_valid_tenant?(user, session)
     #
