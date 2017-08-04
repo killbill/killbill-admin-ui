@@ -55,7 +55,7 @@ module Kaui
 
       begin
         user_role.destroy(user, reason, comment, options)
-      rescue KillBillClient::API::BadRequest => e
+      rescue KillBillClient::API::BadRequest => _
         # User already deactivated in Kill Bill
       end
 

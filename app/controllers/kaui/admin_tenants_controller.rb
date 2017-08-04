@@ -136,8 +136,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     begin
       Kaui::Catalog.delete_catalog(options[:username], "KAUI wrong catalog", "KAUI test", options)
-    rescue  NoMethodError => e
-      flash[:error] = "Failed to delete catalog: only available in KB 0.19+ versions"
+    rescue  NoMethodError => _
+      flash[:error] = 'Failed to delete catalog: only available in KB 0.19+ versions'
       redirect_to admin_tenants_path and return
     end
 

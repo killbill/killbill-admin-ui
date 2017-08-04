@@ -12,7 +12,7 @@ module Devise
         # Auth was successful, update the session id
         self.kb_session_id = response.session_id
         true
-      rescue KillBillClient::API::Unauthorized => e
+      rescue KillBillClient::API::Unauthorized => _
         false
       end
 
@@ -27,7 +27,7 @@ module Devise
         def find_for_killbill_authentication(kb_username)
           find_for_authentication(:kb_username => kb_username) ||
           new(:kb_username => kb_username)
-        rescue KillBillClient::API::Unauthorized => e
+        rescue KillBillClient::API::Unauthorized => _
           # Multi-Tenancy was enabled, but the tenant_id couldn't be retrieved because of bad credentials
           nil
         end

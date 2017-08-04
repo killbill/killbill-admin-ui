@@ -9,6 +9,7 @@ class Kaui::ChargesController < Kaui::EngineController
       amount ||= @invoice.balance
       currency = @invoice.currency
     else
+      @invoice = nil
       currency = params[:currency] || 'USD'
     end
 

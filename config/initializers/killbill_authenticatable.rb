@@ -20,7 +20,7 @@ module Devise
           # Tell warden to halt the strategy and set the user in the appropriate scope
           success!(resource)
         end
-      rescue Errno::ECONNREFUSED => e
+      rescue Errno::ECONNREFUSED => _
         return fail(:killbill_not_available)
       end
     end

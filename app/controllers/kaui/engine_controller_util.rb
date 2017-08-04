@@ -91,7 +91,7 @@ module Kaui::EngineControllerUtil
     begin
       # BillingExceptionJson?
       error_message = JSON.parse response
-    rescue => e
+    rescue => _
     end
 
     if error_message.respond_to? :[] and error_message['message'].present?

@@ -25,9 +25,7 @@ class Kaui::AccountTimelinesController < Kaui::EngineController
       end
     end
 
-    if params.has_key?(:external_key)
-      @selected_bundle = @bundle_names[params[:external_key]]
-    end
+    @selected_bundle = params.has_key?(:external_key) ? @bundle_names[params[:external_key]] : nil
   end
 
   private
