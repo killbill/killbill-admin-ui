@@ -30,8 +30,11 @@ module Kaui
       @paid_invoice_item = create_charge(@account, @tenant, true)
       @bundle_invoice    = @account.invoices(true, build_options(@tenant)).first
       @payment_method    = create_payment_method(true, @account, @tenant)
-      @cba               = create_cba(@invoice_item.invoice_id, @account, @tenant, true)
       @payment           = create_payment(@paid_invoice_item, @account, @tenant)
+
+      invoice_id_for_cba = create_charge(@account, @tenant).invoice_id
+      @cba               = create_cba(invoice_id_for_cba, @account, @tenant, true)
+      commit_invoice(invoice_id_for_cba, @tenant)
 
       if setup_tenant_key_secret
         KillBillClient.api_key = @tenant.api_key
@@ -150,6 +153,11 @@ module Kaui
 
       invoice = KillBillClient::Model::Invoice.find_by_id_or_number(credit.invoice_id, true, 'NONE', build_options(tenant, username, password))
       invoice.items.find { |ii| ii.amount == -credit.credit_amount }
+    end
+
+    def commit_invoice(invoice_id, tenant, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
+      invoice = KillBillClient::Model::Invoice.find_by_id_or_number(invoice_id, false, 'NONE', build_options(tenant, username, password))
+      invoice.commit(user, reason, comment, build_options(tenant, username, password))
     end
 
     def create_payment(invoice_item = nil, account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
