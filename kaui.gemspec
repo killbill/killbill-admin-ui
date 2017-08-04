@@ -43,7 +43,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'sass-rails', '~> 5.0.2'
   s.add_dependency 'less-rails', '~> 2.7.0'
   s.add_dependency 'concurrent-ruby', '~> 1.0.0.pre1'
-  s.add_dependency 'sprockets-rails', '2.3.3'
+  s.add_dependency 'sprockets-rails', '~> 3.2'
   s.add_development_dependency 'fakeweb', '~> 1.3'
   s.add_development_dependency 'multi_json', '~> 1.11'
   s.add_development_dependency 'rake', '>= 0.8.7'
