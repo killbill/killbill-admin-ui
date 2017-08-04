@@ -61,4 +61,10 @@ class Kaui::InvoicesController < Kaui::EngineController
   def show_html
     render :text => Kaui::Invoice.as_html(params.require(:id), options_for_klient)
   end
+
+  def commit_invoice
+    invoice = KillBillClient::Model::Invoice.find_by_id_or_number(params.require(:id), false, 'NONE', options_for_klient)
+    invoice.commit(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id), :notice => 'Invoice successfully committed'
+  end
 end

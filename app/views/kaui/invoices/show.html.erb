@@ -12,6 +12,11 @@
               To persist it, <%= link_to 'trigger an invoice run', kaui_engine.trigger_invoice_path(:account_id => @invoice.account_id, :target_date => @invoice.target_date), :method => :post %>.
           <% end %>
         </div>
+    <% elsif @invoice.status == 'DRAFT' %>
+        <div class="alert alert-warning">
+          This is a DRAFT invoice.
+          <%= link_to 'Commit it', kaui_engine.commit_invoice_path(:id => @invoice.invoice_id), :method => :post %>.
+        </div>
     <% end %>
 
     <div class="row">
