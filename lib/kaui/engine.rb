@@ -29,7 +29,10 @@ module Kaui
         helper Kaui::Engine.helpers
       end
 
-      Kaui.thread_pool = Concurrent::CachedThreadPool.new
+      Kaui.thread_pool = Concurrent::ThreadPoolExecutor.new(min_threads: 5,
+                                                            max_threads: 20,
+                                                            max_queue: 100,
+                                                            fallback_policy: :caller_runs)
     end
   end
 end
