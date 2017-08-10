@@ -16,11 +16,8 @@ Gem::Specification.new do |s|
   s.email = 'killbilling-users@googlegroups.com'
   s.homepage = 'http://www.killbill.io'
 
-  s.files = `git ls-files`.split("\n")
-  s.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.bindir = 'bin'
-  s.executables = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
-  s.require_paths = %w(lib)
+  s.files = Dir['{app,config,db,lib}/**/*'] + %w(MIT-LICENSE Rakefile README.md)
+  s.test_files = Dir['test/**/*']
 
   s.add_dependency 'rails', '~> 5.1'
   s.add_dependency 'js-routes', '~> 1.1'
