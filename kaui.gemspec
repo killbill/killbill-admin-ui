@@ -46,7 +46,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pry-rails'
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'listen'
-  s.add_development_dependency 'byebug'
 
   if defined?(JRUBY_VERSION)
     s.add_development_dependency 'therubyrhino', '~> 2.0.4'
@@ -56,6 +55,9 @@ Gem::Specification.new do |s|
     s.add_development_dependency 'activerecord-jdbcsqlite3-adapter', '~> 1.3.9'
     s.add_development_dependency 'jdbc-mysql', '~> 5.1.25'
   else
+    # https://github.com/deivid-rodriguez/byebug/issues/84
+    s.add_development_dependency 'byebug'
+
     s.add_development_dependency 'therubyracer', '~> 0.12.2'
 
     s.add_development_dependency 'mysql2', '~> 0.3.20'
