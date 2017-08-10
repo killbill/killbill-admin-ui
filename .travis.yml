@@ -33,21 +33,18 @@ env:
 
 matrix:
   include:
-    - rvm: 2.2.0
+    - rvm: 2.4.0
     - rvm: ruby-head
-    - rvm: jruby-1.7.26
+    - rvm: jruby-9.1.12.0
       env: JDK=oraclejdk8
-    - rvm: jruby-1.7.26
+    - rvm: jruby-9.1.12.0
       env: JDK=openjdk8
     - rvm: jruby-head
       env: JDK=oraclejdk8
     - rvm: jruby-head
       env: JDK=openjdk8
   allow_failures:
-    - rvm: 2.2.0
     - rvm: ruby-head
     - rvm: jruby-head
   fast_finish: true
 
-#force travis to use only 'bundle install' instead of 'bundle install --deployments'
-bundler_args: ''
