@@ -23,6 +23,11 @@ rails db:migrate
 rails s
 ```
 
+The Kill Bill URL can be configured through the `KILLBILL_URL` environment variable, e.g.
+
+```
+KILLBILL_URL='http://killbill.acme:8080'
+```
 
 Mounting Kaui into your own Rails app
 -------------------------------------
@@ -44,28 +49,11 @@ passed through to Kill Bill. It uses Basic Auth by default, but the backend is p
 ActiveDirectory, etc.).
 
 
-Configuration
--------------
-
-Specify your Kill Bill server url, api key and secret in ```config/initializers/killbill_client.rb```:
-
-```
-KillBillClient.url = 'http://127.0.0.1:8080/'
-```
-
-Sharing a Kaui instance across multiple tenants is not supported yet (you need to spawn one instance per tenant).
-
-
 Running tests
 -------------
 
-At the top level:
-
 ```
-export RAILS_ENV=test
-bundle install
-bundle exec rake db:migrate
-bundle exec rake test
+rails t
 ```
 
 Note: functional and integration tests require an instance of Kill Bill to test against.
