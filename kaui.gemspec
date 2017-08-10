@@ -27,7 +27,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'jquery-rails', '~> 4.3'
   s.add_dependency 'jquery-datatables-rails', '~> 3.3'
   s.add_dependency 'money-rails', '~> 1.9'
-  s.add_dependency 'd3_rails', '~> 3.5'
   # See https://github.com/seyhunak/twitter-bootstrap-rails/issues/897
   s.add_dependency 'twitter-bootstrap-rails'
   s.add_dependency 'font-awesome-rails', '~> 4.7'
