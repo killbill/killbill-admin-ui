@@ -1,4 +1,4 @@
-class DeviseCreateKauiUsers < ActiveRecord::Migration
+class DeviseCreateKauiUsers < ActiveRecord::Migration[5.0]
   def change
     create_table(:kaui_users) do |t|
       # From Kill Bill

@@ -19,10 +19,8 @@ You can run Kaui locally by using the test/dummy app provided:
 ```
 export RAILS_ENV=development
 bundle install
-bundle exec rake db:migrate
-cd test/dummy
-bundle exec rake assets:precompile
-bundle exec rails server
+rails db:migrate
+rails s
 ```
 
 

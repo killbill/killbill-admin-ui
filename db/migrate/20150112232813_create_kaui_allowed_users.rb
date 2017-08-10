@@ -1,4 +1,4 @@
-class CreateKauiAllowedUsers < ActiveRecord::Migration
+class CreateKauiAllowedUsers < ActiveRecord::Migration[5.0]
   def change
     create_table :kaui_allowed_users do |t|
       t.string :kb_username
