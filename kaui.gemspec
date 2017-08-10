@@ -49,6 +49,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'pry-rails'
   s.add_development_dependency 'simplecov'
   s.add_development_dependency 'listen'
+  s.add_development_dependency 'byebug'
 
   if defined?(JRUBY_VERSION)
     s.add_development_dependency 'therubyrhino', '~> 2.0.4'
