@@ -9,19 +9,12 @@ services:
 dist: trusty
 
 before_install:
-  - sudo sysctl -w net.ipv4.tcp_fin_timeout=15
-  - sudo sysctl -w net.ipv4.tcp_tw_reuse=1
-  - travis_retry gem install bundler
-  - travis_retry curl -LO 'https://search.maven.org/remotecontent?filepath=org/kill-bill/billing/killbill-profiles-killbill/0.18.8/killbill-profiles-killbill-0.18.8-jetty-console.war' && java -Dorg.killbill.catalog.uri=SpyCarAdvanced.xml -Djava.security.egd=file:/dev/./urandom -Dorg.slf4j.simpleLogger.defaultLogLevel=WARN -jar killbill-profiles-killbill-0.18.8-jetty-console.war --port 8080 --headless 2>&1 | egrep -v "lvl='INFO'| < | > |[ \t]*at [ \ta-zA-Z0-9\.\:\(\)]+" & sleep 80 && travis_retry curl -v -X POST -u 'admin:password' -H 'Content-Type:application/json' -H 'X-Killbill-CreatedBy:admin' -d '{"apiKey":"bob", "apiSecret":"lazar"}' "http://127.0.0.1:8080/1.0/kb/tenants"
-  - mysql -uroot -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('root')"
-  - mysql -uroot -proot -e 'create database kaui_test;'
+  - jdk_switcher use openjdk8
+  - ./.travis-install-dependencies.sh
 
 before_script:
   - jdk_switcher use $JDK
   - bundle exec rake db:migrate
-
-script:
-  - bundle exec rake test
 
 notifications:
   email:
@@ -31,20 +24,15 @@ env:
   global:
     - RAILS_ENV=test MYSQL_PASSWORD='root' MYSQL_USER='root' JRUBY_OPTS='--2.0 -J-Xmx1024m'
 
+rvm:
+  - 2.2.2
+  # Until new KPM is released
+  #- 2.4.0
+  #- jruby-9.1.12.0
+  #- ruby-head
+  #- jruby-head
+
 matrix:
-  include:
-    - rvm: 2.4.0
-    - rvm: ruby-head
-    - rvm: jruby-9.1.12.0
-      env: JDK=oraclejdk8
-    - rvm: jruby-9.1.12.0
-      env: JDK=openjdk8
-    - rvm: jruby-head
-      env: JDK=oraclejdk8
-    - rvm: jruby-head
-      env: JDK=openjdk8
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-head
-  fast_finish: true
-
