@@ -30,7 +30,6 @@ Gem::Specification.new do |s|
   # See https://github.com/seyhunak/twitter-bootstrap-rails/issues/897
   s.add_dependency 'twitter-bootstrap-rails'
   s.add_dependency 'font-awesome-rails', '~> 4.7'
-  s.add_dependency 'spinjs-rails', '~> 1.4'
   s.add_dependency 'bootstrap-datepicker-rails', '~> 1.6'
   s.add_dependency 'killbill-client', '~> 1.0'
   s.add_dependency 'devise', '~> 4.3'
