@@ -1,6 +1,6 @@
 class Kaui::AdminAllowedUsersController < Kaui::EngineController
 
-  skip_before_filter :check_for_redirect_to_tenant_screen
+  skip_before_action :check_for_redirect_to_tenant_screen
 
   def index
     @allowed_users = retrieve_allowed_users_for_current_user

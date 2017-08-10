@@ -1,13 +1,11 @@
 require 'killbill_client'
 
 module Kaui
-  class User < ActiveRecord::Base
+  class User < ApplicationRecord
     devise :killbill_authenticatable, :killbill_registerable
 
     # Managed by Devise
     attr_accessor :password
-
-    attr_accessible :kb_username, :kb_session_id, :password
 
     # Called by Devise to perform authentication
     # Throws KillBillClient::API::Unauthorized on failure

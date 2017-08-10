@@ -14,7 +14,7 @@ class Kaui::RefundsController < Kaui::EngineController
 
     if params[:adjustment_type] == 'invoiceItemAdjustment'
       items = []
-      (params[:adjustments] || []).each do |ii|
+      (params.to_unsafe_h[:adjustments] || []).each do |ii|
         original_item = find_original_item(invoice.items, ii[0])
 
         item = KillBillClient::Model::InvoiceItem.new

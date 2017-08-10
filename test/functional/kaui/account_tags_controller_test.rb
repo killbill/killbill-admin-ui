@@ -20,9 +20,9 @@ class Kaui::AccountTagsControllerTest < Kaui::FunctionalTestHelper
   test 'should update tags' do
     post :update,
          :account_id => @account.account_id,
-         'tag_00000000-0000-0000-0000-000000000001' => 'AUTO_PAY_OFF',
-         'tag_00000000-0000-0000-0000-000000000005' => 'MANUAL_PAY',
-         'tag_00000000-0000-0000-0000-000000000003' => 'OVERDUE_ENFORCEMENT_OFF'
+         :'tag_00000000-0000-0000-0000-000000000001' => 'AUTO_PAY_OFF',
+         :'tag_00000000-0000-0000-0000-000000000005' => 'MANUAL_PAY',
+         :'tag_00000000-0000-0000-0000-000000000003' => 'OVERDUE_ENFORCEMENT_OFF'
     assert_redirected_to account_path(@account.account_id)
     assert_equal 'Account tags successfully set', flash[:notice]
   end

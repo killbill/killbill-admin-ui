@@ -59,7 +59,7 @@ class Kaui::InvoicesController < Kaui::EngineController
   end
 
   def show_html
-    render :text => Kaui::Invoice.as_html(params.require(:id), options_for_klient)
+    render :plain => Kaui::Invoice.as_html(params.require(:id), options_for_klient)
   end
 
   def commit_invoice

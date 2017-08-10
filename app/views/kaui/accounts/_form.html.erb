@@ -99,7 +99,7 @@
     <div class="form-group">
       <%= f.label :country, 'Country', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
-        <%= f.country_select :country, {:priority => %w(US CA), :selected => @account.country}, :class => 'form-control' %>
+        <%= f.country_select :country, {:priority_countries => %w(US CA), :selected => @account.country}, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">

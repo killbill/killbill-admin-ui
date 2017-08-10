@@ -13,5 +13,7 @@ class Kaui::QueuesController < Kaui::EngineController
     max_date = params[:max_date] || '2100-01-01'
     with_history = params[:with_history] || false
     @queues_entries = Kaui::Admin.get_queues_entries(@account_id, options_for_klient.merge(:withHistory => with_history, :minDate => min_date, :maxDate => max_date))
+
+    params.permit!
   end
 end

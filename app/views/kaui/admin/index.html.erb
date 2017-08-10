@@ -7,7 +7,7 @@
   </ul>
 
   <div>
-    <%= form_tag kaui_engine.admin_set_clock_path(params), :method => :put, :class => 'form-horizontal' do %>
+    <%= form_tag kaui_engine.admin_set_clock_path(params.to_h), :method => :put, :class => 'form-horizontal' do %>
         <div class="form-group">
           <%= label_tag :new_date, 'Set new date', :class => 'col-sm-2 control-label' %>
           <div class="col-sm-2">

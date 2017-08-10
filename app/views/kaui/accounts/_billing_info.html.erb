@@ -98,7 +98,7 @@
 
             <% if can? :trigger, Kaui::Invoice %>
                 <div style="padding-bottom: 50px;">
-                  <%= form_tag kaui_engine.trigger_invoice_path(params), :method => :post do %>
+                  <%= form_tag kaui_engine.trigger_invoice_path(params.to_h), :method => :post do %>
                       <div class="form-group">
                         <%= label_tag :target_date, 'Trigger invoice generation', :class => 'col-sm-6 control-label', :style => 'padding-left: 0;' %>
                         <div class="col-sm-3">

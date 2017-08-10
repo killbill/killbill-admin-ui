@@ -2,7 +2,7 @@ class Kaui::EngineController < ApplicationController
 
   include Kaui::EngineControllerUtil
 
-  before_filter :authenticate_user!, :check_for_redirect_to_tenant_screen, :populate_account_details
+  before_action :authenticate_user!, :check_for_redirect_to_tenant_screen, :populate_account_details
 
   layout :get_layout
 
@@ -94,7 +94,7 @@ class Kaui::EngineController < ApplicationController
   end
 
   def perform_redirect_after_error(try_to_redirect_to_account_path = true)
-    account_id = nested_hash_value(params, :account_id)
+    account_id = nested_hash_value(params.permit!.to_h, :account_id)
     if try_to_redirect_to_account_path && account_id.present?
       redirect_to kaui_engine.account_path(account_id)
     else

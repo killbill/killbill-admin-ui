@@ -1,6 +1,6 @@
 class Kaui::AdminController < Kaui::EngineController
 
-  skip_before_filter :check_for_redirect_to_tenant_screen
+  skip_before_action :check_for_redirect_to_tenant_screen
 
   def index
     begin
@@ -9,6 +9,8 @@ class Kaui::AdminController < Kaui::EngineController
       flash[:error] = "Failed to get current KB clock: Kill Bill server must be started with system property org.killbill.server.test.mode=true"
       redirect_to admin_tenants_path and return
     end
+
+    params.permit!
 
     respond_to do |format|
       format.html

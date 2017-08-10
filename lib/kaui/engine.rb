@@ -4,9 +4,12 @@
 # We need to explicitly require all of our dependencies listed in kaui.gemspec
 #
 # See also https://github.com/carlhuda/bundler/issues/49
+require 'js-routes'
 require 'jquery-rails'
 require 'jquery-ui-rails'
 require 'jquery-datatables-rails'
+require 'font-awesome-rails'
+require 'twitter-bootstrap-rails'
 require 'bootstrap-datepicker-rails'
 require 'd3_rails'
 require 'less-rails'
@@ -15,8 +18,7 @@ require 'money-rails'
 require 'killbill_client'
 require 'devise'
 require 'cancan'
-require 'carmen-rails'
-require 'protected_attributes'
+require 'country_select'
 require 'concurrent'
 
 module Kaui

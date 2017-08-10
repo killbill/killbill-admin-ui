@@ -5,6 +5,9 @@ SimpleCov.start 'rails'
 # Configure the Rails Environment
 ENV['RAILS_ENV'] = 'test'
 
+require 'rails-controller-testing'
+Rails::Controller::Testing.install
+
 require File.expand_path('../dummy/config/environment.rb', __FILE__)
 require 'rails/test_help'
 

@@ -1,9 +1,8 @@
 require 'symmetric-encryption'
 
 module Kaui
-  class Tenant < ActiveRecord::Base
+  class Tenant < ApplicationRecord
 
-    attr_accessible :name, :api_key, :api_secret, :kb_tenant_id
     attr_encrypted :api_secret
 
     has_many :kaui_allowed_user_tenants, :class_name => 'Kaui::AllowedUserTenant', :foreign_key => 'kaui_tenant_id'

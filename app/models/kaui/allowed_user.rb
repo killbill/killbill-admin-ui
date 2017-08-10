@@ -1,12 +1,11 @@
 module Kaui
-  class AllowedUser < ActiveRecord::Base
-    attr_accessible :kb_username, :description
+  class AllowedUser < ApplicationRecord
 
     has_many :kaui_allowed_user_tenants,
              :class_name => 'Kaui::AllowedUserTenant',
              :foreign_key => 'kaui_allowed_user_id'
 
-    has_many :kaui_tenants, -> { uniq },
+    has_many :kaui_tenants, -> { distinct },
              :through => :kaui_allowed_user_tenants,
              :source => :kaui_tenant
 

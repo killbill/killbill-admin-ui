@@ -80,6 +80,8 @@ class Kaui::AccountsController < Kaui::EngineController
     fetch_payment_methods = lambda { @payment_methods = Kaui::PaymentMethod.find_all_safely_by_account_id(@account.account_id, options_for_klient) }
     fetch_available_tags = lambda { @available_tags = Kaui::TagDefinition.all_for_account(options_for_klient) }
     run_in_parallel fetch_overdue_state, fetch_account_tags, fetch_account_emails, fetch_payment_methods, fetch_available_tags
+
+    params.permit!
   end
 
   def trigger_invoice

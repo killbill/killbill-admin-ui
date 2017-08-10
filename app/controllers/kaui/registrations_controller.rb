@@ -2,7 +2,7 @@ module Kaui
   class RegistrationsController < Devise::RegistrationsController
     layout Kaui.config[:layout]
 
-    skip_before_filter :check_for_redirect_to_tenant_screen
+    skip_before_action :check_for_redirect_to_tenant_screen
 
     def create
       @user = Kaui::AllowedUser.new(:kb_username => sign_up_params.require(:kb_username))

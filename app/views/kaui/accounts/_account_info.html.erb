@@ -14,7 +14,7 @@
         <div class="alert alert-danger">
           This account is parked, meaning the system detected inconsistent state which could lead to mis-billing. For safety, no more invoices will be generated.
           <% if can? :trigger, Kaui::Invoice %>
-              Once the data is fixed, you can unpark it by manually <%= link_to 'triggering an invoice run', kaui_engine.trigger_invoice_path(params), :method => :post %>.
+              Once the data is fixed, you can unpark it by manually <%= link_to 'triggering an invoice run', kaui_engine.trigger_invoice_path(params.to_h), :method => :post %>.
           <% end %>
         </div>
     <% end %>

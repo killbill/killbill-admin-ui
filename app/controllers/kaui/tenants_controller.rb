@@ -1,6 +1,6 @@
 class Kaui::TenantsController < Kaui::EngineController
 
-  skip_before_filter :check_for_redirect_to_tenant_screen
+  skip_before_action :check_for_redirect_to_tenant_screen
 
   def index
     # Retrieve current user and extract allowed list of tenants

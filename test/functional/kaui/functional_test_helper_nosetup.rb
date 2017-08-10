@@ -1,6 +1,6 @@
 class Kaui::FunctionalTestHelperNoSetup < ActionController::TestCase
 
-  include Devise::TestHelpers
+  include Devise::Test::ControllerHelpers
   include Kaui::KillbillTestHelper
 
   protected
@@ -51,5 +51,28 @@ class Kaui::FunctionalTestHelperNoSetup < ActionController::TestCase
     @controller    = new_controller.new
     yield
     @controller = old_controller
+  end
+
+  # To ease the upgrade... inspired by https://stackoverflow.com/a/43787973
+  # See https://github.com/rails/rails/blob/master/actionpack/lib/action_controller/test_case.rb
+  def get(action, **args)
+    res = process(action, method: "GET", params: args)
+    cookies.update res.cookies
+    res
+  end
+  def post(action, **args)
+    process(action, method: "POST", params: args)
+  end
+  def put(action, **args)
+    process(action, method: "PUT", params: args)
+  end
+  def delete(action, **args)
+    process(action, method: "DELETE", params: args)
+  end
+  def head(action, **args)
+    process(action, method: "HEAD", params: args)
+  end
+  def patch(action, **args)
+    process(action, method: "PATCH", params: args)
   end
 end
