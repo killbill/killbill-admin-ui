@@ -25,12 +25,10 @@ env:
     - RAILS_ENV=test MYSQL_PASSWORD='root' MYSQL_USER='root' JRUBY_OPTS='--2.0 -J-Xmx1024m'
 
 rvm:
-  - 2.2.2
-  # Until new KPM is released
-  #- 2.4.0
-  #- jruby-9.1.12.0
-  #- ruby-head
-  #- jruby-head
+  - 2.4.0
+  - jruby-9.1.12.0
+  - ruby-head
+  - jruby-head
 
 matrix:
   allow_failures:
