@@ -1,6 +1,10 @@
 #lib_dir = File.expand_path("..", __FILE__)
 #$LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
 
+if defined?(JRUBY_VERSION)
+  require 'core_ext'
+end
+
 require "kaui/engine"
 
 module Kaui

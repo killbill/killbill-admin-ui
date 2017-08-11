@@ -38,4 +38,12 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # arjdbc is very broken on Rails 5
+  # https://github.com/jruby/activerecord-jdbc-adapter/issues/780
+  # https://github.com/rails/rails/commit/ae39b1a03d0a859be9d5342592c8936f89fcbacf
+  if defined?(JRUBY_VERSION)
+    config.active_record.migration_error = false
+    config.active_record.maintain_test_schema = false
+  end
 end
