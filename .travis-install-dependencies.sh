@@ -9,6 +9,9 @@ mysql -uroot -proot -e 'create database kaui_test;'
 
 curl 'http://docs.killbill.io/0.18/ddl.sql' | mysql -uroot -proot killbill
 
+# Somehow missing on JRuby-9
+gem install bundler
+
 gem install kpm
 
 kpm install
