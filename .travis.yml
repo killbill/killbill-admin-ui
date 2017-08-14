@@ -21,7 +21,7 @@ notifications:
 
 env:
   global:
-    - RAILS_ENV=test MYSQL_PASSWORD='root' MYSQL_USER='root' JRUBY_OPTS='--2.0 -J-Xmx1024m'
+    - RAILS_ENV=test MYSQL_PASSWORD='root' MYSQL_USER='root' JRUBY_OPTS='-J-Xmx1024m'
 
 rvm:
   - 2.4.0

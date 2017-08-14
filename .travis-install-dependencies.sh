@@ -16,6 +16,7 @@ if $(ruby -e'require "java"'); then
   # https://github.com/jruby/activerecord-jdbc-adapter/issues/780
   cat db/ddl.sql | mysql -uroot -proot kaui_test
 else
+  bundle install --jobs=3 --retry=3 --path=${BUNDLE_PATH:-vendor/bundle}
   bundle exec rake db:migrate
 fi
 
