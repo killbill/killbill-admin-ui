@@ -112,3 +112,8 @@ module ArJdbc
     end
   end
 end
+
+require 'active_record/connection_adapters/postgresql/schema_definitions'
+class ActiveRecord::ConnectionAdapters::PostgreSQL::ColumnDefinition < ActiveRecord::ConnectionAdapters::ColumnDefinition
+  attr_accessor :array
+end
