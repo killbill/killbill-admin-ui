@@ -68,7 +68,7 @@ module Kaui
 
         t = Kaui::Tenant.new
         t.kb_tenant_id = cur_tenant.tenant_id
-        t.name = 'Test'
+        t.name = SecureRandom.uuid.to_s
         t.api_key = cur_tenant.api_key
         t.api_secret = cur_tenant.api_secret
         t.save

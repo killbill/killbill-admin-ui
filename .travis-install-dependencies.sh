@@ -9,8 +9,15 @@ mysql -uroot -proot -e 'create database kaui_test;'
 
 curl 'http://docs.killbill.io/0.18/ddl.sql' | mysql -uroot -proot killbill
 
-# Somehow missing on JRuby-9
-gem install bundler
+if $(ruby -e'require "java"'); then
+  # Somehow missing on JRuby-9
+  gem install bundler
+
+  # https://github.com/jruby/activerecord-jdbc-adapter/issues/780
+  cat db/ddl.sql | mysql -uroot -proot kaui_test
+else
+  bundle exec rake db:migrate
+fi
 
 gem install kpm
 

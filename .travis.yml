@@ -14,7 +14,6 @@ before_install:
 
 before_script:
   - jdk_switcher use $JDK
-  - bundle exec rake db:migrate
 
 notifications:
   email:
