@@ -36,12 +36,8 @@ module Kaui
   mattr_accessor :payment_reason_codes
   mattr_accessor :refund_reason_codes
 
-  # Pre-pending relative_url_root seems required when deploying in Tomcat sub-paths (not needed for session routes below though)
-  self.home_path = lambda { ActionController::Base.relative_url_root.to_s + Kaui::Engine.routes.url_helpers.home_path }
-  self.tenant_home_path = lambda { ActionController::Base.relative_url_root.to_s + Kaui::Engine.routes.url_helpers.tenants_path }
-
-  self.new_user_session_path = lambda { Kaui::Engine.routes.url_helpers.new_user_session_path }
-  self.destroy_user_session_path = lambda { Kaui::Engine.routes.url_helpers.destroy_user_session_path }
+  self.home_path = lambda { Kaui::Engine.routes.url_helpers.home_path }
+  self.tenant_home_path = lambda { Kaui::Engine.routes.url_helpers.tenants_path }
 
   self.bundle_key_display_string =  lambda {|bundle_key| bundle_key }
   self.creditcard_plugin_name =  lambda { '__EXTERNAL_PAYMENT__' }

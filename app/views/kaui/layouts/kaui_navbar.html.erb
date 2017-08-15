@@ -75,10 +75,10 @@
                           <%= current_user.kb_username %>
                       <% end %>
                     </li>
-                    <li><%= link_to 'Sign Out', kaui_engine.destroy_user_session_path, :method => :delete %></li>
+                    <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
                 <% else %>
-                    <li><%= link_to 'Login'.html_safe, kaui_engine.new_user_session_path %></li>
-                    <li><%= link_to 'Sign-up'.html_safe, kaui_engine.new_user_registration_path %></li>
+                    <li><%= link_to 'Login'.html_safe, new_user_session_path %></li>
+                    <li><%= link_to 'Sign-up'.html_safe, new_user_registration_path %></li>
                 <% end %>
               </ul>
             </nav>

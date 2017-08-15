@@ -21,16 +21,22 @@ module Devise
   class FailureApp < ActionController::Metal
     def scope_url
       opts  = {}
-      route = :"new_#{scope}_session_url"
+
+      # Initialize script_name with nil to prevent infinite loops in
+      # authenticated mounted engines in rails 4.2 and 5.0
+      opts[:script_name] = nil
+
+      route = route(scope)
+
       opts[:format] = request_format unless skip_format?
 
-      config = Rails.application.config
+      # Fix for Rails 5.1
+      # See https://github.com/rails/rails/pull/29898/files (merge_script_names)
+      #opts[:script_name] = relative_url_root if relative_url_root?
+      opts[:script_name] = relative_url_root + '/' if relative_url_root?
 
-      if config.respond_to?(:relative_url_root) && config.relative_url_root.present?
-        opts[:script_name] = config.relative_url_root
-      end
-
-      context = send(Devise.available_router_name)
+      router_name = Devise.mappings[scope].router_name || Devise.available_router_name
+      context = send(router_name)
 
       if context.respond_to?(route)
         context.send(route, opts)
