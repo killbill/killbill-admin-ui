@@ -3,13 +3,16 @@ module Kaui
 
     LOCAL_DATE_RE = /^\d+-\d+-\d+$/
 
-    def format_date(date, timezone="Pacific Time (US & Canada)")
-
+    def format_date(date, timezone)
       # Double check this is not null
       return nil if date.nil?
 
       # If this is a local date we assume this is already in the account timezone, and so there is nothing to do
       return date.to_s if LOCAL_DATE_RE.match(date.to_s)
+
+      # If timezone is unknown, don't be clever and simply return the datetime
+      # See https://github.com/killbill/killbill-admin-ui/issues/99
+      return date.to_s if timezone.blank?
 
       # If not, convert into account timezone and return the date part only
       parsed_date = DateTime.parse(date.to_s).in_time_zone(timezone)

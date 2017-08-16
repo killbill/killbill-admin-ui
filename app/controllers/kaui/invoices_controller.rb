@@ -32,7 +32,7 @@ class Kaui::InvoicesController < Kaui::EngineController
     formatter = lambda do |invoice|
       [
           view_context.link_to(invoice.invoice_number, view_context.url_for(:controller => :invoices, :action => :show, :account_id => invoice.account_id, :id => invoice.invoice_id)),
-          view_context.format_date(invoice.invoice_date),
+          invoice.invoice_date,
           view_context.humanized_money_with_symbol(invoice.amount_to_money),
           view_context.humanized_money_with_symbol(invoice.balance_to_money)
       ]
