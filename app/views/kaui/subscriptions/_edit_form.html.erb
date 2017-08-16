@@ -10,8 +10,8 @@
       <div class="col-sm-offset-2 col-sm-10">
         <div class="radio">
           <%= label_tag :type_change do %>
-              <%= radio_button_tag :type_change, 'IMM', :checked => true %>
-              Immediate Change
+              <%= radio_button_tag :type_change, 'DEFAULT', :checked => true %>
+              Default policy
           <% end %>
         </div>
         <div class="radio">
@@ -52,7 +52,7 @@
 
 function onTypeChange() {
     var value = $("input[type=radio]:checked").val();
-        if (value == "IMM") {
+        if (value == "DEFAULT") {
             $("#form_requested_date").hide();
             $("#form_policy").hide();
         } else if (value == "POLICY")  {
