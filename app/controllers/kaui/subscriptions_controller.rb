@@ -6,7 +6,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
                                            :account_id => params[:account_id],
                                            :product_category => params[:product_category] || 'BASE')
 
-    @bundle, plans_details = lookup_bundle_and_plan_details(@subscription)
+    @bundle, plans_details = lookup_bundle_and_plan_details(@subscription, @base_product_name)
     @plans = plans_details.map { |p| p.plan }
 
     if @plans.empty?
@@ -25,7 +25,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     @subscription = Kaui::Subscription.new(params.require(:subscription).delete_if { |key, value| value.blank? })
 
     begin
-      @bundle, plans_details = lookup_bundle_and_plan_details(@subscription)
+      @bundle, plans_details = lookup_bundle_and_plan_details(@subscription, @base_product_name)
 
       plan_details = plans_details.find { |p| p.plan == plan_name }
       raise "Unable to find plan #{plan_name}" if plan_details.nil?
@@ -44,7 +44,8 @@ class Kaui::SubscriptionsController < Kaui::EngineController
   def edit
     @subscription = Kaui::Subscription.find_by_id(params.require(:id), options_for_klient)
     _, plans_details = lookup_bundle_and_plan_details(@subscription)
-    @plans = plans_details.map { |p| p.plan }
+    # Use a Set to deal with multiple pricelists
+    @plans = Set.new.merge(plans_details.map { |p| p.plan })
 
     @current_plan = "#{@subscription.product_name} #{@subscription.billing_period}".humanize
     @current_plan += " (price list #{@subscription.price_list})" if @subscription.price_list != 'DEFAULT'
@@ -126,10 +127,18 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
   private
 
-  def lookup_bundle_and_plan_details(subscription)
+  def lookup_bundle_and_plan_details(subscription, base_product_name = nil)
     if subscription.product_category == 'ADD_ON'
       bundle = Kaui::Bundle.find_by_id(@subscription.bundle_id, options_for_klient)
-      plans_details = Kaui::Catalog.available_addons(@base_product_name, options_for_klient)
+      if base_product_name.blank?
+        bundle.subscriptions.each do |sub|
+          if sub.product_category == 'BASE'
+            base_product_name = sub.product_name
+            break
+          end
+        end
+      end
+      plans_details = Kaui::Catalog.available_addons(base_product_name, options_for_klient)
     else
       bundle = nil
       plans_details = Kaui::Catalog.available_base_plans(options_for_klient)
