@@ -100,7 +100,7 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
   def allowed_user_params
     allowed_user = params.require(:allowed_user)
     allowed_user.require(:kb_username)
-    allowed_user
+    allowed_user.permit!
   end
 
   def roles_for_user(allowed_user)
