@@ -57,5 +57,9 @@ Gem::Specification.new do |s|
     s.add_development_dependency 'therubyracer', '~> 0.12.2'
 
     s.add_development_dependency 'mysql2', '~> 0.3.20'
+
+    s.add_development_dependency 'rack-mini-profiler'
+    s.add_development_dependency 'flamegraph'
+    s.add_development_dependency 'stackprof'
   end
 end
