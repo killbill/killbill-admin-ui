@@ -11,6 +11,7 @@ elif [ "$DB_ADAPTER" = 'postgresql' ]; then
   psql -U $DB_USER -c 'create database killbill;'
   psql -U $DB_USER -c 'create database kaui_test;'
   curl 'https://raw.githubusercontent.com/killbill/killbill/master/util/src/main/resources/org/killbill/billing/util/ddl-postgresql.sql' | psql -U $DB_USER killbill
+  curl 'https://raw.githubusercontent.com/killbill/killbill/master/util/src/main/resources/org/killbill/billing/util/ddl-postgresql.sql' | psql -U $DB_USER kaui_test
   curl 'http://docs.killbill.io/0.18/ddl.sql' | psql -U $DB_USER killbill
 fi
 
@@ -76,7 +77,7 @@ echo "*** conf/catalina.properties"
 cat conf/catalina.properties
 
 echo "*** ActiveRecord config"
-rails runner 'puts ActiveRecord::Base.connection_config'
+./bin/rails runner 'puts ActiveRecord::Base.connection_config'
 
 echo "*** logs/catalina.out"
 tail -50 logs/catalina.out
