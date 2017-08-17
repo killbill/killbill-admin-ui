@@ -3,18 +3,27 @@
 sudo sysctl -w net.ipv4.tcp_fin_timeout=15
 sudo sysctl -w net.ipv4.tcp_tw_reuse=1
 
-mysql -uroot -e "SET PASSWORD FOR 'root'@'localhost' = PASSWORD('root')"
-mysql -uroot -proot -e 'create database killbill;'
-mysql -uroot -proot -e 'create database kaui_test;'
-
-curl 'http://docs.killbill.io/0.18/ddl.sql' | mysql -uroot -proot killbill
+if [ '$DB_ADAPTER' = 'mysql2' ]; then
+  mysql -u $DB_USER -e 'create database killbill;'
+  mysql -u $DB_USER -e 'create database kaui_test;'
+  curl 'http://docs.killbill.io/0.18/ddl.sql' | mysql -u $DB_USER killbill
+elif [ '$DB_ADAPTER' = 'postgresql' ]; then
+  psql -U $DB_USER -c 'create database killbill;'
+  psql -U $DB_USER -c 'create database kaui_test;'
+  curl 'https://raw.githubusercontent.com/killbill/killbill/master/util/src/main/resources/org/killbill/billing/util/ddl-postgresql.sql' | psql -U $DB_USER killbill
+  curl 'http://docs.killbill.io/0.18/ddl.sql' | psql -U $DB_USER killbill
+fi
 
 if $(ruby -e'require "java"'); then
   # Somehow missing on JRuby-9
   gem install bundler
 
   # https://github.com/jruby/activerecord-jdbc-adapter/issues/780
-  cat db/ddl.sql | mysql -uroot -proot kaui_test
+  if [ '$DB_ADAPTER' = 'mysql2' ]; then
+    cat db/ddl.sql | mysql -u $DB_USER kaui_test
+  elif [ '$DB_ADAPTER' = 'postgresql' ]; then
+    cat db/ddl.sql | psql -U $DB_USER kaui_test
+  fi
 else
   bundle install --jobs=3 --retry=3 --path=${BUNDLE_PATH:-vendor/bundle}
   bundle exec rake db:migrate
@@ -24,13 +33,23 @@ gem install kpm
 
 kpm install
 
+if [ '$DB_ADAPTER' = 'mysql2' ]; then
+  cat<<EOS >> conf/catalina.properties
+org.killbill.dao.url=jdbc:mysql://localhost:$DB_PORT/killbill
+org.killbill.billing.osgi.dao.url=jdbc:mysql://localhost:$DB_PORT/killbill
+EOS
+elif [ '$DB_ADAPTER' = 'postgresql' ]; then
+  cat<<EOS >> conf/catalina.properties
+org.killbill.dao.url=jdbc:postgresql://localhost:$DB_PORT/killbill
+org.killbill.billing.osgi.dao.url=jdbc:postgresql://localhost:$DB_PORT/killbill
+EOS
+fi
+
 cat<<EOS >> conf/catalina.properties
-org.killbill.dao.url=jdbc:mysql://localhost:3306/killbill
-org.killbill.dao.user=root
-org.killbill.dao.password=root
-org.killbill.billing.osgi.dao.url=jdbc:mysql://localhost:3306/killbill
-org.killbill.billing.osgi.dao.user=root
-org.killbill.billing.osgi.dao.password=root
+org.killbill.dao.user=$DB_USER
+org.killbill.dao.password=
+org.killbill.billing.osgi.dao.user=$DB_USER
+org.killbill.billing.osgi.dao.password=
 org.killbill.catalog.uri=SpyCarAdvanced.xml
 EOS
 

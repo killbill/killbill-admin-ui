@@ -1,10 +1,10 @@
 default: &default
-  adapter: mysql2
+  adapter: <%= ENV.fetch('DB_ADAPTER', 'mysql2') %>
   encoding: utf8
-  username: <%= ENV.fetch('MYSQL_USER', 'root') %>
-  password: <%= ENV.fetch('MYSQL_PASSWORD', 'root') %>
+  username: <%= ENV.fetch('DB_USER', 'root') %>
+  password: <%= ENV.fetch('DB_PASSWORD', 'root') %>
   host: 127.0.0.1
-  port: 3306
+  port: <%= ENV.fetch('DB_PORT', '3306') %>
   pool: 25
   timeout: 5000
 

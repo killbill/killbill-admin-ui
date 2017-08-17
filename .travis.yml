@@ -5,6 +5,7 @@ cache: bundler
 
 services:
  - mysql
+ - postgresql
 
 dist: trusty
 
@@ -21,7 +22,10 @@ notifications:
 
 env:
   global:
-    - RAILS_ENV=test MYSQL_PASSWORD='root' MYSQL_USER='root' JRUBY_OPTS='-J-Xmx1024m'
+    - RAILS_ENV=test DB_PASSWORD='' JRUBY_OPTS='-J-Xmx1024m -debug -J-Djava.security.egd=file:/dev/./urandom'
+  matrix:
+    - DB_ADAPTER=mysql2 DB_USER='root' DB_PORT=3306
+    - DB_ADAPTER=postgresql DB_USER='postgres' DB_PORT=5432
 
 rvm:
   - 2.4.0
