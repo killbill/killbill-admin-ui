@@ -18,6 +18,7 @@ fi
 if $(ruby -e'require "java"'); then
   # Somehow missing on JRuby-9
   gem install bundler
+  bundle install --jobs=3 --retry=3 --path=${BUNDLE_PATH:-vendor/bundle}
 
   # https://github.com/jruby/activerecord-jdbc-adapter/issues/780
   if [ "$DB_ADAPTER" = 'mysql2' ]; then
