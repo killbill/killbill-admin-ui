@@ -63,7 +63,7 @@
               </div>
 
               <%= render :partial => 'kaui/payments/payment_table',
-                         :locals => {:payment => payment, :account => @account, :payment_methods => @payment_methods} %>
+                         :locals => {:payment => payment, :account => @account, :payment_method => @payment_methods[payment.payment_id]} %>
 
               <% if idx < @payments.size - 1 %>
                   <hr class="breathe"/>

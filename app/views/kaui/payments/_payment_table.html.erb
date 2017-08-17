@@ -1,19 +1,19 @@
 <div class="info-wrapper" >
 
-  <% if payment.capturable? || payment.voidable? || (payment.refundable? && (can?(:refund, Kaui::Payment) || can?(:chargeback, Kaui::Payment))) %>
-      <div class="tag-bar">
-        <!--<div class="tag-select">-->
-        <!--<span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>-->
-        <!--<div class="tag-select-box">-->
-        <!--<strong>Tag As:</strong>-->
-        <!--</div>-->
-        <!--</div>-->
+  <div class="tag-bar">
+    <!--<div class="tag-select">-->
+    <!--<span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>-->
+    <!--<div class="tag-select-box">-->
+    <!--<strong>Tag As:</strong>-->
+    <!--</div>-->
+    <!--</div>-->
 
-        <div class="tag-select" onclick="void(0)">
-          <span><i class="fa fa-credit-card"></i><i class="fa fa-caret-down"></i></span>
+    <div class="tag-select" onclick="void(0)">
+      <span><i class="fa fa-credit-card"></i><i class="fa fa-caret-down"></i></span>
 
-          <div class="tag-select-box">
+      <div class="tag-select-box">
 
+        <% if payment.capturable? || payment.voidable? || (payment.refundable? && (can?(:refund, Kaui::Payment) || can?(:chargeback, Kaui::Payment))) %>
             <% if payment.refundable? %>
                 <% if can? :refund, Kaui::Payment %>
                     <% if payment.target_invoice_id.present? %>
@@ -57,12 +57,18 @@
                                                                                                                                  :payment_method_id => payment.payment_method_id,
                                                                                                                                  :transaction_type => 'VOID') %>
             <% end %>
-          </div>
-
-        </div>
-
+        <% end %>
       </div>
-  <% end %>
+
+    </div>
+
+    <% gateway_url = gateway_url(payment_method, payment) %>
+    <% unless gateway_url.nil? %>
+        <div class="gateway-link">
+          <span><%= link_to 'See in gateway', gateway_url, :target => '_blank' %></span>
+        </div>
+    <% end %>
+  </div>
 
   <div style="overflow-x: auto;">
     <table id="payment_<%= payment.payment_id %>" class="table table-condensed mobile-data">

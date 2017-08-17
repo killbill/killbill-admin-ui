@@ -36,6 +36,8 @@ module Kaui
   mattr_accessor :payment_reason_codes
   mattr_accessor :refund_reason_codes
 
+  mattr_accessor :gateways_urls
+
   self.home_path = lambda { Kaui::Engine.routes.url_helpers.home_path }
   self.tenant_home_path = lambda { Kaui::Engine.routes.url_helpers.tenants_path }
 
@@ -95,6 +97,12 @@ module Kaui
                               '501 - Billing Error',
                               '502 - Alt payment method',
                               '599 - OTHER']
+
+  # Default URLs
+  self.gateways_urls = {
+      'killbill-adyen' => 'https://ca-test.adyen.com/ca/ca/accounts/showTx.shtml?txType=Payment&pspReference=FIRST_PAYMENT_REFERENCE_ID',
+      'killbill-stripe' => 'https://dashboard.stripe.com/test/payments/FIRST_PAYMENT_REFERENCE_ID'
+  }
 
   def self.is_user_assigned_valid_tenant?(user, session)
     #
