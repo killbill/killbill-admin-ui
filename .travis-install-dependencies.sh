@@ -4,7 +4,6 @@ sudo sysctl -w net.ipv4.tcp_fin_timeout=15
 sudo sysctl -w net.ipv4.tcp_tw_reuse=1
 
 if [ "$DB_ADAPTER" = 'mysql2' ]; then
-echo 12
   mysql -u $DB_USER -e 'create database killbill;'
   mysql -u $DB_USER -e 'create database kaui_test;'
   curl 'http://docs.killbill.io/0.18/ddl.sql' | mysql -u $DB_USER killbill
@@ -72,4 +71,12 @@ while [ $RET != 201 -a $(date +%s) -lt $TIME_LIMIT ] ; do
   sleep 5
 done
 
+# For Travis debugging
+echo "*** conf/catalina.properties"
+cat conf/catalina.properties
+
+echo "*** ActiveRecord config"
+rails runner 'puts ActiveRecord::Base.connection_config'
+
+echo "*** logs/catalina.out"
 tail -50 logs/catalina.out
