@@ -6,11 +6,14 @@ if defined?(JRUBY_VERSION)
   group :development do
     # See https://github.com/jruby/activerecord-jdbc-adapter/issues/700
     github 'jruby/activerecord-jdbc-adapter', branch: 'rails-5' do
-      gem 'activerecord-jdbc-adapter'
+      # Pulls activerecord-jdbc-adapter and jdbc-mysql
       gem 'activerecord-jdbcmysql-adapter'
+      # Add MariaDB driver as well
+      gem 'jdbc-mariadb'
+      # Pulls activerecord-jdbc-adapter and jdbc-postgres
       gem 'activerecord-jdbcpostgresql-adapter'
+      # Pulls activerecord-jdbc-adapter and jdbc-sqlite3
       gem 'activerecord-jdbcsqlite3-adapter'
-      gem 'jdbc-mysql'
     end
   end
 end

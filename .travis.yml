@@ -25,6 +25,7 @@ env:
     - RAILS_ENV=test DB_PASSWORD='' JRUBY_OPTS='-J-Xmx1024m --debug -J-Djava.security.egd=file:/dev/./urandom'
   matrix:
     - DB_ADAPTER=mysql2 DB_USER='root' DB_PORT=3306
+    - DB_ADAPTER=mariadb DB_USER='root' DB_PORT=3306
     - DB_ADAPTER=postgresql DB_USER='postgres' DB_PORT=5432
 
 rvm:
@@ -34,6 +35,11 @@ rvm:
   - jruby-head
 
 matrix:
+  exclude:
+    - rvm: 2.4.0
+      env: DB_ADAPTER=mariadb DB_USER='root' DB_PORT=3306
+    - rvm: ruby-head
+      env: DB_ADAPTER=mariadb DB_USER='root' DB_PORT=3306
   allow_failures:
     - rvm: ruby-head
     - rvm: jruby-head
