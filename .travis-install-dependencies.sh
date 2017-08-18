@@ -3,7 +3,7 @@
 sudo sysctl -w net.ipv4.tcp_fin_timeout=15
 sudo sysctl -w net.ipv4.tcp_tw_reuse=1
 
-if [ "$DB_ADAPTER" = 'mysql2' ]; then
+if [ "$DB_ADAPTER" = 'mysql2' ] || [ "$DB_ADAPTER" = 'mariadb' ]; then
   mysql -u $DB_USER -e 'create database killbill;'
   mysql -u $DB_USER -e 'create database kaui_test;'
   curl 'http://docs.killbill.io/0.18/ddl.sql' | mysql -u $DB_USER killbill
@@ -21,7 +21,7 @@ if $(ruby -e'require "java"'); then
   bundle install --jobs=3 --retry=3 --path=${BUNDLE_PATH:-vendor/bundle}
 
   # https://github.com/jruby/activerecord-jdbc-adapter/issues/780
-  if [ "$DB_ADAPTER" = 'mysql2' ]; then
+  if [ "$DB_ADAPTER" = 'mysql2' ] || [ "$DB_ADAPTER" = 'mariadb' ]; then
     cat db/ddl.sql | mysql -u $DB_USER kaui_test
   elif [ "$DB_ADAPTER" = 'postgresql' ]; then
     cat db/ddl.sql | psql -U $DB_USER kaui_test
@@ -35,7 +35,7 @@ gem install kpm
 
 kpm install
 
-if [ "$DB_ADAPTER" = 'mysql2' ]; then
+if [ "$DB_ADAPTER" = 'mysql2' ] || [ "$DB_ADAPTER" = 'mariadb' ]; then
   cat<<EOS >> conf/catalina.properties
 org.killbill.dao.url=jdbc:mysql://localhost:$DB_PORT/killbill
 org.killbill.billing.osgi.dao.url=jdbc:mysql://localhost:$DB_PORT/killbill
