@@ -20,10 +20,16 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
       @roles = roles_for_user(existing_user)
       render :new and return
     else
-      roles = params[:roles].split(',')
+      if params[:external] == '1'
+        # Create locally only
+        @allowed_user.save!
+      else
+        roles = params[:roles].split(',')
 
-      # Create locally and in KB
-      @allowed_user.create_in_kb!(params.require(:password), roles, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+        # Create locally and in KB
+        @allowed_user.create_in_kb!(params.require(:password), roles, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+      end
+
       redirect_to kaui_engine.admin_allowed_user_path(@allowed_user.id), :notice => 'User was successfully configured'
     end
   end
