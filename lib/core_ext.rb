@@ -113,7 +113,79 @@ module ArJdbc
   end
 end
 
-require 'active_record/connection_adapters/postgresql/schema_definitions'
-class ActiveRecord::ConnectionAdapters::PostgreSQL::ColumnDefinition < ActiveRecord::ConnectionAdapters::ColumnDefinition
-  attr_accessor :array
+if defined?(JRUBY_VERSION)
+  require 'active_record/connection_adapters/postgresql/schema_definitions'
+  class ActiveRecord::ConnectionAdapters::PostgreSQL::ColumnDefinition < ActiveRecord::ConnectionAdapters::ColumnDefinition
+    attr_accessor :array
+  end
+
+  require 'active_record/connection_adapters/postgresql/database_statements'
+  module ActiveRecord
+    module ConnectionAdapters
+      module PostgreSQL
+        module DatabaseStatements
+          def exec_insert(sql, name = nil, binds = [], pk = nil, sequence_name = nil)
+            if use_insert_returning? || pk == false
+              super
+            else
+              result = exec_update(sql, name, binds)
+              unless sequence_name
+                table_ref = extract_table_ref_from_insert_sql(sql)
+                if table_ref
+                  pk = primary_key(table_ref) if pk.nil?
+                  pk = suppress_composite_primary_key(pk)
+                  sequence_name = default_sequence_name(table_ref, pk)
+                end
+                return result unless sequence_name
+              end
+              last_insert_id_result(sequence_name)
+            end
+          end
+        end
+      end
+    end
+  end
+end
+
+module ArJdbc
+  module PostgreSQL
+
+    # Returns the list of all column definitions for a table.
+    def columns(table_name, name = nil)
+      column = jdbc_column_class
+      column_definitions(table_name).map! do |row|
+        # |name, type, default, notnull, oid, fmod|
+        name = row[0]; type = row[1]; default = row[2]
+        notnull = row[3]; oid = row[4]; fmod = row[5]
+        # oid = OID::TYPE_MAP.fetch(oid.to_i, fmod.to_i) { OID::Identity.new }
+        notnull = notnull == 't' if notnull.is_a?(String) # JDBC gets true/false
+        # for ID columns we get a bit of non-sense default :
+        # e.g. "nextval('mixed_cases_id_seq'::regclass"
+        if default =~ /^nextval\(.*?\:\:regclass\)$/
+          default = nil
+        elsif default =~ /^\(([-+]?[\d\.]+)\)$/ # e.g. "(-1)" for a negative default
+          default = $1
+        end
+
+        collation = row[6]
+        comment = row[7]
+
+        type_metadata = fetch_type_metadata(name, type, oid.to_i, fmod.to_i)
+
+        column.new(name, default, type_metadata, !notnull, table_name, nil, collation, comment: comment.presence)
+      end
+    end
+
+    def fetch_type_metadata(column_name, sql_type, oid, fmod)
+      cast_type = get_oid_type(oid, fmod, column_name, sql_type)
+      simple_type = ::ActiveRecord::ConnectionAdapters::SqlTypeMetadata.new(
+          sql_type: sql_type,
+          type: cast_type.type,
+          limit: cast_type.limit,
+          precision: cast_type.precision,
+          scale: cast_type.scale,
+      )
+      ::ActiveRecord::ConnectionAdapters::PostgreSQLTypeMetadata.new(simple_type, oid: oid, fmod: fmod)
+    end
+  end
 end

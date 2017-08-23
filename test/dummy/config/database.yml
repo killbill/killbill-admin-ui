@@ -7,6 +7,8 @@ default: &default
   port: <%= ENV.fetch('DB_PORT', '3306') %>
   pool: 25
   timeout: 5000
+  # Work around broken PostgreSQL activerecord-jdbc-adapter on Rails 5
+  insert_returning: false
 
 development:
   <<: *default
