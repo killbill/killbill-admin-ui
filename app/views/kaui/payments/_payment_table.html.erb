@@ -8,6 +8,9 @@
     <!--</div>-->
     <!--</div>-->
 
+    <%= render :partial => 'kaui/custom_fields/list_bar',
+               :locals => {:custom_fields => @custom_fields} %>
+
     <div class="tag-select" onclick="void(0)">
       <span><i class="fa fa-credit-card"></i><i class="fa fa-caret-down"></i></span>
 

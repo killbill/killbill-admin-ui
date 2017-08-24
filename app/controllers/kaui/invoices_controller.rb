@@ -48,9 +48,9 @@ class Kaui::InvoicesController < Kaui::EngineController
       @payments = @invoice.payments(true, true, 'FULL', options_for_klient).map { |payment| Kaui::InvoicePayment.build_from_raw_payment(payment) }
       @payment_methods = Kaui::PaymentMethod.payment_methods_for_payments(@payments, options_for_klient)
     end
-    fetch_account = lambda { @account = Kaui::Account.find_by_id(@invoice.account_id, false, false, options_for_klient) }
+    fetch_invoice_fields = lambda { @custom_fields = @invoice.custom_fields('NONE', options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase } }
 
-    run_in_parallel fetch_payments_and_pms, fetch_account
+    run_in_parallel fetch_payments_and_pms, fetch_invoice_fields
   end
 
   def restful_show
