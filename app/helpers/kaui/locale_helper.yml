@@ -1,0 +1,581 @@
+---
+- :language: Albanian 
+  :country: 'Albania  '
+  :script: "(Latn) "
+  :language_tag: sq_AL
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'Algeria  '
+  :script: "(Arab) "
+  :language_tag: ar_DZ
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'Bahrain  '
+  :script: "(Arab) "
+  :language_tag: ar_BH
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'Egypt  '
+  :script: "(Arab) "
+  :language_tag: ar_EG
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'Iraq  '
+  :script: "(Arab) "
+  :language_tag: ar_IQ
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'Jordan  '
+  :script: "(Arab) "
+  :language_tag: ar_JO
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'Kuwait  '
+  :script: "(Arab) "
+  :language_tag: ar_KW
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'Lebanon  '
+  :script: "(Arab) "
+  :language_tag: ar_LB
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'Libya  '
+  :script: "(Arab) "
+  :language_tag: ar_LY
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'Morocco  '
+  :script: "(Arab) "
+  :language_tag: ar_MA
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'Oman  '
+  :script: "(Arab) "
+  :language_tag: ar_OM
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'Qatar  '
+  :script: "(Arab) "
+  :language_tag: ar_QA
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'Saudi Arabia  '
+  :script: "(Arab) "
+  :language_tag: ar_SA
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'Sudan  '
+  :script: "(Arab) "
+  :language_tag: ar_SD
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'Syria  '
+  :script: "(Arab) "
+  :language_tag: ar_SY
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'Tunisia  '
+  :script: "(Arab) "
+  :language_tag: ar_TN
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'United Arab Emirates  '
+  :script: "(Arab) "
+  :language_tag: ar_AE
+  :favorite: false
+- :language: 'Arabic  '
+  :country: 'Yemen  '
+  :script: "(Arab) "
+  :language_tag: ar_YE
+  :favorite: false
+- :language: 'Belarusian  '
+  :country: 'Belarus  '
+  :script: "(Cyrl) "
+  :language_tag: be_BY
+  :favorite: false
+- :language: 'Bulgarian  '
+  :country: 'Bulgaria  '
+  :script: "(Cyrl) "
+  :language_tag: bg_BG
+  :favorite: false
+- :language: 'Catalan  '
+  :country: 'Spain  '
+  :script: "(Latn) "
+  :language_tag: ca_ES
+  :favorite: false
+- :language: 'Chinese  '
+  :country: 'China  '
+  :script: "(Hans) "
+  :language_tag: zh_CN
+  :favorite: true
+- :language: 'Chinese  '
+  :country: 'Singapore  '
+  :script: "(Hans) "
+  :language_tag: zh_SG
+  :favorite: false
+- :language: Chinese 
+  :country: Hong Kong 
+  :script: "(Hant)"
+  :language_tag: zh_HK
+  :favorite: false
+- :language: Chinese 
+  :country: Taiwan 
+  :script: "(Hant)"
+  :language_tag: zh_TW
+  :favorite: false
+- :language: Croatian 
+  :country: Croatia 
+  :script: "(Latn)"
+  :language_tag: hr_HR
+  :favorite: false
+- :language: Czech 
+  :country: Czech Republic 
+  :script: "(Latn)"
+  :language_tag: cs_CZ
+  :favorite: false
+- :language: Danish 
+  :country: Denmark 
+  :script: "(Latn)"
+  :language_tag: da_DK
+  :favorite: false
+- :language: Dutch 
+  :country: Belgium 
+  :script: "(Latn)"
+  :language_tag: nl_BE
+  :favorite: false
+- :language: Dutch 
+  :country: Netherlands 
+  :script: "(Latn)"
+  :language_tag: nl_NL
+  :favorite: false
+- :language: English 
+  :country: Australia 
+  :script: "(Latn)"
+  :language_tag: en_AU
+  :favorite: false
+- :language: English 
+  :country: Canada 
+  :script: "(Latn)"
+  :language_tag: en_CA
+  :favorite: true
+- :language: English 
+  :country: India 
+  :script: "(Latn)"
+  :language_tag: en_IN
+  :favorite: false
+- :language: English 
+  :country: Ireland 
+  :script: "(Latn)"
+  :language_tag: en_IE
+  :favorite: false
+- :language: English 
+  :country: Malta 
+  :script: "(Latn)"
+  :language_tag: en_MT
+  :favorite: false
+- :language: 'English  '
+  :country: 'New Zealand  '
+  :script: "(Latn) "
+  :language_tag: en_NZ
+  :favorite: false
+- :language: 'English  '
+  :country: 'Philippines  '
+  :script: "(Latn) "
+  :language_tag: en_PH
+  :favorite: false
+- :language: English 
+  :country: Singapore 
+  :script: "(Latn)"
+  :language_tag: en_SG
+  :favorite: false
+- :language: 'English  '
+  :country: 'South Africa  '
+  :script: "(Latn) "
+  :language_tag: en_ZA
+  :favorite: false
+- :language: 'English  '
+  :country: 'United Kingdom  '
+  :script: "(Latn) "
+  :language_tag: en_GB
+  :favorite: true
+- :language: 'English  '
+  :country: 'United States  '
+  :script: "(Latn) "
+  :language_tag: en_US
+  :favorite: true
+- :language: 'Estonian  '
+  :country: 'Estonia  '
+  :script: "(Latn) "
+  :language_tag: et_EE
+  :favorite: false
+- :language: 'Finnish  '
+  :country: 'Finland  '
+  :script: "(Latn) "
+  :language_tag: fi_FI
+  :favorite: false
+- :language: 'French  '
+  :country: 'Belgium  '
+  :script: "(Latn) "
+  :language_tag: fr_BE
+  :favorite: false
+- :language: 'French  '
+  :country: 'Canada  '
+  :script: "(Latn) "
+  :language_tag: fr_CA
+  :favorite: false
+- :language: 'French  '
+  :country: 'France  '
+  :script: "(Latn) "
+  :language_tag: fr_FR
+  :favorite: true
+- :language: 'French  '
+  :country: 'Luxembourg  '
+  :script: "(Latn) "
+  :language_tag: fr_LU
+  :favorite: false
+- :language: 'French  '
+  :country: 'Switzerland  '
+  :script: "(Latn) "
+  :language_tag: fr_CH
+  :favorite: false
+- :language: 'German  '
+  :country: 'Austria  '
+  :script: "(Latn) "
+  :language_tag: de_AT
+  :favorite: false
+- :language: 'German  '
+  :country: 'Germany  '
+  :script: "(Latn) "
+  :language_tag: de_DE
+  :favorite: true
+- :language: 'German  '
+  :country: 'Luxembourg  '
+  :script: "(Latn) "
+  :language_tag: de_LU
+  :favorite: false
+- :language: 'German  '
+  :country: 'Switzerland  '
+  :script: "(Latn) "
+  :language_tag: de_CH
+  :favorite: false
+- :language: 'Greek  '
+  :country: 'Cyprus  '
+  :script: "(Grek) "
+  :language_tag: el_CY
+  :favorite: false
+- :language: Greek 
+  :country: Greece 
+  :script: "(Grek)"
+  :language_tag: el_GR
+  :favorite: false
+- :language: Hebrew 
+  :country: Israel 
+  :script: "(Hebr)"
+  :language_tag: iw_IL
+  :favorite: false
+- :language: Hindi 
+  :country: India 
+  :script: "(Deva)"
+  :language_tag: hi_IN
+  :favorite: false
+- :language: 'Hungarian  '
+  :country: 'Hungary  '
+  :script: "(Latn) "
+  :language_tag: hu_HU
+  :favorite: false
+- :language: 'Icelandic  '
+  :country: 'Iceland  '
+  :script: "(Latn) "
+  :language_tag: is_IS
+  :favorite: false
+- :language: 'Indonesian  '
+  :country: 'Indonesia  '
+  :script: "(Latn) "
+  :language_tag: in_ID
+  :favorite: false
+- :language: Irish 
+  :country: Ireland 
+  :script: "(Latn)"
+  :language_tag: ga_IE
+  :favorite: false
+- :language: 'Italian  '
+  :country: 'Italy  '
+  :script: "(Latn) "
+  :language_tag: it_IT
+  :favorite: true
+- :language: 'Italian  '
+  :country: 'Switzerland  '
+  :script: "(Latn) "
+  :language_tag: it_CH
+  :favorite: false
+- :language: 'Japanese  '
+  :country: 'Japan  '
+  :script: "(Jpan) "
+  :language_tag: ja_JP
+  :favorite: true
+- :language: 'Japanese  '
+  :country: 'Japan  '
+  :script: "(Jpan) "
+  :language_tag: ja_JP-u_ca-japanese
+  :favorite: false
+- :language: 'Japanese  '
+  :country: 'Japan  '
+  :script: "(Jpan) "
+  :language_tag: ja_JP-x_lvariant_JP
+  :favorite: false
+- :language: 'Korean  '
+  :country: 'South Korea  '
+  :script: "(Kore) "
+  :language_tag: ko_KR
+  :favorite: false
+- :language: 'Latvian  '
+  :country: 'Latvia  '
+  :script: "(Latn) "
+  :language_tag: lv_LV
+  :favorite: false
+- :language: 'Lithuanian  '
+  :country: 'Lithuania  '
+  :script: "(Latn) "
+  :language_tag: lt_LT
+  :favorite: false
+- :language: 'Macedonian  '
+  :country: 'Macedonia  '
+  :script: "(Cyrl) "
+  :language_tag: mk_MK
+  :favorite: false
+- :language: 'Malay  '
+  :country: 'Malaysia  '
+  :script: "(Latn) "
+  :language_tag: ms_MY
+  :favorite: false
+- :language: Maltese 
+  :country: Malta 
+  :script: "(Latn)"
+  :language_tag: mt_MT
+  :favorite: false
+- :language: 'Norwegian  '
+  :country: 'Norway  '
+  :script: "(Latn) "
+  :language_tag: no_NO
+  :favorite: false
+- :language: 'Norwegian Bokmål  '
+  :country: 'Norway  '
+  :script: "(Latn) "
+  :language_tag: nb_NO
+  :favorite: false
+- :language: 'Norwegian Nynorsk  '
+  :country: 'Norway  '
+  :script: "(Latn) "
+  :language_tag: nn_NO
+  :favorite: false
+- :language: 'Norwegian  '
+  :country: 'Norway  '
+  :script: "(Latn) "
+  :language_tag: no_NO-x_lvariant_NY
+  :favorite: false
+- :language: 'Polish  '
+  :country: 'Poland  '
+  :script: "(Latn) "
+  :language_tag: pl_PL
+  :favorite: false
+- :language: 'Portuguese  '
+  :country: 'Brazil  '
+  :script: "(Latn) "
+  :language_tag: pt_BR
+  :favorite: true
+- :language: Portuguese 
+  :country: Portugal 
+  :script: "(Latn)"
+  :language_tag: pt_PT
+  :favorite: false
+- :language: 'Romanian  '
+  :country: 'Romania  '
+  :script: "(Latn) "
+  :language_tag: ro_RO
+  :favorite: false
+- :language: 'Russian  '
+  :country: 'Russia  '
+  :script: "(Cyrl) "
+  :language_tag: ru_RU
+  :favorite: true
+- :language: 'Serbian  '
+  :country: 'Bosnia and Herzegovina  '
+  :script: "(Cyrl) "
+  :language_tag: sr_BA
+  :favorite: false
+- :language: Serbian 
+  :country: Montenegro 
+  :script: "(Cyrl)"
+  :language_tag: sr_ME
+  :favorite: false
+- :language: 'Serbian  '
+  :country: 'Serbia  '
+  :script: "(Cyrl) "
+  :language_tag: sr_RS
+  :favorite: false
+- :language: Serbian 
+  :country: Bosnia and Herzegovina 
+  :script: Latn
+  :language_tag: sr_Latn_BA
+  :favorite: false
+- :language: 'Serbian  '
+  :country: 'Montenegro  '
+  :script: Latn
+  :language_tag: sr_Latn_ME
+  :favorite: false
+- :language: Serbian 
+  :country: Serbia 
+  :script: Latn
+  :language_tag: sr_Latn_RS
+  :favorite: false
+- :language: 'Slovak  '
+  :country: 'Slovakia  '
+  :script: "(Latn) "
+  :language_tag: sk_SK
+  :favorite: false
+- :language: 'Slovenian  '
+  :country: 'Slovenia  '
+  :script: "(Latn) "
+  :language_tag: sl_SI
+  :favorite: false
+- :language: 'Spanish  '
+  :country: 'Argentina  '
+  :script: "(Latn) "
+  :language_tag: es_AR
+  :favorite: false
+- :language: 'Spanish  '
+  :country: 'Bolivia  '
+  :script: "(Latn) "
+  :language_tag: es_BO
+  :favorite: false
+- :language: 'Spanish  '
+  :country: 'Chile  '
+  :script: "(Latn) "
+  :language_tag: es_CL
+  :favorite: false
+- :language: 'Spanish  '
+  :country: 'Colombia  '
+  :script: "(Latn) "
+  :language_tag: es_CO
+  :favorite: false
+- :language: 'Spanish  '
+  :country: 'Costa Rica  '
+  :script: "(Latn) "
+  :language_tag: es_CR
+  :favorite: false
+- :language: 'Spanish  '
+  :country: 'Dominican Republic  '
+  :script: "(Latn) "
+  :language_tag: es_DO
+  :favorite: false
+- :language: 'Spanish  '
+  :country: 'Ecuador  '
+  :script: "(Latn) "
+  :language_tag: es_EC
+  :favorite: false
+- :language: 'Spanish  '
+  :country: 'El Salvador  '
+  :script: "(Latn) "
+  :language_tag: es_SV
+  :favorite: false
+- :language: 'Spanish  '
+  :country: 'Guatemala  '
+  :script: "(Latn) "
+  :language_tag: es_GT
+  :favorite: false
+- :language: 'Spanish  '
+  :country: 'Honduras  '
+  :script: "(Latn) "
+  :language_tag: es_HN
+  :favorite: false
+- :language: 'Spanish  '
+  :country: 'Mexico  '
+  :script: "(Latn) "
+  :language_tag: es_MX
+  :favorite: true
+- :language: 'Spanish  '
+  :country: 'Nicaragua  '
+  :script: "(Latn) "
+  :language_tag: es_NI
+  :favorite: false
+- :language: 'Spanish  '
+  :country: 'Panama  '
+  :script: "(Latn) "
+  :language_tag: es_PA
+  :favorite: false
+- :language: 'Spanish  '
+  :country: 'Paraguay  '
+  :script: "(Latn) "
+  :language_tag: es_PY
+  :favorite: false
+- :language: 'Spanish  '
+  :country: 'Peru  '
+  :script: "(Latn) "
+  :language_tag: es_PE
+  :favorite: false
+- :language: 'Spanish  '
+  :country: 'Puerto Rico  '
+  :script: "(Latn) "
+  :language_tag: es_PR
+  :favorite: false
+- :language: 'Spanish  '
+  :country: 'Spain  '
+  :script: "(Latn) "
+  :language_tag: es_ES
+  :favorite: true
+- :language: 'Spanish  '
+  :country: 'United States  '
+  :script: "(Latn) "
+  :language_tag: es_US
+  :favorite: false
+- :language: Spanish 
+  :country: Uruguay 
+  :script: "(Latn)"
+  :language_tag: es_UY
+  :favorite: false
+- :language: Spanish 
+  :country: Venezuela 
+  :script: "(Latn)"
+  :language_tag: es_VE
+  :favorite: false
+- :language: Swedish 
+  :country: Sweden 
+  :script: "(Latn)"
+  :language_tag: sv_SE
+  :favorite: false
+- :language: Thai 
+  :country: Thailand 
+  :script: "(Thai)"
+  :language_tag: th_TH
+  :favorite: false
+- :language: Thai 
+  :country: Thailand 
+  :script: "(Thai)"
+  :language_tag: th_TH-u_ca-buddhist
+  :favorite: false
+- :language: Thai 
+  :country: Thailand 
+  :script: "(Thai)"
+  :language_tag: th_TH-u_ca-buddhist_nu-thai
+  :favorite: false
+- :language: 'Thai  '
+  :country: 'Thailand  '
+  :script: "(Thai) "
+  :language_tag: th_TH-x_lvariant_TH
+  :favorite: false
+- :language: Turkish 
+  :country: Turkey 
+  :script: "(Latn)"
+  :language_tag: tr_TR
+  :favorite: false
+- :language: Ukrainian 
+  :country: Ukraine 
+  :script: "(Cyrl)"
+  :language_tag: uk_UA
+  :favorite: false
+- :language: Vietnamese 
+  :country: Vietnam 
+  :script: "(Latn)"
+  :language_tag: vi_VN
+  :favorite: false
