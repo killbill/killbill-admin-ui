@@ -3,8 +3,9 @@ class Kaui::RefundsController < Kaui::EngineController
   def new
     fetch_invoice = lambda { @invoice = Kaui::Invoice.find_by_id_or_number(params.require(:invoice_id), true, 'NONE', options_for_klient) }
     fetch_payment = lambda { @payment = Kaui::InvoicePayment::find_by_id(params.require(:payment_id), false, false, options_for_klient) }
+    fetch_bundles = lambda { @bundles = @account.bundles(options_for_klient) }
 
-    run_in_parallel fetch_invoice, fetch_payment
+    run_in_parallel fetch_invoice, fetch_payment, fetch_bundles
 
     @refund = KillBillClient::Model::InvoiceItem.new(:invoice_id => @invoice.invoice_id)
   end
