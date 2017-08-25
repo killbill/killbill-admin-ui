@@ -96,4 +96,23 @@ jQuery(document).ready(function ($) {
         }
     });
 
+    /*
+     * Toggle between combobox (US only) and text when entering the state.
+     */
+    $('#account_country').on('change', function(e){
+        toggle_state_input_type($('#account_country').val());
+    });
+
+    function toggle_state_input_type(state){
+        if (state == 'US'){
+            $('.text-state').hide().attr('name','hide');
+            $('.select-state').show().attr('name','account[state]');
+        }else{
+            $('.select-state').hide().attr('name','hide');
+            $('.text-state').show().attr('name','account[state]');
+        }
+    }
+
+    toggle_state_input_type($('#account_country').val());
+
 })

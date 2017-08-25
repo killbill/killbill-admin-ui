@@ -1,0 +1,103 @@
+---
+- :abbreviation: AL
+  :state_name: Alabama
+- :abbreviation: AK
+  :state_name: Alaska
+- :abbreviation: AZ
+  :state_name: Arizona
+- :abbreviation: AR
+  :state_name: Arkansas
+- :abbreviation: CA
+  :state_name: California
+- :abbreviation: CO
+  :state_name: Colorado
+- :abbreviation: CT
+  :state_name: Connecticut
+- :abbreviation: DE
+  :state_name: Delaware
+- :abbreviation: DC
+  :state_name: District of Columbia
+- :abbreviation: FL
+  :state_name: Florida
+- :abbreviation: GA
+  :state_name: Georgia
+- :abbreviation: HI
+  :state_name: Hawaii
+- :abbreviation: ID
+  :state_name: Idaho
+- :abbreviation: IL
+  :state_name: Illinois
+- :abbreviation: IN
+  :state_name: Indiana
+- :abbreviation: IA
+  :state_name: Iowa
+- :abbreviation: KS
+  :state_name: Kansas
+- :abbreviation: KY
+  :state_name: Kentucky
+- :abbreviation: LA
+  :state_name: Louisiana
+- :abbreviation: ME
+  :state_name: Maine
+- :abbreviation: MD
+  :state_name: Maryland
+- :abbreviation: MA
+  :state_name: Massachusetts
+- :abbreviation: MI
+  :state_name: Michigan
+- :abbreviation: MN
+  :state_name: Minnesota
+- :abbreviation: MS
+  :state_name: Mississippi
+- :abbreviation: MO
+  :state_name: Missouri
+- :abbreviation: MT
+  :state_name: Montana
+- :abbreviation: NE
+  :state_name: Nebraska
+- :abbreviation: NV
+  :state_name: Nevada
+- :abbreviation: NH
+  :state_name: New Hampshire
+- :abbreviation: NJ
+  :state_name: New Jersey
+- :abbreviation: NM
+  :state_name: New Mexico
+- :abbreviation: NY
+  :state_name: New York
+- :abbreviation: NC
+  :state_name: North Carolina
+- :abbreviation: ND
+  :state_name: North Dakota
+- :abbreviation: OH
+  :state_name: Ohio
+- :abbreviation: OK
+  :state_name: Oklahoma
+- :abbreviation: OR
+  :state_name: Oregon
+- :abbreviation: PA
+  :state_name: Pennsylvania
+- :abbreviation: RI
+  :state_name: Rhode Island
+- :abbreviation: SC
+  :state_name: South Carolina
+- :abbreviation: SD
+  :state_name: South Dakota
+- :abbreviation: TN
+  :state_name: Tennessee
+- :abbreviation: TX
+  :state_name: Texas
+- :abbreviation: UT
+  :state_name: Utah
+- :abbreviation: VT
+  :state_name: Vermont
+- :abbreviation: VA
+  :state_name: Virginia
+- :abbreviation: WA
+  :state_name: Washington
+- :abbreviation: WV
+  :state_name: West Virginia
+- :abbreviation: WI
+  :state_name: Wisconsin
+- :abbreviation: WY
+  :state_name: Wyoming
