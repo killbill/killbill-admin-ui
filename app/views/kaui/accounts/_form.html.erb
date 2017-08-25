@@ -94,7 +94,7 @@
       <%= f.label :state, 'State', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
         <%= f.select :state, get_U_S_states, {:include_blank => '', :selected => @account.state}, :class => 'form-control select-state' %>
-        <%= f.text_field :state, :class => 'form-control text-state' %>
+        <%= f.text_field :state, :class => 'form-control text-state', :style => 'display: none;' %>
       </div>
     </div>
     <div class="form-group">
