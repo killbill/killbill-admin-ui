@@ -24,7 +24,10 @@
     <% end %>
 
     <%= render :partial => 'kaui/payments/payment_table',
-               :locals => {:payment_method => @payment_method, :payment => @payment, :account => @account} %>
+               :locals => {:payment_method => @payment_method,
+                           :payment => @payment,
+                           :account => @account,
+                           :custom_fields => @custom_fields} %>
 
   </div>
 
