@@ -10,7 +10,7 @@ module Kaui
 
       available_locales.each do |locale|
         option = ["#{locale[:language]} #{locale[:country]} (#{locale[:language_tag]})", locale[:language_tag] ]
-        locales << option
+        locales << option unless locale[:favorite]
         favorites << option if locale[:favorite]
       end
 
