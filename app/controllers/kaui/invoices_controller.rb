@@ -44,13 +44,18 @@ class Kaui::InvoicesController < Kaui::EngineController
   def show
     @invoice = Kaui::Invoice.find_by_id_or_number(params.require(:id), true, 'FULL', options_for_klient)
 
-    fetch_payments_and_pms = lambda do
-      @payments = @invoice.payments(true, true, 'FULL', options_for_klient).map { |payment| Kaui::InvoicePayment.build_from_raw_payment(payment) }
-      @payment_methods = Kaui::PaymentMethod.payment_methods_for_payments(@payments, options_for_klient)
-    end
-    fetch_account = lambda { @account = Kaui::Account.find_by_id(@invoice.account_id, false, false, options_for_klient) }
+    fetch_payments = promise { @invoice.payments(true, true, 'FULL', options_for_klient).map { |payment| Kaui::InvoicePayment.build_from_raw_payment(payment) } }
+    fetch_pms = fetch_payments.then { |payments| Kaui::PaymentMethod.payment_methods_for_payments(payments, options_for_klient) }
+    fetch_invoice_fields = promise { @invoice.custom_fields('NONE', options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase } }
+    fetch_payment_fields = promise {
+      all_payment_fields = @account.all_custom_fields(:PAYMENT, 'NONE', options_for_klient)
+      all_payment_fields.inject({}) { |hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh }
+    }
 
-    run_in_parallel fetch_payments_and_pms, fetch_account
+    @payments = wait(fetch_payments)
+    @payment_methods = wait(fetch_pms)
+    @custom_fields = wait(fetch_invoice_fields)
+    @payment_custom_fields = wait(fetch_payment_fields)
   end
 
   def restful_show

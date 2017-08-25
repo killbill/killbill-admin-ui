@@ -74,12 +74,19 @@ class Kaui::AccountsController < Kaui::EngineController
     # Re-fetch the account with balance and CBA
     @account = Kaui::Account::find_by_id_or_key(params.require(:account_id), true, true, options_for_klient)
 
-    fetch_overdue_state = lambda { @overdue_state = @account.overdue(options_for_klient) }
-    fetch_account_tags = lambda { @tags = @account.tags(false, 'NONE', options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b } }
-    fetch_account_emails = lambda { @account_emails = Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', options_for_klient) }
-    fetch_payment_methods = lambda { @payment_methods = Kaui::PaymentMethod.find_all_safely_by_account_id(@account.account_id, options_for_klient) }
-    fetch_available_tags = lambda { @available_tags = Kaui::TagDefinition.all_for_account(options_for_klient) }
-    run_in_parallel fetch_overdue_state, fetch_account_tags, fetch_account_emails, fetch_payment_methods, fetch_available_tags
+    fetch_overdue_state = promise { @account.overdue(options_for_klient) }
+    fetch_account_tags = promise { @account.tags(false, 'NONE', options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b } }
+    fetch_account_fields = promise { @account.custom_fields('NONE', options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase } }
+    fetch_account_emails = promise { Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', options_for_klient) }
+    fetch_payment_methods = promise { Kaui::PaymentMethod.find_all_safely_by_account_id(@account.account_id, options_for_klient) }
+    fetch_available_tags = promise { Kaui::TagDefinition.all_for_account(options_for_klient) }
+
+    @overdue_state = wait(fetch_overdue_state)
+    @tags = wait(fetch_account_tags)
+    @custom_fields = wait(fetch_account_fields)
+    @account_emails = wait(fetch_account_emails)
+    @payment_methods = wait(fetch_payment_methods)
+    @available_tags = wait(fetch_available_tags)
 
     params.permit!
   end

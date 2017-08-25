@@ -71,11 +71,11 @@ class Kaui::PaymentsController < Kaui::EngineController
   end
 
   def new
-    fetch_invoice = lambda { @invoice = Kaui::Invoice.find_by_id_or_number(params.require(:invoice_id), true, 'NONE', options_for_klient) }
-    fetch_account = lambda { @account = Kaui::Account.find_by_id(params.require(:account_id), false, false, options_for_klient) }
-    fetch_payment_methods = lambda { @payment_methods = Kaui::PaymentMethod.find_all_by_account_id(params.require(:account_id), false, options_for_klient) }
+    fetch_invoice = promise { Kaui::Invoice.find_by_id_or_number(params.require(:invoice_id), true, 'NONE', options_for_klient) }
+    fetch_payment_methods = promise { Kaui::PaymentMethod.find_all_by_account_id(params.require(:account_id), false, options_for_klient) }
 
-    run_in_parallel fetch_invoice, fetch_account, fetch_payment_methods
+    @invoice = wait(fetch_invoice)
+    @payment_methods = wait(fetch_payment_methods)
 
     @payment = Kaui::InvoicePayment.new('accountId' => @account.account_id, 'targetInvoiceId' => @invoice.invoice_id, 'purchasedAmount' => @invoice.balance)
   end
@@ -92,11 +92,15 @@ class Kaui::PaymentsController < Kaui::EngineController
     invoice_payment = Kaui::InvoicePayment.find_safely_by_id(params.require(:id), options_for_klient)
     @payment = Kaui::InvoicePayment.build_from_raw_payment(invoice_payment)
 
-    fetch_account = lambda { @account = Kaui::Account.find_by_id(@payment.account_id, false, false, options_for_klient) }
+    fetch_payment_fields = promise {
+      direct_payment = Kaui::Payment.new(:payment_id => @payment.payment_id)
+      direct_payment.custom_fields('NONE', options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase }
+    }
     # The payment method may have been deleted
-    fetch_payment_method = lambda { @payment_method = Kaui::PaymentMethod.find_safely_by_id(@payment.payment_method_id, options_for_klient) }
+    fetch_payment_method = promise { Kaui::PaymentMethod.find_safely_by_id(@payment.payment_method_id, options_for_klient) }
 
-    run_in_parallel fetch_account, fetch_payment_method
+    @custom_fields = wait(fetch_payment_fields)
+    @payment_method = wait(fetch_payment_method)
   end
 
   def restful_show

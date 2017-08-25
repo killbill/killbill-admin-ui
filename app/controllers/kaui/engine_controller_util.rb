@@ -51,25 +51,14 @@ module Kaui::EngineControllerUtil
     end
   end
 
-  def run_in_parallel(*tasks)
-    latch = Concurrent::CountDownLatch.new(tasks.size)
-    exceptions = Concurrent::Array.new
+  def promise(&block)
+    Concurrent::Promise.execute(&block)
+  end
 
-    tasks.each do |task|
-      Kaui.thread_pool.post do
-        begin
-          task.call
-        rescue => e
-          exceptions << e
-        ensure
-          latch.count_down
-        end
-      end
-    end
-    latch.wait
-
-    exception = exceptions.shift
-    raise exception unless exception.nil?
+  def wait(promise)
+    value = promise.value
+    raise promise.reason unless promise.reason.nil?
+    value
   end
 
   # Used to format flash error messages

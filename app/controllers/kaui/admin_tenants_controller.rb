@@ -71,17 +71,22 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_key] = @tenant.api_key
     options[:api_secret] = @tenant.api_secret
 
-    fetch_catalogs = lambda { @catalogs = Kaui::Catalog::get_catalog_json(false, options) rescue @catalogs = [] }
-    fetch_catalogs_xml = lambda { @catalogs_xml = Kaui::Catalog::get_catalog_xml(options) rescue @catalogs_xml = [] }
-    fetch_overdue = lambda { @overdue =  Kaui::Overdue::get_overdue_json(options) rescue @overdue = nil }
-    fetch_overdue_xml = lambda { @overdue_xml = Kaui::Overdue::get_tenant_overdue_config('xml', options) rescue @overdue_xml = nil }
+    fetch_catalogs = promise { Kaui::Catalog::get_catalog_json(false, options) rescue @catalogs = [] }
+    fetch_catalogs_xml = promise { Kaui::Catalog::get_catalog_xml(options) rescue @catalogs_xml = [] }
+    fetch_overdue = promise { Kaui::Overdue::get_overdue_json(options) rescue @overdue = nil }
+    fetch_overdue_xml = promise { Kaui::Overdue::get_tenant_overdue_config('xml', options) rescue @overdue_xml = nil }
 
     plugin_repository = Kaui::AdminTenant::get_plugin_repository
 
-    fetch_plugin_config = lambda { @plugin_config =  Kaui::AdminTenant::get_oss_plugin_info(plugin_repository) rescue @plugin_config = '' }
-    fetch_tenant_plugin_config = lambda { @tenant_plugin_config = Kaui::AdminTenant::get_tenant_plugin_config(plugin_repository, options) rescue @tenant_plugin_config = '' }
+    fetch_plugin_config = promise { Kaui::AdminTenant::get_oss_plugin_info(plugin_repository) }
+    fetch_tenant_plugin_config = promise { Kaui::AdminTenant::get_tenant_plugin_config(plugin_repository, options) }
 
-    run_in_parallel fetch_catalogs, fetch_catalogs_xml, fetch_overdue, fetch_overdue_xml, fetch_plugin_config, fetch_tenant_plugin_config
+    @catalogs = wait(fetch_catalogs)
+    @catalogs_xml = wait(fetch_catalogs_xml)
+    @overdue = wait(fetch_overdue)
+    @overdue_xml = wait(fetch_overdue_xml)
+    @plugin_config = wait(fetch_plugin_config) rescue ''
+    @tenant_plugin_config = wait(fetch_tenant_plugin_config) rescue ''
 
     # When reloading page from the view, it sends the last tab that was active
     @active_tab = params[:active_tab] || 'CatalogShow'
