@@ -55,10 +55,10 @@
         <%= f.hidden_field :time_zone %>
     <% end %>
     <div class="form-group">
-        <%= f.label :locale, 'Locale', :class => 'col-sm-3 control-label' %>
-        <div class="col-sm-9">
-            <%= f.text_field :locale, :class => 'form-control' %>
-        </div>
+      <%= f.label :locale, 'Locale', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= f.select :locale, get_available_locales, {:selected => 'en_US', :disabled => '---------------'}, :class => 'form-control' %>
+      </div>
     </div>
     <div class="form-group">
       <%= f.label :address1, 'Address line 1', :class => 'col-sm-3 control-label' %>
