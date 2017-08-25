@@ -6,10 +6,15 @@ class Kaui::BundlesController < Kaui::EngineController
       all_bundle_tags = @account.all_tags(:BUNDLE, false, 'NONE', options_for_klient)
       all_bundle_tags.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
     }
+    fetch_bundle_fields = promise {
+      all_bundle_fields = @account.all_custom_fields(:BUNDLE, 'NONE', options_for_klient)
+      all_bundle_fields.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
+    }
     fetch_available_tags = promise { Kaui::TagDefinition.all_for_bundle(options_for_klient) }
 
     @bundles = wait(fetch_bundles)
     @tags_per_bundle = wait(fetch_bundle_tags)
+    @custom_fields_per_bundle = wait(fetch_bundle_fields)
     @available_tags = wait(fetch_available_tags)
 
     @base_subscription = {}
