@@ -57,7 +57,7 @@
     <div class="form-group">
       <%= f.label :locale, 'Locale', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
-        <%= f.select :locale, get_available_locales, {:selected => 'en_US', :disabled => '---------------'}, :class => 'form-control' %>
+        <%= f.select :locale, get_available_locales, {:selected => (@account.locale || 'en_US'), :disabled => '---------------'}, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
@@ -93,7 +93,8 @@
     <div class="form-group">
       <%= f.label :state, 'State', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
-        <%= f.text_field :state, :class => 'form-control' %>
+        <%= f.select :state, get_U_S_states, {:include_blank => '', :selected => @account.state}, :class => 'form-control select-state' %>
+        <%= f.text_field :state, :class => 'form-control text-state', :style => 'display: none;' %>
       </div>
     </div>
     <div class="form-group">
