@@ -26,7 +26,9 @@
 
         <i class="fa fa-caret-down"></i>
         <i class="fa fa-caret-up"></i>
-        <span class="expires"><!-- TODO --></span>
+        <% unless last_transaction_by_payment_method_id[payment_method.payment_method_id].nil? %>
+            <span class="expires">Last used: <%= format_date(last_transaction_by_payment_method_id[payment_method.payment_method_id].effective_date, account.time_zone) %></span>
+        <% end %>
       </div>
 
       <div class="toggle">

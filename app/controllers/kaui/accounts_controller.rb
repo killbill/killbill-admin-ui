@@ -78,6 +78,7 @@ class Kaui::AccountsController < Kaui::EngineController
     fetch_account_tags = promise { @account.tags(false, 'NONE', options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b } }
     fetch_account_fields = promise { @account.custom_fields('NONE', options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase } }
     fetch_account_emails = promise { Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', options_for_klient) }
+    fetch_payments = promise { @account.payments(options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_payment(payment) } }
     fetch_payment_methods = promise { Kaui::PaymentMethod.find_all_safely_by_account_id(@account.account_id, options_for_klient) }
     fetch_available_tags = promise { Kaui::TagDefinition.all_for_account(options_for_klient) }
 
@@ -87,6 +88,17 @@ class Kaui::AccountsController < Kaui::EngineController
     @account_emails = wait(fetch_account_emails)
     @payment_methods = wait(fetch_payment_methods)
     @available_tags = wait(fetch_available_tags)
+
+    @last_transaction_by_payment_method_id = {}
+    wait(fetch_payments).each do |payment|
+      transaction = payment.transactions.last
+      transaction_date = Date.parse(transaction.effective_date)
+
+      last_seen_transaction_date = @last_transaction_by_payment_method_id[payment.payment_method_id]
+      if last_seen_transaction_date.nil? || Date.parse(last_seen_transaction_date.effective_date) < transaction_date
+        @last_transaction_by_payment_method_id[payment.payment_method_id] = transaction
+      end
+    end
 
     params.permit!
   end
