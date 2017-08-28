@@ -22,5 +22,24 @@ module Kaui
     def truncate_millis(date_s)
       DateTime.parse(date_s).strftime('%FT%T')
     end
+
+    def current_time(timezone=nil)
+
+      # if no timezone is passed return the time as it
+      return Time.now if timezone.nil?
+
+      current_utc_time = nil
+      begin
+        # fetch time from killbill server
+        clock = Kaui::Admin.get_clock(timezone, Kaui.current_tenant_user_options(current_user, session))
+        current_utc_time = clock['currentUtcTime']
+      rescue KillBillClient::API::NotFound
+        # Failed to get current KB clock: Kill Bill server must be started with system property org.killbill.server.test.mode=true
+        # fetch it from time class
+        current_utc_time = Time.now.utc
+      end
+
+      DateTime.parse(current_utc_time.to_s).in_time_zone(timezone)
+    end
   end
 end

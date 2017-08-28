@@ -34,7 +34,7 @@ class Kaui::Bundle < KillBillClient::Model::Bundle
             latest_bundle     = b
           end
 
-          return b if s.cancelled_date.nil? || s.cancelled_date > Time.now
+          return b if s.cancelled_date.nil? || s.cancelled_date > current_time
         end
       end
     end

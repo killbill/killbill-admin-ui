@@ -100,7 +100,7 @@ module Kaui
         nil
       else
         cancelled_date = format_date(sub.cancelled_date, account.time_zone).html_safe
-        if Time.parse(sub.cancelled_date) > Time.now
+        if Time.parse(sub.cancelled_date) > current_time(account.time_zone)
           'Pending cancellation on ' + cancelled_date
         else
           'Canceled on ' + cancelled_date
@@ -131,7 +131,7 @@ module Kaui
 
 
     def is_subscription_future_cancelled?(sub)
-      sub.present? && sub.state != 'CANCELLED' && sub.billing_end_date.present? && Time.parse(sub.billing_end_date) > Time.now
+      sub.present? && sub.state != 'CANCELLED' && sub.billing_end_date.present? && Time.parse(sub.billing_end_date) > current_time
     end
 
     def is_subscription_cancelled?(sub)
