@@ -11,4 +11,12 @@ class Kaui::DateHelperTest < ActiveSupport::TestCase
   test 'can parse from date' do
     assert_equal '2012-07-01', format_date(Date.new(2012, 7, 1), 'Pacific Time (US & Canada)')
   end
+
+  test 'can remove milliseconds from date time' do
+    assert_equal '2012-07-01T12:55:44', truncate_millis('2012-07-01T12:55:44.611Z')
+  end
+
+  test 'can get current time depending of time zone' do
+    assert_equal (Date.today + 1).to_s, current_time('Pacific/Fiji').strftime('%F')
+  end
 end

@@ -23,23 +23,24 @@ module Kaui
       DateTime.parse(date_s).strftime('%FT%T')
     end
 
-    def current_time(timezone=nil)
+    def current_time(time_zone=nil)
+      time_zone = @account.time_zone unless @account.nil? || time_zone.nil?
 
-      # if no timezone is passed return the time as it
-      return Time.now if timezone.nil?
+      # if time zone is not found return the time as is
+      return Time.now if time_zone.nil?
 
       current_utc_time = nil
       begin
         # fetch time from killbill server
-        clock = Kaui::Admin.get_clock(timezone, Kaui.current_tenant_user_options(current_user, session))
+        clock = Kaui::Admin.get_clock(time_zone, Kaui.current_tenant_user_options(current_user, session))
         current_utc_time = clock['currentUtcTime']
-      rescue KillBillClient::API::NotFound
+      rescue
         # Failed to get current KB clock: Kill Bill server must be started with system property org.killbill.server.test.mode=true
         # fetch it from time class
         current_utc_time = Time.now.utc
       end
 
-      DateTime.parse(current_utc_time.to_s).in_time_zone(timezone)
+      DateTime.parse(current_utc_time.to_s).in_time_zone(time_zone)
     end
   end
 end
