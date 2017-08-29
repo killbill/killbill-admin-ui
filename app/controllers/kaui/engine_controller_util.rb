@@ -51,14 +51,31 @@ module Kaui::EngineControllerUtil
     end
   end
 
-  def promise(&block)
-    Concurrent::Promise.execute(&block)
+  def promise(execute = true, &block)
+    promise = Concurrent::Promise.new({:executor => Kaui.thread_pool}, &block)
+    promise.execute if execute
+    promise
   end
 
   def wait(promise)
-    value = promise.value
+    # If already executed, no-op
+    promise.execute
+
+    # Make sure to set a timeout to avoid infinite wait
+    value = promise.value!(60)
     raise promise.reason unless promise.reason.nil?
+    if value.nil? && promise.state != :fulfilled
+      Rails.logger.warn("Unable to run promise #{promise_as_string(promise)}")
+      raise Timeout::Error
+    end
     value
+  end
+
+  def promise_as_string(promise)
+    return 'nil' if promise.nil?
+    executor = promise.instance_variable_get('@executor')
+    executor_as_string = "queue_length=#{executor.queue_length}, pool_size=#{executor.length}"
+    "#{promise.instance_variable_get('@promise_body')}[state=#{promise.state}, parent=#{promise_as_string(promise.instance_variable_get('@parent'))}, executor=[#{executor_as_string}]]"
   end
 
   # Used to format flash error messages
