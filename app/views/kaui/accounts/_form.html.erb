@@ -10,9 +10,12 @@
     </div>
     <div class="form-group">
       <%= f.label :first_name_length, :class => 'col-sm-3 control-label' do %>
-          First name length<%= link_to '*', 'https://www.w3.org/International/questions/qa-personal-names',target: '_blank', rel: 'nofollow' %>
+          First name length
+          <%= link_to('https://www.w3.org/International/questions/qa-personal-names',target: '_blank', rel: 'nofollow') do %>
+              <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+          <% end %>
       <% end %>
-          <div class="col-sm-9">
+      <div class="col-sm-9">
         <%= f.text_field :first_name_length,
                          :pattern => '^[0-9]*$',
                          :title => 'Format: Can only contain digits; Description: Identify where the first name ends and last name starts.',
