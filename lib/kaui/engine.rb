@@ -29,10 +29,12 @@ module Kaui
         helper Kaui::Engine.helpers
       end
 
-      Kaui.thread_pool = Concurrent::ThreadPoolExecutor.new(min_threads: 5,
-                                                            max_threads: 20,
-                                                            max_queue: 100,
-                                                            fallback_policy: :caller_runs)
+      Kaui.thread_pool = Concurrent::ThreadPoolExecutor.new(min_threads: 10,
+                                                            max_threads: 50,
+                                                            idletime: 60,
+                                                            max_queue: 5000,
+                                                            # Explicitly throw an exception (:caller_runs can introduce weird deadlocks with Promise)
+                                                            fallback_policy: :abort)
     end
   end
 end

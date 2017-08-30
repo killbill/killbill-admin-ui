@@ -71,22 +71,41 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def show
-    # Re-fetch the account with balance and CBA
-    @account = Kaui::Account::find_by_id_or_key(params.require(:account_id), true, true, options_for_klient)
+    # Go to the database once
+    cached_options_for_klient = options_for_klient
 
-    fetch_overdue_state = promise { @account.overdue(options_for_klient) }
-    fetch_account_tags = promise { @account.tags(false, 'NONE', options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b } }
-    fetch_account_fields = promise { @account.custom_fields('NONE', options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase } }
-    fetch_account_emails = promise { Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', options_for_klient) }
-    fetch_payments = promise { @account.payments(options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_payment(payment) } }
-    fetch_payment_methods = promise { Kaui::PaymentMethod.find_all_safely_by_account_id(@account.account_id, options_for_klient) }
-    fetch_available_tags = promise { Kaui::TagDefinition.all_for_account(options_for_klient) }
+    # Re-fetch the account with balance and CBA
+    @account = Kaui::Account::find_by_id_or_key(params.require(:account_id), true, true, cached_options_for_klient)
+
+    fetch_overdue_state = promise { @account.overdue(cached_options_for_klient) }
+    fetch_account_tags = promise { @account.tags(false, 'NONE', cached_options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b } }
+    fetch_account_fields = promise { @account.custom_fields('NONE', cached_options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase } }
+    fetch_account_emails = promise { Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', cached_options_for_klient) }
+    fetch_payments = promise { @account.payments(cached_options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_payment(payment) } }
+    fetch_payment_methods = promise(false) { Kaui::PaymentMethod.find_all_by_account_id(@account.account_id, false, cached_options_for_klient) }
+    fetch_payment_methods_with_details = fetch_payment_methods.then do |pms|
+      ops = []
+      pms.each do |pm|
+        ops << promise(false) {
+          begin
+            Kaui::PaymentMethod.find_by_id(pm.payment_method_id, true, cached_options_for_klient)
+          rescue => e
+            # Maybe the plugin is not registered or the plugin threw an exception
+            Rails.logger.warn(e)
+            nil
+          end
+        }
+      end
+      ops
+    end
+    fetch_available_tags = promise { Kaui::TagDefinition.all_for_account(cached_options_for_klient) }
 
     @overdue_state = wait(fetch_overdue_state)
     @tags = wait(fetch_account_tags)
     @custom_fields = wait(fetch_account_fields)
     @account_emails = wait(fetch_account_emails)
-    @payment_methods = wait(fetch_payment_methods)
+    wait(fetch_payment_methods)
+    @payment_methods = wait(fetch_payment_methods_with_details).map { |pm_f| pm_f.execute }.map { |pm_f| wait(pm_f) }.reject { |pm| pm.nil? }
     @available_tags = wait(fetch_available_tags)
 
     @last_transaction_by_payment_method_id = {}
