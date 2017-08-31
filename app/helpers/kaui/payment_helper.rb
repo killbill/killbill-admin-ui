@@ -23,7 +23,10 @@ module Kaui
       template = Kaui.gateways_urls[payment_method.plugin_name]
       return nil if template.nil?
 
-      template.gsub('FIRST_PAYMENT_REFERENCE_ID', payment.transactions.first.first_payment_reference_id)
+      first_payment_reference_id = payment.transactions.first.first_payment_reference_id
+      return nil if first_payment_reference_id.nil?
+
+      template.gsub('FIRST_PAYMENT_REFERENCE_ID', first_payment_reference_id)
     end
   end
 end
