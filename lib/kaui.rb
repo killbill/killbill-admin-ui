@@ -101,6 +101,7 @@ module Kaui
   # Default URLs
   self.gateways_urls = {
       'killbill-adyen' => 'https://ca-test.adyen.com/ca/ca/accounts/showTx.shtml?txType=Payment&pspReference=FIRST_PAYMENT_REFERENCE_ID',
+      'killbill-cybersource' => 'https://ebctest.cybersource.com/ebctest/transactionsearch/TransactionSearchDetailsLoad.do?requestId=FIRST_PAYMENT_REFERENCE_ID',
       'killbill-stripe' => 'https://dashboard.stripe.com/test/payments/FIRST_PAYMENT_REFERENCE_ID'
   }
 
