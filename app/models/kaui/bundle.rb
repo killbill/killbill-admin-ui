@@ -20,7 +20,7 @@ class Kaui::Bundle < KillBillClient::Model::Bundle
 
   private
 
-  def self.get_active_bundle_or_latest_created(bundles)
+  def self.get_active_bundle_or_latest_created(bundles, time_zone=nil)
     return nil if bundles.empty?
 
     latest_start_date = nil
@@ -34,7 +34,7 @@ class Kaui::Bundle < KillBillClient::Model::Bundle
             latest_bundle     = b
           end
 
-          return b if s.cancelled_date.nil? || s.cancelled_date > current_time
+          return b if s.cancelled_date.nil? || s.cancelled_date > ActionController::Base.helpers.current_time(time_zone)
         end
       end
     end

@@ -130,8 +130,8 @@ module Kaui
     end
 
 
-    def is_subscription_future_cancelled?(sub)
-      sub.present? && sub.state != 'CANCELLED' && sub.billing_end_date.present? && Time.parse(sub.billing_end_date) > current_time
+    def is_subscription_future_cancelled?(sub, account)
+      sub.present? && sub.state != 'CANCELLED' && sub.billing_end_date.present? && Time.parse(sub.billing_end_date) > current_time(account.time_zone)
     end
 
     def is_subscription_cancelled?(sub)
