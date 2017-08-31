@@ -74,7 +74,7 @@ class Kaui::EngineController < ApplicationController
 
   rescue_from(KillBillClient::API::ResponseError) do |killbill_exception|
     flash[:error] = "Error while communicating with the Kill Bill server: #{as_string(killbill_exception)}"
-    try_to_redirect_to_account_path = !(killbill_exception.is_a?(KillBillClient::API::NotFound) && params[:controller].ends_with?('accounts'))
+    try_to_redirect_to_account_path = !killbill_exception.is_a?(KillBillClient::API::Unauthorized) && !(killbill_exception.is_a?(KillBillClient::API::NotFound) && params[:controller].ends_with?('accounts'))
     perform_redirect_after_error try_to_redirect_to_account_path
   end
 
