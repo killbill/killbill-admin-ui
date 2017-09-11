@@ -18,6 +18,10 @@ module Kaui
       post :create, parameters
       assert_equal 'User was successfully configured', flash[:notice]
       assert_response 302
+
+      # validate redirect path
+      id = get_allowed_id @response.body
+      assert_equal "/kaui/admin_allowed_users/#{id}", URI(@response.get_header('Location')).path
     end
 
     test 'should get create' do
@@ -29,7 +33,10 @@ module Kaui
       post :create, parameters
       assert_equal 'User was successfully configured', flash[:notice]
       assert_response 302
-      allowed_user = assigns(:allowed_user)
+
+      # validate redirect path
+      id = get_allowed_id @response.body
+      assert_equal "/kaui/admin_allowed_users/#{id}", URI(@response.get_header('Location')).path
 
       # should return an error that the user already exists
       post :create, parameters
@@ -60,8 +67,8 @@ module Kaui
 
       get :edit, :id => au.id
 
-      allowed_user = assigns(:allowed_user)
-      assert_equal allowed_user.kb_username, au.kb_username
+      allowed_username = get_allowed_username @response.body
+      assert_equal allowed_username, au.kb_username
       assert_response :success
     end
 
@@ -75,24 +82,35 @@ module Kaui
       assert_equal 'User was successfully configured', flash[:notice]
       assert_response :redirect
 
-      au = assigns(:allowed_user)
+      # validate redirect path
+      id = get_allowed_id @response.body
+      assert_equal "/kaui/admin_allowed_users/#{id}", URI(@response.get_header('Location')).path
+
+
       parameters = {
-          :id => au.id,
+          :id => id,
           :allowed_user => { :description => 'An post-apocalyptic super hero' },
           :roles => 'one,two'
       }
 
       put :update, parameters
-
-      allowed_user = assigns(:allowed_user)
-      assert_equal parameters[:allowed_user][:description], allowed_user.description
       assert_equal 'User was successfully updated', flash[:notice]
       assert_response :redirect
+      # validate redirect path
+      assert_equal "/kaui/admin_allowed_users/#{id}", URI(@response.get_header('Location')).path
+
+      # get the user to verify that the data was actually updated
+      get :edit, :id => id
+      description = get_allowed_description @response.body
+      assert_response :success
+      assert_equal parameters[:allowed_user][:description], description
 
       # delete created user
-      delete :destroy, :id => au.id
+      delete :destroy, :id => id
       assert_equal 'User was successfully deleted', flash[:notice]
       assert_response :redirect
+      # validate redirect path
+      assert_equal '/kaui/admin_allowed_users', URI(@response.get_header('Location')).path
     end
 
     test 'should delete allowed user' do
@@ -104,16 +122,22 @@ module Kaui
       post :create, parameters
       assert_equal 'User was successfully configured', flash[:notice]
       assert_response :redirect
-      au = assigns(:allowed_user)
+      id = get_allowed_id @response.body
+      # validate redirect path
+      assert_equal "/kaui/admin_allowed_users/#{id}", URI(@response.get_header('Location')).path
 
-      delete :destroy, :id => au.id
+      delete :destroy, :id => id
       assert_equal 'User was successfully deleted', flash[:notice]
       assert_response :redirect
+      # validate redirect path
+      assert_equal '/kaui/admin_allowed_users', URI(@response.get_header('Location')).path
 
       # should respond with an error if tried to delete again
-      delete :destroy, :id => au.id
-      assert_equal "Error: Couldn't find Kaui::AllowedUser with 'id'=#{au.id}", flash[:error]
+      delete :destroy, :id => id
+      assert_equal "Error: Couldn't find Kaui::AllowedUser with 'id'=#{id}", flash[:error]
       assert_response :redirect
+      # validate redirect path
+      assert_equal '/kaui/home', URI(@response.get_header('Location')).path
     end
 
     test 'should add tenant' do
@@ -129,6 +153,30 @@ module Kaui
       put :add_tenant, :allowed_user => allowed_user, :tenant_1 => nil
       assert_equal 'Successfully set tenants for user', flash[:notice]
       assert_response :redirect
+      # validate redirect path
+      assert_equal "/kaui/admin_allowed_users/#{au.id}", URI(@response.get_header('Location')).path
     end
+
+    private
+
+      def get_allowed_username(response_body)
+        fields = /<input.*type="text".*value="(?<value>.+)".*name=.allowed_user.kb_username...*>/.match(response_body)
+
+        fields[:value]
+      end
+
+      def get_allowed_description(response_body)
+        fields = /<input.*type="text".*value="(?<value>.+)".*name=.allowed_user.description...*>/.match(response_body)
+
+        fields[:value]
+      end
+
+      def get_allowed_id(response_body)
+        fields = /<form.*action="\/.*\/.*\/(?<id>.*)".accept-charset=.*method="post">/.match(response_body)
+        fields = /<a.href="http:\/.*\/.*\/(?<id>.*)">/.match(response_body) if fields.nil?
+
+        return nil if fields.nil?
+        fields[:id]
+      end
   end
 end
