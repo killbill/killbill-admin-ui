@@ -27,6 +27,9 @@
           <%= f.label :external_key, 'External key', :class => 'col-sm-3 control-label' %>
           <div class="col-sm-9">
             <%= f.text_field :external_key, :class => 'form-control' %>
+            <div class="account_external_key_invalid_msg text-danger">
+              Warning! External key already in use.
+            </div>
           </div>
         </div>
     <% else %>

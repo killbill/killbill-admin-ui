@@ -24,6 +24,7 @@ Kaui::Engine.routes.draw do
 
   scope '/accounts' do
     match '/pagination' => 'accounts#pagination', :via => :get, :as => 'accounts_pagination'
+    match '/validate_external_key' => 'accounts#validate_external_key', :via => :get, :as => 'accounts_validate_external_key'
 
     scope '/:account_id' do
       match '/next_invoice_date' => 'accounts#next_invoice_date', :via => :get, :as => 'next_invoice_date'
@@ -64,6 +65,9 @@ Kaui::Engine.routes.draw do
     resources :queues, :only => [:index]
   end
 
+  scope '/payment_methods' do
+    match '/validate_external_key' => 'payment_methods#validate_external_key', :via => :get, :as => 'payment_methods_validate_external_key'
+  end
   resources :payment_methods, :only => [:new, :create, :show, :destroy]
 
   scope '/invoices' do
