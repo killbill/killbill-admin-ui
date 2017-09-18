@@ -22,7 +22,8 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
         :bundle_id => @bundle.bundle_id,
         :account_id => @account.account_id,
         :product_category => 'ADD_ON'
-    assert assigns(:plans).size > 0, 'Plans were not created'
+    assert_redirected_to account_bundles_path(@bundle.subscriptions.first.account_id)
+    assert_equal 'No available add-on for product Sports', flash[:error]
   end
 
   test 'should handle errors during creation' do
@@ -131,5 +132,32 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
 
     put :reinstate, :id => @bundle.subscriptions.first.subscription_id
     assert_response 302
+  end
+
+  test 'should get show' do
+    get :show, :id => @bundle.subscriptions.first.subscription_id
+    assert_redirected_to account_bundles_path(@bundle.subscriptions.first.account_id)
+  end
+
+  test 'should get edit bcd' do
+    get :edit_bcd, :id => @bundle.subscriptions.first.subscription_id
+    assert_response :success
+    assert_equal get_value_from_input_field('subscription_account_id'), @bundle.subscriptions.first.account_id
+    assert_equal get_value_from_input_field('subscription_bill_cycle_day_local'), @bundle.subscriptions.first.bill_cycle_day_local.to_s
+    assert_equal get_value_from_input_field('effective_from_date'), @bundle.subscriptions.first.billing_start_date
+  end
+
+  test 'should update bcd' do
+    parameters = {
+        :id => @bundle.subscriptions.first.subscription_id,
+        :subscription => { :account_id => @bundle.subscriptions.first.account_id,
+                           :bill_cycle_day_local =>	@bundle.subscriptions.first.bill_cycle_day_local
+        },
+        :effective_from_date => (Date.today >> 1).to_s
+    }
+
+    put :update_bcd, parameters
+    assert_redirected_to account_bundles_path(@bundle.subscriptions.first.account_id)
+    assert_equal 'Subscription BCD was successfully changed', flash[:notice]
   end
 end

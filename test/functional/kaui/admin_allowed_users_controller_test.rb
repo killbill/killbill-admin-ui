@@ -20,8 +20,8 @@ module Kaui
       assert_response 302
 
       # validate redirect path
-      id = get_allowed_id @response.body
-      assert_equal "/kaui/admin_allowed_users/#{id}", URI(@response.get_header('Location')).path
+      id = get_allowed_id(@response.body)
+      assert response_path.include?(expected_response_path(id)), "#{response_path} is expected to contain #{expected_response_path(id)}"
     end
 
     test 'should get create' do
@@ -35,8 +35,8 @@ module Kaui
       assert_response 302
 
       # validate redirect path
-      id = get_allowed_id @response.body
-      assert_equal "/kaui/admin_allowed_users/#{id}", URI(@response.get_header('Location')).path
+      id = get_allowed_id(@response.body)
+      assert response_path.include?(expected_response_path(id)), "#{response_path} is expected to contain #{expected_response_path(id)}"
 
       # should return an error that the user already exists
       post :create, parameters
@@ -67,7 +67,7 @@ module Kaui
 
       get :edit, :id => au.id
 
-      allowed_username = get_allowed_username @response.body
+      allowed_username = get_allowed_username
       assert_equal allowed_username, au.kb_username
       assert_response :success
     end
@@ -83,9 +83,8 @@ module Kaui
       assert_response :redirect
 
       # validate redirect path
-      id = get_allowed_id @response.body
-      assert_equal "/kaui/admin_allowed_users/#{id}", URI(@response.get_header('Location')).path
-
+      id = get_allowed_id(@response.body)
+      assert response_path.include?(expected_response_path(id)), "#{response_path} is expected to contain #{expected_response_path(id)}"
 
       parameters = {
           :id => id,
@@ -97,11 +96,11 @@ module Kaui
       assert_equal 'User was successfully updated', flash[:notice]
       assert_response :redirect
       # validate redirect path
-      assert_equal "/kaui/admin_allowed_users/#{id}", URI(@response.get_header('Location')).path
+      assert response_path.include?(expected_response_path(id)), "#{response_path} is expected to contain #{expected_response_path(id)}"
 
       # get the user to verify that the data was actually updated
       get :edit, :id => id
-      description = get_allowed_description @response.body
+      description = get_allowed_description
       assert_response :success
       assert_equal parameters[:allowed_user][:description], description
 
@@ -110,7 +109,7 @@ module Kaui
       assert_equal 'User was successfully deleted', flash[:notice]
       assert_response :redirect
       # validate redirect path
-      assert_equal '/kaui/admin_allowed_users', URI(@response.get_header('Location')).path
+      assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
     end
 
     test 'should delete allowed user' do
@@ -122,22 +121,22 @@ module Kaui
       post :create, parameters
       assert_equal 'User was successfully configured', flash[:notice]
       assert_response :redirect
-      id = get_allowed_id @response.body
+      id = get_allowed_id(@response.body)
       # validate redirect path
-      assert_equal "/kaui/admin_allowed_users/#{id}", URI(@response.get_header('Location')).path
+      assert response_path.include?(expected_response_path(id)), "#{response_path} is expected to contain #{expected_response_path(id)}"
 
       delete :destroy, :id => id
       assert_equal 'User was successfully deleted', flash[:notice]
       assert_response :redirect
       # validate redirect path
-      assert_equal '/kaui/admin_allowed_users', URI(@response.get_header('Location')).path
+      assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
 
       # should respond with an error if tried to delete again
       delete :destroy, :id => id
       assert_equal "Error: Couldn't find Kaui::AllowedUser with 'id'=#{id}", flash[:error]
       assert_response :redirect
       # validate redirect path
-      assert_equal '/kaui/home', URI(@response.get_header('Location')).path
+      assert response_path.include?('/kaui/home'), "#{response_path} is expected to contain '/kaui/home'"
     end
 
     test 'should add tenant' do
@@ -154,29 +153,29 @@ module Kaui
       assert_equal 'Successfully set tenants for user', flash[:notice]
       assert_response :redirect
       # validate redirect path
-      assert_equal "/kaui/admin_allowed_users/#{au.id}", URI(@response.get_header('Location')).path
+      assert response_path.include?(expected_response_path(au.id)), "#{response_path} is expected to contain #{expected_response_path(au.id)}"
     end
 
     private
-
-      def get_allowed_username(response_body)
-        fields = /<input.*type="text".*value="(?<value>.+)".*name=.allowed_user.kb_username...*>/.match(response_body)
-
-        fields[:value]
+      def expected_response_path(id=nil)
+        "/kaui/admin_allowed_users#{id.nil? ? '' : "/#{id}" }"
       end
 
-      def get_allowed_description(response_body)
-        fields = /<input.*type="text".*value="(?<value>.+)".*name=.allowed_user.description...*>/.match(response_body)
+      def get_allowed_username
+        get_value_from_input_field('allowed_user_kb_username')
+      end
 
-        fields[:value]
+      def get_allowed_description
+        get_value_from_input_field('allowed_user_description')
       end
 
       def get_allowed_id(response_body)
-        fields = /<form.*action="\/.*\/.*\/(?<id>.*)".accept-charset=.*method="post">/.match(response_body)
-        fields = /<a.href="http:\/.*\/.*\/(?<id>.*)">/.match(response_body) if fields.nil?
+        fields = /<form.*action="\/.*\/.*\/(?<id>.*?)".accept-charset=.*method="post">/.match(response_body)
+        fields = /<a.href="http:\/.*\/.*\/(?<id>.*?)">/.match(response_body) if fields.nil?
 
-        return nil if fields.nil?
-        fields[:id]
+        fields.nil? ? nil : fields[:id]
       end
+
+
   end
 end
