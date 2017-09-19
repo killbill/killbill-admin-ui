@@ -82,6 +82,32 @@ class Kaui::BundlesControllerTest < Kaui::FunctionalTestHelper
     assert_redirected_to account_bundles_path(@bundle.account_id)
   end
 
+  test 'should get pause_resume ' do
+    get :pause_resume, :id => @bundle.bundle_id
+    assert_response :success
+    assert has_input_field('pause_requested_date')
+    assert has_input_field('resume_requested_date')
+  end
+
+  test 'should put bundle on pause and resume' do
+    expected_response_path = "/accounts/#{@account.account_id}/bundles"
+
+    # put bundle on pause
+    put :do_pause_resume, :id => @bundle.bundle_id,:account_id => @account.account_id, :pause_requested_date => DateTime.now.strftime('%F')
+    assert_response :redirect
+    assert_equal 'Bundle was successfully paused', flash[:notice]
+    # validate redirect path
+    assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
+
+    # resume bundle on pause
+    put :do_pause_resume, :id => @bundle.bundle_id,:account_id => @account.account_id, :resume_requested_date => DateTime.now.strftime('%F')
+    assert_response :redirect
+    assert_equal 'Bundle was successfully resumed', flash[:notice]
+    # validate redirect path
+    assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
+
+  end
+
   private
 
   def create_tag_definition(tag_definition_name, tenant, username = USERNAME, password = PASSWORD, reason = nil, comment = nil)

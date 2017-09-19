@@ -77,4 +77,12 @@ class Kaui::InvoicesControllerTest < Kaui::FunctionalTestHelper
     get :show_html, :id => @invoice_item.invoice_id
     assert_response 200
   end
+
+  test 'should commit invoice' do
+    invoice_id = create_charge(@account, @tenant).invoice_id
+
+    post :commit_invoice, :id => invoice_id
+    assert_redirected_to account_invoice_path(@account.account_id, invoice_id)
+    assert_equal 'Invoice successfully committed', flash[:notice]
+  end
 end

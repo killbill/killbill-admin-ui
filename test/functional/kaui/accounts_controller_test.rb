@@ -7,6 +7,26 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     assert_response 200
   end
 
+  test 'should get index one account' do
+    parameters = {
+      :fast => '1',
+      :q => @account.account_id
+    }
+
+    get :index, parameters
+    assert_response :redirect
+    assert_redirected_to account_path(@account.account_id)
+
+    parameters = {
+        :fast => '1',
+        :q => 'THIS_IS_NOT_FOUND_REDIRECT'
+    }
+
+    get :index, parameters
+    assert_response :redirect
+    assert_redirected_to home_path
+  end
+
   test 'should list accounts' do
     # Test pagination
     get :pagination, :format => :json
@@ -129,4 +149,40 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     post :pay_all_invoices, :account_id => @account.account_id, :is_external_payment => true
     assert_response 302
   end
+
+  test 'should trigger invoice' do
+    parameters = {
+      :account_id => @account2.account_id,
+      :dry_run => '0'
+    }
+
+    post :trigger_invoice, parameters
+    assert_equal 'Nothing to generate for target date today', flash[:notice]
+    assert_redirected_to account_path(@account2.account_id)
+
+    today_next_month = (Date.today >> 1).to_s
+    # generate a dry run invoice
+    parameters = {
+      :account_id => @account.account_id,
+      :dry_run => '1',
+      :target_date => today_next_month
+    }
+
+    post :trigger_invoice, parameters
+    assert_response :success
+
+    # persist it
+    parameters[:dry_run] = '0'
+    post :trigger_invoice, parameters
+    assert_response :redirect
+    assert_match /Generated invoice.*for target date.*/, flash[:notice]
+    a_tag = /<a.href="(?<href>.*?)">/.match(@response.body)
+    assert_redirected_to a_tag[:href]
+  end
+
+  test 'should get next_invoice_date' do
+    get :next_invoice_date, :account_id => @account.account_id
+    assert_equal @response.body.to_s.gsub('"',''), (Date.today >> 1).to_s
+  end
+
 end

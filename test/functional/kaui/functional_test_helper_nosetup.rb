@@ -45,6 +45,12 @@ class Kaui::FunctionalTestHelperNoSetup < ActionController::TestCase
     end
   end
 
+  def logout
+    wrap_with_controller do
+      post :destroy
+    end
+  end
+
   # Cheat to access a different controller
   def wrap_with_controller(new_controller = Kaui::SessionsController)
     old_controller = @controller
@@ -75,4 +81,36 @@ class Kaui::FunctionalTestHelperNoSetup < ActionController::TestCase
   def patch(action, **args)
     process(action, method: "PATCH", params: args)
   end
+
+  # response related methods
+  def response_path
+    return nil if @response.nil? || !@response.has_header?('Location')
+
+    URI(@response.get_header('Location')).path
+  end
+
+  def get_value_from_input_field(input_id_name)
+    return nil if input_id_name.nil? || @response.nil? || @response.body.nil?
+
+    #pattern where id/name is after the value
+    pattern_1 = Regexp.new('<input.*value="(?<value>.+?)".*(id=.'+input_id_name+'|name=.'+input_id_name+')..*>')
+
+    #pattern where id/name is before the value
+    pattern_2 = Regexp.new('<input.*(id=.'+input_id_name+'|name=.'+input_id_name+')..*value="(?<value>.+?)".*>')
+
+    input = pattern_1.match(@response.body)
+    input = pattern_2.match(@response.body) if input.nil?
+
+    input.nil? ? nil : input[:value]
+  end
+
+  def has_input_field(input_id_name)
+    return nil if input_id_name.nil? || @response.nil? || @response.body.nil?
+
+    pattern = Regexp.new('<input.*(id=.'+input_id_name+'|name=.'+input_id_name+')..*>')
+    input = pattern.match(@response.body)
+
+    !input.nil?
+  end
+
 end
