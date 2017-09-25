@@ -132,4 +132,15 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
     put :reinstate, :id => @bundle.subscriptions.first.subscription_id
     assert_response 302
   end
+
+  test'should validate external key if found' do
+    get :validate_external_key, :external_key => 'foo'
+    assert_response :success
+    assert_equal JSON[@response.body]['is_found'], false
+
+    get :validate_external_key, :external_key => @bundle.subscriptions.first.external_key
+    assert_response :success
+    assert_equal JSON[@response.body]['is_found'], true
+  end
+
 end

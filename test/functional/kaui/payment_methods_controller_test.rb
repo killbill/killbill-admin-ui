@@ -26,4 +26,14 @@ class Kaui::PaymentMethodsControllerTest < Kaui::FunctionalTestHelper
     delete :destroy, :id => @payment_method.payment_method_id, :set_auto_pay_off => true
     assert_response 302
   end
+
+  test'should validate external key if found' do
+    get :validate_external_key, :external_key => 'foo'
+    assert_response :success
+    assert_equal JSON[@response.body]['is_found'], false
+
+    get :validate_external_key, :external_key => @payment_method.external_key
+    assert_response :success
+    assert_equal JSON[@response.body]['is_found'], true
+  end
 end

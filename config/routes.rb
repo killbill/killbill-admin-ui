@@ -100,12 +100,13 @@ Kaui::Engine.routes.draw do
     match '/:id' => 'bundles#restful_show', :via => :get, :as => 'bundle'
   end
 
-  resources :subscriptions, :only => [:new, :create, :show, :edit, :update, :destroy]
   scope '/subscriptions' do
     match '/:id/edit_bcd' => 'subscriptions#edit_bcd', :via => :get, :as => 'edit_bcd'
     match '/:id/update_bcd' => 'subscriptions#update_bcd', :via => :put, :as => 'update_bcd'
     match '/:id/reinstate' => 'subscriptions#reinstate', :via => :put, :as => 'reinstate'
+    match '/validate_external_key' => 'subscriptions#validate_external_key', :via => :get, :as => 'subscriptions_validate_external_key'
   end
+  resources :subscriptions, :only => [:new, :create, :show, :edit, :update, :destroy]
 
   scope '/tags' do
     match '/pagination' => 'tags#pagination', :via => :get, :as => 'tags_pagination'

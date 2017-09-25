@@ -207,13 +207,7 @@ class Kaui::AccountsController < Kaui::EngineController
     rescue KillBillClient::API::NotFound
       account = nil
     end
-
-    respond_to do |format|
-      format.json do
-        render :json => {
-            :is_found => !account.nil?}
-      end
-    end
+    render json: {:is_found => !account.nil?}
 
   end
 end

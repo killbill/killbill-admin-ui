@@ -79,23 +79,12 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
     external_key = params.require(:external_key)
 
     begin
-      payment_methods = Kaui::PaymentMethod::find_in_batches_by_search_key(external_key, 0, 100, options_for_klient)
+      payment_methods = Kaui::PaymentMethod::find_by_external_key(external_key,nil,false,false,'NONE', options_for_klient)
     rescue KillBillClient::API::NotFound
       payment_methods = nil
     end
 
-    is_found = false
-    payment_methods.each do |payment_method|
-      is_found |= payment_method.external_key.eql?(external_key)
-    end
-
-    respond_to do |format|
-      format.json do
-        render :json => {
-            :is_found => is_found
-        }
-      end
-    end
+    render json: {:is_found => !payment_methods.nil?}
 
   end
 

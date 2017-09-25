@@ -125,6 +125,19 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     redirect_to kaui_engine.account_bundles_path(subscription.account_id)
   end
 
+  def validate_external_key
+    external_key = params.require(:external_key)
+
+    begin
+      bundle = Kaui::Bundle.find_by_external_key(external_key, false, options_for_klient)
+    rescue KillBillClient::API::NotFound
+      bundle = nil
+    end
+
+    render json: {:is_found => !bundle.nil?}
+
+  end
+
   private
 
   def lookup_bundle_and_plan_details(subscription, base_product_name = nil)
