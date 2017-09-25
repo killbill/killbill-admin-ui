@@ -22,8 +22,7 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
         :bundle_id => @bundle.bundle_id,
         :account_id => @account.account_id,
         :product_category => 'ADD_ON'
-    assert_redirected_to account_bundles_path(@bundle.subscriptions.first.account_id)
-    assert_equal 'No available add-on for product Sports', flash[:error]
+    assert assigns(:plans).size > 0, 'Plans were not created'
   end
 
   test 'should handle errors during creation' do

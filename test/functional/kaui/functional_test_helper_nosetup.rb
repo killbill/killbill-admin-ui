@@ -22,9 +22,13 @@ class Kaui::FunctionalTestHelperNoSetup < ActionController::TestCase
     login_as_admin
     # Set the tenant parameter in the session manually since  login_as_admin will erase the previous value
     session[:kb_tenant_id] = created_tenant.tenant_id
+
+    # get the killbill server clock
+    @kb_clock = get_clock(@tenant)
   end
 
   def teardown_functional_test
+    reset_clock
   end
 
   def verify_pagination_results!(min = 0)

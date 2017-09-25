@@ -66,20 +66,20 @@ class Kaui::TransactionsControllerTest < Kaui::FunctionalTestHelper
   end
 
   test 'should fix transaction state' do
+    payment = create_payment(nil,nil,@tenant)
     parameters = {
-      :account_id => @account.account_id,
+      :account_id => payment.account_id,
       :transaction => {
-        :payment_id => @payment.payment_id,
-        :transaction_id => @payment.transactions[0].transaction_id,
+        :payment_id => payment.payment_id,
+        :transaction_id => payment.transactions[0].transaction_id,
         :status => 'PENDING'
       }
     }
 
     put :fix_transaction_state, parameters
     assert_response :redirect
-    expected_response_path = "/accounts/#{@payment.account_id}/payments/#{@payment.payment_id}"
+    assert_redirected_to account_payment_path(payment.account_id,payment.payment_id)
     assert_equal "Transaction successfully transitioned to #{parameters[:transaction][:status]}", flash[:notice]
-    assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
   end
 
   private
