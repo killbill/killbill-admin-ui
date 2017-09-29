@@ -2,6 +2,19 @@ require 'test_helper'
 
 class Kaui::PaymentMethodsControllerTest < Kaui::FunctionalTestHelper
 
+  test 'should get new' do
+    get :new, :account_id => @account2.account_id
+    assert_response :success
+    assert_equal get_value_from_input_field('payment_method_plugin_name'), '__EXTERNAL_PAYMENT__'
+    assert_equal get_value_from_input_field('payment_method_account_id'), @account2.account_id
+  end
+
+  test 'should get show' do
+    get :show, :id => @payment_method.payment_method_id
+    assert_response :redirect
+    assert_redirected_to account_path(@payment_method.account_id)
+  end
+
   test 'should create payment methods' do
     post :create,
          :payment_method     => {
