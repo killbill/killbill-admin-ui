@@ -160,7 +160,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     assert_equal 'Nothing to generate for target date today', flash[:notice]
     assert_redirected_to account_path(@account2.account_id)
 
-    today_next_month = (Date.today >> 1).to_s
+    today_next_month = (Date.parse(@kb_clock['localDate']) >> 1).to_s
     # generate a dry run invoice
     parameters = {
       :account_id => @account.account_id,
@@ -182,7 +182,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
 
   test 'should get next_invoice_date' do
     get :next_invoice_date, :account_id => @account.account_id
-    assert_equal @response.body.to_s.gsub('"',''), (Date.today >> 1).to_s
+    assert_equal @response.body.to_s.gsub('"',''), (Date.parse(@kb_clock['localDate']) >> 1).to_s
   end
 
 end

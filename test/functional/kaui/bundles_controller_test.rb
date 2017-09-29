@@ -91,16 +91,17 @@ class Kaui::BundlesControllerTest < Kaui::FunctionalTestHelper
 
   test 'should put bundle on pause and resume' do
     expected_response_path = "/accounts/#{@account.account_id}/bundles"
+    bundle = create_bundle(@account, @tenant)
 
     # put bundle on pause
-    put :do_pause_resume, :id => @bundle.bundle_id,:account_id => @account.account_id, :pause_requested_date => DateTime.now.strftime('%F')
+    put :do_pause_resume, :id => bundle.bundle_id,:account_id => @account.account_id, :pause_requested_date => DateTime.now.strftime('%F')
     assert_response :redirect
     assert_equal 'Bundle was successfully paused', flash[:notice]
     # validate redirect path
     assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
 
     # resume bundle on pause
-    put :do_pause_resume, :id => @bundle.bundle_id,:account_id => @account.account_id, :resume_requested_date => DateTime.now.strftime('%F')
+    put :do_pause_resume, :id => bundle.bundle_id,:account_id => @account.account_id, :resume_requested_date => DateTime.now.strftime('%F')
     assert_response :redirect
     assert_equal 'Bundle was successfully resumed', flash[:notice]
     # validate redirect path

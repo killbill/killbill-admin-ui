@@ -104,6 +104,17 @@ module Kaui
       account.create(user, reason, comment, build_options(tenant, username, password))
     end
 
+    # Return the killbill server clock
+    def get_clock(tenant = nil)
+      tenant  = create_tenant(user, reason, comment) if tenant.nil?
+      Kaui::Admin.get_clock(nil, build_options(tenant, USERNAME, PASSWORD))
+    end
+
+    # reset killbill server clock
+    def reset_clock
+      Kaui::Admin.set_clock(nil, nil, build_options(@tenant, USERNAME, PASSWORD))
+    end
+
     # Return the created bundle
     def create_bundle(account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
       tenant  = create_tenant(user, reason, comment) if tenant.nil?
