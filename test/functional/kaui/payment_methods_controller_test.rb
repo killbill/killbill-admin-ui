@@ -40,7 +40,7 @@ class Kaui::PaymentMethodsControllerTest < Kaui::FunctionalTestHelper
     assert_response 302
   end
 
-  test'should validate external key if found' do
+  test 'should validate external key if found' do
     get :validate_external_key, :external_key => 'foo'
     assert_response :success
     assert_equal JSON[@response.body]['is_found'], false

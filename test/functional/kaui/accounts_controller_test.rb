@@ -185,7 +185,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     assert_equal @response.body.to_s.gsub('"',''), (Date.today >> 1).to_s
   end
 
-  test'should validate external key if found' do
+  test 'should validate external key if found' do
     get :validate_external_key, :external_key => 'foo'
     assert_response :success
     assert_equal JSON[@response.body]['is_found'], false
