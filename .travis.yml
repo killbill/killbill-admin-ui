@@ -36,7 +36,7 @@ rvm:
 
 matrix:
   exclude:
-    - rvm: 2.4.0
+    - rvm: 2.4.2
       env: DB_ADAPTER=mariadb DB_USER='root' DB_PORT=3306
     - rvm: ruby-head
       env: DB_ADAPTER=mariadb DB_USER='root' DB_PORT=3306
