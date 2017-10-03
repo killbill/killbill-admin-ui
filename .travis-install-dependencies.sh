@@ -53,6 +53,7 @@ org.killbill.dao.password=
 org.killbill.billing.osgi.dao.user=$DB_USER
 org.killbill.billing.osgi.dao.password=
 org.killbill.catalog.uri=SpyCarAdvanced.xml
+org.killbill.server.test.mode=true
 EOS
 
 ./bin/catalina.sh start

@@ -147,16 +147,17 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
   end
 
   test 'should update bcd' do
+    bundle = create_bundle(@account, @tenant)
     parameters = {
-        :id => @bundle.subscriptions.first.subscription_id,
-        :subscription => { :account_id => @bundle.subscriptions.first.account_id,
-                           :bill_cycle_day_local =>	@bundle.subscriptions.first.bill_cycle_day_local
+        :id => bundle.subscriptions.first.subscription_id,
+        :subscription => { :account_id => bundle.subscriptions.first.account_id,
+                           :bill_cycle_day_local =>	bundle.subscriptions.first.bill_cycle_day_local
         },
         :effective_from_date => (Date.today >> 1).to_s
     }
 
     put :update_bcd, parameters
-    assert_redirected_to account_bundles_path(@bundle.subscriptions.first.account_id)
+    assert_redirected_to account_bundles_path(bundle.subscriptions.first.account_id)
     assert_equal 'Subscription BCD was successfully changed', flash[:notice]
   end
 end
