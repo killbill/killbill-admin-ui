@@ -79,7 +79,7 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
     external_key = params.require(:external_key)
 
     begin
-      payment_methods = Kaui::PaymentMethod::find_by_external_key(external_key,nil,false,false,'NONE', options_for_klient)
+      payment_methods = Kaui::PaymentMethod::find_by_external_key(external_key,false,false,'NONE', options_for_klient)
     rescue KillBillClient::API::NotFound
       payment_methods = nil
     end
