@@ -186,4 +186,29 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     assert_equal @response.body.to_s.gsub('"',''), Date.new(next_month.year, next_month.month, @bundle.subscriptions.first.bill_cycle_day_local).to_s
   end
 
+  test 'should validate external key if found' do
+    get :validate_external_key, :external_key => 'foo'
+    assert_response :success
+    assert_equal JSON[@response.body]['is_found'], false
+
+    external_key = SecureRandom.uuid.to_s
+    post :create, :account => {:external_key => external_key}
+    assert_redirected_to account_path(get_redirected_account_id)
+
+    get :validate_external_key, :external_key => external_key
+    assert_response :success
+    assert_equal JSON[@response.body]['is_found'], true
+  end
+
+  private
+
+    def get_redirected_account_id
+
+      fields = /<a.href="http:\/.*\/.*?\/(?<id>.*?)">/.match(@response.body) if fields.nil?
+
+      return nil if fields.nil?
+
+      fields.nil? ? nil : fields[:id]
+    end
+
 end

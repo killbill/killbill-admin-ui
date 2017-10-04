@@ -41,5 +41,6 @@ matrix:
     - rvm: ruby-head
       env: DB_ADAPTER=mariadb DB_USER='root' DB_PORT=3306
   allow_failures:
+    - rvm: jruby-9.1.12.0
     - rvm: ruby-head
     - rvm: jruby-head
