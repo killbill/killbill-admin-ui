@@ -161,11 +161,11 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_key] = @tenant.api_key
     options[:api_secret] = @tenant.api_secret
 
-    catalogs = Kaui::Catalog::get_catalog_json(false, options)
+    catalog = Kaui::Catalog::get_catalog_json(true, options)
 
     # seek if plan id exists
-    catalogs.each do |catalog|
-      catalog[:plans].each { |plan| is_plan_id_found |= plan.plan_id == plan_id }
+    catalog.products.each do |product|
+      product.plans.each { |plan| is_plan_id_found |= plan.name == plan_id }
       break if is_plan_id_found
     end
 
