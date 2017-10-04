@@ -108,11 +108,27 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
 
   test 'should get new plan currency' do
     tenant = create_kaui_tenant
-    plain_id = 'sailboat12345678910'
 
-    get :new_plan_currency, :id => tenant.id, :plan_id => plain_id
+    # retrieve plan id from catalog xml
+    catalog_xml = File.open(File.join(self.class.fixture_path, 'catalog-v1.xml'),'r'){|io| io.read}
+    doc = Nokogiri::XML(catalog_xml)
+    plan_id = doc.css('plan').first['name']
+
+    # upload catalog first
+    post :upload_catalog, :id => tenant.id, :catalog => fixture_file_upload('catalog-v1.xml')
+    assert_redirected_to admin_tenant_path(tenant.id)
+    assert_equal 'Catalog was successfully uploaded', flash[:notice]
+
+    get :new_plan_currency, :id => tenant.id, :plan_id => plan_id
     assert_response :success
-    assert_equal get_value_from_input_field('simple_plan_plan_id'), plain_id
+    assert_equal get_value_from_input_field('simple_plan_plan_id'), plan_id
+
+    # test for invalid plan id
+    get :new_plan_currency, :id => tenant.id, :plan_id => 'DUMMY'
+    assert_response :redirect
+    assert_redirected_to admin_tenant_path(tenant.id)
+    assert_equal flash[:error], 'Plan id DUMMY was not found.'
+
   end
 
   test 'should create and delete a catalog' do
