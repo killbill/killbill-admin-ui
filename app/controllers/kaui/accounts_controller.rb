@@ -198,4 +198,16 @@ class Kaui::AccountsController < Kaui::EngineController
 
     redirect_to account_path(payment.account_id), :notice => 'Successfully triggered a payment for all unpaid invoices'
   end
+
+  def validate_external_key
+    external_key = params.require(:external_key)
+
+    begin
+      account = Kaui::Account::find_by_external_key(external_key, false, false, options_for_klient)
+    rescue KillBillClient::API::NotFound
+      account = nil
+    end
+    render json: {:is_found => !account.nil?}
+
+  end
 end

@@ -75,6 +75,19 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
     redirect_to kaui_engine.account_path(payment_method.account_id)
   end
 
+  def validate_external_key
+    external_key = params.require(:external_key)
+
+    begin
+      payment_methods = Kaui::PaymentMethod::find_by_external_key(external_key,false,false,'NONE', options_for_klient)
+    rescue KillBillClient::API::NotFound
+      payment_methods = nil
+    end
+
+    render json: {:is_found => !payment_methods.nil?}
+
+  end
+
   private
 
   def find_value_from_properties(properties, key)
