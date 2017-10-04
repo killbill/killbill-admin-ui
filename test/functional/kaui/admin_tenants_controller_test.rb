@@ -173,7 +173,7 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     parameters = {
       :id => tenant.id,
       :kill_bill_client_model_overdue => {
-        :states => [{
+        :states => { '0' => {
           :name =>	'Overdue_test',
           :external_message => 'Overdue_Test_Ya',
           :block_changes =>	true,
@@ -183,7 +183,7 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
             :control_tag_inclusion =>	'NONE',
             :control_tag_exclusion =>	'NONE',
           }
-        }]
+        }}
       }
     }
 
