@@ -195,6 +195,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_secret] = current_tenant.api_secret
 
     view_form_model = params.require(:kill_bill_client_model_overdue).delete_if { |e, value| value.blank? }
+    view_form_model['states'] = view_form_model['states'].values unless view_form_model['states'].blank?
+
     overdue = Kaui::Overdue::from_overdue_form_model(view_form_model)
     overdue.upload_tenant_overdue_config_json(options[:username], nil, comment, options)
     redirect_to admin_tenant_path(current_tenant.id), :notice => 'Overdue config was successfully added '
