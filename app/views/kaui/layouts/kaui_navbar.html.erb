@@ -78,7 +78,10 @@
                     <li><%= link_to 'Sign Out', kaui_engine.destroy_user_session_path, :method => :delete %></li>
                 <% else %>
                     <li><%= link_to 'Login'.html_safe, kaui_engine.new_user_session_path %></li>
-                    <li><%= link_to 'Sign-up'.html_safe, kaui_engine.new_user_registration_path %></li>
+
+                    <% unless Kaui.disable_sign_up_link %>
+                      <li><%= link_to 'Sign-up'.html_safe, kaui_engine.new_user_registration_path %></li>
+                    <% end %>
                 <% end %>
               </ul>
             </nav>
