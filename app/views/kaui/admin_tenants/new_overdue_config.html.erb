@@ -29,7 +29,8 @@
 
           <% @overdue.overdue_states.reverse.each_with_index do |state, idx| %>
               <tr class="overdue_state_<%= state %>" id="tr_state_<%= idx %>">
-                <%= f.fields_for 'states[]', state do |state_form| %>
+                <%= f.fields 'states' do |state_form_group| %>
+                  <%= state_form_group.fields_for "#{idx}", state do |state_form| %>
                     <td><%= state_form.text_field :name %></td>
                     <td><%= state_form.text_field :external_message %></td>
                     <td><%= state_form.select :block_changes, options_for_select([true, false ], state.block_changes), :class => 'form-control'  %></td>
@@ -39,6 +40,7 @@
                         <td><%= condition.select :control_tag_inclusion, options_for_select([:NONE, :AUTO_PAY_OFF, :AUTO_INVOICING_OFF, :OVERDUE_ENFORCEMENT_OFF, :MANUAL_PAY, :TEST, :PARTNER], state.condition.control_tag_inclusion), :class => 'form-control'  %></td>
                         <td><%= condition.select :control_tag_exclusion, options_for_select([:NONE, :AUTO_PAY_OFF, :AUTO_INVOICING_OFF, :OVERDUE_ENFORCEMENT_OFF, :MANUAL_PAY, :TEST, :PARTNER], state.condition.control_tag_exclusion), :class => 'form-control'%></td>
                     <% end %>
+                  <% end %>
                 <% end %>
                 <td><a class='btn btn-xs' href="javascript:void(0);" onclick="overdue_delete_state(this);" id="delete_state_<%= idx %>"><%= '<i class="fa fa-times"></i>'.html_safe %></a></td>
               </tr>
@@ -107,7 +109,21 @@ function overdue_new_state() {
     row.attr('id', "tr_state_" + row_idx);
     row.children("td:last").children('a').attr('id', "delete_state_" + row_idx);
 
-    /* Attach rom into dom */
+    /* update the index on content */
+    row.find('td').each(function(){
+        $(this).contents().each(function(){
+
+          if ($(this).attr('name') != undefined){
+            $(this).attr('name',($(this).attr('name')).replace(max_idx,row_idx));
+          }
+
+          if ($(this).attr('id') != undefined){
+            $(this).attr('id',($(this).attr('id')).replace(max_idx,row_idx));
+          }
+        });
+    });
+
+    /* Attach row into dom */
     row.insertAfter('#existing-overdue-config-for-tenants tbody>tr:last');
 
     /* Also reset the disabled state */

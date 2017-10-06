@@ -24,6 +24,7 @@ Kaui::Engine.routes.draw do
 
   scope '/accounts' do
     match '/pagination' => 'accounts#pagination', :via => :get, :as => 'accounts_pagination'
+    match '/validate_external_key' => 'accounts#validate_external_key', :via => :get, :as => 'accounts_validate_external_key'
 
     scope '/:account_id' do
       match '/next_invoice_date' => 'accounts#next_invoice_date', :via => :get, :as => 'next_invoice_date'
@@ -64,6 +65,9 @@ Kaui::Engine.routes.draw do
     resources :queues, :only => [:index]
   end
 
+  scope '/payment_methods' do
+    match '/validate_external_key' => 'payment_methods#validate_external_key', :via => :get, :as => 'payment_methods_validate_external_key'
+  end
   resources :payment_methods, :only => [:new, :create, :show, :destroy]
 
   scope '/invoices' do
@@ -96,12 +100,13 @@ Kaui::Engine.routes.draw do
     match '/:id' => 'bundles#restful_show', :via => :get, :as => 'bundle'
   end
 
-  resources :subscriptions, :only => [:new, :create, :show, :edit, :update, :destroy]
   scope '/subscriptions' do
     match '/:id/edit_bcd' => 'subscriptions#edit_bcd', :via => :get, :as => 'edit_bcd'
     match '/:id/update_bcd' => 'subscriptions#update_bcd', :via => :put, :as => 'update_bcd'
     match '/:id/reinstate' => 'subscriptions#reinstate', :via => :put, :as => 'reinstate'
+    match '/validate_external_key' => 'subscriptions#validate_external_key', :via => :get, :as => 'subscriptions_validate_external_key'
   end
+  resources :subscriptions, :only => [:new, :create, :show, :edit, :update, :destroy]
 
   scope '/tags' do
     match '/pagination' => 'tags#pagination', :via => :get, :as => 'tags_pagination'
