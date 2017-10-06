@@ -153,6 +153,27 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
   def new_plan_currency
     @tenant = safely_find_tenant_by_id(params[:id])
+
+    is_plan_id_found = false
+    plan_id = params[:plan_id]
+
+    options = tenant_options_for_client
+    options[:api_key] = @tenant.api_key
+    options[:api_secret] = @tenant.api_secret
+
+    catalog = Kaui::Catalog::get_catalog_json(true, options)
+
+    # seek if plan id exists
+    catalog.products.each do |product|
+      product.plans.each { |plan| is_plan_id_found |= plan.name == plan_id }
+      break if is_plan_id_found
+    end
+
+    unless is_plan_id_found
+      flash[:error] = "Plan id #{plan_id} was not found."
+      redirect_to admin_tenant_path(@tenant[:id])
+    end
+
     @simple_plan = Kaui::SimplePlan.new
     @simple_plan.plan_id = params[:plan_id]
   end
