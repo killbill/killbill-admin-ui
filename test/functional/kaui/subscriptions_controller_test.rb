@@ -160,4 +160,15 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
     assert_redirected_to account_bundles_path(bundle.subscriptions.first.account_id)
     assert_equal 'Subscription BCD was successfully changed', flash[:notice]
   end
+
+  test 'should validate external key if found' do
+    get :validate_external_key, :external_key => 'foo'
+    assert_response :success
+    assert_equal JSON[@response.body]['is_found'], false
+
+    get :validate_external_key, :external_key => @bundle.subscriptions.first.external_key
+    assert_response :success
+    assert_equal JSON[@response.body]['is_found'], true
+  end
+
 end

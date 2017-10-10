@@ -153,6 +153,27 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
   def new_plan_currency
     @tenant = safely_find_tenant_by_id(params[:id])
+
+    is_plan_id_found = false
+    plan_id = params[:plan_id]
+
+    options = tenant_options_for_client
+    options[:api_key] = @tenant.api_key
+    options[:api_secret] = @tenant.api_secret
+
+    catalog = Kaui::Catalog::get_catalog_json(true, options)
+
+    # seek if plan id exists
+    catalog.products.each do |product|
+      product.plans.each { |plan| is_plan_id_found |= plan.name == plan_id }
+      break if is_plan_id_found
+    end
+
+    unless is_plan_id_found
+      flash[:error] = "Plan id #{plan_id} was not found."
+      redirect_to admin_tenant_path(@tenant[:id])
+    end
+
     @simple_plan = Kaui::SimplePlan.new
     @simple_plan.plan_id = params[:plan_id]
   end
@@ -195,6 +216,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_secret] = current_tenant.api_secret
 
     view_form_model = params.require(:kill_bill_client_model_overdue).delete_if { |e, value| value.blank? }
+    view_form_model['states'] = view_form_model['states'].values unless view_form_model['states'].blank?
+
     overdue = Kaui::Overdue::from_overdue_form_model(view_form_model)
     overdue.upload_tenant_overdue_config_json(options[:username], nil, comment, options)
     redirect_to admin_tenant_path(current_tenant.id), :notice => 'Overdue config was successfully added '
