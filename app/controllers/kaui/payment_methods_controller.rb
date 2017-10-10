@@ -44,8 +44,14 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
         'state'               => @state
     }
 
+    @plugin_properties = params[:plugin_properties].values.select{ |item| !(item['value'].blank? || item['key'].blank?) } unless params[:plugin_properties].blank?
+    @plugin_properties.map! do |property|
+      KillBillClient::Model::PluginPropertyAttributes.new(property)
+    end unless @plugin_properties.blank?
+
     begin
-      @payment_method = @payment_method.create(@payment_method.is_default, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+      @payment_method = @payment_method.create(@payment_method.is_default, current_user.kb_username, params[:reason], params[:comment],
+                                               @plugin_properties.blank? ? options_for_klient : ({:pluginProperty => @plugin_properties}).merge(options_for_klient))
       redirect_to kaui_engine.account_path(@payment_method.account_id), :notice => 'Payment method was successfully created'
     rescue => e
       flash.now[:error] = "Error while creating payment method: #{as_string(e)}"
