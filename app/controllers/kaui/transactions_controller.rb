@@ -31,9 +31,10 @@ class Kaui::TransactionsController < Kaui::EngineController
 
     options = plugin_properties.blank? ? options_for_klient : ({:pluginProperty => plugin_properties}).merge(options_for_klient)
 
-    control_plugin_names = params[:control_plugin_names].select{ |item| !item.blank? }
-
-    options.merge!({:controlPluginNames => control_plugin_names}) unless control_plugin_names.blank?
+    unless control_plugin_names.blank?
+      control_plugin_names = params[:control_plugin_names].select{ |item| !item.blank? }
+      options.merge!({:controlPluginNames => control_plugin_names})
+    end
 
     payment = transaction.create(params.require(:account_id), params[:payment_method_id], current_user.kb_username, params[:reason], params[:comment], options)
     redirect_to kaui_engine.account_payment_path(payment.account_id, payment.payment_id), :notice => 'Transaction successfully created'
