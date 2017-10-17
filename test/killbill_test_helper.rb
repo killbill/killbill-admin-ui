@@ -81,7 +81,7 @@ module Kaui
     end
 
     # Return a new test account
-    def create_account(tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
+    def create_account(tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil, parent_account_id = nil)
       tenant       = create_tenant if tenant.nil?
       external_key = SecureRandom.uuid.to_s
 
@@ -100,6 +100,8 @@ module Kaui
       account.country                  = 'LalaLand'
       account.locale                   = 'fr_FR'
       account.is_notified_for_invoices = false
+      account.parent_account_id        = parent_account_id
+      account.is_payment_delegated_to_parent = !parent_account_id.nil?
 
       account.create(user, reason, comment, build_options(tenant, username, password))
     end
