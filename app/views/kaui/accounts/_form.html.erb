@@ -148,6 +148,8 @@
         </div>
       </div>
     </div>
+    <%= f.hidden_field :is_payment_delegated_to_parent %>
+    <%= f.hidden_field :parent_account_id %>
     <div class="form-group">
       <div class="col-sm-offset-3 col-sm-9">
         <%= submit_tag 'Save', :class => 'btn btn-default' %>

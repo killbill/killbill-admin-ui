@@ -29,6 +29,8 @@ Kaui::Engine.routes.draw do
     scope '/:account_id' do
       match '/next_invoice_date' => 'accounts#next_invoice_date', :via => :get, :as => 'next_invoice_date'
       match '/trigger_invoice' => 'accounts#trigger_invoice', :via => :post, :as => 'trigger_invoice'
+      match '/link_to_parent' => 'accounts#link_to_parent', :via => :put, :as => 'link_to_parent'
+      match '/unlink_to_parent' => 'accounts#unlink_to_parent', :via => :delete, :as => 'unlink_to_parent'
 
       scope '/account_tags' do
         match '/edit' => 'account_tags#edit', :via => :get, :as => 'edit_account_tags'
@@ -40,6 +42,10 @@ Kaui::Engine.routes.draw do
       end
       scope '/timeline' do
         match '/' => 'account_timelines#show', :via => :get, :as => 'account_timeline'
+      end
+      scope '/account_children' do
+        match '/' => 'account_children#index', :via => :get, :as => 'account_children'
+        match '/pagination' => 'account_children#pagination', :via => :get, :as => 'account_children_pagination'
       end
     end
   end

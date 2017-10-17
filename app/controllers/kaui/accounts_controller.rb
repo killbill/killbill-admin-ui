@@ -27,6 +27,7 @@ class Kaui::AccountsController < Kaui::EngineController
 
     data_extractor = lambda do |account, column|
       [
+          account.parent_account_id,
           account.name,
           account.account_id,
           account.external_key,
@@ -38,6 +39,7 @@ class Kaui::AccountsController < Kaui::EngineController
 
     formatter = lambda do |account|
       [
+          account.parent_account_id.nil? ? 0 : 1,
           view_context.link_to(account.name || '(not set)', view_context.url_for(:action => :show, :account_id => account.account_id)),
           view_context.truncate_uuid(account.account_id),
           account.external_key,
@@ -77,6 +79,8 @@ class Kaui::AccountsController < Kaui::EngineController
     # Re-fetch the account with balance and CBA
     @account = Kaui::Account::find_by_id_or_key(params.require(:account_id), true, true, cached_options_for_klient)
 
+    fetch_children = promise { @account.children(false, false, 'NONE',cached_options_for_klient)}
+    fetch_parent = promise (!@account.parent_account_id.nil?){ Kaui::Account::find_by_id(@account.parent_account_id,false,false,cached_options_for_klient)}
     fetch_overdue_state = promise { @account.overdue(cached_options_for_klient) }
     fetch_account_tags = promise { @account.tags(false, 'NONE', cached_options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b } }
     fetch_account_fields = promise { @account.custom_fields('NONE', cached_options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase } }
@@ -107,6 +111,8 @@ class Kaui::AccountsController < Kaui::EngineController
     wait(fetch_payment_methods)
     @payment_methods = wait(fetch_payment_methods_with_details).map { |pm_f| pm_f.execute }.map { |pm_f| wait(pm_f) }.reject { |pm| pm.nil? }
     @available_tags = wait(fetch_available_tags)
+    @children = wait(fetch_children)
+    @account_parent = wait(fetch_parent) unless @account.parent_account_id.nil?
 
     @last_transaction_by_payment_method_id = {}
     wait(fetch_payments).each do |payment|
@@ -210,4 +216,43 @@ class Kaui::AccountsController < Kaui::EngineController
     render json: {:is_found => !account.nil?}
 
   end
+
+  def link_to_parent
+    @account = Kaui::Account.new(params.require(:account).delete_if { |key, value| value.blank? })
+    @account.account_id = params.require(:account_id)
+    @account.is_payment_delegated_to_parent = @account.is_payment_delegated_to_parent == '1'
+
+    raise('Account id and account parent id cannot be equal.') if @account.account_id == @account.parent_account_id
+
+    # check if parent id is valid
+    Kaui::Account.find_by_id(@account.parent_account_id,false,false,options_for_klient)
+
+    @account.update(false, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+
+    redirect_to account_path(@account.account_id), :notice => 'Account successfully updated'
+  rescue => e
+    if e.is_a?(KillBillClient::API::NotFound)
+      flash[:error] = "Parent account id not found: #{params.require(:account_id)}"
+    else
+      flash[:error] = "Error while linking parent account: #{as_string(e)}"
+    end
+    redirect_to account_path(@account.account_id)
+  end
+
+  def unlink_to_parent
+    account_id = params.require(:account_id)
+
+    # search for the account and remove the parent account id
+    # check if parent id is valid
+    account = Kaui::Account.find_by_id(account_id,false,false,options_for_klient)
+    account.is_payment_delegated_to_parent = false
+    account.parent_account_id = nil
+    account.update(true, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+
+    redirect_to account_path(@account.account_id), :notice => 'Account successfully updated'
+  rescue => e
+    flash[:error] = "Error while un-linking parent account: #{as_string(e)}"
+    redirect_to account_path(@account.account_id)
+  end
+
 end
