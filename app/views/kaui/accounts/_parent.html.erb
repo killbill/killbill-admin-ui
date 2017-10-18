@@ -10,7 +10,7 @@
     <% unless account_parent.present? %>
       <% if can? :link_parent_account, Kaui::Account %>
           <button type="button" class="naked" data-toggle="modal" data-target="#link_account">&nbsp<i class="fa fa-plus"></i></button>
-      <% end s%>
+      <% end %>
     <% end %>
   </td>
 </tr>
