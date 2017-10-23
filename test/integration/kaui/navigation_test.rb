@@ -39,7 +39,7 @@ module Kaui
 
       get BASE_PATH
       assert_redirected_to SIGN_IN_PATH
-      assert_equal 'You need to sign in or sign up before continuing.', flash[:alert]
+      assert_equal 'You need to sign in before continuing.', flash[:alert]
     end
   end
 end
