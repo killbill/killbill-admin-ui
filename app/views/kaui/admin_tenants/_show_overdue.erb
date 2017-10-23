@@ -65,6 +65,16 @@
                             <%= 'Control tag exclusion' %> <%= state.condition.control_tag_exclusion %>
                           </li>
                       <% end %>
+                      <% if state.condition.number_of_unpaid_invoices_equals_or_exceeds %>
+                          <li>
+                            <%= 'Number of unpaid invoices >=' %> <%= state.condition.number_of_unpaid_invoices_equals_or_exceeds %>
+                          </li>
+                      <% end %>
+                      <% if state.condition.total_unpaid_invoice_balance_equals_or_exceeds %>
+                          <li>
+                            <%= 'Total unpaid invoice balance >=' %> <%= state.condition.total_unpaid_invoice_balance_equals_or_exceeds %>
+                          </li>
+                      <% end %>
                     </ul>
                 <% end %>
               </td>
