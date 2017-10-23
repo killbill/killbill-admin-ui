@@ -30,6 +30,8 @@ class Kaui::Overdue < KillBillClient::Model::Overdue
             state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.unit = "DAYS"
             state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.number = state_model["condition"]["time_since_earliest_unpaid_invoice_equals_or_exceeds"]
           end
+          state.condition.number_of_unpaid_invoices_equals_or_exceeds = state_model["condition"]["number_of_unpaid_invoices_equals_or_exceeds"]
+          state.condition.total_unpaid_invoice_balance_equals_or_exceeds = state_model["condition"]["total_unpaid_invoice_balance_equals_or_exceeds"]
           state.condition.control_tag_inclusion = format_tag_condition(state_model["condition"]["control_tag_inclusion"])
           state.condition.control_tag_exclusion = format_tag_condition(state_model["condition"]["control_tag_exclusion"])
         end
@@ -63,6 +65,8 @@ class Kaui::Overdue < KillBillClient::Model::Overdue
           state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds = KillBillClient::Model::DurationAttributes.new
           state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.unit = "DAYS"
           state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.number = 0
+          state.condition.number_of_unpaid_invoices_equals_or_exceeds = 0
+          state.condition.total_unpaid_invoice_balance_equals_or_exceeds = 0
           state.condition.control_tag_inclusion = :NONE
           state.condition.control_tag_exclusion = :NONE
         end

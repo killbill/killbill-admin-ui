@@ -24,7 +24,14 @@ class Kaui::TransactionsController < Kaui::EngineController
   def create
     transaction = Kaui::Transaction.new(params[:transaction].delete_if { |key, value| value.blank? })
 
-    payment = transaction.create(params.require(:account_id), params[:payment_method_id], current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    plugin_properties = params[:plugin_properties].values.select{ |item| !(item['value'].blank? || item['key'].blank?) } unless params[:plugin_properties].blank?
+    plugin_properties.map! do |property|
+      KillBillClient::Model::PluginPropertyAttributes.new(property)
+    end unless plugin_properties.blank?
+
+    options = plugin_properties.blank? ? options_for_klient : ({:pluginProperty => plugin_properties}).merge(options_for_klient)
+
+    payment = transaction.create(params.require(:account_id), params[:payment_method_id], current_user.kb_username, params[:reason], params[:comment], options)
     redirect_to kaui_engine.account_payment_path(payment.account_id, payment.payment_id), :notice => 'Transaction successfully created'
   end
 

@@ -38,6 +38,8 @@ module Kaui
 
   mattr_accessor :gateways_urls
 
+  mattr_accessor :disable_sign_up_link
+
   self.home_path = lambda { Kaui::Engine.routes.url_helpers.home_path }
   self.tenant_home_path = lambda { Kaui::Engine.routes.url_helpers.tenants_path }
 
@@ -104,6 +106,8 @@ module Kaui
       'killbill-cybersource' => 'https://ebctest.cybersource.com/ebctest/transactionsearch/TransactionSearchDetailsLoad.do?requestId=FIRST_PAYMENT_REFERENCE_ID',
       'killbill-stripe' => 'https://dashboard.stripe.com/test/payments/FIRST_PAYMENT_REFERENCE_ID'
   }
+
+  self.disable_sign_up_link = true
 
   def self.is_user_assigned_valid_tenant?(user, session)
     #
