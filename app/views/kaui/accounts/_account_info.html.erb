@@ -8,6 +8,17 @@
                       kaui_engine.edit_account_path(@account.account_id),
                       :class => 'btn btn-xs' %>
       <% end %>
+      <% if @children.size > 0 %>
+          <%= link_to "Children (#{@children.size})",
+                      kaui_engine.account_children_path(@account.account_id),
+                      :class => 'btn btn-xs' %>
+      <% end %>
+      <% unless @account.parent_account_id.nil? %>
+          <span class="label label-info account-child-label">Child</span>
+      <% end %>
+      <% if @children.size > 0 %>
+          <span class="label label-info account-child-label">Parent</span>
+      <% end %>
     </h1>
 
     <% unless @tags.find { |tag| tag.tag_definition_name == '__PARK__' }.nil? %>
@@ -75,6 +86,8 @@
                       <td>N/A</td>
                   <% end %>
               </tr>
+              <%= render :partial => 'parent',
+                         :locals => {:account_parent => @account_parent} %>
             </table>
           </div>
         </div>

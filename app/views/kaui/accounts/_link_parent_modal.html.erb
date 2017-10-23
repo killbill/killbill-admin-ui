@@ -1,0 +1,34 @@
+<div class="modal fade" id="link_account" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content column-block">
+      <div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="modal-title">Link to parent</h1>
+      </div>
+      <div class="modal-body">
+        <%= form_for @account, :url =>  link_to_parent_path(@account.account_id), :method => :put, :html => {:class => 'form-horizontal'} do |f| %>
+            <div class='form-group'>
+              <%= f.label :parent_account_id, 'Parent account id', :class => 'col-sm-4 control-label' %>
+              <div class="col-sm-8">
+                <%= f.text_field :parent_account_id, :class => 'form-control', :required => true %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-8">
+                <div class="checkbox">
+                  <%= f.label :is_payment_delegated_to_parent do %>
+                      <%= f.check_box :is_payment_delegated_to_parent, {:checked => @account.is_payment_delegated_to_parent} %>Is payment delegated to parent?
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-10">
+                <%= submit_tag 'Save', :class => 'btn btn-default' %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
