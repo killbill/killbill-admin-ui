@@ -198,6 +198,8 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
             :time_since_earliest_unpaid_invoice_equals_or_exceeds => 1,
             :control_tag_inclusion =>	'NONE',
             :control_tag_exclusion =>	'NONE',
+            :number_of_unpaid_invoices_equals_or_exceeds => 0,
+            :total_unpaid_invoice_balance_equals_or_exceeds => 0
           }
         }}
       }
