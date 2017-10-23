@@ -1,0 +1,66 @@
+<div id="control_plugin_names" class="row">
+  <a class='btn btn-xs' href="javascript:void(0);" onclick="new_control_plugin_name();" id="new_control_plugin_names"><%= '<i class="fa fa-plus-square"></i>'.html_safe + " add control plugin names" %></a>
+  <table id="control_plugin_names_table" class="table table-condensed">
+    <thead>
+    <tr>
+      <th>Control plugin name</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% (@control_plugin_names || ['']).each_with_index do |control_plugin_name, index| %>
+      <tr id="control_plugin_name_<%= index %>" >
+        <td><%= text_field_tag 'control_plugin_names[]', control_plugin_name, class: 'form-control' %></td>
+        <td>
+          <a class='btn btn-xs' href="javascript:void(0);" onclick="delete_control_plugin_name(this);" id="delete_control_plugin_name_<%= index %>"><%= '<i class="fa fa-times"></i>'.html_safe %></a>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <hr/>
+</div>
+
+<%= javascript_tag do %>
+
+    function new_control_plugin_name() {
+      /* Compute max index value to assign new rows with unsued index */
+      var max_idx = $.map($('[id^=delete_control_plugin_name_]'), function(e, i) {
+        return e.id.split("delete_control_plugin_name_")[1] }
+      ).sort(function(a, b) {
+        return b - a
+      })[0];
+
+      /* Clone existing row and reset id based on max_idx */
+      var row = $('#control_plugin_names_table tbody>tr:last').clone(true);
+      var row_idx = (parseInt(max_idx) + 1).toString();
+      row.attr('id', "control_plugin_name_" + row_idx);
+      row.children("td:last").children('a').attr('id', "delete_control_plugin_name_" + row_idx);
+
+      /* reset value on content */
+      row.find('td').each(function(){
+        $(this).contents().each(function(){
+            $(this).val('');
+        });
+      });
+
+      /* Attach row into dom */
+      row.insertAfter('#control_plugin_names_table tbody>tr:last');
+    }
+
+    function delete_control_plugin_name(obj) {
+      var idx = obj.id.split("delete_control_plugin_name_")[1];
+      var rowCount = $('#control_plugin_names_table tr').size();
+
+      if ( rowCount > 2 ){
+        $("#control_plugin_name_" + idx).remove();
+      } else {
+        $("#control_plugin_name_" + idx).find('td').each(function(){
+          $(this).contents().each(function(){
+            $(this).val('');
+          });
+        });
+      }
+    }
+
+<% end %>
