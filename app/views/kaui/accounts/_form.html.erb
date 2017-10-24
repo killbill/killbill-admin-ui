@@ -139,15 +139,21 @@
     <% else %>
         <%= f.hidden_field :is_migrated %>
     <% end %>
-    <div class="form-group">
-      <div class="col-sm-offset-3 col-sm-9">
-        <div class="checkbox">
-          <%= f.label :is_notified_for_invoices do %>
-              <%= f.check_box :is_notified_for_invoices, {:checked => @account.is_notified_for_invoices} %>Notified for invoices?
-          <% end %>
+    <% if email_notifications_plugin_available? %>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <div class="checkbox">
+            <%= f.label :is_notified_for_invoices do %>
+                <%= f.check_box :is_notified_for_invoices, {:checked => @account.is_notified_for_invoices} %>Notified for invoices?
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
+    <% else %>
+        <%= f.hidden_field :is_notified_for_invoices %>
+    <% end %>
+    <%= f.hidden_field :is_payment_delegated_to_parent %>
+    <%= f.hidden_field :parent_account_id %>
     <div class="form-group">
       <div class="col-sm-offset-3 col-sm-9">
         <%= submit_tag 'Save', :class => 'btn btn-default' %>
