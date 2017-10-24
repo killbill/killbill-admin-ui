@@ -207,24 +207,24 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     # force an error linking a parent account
     child.parent_account_id = SecureRandom.uuid.to_s
     put :link_to_parent, {
-        :account => child,
+        :account => child.to_hash,
         :account_id => child.account_id
     }
-    assert_equal flash[:error], "Parent account id not found: #{child.parent_account_id}"
+    assert_equal "Parent account id not found: #{child.parent_account_id}",flash[:error]
     assert_redirected_to account_path(child.account_id)
 
     # link parent account
     child.parent_account_id = parent.account_id
     put :link_to_parent, {
-        :account => child,
+        :account => child.to_hash,
         :account_id => child.account_id
     }
-    assert_equal flash[:notice], 'Account successfully updated'
+    assert_equal 'Account successfully updated',flash[:notice]
     assert_redirected_to account_path(child.account_id)
 
     # un-link parent account
     delete :link_to_parent, :account_id => child.account_id
-    assert_equal flash[:notice], 'Account successfully updated'
+    assert_equal 'Account successfully updated',flash[:notice]
     assert_redirected_to account_path(child.account_id)
 
   end

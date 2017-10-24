@@ -232,7 +232,7 @@ class Kaui::AccountsController < Kaui::EngineController
     redirect_to account_path(@account.account_id), :notice => 'Account successfully updated'
   rescue => e
     if e.is_a?(KillBillClient::API::NotFound)
-      flash[:error] = "Parent account id not found: #{params.require(:account_id)}"
+      flash[:error] = "Parent account id not found: #{@account.parent_account_id}"
     else
       flash[:error] = "Error while linking parent account: #{as_string(e)}"
     end

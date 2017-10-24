@@ -25,7 +25,7 @@ class Kaui::AccountChildrenControllerTest < Kaui::FunctionalTestHelper
     body = MultiJson.decode(@response.body)
 
     assert_instance_of Array, body['data']
-    assert_equal body['data'].size,children_size
+    assert_equal children_size, body['data'].size
     assert_nil body['error']
   end
 
