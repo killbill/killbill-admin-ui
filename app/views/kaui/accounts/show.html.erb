@@ -4,6 +4,8 @@
 
 <%= render :partial => 'payment_methods' %>
 
+<%= render :partial => 'link_parent_modal' %>
+
 <%= javascript_tag do %>
   function disableLinks() {
     $('a.btn.disabled').click(function (e) {

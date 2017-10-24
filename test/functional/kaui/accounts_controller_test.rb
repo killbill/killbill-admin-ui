@@ -200,6 +200,35 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     assert_equal JSON[@response.body]['is_found'], true
   end
 
+  test 'should link and un-link to parent' do
+    parent = create_account(@tenant)
+    child = create_account(@tenant)
+
+    # force an error linking a parent account
+    child.parent_account_id = SecureRandom.uuid.to_s
+    put :link_to_parent, {
+        :account => child.to_hash,
+        :account_id => child.account_id
+    }
+    assert_equal "Parent account id not found: #{child.parent_account_id}",flash[:error]
+    assert_redirected_to account_path(child.account_id)
+
+    # link parent account
+    child.parent_account_id = parent.account_id
+    put :link_to_parent, {
+        :account => child.to_hash,
+        :account_id => child.account_id
+    }
+    assert_equal 'Account successfully updated',flash[:notice]
+    assert_redirected_to account_path(child.account_id)
+
+    # un-link parent account
+    delete :link_to_parent, :account_id => child.account_id
+    assert_equal 'Account successfully updated',flash[:notice]
+    assert_redirected_to account_path(child.account_id)
+
+  end
+
   private
 
     def get_redirected_account_id
