@@ -57,14 +57,20 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def create
-    @account = Kaui::Account.new(params.require(:account).delete_if { |key, value| value.blank? })
+    account_is_notified_for_invoices = params.require(:account)[:is_notified_for_invoices] || nil
+    @account = Kaui::Account.new(params.require(:account).delete_if { |key, value| value.blank? || key == 'is_notified_for_invoices' })
 
     # Transform "1" into boolean
     @account.is_migrated = @account.is_migrated == '1'
-    @account.is_notified_for_invoices = @account.is_notified_for_invoices == '1'
 
     begin
       @account = @account.create(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+
+      # save is_notified_for_invoices
+      unless account_is_notified_for_invoices.nil?
+        set_is_notified_for_invoices(@account.account_id, account_is_notified_for_invoices)
+      end
+
       redirect_to account_path(@account.account_id), :notice => 'Account was successfully created'
     rescue => e
       flash.now[:error] = "Error while creating account: #{as_string(e)}"
@@ -165,14 +171,19 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def update
-    @account = Kaui::Account.new(params.require(:account).delete_if { |key, value| value.blank? })
+    account_is_notified_for_invoices = params.require(:account)[:is_notified_for_invoices] || nil
+    @account = Kaui::Account.new(params.require(:account).delete_if { |key, value| value.blank? || key == 'is_notified_for_invoices' })
     @account.account_id = params.require(:account_id)
 
     # Transform "1" into boolean
     @account.is_migrated = @account.is_migrated == '1'
-    @account.is_notified_for_invoices = @account.is_notified_for_invoices == '1'
 
     @account.update(true, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+
+    # save is_notified_for_invoices
+    unless account_is_notified_for_invoices.nil?
+      set_is_notified_for_invoices(@account.account_id, account_is_notified_for_invoices)
+    end
 
     redirect_to account_path(@account.account_id), :notice => 'Account successfully updated'
   rescue => e
@@ -190,11 +201,11 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def toggle_email_notifications
-    account = Kaui::Account.new(:account_id => params.require(:account_id), :is_notified_for_invoices => params[:is_notified] == 'true')
+    set_is_notified_for_invoices(params.require(:account_id),
+                                 params[:is_notified])
 
-    account.update_email_notifications(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
-
-    redirect_to account_path(account.account_id), :notice => 'Email preferences updated'
+    flash[:notice] = 'Email notification preference updated'
+    redirect_to account_path(params.require(:account_id))
   end
 
   def pay_all_invoices
@@ -254,5 +265,25 @@ class Kaui::AccountsController < Kaui::EngineController
     flash[:error] = "Error while un-linking parent account: #{as_string(e)}"
     redirect_to account_path(@account.account_id)
   end
+  
+  private
+
+    def set_is_notified_for_invoices(account_id, account_is_notified_for_invoices)
+      is_success, error = Kenui::EmailNotificationService.set_email_notification(account_id,
+                                                                                 value_to_boolean(account_is_notified_for_invoices),
+                                                                                 current_user.kb_username,
+                                                                                 params[:reason],
+                                                                                 params[:comment],
+                                                                                 options_for_klient)
+      unless is_success
+        flash[:error] = error
+        redirect_to account_path(account_id)
+      end
+    end
+
+    # Transform "1", 1 or 'true' into boolean true; everything else to boolean false
+    def value_to_boolean(value)
+      !['1','true'].find_index {|t| t == value.to_s.downcase}.nil?
+    end
 
 end
