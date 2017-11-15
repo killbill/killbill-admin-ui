@@ -86,14 +86,16 @@
                     <td><span class='label' id='next-invoice-date'>N/A</span></td>
                   </tr>
               <% end %>
-              <tr>
-                <th>Notified For Invoice</th>
-                <td>
-                  <span class="label text-capitalize"><%= @account.is_notified_for_invoices %></span>
-                  <% if can? :update, Kaui::Account %>&nbsp;<%= link_to '<i class="fa fa-toggle-on"></i>'.html_safe, kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post %>
-                  <% end %>
-                </td>
-              </tr>
+              <% if email_notifications_plugin_available? %>
+                <tr>
+                  <th>Notified For Invoice</th>
+                  <td>
+                    <span class="label text-capitalize"><%= @account.is_notified_for_invoices %></span>
+                    <% if can? :update, Kaui::Account %>&nbsp;<%= link_to '<i class="fa fa-toggle-on"></i>'.html_safe, kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
             </table>
 
             <% if can? :trigger, Kaui::Invoice %>
