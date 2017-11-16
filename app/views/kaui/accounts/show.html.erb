@@ -6,6 +6,10 @@
 
 <%= render :partial => 'link_parent_modal' %>
 
+<% if email_notifications_plugin_available? %>
+  <%= render :partial => 'kenui/email_notifications/configure_events_modal' %>
+<% end %>
+
 <%= javascript_tag do %>
   function disableLinks() {
     $('a.btn.disabled').click(function (e) {

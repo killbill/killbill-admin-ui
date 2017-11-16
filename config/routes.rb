@@ -26,6 +26,11 @@ Kaui::Engine.routes.draw do
     match '/pagination' => 'accounts#pagination', :via => :get, :as => 'accounts_pagination'
     match '/validate_external_key' => 'accounts#validate_external_key', :via => :get, :as => 'accounts_validate_external_key'
 
+    scope '/email_notifications' do
+      match '/' => 'accounts#set_email_notifications_configuration', :via => :post, :as => 'email_notifications_configuration'
+      match '/events_to_consider' => 'accounts#events_to_consider', :via => :get, :as => 'email_notification_events_to_consider'
+    end
+
     scope '/:account_id' do
       match '/next_invoice_date' => 'accounts#next_invoice_date', :via => :get, :as => 'next_invoice_date'
       match '/trigger_invoice' => 'accounts#trigger_invoice', :via => :post, :as => 'trigger_invoice'

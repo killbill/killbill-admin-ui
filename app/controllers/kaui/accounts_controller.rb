@@ -57,19 +57,13 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def create
-    account_is_notified_for_invoices = params.require(:account)[:is_notified_for_invoices] || nil
-    @account = Kaui::Account.new(params.require(:account).delete_if { |key, value| value.blank? || key == 'is_notified_for_invoices' })
+    @account = Kaui::Account.new(params.require(:account).delete_if { |key, value| value.blank? })
 
     # Transform "1" into boolean
     @account.is_migrated = @account.is_migrated == '1'
 
     begin
       @account = @account.create(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
-
-      # save is_notified_for_invoices
-      unless account_is_notified_for_invoices.nil?
-        set_is_notified_for_invoices(@account.account_id, account_is_notified_for_invoices)
-      end
 
       redirect_to account_path(@account.account_id), :notice => 'Account was successfully created'
     rescue => e
@@ -93,6 +87,19 @@ class Kaui::AccountsController < Kaui::EngineController
     fetch_account_emails = promise { Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', cached_options_for_klient) }
     fetch_payments = promise { @account.payments(cached_options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_payment(payment) } }
     fetch_payment_methods = promise(false) { Kaui::PaymentMethod.find_all_by_account_id(@account.account_id, false, cached_options_for_klient) }
+
+    # is email notification plugin available
+    is_email_notifications_plugin_available = Kenui::EmailNotificationService.email_notification_plugin_available?(cached_options_for_klient).first
+    fetch_email_notification_configuration = promise(is_email_notifications_plugin_available) do
+      Kenui::EmailNotificationService.get_configuration_per_account(params.require(:account_id),cached_options_for_klient)
+    end.then do |configuration|
+      if configuration.first.is_a?(FalseClass)
+        Rails.logger.warn(configuration[1])
+        configuration = []
+      end
+      configuration
+    end
+
     fetch_payment_methods_with_details = fetch_payment_methods.then do |pms|
       ops = []
       pms.each do |pm|
@@ -119,6 +126,7 @@ class Kaui::AccountsController < Kaui::EngineController
     @available_tags = wait(fetch_available_tags)
     @children = wait(fetch_children)
     @account_parent = wait(fetch_parent) unless @account.parent_account_id.nil?
+    @email_notification_configuration = wait(fetch_email_notification_configuration) if is_email_notifications_plugin_available
 
     @last_transaction_by_payment_method_id = {}
     wait(fetch_payments).each do |payment|
@@ -171,19 +179,13 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def update
-    account_is_notified_for_invoices = params.require(:account)[:is_notified_for_invoices] || nil
-    @account = Kaui::Account.new(params.require(:account).delete_if { |key, value| value.blank? || key == 'is_notified_for_invoices' })
+    @account = Kaui::Account.new(params.require(:account).delete_if { |key, value| value.blank? })
     @account.account_id = params.require(:account_id)
 
     # Transform "1" into boolean
     @account.is_migrated = @account.is_migrated == '1'
 
     @account.update(true, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
-
-    # save is_notified_for_invoices
-    unless account_is_notified_for_invoices.nil?
-      set_is_notified_for_invoices(@account.account_id, account_is_notified_for_invoices)
-    end
 
     redirect_to account_path(@account.account_id), :notice => 'Account successfully updated'
   rescue => e
@@ -198,14 +200,6 @@ class Kaui::AccountsController < Kaui::EngineController
     Kaui::PaymentMethod.set_default(payment_method_id, account_id, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
 
     redirect_to account_path(account_id), :notice => "Successfully set #{payment_method_id} as default"
-  end
-
-  def toggle_email_notifications
-    set_is_notified_for_invoices(params.require(:account_id),
-                                 params[:is_notified])
-
-    flash[:notice] = 'Email notification preference updated'
-    redirect_to account_path(params.require(:account_id))
   end
 
   def pay_all_invoices
@@ -265,25 +259,46 @@ class Kaui::AccountsController < Kaui::EngineController
     flash[:error] = "Error while un-linking parent account: #{as_string(e)}"
     redirect_to account_path(@account.account_id)
   end
-  
+
+  def set_email_notifications_configuration
+    configuration = params.require(:configuration)
+    account_id = configuration[:account_id]
+    event_types = configuration[:event_types]
+    cached_options_for_klient = options_for_klient
+
+    is_success, message = email_notification_plugin_available?(cached_options_for_klient)
+
+    is_success, message = Kenui::EmailNotificationService.set_configuration_per_account(account_id,
+                                                                                        event_types,
+                                                                                      current_user.kb_username,
+                                                                                      params[:reason],
+                                                                                      params[:comment],
+                                                                                        cached_options_for_klient) if is_success
+    if is_success
+      flash[:notice] = message
+    else
+      flash[:error] = message
+    end
+    redirect_to account_path(account_id)
+  end
+
+  def events_to_consider
+    data = Kenui::EmailNotificationService.get_events_to_consider(options_for_klient)
+
+    respond_to do |format|
+      format.json { render json: { data: data} }
+    end
+  end
+
   private
 
-    def set_is_notified_for_invoices(account_id, account_is_notified_for_invoices)
-      is_success, error = Kenui::EmailNotificationService.set_email_notification(account_id,
-                                                                                 value_to_boolean(account_is_notified_for_invoices),
-                                                                                 current_user.kb_username,
-                                                                                 params[:reason],
-                                                                                 params[:comment],
-                                                                                 options_for_klient)
-      unless is_success
-        flash[:error] = error
-        redirect_to account_path(account_id)
-      end
-    end
+    def email_notification_plugin_available?(options_for_klient)
+      error_message = 'Email notification plugin is not installed'
 
-    # Transform "1", 1 or 'true' into boolean true; everything else to boolean false
-    def value_to_boolean(value)
-      !['1','true'].find_index {|t| t == value.to_s.downcase}.nil?
+      is_available = Kenui::EmailNotificationService.email_notification_plugin_available?(options_for_klient).first
+      return is_available, is_available ? nil : error_message
+    rescue => e
+      return false, error_message
     end
 
 end

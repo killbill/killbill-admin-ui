@@ -8,6 +8,9 @@ module Kaui
 
     def email_notifications_plugin_available?
       Kenui::EmailNotificationService.email_notification_plugin_available?(Kaui.current_tenant_user_options(current_user, session)).first
+    rescue
+      return false
     end
+
   end
 end
