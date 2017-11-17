@@ -98,7 +98,7 @@
                   </th>
                   <td>
                     <% @email_notification_configuration.each do |configuration|%>
-                        - <%= configuration[:eventType].to_s.downcase %><br/>
+                        - <%= configuration[:eventType] %><br/>
                     <% end %>
                   </td>
                 </tr>
