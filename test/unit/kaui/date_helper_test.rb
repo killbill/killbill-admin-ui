@@ -18,8 +18,9 @@ class Kaui::DateHelperTest < ActiveSupport::TestCase
 
   test 'can get current time depending of time zone' do
     current_time_fiji = current_time('Pacific/Fiji')
-    utc_offset_fiji = '+1200'
+    utc_offset_fiji_without_saving_time = '+1200'
+    utc_offset_fiji_with_saving_time = '+1300'
 
-    assert_equal utc_offset_fiji, current_time_fiji.strftime('%z')
+    assert_includes [utc_offset_fiji_with_saving_time,utc_offset_fiji_without_saving_time], current_time_fiji.strftime('%z')
   end
 end

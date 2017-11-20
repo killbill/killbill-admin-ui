@@ -228,7 +228,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
 
     post :set_email_notifications_configuration, parameters
     assert_equal('Email notification plugin is not installed',flash[:error]) unless flash[:error].blank?
-    assert_equal("Email notifications for account #{@account.account_id} was successfully updated",flash[:notice]) unless flash[:notice].blank?
+    assert_equal("Email notifications for account #{@account.account_id} was successfully updated",flash[:notice]) if flash[:error].blank?
     assert_redirected_to account_path(@account.account_id)
 
   end
