@@ -88,10 +88,17 @@
               <% end %>
               <% if email_notifications_plugin_available? %>
                 <tr>
-                  <th>Notified For Invoice</th>
+                  <th>
+                    Email Notifications
+                    <%= link_to('<i class="fa fa-cog" aria-hidden="true"></i>'.html_safe,
+                    '#configureEmailNotification',
+                    data: { name: @account.name, account_id: @account.account_id,
+                            events: @email_notification_configuration.map { |event| event[:eventType] }.join(', '),
+                            toggle: 'modal', target: '#configureEmailNotification'}) %>
+                  </th>
                   <td>
-                    <span class="label text-capitalize"><%= @account.is_notified_for_invoices %></span>
-                    <% if can? :update, Kaui::Account %>&nbsp;<%= link_to '<i class="fa fa-toggle-on"></i>'.html_safe, kaui_engine.toggle_email_notifications_account_path(@account.account_id, :is_notified => !@account.is_notified_for_invoices), :method => :post %>
+                    <% @email_notification_configuration.each do |configuration|%>
+                        - <%= configuration[:eventType] %><br/>
                     <% end %>
                   </td>
                 </tr>

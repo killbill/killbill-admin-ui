@@ -126,18 +126,6 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     assert_response 302
   end
 
-  test 'should handle Kill Bill errors when toggling email notifications' do
-    account_id = SecureRandom.uuid.to_s
-    put :toggle_email_notifications, :account_id => account_id, :is_notified => true
-    assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
-  end
-
-  test 'should toggle email notifications' do
-    put :toggle_email_notifications, :account_id => @account.account_id, :is_notified => true
-    assert_response 302
-  end
-
   test 'should handle Kill Bill errors when paying all invoices' do
     account_id = SecureRandom.uuid.to_s
     post :pay_all_invoices, :account_id => account_id
@@ -226,6 +214,22 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     delete :link_to_parent, :account_id => child.account_id
     assert_equal 'Account successfully updated',flash[:notice]
     assert_redirected_to account_path(child.account_id)
+
+  end
+
+  test 'should set email notifications configuration if plugin is available' do
+
+    parameters = {
+        :configuration => {
+          :account_id => @account.account_id,
+          :event_types => ['INVOICE_NOTIFICATION']
+        }
+    }
+
+    post :set_email_notifications_configuration, parameters
+    assert_equal('Email notification plugin is not installed',flash[:error]) unless flash[:error].blank?
+    assert_equal("Email notifications for account #{@account.account_id} was successfully updated",flash[:notice]) if flash[:error].blank?
+    assert_redirected_to account_path(@account.account_id)
 
   end
 
