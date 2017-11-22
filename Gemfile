@@ -22,5 +22,5 @@ end
 #gem 'killbill-client', :git => 'https://github.com/killbill/killbill-client-ruby.git'
 
 #gem 'kenui', :path => '../killbill-email-notifications-ui'
-gem 'kenui', :git => 'https://github.com/wwjbatista/killbill-email-notifications-ui.git'
+#gem 'kenui', :git => 'https://github.com/killbill/killbill-email-notifications-ui.git'
 
