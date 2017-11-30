@@ -67,6 +67,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     @tenant = safely_find_tenant_by_id(params[:id])
     @allowed_users = @tenant.kaui_allowed_users & retrieve_allowed_users_for_current_user
 
+    set_tenant_if_nil(@tenant)
+
     options = tenant_options_for_client
     options[:api_key] = @tenant.api_key
     options[:api_secret] = @tenant.api_secret
@@ -353,4 +355,14 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   def comment
     'Multi-tenant Administrative operation'
   end
+
+  def set_tenant_if_nil(tenant)
+
+    if session[:kb_tenant_id].nil?
+      session[:kb_tenant_id] = tenant.kb_tenant_id
+      session[:kb_tenant_name] = tenant.name
+      session[:tenant_id] = tenant.id
+    end
+  end
+
 end
