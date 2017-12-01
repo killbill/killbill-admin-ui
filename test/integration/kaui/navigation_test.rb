@@ -9,9 +9,6 @@ module Kaui
 
       # Verify log-in and redirect to the original page
       post SIGN_IN_PATH, :params => {:user => {:kb_username => USERNAME, :password => PASSWORD}}
-      assert_redirected_to TENANTS_PATH
-
-      get TENANTS_PATH
       assert_redirected_to ACCOUNTS_PATH + '/' + @account.account_id
 
       # User goes to search for the account
