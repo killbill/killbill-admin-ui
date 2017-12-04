@@ -31,16 +31,10 @@ env:
 rvm:
   - 2.4.2
   - jruby-9.1.14.0
-  - ruby-head
-  - jruby-head
 
 matrix:
   exclude:
     - rvm: 2.4.2
       env: DB_ADAPTER=mariadb DB_USER='root' DB_PORT=3306
-    - rvm: ruby-head
-      env: DB_ADAPTER=mariadb DB_USER='root' DB_PORT=3306
   allow_failures:
     - rvm: jruby-9.1.14.0
-    - rvm: ruby-head
-    - rvm: jruby-head
