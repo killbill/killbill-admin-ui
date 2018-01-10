@@ -9,7 +9,7 @@ class Kaui::Tag < KillBillClient::Model::Tag
   end
 
   class << self
-    [:account, :bundle].each do |model|
+    [:account, :bundle, :subscription].each do |model|
       define_method "all_for_#{model.to_s}" do |model_id, included_deleted, audit, options|
         instance = Kaui.const_get(model.to_s.camelize).new("#{model.to_s}_id".to_sym => model_id)
         instance.tags(included_deleted, audit, options)

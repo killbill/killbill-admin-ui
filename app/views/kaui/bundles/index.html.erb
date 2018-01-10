@@ -39,7 +39,9 @@
               <%= render :partial => 'kaui/bundle_tags/form_bar',
                          :locals => {:bundle_id => bundle.bundle_id,
                                      :tag_names => (@tags_per_bundle[bundle.bundle_id] || []).map { |tag| tag.tag_definition_name },
-                                     :available_tags => @available_tags} %>
+                                     :available_tags => @available_tags,
+                                     :update_tags_path => update_bundle_tags_path
+                         } %>
             </div>
           </div>
 

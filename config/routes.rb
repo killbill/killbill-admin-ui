@@ -112,6 +112,7 @@ Kaui::Engine.routes.draw do
   end
 
   scope '/subscriptions' do
+    match '/:id/tags' => 'subscriptions#update_tags', :via => :post, :as => 'update_subscriptions_tags'
     match '/:id/edit_bcd' => 'subscriptions#edit_bcd', :via => :get, :as => 'edit_bcd'
     match '/:id/update_bcd' => 'subscriptions#update_bcd', :via => :put, :as => 'update_bcd'
     match '/:id/reinstate' => 'subscriptions#reinstate', :via => :put, :as => 'reinstate'
