@@ -1,7 +1,9 @@
 <table id="subscriptions_<%= bundle.bundle_id %>" class="table table-condensed mobile-data">
   <thead>
   <tr>
-    <th></th>
+    <% unless @available_subscription_tags.empty? && @custom_fields_per_subscription.empty? %>
+      <th></th>
+    <% end %>
     <th>Product category</th>
     <th>Product name</th>
     <th>Phase type</th>
@@ -14,28 +16,32 @@
   <tbody>
   <% (bundle.subscriptions || []).each do |sub| %>
       <tr class="<%= is_subscription_cancelled?(sub) ? 'expired' : 'non-expired' %>">
-        <td class="inline-row-tag-bar">
-          <div class="tag-bar tag-bar-no-border">
-            <div class="tag-select" onclick="void(0)">
-              <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
+        <% unless @available_subscription_tags.empty? && @custom_fields_per_subscription.empty? %>
+          <td class="inline-row-tag-bar">
+            <div class="tag-bar tag-bar-no-border">
+              <% unless @available_subscription_tags.empty? %>
+                <div class="tag-select" onclick="void(0)">
+                  <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
 
-              <div class="tag-select-box">
-                <strong>Tag as:</strong>
+                  <div class="tag-select-box">
+                    <strong>Tag as:</strong>
 
-                <%= render :partial => 'kaui/bundle_tags/form_bar',
-                           :locals => {:bundle_id => bundle.bundle_id,
-                                       :tag_names => (@tags_per_subscription[sub.subscription_id] || []).map { |tag| tag.tag_definition_name },
-                                       :available_tags => @available_subscription_tags,
-                                       :update_tags_path => update_subscriptions_tags_path(sub.subscription_id)
-                           } %>
-              </div>
+                    <%= render :partial => 'kaui/bundle_tags/form_bar',
+                               :locals => {:bundle_id => bundle.bundle_id,
+                                           :tag_names => (@tags_per_subscription[sub.subscription_id] || []).map { |tag| tag.tag_definition_name },
+                                           :available_tags => @available_subscription_tags,
+                                           :update_tags_path => update_subscriptions_tags_path(sub.subscription_id)
+                               } %>
+                  </div>
+                </div>
+              <% end %>
+
+              <%= render :partial => 'kaui/custom_fields/list_bar',
+                         :locals => {:custom_fields => @custom_fields_per_subscription[sub.subscription_id] || []} %>
             </div>
 
-            <%= render :partial => 'kaui/custom_fields/list_bar',
-                       :locals => {:custom_fields => @custom_fields_per_subscription[sub.subscription_id] || []} %>
-          </div>
-
-        </td>
+          </td>
+        <% end %>
         <td><%= humanized_subscription_product_category(sub) %></td>
         <td><%= humanized_subscription_full_product_name(sub) %></td>
         <td><%= humanized_subscription_phase_type(sub) %></td>
@@ -78,9 +84,9 @@
     $('#subscriptions_<%= bundle.bundle_id %>').dataTable({
       "dom": "t",
       "paging": false,
-      "order": [[ 4, "asc" ]],
+      "order": [[ <%= @available_subscription_tags.empty? && @custom_fields_per_subscription.empty? ? 3 : 4 %>, "asc" ]],
       "columns": [
-      { "orderable": false },
+      <%= "{ orderable: false }," unless @available_subscription_tags.empty? && @custom_fields_per_subscription.empty? %>
       null,
       null,
       null,
