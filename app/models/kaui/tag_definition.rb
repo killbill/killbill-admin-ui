@@ -23,7 +23,7 @@ class Kaui::TagDefinition < KillBillClient::Model::TagDefinition
 
   ALL_OBJECT_TYPES.each do |object_type|
     define_singleton_method "all_for_#{object_type.downcase}" do |options_for_klient|
-      (self.all('NONE', options_for_klient).delete_if { |tag_definition| !tag_definition.applicable_object_types.include? object_type }).sort
+      (self.all('NONE', options_for_klient).delete_if { |tag_definition| !tag_definition.applicable_object_types.include? object_type || tag_definition.is_control_tag }).sort
     end
   end
 

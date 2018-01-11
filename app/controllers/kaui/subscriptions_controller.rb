@@ -138,6 +138,21 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
   end
 
+  def update_tags
+    subscription_id = params.require(:id)
+    subscription = Kaui::Subscription.find_by_id(subscription_id, options_for_klient)
+
+    tags = []
+    params.each do |tag|
+      tag_info = tag.split('_')
+      next if tag_info.size != 2 or tag_info[0] != 'tag'
+      tags << tag_info[1]
+    end
+
+    Kaui::Tag.set_for_subscription(subscription_id, tags, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    redirect_to kaui_engine.account_bundles_path(subscription.account_id), :notice => 'Subscription tags successfully set'
+  end
+
   private
 
   def lookup_bundle_and_plan_details(subscription, base_product_name = nil)

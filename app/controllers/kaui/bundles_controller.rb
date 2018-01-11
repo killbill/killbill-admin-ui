@@ -6,16 +6,28 @@ class Kaui::BundlesController < Kaui::EngineController
       all_bundle_tags = @account.all_tags(:BUNDLE, false, 'NONE', options_for_klient)
       all_bundle_tags.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
     }
+    fetch_subscription_tags = promise {
+      all_subscription_tags = @account.all_tags(:SUBSCRIPTION, false, 'NONE', options_for_klient)
+      all_subscription_tags.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
+    }
     fetch_bundle_fields = promise {
       all_bundle_fields = @account.all_custom_fields(:BUNDLE, 'NONE', options_for_klient)
       all_bundle_fields.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
     }
+    fetch_subscription_fields = promise {
+      all_subscription_fields = @account.all_custom_fields(:SUBSCRIPTION, 'NONE', options_for_klient)
+      all_subscription_fields.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
+    }
     fetch_available_tags = promise { Kaui::TagDefinition.all_for_bundle(options_for_klient) }
+    fetch_available_subscription_tags = promise { Kaui::TagDefinition.all_for_subscription(options_for_klient) }
 
     @bundles = wait(fetch_bundles)
     @tags_per_bundle = wait(fetch_bundle_tags)
+    @tags_per_subscription = wait(fetch_subscription_tags)
     @custom_fields_per_bundle = wait(fetch_bundle_fields)
+    @custom_fields_per_subscription = wait(fetch_subscription_fields)
     @available_tags = wait(fetch_available_tags)
+    @available_subscription_tags = wait(fetch_available_subscription_tags)
 
     @base_subscription = {}
     @bundles.each do |bundle|

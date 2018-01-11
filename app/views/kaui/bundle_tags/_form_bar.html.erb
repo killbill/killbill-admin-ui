@@ -1,5 +1,5 @@
 <% can_change_tags = can?(:add, Kaui::Tag) || can?(:delete, Kaui::Tag) %>
-<%= form_tag update_bundle_tags_path do %>
+<%= form_tag update_tags_path do %>
     <%= hidden_field_tag :bundle_id, bundle_id %>
 
     <% available_tags.each do |tag| %>

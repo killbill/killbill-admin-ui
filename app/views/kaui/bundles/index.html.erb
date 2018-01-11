@@ -29,20 +29,22 @@
       <div class="info-wrapper">
 
         <div class="tag-bar">
+          <% unless @available_tags.empty? %>
+            <div class="tag-select" onclick="void(0)">
+              <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
 
-          <div class="tag-select" onclick="void(0)">
-            <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
+              <div class="tag-select-box">
+                <strong>Tag as:</strong>
 
-            <div class="tag-select-box">
-              <strong>Tag as:</strong>
-
-              <%= render :partial => 'kaui/bundle_tags/form_bar',
-                         :locals => {:bundle_id => bundle.bundle_id,
-                                     :tag_names => (@tags_per_bundle[bundle.bundle_id] || []).map { |tag| tag.tag_definition_name },
-                                     :available_tags => @available_tags} %>
+                <%= render :partial => 'kaui/bundle_tags/form_bar',
+                           :locals => {:bundle_id => bundle.bundle_id,
+                                       :tag_names => (@tags_per_bundle[bundle.bundle_id] || []).map { |tag| tag.tag_definition_name },
+                                       :available_tags => @available_tags,
+                                       :update_tags_path => update_bundle_tags_path
+                           } %>
+              </div>
             </div>
-          </div>
-
+          <% end %>
           <%= render :partial => 'kaui/custom_fields/list_bar',
                      :locals => {:custom_fields => @custom_fields_per_bundle[bundle.bundle_id] || []} %>
 
