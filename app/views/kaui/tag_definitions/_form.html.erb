@@ -1,6 +1,25 @@
 <%= form_for @tag_definition, :html => {:class => 'form-horizontal'} do |f| %>
     <%= f.hidden_field :id %>
 
+    <div class="form-group">
+      <%= f.label :object_type, :class => 'col-sm-2 control-label'  do %>
+          Object type<a class='btn btn-xs tag-definition-add-link' href="javascript:void(0);" onclick="new_object_type();" id="new_object_type">
+            <%= '<i class="fa fa-plus-square"></i>'.html_safe %>
+          </a>
+      <% end %>
+      <div class="col-sm-10" id="object_types">
+        <% (@tag_definition.applicable_object_types || [:account]).each_with_index do |object_type, index| %>
+        <div id="object_type_line_<%= index %>">
+          <%= f.select "applicable_object_types[#{index}]",
+                       [:ACCOUNT, :BUNDLE, :INVOICE_PAYMENT, :INVOICE, :PAYMENT, :SUBSCRIPTION, :TRANSACTION],
+                       {:selected => object_type, :id => "object_type_#{index}"}, :class => 'form-control tag-definition-select' %>
+          <a class='btn btn-xs' href="javascript:void(0);" onclick="delete_object_type(this);" id="delete_object_type_<%= index %>" <%= "style='display: none;'".html_safe if index == 0 %>>
+            <%= '<i class="fa fa-times"></i>'.html_safe %>
+          </a>
+        </div>
+        <% end %>
+      </div>
+    </div>
     <div class='form-group'>
       <%= f.label :name, 'Name', :class => 'col-sm-2 control-label' %>
       <div class='col-sm-10'>
@@ -18,4 +37,36 @@
         <%= submit_tag 'Save', :class => 'btn btn-default' %>
       </div>
     </div>
+<% end %>
+
+<%= javascript_tag do %>
+
+    function new_object_type() {
+        var max_idx = $.map($('[id^=delete_object_type_]'), function(e, i) {
+            return e.id.split("delete_object_type_")[1] }
+        ).sort(function(a, b) {
+            return b - a
+        })[0];
+
+        var row = $('#object_types>div:last').clone(true);
+        var row_idx = (parseInt(max_idx) + 1).toString();
+        row.attr('id', "object_type_line_" + row_idx);
+        row.children("select").attr('id', "object_type_" + row_idx);
+        row.children("select").attr('name', ($(row.children("select")).attr('name')).replace(max_idx,row_idx));
+        row.children('a').attr('id', "delete_object_type_" + row_idx);
+        row.children('a').css('display', "inline-block");
+
+        /* Attach row into dom */
+        row.insertAfter('#object_types>div:last');
+    }
+
+    function delete_object_type(obj) {
+        var idx = obj.id.split("delete_object_type_")[1];
+
+        if ( idx > 0 ){
+            $("#object_type_line_" + idx).remove();
+        }
+
+    }
+
 <% end %>
