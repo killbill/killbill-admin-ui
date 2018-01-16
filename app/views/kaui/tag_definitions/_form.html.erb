@@ -11,7 +11,7 @@
         <% (@tag_definition.applicable_object_types || [:account]).each_with_index do |object_type, index| %>
         <div id="object_type_line_<%= index %>">
           <%= f.select "applicable_object_types[#{index}]",
-                       [:ACCOUNT, :BUNDLE, :INVOICE_PAYMENT, :INVOICE, :PAYMENT, :SUBSCRIPTION, :TRANSACTION],
+                       [:ACCOUNT, :BUNDLE, :INVOICE, :INVOICE_ITEM, :INVOICE_PAYMENT, :PAYMENT, :SUBSCRIPTION, :TRANSACTION],
                        {:selected => object_type, :id => "object_type_#{index}"}, :class => 'form-control tag-definition-select' %>
           <a class='btn btn-xs' href="javascript:void(0);" onclick="delete_object_type(this);" id="delete_object_type_<%= index %>" <%= "style='display: none;'".html_safe if index == 0 %>>
             <%= '<i class="fa fa-times"></i>'.html_safe %>
