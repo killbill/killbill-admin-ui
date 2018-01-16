@@ -20,5 +20,9 @@ module Kaui
       end
     end
 
+    def object_types
+      [:ACCOUNT, :BUNDLE, :INVOICE, :INVOICE_ITEM, :INVOICE_PAYMENT, :PAYMENT, :SUBSCRIPTION, :TRANSACTION]
+    end
+
   end
 end
