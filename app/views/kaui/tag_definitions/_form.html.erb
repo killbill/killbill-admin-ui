@@ -1,6 +1,24 @@
 <%= form_for @tag_definition, :html => {:class => 'form-horizontal'} do |f| %>
     <%= f.hidden_field :id %>
 
+    <div class="form-group">
+      <%= f.label :object_type, :class => 'col-sm-2 control-label'  do %>
+          Object type<a class='btn btn-xs tag-definition-add-link' href="javascript:void(0);" onclick="new_object_type();" id="new_object_type">
+            <%= '<i class="fa fa-plus-square"></i>'.html_safe %>
+          </a>
+      <% end %>
+      <div class="col-sm-10" id="object_types">
+        <% (@tag_definition.applicable_object_types || [:account]).each_with_index do |object_type, index| %>
+        <div id="object_type_line_<%= index %>">
+          <%= f.select "applicable_object_types[#{index}]", object_types,
+                       {:selected => object_type, :id => "object_type_#{index}"}, :class => 'form-control tag-definition-select' %>
+          <a class='btn btn-xs' href="javascript:void(0);" onclick="delete_object_type(this);" id="delete_object_type_<%= index %>" <%= "style='display: none;'".html_safe if index == 0 %>>
+            <%= '<i class="fa fa-times"></i>'.html_safe %>
+          </a>
+        </div>
+        <% end %>
+      </div>
+    </div>
     <div class='form-group'>
       <%= f.label :name, 'Name', :class => 'col-sm-2 control-label' %>
       <div class='col-sm-10'>
@@ -18,4 +36,125 @@
         <%= submit_tag 'Save', :class => 'btn btn-default' %>
       </div>
     </div>
+<% end %>
+
+<%= javascript_tag do %>
+    var all_object_types = [];
+
+    $( document ).ready(function() {
+      initialize();
+
+      function initialize(){
+        all_object_types = $.map($("#object_types>div:last").find("select option"), function(e, i) {
+            return $(e).val();
+        });
+      }
+
+      $(".tag-definition-select").on("change",function(){ refresh_options(); });
+    });
+
+    function get_used_object_types(){
+        var used_object_types = $.map($('#object_types>div'), function(e, i) {
+            return $(e).find("select").val();
+        });
+        return used_object_types;
+    }
+
+    function refresh_options(){
+        remove_used_object_types();
+        // restore missing types
+        var used_object_types = get_used_object_types();
+        var available_object_types = all_object_types.filter(function(type){
+              return used_object_types.indexOf(type) < 0;
+        });
+
+        $('#object_types>div').each(function(){
+            var container = this;
+            var object_types = $.map($(container).find("select option"), function(option, i) {
+                return $(option).val();
+            });
+
+            $.each(available_object_types, function(idx, type){
+                if (object_types.indexOf(type) < 0)
+                {
+                    $(container).find("select").append('<option value="' + type + '">' + type + '</option>');
+                }
+            });
+
+            sort_object_types(container);
+        });
+    }
+
+    function remove_used_object_types(){
+        var used_object_types = get_used_object_types();
+        for (var i = 0; i < used_object_types.length; i++){
+            $("#object_types>div").each(function(){
+              var selected = $(this).find("select").val();
+
+              if (selected != used_object_types[i])
+              {
+                  $(this).find("select").find("option[value='" + used_object_types[i] + "']").remove();
+              }
+            });
+        }
+    }
+
+    function new_object_type() {
+        var used_object_types = get_used_object_types();
+        var max_idx = $.map($("[id^=delete_object_type_]"), function(e, i) {
+            return e.id.split("delete_object_type_")[1] }
+        ).sort(function(a, b) {
+            return b - a
+        })[0];
+
+        var row = $("#object_types>div:last").clone(true);
+        var row_idx = (parseInt(max_idx) + 1).toString();
+        row.attr("id", "object_type_line_" + row_idx);
+        row.children("select").attr("id", "object_type_" + row_idx);
+
+        for (var i = 0; i < used_object_types.length; i++){
+            row.children("select").find("option[value='" + used_object_types[i] + "']").remove();
+        }
+
+        row.children("select").attr('name', ($(row.children("select")).attr('name')).replace(max_idx,row_idx));
+        row.children("a").attr("id", "delete_object_type_" + row_idx);
+        row.children("a").css("display", "inline-block");
+
+        /* Attach row into dom */
+        if (row.children("select").has("option").length > 0){
+            row.insertAfter("#object_types>div:last");
+        }
+
+        remove_used_object_types();
+
+    }
+
+    function delete_object_type(obj) {
+        var idx = obj.id.split("delete_object_type_")[1];
+
+        if ( idx > 0 ){
+            var object_type = $("#object_type_line_" + idx).find("select").val();
+            $("#object_type_line_" + idx).remove();
+
+            $("#object_types>div").each(function(){
+                $(this).find("select").append('<option value="' + object_type + '">' + object_type + '</option>');
+                sort_object_types(this);
+            });
+        }
+
+    }
+
+    function sort_object_types(e){
+        var selected = $(e).find("select").val();
+
+        var options = $(e).find("select option");
+        options.detach().sort(function(a,b) {
+          var at = $(a).text();
+          var bt = $(b).text();
+          return (at > bt)?1:((at < bt)?-1:0);
+        });
+        options.appendTo($(e).find("select"));
+        $(e).find("select").val(selected);
+    }
+
 <% end %>

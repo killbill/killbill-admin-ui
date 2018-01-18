@@ -530,3 +530,24 @@ hr.breathe {
     margin-top: 45px;
     margin-bottom: 45px;
 }
+
+form[id^="new_tag_definition"] {
+  div:first-of-type {
+    margin-bottom: 0;
+  }
+
+  #object_types {
+    div {
+      margin-bottom: 15px;
+
+      .tag-definition-add-link {
+        padding-right: 0;
+      }
+
+      .tag-definition-select {
+        display: inline-block;
+        width: calc(~"100% - 25px");
+      }
+    }
+  }
+}
