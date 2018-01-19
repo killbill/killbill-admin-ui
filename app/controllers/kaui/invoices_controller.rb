@@ -42,20 +42,37 @@ class Kaui::InvoicesController < Kaui::EngineController
   end
 
   def show
-    @invoice = Kaui::Invoice.find_by_id_or_number(params.require(:id), true, 'FULL', options_for_klient)
+    # Go to the database once
+    cached_options_for_klient = options_for_klient
 
-    fetch_payments = promise { @invoice.payments(true, true, 'FULL', options_for_klient).map { |payment| Kaui::InvoicePayment.build_from_raw_payment(payment) } }
-    fetch_pms = fetch_payments.then { |payments| Kaui::PaymentMethod.payment_methods_for_payments(payments, options_for_klient) }
-    fetch_invoice_fields = promise { @invoice.custom_fields('NONE', options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase } }
+    @invoice = Kaui::Invoice.find_by_id_or_number(params.require(:id), true, 'FULL', cached_options_for_klient)
+
+    fetch_payments = promise { @invoice.payments(true, true, 'FULL', cached_options_for_klient).map { |payment| Kaui::InvoicePayment.build_from_raw_payment(payment) } }
+    fetch_pms = fetch_payments.then { |payments| Kaui::PaymentMethod.payment_methods_for_payments(payments, cached_options_for_klient) }
+    fetch_invoice_fields = promise { @invoice.custom_fields('NONE', cached_options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase } }
     fetch_payment_fields = promise {
-      all_payment_fields = @account.all_custom_fields(:PAYMENT, 'NONE', options_for_klient)
+      all_payment_fields = @account.all_custom_fields(:PAYMENT, 'NONE', cached_options_for_klient)
       all_payment_fields.inject({}) { |hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh }
+    }
+
+    fetch_available_invoice_item_tags = promise { Kaui::TagDefinition.all_for_invoice_item(cached_options_for_klient) }
+    fetch_tags_per_invoice_item = promise {
+      tags_per_invoice_item = @account.all_tags(:INVOICE_ITEM, false, 'NONE', cached_options_for_klient)
+      tags_per_invoice_item.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
+    }
+
+    fetch_custom_fields_per_invoice_item = promise {
+      custom_fields_per_invoice_item = @account.all_custom_fields(:INVOICE_ITEM, 'NONE', cached_options_for_klient)
+      custom_fields_per_invoice_item.inject({}) { |hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh }
     }
 
     @payments = wait(fetch_payments)
     @payment_methods = wait(fetch_pms)
     @custom_fields = wait(fetch_invoice_fields)
     @payment_custom_fields = wait(fetch_payment_fields)
+    @custom_fields_per_invoice_item = wait(fetch_custom_fields_per_invoice_item)
+    @tags_per_invoice_item = wait(fetch_tags_per_invoice_item)
+    @available_invoice_item_tags = wait(fetch_available_invoice_item_tags)
   end
 
   def restful_show

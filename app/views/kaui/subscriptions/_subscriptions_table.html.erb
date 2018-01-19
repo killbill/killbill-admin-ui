@@ -27,7 +27,7 @@
                     <strong>Tag as:</strong>
 
                     <%= render :partial => 'kaui/bundle_tags/form_bar',
-                               :locals => {:bundle_id => bundle.bundle_id,
+                               :locals => {:params => { :bundle_id => bundle.bundle_id},
                                            :tag_names => (@tags_per_subscription[sub.subscription_id] || []).map { |tag| tag.tag_definition_name },
                                            :available_tags => @available_subscription_tags,
                                            :update_tags_path => update_subscriptions_tags_path(sub.subscription_id)

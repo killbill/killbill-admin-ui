@@ -41,6 +41,9 @@
   <table id="invoice-table" class="table table-condensed mobile-data">
     <thead>
     <tr>
+      <% unless @available_invoice_item_tags.empty? && @custom_fields_per_invoice_item.empty? %>
+          <th></th>
+      <% end %>
       <th>Description</th>
       <th>Start date</th>
       <th>End date</th>
@@ -53,6 +56,32 @@
     <tbody>
     <% @invoice.items.each do |item| %>
         <tr id=<%= "invoice_item_#{item.invoice_item_id}_#{item.linked_invoice_item_id}" %>>
+          <% unless @available_invoice_item_tags.empty? && @custom_fields_per_invoice_item.empty? %>
+              <td class="inline-row-tag-bar">
+                <div class="tag-bar tag-bar-no-border">
+                  <% unless @available_invoice_item_tags.empty? %>
+                      <div class="tag-select" onclick="void(0)">
+                        <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
+
+                        <div class="tag-select-box">
+                          <strong>Tag as:</strong>
+
+                          <%= render :partial => 'kaui/bundle_tags/form_bar',
+                                     :locals => {:params => { :invoice_id => item.invoice_id, :account_id => item.account_id},
+                                                 :tag_names => (@tags_per_invoice_item[item.invoice_item_id] || []).map { |tag| tag.tag_definition_name },
+                                                 :available_tags => @available_invoice_item_tags,
+                                                 :update_tags_path => update_invoice_items_tags_path(item.invoice_item_id)
+                                     } %>
+                        </div>
+                      </div>
+                  <% end %>
+
+                  <%= render :partial => 'kaui/custom_fields/list_bar',
+                             :locals => {:custom_fields => @custom_fields_per_invoice_item[item.invoice_item_id] || []} %>
+                </div>
+
+              </td>
+          <% end %>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.description %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.start_date.html_safe if item.start_date %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.end_date.html_safe if item.end_date %></td>
@@ -74,7 +103,6 @@
     <% end %>
     </tbody>
   </table>
-
   <table class="invoice-totals">
     <tr>
       <th></th>

@@ -1,6 +1,8 @@
 <% can_change_tags = can?(:add, Kaui::Tag) || can?(:delete, Kaui::Tag) %>
 <%= form_tag update_tags_path do %>
-    <%= hidden_field_tag :bundle_id, bundle_id %>
+    <% params.each_key do |key| %>
+        <%= hidden_field_tag key, params[key] %>
+    <% end %>
 
     <% available_tags.each do |tag| %>
         <%= check_box_tag "tag_#{tag.id}", tag.name, tag_names.include?(tag.name), :disabled => !can_change_tags, :readonly => !can_change_tags %>
