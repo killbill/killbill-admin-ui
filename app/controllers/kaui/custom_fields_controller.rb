@@ -55,6 +55,8 @@ class Kaui::CustomFieldsController < Kaui::EngineController
                 Kaui::Invoice.new(:invoice_id => @custom_field.object_id)
               when :PAYMENT
                 Kaui::Payment.new(:payment_id => @custom_field.object_id)
+              when :INVOICE_ITEM
+                Kaui::InvoiceItem.new(:invoice_item_id => @custom_field.object_id)
               else
                 flash.now[:error] = "Invalid object type #{@custom_field.object_type}"
                 render :new and return

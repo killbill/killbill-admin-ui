@@ -89,6 +89,9 @@ Kaui::Engine.routes.draw do
   end
   resources :invoices, :only => [ :index ]
 
+  scope '/invoice_items' do
+    match '/:id/tags' => 'invoice_items#update_tags', :via => :post, :as => 'update_invoice_items_tags'
+  end
   resources :invoice_items, :only => [:update, :destroy]
 
   scope '/payments' do
