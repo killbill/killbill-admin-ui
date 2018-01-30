@@ -1,7 +1,7 @@
 <table id="subscriptions_<%= bundle.bundle_id %>" class="table table-condensed mobile-data">
   <thead>
   <tr>
-    <% unless @available_subscription_tags.empty? && @custom_fields_per_subscription.empty? %>
+    <% unless @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? %>
       <th></th>
     <% end %>
     <th>Product category</th>
@@ -16,10 +16,10 @@
   <tbody>
   <% (bundle.subscriptions || []).each do |sub| %>
       <tr class="<%= is_subscription_cancelled?(sub) ? 'expired' : 'non-expired' %>">
-        <% unless @available_subscription_tags.empty? && @custom_fields_per_subscription.empty? %>
+        <% unless @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? %>
           <td class="inline-row-tag-bar">
             <div class="tag-bar tag-bar-no-border">
-              <% unless @available_subscription_tags.empty? %>
+              <% unless @available_subscription_tags.blank? %>
                 <div class="tag-select" onclick="void(0)">
                   <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
 
@@ -84,9 +84,9 @@
     $('#subscriptions_<%= bundle.bundle_id %>').dataTable({
       "dom": "t",
       "paging": false,
-      "order": [[ <%= @available_subscription_tags.empty? && @custom_fields_per_subscription.empty? ? 3 : 4 %>, "asc" ]],
+      "order": [[ <%= @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? ? 3 : 4 %>, "asc" ]],
       "columns": [
-      <%= "{ orderable: false }," unless @available_subscription_tags.empty? && @custom_fields_per_subscription.empty? %>
+      <%= "{ orderable: false }," unless @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? %>
       null,
       null,
       null,
