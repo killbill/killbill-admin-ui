@@ -24,26 +24,33 @@
 
           <div id="main-menu" class="col-xs-6">
 
-            <% if user_signed_in? && tenant_selected? -%>
+            <% if user_signed_in? -%>
                 <div class="tag-bar tag-bar-no-border">
 
-                  <div class="tag-select" onclick="void(0)">
-                    <span><i class="fa fa-tags"></i><i class="fa fa-caret-down"></i></span>
+                  <% if tenant_selected? -%>
+                      <div class="tag-select" onclick="void(0)">
+                        <span><i class="fa fa-tags"></i><i class="fa fa-caret-down"></i></span>
 
-                    <div class="tag-select-box">
-                      <%= link_to 'Tags', kaui_engine.tags_path %>
-                      <%= link_to 'Tag definitions', kaui_engine.tag_definitions_path %>
-                      <%= link_to 'Custom Fields', kaui_engine.custom_fields_path %>
-                    </div>
-                  </div>
+                        <div class="tag-select-box">
+                          <%= link_to 'Tags', kaui_engine.tags_path %>
+                          <%= link_to 'Tag definitions', kaui_engine.tag_definitions_path %>
+                          <%= link_to 'Custom Fields', kaui_engine.custom_fields_path %>
+                        </div>
+                      </div>
+                  <% end %>
 
-                  <% if can? :view, Kaui::AdminTenant %>
+                  <% if current_user.root? || can?(:view, Kaui::AdminTenant) %>
                       <div class="tag-select" onclick="void(0)">
                         <span><i class="fa fa-cogs"></i><i class="fa fa-caret-down"></i></span>
 
                         <div class="tag-select-box">
-                          <%= link_to 'Users', kaui_engine.admin_allowed_users_path %>
-                          <%= link_to 'Tenants', kaui_engine.admin_tenants_path %>
+                          <% if can? :view, Kaui::AdminTenant %>
+                              <%= link_to 'Users', kaui_engine.admin_allowed_users_path %>
+                              <%= link_to 'Tenants', kaui_engine.admin_tenants_path %>
+                          <% end %>
+                          <% if current_user.root? %>
+                              <%= link_to 'Admin', kaui_engine.admin_path %>
+                          <% end %>
                         </div>
                       </div>
                   <% end %>
@@ -57,11 +64,24 @@
             <nav>
               <ul class="account-menu">
                 <% if user_signed_in? -%>
-                    <li><%= session[:kb_tenant_name].present? ? "#{current_user.kb_username} / #{session[:kb_tenant_name]}" : current_user.kb_username %></li>
+                    <li>
+                      <% if session[:kb_tenant_name].present? %>
+                          <% if session[:tenant_id].present? %>
+                              <%= link_to("#{current_user.kb_username} / #{session[:kb_tenant_name]}", kaui_engine.admin_tenant_path(session[:tenant_id])) %>
+                          <% else %>
+                              <%= "#{current_user.kb_username} / #{session[:kb_tenant_name]}" %>
+                          <% end %>
+                      <% else %>
+                          <%= current_user.kb_username %>
+                      <% end %>
+                    </li>
                     <li><%= link_to 'Sign Out', kaui_engine.destroy_user_session_path, :method => :delete %></li>
                 <% else %>
                     <li><%= link_to 'Login'.html_safe, kaui_engine.new_user_session_path %></li>
-                    <li><%= link_to 'Sign-up'.html_safe, kaui_engine.new_user_registration_path %></li>
+
+                    <% unless Kaui.disable_sign_up_link %>
+                      <li><%= link_to 'Sign-up'.html_safe, kaui_engine.new_user_registration_path %></li>
+                    <% end %>
                 <% end %>
               </ul>
             </nav>

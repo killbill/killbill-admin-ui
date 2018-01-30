@@ -1,10 +1,19 @@
 module Kaui
   class RegistrationsController < Devise::RegistrationsController
+
     layout Kaui.config[:layout]
 
-    skip_before_filter :check_for_redirect_to_tenant_screen
+    skip_before_action :check_for_redirect_to_tenant_screen, raise: false
 
     def create
+
+      if Kaui.disable_sign_up_link
+        flash[:error] = 'You need to sign in before adding a user!'
+        redirect_to new_user_session_path and return
+      end
+
+      sign_up_params = sign_up_rails_params
+
       @user = Kaui::AllowedUser.new(:kb_username => sign_up_params.require(:kb_username))
 
       if Kaui::AllowedUser.find_by_kb_username(@user.kb_username).present?
@@ -33,6 +42,11 @@ module Kaui
           :api_key => Kaui.root_api_key,
           :api_secret => Kaui.root_api_secret
       }
+    end
+
+    # Devise still returns a ActiveSupport::HashWithIndifferentAccess
+    def sign_up_rails_params
+      ActionController::Parameters.new(sign_up_params)
     end
   end
 end

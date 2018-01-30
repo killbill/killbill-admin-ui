@@ -1,10 +1,14 @@
 <div class="register">
   <div class="col-md-8 col-md-offset-2">
 
-    <div class="column-block">
-      <h1>Add new tenant</h1>
-      <%= render 'form' %>
-    </div>
+    <% if can? :create, Kaui::AdminTenant %>
+        <div class="column-block">
+          <h1>Add new tenant</h1>
+          <%= render 'form' %>
+        </div>
+    <% else %>
+        <p>You are not allowed to create tenants, please contact your administrator.</p>
+    <% end %>
 
   </div>
 </div>

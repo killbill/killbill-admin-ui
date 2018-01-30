@@ -1,6 +1,17 @@
 <%= form_for @charge, :url => {:action => :create}, :html => {:class => 'form-horizontal'} do |f| %>
     <%= f.hidden_field :invoice_id %>
 
+    <% if @invoice.nil? %>
+        <div class='form-group'>
+          <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+              <%= label_tag :auto_commit do %>
+                  <%= check_box_tag :auto_commit, '1', true %>Auto-commit?
+              <% end %>
+            </div>
+          </div>
+        </div>
+    <% end %>
     <div class="form-group">
       <%= f.label :amount, 'Amount', :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10">

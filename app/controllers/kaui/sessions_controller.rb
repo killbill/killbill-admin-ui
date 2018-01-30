@@ -1,9 +1,10 @@
 module Kaui
   # Subclassed to specify the correct layout
   class SessionsController < Devise::SessionsController
+
     layout Kaui.config[:layout]
 
-    skip_before_filter :check_for_redirect_to_tenant_screen
+    skip_before_action :check_for_redirect_to_tenant_screen, raise: false
 
     protected
 
@@ -11,7 +12,7 @@ module Kaui
     def after_sign_in_path_for(resource)
       # Clear the tenant_id from the cookie to not rely on old cookie data
       session[:kb_tenant_id] = nil
-      Kaui.tenant_home_path.call
+      stored_location_for(:user) || Kaui.tenant_home_path.call
     end
 
     def after_sign_out_path_for(resource)

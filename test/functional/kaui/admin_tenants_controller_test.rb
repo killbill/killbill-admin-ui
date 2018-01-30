@@ -98,6 +98,133 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     assert_equal 'Config for plugin was successfully uploaded', flash[:notice]
   end
 
+  test 'should get new catalog' do
+    tenant = create_kaui_tenant
+
+    get :new_catalog, :id => tenant.id
+    assert_response :success
+    assert has_input_field('simple_plan_product_name')
+  end
+
+  test 'should get new plan currency' do
+    tenant = create_kaui_tenant
+
+    # retrieve plan id from catalog xml
+    catalog_xml = File.open(File.join(self.class.fixture_path, 'catalog-v1.xml'),'r'){|io| io.read}
+    doc = Nokogiri::XML(catalog_xml)
+    plan_id = doc.css('plan').first['name']
+
+    # upload catalog first
+    post :upload_catalog, :id => tenant.id, :catalog => fixture_file_upload('catalog-v1.xml')
+    assert_redirected_to admin_tenant_path(tenant.id)
+    assert_equal 'Catalog was successfully uploaded', flash[:notice]
+
+    get :new_plan_currency, :id => tenant.id, :plan_id => plan_id
+    assert_response :success
+    assert_equal get_value_from_input_field('simple_plan_plan_id'), plan_id
+
+    # test for invalid plan id
+    get :new_plan_currency, :id => tenant.id, :plan_id => 'DUMMY'
+    assert_response :redirect
+    assert_redirected_to admin_tenant_path(tenant.id)
+    assert_equal flash[:error], 'Plan id DUMMY was not found.'
+
+  end
+
+  test 'should create and delete a catalog' do
+    tenant = create_kaui_tenant
+
+    parameters = {
+      :id => tenant.id,
+      :simple_plan => {
+          :product_category => 'STANDALONE',
+          :product_name => 'Boat Rental',
+          :plan_id => 'boat12345678910',
+          :amount => 10,
+          :currency => 'USD',
+          :billing_period => 'MONTHLY',
+          :trial_length => 0,
+          :trial_time_unit => 'UNLIMITED'
+      }
+    }
+    post :create_simple_plan, parameters
+    assert_response :redirect
+    expected_response_path = "/admin_tenants/#{tenant.id}"
+    assert_equal 'Catalog plan was successfully added', flash[:notice]
+    assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
+
+
+    delete :delete_catalog, :id => tenant.id
+    assert_response :redirect
+
+    if !flash[:error].nil? && flash[:error].to_s.eql?('Failed to delete catalog: only available in KB 0.19+ versions')
+      assert response_path.include?('/admin_tenants'), "#{response_path} is expected to contain /admin_tenants"
+    else
+      assert_equal 'Catalog was successfully deleted', flash[:notice]
+      assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
+    end
+
+  end
+
+  test 'should remove allowed user' do
+    tenant = create_kaui_tenant
+
+    au = Kaui::AllowedUser.new
+    au.kb_username = 'Voltron'
+    au.description = 'Defender of the Universe'
+    au.save!
+
+    parameters = {
+      :id => tenant.id,
+      :allowed_user => { :id => au.id }
+    }
+
+    delete :remove_allowed_user, parameters
+    assert_response :success
+  end
+
+  test 'should modify overdue config' do
+    tenant = create_kaui_tenant
+
+    parameters = {
+      :id => tenant.id,
+      :kill_bill_client_model_overdue => {
+        :states => { '0' => {
+          :name =>	'Overdue_test',
+          :external_message => 'Overdue_Test_Ya',
+          :block_changes =>	true,
+          :subscription_cancellation_policy => 'NONE',
+          :condition => {
+            :time_since_earliest_unpaid_invoice_equals_or_exceeds => 1,
+            :control_tag_inclusion =>	'NONE',
+            :control_tag_exclusion =>	'NONE',
+            :number_of_unpaid_invoices_equals_or_exceeds => 0,
+            :total_unpaid_invoice_balance_equals_or_exceeds => 0
+          }
+        }}
+      }
+    }
+
+    post :modify_overdue_config, parameters
+    assert_response :redirect
+    assert_redirected_to admin_tenant_path(tenant.id)
+    assert_equal 'Overdue config was successfully added', flash[:notice].to_s.strip
+  end
+
+  test 'should display catalog xml' do
+    catalog_xml = File.open(File.join(self.class.fixture_path, 'catalog-v1.xml'),'r'){|io| io.read}
+    post :display_catalog_xml, :xml => catalog_xml
+
+    assert_equal @response.body, catalog_xml
+  end
+
+  test 'should display overdue xml' do
+    overdue_xml = File.open(File.join(self.class.fixture_path, 'overdue-v1.xml'),'r'){|io| io.read}
+    post :display_overdue_xml, :xml => overdue_xml
+
+    assert_equal @response.body, overdue_xml
+  end
+
   private
 
   def create_kaui_tenant

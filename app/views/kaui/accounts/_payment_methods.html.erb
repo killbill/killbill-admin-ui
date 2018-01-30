@@ -13,7 +13,9 @@
     <% unless @payment_methods.empty? %>
         <div class="info-wrapper">
 
-          <%= render :partial => 'kaui/payment_methods/payment_methods_table', :locals => {:account => @account, :payment_methods => @payment_methods} %>
+          <%= render :partial => 'kaui/payment_methods/payment_methods_table', :locals => {:account => @account,
+                                                                                           :payment_methods => @payment_methods,
+                                                                                           :last_transaction_by_payment_method_id => @last_transaction_by_payment_method_id} %>
 
         </div>
     <% end %>

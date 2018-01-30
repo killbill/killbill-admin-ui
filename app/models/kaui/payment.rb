@@ -4,8 +4,7 @@ class Kaui::Payment < KillBillClient::Model::Payment
 
   attr_accessor :payment_date, :target_invoice_id
 
-  SAMPLE_REASON_CODES = ['600 - Alt payment method',
-                         '699 - OTHER']
+  TRANSACTION_STATUSES = %w(SUCCESS PENDING PAYMENT_FAILURE PLUGIN_FAILURE UNKNOWN)
 
   def self.build_from_raw_payment(raw_payment)
     result = Kaui::Payment.new

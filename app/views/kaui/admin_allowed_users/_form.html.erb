@@ -1,8 +1,24 @@
-<%= form_for @allowed_user, :url => admin_allowed_users_path, :html => {:class => 'form-horizontal'} do |f| %>
+<% # Unclear why this url/method hack is needed %>
+<%= form_for @allowed_user, :url => @allowed_user.persisted? ? admin_allowed_user_path(@allowed_user.id) : admin_allowed_users_path, :method => @allowed_user.persisted? ? :put : :post, :html => {:class => 'form-horizontal'} do |f| %>
+    <div class='form-group'>
+      <div class="col-sm-offset-2 col-sm-9">
+        <div class="checkbox">
+          <%= label_tag :external do %>
+              <%= check_box_tag :external %>Managed externally (LDAP, Okta, etc.)?
+          <% end %>
+        </div>
+      </div>
+    </div>
     <div class="form-group">
       <%= f.label :kb_username, 'Name', :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10">
-        <%= f.text_field :kb_username, :class => 'form-control', :required => true %>
+        <%= f.text_field :kb_username, :class => 'form-control', :required => true, :disabled => @allowed_user.persisted?, :readonly => @allowed_user.persisted? %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label_tag :password, 'Password', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.password_field_tag :password, '', :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
@@ -12,8 +28,29 @@
       </div>
     </div>
     <div class="form-group">
+      <%= label_tag :roles, 'Roles', :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= text_field_tag :roles, @roles.join(','), :class => 'form-control' %>
+        <p class="help-block">Comma separated, e.g. customer_support,finance.</p>
+        <p class="help-block">Create a new role <%= link_to 'here', new_role_definition_path %>.</p>
+      </div>
+    </div>
+    <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
         <%= f.submit 'Save', :class => 'btn btn-default' %>
       </div>
     </div>
+<% end %>
+
+<%= javascript_tag do %>
+    $('#external').change(function() {
+      if ($('#external').is(":checked")) {
+        $('#password').attr('disabled', true);
+        $('#roles').attr('disabled', true);
+      }
+      else {
+        $('#password').attr('disabled', false);
+        $('#roles').attr('disabled', false);
+      }
+    });
 <% end %>

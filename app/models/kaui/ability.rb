@@ -26,7 +26,7 @@ module Kaui
           can action.to_sym, ('Kaui::' + model.camelize).constantize rescue nil
         end
       end
-    rescue KillBillClient::API::Unauthorized => e
+    rescue KillBillClient::API::Unauthorized => _
     end
 
     def permission_to_model_action(permission)

@@ -12,13 +12,22 @@
                 <th>Invoice ID</th>
                 <td><%= link_to @payment.target_invoice_id, account_invoice_path(@account.account_id, @payment.target_invoice_id) %></td>
               </tr>
+              <% if @payment.payment_external_key != @payment.payment_id %>
+                  <tr>
+                    <th>External key</th>
+                    <td><%= @payment.payment_external_key %></td>
+                  </tr>
+              <% end %>
             </table>
           </div>
         </div>
     <% end %>
 
     <%= render :partial => 'kaui/payments/payment_table',
-               :locals => {:payment => @payment, :account => @account} %>
+               :locals => {:payment_method => @payment_method,
+                           :payment => @payment,
+                           :account => @account,
+                           :custom_fields => @custom_fields} %>
 
   </div>
 

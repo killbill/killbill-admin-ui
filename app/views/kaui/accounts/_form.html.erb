@@ -1,5 +1,7 @@
 <% # Unclear why this url/method hack is needed %>
 <%= form_for @account, :url => @account.persisted? ? account_path(@account.account_id) : accounts_path, :method => @account.persisted? ? :put : :post, :html => {:class => 'form-horizontal'} do |f| %>
+    <%= f.hidden_field :payment_method_id %>
+
     <div class="form-group">
       <%= f.label :name, 'Name', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
@@ -7,9 +9,17 @@
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :first_name_length, 'First name length', :class => 'col-sm-3 control-label' %>
+      <%= f.label :first_name_length, :class => 'col-sm-3 control-label' do %>
+          First name length
+          <%= link_to('https://www.w3.org/International/questions/qa-personal-names',target: '_blank', rel: 'nofollow') do %>
+              <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+          <% end %>
+      <% end %>
       <div class="col-sm-9">
-        <%= f.text_field :first_name_length, :class => 'form-control' %>
+        <%= f.text_field :first_name_length,
+                         :pattern => '^[0-9]*$',
+                         :title => 'Format: Can only contain digits; Description: Identify where the first name ends and last name starts.',
+                         :class => 'form-control' %>
       </div>
     </div>
     <% unless @account.persisted? %>
@@ -17,8 +27,13 @@
           <%= f.label :external_key, 'External key', :class => 'col-sm-3 control-label' %>
           <div class="col-sm-9">
             <%= f.text_field :external_key, :class => 'form-control' %>
+            <div class="account_external_key_invalid_msg text-danger">
+              Warning! External key already in use.
+            </div>
           </div>
         </div>
+    <% else %>
+        <%= f.hidden_field :external_key %>
     <% end %>
     <div class="form-group">
       <%= f.label :email, 'Email', :class => 'col-sm-3 control-label' %>
@@ -42,10 +57,20 @@
         <div class="form-group">
           <%= f.label :time_zone, 'Timezone', :class => 'col-sm-3 control-label' %>
           <div class="col-sm-9">
-            <%= f.collection_select :time_zone, ActiveSupport::TimeZone.all, :formatted_offset, :to_s, {:selected => Time.zone.formatted_offset}, :class => 'form-control' %>
+            <%= f.select :time_zone, ActiveSupport::TimeZone.all.collect { |tz| [tz.to_s, tz.tzinfo.name] }, {:selected => 'Etc/UTC'}, :class => 'form-control' %>
           </div>
         </div>
+    <% else %>
+        <%= f.hidden_field :bill_cycle_day_local %>
+        <%= f.hidden_field :currency %>
+        <%= f.hidden_field :time_zone %>
     <% end %>
+    <div class="form-group">
+      <%= f.label :locale, 'Locale', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= f.select :locale, get_available_locales, {:selected => (@account.locale || 'en_US'), :disabled => '---------------'}, :class => 'form-control' %>
+      </div>
+    </div>
     <div class="form-group">
       <%= f.label :address1, 'Address line 1', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
@@ -79,26 +104,27 @@
     <div class="form-group">
       <%= f.label :state, 'State', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
-        <%= f.text_field :state, :class => 'form-control' %>
+        <%= f.select :state, get_U_S_states, {:include_blank => '', :selected => @account.state}, :class => 'form-control select-state' %>
+        <%= f.text_field :state, :class => 'form-control text-state', :style => 'display: none;' %>
       </div>
     </div>
     <div class="form-group">
       <%= f.label :country, 'Country', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
-        <%= f.country_select :country, {:priority => %w(US CA), :selected => @account.country}, :class => 'form-control' %>
+        <%= f.country_select :country, {:priority_countries => %w(US CA), :selected => @account.country}, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">
-      <%= f.label :locale, 'Locale', :class => 'col-sm-3 control-label' %>
-      <div class="col-sm-9">
-        <%= f.text_field :locale, :class => 'form-control' %>
-      </div>
+        <%= f.label :phone, 'Phone', :class => 'col-sm-3 control-label' %>
+        <div class="col-sm-9">
+            <%= f.text_field :phone, :class => 'form-control' %>
+        </div>
     </div>
     <div class="form-group">
-      <%= f.label :phone, 'Phone', :class => 'col-sm-3 control-label' %>
-      <div class="col-sm-9">
-        <%= f.text_field :phone, :class => 'form-control' %>
-      </div>
+        <%= f.label :notes, 'Notes', :class => 'col-sm-3 control-label' %>
+        <div class="col-sm-9">
+            <%= f.text_field :notes, :class => 'form-control' %>
+        </div>
     </div>
     <% unless @account.persisted? %>
         <div class="form-group">
@@ -110,16 +136,12 @@
             </div>
           </div>
         </div>
+    <% else %>
+        <%= f.hidden_field :is_migrated %>
     <% end %>
-    <div class="form-group">
-      <div class="col-sm-offset-3 col-sm-9">
-        <div class="checkbox">
-          <%= f.label :is_notified_for_invoices do %>
-              <%= f.check_box :is_notified_for_invoices, {:checked => @account.is_notified_for_invoices} %>Notified for invoices?
-          <% end %>
-        </div>
-      </div>
-    </div>
+    <%= f.hidden_field :is_notified_for_invoices %>
+    <%= f.hidden_field :is_payment_delegated_to_parent %>
+    <%= f.hidden_field :parent_account_id %>
     <div class="form-group">
       <div class="col-sm-offset-3 col-sm-9">
         <%= submit_tag 'Save', :class => 'btn btn-default' %>

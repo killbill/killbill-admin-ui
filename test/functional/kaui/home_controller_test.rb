@@ -2,6 +2,11 @@ require 'test_helper'
 
 class Kaui::HomeControllerTest < Kaui::FunctionalTestHelper
 
+  test 'should get index' do
+    get :index
+    assert_response :success
+  end
+
   test 'should understand search queries' do
     get :search, :q => 'John Doe'
     assert_redirected_to accounts_path(:q => 'John Doe')
@@ -20,5 +25,9 @@ class Kaui::HomeControllerTest < Kaui::FunctionalTestHelper
 
     get :search, :q => 'payment:546014'
     assert_redirected_to payment_path(:id => '546014')
+
+    get :search, :q => "transaction:#{@payment.transactions.first.transaction_id}"
+    assert_redirected_to transaction_path(:id => @payment.transactions.first.transaction_id)
+
   end
 end

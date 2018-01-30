@@ -1,6 +1,13 @@
 class Kaui::CustomFieldsController < Kaui::EngineController
 
   def index
+    @search_query = params[:q]
+
+    @ordering = params[:ordering] || (@search_query.blank? ? 'desc' : 'asc')
+    @offset = params[:offset] || 0
+    @limit = params[:limit] || 50
+
+    @max_nb_records = @search_query.blank? ? Kaui::CustomField.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records : 0
   end
 
   def pagination
@@ -48,6 +55,8 @@ class Kaui::CustomFieldsController < Kaui::EngineController
                 Kaui::Invoice.new(:invoice_id => @custom_field.object_id)
               when :PAYMENT
                 Kaui::Payment.new(:payment_id => @custom_field.object_id)
+              when :INVOICE_ITEM
+                Kaui::InvoiceItem.new(:invoice_item_id => @custom_field.object_id)
               else
                 flash.now[:error] = "Invalid object type #{@custom_field.object_type}"
                 render :new and return

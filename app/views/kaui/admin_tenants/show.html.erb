@@ -1,16 +1,10 @@
-<div class="column-block">
+<%= render :partial => 'tenant_details' %>
 
-  <h1>Tenant details</h1>
-
-  <b>Name:</b> <%= @tenant.name %>
-  <br/>
-  <b>Tenant ID:</b> <%= @tenant.kb_tenant_id %>
-  <br/>
-  <b>API Key:</b> <%= @tenant.api_key %>
-
-</div>
+<%= render :partial => 'useful_links' %>
 
 <% unless @allowed_users.empty? %>
+  <div class="col-md-12">
+
     <div class="search">
 
       <div class="column-block">
@@ -30,7 +24,7 @@
                 <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
                 <td><%= u.description %></td>
                 <td>
-                  <% if Kaui.root_username == current_user.kb_username %>
+                  <% if current_user.root? %>
                       <button type="button" class="btn btn-default btn-sm" id="<%= "allowed-user-remove-#{u.id}" %>">
                         <span class="fa fa-times"></span>
                       </button>
@@ -44,6 +38,8 @@
       </div>
 
     </div>
+
+  </div>
 
     <%= javascript_tag do %>
       $(document).ready(function() {
@@ -62,7 +58,7 @@
 <% end %>
 
 <div class="container">
-  <ul class="nav nav-tabs">
+  <ul class="nav nav-tabs" id="tenant_tabs" active_tab="<%= @active_tab %>">
     <li class="nav active"><a href="#CatalogShow" data-toggle="tab">Catalog Show</a></li>
     <li class="nav"><a href="#OverdueShow" data-toggle="tab">Overdue Show</a></li>
     <li class="nav"><a href="#InvoiceTemplate" data-toggle="tab">Invoice Template</a></li>
@@ -83,6 +79,30 @@
 </div>
 
 <%= javascript_tag do %>
+
+
+   function updateBrowserHistory(target) {
+      // Check if we are already on the right tab
+      res = $.grep(location.href.split('?'), function(el) {
+        if (el.startsWith("active_tab")) {
+          return true;
+        }
+      });
+      if (res.length > 0) {
+        if (res[0].split('=')[1] == target) {
+          return;
+        }
+      }
+
+     // If not update the browser history
+     var base_url = location.href.split('?')[0]
+     var newUrl = base_url + "?active_tab=" + target
+
+     var stateObj = { tenantTab: target };
+     history.pushState(stateObj, "New tab ", newUrl);
+    }
+
+
   $(document).ready(function() {
     $('[id^=allowed-user-remove-]').click(function() {
       var allowedUser = $(this);
@@ -93,5 +113,15 @@
         error: function(request, textStatus, errorThrown) { console.log("AJAX FAILED!!!! request.status " + request.status + ", textStatus = " + textStatus); return false; }
       });
     });
+
+    $('#tenant_tabs li').on('shown.bs.tab', function (e) {
+      var target = $(e.target).attr("href");
+      updateBrowserHistory(target.split('#')[1])
+    });
+
+
+    if ($('#tenant_tabs').attr('active_tab') != "") {
+      $('#tenant_tabs a[href="#' + $('#tenant_tabs').attr('active_tab') + '"]').tab('show');
+    }
   });
 <% end %>

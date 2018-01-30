@@ -1,21 +1,40 @@
 Getting started
 ===============
 
+Kaui core mountable engine. For Kaui the UI, see [killbill-admin-ui-standalone](https://github.com/killbill/killbill-admin-ui-standalone).
+
+Kill Bill compatibility
+-----------------------
+
+| Kaui version | Kill Bill version |
+| -----------: | ----------------: |
+| 0.14.y       | 0.16.z            |
+| 0.15.y       | 0.18.z (Rails 4)  |
+| 0.16.y       | 0.18.z (Rails 5)  |
+
+
+Dependencies
+------------
+
+Ruby 2.2.2+ or JRuby 9.1.9.0+ required.
+
 Running Kaui locally
 ---------------------
 
 You can run Kaui locally by using the test/dummy app provided:
+
 ```
-bundle install
-cd test/dummy
 export RAILS_ENV=development
 bundle install
-rake kaui:install:migrations
-rake db:migrate
-bundle exec rake assets:precompile
-rails server
+rails db:migrate
+rails s
 ```
 
+The Kill Bill URL can be configured through the `KILLBILL_URL` environment variable, e.g.
+
+```
+KILLBILL_URL='http://killbill.acme:8080'
+```
 
 Mounting Kaui into your own Rails app
 -------------------------------------
@@ -25,44 +44,23 @@ The Kaui gem comes with a `kaui` script to mount it in your existing Rails app.
 Kaui expects the container app to define the <tt>current_user</tt> method, which returns the
 name of the logged-in user. This is used by Kill Bill for auditing purposes.
 
+Migrations can be copied over to your app via:
+
+```
+bundle exec rake kaui:install:migrations
+```
+
 Finally, a Kill Bill server needs to be running for Kaui to fetch its information (see the Configuration section below).
-The default login credentials are admin/password.  Users, Credentials, Roles and Permissions are 
-passed through to Kill Bill. It uses Basic Auth by default, but the backend is pluggable (LDAP, 
+The default login credentials are admin/password.  Users, Credentials, Roles and Permissions are
+passed through to Kill Bill. It uses Basic Auth by default, but the backend is pluggable (LDAP,
 ActiveDirectory, etc.).
-
-
-Configuration
--------------
-
-Specify your Kill Bill server url, api key and secret in ```config/initializers/killbill_client.rb```:
-
-```
-KillBillClient.url = 'http://127.0.0.1:8080/'
-```
-
-Sharing a Kaui instance across multiple tenants is not supported yet (you need to spawn one instance per tenant).
 
 
 Running tests
 -------------
 
-Go into 'test/dummy': 
 ```
-cd test/dummy/
-```
-
-Run migrations:
-```
-export RAILS_ENV=test
-rake kaui:install:migrations
-rake db:migrate
-```
-
-Run the tests:
-(Move back to top level)
-```
-cd ../..
-rake test
+rails t
 ```
 
 Note: functional and integration tests require an instance of Kill Bill to test against.
@@ -89,7 +87,11 @@ Then, install and run it from a local directory:
 Alternatively, you can run the `kaui` script under `bin` by setting your loadpath correctly:
 
     ruby -Ilib bin/kaui /path/to/rails/app --path=$PWD --skip-bundle
-    
+
+Releases
+========
+
+The releases are done using Jruby and require the following property `export JRUBY_OPTS='--2.0 -J-Xmx1024m'`
 
 Multi-Tenancy
 =============
@@ -109,7 +111,7 @@ Those roles and permissions are defined the same way other permissions are defin
 * TENANT_CAN_VIEW
 * TENANT_CAN_CREATE
 * OVERDUE_CAN_UPLOAD
-* CATALOG_CAN_UPLOAD 
+* CATALOG_CAN_UPLOAD
 
 The [enforcement in KAUI](https://github.com/killbill/killbill-admin-ui/blob/master/app/models/kaui/ability.rb) is based on the CanCan gem.
 

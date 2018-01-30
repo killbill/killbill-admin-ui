@@ -1,15 +1,33 @@
 class Kaui::BundlesController < Kaui::EngineController
 
   def index
-    fetch_bundles = lambda { @bundles = @account.bundles(options_for_klient) }
-    fetch_bundle_tags = lambda {
+    fetch_bundles = promise { @account.bundles(options_for_klient) }
+    fetch_bundle_tags = promise {
       all_bundle_tags = @account.all_tags(:BUNDLE, false, 'NONE', options_for_klient)
-      @tags_per_bundle = all_bundle_tags.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
+      all_bundle_tags.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
     }
+    fetch_subscription_tags = promise {
+      all_subscription_tags = @account.all_tags(:SUBSCRIPTION, false, 'NONE', options_for_klient)
+      all_subscription_tags.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
+    }
+    fetch_bundle_fields = promise {
+      all_bundle_fields = @account.all_custom_fields(:BUNDLE, 'NONE', options_for_klient)
+      all_bundle_fields.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
+    }
+    fetch_subscription_fields = promise {
+      all_subscription_fields = @account.all_custom_fields(:SUBSCRIPTION, 'NONE', options_for_klient)
+      all_subscription_fields.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
+    }
+    fetch_available_tags = promise { Kaui::TagDefinition.all_for_bundle(options_for_klient) }
+    fetch_available_subscription_tags = promise { Kaui::TagDefinition.all_for_subscription(options_for_klient) }
 
-    fetch_available_tags = lambda { @available_tags = Kaui::TagDefinition.all_for_bundle(options_for_klient) }
-
-    run_in_parallel fetch_bundles, fetch_bundle_tags, fetch_available_tags
+    @bundles = wait(fetch_bundles)
+    @tags_per_bundle = wait(fetch_bundle_tags)
+    @tags_per_subscription = wait(fetch_subscription_tags)
+    @custom_fields_per_bundle = wait(fetch_bundle_fields)
+    @custom_fields_per_subscription = wait(fetch_subscription_fields)
+    @available_tags = wait(fetch_available_tags)
+    @available_subscription_tags = wait(fetch_available_subscription_tags)
 
     @base_subscription = {}
     @bundles.each do |bundle|
@@ -37,5 +55,37 @@ class Kaui::BundlesController < Kaui::EngineController
   def restful_show
     bundle = Kaui::Bundle.find_by_id_or_key(params.require(:id), options_for_klient)
     redirect_to kaui_engine.account_bundles_path(bundle.account_id)
+  end
+
+  def pause_resume
+    @bundle = Kaui::Bundle.find_by_id_or_key(params.require(:id), options_for_klient)
+    @base_subscription = @bundle.subscriptions.find { |sub| sub.product_category == 'BASE' }
+  end
+
+  def do_pause_resume
+    bundle = Kaui::Bundle::new(:bundle_id => params.require(:id))
+
+    paused = false
+    resumed = false
+
+    if params[:pause_requested_date].present?
+      bundle.pause(params[:pause_requested_date], current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+      paused = true
+    end
+
+    if params[:resume_requested_date].present?
+      bundle.resume(params[:resume_requested_date], current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+      resumed = true
+    end
+
+    msg = 'Bundle was successfully '
+    if paused && !resumed
+      msg += 'paused'
+    elsif !paused && resumed
+      msg += 'resumed'
+    else
+      msg += 'updated'
+    end
+    redirect_to kaui_engine.account_bundles_path(@account.account_id), :notice => msg
   end
 end

@@ -2,6 +2,13 @@ require 'test_helper'
 
 class Kaui::TransactionsControllerTest < Kaui::FunctionalTestHelper
 
+  test 'should get restful endpoint' do
+    get :restful_show, :id => @payment.transactions[0].transaction_id
+    assert_response :redirect
+    expected_response_path = "/accounts/#{@payment.account_id}/payments/#{@payment.payment_id}"
+    assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
+  end
+
   test 'should get new' do
     get :new,
         :account_id => @account.account_id,
@@ -11,9 +18,18 @@ class Kaui::TransactionsControllerTest < Kaui::FunctionalTestHelper
         :currency => 'USD',
         :transaction_type => 'CAPTURE'
     assert_response 200
-    assert_not_nil assigns(:account_id)
-    assert_not_nil assigns(:payment_method_id)
-    assert_not_nil assigns(:transaction)
+    assert_equal get_value_from_input_field('account_id'), @account.account_id
+    assert_equal get_value_from_input_field('payment_method_id'), @payment_method.payment_method_id
+    assert has_input_field('transaction_transaction_id')
+
+
+    get :new, :account_id => @account.account_id,
+        :payment_method_id => @payment_method.payment_method_id, :transaction_id => @payment.transactions[0].transaction_id
+    assert_response :success
+    assert_equal get_value_from_input_field('account_id'), @account.account_id
+    assert_equal get_value_from_input_field('payment_method_id'), @payment_method.payment_method_id
+    assert_equal get_value_from_input_field('transaction_transaction_id'), @payment.transactions[0].transaction_id
+    assert_equal get_value_from_input_field('transaction_payment_id'), @payment.payment_id
   end
 
   test 'should create new transaction' do
@@ -47,6 +63,23 @@ class Kaui::TransactionsControllerTest < Kaui::FunctionalTestHelper
       assert_redirected_to account_payment_path(@account.account_id, payment_id)
       assert_equal 'Transaction successfully created', flash[:notice]
     end
+  end
+
+  test 'should fix transaction state' do
+    payment = create_payment(nil,nil,@tenant)
+    parameters = {
+      :account_id => payment.account_id,
+      :transaction => {
+        :payment_id => payment.payment_id,
+        :transaction_id => payment.transactions[0].transaction_id,
+        :status => 'PENDING'
+      }
+    }
+
+    put :fix_transaction_state, parameters
+    assert_response :redirect
+    assert_redirected_to account_payment_path(payment.account_id,payment.payment_id)
+    assert_equal "Transaction successfully transitioned to #{parameters[:transaction][:status]}", flash[:notice]
   end
 
   private

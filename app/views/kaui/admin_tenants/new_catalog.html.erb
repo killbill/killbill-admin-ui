@@ -17,13 +17,25 @@
       <div class="form-group">
         <%= f.label :product_name, 'Product Name', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.text_field :product_name, :class => 'form-control', :known_base => @available_base_products.join(","), :known_ao => @available_ao_products.join(","), :known_std => @available_standalone_products.join(","), :ao_mappings => @ao_mapping %>
+          <%= f.text_field :product_name,
+                           :class => 'form-control',
+                           :required => true,
+                           :pattern => "^[a-zA-Z_][\\w\\.-]*$",
+                           :title => 'xs:ID format: it must start with a letter or underscore, and can only contain letters, digits, underscores, hyphens, and periods',
+                           :known_base => @available_base_products.join(","),
+                           :known_ao => @available_ao_products.join(","),
+                           :known_std => @available_standalone_products.join(","),
+                           :ao_mappings => @ao_mapping %>
         </div>
       </div>
       <div class="form-group">
         <%= f.label :plan_id, 'Plan Name', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.text_field :plan_id, :class => 'form-control' %>
+          <%= f.text_field :plan_id,
+                           :class => 'form-control',
+                           :required => true,
+                           :pattern => "^[a-zA-Z_][\\w\\.-]*$",
+                           :title => 'xs:ID format: it must start with a letter or underscore, and can only contain letters, digits, underscores, hyphens, and periods' %>
         </div>
       </div>
       <div class="form-group" id="form_base_products">
@@ -35,7 +47,7 @@
       <div class="form-group">
         <%= f.label :amount, 'Amount', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.text_field :amount, :class => 'form-control' %>
+          <%= f.number_field :amount, :class => 'form-control', :value => 0, :step => :any %>
         </div>
       </div>
       <div class="form-group">
@@ -53,7 +65,7 @@
       <div class="form-group">
         <%= f.label :trial_length, 'Trial Length', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.text_field :trial_length, :value => 0, :class => 'form-control' %>
+          <%= f.number_field :trial_length, :class => 'form-control', :value => 0 %>
         </div>
       </div>
       <div class="form-group">
@@ -94,7 +106,6 @@
       </div>
   <% end %>
 </div>
-
 
 <%= javascript_tag do %>
 

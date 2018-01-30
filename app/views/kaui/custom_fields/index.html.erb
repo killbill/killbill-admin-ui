@@ -30,12 +30,32 @@
 
 <%= javascript_tag do %>
 $(document).ready(function() {
-  $('#custom_fields-table').dataTable({
+  var table = $('#custom_fields-table').DataTable({
     "dom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-    "pagingType": "full_numbers",
+    "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
+    "language": {
+      <!-- See DefaultPaginationSqlDaoHelper.java -->
+      "info": <% if @max_nb_records.nil? -%>"Showing _START_ to _END_ of <%= number_with_delimiter(Kaui::EngineControllerUtil::SIMPLE_PAGINATION_THRESHOLD) -%>+ entries"<% else -%>"Showing _START_ to _END_ of _TOTAL_ entries"<% end -%>
+    },
+    "pageLength": <%= @limit %>,
+    "displayStart": <%= @offset %>,
+    <% unless @ordering.blank? %>
+        "order": [[ 0, "<%= @ordering %>" ]],
+    <% end %>
     "processing": true,
     "serverSide": true,
-    "ajax": "<%= custom_fields_pagination_path :format => :json %>"
+    "ajax": "<%= custom_fields_pagination_path(:ordering => @ordering, :format => :json) %>"
   });
+
+  <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->
+  <% if @max_nb_records.nil? %>
+    $('#custom_fields-table').on('draw.dt', function() {
+      var noMoreData = table.column(0)
+                            .data()
+                            .length == 0;
+      $(".next.paginate_button").toggleClass("disabled", noMoreData);
+      $(".dataTables_info").toggle(!noMoreData);
+    });
+  <% end %>
 });
 <% end %>

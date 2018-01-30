@@ -4,7 +4,7 @@
     <div class="form-group">
       <%= f.label :credit_amount, 'Amount', :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10">
-        <%= f.text_field :credit_amount, :id => 'credit_amount', :class => 'form-control' %>
+        <%= f.number_field :credit_amount, :step => :any, :id => 'credit_amount', :class => 'form-control' %>
         <% if @invoice.present? %>
             <p class="help-block">Currency: <%= @invoice.currency %></p>
         <% end %>
@@ -21,7 +21,7 @@
     <div class="form-group">
       <%= label_tag :reason, 'Reason', :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10">
-        <%= select_tag :reason, options_for_select(Kaui::Credit::SAMPLE_REASON_CODES), :class => 'form-control' %>
+        <%= select_tag :reason, options_for_select(Kaui.credit_reason_codes), :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">

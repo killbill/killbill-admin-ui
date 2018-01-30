@@ -12,10 +12,10 @@ class Kaui::BundlesControllerTest < Kaui::FunctionalTestHelper
   test 'should get index with existing tags' do
 
     tag_definition_ids = []
-    def1 = create_tag_definition(SecureRandom.uuid.to_s, @tenant);
+    def1 = create_tag_definition(SecureRandom.uuid.to_s[0..19], @tenant);
     tag_definition_ids << def1
     tag_definition_ids << def1
-    def2 = create_tag_definition(SecureRandom.uuid.to_s, @tenant);
+    def2 = create_tag_definition(SecureRandom.uuid.to_s[0..19], @tenant);
     tag_definition_ids << def2
 
     add_tags(@bundle, tag_definition_ids, @tenant);
@@ -80,6 +80,33 @@ class Kaui::BundlesControllerTest < Kaui::FunctionalTestHelper
 
     get :restful_show, :id => @bundle.external_key
     assert_redirected_to account_bundles_path(@bundle.account_id)
+  end
+
+  test 'should get pause_resume ' do
+    get :pause_resume, :id => @bundle.bundle_id
+    assert_response :success
+    assert has_input_field('pause_requested_date')
+    assert has_input_field('resume_requested_date')
+  end
+
+  test 'should put bundle on pause and resume' do
+    expected_response_path = "/accounts/#{@account.account_id}/bundles"
+    bundle = create_bundle(@account, @tenant)
+
+    # put bundle on pause
+    put :do_pause_resume, :id => bundle.bundle_id,:account_id => @account.account_id, :pause_requested_date => DateTime.now.strftime('%F')
+    assert_response :redirect
+    assert_equal 'Bundle was successfully paused', flash[:notice]
+    # validate redirect path
+    assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
+
+    # resume bundle on pause
+    put :do_pause_resume, :id => bundle.bundle_id,:account_id => @account.account_id, :resume_requested_date => DateTime.now.strftime('%F')
+    assert_response :redirect
+    assert_equal 'Bundle was successfully resumed', flash[:notice]
+    # validate redirect path
+    assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
+
   end
 
   private

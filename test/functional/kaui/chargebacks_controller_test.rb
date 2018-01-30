@@ -17,7 +17,7 @@ class Kaui::ChargebacksControllerTest < Kaui::FunctionalTestHelper
   test 'should handle Kill Bill errors during create' do
     payment_id = SecureRandom.uuid.to_s
     post :create,
-         :account_id => @payment.account_id,
+         :account_id => @account.account_id,
          :chargeback => {
              :payment_id => payment_id,
              :amount => @payment.paid_amount_to_money.to_f,

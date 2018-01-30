@@ -29,7 +29,9 @@ class Kaui::CustomFieldsControllerTest < Kaui::FunctionalTestHelper
         :ACCOUNT => @account.account_id,
         :BUNDLE => @bundle.bundle_id,
         :SUBSCRIPTION => @bundle_invoice.items.first.subscription_id,
-        :INVOICE => @bundle_invoice.invoice_id
+        :INVOICE => @bundle_invoice.invoice_id,
+        :PAYMENT => @payment.payment_id,
+        :INVALID => 0
     }.each do |object_type, object_id|
       post :create,
            :custom_field => {
@@ -38,8 +40,13 @@ class Kaui::CustomFieldsControllerTest < Kaui::FunctionalTestHelper
                :name => SecureRandom.uuid.to_s,
                :value => SecureRandom.uuid.to_s,
            }
-      assert_redirected_to custom_fields_path
-      assert_equal 'Custom field was successfully created', flash[:notice]
+      if object_type.eql?(:INVALID)
+        assert_response :success
+        assert_equal 'Invalid object type INVALID',flash.now[:error]
+      else
+        assert_redirected_to custom_fields_path
+        assert_equal 'Custom field was successfully created', flash[:notice]
+      end
     end
   end
 end

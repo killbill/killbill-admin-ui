@@ -30,8 +30,11 @@ module Kaui
       @paid_invoice_item = create_charge(@account, @tenant, true)
       @bundle_invoice    = @account.invoices(true, build_options(@tenant)).first
       @payment_method    = create_payment_method(true, @account, @tenant)
-      @cba               = create_cba(@invoice_item.invoice_id, @account, @tenant, true)
       @payment           = create_payment(@paid_invoice_item, @account, @tenant)
+
+      invoice_id_for_cba = create_charge(@account, @tenant).invoice_id
+      @cba               = create_cba(invoice_id_for_cba, @account, @tenant, true)
+      commit_invoice(invoice_id_for_cba, @tenant)
 
       if setup_tenant_key_secret
         KillBillClient.api_key = @tenant.api_key
@@ -65,7 +68,7 @@ module Kaui
 
         t = Kaui::Tenant.new
         t.kb_tenant_id = cur_tenant.tenant_id
-        t.name = 'Test'
+        t.name = SecureRandom.uuid.to_s
         t.api_key = cur_tenant.api_key
         t.api_secret = cur_tenant.api_secret
         t.save
@@ -78,7 +81,7 @@ module Kaui
     end
 
     # Return a new test account
-    def create_account(tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
+    def create_account(tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil, parent_account_id = nil)
       tenant       = create_tenant if tenant.nil?
       external_key = SecureRandom.uuid.to_s
 
@@ -97,8 +100,21 @@ module Kaui
       account.country                  = 'LalaLand'
       account.locale                   = 'fr_FR'
       account.is_notified_for_invoices = false
+      account.parent_account_id        = parent_account_id
+      account.is_payment_delegated_to_parent = !parent_account_id.nil?
 
       account.create(user, reason, comment, build_options(tenant, username, password))
+    end
+
+    # Return the killbill server clock
+    def get_clock(tenant = nil)
+      tenant  = create_tenant(user, reason, comment) if tenant.nil?
+      Kaui::Admin.get_clock(nil, build_options(tenant, USERNAME, PASSWORD))
+    end
+
+    # reset killbill server clock
+    def reset_clock
+      Kaui::Admin.set_clock(nil, nil, build_options(@tenant, USERNAME, PASSWORD))
     end
 
     # Return the created bundle
@@ -146,10 +162,15 @@ module Kaui
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
 
       credit = KillBillClient::Model::Credit.new(:invoice_id => invoice_id, :account_id => account.account_id, :credit_amount => 23.22)
-      credit = credit.create(user, reason, comment, build_options(tenant, username, password))
+      credit = credit.create(true, user, reason, comment, build_options(tenant, username, password))
 
       invoice = KillBillClient::Model::Invoice.find_by_id_or_number(credit.invoice_id, true, 'NONE', build_options(tenant, username, password))
       invoice.items.find { |ii| ii.amount == -credit.credit_amount }
+    end
+
+    def commit_invoice(invoice_id, tenant, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
+      invoice = KillBillClient::Model::Invoice.find_by_id_or_number(invoice_id, false, 'NONE', build_options(tenant, username, password))
+      invoice.commit(user, reason, comment, build_options(tenant, username, password))
     end
 
     def create_payment(invoice_item = nil, account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)

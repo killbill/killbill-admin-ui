@@ -12,6 +12,20 @@
             }
         }
     }
+
+    table.table-small-padding {
+        th, td {
+            white-space: nowrap;
+
+            &:first-of-type {
+                padding-left: 20px;
+            }
+        }
+    }
+
+    tr.disabled {
+        background-color: #f5f5f5;
+    }
 }
 
 table.dataTable {
@@ -72,4 +86,8 @@ table.dataTable.table-condensed thead > tr > th {
     &:last-of-type {
         border-right: 0;
     }
+}
+
+.dataTables_paginate.paging_full_numbers {
+    padding-top: 30px;
 }

@@ -132,4 +132,43 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
     put :reinstate, :id => @bundle.subscriptions.first.subscription_id
     assert_response 302
   end
+
+  test 'should get show' do
+    get :show, :id => @bundle.subscriptions.first.subscription_id
+    assert_redirected_to account_bundles_path(@bundle.subscriptions.first.account_id)
+  end
+
+  test 'should get edit bcd' do
+    get :edit_bcd, :id => @bundle.subscriptions.first.subscription_id
+    assert_response :success
+    assert_equal get_value_from_input_field('subscription_account_id'), @bundle.subscriptions.first.account_id
+    assert_equal get_value_from_input_field('subscription_bill_cycle_day_local'), @bundle.subscriptions.first.bill_cycle_day_local.to_s
+    assert_equal get_value_from_input_field('effective_from_date'), @bundle.subscriptions.first.billing_start_date
+  end
+
+  test 'should update bcd' do
+    bundle = create_bundle(@account, @tenant)
+    parameters = {
+        :id => bundle.subscriptions.first.subscription_id,
+        :subscription => { :account_id => bundle.subscriptions.first.account_id,
+                           :bill_cycle_day_local =>	bundle.subscriptions.first.bill_cycle_day_local
+        },
+        :effective_from_date => (Date.today >> 1).to_s
+    }
+
+    put :update_bcd, parameters
+    assert_redirected_to account_bundles_path(bundle.subscriptions.first.account_id)
+    assert_equal 'Subscription BCD was successfully changed', flash[:notice]
+  end
+
+  test 'should validate external key if found' do
+    get :validate_external_key, :external_key => 'foo'
+    assert_response :success
+    assert_equal JSON[@response.body]['is_found'], false
+
+    get :validate_external_key, :external_key => @bundle.subscriptions.first.external_key
+    assert_response :success
+    assert_equal JSON[@response.body]['is_found'], true
+  end
+
 end

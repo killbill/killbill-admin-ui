@@ -21,6 +21,8 @@
             <th>Days since earliest unpaid invoice</th>
             <th>Tag inclusion</th>
             <th>Tag exclusion</th>
+            <th>Number of unpaid invoices</th>
+            <th>Total unpaid invoice balance</th>
             <th></th>
           </tr>
           </thead>
@@ -29,16 +31,20 @@
 
           <% @overdue.overdue_states.reverse.each_with_index do |state, idx| %>
               <tr class="overdue_state_<%= state %>" id="tr_state_<%= idx %>">
-                <%= f.fields_for 'states[]', state do |state_form| %>
+                <%= f.fields 'states' do |state_form_group| %>
+                  <%= state_form_group.fields_for "#{idx}", state do |state_form| %>
                     <td><%= state_form.text_field :name %></td>
                     <td><%= state_form.text_field :external_message %></td>
                     <td><%= state_form.select :block_changes, options_for_select([true, false ], state.block_changes), :class => 'form-control'  %></td>
                     <td><%= state_form.select :subscription_cancellation_policy, options_for_select([:NONE, :POLICY_NONE, :POLICY_IMMEDIATE, :POLICY_END_OF_TERM], state.subscription_cancellation), :class => 'form-control' %></td>
                     <%= state_form.fields_for 'condition' do |condition| %>
-                        <td><%= condition.text_field :time_since_earliest_unpaid_invoice_equals_or_exceeds, :value => state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.number %></td>
-                        <td><%= condition.select :control_tag_inclusion, options_for_select([:NONE, :AUTO_PAY_OFF, :AUTO_INVOICING_OFF, :OVERDUE_ENFORCEMENT_OFF, :MANUAL_PAY, :TEST, :PARTNER], state.condition.control_tag_inclusion), :class => 'form-control'  %></td>
-                        <td><%= condition.select :control_tag_exclusion, options_for_select([:NONE, :AUTO_PAY_OFF, :AUTO_INVOICING_OFF, :OVERDUE_ENFORCEMENT_OFF, :MANUAL_PAY, :TEST, :PARTNER], state.condition.control_tag_exclusion), :class => 'form-control'%></td>
+                      <td><%= condition.number_field :time_since_earliest_unpaid_invoice_equals_or_exceeds, :value => state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.number %></td>
+                      <td><%= condition.select :control_tag_inclusion, options_for_select([:NONE, :AUTO_PAY_OFF, :AUTO_INVOICING_OFF, :OVERDUE_ENFORCEMENT_OFF, :MANUAL_PAY, :TEST, :PARTNER], state.condition.control_tag_inclusion), :class => 'form-control'  %></td>
+                      <td><%= condition.select :control_tag_exclusion, options_for_select([:NONE, :AUTO_PAY_OFF, :AUTO_INVOICING_OFF, :OVERDUE_ENFORCEMENT_OFF, :MANUAL_PAY, :TEST, :PARTNER], state.condition.control_tag_exclusion), :class => 'form-control'%></td>
+                      <td><%= condition.number_field :number_of_unpaid_invoices_equals_or_exceeds, :value => state.condition.number_of_unpaid_invoices_equals_or_exceeds %></td>
+                      <td><%= condition.number_field :total_unpaid_invoice_balance_equals_or_exceeds, :step => :any, :value => state.condition.total_unpaid_invoice_balance_equals_or_exceeds %></td>
                     <% end %>
+                  <% end %>
                 <% end %>
                 <td><a class='btn btn-xs' href="javascript:void(0);" onclick="overdue_delete_state(this);" id="delete_state_<%= idx %>"><%= '<i class="fa fa-times"></i>'.html_safe %></a></td>
               </tr>
@@ -79,7 +85,6 @@
   <% end %>
 </div>
 
-
 <%= javascript_tag do %>
 
 
@@ -108,7 +113,21 @@ function overdue_new_state() {
     row.attr('id', "tr_state_" + row_idx);
     row.children("td:last").children('a').attr('id', "delete_state_" + row_idx);
 
-    /* Attach rom into dom */
+    /* update the index on content */
+    row.find('td').each(function(){
+        $(this).contents().each(function(){
+
+          if ($(this).attr('name') != undefined){
+            $(this).attr('name',($(this).attr('name')).replace(max_idx,row_idx));
+          }
+
+          if ($(this).attr('id') != undefined){
+            $(this).attr('id',($(this).attr('id')).replace(max_idx,row_idx));
+          }
+        });
+    });
+
+    /* Attach row into dom */
     row.insertAfter('#existing-overdue-config-for-tenants tbody>tr:last');
 
     /* Also reset the disabled state */

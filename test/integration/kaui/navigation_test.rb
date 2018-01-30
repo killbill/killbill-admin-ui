@@ -8,8 +8,8 @@ module Kaui
       assert_redirected_to SIGN_IN_PATH
 
       # Verify log-in and redirect to the original page
-      post_via_redirect SIGN_IN_PATH, {:user => {:kb_username => USERNAME, :password => PASSWORD}}
-      assert_equal ACCOUNTS_PATH + '/' + @account.account_id, path
+      post SIGN_IN_PATH, :params => {:user => {:kb_username => USERNAME, :password => PASSWORD}}
+      assert_redirected_to ACCOUNTS_PATH + '/' + @account.account_id
 
       # User goes to search for the account
       get ACCOUNTS_PATH
@@ -31,9 +31,12 @@ module Kaui
       assert_not_nil assigns(:account)
 
       # Verify log-out
-      delete_via_redirect SIGN_OUT_PATH
-      assert_equal SIGN_IN_PATH, path
-      assert_equal 'You need to sign in or sign up before continuing.', flash[:alert]
+      delete SIGN_OUT_PATH
+      assert_redirected_to BASE_PATH + '/'
+
+      get BASE_PATH
+      assert_redirected_to SIGN_IN_PATH
+      assert_equal 'You need to sign in before continuing.', flash[:alert]
     end
   end
 end

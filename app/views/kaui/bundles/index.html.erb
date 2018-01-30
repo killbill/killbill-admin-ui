@@ -29,21 +29,27 @@
       <div class="info-wrapper">
 
         <div class="tag-bar">
+          <% unless @available_tags.empty? %>
+            <div class="tag-select" onclick="void(0)">
+              <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
 
-          <div class="tag-select" onclick="void(0)">
-            <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
+              <div class="tag-select-box">
+                <strong>Tag as:</strong>
 
-            <div class="tag-select-box">
-              <strong>Tag as:</strong>
-
-              <%= render :partial => 'kaui/bundle_tags/form_bar',
-                         :locals => {:bundle_id => bundle.bundle_id,
-                                     :tag_names => (@tags_per_bundle[bundle.bundle_id] || []).map { |tag| tag.tag_definition_name },
-                                     :available_tags => @available_tags} %>
+                <%= render :partial => 'kaui/bundle_tags/form_bar',
+                           :locals => {:params => { :bundle_id => bundle.bundle_id},
+                                       :tag_names => (@tags_per_bundle[bundle.bundle_id] || []).map { |tag| tag.tag_definition_name },
+                                       :available_tags => @available_tags,
+                                       :update_tags_path => update_bundle_tags_path
+                           } %>
+              </div>
             </div>
-          </div>
+          <% end %>
+          <%= render :partial => 'kaui/custom_fields/list_bar',
+                     :locals => {:custom_fields => @custom_fields_per_bundle[bundle.bundle_id] || []} %>
 
-          <% if !is_subscription_cancelled?(@base_subscription[bundle.bundle_id]) && (can?(:create, Kaui::Subscription) || can?(:transfer, Kaui::Subscription)) %>
+          <% if !is_subscription_cancelled?(@base_subscription[bundle.bundle_id]) &&
+              (can?(:create, Kaui::Subscription) || can?(:transfer, Kaui::Subscription) || can?(:pause_resume, Kaui::Subscription)) %>
               <div class="tag-select" onclick="void(0)">
                 <span><i class="fa fa-gift"></i><i class="fa fa-caret-down"></i></span>
 
@@ -53,6 +59,9 @@
                   <% end %>
                   <% if can? :transfer, Kaui::Subscription %>
                       <%= link_to '<i class="fa fa-random"></i>&nbsp;Transfer Ownership'.html_safe, kaui_engine.transfer_bundle_path(bundle.bundle_id) %>
+                  <% end %>
+                  <% if can? :pause_resume, Kaui::Subscription %>
+                      <%= link_to '<i class="fa fa-pause"></i>&nbsp;Pause / resume'.html_safe, kaui_engine.pause_resume_bundle_path(:account_id => bundle.account_id, :id => bundle.bundle_id) %>
                   <% end %>
                 </div>
               </div>

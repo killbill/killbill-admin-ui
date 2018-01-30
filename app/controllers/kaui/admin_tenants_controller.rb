@@ -1,6 +1,6 @@
 class Kaui::AdminTenantsController < Kaui::EngineController
 
-  skip_before_filter :check_for_redirect_to_tenant_screen
+  skip_before_action :check_for_redirect_to_tenant_screen
 
   def index
     # Display the configured tenants in KAUI (which could be different than the existing tenants known by Kill Bill)
@@ -58,6 +58,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     # Select the tenant, see TenantsController
     session[:kb_tenant_id] = tenant_model.kb_tenant_id
     session[:kb_tenant_name] = tenant_model.name
+    session[:tenant_id] = tenant_model.id
 
     redirect_to admin_tenant_path(tenant_model[:id]), :notice => 'Tenant was successfully configured'
   end
@@ -66,19 +67,31 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     @tenant = safely_find_tenant_by_id(params[:id])
     @allowed_users = @tenant.kaui_allowed_users & retrieve_allowed_users_for_current_user
 
+    set_tenant_if_nil(@tenant)
+
     options = tenant_options_for_client
     options[:api_key] = @tenant.api_key
     options[:api_secret] = @tenant.api_secret
 
-    @catalogs = Kaui::Catalog::get_catalog_json(false, options) rescue @catalogs = []
-    @catalogs_xml = Kaui::Catalog::get_catalog_xml(options) rescue @catalogs_xml = []
-    @overdue =  Kaui::Overdue::get_overdue_json(options) rescue @overdue = nil
-    @overdue_xml = Kaui::Overdue::get_tenant_overdue_config('xml', options) rescue @overdue_xml = nil
+    fetch_catalogs = promise { Kaui::Catalog::get_catalog_json(false, options) rescue @catalogs = [] }
+    fetch_catalogs_xml = promise { Kaui::Catalog::get_catalog_xml(options) rescue @catalogs_xml = [] }
+    fetch_overdue = promise { Kaui::Overdue::get_overdue_json(options) rescue @overdue = nil }
+    fetch_overdue_xml = promise { Kaui::Overdue::get_tenant_overdue_config('xml', options) rescue @overdue_xml = nil }
 
     plugin_repository = Kaui::AdminTenant::get_plugin_repository
 
-    @plugin_config =  Kaui::AdminTenant::get_oss_plugin_info(plugin_repository) rescue @plugin_config = ""
-    @tenant_plugin_config = Kaui::AdminTenant::get_tenant_plugin_config(plugin_repository, options) rescue @tenant_plugin_config = ""
+    fetch_plugin_config = promise { Kaui::AdminTenant::get_oss_plugin_info(plugin_repository) }
+    fetch_tenant_plugin_config = promise { Kaui::AdminTenant::get_tenant_plugin_config(plugin_repository, options) }
+
+    @catalogs = wait(fetch_catalogs)
+    @catalogs_xml = wait(fetch_catalogs_xml)
+    @overdue = wait(fetch_overdue)
+    @overdue_xml = wait(fetch_overdue_xml)
+    @plugin_config = wait(fetch_plugin_config) rescue ''
+    @tenant_plugin_config = wait(fetch_tenant_plugin_config) rescue ''
+
+    # When reloading page from the view, it sends the last tab that was active
+    @active_tab = params[:active_tab] || 'CatalogShow'
   end
 
   def upload_catalog
@@ -97,6 +110,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def new_catalog
+
+
     @tenant = safely_find_tenant_by_id(params[:id])
 
     options = tenant_options_for_client
@@ -115,13 +130,52 @@ class Kaui::AdminTenantsController < Kaui::EngineController
         latest_catalog.products.select { |p| p.type == 'STANDALONE' }.map { |p| p.name } : []
     @product_categories = [:BASE, :ADD_ON, :STANDALONE]
     @billing_period = [:DAILY, :WEEKLY, :BIWEEKLY, :THIRTY_DAYS, :MONTHLY, :QUARTERLY, :BIANNUAL, :ANNUAL, :BIENNIAL]
-    @time_units = [:UNLIMITED, :DAYS, :MONTHS, :YEARS]
+    @time_units = [:UNLIMITED, :DAYS, :WEEKS, :MONTHS, :YEARS]
 
     @simple_plan = Kaui::SimplePlan.new
   end
 
+  def delete_catalog
+
+    tenant = safely_find_tenant_by_id(params[:id])
+
+    options = tenant_options_for_client
+    options[:api_key] = tenant.api_key
+    options[:api_secret] = tenant.api_secret
+
+    begin
+      Kaui::Catalog.delete_catalog(options[:username], 'KAUI wrong catalog', comment, options)
+    rescue  NoMethodError => _
+      flash[:error] = 'Failed to delete catalog: only available in KB 0.19+ versions'
+      redirect_to admin_tenants_path and return
+    end
+
+    redirect_to admin_tenant_path(tenant.id), :notice => 'Catalog was successfully deleted'
+  end
+
   def new_plan_currency
     @tenant = safely_find_tenant_by_id(params[:id])
+
+    is_plan_id_found = false
+    plan_id = params[:plan_id]
+
+    options = tenant_options_for_client
+    options[:api_key] = @tenant.api_key
+    options[:api_secret] = @tenant.api_secret
+
+    catalog = Kaui::Catalog::get_catalog_json(true, options)
+
+    # seek if plan id exists
+    catalog.products.each do |product|
+      product.plans.each { |plan| is_plan_id_found |= plan.name == plan_id }
+      break if is_plan_id_found
+    end
+
+    unless is_plan_id_found
+      flash[:error] = "Plan id #{plan_id} was not found."
+      redirect_to admin_tenant_path(@tenant[:id])
+    end
+
     @simple_plan = Kaui::SimplePlan.new
     @simple_plan.plan_id = params[:plan_id]
   end
@@ -164,6 +218,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_secret] = current_tenant.api_secret
 
     view_form_model = params.require(:kill_bill_client_model_overdue).delete_if { |e, value| value.blank? }
+    view_form_model['states'] = view_form_model['states'].values unless view_form_model['states'].blank?
+
     overdue = Kaui::Overdue::from_overdue_form_model(view_form_model)
     overdue.upload_tenant_overdue_config_json(options[:username], nil, comment, options)
     redirect_to admin_tenant_path(current_tenant.id), :notice => 'Overdue config was successfully added '
@@ -257,7 +313,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     current_tenant = safely_find_tenant_by_id(params[:id])
     au = Kaui::AllowedUser.find(params.require(:allowed_user).require(:id))
 
-    if Kaui.root_username != current_user.kb_username
+    if !current_user.root?
       render :json => {:alert => 'Only the root user can remove users from tenants'}.to_json, :status => 401
       return
     end
@@ -280,6 +336,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
   private
 
+
   def safely_find_tenant_by_id(tenant_id)
     tenant = Kaui::Tenant.find_by_id(tenant_id)
     raise ActiveRecord::RecordNotFound.new('Could not find tenant ' + tenant_id) unless retrieve_tenants_for_current_user.include?(tenant.kb_tenant_id)
@@ -298,4 +355,14 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   def comment
     'Multi-tenant Administrative operation'
   end
+
+  def set_tenant_if_nil(tenant)
+
+    if session[:kb_tenant_id].nil?
+      session[:kb_tenant_id] = tenant.kb_tenant_id
+      session[:kb_tenant_name] = tenant.name
+      session[:tenant_id] = tenant.id
+    end
+  end
+
 end

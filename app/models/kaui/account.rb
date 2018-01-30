@@ -8,7 +8,7 @@ class Kaui::Account < KillBillClient::Model::Account
         begin
           # account_id_or_key looked like an id, but maybe it's an external key (this will happen in tests)?
           find_by_external_key(account_id_or_key, with_balance, with_balance_and_cba, options)
-        rescue => f
+        rescue => _
           # Nope - raise the initial exception
           raise e
         end

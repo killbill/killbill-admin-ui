@@ -1,5 +1,8 @@
 module Kaui::EngineControllerUtil
 
+  # See DefaultPaginationSqlDaoHelper.java
+  SIMPLE_PAGINATION_THRESHOLD = 20000
+
   protected
 
   def get_layout
@@ -11,8 +14,7 @@ module Kaui::EngineControllerUtil
     offset = (params[:start] || 0).to_i
     limit = (params[:length] || 10).to_i
 
-    limit = 2147483647 if limit == -1
-
+    limit = -limit if params[:ordering] == 'desc'
     begin
       pages = searcher.call(search_key, offset, limit)
     rescue => e
@@ -21,8 +23,9 @@ module Kaui::EngineControllerUtil
 
     json = {
         :draw => (params[:draw] || 0).to_i,
-        :recordsTotal => pages.nil? ? 0 : pages.pagination_max_nb_records,
-        :recordsFiltered => pages.nil? ? 0 : pages.pagination_total_nb_records,
+        # We need to fill-in a number to make DataTables happy
+        :recordsTotal => pages.nil? ? 0 : (pages.pagination_max_nb_records || SIMPLE_PAGINATION_THRESHOLD),
+        :recordsFiltered => pages.nil? ? 0 : (pages.pagination_total_nb_records || SIMPLE_PAGINATION_THRESHOLD),
         :data => []
     }
     json[:error] = error unless error.nil?
@@ -38,8 +41,8 @@ module Kaui::EngineControllerUtil
       b = data_extractor.call(b, ordering_column)
       sort = a <=> b
       sort.nil? ? -1 : sort
-    end
-    pages.reverse! if ordering_dir == 'desc'
+    end unless search_key.nil? # Keep DB ordering when listing all entries
+    pages.reverse! if ordering_dir == 'desc' && limit >= 0 || ordering_dir == 'asc' && limit < 0
 
     pages.each { |page| json[:data] << formatter.call(page) }
 
@@ -48,33 +51,45 @@ module Kaui::EngineControllerUtil
     end
   end
 
-  def run_in_parallel(*tasks)
-    latch = Concurrent::CountDownLatch.new(tasks.size)
-    exceptions = Concurrent::Array.new
-
-    tasks.each do |task|
-      Kaui.thread_pool.post do
-        begin
-          task.call
-        rescue => e
-          exceptions << e
-        ensure
-          latch.count_down
-        end
-      end
-    end
-    latch.wait
-
-    exception = exceptions.shift
-    raise exception unless exception.nil?
+  def promise(execute = true, &block)
+    promise = Concurrent::Promise.new({:executor => Kaui.thread_pool}, &block)
+    promise.execute if execute
+    promise
   end
 
+  def wait(promise)
+    # If already executed, no-op
+    promise.execute
+
+    # Make sure to set a timeout to avoid infinite wait
+    value = promise.value!(60)
+    raise promise.reason unless promise.reason.nil?
+    if value.nil? && promise.state != :fulfilled
+      Rails.logger.warn("Unable to run promise #{promise_as_string(promise)}")
+      raise Timeout::Error
+    end
+    value
+  end
+
+  def promise_as_string(promise)
+    return 'nil' if promise.nil?
+    executor = promise.instance_variable_get('@executor')
+    executor_as_string = "queue_length=#{executor.queue_length}, pool_size=#{executor.length}"
+    "#{promise.instance_variable_get('@promise_body')}[state=#{promise.state}, parent=#{promise_as_string(promise.instance_variable_get('@parent'))}, executor=[#{executor_as_string}]]"
+  end
+
+  # Used to format flash error messages
   def as_string(e)
     if e.is_a?(KillBillClient::API::ResponseError)
       "Error #{e.response.code}: #{as_string_from_response(e.response.body)}"
     else
+      log_rescue_error(e)
       e.message
     end
+  end
+
+  def log_rescue_error(error)
+    Rails.logger.warn "#{error.class} #{error.to_s}. #{error.backtrace.join("\n")}"
   end
 
   def as_string_from_response(response)
@@ -82,7 +97,7 @@ module Kaui::EngineControllerUtil
     begin
       # BillingExceptionJson?
       error_message = JSON.parse response
-    rescue => e
+    rescue => _
     end
 
     if error_message.respond_to? :[] and error_message['message'].present?

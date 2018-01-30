@@ -5,9 +5,21 @@
       <%= form_tag search_path, :id => 'home_searchform', :method => 'get' do %>
           <%= text_field_tag :q, @search_query, :id => 'search', :placeholder => 'What are you looking for?' %>
           <%= submit_tag 'Search' %>
+          <div class="checkbox">
+            <%= label_tag :fast do %>
+                <%= check_box_tag :fast %>Fast search (find first exact match)
+            <% end %>
+          </div>
       <% end %>
 
     </div>
+    <div class="col-md-6 col-md-offset-3 legend">
+      <p class="text-center">
+        <%= link_to 'Latest accounts', kaui_engine.accounts_path %> /
+        <%= link_to 'Latest invoices', kaui_engine.invoices_path %> /
+        <%= link_to 'Latest payments', kaui_engine.payments_path %>
+      </p>
+    </div>
   </div>
-  <span class="duck_help">You can search accounts by ID, external key, name, company or email address.</span>
+  <span class="duck_help">Accounts are searched by default. Or try the <b>invoice:</b> and <b>payment:</b> and <b>transaction:</b> operators</span>
 </div>

@@ -2,7 +2,7 @@ class Kaui::EngineController < ApplicationController
 
   include Kaui::EngineControllerUtil
 
-  before_filter :authenticate_user!, :check_for_redirect_to_tenant_screen, :populate_account_details
+  before_action :authenticate_user!, :check_for_redirect_to_tenant_screen, :populate_account_details
 
   layout :get_layout
 
@@ -10,6 +10,9 @@ class Kaui::EngineController < ApplicationController
   def options_for_klient(options = {})
     user_tenant_options = Kaui.current_tenant_user_options(current_user, session)
     user_tenant_options.merge(options)
+    # Pass the X-Request-Id seen by Rails to Kill Bill
+    # Note that this means that subsequent requests issued by a single action will share the same X-Request-Id in Kill Bill
+    user_tenant_options[:request_id] ||= request.request_id
     user_tenant_options
   end
 
@@ -25,7 +28,6 @@ class Kaui::EngineController < ApplicationController
 
   def check_for_redirect_to_tenant_screen
     unless Kaui.is_user_assigned_valid_tenant?(current_user, session)
-      flash[:error] = 'No tenants configured for users AND KillBillClient.api_key, KillBillClient.api_secret have not been set'
       session[:kb_tenant_id] = nil
       redirect_to Kaui.tenant_home_path.call
     end
@@ -36,7 +38,7 @@ class Kaui::EngineController < ApplicationController
   end
 
   def retrieve_tenants_for_current_user
-    if Kaui.root_username == current_user.kb_username
+    if current_user.root?
       Kaui::Tenant.all.map(&:kb_tenant_id)
     else
       Kaui::AllowedUser.preload(:kaui_tenants).find_by_kb_username(current_user.kb_username).kaui_tenants.map(&:kb_tenant_id)
@@ -49,7 +51,7 @@ class Kaui::EngineController < ApplicationController
     Kaui::AllowedUser.preload(:kaui_tenants).all.select do |user|
       tenants_for_user = user.kaui_tenants.map(&:kb_tenant_id)
       if tenants_for_user.empty?
-        Kaui.root_username == current_user.kb_username
+        current_user.root?
       else
         (tenants_for_user - tenants_for_current_user).empty?
       end
@@ -58,8 +60,7 @@ class Kaui::EngineController < ApplicationController
 
   # Note! Order matters, StandardError needs to be first
   rescue_from(StandardError) do |error|
-    log_rescue_error error
-    flash[:error] = "Error: #{error.to_s}"
+    flash[:error] = "Error: #{as_string(error)}"
     try_to_redirect_to_account_path = !params[:controller].ends_with?('accounts')
     perform_redirect_after_error try_to_redirect_to_account_path
   end
@@ -71,9 +72,8 @@ class Kaui::EngineController < ApplicationController
   end
 
   rescue_from(KillBillClient::API::ResponseError) do |killbill_exception|
-    log_rescue_error killbill_exception
     flash[:error] = "Error while communicating with the Kill Bill server: #{as_string(killbill_exception)}"
-    try_to_redirect_to_account_path = !(killbill_exception.is_a?(KillBillClient::API::NotFound) && params[:controller].ends_with?('accounts'))
+    try_to_redirect_to_account_path = !killbill_exception.is_a?(KillBillClient::API::Unauthorized) && !(killbill_exception.is_a?(KillBillClient::API::NotFound) && params[:controller].ends_with?('accounts'))
     perform_redirect_after_error try_to_redirect_to_account_path
   end
 
@@ -95,12 +95,8 @@ class Kaui::EngineController < ApplicationController
     result
   end
 
-  def log_rescue_error(error)
-    Rails.logger.warn "#{error.class} #{error.to_s}. #{error.backtrace.join("\n")}"
-  end
-
   def perform_redirect_after_error(try_to_redirect_to_account_path = true)
-    account_id = nested_hash_value(params, :account_id)
+    account_id = nested_hash_value(params.permit!.to_h, :account_id)
     if try_to_redirect_to_account_path && account_id.present?
       redirect_to kaui_engine.account_path(account_id)
     else

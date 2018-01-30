@@ -1,0 +1,126 @@
+<p class="text-center">
+  <%= link_to 'Current or future entries', kaui_engine.queues_path(params.to_h.merge(:with_history => false, :max_date => @now + 1.week)) %> /
+  <% unless params[:account_id].present? -%>
+    <%= link_to 'Historical entries (last week)', kaui_engine.queues_path(params.to_h.merge(:with_history => true, :min_date => @now - 1.week, :max_date => @now + 1.week)) %> /
+    <%= link_to 'Historical entries (last month)', kaui_engine.queues_path(params.to_h.merge(:with_history => true, :min_date => @now - 1.month, :max_date => @now + 1.week)) %> /
+  <% end -%>
+  <%= link_to 'All historical entries', kaui_engine.queues_path(params.to_h.merge(:with_history => true)) %>
+</p>
+
+<div class="search">
+
+  <% unless (@queues_entries['busEvents'] || []).empty? %>
+      <div class="column-block">
+
+        <h1>Bus events</h1>
+
+        <div style="overflow-x: auto;">
+          <table id="bus-table" class="table table-condensed mobile-data table-small-padding">
+            <thead>
+            <tr>
+              <th>Created date</th>
+              <th>Class name</th>
+              <th>Event</th>
+              <th>User token</th>
+              <% if @account_id.blank? %>
+                  <th>Account record id</th>
+              <% end %>
+            </tr>
+            </thead>
+            <tbody>
+            <% @queues_entries['busEvents'].each do |bus_event| %>
+                <% if bus_event['createdDate'].to_datetime < @now %>
+                    <tr class="disabled">
+                <% else %>
+                    <tr>
+                <% end %>
+                  <td><%= truncate_millis(bus_event['createdDate']) %></td>
+                  <td><%= truncate_class_name(bus_event['className']) %></td>
+                  <td><%= "<pre>#{JSON.pretty_generate(bus_event['event'])}</pre>".html_safe %></td>
+                  <td><%= truncate_uuid(bus_event['userToken']) %></td>
+                  <% if @account_id.blank? %>
+                      <td><%= bus_event['searchKey1'] %></td>
+                  <% end %>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+  <% end %>
+  <% unless (@queues_entries['notifications'] || []).empty? %>
+      <div class="column-block">
+
+        <h1>Notifications</h1>
+
+        <div style="overflow-x: auto;">
+          <table id="notifications-table" class="table table-condensed mobile-data table-small-padding">
+            <thead>
+            <tr>
+              <th>Effective date</th>
+              <th>Queue name</th>
+              <th>Event</th>
+              <th>User token</th>
+              <% if @account_id.blank? %>
+                  <th>Account record id</th>
+              <% end %>
+            </tr>
+            </thead>
+            <tbody>
+            <% @queues_entries['notifications'].each do |notification| %>
+                <% if notification['effectiveDate'].to_datetime < @now %>
+                    <tr class="disabled">
+                <% else %>
+                    <tr>
+                <% end %>
+                  <td><%= truncate_millis(notification['effectiveDate']) %></td>
+                  <td>
+                    <%= notification['queueName'] %>
+                  </td>
+                  <td><%= "<pre>#{JSON.pretty_generate(notification['event'])}</pre>".html_safe %></td>
+                  <td><%= truncate_uuid(notification['userToken']) %></td>
+                  <% if @account_id.blank? %>
+                      <td><%= notification['searchKey1'] %></td>
+                  <% end %>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+  <% end %>
+
+</div>
+
+<% nb_bus_entries = (@queues_entries['busEvents'] || []).size %>
+<% nb_notifications_entries = (@queues_entries['notifications'] || []).size %>
+<%= javascript_tag do %>
+  $(document).ready(function() {
+    $('#bus-table').dataTable({
+    <% if nb_bus_entries <= 50 %>
+        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t",
+        "paging": "false",
+    <% else %>
+        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+        "pagingType": "full_numbers",
+        "displayStart": <%= [0, nb_bus_entries - 50].max %>,
+    <% end %>
+      "pageLength": 50,
+      "order": []
+    });
+    $('#notifications-table').dataTable({
+    <% if nb_notifications_entries <= 50 %>
+        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t",
+        "paging": "false",
+    <% else %>
+        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+        "pagingType": "full_numbers",
+        "displayStart": 0,
+    <% end %>
+      "pageLength": 50,
+      "order": []
+    });
+});
+<% end %>

@@ -51,4 +51,10 @@ class Kaui::TenantsControllerTest < Kaui::FunctionalTestHelperNoSetup
     assert_response :success
     assert_equal 'Signed in successfully.', flash[:notice]
   end
+
+  test 'should select a tenant' do
+    setup_functional_test
+    post :select_tenant, :kb_tenant_id => session[:kb_tenant_id]
+    assert_redirected_to Kaui::IntegrationTestHelper::HOME_PATH
+  end
 end

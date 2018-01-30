@@ -1,0 +1,39 @@
+<div class="column-block">
+
+  <h1>Clock</h1>
+
+  <ul>
+    <li>Current date/time: <span id="kb_clock"><%= @clock['currentUtcTime'] %></span></li>
+  </ul>
+
+  <div>
+    <%= form_tag kaui_engine.admin_set_clock_path(params.to_h), :method => :put, :class => 'form-horizontal' do %>
+        <div class="form-group">
+          <%= label_tag :new_date, 'Set new date', :class => 'col-sm-2 control-label' %>
+          <div class="col-sm-2">
+            <input class="form-control" name="new_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true" value="<%= @clock['localDate'] %>">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <%= submit_tag 'Submit', :class => 'btn btn-default' %>
+            <%= button_tag 'Reset', :class => 'btn btn-danger' %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+  $(document).ready(function() {
+    scheduleRefresh();
+  });
+
+  function scheduleRefresh() {
+    setTimeout(refreshClock, 1000);
+  }
+
+  function refreshClock() {
+    $.ajax({url: "<%= admin_path(:format => :js) %>"});
+  }
+<% end %>

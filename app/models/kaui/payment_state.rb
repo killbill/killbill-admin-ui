@@ -37,6 +37,10 @@ module Kaui::PaymentState
     refundable?
   end
 
+  def total_authed_amount_to_money
+    auth_amount_to_money + purchased_amount_to_money
+  end
+
   def paid_amount_to_money
     captured_amount_to_money + purchased_amount_to_money
   end

@@ -1,3 +1,5 @@
+require 'nokogiri'
+
 class Kaui::Catalog < KillBillClient::Model::Catalog
 
   class << self
@@ -97,10 +99,7 @@ class Kaui::Catalog < KillBillClient::Model::Catalog
     end
 
     def parse_catalog_xml(input_xml)
-
-      require 'nokogiri'
-
-      doc = Nokogiri::XML(input_xml)
+      doc = Nokogiri::XML(input_xml) { |x| x.noblanks }
       doc_versions = doc.xpath("//version")
 
       doc_versions.inject({}) do |hsh, v|
@@ -113,28 +112,9 @@ class Kaui::Catalog < KillBillClient::Model::Catalog
         version = v.search("effectiveDate").text
 
         # Add entry
-        hsh[version] = '<?xml version="1.0" encoding="utf-8"?>' + format_xml(v.to_s)
+        hsh[version] = '<?xml version="1.0" encoding="utf-8"?>' + v.to_xml(:indent => 4)
         hsh
       end
     end
-
-
-    def format_xml(unformatted_xml)
-
-      require "rexml/document"
-
-      # Start by removing all spaces before using rexml
-      unformatted_xml.gsub!(/>\s+</, "><")
-
-      result = ""
-      pdoc = REXML::Document.new(unformatted_xml)
-      formatter = REXML::Formatters::Pretty.new(4)
-      formatter.compact = true
-      formatter.write(pdoc, result)
-      result
-    end
   end
-
-
-
 end

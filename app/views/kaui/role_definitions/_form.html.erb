@@ -1,0 +1,20 @@
+<%= form_for @role_definition, :html => {:class => 'form-horizontal'} do |f| %>
+    <div class="form-group">
+      <%= f.label :role, 'Role name', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= f.text_field :role, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :permissions, 'Permissions', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= f.text_field :permissions, :class => 'form-control' %>
+        <p class="help-block">Comma separated, e.g. account:create,entitlement:change_plan,invoice:credit</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <%= submit_tag 'Save', :class => 'btn btn-default' %>
+      </div>
+    </div>
+<% end %>

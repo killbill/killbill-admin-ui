@@ -2,7 +2,7 @@ class Kaui::FunctionalTestHelper < Kaui::FunctionalTestHelperNoSetup
 
   # Called before every single test
   setup do
-    ActiveRecord::Base.subclasses.each(&:delete_all)
+    Kaui::ApplicationRecord.subclasses.each(&:delete_all)
     setup_functional_test
   end
 

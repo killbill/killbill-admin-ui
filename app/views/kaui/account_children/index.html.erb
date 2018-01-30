@@ -1,0 +1,47 @@
+<div class="search">
+
+  <div class="column-block">
+
+    <h1>Showing children results</h1>
+
+    <table id="account-children-table" class="table table-condensed mobile-data">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>ID</th>
+        <th>External key</th>
+        <th>Balance</th>
+        <th>City</th>
+        <th>Country</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="1" class="dataTables_empty">Loading data from server</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $('#account-children-table').DataTable({
+    "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+    "paging": false,
+    "language": {
+        "info": "Showing _START_ to _END_ of TOTAL entries"
+    },
+    "processing": true,
+    "serverSide": true,
+    "search": {"search": "<%= @account.account_id %>"},
+    "ajax": "<%= account_children_pagination_path(:format => :json) %>",
+    "infoCallback": function( settings, start, end, max, total, pre ) {
+
+        return pre.replace('TOTAL',settings.json.data.length);
+    }
+  });
+});
+<% end %>

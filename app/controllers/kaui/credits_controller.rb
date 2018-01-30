@@ -9,6 +9,7 @@ class Kaui::CreditsController < Kaui::EngineController
       amount ||= @invoice.balance
       currency = @invoice.currency
     else
+      @invoice = nil
       currency = params[:currency] || 'USD'
     end
 
@@ -22,7 +23,7 @@ class Kaui::CreditsController < Kaui::EngineController
     # No need to show the newly created invoice for account level credits
     should_redirect_to_invoice = credit.invoice_id.present?
 
-    credit = credit.create(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    credit = credit.create(true, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
     flash[:notice] = 'Credit was successfully created'
 
     if should_redirect_to_invoice

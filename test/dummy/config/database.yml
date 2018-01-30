@@ -1,24 +1,22 @@
+default: &default
+  adapter: <%= ENV.fetch('DB_ADAPTER', 'mysql2') %>
+  encoding: utf8
+  username: <%= ENV.fetch('DB_USER', 'root') %>
+  password: <%= ENV.fetch('DB_PASSWORD', 'root') %>
+  host: 127.0.0.1
+  port: <%= ENV.fetch('DB_PORT', '3306') %>
+  pool: 25
+  timeout: 5000
+  # Work around broken PostgreSQL activerecord-jdbc-adapter on Rails 5
+  insert_returning: false
+
+development:
+  <<: *default
+  database: kaui
+
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-development:
-  adapter: mysql2
-  encoding: utf8
-  database: kaui
-  username: <%= ENV.fetch('MYSQL_USER', 'root') %>
-  password: <%= ENV.fetch('MYSQL_PASSWORD', 'root') %>
-  host: 127.0.0.1
-  port: 3306
-  pool: 25
-  timeout: 5000
-
 test:
-  adapter: mysql2
-  encoding: utf8
+  <<: *default
   database: kaui_test
-  username: <%= ENV.fetch('MYSQL_USER', 'root') %>
-  password: <%= ENV.fetch('MYSQL_PASSWORD', 'root') %>
-  host: 127.0.0.1
-  port: 3306
-  pool: 25
-  timeout: 5000

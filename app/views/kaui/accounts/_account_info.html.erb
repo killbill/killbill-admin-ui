@@ -8,7 +8,27 @@
                       kaui_engine.edit_account_path(@account.account_id),
                       :class => 'btn btn-xs' %>
       <% end %>
+      <% if @children.size > 0 %>
+          <%= link_to "Children (#{@children.size})",
+                      kaui_engine.account_children_path(@account.account_id),
+                      :class => 'btn btn-xs' %>
+      <% end %>
+      <% unless @account.parent_account_id.nil? %>
+          <span class="label label-info account-child-label">Child</span>
+      <% end %>
+      <% if @children.size > 0 %>
+          <span class="label label-info account-child-label">Parent</span>
+      <% end %>
     </h1>
+
+    <% unless @tags.find { |tag| tag.tag_definition_name == '__PARK__' }.nil? %>
+        <div class="alert alert-danger">
+          This account is parked, meaning the system detected inconsistent state which could lead to mis-billing. For safety, no more invoices will be generated.
+          <% if can? :trigger, Kaui::Invoice %>
+              Once the data is fixed, you can unpark it by manually <%= link_to 'triggering an invoice run', kaui_engine.trigger_invoice_path(params.to_h), :method => :post %>.
+          <% end %>
+        </div>
+    <% end %>
 
     <div class="info-wrapper">
 
@@ -26,6 +46,8 @@
           </div>
         </div>
 
+        <%= render :partial => 'kaui/custom_fields/list_bar',
+                   :locals => {:custom_fields => @custom_fields} %>
       </div>
 
       <div class="row">
@@ -49,9 +71,23 @@
                 <td><%= @account.currency %></td>
               </tr>
               <tr>
-                <th>Timezone</th>
-                <td><%= @account.time_zone %></td>
+                  <th>Timezone</th>
+                  <td><%= @account.time_zone %></td>
               </tr>
+              <tr>
+                  <th>Locale</th>
+                  <td><%= @account.locale %></td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <% if @account.notes %>
+                      <td><textarea rows="3" class="form-control" readonly="true"><%= @account.notes %></textarea></td>
+                  <% else %>
+                      <td>N/A</td>
+                  <% end %>
+              </tr>
+              <%= render :partial => 'parent',
+                         :locals => {:account_parent => @account_parent} %>
             </table>
           </div>
         </div>

@@ -1,10 +1,21 @@
 <div class="column-block">
 
-  <h1>User details</h1>
+  <h1>User details
+    <%= link_to 'Edit',
+                kaui_engine.edit_admin_allowed_user_path(@allowed_user.id),
+                :class => 'btn btn-xs' %>
+    &nbsp;
+    <%= link_to '<i class="fa fa-times"></i>'.html_safe,
+                kaui_engine.admin_allowed_user_path(@allowed_user.id),
+                :method => :delete,
+                data: {:confirm => 'Are you sure?'} -%>
+  </h1>
 
   <b>Name:</b> <%= @allowed_user.kb_username %>
   <br/>
   <b>Description:</b> <%= @allowed_user.description %>
+  <br/>
+  <b>Roles:</b> <%= @roles.join(',') %>
 
 </div>
 
@@ -22,14 +33,14 @@
                   <% @tenants.each do |tenant| %>
                       <div class="checkbox">
                         <label>
-                          <%= check_box_tag "tenant_#{tenant.id}", tenant.id, @allowed_user.kaui_tenants.map(&:id).include?(tenant.id), :disabled => Kaui.root_username != current_user.kb_username %>
+                          <%= check_box_tag "tenant_#{tenant.id}", tenant.id, @allowed_user.kaui_tenants.map(&:id).include?(tenant.id), :disabled => !current_user.root? %>
                           <span><%= tenant.name || tenant.api_key %></span>
                         </label>
                       </div>
                   <% end %>
                 </div>
               </div>
-              <% unless Kaui.root_username != current_user.kb_username %>
+              <% unless !current_user.root? %>
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                       <%= f.submit 'Save', :class => 'btn btn-default' %>

@@ -1,10 +1,13 @@
 class Kaui::RefundsController < Kaui::EngineController
 
   def new
-    fetch_invoice = lambda { @invoice = Kaui::Invoice.find_by_id_or_number(params.require(:invoice_id), true, 'NONE', options_for_klient) }
-    fetch_payment = lambda { @payment = Kaui::InvoicePayment::find_by_id(params.require(:payment_id), false, false, options_for_klient) }
+    fetch_invoice = promise { Kaui::Invoice.find_by_id_or_number(params.require(:invoice_id), true, 'NONE', options_for_klient) }
+    fetch_payment = promise { Kaui::InvoicePayment::find_by_id(params.require(:payment_id), false, false, options_for_klient) }
+    fetch_bundles = promise { @account.bundles(options_for_klient) }
 
-    run_in_parallel fetch_invoice, fetch_payment
+    @invoice = wait(fetch_invoice)
+    @payment = wait(fetch_payment)
+    @bundles = wait(fetch_bundles)
 
     @refund = KillBillClient::Model::InvoiceItem.new(:invoice_id => @invoice.invoice_id)
   end
@@ -14,7 +17,7 @@ class Kaui::RefundsController < Kaui::EngineController
 
     if params[:adjustment_type] == 'invoiceItemAdjustment'
       items = []
-      (params[:adjustments] || []).each do |ii|
+      (params.to_unsafe_h[:adjustments] || []).each do |ii|
         original_item = find_original_item(invoice.items, ii[0])
 
         item = KillBillClient::Model::InvoiceItem.new
