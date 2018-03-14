@@ -36,11 +36,3 @@
       </div>
     </div>
 <% end %>
-
-<%= javascript_tag do %>
-$(document).ready(function() {
-  $("#credit_amount").keydown(function(event) {
-    preventNonNumericValues(event);
-  });
-});
-<% end %>

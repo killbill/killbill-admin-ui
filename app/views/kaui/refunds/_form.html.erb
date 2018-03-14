@@ -42,7 +42,7 @@
     <div id="div_refund_amount" class="form-group">
       <%= label_tag :amount, 'Amount', :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10">
-        <%= text_field_tag :amount, @payment.purchased_amount, :id => 'refund_amount', :class => 'form-control' %>
+        <%= number_field_tag :amount, @payment.purchased_amount, :id => 'refund_amount', :class => 'form-control' %>
         <p class="help-block">Currency: <%= @invoice.currency %></p>
       </div>
     </div>
@@ -184,9 +184,7 @@
         /*
         * For refund amount text area, attach handler to disable 'ENTER' and also prevent bad values
         */
-        $("#refund_amount").keydown(function(event) {
-            preventNonNumericValues(event);
-        }).bind('keypress', function(e) {
+        $("#refund_amount").bind('keypress', function(e) {
             if ((e.keyCode || e.which) == 13) {
                 return false;
             }

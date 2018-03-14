@@ -13,5 +13,4 @@
 //= require twitter/bootstrap
 //= require bootstrap-datepicker
 //= require kaui/bootstrap-tweaks
-//= require kaui/validation
 //= require kaui/kaui

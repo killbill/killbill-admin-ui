@@ -5,7 +5,7 @@
     <div class="form-group">
       <%= f.label :amount, 'Amount', :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10">
-        <%= f.text_field :amount, :id => 'chargeback_amount', :class => 'form-control' %>
+        <%= f.number_field :amount, :id => 'chargeback_amount', :class => 'form-control' %>
         <p class="help-block">Currency: <%= @chargeback.currency %></p>
       </div>
     </div>
@@ -35,12 +35,4 @@
         <%= submit_tag 'Save', :class => 'btn btn-default' %>
       </div>
     </div>
-<% end %>
-
-<%= javascript_tag do %>
-$(document).ready(function() {
-  $("#chargeback_amount").keydown(function(event) {
-    preventNonNumericValues(event);
-  });
-});
 <% end %>
