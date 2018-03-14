@@ -41,7 +41,7 @@
   <table id="invoice-table" class="table table-condensed mobile-data">
     <thead>
     <tr>
-      <% unless @available_invoice_item_tags.empty? && @custom_fields_per_invoice_item.empty? %>
+      <% unless @available_invoice_item_tags.blank? && @custom_fields_per_invoice_item.blank? %>
           <th></th>
       <% end %>
       <th>Description</th>
@@ -56,10 +56,10 @@
     <tbody>
     <% @invoice.items.each do |item| %>
         <tr id=<%= "invoice_item_#{item.invoice_item_id}_#{item.linked_invoice_item_id}" %>>
-          <% unless @available_invoice_item_tags.empty? && @custom_fields_per_invoice_item.empty? %>
+          <% unless @available_invoice_item_tags.blank? && @custom_fields_per_invoice_item.blank? %>
               <td class="inline-row-tag-bar">
                 <div class="tag-bar tag-bar-no-border">
-                  <% unless @available_invoice_item_tags.empty? %>
+                  <% unless @available_invoice_item_tags.blank? %>
                       <div class="tag-select" onclick="void(0)">
                         <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
 

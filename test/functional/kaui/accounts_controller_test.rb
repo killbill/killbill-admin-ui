@@ -139,25 +139,33 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
   end
 
   test 'should trigger invoice' do
+    account = create_account(@tenant)
+    bundle = create_bundle(account, @tenant)
+
     parameters = {
-      :account_id => @account2.account_id,
+      :account_id => account.account_id,
       :dry_run => '0'
     }
 
     post :trigger_invoice, parameters
     assert_equal 'Nothing to generate for target date today', flash[:notice]
-    assert_redirected_to account_path(@account2.account_id)
+    assert_redirected_to account_path(account.account_id)
 
-    today_next_month = (Date.parse(@kb_clock['localDate']) >> 1).to_s
+    today_next_month = (Date.parse(@kb_clock['localDate']) + 31).to_s
     # generate a dry run invoice
     parameters = {
-      :account_id => @account.account_id,
+      :account_id => account.account_id,
       :dry_run => '1',
       :target_date => today_next_month
     }
 
     post :trigger_invoice, parameters
     assert_response :success
+    assert_select 'table tbody tr:first' do
+      assert_select 'td:first', "sports-monthly-evergreen"
+      assert_select 'td:nth-child(4)', bundle.subscriptions.first.subscription_id
+    end
+
 
     # persist it
     parameters[:dry_run] = '0'
