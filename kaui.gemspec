@@ -41,6 +41,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'less-rails', '~> 3.0'
   s.add_dependency 'concurrent-ruby', '~> 1.0'
   s.add_dependency 'sprockets-rails', '~> 3.2'
+  s.add_dependency 'mustache-js-rails'
 
   s.add_development_dependency 'rails-controller-testing'
   s.add_development_dependency 'multi_json'

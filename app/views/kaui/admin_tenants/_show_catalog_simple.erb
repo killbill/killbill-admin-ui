@@ -19,7 +19,7 @@
         <b>Catalog Versions:</b>
     </span>
     <select id="select_catalog" class="selectpicker show-menu-arrow">
-      <% @catalogs.each_with_index do |catalog, i| %>
+      <% @catalog_versions.reverse_each do |catalog, i| %>
           <option idx="<%= catalog[:version] %>"><%= catalog[:version_date] %></option>
       <% end %>
     </select>
@@ -31,8 +31,8 @@
       <th>Category</th>
       <th>Billing Period</th>
       <% @catalogs.each do |catalog| %>
-          <th class="catalog_version_<%= catalog[:version] %>">
-            <select id="select_currencies_<%= catalog[:version] %>" class="selectpicker show-menu-arrow">
+          <th class="selected_catalog">
+            <select id="select_currencies" class="selectpicker show-menu-arrow">
               <% catalog[:currencies].each_with_index do |currency, i| %>
                   <option><%= currency %></option>
               <% end %>
@@ -43,10 +43,10 @@
       <th></th>
     </tr>
     </thead>
-    <tbody>
+    <tbody id="catalog_detail">
     <% @catalogs.each do |catalog| %>
         <% catalog[:plans].each do |p| %>
-            <tr class="catalog_version_<%= catalog[:version] %>">
+            <tr class="selected_catalog">
               <td><%= p.plan_id %></td>
               <td><%= humanized_product_name(p.product_name) %></td>
               <td><%= humanized_product_category(p.product_category) %></td>
@@ -66,34 +66,119 @@
   </table>
 </div>
 
+<script id="selected_catalog_template" type="text/template" >
+    {{#catalog}}
+      {{#plans}}
+        <tr class="selected_catalog">
+          <td>{{plan_id}}</td>
+          <td>{{#humanized_product_name}}{{product_name}}{{/humanized_product_name}}</td>
+          <td>{{#humanized_product_category}}{{product_category}}{{/humanized_product_category}}</td>
+          <td>{{#humanized_billing_period}}{{billing_period}}{{/humanized_billing_period}}</td>
+          <td>
+            {{#currenciesWithPrices}}
+                <span class="plan_currency_{{currency}}">{{price}}</span>
+            {{/currenciesWithPrices}}
+          </td>
+          <td>
+            {{#trial_length}} {{trial_length}} {{#humanized_time_unit}}{{trial_time_unit}}{{/humanized_time_unit}} {{/trial_length}}
+            {{^trial_length}} N/A {{/trial_length}}
+          </td>
+          <td><a class="btn btn-xs"
+                 href="{{new_plan_currency_path}}"><i class="fa fa-plus-square"></i> currency</a></td>
+        </tr>
+      {{/plans}}
+    {{/catalog}}
+</script>
 
 <%= javascript_tag do %>
 
-function initBasicConfig() {
-    displayCatalogVersion();
-    displayAmountsForCurrency();
-}
+    function renderCatalog(data){
+        for (var i = 0; i < data.catalog.length; i++) {
+            var current = data.catalog[i];
+            for (var j = 0; j < current.plans.length; j++) {
+                var plan = current.plans[j];
+                plan['currenciesWithPrices'] = [];
+                for (var currency in plan['prices']) {
+                    plan['currenciesWithPrices'].push({currency: currency, price: plan['prices'][currency]});
+                }
+                plan['new_plan_currency_path'] = Routes.kaui_engine_admin_tenant_new_plan_currency_path(<%= @tenant.id %>, {plan_id: plan['plan_id']});
+                plan['humanized_product_name'] = function(){
+                    return function (input, render) {
+                        var product_name = render(input);
+                        return product_name.toLowerCase().replace(/\b\w/g, function(l){ return l.toUpperCase() });
+                    }
+                }
 
-function displayCatalogVersion() {
-    $('[class^="catalog_version_"]').hide();
-    $("[class^=catalog_version_" + $("#select_catalog option:selected" ).attr("idx") + "]").show();
-}
+                plan['humanized_product_category'] = function(){
+                    return function (input, render) {
+                        var product_category = render(input);
+                        if (product_category == 'BASE') {
+                            return 'Base'
+                        } else if (product_category == 'ADD_ON') {
+                            return 'Add-on'
+                        } else {
+                            return product_category.toLowerCase().replace(/\b\w/g, function(l){ return l.toUpperCase() });
+                        }
+                    }
+                }
 
-function displayAmountsForCurrency() {
-    var catalogVersion = $("#select_catalog option:selected" ).attr("idx");
-    $('[class^="plan_currency_"]').hide();
-    $("[class^=plan_currency_" + $("#select_currencies_" + catalogVersion + " option:selected" ).text() + "]").show();
-}
+                plan['humanized_billing_period'] = function(){
+                    return function (input, render) {
+                        var billing_period = render(input);
+                        if (billing_period == 'NO_BILLING_PERIOD') {
+                            return 'No billing period'
+                        } else {
+                            return billing_period.toLowerCase().replace(/\b\w/g, function(l){ return l.toUpperCase() });
+                        }
+                    }
+                }
 
-$(document).ready(function() {
+                plan['humanized_time_unit'] = function(){
+                    return function (input, render) {
+                        var time_unit = render(input);
+                        return time_unit.toLowerCase().replace(/\b\w/g, function(l){ return l.toUpperCase() });
+                    }
+                }
+            }
+        }
 
-    $("#select_catalog").change(function() {
-        displayCatalogVersion();
-    });
-
-    $('[id^="select_currencies"]').change(function() {
+        console.log(data);
+        var template = $("#selected_catalog_template").html();
+        var catalog_html = Mustache.render(template,data);
+        $("#catalog_detail").html(catalog_html);
         displayAmountsForCurrency();
+    }
+
+    function initBasicConfig() {
+        displayAmountsForCurrency();
+    }
+
+    function displayAmountsForCurrency() {
+        $('[class^="plan_currency_"]').hide();
+        $("[class^=plan_currency_" + $("#select_currencies option:selected" ).text() + "]").show();
+    }
+
+    $(document).ready(function() {
+
+        $("#select_catalog").change(function() {
+          $.ajax(
+          {
+            url: Routes.kaui_engine_catalog_by_effective_date_path(),
+            type: "GET",
+            dataType: "json",
+            data: {
+                id: <%= @tenant.id %>,
+                effective_date: this.value
+            },
+            success: function(data) {
+                renderCatalog(data);
+            }
+          });
+        });
+
+        $('[id^="select_currencies"]').change(function() {
+            displayAmountsForCurrency();
+        });
     });
-});
 <% end %>
 
