@@ -88,10 +88,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
                             :version_date => effective_date}
     end
 
-    latest_version = @catalog_versions[@catalog_versions.length - 1][:version_date] rescue nil
-    fetch_catalogs = promise { Kaui::Catalog::get_catalog_json(false, latest_version, options) rescue @catalogs = [] }
+    @latest_version = @catalog_versions[@catalog_versions.length - 1][:version_date] rescue nil
 
-    @catalogs = wait(fetch_catalogs)
     @overdue = wait(fetch_overdue)
     @overdue_xml = wait(fetch_overdue_xml)
     @plugin_config = wait(fetch_plugin_config) rescue ''
