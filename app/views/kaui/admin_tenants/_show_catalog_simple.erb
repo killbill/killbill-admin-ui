@@ -142,7 +142,6 @@
             }
         }
 
-        console.log(data);
         var template = $("#selected_catalog_template").html();
         var catalog_html = Mustache.render(template,data);
         $("#catalog_detail").html(catalog_html);

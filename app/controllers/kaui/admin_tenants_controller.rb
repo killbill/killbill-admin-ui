@@ -85,8 +85,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     @catalog_versions = []
     wait(fetch_catalog_versions).each_with_index do |effective_date, idx|
       @catalog_versions << {:version => idx,
-                 :version_date => effective_date
-      }
+                            :version_date => effective_date}
     end
 
     latest_version = @catalog_versions[@catalog_versions.length - 1][:version_date] rescue nil
