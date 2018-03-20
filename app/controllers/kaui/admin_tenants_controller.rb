@@ -339,8 +339,14 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_key] = current_tenant.api_key
     options[:api_secret] = current_tenant.api_secret
 
-    @catalog_xml = Kaui::Catalog.get_tenant_catalog('xml', effective_date, options) rescue @catalog_xml = nil
-    render xml: @catalog_xml
+    response = Kaui::Catalog.get_catalog_xml(effective_date, options) rescue response = {}
+
+    catalog_xml = {}
+    unless response.nil? && response.size > 0
+      catalog_xml = response[0][:xml]
+    end
+
+    render xml: catalog_xml
   end
 
 

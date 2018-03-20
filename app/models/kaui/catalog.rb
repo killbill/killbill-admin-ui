@@ -36,9 +36,9 @@ class Kaui::Catalog < KillBillClient::Model::Catalog
     end
 
 
-    def get_catalog_xml(options)
+    def get_catalog_xml(requested_date, options)
 
-      catalog_xml = KillBillClient::Model::Catalog.get_tenant_catalog('xml', nil, options)
+      catalog_xml = KillBillClient::Model::Catalog.get_tenant_catalog('xml', requested_date, options)
 
       parsed_catalog = parse_catalog_xml(catalog_xml)
 
