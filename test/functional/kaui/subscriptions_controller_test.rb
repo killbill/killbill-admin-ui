@@ -143,7 +143,7 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
     assert_response :success
     assert_equal get_value_from_input_field('subscription_account_id'), @bundle.subscriptions.first.account_id
     assert_equal get_value_from_input_field('subscription_bill_cycle_day_local'), @bundle.subscriptions.first.bill_cycle_day_local.to_s
-    assert_equal get_value_from_input_field('effective_from_date'), @bundle.subscriptions.first.billing_start_date
+    assert_equal get_value_from_input_field('effective_from_date'), Date.parse(Time.now.to_s).to_s
   end
 
   test 'should update bcd' do
