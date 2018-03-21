@@ -16,7 +16,7 @@
     <div class="form-group">
       <%= f.label :purchased_amount, 'Amount', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
-        <%= f.text_field :purchased_amount, :id => 'payment_amount', :class => 'form-control' %>
+        <%= f.number_field :purchased_amount, :id => 'payment_amount', :class => 'form-control' %>
         <p class="help-block">Currency: <%= @invoice.present? ? @invoice.currency : @account.currency %></p>
       </div>
     </div>
@@ -44,12 +44,4 @@
         <%= submit_tag 'Save', :class => 'btn btn-default' %>
       </div>
     </div>
-<% end %>
-
-<%= javascript_tag do %>
-  $(document).ready(function() {
-    $("#payment_amount").keydown(function(event) {
-      preventNonNumericValues(event);
-    });
-  });
 <% end %>
