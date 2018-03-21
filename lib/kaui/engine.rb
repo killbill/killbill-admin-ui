@@ -20,6 +20,7 @@ require 'devise'
 require 'cancan'
 require 'country_select'
 require 'concurrent'
+require 'mustache-js-rails'
 
 module Kaui
   class Engine < ::Rails::Engine

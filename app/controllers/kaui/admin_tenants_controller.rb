@@ -73,8 +73,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_key] = @tenant.api_key
     options[:api_secret] = @tenant.api_secret
 
-    fetch_catalogs = promise { Kaui::Catalog::get_catalog_json(false, options) rescue @catalogs = [] }
-    fetch_catalogs_xml = promise { Kaui::Catalog::get_catalog_xml(options) rescue @catalogs_xml = [] }
+    fetch_catalog_versions = promise { Kaui::Catalog::get_tenant_catalog_versions(options)}
     fetch_overdue = promise { Kaui::Overdue::get_overdue_json(options) rescue @overdue = nil }
     fetch_overdue_xml = promise { Kaui::Overdue::get_tenant_overdue_config('xml', options) rescue @overdue_xml = nil }
 
@@ -83,8 +82,14 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     fetch_plugin_config = promise { Kaui::AdminTenant::get_oss_plugin_info(plugin_repository) }
     fetch_tenant_plugin_config = promise { Kaui::AdminTenant::get_tenant_plugin_config(plugin_repository, options) }
 
-    @catalogs = wait(fetch_catalogs)
-    @catalogs_xml = wait(fetch_catalogs_xml)
+    @catalog_versions = []
+    wait(fetch_catalog_versions).each_with_index do |effective_date, idx|
+      @catalog_versions << {:version => idx,
+                            :version_date => effective_date}
+    end
+
+    @latest_version = @catalog_versions[@catalog_versions.length - 1][:version_date] rescue nil
+
     @overdue = wait(fetch_overdue)
     @overdue_xml = wait(fetch_overdue_xml)
     @plugin_config = wait(fetch_plugin_config) rescue ''
@@ -118,7 +123,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_key] = @tenant.api_key
     options[:api_secret] = @tenant.api_secret
 
-    latest_catalog = Kaui::Catalog::get_catalog_json(true, options)
+    latest_catalog = Kaui::Catalog::get_catalog_json(true, nil, options)
 
     @ao_mapping = Kaui::Catalog::build_ao_mapping(latest_catalog)
 
@@ -163,7 +168,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_key] = @tenant.api_key
     options[:api_secret] = @tenant.api_secret
 
-    catalog = Kaui::Catalog::get_catalog_json(true, options)
+    catalog = Kaui::Catalog::get_catalog_json(true, nil, options)
 
     # seek if plan id exists
     catalog.products.each do |product|
@@ -324,13 +329,53 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def display_catalog_xml
-    @catalog_xml = params.require(:xml)
-    render xml: @catalog_xml
+    current_tenant = safely_find_tenant_by_id(params[:id])
+    effective_date = params.require(:effective_date)
+
+    options = tenant_options_for_client
+    options[:api_key] = current_tenant.api_key
+    options[:api_secret] = current_tenant.api_secret
+
+    response = Kaui::Catalog.get_catalog_xml(effective_date, options) rescue response = {}
+
+    catalog_xml = {}
+    unless response.nil? && response.size > 0
+      catalog_xml = response[0][:xml]
+    end
+
+    render xml: catalog_xml
   end
 
 
   def display_overdue_xml
     render xml: params.require(:xml)
+  end
+
+  def catalog_by_effective_date
+    current_tenant = safely_find_tenant_by_id(params[:id])
+    effective_date = params.require(:effective_date)
+
+    options = tenant_options_for_client
+    options[:api_key] = current_tenant.api_key
+    options[:api_secret] = current_tenant.api_secret
+
+    catalog = []
+    result = Kaui::Catalog::get_catalog_json(false, effective_date, options) rescue catalog = []
+
+    # convert result to a full hash since dynamic attributes of a class are ignored when converting to json
+    result.each do |data|
+      plans = []
+      data[:plans].each do |plan|
+        plans << plan.instance_variables.each_with_object({}) {|var, hash_plan| hash_plan[var.to_s.delete("@")] = plan.instance_variable_get(var) }
+      end
+
+      catalog << {:version_date => data[:version_date],
+          :currencies => data[:currencies],
+          :plans => plans
+        }
+    end
+
+    render json: {:catalog => catalog}
   end
 
 

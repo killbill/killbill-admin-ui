@@ -158,7 +158,6 @@ Kaui::Engine.routes.draw do
     match '/clock' => 'admin#set_clock', :via => :put, :as => 'admin_set_clock'
   end
 
-  resources :admin_tenants, :only => [ :index, :new, :create, :show ]
   scope '/admin_tenants' do
     match '/:id/new_catalog' => 'admin_tenants#new_catalog', :via => :get, :as => 'admin_tenant_new_catalog'
     match '/:id/delete_catalog' => 'admin_tenants#delete_catalog', :via => :delete, :as => 'admin_tenant_delete_catalog'
@@ -175,7 +174,9 @@ Kaui::Engine.routes.draw do
     match '/upload_catalog_translation' => 'admin_tenants#upload_catalog_translation', :via => :post, :as => 'admin_tenant_upload_catalog_translation'
     match '/upload_plugin_config' => 'admin_tenants#upload_plugin_config', :via => :post, :as => 'admin_tenant_upload_plugin_config'
     match '/remove_allowed_user' => 'admin_tenants#remove_allowed_user', :via => :delete, :as => 'remove_allowed_user'
+    match '/catalog_by_effective_date' => 'admin_tenants#catalog_by_effective_date', :via => :get, :as => 'catalog_by_effective_date'
   end
+  resources :admin_tenants, :only => [ :index, :new, :create, :show ]
 
   resources :admin_allowed_users
   scope '/admin_allowed_users' do

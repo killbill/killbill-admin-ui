@@ -17,13 +17,14 @@
       </tr>
       </thead>
       <tbody>
-      <% @catalogs_xml.each do |catalog| %>
+      <% @catalog_versions.each do |catalog| %>
           <tr>
             <td><%= catalog[:version] %></td>
             <td><%= catalog[:version_date] %></td>
             <td>
               <%= form_tag(kaui_engine.admin_tenant_display_catalog_xml_path, :id => "submit_form_xml_#{catalog[:version]}", :method => 'post', :multipart => true, :class => "hide") do %>
-                  <%= hidden_field_tag(:xml, catalog[:xml]) %>
+                  <%= hidden_field_tag(:effective_date, catalog[:version_date]) %>
+                  <%= hidden_field_tag(:id, @tenant.id) %>
                   <%= submit_tag 'submit' %>
               <% end %>
               <a class='btn btn-xs' href="javascript:void(0);" onclick="submit_xml(<%= catalog[:version] %>);">view xml</a>
