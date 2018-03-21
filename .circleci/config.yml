@@ -9,11 +9,11 @@ jobs:
   build-ruby-2.4.2:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.2.0
+      - image: killbill/kbbuild:0.3.0
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "killbill_client.gemspec" }}
+          key: v1-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
       - run:
           name: Install gem dependencies
           command: |
@@ -25,12 +25,12 @@ jobs:
             - Gemfile.lock
             - .bundle
             - vendor/bundle
-          key: v1-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "killbill_client.gemspec" }}
+          key: v1-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
 
   test-mariadb-ruby-2.4.2:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.2.0
+      - image: killbill/kbbuild:0.3.0
       - image: killbill/killbill:0.18.16
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
@@ -43,7 +43,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "killbill_client.gemspec" }}
+          key: v1-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
       - run:
           name: Setup DDL
           command: |
@@ -96,7 +96,7 @@ jobs:
   test-mysql-ruby-2.4.2:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.2.0
+      - image: killbill/kbbuild:0.3.0
       - image: killbill/killbill:0.18.16
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
@@ -109,7 +109,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "killbill_client.gemspec" }}
+          key: v1-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
       - run:
           name: Setup DDL
           command: |
@@ -162,7 +162,7 @@ jobs:
   test-postgresql-ruby-2.4.2:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.2.0
+      - image: killbill/kbbuild:0.3.0
       - image: killbill/killbill:0.18.16
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
@@ -175,13 +175,13 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "killbill_client.gemspec" }}
+          key: v1-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
       - run:
           name: Setup DDL
           command: |
             set +e
             count=0
-            until mysqladmin ping -h 127.0.0.1 -u root --password=root --silent; do
+            until $(psql -h 127.0.0.1 -U postgres -p 5432 -l > /dev/null); do
               if [[ "$count" == "25" ]]; then
                 exit 1
               fi
@@ -228,11 +228,11 @@ jobs:
   build-jruby-9.1.14.0:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.2.0
+      - image: killbill/kbbuild:0.3.0
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "killbill_client.gemspec" }}
+          key: v1-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
       - run:
           name: Install gem dependencies
           command: |
@@ -244,12 +244,12 @@ jobs:
             - Gemfile.lock
             - .bundle
             - vendor/bundle
-          key: v1-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "killbill_client.gemspec" }}
+          key: v1-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
 
   test-mariadb-jruby-9.1.14.0:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.2.0
+      - image: killbill/kbbuild:0.3.0
       - image: killbill/killbill:0.18.16
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
@@ -262,7 +262,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "killbill_client.gemspec" }}
+          key: v1-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
       - run:
           name: Setup DDL
           command: |
@@ -315,7 +315,7 @@ jobs:
   test-mysql-jruby-9.1.14.0:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.2.0
+      - image: killbill/kbbuild:0.3.0
       - image: killbill/killbill:0.18.16
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
@@ -328,7 +328,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "killbill_client.gemspec" }}
+          key: v1-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
       - run:
           name: Setup DDL
           command: |
@@ -381,7 +381,7 @@ jobs:
   test-postgresql-jruby-9.1.14.0:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.2.0
+      - image: killbill/kbbuild:0.3.0
       - image: killbill/killbill:0.18.16
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
@@ -394,13 +394,13 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "killbill_client.gemspec" }}
+          key: v1-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
       - run:
           name: Setup DDL
           command: |
             set +e
             count=0
-            until mysqladmin ping -h 127.0.0.1 -u root --password=root --silent; do
+            until $(psql -h 127.0.0.1 -U postgres -p 5432 -l > /dev/null); do
               if [[ "$count" == "25" ]]; then
                 exit 1
               fi
