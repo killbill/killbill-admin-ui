@@ -195,6 +195,10 @@ module Kaui
       # Re-hydrate the secret, which is not returned
       tenant.api_secret = api_secret
 
+      # Upload the default SpyCarAdvanced.xml catalog
+      catalog_xml = File.read("test/fixtures/SpyCarAdvanced.xml")
+      Kaui::AdminTenant.upload_catalog(catalog_xml, user, reason, comment, build_options(tenant))
+
       tenant
     end
 
