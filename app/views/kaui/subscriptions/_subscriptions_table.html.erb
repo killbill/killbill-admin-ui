@@ -42,7 +42,11 @@
 
           </td>
         <% end %>
-        <td><%= humanized_subscription_product_category(sub) %></td>
+        <td>
+          <span class="subscription-id-popover" data-toggle="popover" data-trigger="hover" title="Subscription ID"  data-content="<%= sub.subscription_id %>">
+            <%= humanized_subscription_product_category(sub) %>
+          </span>
+        </td>
         <td><%= humanized_subscription_full_product_name(sub) %></td>
         <td><%= humanized_subscription_phase_type(sub) %></td>
         <td><%= humanized_subscription_start_date(sub, account) %></td>
@@ -81,6 +85,8 @@
 
 <%= javascript_tag do %>
   $(document).ready(function() {
+    $('.subscription-id-popover').popover();
+
     $('#subscriptions_<%= bundle.bundle_id %>').dataTable({
       "dom": "t",
       "paging": false,
