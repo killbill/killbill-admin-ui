@@ -9,6 +9,11 @@ default: &default
   timeout: 5000
   # Work around broken PostgreSQL activerecord-jdbc-adapter on Rails 5
   insert_returning: false
+  # MariaDB (see lib/arjdbc/mysql/connection_methods.rb)
+  useSsl: false
+  # MySQL
+  requireSSL: false
+  useSSL: false
 
 development:
   <<: *default
@@ -19,4 +24,4 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: kaui_test
+  database: <%= ENV.fetch('DB_NAME', 'kaui_test') %>

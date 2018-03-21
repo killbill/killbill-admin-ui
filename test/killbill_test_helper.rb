@@ -56,8 +56,7 @@ module Kaui
       end
 
       # Setup AllowedUser
-      au = Kaui::AllowedUser
-        .find_or_create_by(kb_username: 'admin', description: 'Admin User')
+      au = Kaui::AllowedUser.find_or_create_by(kb_username: 'admin')
 
       # Create the tenant with Kill Bill
       all_tenants = []
