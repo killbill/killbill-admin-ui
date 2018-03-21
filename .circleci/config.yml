@@ -3,13 +3,14 @@ defaults: &defaults
   environment:
     JRUBY_OPTS: --2.0 -J-Xmx1024M
     RAILS_ENV: test
+    DB_NAME: kaui
 
 version: 2
 jobs:
   build-ruby-2.4.2:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.3.0
+      - image: killbill/kbbuild:0.4.0
     steps:
       - checkout
       - restore_cache:
@@ -30,7 +31,7 @@ jobs:
   test-mariadb-ruby-2.4.2:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.3.0
+      - image: killbill/kbbuild:0.4.0
       - image: killbill/killbill:0.18.16
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
@@ -86,7 +87,7 @@ jobs:
             mkdir /tmp/test-results
             source /usr/share/rvm/scripts/rvm
             rvm use ruby-2.4.2
-            DB_ADAPTER=mariadb DB_USER='root' DB_PASSWORD='root' bundle exec rails t -w
+            DB_ADAPTER=mariadb DB_USER='root' DB_PASSWORD='root' DB_PORT=3306 bundle exec rails t -w
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
@@ -96,7 +97,7 @@ jobs:
   test-mysql-ruby-2.4.2:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.3.0
+      - image: killbill/kbbuild:0.4.0
       - image: killbill/killbill:0.18.16
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
@@ -152,7 +153,7 @@ jobs:
             mkdir /tmp/test-results
             source /usr/share/rvm/scripts/rvm
             rvm use ruby-2.4.2
-            DB_ADAPTER=mysql2 DB_USER='root' DB_PASSWORD='root' bundle exec rails t -w
+            DB_ADAPTER=mysql2 DB_USER='root' DB_PASSWORD='root' DB_PORT=3306 bundle exec rails t -w
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
@@ -162,7 +163,7 @@ jobs:
   test-postgresql-ruby-2.4.2:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.3.0
+      - image: killbill/kbbuild:0.4.0
       - image: killbill/killbill:0.18.16
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
@@ -218,7 +219,7 @@ jobs:
             mkdir /tmp/test-results
             source /usr/share/rvm/scripts/rvm
             rvm use ruby-2.4.2
-            DB_ADAPTER=postgresql DB_USER='postgres' DB_PASSWORD='postgres' bundle exec rails t -w
+            DB_ADAPTER=postgresql DB_USER='postgres' DB_PASSWORD='postgres' DB_PORT=5432 bundle exec rails t -w
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
@@ -228,7 +229,7 @@ jobs:
   build-jruby-9.1.14.0:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.3.0
+      - image: killbill/kbbuild:0.4.0
     steps:
       - checkout
       - restore_cache:
@@ -249,7 +250,7 @@ jobs:
   test-mariadb-jruby-9.1.14.0:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.3.0
+      - image: killbill/kbbuild:0.4.0
       - image: killbill/killbill:0.18.16
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
@@ -305,7 +306,7 @@ jobs:
             mkdir /tmp/test-results
             source /usr/share/rvm/scripts/rvm
             rvm use jruby-9.1.14.0
-            DB_ADAPTER=mariadb DB_USER='root' DB_PASSWORD='root' bundle exec rails t -w
+            DB_ADAPTER=mariadb DB_USER='root' DB_PASSWORD='root' DB_PORT=3306 bundle exec rails t -w
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
@@ -315,7 +316,7 @@ jobs:
   test-mysql-jruby-9.1.14.0:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.3.0
+      - image: killbill/kbbuild:0.4.0
       - image: killbill/killbill:0.18.16
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
@@ -371,7 +372,7 @@ jobs:
             mkdir /tmp/test-results
             source /usr/share/rvm/scripts/rvm
             rvm use jruby-9.1.14.0
-            DB_ADAPTER=mysql2 DB_USER='root' DB_PASSWORD='root' bundle exec rails t -w
+            DB_ADAPTER=mysql2 DB_USER='root' DB_PASSWORD='root' DB_PORT=3306 bundle exec rails t -w
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
@@ -381,7 +382,7 @@ jobs:
   test-postgresql-jruby-9.1.14.0:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.3.0
+      - image: killbill/kbbuild:0.4.0
       - image: killbill/killbill:0.18.16
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
@@ -437,7 +438,7 @@ jobs:
             mkdir /tmp/test-results
             source /usr/share/rvm/scripts/rvm
             rvm use jruby-9.1.14.0
-            DB_ADAPTER=postgresql DB_USER='postgres' DB_PASSWORD='postgres' bundle exec rails t -w
+            DB_ADAPTER=postgresql DB_USER='postgres' DB_PASSWORD='postgres' DB_PORT=5432 bundle exec rails t -w
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
