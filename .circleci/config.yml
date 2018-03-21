@@ -28,72 +28,6 @@ jobs:
             - vendor/bundle
           key: v1-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
 
-  test-mariadb-ruby-2.4.2:
-    <<: *defaults
-    docker:
-      - image: killbill/kbbuild:0.4.0
-      - image: killbill/killbill:0.18.16
-        environment:
-        - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
-        - KILLBILL_CONFIG_DAO_URL=jdbc:mysql://127.0.0.1:3306/killbill
-        - KILLBILL_CONFIG_DAO_USER=root
-        - KILLBILL_CONFIG_DAO_PASSWORD=root
-      - image: killbill/mariadb:0.18
-        environment:
-        - MYSQL_ROOT_PASSWORD=root
-    steps:
-      - checkout
-      - restore_cache:
-          key: v1-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
-      - run:
-          name: Setup DDL
-          command: |
-            set +e
-            count=0
-            until mysqladmin ping -h 127.0.0.1 -u root --password=root --silent; do
-              if [[ "$count" == "25" ]]; then
-                exit 1
-              fi
-              (( count++ ))
-              printf '.'
-              sleep 5
-            done
-            set -e
-      - run:
-          name: Setup Kill Bill
-          command: |
-            set +e
-            count=0
-            until $(curl --output /dev/null --silent --fail http://127.0.0.1:8080/1.0/healthcheck); do
-              if [[ "$count" == "25" ]]; then
-                exit 1
-              fi
-              (( count++ ))
-
-              printf '.'
-              sleep 5
-            done
-            set -e
-            curl -v \
-                 -X POST \
-                 -u admin:password \
-                 -H 'Content-Type: application/json' \
-                 -H 'X-Killbill-CreatedBy: CircleCI' \
-                 -d '{"apiKey": "bob", "apiSecret": "lazar"}' \
-                 "http://127.0.0.1:8080/1.0/kb/tenants?useGlobalDefault=true"
-      - run:
-          name: Run tests
-          command: |
-            mkdir /tmp/test-results
-            source /usr/share/rvm/scripts/rvm
-            rvm use ruby-2.4.2
-            DB_ADAPTER=mariadb DB_USER='root' DB_PASSWORD='root' DB_PORT=3306 bundle exec rails t -w
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
-
   test-mysql-ruby-2.4.2:
     <<: *defaults
     docker:
@@ -153,6 +87,7 @@ jobs:
             mkdir /tmp/test-results
             source /usr/share/rvm/scripts/rvm
             rvm use ruby-2.4.2
+            DB_ADAPTER=mysql2 DB_USER='root' DB_PASSWORD='root' DB_PORT=3306 bundle exec rails db:migrate
             DB_ADAPTER=mysql2 DB_USER='root' DB_PASSWORD='root' DB_PORT=3306 bundle exec rails t -w
       - store_test_results:
           path: /tmp/test-results
@@ -219,6 +154,7 @@ jobs:
             mkdir /tmp/test-results
             source /usr/share/rvm/scripts/rvm
             rvm use ruby-2.4.2
+            DB_ADAPTER=postgresql DB_USER='postgres' DB_PASSWORD='postgres' DB_PORT=5432 bundle exec rails db:migrate
             DB_ADAPTER=postgresql DB_USER='postgres' DB_PASSWORD='postgres' DB_PORT=5432 bundle exec rails t -w
       - store_test_results:
           path: /tmp/test-results
@@ -306,6 +242,7 @@ jobs:
             mkdir /tmp/test-results
             source /usr/share/rvm/scripts/rvm
             rvm use jruby-9.1.14.0
+            DB_ADAPTER=mariadb DB_USER='root' DB_PASSWORD='root' DB_PORT=3306 bundle exec rails db:migrate
             DB_ADAPTER=mariadb DB_USER='root' DB_PASSWORD='root' DB_PORT=3306 bundle exec rails t -w
       - store_test_results:
           path: /tmp/test-results
@@ -372,6 +309,7 @@ jobs:
             mkdir /tmp/test-results
             source /usr/share/rvm/scripts/rvm
             rvm use jruby-9.1.14.0
+            DB_ADAPTER=mysql2 DB_USER='root' DB_PASSWORD='root' DB_PORT=3306 bundle exec rails db:migrate
             DB_ADAPTER=mysql2 DB_USER='root' DB_PASSWORD='root' DB_PORT=3306 bundle exec rails t -w
       - store_test_results:
           path: /tmp/test-results
@@ -438,6 +376,7 @@ jobs:
             mkdir /tmp/test-results
             source /usr/share/rvm/scripts/rvm
             rvm use jruby-9.1.14.0
+            DB_ADAPTER=postgresql DB_USER='postgres' DB_PASSWORD='postgres' DB_PORT=5432 bundle exec rails db:migrate
             DB_ADAPTER=postgresql DB_USER='postgres' DB_PASSWORD='postgres' DB_PORT=5432 bundle exec rails t -w
       - store_test_results:
           path: /tmp/test-results
@@ -453,9 +392,6 @@ workflows:
       - build-ruby-2.4.2
       # Self-contained Kaui
       - build-jruby-9.1.14.0
-      - test-mariadb-ruby-2.4.2:
-          requires:
-            - build-ruby-2.4.2
       - test-mysql-ruby-2.4.2:
           requires:
             - build-ruby-2.4.2
