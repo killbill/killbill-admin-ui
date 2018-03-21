@@ -11,6 +11,6 @@ class Kaui::MoneyHelperTest < ActiveSupport::TestCase
   end
 
   test 'can list currencies' do
-    assert_equal 185, currencies.size
+    assert currencies.size >= 185
   end
 end

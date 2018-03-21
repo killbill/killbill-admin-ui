@@ -16,7 +16,8 @@ class Kaui::TagDefinitionsControllerTest < Kaui::FunctionalTestHelper
     post :create,
          :tag_definition => {
              :name        => tag_definition,
-             :description => SecureRandom.uuid
+             :description => SecureRandom.uuid,
+             :applicable_object_types => {"0" => "ACCOUNT"}
          }
     assert_redirected_to tag_definitions_path
     assert_equal 'Tag definition successfully created', flash[:notice]

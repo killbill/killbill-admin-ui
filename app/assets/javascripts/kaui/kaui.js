@@ -183,4 +183,14 @@ jQuery(document).ready(function ($) {
         }
     }
 
+    // Restrict numeric input for a text field
+    // Using "constraint validation API" to restrict input
+    $("input[type=number]").keydown(function(event) {
+        $(this).data('oldData', $(this).val());
+    }).keyup(function(event) {
+        if (event.currentTarget.validity.badInput) {
+            $(this).val($(this).data('oldData'));
+        }
+    });
+
 })

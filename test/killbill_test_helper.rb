@@ -56,8 +56,7 @@ module Kaui
       end
 
       # Setup AllowedUser
-      au = Kaui::AllowedUser
-        .find_or_create_by(kb_username: 'admin', description: 'Admin User')
+      au = Kaui::AllowedUser.find_or_create_by(kb_username: 'admin')
 
       # Create the tenant with Kill Bill
       all_tenants = []
@@ -195,6 +194,10 @@ module Kaui
 
       # Re-hydrate the secret, which is not returned
       tenant.api_secret = api_secret
+
+      # Upload the default SpyCarAdvanced.xml catalog
+      catalog_xml = File.read("test/fixtures/SpyCarAdvanced.xml")
+      Kaui::AdminTenant.upload_catalog(catalog_xml, user, reason, comment, build_options(tenant))
 
       tenant
     end

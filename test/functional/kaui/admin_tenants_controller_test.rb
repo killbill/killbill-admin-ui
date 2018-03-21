@@ -26,7 +26,7 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     tenant.kb_tenant_id = 'kb_tenant_id'
     tenant.save!
 
-    # Add an allowed user that will verify that we can only
+     # Add an allowed user that will verify that we can only
     au = Kaui::AllowedUser.find_by_kb_username('admin')
     au.kaui_tenants << tenant
 
@@ -212,10 +212,22 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
   end
 
   test 'should display catalog xml' do
-    catalog_xml = File.open(File.join(self.class.fixture_path, 'catalog-v1.xml'),'r'){|io| io.read}
-    post :display_catalog_xml, :xml => catalog_xml
+    effective_date = '2013-02-08T00:00:00+00:00'
+    tenant = create_kaui_tenant
+    post :upload_catalog, :id => tenant.id, :catalog => fixture_file_upload('catalog-v1.xml')
 
-    assert_equal @response.body, catalog_xml
+    assert_redirected_to admin_tenant_path(tenant.id)
+    assert_equal 'Catalog was successfully uploaded', flash[:notice]
+
+    post :display_catalog_xml, :effective_date => effective_date, :id => tenant.id
+
+    doc = nil
+    assert_nothing_raised { doc = Nokogiri::XML(@response.body) { |config| config.strict } }
+
+    catalog = doc.xpath("//catalog")
+    expected_effective_date = Date.parse(catalog[0].search("effectiveDate").text)
+
+    assert_equal Date.parse(effective_date), expected_effective_date
   end
 
   test 'should display overdue xml' do
@@ -223,6 +235,21 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     post :display_overdue_xml, :xml => overdue_xml
 
     assert_equal @response.body, overdue_xml
+  end
+
+  test 'should get a catalog by effective date' do
+    effective_date = '2013-02-08T00:00:00+00:00'
+    tenant = create_kaui_tenant
+    post :upload_catalog, :id => tenant.id, :catalog => fixture_file_upload('catalog-v1.xml')
+
+    get :catalog_by_effective_date, :id => tenant.id, :effective_date => effective_date
+    assert_response :success
+
+    result = nil
+    assert_nothing_raised { result = JSON.parse(@response.body) }
+    assert_not_nil(result)
+    assert_equal 1, result['catalog'].size
+    assert_equal Date.parse(effective_date), Date.parse(result['catalog'][0]['version_date'])
   end
 
   private
