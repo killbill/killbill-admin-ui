@@ -40,8 +40,8 @@ class Kaui::AccountsController < Kaui::EngineController
     formatter = lambda do |account|
       account_close_link = ''
       child_label = ''
-      if can? :create, Kaui::Account
-        account_close_link = view_context.link_to('<i class="fa fa-times"></i>'.html_safe, '#closeAccountModal', data: {toggle: 'modal', target: '#closeAccountModal', name: account.name || '(not set)', account_id: account.account_id})
+      if helpers.can_close_account?
+        account_close_link = view_context.link_to('<i class="fa fa-times"></i>'.html_safe, '#closeAccountModal', data: {toggle: 'modal', name: account.name || '(not set)', account_id: account.account_id})
       end
 
       unless account.parent_account_id.nil?
