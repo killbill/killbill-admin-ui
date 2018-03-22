@@ -31,8 +31,6 @@
 
 </div>
 
-<%= render :partial => 'close_account_modal' %>
-
 <%= javascript_tag do %>
 $(document).ready(function() {
   var table = $('#accounts-table').DataTable({
@@ -53,8 +51,8 @@ $(document).ready(function() {
     "ajax": "<%= accounts_pagination_path(:ordering => @ordering, :format => :json) %>",
     "columnDefs": [
     { "orderable": false, "targets": 0, "createdCell": function (td, cellData, rowData, row, col) {
-        $(td).css('padding-left', '5px');
-        $(td).css('width', '75px');
+        $(td).css('padding-left', '20px');
+        $(td).css('width', '60px');
 
     } }
     ]
