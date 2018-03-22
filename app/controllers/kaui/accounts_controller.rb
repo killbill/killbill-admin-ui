@@ -153,6 +153,7 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def destroy
+    referer = request.env['HTTP_REFERER']
     account_id = params.require(:account_id)
     options = params[:options] || []
 
@@ -170,7 +171,7 @@ class Kaui::AccountsController < Kaui::EngineController
       flash[:error] = "Error while closing account: #{as_string(e)}"
     end
 
-    redirect_to accounts_path
+    redirect_to referer
   end
 
   def trigger_invoice
