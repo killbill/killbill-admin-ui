@@ -165,7 +165,7 @@ class Kaui::AccountsController < Kaui::EngineController
       flash[:error] = "Error while closing account: #{as_string(e)}"
     end
 
-    redirect_to accounts_path(account_id)
+    redirect_to account_path(account_id)
   end
 
   def trigger_invoice
