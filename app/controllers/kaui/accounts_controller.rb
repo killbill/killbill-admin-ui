@@ -38,8 +38,13 @@ class Kaui::AccountsController < Kaui::EngineController
     end
 
     formatter = lambda do |account|
+      child_label = ''
+      unless account.parent_account_id.nil?
+        child_label = account.parent_account_id.nil? ? '' : view_context.content_tag(:span, 'Child', class: ['label', 'label-info', 'account-child-label'])
+      end
+
       [
-          account.parent_account_id.nil? ? 0 : 1,
+          child_label,
           view_context.link_to(account.name || '(not set)', view_context.url_for(:action => :show, :account_id => account.account_id)),
           view_context.truncate_uuid(account.account_id),
           account.external_key,
@@ -140,6 +145,27 @@ class Kaui::AccountsController < Kaui::EngineController
     end
 
     params.permit!
+  end
+
+  def destroy
+    account_id = params.require(:account_id)
+    options = params[:options] || []
+
+    cancel_subscriptions = options.include?('cancel_all_subscriptions')
+    writeoff_unpaid_invoices = options.include?('writeoff_unpaid_invoices')
+    item_adjust_unpaid_invoices = options.include?('item_adjust_unpaid_invoices')
+    cached_options_for_klient = options_for_klient
+
+    begin
+      @account = Kaui::Account::find_by_id_or_key(account_id, false, false, cached_options_for_klient)
+      @account.close(cancel_subscriptions, writeoff_unpaid_invoices, item_adjust_unpaid_invoices, current_user.kb_username, nil, nil, cached_options_for_klient );
+
+      flash[:notice] = "Account #{account_id} successfully closed"
+    rescue => e
+      flash[:error] = "Error while closing account: #{as_string(e)}"
+    end
+
+    redirect_to accounts_path(account_id)
   end
 
   def trigger_invoice

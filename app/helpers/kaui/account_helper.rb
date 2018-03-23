@@ -12,5 +12,19 @@ module Kaui
       return false
     end
 
+    def account_closed?
+      return false if @account.nil?
+      blocking_states = @account.blocking_states('ACCOUNT','account-service','NONE', Kaui.current_tenant_user_options(current_user, session))
+
+      is_account_closed = false
+      blocking_states.each do |blocking_state|
+        if blocking_state.state_name.eql?('CLOSE_ACCOUNT')
+          is_account_closed = true
+          break
+        end
+      end
+      is_account_closed
+    end
+
   end
 end
