@@ -50,6 +50,10 @@ class Kaui::AdminTenantsController < Kaui::EngineController
       tenant_model.save!
       # Make sure at least the current user can access the tenant
       tenant_model.kaui_allowed_users << Kaui::AllowedUser.where(:kb_username => current_user.kb_username).first_or_create
+    rescue KillBillClient::API::Conflict => e
+      # tenant api_key was found but has a wrong api_secret
+      flash[:error] = "Submitted credentials for #{param_tenant[:api_key]} did not match the expected credentials."
+      redirect_to admin_tenants_path and return
     rescue => e
       flash[:error] = "Failed to create the tenant: #{as_string(e)}"
       redirect_to admin_tenants_path and return
