@@ -73,7 +73,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_key] = @tenant.api_key
     options[:api_secret] = @tenant.api_secret
 
-    fetch_catalog_versions = promise { Kaui::Catalog::get_tenant_catalog_versions(options)}
+    fetch_catalog_versions = promise { Kaui::Catalog::get_tenant_catalog_versions(options) rescue @catalog_versions = []}
     fetch_overdue = promise { Kaui::Overdue::get_overdue_json(options) rescue @overdue = nil }
     fetch_overdue_xml = promise { Kaui::Overdue::get_tenant_overdue_config('xml', options) rescue @overdue_xml = nil }
 
