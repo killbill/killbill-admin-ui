@@ -244,7 +244,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     account_to_be_closed = create_account(@tenant)
 
     delete :destroy, :account_id => account_to_be_closed.account_id
-    assert_redirected_to accounts_path
+    assert_redirected_to account_path(account_to_be_closed.account_id)
     assert_equal "Account #{account_to_be_closed.account_id} successfully closed", flash[:notice]
 
   end
