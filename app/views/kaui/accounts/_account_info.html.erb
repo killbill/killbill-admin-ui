@@ -13,6 +13,11 @@
                       kaui_engine.account_children_path(@account.account_id),
                       :class => 'btn btn-xs' %>
       <% end %>
+      <% if can_close_account? && !account_closed? %>
+        <%= link_to('<i class="fa fa-times"></i>Close'.html_safe, '#closeAccountModal',
+                    :class => 'btn btn-xs text-danger',
+                    data: {toggle: 'modal', name: @account.name || '(not set)', account_id: @account.account_id}) %>
+      <% end %>
       <% unless @account.parent_account_id.nil? %>
           <span class="label label-info account-child-label">Child</span>
       <% end %>

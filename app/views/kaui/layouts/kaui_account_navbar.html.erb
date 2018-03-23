@@ -12,6 +12,10 @@
     <% if current_user.root? %>
         <%= link_to 'Queues', kaui_engine.account_queues_path(params[:account_id]), :class => (params[:controller].ends_with?('queues') ? 'current' : 'non-current') %>
     <% end %>
+
+    <% if account_closed? %>
+        <span class="label label-danger">CLOSED</span>
+    <% end %>
   </div>
 
 </div>

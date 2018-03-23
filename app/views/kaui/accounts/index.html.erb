@@ -49,13 +49,6 @@ $(document).ready(function() {
     "serverSide": true,
     "search": {"search": "<%= @search_query %>"},
     "ajax": "<%= accounts_pagination_path(:ordering => @ordering, :format => :json) %>",
-    "rowCallback": function( row, data, index ) {
-      if ( data[0] == 1 ) {
-        $('td:eq(0)', row).html( '<span class="label label-info account-child-label">Child</span>' );
-      }else{
-        $('td:eq(0)', row).html('')
-      }
-    },
     "columnDefs": [
     { "orderable": false, "targets": 0, "createdCell": function (td, cellData, rowData, row, col) {
         $(td).css('padding-left', '20px');

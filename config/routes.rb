@@ -54,7 +54,7 @@ Kaui::Engine.routes.draw do
       end
     end
   end
-  resources :accounts, :only => [ :index, :new, :create, :edit, :update, :show ], :param => :account_id do
+  resources :accounts, :only => [ :index, :new, :create, :edit, :update, :show, :destroy ], :param => :account_id do
     member do
       put :set_default_payment_method
       delete :delete_payment_method

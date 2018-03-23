@@ -10,6 +10,10 @@
   <%= render :partial => 'kenui/email_notifications/configure_events_modal' %>
 <% end %>
 
+<% if can_close_account? %>
+  <%= render :partial => 'close_account_modal' %>
+<% end %>
+
 <%= javascript_tag do %>
   function disableLinks() {
     $('a.btn.disabled').click(function (e) {
