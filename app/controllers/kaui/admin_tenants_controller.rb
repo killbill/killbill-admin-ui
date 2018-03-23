@@ -328,6 +328,33 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     render :json => '{}', :status => 200
   end
 
+  def add_allowed_user
+    current_tenant = safely_find_tenant_by_id(params[:tenant_id])
+    allowed_user = Kaui::AllowedUser.find_by_kb_username(params.require(:allowed_user).require(:kb_username))
+
+    if !current_user.root?
+      flash[:error] = 'Only the root user can add users from tenants'
+      redirect_to admin_tenant_path(current_tenant.id)
+      return
+    end
+
+    if allowed_user.nil?
+      flash[:error] = "User #{params.require(:allowed_user).require(:kb_username)} does not exists!!"
+      redirect_to admin_tenant_path(current_tenant.id)
+      return
+    end
+
+    tenants_ids = allowed_user.kaui_tenants.map(&:id) || []
+    tenants_ids << current_tenant.id
+    allowed_user.kaui_tenant_ids = tenants_ids
+    redirect_to admin_tenant_path(current_tenant.id), :notice => 'Allowed user was successfully added'
+  end
+
+  def allowed_users
+    allowed_users = retrieve_allowed_users_for_current_user
+    render :json => allowed_users.to_json, :status => 200
+  end
+
   def display_catalog_xml
     current_tenant = safely_find_tenant_by_id(params[:id])
     effective_date = params.require(:effective_date)

@@ -252,6 +252,38 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     assert_equal Date.parse(effective_date), Date.parse(result['catalog'][0]['version_date'])
   end
 
+  test 'should add an allowed user' do
+    tenant = Kaui::Tenant.new
+    tenant.name = 'foo'
+    tenant.api_key = 'api_key'
+    tenant.api_secret = 'api_secret'
+    tenant.kb_tenant_id = 'kb_tenant_id'
+    tenant.save!
+
+    # create a new user
+    au = Kaui::AllowedUser.new(:kb_username => 'Hulk', :description => "He is green")
+    au.save
+
+    # add user to allowed list
+    parameters = {
+        :allowed_user => {:kb_username => au.kb_username},
+        :tenant_id => tenant.id
+    }
+    put :add_allowed_user, parameters
+    assert_redirected_to admin_tenant_path(tenant.id)
+    assert_equal 'Allowed user was successfully added', flash[:notice]
+
+    # try to add non existent user
+    parameters = {
+        :allowed_user => {:kb_username => 'Steve Rogers'},
+        :tenant_id => tenant.id
+    }
+    put :add_allowed_user, parameters
+    assert_redirected_to admin_tenant_path(tenant.id)
+    assert_equal "User #{parameters[:allowed_user][:kb_username]} does not exists!!", flash[:error]
+
+  end
+
   private
 
   def create_kaui_tenant

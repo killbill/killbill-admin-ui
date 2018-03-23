@@ -174,6 +174,8 @@ Kaui::Engine.routes.draw do
     match '/upload_catalog_translation' => 'admin_tenants#upload_catalog_translation', :via => :post, :as => 'admin_tenant_upload_catalog_translation'
     match '/upload_plugin_config' => 'admin_tenants#upload_plugin_config', :via => :post, :as => 'admin_tenant_upload_plugin_config'
     match '/remove_allowed_user' => 'admin_tenants#remove_allowed_user', :via => :delete, :as => 'remove_allowed_user'
+    match '/add_allowed_user' => 'admin_tenants#add_allowed_user', :via => :put, :as => 'add_allowed_user'
+    match '/allowed_users' => 'admin_tenants#allowed_users', :via => :get, :as => 'admin_tenant_allowed_users'
     match '/catalog_by_effective_date' => 'admin_tenants#catalog_by_effective_date', :via => :get, :as => 'catalog_by_effective_date'
   end
   resources :admin_tenants, :only => [ :index, :new, :create, :show ]

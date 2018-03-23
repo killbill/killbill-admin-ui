@@ -9,7 +9,10 @@
 
       <div class="column-block">
 
-        <h1>Allowed Users</h1>
+        <h1>Allowed Users
+        <%= link_to '<i class="fa fa-plus-square"></i>'.html_safe,
+                                          '#addAllowedUserModal',
+                                          :class => 'btn btn-xs', data: {toggle: 'modal'} %></h1>
         <table id="allowed-users-for-tenant-table" class="table table-condensed">
           <thead>
           <tr>
@@ -77,6 +80,8 @@
     <%= render :partial => 'form_plugin_config' %>
   </div>
 </div>
+
+<%= render :partial => 'add_allowed_user_modal' %>
 
 <%= javascript_tag do %>
 
