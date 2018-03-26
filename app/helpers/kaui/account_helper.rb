@@ -26,7 +26,7 @@ module Kaui
       is_account_closed
     end
 
-    def margin
+    def billing_info_margin
       style = ''
       unless can?(:trigger, Kaui::Payment) && can?(:credit, Kaui::Account) && can?(:charge, Kaui::Account)
         style = "#{style}margin-top:15px;"
