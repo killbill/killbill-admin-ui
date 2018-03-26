@@ -280,7 +280,7 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     }
     put :add_allowed_user, parameters
     assert_redirected_to admin_tenant_path(tenant.id)
-    assert_equal "User #{parameters[:allowed_user][:kb_username]} does not exists!!", flash[:error]
+    assert_equal "User #{parameters[:allowed_user][:kb_username]} does not exist!", flash[:error]
 
   end
 

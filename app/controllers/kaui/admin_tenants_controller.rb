@@ -339,7 +339,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     end
 
     if allowed_user.nil?
-      flash[:error] = "User #{params.require(:allowed_user).require(:kb_username)} does not exists!!"
+      flash[:error] = "User #{params.require(:allowed_user).require(:kb_username)} does not exist!"
       redirect_to admin_tenant_path(current_tenant.id)
       return
     end
