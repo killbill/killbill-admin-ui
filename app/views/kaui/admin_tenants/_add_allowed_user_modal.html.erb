@@ -33,6 +33,7 @@
                 url: Routes.kaui_engine_admin_tenant_allowed_users_path(),
                 type: "GET",
                 dataType: "json",
+                data: {tenant_id: <%= @tenant.id %>},
                 success: function(data) {
                     var availableAllowedUser = [];
                     for (var i=0; i < data.length ; i++) {
@@ -41,7 +42,10 @@
 
                     $( "#allowed_user_kb_username" ).autocomplete({
                         source: availableAllowedUser,
-                        appendTo: "#tenantAllowedUserForm"
+                        appendTo: "#tenantAllowedUserForm",
+                        classes: {
+                            "ui-autocomplete": "autocomplete-allowed-user"
+                        },
                     });
 
                 }
