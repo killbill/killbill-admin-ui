@@ -355,7 +355,10 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def allowed_users
-    allowed_users = retrieve_allowed_users_for_current_user
+    tenant = safely_find_tenant_by_id(params[:tenant_id])
+    actual_allowed_users = tenant.kaui_allowed_users.map {|au| au.id}
+
+    allowed_users = retrieve_allowed_users_for_current_user.select {|au| !actual_allowed_users.include? au.id }
     render :json => allowed_users.to_json, :status => 200
   end
 
