@@ -45,7 +45,7 @@ class Kaui::PaymentsControllerTest < Kaui::FunctionalTestHelper
 
   test 'should cancel scheduled payment' do
     delete :cancel_scheduled_payment, :id => @payment.payment_id, :account_id => @payment.account_id
-    assert_match /Error deleting payment attempt retry:/, flash[:error]
+    assert_match(/Error deleting payment attempt retry:/, flash[:error])
     expected_response_path = "/accounts/#{@payment.account_id}"
     assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
 
