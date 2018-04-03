@@ -99,12 +99,7 @@ module Kaui
       if !sub.present? or !sub.cancelled_date.present? or !account.present? or !account.time_zone.present?
         nil
       else
-        cancelled_date = format_date(sub.cancelled_date, account.time_zone).html_safe
-        if Time.parse(sub.cancelled_date) > current_time(account.time_zone)
-          'Entitlement date: ' + cancelled_date + ' [PENDING]'
-        else
-          'Entitlement date: ' + cancelled_date
-        end
+        "Entitlement date: #{format_date(sub.cancelled_date, account.time_zone)}"
       end
     end
 
