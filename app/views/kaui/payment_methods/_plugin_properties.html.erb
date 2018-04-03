@@ -9,7 +9,7 @@
     </tr>
     </thead>
     <tbody>
-    <% (@plugin_properties || [{}]).each_with_index do |plugin_properties, index| %>
+    <% (@plugin_properties ||= [{}]).each_with_index do |plugin_properties, index| %>
       <%= fields :plugin_properties do |property| %>
         <%= property.fields_for "#{index}", plugin_properties do |key_value| %>
           <tr id="plugin_property_<%= index %>" >

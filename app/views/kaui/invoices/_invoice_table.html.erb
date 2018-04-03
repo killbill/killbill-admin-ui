@@ -1,7 +1,7 @@
 <div class="info-wrapper">
 
   <% display_payment_options = (!dry_run && ((can?(:credit, Kaui::Account) && @invoice.status == 'DRAFT') || (can?(:charge, Kaui::Account) && @invoice.status == 'DRAFT') || (@invoice.balance > 0 && can?(:trigger, Kaui::Payment))))
-     if (!@custom_fields.nil? && !@custom_fields.empty?) || display_payment_options %>
+     if !(@custom_fields ||= nil).blank? || display_payment_options %>
       <div class="tag-bar">
         <!--<div class="tag-select">-->
         <!--<span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>-->
@@ -41,7 +41,7 @@
   <table id="invoice-table" class="table table-condensed mobile-data">
     <thead>
     <tr>
-      <% unless @available_invoice_item_tags.blank? && @custom_fields_per_invoice_item.blank? %>
+      <% unless (@available_invoice_item_tags ||= nil).blank? && (@custom_fields_per_invoice_item ||= nil).blank? %>
           <th></th>
       <% end %>
       <th>Description</th>

@@ -130,7 +130,7 @@ class Kaui::AccountsController < Kaui::EngineController
     @payment_methods = wait(fetch_payment_methods_with_details).map { |pm_f| pm_f.execute }.map { |pm_f| wait(pm_f) }.reject { |pm| pm.nil? }
     @available_tags = wait(fetch_available_tags)
     @children = wait(fetch_children)
-    @account_parent = wait(fetch_parent) unless @account.parent_account_id.nil?
+    @account_parent = @account.parent_account_id.nil? ? nil : wait(fetch_parent)
     @email_notification_configuration = wait(fetch_email_notification_configuration) if is_email_notifications_plugin_available
 
     @last_transaction_by_payment_method_id = {}
@@ -323,7 +323,7 @@ class Kaui::AccountsController < Kaui::EngineController
 
       is_available = Kenui::EmailNotificationService.email_notification_plugin_available?(options_for_klient).first
       return is_available, is_available ? nil : error_message
-    rescue => e
+    rescue
       return false, error_message
     end
 

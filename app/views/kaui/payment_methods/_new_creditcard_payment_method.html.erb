@@ -1,66 +1,66 @@
 <div class="form-group">
   <%= label_tag :card_type, 'Card type', :class => 'col-sm-3 control-label' %>
   <div class="col-sm-9">
-    <%= text_field_tag :card_type, @card_type, :class => 'form-control' %>
+    <%= text_field_tag :card_type, @card_type ||= nil, :class => 'form-control' %>
   </div>
 </div>
 <div class="form-group">
   <%= label_tag :card_holder_name, 'Card holder name', :class => 'col-sm-3 control-label' %>
   <div class="col-sm-9">
-    <%= text_field_tag :card_holder_name, @card_holder_name, :class => 'form-control' %>
+    <%= text_field_tag :card_holder_name, @card_holder_name ||= nil, :class => 'form-control' %>
   </div>
 </div>
 <div class="form-group">
   <%= label_tag :expiration_month, 'Expiration month', :class => 'col-sm-3 control-label' %>
   <div class="col-sm-9">
-    <%= text_field_tag :expiration_month, @expiration_month, :class => 'form-control' %>
+    <%= text_field_tag :expiration_month, @expiration_month ||= nil, :class => 'form-control' %>
   </div>
 </div>
 <div class="form-group">
   <%= label_tag :expiration_year, 'Expiration year', :class => 'col-sm-3 control-label' %>
   <div class="col-sm-9">
-    <%= text_field_tag :expiration_year, @expiration_year, :class => 'form-control' %>
+    <%= text_field_tag :expiration_year, @expiration_year ||= nil, :class => 'form-control' %>
   </div>
 </div>
 <div class="form-group">
   <%= label_tag :credit_card_number, 'Credit card number', :class => 'col-sm-3 control-label' %>
   <div class="col-sm-9">
-    <%= text_field_tag :credit_card_number, @credit_card_number, :class => 'form-control' %>
+    <%= text_field_tag :credit_card_number, @credit_card_number ||= nil, :class => 'form-control' %>
   </div>
 </div>
 <div class="form-group">
   <%= label_tag :address1, 'Address 1', :class => 'col-sm-3 control-label' %>
   <div class="col-sm-9">
-    <%= text_field_tag :address1, @address1, :class => 'form-control' %>
+    <%= text_field_tag :address1, @address1 ||= nil, :class => 'form-control' %>
   </div>
 </div>
 <div class="form-group">
   <%= label_tag :address2, 'Address 2', :class => 'col-sm-3 control-label' %>
   <div class="col-sm-9">
-    <%= text_field_tag :address2, @address2, :class => 'form-control' %>
+    <%= text_field_tag :address2, @address2 ||= nil, :class => 'form-control' %>
   </div>
 </div>
 <div class="form-group">
   <%= label_tag :city, 'City', :class => 'col-sm-3 control-label' %>
   <div class="col-sm-9">
-    <%= text_field_tag :city, @city, :class => 'form-control' %>
+    <%= text_field_tag :city, @city ||= nil, :class => 'form-control' %>
   </div>
 </div>
 <div class="form-group">
   <%= label_tag :postal_code, 'ZIP code', :class => 'col-sm-3 control-label' %>
   <div class="col-sm-9">
-    <%= text_field_tag :postal_code, @postal_code, :class => 'form-control' %>
+    <%= text_field_tag :postal_code, @postal_code ||= nil, :class => 'form-control' %>
   </div>
 </div>
 <div class="form-group">
   <%= label_tag :state, 'State', :class => 'col-sm-3 control-label' %>
   <div class="col-sm-9">
-    <%= text_field_tag :state, @state, :class => 'form-control' %>
+    <%= text_field_tag :state, @state ||= nil, :class => 'form-control' %>
   </div>
 </div>
 <div class="form-group">
   <%= label_tag :country, 'Country', :class => 'col-sm-3 control-label' %>
   <div class="col-sm-9">
-    <%= text_field_tag :country, @country, :class => 'form-control' %>
+    <%= text_field_tag :country, @country ||= nil, :class => 'form-control' %>
   </div>
 </div>

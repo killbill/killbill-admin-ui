@@ -7,7 +7,7 @@ class Kaui::AdminControllerTest < Kaui::FunctionalTestHelper
     clock = get_date
     assert_not_nil clock
     date = DateTime.parse(clock.to_s.gsub('"','')).strftime('%F')
-    assert_match /\d{4}-\d{,2}-\d{,2}/, date
+    assert_match(/\d{4}-\d{,2}-\d{,2}/, date)
     assert_response :success
   end
 
@@ -19,7 +19,7 @@ class Kaui::AdminControllerTest < Kaui::FunctionalTestHelper
     clock = get_date
     assert_not_nil clock
     date = DateTime.parse(clock.to_s.gsub('"','')).strftime('%F')
-    assert_match /\d{4}-\d{,2}-\d{,2}/, date
+    assert_match(/\d{4}-\d{,2}-\d{,2}/, date)
     assert_response :success
 
     # update killbill clock

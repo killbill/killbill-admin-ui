@@ -8,7 +8,7 @@
     </tr>
     </thead>
     <tbody>
-    <% (@control_plugin_names || ['']).each_with_index do |control_plugin_name, index| %>
+    <% (@control_plugin_names ||= ['']).each_with_index do |control_plugin_name, index| %>
       <tr id="control_plugin_name_<%= index %>" >
         <td><%= text_field_tag 'control_plugin_names[]', control_plugin_name, class: 'form-control' %></td>
         <td>
