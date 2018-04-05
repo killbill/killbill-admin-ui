@@ -11,7 +11,7 @@ class Kaui::AccountChildrenControllerTest < Kaui::FunctionalTestHelper
     children_size = 3
     # create children
     for i in 1..children_size
-      create_account(@tenant,USERNAME,PASSWORD,'Kaui test',nil,nil,@account.account_id)
+      create_account(@tenant,USERNAME,PASSWORD,"Kaui test#{i}",nil,nil,@account.account_id)
     end
 
     parameters = {

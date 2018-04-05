@@ -44,7 +44,7 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
         'state'               => @state
     }
 
-    @plugin_properties = params[:plugin_properties].values.select{ |item| !(item['value'].blank? || item['key'].blank?) } unless params[:plugin_properties].blank?
+    @plugin_properties = params[:plugin_properties].values.select{ |item| !(item['value'].blank? || item['key'].blank?) } rescue @plugin_properties = nil
     @plugin_properties.map! do |property|
       KillBillClient::Model::PluginPropertyAttributes.new(property)
     end unless @plugin_properties.blank?

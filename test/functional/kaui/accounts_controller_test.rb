@@ -171,8 +171,8 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     parameters[:dry_run] = '0'
     post :trigger_invoice, parameters
     assert_response :redirect
-    assert_match /Generated invoice.*for target date.*/, flash[:notice]
-    a_tag = /<a.href="(?<href>.*?)">/.match(@response.body)
+    assert_match(/Generated invoice.*for target date.*/, flash[:notice])
+    a_tag = (/<a.href="(?<href>.*?)">/).match(@response.body)
     assert_redirected_to a_tag[:href]
   end
 
