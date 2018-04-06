@@ -48,14 +48,19 @@
           <%= render :partial => 'kaui/custom_fields/list_bar',
                      :locals => {:custom_fields => @custom_fields_per_bundle[bundle.bundle_id] || []} %>
 
-          <% if !is_subscription_cancelled?(@base_subscription[bundle.bundle_id]) &&
+          <% if !is_subscription_cancelled?(@subscription[bundle.bundle_id]) &&
               (can?(:create, Kaui::Subscription) || can?(:transfer, Kaui::Subscription) || can?(:pause_resume, Kaui::Subscription)) %>
               <div class="tag-select" onclick="void(0)">
                 <span><i class="fa fa-gift"></i><i class="fa fa-caret-down"></i></span>
 
                 <div class="tag-select-box">
-                  <% if can?(:create, Kaui::Subscription) && @base_subscription[bundle.bundle_id].present? %>
-                      <%= link_to '<i class="fa fa-plus"></i>&nbsp;Add add-on'.html_safe, kaui_engine.new_subscription_path(:params => {:account_id => bundle.account_id, :bundle_id => bundle.bundle_id, :base_product_name => @base_subscription[bundle.bundle_id].product_name, :product_category => 'ADD_ON'}) %>
+                  <% if can?(:create, Kaui::Subscription) && @subscription[bundle.bundle_id].present? %>
+                      <%= link_to "<i class='fa fa-plus'></i>&nbsp;#{@subscription[bundle.bundle_id].product_category == 'BASE' ? 'Add add-on' : 'Add standalone subscription'}".html_safe,
+                                  kaui_engine.new_subscription_path(:params => {
+                                      :account_id => bundle.account_id,
+                                      :bundle_id => bundle.bundle_id,
+                                      :base_product_name => @subscription[bundle.bundle_id].product_name,
+                                      :product_category => @subscription[bundle.bundle_id].product_category == 'BASE' ? 'ADD_ON' : 'STANDALONE'}) %>
                   <% end %>
                   <% if can? :transfer, Kaui::Subscription %>
                       <%= link_to '<i class="fa fa-random"></i>&nbsp;Transfer Ownership'.html_safe, kaui_engine.transfer_bundle_path(bundle.bundle_id) %>
