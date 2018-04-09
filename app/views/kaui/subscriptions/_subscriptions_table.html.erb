@@ -9,7 +9,7 @@
     <th>Phase type</th>
     <th>Start date</th>
     <th>Charged through date</th>
-    <th>Cancel date</th>
+    <th>Cancel information</th>
     <th>Actions</th>
   </tr>
   </thead>
@@ -51,7 +51,7 @@
         <td><%= humanized_subscription_phase_type(sub) %></td>
         <td><%= humanized_subscription_start_date(sub, account) %></td>
         <td><%= humanized_subscription_charged_through_date(sub, account) %></td>
-        <td><%= humanized_subscription_cancelled_date(sub, account) %></td>
+        <td><%= humanized_subscription_cancelled_information(sub, account) %></td>
         <td class="text-center">
             <% if is_subscription_future_cancelled?(sub, account) %>
                 <%= link_to 'Reinstate', kaui_engine.reinstate_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-xs' %>
@@ -70,6 +70,7 @@
                             <li><%= link_to 'Cancel start of term (full credit)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'START_OF_TERM'), :method => :delete %></li>
                             <li><%= link_to 'Cancel immediately (partial credit)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'IMMEDIATE'), :method => :delete %></li>
                             <li><%= link_to 'Cancel end of term (no credit)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'END_OF_TERM'), :method => :delete %></li>
+                            <li><%= link_to 'Cancel a subscription given a date', '#cancel_subscription_by_date_modal', data: {toggle: 'modal', id: sub.subscription_id} %></li>
                         </ul>
                     </div>
                 <% end %>
@@ -83,6 +84,8 @@
   </tbody>
 </table>
 
+<%= render :partial => 'kaui/subscriptions/cancel_by_date_modal' %>
+
 <%= javascript_tag do %>
   $(document).ready(function() {
     $('.subscription-id-popover').popover();
@@ -92,14 +95,14 @@
       "paging": false,
       "order": [[ <%= @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? ? 3 : 4 %>, "asc" ]],
       "columns": [
-      <%= "{ orderable: false }," unless @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? %>
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      { "orderable": false }
+        <%= "{ orderable: false }," unless @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? %>
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        { "orderable": false }
       ]
     });
   });

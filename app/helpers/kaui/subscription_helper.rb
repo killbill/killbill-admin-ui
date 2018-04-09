@@ -99,12 +99,7 @@ module Kaui
       if !sub.present? or !sub.cancelled_date.present? or !account.present? or !account.time_zone.present?
         nil
       else
-        cancelled_date = format_date(sub.cancelled_date, account.time_zone).html_safe
-        if Time.parse(sub.cancelled_date) > current_time(account.time_zone)
-          'Pending cancellation on ' + cancelled_date
-        else
-          'Canceled on ' + cancelled_date
-        end
+        "Entitlement date: #{format_date(sub.cancelled_date, account.time_zone)}"
       end
     end
 
@@ -120,10 +115,17 @@ module Kaui
       if !sub.present? or !sub.billing_end_date.present? or !account.present? or !account.time_zone.present?
         nil
       else
-        format_date(sub.billing_end_date, account.time_zone).html_safe
+        "Billing date: #{format_date(sub.billing_end_date, account.time_zone)}"
       end
     end
 
+    def humanized_subscription_cancelled_information(sub, account)
+      if !sub.present? or !sub.cancelled_date.present? or !account.present? or !account.time_zone.present?
+        nil
+      else
+        "#{humanized_subscription_cancelled_date(sub, account)}<br/>#{humanized_subscription_billing_end_date(sub, account)}".html_safe
+      end
+    end
 
     def humanized_time_unit(time_unit)
       time_unit.downcase.capitalize

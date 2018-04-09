@@ -1,0 +1,62 @@
+<div class="modal fade" id="cancel_subscription_by_date_modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content column-block">
+      <div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="modal-title">Cancel a subscription given a date</h1>
+      </div>
+      <div class="modal-body">
+        <%= form_for :subscription, :url =>  '' , :method => :delete, :html => {:class => 'form-horizontal', :id => 'cancel_subscription_form'} do |f| %>
+          <div class="form-group">
+            <%= label_tag :requested_date, 'Date', :class => 'col-sm-2 control-label' %>
+            <div class="col-sm-10">
+              <%= text_field_tag :requested_date, Date.parse(Time.now.to_s).to_s, :class => 'form-control date-picker' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-8">
+              <div class="checkbox">
+                <%= label_tag :use_requested_date_for_billing do %>
+                    <input type="checkbox" id="is_requested_date_for_billing">
+                    Use requested date for billing?
+                    <input type="hidden" id="use_requested_date_for_billing" name="use_requested_date_for_billing" value="0">
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-10">
+              <%= submit_tag 'Save', :class => 'btn btn-default' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <div class="alert alert-warning">
+          <strong>Notice</strong>
+          <ul>
+            <li>When <span class="label label-default">Use requested date for billing?</span> is checked, then entitlement date and billing date are going to be equal to the requested date.</li>
+            <li>When <strong>not</strong> checked, then the entitlement date will be set with requested date, and billing date will default to now.</li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<%= javascript_tag do %>
+    $(document).ready(function() {
+
+        $('#cancel_subscription_by_date_modal').on('show.bs.modal', function (e) {
+            $("#cancel_subscription_form").attr("action", Routes.kaui_engine_subscription_path(e.relatedTarget.dataset['id']));
+
+        });
+
+        $('#is_requested_date_for_billing').change(function(e) {
+            $('#use_requested_date_for_billing').val($(this).is(':checked') ? 1 : 0);
+        });
+
+    });
+
+<% end %>
