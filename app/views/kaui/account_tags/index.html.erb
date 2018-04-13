@@ -1,0 +1,35 @@
+<div class="search">
+
+  <div class="column-block">
+
+    <h1>Tags</h1>
+    <input type="hidden" id="tags" value="<%= @tags_json %>">
+    <table id="tags-table" class="table table-condensed mobile-data">
+      <thead>
+      <tr>
+        <th>Tag ID</th>
+        <th>Object ID</th>
+        <th>Object type</th>
+        <th>Tag definition name</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="1" class="dataTables_empty">Loading data from server</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+
+<%= javascript_tag do %>
+    $(document).ready(function() {
+        var tags = JSON.parse($("#tags").val());
+        $('#tags-table').DataTable({
+            "dom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+            data: tags
+        });
+    });
+<% end %>
