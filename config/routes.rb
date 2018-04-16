@@ -38,6 +38,7 @@ Kaui::Engine.routes.draw do
       match '/unlink_to_parent' => 'accounts#unlink_to_parent', :via => :delete, :as => 'unlink_to_parent'
 
       scope '/account_tags' do
+        match '/' => 'account_tags#index', :via => :get, :as => 'account_tags'
         match '/edit' => 'account_tags#edit', :via => :get, :as => 'edit_account_tags'
         match '/edit' => 'account_tags#update', :via => :post, :as => 'update_account_tags'
       end
@@ -47,6 +48,9 @@ Kaui::Engine.routes.draw do
       end
       scope '/timeline' do
         match '/' => 'account_timelines#show', :via => :get, :as => 'account_timeline'
+      end
+      scope '/custom_fields' do
+        match '/' => 'account_custom_fields#index', :via => :get, :as => 'account_custom_fields'
       end
       scope '/account_children' do
         match '/' => 'account_children#index', :via => :get, :as => 'account_children'
