@@ -26,4 +26,23 @@ class Kaui::AccountTagsControllerTest < Kaui::FunctionalTestHelper
     assert_redirected_to account_path(@account.account_id)
     assert_equal 'Account tags successfully set', flash[:notice]
   end
+
+  test 'should list all account tags' do
+    new_account = create_account(@tenant)
+    # set some tags
+    post :update,
+         :account_id => new_account.account_id,
+         :'tag_00000000-0000-0000-0000-000000000001' => 'AUTO_PAY_OFF',
+         :'tag_00000000-0000-0000-0000-000000000005' => 'MANUAL_PAY',
+         :'tag_00000000-0000-0000-0000-000000000003' => 'OVERDUE_ENFORCEMENT_OFF'
+    assert_redirected_to account_path(new_account.account_id)
+    assert_equal 'Account tags successfully set', flash[:notice]
+
+    # get tag list
+    get :index, :account_id => new_account.account_id
+    assert_response :success
+    tags_from_response = get_value_from_input_field('tags').gsub!('&quot;','"');
+    assert_not_nil tags_from_response
+    assert_equal 3, JSON.parse(tags_from_response).count
+  end
 end
