@@ -23,6 +23,25 @@
         }
     }
 
+    table.table-colored-rows {
+        tr.insert {
+            background-color: #dff0d8;
+        }
+        tr.update {
+            background-color: #fcf8e3;
+        }
+        tr.delete {
+            background-color: #f2dede;
+        }
+
+        th, td {
+
+            &:first-of-type {
+                padding-left: 20px;
+            }
+        }
+    }
+
     tr.disabled {
         background-color: #f5f5f5;
     }

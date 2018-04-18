@@ -13,6 +13,7 @@
 
     <% if current_user.root? %>
         <%= link_to 'Queues', kaui_engine.account_queues_path(params[:account_id]), :class => (params[:controller].ends_with?('queues') ? 'current' : 'non-current') %>
+        <%= link_to 'Audit', kaui_engine.account_audit_logs_path(params[:account_id]), :class => (params[:controller].ends_with?('logs') ? 'current' : 'non-current') %>
     <% end %>
 
     <% if account_closed? %>

@@ -78,6 +78,7 @@ Kaui::Engine.routes.draw do
     resources :refunds, :only => [:new, :create]
     resources :transactions, :only => [:new, :create]
     resources :queues, :only => [:index]
+    resources :audit_logs, :only => [:index]
   end
 
   scope '/payment_methods' do
