@@ -15,3 +15,14 @@
       </div>
     </div>
 <% end %>
+<!--This is for ajax calls that need to notify for error, to trigger this alert use ajaxAlert(message)-->
+<div id="ajaxAlert" class="row" style="display: none">
+  <div class="col-md-12">
+    <div class="alert alert-danger">
+      <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <span id="ajaxErrorMessage"></span>
+    </div>
+  </div>
+</div>

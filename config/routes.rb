@@ -56,6 +56,9 @@ Kaui::Engine.routes.draw do
         match '/' => 'account_children#index', :via => :get, :as => 'account_children'
         match '/pagination' => 'account_children#pagination', :via => :get, :as => 'account_children_pagination'
       end
+      scope '/audit_logs' do
+        match '/history' => 'audit_logs#history', :via => :get, :as => 'audit_logs_history'
+      end
     end
   end
   resources :accounts, :only => [ :index, :new, :create, :edit, :update, :show, :destroy ], :param => :account_id do
