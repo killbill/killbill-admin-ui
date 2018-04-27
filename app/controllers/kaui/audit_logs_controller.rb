@@ -16,7 +16,8 @@ class Kaui::AuditLogsController < Kaui::EngineController
                                                   object_id: log.object_id,
                                                   object_type: log.object_type,
                                                   change_date: log.change_date,
-                                                  account_id: @account.account_id})
+                                                  account_id: @account.account_id
+                                              })
       end
 
       [

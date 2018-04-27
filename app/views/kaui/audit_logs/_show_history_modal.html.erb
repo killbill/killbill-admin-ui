@@ -6,9 +6,9 @@
         <h1 class="modal-title">History</h1>
       </div>
       <div class="modal-body">
-        <input type="hidden" id="objectId">
-        <input type="hidden" id="objectType">
-        <input type="hidden" id="changeDate">
+        <input type="hidden" id="objectId" />
+        <input type="hidden" id="objectType" />
+        <input type="hidden" id="changeDate" />
         <div class="alert alert-info" role="alert">Loading data from server</div>
         <div id="templatesPlaceHolder" style="display: flex;">
           <div id="templateFieldsPlaceHolder"></div>
@@ -22,7 +22,7 @@
 <script id="history_template" type="text/template" >
   {{#auditLogs}}
   <div class="panel panel-{{selected}}" id="{{panelId}}">
-    <div class="panel-heading">{{changeType}} - {{changeDate}}</div>
+    <div class="panel-heading">{{#changeType}}{{changeType}} - {{changeDate}}{{/changeType}}&nbsp;</div>
     <ul class="list-group">
       {{#history}}
         <li class="list-group-item {{class}}">
@@ -103,7 +103,7 @@
                 return value;
             }
 
-            return value.length > 36 ? value.substring(0,40) + "..." : value
+            return value.length > 40 ? value.substring(0,40) + "..." : value
         }
 
         function moveToActivePanel(activePanel) {
