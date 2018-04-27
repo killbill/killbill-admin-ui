@@ -193,4 +193,20 @@ jQuery(document).ready(function ($) {
         }
     });
 
-})
+});
+
+// global function used to show a error message that occurs on a Ajax call
+function ajaxAlert(message) {
+    var messageBox = $("#ajaxAlert");
+    messageBox.find("#ajaxErrorMessage").text(message);
+    messageBox.show();
+    messageBox.find("button").click(function(){
+        ajaxCloseAlert(messageBox);
+    });
+}
+
+function ajaxCloseAlert(messageBox) {
+    var messageBox = messageBox || $("#ajaxAlert");
+    messageBox.find("#ajaxErrorMessage").text('');
+    messageBox.hide();
+}
