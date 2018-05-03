@@ -1,5 +1,5 @@
 class Kaui::AuditLogsController < Kaui::EngineController
-  OBJECT_WITH_HISTORY = %w[ACCOUNT ACCOUNT_EMAIL CUSTOM_FIELD PAYMENT_ATTEMPT PAYMENT PAYMENT_METHOD TRANSACTION TAG]
+  OBJECT_WITH_HISTORY = %w[ACCOUNT ACCOUNT_EMAIL CUSTOM_FIELD PAYMENT_ATTEMPT PAYMENT PAYMENT_METHOD TRANSACTION TAG TAG_DEFINITION]
 
   def index
     cached_options_for_klient = options_for_klient
@@ -51,25 +51,26 @@ class Kaui::AuditLogsController < Kaui::EngineController
     begin
       if object_type == 'ACCOUNT'
         account = Kaui::Account::find_by_id_or_key(object_id, false, false, cached_options_for_klient)
-        audit_logs_with_history = account.audit_logs_with_history(nil, cached_options_for_klient)
+        audit_logs_with_history = account.audit_logs_with_history(cached_options_for_klient)
       elsif object_type == 'ACCOUNT_EMAIL'
         account = Kaui::Account::find_by_id_or_key(account_id, false, false, cached_options_for_klient)
         audit_logs_with_history = account.email_audit_logs_with_history(object_id, cached_options_for_klient)
       elsif object_type == 'CUSTOM_FIELD'
-        audit_logs_with_history = Kaui::CustomField.new({:custom_field_id => object_id}).audit_logs_with_history(account_id, cached_options_for_klient)
+        audit_logs_with_history = Kaui::CustomField.new({:custom_field_id => object_id}).audit_logs_with_history(cached_options_for_klient)
       elsif object_type == 'PAYMENT_ATTEMPT'
-        audit_logs_with_history = Kaui::Payment::attempt_audit_logs_with_history(account_id, object_id, cached_options_for_klient)
+        audit_logs_with_history = Kaui::Payment::attempt_audit_logs_with_history(object_id, cached_options_for_klient)
       elsif object_type == 'PAYMENT'
         payment = Kaui::Payment::find_by_id(object_id, false, false, cached_options_for_klient)
-        audit_logs_with_history = payment.audit_logs_with_history(account_id, cached_options_for_klient)
+        audit_logs_with_history = payment.audit_logs_with_history(cached_options_for_klient)
       elsif object_type == 'PAYMENT_METHOD'
         payment_method = Kaui::PaymentMethod::find_by_id(object_id, false, cached_options_for_klient)
         audit_logs_with_history = payment_method.audit_logs_with_history(object_id, cached_options_for_klient)
       elsif object_type == 'TRANSACTION'
-        transaction = Kaui::Transaction::new({:transaction_id => object_id})
-        audit_logs_with_history = transaction.audit_logs_with_history(account_id, cached_options_for_klient)
+        audit_logs_with_history = Kaui::Transaction::new({:transaction_id => object_id}).audit_logs_with_history(cached_options_for_klient)
       elsif object_type == 'TAG'
-        audit_logs_with_history = Kaui::Tag.new({:tag_id => object_id}).audit_logs_with_history(account_id, cached_options_for_klient)
+        audit_logs_with_history = Kaui::Tag.new({:tag_id => object_id}).audit_logs_with_history(cached_options_for_klient)
+      elsif object_type == 'TAG_DEFINITION'
+        audit_logs_with_history = Kaui::TagDefinition.new({:id => object_id}).audit_logs_with_history(cached_options_for_klient)
       else
         error = "Object [#{object_type}] history is not supported."
       end
