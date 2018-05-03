@@ -197,8 +197,10 @@ class Kaui::AccountsController < Kaui::EngineController
 
   # Fetched asynchronously, as it takes time. This also helps with enforcing permissions.
   def next_invoice_date
-    next_invoice = Kaui::Invoice.trigger_invoice_dry_run(params.require(:account_id), nil, true, options_for_klient)
-    render :json => next_invoice ? next_invoice.target_date.to_json : nil
+    json_response do
+      next_invoice = Kaui::Invoice.trigger_invoice_dry_run(params.require(:account_id), nil, true, options_for_klient)
+      next_invoice ? next_invoice.target_date.to_json : nil
+    end
   end
 
   def edit
