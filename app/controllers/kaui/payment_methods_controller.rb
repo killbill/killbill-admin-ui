@@ -82,16 +82,17 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
   end
 
   def validate_external_key
-    external_key = params.require(:external_key)
+    json_response do
+      external_key = params.require(:external_key)
 
-    begin
-      payment_methods = Kaui::PaymentMethod::find_by_external_key(external_key,false,false,'NONE', options_for_klient)
-    rescue KillBillClient::API::NotFound
-      payment_methods = nil
+      begin
+        payment_methods = Kaui::PaymentMethod::find_by_external_key(external_key,false,false,'NONE', options_for_klient)
+      rescue KillBillClient::API::NotFound
+        payment_methods = nil
+      end
+
+      { :is_found => !payment_methods.nil? }
     end
-
-    render json: {:is_found => !payment_methods.nil?}
-
   end
 
   private

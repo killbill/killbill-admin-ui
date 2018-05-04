@@ -239,15 +239,16 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def validate_external_key
-    external_key = params.require(:external_key)
+    json_response do
+      external_key = params.require(:external_key)
 
-    begin
-      account = Kaui::Account::find_by_external_key(external_key, false, false, options_for_klient)
-    rescue KillBillClient::API::NotFound
-      account = nil
+      begin
+        account = Kaui::Account::find_by_external_key(external_key, false, false, options_for_klient)
+      rescue KillBillClient::API::NotFound
+        account = nil
+      end
+      {:is_found => !account.nil?}
     end
-    render json: {:is_found => !account.nil?}
-
   end
 
   def link_to_parent
@@ -311,10 +312,8 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def events_to_consider
-    data = Kenui::EmailNotificationService.get_events_to_consider(options_for_klient)
-
-    respond_to do |format|
-      format.json { render json: { data: data} }
+    json_response do
+      { data: Kenui::EmailNotificationService.get_events_to_consider(options_for_klient) }
     end
   end
 
