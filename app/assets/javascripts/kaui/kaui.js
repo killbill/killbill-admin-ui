@@ -214,6 +214,12 @@ jQuery(document).ready(function ($) {
 
 // global function used to show a error message that occurs on a Ajax call
 function ajaxAlert(message) {
+    // do not show ajax alert if there is already an server alert
+    var serverAlertStatus = $(".server-alert").css("display");
+    if (serverAlertStatus != undefined && serverAlertStatus != "none") {
+        return;
+    }
+
     var messageBox = $("#ajaxAlert");
     messageBox.find("#ajaxErrorMessage").text(message);
     messageBox.show();
