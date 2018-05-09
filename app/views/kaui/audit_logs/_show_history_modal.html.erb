@@ -9,6 +9,7 @@
         <input type="hidden" id="objectId" />
         <input type="hidden" id="objectType" />
         <input type="hidden" id="changeDate" />
+        <input type="hidden" id="changeType" />
         <div class="alert alert-info" role="alert">Loading data from server</div>
         <div id="templatesPlaceHolder" style="display: flex;">
           <div id="templateFieldsPlaceHolder"></div>
@@ -41,6 +42,7 @@
         function renderHistory(auditLogsWithHistory) {
             var auditLogs = [];
             var changeDateSelected = $("#changeDate").val();
+            var changeTypeSelected = $("#changeType").val();
             var activePanel = "history0";
             var fieldNamePanel = {
                 selected: false,
@@ -51,7 +53,7 @@
             };
 
             for (var i = 0 ; i < auditLogsWithHistory.length; i++) {
-                var isActivePanel = auditLogsWithHistory[i].changeDate == changeDateSelected;
+                var isActivePanel = auditLogsWithHistory[i].changeDate == changeDateSelected && auditLogsWithHistory[i].changeType == changeTypeSelected;
                 var auditLog = {
                     selected: isActivePanel ? 'primary' : 'default',
                     changeType: auditLogsWithHistory[i].changeType,
@@ -159,10 +161,11 @@
             $("#objectId").val(e.relatedTarget.dataset['objectId']);
             $("#objectType").val(e.relatedTarget.dataset['objectType']);
             $("#changeDate").val(e.relatedTarget.dataset['changeDate']);
+            $("#changeType").val(e.relatedTarget.dataset['changeType']);
             $("#templatePlaceHolder").html('');
             $("#templateFieldsPlaceHolder").html('');
             $("#showHistoryModal").find(".alert").show();
-            $("#showHistoryModal").find(".modal-title").html((e.relatedTarget.dataset['objectType']).toLowerCase() + " History [" + e.relatedTarget.dataset['objectId'] + "]");
+            $("#showHistoryModal").find(".modal-title").html((e.relatedTarget.dataset['objectType']).toLowerCase().replace('_',' ') + " History [" + e.relatedTarget.dataset['objectId'] + "]");
             ajaxCloseAlert();
         });
 
