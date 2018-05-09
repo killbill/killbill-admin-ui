@@ -9,15 +9,18 @@
 
       <%= form_tag({:action => :upload_plugin_config}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
           <%= hidden_field_tag(:id, @tenant.id) %>
+          <%= hidden_field_tag(:plugin_name) %>
 
-          <div class="form-group">
-            <%= label_tag :plugin_name, 'Plugin name', :class => 'col-sm-2 control-label' %>
+          <div id="plugin" class="form-group">
+            <%= label_tag :entered_plugin_name, 'Plugin name', :class => 'col-sm-2 control-label' %>
             <div class="col-sm-4">
-              <%= text_field_tag :plugin_name, nil, :class => 'form-control', :plugin_config => @plugin_config, :tenant_plugin_config => @tenant_plugin_config %>
+              <%= text_field_tag :entered_plugin_name, nil, :class => 'form-control', :plugin_config => @plugin_config, :tenant_plugin_config => @tenant_plugin_config %>
+              <div class="text plugin-suggestion text-danger">
+              </div>
             </div>
           </div>
           <!-- Anchor DIV that gets thrown away when switching plugins -->
-          <div id="plugin_config_properties" , plugin_name="" , class="col-sm-10">
+          <div id="plugin_config_properties" plugin_name="" class="col-sm-10">
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
@@ -29,171 +32,235 @@
 <% end %>
 
 <%= javascript_tag do %>
+    $(document).ready(function() {
 
-function get_existing_tenant_plugin_properties(plugin_name) {
+        function get_existing_tenant_plugin_properties(entered_plugin_name) {
+            var tenant_plugin_properties = $('#entered_plugin_name').attr('tenant_plugin_config');
+            var res = {}
+            if (tenant_plugin_properties != undefined) {
+                $.each(tenant_plugin_properties.split(';'), function(idx, el) {
+                    var el_parts = el.split('::');
+                    var el_plugin_name = el_parts[0];
+                    var el_props = el_parts[1];
+                    if (el_plugin_name === entered_plugin_name) {
+                        if (el_props.split('=')[0] == 'raw_config') {
+                            res['raw_config'] = el_props.substr(11);
+                        } else {
+                            $.map(el_props.split('|'), function(el) {
+                                var parts = el.split('=');
+                                res[parts[0]] = parts[1];
+                            });
+                        }
+                        return false;
+                    }
+                });
+            }
+            return res;
+        }
 
-    var tenant_plugin_properties = $('#plugin_name').attr('tenant_plugin_config');
-    var res = {}
-    if (tenant_plugin_properties != undefined) {
-        $.each(tenant_plugin_properties.split(';'), function(idx, el) {
-            var el_parts = el.split('::');
-            var el_plugin_name = el_parts[0];
-            var el_props = el_parts[1];
-            if (el_plugin_name == plugin_name) {
-                if (el_props.split('=')[0] == 'raw_config') {
-                    res['raw_config'] = el_props.substr(11);
-                } else {
-                    $.map(el_props.split(','), function(el) {
-                        var parts = el.split('=');
-                        res[parts[0]] = parts[1];
-                    });
+        function get_plugin_index(validated_plugin_info) {
+            var plugin_index = validated_plugin_info.pluginName;
+            var plugin_info = get_selected_plugin_info(plugin_index);
+            // try removing killbill if there is any
+            if (isBlank(plugin_info.type) && plugin_index.indexOf('killbill-') != -1) {
+                plugin_index = (validated_plugin_info.pluginName).replace('killbill-','');
+                plugin_info = get_selected_plugin_info(plugin_index);
+            }
+
+            return isBlank(plugin_info.type) ? validated_plugin_info.pluginName : plugin_index;
+        }
+
+        function get_selected_plugin_info(plugin_index) {
+            var plugin_config_str = $('#entered_plugin_name').attr('plugin_config');
+            var res = {}
+            /* Deserialize plugin/properties (see AdminTenant model)*/
+            $.each(plugin_config_str.split(';'), function(idx, el) {
+                var el_parts = el.split(':');
+                var el_parts_key = el_parts[0].split('#');
+                var el_plugin_name = el_parts_key[0];
+                var el_plugin_type = el_parts_key[1];
+                var el_plugin_props = el_parts[1];
+                if (el_plugin_name == plugin_index) {
+                    res['type'] = el_plugin_type;
+                    res['props'] = el_plugin_props == "" ? [] : (el_plugin_type == "" ? ['raw_config'] : el_plugin_props.split(','));
+                    return false;
                 }
-                return false;
+            });
+
+            if (res['props'] == undefined) {
+                res['type'] = '';
+                res['props'] = ['raw_config'];
             }
-        });
-    }
-    return res;
-}
 
-function get_selected_plugin_info() {
-    var plugin_name = $('#plugin_name').val();
-    var plugin_config_str = $('#plugin_name').attr('plugin_config');
-
-    var res = {}
-    /* Deserialize plugin/properties (see AdminTenant model)*/
-    $.each(plugin_config_str.split(';'), function(idx, el) {
-        var el_parts = el.split(':');
-        var el_parts_key = el_parts[0].split('#');
-        var el_plugin_name = el_parts_key[0];
-        var el_plugin_type = el_parts_key[1];
-        var el_plugin_props = el_parts[1];
-        if (el_plugin_name == plugin_name) {
-            res['type'] = el_plugin_type;
-            res['props'] = el_plugin_props == "" ? [] : (el_plugin_type == "" ? ['raw_config'] : el_plugin_props.split(','));
-            return false;
+            return res;
         }
-    });
 
-    if (res['props'] == undefined) {
-        res['type'] = '';
-        res['props'] = ['raw_config'];
-    }
+        function init_plugin_config_source() {
+            var plugin_config_str = $('#entered_plugin_name').attr('plugin_config');
+            var res = []
+            $.map(plugin_config_str.split(";"), function(el) { res.push(el.split(':')[0].split('#')[0]) });
+            return res;
+        }
 
-    return res;
-}
+        function add_properties_for_plugin(entered_plugin_name, validated_plugin_info) {
+            var plugin_index = get_plugin_index(validated_plugin_info);
+            var plugin_info = get_selected_plugin_info(plugin_index);
 
-function init_plugin_config_source() {
-    var plugin_config_str = $('#plugin_name').attr('plugin_config');
-    var res = []
-    $.map(plugin_config_str.split(";"), function(el) { res.push(el.split(':')[0].split('#')[0]) });
-    return res;
-}
-
-function add_properties_for_plugin(plugin_name, plugin_info) {
-
-    if (plugin_name == "") {
-        $('#plugin_config_properties').empty();
-        return;
-    }
-
-    if ($('#plugin_config_properties').attr('plugin_name') == plugin_name) {
-        /* Already set...*/
-        return;
-    }
-
-    var type = plugin_info['type'];
-    var props = plugin_info['props']
-
-    /* Prune the tree to restart from scratch */
-    $('#plugin_config_properties').empty();
-
-    $('#plugin_config_properties').append('<input type="hidden" name="plugin_type" id="plugin_type" value="' + type + '" />');
-    $('#plugin_config_properties').append('<label class="col-sm-2 control-label" for="plugin_name">Plugin Properties</label>');
-    $('#plugin_config_properties').append('<div id="plugin_config_properties_anchor" class="col-sm-offset-2 col-sm-10">');
-
-    /* Retrieve existing plugin properties for this tenant */
-    var existing_props = get_existing_tenant_plugin_properties(plugin_name);
-
-    var merged_props_with_values = existing_props;
-    if (props != undefined) {
-        $.each(props, function(idx, p) {
-            if (merged_props_with_values[p] == undefined) {
-               merged_props_with_values[p] = '';
+            if (entered_plugin_name == "") {
+                $('#plugin_config_properties').empty();
+                return;
             }
-        });
-    }
 
-    $.each(merged_props_with_values, function(p, v) {
-        add_property_form_entry(format_label(p), p, v);
-    });
+            if ($('#plugin_config_properties').attr('plugin_name') == validated_plugin_info.pluginName) {
+                /* Already set...*/
+                return;
+            }
 
-    $('#plugin_config_properties').attr('plugin_name', plugin_name);
-}
+            /* Retrieve existing plugin properties for this tenant */
+            var existing_props = get_existing_tenant_plugin_properties(plugin_index);
 
-function format_label(input) {
-    /* Keep latest piece of a system property to keep it short */
-    var label_name = input.split('.').pop();
-    /* Replace underscore with comma */
-    label_name = label_name.replace(/_/g, ',');
-    /* Replace uppercase with comma + uppercase */
-    label_name = label_name.replace(/([A-Z]+)/g, ",$1");
-    /* Split name make sure each word starts with Uppercase */
-    var tmp1 = label_name.split(',');
-    var label_name_array = [];
-    $.map(tmp1, function(el) { label_name_array.push(el.charAt(0).toUpperCase() + el.slice(1)) });
-    label_name = label_name_array.join(' ');
-    return label_name;
-}
+            var type = plugin_info['type'];
+            var props = plugin_info['props']
 
-function add_property_form_entry(property_label, property, current_value) {
+            /* Prune the tree to restart from scratch */
+            $('#plugin_config_properties').empty();
 
-    var clone = $('#PluginConfig form div').first().clone();
-    clone.children("label").attr('for', property).text(property_label);
-    clone.children("div").first().attr("name", property).attr("id", property);
-    var input = clone.children("div").children("input").first();
-    input.removeAttr('autocomplete').removeAttr('plugin_config');
-    if (property == 'raw_config') {
-       var text_area = $('<textarea name="plugin_properties[raw_config]" id="raw_config" rows="10" class="form-control">');
-       input.replaceWith(text_area);
-       text_area.attr("name", "plugin_properties[" + property + "]")
-         .attr("id", property)
-         .attr('class', 'form-control')
-         .val(current_value);
+            $('#plugin_config_properties').append('<input type="hidden" name="plugin_type" id="plugin_type" value="' + type + '" />');
+            $('#plugin_config_properties').append('<label class="col-sm-2 control-label" for="plugin_name">Plugin Properties</label>');
+            $('#plugin_config_properties').append('<div id="plugin_config_properties_anchor" class="col-sm-offset-2 col-sm-10">');
 
-       input.replaceWith('<textarea name="plugin_properties[raw_config]" id="raw_config" rows="10" class="form-control">').text(current_value);
-    } else {
-        input.attr("name", "plugin_properties[" + property + "]")
-         .attr("id", property)
-         .attr('class', 'form-control')
-         .val(current_value);
-   }
+            var merged_props_with_values = existing_props;
+            if (props != undefined) {
+                $.each(props, function(idx, p) {
+                    if (merged_props_with_values[p] == undefined) {
+                       merged_props_with_values[p] = '';
+                    }
+                });
+            }
 
-    /* Attach clone object  */
-    $('#plugin_config_properties_anchor').append(clone);
+            $.each(merged_props_with_values, function(p, v) {
+                add_property_form_entry(format_label(p), p, v);
+            });
 
-}
-
-
-function init_plugin_name_handlers() {
-    /* Intercept ENTER and potentially display property form if plugin is know */
-    $('#plugin_name').keyup(function (e) {
-        if (e.keyCode === 13) {
-        add_properties_for_plugin($('#plugin_name').val(), get_selected_plugin_info());
+            $('#plugin_config_properties').attr('plugin_name', validated_plugin_info.pluginName);
         }
-    });
 
-    /* Intercept mouseleave and potentially display property form if plugin is know */
-    $('#plugin_name').on('mouseleave', function() {
-        add_properties_for_plugin($('#plugin_name').val(), get_selected_plugin_info());
-    });
+        function format_label(input) {
+            /* Keep latest piece of a system property to keep it short */
+            var label_name = input.split('.').pop();
+            /* Replace underscore with comma */
+            label_name = label_name.replace(/_/g, ',');
+            /* Replace uppercase with comma + uppercase */
+            label_name = label_name.replace(/([A-Z]+)/g, ",$1");
+            /* Split name make sure each word starts with Uppercase */
+            var tmp1 = label_name.split(',');
+            var label_name_array = [];
+            $.map(tmp1, function(el) { label_name_array.push(el.charAt(0).toUpperCase() + el.slice(1)) });
+            label_name = label_name_array.join(' ');
+            return label_name;
+        }
 
-    /* Attach auto-completion source */
-    $('#plugin_name').autocomplete({
-    source: init_plugin_config_source()
-    });
-}
+        function add_property_form_entry(property_label, property, current_value) {
 
-$(document).ready(function() {
-    init_plugin_name_handlers();
+            var clone = $('#PluginConfig form div').first().clone();
+            clone.children("label").attr('for', property).text(property_label);
+            clone.children("div").first().attr("name", property).attr("id", property);
+            clone.children("div").children("div").hide();
+            var input = clone.children("div").children("input").first();
+            input.removeAttr('autocomplete').removeAttr('plugin_config');
+            if (property == 'raw_config') {
+               var text_area = $('<textarea name="plugin_properties[raw_config]" id="raw_config" rows="10" class="form-control">');
+               input.replaceWith(text_area);
+               text_area.attr("name", "plugin_properties[" + property + "]")
+                 .attr("id", property)
+                 .attr('class', 'form-control')
+                 .val(current_value);
+
+               input.replaceWith('<textarea name="plugin_properties[raw_config]" id="raw_config" rows="10" class="form-control">').text(current_value);
+            } else {
+                input.attr("name", "plugin_properties[" + property + "]")
+                 .attr("id", property)
+                 .attr('class', 'form-control')
+                 .val(current_value);
+            }
+
+            /* Attach clone object  */
+            $('#plugin_config_properties_anchor').append(clone);
+
+        }
+
+
+        function init_plugin_name_handlers() {
+            /* Intercept ENTER and potentially display property form if plugin is know */
+            $('#entered_plugin_name').keyup(function (e) {
+                if (e.keyCode === 13) {
+                    validate_plugin_name();
+                }
+            });
+
+            /* Intercept mouseleave and potentially display property form if plugin is know */
+            $('#entered_plugin_name').on('mouseleave', function() {
+                validate_plugin_name();
+            });
+
+            /* Attach auto-completion source */
+            $( "#entered_plugin_name" ).autocomplete({
+                                source: init_plugin_config_source(),
+                                classes: {
+                                    "ui-autocomplete": "autocomplete-override"
+                                },
+                                select: function(event, ui){
+                                    validate_plugin_name(ui);
+                                }
+            });
+        }
+
+        init_plugin_name_handlers();
+
+        function validation_response(response) {
+            if (!isBlank(response.suggestion)) {
+                $(".plugin-suggestion").html(response.suggestion);
+
+                $("#suggested").click(function(e) {
+                    $("#entered_plugin_name").val(e.currentTarget.dataset['pluginName']);
+                    validate_plugin_name();
+                });
+
+            } else {
+                $(".plugin-suggestion").html('');
+            }
+
+            var validated_plugin_info = response.plugin;
+            if (isBlank(validated_plugin_info)) {
+                validated_plugin_info = { pluginName: $('#entered_plugin_name').val() };
+            }
+
+            $("#plugin_name").val(validated_plugin_info.pluginName);
+            add_properties_for_plugin($('#entered_plugin_name').val(), validated_plugin_info);
+        }
+
+        function validate_plugin_name(ui) {
+            var plugin_name;
+            if (ui == undefined) {
+                plugin_name = $("#entered_plugin_name").val();
+            } else {
+                plugin_name = ui.item.value;
+            }
+
+            if (isBlank(plugin_name)) {
+                return;
+            }
+
+            $.ajax({
+                url: '<%= validate_plugin_name_path() %>',
+                type: "GET",
+                dataType: "json",
+                data: {
+                    "plugin_name": plugin_name,
+                },
+                success: validation_response
+            });
+        }
+
 });
 <% end %>

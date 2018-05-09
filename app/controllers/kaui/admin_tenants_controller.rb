@@ -310,9 +310,9 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     plugin_properties = params[:plugin_properties]
     plugin_type = params[:plugin_type]
 
-    plugin_config = Kaui::AdminTenant.format_plugin_config(plugin_name, plugin_type, plugin_properties)
+    plugin_config = Kaui::AdminTenant.format_plugin_config(plugin_name.gsub('killbill-',''), plugin_type, plugin_properties)
 
-    key = plugin_type.present? ? "killbill-#{plugin_name}" : plugin_name
+    key = plugin_type.present? && !plugin_name.include?('killbill-') ? "killbill-#{plugin_name}" : plugin_name
     Kaui::AdminTenant.upload_tenant_plugin_config(key, plugin_config, options[:username], nil, comment, options)
 
     redirect_to admin_tenant_path(current_tenant.id), :notice => 'Config for plugin was successfully uploaded'
@@ -415,6 +415,55 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     end
   end
 
+  def validate_plugin_name
+    json_response do
+      message = 'Official plugin not found'
+      entered_plugin_name = params.require(:plugin_name)
+      nodes_info = KillBillClient::Model::NodesInfo.nodes_info(options_for_klient) || []
+      plugins_info = nodes_info.first.plugins_info || []
+      splitted_entered_plugin_name = split_camel_dash_underscore_space(entered_plugin_name)
+
+      weights = []
+      found_plugin = nil
+      plugins_info.each do |plugin|
+        next if plugin.version.nil?
+        if plugin.plugin_name == entered_plugin_name || plugin.plugin_key == entered_plugin_name
+          message = nil
+          weights = []
+          found_plugin = plugin
+          break
+        end
+
+        splitted_plugin_name = split_camel_dash_underscore_space(plugin.plugin_name)
+        weight = { :plugin_name => plugin.plugin_name, :plugin_key => plugin.plugin_key, :worth_weight => 0 }
+        splitted_entered_plugin_name.each do |entered|
+          if splitted_plugin_name.include?(entered)
+            weight[:worth_weight] = weight[:worth_weight] + 1
+          end
+
+          splitted_plugin_name.each do |splitted|
+            if entered.chars.all? { |ch| splitted.include?(ch) }
+              weight[:worth_weight] = weight[:worth_weight] + 0.5
+              break
+            end
+          end
+        end
+        weights << weight if weight[:worth_weight] > 0
+
+      end
+
+      if weights.size > 0
+        weights.sort! { |a,b| b[:worth_weight] <=> a[:worth_weight] } if weights.size > 1
+        plugin_anchor = view_context.link_to(weights[0][:plugin_name], '#', id: 'suggested',
+                                            data: {
+                                                plugin_name: weights[0][:plugin_name],
+                                                plugin_key: weights[0][:plugin_key],
+                                            })
+        message = "#{message}, did you mean '#{plugin_anchor}'?"
+      end
+      { suggestion: message, plugin: found_plugin }
+    end
+  end
 
   private
 
@@ -447,4 +496,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     end
   end
 
+  def split_camel_dash_underscore_space(data)
+    data.split(/(?=[A-Z])|(?=[_])|(?=[-])|(?=[ ])/).select {|member| !member.gsub('_','').rstrip.empty?}.map { |member| member.gsub('_','').downcase }
+  end
 end

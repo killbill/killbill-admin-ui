@@ -233,3 +233,27 @@ function ajaxCloseAlert(messageBox) {
     messageBox.find("#ajaxErrorMessage").text('');
     messageBox.hide();
 }
+
+// global helper function to validate if a variable is null or empty or undefined
+function isNullOrUndefined(value) {
+    if (value == undefined || value == null) {
+        return true;
+    }
+    return false;
+}
+
+function isBlank(value) {
+    if (isNullOrUndefined(value)) {
+        return true;
+    }
+
+    if (jQuery.type(value) === "string" && value.trim().length == 0) {
+        return true;
+    } else if (jQuery.type(value) === "array" && value.length == 0) {
+        return true;
+    } else if (jQuery.type(value) === "object" && jQuery.isEmptyObject(value)) {
+        return true;
+    } else {
+        return false;
+    }
+}

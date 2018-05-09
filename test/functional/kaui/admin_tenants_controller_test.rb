@@ -284,6 +284,12 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
 
   end
 
+  test 'should suggest a plugin name' do
+    get :validate_plugin_name, :plugin_name => 'paypa'
+    assert_response :success
+    assert_equal JSON[@response.body]['suggestion'], "Official plugin not found, did you mean '<a id=\"suggested\" data-plugin-name=\"killbill-paypal-express\" data-plugin-key=\"paypal\" href=\"#\">killbill-paypal-express</a>'?"
+  end
+
   private
 
   def create_kaui_tenant

@@ -88,11 +88,11 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
       end
 
       # Serialize the whole thing a as string of the form:
-      # plugin_key1::key1=value1,key2=value2,..;plugin_key2::...
+      # plugin_key1::key1=value1|key2=value2|..;plugin_key2::...
       tenant_config.map do |plugin_key, props|
         serialized_props = props.inject("") do |s, (k, v)|
           e="#{k.to_s}=#{v.to_s}";
-          s == "" ? s="#{e}" : s="#{s},#{e}";
+          s == "" ? s="#{e}" : s="#{s}|#{e}";
           s
         end
         "#{plugin_key}::#{serialized_props}"
