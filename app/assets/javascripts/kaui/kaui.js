@@ -193,10 +193,33 @@ jQuery(document).ready(function ($) {
         }
     });
 
+    // this will register a global ajax error for all jquery ajax requests (not including DataTable)
+    $( document ).ajaxError(function( event, jqxhr, settings, thrownError ) {
+        var message = 'Request Status: ' + jqxhr.status + ' Status Text: ' + jqxhr.statusText + ' ' + jqxhr.responseText;
+
+        if (jqxhr.status == 200) {
+            message = thrownError.message == undefined ? thrownError : thrownError.message;
+        }
+        ajaxAlert(message);
+    });
+
+    // this will prevent DataTable to show an alert message box when an error occurs
+    $.fn.dataTable.ext.errMode = 'none';
+    // this will try to register a DataTable error event to all tables, and if an error occurs will display the error on screen
+    $( document ).find(".table").on('error.dt', function ( e, settings, techNote, message ) {
+        ajaxAlert('An error has been reported by DataTables: ' + message);
+    })
+
 });
 
 // global function used to show a error message that occurs on a Ajax call
 function ajaxAlert(message) {
+    // do not show ajax alert if there is already an server alert
+    var serverAlertStatus = $(".server-alert").css("display");
+    if (serverAlertStatus != undefined && serverAlertStatus != "none") {
+        return;
+    }
+
     var messageBox = $("#ajaxAlert");
     messageBox.find("#ajaxErrorMessage").text(message);
     messageBox.show();

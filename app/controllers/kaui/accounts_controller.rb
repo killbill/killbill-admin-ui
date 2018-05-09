@@ -197,8 +197,10 @@ class Kaui::AccountsController < Kaui::EngineController
 
   # Fetched asynchronously, as it takes time. This also helps with enforcing permissions.
   def next_invoice_date
-    next_invoice = Kaui::Invoice.trigger_invoice_dry_run(params.require(:account_id), nil, true, options_for_klient)
-    render :json => next_invoice ? next_invoice.target_date.to_json : nil
+    json_response do
+      next_invoice = Kaui::Invoice.trigger_invoice_dry_run(params.require(:account_id), nil, true, options_for_klient)
+      next_invoice ? next_invoice.target_date.to_json : nil
+    end
   end
 
   def edit
@@ -237,15 +239,16 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def validate_external_key
-    external_key = params.require(:external_key)
+    json_response do
+      external_key = params.require(:external_key)
 
-    begin
-      account = Kaui::Account::find_by_external_key(external_key, false, false, options_for_klient)
-    rescue KillBillClient::API::NotFound
-      account = nil
+      begin
+        account = Kaui::Account::find_by_external_key(external_key, false, false, options_for_klient)
+      rescue KillBillClient::API::NotFound
+        account = nil
+      end
+      {:is_found => !account.nil?}
     end
-    render json: {:is_found => !account.nil?}
-
   end
 
   def link_to_parent
@@ -309,10 +312,8 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def events_to_consider
-    data = Kenui::EmailNotificationService.get_events_to_consider(options_for_klient)
-
-    respond_to do |format|
-      format.json { render json: { data: data} }
+    json_response do
+      { data: Kenui::EmailNotificationService.get_events_to_consider(options_for_klient) }
     end
   end
 
