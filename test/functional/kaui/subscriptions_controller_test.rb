@@ -53,7 +53,6 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
          :subscription => {
              :account_id => @account.account_id,
              :external_key => SecureRandom.uuid,
-             :product_category => 'BASE'
          },
          :plan_name => 'standard-monthly'
     assert_response 302

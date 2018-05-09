@@ -39,26 +39,28 @@ class Kaui::AuditLogsController < Kaui::EngineController
   end
 
   def history
-    object_id = params.require(:object_id)
-    object_type = params.require(:object_type)
-    cached_options_for_klient = options_for_klient
+    json_response do
+      object_id = params.require(:object_id)
+      object_type = params.require(:object_type)
+      cached_options_for_klient = options_for_klient
 
-    audit_logs_with_history = []
-    error = nil
+      audit_logs_with_history = []
+      error = nil
 
-    begin
-      if object_type == 'ACCOUNT'
-        account = Kaui::Account::find_by_id_or_key(object_id, false, false, cached_options_for_klient)
-        audit_logs_with_history = account.audit_logs_with_history(cached_options_for_klient)
-      else
-        error = "Object [#{object_type}] history is not supported."
+      begin
+        if object_type == 'ACCOUNT'
+          account = Kaui::Account::find_by_id_or_key(object_id, false, false, cached_options_for_klient)
+          audit_logs_with_history = account.audit_logs_with_history(cached_options_for_klient)
+        else
+          error = "Object [#{object_type}] history is not supported."
+        end
+
+      rescue Exception => e
+        error = e.message
       end
 
-    rescue Exception => e
-      error = e.message
+      { audits: audit_logs_with_history, error: error }
     end
-
-    render json: { audits: audit_logs_with_history, error: error}
   end
 
   private
