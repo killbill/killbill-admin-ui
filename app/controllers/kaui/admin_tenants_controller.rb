@@ -417,49 +417,21 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
   def validate_plugin_name
     json_response do
-      message = 'Official plugin not found'
+      message = nil
       entered_plugin_name = params.require(:plugin_name)
       nodes_info = KillBillClient::Model::NodesInfo.nodes_info(options_for_klient) || []
       plugins_info = nodes_info.first.plugins_info || []
-      splitted_entered_plugin_name = split_camel_dash_underscore_space(entered_plugin_name)
 
-      weights = []
-      found_plugin = nil
-      plugins_info.each do |plugin|
-        next if plugin.version.nil?
-        if plugin.plugin_name == entered_plugin_name || plugin.plugin_key == entered_plugin_name
-          message = nil
-          weights = []
-          found_plugin = plugin
-          break
-        end
-
-        splitted_plugin_name = split_camel_dash_underscore_space(plugin.plugin_name)
-        weight = { :plugin_name => plugin.plugin_name, :plugin_key => plugin.plugin_key, :worth_weight => 0 }
-        splitted_entered_plugin_name.each do |entered|
-          if splitted_plugin_name.include?(entered)
-            weight[:worth_weight] = weight[:worth_weight] + 1
-          end
-
-          splitted_plugin_name.each do |splitted|
-            if entered.chars.all? { |ch| splitted.include?(ch) }
-              weight[:worth_weight] = weight[:worth_weight] + 0.5
-              break
-            end
-          end
-        end
-        weights << weight if weight[:worth_weight] > 0
-
-      end
+      found_plugin, weights = fuzzy_match(entered_plugin_name, plugins_info)
 
       if weights.size > 0
-        weights.sort! { |a,b| b[:worth_weight] <=> a[:worth_weight] } if weights.size > 1
         plugin_anchor = view_context.link_to(weights[0][:plugin_name], '#', id: 'suggested',
                                             data: {
                                                 plugin_name: weights[0][:plugin_name],
                                                 plugin_key: weights[0][:plugin_key],
                                             })
-        message = "#{message}, did you mean '#{plugin_anchor}'?"
+        message = "Similar plugin already installed: '#{plugin_anchor}'" if weights[0][:worth_weight].to_f >= 1.0
+        message = "Did you mean '#{plugin_anchor}'?" if weights[0][:worth_weight].to_f < 1.0
       end
       { suggestion: message, plugin: found_plugin }
     end
@@ -497,6 +469,38 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def split_camel_dash_underscore_space(data)
-    data.split(/(?=[A-Z])|(?=[_])|(?=[-])|(?=[ ])/).select {|member| !member.gsub('_','').rstrip.empty?}.map { |member| member.gsub('_','').downcase }
+    data.split(/(?=[A-Z])|(?=[_])|(?=[-])|(?=[ ])/).select {|member| !member.gsub(/[_-]/,'').strip.empty?}.map { |member| member.gsub(/[_-]/,'').strip.downcase }
+  end
+
+  def fuzzy_match(entered_plugin_name, plugins_info)
+    splitted_entered_plugin_name = split_camel_dash_underscore_space(entered_plugin_name)
+    worth_of_non_words = 0.5 / splitted_entered_plugin_name.size.to_i
+
+    weights = []
+
+    plugins_info.each do |plugin|
+      next if plugin.version.nil?
+      return plugin, [] if plugin.plugin_name == entered_plugin_name || plugin.plugin_key == entered_plugin_name
+
+      splitted_plugin_name = split_camel_dash_underscore_space(plugin.plugin_name)
+      weight = { :plugin_name => plugin.plugin_name, :plugin_key => plugin.plugin_key, :worth_weight => 0.0 }
+      splitted_entered_plugin_name.each do |entered|
+        if splitted_plugin_name.include?(entered)
+          weight[:worth_weight] = weight[:worth_weight] + 1.0
+        end
+
+        splitted_plugin_name.each do |splitted|
+          if entered.chars.all? { |ch| splitted.include?(ch) }
+            weight[:worth_weight] = weight[:worth_weight] + worth_of_non_words
+            break
+          end
+        end
+      end
+      weights << weight if weight[:worth_weight] > 0
+
+    end
+
+    weights.sort! { |a,b| b[:worth_weight] <=> a[:worth_weight] } if weights.size > 1
+    return nil, weights
   end
 end
