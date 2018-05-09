@@ -119,4 +119,18 @@ module Kaui::EngineControllerUtil
       nil
     end
   end
+
+  def json_response
+    begin
+      response = yield
+      response_status = 200
+    rescue KillBillClient::API::ResponseError => e
+      response = e.response.message
+      response_status = e.code
+    rescue Exception => e
+      response = e.message
+      response_status = 500
+    end
+    render :json => response,  :status => response_status
+  end
 end

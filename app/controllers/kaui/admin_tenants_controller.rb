@@ -355,11 +355,12 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def allowed_users
-    tenant = safely_find_tenant_by_id(params[:tenant_id])
-    actual_allowed_users = tenant.kaui_allowed_users.map {|au| au.id}
+    json_response do
+      tenant = safely_find_tenant_by_id(params[:tenant_id])
+      actual_allowed_users = tenant.kaui_allowed_users.map {|au| au.id}
 
-    allowed_users = retrieve_allowed_users_for_current_user.select {|au| !actual_allowed_users.include? au.id }
-    render :json => allowed_users.to_json, :status => 200
+      retrieve_allowed_users_for_current_user.select {|au| !actual_allowed_users.include? au.id }
+    end
   end
 
   def display_catalog_xml
@@ -386,30 +387,32 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def catalog_by_effective_date
-    current_tenant = safely_find_tenant_by_id(params[:id])
-    effective_date = params.require(:effective_date)
+    json_response do
+      current_tenant = safely_find_tenant_by_id(params[:id])
+      effective_date = params.require(:effective_date)
 
-    options = tenant_options_for_client
-    options[:api_key] = current_tenant.api_key
-    options[:api_secret] = current_tenant.api_secret
+      options = tenant_options_for_client
+      options[:api_key] = current_tenant.api_key
+      options[:api_secret] = current_tenant.api_secret
 
-    catalog = []
-    result = Kaui::Catalog::get_catalog_json(false, effective_date, options) rescue catalog = []
+      catalog = []
+      result = Kaui::Catalog::get_catalog_json(false, effective_date, options) rescue catalog = []
 
-    # convert result to a full hash since dynamic attributes of a class are ignored when converting to json
-    result.each do |data|
-      plans = []
-      data[:plans].each do |plan|
-        plans << plan.instance_variables.each_with_object({}) {|var, hash_plan| hash_plan[var.to_s.delete("@")] = plan.instance_variable_get(var) }
+      # convert result to a full hash since dynamic attributes of a class are ignored when converting to json
+      result.each do |data|
+        plans = []
+        data[:plans].each do |plan|
+          plans << plan.instance_variables.each_with_object({}) {|var, hash_plan| hash_plan[var.to_s.delete("@")] = plan.instance_variable_get(var) }
+        end
+
+        catalog << {:version_date => data[:version_date],
+            :currencies => data[:currencies],
+            :plans => plans
+          }
       end
 
-      catalog << {:version_date => data[:version_date],
-          :currencies => data[:currencies],
-          :plans => plans
-        }
+      {:catalog => catalog }
     end
-
-    render json: {:catalog => catalog}
   end
 
 
