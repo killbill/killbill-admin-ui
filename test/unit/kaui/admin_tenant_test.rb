@@ -2,7 +2,15 @@ require 'test_helper'
 
 class Kaui::AdminTenantTest < ActiveSupport::TestCase
 
-  PLUGINS_INFO = '[{"bundleSymbolicName":"org.kill-bill.billing.plugin.java.analytics-plugin","pluginKey":"analytics","pluginName":"analytics-plugin","version":"5.0.3","state":"RUNNING","isSelectedForStart":true,"services":[{"serviceTypeName":"javax.servlet.Servlet","registrationName":"killbill-analytics"}]},{"bundleSymbolicName":"org.kill-bill.billing.plugin.java.killbill-email-notifications-plugin","pluginKey":"killbill-email-notifications","pluginName":"killbill-email-notifications","version":"0.3.1-SNAPSHOT","state":"RUNNING","isSelectedForStart":true,"services":[{"serviceTypeName":"javax.servlet.Servlet","registrationName":"killbill-email-notifications"}]},{"bundleSymbolicName":"org.kill-bill.billing.killbill-platform-osgi-bundles-jruby-2","pluginKey":"kpm","pluginName":"killbill-kpm","version":"1.2.3","state":"RUNNING","isSelectedForStart":true,"services":[{"serviceTypeName":"javax.servlet.Servlet","registrationName":"killbill-kpm"}]},{"bundleSymbolicName":null,"pluginKey":"paypal","pluginName":"killbill-paypal-express","version":"5.0.7","state":"STOPPED","isSelectedForStart":true,"services":[]}]'
+  PLUGIN_REPO = '[{"plugin_key":"analytics","plugin_name":"killbill-analytics","plugin_type":"java","installed":true},{"plugin_key":"kpm","plugin_name":"killbill-kpm","plugin_type":"ruby","installed":true},{"plugin_key":"paypal-express","plugin_name":"killbill-paypal-express","plugin_type":"ruby","installed":true},
+                  {"plugin_key":"killbill-email-notifications","plugin_name":"killbill-email-notifications","plugin_type":null,"installed":true},{"plugin_key":"accertify","plugin_name":"killbill-accertify","plugin_type":"java","installed":false},{"plugin_key":"adyen","plugin_name":"killbill-adyen","plugin_type":"java","installed":false},
+                  {"plugin_key":"avatax","plugin_name":"killbill-avatax","plugin_type":"java","installed":false},{"plugin_key":"braintree_blue","plugin_name":"killbill-braintree_blue","plugin_type":"ruby","installed":false},{"plugin_key":"currency","plugin_name":"killbill-currency","plugin_type":"ruby","installed":false},
+                  {"plugin_key":"cybersource","plugin_name":"killbill-cybersource","plugin_type":"ruby","installed":false},{"plugin_key":"dwolla","plugin_name":"killbill-dwolla","plugin_type":"java","installed":false},
+                  {"plugin_key":"email-notifications","plugin_name":"killbill-email-notifications","plugin_type":"java","installed":false},{"plugin_key":"firstdata-e4","plugin_name":"killbill-firstdata-e4","plugin_type":"ruby","installed":false},{"plugin_key":"forte","plugin_name":"killbill-forte","plugin_type":"java","installed":false},
+                  {"plugin_key":"litle","plugin_name":"killbill-litle","plugin_type":"ruby","installed":false},{"plugin_key":"logging","plugin_name":"killbill-logging","plugin_type":"ruby","installed":false},{"plugin_key":"orbital","plugin_name":"killbill-orbital","plugin_type":"ruby","installed":false},
+                  {"plugin_key":"bridge","plugin_name":"killbill-bridge","plugin_type":"java","installed":false},{"plugin_key":"payeezy","plugin_name":"killbill-payeezy","plugin_type":"java","installed":false},{"plugin_key":"payment-retries","plugin_name":"killbill-payment-retries","plugin_type":"java","installed":false},
+                  {"plugin_key":"payu-latam","plugin_name":"killbill-payu-latam","plugin_type":"ruby","installed":false},{"plugin_key":"payment-test","plugin_name":"killbill-payment-test","plugin_type":"ruby","installed":false},
+                  {"plugin_key":"securenet","plugin_name":"killbill-securenet","plugin_type":"ruby","installed":false},{"plugin_key":"stripe","plugin_name":"killbill-stripe","plugin_type":"ruby","installed":false},{"plugin_key":"zendesk","plugin_name":"killbill-zendesk","plugin_type":"ruby","installed":false}]'
 
   test 'can split camel dash underscore space strings' do
     adminTenantController = Kaui::AdminTenantsController.new
@@ -29,11 +37,11 @@ class Kaui::AdminTenantTest < ActiveSupport::TestCase
 
   end
 
-  test 'can do a fuzzy match of a plugin to suggest an already installed plugin' do
-    plugins_info = plugins_info()
+  test 'can do a fuzzy match of a plugin to suggest a plugin' do
+    plugins_info = plugins_repo
     adminTenantController = Kaui::AdminTenantsController.new
 
-    %w(killbill-paypal express paypal-express pypl).each do |plugin_name|
+    %w(killbill-paypal express paypal pay).each do |plugin_name|
       found_plugin, weights = adminTenantController.send(:fuzzy_match, plugin_name, plugins_info)
       assert_nil(found_plugin)
       assert_equal weights[0][:plugin_name], 'killbill-paypal-express'
@@ -44,14 +52,39 @@ class Kaui::AdminTenantTest < ActiveSupport::TestCase
     assert_nil(found_plugin)
     assert_equal weights[0][:plugin_name], 'killbill-email-notifications'
 
+    %w(first firstdata firstdata_e4).each do |plugin_name|
+      found_plugin, weights = adminTenantController.send(:fuzzy_match, plugin_name, plugins_info)
+      assert_nil(found_plugin)
+      assert_equal weights[0][:plugin_name], 'killbill-firstdata-e4'
+    end
+
+    %w(braintree brain).each do |plugin_name|
+      found_plugin, weights = adminTenantController.send(:fuzzy_match, plugin_name, plugins_info)
+      assert_nil(found_plugin)
+      assert_equal weights[0][:plugin_name], 'killbill-braintree_blue'
+    end
+
+    # if found weights should be empty
+    plugin_name = 'avatax'
+    found_plugin, weights = adminTenantController.send(:fuzzy_match, plugin_name, plugins_info)
+    assert_equal weights.size, 0
+    assert_equal found_plugin[:plugin_name], 'killbill-avatax'
+
   end
 
   private
 
-  def plugins_info
+  def plugins_repo
     plugins_info = []
-    hash_plugin_info = JSON.parse(PLUGINS_INFO)
-    hash_plugin_info.each { |plugin| plugins_info << KillBillClient::Model::PluginInfoAttributes.new(plugin)}
+    hash_plugin_info = JSON.parse(PLUGIN_REPO)
+    hash_plugin_info.each do |plugin|
+      plugins_info << {
+          plugin_key: plugin['plugin_key'],
+          plugin_name: plugin['plugin_name'],
+          plugin_type: nil,
+          installed: true
+      }
+    end
     plugins_info
   end
 

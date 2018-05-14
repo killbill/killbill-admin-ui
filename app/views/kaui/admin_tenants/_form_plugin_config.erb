@@ -10,18 +10,33 @@
       <%= form_tag({:action => :upload_plugin_config}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
           <%= hidden_field_tag(:id, @tenant.id) %>
           <%= hidden_field_tag(:plugin_name) %>
+          <%= hidden_field_tag(:plugin_key) %>
+          <%= hidden_field_tag(:plugin_type) %>
+
+          <input type="hidden" id="plugin_repository" value="<%= plugin_repository.to_json %>" >
 
           <div id="plugin" class="form-group">
             <%= label_tag :entered_plugin_name, 'Plugin name', :class => 'col-sm-2 control-label' %>
             <div class="col-sm-4">
+              <select class="form-control" id="select_plugin_name"></select>
               <%= text_field_tag :entered_plugin_name, nil, :class => 'form-control', :plugin_config => @plugin_config, :tenant_plugin_config => @tenant_plugin_config %>
-              <div class="text plugin-suggestion text-danger">
-              </div>
+              <div class="text plugin-suggestion text-danger"></div>
             </div>
           </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label toggle-label text-muted">Toggle plugin name input</label>
+            <label class="col-sm-2 toggle-container control-label">
+              <label class="switch">
+                <input id="toggle_input" type="checkbox">
+                <span class="slider round"></span>
+              </label>
+            </label>
+          </div>
+
           <!-- Anchor DIV that gets thrown away when switching plugins -->
           <div id="plugin_config_properties" plugin_name="" class="col-sm-10">
           </div>
+
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
               <%= submit_tag 'Upload', :class => 'btn btn-default' %>
@@ -31,8 +46,81 @@
     </div>
 <% end %>
 
+<script id="plugin_config_properties_template" type="text/template">
+  {{#plugin_props_with_values}}
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="{{property}}">{{property_label}}</label>
+    <div class="col-sm-4">
+      {{#is_raw_config}}
+        <textarea name="plugin_properties[raw_config]" id="raw_config" rows="10" class="form-control">{{value}}</textarea>
+      {{/is_raw_config}}
+      {{^is_raw_config}}
+        <input type="text" name="plugin_properties[{{property}}]" id="{{property}}" class="form-control" value="{{value}}" />
+      {{/is_raw_config}}
+    </div>
+  </div>
+  {{/plugin_props_with_values}}
+</script>
+
+<script id="plugin_name_options_template" type="text/template">
+  <option></option>
+  {{#plugin_repository}}
+    {{#start_installed}}<optgroup label="Installed">{{/start_installed}}
+    {{#end_installed}}</optgroup>>{{/end_installed}}
+    <option value="{{plugin_name}}" data-plugin-type="{{plugin_type}}" >
+      {{plugin_key}}
+    </option>
+  {{/plugin_repository}}
+</script>
+
 <%= javascript_tag do %>
     $(document).ready(function() {
+
+        $('#entered_plugin_name').toggle();
+        $('#toggle_input').on('change', function() {
+            $('#select_plugin_name').toggle();
+            $('#entered_plugin_name').toggle();
+            $('.toggle-label').toggleClass('text-muted');
+            $("#plugin_name").val('');
+            $("#plugin_key").val('');
+            $("#plugin_type").val('');
+            $('#entered_plugin_name').val('');
+            $('#select_plugin_name').val('');
+            $('#plugin_config_properties').attr('plugin_name', '');
+            $('#plugin_config_properties').empty();
+
+        });
+
+        $('#select_plugin_name').on('click', function(e) {
+            if (e.target.localName == 'option') {
+                var plugin_name = e.target.value;
+                $("#plugin_name").val(plugin_name);
+                $("#plugin_key").val(e.target.text);
+                $("#plugin_type").val(e.target.dataset['pluginType']);
+                $('#plugin_config_properties').attr('plugin_name', '');
+
+                add_properties_for_plugin(get_plugin_index(plugin_name), plugin_name);
+            }
+        });
+
+        populate_plugin_name_options();
+        function populate_plugin_name_options(){
+            var plugin_repository = JSON.parse($("#plugin_repository").val());
+            for(var idx = 0, size = plugin_repository.length; idx < size; idx++) {
+                if (idx == 0 && plugin_repository[idx].installed) {
+                    plugin_repository[idx]['start_installed'] = true;
+                }
+
+                if (idx > 0 && !plugin_repository[idx].installed && plugin_repository[idx - 1].installed) {
+                    plugin_repository[idx - 1]['end_installed'] = true;
+                    break;
+                }
+            }
+
+            var template = $("#plugin_name_options_template").html();
+            var options_html = Mustache.render( template , { plugin_repository: plugin_repository});
+            $("#select_plugin_name").html(options_html);
+        }
 
         function get_existing_tenant_plugin_properties(entered_plugin_name) {
             var tenant_plugin_properties = $('#entered_plugin_name').attr('tenant_plugin_config');
@@ -56,18 +144,6 @@
                 });
             }
             return res;
-        }
-
-        function get_plugin_index(validated_plugin_info) {
-            var plugin_index = validated_plugin_info.pluginName;
-            var plugin_info = get_selected_plugin_info(plugin_index);
-            // try removing killbill if there is any
-            if (isBlank(plugin_info.type) && plugin_index.indexOf('killbill-') != -1) {
-                plugin_index = (validated_plugin_info.pluginName).replace('killbill-','');
-                plugin_info = get_selected_plugin_info(plugin_index);
-            }
-
-            return isBlank(plugin_info.type) ? validated_plugin_info.pluginName : plugin_index;
         }
 
         function get_selected_plugin_info(plugin_index) {
@@ -95,23 +171,15 @@
             return res;
         }
 
-        function init_plugin_config_source() {
-            var plugin_config_str = $('#entered_plugin_name').attr('plugin_config');
-            var res = []
-            $.map(plugin_config_str.split(";"), function(el) { res.push(el.split(':')[0].split('#')[0]) });
-            return res;
-        }
-
-        function add_properties_for_plugin(entered_plugin_name, validated_plugin_info) {
-            var plugin_index = get_plugin_index(validated_plugin_info);
+        function add_properties_for_plugin(plugin_index, plugin_name) {
             var plugin_info = get_selected_plugin_info(plugin_index);
 
-            if (entered_plugin_name == "") {
+            if (plugin_name == "") {
                 $('#plugin_config_properties').empty();
                 return;
             }
 
-            if ($('#plugin_config_properties').attr('plugin_name') == validated_plugin_info.pluginName) {
+            if ($('#plugin_config_properties').attr('plugin_name') == plugin_name) {
                 /* Already set...*/
                 return;
             }
@@ -122,10 +190,9 @@
             var type = plugin_info['type'];
             var props = plugin_info['props']
 
+            $('#plugin_type').val(type);
             /* Prune the tree to restart from scratch */
             $('#plugin_config_properties').empty();
-
-            $('#plugin_config_properties').append('<input type="hidden" name="plugin_type" id="plugin_type" value="' + type + '" />');
             $('#plugin_config_properties').append('<label class="col-sm-2 control-label" for="plugin_name">Plugin Properties</label>');
             $('#plugin_config_properties').append('<div id="plugin_config_properties_anchor" class="col-sm-offset-2 col-sm-10">');
 
@@ -138,11 +205,9 @@
                 });
             }
 
-            $.each(merged_props_with_values, function(p, v) {
-                add_property_form_entry(format_label(p), p, v);
-            });
+            add_property_form_entry(merged_props_with_values);
 
-            $('#plugin_config_properties').attr('plugin_name', validated_plugin_info.pluginName);
+            $('#plugin_config_properties').attr('plugin_name', plugin_name);
         }
 
         function format_label(input) {
@@ -160,105 +225,84 @@
             return label_name;
         }
 
-        function add_property_form_entry(property_label, property, current_value) {
+        function add_property_form_entry(merged_props_with_values) {
+            var plugin_props_with_values = [];
 
-            var clone = $('#PluginConfig form div').first().clone();
-            clone.children("label").attr('for', property).text(property_label);
-            clone.children("div").first().attr("name", property).attr("id", property);
-            clone.children("div").children("div").hide();
-            var input = clone.children("div").children("input").first();
-            input.removeAttr('autocomplete').removeAttr('plugin_config');
-            if (property == 'raw_config') {
-               var text_area = $('<textarea name="plugin_properties[raw_config]" id="raw_config" rows="10" class="form-control">');
-               input.replaceWith(text_area);
-               text_area.attr("name", "plugin_properties[" + property + "]")
-                 .attr("id", property)
-                 .attr('class', 'form-control')
-                 .val(current_value);
+            $.each(merged_props_with_values, function(p, v) {
+                plugin_props_with_values.push({ property_label: format_label(p), property: p, value: v, is_raw_config: p == 'raw_config'});
+            });
 
-               input.replaceWith('<textarea name="plugin_properties[raw_config]" id="raw_config" rows="10" class="form-control">').text(current_value);
-            } else {
-                input.attr("name", "plugin_properties[" + property + "]")
-                 .attr("id", property)
-                 .attr('class', 'form-control')
-                 .val(current_value);
-            }
-
-            /* Attach clone object  */
-            $('#plugin_config_properties_anchor').append(clone);
-
+            var template = $("#plugin_config_properties_template").html();
+            var plugin_props_with_values_html = Mustache.render( template , { plugin_props_with_values: plugin_props_with_values});
+            $("#plugin_config_properties_anchor").html(plugin_props_with_values_html);
         }
 
-
+        // Free text related functions and handlers
+        init_plugin_name_handlers();
         function init_plugin_name_handlers() {
             /* Intercept ENTER and potentially display property form if plugin is know */
             $('#entered_plugin_name').keyup(function (e) {
                 if (e.keyCode === 13) {
-                    validate_plugin_name();
+                    suggest_plugin_name();
                 }
             });
 
             /* Intercept mouseleave and potentially display property form if plugin is know */
             $('#entered_plugin_name').on('mouseleave', function() {
-                validate_plugin_name();
-            });
-
-            /* Attach auto-completion source */
-            $( "#entered_plugin_name" ).autocomplete({
-                                source: init_plugin_config_source(),
-                                classes: {
-                                    "ui-autocomplete": "autocomplete-override"
-                                },
-                                select: function(event, ui){
-                                    validate_plugin_name(ui);
-                                }
+                suggest_plugin_name();
             });
         }
 
-        init_plugin_name_handlers();
+        function get_plugin_index(plugin_name) {
+            var plugin_index = plugin_name;
+            var plugin_info = get_selected_plugin_info(plugin_index);
+            // try removing killbill if there is any
+            if (isBlank(plugin_info.type) && plugin_index.indexOf('killbill-') != -1) {
+                plugin_index = (plugin_name).replace('killbill-','');
+                plugin_info = get_selected_plugin_info(plugin_index);
+            }
 
-        function validation_response(response) {
+            return isBlank(plugin_info.type) ? validated_plugin_info.pluginName : plugin_index;
+        }
+
+        function suggested_response(response) {
             if (!isBlank(response.suggestion)) {
                 $(".plugin-suggestion").html(response.suggestion);
 
                 $("#suggested").click(function(e) {
                     $("#entered_plugin_name").val(e.currentTarget.dataset['pluginName']);
-                    validate_plugin_name();
+                    $("#plugin_key").val(e.currentTarget.dataset['pluginKey']);
+                    $("#plugin_type").val(e.currentTarget.dataset['pluginType']);
+
+                    suggest_plugin_name();
                 });
 
             } else {
                 $(".plugin-suggestion").html('');
             }
 
-            var validated_plugin_info = response.plugin;
-            if (isBlank(validated_plugin_info)) {
-                validated_plugin_info = { pluginName: $('#entered_plugin_name').val() };
-            }
+            var plugin_name = $('#entered_plugin_name').val();
+            var plugin_index = get_plugin_index(plugin_name);
+            $("#plugin_name").val(plugin_name);
 
-            $("#plugin_name").val(validated_plugin_info.pluginName);
-            add_properties_for_plugin($('#entered_plugin_name').val(), validated_plugin_info);
+            add_properties_for_plugin(plugin_index, plugin_name);
         }
 
-        function validate_plugin_name(ui) {
-            var plugin_name;
-            if (ui == undefined) {
-                plugin_name = $("#entered_plugin_name").val();
-            } else {
-                plugin_name = ui.item.value;
-            }
+        function suggest_plugin_name() {
+            var plugin_name = $("#entered_plugin_name").val();
 
             if (isBlank(plugin_name)) {
                 return;
             }
 
             $.ajax({
-                url: '<%= validate_plugin_name_path() %>',
+                url: '<%= suggest_plugin_name_path() %>',
                 type: "GET",
                 dataType: "json",
                 data: {
                     "plugin_name": plugin_name,
                 },
-                success: validation_response
+                success: suggested_response
             });
         }
 
