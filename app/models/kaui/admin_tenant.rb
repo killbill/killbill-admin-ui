@@ -63,6 +63,8 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
 
         # Extract killbill key for oss plugins based on convention 'killbill-KEY'
         plugin_key = killbill_key.gsub(/killbill-/, '') if killbill_key.start_with?('killbill-')
+        # hack:: rewrite key, to allow the ui to find the right configuration inputs
+        plugin_key = rewrite_plugin_key(plugin_key)
         # If such key exists, lookup in plugin directory
         plugin_repo_entry = plugin_directory[plugin_key.to_sym] unless plugin_key.nil?
         # Extract plugin_type based on plugin_directory entry if exists
@@ -120,6 +122,18 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
         res
       else
         props['raw_config']
+      end
+    end
+
+    # hack when the plugin name after killbill is not the same as the plugin key, this mainly affects ruby plugin configuration,
+    # as it use the key to retrieve the configuration.
+    def rewrite_plugin_key(plugin_key)
+      if plugin_key.start_with?('paypal')
+        'paypal_express'
+      elsif plugin_key.start_with?('firstdata')
+        'firstdata_e4'
+      else
+        "#{plugin_key}"
       end
     end
   end

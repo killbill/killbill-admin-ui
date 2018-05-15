@@ -94,12 +94,13 @@
         $('#select_plugin_name').on('click', function(e) {
             if (e.target.localName == 'option') {
                 var plugin_name = e.target.value;
+                var plugin_key = e.target.text;
                 $("#plugin_name").val(plugin_name);
-                $("#plugin_key").val(e.target.text);
+                $("#plugin_key").val(plugin_key);
                 $("#plugin_type").val(e.target.dataset['pluginType']);
                 $('#plugin_config_properties').attr('plugin_name', '');
 
-                add_properties_for_plugin(get_plugin_index(plugin_name), plugin_name);
+                add_properties_for_plugin(plugin_key, plugin_name);
             }
         });
 
@@ -171,8 +172,8 @@
             return res;
         }
 
-        function add_properties_for_plugin(plugin_index, plugin_name) {
-            var plugin_info = get_selected_plugin_info(plugin_index);
+        function add_properties_for_plugin(plugin_key, plugin_name) {
+            var plugin_info = get_selected_plugin_info(plugin_key);
 
             if (plugin_name == "") {
                 $('#plugin_config_properties').empty();
@@ -185,7 +186,7 @@
             }
 
             /* Retrieve existing plugin properties for this tenant */
-            var existing_props = get_existing_tenant_plugin_properties(plugin_index);
+            var existing_props = get_existing_tenant_plugin_properties(plugin_key);
 
             var type = plugin_info['type'];
             var props = plugin_info['props']
@@ -253,18 +254,6 @@
             });
         }
 
-        function get_plugin_index(plugin_name) {
-            var plugin_index = plugin_name;
-            var plugin_info = get_selected_plugin_info(plugin_index);
-            // try removing killbill if there is any
-            if (isBlank(plugin_info.type) && plugin_index.indexOf('killbill-') != -1) {
-                plugin_index = (plugin_name).replace('killbill-','');
-                plugin_info = get_selected_plugin_info(plugin_index);
-            }
-
-            return isBlank(plugin_info.type) ? validated_plugin_info.pluginName : plugin_index;
-        }
-
         function suggested_response(response) {
             if (!isBlank(response.suggestion)) {
                 $(".plugin-suggestion").html(response.suggestion);
@@ -282,10 +271,10 @@
             }
 
             var plugin_name = $('#entered_plugin_name').val();
-            var plugin_index = get_plugin_index(plugin_name);
+            var plugin_key = $("#plugin_key").val();
             $("#plugin_name").val(plugin_name);
 
-            add_properties_for_plugin(plugin_index, plugin_name);
+            add_properties_for_plugin(isBlank(plugin_key) ? plugin_name : plugin_key, plugin_name);
         }
 
         function suggest_plugin_name() {

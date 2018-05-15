@@ -26,8 +26,6 @@ module Kaui
       end
 
       plugins.sort! { |a,b| a[:plugin_key] <=> b[:plugin_key] && b[:installed].to_s <=> a[:installed].to_s }
-      puts '.'*50
-      puts plugins.to_json
       plugins
     end
 
@@ -42,10 +40,11 @@ module Kaui
       end
 
       def plugin_key(key, info)
-        if info[:artifact_id].nil?
-          "#{key}"
+        # hack:: replace paypal key with paypal_express, to set configuration and allow the ui to find the right configuration inputs
+        if key.eql?('paypal')
+          'paypal_express'
         else
-          "#{info[:artifact_id].gsub('killbill-','').gsub('-plugin','')}"
+          "#{key}"
         end
       end
 
