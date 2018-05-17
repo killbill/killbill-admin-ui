@@ -22,15 +22,13 @@
               <%= text_field_tag :entered_plugin_name, nil, :class => 'form-control', :plugin_config => @plugin_config, :tenant_plugin_config => @tenant_plugin_config %>
               <div class="text plugin-suggestion text-danger"></div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-2 control-label toggle-label text-muted">Toggle plugin name input</label>
-            <label class="col-sm-2 toggle-container control-label">
+            <label class="col-sm-1 toggle-container control-label">
               <label class="switch">
                 <input id="toggle_input" type="checkbox">
                 <span class="slider round"></span>
               </label>
             </label>
+            <label class="col-sm-3 control-label toggle-label text-muted">or toggle plugin name input</label>
           </div>
 
           <!-- Anchor DIV that gets thrown away when switching plugins -->
@@ -113,7 +111,7 @@
                 }
 
                 if (idx > 0 && !plugin_repository[idx].installed && plugin_repository[idx - 1].installed) {
-                    plugin_repository[idx - 1]['end_installed'] = true;
+                    plugin_repository[idx]['end_installed'] = true;
                     break;
                 }
             }
@@ -173,10 +171,12 @@
         }
 
         function add_properties_for_plugin(plugin_key, plugin_name) {
+            console.log(plugin_key, plugin_name);
             var plugin_info = get_selected_plugin_info(plugin_key);
 
-            if (plugin_name == "") {
+            if (isBlank(plugin_name)) {
                 $('#plugin_config_properties').empty();
+                $('#plugin_config_properties').attr('plugin_name', '');
                 return;
             }
 
@@ -243,6 +243,7 @@
         function init_plugin_name_handlers() {
             /* Intercept ENTER and potentially display property form if plugin is know */
             $('#entered_plugin_name').keyup(function (e) {
+                e.preventDefault();
                 if (e.keyCode === 13) {
                     suggest_plugin_name();
                 }
@@ -259,11 +260,15 @@
                 $(".plugin-suggestion").html(response.suggestion);
 
                 $("#suggested").click(function(e) {
-                    $("#entered_plugin_name").val(e.currentTarget.dataset['pluginName']);
-                    $("#plugin_key").val(e.currentTarget.dataset['pluginKey']);
+                    var plugin_name = e.currentTarget.dataset['pluginName'];
+                    var plugin_key = e.currentTarget.dataset['pluginKey'];
+
+                    $("#entered_plugin_name").val(plugin_name);
+                    $("#plugin_key").val(plugin_key);
                     $("#plugin_type").val(e.currentTarget.dataset['pluginType']);
 
-                    suggest_plugin_name();
+                    $(".plugin-suggestion").html('');
+                    add_properties_for_plugin(isBlank(plugin_key) ? plugin_name : plugin_key, plugin_name);
                 });
 
             } else {
@@ -279,6 +284,7 @@
 
         function suggest_plugin_name() {
             var plugin_name = $("#entered_plugin_name").val();
+            $("#plugin_key").val(plugin_name);
 
             if (isBlank(plugin_name)) {
                 return;
