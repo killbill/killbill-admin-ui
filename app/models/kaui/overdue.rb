@@ -14,12 +14,12 @@ class Kaui::Overdue < KillBillClient::Model::Overdue
         state.auto_reevaluation_interval_days = nil
         state.external_message = state_model["external_message"]
         state.is_clear_state = state_model["is_clear_state"].nil? ? false : state_model["is_clear_state"]
-        state.block_changes = state_model["block_changes"]
+        state.is_block_changes = state_model["is_block_changes"]
         if state_model["subscription_cancellation_policy"] == :NONE.to_s
-          state.disable_entitlement = false
+          state.is_disable_entitlement = false
           state.subscription_cancellation_policy = nil
         else
-          state.disable_entitlement = true
+          state.is_disable_entitlement = true
           state.subscription_cancellation_policy = state_model["subscription_cancellation_policy"].blank? ? :NONE : state_model["subscription_cancellation_policy"].to_s.gsub!(/POLICY_/, '')
         end
 
@@ -45,7 +45,7 @@ class Kaui::Overdue < KillBillClient::Model::Overdue
     end
 
     def get_overdue_json(options)
-      result = KillBillClient::Model::Overdue.get_tenant_overdue_config('json', options)
+      result = KillBillClient::Model::Overdue.get_tenant_overdue_config_json(options)
       class << result
         attr_accessor :has_states
       end
@@ -55,7 +55,7 @@ class Kaui::Overdue < KillBillClient::Model::Overdue
         class << state
           attr_accessor :subscription_cancellation
         end
-        if state.disable_entitlement
+        if state.is_disable_entitlement
           state.subscription_cancellation = state.subscription_cancellation_policy ? "POLICY_#{state.subscription_cancellation_policy}".to_sym : :NONE
         else
           state.subscription_cancellation = :NONE

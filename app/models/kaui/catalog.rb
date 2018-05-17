@@ -6,7 +6,7 @@ class Kaui::Catalog < KillBillClient::Model::Catalog
 
     def get_catalog_json(latest, requested_date, options)
 
-      catalogs = KillBillClient::Model::Catalog.get_tenant_catalog('json', requested_date, options)
+      catalogs = KillBillClient::Model::Catalog.get_tenant_catalog_json(requested_date, options)
       return catalogs.length > 0 ? catalogs[catalogs.length - 1] : nil if latest
 
       # Order by latest
@@ -38,7 +38,7 @@ class Kaui::Catalog < KillBillClient::Model::Catalog
 
     def get_catalog_xml(requested_date, options)
 
-      catalog_xml = KillBillClient::Model::Catalog.get_tenant_catalog('xml', requested_date, options)
+      catalog_xml = KillBillClient::Model::Catalog.get_tenant_catalog_xml(requested_date, options)
 
       parsed_catalog = parse_catalog_xml(catalog_xml)
 
