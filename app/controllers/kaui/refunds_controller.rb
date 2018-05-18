@@ -1,7 +1,7 @@
 class Kaui::RefundsController < Kaui::EngineController
 
   def new
-    fetch_invoice = promise { Kaui::Invoice.find_by_id_or_number(params.require(:invoice_id), true, 'NONE', options_for_klient) }
+    fetch_invoice = promise { Kaui::Invoice.find_by_id(params.require(:invoice_id), true, 'NONE', options_for_klient) }
     fetch_payment = promise { Kaui::InvoicePayment::find_by_id(params.require(:payment_id), false, false, options_for_klient) }
     fetch_bundles = promise { @account.bundles(options_for_klient) }
 
@@ -13,7 +13,7 @@ class Kaui::RefundsController < Kaui::EngineController
   end
 
   def create
-    invoice = Kaui::Invoice.find_by_id_or_number(params.require(:invoice_id), true, 'NONE', options_for_klient)
+    invoice = Kaui::Invoice.find_by_id(params.require(:invoice_id), true, 'NONE', options_for_klient)
 
     if params[:adjustment_type] == 'invoiceItemAdjustment'
       items = []
