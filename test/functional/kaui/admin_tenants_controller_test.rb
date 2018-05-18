@@ -92,7 +92,7 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     stripe_yml = YAML.load_file(File.join(self.class.fixture_path, 'stripe.yml'))[:stripe]
     stripe_yml.stringify_keys!
     stripe_yml.each { |k, v| stripe_yml[k] = v.to_s }
-    post :upload_plugin_config, :id => tenant.id, :plugin_name => 'killbill-stripe', :plugin_type => 'ruby', :plugin_properties => stripe_yml
+    post :upload_plugin_config, :id => tenant.id, :plugin_name => 'killbill-stripe', :plugin_key => 'stripe', :plugin_type => 'ruby', :plugin_properties => stripe_yml
 
     assert_redirected_to admin_tenant_path(tenant.id)
     assert_equal 'Config for plugin was successfully uploaded', flash[:notice]
@@ -282,6 +282,18 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     assert_redirected_to admin_tenant_path(tenant.id)
     assert_equal "User #{parameters[:allowed_user][:kb_username]} does not exist!", flash[:error]
 
+  end
+
+  test 'should suggest a plugin name' do
+    plugin_anchor = "'<a id=\"suggested\" data-plugin-name=\"killbill-paypal-express\" data-plugin-key=\"paypal\" href=\"#\">killbill-paypal-express</a>'"
+
+    get :validate_plugin_name, :plugin_name => 'paypal-express'
+    assert_response :success
+    assert_equal JSON[@response.body]['suggestion'], "Similar plugin already installed: #{plugin_anchor}"
+
+    get :validate_plugin_name, :plugin_name => 'pypl'
+    assert_response :success
+    assert_equal JSON[@response.body]['suggestion'], "Did you mean #{plugin_anchor}?"
   end
 
   private
