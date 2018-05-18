@@ -33,6 +33,8 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       @subscription.plan_name = plan_name
       requested_date = params[:type_change] == "DATE" ? params[:requested_date].presence : nil
 
+      # un-set product_category since is not needed if plan name exist
+      @subscription.product_category = nil
       @subscription = @subscription.create(current_user.kb_username, params[:reason], params[:comment], requested_date, false, options_for_klient)
       redirect_to kaui_engine.account_bundles_path(@subscription.account_id), :notice => 'Subscription was successfully created'
     rescue => e
