@@ -15,7 +15,9 @@ class Kaui::Admin < KillBillClient::Model::Resource
                                         :minDate => options[:minDate],
                                         :maxDate => options[:maxDate]
                                     },
-                                    options
+                                    {
+                                        :accept => 'application/octet-stream'
+                                    }.merge(options)
       JSON.parse res.body
     end
 
