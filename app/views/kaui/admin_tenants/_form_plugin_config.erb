@@ -22,6 +22,7 @@
               <%= text_field_tag :entered_plugin_name, nil, :class => 'form-control', :plugin_config => @plugin_config, :tenant_plugin_config => @tenant_plugin_config %>
               <div class="text plugin-suggestion text-danger"></div>
             </div>
+            <div class="col-sm-1 spinner"><i class="fa fa-cog fa-2x fa-spin"></i></div>
             <label class="col-sm-1 toggle-container control-label">
               <label class="switch">
                 <input id="toggle_input" type="checkbox">
@@ -86,7 +87,7 @@
             $('#select_plugin_name').val('');
             $('#plugin_config_properties').attr('plugin_name', '');
             $('#plugin_config_properties').empty();
-
+            $(".plugin-suggestion").html('');
         });
 
         $('#select_plugin_name').on('click', function(e) {
@@ -162,7 +163,7 @@
                 }
             });
 
-            if (res['props'] == undefined) {
+            if (isBlank(res['props'])) {
                 res['type'] = '';
                 res['props'] = ['raw_config'];
             }
@@ -256,6 +257,7 @@
         }
 
         function suggested_response(response) {
+            $(".spinner").hide();
             if (!isBlank(response.suggestion)) {
                 $(".plugin-suggestion").html(response.suggestion);
 
@@ -266,6 +268,7 @@
                     $("#entered_plugin_name").val(plugin_name);
                     $("#plugin_key").val(plugin_key);
                     $("#plugin_type").val(e.currentTarget.dataset['pluginType']);
+                    $("#entered_plugin_name").data("last", plugin_name);
 
                     $(".plugin-suggestion").html('');
                     add_properties_for_plugin(isBlank(plugin_key) ? plugin_name : plugin_key, plugin_name);
@@ -284,12 +287,23 @@
 
         function suggest_plugin_name() {
             var plugin_name = $("#entered_plugin_name").val();
+            var last_plugin_name = $("#entered_plugin_name").data("last");
             $("#plugin_key").val(plugin_name);
 
             if (isBlank(plugin_name)) {
                 return;
             }
 
+            // no change
+            if ( plugin_name == last_plugin_name) {
+                return;
+            }
+
+            $('#plugin_config_properties').attr('plugin_name', '');
+            $('#plugin_config_properties').empty();
+            $(".plugin-suggestion").html('');
+            $("#entered_plugin_name").data("last", plugin_name);
+            $(".spinner").show();
             $.ajax({
                 url: '<%= suggest_plugin_name_path() %>',
                 type: "GET",
