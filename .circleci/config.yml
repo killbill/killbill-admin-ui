@@ -32,7 +32,7 @@ jobs:
     <<: *defaults
     docker:
       - image: killbill/kbbuild:0.4.0
-      - image: killbill/killbill:0.19.6
+      - image: killbill/killbill:0.19.14
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
         - KILLBILL_DAO_URL=jdbc:mysql://127.0.0.1:3306/killbill
@@ -102,7 +102,7 @@ jobs:
     <<: *defaults
     docker:
       - image: killbill/kbbuild:0.4.0
-      - image: killbill/killbill:0.19.6
+      - image: killbill/killbill:0.19.14
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
         - KILLBILL_DAO_URL=jdbc:postgresql://127.0.0.1:5432/killbill
@@ -193,7 +193,7 @@ jobs:
     <<: *defaults
     docker:
       - image: killbill/kbbuild:0.4.0
-      - image: killbill/killbill:0.19.6
+      - image: killbill/killbill:0.19.14
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
         - KILLBILL_DAO_URL=jdbc:mysql://127.0.0.1:3306/killbill
@@ -263,7 +263,7 @@ jobs:
     <<: *defaults
     docker:
       - image: killbill/kbbuild:0.4.0
-      - image: killbill/killbill:0.19.6
+      - image: killbill/killbill:0.19.14
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
         - KILLBILL_DAO_URL=jdbc:mysql://127.0.0.1:3306/killbill
@@ -333,7 +333,7 @@ jobs:
     <<: *defaults
     docker:
       - image: killbill/kbbuild:0.4.0
-      - image: killbill/killbill:0.19.6
+      - image: killbill/killbill:0.19.14
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
         - KILLBILL_DAO_URL=jdbc:postgresql://127.0.0.1:5432/killbill

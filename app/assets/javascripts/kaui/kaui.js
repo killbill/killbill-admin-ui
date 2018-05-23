@@ -195,6 +195,10 @@ jQuery(document).ready(function ($) {
 
     // this will register a global ajax error for all jquery ajax requests (not including DataTable)
     $( document ).ajaxError(function( event, jqxhr, settings, thrownError ) {
+        if (jqxhr.status == 0) {
+            return;
+        }
+        
         var message = 'Request Status: ' + jqxhr.status + ' Status Text: ' + jqxhr.statusText + ' ' + jqxhr.responseText;
 
         if (jqxhr.status == 200) {

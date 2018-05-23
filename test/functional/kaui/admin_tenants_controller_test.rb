@@ -192,7 +192,7 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
         :states => { '0' => {
           :name =>	'Overdue_test',
           :external_message => 'Overdue_Test_Ya',
-          :block_changes =>	true,
+          :is_block_changes =>	true,
           :subscription_cancellation_policy => 'NONE',
           :condition => {
             :time_since_earliest_unpaid_invoice_equals_or_exceeds => 1,

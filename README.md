@@ -11,12 +11,12 @@ Kill Bill compatibility
 | 0.14.y       | 0.16.z            |
 | 0.15.y       | 0.18.z (Rails 4)  |
 | 0.16.y       | 0.18.z (Rails 5)  |
-
+| 1.x.y        | 0.19.z            |
 
 Dependencies
 ------------
 
-Ruby 2.2.2+ or JRuby 9.1.9.0+ required.
+Ruby 2.4.2+ or JRuby 9.1.14.0+ required.
 
 Running Kaui locally
 ---------------------
