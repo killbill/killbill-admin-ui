@@ -45,7 +45,7 @@ class Kaui::InvoicesController < Kaui::EngineController
     # Go to the database once
     cached_options_for_klient = options_for_klient
 
-    @invoice = Kaui::Invoice.find_by_id_or_number(params.require(:id), true, 'FULL', cached_options_for_klient)
+    @invoice = Kaui::Invoice.find_by_id(params.require(:id), true, 'FULL', cached_options_for_klient)
 
     fetch_payments = promise { @invoice.payments(true, true, 'FULL', cached_options_for_klient).map { |payment| Kaui::InvoicePayment.build_from_raw_payment(payment) } }
     fetch_pms = fetch_payments.then { |payments| Kaui::PaymentMethod.payment_methods_for_payments(payments, cached_options_for_klient) }
@@ -76,7 +76,7 @@ class Kaui::InvoicesController < Kaui::EngineController
   end
 
   def restful_show
-    invoice = Kaui::Invoice.find_by_id_or_number(params.require(:id), false, 'NONE', options_for_klient)
+    invoice = Kaui::Invoice.find_by_id(params.require(:id), false, 'NONE', options_for_klient)
     redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id)
   end
 
@@ -85,7 +85,7 @@ class Kaui::InvoicesController < Kaui::EngineController
   end
 
   def commit_invoice
-    invoice = KillBillClient::Model::Invoice.find_by_id_or_number(params.require(:id), false, 'NONE', options_for_klient)
+    invoice = KillBillClient::Model::Invoice.find_by_id(params.require(:id), false, 'NONE', options_for_klient)
     invoice.commit(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
     redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id), :notice => 'Invoice successfully committed'
   end

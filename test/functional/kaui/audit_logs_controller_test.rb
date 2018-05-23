@@ -20,7 +20,8 @@ class Kaui::AuditLogsControllerTest < Kaui::FunctionalTestHelper
   test 'should get audit logs with history' do
     new_account = create_account(@tenant)
     add_a_note(new_account)
-    create_payment(nil, new_account, @tenant, USERNAME, PASSWORD, 'Kaui log test')
+    create_payment_method(true, new_account, @tenant)
+    create_payment(nil, new_account, @tenant)
 
     get :index, :account_id => new_account.account_id
     assert_response :success
@@ -37,11 +38,13 @@ class Kaui::AuditLogsControllerTest < Kaui::FunctionalTestHelper
         audit_logs_with_history = JSON.parse(@response.body)['audits']
 
         if audit_log[2] == 'ACCOUNT'
-          assert_equal 2, audit_logs_with_history.count
+          assert_equal 3, audit_logs_with_history.count
           assert_equal 'INSERT', audit_logs_with_history[0]['changeType']
           assert_nil audit_logs_with_history[0]['history']['notes']
           assert_equal 'UPDATE', audit_logs_with_history[1]['changeType']
           assert_not_nil audit_logs_with_history[1]['history']['notes']
+          assert_equal 'UPDATE', audit_logs_with_history[1]['changeType']
+          assert_not_nil audit_logs_with_history[2]['history']['paymentMethodId']
         elsif audit_log[2] == 'PAYMENT'
           assert_equal 2, audit_logs_with_history.count
           assert_equal 'INSERT', audit_logs_with_history[0]['changeType']

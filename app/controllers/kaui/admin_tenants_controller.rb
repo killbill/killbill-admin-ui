@@ -82,6 +82,9 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     fetch_overdue_xml = promise { Kaui::Overdue::get_tenant_overdue_config('xml', options) rescue @overdue_xml = nil }
 
     plugin_repository = Kaui::AdminTenant::get_plugin_repository
+    # hack:: replace paypal key with paypal_express, to set configuration and allow the ui to find the right configuration inputs
+    plugin_repository = plugin_repository.inject({}) { |p, (k,v)| p[k.to_s.sub(/\Apaypal/, 'paypal_express').to_sym] = v; p }
+
 
     fetch_plugin_config = promise { Kaui::AdminTenant::get_oss_plugin_info(plugin_repository) }
     fetch_tenant_plugin_config = promise { Kaui::AdminTenant::get_tenant_plugin_config(plugin_repository, options) }
@@ -230,7 +233,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     view_form_model['states'] = view_form_model['states'].values unless view_form_model['states'].blank?
 
     overdue = Kaui::Overdue::from_overdue_form_model(view_form_model)
-    overdue.upload_tenant_overdue_config_json(options[:username], nil, comment, options)
+    Kaui::Overdue::upload_tenant_overdue_config_json(overdue.to_json,options[:username], nil, comment, options)
     redirect_to admin_tenant_path(current_tenant.id), :notice => 'Overdue config was successfully added '
   end
 
@@ -309,11 +312,11 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     plugin_name = params[:plugin_name]
     plugin_properties = params[:plugin_properties]
     plugin_type = params[:plugin_type]
+    plugin_key = params[:plugin_key]
 
-    plugin_config = Kaui::AdminTenant.format_plugin_config(plugin_name, plugin_type, plugin_properties)
+    plugin_config = Kaui::AdminTenant.format_plugin_config(plugin_key, plugin_type, plugin_properties)
 
-    key = plugin_type.present? ? "killbill-#{plugin_name}" : plugin_name
-    Kaui::AdminTenant.upload_tenant_plugin_config(key, plugin_config, options[:username], nil, comment, options)
+    Kaui::AdminTenant.upload_tenant_plugin_config(plugin_name, plugin_config, options[:username], nil, comment, options)
 
     redirect_to admin_tenant_path(current_tenant.id), :notice => 'Config for plugin was successfully uploaded'
   end
@@ -415,6 +418,27 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     end
   end
 
+  def suggest_plugin_name
+    json_response do
+      message = nil
+      entered_plugin_name = params.require(:plugin_name)
+      plugin_repository = view_context.plugin_repository
+
+      found_plugin, weights = fuzzy_match(entered_plugin_name, plugin_repository)
+
+      if weights.size > 0
+        plugin_anchor = view_context.link_to(weights[0][:plugin_name], '#', id: 'suggested',
+                                            data: {
+                                                plugin_name: weights[0][:plugin_name],
+                                                plugin_key: weights[0][:plugin_key],
+                                                plugin_type: weights[0][:plugin_type],
+                                            })
+        message = "Similar plugin already installed: '#{plugin_anchor}'" if weights[0][:worth_weight].to_f >= 1.0 && weights[0][:installed]
+        message = "Did you mean '#{plugin_anchor}'?" if weights[0][:worth_weight].to_f < 1.0 || !weights[0][:installed]
+      end
+      { suggestion: message, plugin: found_plugin }
+    end
+  end
 
   private
 
@@ -447,4 +471,39 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     end
   end
 
+  def split_camel_dash_underscore_space(data)
+    data.split(/(?=[A-Z])|(?=[_])|(?=[-])|(?=[ ])/).select {|member| !member.gsub(/[_-]/,'').strip.empty?}.map { |member| member.gsub(/[_-]/,'').strip.downcase }
+  end
+
+  def fuzzy_match(entered_plugin_name, plugin_repository)
+    splitted_entered_plugin_name = split_camel_dash_underscore_space(entered_plugin_name)
+    worth_of_non_words = 0.5 / splitted_entered_plugin_name.size.to_i
+
+    weights = []
+
+    plugin_repository.each do |plugin|
+      return plugin, [] if plugin[:plugin_name] == entered_plugin_name || plugin[:plugin_key] == entered_plugin_name
+
+      splitted_plugin_name = split_camel_dash_underscore_space(plugin[:plugin_name])
+      weight = { :plugin_name => plugin[:plugin_name], :plugin_key => plugin[:plugin_key],
+                 :plugin_type => plugin[:plugin_type], :installed => plugin[:installed], :worth_weight => 0.0 }
+      splitted_entered_plugin_name.each do |entered|
+        if splitted_plugin_name.include?(entered)
+          weight[:worth_weight] = weight[:worth_weight] + 1.0
+        end
+
+        splitted_plugin_name.each do |splitted|
+          if entered.chars.all? { |ch| splitted.include?(ch) }
+            weight[:worth_weight] = weight[:worth_weight] + worth_of_non_words
+            break
+          end
+        end
+      end
+      weights << weight if weight[:worth_weight] > 0
+
+    end
+
+    weights.sort! { |a,b| b[:worth_weight] <=> a[:worth_weight] } if weights.size > 1
+    return nil, weights
+  end
 end

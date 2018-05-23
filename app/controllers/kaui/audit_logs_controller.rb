@@ -65,7 +65,7 @@ class Kaui::AuditLogsController < Kaui::EngineController
           audit_logs_with_history = payment.audit_logs_with_history(cached_options_for_klient)
         elsif object_type == 'PAYMENT_METHOD'
           payment_method = Kaui::PaymentMethod::find_by_id(object_id, false, cached_options_for_klient)
-          audit_logs_with_history = payment_method.audit_logs_with_history(object_id, cached_options_for_klient)
+          audit_logs_with_history = payment_method.audit_logs_with_history(cached_options_for_klient)
         elsif object_type == 'TRANSACTION'
           audit_logs_with_history = Kaui::Transaction::new({:transaction_id => object_id}).audit_logs_with_history(cached_options_for_klient)
         elsif object_type == 'TAG'

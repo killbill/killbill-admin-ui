@@ -63,7 +63,7 @@
                 <td>
                   <% if @overdue_state.nil? %>
                       <span class='label'>N/A</span>
-                  <% elsif @overdue_state.clear_state %>
+                  <% elsif @overdue_state.is_clear_state %>
                       <span class='label label-success'>Good</span>
                   <% else %>
                       <span class='label label-danger'><%= @overdue_state.name %></span>

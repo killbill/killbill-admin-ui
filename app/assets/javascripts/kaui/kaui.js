@@ -195,6 +195,10 @@ jQuery(document).ready(function ($) {
 
     // this will register a global ajax error for all jquery ajax requests (not including DataTable)
     $( document ).ajaxError(function( event, jqxhr, settings, thrownError ) {
+        if (jqxhr.status == 0) {
+            return;
+        }
+        
         var message = 'Request Status: ' + jqxhr.status + ' Status Text: ' + jqxhr.statusText + ' ' + jqxhr.responseText;
 
         if (jqxhr.status == 200) {
@@ -232,4 +236,28 @@ function ajaxCloseAlert(messageBox) {
     var messageBox = messageBox || $("#ajaxAlert");
     messageBox.find("#ajaxErrorMessage").text('');
     messageBox.hide();
+}
+
+// global helper function to validate if a variable is null or empty or undefined
+function isNullOrUndefined(value) {
+    if (value == undefined || value == null) {
+        return true;
+    }
+    return false;
+}
+
+function isBlank(value) {
+    if (isNullOrUndefined(value)) {
+        return true;
+    }
+
+    if (jQuery.type(value) === "string" && value.trim().length == 0) {
+        return true;
+    } else if (jQuery.type(value) === "array" && value.length == 0) {
+        return true;
+    } else if (jQuery.type(value) === "object" && jQuery.isEmptyObject(value)) {
+        return true;
+    } else {
+        return false;
+    }
 }

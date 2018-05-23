@@ -35,7 +35,7 @@
                   <%= state_form_group.fields_for "#{idx}", state do |state_form| %>
                     <td><%= state_form.text_field :name %></td>
                     <td><%= state_form.text_field :external_message %></td>
-                    <td><%= state_form.select :block_changes, options_for_select([true, false ], state.block_changes), :class => 'form-control'  %></td>
+                    <td><%= state_form.select :is_block_changes, options_for_select([true, false ], state.is_block_changes), :class => 'form-control'  %></td>
                     <td><%= state_form.select :subscription_cancellation_policy, options_for_select([:NONE, :POLICY_NONE, :POLICY_IMMEDIATE, :POLICY_END_OF_TERM], state.subscription_cancellation), :class => 'form-control' %></td>
                     <%= state_form.fields_for 'condition' do |condition| %>
                       <td><%= condition.number_field :time_since_earliest_unpaid_invoice_equals_or_exceeds, :value => state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.number %></td>
