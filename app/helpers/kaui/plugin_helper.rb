@@ -47,6 +47,8 @@ module Kaui
 
         plugins_info.each do |plugin|
           next if plugin.version.nil?
+          # do not allow duplicate
+          next if installed_plugins.any? { |p| p[:plugin_name].eql?(plugin.plugin_name) }
           installed_plugins << {
               plugin_key: Kaui::AdminTenant.rewrite_plugin_key(plugin.plugin_key),
               plugin_name: plugin.plugin_name,

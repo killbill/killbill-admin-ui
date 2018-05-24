@@ -72,7 +72,13 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
         if is_yaml?(e.values[0]) && is_an_official_plugin
           yml = YAML.load(e.values[0])
           # Hash of properties
-          hsh[plugin_key] = yml[plugin_key.to_sym]
+          # is plugin key part of the yaml?
+          if yml[plugin_key.to_sym].blank?
+            # if not set it as raw
+            hsh[plugin_key] = {:raw_config => e.values[0]}
+          else
+            hsh[plugin_key] = yml[plugin_key.to_sym]
+          end
         elsif is_kv?(e.values[0]) && is_an_official_plugin
           # Construct hash of properties based on java properties (k1=v1\nk2=v2\n...)
           hsh[plugin_key] = e.values[0].split("\n").inject({}) do |h, p0|
@@ -130,6 +136,10 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
         'paypal_express'
       elsif plugin_key.start_with?('firstdata')
         'firstdata_e4'
+      elsif plugin_key.start_with?('bridge')
+        'payment_bridge'
+      elsif plugin_key.start_with?('payu-latam')
+        'payu_latam'
       else
         "#{plugin_key}"
       end

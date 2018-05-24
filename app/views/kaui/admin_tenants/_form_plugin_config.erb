@@ -74,6 +74,7 @@
 
 <%= javascript_tag do %>
     $(document).ready(function() {
+        $(".spinner").hide();
 
         $('#entered_plugin_name').toggle();
         $('#toggle_input').on('change', function() {
@@ -148,7 +149,7 @@
             return res;
         }
 
-        function get_selected_plugin_info(plugin_index) {
+        function get_selected_plugin_info(plugin_key) {
             var plugin_config_str = $('#entered_plugin_name').attr('plugin_config');
             var res = {}
             /* Deserialize plugin/properties (see AdminTenant model)*/
@@ -158,7 +159,7 @@
                 var el_plugin_name = el_parts_key[0];
                 var el_plugin_type = el_parts_key[1];
                 var el_plugin_props = el_parts[1];
-                if (el_plugin_name == plugin_index) {
+                if (el_plugin_name == plugin_key) {
                     res['type'] = el_plugin_type;
                     res['props'] = el_plugin_props == "" ? [] : (el_plugin_type == "" ? ['raw_config'] : el_plugin_props.split(','));
                     return false;
