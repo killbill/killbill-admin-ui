@@ -212,12 +212,14 @@ jQuery(document).ready(function ($) {
     // this will try to register a DataTable error event to all tables, and if an error occurs will display the error on screen
     $( document ).find(".table").on('error.dt', function ( e, settings, techNote, message ) {
         ajaxAlert('An error has been reported by DataTables: ' + message);
-    })
+    });
 
+    setObjectIdPopover();
 });
 
-// global function used to show a error message that occurs on a Ajax call
-function ajaxAlert(message) {
+
+// global function used to show a error message that occurs on a Ajax call, if timeout is passed the box will disappear when the time is up.
+function ajaxAlert(message, timeout) {
     // do not show ajax alert if there is already an server alert
     var serverAlertStatus = $(".server-alert").css("display");
     if (serverAlertStatus != undefined && serverAlertStatus != "none") {
@@ -230,6 +232,11 @@ function ajaxAlert(message) {
     messageBox.find("button").click(function(){
         ajaxCloseAlert(messageBox);
     });
+
+    //if timeout is passed the box will disappear when the time is up
+    if (!isBlank(timeout)) {
+        setTimeout(function(){ ajaxCloseAlert()}, timeout);
+    }
 }
 
 function ajaxCloseAlert(messageBox) {
@@ -260,4 +267,58 @@ function isBlank(value) {
     } else {
         return false;
     }
+}
+
+// this function set popover for all tags that have class object-id-popover
+// attributes:
+//      data-id = content of the popover,object id; required
+//      title = title of the popover; not required
+//      id = (must be {{id}}-popover) used to close popover when the copy image is clicked; if present; if not present a timeout of 5s will apply; not required
+function setObjectIdPopover(){
+    $(".object-id-popover").each(function(idx, e){
+        $(this).popover('destroy');
+        $(this).off("shown.bs.popover");
+
+        $(this).popover({
+            html: true,
+            content: function() {
+                var template = '<div class="{{id}}-content" >' +
+                    '{{id}}&emsp;<i id="{{id}}-copy" class="fa fa-clipboard" aria-hidden="true"></i> ' +
+                    '<input id="{{id}}-placeholder" class="form-control hidden"> ' +
+                    '</div>';
+
+                var popover_html = Mustache.render( template , { id: $(this).data("id") });
+                return popover_html;
+            },
+            trigger: 'hover',
+            delay: { "show": 100, "hide": 4000 }
+        });
+
+        $(this).on("shown.bs.popover", function(e) {
+            var objectId = $(this).data('id');
+            var copyIdImg = $("#" + objectId + "-copy");
+
+            copyIdImg.data("popover",$(this).attr("id"));
+            copyIdImg.click(function(e){
+                var id = ($(this).attr("id")).replace('-copy','');
+                var placeholder = $("#" + objectId + "-placeholder");
+                var popover = $("#" + copyIdImg.data("popover"));
+                placeholder.val(id);
+                placeholder.removeClass("hidden");
+                placeholder.select();
+
+                document.execCommand("Copy");
+                placeholder.addClass("hidden");
+                ajaxAlert("Id [" + id + "] was copied into the clipboard!", 4000);
+
+                if (!isBlank(popover)) {
+                    popover.popover('hide');
+                }
+
+            });
+
+        });
+
+    });
+
 }

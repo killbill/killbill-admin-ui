@@ -35,7 +35,7 @@ class Kaui::AccountChildrenController < Kaui::EngineController
     formatter = lambda do |account_child|
       [
           view_context.link_to(account_child.name || '(not set)', account_path(account_child.account_id)),
-          view_context.truncate_uuid(account_child.account_id),
+          view_context.object_id_popover(account_child.account_id),
           account_child.external_key,
           view_context.humanized_money_with_symbol(account_child.balance_to_money),
           account_child.city,

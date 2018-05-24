@@ -8,7 +8,8 @@ class Kaui::AuditLogsController < Kaui::EngineController
 
 
     formatter = lambda do |log|
-      object_id_text = view_context.content_tag(:span, view_context.truncate_uuid(log.object_id), title: log.object_id )
+      object_id_text = view_context.object_id_popover(log.object_id)
+
       if object_with_history?(log.object_type)
         object_id_text = view_context.link_to(object_id_text, '#showHistoryModal',
                                               data: {
@@ -29,7 +30,7 @@ class Kaui::AuditLogsController < Kaui::EngineController
           log.changed_by,
           log.reason_code,
           log.comments,
-          view_context.content_tag(:span, view_context.truncate_uuid(log.user_token), title: log.user_token )
+          view_context.object_id_popover(log.user_token, 'left')
       ]
     end
 

@@ -55,7 +55,10 @@ $(document).ready(function() {
         $(td).css('width', '60px');
 
     } }
-    ]
+    ],
+    drawCallback: function() {
+        setObjectIdPopover();
+    }
   });
 
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->

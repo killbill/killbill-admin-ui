@@ -22,7 +22,7 @@
       <tbody>
       <% @tag_definitions.each do |tag_definition| %>
           <tr>
-            <td><%= truncate_uuid(tag_definition.id) %></td>
+            <td><%= object_id_popover(tag_definition.id) %></td>
             <td><%= tag_definition.name %></td>
             <td><%= tag_definition.description %></td>
             <td><%= tag_definition.is_system_tag? %></td>
