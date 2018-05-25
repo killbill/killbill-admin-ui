@@ -314,11 +314,16 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     plugin_type = params[:plugin_type]
     plugin_key = params[:plugin_key]
 
-    plugin_config = Kaui::AdminTenant.format_plugin_config(plugin_key, plugin_type, plugin_properties)
+    if plugin_properties.blank?
+      flash[:error] = 'Plugin properties cannot be blank'
+    else
+      plugin_config = Kaui::AdminTenant.format_plugin_config(plugin_key, plugin_type, plugin_properties)
 
-    Kaui::AdminTenant.upload_tenant_plugin_config(plugin_name, plugin_config, options[:username], nil, comment, options)
+      Kaui::AdminTenant.upload_tenant_plugin_config(plugin_name, plugin_config, options[:username], nil, comment, options)
+      flash[:notice] = 'Config for plugin was successfully uploaded'
+    end
 
-    redirect_to admin_tenant_path(current_tenant.id), :notice => 'Config for plugin was successfully uploaded'
+    redirect_to admin_tenant_path(current_tenant.id)
   end
 
   def remove_allowed_user
