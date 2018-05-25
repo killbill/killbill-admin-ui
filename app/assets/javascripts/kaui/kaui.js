@@ -288,6 +288,7 @@ function setObjectIdPopover(){
     $(".object-id-popover").each(function(idx, e){
         $(this).popover('destroy');
         $(this).off("shown.bs.popover");
+        $(this).data("index", idx);
 
         $(this).popover({
             html: true,
@@ -303,6 +304,17 @@ function setObjectIdPopover(){
             container: 'body',
             trigger: 'hover',
             delay: { "show": 100, "hide": 4000 }
+        });
+
+        $(this).on("show.bs.popover", function(e) {
+            var currentPopoverIndex = $(this).data('index');
+            $(".object-id-popover").each(function(idx, e){
+                var index = $(this).data('index');
+
+                if (currentPopoverIndex != index) {
+                    $(this).popover('hide');
+                }
+            });
         });
 
         $(this).on("shown.bs.popover", function(e) {
