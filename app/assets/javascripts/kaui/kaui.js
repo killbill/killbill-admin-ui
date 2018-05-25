@@ -300,6 +300,7 @@ function setObjectIdPopover(){
                 var popover_html = Mustache.render( template , { id: $(this).data("id") });
                 return popover_html;
             },
+            container: 'body',
             trigger: 'hover',
             delay: { "show": 100, "hide": 4000 }
         });
