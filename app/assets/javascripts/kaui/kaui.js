@@ -204,30 +204,40 @@ jQuery(document).ready(function ($) {
         if (jqxhr.status == 200) {
             message = thrownError.message == undefined ? thrownError : thrownError.message;
         }
-        ajaxAlert(message);
+        ajaxErrorAlert(message);
     });
 
     // this will prevent DataTable to show an alert message box when an error occurs
     $.fn.dataTable.ext.errMode = 'none';
     // this will try to register a DataTable error event to all tables, and if an error occurs will display the error on screen
     $( document ).find(".table").on('error.dt', function ( e, settings, techNote, message ) {
-        ajaxAlert('An error has been reported by DataTables: ' + message);
+        ajaxErrorAlert('An error has been reported by DataTables: ' + message);
     });
 
     setObjectIdPopover();
 });
 
 
-// global function used to show a error message that occurs on a Ajax call, if timeout is passed the box will disappear when the time is up.
-function ajaxAlert(message, timeout) {
+// global function used to show an error message that occurs on a Ajax call, if timeout is passed the box will disappear when the time is up.
+function ajaxErrorAlert(message, timeout) {
+    ajaxAlert("ajaxErrorAlert", message, timeout);
+}
+
+// global function used to show an information message.
+function ajaxInfoAlert(message, timeout) {
+    ajaxAlert("ajaxInfoAlert", message, timeout);
+}
+
+// if timeout is passed the box will disappear when the time is up.
+function ajaxAlert(alert_element_id, message, timeout) {
     // do not show ajax alert if there is already an server alert
     var serverAlertStatus = $(".server-alert").css("display");
     if (serverAlertStatus != undefined && serverAlertStatus != "none") {
         return;
     }
 
-    var messageBox = $("#ajaxAlert");
-    messageBox.find("#ajaxErrorMessage").text(message);
+    var messageBox = $("#" + alert_element_id);
+    messageBox.find("#" + alert_element_id + "Message").text(message);
     messageBox.show();
     messageBox.find("button").click(function(){
         ajaxCloseAlert(messageBox);
@@ -240,8 +250,8 @@ function ajaxAlert(message, timeout) {
 }
 
 function ajaxCloseAlert(messageBox) {
-    var messageBox = messageBox || $("#ajaxAlert");
-    messageBox.find("#ajaxErrorMessage").text('');
+    var messageBox = messageBox || $(".ajaxAlert");
+    messageBox.find(".ajaxAlertMessage").text('');
     messageBox.hide();
 }
 
@@ -309,7 +319,7 @@ function setObjectIdPopover(){
 
                 document.execCommand("Copy");
                 placeholder.addClass("hidden");
-                ajaxAlert("Id [" + id + "] was copied into the clipboard!", 4000);
+                ajaxInfoAlert("Id [" + id + "] was copied into the clipboard!", 4000);
 
                 if (!isBlank(popover)) {
                     popover.popover('hide');

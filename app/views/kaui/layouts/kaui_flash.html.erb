@@ -15,14 +15,25 @@
       </div>
     </div>
 <% end %>
-<!--This is for ajax calls that need to notify for error, to trigger this alert use ajaxAlert(message)-->
-<div id="ajaxAlert" class="row" style="display: none">
+<!--This is for ajax calls that need to notify for error, to trigger this alert use ajaxAlert(message, timeout)-->
+<div id="ajaxErrorAlert" class="row ajaxAlert" style="display: none">
   <div class="col-md-12">
     <div class="alert alert-danger">
       <button type="button" class="close" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
-      <span id="ajaxErrorMessage"></span>
+      <span id="ajaxErrorAlertMessage" class="ajaxAlertMessage"></span>
+    </div>
+  </div>
+</div>
+<!--This is for ajax calls that need to notify information, to trigger this alert use ajaxInfo(message, timeout)-->
+<div id="ajaxInfoAlert" class="row ajaxAlert" style="display: none">
+  <div class="col-md-12">
+    <div class="alert alert-info">
+      <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <span id="ajaxInfoAlertMessage" class="ajaxAlertMessage"></span>
     </div>
   </div>
 </div>
