@@ -55,6 +55,41 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     assert_not_nil assigns(:payment_methods)
   end
 
+  test 'should check that overdue state is Good' do
+    get :show, :account_id => @account.account_id
+    assert_response 200
+
+    overdue_status_proc_count = 0
+
+    assert_select 'table' do |tables|
+      tables.each do |table|
+        assert_select table, 'tr' do |rows|
+          rows.each do |row|
+            # find overdue status in the response
+           is_overdue_state = false
+            assert_select row, 'th' do |col|
+              is_overdue_state = col[0].text.eql?('Overdue status')
+            end
+
+            # if found
+            if is_overdue_state
+              overdue_status_proc_count += 1
+              assert_select row, 'td' do |col|
+                assert_select col, 'span' do |content|
+                  assert 'Good', content[0].text
+                  overdue_status_proc_count += 1 if content[0].text.eql?('Good')
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+
+    # assert that overdue state is found with result equal to Good
+    assert overdue_status_proc_count, 2
+  end
+
   test 'should handle Kill Bill errors when creating account' do
     post :create
     assert_redirected_to home_path
