@@ -184,7 +184,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     else
       options = options_for_klient
 
-      catalog = Kaui::Catalog.get_tenant_catalog('json', DateTime.now.to_s, options)
+      catalog = Kaui::Catalog.get_tenant_catalog_json( DateTime.now.to_s, options)
 
       return [] if catalog.blank?
 
