@@ -293,7 +293,7 @@ function setObjectIdPopover(){
             html: true,
             content: function() {
                 var template = '<div class="{{id}}-content" >' +
-                    '{{id}}&emsp;<i id="{{id}}-copy" class="fa fa-clipboard" aria-hidden="true"></i> ' +
+                    '{{id}}&emsp;<i id="{{id}}-copy" class="fa fa-clipboard copy-icon" aria-hidden="true"></i> ' +
                     '<input id="{{id}}-placeholder" class="form-control hidden"> ' +
                     '</div>';
 
