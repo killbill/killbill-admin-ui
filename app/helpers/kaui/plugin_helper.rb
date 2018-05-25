@@ -7,26 +7,18 @@ module Kaui
       installed_plugins = installed_plugins()
 
       plugin_repository.each_pair do |key, info|
-        found_plugin = installed_plugins.reject! { |p| p.plugin_key.eql?(key.to_s) }
         plugins << {
             plugin_key: plugin_key(key.to_s, info),
             plugin_name: plugin_name(key.to_s, info),
             plugin_type: info[:type],
-            installed: !found_plugin.nil?
+            installed: false
         }
       end
 
-      installed_plugins.each do |plugin|
-        plugins << {
-            plugin_key: plugin.plugin_key,
-            plugin_name: plugin.plugin_name,
-            plugin_type: nil,
-            installed: true
-        }
-      end
+      plugins.sort! { |a,b| a[:plugin_key] <=> b[:plugin_key] }
+      plugins.each {|plugin| installed_plugins << plugin }
 
-      plugins.sort! { |a,b| a[:plugin_key] <=> b[:plugin_key] && b[:installed].to_s <=> a[:installed].to_s }
-      plugins
+      installed_plugins
     end
 
     private
@@ -49,10 +41,23 @@ module Kaui
       end
 
       def installed_plugins
+        installed_plugins = []
         nodes_info = KillBillClient::Model::NodesInfo.nodes_info(Kaui.current_tenant_user_options(current_user, session)) || []
         plugins_info = nodes_info.first.plugins_info || []
 
-        plugins_info.select { |plugin| !plugin.version.nil?}
+        plugins_info.each do |plugin|
+          next if plugin.version.nil?
+          # do not allow duplicate
+          next if installed_plugins.any? { |p| p[:plugin_name].eql?(plugin.plugin_name) }
+          installed_plugins << {
+              plugin_key: Kaui::AdminTenant.rewrite_plugin_key(plugin.plugin_key),
+              plugin_name: plugin.plugin_name,
+              plugin_type: nil,
+              installed: true
+          }
+        end
+
+        installed_plugins.sort! { |a,b| a[:plugin_key] <=> b[:plugin_key] }
       end
   end
 end

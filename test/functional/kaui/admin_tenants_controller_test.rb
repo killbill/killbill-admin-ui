@@ -287,11 +287,11 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
   test 'should suggest a plugin name' do
     plugin_anchor = "'<a id=\"suggested\" data-plugin-name=\"killbill-paypal-express\" data-plugin-key=\"paypal\" href=\"#\">killbill-paypal-express</a>'"
 
-    get :validate_plugin_name, :plugin_name => 'paypal-express'
+    get :suggest_plugin_name, :plugin_name => 'paypal-express'
     assert_response :success
     assert_equal JSON[@response.body]['suggestion'], "Similar plugin already installed: #{plugin_anchor}"
 
-    get :validate_plugin_name, :plugin_name => 'pypl'
+    get :suggest_plugin_name, :plugin_name => 'pypl'
     assert_response :success
     assert_equal JSON[@response.body]['suggestion'], "Did you mean #{plugin_anchor}?"
   end
