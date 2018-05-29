@@ -65,17 +65,21 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
         plugin_key = killbill_key.gsub(/killbill-/, '') if killbill_key.start_with?('killbill-')
         # hack:: rewrite key, to allow the ui to find the right configuration inputs
         plugin_key = rewrite_plugin_key(plugin_key)
-        # If such key exists, lookup in plugin directory
-        plugin_repo_entry = plugin_directory[plugin_key.to_sym] unless plugin_key.nil?
-        # Extract plugin_type based on plugin_directory entry if exists
-        plugin_type = plugin_repo_entry.nil? ? :unknown : plugin_repo_entry[:type].to_sym
+        # If such key exists, lookup in plugin directory to see if is an official plugin
+        is_an_official_plugin = !plugin_directory[plugin_key.to_sym].blank?
 
-        # Deserialize config based on type
-        if plugin_type == :ruby
+        # Deserialize config based on string possible format, if exist in the official repository
+        if is_yaml?(e.values[0]) && is_an_official_plugin
           yml = YAML.load(e.values[0])
           # Hash of properties
-          hsh[plugin_key] = yml[plugin_key.to_sym]
-        elsif plugin_type == :java
+          # is plugin key part of the yaml?
+          if yml[plugin_key.to_sym].blank?
+            # if not set it as raw
+            hsh[plugin_key] = {:raw_config => e.values[0]}
+          else
+            hsh[plugin_key] = yml[plugin_key.to_sym]
+          end
+        elsif is_kv?(e.values[0]) && is_an_official_plugin
           # Construct hash of properties based on java properties (k1=v1\nk2=v2\n...)
           hsh[plugin_key] = e.values[0].split("\n").inject({}) do |h, p0|
             k, v = p0.split('=');
@@ -132,9 +136,37 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
         'paypal_express'
       elsif plugin_key.start_with?('firstdata')
         'firstdata_e4'
+      elsif plugin_key.start_with?('bridge')
+        'payment_bridge'
+      elsif plugin_key.start_with?('payu-latam')
+        'payu_latam'
       else
         "#{plugin_key}"
       end
+    end
+
+    # checks if string could be parse as yaml
+    def is_yaml?(candidate_string)
+      is_yaml = false
+      return is_yaml if candidate_string.blank?
+
+      begin
+        is_yaml = !!YAML::load(candidate_string)
+        is_yaml = is_yaml && YAML.load(candidate_string).instance_of?(Hash)
+      rescue
+        is_yaml = false
+      end
+
+      is_yaml
+    end
+
+    # checks if string could be parse as key value pair
+    def is_kv?(candidate_string)
+      return false if candidate_string.blank? || is_yaml?(candidate_string)
+      lines = candidate_string.split("\n")
+      return false if lines.blank?
+
+      lines.all? { |kv| kv.split('=').count == 2 }
     end
   end
 end
