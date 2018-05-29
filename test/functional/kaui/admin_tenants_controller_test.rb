@@ -285,7 +285,7 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
   end
 
   test 'should suggest a plugin name' do
-    plugin_anchor = "'<a id=\"suggested\" data-plugin-name=\"killbill-paypal-express\" data-plugin-key=\"paypal\" href=\"#\">killbill-paypal-express</a>'"
+    plugin_anchor = "'<a id=\"suggested\" data-plugin-name=\"killbill-paypal-express\" data-plugin-key=\"paypal_express\" href=\"#\">killbill-paypal-express</a>'"
 
     get :suggest_plugin_name, :plugin_name => 'paypal-express'
     assert_response :success
