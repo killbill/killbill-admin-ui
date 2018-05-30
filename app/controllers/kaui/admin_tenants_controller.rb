@@ -488,10 +488,10 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     plugin_repository.each do |plugin|
       return plugin, [] if plugin[:plugin_name] == entered_plugin_name || plugin[:plugin_key] == entered_plugin_name
-
-      splitted_plugin_name = split_camel_dash_underscore_space(plugin[:plugin_name])
       weight = { :plugin_name => plugin[:plugin_name], :plugin_key => plugin[:plugin_key],
                  :plugin_type => plugin[:plugin_type], :installed => plugin[:installed], :worth_weight => 0.0 }
+
+      splitted_plugin_name = split_camel_dash_underscore_space(plugin[:plugin_name])
       splitted_entered_plugin_name.each do |entered|
         if splitted_plugin_name.include?(entered)
           weight[:worth_weight] = weight[:worth_weight] + 1.0
@@ -503,7 +503,23 @@ class Kaui::AdminTenantsController < Kaui::EngineController
             break
           end
         end
+
+        # perform a plugin key search, if weight is zero
+        next unless weight[:worth_weight] == 0
+        splitted_plugin_key = split_camel_dash_underscore_space(plugin[:plugin_key])
+
+        if splitted_plugin_key.include?(entered)
+          weight[:worth_weight] = weight[:worth_weight] + 1.0
+        end
+
+        splitted_plugin_key.each do |splitted|
+          if entered.chars.all? { |ch| splitted.include?(ch) }
+            weight[:worth_weight] = weight[:worth_weight] + worth_of_non_words
+            break
+          end
+        end
       end
+
       weights << weight if weight[:worth_weight] > 0
 
     end

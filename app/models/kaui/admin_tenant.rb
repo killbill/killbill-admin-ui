@@ -63,13 +63,13 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
 
         # Extract killbill key for oss plugins based on convention 'killbill-KEY'
         plugin_key = killbill_key.gsub(/killbill-/, '') if killbill_key.start_with?('killbill-')
-        # hack:: rewrite key, to allow the ui to find the right configuration inputs
-        plugin_key = rewrite_plugin_key(plugin_key)
-        # If such key exists, lookup in plugin directory to see if is an official plugin
-        is_an_official_plugin = !plugin_directory[plugin_key.to_sym].blank?
 
+        # hack:: rewrite key, to allow the ui to find the right configuration inputs
+        plugin_key = rewrite_plugin_key(plugin_key) unless plugin_key.nil?
+        # If such key exists, lookup in plugin directory to see if is an official plugin
+        is_an_official_plugin = !plugin_key.nil? && !plugin_directory[plugin_key.to_sym].blank?
         # Deserialize config based on string possible format, if exist in the official repository
-        if is_yaml?(e.values[0]) && is_an_official_plugin
+        if is_an_official_plugin && is_yaml?(e.values[0])
           yml = YAML.load(e.values[0])
           # Hash of properties
           # is plugin key part of the yaml?
@@ -79,7 +79,7 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
           else
             hsh[plugin_key] = yml[plugin_key.to_sym]
           end
-        elsif is_kv?(e.values[0]) && is_an_official_plugin
+        elsif is_an_official_plugin && is_kv?(e.values[0])
           # Construct hash of properties based on java properties (k1=v1\nk2=v2\n...)
           hsh[plugin_key] = e.values[0].split("\n").inject({}) do |h, p0|
             k, v = p0.split('=');
