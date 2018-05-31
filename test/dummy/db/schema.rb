@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,42 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150112232813) do
+ActiveRecord::Schema.define(version: 20180530180421) do
 
-  create_table "kaui_allowed_user_tenants", force: :cascade do |t|
-    t.integer  "kaui_allowed_user_id", limit: 4
-    t.integer  "kaui_tenant_id",       limit: 4
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+  create_table "kaui_allowed_user_tenants", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin" do |t|
+    t.bigint "kaui_allowed_user_id", unsigned: true
+    t.bigint "kaui_tenant_id", unsigned: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id"], name: "id", unique: true
+    t.index ["kaui_allowed_user_id", "kaui_tenant_id"], name: "kaui_allowed_users_tenants_uniq", unique: true
   end
 
-  add_index "kaui_allowed_user_tenants", ["kaui_allowed_user_id", "kaui_tenant_id"], name: "kaui_allowed_user_tenants_uniq", unique: true, using: :btree
-
-  create_table "kaui_allowed_users", force: :cascade do |t|
-    t.string   "kb_username", limit: 255
-    t.string   "description", limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "kaui_allowed_users", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin" do |t|
+    t.string "kb_username"
+    t.string "description"
+    t.boolean "is_managed_externally", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id"], name: "id", unique: true
+    t.index ["kb_username"], name: "kaui_allowed_users_idx", unique: true
   end
 
-  add_index "kaui_allowed_users", ["kb_username"], name: "index_kaui_allowed_users_on_kb_username", unique: true, using: :btree
-
-  create_table "kaui_tenants", force: :cascade do |t|
-    t.string   "name",                 limit: 255
-    t.string   "kb_tenant_id",         limit: 255
-    t.string   "api_key",              limit: 255
-    t.string   "encrypted_api_secret", limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "kaui_tenants", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin" do |t|
+    t.string "name", null: false
+    t.string "kb_tenant_id"
+    t.string "api_key"
+    t.string "encrypted_api_secret"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["api_key"], name: "kaui_tenants_kb_api_key", unique: true
+    t.index ["id"], name: "id", unique: true
+    t.index ["kb_tenant_id"], name: "kaui_tenants_kb_tenant_id", unique: true
+    t.index ["name"], name: "kaui_tenants_kb_name", unique: true
   end
 
-  create_table "kaui_users", force: :cascade do |t|
-    t.string   "kb_username",   limit: 255, null: false
-    t.string   "kb_session_id", limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "kaui_users", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin" do |t|
+    t.string "kb_username", null: false
+    t.string "kb_session_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id"], name: "id", unique: true
+    t.index ["kb_username"], name: "index_kaui_users_on_kb_username", unique: true
   end
-
-  add_index "kaui_users", ["kb_username"], name: "index_kaui_users_on_kb_username", unique: true, using: :btree
 
 end

@@ -20,15 +20,12 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
       @roles = roles_for_user(existing_user)
       render :new and return
     else
-      if params[:external] == '1'
-        # Create locally only
-        @allowed_user.save!
-      else
-        roles = params[:roles].split(',')
-
-        # Create locally and in KB
-        @allowed_user.create_in_kb!(params.require(:password), roles, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
-      end
+      @allowed_user.create_in_kb!(@allowed_user.is_managed_externally ? nil : params.require(:password),
+                                  params[:roles].blank? ? [] : params[:roles].split(','),
+                                  current_user.kb_username,
+                                  params[:reason],
+                                  params[:comment],
+                                  options_for_klient)
 
       redirect_to kaui_engine.admin_allowed_user_path(@allowed_user.id), :notice => 'User was successfully configured'
     end
@@ -46,6 +43,7 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
 
   def edit
     @allowed_user = Kaui::AllowedUser.find(params.require(:id))
+    @allowed_user.is_managed_externally = managed_externally?(@allowed_user, current_user.kb_username, options_for_klient)
 
     @roles = roles_for_user(@allowed_user)
   end
@@ -54,9 +52,10 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
     @allowed_user = Kaui::AllowedUser.find(params.require(:id))
 
     @allowed_user.description = params[:allowed_user][:description].presence
+    @allowed_user.is_managed_externally = params[:allowed_user][:is_managed_externally]
 
     @allowed_user.update_in_kb!(params[:password].presence,
-                                params[:roles].presence.split(','),
+                                params[:roles].blank? ? nil : params[:roles].split(','),
                                 current_user.kb_username,
                                 params[:reason],
                                 params[:comment],
@@ -102,6 +101,32 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
   end
 
   private
+
+  # this will check if the user is managed externally.
+  def managed_externally?(allowed_user, current_user = nil, options = {})
+    return true if allowed_user.is_managed_externally
+    # does the user have roles?
+    user_role = Kaui::UserRole.find_roles_by_username(allowed_user.kb_username, options)
+
+    # maybe the user does not have a role yet; check if the user is not managed by Kill Bill JDBC Realm, trying to add role
+    if user_role.blank?
+      begin
+        user = KillBillClient::Model::UserRoles.new
+        user.username = allowed_user.kb_username
+
+        user.roles = ['kaui_user']
+        user.update(current_user, nil, nil, options)
+
+        # reset it if it was ok
+        user.roles = []
+        user.update(current_user, nil, nil, options)
+      rescue KillBillClient::API::BadRequest => e
+        return true
+      end
+    end
+
+    return false
+  end
 
   def allowed_user_params
     allowed_user = params.require(:allowed_user)

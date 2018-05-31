@@ -3,8 +3,8 @@
     <div class='form-group'>
       <div class="col-sm-offset-2 col-sm-9">
         <div class="checkbox">
-          <%= label_tag :external do %>
-              <%= check_box_tag :external %>Managed externally (LDAP, Okta, etc.)?
+          <%= label_tag :is_managed_externally do %>
+              <%= f.check_box :is_managed_externally, {}, true, false %>Managed externally (LDAP, Okta, etc.)?
           <% end %>
         </div>
       </div>
@@ -42,15 +42,37 @@
     </div>
 <% end %>
 
+<!-- is the user been edited? -->
+<% if @allowed_user.persisted? %>
+  <div class="footer-notice managed-externally-notice">
+    <div class="modal-footer">
+      <div class="alert alert-warning">
+        <strong>Notice</strong>
+        <p>This user is managed externally (LDAP, Okta, etc.)</p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <%= javascript_tag do %>
-    $('#external').change(function() {
-      if ($('#external').is(":checked")) {
-        $('#password').attr('disabled', true);
-        $('#roles').attr('disabled', true);
-      }
-      else {
-        $('#password').attr('disabled', false);
-        $('#roles').attr('disabled', false);
-      }
+    $(document).ready(function() {
+        $('#allowed_user_is_managed_externally').change(function() {
+            is_managed_externally();
+        });
+
+        function is_managed_externally() {
+            if ($('#allowed_user_is_managed_externally').is(":checked")) {
+                $('#password').attr('disabled', true);
+                $('#roles').attr('disabled', true);
+                $('.managed-externally-notice').show();
+            }
+            else {
+                $('#password').attr('disabled', false);
+                $('#roles').attr('disabled', false);
+                $('.managed-externally-notice').hide();
+            }
+        }
+
+        is_managed_externally();
     });
 <% end %>

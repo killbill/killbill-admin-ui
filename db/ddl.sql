@@ -26,6 +26,7 @@ CREATE TABLE kaui_allowed_users (
   id serial unique,
   kb_username varchar(255) DEFAULT NULL,
   description varchar(255) DEFAULT NULL,
+  is_managed_externally TINYINT(1) DEFAULT 0,
   created_at datetime NOT NULL,
   updated_at datetime NOT NULL,
   PRIMARY KEY (id)
