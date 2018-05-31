@@ -233,7 +233,7 @@ class Kaui::AccountsController < Kaui::EngineController
   def pay_all_invoices
     payment = Kaui::InvoicePayment.new(:account_id => params.require(:account_id))
 
-    payment.bulk_create(params[:is_external_payment] == 'true', current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    payment.bulk_create(params[:is_external_payment] == 'true', nil, nil, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
 
     redirect_to account_path(payment.account_id), :notice => 'Successfully triggered a payment for all unpaid invoices'
   end
