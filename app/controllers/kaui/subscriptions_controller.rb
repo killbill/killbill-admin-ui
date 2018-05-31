@@ -73,6 +73,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
                              params[:comment],
                              requested_date,
                              billing_policy,
+                             nil,
                              wait_for_completion,
                              options_for_klient)
 
