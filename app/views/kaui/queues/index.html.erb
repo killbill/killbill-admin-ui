@@ -37,7 +37,7 @@
                   <td><%= truncate_millis(bus_event['createdDate']) %></td>
                   <td><%= truncate_class_name(bus_event['className']) %></td>
                   <td><%= "<pre>#{JSON.pretty_generate(bus_event['event'])}</pre>".html_safe %></td>
-                  <td><%= truncate_uuid(bus_event['userToken']) %></td>
+                  <td><%= object_id_popover(bus_event['userToken'], 'left') %></td>
                   <% if @account_id.blank? %>
                       <td><%= bus_event['searchKey1'] %></td>
                   <% end %>
@@ -79,7 +79,7 @@
                     <%= notification['queueName'] %>
                   </td>
                   <td><%= "<pre>#{JSON.pretty_generate(notification['event'])}</pre>".html_safe %></td>
-                  <td><%= truncate_uuid(notification['userToken']) %></td>
+                  <td><%= object_id_popover(notification['userToken'], 'left') %></td>
                   <% if @account_id.blank? %>
                       <td><%= notification['searchKey1'] %></td>
                   <% end %>

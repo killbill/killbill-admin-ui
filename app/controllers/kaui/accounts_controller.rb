@@ -46,7 +46,7 @@ class Kaui::AccountsController < Kaui::EngineController
       [
           child_label,
           view_context.link_to(account.name || '(not set)', view_context.url_for(:action => :show, :account_id => account.account_id)),
-          view_context.truncate_uuid(account.account_id),
+          view_context.object_id_popover(account.account_id),
           account.external_key,
           view_context.humanized_money_with_symbol(account.balance_to_money),
           account.city,
