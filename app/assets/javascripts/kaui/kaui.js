@@ -198,14 +198,26 @@ jQuery(document).ready(function ($) {
         if (jqxhr.status == 0) {
             return;
         }
-        
-        var message = 'Request Status: ' + jqxhr.status + ' Status Text: ' + jqxhr.statusText + ' ' + jqxhr.responseText;
+
+        var message = 'Request Status: ' + jqxhr.status + ', Status Text: ' + jqxhr.statusText + ': ' + getMessageFromResponse(jqxhr);
 
         if (jqxhr.status == 200) {
             message = thrownError.message == undefined ? thrownError : thrownError.message;
         }
         ajaxErrorAlert(message);
     });
+
+    function getMessageFromResponse(jqxhr) {
+        if (isBlank(jqxhr.responseJSON)) {
+            return jqxhr.responseText;
+        }
+
+        if (!isBlank(jqxhr.responseJSON.error)) {
+            return jqxhr.responseJSON.error;
+        }
+
+        return jqxhr.responseText;
+    }
 
     // this will prevent DataTable to show an alert message box when an error occurs
     $.fn.dataTable.ext.errMode = 'none';
