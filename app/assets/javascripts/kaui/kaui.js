@@ -356,4 +356,15 @@ function setObjectIdPopover(){
 
     });
 
+    // close all object id popover on modal show
+    $(".modal").on('show.bs.modal',function(e){
+        $(".object-id-popover").each(function(idx, e) {
+            $(this).popover('destroy');
+        });
+    });
+
+    // check if object id must be restored
+    $(".modal").on('hide.bs.modal',function(e){
+        setObjectIdPopover();
+    });
 }
