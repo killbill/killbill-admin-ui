@@ -39,17 +39,19 @@
 
       <div class="tag-bar tag-bar-breathe">
 
-        <div class="tag-select" onclick="void(0)">
-          <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
+        <% unless @available_tags.blank? %>
+          <div class="tag-select" onclick="void(0)">
+            <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
 
-          <div class="tag-select-box">
-            <strong>Tag As:</strong>
-            <%= render :partial => 'kaui/account_tags/form_bar',
-                       :locals => {:account_id => @account.account_id,
-                                   :tag_names => @tags.map { |tag| tag.tag_definition_name },
-                                   :available_tags => @available_tags} %>
+            <div class="tag-select-box">
+              <strong>Tag As:</strong>
+              <%= render :partial => 'kaui/account_tags/form_bar',
+                         :locals => {:account_id => @account.account_id,
+                                     :tag_names => @tags.map { |tag| tag.tag_definition_name },
+                                     :available_tags => @available_tags} %>
+            </div>
           </div>
-        </div>
+        <% end %>
 
         <%= render :partial => 'kaui/custom_fields/list_bar',
                    :locals => {:custom_fields => @custom_fields} %>
