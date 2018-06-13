@@ -73,7 +73,7 @@
               <tr>
                 <th>Bill cycle day</th>
                 <td>
-                  <% if @account.bill_cycle_day_local %>
+                  <% if @account.bill_cycle_day_local > 0  %>
                       <span class='label'><%= @account.bill_cycle_day_local %> (user timezone)</span>
                   <% else %>
                       <span class='label'>N/A</span>
