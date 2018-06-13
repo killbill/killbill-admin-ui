@@ -11,7 +11,7 @@ module Kaui
 
     # Create the user locally and in Kill Bill (if needed)
     def create_in_kb!(password, roles = [], user = nil, reason = nil, comment = nil, options = {})
-      # only save locally if is managed externally (ex. LDAP, shiro ext)
+      # only save locally if is managed externally (ex. LDAP, ext)
       save! and return if is_managed_externally
 
       # Create in Kill Bill
@@ -34,7 +34,7 @@ module Kaui
     # Update the user locally and in Kill Bill (if needed)
     def update_in_kb!(password, roles, user = nil, reason = nil, comment = nil, options = {})
 
-      # only save locally if is managed externally (ex. LDAP, shiro ext)
+      # only save locally if is managed externally (ex. LDAP ext)
       save! and return if is_managed_externally
 
       user_role = KillBillClient::Model::UserRoles.new

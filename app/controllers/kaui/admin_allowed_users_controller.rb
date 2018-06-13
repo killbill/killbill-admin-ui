@@ -43,7 +43,7 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
 
   def edit
     @allowed_user = Kaui::AllowedUser.find(params.require(:id))
-    @allowed_user.is_managed_externally = managed_externally?(@allowed_user, current_user.kb_username, options_for_klient)
+    @is_jdbc_managed = jdbc_managed?(@allowed_user, current_user.kb_username, options_for_klient)
 
     @roles = roles_for_user(@allowed_user)
   end
@@ -102,9 +102,9 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
 
   private
 
-  # this will check if the user is managed externally.
-  def managed_externally?(allowed_user, current_user = nil, options = {})
-    return true if allowed_user.is_managed_externally
+  # this will check if the user is managed externally or internally by a shiro config file.
+  def jdbc_managed?(allowed_user, current_user = nil, options = {})
+    return false if allowed_user.is_managed_externally
     # does the user have roles?
     user_role = Kaui::UserRole.find_roles_by_username(allowed_user.kb_username, options)
 
@@ -121,11 +121,11 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
         user.roles = []
         user.update(current_user, nil, nil, options)
       rescue KillBillClient::API::BadRequest => e
-        return true
+        return false
       end
     end
 
-    return false
+    return true
   end
 
   def allowed_user_params

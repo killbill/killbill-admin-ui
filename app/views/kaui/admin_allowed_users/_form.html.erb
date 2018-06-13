@@ -1,10 +1,11 @@
 <% # Unclear why this url/method hack is needed %>
 <%= form_for @allowed_user, :url => @allowed_user.persisted? ? admin_allowed_user_path(@allowed_user.id) : admin_allowed_users_path, :method => @allowed_user.persisted? ? :put : :post, :html => {:class => 'form-horizontal'} do |f| %>
+    <input type="hidden" id="jdbcManaged" value="<%= @is_jdbc_managed %>" />
     <div class='form-group'>
       <div class="col-sm-offset-2 col-sm-9">
         <div class="checkbox">
           <%= label_tag :is_managed_externally do %>
-              <%= f.check_box :is_managed_externally, {}, true, false %>Managed externally (LDAP, Okta, etc.)?
+              <%= f.check_box :is_managed_externally, { :disabled => !@allowed_user.id.blank? }, true, false %>Managed externally (LDAP, Okta, etc.)?
           <% end %>
         </div>
       </div>
@@ -48,7 +49,7 @@
     <div class="modal-footer">
       <div class="alert alert-warning">
         <strong>Notice</strong>
-        <p>This user is managed externally (LDAP, Okta, etc.)</p>
+        <p id="noticeMessage">This user is managed externally (LDAP, Okta, etc.) or via Shiro configuration file.</p>
       </div>
     </div>
   </div>
@@ -56,12 +57,15 @@
 
 <%= javascript_tag do %>
     $(document).ready(function() {
+
         $('#allowed_user_is_managed_externally').change(function() {
-            is_managed_externally();
+            is_jdbc_managed();
         });
 
-        function is_managed_externally() {
-            if ($('#allowed_user_is_managed_externally').is(":checked")) {
+        function is_jdbc_managed() {
+            var isJdbcManaged = isBlank($('#jdbcManaged').val()) || $('#jdbcManaged').val() == 'true';
+
+            if ($('#allowed_user_is_managed_externally').is(":checked") || !isJdbcManaged) {
                 $('#password').attr('disabled', true);
                 $('#roles').attr('disabled', true);
                 $('.managed-externally-notice').show();
@@ -73,6 +77,6 @@
             }
         }
 
-        is_managed_externally();
+        is_jdbc_managed();
     });
 <% end %>
