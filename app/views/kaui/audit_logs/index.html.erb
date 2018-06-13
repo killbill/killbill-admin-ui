@@ -46,7 +46,11 @@
                 } else if ( data[3] == "DELETE" ) {
                     $(row).addClass( 'delete' );
                 }
+            },
+            drawCallback: function() {
+                setObjectIdPopover();
             }
         });
     });
+
 <% end %>

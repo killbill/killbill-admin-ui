@@ -41,6 +41,9 @@ $(document).ready(function() {
     "infoCallback": function( settings, start, end, max, total, pre ) {
 
         return pre.replace('TOTAL',settings.json.data.length);
+    },
+    drawCallback: function() {
+        setObjectIdPopover();
     }
   });
 });

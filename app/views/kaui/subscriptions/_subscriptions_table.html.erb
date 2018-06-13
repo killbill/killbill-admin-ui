@@ -43,7 +43,7 @@
           </td>
         <% end %>
         <td>
-          <span class="subscription-id-popover" data-toggle="popover" data-trigger="hover" title="Subscription ID"  data-content="<%= sub.subscription_id %>">
+          <span id="<%= sub.subscription_id %>-popover" class="object-id-popover" title="Subscription ID" data-id="<%= sub.subscription_id %>">
             <%= humanized_subscription_product_category(sub) %>
           </span>
         </td>
