@@ -191,6 +191,11 @@
             /* Retrieve existing plugin properties for this tenant */
             var existing_props = get_existing_tenant_plugin_properties(plugin_key);
 
+            // try by plugin name for proprietary plugins
+            if (isBlank(existing_props)) {
+                existing_props = get_existing_tenant_plugin_properties(plugin_name);
+            }
+
             var type = plugin_info['type'];
             var props = plugin_info['props']
 
