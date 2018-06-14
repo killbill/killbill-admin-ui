@@ -4,8 +4,8 @@
     <div class='form-group'>
       <div class="col-sm-offset-2 col-sm-9">
         <div class="checkbox">
-          <%= label_tag :is_managed_externally do %>
-              <%= f.check_box :is_managed_externally, { :disabled => !@allowed_user.id.blank? }, true, false %>Managed externally (LDAP, Okta, etc.)?
+          <%= label_tag :external do %>
+                  <%= check_box_tag :external, '1', false, { :disabled => !@allowed_user.id.blank? } %>Managed externally (LDAP, Okta, etc.)?
           <% end %>
         </div>
       </div>
@@ -58,21 +58,23 @@
 <%= javascript_tag do %>
     $(document).ready(function() {
 
-        $('#allowed_user_is_managed_externally').change(function() {
+        $('#external').change(function() {
             is_jdbc_managed();
         });
 
         function is_jdbc_managed() {
             var isJdbcManaged = isBlank($('#jdbcManaged').val()) || $('#jdbcManaged').val() == 'true';
 
-            if ($('#allowed_user_is_managed_externally').is(":checked") || !isJdbcManaged) {
+            if ($('#external').is(":checked") || !isJdbcManaged) {
                 $('#password').attr('disabled', true);
                 $('#roles').attr('disabled', true);
+                $('.help-block').hide();
                 $('.managed-externally-notice').show();
             }
             else {
                 $('#password').attr('disabled', false);
                 $('#roles').attr('disabled', false);
+                $('.help-block').show();
                 $('.managed-externally-notice').hide();
             }
         }

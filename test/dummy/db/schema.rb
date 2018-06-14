@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180530180421) do
+ActiveRecord::Schema.define(version: 20151210120915) do
 
   create_table "kaui_allowed_user_tenants", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin" do |t|
     t.bigint "kaui_allowed_user_id", unsigned: true
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20180530180421) do
   create_table "kaui_allowed_users", id: :bigint, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin" do |t|
     t.string "kb_username"
     t.string "description"
-    t.boolean "is_managed_externally", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["id"], name: "id", unique: true
