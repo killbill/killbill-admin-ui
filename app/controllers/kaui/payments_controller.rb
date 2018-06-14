@@ -52,7 +52,8 @@ class Kaui::PaymentsController < Kaui::EngineController
           payment.total_authed_amount_to_money,
           payment.paid_amount_to_money,
           payment.returned_amount_to_money,
-          payment.transactions.empty? ? nil : payment.transactions[-1].status
+          payment.transactions.empty? ? nil : payment.transactions[-1].status,
+          payment.payment_external_key
       ][column]
     end
 
@@ -63,7 +64,8 @@ class Kaui::PaymentsController < Kaui::EngineController
           view_context.humanized_money_with_symbol(payment.total_authed_amount_to_money),
           view_context.humanized_money_with_symbol(payment.paid_amount_to_money),
           view_context.humanized_money_with_symbol(payment.returned_amount_to_money),
-          payment.transactions.empty? ? nil : view_context.colored_transaction_status(payment.transactions[-1].status)
+          payment.transactions.empty? ? nil : view_context.colored_transaction_status(payment.transactions[-1].status),
+          payment.payment_external_key
       ]
     end
 
