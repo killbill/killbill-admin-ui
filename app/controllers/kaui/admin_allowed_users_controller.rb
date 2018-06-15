@@ -8,12 +8,13 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
 
   def new
     @allowed_user = Kaui::AllowedUser.new
-    @is_jdbc_managed = true
+    @is_killbill_managed = true
 
     @roles = []
   end
 
   def create
+    @is_killbill_managed = nil
     @allowed_user = Kaui::AllowedUser.new(allowed_user_params)
 
     existing_user = Kaui::AllowedUser.find_by_kb_username(@allowed_user.kb_username)
@@ -50,7 +51,7 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
 
   def edit
     @allowed_user = Kaui::AllowedUser.find(params.require(:id))
-    @is_jdbc_managed = jdbc_managed?(@allowed_user, options_for_klient)
+    @is_killbill_managed = killbill_managed?(@allowed_user, options_for_klient)
 
     @roles = roles_for_user(@allowed_user)
   end
@@ -108,8 +109,8 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
 
   private
 
-  # this will check if the user is managed externally or internally by a shiro config file.
-  def jdbc_managed?(allowed_user, options = {})
+  # this will check if the user is managed by killbill (not managed externally or internally by a shiro config file).
+  def killbill_managed?(allowed_user, options = {})
     begin
       Kaui::UserRole.find_roles_by_username(allowed_user.kb_username, options)
     rescue KillBillClient::API::NotFound => e

@@ -1,6 +1,6 @@
 <% # Unclear why this url/method hack is needed %>
 <%= form_for @allowed_user, :url => @allowed_user.persisted? ? admin_allowed_user_path(@allowed_user.id) : admin_allowed_users_path, :method => @allowed_user.persisted? ? :put : :post, :html => {:class => 'form-horizontal'} do |f| %>
-    <input type="hidden" id="jdbcManaged" value="<%= @is_jdbc_managed %>" />
+    <input type="hidden" id="killbillManaged" value="<%= @is_killbill_managed %>" />
     <div class='form-group'>
       <div class="col-sm-offset-2 col-sm-9">
         <div class="checkbox">
@@ -59,13 +59,13 @@
     $(document).ready(function() {
 
         $('#external').change(function() {
-            is_jdbc_managed();
+            is_killbill_managed();
         });
 
-        function is_jdbc_managed() {
-            var isJdbcManaged = isBlank($('#jdbcManaged').val()) || $('#jdbcManaged').val() == 'true';
+        function is_killbill_managed() {
+            var isKillbillManaged = isBlank($('#killbillManaged').val()) || $('#killbillManaged').val() == 'true';
 
-            if ($('#external').is(":checked") || !isJdbcManaged) {
+            if ($('#external').is(":checked") || !isKillbillManaged) {
                 $('#password').attr('disabled', true);
                 $('#roles').attr('disabled', true);
                 $('.help-block').hide();
@@ -79,6 +79,6 @@
             }
         }
 
-        is_jdbc_managed();
+        is_killbill_managed();
     });
 <% end %>
