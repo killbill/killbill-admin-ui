@@ -10,10 +10,10 @@ module Kaui
 
     test 'should get create local only' do
       parameters = {
-          :allowed_user => {:kb_username => 'Albator', :description => 'My french super hero'},
+          :allowed_user => {:kb_username => 'Albator', :description => 'My french super hero' },
+          :external => '1' ,
           :password => 'Albator',
           :roles => nil,
-          :external => '1'
       }
       post :create, parameters
       assert_equal 'User was successfully configured', flash[:notice]
@@ -154,6 +154,59 @@ module Kaui
       assert_response :redirect
       # validate redirect path
       assert response_path.include?(expected_response_path(au.id)), "#{response_path} is expected to contain #{expected_response_path(au.id)}"
+    end
+
+    test 'should detect if a user is managed externally' do
+      allowed_user = {:kb_username => 'Local', :description => 'adding only locally'}
+
+      # adding only locally will make the user managed externally
+      au = Kaui::AllowedUser.new
+      au.kb_username = allowed_user[:kb_username]
+      au.description = allowed_user[:description]
+      au.save!
+
+      # edit the added user and validate that the checkbox of managed externally is disabled
+      get :edit, :id => au.id
+      assert_response :success
+      assert_select 'form input#external' do |checkbox|
+        assert_equal checkbox[0]['disabled'], 'disabled'
+      end
+
+      # create a user that is managed externally
+      parameters = {
+          :allowed_user => {:kb_username => 'LDAP', :description => 'LDAP' },
+          :external => '1'
+      }
+      post :create, parameters
+      assert_equal 'User was successfully configured', flash[:notice]
+      assert_response 302
+      added_au_id = response_path.gsub('/kaui/admin_allowed_users/','')
+
+      # edit the added user and validate that the checkbox of managed externally is disabled
+      get :edit, :id => added_au_id
+      assert_response :success
+      assert_select 'form input#external' do |checkbox|
+        assert_equal checkbox[0]['disabled'], 'disabled'
+      end
+
+      # create a user that is not managed externally
+      parameters = {
+          :allowed_user => {:kb_username => 'JDBC', :description => 'Kill Bill JDBC Realm' },
+          :external => '0',
+          :password => 'jdbc',
+          :roles => nil
+      }
+      post :create, parameters
+      assert_equal 'User was successfully configured', flash[:notice]
+      assert_response 302
+      added_au_id = response_path.gsub('/kaui/admin_allowed_users/','')
+
+      # edit the added user and validate that the password is not disabled
+      get :edit, :id => added_au_id
+      assert_response :success
+      assert_select 'form input#password' do |input|
+        assert_nil input[0]['disabled']
+      end
     end
 
     private

@@ -1,10 +1,11 @@
 <% # Unclear why this url/method hack is needed %>
 <%= form_for @allowed_user, :url => @allowed_user.persisted? ? admin_allowed_user_path(@allowed_user.id) : admin_allowed_users_path, :method => @allowed_user.persisted? ? :put : :post, :html => {:class => 'form-horizontal'} do |f| %>
+    <input type="hidden" id="killbillManaged" value="<%= @is_killbill_managed %>" />
     <div class='form-group'>
       <div class="col-sm-offset-2 col-sm-9">
         <div class="checkbox">
           <%= label_tag :external do %>
-              <%= check_box_tag :external %>Managed externally (LDAP, Okta, etc.)?
+                  <%= check_box_tag :external, '1', false, { :disabled => !@allowed_user.id.blank? } %>Managed externally (LDAP, Okta, etc.)?
           <% end %>
         </div>
       </div>
@@ -42,15 +43,42 @@
     </div>
 <% end %>
 
+<!-- is the user been edited? -->
+<% if @allowed_user.persisted? %>
+  <div class="footer-notice managed-externally-notice">
+    <div class="modal-footer">
+      <div class="alert alert-warning">
+        <strong>Notice</strong>
+        <p id="noticeMessage">This user is managed externally (LDAP, Okta, etc.) or via Shiro configuration file.</p>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <%= javascript_tag do %>
-    $('#external').change(function() {
-      if ($('#external').is(":checked")) {
-        $('#password').attr('disabled', true);
-        $('#roles').attr('disabled', true);
-      }
-      else {
-        $('#password').attr('disabled', false);
-        $('#roles').attr('disabled', false);
-      }
+    $(document).ready(function() {
+
+        $('#external').change(function() {
+            is_killbill_managed();
+        });
+
+        function is_killbill_managed() {
+            var isKillbillManaged = isBlank($('#killbillManaged').val()) || $('#killbillManaged').val() == 'true';
+
+            if ($('#external').is(":checked") || !isKillbillManaged) {
+                $('#password').attr('disabled', true);
+                $('#roles').attr('disabled', true);
+                $('.help-block').hide();
+                $('.managed-externally-notice').show();
+            }
+            else {
+                $('#password').attr('disabled', false);
+                $('#roles').attr('disabled', false);
+                $('.help-block').show();
+                $('.managed-externally-notice').hide();
+            }
+        }
+
+        is_killbill_managed();
     });
 <% end %>
