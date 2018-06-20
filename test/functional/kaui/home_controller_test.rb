@@ -123,10 +123,14 @@ class Kaui::HomeControllerTest < Kaui::FunctionalTestHelper
     assert_redirected_to home_path
     assert_equal "No transaction matches \"#{dummy_uuid}\"", flash[:error]
 
+    # search by EXTERNAL_KEY
+    get :search, :q => query_builder('TRANSACTION',@payment.transactions[0].transaction_external_key, 'EXTERNAL_KEY')
+    assert_redirected_to account_payment_path(@payment.account_id,@payment.payment_id)
+
     # search by EXTERNAL_KEY and fails
     get :search, :q => query_builder('TRANSACTION',dummy_uuid, 'EXTERNAL_KEY')
     assert_redirected_to home_path
-    assert_equal "\"TRANSACTION\": Search by \"EXTERNAL KEY\" is not supported.", flash[:error]
+    assert_equal "No transaction matches \"#{dummy_uuid}\"", flash[:error]
 
     # search by BLANK only first
     get :search, :q => query_builder('TRANSACTION',@payment.transactions[0].transaction_id, nil, '1')

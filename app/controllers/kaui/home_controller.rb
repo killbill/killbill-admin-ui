@@ -58,7 +58,6 @@ class Kaui::HomeController < Kaui::EngineController
     else
       invoice = Kaui::Invoice.list_or_search(search_query, 0, 1, options_for_klient).first
       if invoice.blank?
-        # TODO:: before throwing an error; check by item id (this is a new API that need a call in the ruby client)
         search_error("No invoice matches \"#{search_query}\"")
       elsif true?(fast)
         redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id) and return
@@ -104,8 +103,12 @@ class Kaui::HomeController < Kaui::EngineController
         search_error("No transaction matches \"#{search_query}\"")
       end
     else
-      # TODO:: API already implemented; ruby client call is missing
-      unsupported_external_key_search('TRANSACTION')
+      begin
+        payment = Kaui::Payment.find_by_transaction_external_key(search_query, false, true, 'NONE', options_for_klient)
+        redirect_to account_payment_path(payment.account_id, payment.payment_id) and return
+      rescue KillBillClient::API::NotFound => _
+        search_error("No transaction matches \"#{search_query}\"")
+      end
     end
   end
 
