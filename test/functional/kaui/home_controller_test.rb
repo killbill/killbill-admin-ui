@@ -211,8 +211,8 @@ class Kaui::HomeControllerTest < Kaui::FunctionalTestHelper
     dummy_uuid = SecureRandom.uuid.to_s
     custom_field = create_custom_field
     # search by ID
-    get :search, :q => query_builder('CUSTOM_FIELD',custom_field.custom_field_id, 'ID')
-    assert_redirected_to custom_fields_path(:q => custom_field.custom_field_id, :fast => '0')
+    get :search, :q => query_builder('CUSTOM_FIELD',custom_field[0].custom_field_id, 'ID')
+    assert_redirected_to custom_fields_path(:q => custom_field[0].custom_field_id, :fast => '0')
 
     # search by ID and fails
     get :search, :q => query_builder('CUSTOM_FIELD',dummy_uuid, 'ID')
@@ -220,22 +220,145 @@ class Kaui::HomeControllerTest < Kaui::FunctionalTestHelper
     assert_equal "No custom field matches \"#{dummy_uuid}\"", flash[:error]
 
     # search by EXTERNAL_KEY and fails
-    get :search, :q => query_builder('CUSTOM_FIELD',dummy_uuid, 'EXTERNAL_KEY')
+    get :search, :q => query_builder('CUSTOM_FIELD','test', 'EXTERNAL_KEY')
     assert_redirected_to home_path
     assert_equal "\"CUSTOM FIELD\": Search by \"EXTERNAL KEY\" is not supported.", flash[:error]
 
     # search by BLANK only first
-    get :search, :q => query_builder('CUSTOM_FIELD',credit.credit_id, nil, '1')
-    assert_redirected_to custom_fields_path(:q => custom_field.custom_field_id, :fast => '1')
+    get :search, :q => query_builder('CUSTOM_FIELD','test', nil, '1')
+    assert_redirected_to custom_fields_path(:q => 'test', :fast => '1')
 
     # search by BLANK
-    get :search, :q => query_builder('CUSTOM_FIELD',credit.credit_id)
-    assert_redirected_to custom_fields_path(:q => custom_field.custom_field_id, :fast => '0')
+    get :search, :q => query_builder('CUSTOM_FIELD','test')
+    assert_redirected_to custom_fields_path(:q => 'test', :fast => '0')
 
     # search by BLANK and fails
-    get :search, :q => query_builder('CUSTOM_FIELD',dummy_uuid)
+    get :search, :q => query_builder('CUSTOM_FIELD','test_uui')
     assert_redirected_to home_path
-    assert_equal "No custom field matches \"#{dummy_uuid}\"", flash[:error]
+    assert_equal "No custom field matches \"test_uui\"", flash[:error]
+  end
+
+  test 'should understand invoice payment search queries' do
+    dummy_uuid = SecureRandom.uuid.to_s
+    # search by ID
+    get :search, :q => query_builder('INVOICE_PAYMENT', @payment.payment_id, 'ID')
+    assert_redirected_to account_payment_path(@payment.account_id, @payment.payment_id)
+
+    # search by ID and fails
+    get :search, :q => query_builder('INVOICE_PAYMENT',dummy_uuid, 'ID')
+    assert_redirected_to home_path
+    assert_equal "No invoice payment matches \"#{dummy_uuid}\"", flash[:error]
+
+    # search by EXTERNAL_KEY and fails
+    get :search, :q => query_builder('INVOICE_PAYMENT','test', 'EXTERNAL_KEY')
+    assert_redirected_to home_path
+    assert_equal "\"INVOICE PAYMENT\": Search by \"EXTERNAL KEY\" is not supported.", flash[:error]
+
+    # search by BLANK only first
+    get :search, :q => query_builder('INVOICE_PAYMENT',@payment.payment_id, nil, '1')
+    assert_redirected_to account_payment_path(@payment.account_id, @payment.payment_id)
+
+    # search by BLANK
+    get :search, :q => query_builder('INVOICE_PAYMENT',@payment.payment_id)
+    assert_redirected_to account_payment_path(@payment.account_id, @payment.payment_id)
+
+    # search by BLANK and fails
+    get :search, :q => query_builder('INVOICE_PAYMENT',dummy_uuid)
+    assert_redirected_to home_path
+    assert_equal "No invoice payment matches \"#{dummy_uuid}\"", flash[:error]
+  end
+
+  test 'should understand subscription search queries' do
+    dummy_uuid = SecureRandom.uuid.to_s
+    subscription = @bundle.subscriptions[0]
+    # search by ID
+    get :search, :q => query_builder('SUBSCRIPTION', subscription.subscription_id, 'ID')
+    assert_redirected_to account_bundles_path(subscription.account_id)
+
+    # search by ID and fails
+    get :search, :q => query_builder('SUBSCRIPTION',dummy_uuid, 'ID')
+    assert_redirected_to home_path
+    assert_equal "No subscription matches \"#{dummy_uuid}\"", flash[:error]
+
+    # search by EXTERNAL_KEY and fails
+    get :search, :q => query_builder('SUBSCRIPTION','test', 'EXTERNAL_KEY')
+    assert_redirected_to home_path
+    assert_equal "\"SUBSCRIPTION\": Search by \"EXTERNAL KEY\" is not supported.", flash[:error]
+
+    # search by BLANK only first
+    get :search, :q => query_builder('SUBSCRIPTION',subscription.subscription_id, nil, '1')
+    assert_redirected_to account_bundles_path(subscription.account_id)
+
+    # search by BLANK
+    get :search, :q => query_builder('SUBSCRIPTION',subscription.subscription_id)
+    assert_redirected_to account_bundles_path(subscription.account_id)
+
+    # search by BLANK and fails
+    get :search, :q => query_builder('SUBSCRIPTION',dummy_uuid)
+    assert_redirected_to home_path
+    assert_equal "No subscription matches \"#{dummy_uuid}\"", flash[:error]
+  end
+
+  test 'should understand tag search queries' do
+    dummy_uuid = SecureRandom.uuid.to_s
+    tag = create_tag
+    # search by ID
+    get :search, :q => query_builder('TAG', tag[0].tag_id, 'ID')
+    assert_redirected_to tags_path(:q => tag[0].tag_id, :fast => '0')
+
+    # search by ID and fails
+    get :search, :q => query_builder('TAG',dummy_uuid, 'ID')
+    assert_redirected_to home_path
+    assert_equal "No tag matches \"#{dummy_uuid}\"", flash[:error]
+
+    # search by EXTERNAL_KEY and fails
+    get :search, :q => query_builder('TAG','test', 'EXTERNAL_KEY')
+    assert_redirected_to home_path
+    assert_equal "\"TAG\": Search by \"EXTERNAL KEY\" is not supported.", flash[:error]
+
+    # search by BLANK only first
+    get :search, :q => query_builder('TAG','account', nil, '1')
+    assert_redirected_to tags_path(:q => 'account', :fast => '1')
+
+    # search by BLANK
+    get :search, :q => query_builder('TAG','account')
+    assert_redirected_to tags_path(:q => 'account', :fast => '0')
+
+    # search by BLANK and fails
+    get :search, :q => query_builder('TAG',dummy_uuid)
+    assert_redirected_to home_path
+    assert_equal "No tag matches \"#{dummy_uuid}\"", flash[:error]
+  end
+
+  test 'should understand tag definition search queries' do
+    dummy_uuid = SecureRandom.uuid.to_s
+    tag_definition = create_account_tag_definition
+    # search by ID
+    get :search, :q => query_builder('TAG_DEFINITION', tag_definition.id, 'ID')
+    assert_redirected_to tag_definitions_path(:q => tag_definition.id, :fast => '0')
+
+    # search by ID and fails
+    get :search, :q => query_builder('TAG_DEFINITION',dummy_uuid, 'ID')
+    assert_redirected_to home_path
+    assert_equal "No tag definition matches \"#{dummy_uuid}\"", flash[:error]
+
+    # search by EXTERNAL_KEY and fails
+    get :search, :q => query_builder('TAG_DEFINITION','test', 'EXTERNAL_KEY')
+    assert_redirected_to home_path
+    assert_equal "\"TAG DEFINITION\": Search by \"EXTERNAL KEY\" is not supported.", flash[:error]
+
+    # search by BLANK only first
+    get :search, :q => query_builder('TAG_DEFINITION','account', nil, '1')
+    assert_redirected_to tag_definitions_path(:q => 'account', :fast => '1')
+
+    # search by BLANK
+    get :search, :q => query_builder('TAG_DEFINITION','account')
+    assert_redirected_to tag_definitions_path(:q => 'account', :fast => '0')
+
+    # search by BLANK and fails
+    get :search, :q => query_builder('TAG_DEFINITION',dummy_uuid)
+    assert_redirected_to home_path
+    assert_equal "No tag definition matches \"#{dummy_uuid}\"", flash[:error]
   end
 
   private
@@ -245,8 +368,8 @@ class Kaui::HomeControllerTest < Kaui::FunctionalTestHelper
   end
 
   def create_credit
-    credit = KillBillClient::Model::Credit.new(:invoice_id => nil, :account_id => @account.account_id, :credit_amount => 23.22)
-    credit = credit.create(true, 'kaui', nil, nil, build_options(@tenant, USERNAME, PASSWORD))
+    credit = KillBillClient::Model::Credit.new(:invoice_id => nil, :account_id => @account.account_id, :credit_amount => 2.22)
+    credit = credit.create(true, 'kaui search test', nil, nil, build_options(@tenant, USERNAME, PASSWORD))
     credit
   end
 
@@ -255,6 +378,22 @@ class Kaui::HomeControllerTest < Kaui::FunctionalTestHelper
                                              objectType: 'ACCOUNT',
                                              name: 'test',
                                              value: 'test' })
-    @account.add_custom_field(custom_field, nil, nil, nil, build_options(@tenant, USERNAME, PASSWORD))
+    @account.add_custom_field(custom_field, 'kaui search test', nil, nil, build_options(@tenant, USERNAME, PASSWORD))
+  end
+
+  def create_account_tag_definition(name = 'account', description = 'i am an account')
+
+    tag_definition = Kaui::TagDefinition.new({is_control_tag: false,
+                                              name: name,
+                                              description: description,
+                                              applicable_object_types: ['ACCOUNT']})
+
+    tag_definition.create('kaui search test', nil, nil, build_options(@tenant, USERNAME, PASSWORD))
+  end
+
+  def create_tag
+    tag_definition = create_account_tag_definition
+    tags = [tag_definition.id]
+    Kaui::Tag.set_for_account(@account.account_id, tags, 'kaui search test', nil, nil, build_options(@tenant, USERNAME, PASSWORD ))
   end
 end
