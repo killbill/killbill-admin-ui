@@ -5,10 +5,9 @@
       <%= form_tag search_path, :id => 'home_searchform', :method => 'get' do %>
           <%= text_field_tag :q, @search_query, :id => 'search', :placeholder => 'What are you looking for?' %>
           <%= submit_tag 'Search' %>
-          <div class="checkbox">
-            <%= label_tag :fast do %>
-                <%= check_box_tag :fast %>Fast search (find first exact match)
-            <% end %>
+
+          <div id="advanced">
+            <%= link_to('Advanced search','#advancedSearchModal', data: { toggle: 'modal', target: '#advancedSearchModal' }) %>
           </div>
       <% end %>
 
@@ -21,5 +20,19 @@
       </p>
     </div>
   </div>
-  <span class="duck_help">Accounts are searched by default. Or try the <b>invoice:</b> and <b>payment:</b> and <b>transaction:</b> operators</span>
+  <span class="duck_help">Accounts are searched by default. For complex searches, use <b>Advanced Search</b>.</span>
+
 </div>
+
+<%= render :partial => 'advanced_search_modal' %>
+
+<script language="javascript">
+    $(document).ready(function() {
+        function alignToSearch() {
+            var leftPosition = $('#search').position().left + 25;
+            $('#advanced').css('padding-left',leftPosition);
+        }
+
+        alignToSearch();
+    });
+</script>

@@ -1,0 +1,80 @@
+<div class="modal fade" id="advancedSearchModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content column-block">
+      <div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="modal-title">Advanced search</h1>
+      </div>
+      <div class="modal-body">
+        <%= form_tag search_path, :method => 'get', :class => 'form-horizontal' do %>
+          <input type="hidden" id="advancedQuery" name="q" />
+          <div class="form-group">
+            <%= label_tag :search_for, 'Search for', :class => 'col-sm-4 control-label' %>
+            <div class="col-sm-8">
+              <%= text_field_tag :search_for, nil, :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= label_tag :object_type, 'Object type', :class => 'col-sm-4 control-label' %>
+            <div class="col-sm-8">
+                <%= select_tag :object_type, options_for_select(object_types_for_advanced_search,:ACCOUNT), :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= label_tag :search_by, 'Search by', :class => 'col-sm-4 control-label' %>
+            <div class="col-sm-8">
+              <%= select_tag :search_by, options_for_select(['', 'ID', 'EXTERNAL_KEY'],''), :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="checkbox col-sm-offset-4 col-sm-8">
+              <%= label_tag :fast do %>
+                  <%= check_box_tag :fast %>Fast search (find first exact match)
+              <% end %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-8">
+              <%= submit_tag 'Search', :class => 'btn btn-danger' %>
+            </div>
+          </div>
+
+          <div class="footer-notice">
+            <div class=" modal-footer">
+              <div class="alert alert-info">
+                <strong>Search query</strong>
+                <p id="noticeMessage"></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<%= javascript_tag do %>
+    $(document).ready(function() {
+
+        function refresh_query(){
+            var searchFor = 'FOR:' + ($('#search_for').val() || '');
+            var objectType = 'FIND:' + $('#object_type').val();
+            var searchBy = !isBlank($('#search_by').val()) ? 'BY:' + $('#search_by').val() : '';
+            var fast = $('#fast').prop('checked') ? 'ONLY_FIRST:1' : '';
+            var query = objectType + ' ' + searchBy + ' ' + searchFor + ' ' + fast;
+
+            $('#noticeMessage').text(query);
+            $('#advancedQuery').val(query);
+        }
+
+        $('#search_for').keyup(function(){ refresh_query(); });
+        $('#search_for').change(function(){ refresh_query(); });
+        $('#object_type').change(function(){ refresh_query(); });
+        $('#search_by').change(function(){ refresh_query(); });
+        $('#fast').change(function(){ refresh_query(); });
+
+        refresh_query();
+
+    });
+<% end %>
