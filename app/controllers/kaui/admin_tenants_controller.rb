@@ -445,6 +445,17 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     end
   end
 
+  def switch_tenant
+    tenant = Kaui::Tenant.find_by_kb_tenant_id(params.require(:kb_tenant_id))
+
+    # Select the tenant, see TenantsController
+    session[:kb_tenant_id] = tenant.kb_tenant_id
+    session[:kb_tenant_name] = tenant.name
+    session[:tenant_id] = tenant.id
+
+    redirect_to admin_tenant_path(tenant.id), :notice => "Tenant was switched to #{tenant.name}"
+  end
+
   private
 
 
