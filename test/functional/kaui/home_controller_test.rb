@@ -68,6 +68,10 @@ class Kaui::HomeControllerTest < Kaui::FunctionalTestHelper
     get :search, :q => query_builder('INVOICE',@bundle_invoice.invoice_number, nil, '1')
     assert_redirected_to account_invoice_path(@bundle_invoice.account_id, @bundle_invoice.invoice_id)
 
+    # search by BLANK only first (invoice item)
+    get :search, :q => query_builder('INVOICE',@bundle_invoice.items[0].invoice_item_id, nil, '1')
+    assert_redirected_to account_invoice_path(@bundle_invoice.account_id, @bundle_invoice.invoice_id)
+
     # search by BLANK
     get :search, :q => query_builder('INVOICE',@bundle_invoice.invoice_number)
     assert_redirected_to account_invoices_path(:account_id => @bundle_invoice.account_id, :q => @bundle_invoice.invoice_number, :fast => '0')
