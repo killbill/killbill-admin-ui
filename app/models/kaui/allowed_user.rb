@@ -30,6 +30,7 @@ module Kaui
 
     # Update the user locally and in Kill Bill (if needed)
     def update_in_kb!(password, roles, user = nil, reason = nil, comment = nil, options = {})
+
       user_role = KillBillClient::Model::UserRoles.new
       user_role.username = kb_username
 
