@@ -302,13 +302,13 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
 
     get :switch_tenant, :kb_tenant_id => other_tenant.tenant_id
     assert_redirected_to admin_tenant_path(other_tenant_kaui.id)
-    assert_equal flash[:notice], "Tenant was switched into #{other_tenant_kaui.name}"
+    assert_equal flash[:notice], "Tenant was switched to #{other_tenant_kaui.name}"
 
     # switch back
     tenant_kaui = Kaui::Tenant.find_by_kb_tenant_id(@tenant.tenant_id)
     get :switch_tenant, :kb_tenant_id => @tenant.tenant_id
     assert_redirected_to admin_tenant_path(tenant_kaui.id)
-    assert_equal flash[:notice], "Tenant was switched into #{tenant_kaui.name}"
+    assert_equal flash[:notice], "Tenant was switched to #{tenant_kaui.name}"
   end
 
   private
