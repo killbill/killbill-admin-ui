@@ -13,28 +13,32 @@ class Kaui::HomeController < Kaui::EngineController
 
   def search
     object_type, search_query, search_by, fast = parse_query(params[:q])
-    send("#{object_type}_search", search_query, search_by, fast) unless object_type.nil?
+
+    unless object_type.nil?
+      cached_options_for_klient = options_for_klient
+      send("#{object_type}_search", search_query, search_by, fast, cached_options_for_klient)
+    end
   end
 
   private
 
-  def account_search(search_query, search_by = nil, fast = 0)
+  def account_search(search_query, search_by = nil, fast = 0, options = {})
     if search_by == 'ID'
       begin
-        account = Kaui::Account.find_by_id(search_query, false, false, options_for_klient)
+        account = Kaui::Account.find_by_id(search_query, false, false, options)
         redirect_to account_path(account.account_id) and return
       rescue KillBillClient::API::NotFound => _
         search_error("No account matches \"#{search_query}\"")
       end
     elsif search_by == 'EXTERNAL_KEY'
       begin
-        account = Kaui::Account.find_by_external_key(search_query, false, false, options_for_klient)
+        account = Kaui::Account.find_by_external_key(search_query, false, false, options)
         redirect_to account_path(account.account_id) and return
       rescue KillBillClient::API::NotFound => _
         search_error("No account matches \"#{search_query}\"")
       end
     else
-      account = Kaui::Account.list_or_search(search_query, 0, 1, options_for_klient).first
+      account = Kaui::Account.list_or_search(search_query, 0, 1, options).first
       if account.blank?
         search_error("No account matches \"#{search_query}\"")
       elsif true?(fast)
@@ -45,10 +49,10 @@ class Kaui::HomeController < Kaui::EngineController
     end
   end
 
-  def invoice_search(search_query, search_by = nil, fast = 0)
+  def invoice_search(search_query, search_by = nil, fast = 0, options = {})
     if search_by == 'ID'
       begin
-        invoice = Kaui::Invoice.find_by_id(search_query, false, 'NONE', options_for_klient)
+        invoice = Kaui::Invoice.find_by_id(search_query, false, 'NONE', options)
         redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id) and return
       rescue KillBillClient::API::NotFound => _
         search_error("No invoice matches \"#{search_query}\"")
@@ -56,9 +60,14 @@ class Kaui::HomeController < Kaui::EngineController
     elsif search_by == 'EXTERNAL_KEY'
       unsupported_external_key_search('INVOICE')
     else
-      invoice = Kaui::Invoice.list_or_search(search_query, 0, 1, options_for_klient).first
+      invoice = Kaui::Invoice.list_or_search(search_query, 0, 1, options).first
       if invoice.blank?
-        search_error("No invoice matches \"#{search_query}\"")
+        begin
+          invoice = Kaui::Invoice.find_by_invoice_item_id(search_query, false, false, 'NONE', options)
+          redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id) and return
+        rescue KillBillClient::API::NotFound => _
+          search_error("No invoice matches \"#{search_query}\"")
+        end
       elsif true?(fast)
         redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id) and return
       else
@@ -67,23 +76,23 @@ class Kaui::HomeController < Kaui::EngineController
     end
   end
 
-  def payment_search(search_query, search_by = nil, fast = 0)
+  def payment_search(search_query, search_by = nil, fast = 0, options = {})
     if search_by == 'ID'
       begin
-        payment = Kaui::Payment.find_by_id(search_query, false, false, options_for_klient)
+        payment = Kaui::Payment.find_by_id(search_query, false, false, options)
         redirect_to account_payment_path(payment.account_id, payment.payment_id) and return
       rescue KillBillClient::API::NotFound => _
         search_error("No payment matches \"#{search_query}\"")
       end
     elsif search_by == 'EXTERNAL_KEY'
       begin
-        payment = Kaui::Payment.find_by_external_key(search_query, false, false, options_for_klient)
+        payment = Kaui::Payment.find_by_external_key(search_query, false, false, options)
         redirect_to account_payment_path(payment.account_id, payment.payment_id) and return
       rescue KillBillClient::API::NotFound => _
         search_error("No payment matches \"#{search_query}\"")
       end
     else
-      payment = Kaui::Payment.list_or_search(search_query, 0, 1, options_for_klient).first
+      payment = Kaui::Payment.list_or_search(search_query, 0, 1, options).first
       if payment.blank?
         search_error("No payment matches \"#{search_query}\"")
       elsif true?(fast)
@@ -94,17 +103,17 @@ class Kaui::HomeController < Kaui::EngineController
     end
   end
 
-  def transaction_search(search_query, search_by = nil, fast = 0)
+  def transaction_search(search_query, search_by = nil, fast = 0, options = {})
     if search_by.blank? || search_by == 'ID'
       begin
-        payment = Kaui::Payment.find_by_transaction_id(search_query, false, true, options_for_klient)
+        payment = Kaui::Payment.find_by_transaction_id(search_query, false, true, options)
         redirect_to account_payment_path(payment.account_id, payment.payment_id) and return
       rescue KillBillClient::API::NotFound => _
         search_error("No transaction matches \"#{search_query}\"")
       end
     else
       begin
-        payment = Kaui::Payment.find_by_transaction_external_key(search_query, false, true, 'NONE', options_for_klient)
+        payment = Kaui::Payment.find_by_transaction_external_key(search_query, false, true, 'NONE', options)
         redirect_to account_payment_path(payment.account_id, payment.payment_id) and return
       rescue KillBillClient::API::NotFound => _
         search_error("No transaction matches \"#{search_query}\"")
@@ -112,23 +121,23 @@ class Kaui::HomeController < Kaui::EngineController
     end
   end
 
-  def bundle_search(search_query, search_by = nil, fast = 0)
+  def bundle_search(search_query, search_by = nil, fast = 0, options = {})
     if search_by == 'ID'
       begin
-        bundle = Kaui::Bundle.find_by_id(search_query, options_for_klient)
+        bundle = Kaui::Bundle.find_by_id(search_query, options)
         redirect_to kaui_engine.account_bundles_path(bundle.account_id) and return
       rescue KillBillClient::API::NotFound => _
         search_error("No bundle matches \"#{search_query}\"")
       end
     elsif search_by == 'EXTERNAL_KEY'
       begin
-        bundle = Kaui::Bundle.find_by_external_key(search_query, false, options_for_klient)
+        bundle = Kaui::Bundle.find_by_external_key(search_query, false, options)
         redirect_to kaui_engine.account_bundles_path(bundle.account_id) and return
       rescue KillBillClient::API::NotFound => _
         search_error("No bundle matches \"#{search_query}\"")
       end
     else
-      bundle = Kaui::Bundle.list_or_search(search_query, 0, 1, options_for_klient).first
+      bundle = Kaui::Bundle.list_or_search(search_query, 0, 1, options).first
       if bundle.blank?
         search_error("No bundle matches \"#{search_query}\"")
       else
@@ -137,10 +146,10 @@ class Kaui::HomeController < Kaui::EngineController
     end
   end
 
-  def credit_search(search_query, search_by = nil, fast = 0)
+  def credit_search(search_query, search_by = nil, fast = 0, options = {})
     if search_by.blank? || search_by == 'ID'
       begin
-        credit = Kaui::Credit.find_by_id(search_query, options_for_klient)
+        credit = Kaui::Credit.find_by_id(search_query, options)
         redirect_to account_invoice_path(credit.account_id, credit.invoice_id) and return
       rescue KillBillClient::API::NotFound => _
         search_error("No credit matches \"#{search_query}\"")
@@ -150,9 +159,9 @@ class Kaui::HomeController < Kaui::EngineController
     end
   end
 
-  def custom_field_search(search_query, search_by = nil, fast = 0)
+  def custom_field_search(search_query, search_by = nil, fast = 0, options = {})
     if search_by.blank? || search_by == 'ID'
-      custom_field = Kaui::CustomField.list_or_search(search_query, 0, 1, options_for_klient)
+      custom_field = Kaui::CustomField.list_or_search(search_query, 0, 1, options)
       if custom_field.blank?
         search_error("No custom field matches \"#{search_query}\"")
       else
@@ -163,10 +172,10 @@ class Kaui::HomeController < Kaui::EngineController
     end
   end
 
-  def invoice_payment_search(search_query, search_by = nil, fast = 0)
+  def invoice_payment_search(search_query, search_by = nil, fast = 0, options = {})
     if search_by.blank? || search_by == 'ID'
       begin
-        invoice_payment = Kaui::InvoicePayment.find_safely_by_id(search_query, options_for_klient)
+        invoice_payment = Kaui::InvoicePayment.find_safely_by_id(search_query, options)
         redirect_to account_payment_path(invoice_payment.account_id, invoice_payment.payment_id) and return
       rescue KillBillClient::API::NotFound => _
         search_error("No invoice payment matches \"#{search_query}\"")
@@ -176,10 +185,10 @@ class Kaui::HomeController < Kaui::EngineController
     end
   end
 
-  def subscription_search(search_query, search_by = nil, fast = 0)
+  def subscription_search(search_query, search_by = nil, fast = 0, options = {})
     if search_by.blank? || search_by == 'ID'
       begin
-        subscription = Kaui::Subscription.find_by_id(search_query, options_for_klient)
+        subscription = Kaui::Subscription.find_by_id(search_query, options)
         redirect_to account_bundles_path(subscription.account_id) and return
       rescue KillBillClient::API::NotFound => _
         search_error("No subscription matches \"#{search_query}\"")
@@ -189,9 +198,9 @@ class Kaui::HomeController < Kaui::EngineController
     end
   end
 
-  def tag_search(search_query, search_by = nil, fast = 0)
+  def tag_search(search_query, search_by = nil, fast = 0, options = {})
     if search_by.blank? || search_by == 'ID'
-      tag = Kaui::Tag.list_or_search(search_query, 0, 1, options_for_klient)
+      tag = Kaui::Tag.list_or_search(search_query, 0, 1, options)
       if tag.blank?
         search_error("No tag matches \"#{search_query}\"")
       else
@@ -202,10 +211,10 @@ class Kaui::HomeController < Kaui::EngineController
     end
   end
 
-  def tag_definition_search(search_query, search_by = nil, fast = 0)
+  def tag_definition_search(search_query, search_by = nil, fast = 0, options = {})
     if search_by == 'ID'
       begin
-        Kaui::TagDefinition.find_by_id(search_query, 'NONE', options_for_klient)
+        Kaui::TagDefinition.find_by_id(search_query, 'NONE', options)
         redirect_to tag_definitions_path(:q => search_query, :fast => fast) and return
       rescue KillBillClient::API::NotFound => _
         search_error("No tag definition matches \"#{search_query}\"")
@@ -213,10 +222,10 @@ class Kaui::HomeController < Kaui::EngineController
     elsif search_by == 'EXTERNAL_KEY'
       unsupported_external_key_search('TAG DEFINITION')
     else
-      tag_definition = Kaui::TagDefinition.find_by_name(search_query, 'NONE', options_for_klient)
+      tag_definition = Kaui::TagDefinition.find_by_name(search_query, 'NONE', options)
       if tag_definition.blank?
         begin
-          Kaui::TagDefinition.find_by_id(search_query, 'NONE', options_for_klient)
+          Kaui::TagDefinition.find_by_id(search_query, 'NONE', options)
           redirect_to tag_definitions_path(:q => search_query, :fast => fast) and return
         rescue KillBillClient::API::NotFound => _
           search_error("No tag definition matches \"#{search_query}\"")
