@@ -2,7 +2,7 @@
   <th>Parent</th>
   <td>
     <% if account_parent.present? %>
-        <%= link_to account_parent.name, kaui_engine.account_path(@account.parent_account_id) %>
+        <%= link_to account_parent.account_id, kaui_engine.account_path(@account.parent_account_id) %>
         <% if can? :update, Kaui::Account %>
             <%= link_to '&nbsp;<i class="fa fa-times"></i>'.html_safe, kaui_engine.unlink_to_parent_path(@account.account_id), :method => :delete %>
         <% end %>&nbsp;
