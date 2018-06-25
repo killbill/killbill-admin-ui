@@ -287,9 +287,17 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
   test 'should suggest a plugin name' do
     plugin_anchor = "'<a id=\"suggested\" data-plugin-name=\"killbill-paypal-express\" data-plugin-key=\"paypal_express\" href=\"#\">killbill-paypal-express</a>'"
 
-    get :suggest_plugin_name, :plugin_name => 'paypal-express'
-    assert_response :success
-    assert_equal JSON[@response.body]['suggestion'], "Similar plugin already installed: #{plugin_anchor}"
+    # Similar plugin already installed test will run, if there are plugin installed
+    installed_plugins = installed_plugins()
+    unless installed_plugins.blank?
+      installed_plugins.each do |plugin|
+        installed_plugin_anchor = "'<a id=\"suggested\" data-plugin-name=\"#{plugin[:plugin_name]}\" data-plugin-key=\"#{plugin[:plugin_key]}\" href=\"#\">#{plugin[:plugin_name]}</a>'"
+
+        get :suggest_plugin_name, :plugin_name => plugin[:plugin_name][0, plugin[:plugin_name].length - 1]
+        assert_response :success
+        assert_equal JSON[@response.body]['suggestion'], "Similar plugin already installed: #{installed_plugin_anchor}"
+      end
+    end
 
     get :suggest_plugin_name, :plugin_name => 'pypl'
     assert_response :success
@@ -322,5 +330,21 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     assert_redirected_to admin_tenant_path(tenant.id)
     assert_equal 'Tenant was successfully configured', flash[:notice]
     tenant
+  end
+
+  def installed_plugins
+    installed_plugins = []
+    nodes_info = KillBillClient::Model::NodesInfo.nodes_info(build_options(@tenant, USERNAME, PASSWORD)) || []
+    plugins_info = nodes_info.first.plugins_info || []
+    plugins_info.each do |plugin|
+      next if plugin.version.nil?
+      next if installed_plugins.any? { |p| p[:plugin_name].eql?(plugin.plugin_name) }
+      installed_plugins << {
+          plugin_key: Kaui::AdminTenant.rewrite_plugin_key(plugin.plugin_key),
+          plugin_name: plugin.plugin_name
+      }
+    end
+
+    installed_plugins
   end
 end
