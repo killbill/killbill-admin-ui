@@ -32,8 +32,17 @@
             <label class="col-sm-3 control-label toggle-label text-muted">or toggle plugin name input</label>
           </div>
 
+          <div id="plugin_config_properties_header" class="form-group">
+            <label class="col-sm-2 control-label" for="plugin_name">Plugin Properties</label>
+            <label class="control-label switch-half-container" title="toggle raw">
+              <label class="switch-half">
+                <input id="toggle_raw" type="checkbox">
+                <span class="slider round"></span>
+              </label>
+            </label>
+          </div>
           <!-- Anchor DIV that gets thrown away when switching plugins -->
-          <div id="plugin_config_properties" plugin_name="" class="col-sm-10">
+          <div id="plugin_config_properties" plugin_name="" class="row">
           </div>
 
           <div class="form-group">
@@ -46,10 +55,11 @@
 <% end %>
 
 <script id="plugin_config_properties_template" type="text/template">
+  <input type="hidden" id="plugin_key_values" value="{{data_json}}" />
   {{#plugin_props_with_values}}
   <div class="form-group">
-    <label class="col-sm-2 control-label" for="{{property}}">{{property_label}}</label>
-    <div class="col-sm-4">
+    <label class="col-sm-offset-1 col-sm-2 control-label" for="{{property}}">{{property_label}}</label>
+    <div class="col-sm-6">
       {{#is_raw_config}}
         <textarea name="plugin_properties[raw_config]" id="raw_config" rows="10" class="form-control">{{value}}</textarea>
       {{/is_raw_config}}
@@ -75,6 +85,7 @@
 <%= javascript_tag do %>
     $(document).ready(function() {
         $(".spinner").hide();
+        $('#plugin_config_properties_header').hide();
 
         $('#entered_plugin_name').toggle();
         $('#toggle_input').on('change', function() {
@@ -88,7 +99,29 @@
             $('#select_plugin_name').val('');
             $('#plugin_config_properties').attr('plugin_name', '');
             $('#plugin_config_properties').empty();
+            $('#plugin_config_properties_header').hide();
             $(".plugin-suggestion").html('');
+        });
+
+        $("#toggle_raw").on('change', function(e) {
+            if (isBlank($('#plugin_key_values').val())) {
+                return;
+            }
+
+            var plugin_key_values = JSON.parse($('#plugin_key_values').val());
+            if ($("#toggle_raw").prop("checked")) {
+                var raw = [];
+                raw.push({ is_raw_config: true, property: "raw_config", property_label: "Raw Config", value: ''});
+                for ( var i = 0; i < plugin_key_values.length ; i++ ) {
+                    raw[0].value += plugin_key_values[i].property + '=' + plugin_key_values[i].value;
+                    if (i < plugin_key_values.length - 1) {
+                        raw[0].value += "\n";
+                    }
+                }
+                render_plugin_key_values(raw, plugin_key_values);
+            } else {
+                render_plugin_key_values(plugin_key_values, plugin_key_values);
+            }
         });
 
         $('#select_plugin_name').on('change', function(e) {
@@ -101,7 +134,7 @@
                 $("#plugin_key").val(plugin_key);
                 $("#plugin_type").val(selectedOption[0].dataset['pluginType']);
                 $('#plugin_config_properties').attr('plugin_name', '');
-
+                $('#plugin_config_properties_header').hide();
                 add_properties_for_plugin(plugin_key, plugin_name);
             }
         });
@@ -135,7 +168,7 @@
                     var el_props = el_parts[1];
                     if (el_plugin_name === entered_plugin_name) {
                         if (el_props.split('=')[0] == 'raw_config') {
-                            res['raw_config'] = el_props.substr(11);
+                            res['raw_config'] = el_props.replace("raw_config=", "");
                         } else {
                             $.map(el_props.split('|'), function(el) {
                                 var parts = el.split('=');
@@ -199,11 +232,17 @@
             var type = plugin_info['type'];
             var props = plugin_info['props']
 
+            if (isBlank(type)) {
+                $(".switch-half-container").hide();
+            } else {
+                $(".switch-half-container").show();
+            }
+
             $('#plugin_type').val(type);
             /* Prune the tree to restart from scratch */
+            $('#plugin_config_properties_header').show();
             $('#plugin_config_properties').empty();
-            $('#plugin_config_properties').append('<label class="col-sm-2 control-label" for="plugin_name">Plugin Properties</label>');
-            $('#plugin_config_properties').append('<div id="plugin_config_properties_anchor" class="col-sm-offset-2 col-sm-10">');
+            $('#plugin_config_properties').append('<div id="plugin_config_properties_anchor" class="col-sm-12"></div>');
 
             var merged_props_with_values = existing_props;
             if (props != undefined) {
@@ -241,8 +280,13 @@
                 plugin_props_with_values.push({ property_label: format_label(p), property: p, value: v, is_raw_config: p == 'raw_config'});
             });
 
+            render_plugin_key_values(plugin_props_with_values, plugin_props_with_values);
+        }
+
+        function render_plugin_key_values(plugin_props_with_values, original) {
             var template = $("#plugin_config_properties_template").html();
-            var plugin_props_with_values_html = Mustache.render( template , { plugin_props_with_values: plugin_props_with_values});
+            var plugin_props_with_values_html = Mustache.render( template ,{ plugin_props_with_values: plugin_props_with_values,
+                                                                             data_json: JSON.stringify(original)});
             $("#plugin_config_properties_anchor").html(plugin_props_with_values_html);
         }
 

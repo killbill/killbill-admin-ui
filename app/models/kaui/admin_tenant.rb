@@ -111,6 +111,7 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
       return nil unless props.present?
       if plugin_type == 'ruby'
         require 'yaml'
+        props = reformat_plugin_config(plugin_type, props)
         hsh = {}
         hsh[plugin_key.to_sym] = {}
         props.each do |k,v|
@@ -119,6 +120,7 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
         hsh[plugin_key.to_sym]
         hsh.to_yaml
       elsif plugin_type == 'java'
+        props = reformat_plugin_config(plugin_type, props)
         res = ""
         props.each do |k, v|
           res = "#{res}#{k.to_s}=#{v.to_s}\n"
@@ -127,6 +129,20 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
       else
         props['raw_config']
       end
+    end
+
+    def reformat_plugin_config(plugin_type, props)
+      unless props['raw_config'].blank?
+        new_props = {}
+        props['raw_config'].split("\n").each do |p|
+          line = p.split('=')
+          new_props[line[0]] = line[1].blank? ? '' : line[1].delete("\r")
+        end
+
+        return new_props
+      end
+
+      props
     end
 
     # hack when the plugin name after killbill is not the same as the plugin key, this mainly affects ruby plugin configuration,
@@ -166,7 +182,7 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
       lines = candidate_string.split("\n")
       return false if lines.blank?
 
-      lines.all? { |kv| kv.split('=').count == 2 }
+      lines.all? { |kv| kv.split('=').count >= 1 }
     end
   end
 end
