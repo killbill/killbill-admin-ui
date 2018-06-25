@@ -2,17 +2,15 @@
     <%= f.hidden_field :account_id %>
     <%= f.hidden_field :target_invoice_id %>
 
-    <% if can? :external_payment, Kaui::Payment %>
-        <div class='form-group'>
-          <div class="col-sm-offset-3 col-sm-9">
-            <div class="checkbox">
-              <%= label_tag :external do %>
-                  <%= check_box_tag :external %>External?
-              <% end %>
-            </div>
-          </div>
+    <div class='form-group'>
+      <div class="col-sm-offset-3 col-sm-9">
+        <div class="checkbox">
+          <%= label_tag :external do %>
+              <%= check_box_tag :external %>External?
+          <% end %>
         </div>
-    <% end %>
+      </div>
+    </div>
     <div class="form-group">
       <%= f.label :purchased_amount, 'Amount', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">

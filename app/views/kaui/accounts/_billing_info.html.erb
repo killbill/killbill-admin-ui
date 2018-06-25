@@ -114,11 +114,13 @@
                         <div class="col-sm-3">
                           <input class="form-control" name="target_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
                         </div>
-                        <div style="width: 14.5%; float: left; padding: 0;">
-                          <%= label_tag :dry_run do %>
-                              <%= check_box_tag :dry_run, '1', true %>&nbsp;<small>Dry-run</small>
-                          <% end %>
-                        </div>
+                        <% if can? :dry_run, Kaui::Invoice %>
+                          <div style="width: 14.5%; float: left; padding: 0;">
+                            <%= label_tag :dry_run do %>
+                                <%= check_box_tag :dry_run, '1', true %>&nbsp;<small>Dry-run</small>
+                            <% end %>
+                          </div>
+                        <% end %>
                         <div class="col-xs-1" style="padding: 0;">
                           <%= button_tag '<i class="fa fa-magic"></i>'.html_safe, :class => 'btn btn-xs' %>
                         </div>
