@@ -311,6 +311,28 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     assert_equal flash[:notice], "Tenant was switched to #{tenant_kaui.name}"
   end
 
+  test 'should download a catalog' do
+    effective_date = '2013-02-08T00:00:00+00:00'
+    tenant = create_kaui_tenant
+    post :upload_catalog, :id => tenant.id, :catalog => fixture_file_upload('catalog-v1.xml')
+
+    assert_redirected_to admin_tenant_path(tenant.id)
+    assert_equal 'Catalog was successfully uploaded', flash[:notice]
+
+    get :download_catalog_xml, :effective_date => effective_date, :id => tenant.id
+    assert_response :success
+    assert_equal 'application/xml', @response.header['Content-Type']
+    assert_equal "attachment; filename=\"catalog_#{effective_date}.xml\"", @response.header['Content-Disposition']
+
+    doc = nil
+    assert_nothing_raised { doc = Nokogiri::XML(@response.body) { |config| config.strict } }
+
+    catalog = doc.xpath("//catalog")
+    expected_effective_date = Date.parse(catalog[0].search("effectiveDate").text)
+
+    assert_equal Date.parse(effective_date), expected_effective_date
+  end
+
   private
 
   def create_kaui_tenant

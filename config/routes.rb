@@ -187,6 +187,7 @@ Kaui::Engine.routes.draw do
     match '/catalog_by_effective_date' => 'admin_tenants#catalog_by_effective_date', :via => :get, :as => 'catalog_by_effective_date'
     match '/suggest_plugin_name' => 'admin_tenants#suggest_plugin_name', :via => :get, :as => 'suggest_plugin_name'
     match '/switch' => 'admin_tenants#switch_tenant', :via => :get, :as => 'switch_tenant'
+    match '/:id/download_catalog' => 'admin_tenants#download_catalog_xml', :via => :get, :as => 'download_catalog_xml'
   end
   resources :admin_tenants, :only => [ :index, :new, :create, :show ]
 
