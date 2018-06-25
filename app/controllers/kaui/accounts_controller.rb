@@ -168,7 +168,7 @@ class Kaui::AccountsController < Kaui::EngineController
   def trigger_invoice
     account_id = params.require(:account_id)
     target_date = params[:target_date].presence
-    dry_run = params[:dry_run] == '1'
+    dry_run = params[:dry_run].nil? ? false : params[:dry_run] == '1'
 
     invoice = nil
     begin
