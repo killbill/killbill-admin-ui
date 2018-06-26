@@ -113,7 +113,7 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
   def killbill_managed?(allowed_user, options = {})
     begin
       Kaui::UserRole.find_roles_by_username(allowed_user.kb_username, options)
-    rescue KillBillClient::API::NotFound => e
+    rescue KillBillClient::API::ClientError => _
       return false
     end
 
