@@ -4,11 +4,15 @@
     <h1>Existing Plans
         <% if can? :config_upload, Kaui::AdminTenant %>
             <%= link_to '<i class="fa fa-plus-square"></i>'.html_safe,
-                        kaui_engine.admin_tenant_new_catalog_path(:id => @tenant.id),
+                        admin_tenant_new_catalog_path(:id => @tenant.id),
                         :class => 'btn btn-xs' %>
         <% end %>
+        <%= link_to '<i class="fa fa-arrow-down" aria-hidden="true"></i>'.html_safe,
+                    download_catalog_xml_path(:id => @tenant.id, :effective_date => @latest_version),
+                    :class => 'btn btn-xs', :id => 'download_link' %>
         <% if can?(:delete, Kaui::AdminTenant) %>
-            <%= link_to '<i class="fa fa-times"></i>'.html_safe, kaui_engine.admin_tenant_delete_catalog_path(:id => @tenant.id), :method => :delete %>
+            <%= link_to '<i class="fa fa-times"></i>'.html_safe,
+                        admin_tenant_delete_catalog_path(:id => @tenant.id), :method => :delete, :class => 'btn btn-xs' %>
         <% end %>
         <a class='btn btn-xs' href="javascript:void(0);" onclick="switchXMLConfig();">Enable XML View</a>
     </h1>
@@ -153,7 +157,7 @@
     function fetchCatalog(effectiveDate) {
         if (effectiveDate == '')
             return;
-        
+
         $.ajax(
         {
             url: Routes.kaui_engine_catalog_by_effective_date_path(),
@@ -166,6 +170,10 @@
             success: function(data) {
                 renderCurrencySelect(data);
                 renderCatalog(data);
+
+                //update the download path
+                var download_path = Routes.kaui_engine_download_catalog_xml_path(<%= @tenant.id %>, { 'effective_date': effectiveDate });
+                $('#download_link').attr('href',download_path);
             }
         });
     }

@@ -372,23 +372,15 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def display_catalog_xml
-    current_tenant = safely_find_tenant_by_id(params[:id])
-    effective_date = params.require(:effective_date)
-
-    options = tenant_options_for_client
-    options[:api_key] = current_tenant.api_key
-    options[:api_secret] = current_tenant.api_secret
-
-    response = Kaui::Catalog.get_catalog_xml(effective_date, options) rescue response = {}
-
-    catalog_xml = {}
-    unless response.nil? && response.size > 0
-      catalog_xml = response[0][:xml]
-    end
-
+    catalog_xml = fetch_catalog_xml(params[:id], params.require(:effective_date))
     render xml: catalog_xml
   end
 
+  def download_catalog_xml
+    effective_date = params.require(:effective_date)
+    catalog_xml = fetch_catalog_xml(params[:id], effective_date)
+    send_data catalog_xml, filename: "catalog_#{effective_date}.xml", type: :xml
+  end
 
   def display_overdue_xml
     render xml: params.require(:xml)
@@ -537,5 +529,20 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     weights.sort! { |a,b| b[:worth_weight] <=> a[:worth_weight] } if weights.size > 1
     return nil, weights
+  end
+
+  def fetch_catalog_xml(tenant_id, effective_date)
+    current_tenant = safely_find_tenant_by_id(tenant_id)
+
+    options = tenant_options_for_client
+    options[:api_key] = current_tenant.api_key
+    options[:api_secret] = current_tenant.api_secret
+
+    response = Kaui::Catalog.get_catalog_xml(effective_date, options) rescue response = {}
+
+    catalog_xml = {}
+    catalog_xml = response[0][:xml] unless response.blank?
+
+    catalog_xml
   end
 end
