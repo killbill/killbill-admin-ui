@@ -285,23 +285,23 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
   end
 
   test 'should suggest a plugin name' do
-    plugin_anchor = "'<a id=\"suggested\" data-plugin-name=\"killbill-paypal-express\" data-plugin-key=\"paypal_express\" href=\"#\">killbill-paypal-express</a>'"
+    plugin_anchor = "'<a id=\"suggested\" data-plugin-name=\"killbill-paypal-express\" data-plugin-key=\"paypal_express\" data-plugin-type=\"ruby\" href=\"#\">killbill-paypal-express</a>'"
 
     # Similar plugin already installed test will run, if there are plugin installed
     installed_plugins = installed_plugins()
     unless installed_plugins.blank?
       installed_plugins.each do |plugin|
-        installed_plugin_anchor = "'<a id=\"suggested\" data-plugin-name=\"#{plugin[:plugin_name]}\" data-plugin-key=\"#{plugin[:plugin_key]}\" href=\"#\">#{plugin[:plugin_name]}</a>'"
+        installed_plugin_anchor = "'<a id=\"suggested\" data-plugin-name=\"#{plugin[:plugin_name]}\" data-plugin-key=\"#{plugin[:plugin_key]}\".*href=\"#\">#{plugin[:plugin_name]}</a>'"
 
         get :suggest_plugin_name, :plugin_name => plugin[:plugin_name][0, plugin[:plugin_name].length - 1]
         assert_response :success
-        assert_equal JSON[@response.body]['suggestion'], "Similar plugin already installed: #{installed_plugin_anchor}"
+        assert_match /Similar plugin already installed: #{installed_plugin_anchor}/, JSON[@response.body]['suggestion']
       end
     end
 
     get :suggest_plugin_name, :plugin_name => 'pypl'
     assert_response :success
-    assert_equal JSON[@response.body]['suggestion'], "Did you mean #{plugin_anchor}?"
+    assert_equal "Did you mean #{plugin_anchor}?", JSON[@response.body]['suggestion']
   end
 
   test 'should switch tenant' do
