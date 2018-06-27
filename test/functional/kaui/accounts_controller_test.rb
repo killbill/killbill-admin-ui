@@ -124,7 +124,6 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     assert_equal '-06:00', assigns(:account).time_zone
     assert_equal 'AR', assigns(:account).country
     assert assigns(:account).is_migrated
-    assert !assigns(:account).is_notified_for_invoices
   end
 
   test 'should update account' do
