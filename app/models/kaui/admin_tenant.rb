@@ -38,8 +38,6 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
     end
 
     def get_oss_plugin_info(plugin_directory)
-
-
       # Serialize the plugin state for the view:
       #  plugin_name#plugin_type:prop1,prop2,prop3;plugin_name#plugin_type:prop1,prop2,prop3;...
       #
@@ -51,13 +49,11 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
     end
 
     def get_tenant_plugin_config(plugin_directory, options)
-
       require 'yaml'
 
       raw_tenant_config = KillBillClient::Model::Tenant::search_tenant_config("PLUGIN_CONFIG_", options)
 
       tenant_config = raw_tenant_config.inject({}) do |hsh, e|
-
         # Strip prefix '/PLUGIN_CONFIG_'
         killbill_key = e.key.gsub!(/PLUGIN_CONFIG_/, '')
 

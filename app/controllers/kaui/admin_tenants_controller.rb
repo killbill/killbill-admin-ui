@@ -85,7 +85,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     # hack:: replace paypal key with paypal_express, to set configuration and allow the ui to find the right configuration inputs
     plugin_repository = plugin_repository.inject({}) { |p, (k,v)| p[k.to_s.sub(/\Apaypal/, 'paypal_express').to_sym] = v; p }
 
-
     fetch_plugin_config = promise { Kaui::AdminTenant::get_oss_plugin_info(plugin_repository) }
     fetch_tenant_plugin_config = promise { Kaui::AdminTenant::get_tenant_plugin_config(plugin_repository, options) }
 

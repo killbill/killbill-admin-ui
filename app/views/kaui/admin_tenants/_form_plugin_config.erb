@@ -77,7 +77,7 @@
     {{#start_installed}}<optgroup label="Installed">{{/start_installed}}
     {{#end_installed}}</optgroup>>{{/end_installed}}
     <option value="{{plugin_name}}" data-plugin-type="{{plugin_type}}" >
-      {{plugin_key}}
+      {{display_name}}
     </option>
   {{/plugin_repository}}
 </script>
@@ -142,7 +142,7 @@
         populate_plugin_name_options();
         function populate_plugin_name_options(){
             var plugin_repository = JSON.parse($("#plugin_repository").val());
-            for(var idx = 0, size = plugin_repository.length; idx < size; idx++) {
+            for (var idx = 0, size = plugin_repository.length; idx < size; idx++) {
                 if (idx == 0 && plugin_repository[idx].installed) {
                     plugin_repository[idx]['start_installed'] = true;
                 }
@@ -150,6 +150,14 @@
                 if (idx > 0 && !plugin_repository[idx].installed && plugin_repository[idx - 1].installed) {
                     plugin_repository[idx]['end_installed'] = true;
                     break;
+                }
+            }
+
+            for (var idx = 0, size = plugin_repository.length; idx < size; idx++) {
+                if (plugin_repository[idx]['plugin_key']) {
+                  plugin_repository[idx]['display_name'] = plugin_repository[idx]['plugin_key'];
+                } else {
+                  plugin_repository[idx]['display_name'] = plugin_repository[idx]['plugin_name'];
                 }
             }
 
