@@ -58,7 +58,8 @@ module Kaui
           }
         end
 
-        installed_plugins.sort! { |a,b| a[:plugin_key] <=> b[:plugin_key] }
+        # to_s to handle nil
+        installed_plugins.sort! { |a,b| a[:plugin_key].to_s <=> b[:plugin_key].to_s }
       end
 
       def find_plugin_type(plugins, plugin_key_to_search)

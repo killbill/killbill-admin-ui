@@ -359,7 +359,7 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     nodes_info = KillBillClient::Model::NodesInfo.nodes_info(build_options(@tenant, USERNAME, PASSWORD)) || []
     plugins_info = nodes_info.first.plugins_info || []
     plugins_info.each do |plugin|
-      next if plugin.version.nil?
+      next if plugin.plugin_key.nil? || plugin.version.nil?
       next if installed_plugins.any? { |p| p[:plugin_name].eql?(plugin.plugin_name) }
       installed_plugins << {
           plugin_key: Kaui::AdminTenant.rewrite_plugin_key(plugin.plugin_key),

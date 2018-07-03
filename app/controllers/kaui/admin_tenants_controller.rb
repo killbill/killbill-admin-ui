@@ -479,7 +479,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def split_camel_dash_underscore_space(data)
-    data.split(/(?=[A-Z])|(?=[_])|(?=[-])|(?=[ ])/).select {|member| !member.gsub(/[_-]/,'').strip.empty?}.map { |member| member.gsub(/[_-]/,'').strip.downcase }
+    # to_s to handle nil
+    data.to_s.split(/(?=[A-Z])|(?=[_])|(?=[-])|(?=[ ])/).select {|member| !member.gsub(/[_-]/,'').strip.empty?}.map { |member| member.gsub(/[_-]/,'').strip.downcase }
   end
 
   def fuzzy_match(entered_plugin_name, plugin_repository)
