@@ -85,7 +85,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     # hack:: replace paypal key with paypal_express, to set configuration and allow the ui to find the right configuration inputs
     plugin_repository = plugin_repository.inject({}) { |p, (k,v)| p[k.to_s.sub(/\Apaypal/, 'paypal_express').to_sym] = v; p }
 
-
     fetch_plugin_config = promise { Kaui::AdminTenant::get_oss_plugin_info(plugin_repository) }
     fetch_tenant_plugin_config = promise { Kaui::AdminTenant::get_tenant_plugin_config(plugin_repository, options) }
 
@@ -480,7 +479,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def split_camel_dash_underscore_space(data)
-    data.split(/(?=[A-Z])|(?=[_])|(?=[-])|(?=[ ])/).select {|member| !member.gsub(/[_-]/,'').strip.empty?}.map { |member| member.gsub(/[_-]/,'').strip.downcase }
+    # to_s to handle nil
+    data.to_s.split(/(?=[A-Z])|(?=[_])|(?=[-])|(?=[ ])/).select {|member| !member.gsub(/[_-]/,'').strip.empty?}.map { |member| member.gsub(/[_-]/,'').strip.downcase }
   end
 
   def fuzzy_match(entered_plugin_name, plugin_repository)
