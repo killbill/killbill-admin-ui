@@ -98,7 +98,6 @@ module Kaui
       account.state                    = 'Awesome'
       account.country                  = 'LalaLand'
       account.locale                   = 'fr_FR'
-      account.is_notified_for_invoices = false
       account.parent_account_id        = parent_account_id
       account.is_payment_delegated_to_parent = !parent_account_id.nil?
 
