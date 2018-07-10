@@ -34,14 +34,14 @@
               <td><%= state.external_message %></td>
               <td>
                 <ul>
-                  <% if state.block_changes %>
+                  <% if state.is_block_changes %>
                       <li>
-                        <%= 'Block changes:' %><%= state.block_changes %>
+                        <%= 'Block changes:' %><%= state.is_block_changes %>
                       </li>
                   <% end %>
-                  <% if state.disable_entitlement %>
+                  <% if state.is_disable_entitlement %>
                       <li>
-                        <%= 'Cancel subscriptions:' %><%= state.disable_entitlement %>
+                        <%= 'Cancel subscriptions:' %><%= state.is_disable_entitlement %>
                         (policy:<%= state.subscription_cancellation_policy %>)
                       </li>
                   <% end %>

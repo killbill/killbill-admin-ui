@@ -8,14 +8,17 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
 
   def new
     @allowed_user = Kaui::AllowedUser.new
+    @is_killbill_managed = true
+
     @roles = []
   end
 
   def create
+    @is_killbill_managed = nil
     @allowed_user = Kaui::AllowedUser.new(allowed_user_params)
 
     existing_user = Kaui::AllowedUser.find_by_kb_username(@allowed_user.kb_username)
-    if existing_user
+    unless existing_user.blank?
       flash[:error] = "User with name #{@allowed_user.kb_username} already exists!"
       @roles = roles_for_user(existing_user)
       render :new and return
@@ -24,10 +27,12 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
         # Create locally only
         @allowed_user.save!
       else
-        roles = params[:roles].split(',')
-
-        # Create locally and in KB
-        @allowed_user.create_in_kb!(params.require(:password), roles, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+        @allowed_user.create_in_kb!(params.require(:password) ,
+                                  params[:roles].blank? ? [] : params[:roles].split(','),
+                                  current_user.kb_username,
+                                  params[:reason],
+                                  params[:comment],
+                                  options_for_klient)
       end
 
       redirect_to kaui_engine.admin_allowed_user_path(@allowed_user.id), :notice => 'User was successfully configured'
@@ -46,6 +51,7 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
 
   def edit
     @allowed_user = Kaui::AllowedUser.find(params.require(:id))
+    @is_killbill_managed = killbill_managed?(@allowed_user, options_for_klient)
 
     @roles = roles_for_user(@allowed_user)
   end
@@ -56,7 +62,7 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
     @allowed_user.description = params[:allowed_user][:description].presence
 
     @allowed_user.update_in_kb!(params[:password].presence,
-                                params[:roles].presence.split(','),
+                                params[:roles].blank? ? nil : params[:roles].split(','),
                                 current_user.kb_username,
                                 params[:reason],
                                 params[:comment],
@@ -103,6 +109,17 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
 
   private
 
+  # this will check if the user is managed by killbill (not managed externally or internally by a shiro config file).
+  def killbill_managed?(allowed_user, options = {})
+    begin
+      Kaui::UserRole.find_roles_by_username(allowed_user.kb_username, options)
+    rescue KillBillClient::API::ClientError => _
+      return false
+    end
+
+    return true
+  end
+
   def allowed_user_params
     allowed_user = params.require(:allowed_user)
     allowed_user.require(:kb_username)
@@ -110,6 +127,6 @@ class Kaui::AdminAllowedUsersController < Kaui::EngineController
   end
 
   def roles_for_user(allowed_user)
-    Kaui::UserRole.find_roles_by_username(allowed_user.kb_username, options_for_klient).map(&:presence).compact || []
+    Kaui::UserRole.find_roles_by_username(allowed_user.kb_username, options_for_klient).map(&:presence).compact rescue []
   end
 end

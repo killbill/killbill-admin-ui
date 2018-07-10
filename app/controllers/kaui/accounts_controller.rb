@@ -38,14 +38,16 @@ class Kaui::AccountsController < Kaui::EngineController
     end
 
     formatter = lambda do |account|
+      child_label = ''
+      unless account.parent_account_id.nil?
+        child_label = account.parent_account_id.nil? ? '' : view_context.content_tag(:span, 'Child', class: ['label', 'label-info', 'account-child-label'])
+      end
+
       [
-          account.parent_account_id.nil? ? 0 : 1,
-          view_context.link_to(account.name || '(not set)', view_context.url_for(:action => :show, :account_id => account.account_id)),
-          view_context.truncate_uuid(account.account_id),
+          child_label,
+          view_context.link_to(account.account_id, view_context.url_for(:action => :show, :account_id => account.account_id)),
           account.external_key,
-          view_context.humanized_money_with_symbol(account.balance_to_money),
-          account.city,
-          account.country
+          view_context.humanized_money_with_symbol(account.balance_to_money)
       ]
     end
 
@@ -125,7 +127,7 @@ class Kaui::AccountsController < Kaui::EngineController
     @payment_methods = wait(fetch_payment_methods_with_details).map { |pm_f| pm_f.execute }.map { |pm_f| wait(pm_f) }.reject { |pm| pm.nil? }
     @available_tags = wait(fetch_available_tags)
     @children = wait(fetch_children)
-    @account_parent = wait(fetch_parent) unless @account.parent_account_id.nil?
+    @account_parent = @account.parent_account_id.nil? ? nil : wait(fetch_parent)
     @email_notification_configuration = wait(fetch_email_notification_configuration) if is_email_notifications_plugin_available
 
     @last_transaction_by_payment_method_id = {}
@@ -142,10 +144,31 @@ class Kaui::AccountsController < Kaui::EngineController
     params.permit!
   end
 
+  def destroy
+    account_id = params.require(:account_id)
+    options = params[:options] || []
+
+    cancel_subscriptions = options.include?('cancel_all_subscriptions')
+    writeoff_unpaid_invoices = options.include?('writeoff_unpaid_invoices')
+    item_adjust_unpaid_invoices = options.include?('item_adjust_unpaid_invoices')
+    cached_options_for_klient = options_for_klient
+
+    begin
+      @account = Kaui::Account::find_by_id_or_key(account_id, false, false, cached_options_for_klient)
+      @account.close(cancel_subscriptions, writeoff_unpaid_invoices, item_adjust_unpaid_invoices, current_user.kb_username, nil, nil, cached_options_for_klient );
+
+      flash[:notice] = "Account #{account_id} successfully closed"
+    rescue => e
+      flash[:error] = "Error while closing account: #{as_string(e)}"
+    end
+
+    redirect_to account_path(account_id)
+  end
+
   def trigger_invoice
     account_id = params.require(:account_id)
     target_date = params[:target_date].presence
-    dry_run = params[:dry_run] == '1'
+    dry_run = params[:dry_run].nil? ? false : params[:dry_run] == '1'
 
     invoice = nil
     begin
@@ -171,8 +194,10 @@ class Kaui::AccountsController < Kaui::EngineController
 
   # Fetched asynchronously, as it takes time. This also helps with enforcing permissions.
   def next_invoice_date
-    next_invoice = Kaui::Invoice.trigger_invoice_dry_run(params.require(:account_id), nil, true, options_for_klient)
-    render :json => next_invoice ? next_invoice.target_date.to_json : nil
+    json_response do
+      next_invoice = Kaui::Invoice.trigger_invoice_dry_run(params.require(:account_id), nil, true, options_for_klient)
+      next_invoice ? next_invoice.target_date.to_json : nil
+    end
   end
 
   def edit
@@ -205,21 +230,22 @@ class Kaui::AccountsController < Kaui::EngineController
   def pay_all_invoices
     payment = Kaui::InvoicePayment.new(:account_id => params.require(:account_id))
 
-    payment.bulk_create(params[:is_external_payment] == 'true', current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    payment.bulk_create(params[:is_external_payment] == 'true', nil, nil, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
 
     redirect_to account_path(payment.account_id), :notice => 'Successfully triggered a payment for all unpaid invoices'
   end
 
   def validate_external_key
-    external_key = params.require(:external_key)
+    json_response do
+      external_key = params.require(:external_key)
 
-    begin
-      account = Kaui::Account::find_by_external_key(external_key, false, false, options_for_klient)
-    rescue KillBillClient::API::NotFound
-      account = nil
+      begin
+        account = Kaui::Account::find_by_external_key(external_key, false, false, options_for_klient)
+      rescue KillBillClient::API::NotFound
+        account = nil
+      end
+      {:is_found => !account.nil?}
     end
-    render json: {:is_found => !account.nil?}
-
   end
 
   def link_to_parent
@@ -283,10 +309,8 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def events_to_consider
-    data = Kenui::EmailNotificationService.get_events_to_consider(options_for_klient)
-
-    respond_to do |format|
-      format.json { render json: { data: data} }
+    json_response do
+      { data: Kenui::EmailNotificationService.get_events_to_consider(options_for_klient) }
     end
   end
 
@@ -297,7 +321,7 @@ class Kaui::AccountsController < Kaui::EngineController
 
       is_available = Kenui::EmailNotificationService.email_notification_plugin_available?(options_for_klient).first
       return is_available, is_available ? nil : error_message
-    rescue => e
+    rescue
       return false, error_message
     end
 

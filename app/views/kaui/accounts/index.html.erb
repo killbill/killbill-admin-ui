@@ -12,12 +12,9 @@
       <thead>
       <tr>
         <th></th>
-        <th>Name</th>
         <th>ID</th>
         <th>External key</th>
         <th>Balance</th>
-        <th>City</th>
-        <th>Country</th>
       </tr>
       </thead>
       <tbody>
@@ -49,20 +46,16 @@ $(document).ready(function() {
     "serverSide": true,
     "search": {"search": "<%= @search_query %>"},
     "ajax": "<%= accounts_pagination_path(:ordering => @ordering, :format => :json) %>",
-    "rowCallback": function( row, data, index ) {
-      if ( data[0] == 1 ) {
-        $('td:eq(0)', row).html( '<span class="label label-info account-child-label">Child</span>' );
-      }else{
-        $('td:eq(0)', row).html('')
-      }
-    },
     "columnDefs": [
     { "orderable": false, "targets": 0, "createdCell": function (td, cellData, rowData, row, col) {
         $(td).css('padding-left', '20px');
         $(td).css('width', '60px');
 
     } }
-    ]
+    ],
+    drawCallback: function() {
+        setObjectIdPopover();
+    }
   });
 
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->

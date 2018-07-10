@@ -38,6 +38,7 @@ Kaui::Engine.routes.draw do
       match '/unlink_to_parent' => 'accounts#unlink_to_parent', :via => :delete, :as => 'unlink_to_parent'
 
       scope '/account_tags' do
+        match '/' => 'account_tags#index', :via => :get, :as => 'account_tags'
         match '/edit' => 'account_tags#edit', :via => :get, :as => 'edit_account_tags'
         match '/edit' => 'account_tags#update', :via => :post, :as => 'update_account_tags'
       end
@@ -48,13 +49,19 @@ Kaui::Engine.routes.draw do
       scope '/timeline' do
         match '/' => 'account_timelines#show', :via => :get, :as => 'account_timeline'
       end
+      scope '/custom_fields' do
+        match '/' => 'account_custom_fields#index', :via => :get, :as => 'account_custom_fields'
+      end
       scope '/account_children' do
         match '/' => 'account_children#index', :via => :get, :as => 'account_children'
         match '/pagination' => 'account_children#pagination', :via => :get, :as => 'account_children_pagination'
       end
+      scope '/audit_logs' do
+        match '/history' => 'audit_logs#history', :via => :get, :as => 'audit_logs_history'
+      end
     end
   end
-  resources :accounts, :only => [ :index, :new, :create, :edit, :update, :show ], :param => :account_id do
+  resources :accounts, :only => [ :index, :new, :create, :edit, :update, :show, :destroy ], :param => :account_id do
     member do
       put :set_default_payment_method
       delete :delete_payment_method
@@ -74,6 +81,7 @@ Kaui::Engine.routes.draw do
     resources :refunds, :only => [:new, :create]
     resources :transactions, :only => [:new, :create]
     resources :queues, :only => [:index]
+    resources :audit_logs, :only => [:index]
   end
 
   scope '/payment_methods' do
@@ -89,6 +97,9 @@ Kaui::Engine.routes.draw do
   end
   resources :invoices, :only => [ :index ]
 
+  scope '/invoice_items' do
+    match '/:id/tags' => 'invoice_items#update_tags', :via => :post, :as => 'update_invoice_items_tags'
+  end
   resources :invoice_items, :only => [:update, :destroy]
 
   scope '/payments' do
@@ -155,7 +166,6 @@ Kaui::Engine.routes.draw do
     match '/clock' => 'admin#set_clock', :via => :put, :as => 'admin_set_clock'
   end
 
-  resources :admin_tenants, :only => [ :index, :new, :create, :show ]
   scope '/admin_tenants' do
     match '/:id/new_catalog' => 'admin_tenants#new_catalog', :via => :get, :as => 'admin_tenant_new_catalog'
     match '/:id/delete_catalog' => 'admin_tenants#delete_catalog', :via => :delete, :as => 'admin_tenant_delete_catalog'
@@ -172,7 +182,14 @@ Kaui::Engine.routes.draw do
     match '/upload_catalog_translation' => 'admin_tenants#upload_catalog_translation', :via => :post, :as => 'admin_tenant_upload_catalog_translation'
     match '/upload_plugin_config' => 'admin_tenants#upload_plugin_config', :via => :post, :as => 'admin_tenant_upload_plugin_config'
     match '/remove_allowed_user' => 'admin_tenants#remove_allowed_user', :via => :delete, :as => 'remove_allowed_user'
+    match '/add_allowed_user' => 'admin_tenants#add_allowed_user', :via => :put, :as => 'add_allowed_user'
+    match '/allowed_users' => 'admin_tenants#allowed_users', :via => :get, :as => 'admin_tenant_allowed_users'
+    match '/catalog_by_effective_date' => 'admin_tenants#catalog_by_effective_date', :via => :get, :as => 'catalog_by_effective_date'
+    match '/suggest_plugin_name' => 'admin_tenants#suggest_plugin_name', :via => :get, :as => 'suggest_plugin_name'
+    match '/switch' => 'admin_tenants#switch_tenant', :via => :get, :as => 'switch_tenant'
+    match '/:id/download_catalog' => 'admin_tenants#download_catalog_xml', :via => :get, :as => 'download_catalog_xml'
   end
+  resources :admin_tenants, :only => [ :index, :new, :create, :show ]
 
   resources :admin_allowed_users
   scope '/admin_allowed_users' do

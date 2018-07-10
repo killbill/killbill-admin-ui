@@ -39,16 +39,15 @@
                       </div>
                   <% end %>
 
-                  <% if current_user.root? || can?(:view, Kaui::AdminTenant) %>
+                  <% if (current_user.root? && tenant_selected?) %>
                       <div class="tag-select" onclick="void(0)">
                         <span><i class="fa fa-cogs"></i><i class="fa fa-caret-down"></i></span>
 
                         <div class="tag-select-box">
-                          <% if can? :view, Kaui::AdminTenant %>
-                              <%= link_to 'Users', kaui_engine.admin_allowed_users_path %>
-                              <%= link_to 'Tenants', kaui_engine.admin_tenants_path %>
-                          <% end %>
-                          <% if current_user.root? %>
+                          <%= link_to 'Users', kaui_engine.admin_allowed_users_path %>
+                          <%= link_to 'Tenants', kaui_engine.admin_tenants_path %>
+
+                          <% if current_user.root? && tenant_selected? %>
                               <%= link_to 'Admin', kaui_engine.admin_path %>
                           <% end %>
                         </div>
@@ -77,10 +76,13 @@
                     </li>
                     <li><%= link_to 'Sign Out', kaui_engine.destroy_user_session_path, :method => :delete %></li>
                 <% else %>
-                    <li><%= link_to 'Login'.html_safe, kaui_engine.new_user_session_path %></li>
-
                     <% unless Kaui.disable_sign_up_link %>
-                      <li><%= link_to 'Sign-up'.html_safe, kaui_engine.new_user_registration_path %></li>
+                      <% unless current_page?(new_user_session_path)%>
+                          <li><%= link_to 'Login'.html_safe, kaui_engine.new_user_session_path %></li>
+                      <% end %>
+                      <% unless current_page?(new_user_registration_path)%>
+                        <li><%= link_to 'Sign-up'.html_safe, kaui_engine.new_user_registration_path %></li>
+                      <% end %>
                     <% end %>
                 <% end %>
               </ul>

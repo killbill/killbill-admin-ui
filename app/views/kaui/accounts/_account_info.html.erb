@@ -1,4 +1,4 @@
-<div class="col-md-12">
+<div class="col-md-6 col-xs-12">
 
   <div class="column-block">
 
@@ -12,6 +12,11 @@
           <%= link_to "Children (#{@children.size})",
                       kaui_engine.account_children_path(@account.account_id),
                       :class => 'btn btn-xs' %>
+      <% end %>
+      <% if can_close_account? && !account_closed? %>
+        <%= link_to('<i class="fa fa-times"></i>Close'.html_safe, '#closeAccountModal',
+                    :class => 'btn btn-xs text-danger',
+                    data: {toggle: 'modal', name: @account.name || '(not set)', account_id: @account.account_id}) %>
       <% end %>
       <% unless @account.parent_account_id.nil? %>
           <span class="label label-info account-child-label">Child</span>
@@ -34,106 +39,60 @@
 
       <div class="tag-bar tag-bar-breathe">
 
-        <div class="tag-select" onclick="void(0)">
-          <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
+        <% unless @available_tags.blank? %>
+          <div class="tag-select" onclick="void(0)">
+            <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
 
-          <div class="tag-select-box">
-            <strong>Tag As:</strong>
-            <%= render :partial => 'kaui/account_tags/form_bar',
-                       :locals => {:account_id => @account.account_id,
-                                   :tag_names => @tags.map { |tag| tag.tag_definition_name },
-                                   :available_tags => @available_tags} %>
+            <div class="tag-select-box">
+              <strong>Tag As:</strong>
+              <%= render :partial => 'kaui/account_tags/form_bar',
+                         :locals => {:account_id => @account.account_id,
+                                     :tag_names => @tags.map { |tag| tag.tag_definition_name },
+                                     :available_tags => @available_tags} %>
+            </div>
           </div>
-        </div>
+        <% end %>
 
         <%= render :partial => 'kaui/custom_fields/list_bar',
                    :locals => {:custom_fields => @custom_fields} %>
       </div>
 
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-sm-12">
           <div class="fix-position">
-            <table class="transparent">
-              <tr>
-                <th>Name</th>
-                <td><%= @account.name %></td>
-              </tr>
-              <tr>
-                <th>ID</th>
-                <td><%= @account.account_id %></td>
-              </tr>
-              <tr>
-                <th>External Key</th>
-                <td><%= @account.external_key %></td>
-              </tr>
-              <tr>
-                <th>Currency</th>
-                <td><%= @account.currency %></td>
-              </tr>
-              <tr>
-                  <th>Timezone</th>
-                  <td><%= @account.time_zone %></td>
-              </tr>
-              <tr>
-                  <th>Locale</th>
-                  <td><%= @account.locale %></td>
-              </tr>
-              <tr>
-                  <th>Notes</th>
-                  <% if @account.notes %>
-                      <td><textarea rows="3" class="form-control" readonly="true"><%= @account.notes %></textarea></td>
-                  <% else %>
-                      <td>N/A</td>
-                  <% end %>
-              </tr>
-              <%= render :partial => 'parent',
-                         :locals => {:account_parent => @account_parent} %>
-            </table>
-          </div>
+          <table class="transparent">
+            <tr>
+              <th>ID</th>
+              <td><%= @account.account_id %></td>
+            </tr>
+            <tr>
+              <th>External Key</th>
+              <td><%= @account.external_key %></td>
+            </tr>
+            <tr>
+              <th>Currency</th>
+              <td><%= @account.currency %></td>
+            </tr>
+            <tr>
+                <th>Timezone</th>
+                <td><%= @account.time_zone %></td>
+            </tr>
+            <tr>
+                <th>Locale</th>
+                <td><%= @account.locale %></td>
+            </tr>
+            <tr>
+                <th>Notes</th>
+                <% if @account.notes %>
+                    <td><textarea rows="3" class="form-control" readonly="true"><%= @account.notes %></textarea></td>
+                <% else %>
+                    <td>N/A</td>
+                <% end %>
+            </tr>
+            <%= render :partial => 'parent',
+                       :locals => {:account_parent => @account_parent} %>
+          </table>
         </div>
-        <div class="col-md-5 col-md-offset-1">
-          <div class="fix-position">
-            <table class="transparent">
-              <tr>
-                <th>Address1</th>
-                <td><%= @account.address1 %></td>
-              </tr>
-              <tr>
-                <th>Address2</th>
-                <td><%= @account.address2 %></td>
-              </tr>
-              <tr>
-                <th>City</th>
-                <td><%= @account.city %></td>
-              </tr>
-              <tr>
-                <th>State</th>
-                <td><%= @account.state %></td>
-              </tr>
-              <tr>
-                <th>Country</th>
-                <td><%= @account.country %></td>
-              </tr>
-              <tr>
-                <th>Postal Code</th>
-                <td><%= @account.postal_code %></td>
-              </tr>
-              <tr>
-                <th>Phone</th>
-                <td><%= @account.phone %></td>
-              </tr>
-              <tr>
-                <th>Company</th>
-                <td><%= @account.company %></td>
-              </tr>
-              <tr>
-                <th>Primary email</th>
-                <td><%= @account.email %></td>
-              </tr>
-              <%= render :partial => 'kaui/account_emails/account_emails_table',
-                         :locals => {:account_emails => @account_emails} %>
-            </table>
-          </div>
         </div>
       </div>
 

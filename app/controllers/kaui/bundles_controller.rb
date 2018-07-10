@@ -29,11 +29,11 @@ class Kaui::BundlesController < Kaui::EngineController
     @available_tags = wait(fetch_available_tags)
     @available_subscription_tags = wait(fetch_available_subscription_tags)
 
-    @base_subscription = {}
+    @subscription = {}
     @bundles.each do |bundle|
       bundle.subscriptions.each do |sub|
-        next unless sub.product_category == 'BASE'
-        @base_subscription[bundle.bundle_id] = sub
+        next if sub.product_category == 'ADD_ON'
+        @subscription[bundle.bundle_id] = sub
         break
       end
     end

@@ -53,7 +53,6 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
          :subscription => {
              :account_id => @account.account_id,
              :external_key => SecureRandom.uuid,
-             :product_category => 'BASE'
          },
          :plan_name => 'standard-monthly'
     assert_response 302
@@ -98,7 +97,7 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
 
     post :update, :id => @bundle.subscriptions.first.subscription_id, :plan_name => 'not-exists'
     assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 400: Could not find any plans named 'not-exists'", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Error 400: Could not find a plan matching spec: (plan: 'not-exists', product: 'undefined', billing period: 'undefined', pricelist 'undefined')", flash[:error]
   end
 
   test 'should update' do
@@ -143,7 +142,7 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
     assert_response :success
     assert_equal get_value_from_input_field('subscription_account_id'), @bundle.subscriptions.first.account_id
     assert_equal get_value_from_input_field('subscription_bill_cycle_day_local'), @bundle.subscriptions.first.bill_cycle_day_local.to_s
-    assert_equal get_value_from_input_field('effective_from_date'), @bundle.subscriptions.first.billing_start_date
+    assert_equal get_value_from_input_field('effective_from_date'), Date.parse(Time.now.to_s).to_s
   end
 
   test 'should update bcd' do

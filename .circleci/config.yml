@@ -10,11 +10,11 @@ jobs:
   build-ruby-2.4.2:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.4.0
+      - image: killbill/kbbuild:0.5.0
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
+          key: v4-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
       - run:
           name: Install gem dependencies
           command: |
@@ -26,25 +26,28 @@ jobs:
             - Gemfile.lock
             - .bundle
             - vendor/bundle
-          key: v1-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
+          key: v4-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
 
   test-mysql-ruby-2.4.2:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.4.0
-      - image: killbill/killbill:0.18.16
+      - image: killbill/kbbuild:0.5.0
+      - image: killbill/killbill:0.19.18
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
-        - KILLBILL_CONFIG_DAO_URL=jdbc:mysql://127.0.0.1:3306/killbill
-        - KILLBILL_CONFIG_DAO_USER=root
-        - KILLBILL_CONFIG_DAO_PASSWORD=root
-      - image: killbill/mariadb:0.18
+        - KILLBILL_DAO_URL=jdbc:mysql://127.0.0.1:3306/killbill
+        - KILLBILL_DAO_USER=root
+        - KILLBILL_DAO_PASSWORD=root
+        - KILLBILL_SERVER_TEST_MODE=true
+        - KILLBILL_INVOICE_SANITY_SAFETY_BOUND_ENABLED=false
+        - KILLBILL_INVOICE_MAX_DAILY_NUMBER_OF_ITEMS_SAFETY_BOUND=-1
+      - image: killbill/mariadb:0.19
         environment:
         - MYSQL_ROOT_PASSWORD=root
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
+          key: v4-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
       - run:
           name: Setup DDL
           command: |
@@ -98,20 +101,23 @@ jobs:
   test-postgresql-ruby-2.4.2:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.4.0
-      - image: killbill/killbill:0.18.16
+      - image: killbill/kbbuild:0.5.0
+      - image: killbill/killbill:0.19.18
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
-        - KILLBILL_CONFIG_DAO_URL=jdbc:postgresql://127.0.0.1:5432/killbill
-        - KILLBILL_CONFIG_DAO_USER=postgres
-        - KILLBILL_CONFIG_DAO_PASSWORD=postgres
-      - image: killbill/postgresql:0.18
+        - KILLBILL_DAO_URL=jdbc:postgresql://127.0.0.1:5432/killbill
+        - KILLBILL_DAO_USER=postgres
+        - KILLBILL_DAO_PASSWORD=postgres
+        - KILLBILL_SERVER_TEST_MODE=true
+        - KILLBILL_INVOICE_SANITY_SAFETY_BOUND_ENABLED=false
+        - KILLBILL_INVOICE_MAX_DAILY_NUMBER_OF_ITEMS_SAFETY_BOUND=-1
+      - image: killbill/postgresql:0.19
         environment:
         - POSTGRES_PASSWORD=postgres
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
+          key: v4-dependencies-ruby-2.4.2-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
       - run:
           name: Setup DDL
           command: |
@@ -165,11 +171,11 @@ jobs:
   build-jruby-9.1.14.0:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.4.0
+      - image: killbill/kbbuild:0.5.0
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
+          key: v4-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
       - run:
           name: Install gem dependencies
           command: |
@@ -181,25 +187,28 @@ jobs:
             - Gemfile.lock
             - .bundle
             - vendor/bundle
-          key: v1-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
+          key: v4-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
 
   test-mariadb-jruby-9.1.14.0:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.4.0
-      - image: killbill/killbill:0.18.16
+      - image: killbill/kbbuild:0.5.0
+      - image: killbill/killbill:0.19.18
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
-        - KILLBILL_CONFIG_DAO_URL=jdbc:mysql://127.0.0.1:3306/killbill
-        - KILLBILL_CONFIG_DAO_USER=root
-        - KILLBILL_CONFIG_DAO_PASSWORD=root
-      - image: killbill/mariadb:0.18
+        - KILLBILL_DAO_URL=jdbc:mysql://127.0.0.1:3306/killbill
+        - KILLBILL_DAO_USER=root
+        - KILLBILL_DAO_PASSWORD=root
+        - KILLBILL_SERVER_TEST_MODE=true
+        - KILLBILL_INVOICE_SANITY_SAFETY_BOUND_ENABLED=false
+        - KILLBILL_INVOICE_MAX_DAILY_NUMBER_OF_ITEMS_SAFETY_BOUND=-1
+      - image: killbill/mariadb:0.19
         environment:
         - MYSQL_ROOT_PASSWORD=root
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
+          key: v4-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
       - run:
           name: Setup DDL
           command: |
@@ -253,20 +262,23 @@ jobs:
   test-mysql-jruby-9.1.14.0:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.4.0
-      - image: killbill/killbill:0.18.16
+      - image: killbill/kbbuild:0.5.0
+      - image: killbill/killbill:0.19.18
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
-        - KILLBILL_CONFIG_DAO_URL=jdbc:mysql://127.0.0.1:3306/killbill
-        - KILLBILL_CONFIG_DAO_USER=root
-        - KILLBILL_CONFIG_DAO_PASSWORD=root
-      - image: killbill/mariadb:0.18
+        - KILLBILL_DAO_URL=jdbc:mysql://127.0.0.1:3306/killbill
+        - KILLBILL_DAO_USER=root
+        - KILLBILL_DAO_PASSWORD=root
+        - KILLBILL_SERVER_TEST_MODE=true
+        - KILLBILL_INVOICE_SANITY_SAFETY_BOUND_ENABLED=false
+        - KILLBILL_INVOICE_MAX_DAILY_NUMBER_OF_ITEMS_SAFETY_BOUND=-1
+      - image: killbill/mariadb:0.19
         environment:
         - MYSQL_ROOT_PASSWORD=root
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
+          key: v4-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
       - run:
           name: Setup DDL
           command: |
@@ -320,20 +332,23 @@ jobs:
   test-postgresql-jruby-9.1.14.0:
     <<: *defaults
     docker:
-      - image: killbill/kbbuild:0.4.0
-      - image: killbill/killbill:0.18.16
+      - image: killbill/kbbuild:0.5.0
+      - image: killbill/killbill:0.19.18
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
-        - KILLBILL_CONFIG_DAO_URL=jdbc:postgresql://127.0.0.1:5432/killbill
-        - KILLBILL_CONFIG_DAO_USER=postgres
-        - KILLBILL_CONFIG_DAO_PASSWORD=postgres
-      - image: killbill/postgresql:0.18
+        - KILLBILL_DAO_URL=jdbc:postgresql://127.0.0.1:5432/killbill
+        - KILLBILL_DAO_USER=postgres
+        - KILLBILL_DAO_PASSWORD=postgres
+        - KILLBILL_SERVER_TEST_MODE=true
+        - KILLBILL_INVOICE_SANITY_SAFETY_BOUND_ENABLED=false
+        - KILLBILL_INVOICE_MAX_DAILY_NUMBER_OF_ITEMS_SAFETY_BOUND=-1
+      - image: killbill/postgresql:0.19
         environment:
         - POSTGRES_PASSWORD=postgres
     steps:
       - checkout
       - restore_cache:
-          key: v1-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
+          key: v4-dependencies-jruby-9.1.14.0-{{ .Branch }}-{{ checksum "kaui.gemspec" }}
       - run:
           name: Setup DDL
           command: |

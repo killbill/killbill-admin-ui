@@ -1,4 +1,4 @@
-<div class="col-md-6">
+<div class="col-md-6 col-xs-12">
 
   <div class="column-block">
 
@@ -32,8 +32,9 @@
       <% end %>
 
       <div class="row">
+        <div class="col-sm-12">
           <div class="fix-position">
-            <table class="transparent">
+            <table class="transparent" <%= billing_info_margin.html_safe %>>
               <tr>
                 <th>Account balance</th>
                 <td>
@@ -63,7 +64,7 @@
                 <td>
                   <% if @overdue_state.nil? %>
                       <span class='label'>N/A</span>
-                  <% elsif @overdue_state.clear_state %>
+                  <% elsif @overdue_state.is_clear_state %>
                       <span class='label label-success'>Good</span>
                   <% else %>
                       <span class='label label-danger'><%= @overdue_state.name %></span>
@@ -73,7 +74,7 @@
               <tr>
                 <th>Bill cycle day</th>
                 <td>
-                  <% if @account.bill_cycle_day_local %>
+                  <% if @account.bill_cycle_day_local > 0  %>
                       <span class='label'><%= @account.bill_cycle_day_local %> (user timezone)</span>
                   <% else %>
                       <span class='label'>N/A</span>
@@ -113,11 +114,13 @@
                         <div class="col-sm-3">
                           <input class="form-control" name="target_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
                         </div>
-                        <div style="width: 14.5%; float: left; padding: 0;">
-                          <%= label_tag :dry_run do %>
-                              <%= check_box_tag :dry_run, '1', true %>&nbsp;<small>Dry-run</small>
-                          <% end %>
-                        </div>
+                        <% if can? :dry_run, Kaui::Invoice %>
+                          <div style="width: 14.5%; float: left; padding: 0;">
+                            <%= label_tag :dry_run do %>
+                                <%= check_box_tag :dry_run, '1', true %>&nbsp;<small>Dry-run</small>
+                            <% end %>
+                          </div>
+                        <% end %>
                         <div class="col-xs-1" style="padding: 0;">
                           <%= button_tag '<i class="fa fa-magic"></i>'.html_safe, :class => 'btn btn-xs' %>
                         </div>
@@ -126,6 +129,7 @@
                 </div>
             <% end %>
           </div>
+        </div>
       </div>
 
     </div>

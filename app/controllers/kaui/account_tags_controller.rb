@@ -1,5 +1,26 @@
 class Kaui::AccountTagsController < Kaui::EngineController
 
+  def index
+    cached_options_for_klient = options_for_klient
+    account = Kaui::Account::find_by_id_or_key(params.require(:account_id), true, true, cached_options_for_klient)
+    tags = account.all_tags(nil, false, 'NONE', cached_options_for_klient)
+
+
+    formatter = lambda do |tag|
+      url_for_object = view_context.url_for_object(tag.object_id, tag.object_type)
+      [
+          tag.tag_id,
+          url_for_object ? view_context.link_to(tag.object_id, url_for_object) : tag.object_id,
+          tag.object_type,
+          tag.tag_definition_name
+      ]
+    end
+    @tags_json = []
+    tags.each { |page| @tags_json << formatter.call(page) }
+
+    @tags_json = @tags_json.to_json
+  end
+
   def edit
     @account_id = params.require(:account_id)
 

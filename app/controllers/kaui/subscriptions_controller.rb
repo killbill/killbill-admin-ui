@@ -32,6 +32,9 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
       @subscription.plan_name = plan_name
       requested_date = params[:type_change] == "DATE" ? params[:requested_date].presence : nil
+
+      # un-set product_category since is not needed if plan name exist
+      @subscription.product_category = nil
       @subscription = @subscription.create(current_user.kb_username, params[:reason], params[:comment], requested_date, false, options_for_klient)
       redirect_to kaui_engine.account_bundles_path(@subscription.account_id), :notice => 'Subscription was successfully created'
     rescue => e
@@ -70,6 +73,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
                              params[:comment],
                              requested_date,
                              billing_policy,
+                             nil,
                              wait_for_completion,
                              options_for_klient)
 
@@ -126,16 +130,17 @@ class Kaui::SubscriptionsController < Kaui::EngineController
   end
 
   def validate_external_key
-    external_key = params.require(:external_key)
+    json_response do
+      external_key = params.require(:external_key)
 
-    begin
-      bundle = Kaui::Bundle.find_by_external_key(external_key, false, options_for_klient)
-    rescue KillBillClient::API::NotFound
-      bundle = nil
+      begin
+        bundle = Kaui::Bundle.find_by_external_key(external_key, false, options_for_klient)
+      rescue KillBillClient::API::NotFound
+        bundle = nil
+      end
+
+      { :is_found => !bundle.nil? }
     end
-
-    render json: {:is_found => !bundle.nil?}
-
   end
 
   def update_tags
@@ -169,8 +174,36 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       plans_details = Kaui::Catalog.available_addons(base_product_name, options_for_klient)
     else
       bundle = nil
-      plans_details = Kaui::Catalog.available_base_plans(options_for_klient)
+      plans_details = catalog_plans(subscription.product_category == 'BASE' ? nil : subscription.product_category)
     end
     [bundle, plans_details]
+  end
+
+  def catalog_plans(product_category = nil)
+    if product_category == 'BASE'
+      return Kaui::Catalog.available_base_plans(options_for_klient)
+    else
+      options = options_for_klient
+
+      catalog = Kaui::Catalog.get_tenant_catalog_json( DateTime.now.to_s, options)
+
+      return [] if catalog.blank?
+
+      plans = []
+      catalog[catalog.size - 1].products.each do |product|
+        next if product.type == 'ADD_ON' || (!product_category.nil? && product.type != product_category)
+        product.plans.each do |plan|
+          class << plan
+            attr_accessor :plan
+          end
+          plan.plan = plan.name
+
+          plans << plan
+        end
+      end
+
+      return plans
+
+    end
   end
 end

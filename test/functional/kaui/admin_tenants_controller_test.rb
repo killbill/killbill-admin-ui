@@ -26,7 +26,7 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     tenant.kb_tenant_id = 'kb_tenant_id'
     tenant.save!
 
-    # Add an allowed user that will verify that we can only
+     # Add an allowed user that will verify that we can only
     au = Kaui::AllowedUser.find_by_kb_username('admin')
     au.kaui_tenants << tenant
 
@@ -92,7 +92,7 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     stripe_yml = YAML.load_file(File.join(self.class.fixture_path, 'stripe.yml'))[:stripe]
     stripe_yml.stringify_keys!
     stripe_yml.each { |k, v| stripe_yml[k] = v.to_s }
-    post :upload_plugin_config, :id => tenant.id, :plugin_name => 'killbill-stripe', :plugin_type => 'ruby', :plugin_properties => stripe_yml
+    post :upload_plugin_config, :id => tenant.id, :plugin_name => 'killbill-stripe', :plugin_key => 'stripe', :plugin_type => 'ruby', :plugin_properties => stripe_yml
 
     assert_redirected_to admin_tenant_path(tenant.id)
     assert_equal 'Config for plugin was successfully uploaded', flash[:notice]
@@ -192,7 +192,7 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
         :states => { '0' => {
           :name =>	'Overdue_test',
           :external_message => 'Overdue_Test_Ya',
-          :block_changes =>	true,
+          :is_block_changes =>	true,
           :subscription_cancellation_policy => 'NONE',
           :condition => {
             :time_since_earliest_unpaid_invoice_equals_or_exceeds => 1,
@@ -212,10 +212,22 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
   end
 
   test 'should display catalog xml' do
-    catalog_xml = File.open(File.join(self.class.fixture_path, 'catalog-v1.xml'),'r'){|io| io.read}
-    post :display_catalog_xml, :xml => catalog_xml
+    effective_date = '2013-02-08T00:00:00+00:00'
+    tenant = create_kaui_tenant
+    post :upload_catalog, :id => tenant.id, :catalog => fixture_file_upload('catalog-v1.xml')
 
-    assert_equal @response.body, catalog_xml
+    assert_redirected_to admin_tenant_path(tenant.id)
+    assert_equal 'Catalog was successfully uploaded', flash[:notice]
+
+    post :display_catalog_xml, :effective_date => effective_date, :id => tenant.id
+
+    doc = nil
+    assert_nothing_raised { doc = Nokogiri::XML(@response.body) { |config| config.strict } }
+
+    catalog = doc.xpath("//catalog")
+    expected_effective_date = Date.parse(catalog[0].search("effectiveDate").text)
+
+    assert_equal Date.parse(effective_date), expected_effective_date
   end
 
   test 'should display overdue xml' do
@@ -223,6 +235,110 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     post :display_overdue_xml, :xml => overdue_xml
 
     assert_equal @response.body, overdue_xml
+  end
+
+  test 'should get a catalog by effective date' do
+    effective_date = '2013-02-08T00:00:00+00:00'
+    tenant = create_kaui_tenant
+    post :upload_catalog, :id => tenant.id, :catalog => fixture_file_upload('catalog-v1.xml')
+
+    get :catalog_by_effective_date, :id => tenant.id, :effective_date => effective_date
+    assert_response :success
+
+    result = nil
+    assert_nothing_raised { result = JSON.parse(@response.body) }
+    assert_not_nil(result)
+    assert_equal 1, result['catalog'].size
+    assert_equal Date.parse(effective_date), Date.parse(result['catalog'][0]['version_date'])
+  end
+
+  test 'should add an allowed user' do
+    tenant = Kaui::Tenant.new
+    tenant.name = 'foo'
+    tenant.api_key = 'api_key'
+    tenant.api_secret = 'api_secret'
+    tenant.kb_tenant_id = 'kb_tenant_id'
+    tenant.save!
+
+    # create a new user
+    au = Kaui::AllowedUser.new(:kb_username => 'Hulk', :description => "He is green")
+    au.save
+
+    # add user to allowed list
+    parameters = {
+        :allowed_user => {:kb_username => au.kb_username},
+        :tenant_id => tenant.id
+    }
+    put :add_allowed_user, parameters
+    assert_redirected_to admin_tenant_path(tenant.id)
+    assert_equal 'Allowed user was successfully added', flash[:notice]
+
+    # try to add non existent user
+    parameters = {
+        :allowed_user => {:kb_username => 'Steve Rogers'},
+        :tenant_id => tenant.id
+    }
+    put :add_allowed_user, parameters
+    assert_redirected_to admin_tenant_path(tenant.id)
+    assert_equal "User #{parameters[:allowed_user][:kb_username]} does not exist!", flash[:error]
+
+  end
+
+  test 'should suggest a plugin name' do
+    plugin_anchor = "'<a id=\"suggested\" data-plugin-name=\"killbill-paypal-express\" data-plugin-key=\"paypal_express\" data-plugin-type=\"ruby\" href=\"#\">killbill-paypal-express</a>'"
+
+    # Similar plugin already installed test will run, if there are plugin installed
+    installed_plugins = installed_plugins()
+    unless installed_plugins.blank?
+      installed_plugins.each do |plugin|
+        installed_plugin_anchor = "'<a id=\"suggested\" data-plugin-name=\"#{plugin[:plugin_name]}\" data-plugin-key=\"#{plugin[:plugin_key]}\".*href=\"#\">#{plugin[:plugin_name]}</a>'"
+
+        get :suggest_plugin_name, :plugin_name => plugin[:plugin_name][0, plugin[:plugin_name].length - 1]
+        assert_response :success
+        assert_match /Similar plugin already installed: #{installed_plugin_anchor}/, JSON[@response.body]['suggestion']
+      end
+    end
+
+    get :suggest_plugin_name, :plugin_name => 'pypl'
+    assert_response :success
+    assert_equal "Did you mean #{plugin_anchor}?", JSON[@response.body]['suggestion']
+  end
+
+  test 'should switch tenant' do
+    other_tenant = setup_and_create_test_tenant(1)
+    other_tenant_kaui = Kaui::Tenant.find_by_kb_tenant_id(other_tenant.tenant_id)
+
+    get :switch_tenant, :kb_tenant_id => other_tenant.tenant_id
+    assert_redirected_to admin_tenant_path(other_tenant_kaui.id)
+    assert_equal flash[:notice], "Tenant was switched to #{other_tenant_kaui.name}"
+
+    # switch back
+    tenant_kaui = Kaui::Tenant.find_by_kb_tenant_id(@tenant.tenant_id)
+    get :switch_tenant, :kb_tenant_id => @tenant.tenant_id
+    assert_redirected_to admin_tenant_path(tenant_kaui.id)
+    assert_equal flash[:notice], "Tenant was switched to #{tenant_kaui.name}"
+  end
+
+  test 'should download a catalog' do
+    effective_date = '2013-02-08T00:00:00+00:00'
+    tenant = create_kaui_tenant
+    post :upload_catalog, :id => tenant.id, :catalog => fixture_file_upload('catalog-v1.xml')
+
+    assert_redirected_to admin_tenant_path(tenant.id)
+    assert_equal 'Catalog was successfully uploaded', flash[:notice]
+
+    get :download_catalog_xml, :effective_date => effective_date, :id => tenant.id
+    assert_response :success
+    assert_equal 'application/xml', @response.header['Content-Type']
+    assert_equal "attachment; filename=\"catalog_#{effective_date}.xml\"", @response.header['Content-Disposition']
+
+    doc = nil
+    assert_nothing_raised { doc = Nokogiri::XML(@response.body) { |config| config.strict } }
+
+    catalog = doc.xpath("//catalog")
+    expected_effective_date = Date.parse(catalog[0].search("effectiveDate").text)
+
+    assert_equal Date.parse(effective_date), expected_effective_date
   end
 
   private
@@ -236,5 +352,21 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     assert_redirected_to admin_tenant_path(tenant.id)
     assert_equal 'Tenant was successfully configured', flash[:notice]
     tenant
+  end
+
+  def installed_plugins
+    installed_plugins = []
+    nodes_info = KillBillClient::Model::NodesInfo.nodes_info(build_options(@tenant, USERNAME, PASSWORD)) || []
+    plugins_info = nodes_info.first.plugins_info || []
+    plugins_info.each do |plugin|
+      next if plugin.plugin_key.nil? || plugin.version.nil?
+      next if installed_plugins.any? { |p| p[:plugin_name].eql?(plugin.plugin_name) }
+      installed_plugins << {
+          plugin_key: Kaui::AdminTenant.rewrite_plugin_key(plugin.plugin_key),
+          plugin_name: plugin.plugin_name
+      }
+    end
+
+    installed_plugins
   end
 end

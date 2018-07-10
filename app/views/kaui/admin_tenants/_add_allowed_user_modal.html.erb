@@ -1,0 +1,64 @@
+<div class="modal fade" id="addAllowedUserModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content column-block">
+      <div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="modal-title">Add allowed user</h1>
+      </div>
+      <div class="modal-body">
+        <%= form_for :allowed_user, :url =>  add_allowed_user_path, :method => :put, :html => {:class => 'form-horizontal', :id => 'tenantAllowedUserForm'} do |f| %>
+            <div class='form-group'>
+              <%= f.label :kb_username, 'User name', :class => 'col-sm-4 control-label' %>
+              <div class="col-sm-8">
+                <%= f.text_field :kb_username, :class => 'form-control', :required => true %>
+              </div>
+            </div>
+            <input type="hidden" name="tenant_id" value="<%= @tenant.id %>" />
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-10">
+                <%= submit_tag 'Add', :class => 'btn btn-default' %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<%= javascript_tag do %>
+    $(document).ready(function() {
+        function loadAllowedUser() {
+            $.ajax(
+            {
+                url: Routes.kaui_engine_admin_tenant_allowed_users_path(),
+                type: "GET",
+                dataType: "json",
+                data: {tenant_id: <%= @tenant.id %>},
+                success: function(data) {
+                    var availableAllowedUser = [];
+                    for (var i=0; i < data.length ; i++) {
+                        availableAllowedUser.push(data[i].kb_username);
+                    }
+
+                    $( "#allowed_user_kb_username" ).autocomplete({
+                        source: availableAllowedUser,
+                        appendTo: "#tenantAllowedUserForm",
+                        classes: {
+                            "ui-autocomplete": "autocomplete-allowed-user"
+                        },
+                    });
+
+                }
+            });
+        }
+
+        $('#addAllowedUserModal').on('show.bs.modal', function (e) {
+            // reset field
+            $( "#allowed_user_kb_username" ).val('');
+
+        });
+
+        loadAllowedUser();
+
+    });
+<% end %>

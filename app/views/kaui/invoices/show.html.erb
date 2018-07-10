@@ -41,6 +41,7 @@
 </div>
 
 <% unless @payments.empty? %>
+  <div class="row">
     <div class="col-md-12">
 
       <div class="search">
@@ -52,11 +53,15 @@
           <% @payments.each_with_index do |payment, idx| %>
 
               <div class="row">
-                <div class="col-md-1">
+                <div class="col-md-5">
                   <table class="transparent subtitle">
                     <tr>
                       <th>Payment</th>
                       <td><%= link_to payment.payment_number, account_payment_path(@account.account_id, payment.payment_id) %></td>
+                    </tr>
+                    <tr>
+                      <th>External key</th>
+                      <td><%= payment.payment_external_key %></td>
                     </tr>
                   </table>
                 </div>
@@ -78,6 +83,7 @@
       </div>
 
     </div>
+  </div>
 <% end %>
 
 <%= javascript_tag do %>

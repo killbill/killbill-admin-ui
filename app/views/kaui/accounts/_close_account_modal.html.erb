@@ -1,0 +1,98 @@
+<div class="modal fade" id="closeAccountModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content column-block">
+      <div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="modal-title">Close account</h1>
+      </div>
+      <div class="modal-body">
+        <%= form_for :close, :url =>  '' , :method => :delete, :html => {:class => 'form-horizontal', :id => 'account-close-form'} do |f| %>
+            <div class='form-group'>
+              <%= f.label :name, 'Name', :class => 'col-sm-4 control-label' %>
+              <div class="col-sm-8">
+                <%= f.text_field :name, :class => 'form-control', :readonly => true %>
+              </div>
+            </div>
+            <div class='form-group'>
+              <%= f.label :account_id, 'Account id', :class => 'col-sm-4 control-label' %>
+              <div class="col-sm-8">
+                <%= f.text_field :account_id, :class => 'form-control', :readonly => true %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-8">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label class="switch">
+                      <input name="options[]" id="cancelAllSubscriptions" type="checkbox" value="cancel_all_subscriptions">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <label class="col-sm-8 capitalize">Cancel all subscriptions.</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-8">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label class="switch">
+                      <input name="options[]" id="writeoffUnpaidInvoices" type="checkbox" value="writeoff_unpaid_invoices">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <label class="col-sm-8 capitalize">Write off unpaid invoices.</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-8">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <label class="switch">
+                      <input name="options[]" id="itemAdjustUnpaidInvoices" type="checkbox" value="item_adjust_unpaid_invoices">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                  <label class="col-sm-8 capitalize">Item adjust unpaid invoices.</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-8">
+                <%= submit_tag 'Close', :class => 'btn btn-danger' %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<%= javascript_tag do %>
+    $(document).ready(function() {
+
+        $('#closeAccountModal').on('show.bs.modal', function (e) {
+            $("#close_account_id").val(e.relatedTarget.dataset['accountId']);
+            $("#close_name").val(e.relatedTarget.dataset['name']);
+
+            // reset toggles
+            var options = $("#closeAccountModal").find('input[type="checkbox"]');
+            $.each( options, function( index, elem ) {
+                $(elem).prop('checked',false);
+            });
+
+            $("#account-close-form").attr("action", Routes.kaui_engine_account_path(e.relatedTarget.dataset['accountId']));
+
+        });
+
+        $('#writeoffUnpaidInvoices').change(function(){
+            $("#itemAdjustUnpaidInvoices").prop("checked",!$(this).prop("checked"));
+        });
+
+        $('#itemAdjustUnpaidInvoices').change(function(){
+            $("#writeoffUnpaidInvoices").prop("checked",!$(this).prop("checked"));
+        });
+    });
+<% end %>

@@ -1,7 +1,7 @@
 <%- # :alert used by devise -%>
 <% [:error, :alert].each do |key| %>
     <% if flash[key] %>
-        <div class="row">
+        <div class="row server-alert">
           <div class="col-md-12">
             <div class="alert alert-danger"><%= flash[key] %></div>
           </div>
@@ -9,9 +9,31 @@
     <% end %>
 <% end %>
 <% if flash[:notice] %>
-    <div class="row">
+    <div class="row server-alert">
       <div class="col-md-12">
         <div class="alert alert-info"><%= flash[:notice] %></div>
       </div>
     </div>
 <% end %>
+<!--This is for ajax calls that need to notify for error, to trigger this alert use ajaxAlert(message, timeout)-->
+<div id="ajaxErrorAlert" class="row ajaxAlert" style="display: none">
+  <div class="col-md-12">
+    <div class="alert alert-danger">
+      <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <span id="ajaxErrorAlertMessage" class="ajaxAlertMessage"></span>
+    </div>
+  </div>
+</div>
+<!--This is for ajax calls that need to notify information, to trigger this alert use ajaxInfo(message, timeout)-->
+<div id="ajaxInfoAlert" class="row ajaxAlert" style="display: none">
+  <div class="col-md-12">
+    <div class="alert alert-info">
+      <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <span id="ajaxInfoAlertMessage" class="ajaxAlertMessage"></span>
+    </div>
+  </div>
+</div>

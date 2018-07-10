@@ -38,8 +38,6 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
     end
 
     def get_oss_plugin_info(plugin_directory)
-
-
       # Serialize the plugin state for the view:
       #  plugin_name#plugin_type:prop1,prop2,prop3;plugin_name#plugin_type:prop1,prop2,prop3;...
       #
@@ -51,29 +49,33 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
     end
 
     def get_tenant_plugin_config(plugin_directory, options)
-
       require 'yaml'
 
       raw_tenant_config = KillBillClient::Model::Tenant::search_tenant_config("PLUGIN_CONFIG_", options)
 
       tenant_config = raw_tenant_config.inject({}) do |hsh, e|
-
         # Strip prefix '/PLUGIN_CONFIG_'
         killbill_key = e.key.gsub!(/PLUGIN_CONFIG_/, '')
 
         # Extract killbill key for oss plugins based on convention 'killbill-KEY'
         plugin_key = killbill_key.gsub(/killbill-/, '') if killbill_key.start_with?('killbill-')
-        # If such key exists, lookup in plugin directory
-        plugin_repo_entry = plugin_directory[plugin_key.to_sym] unless plugin_key.nil?
-        # Extract plugin_type based on plugin_directory entry if exists
-        plugin_type = plugin_repo_entry.nil? ? :unknown : plugin_repo_entry[:type].to_sym
 
-        # Deserialize config based on type
-        if plugin_type == :ruby
+        # hack:: rewrite key, to allow the ui to find the right configuration inputs
+        plugin_key = rewrite_plugin_key(plugin_key) unless plugin_key.nil?
+        # If such key exists, lookup in plugin directory to see if is an official plugin
+        is_an_official_plugin = !plugin_key.nil? && !plugin_directory[plugin_key.to_sym].blank?
+        # Deserialize config based on string possible format, if exist in the official repository
+        if is_an_official_plugin && is_yaml?(e.values[0])
           yml = YAML.load(e.values[0])
           # Hash of properties
-          hsh[plugin_key] = yml[plugin_key.to_sym]
-        elsif plugin_type == :java
+          # is plugin key part of the yaml?
+          if yml[plugin_key.to_sym].blank?
+            # if not set it as raw
+            hsh[plugin_key] = {:raw_config => e.values[0]}
+          else
+            hsh[plugin_key] = yml[plugin_key.to_sym]
+          end
+        elsif is_an_official_plugin && is_kv?(e.values[0])
           # Construct hash of properties based on java properties (k1=v1\nk2=v2\n...)
           hsh[plugin_key] = e.values[0].split("\n").inject({}) do |h, p0|
             k, v = p0.split('=');
@@ -88,11 +90,11 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
       end
 
       # Serialize the whole thing a as string of the form:
-      # plugin_key1::key1=value1,key2=value2,..;plugin_key2::...
+      # plugin_key1::key1=value1|key2=value2|..;plugin_key2::...
       tenant_config.map do |plugin_key, props|
         serialized_props = props.inject("") do |s, (k, v)|
           e="#{k.to_s}=#{v.to_s}";
-          s == "" ? s="#{e}" : s="#{s},#{e}";
+          s == "" ? s="#{e}" : s="#{s}|#{e}";
           s
         end
         "#{plugin_key}::#{serialized_props}"
@@ -101,18 +103,20 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
     end
 
 
-    def format_plugin_config(plugin_name, plugin_type, props)
+    def format_plugin_config(plugin_key, plugin_type, props)
       return nil unless props.present?
       if plugin_type == 'ruby'
         require 'yaml'
+        props = reformat_plugin_config(plugin_type, props)
         hsh = {}
-        hsh[plugin_name.to_sym] = {}
+        hsh[plugin_key.to_sym] = {}
         props.each do |k,v|
-          hsh[plugin_name.to_sym][k.to_sym] = v.to_sym
+          hsh[plugin_key.to_sym][k.to_sym] = v.to_sym
         end
-        hsh[plugin_name.to_sym]
+        hsh[plugin_key.to_sym]
         hsh.to_yaml
       elsif plugin_type == 'java'
+        props = reformat_plugin_config(plugin_type, props)
         res = ""
         props.each do |k, v|
           res = "#{res}#{k.to_s}=#{v.to_s}\n"
@@ -121,6 +125,60 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
       else
         props['raw_config']
       end
+    end
+
+    def reformat_plugin_config(plugin_type, props)
+      unless props['raw_config'].blank?
+        new_props = {}
+        props['raw_config'].split("\n").each do |p|
+          line = p.split('=')
+          new_props[line[0]] = line[1].blank? ? '' : line[1].delete("\r")
+        end
+
+        return new_props
+      end
+
+      props
+    end
+
+    # hack when the plugin name after killbill is not the same as the plugin key, this mainly affects ruby plugin configuration,
+    # as it use the key to retrieve the configuration.
+    def rewrite_plugin_key(plugin_key)
+      if plugin_key.start_with?('paypal')
+        'paypal_express'
+      elsif plugin_key.start_with?('firstdata')
+        'firstdata_e4'
+      elsif plugin_key.start_with?('bridge')
+        'payment_bridge'
+      elsif plugin_key.start_with?('payu-latam')
+        'payu_latam'
+      else
+        "#{plugin_key}"
+      end
+    end
+
+    # checks if string could be parse as yaml
+    def is_yaml?(candidate_string)
+      is_yaml = false
+      return is_yaml if candidate_string.blank?
+
+      begin
+        is_yaml = !!YAML::load(candidate_string)
+        is_yaml = is_yaml && YAML.load(candidate_string).instance_of?(Hash)
+      rescue
+        is_yaml = false
+      end
+
+      is_yaml
+    end
+
+    # checks if string could be parse as key value pair
+    def is_kv?(candidate_string)
+      return false if candidate_string.blank? || is_yaml?(candidate_string)
+      lines = candidate_string.split("\n")
+      return false if lines.blank?
+
+      lines.all? { |kv| kv.split('=').count >= 1 }
     end
   end
 end

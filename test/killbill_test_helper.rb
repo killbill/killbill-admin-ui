@@ -98,7 +98,6 @@ module Kaui
       account.state                    = 'Awesome'
       account.country                  = 'LalaLand'
       account.locale                   = 'fr_FR'
-      account.is_notified_for_invoices = false
       account.parent_account_id        = parent_account_id
       account.is_payment_delegated_to_parent = !parent_account_id.nil?
 
@@ -163,12 +162,12 @@ module Kaui
       credit = KillBillClient::Model::Credit.new(:invoice_id => invoice_id, :account_id => account.account_id, :credit_amount => 23.22)
       credit = credit.create(true, user, reason, comment, build_options(tenant, username, password))
 
-      invoice = KillBillClient::Model::Invoice.find_by_id_or_number(credit.invoice_id, true, 'NONE', build_options(tenant, username, password))
+      invoice = KillBillClient::Model::Invoice.find_by_id(credit.invoice_id, true, 'NONE', build_options(tenant, username, password))
       invoice.items.find { |ii| ii.amount == -credit.credit_amount }
     end
 
     def commit_invoice(invoice_id, tenant, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
-      invoice = KillBillClient::Model::Invoice.find_by_id_or_number(invoice_id, false, 'NONE', build_options(tenant, username, password))
+      invoice = KillBillClient::Model::Invoice.find_by_id(invoice_id, false, 'NONE', build_options(tenant, username, password))
       invoice.commit(user, reason, comment, build_options(tenant, username, password))
     end
 

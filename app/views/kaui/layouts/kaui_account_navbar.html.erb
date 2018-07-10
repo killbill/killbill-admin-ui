@@ -8,9 +8,16 @@
     <%= link_to 'Invoices', kaui_engine.account_invoices_path(params[:account_id]), :class => (params[:controller].ends_with?('invoices') ? 'current' : 'non-current') %>
     <%= link_to 'Payments', kaui_engine.account_payments_path(params[:account_id]), :class => (params[:controller].ends_with?('payments') ? 'current' : 'non-current') %>
     <%= link_to 'Timeline', kaui_engine.account_timeline_path(params[:account_id]), :class => (params[:controller].ends_with?('timelines') ? 'current' : 'non-current') %>
+    <%= link_to 'Tags', kaui_engine.account_tags_path(params[:account_id]), :class => (params[:controller].ends_with?('tags') ? 'current' : 'non-current') %>
+    <%= link_to 'Custom Fields', kaui_engine.account_custom_fields_path(params[:account_id]), :class => (params[:controller].ends_with?('custom_fields') ? 'current' : 'non-current') %>
 
     <% if current_user.root? %>
         <%= link_to 'Queues', kaui_engine.account_queues_path(params[:account_id]), :class => (params[:controller].ends_with?('queues') ? 'current' : 'non-current') %>
+        <%= link_to 'Audit', kaui_engine.account_audit_logs_path(params[:account_id]), :class => (params[:controller].ends_with?('logs') ? 'current' : 'non-current') %>
+    <% end %>
+
+    <% if account_closed? %>
+        <span class="label label-danger">CLOSED</span>
     <% end %>
   </div>
 

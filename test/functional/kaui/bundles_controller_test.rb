@@ -115,6 +115,7 @@ class Kaui::BundlesControllerTest < Kaui::FunctionalTestHelper
     input = Kaui::TagDefinition.new(tag_definition_name)
     input.name = tag_definition_name
     input.description = 'something'
+    input.applicable_object_types = ['BUNDLE']
     tag_def = input.create(username, reason, comment, build_options(tenant, username, password))
     tag_def.id
   end
@@ -122,7 +123,7 @@ class Kaui::BundlesControllerTest < Kaui::FunctionalTestHelper
   def add_tags(bundle, tag_definition_ids, tenant, username = USERNAME, password = PASSWORD, reason = nil, comment = nil)
     bundle.set_tags(tag_definition_ids, username, reason, comment, build_options(tenant, username, password))
   end
-  
+
   def check_bundle_owner(new_owner)
     assert_equal new_owner, Kaui::Bundle.find_by_external_key(@bundle.external_key, false, options).account_id
   end

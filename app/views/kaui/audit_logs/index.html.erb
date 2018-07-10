@@ -1,0 +1,56 @@
+<div class="search">
+
+  <div class="column-block">
+
+    <h1>Audit logs</h1>
+    <input type="hidden" id="audit-logs" value="<%= @audit_logs_json %>">
+    <table id="audit-logs-table" class="table table-condensed table-colored-rows mobile-data">
+      <thead>
+      <tr>
+        <th>Created date</th>
+        <th>Object id</th>
+        <th>Object type</th>
+        <th>Change type</th>
+        <th>Username</th>
+        <th>Reason</th>
+        <th>Comment</th>
+        <th>User token</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td colspan="1" class="dataTables_empty">Loading data from server</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <%= render :partial => 'show_history_modal' %>
+
+</div>
+
+
+<%= javascript_tag do %>
+    $(document).ready(function() {
+        var auditLogs = JSON.parse($("#audit-logs").val());
+        $('#audit-logs-table').DataTable({
+            dom: "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+            data: auditLogs,
+            order: [[ 0, 'desc' ]],
+            createdRow: function( row, data, dataIndex ) {
+                if ( data[3] == "INSERT" ) {
+                    $(row).addClass( 'insert' );
+                } else if ( data[3] == "UPDATE" ) {
+                    $(row).addClass( 'update' );
+                } else if ( data[3] == "DELETE" ) {
+                    $(row).addClass( 'delete' );
+                }
+            },
+            drawCallback: function() {
+                setObjectIdPopover();
+            }
+        });
+    });
+
+<% end %>

@@ -12,12 +12,10 @@
                 <th>Invoice ID</th>
                 <td><%= link_to @payment.target_invoice_id, account_invoice_path(@account.account_id, @payment.target_invoice_id) %></td>
               </tr>
-              <% if @payment.payment_external_key != @payment.payment_id %>
-                  <tr>
-                    <th>External key</th>
-                    <td><%= @payment.payment_external_key %></td>
-                  </tr>
-              <% end %>
+              <tr>
+                <th>External key</th>
+                <td><%= @payment.payment_external_key %></td>
+              </tr>
             </table>
           </div>
         </div>
@@ -37,7 +35,7 @@
 
   <h1>Payment Method Details</h1>
 
-  <div class="fix-position payment-details">
+  <div class="payment-details">
     <% if @payment_method.nil? %>
         The Payment method has been deleted.
     <% else %>

@@ -193,4 +193,178 @@ jQuery(document).ready(function ($) {
         }
     });
 
-})
+    // this will register a global ajax error for all jquery ajax requests (not including DataTable)
+    $( document ).ajaxError(function( event, jqxhr, settings, thrownError ) {
+        if (jqxhr.status == 0) {
+            return;
+        }
+
+        var message = 'Request Status: ' + jqxhr.status + ', Status Text: ' + jqxhr.statusText + ': ' + getMessageFromResponse(jqxhr);
+
+        if (jqxhr.status == 200) {
+            message = thrownError.message == undefined ? thrownError : thrownError.message;
+        }
+        ajaxErrorAlert(message);
+    });
+
+    function getMessageFromResponse(jqxhr) {
+        if (isBlank(jqxhr.responseJSON)) {
+            return jqxhr.responseText;
+        }
+
+        if (!isBlank(jqxhr.responseJSON.error)) {
+            return jqxhr.responseJSON.error;
+        }
+
+        return jqxhr.responseText;
+    }
+
+    // this will prevent DataTable to show an alert message box when an error occurs
+    $.fn.dataTable.ext.errMode = 'none';
+    // this will try to register a DataTable error event to all tables, and if an error occurs will display the error on screen
+    $( document ).find(".table").on('error.dt', function ( e, settings, techNote, message ) {
+        ajaxErrorAlert('An error has been reported by DataTables: ' + message);
+    });
+
+    setObjectIdPopover();
+});
+
+
+// global function used to show an error message that occurs on a Ajax call, if timeout is passed the box will disappear when the time is up.
+function ajaxErrorAlert(message, timeout) {
+    ajaxAlert("ajaxErrorAlert", message, timeout);
+}
+
+// global function used to show an information message.
+function ajaxInfoAlert(message, timeout) {
+    ajaxAlert("ajaxInfoAlert", message, timeout);
+}
+
+// if timeout is passed the box will disappear when the time is up.
+function ajaxAlert(alert_element_id, message, timeout) {
+    // do not show ajax alert if there is already an server alert
+    var serverAlertStatus = $(".server-alert").css("display");
+    if (serverAlertStatus != undefined && serverAlertStatus != "none") {
+        return;
+    }
+
+    var messageBox = $("#" + alert_element_id);
+    messageBox.find("#" + alert_element_id + "Message").text(message);
+    messageBox.show();
+    messageBox.find("button").click(function(){
+        ajaxCloseAlert(messageBox);
+    });
+
+    //if timeout is passed the box will disappear when the time is up
+    if (!isBlank(timeout)) {
+        setTimeout(function(){ ajaxCloseAlert()}, timeout);
+    }
+}
+
+function ajaxCloseAlert(messageBox) {
+    var messageBox = messageBox || $(".ajaxAlert");
+    messageBox.find(".ajaxAlertMessage").text('');
+    messageBox.hide();
+}
+
+// global helper function to validate if a variable is null or empty or undefined
+function isNullOrUndefined(value) {
+    if (value == undefined || value == null) {
+        return true;
+    }
+    return false;
+}
+
+function isBlank(value) {
+    if (isNullOrUndefined(value)) {
+        return true;
+    }
+
+    if (jQuery.type(value) === "string" && value.trim().length == 0) {
+        return true;
+    } else if (jQuery.type(value) === "array" && value.length == 0) {
+        return true;
+    } else if (jQuery.type(value) === "object" && jQuery.isEmptyObject(value)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// this function set popover for all tags that have class object-id-popover
+// attributes:
+//      data-id = content of the popover,object id; required
+//      title = title of the popover; not required
+//      id = (must be {{id}}-popover) used to close popover when the copy image is clicked; if present; if not present a timeout of 5s will apply; not required
+function setObjectIdPopover(){
+    $(".object-id-popover").each(function(idx, e){
+        $(this).popover('destroy');
+        $(this).off("shown.bs.popover");
+        $(this).data("index", idx);
+
+        $(this).popover({
+            html: true,
+            content: function() {
+                var template = '<div class="{{id}}-content" >' +
+                    '{{id}}&emsp;<i id="{{id}}-copy" class="fa fa-clipboard copy-icon" aria-hidden="true"></i> ' +
+                    '<input id="{{id}}-placeholder" class="form-control hidden"> ' +
+                    '</div>';
+
+                var popover_html = Mustache.render( template , { id: $(this).data("id") });
+                return popover_html;
+            },
+            container: 'body',
+            trigger: 'hover',
+            delay: { "show": 100, "hide": 4000 }
+        });
+
+        $(this).on("show.bs.popover", function(e) {
+            var currentPopoverIndex = $(this).data('index');
+            $(".object-id-popover").each(function(idx, e){
+                var index = $(this).data('index');
+
+                if (currentPopoverIndex != index) {
+                    $(this).popover('hide');
+                }
+            });
+        });
+
+        $(this).on("shown.bs.popover", function(e) {
+            var objectId = $(this).data('id');
+            var copyIdImg = $("#" + objectId + "-copy");
+
+            copyIdImg.data("popover",$(this).attr("id"));
+            copyIdImg.click(function(e){
+                var id = ($(this).attr("id")).replace('-copy','');
+                var placeholder = $("#" + objectId + "-placeholder");
+                var popover = $("#" + copyIdImg.data("popover"));
+                placeholder.val(id);
+                placeholder.removeClass("hidden");
+                placeholder.select();
+
+                document.execCommand("Copy");
+                placeholder.addClass("hidden");
+                ajaxInfoAlert("Id [" + id + "] was copied into the clipboard!", 4000);
+
+                if (!isBlank(popover)) {
+                    popover.popover('hide');
+                }
+
+            });
+
+        });
+
+    });
+
+    // close all object id popover on modal show
+    $(".modal").on('show.bs.modal',function(e){
+        $(".object-id-popover").each(function(idx, e) {
+            $(this).popover('destroy');
+        });
+    });
+
+    // check if object id must be restored
+    $(".modal").on('hide.bs.modal',function(e){
+        setObjectIdPopover();
+    });
+}

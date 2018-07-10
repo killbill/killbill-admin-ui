@@ -7,12 +7,9 @@
     <table id="account-children-table" class="table table-condensed mobile-data">
       <thead>
       <tr>
-        <th>Name</th>
         <th>ID</th>
         <th>External key</th>
         <th>Balance</th>
-        <th>City</th>
-        <th>Country</th>
       </tr>
       </thead>
       <tbody>
@@ -41,6 +38,9 @@ $(document).ready(function() {
     "infoCallback": function( settings, start, end, max, total, pre ) {
 
         return pre.replace('TOTAL',settings.json.data.length);
+    },
+    drawCallback: function() {
+        setObjectIdPopover();
     }
   });
 });

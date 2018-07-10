@@ -1,0 +1,74 @@
+<div class="col-md-6 col-xs-12">
+
+  <div class="column-block">
+
+    <h1>Personal Information</h1>
+
+    <div class="info-wrapper">
+
+      <div class="toggler">
+        <div class="first-line">
+          <b>Show/Hide Content</b>
+          <i class="fa fa-caret-down"></i>
+          <i class="fa fa-caret-up"></i>
+        </div>
+
+          <div class="toggle">
+            <div class="row">
+            <div class="col-md-12">
+              <div class="fix-position">
+                <table class="transparent">
+                  <tr>
+                    <th>Name</th>
+                    <td><%= @account.name %></td>
+                  </tr>
+                  <tr>
+                    <th>Address1</th>
+                    <td><%= @account.address1 %></td>
+                  </tr>
+                  <tr>
+                    <th>Address2</th>
+                    <td><%= @account.address2 %></td>
+                  </tr>
+                  <tr>
+                    <th>City</th>
+                    <td><%= @account.city %></td>
+                  </tr>
+                  <tr>
+                    <th>State</th>
+                    <td><%= @account.state %></td>
+                  </tr>
+                  <tr>
+                    <th>Country</th>
+                    <td><%= @account.country %></td>
+                  </tr>
+                  <tr>
+                    <th>Postal Code</th>
+                    <td><%= @account.postal_code %></td>
+                  </tr>
+                  <tr>
+                    <th>Phone</th>
+                    <td><%= @account.phone %></td>
+                  </tr>
+                  <tr>
+                    <th>Company</th>
+                    <td><%= @account.company %></td>
+                  </tr>
+                  <tr>
+                    <th>Primary email</th>
+                    <td><%= @account.email %></td>
+                  </tr>
+                  <%= render :partial => 'kaui/account_emails/account_emails_table',
+                             :locals => {:account_emails => @account_emails} %>
+                </table>
+              </div>
+            </div>
+          </div>
+          </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

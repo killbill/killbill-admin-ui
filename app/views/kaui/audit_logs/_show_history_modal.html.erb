@@ -1,0 +1,177 @@
+<div class="modal fade" id="showHistoryModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content column-block">
+      <div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1 class="modal-title">History</h1>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="objectId" />
+        <input type="hidden" id="objectType" />
+        <input type="hidden" id="changeDate" />
+        <input type="hidden" id="changeType" />
+        <div class="alert alert-info" role="alert">Loading data from server</div>
+        <div id="templatesPlaceHolder" style="display: flex;">
+          <div id="templateFieldsPlaceHolder"></div>
+          <div id="templatePlaceHolder"></div>
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script id="history_template" type="text/template" >
+  {{#auditLogs}}
+  <div class="panel panel-{{selected}}" id="{{panelId}}">
+    <div class="panel-heading">{{#changeType}}{{changeType}} - {{changeDate}}{{/changeType}}&nbsp;</div>
+    <ul class="list-group">
+      {{#history}}
+        <li class="list-group-item {{class}}">
+          <span {{#longValue}}title="{{.}}"{{/longValue}} >{{value}}</span>
+        </li>
+      {{/history}}
+    </ul>
+  </div>
+  {{/auditLogs}}
+</script>
+
+<%= javascript_tag do %>
+    $(document).ready(function() {
+
+        const IGNORABLE_FIELDS = ['id','createdDate','updatedDate','recordId','accountRecordId','tenantRecordId','historyTableName','tableName']
+        function renderHistory(auditLogsWithHistory) {
+            var auditLogs = [];
+            var changeDateSelected = $("#changeDate").val();
+            var changeTypeSelected = $("#changeType").val();
+            var activePanel = "history0";
+            var fieldNamePanel = {
+                selected: false,
+                changeType: null,
+                changeDate: null,
+                panelId: "fields",
+                history: []
+            };
+
+            for (var i = 0 ; i < auditLogsWithHistory.length; i++) {
+                var isActivePanel = auditLogsWithHistory[i].changeDate == changeDateSelected && auditLogsWithHistory[i].changeType == changeTypeSelected;
+                var auditLog = {
+                    selected: isActivePanel ? 'primary' : 'default',
+                    changeType: auditLogsWithHistory[i].changeType,
+                    changeDate: auditLogsWithHistory[i].changeDate,
+                    panelId: "history" + i,
+                    history: []
+                };
+
+                var currentHistory = auditLogsWithHistory[i].history;
+                var previousHistory = (i == 0 ? null : auditLogsWithHistory[i - 1].history);
+                for (var field in currentHistory) {
+                    if (IGNORABLE_FIELDS.indexOf(field) == -1) {
+                        var previousValue = previousHistory == null || previousHistory[field] == undefined ? null : previousHistory[field];
+                        auditLog.history.push({
+                            class: diffClass(previousValue, currentHistory[field], previousHistory == null),
+                            value: getValue(currentHistory[field]),
+                            longValue: !isBlank(currentHistory[field]) && currentHistory[field].length > 40 ? currentHistory[field] : null
+                        });
+
+                        // only use the first history object to set the fields title
+                        if (i == 0) {
+                          fieldNamePanel.history.push({
+                              class: 'disabled',
+                              value: field.replace(/([a-zA-Z])(?=[A-Z])/g, '$1 ').toLowerCase(),
+                              longValue: null
+                          });
+                        }
+                    }
+                }
+
+                auditLogs.push(auditLog);
+                if (isActivePanel) {
+                    activePanel = auditLog.panelId;
+                }
+            }
+
+            var template = $("#history_template").html();
+            var markup = Mustache.render(template, { auditLogs: auditLogs });
+            var headerMarkup = Mustache.render(template, { auditLogs: fieldNamePanel });
+            $("#showHistoryModal").find(".alert").hide();
+            $("#templateFieldsPlaceHolder").html(headerMarkup);
+            $("#templatePlaceHolder").html(markup);
+
+            moveToActivePanel(activePanel);
+        }
+
+        function getValue(value) {
+            if (isBlank(value)) {
+                return value;
+            }
+
+            return value.length > 40 ? value.substring(0,40) + "..." : value
+        }
+
+        function moveToActivePanel(activePanel) {
+            var leftPos = $('#templatePlaceHolder').scrollLeft();
+            var panelLeftPosition = $('#' + activePanel).position().left;
+            $("#templatePlaceHolder").animate({
+                scrollLeft: leftPos + panelLeftPosition - 270
+            }, 800);
+        }
+
+        function diffClass(previousValue, currentValue, isTheBeginningOfTime) {
+            var updated = 'list-group-item-success';
+            var deleted = 'list-group-item-danger';
+            var noChange = '';
+
+            if ( isTheBeginningOfTime ) {
+                return isNullOrUndefined(currentValue) ? noChange : updated;
+            } else if (isBlank(previousValue) && !isBlank(currentValue)) {
+                return updated;
+            } else if (!isBlank(previousValue) && isBlank(currentValue)) {
+                return deleted;
+            } else if (previousValue != currentValue) {
+                return updated;
+            } else {
+                return noChange;
+            }
+        }
+
+        function loadHistory(url) {
+            var object_id = $("#objectId").val();
+            var object_type = $("#objectType").val();
+
+            $.ajax({
+                url: '<%= audit_logs_history_path(@account.account_id) %>',
+                type: "GET",
+                dataType: "json",
+                data: {
+                    "object_id": object_id,
+                    "object_type": object_type
+                },
+                success: function(data) {
+                    if (data.error == null && data.audits != null) {
+                        renderHistory(data.audits);
+                    } else {
+                        $('#showHistoryModal').modal('hide')
+                        ajaxErrorAlert(data.error);
+                    }
+                }
+            });
+        }
+
+        $('#showHistoryModal').on('show.bs.modal', function (e) {
+            $("#objectId").val(e.relatedTarget.dataset['objectId']);
+            $("#objectType").val(e.relatedTarget.dataset['objectType']);
+            $("#changeDate").val(e.relatedTarget.dataset['changeDate']);
+            $("#changeType").val(e.relatedTarget.dataset['changeType']);
+            $("#templatePlaceHolder").html('');
+            $("#templateFieldsPlaceHolder").html('');
+            $("#showHistoryModal").find(".alert").show();
+            $("#showHistoryModal").find(".modal-title").html((e.relatedTarget.dataset['objectType']).toLowerCase().replace('_',' ') + " History [" + e.relatedTarget.dataset['objectId'] + "]");
+            ajaxCloseAlert();
+        });
+
+        $('#showHistoryModal').on('shown.bs.modal', function (e) {
+            loadHistory();
+        });
+
+    });
+<% end %>

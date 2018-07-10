@@ -4,7 +4,13 @@
 
     <h1>Tenant details</h1>
 
-    <b>Name:</b> <%= @tenant.name %>
+    <b>Name:</b> <%= @tenant.name %>&nbsp;
+      <% if session[:kb_tenant_name] == @tenant.name %>
+        <i class="fa fa-toggle-on switch-tenant-active" title="Currently selected"></i>
+      <% else %>
+        <%= link_to("<i class=\"fa fa-toggle-off\" aria-hidden=\"true\"></i>".html_safe,
+                  switch_tenant_path(:kb_tenant_id => @tenant.kb_tenant_id), title: 'Click the toggle to switch tenant') %>
+      <% end %>
     <br/>
     <b>Tenant ID:</b> <%= @tenant.kb_tenant_id %>
     <br/>

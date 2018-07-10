@@ -55,6 +55,41 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     assert_not_nil assigns(:payment_methods)
   end
 
+  test 'should check that overdue state is Good' do
+    get :show, :account_id => @account.account_id
+    assert_response 200
+
+    overdue_status_proc_count = 0
+
+    assert_select 'table' do |tables|
+      tables.each do |table|
+        assert_select table, 'tr' do |rows|
+          rows.each do |row|
+            # find overdue status in the response
+           is_overdue_state = false
+            assert_select row, 'th' do |col|
+              is_overdue_state = col[0].text.eql?('Overdue status')
+            end
+
+            # if found
+            if is_overdue_state
+              overdue_status_proc_count += 1
+              assert_select row, 'td' do |col|
+                assert_select col, 'span' do |content|
+                  assert 'Good', content[0].text
+                  overdue_status_proc_count += 1 if content[0].text.eql?('Good')
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+
+    # assert that overdue state is found with result equal to Good
+    assert overdue_status_proc_count, 2
+  end
+
   test 'should handle Kill Bill errors when creating account' do
     post :create
     assert_redirected_to home_path
@@ -89,7 +124,6 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     assert_equal '-06:00', assigns(:account).time_zone
     assert_equal 'AR', assigns(:account).country
     assert assigns(:account).is_migrated
-    assert !assigns(:account).is_notified_for_invoices
   end
 
   test 'should update account' do
@@ -139,32 +173,40 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
   end
 
   test 'should trigger invoice' do
+    account = create_account(@tenant)
+    bundle = create_bundle(account, @tenant)
+
     parameters = {
-      :account_id => @account2.account_id,
+      :account_id => account.account_id,
       :dry_run => '0'
     }
 
     post :trigger_invoice, parameters
     assert_equal 'Nothing to generate for target date today', flash[:notice]
-    assert_redirected_to account_path(@account2.account_id)
+    assert_redirected_to account_path(account.account_id)
 
-    today_next_month = (Date.parse(@kb_clock['localDate']) >> 1).to_s
+    today_next_month = (Date.parse(@kb_clock['localDate']) + 31).to_s
     # generate a dry run invoice
     parameters = {
-      :account_id => @account.account_id,
+      :account_id => account.account_id,
       :dry_run => '1',
       :target_date => today_next_month
     }
 
     post :trigger_invoice, parameters
     assert_response :success
+    assert_select 'table tbody tr:first' do
+      assert_select 'td:first', "sports-monthly-evergreen"
+      assert_select 'td:nth-child(4)', bundle.subscriptions.first.subscription_id
+    end
+
 
     # persist it
     parameters[:dry_run] = '0'
     post :trigger_invoice, parameters
     assert_response :redirect
-    assert_match /Generated invoice.*for target date.*/, flash[:notice]
-    a_tag = /<a.href="(?<href>.*?)">/.match(@response.body)
+    assert_match(/Generated invoice.*for target date.*/, flash[:notice])
+    a_tag = (/<a.href="(?<href>.*?)">/).match(@response.body)
     assert_redirected_to a_tag[:href]
   end
 
@@ -229,6 +271,15 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     assert_equal('Email notification plugin is not installed',flash[:error]) unless flash[:error].blank?
     assert_equal("Email notifications for account #{@account.account_id} was successfully updated",flash[:notice]) if flash[:error].blank?
     assert_redirected_to account_path(@account.account_id)
+
+  end
+
+  test 'should close an account' do
+    account_to_be_closed = create_account(@tenant)
+
+    delete :destroy, :account_id => account_to_be_closed.account_id
+    assert_redirected_to account_path(account_to_be_closed.account_id)
+    assert_equal "Account #{account_to_be_closed.account_id} successfully closed", flash[:notice]
 
   end
 
