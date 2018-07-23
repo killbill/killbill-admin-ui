@@ -2,7 +2,10 @@
 
   <div class="column-block">
 
-    <h1>Invoice <%= @invoice.invoice_number %></h1>
+    <h1>
+      Invoice <%= @invoice.invoice_number %>
+      <%= link_to 'View customer invoice html', kaui_engine.show_html_invoice_path(@invoice.invoice_id), :class => 'btn', :target => '_blank' %>
+    </h1>
 
     <% dry_run = @invoice.invoice_number.blank? %>
     <% if dry_run %>
