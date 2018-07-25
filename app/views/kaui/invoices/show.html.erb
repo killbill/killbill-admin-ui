@@ -4,7 +4,9 @@
 
     <h1>
       Invoice <%= @invoice.invoice_number %>
-      <%= link_to 'View customer invoice html', kaui_engine.show_html_invoice_path(@invoice.invoice_id), :class => 'btn', :target => '_blank' %>
+      <% unless @invoice.invoice_number.blank? %>
+        <%= link_to 'View customer invoice html', kaui_engine.show_html_invoice_path(@invoice.invoice_id), :class => 'btn', :target => '_blank' %>
+      <% end %>
     </h1>
 
     <% dry_run = @invoice.invoice_number.blank? %>

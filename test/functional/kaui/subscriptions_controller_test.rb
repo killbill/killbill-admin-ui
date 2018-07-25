@@ -82,22 +82,21 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
     assert_response 200
     assert_not_nil assigns(:subscription)
     assert_not_nil assigns(:plans)
-    assert_not_nil assigns(:current_plan)
   end
 
   test 'should handle errors during update' do
     post :update, :id => @bundle.subscriptions.first.subscription_id
-    assert_redirected_to home_path
-    assert_equal 'Required parameter missing: plan_name', flash[:error]
+    assert_redirected_to edit_subscription_path(@bundle.subscriptions.first.subscription_id)
+    assert_equal 'Error while changing subscription: param is missing or the value is empty: plan_name', flash[:error]
 
     subscription_id = SecureRandom.uuid.to_s
     post :update, :id => subscription_id, :plan_name => 'super-monthly'
-    assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{subscription_id} type=SUBSCRIPTION doesn't exist!", flash[:error]
+    assert_redirected_to edit_subscription_path(subscription_id)
+    assert_equal "Error while changing subscription: Error 404: Object id=#{subscription_id} type=SUBSCRIPTION doesn't exist!", flash[:error]
 
     post :update, :id => @bundle.subscriptions.first.subscription_id, :plan_name => 'not-exists'
-    assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 400: Could not find a plan matching spec: (plan: 'not-exists', product: 'undefined', billing period: 'undefined', pricelist 'undefined')", flash[:error]
+    assert_redirected_to edit_subscription_path(@bundle.subscriptions.first.subscription_id)
+    assert_equal "Error while changing subscription: Error 400: Could not find a plan matching spec: (plan: 'not-exists', product: 'undefined', billing period: 'undefined', pricelist 'undefined')", flash[:error]
   end
 
   test 'should update' do
@@ -168,6 +167,28 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
     get :validate_external_key, :external_key => @bundle.subscriptions.first.external_key
     assert_response :success
     assert_equal JSON[@response.body]['is_found'], true
+  end
+
+  test 'should update with price override' do
+    post :update,
+         :id => @bundle.subscriptions.first.subscription_id,
+         :plan_name => 'super-monthly',
+         :price_override => 500
+    assert_redirected_to account_bundles_path(@bundle.subscriptions.first.account_id)
+    assert_equal 'Subscription plan successfully changed', flash[:notice]
+  end
+
+  test 'should create with price override' do
+    post :create,
+         :subscription => {
+             :account_id => @account.account_id,
+             :external_key => SecureRandom.uuid,
+         },
+         :price_override => 500,
+         :plan_name => 'standard-monthly'
+
+    assert_redirected_to account_bundles_path(@account.account_id)
+    assert_equal 'Subscription was successfully created', flash[:notice]
   end
 
 end

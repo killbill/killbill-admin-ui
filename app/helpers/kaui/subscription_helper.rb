@@ -62,15 +62,33 @@ module Kaui
 
       if humanized_billing_period.nil?
         if humanized_price_list.nil?
-          humanized_product_name
+          humanized_product_name = humanized_product_name + humanized_price_override(sub, '', '(', ')')
         else
-          humanized_product_name+ ' (' + humanized_price_list.downcase + ')'
+          humanized_product_name = humanized_product_name + ' (' + humanized_price_list.downcase + humanized_price_override(sub) + ')'
         end
       else
         if humanized_price_list.nil?
-          humanized_product_name + ' (' + humanized_billing_period.downcase + ')'
+          humanized_product_name = humanized_product_name + ' (' + humanized_billing_period.downcase + humanized_price_override(sub) + ')'
         else
-          humanized_product_name+ ' (' + humanized_billing_period.downcase + ', ' + humanized_price_list.downcase + ')'
+          humanized_product_name = humanized_product_name + ' (' + humanized_billing_period.downcase + ', ' + humanized_price_list.downcase + humanized_price_override(sub) + ')'
+        end
+      end
+
+      humanized_product_name.html_safe
+    end
+
+    def humanized_price_override(sub, separation = ', ', open_bracket = '', close_bracket = '')
+      if sub.plan_name.scan(/ *-\d+$/).empty?
+        ''
+      else
+        current_plan = sub.prices.select { |price| price['phaseType'] == sub.phase_type && price['planName'] == sub.plan_name }
+        price_override = current_plan.last['fixedPrice'] || current_plan.last['recurringPrice']
+
+        if price_override.blank?
+          ''
+        else
+          span = "<span data-toggle=\"popover\" class=\"price-override-popover\" data-content=\"#{price_override}\"><b>price override</b></span>"
+          "#{open_bracket}#{separation}#{span}#{close_bracket}"
         end
       end
     end
