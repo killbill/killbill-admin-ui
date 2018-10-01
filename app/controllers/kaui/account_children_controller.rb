@@ -16,9 +16,9 @@ class Kaui::AccountChildrenController < Kaui::EngineController
   # It will fetch all the children. It use the paginate to fetch all children as permitting for future exchange
   # when killbill account/{account_id}/children endpoint includes offset and limit parameters.
   def pagination
-
+    cached_options_for_klient = options_for_klient
     searcher = lambda do |parent_account_id, offset, limit|
-      Kaui::Account.find_children(parent_account_id, true, true, 'NONE', options_for_klient)
+      Kaui::Account.find_children(parent_account_id, true, true, 'NONE', cached_options_for_klient)
     end
 
     data_extractor = lambda do |account_child, column|

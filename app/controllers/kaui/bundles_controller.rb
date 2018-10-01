@@ -1,25 +1,27 @@
 class Kaui::BundlesController < Kaui::EngineController
 
   def index
-    fetch_bundles = promise { @account.bundles(options_for_klient) }
+    cached_options_for_klient = options_for_klient
+
+    fetch_bundles = promise { @account.bundles(cached_options_for_klient) }
     fetch_bundle_tags = promise {
-      all_bundle_tags = @account.all_tags(:BUNDLE, false, 'NONE', options_for_klient)
+      all_bundle_tags = @account.all_tags(:BUNDLE, false, 'NONE', cached_options_for_klient)
       all_bundle_tags.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
     }
     fetch_subscription_tags = promise {
-      all_subscription_tags = @account.all_tags(:SUBSCRIPTION, false, 'NONE', options_for_klient)
+      all_subscription_tags = @account.all_tags(:SUBSCRIPTION, false, 'NONE', cached_options_for_klient)
       all_subscription_tags.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
     }
     fetch_bundle_fields = promise {
-      all_bundle_fields = @account.all_custom_fields(:BUNDLE, 'NONE', options_for_klient)
+      all_bundle_fields = @account.all_custom_fields(:BUNDLE, 'NONE', cached_options_for_klient)
       all_bundle_fields.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
     }
     fetch_subscription_fields = promise {
-      all_subscription_fields = @account.all_custom_fields(:SUBSCRIPTION, 'NONE', options_for_klient)
+      all_subscription_fields = @account.all_custom_fields(:SUBSCRIPTION, 'NONE', cached_options_for_klient)
       all_subscription_fields.inject({}) {|hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh}
     }
-    fetch_available_tags = promise { Kaui::TagDefinition.all_for_bundle(options_for_klient) }
-    fetch_available_subscription_tags = promise { Kaui::TagDefinition.all_for_subscription(options_for_klient) }
+    fetch_available_tags = promise { Kaui::TagDefinition.all_for_bundle(cached_options_for_klient) }
+    fetch_available_subscription_tags = promise { Kaui::TagDefinition.all_for_subscription(cached_options_for_klient) }
 
     @bundles = wait(fetch_bundles)
     @tags_per_bundle = wait(fetch_bundle_tags)
@@ -44,10 +46,12 @@ class Kaui::BundlesController < Kaui::EngineController
   end
 
   def do_transfer
-    new_account = Kaui::Account::find_by_id_or_key(params.require(:new_account_key), false, false, options_for_klient)
+    cached_options_for_klient = options_for_klient
+
+    new_account = Kaui::Account::find_by_id_or_key(params.require(:new_account_key), false, false, cached_options_for_klient)
 
     bundle = Kaui::Bundle::new(:bundle_id => params.require(:id), :account_id => new_account.account_id)
-    bundle.transfer(nil, params[:billing_policy], current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    bundle.transfer(nil, params[:billing_policy], current_user.kb_username, params[:reason], params[:comment], cached_options_for_klient)
 
     redirect_to kaui_engine.account_bundles_path(new_account.account_id), :notice => 'Bundle was successfully transferred'
   end

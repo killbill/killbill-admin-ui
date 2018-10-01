@@ -21,8 +21,9 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def pagination
+    cached_options_for_klient = options_for_klient
     searcher = lambda do |search_key, offset, limit|
-      Kaui::Account.list_or_search(search_key, offset, limit, options_for_klient)
+      Kaui::Account.list_or_search(search_key, offset, limit, cached_options_for_klient)
     end
 
     data_extractor = lambda do |account, column|
@@ -255,10 +256,12 @@ class Kaui::AccountsController < Kaui::EngineController
 
     raise('Account id and account parent id cannot be equal.') if @account.account_id == @account.parent_account_id
 
-    # check if parent id is valid
-    Kaui::Account.find_by_id(@account.parent_account_id,false,false,options_for_klient)
+    cached_options_for_klient = options_for_klient
 
-    @account.update(false, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    # check if parent id is valid
+    Kaui::Account.find_by_id(@account.parent_account_id, false, false, cached_options_for_klient)
+
+    @account.update(false, current_user.kb_username, params[:reason], params[:comment], cached_options_for_klient)
 
     redirect_to account_path(@account.account_id), :notice => 'Account successfully updated'
   rescue => e
@@ -272,13 +275,14 @@ class Kaui::AccountsController < Kaui::EngineController
 
   def unlink_to_parent
     account_id = params.require(:account_id)
+    cached_options_for_klient = options_for_klient
 
     # search for the account and remove the parent account id
     # check if parent id is valid
-    account = Kaui::Account.find_by_id(account_id,false,false,options_for_klient)
+    account = Kaui::Account.find_by_id(account_id, false, false, cached_options_for_klient)
     account.is_payment_delegated_to_parent = false
     account.parent_account_id = nil
-    account.update(true, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    account.update(true, current_user.kb_username, params[:reason], params[:comment], cached_options_for_klient)
 
     redirect_to account_path(@account.account_id), :notice => 'Account successfully updated'
   rescue => e

@@ -1,9 +1,11 @@
 class Kaui::RefundsController < Kaui::EngineController
 
   def new
-    fetch_invoice = promise { Kaui::Invoice.find_by_id(params.require(:invoice_id), true, 'NONE', options_for_klient) }
-    fetch_payment = promise { Kaui::InvoicePayment::find_by_id(params.require(:payment_id), false, false, options_for_klient) }
-    fetch_bundles = promise { @account.bundles(options_for_klient) }
+    cached_options_for_klient = options_for_klient
+
+    fetch_invoice = promise { Kaui::Invoice.find_by_id(params.require(:invoice_id), true, 'NONE', cached_options_for_klient) }
+    fetch_payment = promise { Kaui::InvoicePayment::find_by_id(params.require(:payment_id), false, false, cached_options_for_klient) }
+    fetch_bundles = promise { @account.bundles(cached_options_for_klient) }
 
     @invoice = wait(fetch_invoice)
     @payment = wait(fetch_payment)

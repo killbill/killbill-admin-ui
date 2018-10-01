@@ -73,8 +73,9 @@ class Kaui::PaymentsController < Kaui::EngineController
   end
 
   def new
-    fetch_invoice = promise { Kaui::Invoice.find_by_id(params.require(:invoice_id), true, 'NONE', options_for_klient) }
-    fetch_payment_methods = promise { Kaui::PaymentMethod.find_all_by_account_id(params.require(:account_id), false, options_for_klient) }
+    cached_options_for_klient = options_for_klient
+    fetch_invoice = promise { Kaui::Invoice.find_by_id(params.require(:invoice_id), true, 'NONE', cached_options_for_klient) }
+    fetch_payment_methods = promise { Kaui::PaymentMethod.find_all_by_account_id(params.require(:account_id), false, cached_options_for_klient) }
 
     @invoice = wait(fetch_invoice)
     @payment_methods = wait(fetch_payment_methods)
@@ -91,15 +92,17 @@ class Kaui::PaymentsController < Kaui::EngineController
   end
 
   def show
-    invoice_payment = Kaui::InvoicePayment.find_safely_by_id(params.require(:id), options_for_klient)
+    cached_options_for_klient = options_for_klient
+
+    invoice_payment = Kaui::InvoicePayment.find_safely_by_id(params.require(:id), cached_options_for_klient)
     @payment = Kaui::InvoicePayment.build_from_raw_payment(invoice_payment)
 
     fetch_payment_fields = promise {
       direct_payment = Kaui::Payment.new(:payment_id => @payment.payment_id)
-      direct_payment.custom_fields('NONE', options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase }
+      direct_payment.custom_fields('NONE', cached_options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase }
     }
     # The payment method may have been deleted
-    fetch_payment_method = promise { Kaui::PaymentMethod.find_safely_by_id(@payment.payment_method_id, options_for_klient) }
+    fetch_payment_method = promise { Kaui::PaymentMethod.find_safely_by_id(@payment.payment_method_id, cached_options_for_klient) }
 
     @custom_fields = wait(fetch_payment_fields)
     @payment_method = wait(fetch_payment_method)
