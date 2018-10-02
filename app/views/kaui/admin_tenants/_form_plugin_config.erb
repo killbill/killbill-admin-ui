@@ -181,7 +181,7 @@
                         } else {
                             $.map(el_props.split('|'), function(el) {
                                 var parts = el.split('=');
-                                res[parts[0]] = parts[1];
+                                res[parts[0]] = parts.slice(1).join('=');
                             });
                         }
                         return false;
