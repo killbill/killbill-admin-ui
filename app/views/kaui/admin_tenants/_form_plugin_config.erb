@@ -112,12 +112,12 @@
             if ($("#toggle_raw").prop("checked")) {
                 var raw = [];
                 raw.push({ is_raw_config: true, property: "raw_config", property_label: "Raw Config", value: ''});
-                for ( var i = 0; i < plugin_key_values.length ; i++ ) {
-                    raw[0].value += plugin_key_values[i].property + '=' + plugin_key_values[i].value;
-                    if (i < plugin_key_values.length - 1) {
-                        raw[0].value += "\n";
-                    }
-                }
+
+                var plugin_name = $('#entered_plugin_name').val();
+                var plugin_key = $("#plugin_key").val();
+                var existing_props = get_tenant_plugin_properties(plugin_key, plugin_name);
+                raw[0].value = existing_props['_raw'];
+
                 render_plugin_key_values(raw, plugin_key_values);
             } else {
                 render_plugin_key_values(plugin_key_values, plugin_key_values);
@@ -215,6 +215,18 @@
             return res;
         }
 
+        function get_tenant_plugin_properties(plugin_key, plugin_name) {
+            /* Retrieve existing plugin properties for this tenant */
+            var existing_props = get_existing_tenant_plugin_properties(plugin_key);
+
+            // try by plugin name for proprietary plugins
+            if (isBlank(existing_props)) {
+                existing_props = get_existing_tenant_plugin_properties(plugin_name);
+            }
+
+            return existing_props;
+        }
+
         function add_properties_for_plugin(plugin_key, plugin_name) {
             var plugin_info = get_selected_plugin_info(plugin_key);
 
@@ -229,13 +241,7 @@
                 return;
             }
 
-            /* Retrieve existing plugin properties for this tenant */
-            var existing_props = get_existing_tenant_plugin_properties(plugin_key);
-
-            // try by plugin name for proprietary plugins
-            if (isBlank(existing_props)) {
-                existing_props = get_existing_tenant_plugin_properties(plugin_name);
-            }
+            var existing_props = get_tenant_plugin_properties(plugin_key, plugin_name);
 
             var type = plugin_info['type'];
             var props = plugin_info['props']
@@ -285,7 +291,9 @@
             var plugin_props_with_values = [];
 
             $.each(merged_props_with_values, function(p, v) {
-                plugin_props_with_values.push({ property_label: format_label(p), property: p, value: v, is_raw_config: p == 'raw_config'});
+                if (p != '_raw') {
+                    plugin_props_with_values.push({ property_label: format_label(p), property: p, value: v, is_raw_config: p == 'raw_config'});
+                }
             });
 
             render_plugin_key_values(plugin_props_with_values, plugin_props_with_values);

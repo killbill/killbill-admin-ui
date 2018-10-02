@@ -75,6 +75,7 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
           else
             hsh[plugin_key] = yml[plugin_key.to_sym]
           end
+          hsh[plugin_key][:_raw] = e.values[0]
         elsif is_an_official_plugin && is_kv?(e.values[0])
           # Construct hash of properties based on java properties (k1=v1\nk2=v2\n...)
           hsh[plugin_key] = e.values[0].split("\n").inject({}) do |h, p0|
@@ -82,9 +83,10 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
             h[k] = v;
             h
           end
+          hsh[plugin_key][:_raw] = e.values[0]
         else
           # Construct simple hash with one property :raw_config
-          hsh[killbill_key] = {:raw_config => e.values[0]}
+          hsh[killbill_key] = {:raw_config => e.values[0], :_raw => e.values[0]}
         end
         hsh
       end
@@ -99,7 +101,6 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
         end
         "#{plugin_key}::#{serialized_props}"
       end.join(";")
-
     end
 
     def format_plugin_config(plugin_key, plugin_type, props)
