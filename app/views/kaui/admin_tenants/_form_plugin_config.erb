@@ -135,6 +135,7 @@
                 $("#plugin_type").val(selectedOption[0].dataset['pluginType']);
                 $('#plugin_config_properties').attr('plugin_name', '');
                 $('#plugin_config_properties_header').hide();
+                $("#toggle_raw").prop('checked', false);
                 add_properties_for_plugin(plugin_key, plugin_name);
             }
         });
