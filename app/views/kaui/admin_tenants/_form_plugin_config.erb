@@ -168,7 +168,7 @@
 
         function get_existing_tenant_plugin_properties(entered_plugin_name) {
             var tenant_plugin_properties = $('#entered_plugin_name').attr('tenant_plugin_config');
-            var res = {}
+            var res = {};
             if (tenant_plugin_properties != undefined) {
                 $.each(tenant_plugin_properties.split(';'), function(idx, el) {
                     var el_parts = el.split('::');

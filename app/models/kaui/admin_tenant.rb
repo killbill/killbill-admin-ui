@@ -102,18 +102,18 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
 
     end
 
-
     def format_plugin_config(plugin_key, plugin_type, props)
       return nil unless props.present?
+      return props['raw_config'].gsub(/\r\n?/, "\n") if props['raw_config']
+
       if plugin_type == 'ruby'
         require 'yaml'
         props = reformat_plugin_config(plugin_type, props)
         hsh = {}
         hsh[plugin_key.to_sym] = {}
         props.each do |k,v|
-          hsh[plugin_key.to_sym][k.to_sym] = v.to_sym
+          hsh[plugin_key.to_sym][k.to_sym] = v
         end
-        hsh[plugin_key.to_sym]
         hsh.to_yaml
       elsif plugin_type == 'java'
         props = reformat_plugin_config(plugin_type, props)

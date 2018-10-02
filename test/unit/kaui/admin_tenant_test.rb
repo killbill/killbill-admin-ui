@@ -14,6 +14,30 @@ class Kaui::AdminTenantTest < ActiveSupport::TestCase
                   {"plugin_key":"payu-latam","plugin_name":"killbill-payu-latam","plugin_type":"ruby","installed":false},{"plugin_key":"payment-test","plugin_name":"killbill-payment-test","plugin_type":"ruby","installed":false},
                   {"plugin_key":"securenet","plugin_name":"killbill-securenet","plugin_type":"ruby","installed":false},{"plugin_key":"stripe","plugin_name":"killbill-stripe","plugin_type":"ruby","installed":false},{"plugin_key":"zendesk","plugin_name":"killbill-zendesk","plugin_type":"ruby","installed":false}]'
 
+  test 'should not reformat raw config before upload' do
+    props = {"raw_config" => ":paypal_express:\r\n  :signature: \"THISISAREALLYLONGSIGNATGURESTRING123\"\r\n  :login: \"username-facilitator_domain.com\"\r\n  :password: \"SUPERSECRETPW\""}
+    formatted = Kaui::AdminTenant.format_plugin_config('paypal_express', 'ruby', props)
+    expected=<<-EOS.chomp
+:paypal_express:
+  :signature: "THISISAREALLYLONGSIGNATGURESTRING123"
+  :login: "username-facilitator_domain.com"
+  :password: "SUPERSECRETPW"
+    EOS
+    assert_equal expected, formatted
+  end
+
+  test 'should reformat ruby config before upload' do
+    props = {"login"=>"ljskf9\"0sdf'34%", "password"=>"lskdj\"f-12;sdf'[5%"}
+    formatted = Kaui::AdminTenant.format_plugin_config('securenet', 'ruby', props)
+    expected=<<-EOS
+---
+:securenet:
+  :login: ljskf9"0sdf'34%
+  :password: lskdj"f-12;sdf'[5%
+    EOS
+    assert_equal expected, formatted
+  end
+
   test 'can split camel dash underscore space strings' do
     adminTenantController = Kaui::AdminTenantsController.new
 
@@ -36,7 +60,6 @@ class Kaui::AdminTenantTest < ActiveSupport::TestCase
     string = 'this-IsA string_to-split'
     splitted = adminTenantController.send(:split_camel_dash_underscore_space, string)
     assert_split(splitted)
-
   end
 
   test 'can do a fuzzy match of a plugin to suggest a plugin' do
@@ -71,7 +94,6 @@ class Kaui::AdminTenantTest < ActiveSupport::TestCase
     found_plugin, weights = adminTenantController.send(:fuzzy_match, plugin_name, plugins_info)
     assert_equal weights.size, 0
     assert_equal found_plugin[:plugin_name], 'killbill-avatax'
-
   end
 
   test 'should fetch proprietary plugin config' do
@@ -83,7 +105,6 @@ class Kaui::AdminTenantTest < ActiveSupport::TestCase
     plugin_name = 'duck-plugin'
     plugin_config = 'key=value'
     Kaui::AdminTenant.upload_tenant_plugin_config(plugin_name, plugin_config, options[:username], nil, nil, options)
-
 
     plugins_config = Kaui::AdminTenant.get_tenant_plugin_config({}, options)
     assert_not_nil(plugins_config)
@@ -108,7 +129,6 @@ class Kaui::AdminTenantTest < ActiveSupport::TestCase
 
     plugin_config = Kaui::AdminTenant.format_plugin_config(plugin_key, 'ruby', plugin_properties)
     Kaui::AdminTenant.upload_tenant_plugin_config(plugin_name, plugin_config, options[:username], nil, nil, options)
-
 
     plugins_config = Kaui::AdminTenant.get_tenant_plugin_config({ :paypal_express => { 'type' => 'ruby',
                                                                   'artifact_id' => 'paypal-express-plugin'} }, options)

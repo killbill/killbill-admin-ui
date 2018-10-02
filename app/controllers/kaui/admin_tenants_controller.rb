@@ -121,8 +121,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def new_catalog
-
-
     @tenant = safely_find_tenant_by_id(params[:id])
 
     options = tenant_options_for_client
@@ -147,7 +145,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def delete_catalog
-
     tenant = safely_find_tenant_by_id(params[:id])
 
     options = tenant_options_for_client
@@ -191,9 +188,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     @simple_plan.plan_id = params[:plan_id]
   end
 
-
   def create_simple_plan
-
     current_tenant = safely_find_tenant_by_id(params[:id])
 
     options = tenant_options_for_client
@@ -221,7 +216,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def modify_overdue_config
-
     current_tenant = safely_find_tenant_by_id(params[:id])
 
     options = tenant_options_for_client
@@ -235,7 +229,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     Kaui::Overdue::upload_tenant_overdue_config_json(overdue.to_json,options[:username], nil, comment, options)
     redirect_to admin_tenant_path(current_tenant.id), :notice => 'Overdue config was successfully added '
   end
-
 
   def upload_overdue_config
     current_tenant = safely_find_tenant_by_id(params[:id])
@@ -251,7 +244,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     redirect_to admin_tenant_path(current_tenant.id), :notice => 'Overdue config was successfully uploaded'
   end
-
 
   def upload_invoice_template
     current_tenant = safely_find_tenant_by_id(params[:id])
@@ -449,7 +441,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
   private
 
-
   def safely_find_tenant_by_id(tenant_id)
     tenant = Kaui::Tenant.find_by_id(tenant_id)
     raise ActiveRecord::RecordNotFound.new('Could not find tenant ' + tenant_id) unless retrieve_tenants_for_current_user.include?(tenant.kb_tenant_id)
@@ -470,7 +461,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def set_tenant_if_nil(tenant)
-
     if session[:kb_tenant_id].nil?
       session[:kb_tenant_id] = tenant.kb_tenant_id
       session[:kb_tenant_name] = tenant.name
