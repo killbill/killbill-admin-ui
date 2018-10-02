@@ -2,9 +2,9 @@ class Kaui::Base
 
   def self.to_money(amount, currency)
     begin
-      return Money.new(amount.to_f * 100, currency)
+      return Money.from_amount(amount.to_f, currency)
     rescue => _
     end if currency.present?
-    Money.new(amount.to_f * 100, 'USD')
+    Money.from_amount(amount.to_f, 'USD')
   end
 end
