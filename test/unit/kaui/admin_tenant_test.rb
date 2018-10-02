@@ -111,7 +111,7 @@ class Kaui::AdminTenantTest < ActiveSupport::TestCase
 
     plugin_info = plugins_config.split('::')
     assert_equal plugin_name, plugin_info[0]
-    assert_equal plugin_config, plugin_info[1].gsub('raw_config=','')
+    assert_equal 'key=value|_raw=key=value', plugin_info[1].gsub('raw_config=','')
   end
 
   test 'should fetch plugin config' do
