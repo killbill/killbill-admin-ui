@@ -8,11 +8,13 @@ class Kaui::ChargebacksController < Kaui::EngineController
   end
 
   def create
+    cached_options_for_klient = options_for_klient
+
     @chargeback = Kaui::Chargeback.new(params.require(:chargeback))
     should_cancel_subs = (params[:cancel_all_subs] == '1')
 
     begin
-      payment = @chargeback.chargeback(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+      payment = @chargeback.chargeback(current_user.kb_username, params[:reason], params[:comment], cached_options_for_klient)
     rescue => e
       flash.now[:error] = "Error while creating a new chargeback: #{as_string(e)}"
       render :action => :new and return
@@ -21,15 +23,15 @@ class Kaui::ChargebacksController < Kaui::EngineController
     # Cancel all subscriptions on the account, if required
     if should_cancel_subs
       begin
-        account = Kaui::Account.find_by_id(payment.account_id, false, false, options_for_klient)
-        account.bundles(options_for_klient).each do |bundle|
+        account = Kaui::Account.find_by_id(payment.account_id, false, false, cached_options_for_klient)
+        account.bundles(cached_options_for_klient).each do |bundle|
           bundle.subscriptions.each do |subscription|
             # Already cancelled?
             next unless subscription.billing_end_date.blank?
 
             # Cancel the entitlement immediately but use the default billing policy
             entitlement = Kaui::Subscription.new(:subscription_id => subscription.subscription_id)
-            entitlement.cancel_entitlement_immediately(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+            entitlement.cancel_entitlement_immediately(current_user.kb_username, params[:reason], params[:comment], cached_options_for_klient)
           end
         end
       rescue => e

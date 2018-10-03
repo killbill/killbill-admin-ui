@@ -11,12 +11,14 @@ class Kaui::InvoicesController < Kaui::EngineController
   end
 
   def pagination
+    cached_options_for_klient = options_for_klient
+
     searcher = lambda do |search_key, offset, limit|
-      account = Kaui::Account::find_by_id_or_key(search_key, false, false, options_for_klient) rescue nil
+      account = Kaui::Account::find_by_id_or_key(search_key, false, false, cached_options_for_klient) rescue nil
       if account.nil?
-        Kaui::Invoice.list_or_search(search_key, offset, limit, options_for_klient)
+        Kaui::Invoice.list_or_search(search_key, offset, limit, cached_options_for_klient)
       else
-        account.invoices(true, options_for_klient).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
+        account.invoices(true, cached_options_for_klient).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
       end
     end
 
@@ -85,8 +87,9 @@ class Kaui::InvoicesController < Kaui::EngineController
   end
 
   def commit_invoice
-    invoice = KillBillClient::Model::Invoice.find_by_id(params.require(:id), false, 'NONE', options_for_klient)
-    invoice.commit(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    cached_options_for_klient = options_for_klient
+    invoice = KillBillClient::Model::Invoice.find_by_id(params.require(:id), false, 'NONE', cached_options_for_klient)
+    invoice.commit(current_user.kb_username, params[:reason], params[:comment], cached_options_for_klient)
     redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id), :notice => 'Invoice successfully committed'
   end
 end
