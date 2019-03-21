@@ -88,6 +88,10 @@
         var template = $("#currencies_template").html();
         var currencies_html = Mustache.render(template,data);
         $("#currency_select").html(currencies_html);
+
+        $('[id^="select_currencies"]').change(function() {
+            displayAmountsForCurrency();
+        });
     }
 
     function renderCatalog(data){
@@ -182,10 +186,6 @@
 
         $("#select_catalog").change(function() {
             fetchCatalog(this.value);
-        });
-
-        $('[id^="select_currencies"]').change(function() {
-            displayAmountsForCurrency();
         });
     });
 <% end %>
