@@ -29,6 +29,27 @@ bundle install
 rails db:migrate
 rails s
 ```
+If you experience an error of;
+
+```
+You must use Bundler 2 or greater with this lockfile.
+```
+
+Then run the following commands to update your environment.
+
+Update Rubygems;
+
+```
+gem update --system
+```
+Update bundler;
+```
+gem install bundler
+```
+Update the Gemfile.lock file;
+```
+bundler update --bundler
+```
 
 The Kill Bill URL can be configured through the `KILLBILL_URL` environment variable, e.g.
 
