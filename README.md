@@ -25,6 +25,7 @@ You can run Kaui locally by using the test/dummy app provided:
 
 ```
 export RAILS_ENV=development
+export DATABASE_URL=mysql://root:killbill@<MySQL Host IP>/killbill
 bundle install
 rails db:migrate
 rails s
