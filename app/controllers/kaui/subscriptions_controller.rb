@@ -141,7 +141,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     redirect_to kaui_engine.account_bundles_path(subscription.account_id)
   end
 
-  def validate_external_key
+  def validate_bundle_external_key
     json_response do
       external_key = params.require(:external_key)
 
