@@ -155,6 +155,21 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     end
   end
 
+
+  def validate_external_key
+    json_response do
+      external_key = params.require(:external_key)
+
+      begin
+        subscription = Kaui::Subscription.find_by_external_key(external_key, options_for_klient)
+      rescue KillBillClient::API::NotFound
+        subscription = nil
+      end
+
+      { :is_found => !subscription.nil? }
+    end
+  end
+
   def update_tags
     subscription_id = params.require(:id)
     subscription = Kaui::Subscription.find_by_id(subscription_id, options_for_klient)

@@ -144,7 +144,8 @@ jQuery(document).ready(function ($) {
     const VALIDATE_EXTERNAL_KEY = {
         account: { url: Routes.kaui_engine_accounts_validate_external_key_path(), invalid_msg_class_name: '.account_external_key_invalid_msg' },
         payment_method: {url: Routes.kaui_engine_payment_methods_validate_external_key_path(), invalid_msg_class_name: '.payment_method_external_key_invalid_msg'},
-        subscription: {url: Routes.kaui_engine_subscriptions_validate_bundle_external_key_path(), invalid_msg_class_name: '.subscription_bundle_external_key_invalid_msg'}
+        bundle: {url: Routes.kaui_engine_subscriptions_validate_bundle_external_key_path(), invalid_msg_class_name: '.subscription_bundle_external_key_invalid_msg'},
+        subscription: {url: Routes.kaui_engine_subscriptions_validate_external_key_path(), invalid_msg_class_name: '.subscription_external_key_invalid_msg'}
     }
 
     validate_external_key($('#account_external_key').val(),'account');
@@ -157,8 +158,13 @@ jQuery(document).ready(function ($) {
         validate_external_key($(this).val(),'payment_method');
     });
 
-    validate_external_key($('#bundle_external_key').val(),'subscription');
+    validate_external_key($('#bundle_external_key').val(),'bundle');
     $('#bundle_external_key').on('change', function(e){
+        validate_external_key($(this).val(),'bundle');
+    });
+
+    validate_external_key($('#subscription_external_key').val(),'subscription');
+    $('#subscription_external_key').on('change', function(e){
         validate_external_key($(this).val(),'subscription');
     });
 
