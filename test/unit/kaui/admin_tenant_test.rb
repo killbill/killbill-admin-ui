@@ -62,40 +62,6 @@ class Kaui::AdminTenantTest < ActiveSupport::TestCase
     assert_split(splitted)
   end
 
-  test 'can do a fuzzy match of a plugin to suggest a plugin' do
-    plugins_info = plugins_repo
-    adminTenantController = Kaui::AdminTenantsController.new
-
-    %w(killbill-paypal express paypal pay).each do |plugin_name|
-      found_plugin, weights = adminTenantController.send(:fuzzy_match, plugin_name, plugins_info)
-      assert_nil(found_plugin)
-      assert_equal weights[0][:plugin_name], 'killbill-paypal-express'
-    end
-
-    plugin_name = 'email'
-    found_plugin, weights = adminTenantController.send(:fuzzy_match, plugin_name, plugins_info)
-    assert_nil(found_plugin)
-    assert_equal weights[0][:plugin_name], 'killbill-email-notifications'
-
-    %w(first firstdata firstdata_e4).each do |plugin_name|
-      found_plugin, weights = adminTenantController.send(:fuzzy_match, plugin_name, plugins_info)
-      assert_nil(found_plugin)
-      assert_equal weights[0][:plugin_name], 'killbill-firstdata-e4'
-    end
-
-    %w(braintree brain).each do |plugin_name|
-      found_plugin, weights = adminTenantController.send(:fuzzy_match, plugin_name, plugins_info)
-      assert_nil(found_plugin)
-      assert_equal weights[0][:plugin_name], 'killbill-braintree_blue'
-    end
-
-    # if found weights should be empty
-    plugin_name = 'avatax'
-    found_plugin, weights = adminTenantController.send(:fuzzy_match, plugin_name, plugins_info)
-    assert_equal weights.size, 0
-    assert_equal found_plugin[:plugin_name], 'killbill-avatax'
-  end
-
   test 'should fetch proprietary plugin config' do
     tenant = create_tenant()
     assert_not_nil(tenant)
