@@ -142,7 +142,9 @@
 
         populate_plugin_name_options();
         function populate_plugin_name_options(){
-            var plugin_repository = JSON.parse($("#plugin_repository").val());
+            var all_plugins = JSON.parse($("#plugin_repository").val());
+            // We only list installed plugins as to not confuse the user
+            var plugin_repository = all_plugins.filter(plugin => plugin.installed);
             for (var idx = 0, size = plugin_repository.length; idx < size; idx++) {
                 if (idx == 0 && plugin_repository[idx].installed) {
                     plugin_repository[idx]['start_installed'] = true;
