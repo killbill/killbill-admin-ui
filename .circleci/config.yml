@@ -32,7 +32,7 @@ jobs:
     <<: *defaults
     docker:
       - image: killbill/kbbuild:0.5.0
-      - image: killbill/killbill:0.20.0
+      - image: killbill/killbill:0.21.8
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
         - KILLBILL_DAO_URL=jdbc:mysql://127.0.0.1:3306/killbill
@@ -41,7 +41,7 @@ jobs:
         - KILLBILL_SERVER_TEST_MODE=true
         - KILLBILL_INVOICE_SANITY_SAFETY_BOUND_ENABLED=false
         - KILLBILL_INVOICE_MAX_DAILY_NUMBER_OF_ITEMS_SAFETY_BOUND=-1
-      - image: killbill/mariadb:0.20
+      - image: killbill/mariadb:0.21
         environment:
         - MYSQL_ROOT_PASSWORD=root
     steps:
@@ -102,7 +102,7 @@ jobs:
     <<: *defaults
     docker:
       - image: killbill/kbbuild:0.5.0
-      - image: killbill/killbill:0.20.0
+      - image: killbill/killbill:0.21.8
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
         - KILLBILL_DAO_URL=jdbc:postgresql://127.0.0.1:5432/killbill
@@ -111,7 +111,7 @@ jobs:
         - KILLBILL_SERVER_TEST_MODE=true
         - KILLBILL_INVOICE_SANITY_SAFETY_BOUND_ENABLED=false
         - KILLBILL_INVOICE_MAX_DAILY_NUMBER_OF_ITEMS_SAFETY_BOUND=-1
-      - image: killbill/postgresql:0.20
+      - image: killbill/postgresql:0.21
         environment:
         - POSTGRES_PASSWORD=postgres
     steps:
@@ -193,7 +193,7 @@ jobs:
     <<: *defaults
     docker:
       - image: killbill/kbbuild:0.5.0
-      - image: killbill/killbill:0.20.0
+      - image: killbill/killbill:0.21.8
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
         - KILLBILL_DAO_URL=jdbc:mysql://127.0.0.1:3306/killbill
@@ -202,7 +202,7 @@ jobs:
         - KILLBILL_SERVER_TEST_MODE=true
         - KILLBILL_INVOICE_SANITY_SAFETY_BOUND_ENABLED=false
         - KILLBILL_INVOICE_MAX_DAILY_NUMBER_OF_ITEMS_SAFETY_BOUND=-1
-      - image: killbill/mariadb:0.20
+      - image: killbill/mariadb:0.21
         environment:
         - MYSQL_ROOT_PASSWORD=root
     steps:
@@ -263,7 +263,7 @@ jobs:
     <<: *defaults
     docker:
       - image: killbill/kbbuild:0.5.0
-      - image: killbill/killbill:0.20.0
+      - image: killbill/killbill:0.21.8
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
         - KILLBILL_DAO_URL=jdbc:mysql://127.0.0.1:3306/killbill
@@ -272,7 +272,7 @@ jobs:
         - KILLBILL_SERVER_TEST_MODE=true
         - KILLBILL_INVOICE_SANITY_SAFETY_BOUND_ENABLED=false
         - KILLBILL_INVOICE_MAX_DAILY_NUMBER_OF_ITEMS_SAFETY_BOUND=-1
-      - image: killbill/mariadb:0.20
+      - image: killbill/mariadb:0.21
         environment:
         - MYSQL_ROOT_PASSWORD=root
     steps:
@@ -333,7 +333,7 @@ jobs:
     <<: *defaults
     docker:
       - image: killbill/kbbuild:0.5.0
-      - image: killbill/killbill:0.20.0
+      - image: killbill/killbill:0.21.8
         environment:
         - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
         - KILLBILL_DAO_URL=jdbc:postgresql://127.0.0.1:5432/killbill
@@ -342,7 +342,7 @@ jobs:
         - KILLBILL_SERVER_TEST_MODE=true
         - KILLBILL_INVOICE_SANITY_SAFETY_BOUND_ENABLED=false
         - KILLBILL_INVOICE_MAX_DAILY_NUMBER_OF_ITEMS_SAFETY_BOUND=-1
-      - image: killbill/postgresql:0.20
+      - image: killbill/postgresql:0.21
         environment:
         - POSTGRES_PASSWORD=postgres
     steps:
