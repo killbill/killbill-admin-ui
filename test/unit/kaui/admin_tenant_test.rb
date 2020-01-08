@@ -75,9 +75,8 @@ class Kaui::AdminTenantTest < ActiveSupport::TestCase
     plugins_config = Kaui::AdminTenant.get_tenant_plugin_config({}, options)
     assert_not_nil(plugins_config)
 
-    plugin_info = plugins_config.split('::')
-    assert_equal plugin_name, plugin_info[0]
-    assert_equal 'key=value|_raw=key=value', plugin_info[1].gsub('raw_config=','')
+    assert_equal plugin_name, plugins_config.keys.first
+    assert_equal 'key=value', plugins_config[plugin_name]
   end
 
   test 'should fetch plugin config' do
@@ -99,12 +98,11 @@ class Kaui::AdminTenantTest < ActiveSupport::TestCase
     plugins_config = Kaui::AdminTenant.get_tenant_plugin_config({ :paypal_express => { 'type' => 'ruby',
                                                                   'artifact_id' => 'paypal-express-plugin'} }, options)
     assert_not_nil(plugins_config)
-    plugin_info = plugins_config.split('::')
-    assert_equal plugin_key, plugin_info[0]
-    response_plugin_properties = plugin_info[1].split('|')
-    assert_equal plugin_properties[:signature], response_plugin_properties[0].split('=')[1]
-    assert_equal plugin_properties[:login], response_plugin_properties[1].split('=')[1]
-    assert_equal plugin_properties[:password], response_plugin_properties[2].split('=')[1]
+    assert_equal plugin_name, plugins_config.keys.first
+    response_plugin_properties = plugins_config[plugin_name].split
+    assert_equal plugin_properties[:signature], response_plugin_properties[3]
+    assert_equal plugin_properties[:login], response_plugin_properties[5]
+    assert_equal plugin_properties[:password], response_plugin_properties[7]
   end
 
   private
