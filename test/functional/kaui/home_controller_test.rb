@@ -376,9 +376,9 @@ class Kaui::HomeControllerTest < Kaui::FunctionalTestHelper
   end
 
   def create_credit
-    credit = KillBillClient::Model::Credit.new(:invoice_id => nil, :account_id => @account.account_id, :credit_amount => 2.22)
+    credit = KillBillClient::Model::Credit.new(:invoice_id => nil, :account_id => @account.account_id, :amount => 2.22)
     credit = credit.create(true, 'kaui search test', nil, nil, build_options(@tenant, USERNAME, PASSWORD))
-    credit
+    credit.first
   end
 
   def create_custom_field

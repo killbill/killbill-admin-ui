@@ -96,7 +96,7 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
 
     post :update, :id => @bundle.subscriptions.first.subscription_id, :plan_name => 'not-exists'
     assert_redirected_to edit_subscription_path(@bundle.subscriptions.first.subscription_id)
-    assert_equal "Error while changing subscription: Error 400: Could not find a plan matching spec: (plan: 'not-exists', product: 'undefined', billing period: 'undefined', pricelist 'undefined')", flash[:error]
+    assert_equal "Error while changing subscription: Error 400: Could not find any plans named 'not-exists'", flash[:error]
   end
 
   test 'should update' do
