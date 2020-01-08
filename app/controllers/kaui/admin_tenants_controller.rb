@@ -307,6 +307,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     if plugin_properties.blank?
       flash[:error] = 'Plugin properties cannot be blank'
+    elsif plugin_name.blank?
+      flash[:error] = 'Plugin name cannot be blank'
     else
       plugin_config = Kaui::AdminTenant.format_plugin_config(plugin_key, plugin_type, plugin_properties)
 
