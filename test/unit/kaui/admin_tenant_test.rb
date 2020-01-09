@@ -72,7 +72,7 @@ class Kaui::AdminTenantTest < ActiveSupport::TestCase
     plugin_config = 'key=value'
     Kaui::AdminTenant.upload_tenant_plugin_config(plugin_name, plugin_config, options[:username], nil, nil, options)
 
-    plugins_config = Kaui::AdminTenant.get_tenant_plugin_config({}, options)
+    plugins_config = Kaui::AdminTenant.get_tenant_plugin_config(options)
     assert_not_nil(plugins_config)
 
     assert_equal plugin_name, plugins_config.keys.first
@@ -95,8 +95,7 @@ class Kaui::AdminTenantTest < ActiveSupport::TestCase
     plugin_config = Kaui::AdminTenant.format_plugin_config(plugin_key, 'ruby', plugin_properties)
     Kaui::AdminTenant.upload_tenant_plugin_config(plugin_name, plugin_config, options[:username], nil, nil, options)
 
-    plugins_config = Kaui::AdminTenant.get_tenant_plugin_config({ :paypal_express => { 'type' => 'ruby',
-                                                                  'artifact_id' => 'paypal-express-plugin'} }, options)
+    plugins_config = Kaui::AdminTenant.get_tenant_plugin_config(options)
     assert_not_nil(plugins_config)
     assert_equal plugin_name, plugins_config.keys.first
     response_plugin_properties = plugins_config[plugin_name].split

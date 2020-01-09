@@ -310,7 +310,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
       flash[:notice] = 'Config for plugin was successfully uploaded'
     end
 
-    redirect_to admin_tenant_path(current_tenant.id)
+    redirect_to admin_tenant_path(current_tenant.id, :active_tab => 'PluginConfig')
   end
 
   def remove_allowed_user
