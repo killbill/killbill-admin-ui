@@ -19,7 +19,7 @@
             <%= label_tag :entered_plugin_name, 'Plugin name', :class => 'col-sm-2 control-label' %>
             <div class="col-sm-4">
               <select class="form-control" id="select_plugin_name"></select>
-              <%= text_field_tag :entered_plugin_name, nil, :class => 'form-control', :plugin_config => @plugin_config, :tenant_plugin_config => @tenant_plugin_config.to_json %>
+              <%= text_field_tag :entered_plugin_name, nil, :class => 'form-control', :tenant_plugin_config => @tenant_plugin_config.to_json %>
               <div class="text plugin-suggestion text-danger"></div>
             </div>
             <div class="col-sm-1 spinner"><i class="fa fa-cog fa-2x fa-spin"></i></div>
@@ -154,7 +154,7 @@
             }
 
             var template = $("#plugin_name_options_template").html();
-            var options_html = Mustache.render( template , { plugin_repository: plugin_repository});
+            var options_html = Mustache.render( template , { plugin_repository: plugin_repository });
             $("#select_plugin_name").html(options_html);
         }
 
@@ -177,10 +177,17 @@
         }
 
         function render_plugin_key_values() {
-            var plugin_name = $("#plugin_name").val();
-            var plugin_key = $("#plugin_key").val();
+            var plugin_name = "";
+            var plugin_key         = "";
+            if (isBlank($('#entered_plugin_name').val())) {
+                plugin_name = $("#plugin_name").val();
+                plugin_key = $("#plugin_key").val();
+            } else {
+                plugin_name = $("#entered_plugin_name").val();
+            }
+
             var existing_props = get_tenant_plugin_properties(plugin_key, plugin_name);
-            $("#raw_config").html(existing_props);
+            $("#raw_config").val(existing_props);
         }
 });
 <% end %>
