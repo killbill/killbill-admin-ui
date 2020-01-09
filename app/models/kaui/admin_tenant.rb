@@ -26,30 +26,8 @@ class Kaui::AdminTenant < KillBillClient::Model::Tenant
       KillBillClient::Model::Tenant.upload_tenant_plugin_config(plugin_name, plugin_config, user, reason, comment, options)
     end
 
-    def get_plugin_repository
-      require 'open-uri'
-      require 'yaml'
-
-      source = URI.parse('https://raw.githubusercontent.com/killbill/killbill-cloud/master/kpm/lib/kpm/plugins_directory.yml').read
-      YAML.load(source)
-    rescue
-      # Ignore gracefully
-      {}
-    end
-
-    def get_oss_plugin_info(plugin_directory)
-      # Serialize the plugin state for the view:
-      #  plugin_name#plugin_type:prop1,prop2,prop3;plugin_name#plugin_type:prop1,prop2,prop3;...
-      #
-      plugin_config = plugin_directory.inject({}) do |hsh, (k,v)|
-        hsh["#{k}##{v[:type]}"] = v[:require] || []
-        hsh
-      end
-      plugin_config.map { |e,v| "#{e}:#{v.join(",")}" }.join(";")
-    end
-
     # Return a map of plugin_name => config
-    def get_tenant_plugin_config(plugin_directory, options)
+    def get_tenant_plugin_config(options)
       raw_tenant_config = KillBillClient::Model::Tenant::search_tenant_config("PLUGIN_CONFIG_", options)
 
       tenant_config = raw_tenant_config.inject({}) do |hsh, e|
