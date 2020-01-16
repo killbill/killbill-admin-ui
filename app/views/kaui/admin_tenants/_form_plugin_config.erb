@@ -17,9 +17,10 @@
 
           <div id="plugin" class="form-group">
             <%= label_tag :entered_plugin_name, 'Plugin name', :class => 'col-sm-2 control-label' %>
+
             <div class="col-sm-4">
               <select class="form-control" id="select_plugin_name"></select>
-              <%= text_field_tag :entered_plugin_name, nil, :class => 'form-control', :tenant_plugin_config => @tenant_plugin_config.to_json %>
+              <%= text_field_tag :entered_plugin_name, nil, :placeholder => 'as defined in the plugin Activator file',  :class => 'form-control', :tenant_plugin_config => @tenant_plugin_config.to_json %>
               <div class="text plugin-suggestion text-danger"></div>
             </div>
             <div class="col-sm-1 spinner"><i class="fa fa-cog fa-2x fa-spin"></i></div>
@@ -29,7 +30,7 @@
                 <span class="slider round"></span>
               </label>
             </label>
-            <label class="col-sm-3 control-label toggle-label text-muted">or toggle plugin name input</label>
+            <label class="col-sm-3 control-label toggle-label text-muted">manual entry</label>
           </div>
 
           <div id="plugin_config_properties_header" class="form-group">
