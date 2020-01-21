@@ -94,7 +94,7 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     stripe_yml.each { |k, v| stripe_yml[k] = v.to_s }
     post :upload_plugin_config, :id => tenant.id, :plugin_name => 'killbill-stripe', :plugin_key => 'stripe', :plugin_type => 'ruby', :plugin_properties => stripe_yml
 
-    assert_redirected_to admin_tenant_path(tenant.id)
+    assert_redirected_to admin_tenant_path(tenant.id, :active_tab => 'PluginConfig')
     assert_equal 'Config for plugin was successfully uploaded', flash[:notice]
   end
 

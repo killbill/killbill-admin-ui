@@ -81,12 +81,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     fetch_overdue = promise { Kaui::Overdue::get_overdue_json(options) rescue @overdue = nil }
     fetch_overdue_xml = promise { Kaui::Overdue::get_tenant_overdue_config('xml', options) rescue @overdue_xml = nil }
 
-    plugin_repository = Kaui::AdminTenant::get_plugin_repository
-    # hack:: replace paypal key with paypal_express, to set configuration and allow the ui to find the right configuration inputs
-    plugin_repository = plugin_repository.inject({}) { |p, (k,v)| p[k.to_s.sub(/\Apaypal/, 'paypal_express').to_sym] = v; p }
-
-    fetch_plugin_config = promise { Kaui::AdminTenant::get_oss_plugin_info(plugin_repository) }
-    fetch_tenant_plugin_config = promise { Kaui::AdminTenant::get_tenant_plugin_config(plugin_repository, options) }
+    fetch_tenant_plugin_config = promise { Kaui::AdminTenant::get_tenant_plugin_config(options) }
 
     @catalog_versions = []
     wait(fetch_catalog_versions).each_with_index do |effective_date, idx|
@@ -98,7 +93,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     @overdue = wait(fetch_overdue)
     @overdue_xml = wait(fetch_overdue_xml)
-    @plugin_config = wait(fetch_plugin_config) rescue ''
     @tenant_plugin_config = wait(fetch_tenant_plugin_config) rescue ''
 
     # When reloading page from the view, it sends the last tab that was active
@@ -307,6 +301,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     if plugin_properties.blank?
       flash[:error] = 'Plugin properties cannot be blank'
+    elsif plugin_name.blank?
+      flash[:error] = 'Plugin name cannot be blank'
     else
       plugin_config = Kaui::AdminTenant.format_plugin_config(plugin_key, plugin_type, plugin_properties)
 
@@ -314,7 +310,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
       flash[:notice] = 'Config for plugin was successfully uploaded'
     end
 
-    redirect_to admin_tenant_path(current_tenant.id)
+    redirect_to admin_tenant_path(current_tenant.id, :active_tab => 'PluginConfig')
   end
 
   def remove_allowed_user
