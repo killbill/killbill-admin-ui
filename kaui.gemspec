@@ -28,13 +28,13 @@ Gem::Specification.new do |s|
   s.add_dependency 'twitter-bootstrap-rails'
   s.add_dependency 'font-awesome-rails', '~> 4.7'
   s.add_dependency 'bootstrap-datepicker-rails', '~> 1.6'
-  s.add_dependency 'killbill-client', '~> 3.0'
+  s.add_dependency 'killbill-client', '~> 3.2'
   s.add_dependency 'devise', '~> 4.3'
   s.add_dependency 'cancan', '~> 1.6.10'
   s.add_dependency 'country_select', '~> 3.0'
   s.add_dependency 'symmetric-encryption', '~> 3.9'
 
-  s.add_dependency 'kenui', '~> 1.0'
+  s.add_dependency 'kenui', '~> 2.0'
 
   s.add_dependency 'jquery-ui-rails', '~> 6.0'
   s.add_dependency 'sass-rails', '~> 5.0'
