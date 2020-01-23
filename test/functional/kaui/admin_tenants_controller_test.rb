@@ -94,7 +94,7 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
     stripe_yml.each { |k, v| stripe_yml[k] = v.to_s }
     post :upload_plugin_config, :id => tenant.id, :plugin_name => 'killbill-stripe', :plugin_key => 'stripe', :plugin_type => 'ruby', :plugin_properties => stripe_yml
 
-    assert_redirected_to admin_tenant_path(tenant.id)
+    assert_redirected_to admin_tenant_path(tenant.id, :active_tab => 'PluginConfig')
     assert_equal 'Config for plugin was successfully uploaded', flash[:notice]
   end
 
@@ -284,26 +284,6 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
 
   end
 
-  test 'should suggest a plugin name' do
-    plugin_anchor = "'<a id=\"suggested\" data-plugin-name=\"killbill-paypal-express\" data-plugin-key=\"paypal_express\" data-plugin-type=\"ruby\" href=\"#\">killbill-paypal-express</a>'"
-
-    # Similar plugin already installed test will run, if there are plugin installed
-    installed_plugins = installed_plugins()
-    unless installed_plugins.blank?
-      installed_plugins.each do |plugin|
-        installed_plugin_anchor = "'<a id=\"suggested\" data-plugin-name=\"#{plugin[:plugin_name]}\" data-plugin-key=\"#{plugin[:plugin_key]}\".*href=\"#\">#{plugin[:plugin_name]}</a>'"
-
-        get :suggest_plugin_name, :plugin_name => plugin[:plugin_name][0, plugin[:plugin_name].length - 1]
-        assert_response :success
-        assert_match /Similar plugin already installed: #{installed_plugin_anchor}/, JSON[@response.body]['suggestion']
-      end
-    end
-
-    get :suggest_plugin_name, :plugin_name => 'pypl'
-    assert_response :success
-    assert_equal "Did you mean #{plugin_anchor}?", JSON[@response.body]['suggestion']
-  end
-
   test 'should switch tenant' do
     other_tenant = setup_and_create_test_tenant(1)
     other_tenant_kaui = Kaui::Tenant.find_by_kb_tenant_id(other_tenant.tenant_id)
@@ -362,7 +342,7 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
       next if plugin.plugin_key.nil? || plugin.version.nil?
       next if installed_plugins.any? { |p| p[:plugin_name].eql?(plugin.plugin_name) }
       installed_plugins << {
-          plugin_key: Kaui::AdminTenant.rewrite_plugin_key(plugin.plugin_key),
+          plugin_key: plugin.plugin_key,
           plugin_name: plugin.plugin_name
       }
     end

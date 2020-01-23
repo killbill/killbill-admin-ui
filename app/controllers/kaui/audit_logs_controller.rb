@@ -1,5 +1,5 @@
 class Kaui::AuditLogsController < Kaui::EngineController
-  OBJECT_WITH_HISTORY = %w[ACCOUNT ACCOUNT_EMAIL CUSTOM_FIELD PAYMENT_ATTEMPT PAYMENT PAYMENT_METHOD TRANSACTION TAG TAG_DEFINITION]
+  OBJECT_WITH_HISTORY = %w[ACCOUNT ACCOUNT_EMAIL BLOCKING_STATES BUNDLE CUSTOM_FIELD INVOICE INVOICE_ITEM PAYMENT_ATTEMPT PAYMENT PAYMENT_METHOD SUBSCRIPTION SUBSCRIPTION_EVENT TRANSACTION TAG TAG_DEFINITION]
 
   def index
     cached_options_for_klient = options_for_klient
@@ -57,8 +57,25 @@ class Kaui::AuditLogsController < Kaui::EngineController
         elsif object_type == 'ACCOUNT_EMAIL'
           account = Kaui::Account::find_by_id_or_key(account_id, false, false, cached_options_for_klient)
           audit_logs_with_history = account.email_audit_logs_with_history(object_id, cached_options_for_klient)
+        elsif object_type == 'BLOCKING_STATES'
+          audit_logs_with_history = Kaui::Account::blocking_state_audit_logs_with_history(object_id, cached_options_for_klient)
+        elsif object_type == 'BUNDLE'
+          bundle = Kaui::Bundle::find_by_id(object_id, cached_options_for_klient)
+          audit_logs_with_history = bundle.audit_logs_with_history(cached_options_for_klient)
         elsif object_type == 'CUSTOM_FIELD'
           audit_logs_with_history = Kaui::CustomField.new({:custom_field_id => object_id}).audit_logs_with_history(cached_options_for_klient)
+        elsif object_type == 'INVOICE'
+          invoice = Kaui::Invoice::find_by_id(object_id, false, "NONE", cached_options_for_klient)
+          audit_logs_with_history = invoice.audit_logs_with_history(cached_options_for_klient)
+        elsif object_type == 'INVOICE_ITEM'
+          invoice_item = Kaui::InvoiceItem.new
+          invoice_item.invoice_item_id = object_id
+          audit_logs_with_history = invoice_item.audit_logs_with_history(cached_options_for_klient)
+=begin See https://github.com/killbill/killbill/issues/1104
+        elsif object_type == 'INVOICE_PAYMENT'
+          invoice_payment = Kaui::InvoicePayment::find_by_id(object_id, false, false, cached_options_for_klient)
+=end
+          audit_logs_with_history = invoice_payment.audit_logs_with_history(cached_options_for_klient)
         elsif object_type == 'PAYMENT_ATTEMPT'
           audit_logs_with_history = Kaui::Payment::attempt_audit_logs_with_history(object_id, cached_options_for_klient)
         elsif object_type == 'PAYMENT'
@@ -67,6 +84,11 @@ class Kaui::AuditLogsController < Kaui::EngineController
         elsif object_type == 'PAYMENT_METHOD'
           payment_method = Kaui::PaymentMethod::find_by_id(object_id, false, cached_options_for_klient)
           audit_logs_with_history = payment_method.audit_logs_with_history(cached_options_for_klient)
+        elsif object_type == 'SUBSCRIPTION'
+          subscription = Kaui::Subscription::find_by_id(object_id, cached_options_for_klient)
+          audit_logs_with_history = subscription.audit_logs_with_history(cached_options_for_klient)
+        elsif object_type == 'SUBSCRIPTION_EVENT'
+          audit_logs_with_history = Kaui::Subscription::event_audit_logs_with_history(object_id, cached_options_for_klient)
         elsif object_type == 'TRANSACTION'
           audit_logs_with_history = Kaui::Transaction::new({:transaction_id => object_id}).audit_logs_with_history(cached_options_for_klient)
         elsif object_type == 'TAG'

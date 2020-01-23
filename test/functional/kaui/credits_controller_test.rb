@@ -25,7 +25,7 @@ class Kaui::CreditsControllerTest < Kaui::FunctionalTestHelper
          :account_id => @account.account_id,
          :credit => {
              :invoice_id => invoice_id,
-             :credit_amount => 5.34
+             :amount => 5.34
          }
     assert_redirected_to account_path(@account.account_id)
     assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{invoice_id} type=INVOICE doesn't exist!", flash[:error]
@@ -35,7 +35,7 @@ class Kaui::CreditsControllerTest < Kaui::FunctionalTestHelper
     post :create,
          :account_id => @account.account_id,
          :credit => {
-             :credit_amount => 5.34
+             :amount => 5.34
          }
     assert_redirected_to account_path(@account.account_id)
     assert_equal 'Credit was successfully created', flash[:notice]
@@ -46,7 +46,7 @@ class Kaui::CreditsControllerTest < Kaui::FunctionalTestHelper
          :account_id => @account.account_id,
          :credit => {
              :invoice_id => @invoice_item.invoice_id,
-             :credit_amount => 5.34
+             :amount => 5.34
          }
     assert_redirected_to account_invoice_path(@account.account_id, @invoice_item.invoice_id)
     assert_equal 'Credit was successfully created', flash[:notice]

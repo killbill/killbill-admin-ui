@@ -74,7 +74,7 @@ class Kaui::PaymentsController < Kaui::EngineController
 
   def new
     cached_options_for_klient = options_for_klient
-    fetch_invoice = promise { Kaui::Invoice.find_by_id(params.require(:invoice_id), true, 'NONE', cached_options_for_klient) }
+    fetch_invoice = promise { Kaui::Invoice.find_by_id(params.require(:invoice_id), 'NONE', cached_options_for_klient) }
     fetch_payment_methods = promise { Kaui::PaymentMethod.find_all_by_account_id(params.require(:account_id), false, cached_options_for_klient) }
 
     @invoice = wait(fetch_invoice)

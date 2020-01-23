@@ -188,7 +188,7 @@ class Kaui::HomeControllerTest < Kaui::FunctionalTestHelper
     dummy_uuid = SecureRandom.uuid.to_s
     credit = create_credit
     # search by ID
-    get :search, :q => query_builder('CREDIT',credit.credit_id, 'ID')
+    get :search, :q => query_builder('CREDIT',credit.invoice_item_id, 'ID')
     assert_redirected_to account_invoice_path(credit.account_id, credit.invoice_id)
 
     # search by ID and fails
@@ -202,11 +202,11 @@ class Kaui::HomeControllerTest < Kaui::FunctionalTestHelper
     assert_equal "\"CREDIT\": Search by \"EXTERNAL KEY\" is not supported.", flash[:error]
 
     # search by BLANK only first
-    get :search, :q => query_builder('CREDIT',credit.credit_id, nil, '1')
+    get :search, :q => query_builder('CREDIT',credit.invoice_item_id, nil, '1')
     assert_redirected_to account_invoice_path(credit.account_id, credit.invoice_id)
 
     # search by BLANK
-    get :search, :q => query_builder('CREDIT',credit.credit_id)
+    get :search, :q => query_builder('CREDIT',credit.invoice_item_id)
     assert_redirected_to account_invoice_path(credit.account_id, credit.invoice_id)
 
     # search by BLANK and fails
@@ -376,9 +376,9 @@ class Kaui::HomeControllerTest < Kaui::FunctionalTestHelper
   end
 
   def create_credit
-    credit = KillBillClient::Model::Credit.new(:invoice_id => nil, :account_id => @account.account_id, :credit_amount => 2.22)
+    credit = KillBillClient::Model::Credit.new(:invoice_id => nil, :account_id => @account.account_id, :amount => 2.22)
     credit = credit.create(true, 'kaui search test', nil, nil, build_options(@tenant, USERNAME, PASSWORD))
-    credit
+    credit.first
   end
 
   def create_custom_field

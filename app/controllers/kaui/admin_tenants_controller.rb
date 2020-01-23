@@ -81,12 +81,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     fetch_overdue = promise { Kaui::Overdue::get_overdue_json(options) rescue @overdue = nil }
     fetch_overdue_xml = promise { Kaui::Overdue::get_tenant_overdue_config('xml', options) rescue @overdue_xml = nil }
 
-    plugin_repository = Kaui::AdminTenant::get_plugin_repository
-    # hack:: replace paypal key with paypal_express, to set configuration and allow the ui to find the right configuration inputs
-    plugin_repository = plugin_repository.inject({}) { |p, (k,v)| p[k.to_s.sub(/\Apaypal/, 'paypal_express').to_sym] = v; p }
-
-    fetch_plugin_config = promise { Kaui::AdminTenant::get_oss_plugin_info(plugin_repository) }
-    fetch_tenant_plugin_config = promise { Kaui::AdminTenant::get_tenant_plugin_config(plugin_repository, options) }
+    fetch_tenant_plugin_config = promise { Kaui::AdminTenant::get_tenant_plugin_config(options) }
 
     @catalog_versions = []
     wait(fetch_catalog_versions).each_with_index do |effective_date, idx|
@@ -98,7 +93,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     @overdue = wait(fetch_overdue)
     @overdue_xml = wait(fetch_overdue_xml)
-    @plugin_config = wait(fetch_plugin_config) rescue ''
     @tenant_plugin_config = wait(fetch_tenant_plugin_config) rescue ''
 
     # When reloading page from the view, it sends the last tab that was active
@@ -307,6 +301,8 @@ class Kaui::AdminTenantsController < Kaui::EngineController
 
     if plugin_properties.blank?
       flash[:error] = 'Plugin properties cannot be blank'
+    elsif plugin_name.blank?
+      flash[:error] = 'Plugin name cannot be blank'
     else
       plugin_config = Kaui::AdminTenant.format_plugin_config(plugin_key, plugin_type, plugin_properties)
 
@@ -314,7 +310,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
       flash[:notice] = 'Config for plugin was successfully uploaded'
     end
 
-    redirect_to admin_tenant_path(current_tenant.id)
+    redirect_to admin_tenant_path(current_tenant.id, :active_tab => 'PluginConfig')
   end
 
   def remove_allowed_user
@@ -406,28 +402,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     end
   end
 
-  def suggest_plugin_name
-    json_response do
-      message = nil
-      entered_plugin_name = params.require(:plugin_name)
-      plugin_repository = view_context.plugin_repository
-
-      found_plugin, weights = fuzzy_match(entered_plugin_name, plugin_repository)
-
-      if weights.size > 0
-        plugin_anchor = view_context.link_to(weights[0][:plugin_name], '#', id: 'suggested',
-                                            data: {
-                                                plugin_name: weights[0][:plugin_name],
-                                                plugin_key: weights[0][:plugin_key],
-                                                plugin_type: weights[0][:plugin_type],
-                                            })
-        message = "Similar plugin already installed: '#{plugin_anchor}'" if weights[0][:worth_weight].to_f >= 1.0 && weights[0][:installed]
-        message = "Did you mean '#{plugin_anchor}'?" if weights[0][:worth_weight].to_f < 1.0 || !weights[0][:installed]
-      end
-      { suggestion: message, plugin: found_plugin }
-    end
-  end
-
   def switch_tenant
     tenant = Kaui::Tenant.find_by_kb_tenant_id(params.require(:kb_tenant_id))
 
@@ -471,54 +445,6 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   def split_camel_dash_underscore_space(data)
     # to_s to handle nil
     data.to_s.split(/(?=[A-Z])|(?=[_])|(?=[-])|(?=[ ])/).select {|member| !member.gsub(/[_-]/,'').strip.empty?}.map { |member| member.gsub(/[_-]/,'').strip.downcase }
-  end
-
-  def fuzzy_match(entered_plugin_name, plugin_repository)
-    splitted_entered_plugin_name = split_camel_dash_underscore_space(entered_plugin_name)
-    worth_of_non_words = 0.5 / splitted_entered_plugin_name.size.to_i
-
-    weights = []
-
-    plugin_repository.each do |plugin|
-      return plugin, [] if plugin[:plugin_name] == entered_plugin_name || plugin[:plugin_key] == entered_plugin_name
-      weight = { :plugin_name => plugin[:plugin_name], :plugin_key => plugin[:plugin_key],
-                 :plugin_type => plugin[:plugin_type], :installed => plugin[:installed], :worth_weight => 0.0 }
-
-      splitted_plugin_name = split_camel_dash_underscore_space(plugin[:plugin_name])
-      splitted_entered_plugin_name.each do |entered|
-        if splitted_plugin_name.include?(entered)
-          weight[:worth_weight] = weight[:worth_weight] + 1.0
-        end
-
-        splitted_plugin_name.each do |splitted|
-          if entered.chars.all? { |ch| splitted.include?(ch) }
-            weight[:worth_weight] = weight[:worth_weight] + worth_of_non_words
-            break
-          end
-        end
-
-        # perform a plugin key search, if weight is zero
-        next unless weight[:worth_weight] == 0
-        splitted_plugin_key = split_camel_dash_underscore_space(plugin[:plugin_key])
-
-        if splitted_plugin_key.include?(entered)
-          weight[:worth_weight] = weight[:worth_weight] + 1.0
-        end
-
-        splitted_plugin_key.each do |splitted|
-          if entered.chars.all? { |ch| splitted.include?(ch) }
-            weight[:worth_weight] = weight[:worth_weight] + worth_of_non_words
-            break
-          end
-        end
-      end
-
-      weights << weight if weight[:worth_weight] > 0
-
-    end
-
-    weights.sort! { |a,b| b[:worth_weight] <=> a[:worth_weight] } if weights.size > 1
-    return nil, weights
   end
 
   def fetch_catalog_xml(tenant_id, effective_date)

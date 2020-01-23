@@ -52,7 +52,7 @@ class Kaui::HomeController < Kaui::EngineController
   def invoice_search(search_query, search_by = nil, fast = 0, options = {})
     if search_by == 'ID'
       begin
-        invoice = Kaui::Invoice.find_by_id(search_query, false, 'NONE', options)
+        invoice = Kaui::Invoice.find_by_id(search_query, 'NONE', options)
         redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id) and return
       rescue KillBillClient::API::NotFound => _
         search_error("No invoice matches \"#{search_query}\"")
@@ -63,7 +63,7 @@ class Kaui::HomeController < Kaui::EngineController
       invoice = Kaui::Invoice.list_or_search(search_query, 0, 1, options).first
       if invoice.blank?
         begin
-          invoice = Kaui::Invoice.find_by_invoice_item_id(search_query, false, false, 'NONE', options)
+          invoice = Kaui::Invoice.find_by_invoice_item_id(search_query, false, 'NONE', options)
           redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id) and return
         rescue KillBillClient::API::NotFound => _
           search_error("No invoice matches \"#{search_query}\"")

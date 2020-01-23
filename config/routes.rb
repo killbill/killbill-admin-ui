@@ -128,6 +128,7 @@ Kaui::Engine.routes.draw do
     match '/:id/update_bcd' => 'subscriptions#update_bcd', :via => :put, :as => 'update_bcd'
     match '/:id/reinstate' => 'subscriptions#reinstate', :via => :put, :as => 'reinstate'
     match '/validate_external_key' => 'subscriptions#validate_external_key', :via => :get, :as => 'subscriptions_validate_external_key'
+    match '/validate_bundle_external_key' => 'subscriptions#validate_bundle_external_key', :via => :get, :as => 'subscriptions_validate_bundle_external_key'
   end
   resources :subscriptions, :only => [:new, :create, :show, :edit, :update, :destroy]
 
@@ -185,7 +186,6 @@ Kaui::Engine.routes.draw do
     match '/add_allowed_user' => 'admin_tenants#add_allowed_user', :via => :put, :as => 'add_allowed_user'
     match '/allowed_users' => 'admin_tenants#allowed_users', :via => :get, :as => 'admin_tenant_allowed_users'
     match '/catalog_by_effective_date' => 'admin_tenants#catalog_by_effective_date', :via => :get, :as => 'catalog_by_effective_date'
-    match '/suggest_plugin_name' => 'admin_tenants#suggest_plugin_name', :via => :get, :as => 'suggest_plugin_name'
     match '/switch' => 'admin_tenants#switch_tenant', :via => :get, :as => 'switch_tenant'
     match '/:id/download_catalog' => 'admin_tenants#download_catalog_xml', :via => :get, :as => 'download_catalog_xml'
   end
