@@ -14,7 +14,7 @@
     <div class="form-group">
       <%= f.label :purchased_amount, 'Amount', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
-        <%= f.number_field :purchased_amount, :id => 'payment_amount', :class => 'form-control' %>
+        <%= f.number_field :purchased_amount, :step => :any, :id => 'payment_amount', :class => 'form-control' %>
         <p class="help-block">Currency: <%= @invoice.present? ? @invoice.currency : @account.currency %></p>
       </div>
     </div>
