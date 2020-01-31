@@ -111,15 +111,19 @@
 
 function known_products() {
     var result = [];
-    var selected_category = $("#simple_plan_product_category option:selected" ).text();
-    if (selected_category == 'Base') {
+    var selected_category = $("#simple_plan_product_category option:selected").val();
+    if (selected_category == 'BASE') {
         result = $('#simple_plan_product_name').attr('known_base');
-    } else if (selected_category == 'Add_on') {
+    } else if (selected_category == 'ADD_ON') {
         result = $('#simple_plan_product_name').attr('known_ao');
     } else {
         result = $('#simple_plan_product_name').attr('known_std');
     }
-    return result.split(",");
+    if (result) {
+      return result.split(",");
+    } else {
+      return [];
+    }
 }
 
 function switch_xml_config() {
@@ -128,7 +132,7 @@ function switch_xml_config() {
 }
 
 function recompute_available_base_products_for_ao() {
-    if ($("#simple_plan_product_category option:selected" ).text() != 'Add_on') {
+    if ($("#simple_plan_product_category option:selected" ).val() != 'ADD_ON') {
         return;
     }
     var product_name = $('#simple_plan_product_name').val();
@@ -150,7 +154,7 @@ function display_available_base_products_for_ao() {
     /* Reset prodcut name value; known_products from auto completion will also be updated accordingly */
     $('#simple_plan_product_name').val('');
 
-    if ($("#simple_plan_product_category option:selected" ).text() == 'Add_on') {
+    if ($("#simple_plan_product_category option:selected" ).val() == 'ADD_ON') {
         $('#form_base_products').show();
     } else {
         $('#form_base_products').hide();
