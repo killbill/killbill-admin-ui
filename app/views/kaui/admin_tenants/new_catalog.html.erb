@@ -11,7 +11,7 @@
       <div class="form-group" id="form_category">
         <%= f.label :product_category, 'Product Category', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.select :product_category, options_for_select(@product_categories.map {|p| [humanized_product_category(p), p] }, :Base), :class => 'form-control' %>
+          <%= f.select :product_category, options_for_select(@product_categories.map {|p| [humanized_product_category(p), p] }, @simple_plan.product_category), :class => 'form-control' %>
         </div>
       </div>
       <div class="form-group">
@@ -47,31 +47,31 @@
       <div class="form-group">
         <%= f.label :amount, 'Amount', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.number_field :amount, :class => 'form-control', :value => 0, :step => :any %>
+          <%= f.number_field :amount, :class => 'form-control', :step => :any %>
         </div>
       </div>
       <div class="form-group">
         <%= f.label :currency, 'Currency', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.select :currency, currencies, {:selected => 'USD'}, :class => 'form-control' %>
+          <%= f.select :currency, currencies, {:selected => @simple_plan.currency}, :class => 'form-control' %>
         </div>
       </div>
       <div class="form-group">
         <%= f.label :billing_period, 'Billing Period', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.select :billing_period, options_for_select(@billing_period.map {|bp| [humanized_billing_period(bp), bp] }, :MONTHLY), :class => 'form-control' %>
+          <%= f.select :billing_period, options_for_select(@billing_period.map {|bp| [humanized_billing_period(bp), bp] }, @simple_plan.billing_period), :class => 'form-control' %>
         </div>
       </div>
       <div class="form-group">
         <%= f.label :trial_length, 'Trial Length', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.number_field :trial_length, :class => 'form-control', :value => 0 %>
+          <%= f.number_field :trial_length, :class => 'form-control', :type => 'number', :min => 0, :step => 1 %>
         </div>
       </div>
       <div class="form-group">
         <%= f.label :trial_time_unit, 'Trial Time Unit', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">
-          <%= f.select :trial_time_unit, options_for_select(@time_units.map {|tu| [humanized_time_unit(tu), tu]}, :UNLIMITED), :class => 'form-control' %>
+          <%= f.select :trial_time_unit, options_for_select(@time_units.map {|tu| [humanized_time_unit(tu), tu]}, @simple_plan.trial_time_unit), :class => 'form-control' %>
         </div>
       </div>
       <div class="form-group">
@@ -151,9 +151,6 @@ function recompute_available_base_products_for_ao() {
 }
 
 function display_available_base_products_for_ao() {
-    /* Reset prodcut name value; known_products from auto completion will also be updated accordingly */
-    $('#simple_plan_product_name').val('');
-
     if ($("#simple_plan_product_category option:selected" ).val() == 'ADD_ON') {
         $('#form_base_products').show();
     } else {

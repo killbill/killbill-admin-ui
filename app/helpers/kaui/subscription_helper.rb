@@ -28,7 +28,8 @@ module Kaui
     end
 
     def humanized_product_name(product_name)
-        product_name.downcase.capitalize
+      # Don't change the casing to avoid confusions (could lead to different products with different casing)
+      product_name
     end
 
     def humanized_subscription_billing_period(sub)

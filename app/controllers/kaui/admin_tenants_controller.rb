@@ -115,27 +115,15 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def new_catalog
-    @tenant = safely_find_tenant_by_id(params[:id])
-
     options = tenant_options_for_client
-    options[:api_key] = @tenant.api_key
-    options[:api_secret] = @tenant.api_secret
-
-    latest_catalog = Kaui::Catalog::get_catalog_json(true, nil, options)
-
-    @ao_mapping = Kaui::Catalog::build_ao_mapping(latest_catalog)
-
-    @available_base_products = latest_catalog && latest_catalog.products ?
-        latest_catalog.products.select { |p| p.type == 'BASE' }.map { |p| p.name } : []
-    @available_ao_products = latest_catalog && latest_catalog.products ?
-        latest_catalog.products.select { |p| p.type == 'ADD_ON' }.map { |p| p.name } : []
-    @available_standalone_products = latest_catalog && latest_catalog.products ?
-        latest_catalog.products.select { |p| p.type == 'STANDALONE' }.map { |p| p.name } : []
-    @product_categories = [:BASE, :ADD_ON, :STANDALONE]
-    @billing_period = [:DAILY, :WEEKLY, :BIWEEKLY, :THIRTY_DAYS, :MONTHLY, :QUARTERLY, :BIANNUAL, :ANNUAL, :BIENNIAL]
-    @time_units = [:UNLIMITED, :DAYS, :WEEKS, :MONTHS, :YEARS]
-
-    @simple_plan = Kaui::SimplePlan.new
+    fetch_state_for_new_catalog_screen(options)
+    @simple_plan = Kaui::SimplePlan.new({
+                                         :product_category => 'BASE',
+                                         :amount => 0,
+                                         :trial_length => 0,
+                                         :currency => 'USD',
+                                         :billing_period => 'MONTHLY'
+                                        })
   end
 
   def delete_catalog
@@ -183,21 +171,55 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   def create_simple_plan
-    current_tenant = safely_find_tenant_by_id(params[:id])
-
     options = tenant_options_for_client
-    options[:api_key] = current_tenant.api_key
-    options[:api_secret] = current_tenant.api_secret
+    fetch_state_for_new_catalog_screen(options)
 
     simple_plan = params.require(:simple_plan).delete_if { |e, value| value.blank? }
     # Fix issue in Rails where first entry in the multi-select array is an empty string
     simple_plan["available_base_products"].reject!(&:blank?) if simple_plan["available_base_products"]
 
-    simple_plan = KillBillClient::Model::SimplePlanAttributes.new(simple_plan)
+    @simple_plan = Kaui::SimplePlan.new(simple_plan)
 
-    Kaui::Catalog.add_tenant_catalog_simple_plan(simple_plan, options[:username], nil, comment, options)
+    valid = true
+    # Validate new simple plan
+    # https://github.com/killbill/killbill-admin-ui/issues/247
+    if @available_base_products.include?(@simple_plan.plan_id)
+      flash.now[:error] = "Error while creating plan: invalid plan name (#{@simple_plan.plan_id} is a BASE product already)"
+      valid = false
+    elsif @available_ao_products.include?(@simple_plan.plan_id)
+      flash.now[:error] = "Error while creating plan: invalid plan name (#{@simple_plan.plan_id} is an ADD_ON product already)"
+      valid = false
+    elsif @available_standalone_products.include?(@simple_plan.plan_id)
+      flash.now[:error] = "Error while creating plan: invalid plan name (#{@simple_plan.plan_id} is a STANDALONE product already)"
+      valid = false
+    elsif @all_plans.include?(@simple_plan.product_name)
+      flash.now[:error] = "Error while creating plan: invalid product name (#{@simple_plan.product_name} is a plan name already)"
+      valid = false
+    elsif @all_plans.include?(@simple_plan.plan_id)
+      flash.now[:error] = "Error while creating plan: plan #{@simple_plan.plan_id} already exists"
+      valid = false
+    elsif @available_base_products.include?(@simple_plan.product_name) && @simple_plan.product_category != 'BASE'
+      flash.now[:error] = "Error while creating plan: product #{@simple_plan.product_name} is a BASE product"
+      valid = false
+    elsif @available_ao_products.include?(@simple_plan.product_name) && @simple_plan.product_category != 'ADD_ON'
+      flash.now[:error] = "Error while creating plan: product #{@simple_plan.product_name} is an ADD_ON product"
+      valid = false
+    elsif @available_standalone_products.include?(@simple_plan.product_name) && @simple_plan.product_category != 'STANDALONE'
+      flash.now[:error] = "Error while creating plan: product #{@simple_plan.product_name} is a STANDALONE product"
+      valid = false
+    end
 
-    redirect_to admin_tenant_path(current_tenant.id), :notice => 'Catalog plan was successfully added'
+    if valid
+      begin
+        Kaui::Catalog.add_tenant_catalog_simple_plan(@simple_plan, options[:username], nil, comment, options)
+        redirect_to admin_tenant_path(@tenant.id), :notice => 'Catalog plan was successfully added'
+      rescue => e
+        flash.now[:error] = "Error while creating plan: #{as_string(e)}"
+        render :action => :new_catalog
+      end
+    else
+      render :action => :new_catalog
+    end
   end
 
   def new_overdue_config
@@ -414,6 +436,29 @@ class Kaui::AdminTenantsController < Kaui::EngineController
   end
 
   private
+
+  # Share code to handle render on error
+  def fetch_state_for_new_catalog_screen(options)
+    @tenant = safely_find_tenant_by_id(params[:id])
+
+    options[:api_key] = @tenant.api_key
+    options[:api_secret] = @tenant.api_secret
+
+    latest_catalog = Kaui::Catalog::get_catalog_json(true, nil, options)
+    @all_plans = (latest_catalog.products || []).map(&:plans).flatten.map(&:name)
+
+    @ao_mapping = Kaui::Catalog::build_ao_mapping(latest_catalog)
+
+    @available_base_products = latest_catalog && latest_catalog.products ?
+        latest_catalog.products.select { |p| p.type == 'BASE' }.map { |p| p.name } : []
+    @available_ao_products = latest_catalog && latest_catalog.products ?
+        latest_catalog.products.select { |p| p.type == 'ADD_ON' }.map { |p| p.name } : []
+    @available_standalone_products = latest_catalog && latest_catalog.products ?
+        latest_catalog.products.select { |p| p.type == 'STANDALONE' }.map { |p| p.name } : []
+    @product_categories = [:BASE, :ADD_ON, :STANDALONE]
+    @billing_period = [:DAILY, :WEEKLY, :BIWEEKLY, :THIRTY_DAYS, :MONTHLY, :QUARTERLY, :BIANNUAL, :ANNUAL, :BIENNIAL]
+    @time_units = [:UNLIMITED, :DAYS, :WEEKS, :MONTHS, :YEARS]
+  end
 
   def safely_find_tenant_by_id(tenant_id)
     tenant = Kaui::Tenant.find_by_id(tenant_id)
