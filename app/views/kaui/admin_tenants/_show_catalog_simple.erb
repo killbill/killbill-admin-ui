@@ -106,8 +106,8 @@
                 plan['new_plan_currency_path'] = Routes.kaui_engine_admin_tenant_new_plan_currency_path(<%= @tenant.id %>, {plan_id: plan['plan_id']});
                 plan['humanized_product_name'] = function(){
                     return function (input, render) {
-                        var product_name = render(input);
-                        return product_name.toLowerCase().replace(/\b\w/g, function(l){ return l.toUpperCase() });
+                        // Keep the product name as-is to avoid confusing with casing
+                        return render(input);
                     }
                 }
 

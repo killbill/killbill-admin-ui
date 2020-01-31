@@ -15,7 +15,7 @@
     <div class="form-group">
       <%= f.label :amount, 'Amount', :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10">
-        <%= f.number_field :amount, :id => 'charge_amount', :class => 'form-control' %>
+        <%= f.number_field :amount, :step => :any, :id => 'charge_amount', :class => 'form-control' %>
         <% if @invoice.present? %>
             <p class="help-block">Currency: <%= @invoice.currency %></p>
         <% end %>

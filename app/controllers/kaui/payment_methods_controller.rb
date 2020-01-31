@@ -45,9 +45,15 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
     }
 
     @plugin_properties = params[:plugin_properties].values.select{ |item| !(item['value'].blank? || item['key'].blank?) } rescue @plugin_properties = nil
-    @plugin_properties.map! do |property|
-      KillBillClient::Model::PluginPropertyAttributes.new(property)
-    end unless @plugin_properties.blank?
+    if @plugin_properties.blank?
+      # In case of error, we want the view to receive nil, not [], so that at least the first row is populated (required to make the JS work)
+      # See https://github.com/killbill/killbill-admin-ui/issues/258
+      @plugin_properties = nil
+    else
+      @plugin_properties.map! do |property|
+        KillBillClient::Model::PluginPropertyAttributes.new(property)
+      end
+    end
 
     begin
       @payment_method = @payment_method.create(@payment_method.is_default, current_user.kb_username, params[:reason], params[:comment],
