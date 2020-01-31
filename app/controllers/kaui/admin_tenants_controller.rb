@@ -445,7 +445,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     options[:api_secret] = @tenant.api_secret
 
     latest_catalog = Kaui::Catalog::get_catalog_json(true, nil, options)
-    @all_plans = (latest_catalog.products || []).map(&:plans).flatten.map(&:name)
+    @all_plans = latest_catalog ? (latest_catalog.products || []).map(&:plans).flatten.map(&:name) : []
 
     @ao_mapping = Kaui::Catalog::build_ao_mapping(latest_catalog)
 
