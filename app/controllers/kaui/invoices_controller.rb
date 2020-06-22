@@ -48,6 +48,8 @@ class Kaui::InvoicesController < Kaui::EngineController
     cached_options_for_klient = options_for_klient
 
     @invoice = Kaui::Invoice.find_by_id(params.require(:id), 'FULL', cached_options_for_klient)
+    # This will put the TAX items at the bottom
+    @invoice.items.sort_by! { |ii| [ii.item_type, ii.description] }
 
     fetch_payments = promise { @invoice.payments(true, true, 'FULL', cached_options_for_klient).map { |payment| Kaui::InvoicePayment.build_from_raw_payment(payment) } }
     fetch_pms = fetch_payments.then { |payments| Kaui::PaymentMethod.payment_methods_for_payments(payments, cached_options_for_klient) }
