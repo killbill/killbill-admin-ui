@@ -11,9 +11,9 @@ class Kaui::SubscriptionsController < Kaui::EngineController
 
     if @plans.empty?
       if @subscription.product_category == 'BASE'
-        flash[:error] = 'No available plan'
+        flash[:error] = 'No plan available in the catalog'
       else
-        flash[:error] = "No available add-on for product #{@base_product_name}"
+        flash[:error] = "No add-on available in the catalog for product #{@base_product_name}"
       end
       redirect_to kaui_engine.account_bundles_path(@subscription.account_id), :error => 'No available plan'
     end
@@ -46,6 +46,16 @@ class Kaui::SubscriptionsController < Kaui::EngineController
       redirect_to kaui_engine.account_bundles_path(@subscription.account_id), :notice => 'Subscription was successfully created'
     rescue => e
       @plans = plans_details.nil? ? [] : plans_details.map { |p| p.plan }
+
+      if e.is_a?(::KillBillClient::API::BadRequest) && !e.response.nil? && !e.response.body.nil?
+        error_message = JSON.parse(e.response.body) rescue nil
+        if !error_message.nil? & !error_message['code'].nil? && error_message['code'] == 2010 # CAT_NO_PRICE_FOR_CURRENCY
+          # Hack for lack of proper Kill Bill messaging (https://github.com/killbill/killbill-admin-ui/issues/266)
+          flash.now[:error] = "Unable to create the subscription: a price for this currency hasn't been specified in the catalog"
+          render :new and return
+        end
+      end
+
       flash.now[:error] = "Error while creating the subscription: #{as_string(e)}"
       render :new
     end
@@ -212,8 +222,7 @@ class Kaui::SubscriptionsController < Kaui::EngineController
     else
       options = options_for_klient
 
-      catalog = Kaui::Catalog.get_tenant_catalog_json( DateTime.now.to_s, options)
-
+      catalog = Kaui::Catalog.get_tenant_catalog_json(DateTime.now.to_s, options)
       return [] if catalog.blank?
 
       plans = []
