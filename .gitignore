@@ -17,3 +17,5 @@ Gemfile.lock
 *.sublime-project
 *.sublime-workspace
 .byebug_history
+.generators
+.rakeTasks
