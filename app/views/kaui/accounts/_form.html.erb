@@ -38,7 +38,7 @@
     <div class="form-group">
       <%= f.label :email, 'Email', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
-        <%= f.text_field :email, :class => 'form-control' %>
+        <%= f.email_field :email, :class => 'form-control' %>
       </div>
     </div>
     <% unless @account.persisted? %>

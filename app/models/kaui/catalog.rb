@@ -4,9 +4,21 @@ class Kaui::Catalog < KillBillClient::Model::Catalog
 
   class << self
 
-    def get_catalog_json(latest, requested_date, options)
+    def get_tenant_catalog_json(requested_date = nil, options = {})
+      super
+    rescue ::KillBillClient::API::InternalServerError => e
+      if !e.response.nil? && !e.response.body.nil?
+        error_message = JSON.parse(e.response.body) rescue nil
+        raise e if error_message.nil? || error_message['message'].nil?
 
-      catalogs = KillBillClient::Model::Catalog.get_tenant_catalog_json(requested_date, options)
+        # Hack for lack of proper Kill Bill messaging (see https://github.com/killbill/killbill-admin-ui/issues/265)
+        return [] if error_message['message'].starts_with?('No existing versions')
+      end
+      raise e
+    end
+
+    def get_catalog_json(latest, requested_date, options)
+      catalogs = get_tenant_catalog_json(requested_date, options)
       return catalogs.length > 0 ? catalogs[catalogs.length - 1] : nil if latest
 
       # Order by latest

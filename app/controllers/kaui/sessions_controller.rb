@@ -18,5 +18,11 @@ module Kaui
     def after_sign_out_path_for(resource)
       kaui_path
     end
+
+    def require_no_authentication
+      super
+      # Remove the somewhat confusing message "You are already signed in."
+      flash.discard(:alert) if flash[:alert] == I18n.t("devise.failure.already_authenticated")
+    end
   end
 end
