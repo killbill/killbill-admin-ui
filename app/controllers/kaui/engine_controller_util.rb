@@ -125,7 +125,7 @@ module Kaui::EngineControllerUtil
       response = yield
       response_status = 200
     rescue KillBillClient::API::ResponseError => e
-      response = e.response.message
+      response = as_string_from_response(e.response.body)
       response_status = e.code
     rescue Exception => e
       response = e.message

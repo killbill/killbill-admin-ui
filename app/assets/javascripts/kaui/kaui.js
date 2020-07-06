@@ -205,7 +205,7 @@ jQuery(document).ready(function ($) {
             return;
         }
 
-        var message = 'Request Status: ' + jqxhr.status + ', Status Text: ' + jqxhr.statusText + ': ' + getMessageFromResponse(jqxhr);
+        var message = 'Request error: ' + getMessageFromResponse(jqxhr);
 
         if (jqxhr.status == 200) {
             message = thrownError.message == undefined ? thrownError : thrownError.message;
