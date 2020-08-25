@@ -22,35 +22,15 @@ Ruby 2.4.2+ or JRuby 9.1.14.0+ required.
 Running Kaui locally
 ---------------------
 
+Note: use Ruby, not JRuby, for running the app locally.
+
 You can run Kaui locally by using the test/dummy app provided:
 
 ```
-export RAILS_ENV=development
-export DATABASE_URL=mysql://root:killbill@<MySQL Host IP>/killbill
+export RAILS_ENV=development DB_HOST=127.0.0.1 DB_USER=root DB_PASSWORD=root DB_PORT=3306
 bundle install
-rails db:migrate
-rails s
-```
-If you experience an error of;
-
-```
-You must use Bundler 2 or greater with this lockfile.
-```
-
-Then run the following commands to update your environment.
-
-Update Rubygems;
-
-```
-gem update --system
-```
-Update bundler;
-```
-gem install bundler
-```
-Update the Gemfile.lock file;
-```
-bundler update --bundler
+bundle exec rails db:migrate
+bundle exec rails s
 ```
 
 The Kill Bill URL can be configured through the `KILLBILL_URL` environment variable, e.g.
