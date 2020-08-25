@@ -3,7 +3,7 @@ default: &default
   encoding: utf8
   username: <%= ENV.fetch('DB_USER', 'root') %>
   password: <%= ENV.fetch('DB_PASSWORD', 'root') %>
-  host: 127.0.0.1
+  host: <%= ENV.fetch('DB_HOST', '127.0.0.1') %>
   port: <%= ENV.fetch('DB_PORT', '3306') %>
   pool: 25
   timeout: 5000
@@ -17,7 +17,7 @@ default: &default
 
 development:
   <<: *default
-  database: kaui
+  database: <%= ENV.fetch('DB_NAME', 'kaui') %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
