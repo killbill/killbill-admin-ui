@@ -130,7 +130,7 @@
 
 <script language="javascript">
     function hightlightLinkedItems(invoice_item_id, linked_invoice_item_id) {
-        $("#invoice_table tr:gt(0)").each(function (index) {
+        $("#invoice-table tr:gt(0)").each(function (index) {
             var ids = $(this).attr("id").split("_");
             var item_id = ids[2];
             var linked_item_id = ids[3];
