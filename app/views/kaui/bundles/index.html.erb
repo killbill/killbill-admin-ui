@@ -76,7 +76,7 @@
 
         <% if bundle.subscriptions.present? %>
             <div class="search">
-              <%= render :partial => 'kaui/subscriptions/subscriptions_table', :locals => {:bundle => bundle, :account => @account} %>
+              <%= render :partial => 'kaui/subscriptions/subscriptions_table', :locals => {:bundle => bundle, :account => @account, :catalog => @catalog} %>
             </div>
         <% end %>
 
