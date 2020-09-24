@@ -65,6 +65,7 @@ module Kaui::EngineControllerUtil
     value = promise.value!(60)
     raise promise.reason unless promise.reason.nil?
     if value.nil? && promise.state != :fulfilled
+      # Could be https://github.com/ruby-concurrency/concurrent-ruby/issues/585
       Rails.logger.warn("Unable to run promise #{promise_as_string(promise)}")
       raise Timeout::Error
     end
