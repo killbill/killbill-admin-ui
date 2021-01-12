@@ -49,7 +49,25 @@ class Kaui::InvoicesController < Kaui::EngineController
 
     @invoice = Kaui::Invoice.find_by_id(params.require(:id), 'FULL', cached_options_for_klient)
     # This will put the TAX items at the bottom
-    @invoice.items.sort_by! { |ii| [ii.item_type, ii.description] }
+    precedence = {
+        'EXTERNAL_CHARGE' => 0,
+        'FIXED' => 1,
+        'RECURRING' => 2,
+        'REPAIR_ADJ' => 3,
+        'USAGE' => 4,
+        'PARENT_SUMMARY' => 5,
+        'ITEM_ADJ' => 6,
+        'CBA_ADJ' => 7,
+        'CREDIT_ADJ' => 8,
+        'TAX' => 9
+    }
+    # TODO The pretty description has to be shared with the view
+    @invoice.items.sort_by! do |ii|
+      # Make sure not to compare nil (ArgumentError comparison of Array with Array failed)
+      a = precedence[ii.item_type] || 100
+      b = (ii.pretty_plan_name.blank? || !ii.item_type.in?(%w{USAGE RECURRING}) ? ii.description : ii.pretty_plan_name) || ''
+      [a, b]
+    end
 
     fetch_payments = promise { @invoice.payments(true, true, 'FULL', cached_options_for_klient).map { |payment| Kaui::InvoicePayment.build_from_raw_payment(payment) } }
     fetch_pms = fetch_payments.then { |payments| Kaui::PaymentMethod.payment_methods_for_payments(payments, cached_options_for_klient) }
