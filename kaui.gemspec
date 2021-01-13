@@ -52,6 +52,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'listen'
   s.add_development_dependency 'puma'
 
+  s.add_development_dependency 'gem-release', '~> 2.2'
+
   if defined?(JRUBY_VERSION)
     s.add_development_dependency 'therubyrhino', '~> 2.0.4'
   else

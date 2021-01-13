@@ -114,7 +114,19 @@ Alternatively, you can run the `kaui` script under `bin` by setting your loadpat
 Releases
 ========
 
-The releases are done using Jruby and require the following property `export JRUBY_OPTS='--2.0 -J-Xmx1024m'`
+To trigger a release, run (update `patch` as needed):
+
+```
+bundle exec gem bump -c -p -t -v patch
+```
+
+This will:
+
+* Update the `version.rb` file
+* Commit the changes
+* Create the new tag and push the changes
+
+GitHub Actions will automatically push the new gem to Rubygems.
 
 Multi-Tenancy
 =============
