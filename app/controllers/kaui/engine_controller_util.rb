@@ -65,6 +65,7 @@ module Kaui::EngineControllerUtil
     value = promise.value!(60)
     raise promise.reason unless promise.reason.nil?
     if value.nil? && promise.state != :fulfilled
+      # Could be https://github.com/ruby-concurrency/concurrent-ruby/issues/585
       Rails.logger.warn("Unable to run promise #{promise_as_string(promise)}")
       raise Timeout::Error
     end
@@ -125,7 +126,7 @@ module Kaui::EngineControllerUtil
       response = yield
       response_status = 200
     rescue KillBillClient::API::ResponseError => e
-      response = e.response.message
+      response = as_string_from_response(e.response.body)
       response_status = e.code
     rescue Exception => e
       response = e.message

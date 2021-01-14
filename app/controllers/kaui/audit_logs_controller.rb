@@ -74,8 +74,8 @@ class Kaui::AuditLogsController < Kaui::EngineController
 =begin See https://github.com/killbill/killbill/issues/1104
         elsif object_type == 'INVOICE_PAYMENT'
           invoice_payment = Kaui::InvoicePayment::find_by_id(object_id, false, false, cached_options_for_klient)
-=end
           audit_logs_with_history = invoice_payment.audit_logs_with_history(cached_options_for_klient)
+=end
         elsif object_type == 'PAYMENT_ATTEMPT'
           audit_logs_with_history = Kaui::Payment::attempt_audit_logs_with_history(object_id, cached_options_for_klient)
         elsif object_type == 'PAYMENT'

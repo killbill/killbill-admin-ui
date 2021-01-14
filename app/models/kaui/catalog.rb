@@ -4,6 +4,20 @@ class Kaui::Catalog < KillBillClient::Model::Catalog
 
   class << self
 
+    def get_account_catalog_json(account_id, requested_date = nil, options = {})
+      params = {}
+      params[:accountId] = account_id
+      params[:requestedDate] = requested_date if requested_date
+
+      get KillBillClient::Model::Catalog::KILLBILL_API_CATALOG_PREFIX,
+          params,
+          {
+              :head => {'Accept' => "application/json"},
+              :content_type => "application/json",
+
+          }.merge(options)
+    end
+
     def get_tenant_catalog_json(requested_date = nil, options = {})
       super
     rescue ::KillBillClient::API::InternalServerError => e

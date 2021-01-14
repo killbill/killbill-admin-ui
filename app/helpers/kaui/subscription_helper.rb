@@ -19,11 +19,24 @@ module Kaui
       end
     end
 
-    def humanized_subscription_product_name(sub)
-      if !sub.present? or !sub.product_name.present?
+    def humanized_subscription_product_name(sub, catalog = nil)
+      if !sub.present? || !sub.product_name.present?
         nil
       else
-        humanized_product_name(sub.product_name)
+        product = catalog.nil? ? nil : catalog.products.find { |p| p.name == sub.product_name }
+        humanized_product_name(!product.nil? && !product.pretty_name.blank? ? product.pretty_name : sub.product_name)
+      end
+    end
+
+    def humanized_subscription_pretty_plan_name(sub, catalog = nil)
+      if !sub.present? || !sub.product_name.present?
+        nil
+      else
+        product = catalog.nil? ? nil : catalog.products.find { |p| p.name == sub.product_name }
+        return nil if product.nil?
+
+        plan = product.plans.find { |p| p.name == sub.plan_name }
+        plan.nil? || plan.pretty_name.blank? ? nil : plan.pretty_name
       end
     end
 
@@ -56,8 +69,11 @@ module Kaui
       end
     end
 
-    def humanized_subscription_full_product_name(sub)
-      humanized_product_name   = humanized_subscription_product_name(sub)
+    def humanized_subscription_plan_or_product_name(sub, catalog = nil)
+      pretty_plan_name = humanized_subscription_pretty_plan_name(sub, catalog)
+      return pretty_plan_name unless pretty_plan_name.nil?
+
+      humanized_product_name   = humanized_subscription_product_name(sub, catalog)
       humanized_billing_period = humanized_subscription_billing_period(sub)
       humanized_price_list     = humanized_subscription_price_list(sub, false)
 
