@@ -91,22 +91,6 @@ Alternatively, you can run the `kaui` script under `bin` by setting your loadpat
 
     ruby -Ilib bin/kaui /path/to/rails/app --path=$PWD --skip-bundle
 
-Releases
-========
-
-To trigger a release, run (update `patch` as needed):
-
-```
-bundle exec gem bump -c -p -t -v patch
-```
-
-This will:
-
-* Update the `version.rb` file
-* Commit the changes
-* Create the new tag and push the changes
-
-GitHub Actions will automatically push the new gem to Rubygems.
 
 Multi-Tenancy
 =============
