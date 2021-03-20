@@ -44,12 +44,9 @@ class Kaui::AccountsController < Kaui::EngineController
         child_label = account.parent_account_id.nil? ? '' : view_context.content_tag(:span, 'Child', class: ['label', 'label-info', 'account-child-label'])
       end
 
-      [
-          child_label,
-          view_context.link_to(account.account_id, view_context.url_for(:action => :show, :account_id => account.account_id)),
-          account.external_key,
-          view_context.humanized_money_with_symbol(account.balance_to_money)
-      ]
+      row = [child_label, view_context.link_to(account.account_id, view_context.url_for(:action => :show, :account_id => account.account_id))]
+      row += Kaui.account_search_columns.call(account, view_context)[1]
+      row
     end
 
     paginate searcher, data_extractor, formatter

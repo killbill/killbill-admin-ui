@@ -13,8 +13,9 @@
       <tr>
         <th></th>
         <th>ID</th>
-        <th>External key</th>
-        <th>Balance</th>
+        <% Kaui.account_search_columns.call()[0].each do |title| %>
+          <th><%= title %></th>
+        <% end %>
       </tr>
       </thead>
       <tbody>

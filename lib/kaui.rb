@@ -12,6 +12,9 @@ module Kaui
 
   mattr_accessor :bundle_key_display_string
   mattr_accessor :creditcard_plugin_name
+
+  mattr_accessor :account_search_columns
+
   mattr_accessor :layout
 
   mattr_accessor :thread_pool
@@ -41,6 +44,16 @@ module Kaui
 
   self.bundle_key_display_string =  lambda {|bundle_key| bundle_key }
   self.creditcard_plugin_name =  lambda { '__EXTERNAL_PAYMENT__' }
+
+  self.account_search_columns = lambda do |account=nil, view_context=nil|
+    [
+      ['External key', 'Balance'],
+      [
+        account&.external_key,
+        account.nil? || view_context.nil? ? nil : view_context.humanized_money_with_symbol(account.balance_to_money)
+      ]
+    ]
+  end
 
   self.demo_mode = false
 
