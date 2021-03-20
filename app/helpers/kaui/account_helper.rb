@@ -12,6 +12,12 @@ module Kaui
       return false
     end
 
+    def deposit_plugin_available?
+      Killbill::Deposit::DepositClient.deposit_plugin_available?(Kaui.current_tenant_user_options(current_user, session)).first
+    rescue
+      return false
+    end
+
     def account_closed?
       return false if @account.nil?
       blocking_states = @account.blocking_states('ACCOUNT','account-service','NONE', Kaui.current_tenant_user_options(current_user, session))
