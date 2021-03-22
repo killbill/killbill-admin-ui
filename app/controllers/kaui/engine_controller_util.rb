@@ -51,16 +51,12 @@ module Kaui::EngineControllerUtil
     end
   end
 
-  def promise(execute = true, &block)
-    promise = Concurrent::Promise.new({:executor => Kaui.thread_pool}, &block)
-    promise.execute if execute
-    promise
+  def promise(&block)
+    # evaluation starts immediately
+    ::Concurrent::Promises.future(60, &block)
   end
 
   def wait(promise)
-    # If already executed, no-op
-    promise.execute
-
     # Make sure to set a timeout to avoid infinite wait
     value = promise.value!(60)
     raise promise.reason unless promise.reason.nil?
