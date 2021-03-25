@@ -51,21 +51,29 @@ module Kaui::EngineControllerUtil
     end
   end
 
-  def promise(&block)
-    # evaluation starts immediately
-    ::Concurrent::Promises.future(60, &block)
+  def promise
+    # Evaluation starts immediately
+    ::Concurrent::Promises.future do
+      # https://github.com/rails/rails/issues/26847
+      Rails.application.executor.wrap do
+        yield
+      end
+    end
   end
 
   def wait(promise)
-    # Make sure to set a timeout to avoid infinite wait
-    value = promise.value!(60)
-    raise promise.reason unless promise.reason.nil?
-    if value.nil? && promise.state != :fulfilled
-      # Could be https://github.com/ruby-concurrency/concurrent-ruby/issues/585
-      Rails.logger.warn("Unable to run promise #{promise_as_string(promise)}")
-      raise Timeout::Error
+    # https://github.com/rails/rails/issues/26847
+    ActiveSupport::Dependencies.interlock.permit_concurrent_loads do
+      # Make sure to set a timeout to avoid infinite wait
+      value = promise.value!(60)
+      raise promise.reason unless promise.reason.nil?
+      if value.nil? && promise.state != :fulfilled
+        # Could be https://github.com/ruby-concurrency/concurrent-ruby/issues/585
+        Rails.logger.warn("Unable to run promise #{promise_as_string(promise)}")
+        raise Timeout::Error
+      end
+      value
     end
-    value
   end
 
   def promise_as_string(promise)
