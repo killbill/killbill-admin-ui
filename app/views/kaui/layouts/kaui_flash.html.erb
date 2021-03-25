@@ -8,6 +8,13 @@
         </div>
     <% end %>
 <% end %>
+<% if flash[:warning] %>
+  <div class="row server-alert">
+    <div class="col-md-12">
+      <div class="alert alert-warning"><%= flash[:warning] %></div>
+    </div>
+  </div>
+<% end %>
 <% if flash[:notice] %>
     <div class="row server-alert">
       <div class="col-md-12">
