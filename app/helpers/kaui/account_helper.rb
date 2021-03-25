@@ -3,7 +3,7 @@ module Kaui
 
     def pretty_account_identifier
       return nil if @account.nil?
-      @account.name.presence || @account.email.presence || truncate_uuid(@account.external_key)
+      Kaui.pretty_account_identifier.call(@account)
     end
 
     def email_notifications_plugin_available?
