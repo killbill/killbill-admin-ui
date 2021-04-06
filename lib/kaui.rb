@@ -10,6 +10,8 @@ module Kaui
   mattr_accessor :new_user_session_path
   mattr_accessor :destroy_user_session_path
 
+  mattr_accessor :bundle_details_partial
+
   mattr_accessor :pretty_account_identifier
   mattr_accessor :bundle_key_display_string
   mattr_accessor :creditcard_plugin_name
@@ -42,6 +44,8 @@ module Kaui
 
   self.home_path = lambda { Kaui::Engine.routes.url_helpers.home_path }
   self.tenant_home_path = lambda { Kaui::Engine.routes.url_helpers.tenants_path }
+
+  self.bundle_details_partial = 'kaui/bundles/bundle_details'
 
   self.pretty_account_identifier = lambda { |account| account.name.presence || account.email.presence || Kaui::UuidHelper.truncate_uuid(account.external_key) }
   self.bundle_key_display_string =  lambda {|bundle_key| bundle_key }

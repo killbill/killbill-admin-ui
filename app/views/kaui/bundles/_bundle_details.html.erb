@@ -1,0 +1,12 @@
+<table class="transparent subtitle">
+  <tr>
+    <th>Bundle ID</th>
+    <td><%= bundle.bundle_id %></td>
+  </tr>
+  <% unless bundle.bundle_id == bundle.external_key %>
+    <tr>
+      <th>Bundle key</th>
+      <td><%= bundle.external_key %></td>
+    </tr>
+  <% end %>
+</table>
