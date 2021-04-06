@@ -44,8 +44,8 @@
           </div>
           <div class="form-group">
             <%= label_tag :configuration, 'Configuration', :class => 'col-sm-2 control-label' %>
-            <div class="col-sm-4">
-              <textarea name="plugin_properties[raw_config]" id="raw_config" rows="10" class="form-control"></textarea>
+            <div class="col-sm-6">
+              <textarea name="plugin_properties[raw_config]" id="raw_config" rows="20" class="form-control"></textarea>
             </div>
           </div>
 
@@ -170,9 +170,19 @@
             /* Retrieve existing plugin properties for this tenant */
             var existing_props = get_existing_tenant_plugin_properties(plugin_key);
 
-            // try by plugin name for proprietary plugins
+            // Try by plugin name for proprietary plugins
             if (isBlank(existing_props) && !isBlank(plugin_name)) {
                 existing_props = get_existing_tenant_plugin_properties(plugin_name);
+                if (isBlank(existing_props)) {
+                    // For proprietary plugins, the killbill- prefix likely doesn't exist (see Kaui::PluginHelper discussion)
+                    plugin_name = plugin_name.replace('killbill-', '');
+                    existing_props = get_existing_tenant_plugin_properties(plugin_name);
+                    if (isBlank(existing_props)) {
+                        // For proprietary plugins, our docs suggest acme:foo as the format for the plugin key, and often the plugin name becomes acme-foo
+                        plugin_name = plugin_name.replace(':', '-');
+                        existing_props = get_existing_tenant_plugin_properties(plugin_name);
+                    }
+                }
             }
 
             return existing_props;
