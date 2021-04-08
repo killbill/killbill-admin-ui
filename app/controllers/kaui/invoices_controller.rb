@@ -18,7 +18,7 @@ class Kaui::InvoicesController < Kaui::EngineController
       if account.nil?
         Kaui::Invoice.list_or_search(search_key, offset, limit, cached_options_for_klient)
       else
-        account.invoices(cached_options_for_klient).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
+        account.invoices(cached_options_for_klient.merge({ :params => { :includeVoidedInvoices => true } })).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
       end
     end
 
@@ -32,12 +32,9 @@ class Kaui::InvoicesController < Kaui::EngineController
     end
 
     formatter = lambda do |invoice|
-      [
-          view_context.link_to(invoice.invoice_number, view_context.url_for(:controller => :invoices, :action => :show, :account_id => invoice.account_id, :id => invoice.invoice_id)),
-          invoice.invoice_date,
-          view_context.humanized_money_with_symbol(invoice.amount_to_money),
-          view_context.humanized_money_with_symbol(invoice.balance_to_money)
-      ]
+      row = [view_context.link_to(invoice.invoice_number, view_context.url_for(:controller => :invoices, :action => :show, :account_id => invoice.account_id, :id => invoice.invoice_id))]
+      row += Kaui.invoice_search_columns.call(invoice, view_context)[1]
+      row
     end
 
     paginate searcher, data_extractor, formatter
@@ -88,6 +85,9 @@ class Kaui::InvoicesController < Kaui::EngineController
       custom_fields_per_invoice_item.inject({}) { |hsh, entry| (hsh[entry.object_id] ||= []) << entry; hsh }
     }
 
+    fetch_invoice_tags = promise { @invoice.tags(false, 'NONE', cached_options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b } }
+    fetch_available_invoice_tags = promise { Kaui::TagDefinition.all_for_invoice(cached_options_for_klient) }
+
     @payments = wait(fetch_payments)
     @payment_methods = wait(fetch_pms)
     @custom_fields = wait(fetch_invoice_fields)
@@ -95,6 +95,8 @@ class Kaui::InvoicesController < Kaui::EngineController
     @custom_fields_per_invoice_item = wait(fetch_custom_fields_per_invoice_item)
     @tags_per_invoice_item = wait(fetch_tags_per_invoice_item)
     @available_invoice_item_tags = wait(fetch_available_invoice_item_tags)
+    @invoice_tags = wait(fetch_invoice_tags)
+    @available_invoice_tags = wait(fetch_available_invoice_tags)
   end
 
   def restful_show

@@ -46,6 +46,10 @@ Kaui::Engine.routes.draw do
         match '/edit' => 'bundle_tags#edit', :via => :get, :as => 'edit_bundle_tags'
         match '/edit' => 'bundle_tags#update', :via => :post, :as => 'update_bundle_tags'
       end
+      scope '/invoice_tags' do
+        match '/edit' => 'invoice_tags#edit', :via => :get, :as => 'edit_invoice_tags'
+        match '/edit' => 'invoice_tags#update', :via => :post, :as => 'update_invoice_tags'
+      end
       scope '/timeline' do
         match '/' => 'account_timelines#show', :via => :get, :as => 'account_timeline'
       end

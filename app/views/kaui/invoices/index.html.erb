@@ -8,9 +8,9 @@
       <thead>
       <tr>
         <th>Number</th>
-        <th>Date</th>
-        <th>Amount</th>
-        <th>Balance</th>
+        <% Kaui.invoice_search_columns.call()[0].each do |title| %>
+          <th><%= title %></th>
+        <% end %>
       </tr>
       </thead>
       <tbody>

@@ -22,6 +22,15 @@
           This is a DRAFT invoice.
           <%= link_to 'Commit it', kaui_engine.commit_invoice_path(:id => @invoice.invoice_id), :method => :post %>.
         </div>
+    <% elsif @invoice.status == 'VOID' %>
+        <div class="alert alert-danger">
+          This invoice has been voided.
+        </div>
+    <% end %>
+    <% unless @invoice_tags.find { |t| t.tag_definition_name == 'WRITTEN_OFF' }.nil? %>
+      <div class="alert alert-danger">
+        This invoice has been written off.
+      </div>
     <% end %>
 
     <div class="row">

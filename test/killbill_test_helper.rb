@@ -176,6 +176,8 @@ module Kaui
       account      = create_account(tenant, username, password, user, reason, comment) if account.nil?
       invoice_item = create_charge(account, tenant, true, username, password, user, reason, comment) if invoice_item.nil?
 
+      assert_not_nil invoice_item
+
       payment = Kaui::InvoicePayment.new({:account_id => account.account_id, :target_invoice_id => invoice_item.invoice_id, :purchased_amount => invoice_item.amount})
       payment.create(true, user, reason, comment, build_options(tenant, username, password))
     end

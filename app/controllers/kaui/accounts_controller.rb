@@ -180,6 +180,8 @@ class Kaui::AccountsController < Kaui::EngineController
       redirect_to account_path(account_id), :notice => "Nothing to generate for target date #{target_date.nil? ? 'today' : target_date}"
     elsif dry_run
       @invoice = Kaui::Invoice.build_from_raw_invoice(invoice)
+      @invoice_tags = []
+      @available_invoice_tags = []
       @payments = []
       @payment_methods = nil
       @account = Kaui::Account.find_by_id(account_id, false, false, options_for_klient)
