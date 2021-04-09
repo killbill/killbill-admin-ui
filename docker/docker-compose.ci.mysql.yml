@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  killbill:
+    network_mode: host
+    image: killbill/killbill:0.22.20
+    environment:
+      - KILLBILL_CATALOG_URI=SpyCarAdvanced.xml
+      - KILLBILL_DAO_URL=jdbc:mysql://127.0.0.1:3306/killbill
+      - KILLBILL_DAO_USER=root
+      - KILLBILL_DAO_PASSWORD=root
+      - KILLBILL_SERVER_TEST_MODE=true
+      - KILLBILL_INVOICE_SANITY_SAFETY_BOUND_ENABLED=false
+      - KILLBILL_INVOICE_MAX_DAILY_NUMBER_OF_ITEMS_SAFETY_BOUND=-1
+    depends_on:
+      - db
+  db:
+    network_mode: host
+    image: killbill/mariadb:0.22
+    environment:
+      - MYSQL_ROOT_PASSWORD=root

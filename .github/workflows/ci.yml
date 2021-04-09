@@ -1,0 +1,137 @@
+name: ci
+
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  COMPOSE_DOCKER_CLI_BUILD: 1
+  DB_NAME: kaui
+  DOCKER_BUILDKIT: 1
+  JRUBY_OPTS: --2.0 -J-Xmx1024M
+  KB_ADDRESS: 127.0.0.1
+  KB_PORT: 8080
+  RAILS_ENV: test
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - ruby-version: '2.4.2'
+            database-adapter: 'mysql2'
+            database-user: 'root'
+            database-password: 'root'
+            database-port: '3306'
+            docker-compose-file: 'docker-compose.ci.mysql.yml'
+          - ruby-version: 'jruby-9.1.17.0'
+            database-adapter: 'mysql2'
+            database-user: 'root'
+            database-password: 'root'
+            database-port: '3306'
+            docker-compose-file: 'docker-compose.ci.mysql.yml'
+          - ruby-version: '2.4.2'
+            database-adapter: 'postgresql'
+            database-user: 'postgres'
+            database-password: 'postgres'
+            database-port: '5432'
+            docker-compose-file: 'docker-compose.ci.postgresql.yml'
+          - ruby-version: 'jruby-9.1.17.0'
+            database-adapter: 'postgresql'
+            database-user: 'postgres'
+            database-password: 'postgres'
+            database-port: '5432'
+            docker-compose-file: 'docker-compose.ci.postgresql.yml'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+      - name: Start stack
+        run: |
+          cd docker
+          docker-compose -p it -f ${{ matrix.docker-compose-file }} up --no-start
+          docker start it_db_1
+      - name: Wait for MySQL
+        if: ${{ matrix.docker-compose-file == 'docker-compose.ci.mysql.yml' }}
+        run: |
+          set +e
+          count=0
+          until mysqladmin ping -h 127.0.0.1 -u root --password=root --silent; do
+            if [[ "$count" == "25" ]]; then
+              exit 1
+            fi
+            (( count++ ))
+            printf '.'
+            sleep 5
+          done
+          set -e
+      - name: Wait for PostgreSQL
+        if: ${{ matrix.docker-compose-file == 'docker-compose.ci.postgresql.yml' }}
+        run: |
+          set +e
+          count=0
+          until $(psql -h 127.0.0.1 -U postgres -p 5432 -l > /dev/null); do
+            if [[ "$count" == "25" ]]; then
+              exit 1
+            fi
+            (( count++ ))
+            printf '.'
+            sleep 5
+          done
+          set -e
+      - name: Start Kill Bill
+        # Sometimes it gets stuck (if Kill Bill starts when the DB isn't ready?)
+        timeout-minutes: 4
+        run: |
+          docker start it_killbill_1
+          count=0
+          until $(curl --connect-timeout 10 --max-time 30 --output /dev/null --silent --fail http://${KB_ADDRESS}:${KB_PORT}/1.0/healthcheck); do
+            if [[ "$count" == "180" ]]; then
+              exit 64
+            fi
+            count=$(( count + 1 ))
+            sleep 1
+          done
+          curl --connect-timeout 10 --max-time 30 -v \
+               -X POST \
+               -u admin:password \
+               -H 'Content-Type: application/json' \
+               -H 'X-Killbill-CreatedBy: GitHub' \
+               -d '{"apiKey": "bob", "apiSecret": "lazar"}' \
+               "http://${KB_ADDRESS}:${KB_PORT}/1.0/kb/tenants"
+      - name: Run tests
+        env:
+          DB_ADAPTER: ${{ matrix.database-adapter }}
+          DB_USER: ${{ matrix.database-user }}
+          DB_PASSWORD: ${{ matrix.database-password }}
+          DB_PORT: ${{ matrix.database-port }}
+        run: |
+          bundle exec rails db:migrate
+          # Some flakiness unfortunately
+          ./bin/retry bundle exec rails t -w -f
+      - name: Debugging after failure
+        if: failure()
+        run: |
+          echo "[DEBUG] killbill healthcheck"
+          curl --connect-timeout 10 --max-time 30 -v http://${KB_ADDRESS}:${KB_PORT}/1.0/healthcheck || true
+          echo "[DEBUG] hostname"
+          hostname
+          echo "[DEBUG] netstat -tulpn"
+          sudo netstat -tulpn
+          echo "[DEBUG] docker network ls"
+          docker network ls
+          echo "[DEBUG] docker ps -a"
+          docker ps -a
+          echo "[DEBUG] killbill env"
+          docker exec it_killbill_1 env || true
+          echo "[DEBUG] db env"
+          docker exec it_db_1 env || true
+          echo "[DEBUG] killbill logs"
+          docker logs -t --details it_killbill_1 || true
+          echo "[DEBUG] db logs"
+          docker logs -t --details it_db_1 || true

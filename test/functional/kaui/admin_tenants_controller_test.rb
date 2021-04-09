@@ -138,7 +138,7 @@ class Kaui::AdminTenantsControllerTest < Kaui::FunctionalTestHelper
       :id => tenant.id,
       :simple_plan => {
           :product_category => 'STANDALONE',
-          :product_name => 'Boat Rental',
+          :product_name => 'Boat_Rental',
           :plan_id => 'boat12345678910',
           :amount => 10,
           :currency => 'USD',
