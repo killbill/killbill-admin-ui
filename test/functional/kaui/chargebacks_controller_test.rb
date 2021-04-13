@@ -6,7 +6,7 @@ class Kaui::ChargebacksControllerTest < Kaui::FunctionalTestHelper
     payment_id = SecureRandom.uuid.to_s
     get :new, :account_id => @account.account_id, :payment_id => payment_id
     assert_redirected_to account_path(@account.account_id)
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{payment_id} type=PAYMENT doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Object id=#{payment_id} type=PAYMENT doesn't exist!", flash[:error]
   end
 
   test 'should get new' do
@@ -24,7 +24,7 @@ class Kaui::ChargebacksControllerTest < Kaui::FunctionalTestHelper
              :currency => @payment.currency
          }
     assert_template :new
-    assert_equal "Error while creating a new chargeback: Error 404: Object id=#{payment_id} type=PAYMENT doesn't exist!", flash[:error]
+    assert_equal "Error while creating a new chargeback: Object id=#{payment_id} type=PAYMENT doesn't exist!", flash[:error]
   end
 
   test 'should create chargeback' do

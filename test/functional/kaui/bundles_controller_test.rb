@@ -6,7 +6,7 @@ class Kaui::BundlesControllerTest < Kaui::FunctionalTestHelper
     account_id = SecureRandom.uuid.to_s
     get :index, :account_id => account_id
     assert_redirected_to account_path(account_id)
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
   end
 
   test 'should get index with existing tags' do
@@ -35,12 +35,12 @@ class Kaui::BundlesControllerTest < Kaui::FunctionalTestHelper
     new_account_key = SecureRandom.uuid.to_s
     post :do_transfer, :id => @bundle.bundle_id, :new_account_key => new_account_key
     assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{new_account_key} type=ACCOUNT doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Object id=#{new_account_key} type=ACCOUNT doesn't exist!", flash[:error]
 
     bundle_id = SecureRandom.uuid.to_s
     post :do_transfer, :id => bundle_id, :new_account_key => @account2.external_key
     assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{bundle_id} type=BUNDLE doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Object id=#{bundle_id} type=BUNDLE doesn't exist!", flash[:error]
   end
 
   test 'should get transfer' do

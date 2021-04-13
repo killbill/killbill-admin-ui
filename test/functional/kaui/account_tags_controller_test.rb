@@ -6,7 +6,7 @@ class Kaui::AccountTagsControllerTest < Kaui::FunctionalTestHelper
     account_id = '1234'
     get :edit, :account_id => account_id
     assert_redirected_to account_path(account_id)
-    assert_equal 'Error while communicating with the Kill Bill server: Error 404: ', flash[:error]
+    assert_equal 'Error while communicating with the Kill Bill server: ', flash[:error]
   end
 
   test 'should get edit' do

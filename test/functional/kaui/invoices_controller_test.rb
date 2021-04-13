@@ -23,7 +23,7 @@ class Kaui::InvoicesControllerTest < Kaui::FunctionalTestHelper
     invoice_id = SecureRandom.uuid.to_s
     get :show, :account_id => @invoice_item.account_id, :id => invoice_id
     assert_redirected_to account_path(@invoice_item.account_id)
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{invoice_id} type=INVOICE doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Object id=#{invoice_id} type=INVOICE doesn't exist!", flash[:error]
   end
 
   test 'should find unpaid invoice by id' do
@@ -65,7 +65,7 @@ class Kaui::InvoicesControllerTest < Kaui::FunctionalTestHelper
     invoice_id = SecureRandom.uuid.to_s
     get :show_html, :id => invoice_id
     assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{invoice_id} type=INVOICE doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Object id=#{invoice_id} type=INVOICE doesn't exist!", flash[:error]
   end
 
   test 'should expose restful endpoint' do
