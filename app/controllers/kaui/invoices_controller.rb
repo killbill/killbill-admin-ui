@@ -97,6 +97,19 @@ class Kaui::InvoicesController < Kaui::EngineController
     @available_invoice_item_tags = wait(fetch_available_invoice_item_tags)
     @invoice_tags = wait(fetch_invoice_tags)
     @available_invoice_tags = wait(fetch_available_invoice_tags)
+    @available_invoice_tags.reject! { |td| td.name == 'WRITTEN_OFF' } if @invoice.status == 'VOID'
+  end
+
+  def void_invoice
+    cached_options_for_klient = options_for_klient
+    invoice = KillBillClient::Model::Invoice.find_by_id(params.require(:id), 'NONE', cached_options_for_klient)
+    begin
+      invoice.void(current_user.kb_username, params[:reason], params[:comment], cached_options_for_klient)
+      redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id), :notice => 'Invoice successfully voided'
+    rescue => e
+      flash[:error] = "Unable to void invoice: #{as_string(e)}"
+      redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id)
+    end
   end
 
   def restful_show

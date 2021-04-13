@@ -43,6 +43,19 @@
             </div>
         <% end %>
 
+        <% if can?(:void, Kaui::Invoice) && @invoice.status != 'VOID' && @invoice_tags.find { |t| t.tag_definition_name == 'WRITTEN_OFF' }.nil? # The backend will do more comprehensive checks %>
+          <div class="tag-select" onclick="void(0)">
+            <span><i class="fa fa-trash"></i><i class="fa fa-caret-down"></i></span>
+
+            <div class="tag-select-box">
+              <%= form_tag void_invoice_path(:id => @invoice.invoice_id), :method => :delete do %>
+                <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label' %>
+                <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
+                <%= submit_tag 'Void', :class => 'btn btn-default' %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
   <% end %>
 

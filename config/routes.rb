@@ -98,6 +98,7 @@ Kaui::Engine.routes.draw do
     match '/:id/show_html' => 'invoices#show_html', :via => :get, :as => 'show_html_invoice'
     match '/:id' => 'invoices#restful_show', :via => :get, :as => 'invoice'
     match '/commit' => 'invoices#commit_invoice', :via => :post, :as => 'commit_invoice'
+    match '/void' => 'invoices#void_invoice', :via => :delete, :as => 'void_invoice'
   end
   resources :invoices, :only => [ :index ]
 
