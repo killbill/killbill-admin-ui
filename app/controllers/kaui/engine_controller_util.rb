@@ -86,7 +86,9 @@ module Kaui::EngineControllerUtil
   # Used to format flash error messages
   def as_string(e)
     if e.is_a?(KillBillClient::API::ResponseError)
-      "Error #{e.response.code}: #{as_string_from_response(e.response.body)}"
+      as_string_from_response(e.response.body)
+    elsif e.respond_to?(:cause) && !e.cause.nil?
+      as_string(e.cause)
     else
       log_rescue_error(e)
       e.message
@@ -108,6 +110,7 @@ module Kaui::EngineControllerUtil
     if error_message.respond_to? :[] and error_message['message'].present?
       # Likely BillingExceptionJson
       error_message = error_message['message']
+      error_message += " (code=#{error_message['code']})" unless error_message['code'].blank?
     end
     # Limit the error size to avoid ActionDispatch::Cookies::CookieOverflow
     error_message[0..1000]
