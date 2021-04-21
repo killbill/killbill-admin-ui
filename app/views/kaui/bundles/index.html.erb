@@ -10,7 +10,7 @@
 
   <% @bundles.each_with_index do |bundle, idx| %>
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
           <%= render :partial => Kaui.bundle_details_partial, :locals => { :bundle => bundle, :account => @account, :catalog => @catalog } %>
         </div>
       </div>
