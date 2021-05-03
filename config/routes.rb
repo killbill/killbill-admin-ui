@@ -90,6 +90,7 @@ Kaui::Engine.routes.draw do
 
   scope '/payment_methods' do
     match '/validate_external_key' => 'payment_methods#validate_external_key', :via => :get, :as => 'payment_methods_validate_external_key'
+    match '/refresh' => 'payment_methods#refresh', :via => :post, :as => 'refresh_payment_methods'
   end
   resources :payment_methods, :only => [:new, :create, :show, :destroy]
 

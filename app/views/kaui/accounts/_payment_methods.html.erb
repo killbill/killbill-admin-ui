@@ -7,6 +7,9 @@
           <%= link_to '<i class="fa fa-plus-square"></i>'.html_safe,
                       kaui_engine.new_payment_method_path(:account_id => @account.account_id),
                       :class => 'btn btn-xs' %>
+          <%= form_tag kaui_engine.refresh_payment_methods_path(params.to_h), :method => :post, :class => 'form-force-inline form-right' do %>
+              <%= button_tag '<i class="fa fa-refresh"></i>'.html_safe, :class => 'btn btn-xs' %>
+          <% end %>
       <% end %>
     </h1>
 
