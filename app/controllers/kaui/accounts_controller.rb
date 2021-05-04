@@ -29,12 +29,9 @@ class Kaui::AccountsController < Kaui::EngineController
     data_extractor = lambda do |account, column|
       [
           account.parent_account_id,
-          account.name,
           account.account_id,
           account.external_key,
-          account.account_balance,
-          account.city,
-          account.country
+          account.account_balance
       ][column]
     end
 

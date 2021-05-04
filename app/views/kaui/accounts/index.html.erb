@@ -40,8 +40,10 @@ $(document).ready(function() {
     },
     "pageLength": <%= @limit %>,
     "displayStart": <%= @offset %>,
-    <% unless @ordering.blank? %>
-        "order": [[ 1, "<%= @ordering %>" ]],
+    <% if @search_query.blank? %>
+      "ordering": false,
+    <% elsif !@ordering.blank? %>
+      "order": [[ 1, "<%= @ordering %>" ]],
     <% end %>
     "processing": true,
     "serverSide": true,

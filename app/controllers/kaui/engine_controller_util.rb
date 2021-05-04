@@ -41,7 +41,7 @@ module Kaui::EngineControllerUtil
       b = data_extractor.call(b, ordering_column)
       sort = a <=> b
       sort.nil? ? -1 : sort
-    end unless search_key.nil? # Keep DB ordering when listing all entries
+    end unless search_key.nil? # Keep DB ordering when listing all entries (note! make sure to set "ordering": false in DataTables config as the client-side sort behavior can be confusing)
     pages.reverse! if ordering_dir == 'desc' && limit >= 0 || ordering_dir == 'asc' && limit < 0
 
     pages.each { |page| json[:data] << formatter.call(page) }

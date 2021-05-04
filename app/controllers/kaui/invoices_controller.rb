@@ -42,7 +42,8 @@ class Kaui::InvoicesController < Kaui::EngineController
           invoice.invoice_number.to_i,
           invoice.invoice_date,
           invoice.amount,
-          invoice.balance
+          invoice.balance,
+          invoice.status
         ][column]
       end
       formatter = lambda do |invoice|

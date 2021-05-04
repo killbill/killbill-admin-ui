@@ -43,7 +43,9 @@ $(document).ready(function() {
         "paging": false,
         "ajax": "<%= invoices_pagination_path :format => :json %>",
     <% end %>
-    <% unless @ordering.blank? %>
+    <% if @search_query.blank? %>
+        "ordering": false,
+    <% elsif !@ordering.blank? %>
         "order": [[ 0, "<%= @ordering %>" ]],
     <% end %>
     "processing": true,
