@@ -18,6 +18,7 @@ module Kaui
 
   mattr_accessor :account_search_columns
   mattr_accessor :invoice_search_columns
+  mattr_accessor :account_invoices_columns
 
   mattr_accessor :layout
 
@@ -63,6 +64,20 @@ module Kaui
   end
 
   self.invoice_search_columns = lambda do |invoice=nil, view_context=nil|
+    default_label = 'label-info'
+    default_label = 'label-default' if invoice&.status == 'DRAFT'
+    default_label = 'label-success' if invoice&.status == 'COMMITTED'
+    default_label = 'label-danger' if invoice&.status == 'VOID'
+    [
+      ['Date', 'Status'],
+      [
+        invoice&.invoice_date,
+        invoice.nil? || view_context.nil? ? nil : view_context.content_tag(:span, invoice.status, class: ['label', default_label])
+      ]
+    ]
+  end
+
+  self.account_invoices_columns = lambda do |invoice=nil, view_context=nil|
     default_label = 'label-info'
     default_label = 'label-default' if invoice&.status == 'DRAFT'
     default_label = 'label-success' if invoice&.status == 'COMMITTED'

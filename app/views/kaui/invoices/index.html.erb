@@ -8,7 +8,7 @@
       <thead>
       <tr>
         <th>Number</th>
-        <% Kaui.invoice_search_columns.call()[0].each do |title| %>
+        <% (@account.account_id.blank? ? Kaui.invoice_search_columns : Kaui.account_invoices_columns).call()[0].each do |title| %>
           <th><%= title %></th>
         <% end %>
       </tr>

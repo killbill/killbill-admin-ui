@@ -22,19 +22,34 @@ class Kaui::InvoicesController < Kaui::EngineController
       end
     end
 
-    data_extractor = lambda do |invoice, column|
-      [
+    account_id = (params[:search] || {})[:value]
+    if account_id.blank?
+      # Don't show amount and balance, and they will not be populated
+      data_extractor = lambda do |invoice, column|
+        [
+          invoice.invoice_number.to_i,
+          invoice.invoice_date
+        ][column]
+      end
+      formatter = lambda do |invoice|
+        row = [view_context.link_to(invoice.invoice_number, view_context.url_for(:controller => :invoices, :action => :show, :account_id => invoice.account_id, :id => invoice.invoice_id))]
+        row += Kaui.invoice_search_columns.call(invoice, view_context)[1]
+        row
+      end
+    else
+      data_extractor = lambda do |invoice, column|
+        [
           invoice.invoice_number.to_i,
           invoice.invoice_date,
           invoice.amount,
           invoice.balance
-      ][column]
-    end
-
-    formatter = lambda do |invoice|
-      row = [view_context.link_to(invoice.invoice_number, view_context.url_for(:controller => :invoices, :action => :show, :account_id => invoice.account_id, :id => invoice.invoice_id))]
-      row += Kaui.invoice_search_columns.call(invoice, view_context)[1]
-      row
+        ][column]
+      end
+      formatter = lambda do |invoice|
+        row = [view_context.link_to(invoice.invoice_number, view_context.url_for(:controller => :invoices, :action => :show, :account_id => invoice.account_id, :id => invoice.invoice_id))]
+        row += Kaui.account_invoices_columns.call(invoice, view_context)[1]
+        row
+      end
     end
 
     paginate searcher, data_extractor, formatter
