@@ -5,7 +5,7 @@
     <h1>
       Invoice <%= @invoice.invoice_number %>
       <% unless @invoice.invoice_number.blank? %>
-        <%= link_to 'View customer invoice html', kaui_engine.show_html_invoice_path(@invoice.invoice_id), :class => 'btn', :target => '_blank' %>
+        <%= Kaui.customer_invoice_link.call(@invoice, self) %>
       <% end %>
     </h1>
 

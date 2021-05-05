@@ -20,6 +20,8 @@ module Kaui
   mattr_accessor :invoice_search_columns
   mattr_accessor :account_invoices_columns
 
+  mattr_accessor :customer_invoice_link
+
   mattr_accessor :layout
 
   mattr_accessor :thread_pool
@@ -92,6 +94,8 @@ module Kaui
       ]
     ]
   end
+
+  self.customer_invoice_link = lambda { |invoice, ctx| ctx.link_to 'View customer invoice html', ctx.kaui_engine.show_html_invoice_path(invoice.invoice_id), :class => 'btn', :target => '_blank' }
 
   self.demo_mode = false
 
