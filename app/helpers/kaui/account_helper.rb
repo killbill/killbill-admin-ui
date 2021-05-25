@@ -3,7 +3,7 @@ module Kaui
 
     def pretty_account_identifier
       return nil if @account.nil?
-      @account.name.presence || @account.email.presence || truncate_uuid(@account.external_key)
+      Kaui.pretty_account_identifier.call(@account)
     end
 
     def email_notifications_plugin_available?
@@ -20,7 +20,9 @@ module Kaui
 
     def account_closed?
       return false if @account.nil?
-      blocking_states = @account.blocking_states('ACCOUNT','account-service','NONE', Kaui.current_tenant_user_options(current_user, session))
+      # Note: we ignore errors here, so that the call doesn't prevent the screen to load. While the error isn't surfaced, if there is an error with the catalog for instance,
+      # the AJAX call to compute the next invoice date should hopefully trigger a flash error.
+      blocking_states = @account.blocking_states('ACCOUNT', 'account-service', 'NONE', Kaui.current_tenant_user_options(current_user, session)) rescue []
 
       is_account_closed = false
       blocking_states.each do |blocking_state|

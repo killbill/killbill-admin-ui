@@ -43,7 +43,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     account_id = SecureRandom.uuid.to_s
     get :show, :account_id => account_id
     assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
   end
 
   test 'should find account by id' do
@@ -101,7 +101,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
 
     post :create, :account => {:external_key => external_key}
     assert_template :new
-    assert_equal "Error while creating account: Error 409: Account already exists for key #{external_key}", flash[:error]
+    assert_equal "Error while creating account: Account already exists for key #{external_key}", flash[:error]
   end
 
   test 'should create account' do
@@ -152,7 +152,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     account_id = SecureRandom.uuid.to_s
     put :set_default_payment_method, :account_id => account_id, :payment_method_id => @payment_method.payment_method_id
     assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
   end
 
   test 'should set default payment method' do
@@ -164,7 +164,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     account_id = SecureRandom.uuid.to_s
     post :pay_all_invoices, :account_id => account_id
     assert_redirected_to home_path
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
   end
 
   test 'should pay all invoices' do

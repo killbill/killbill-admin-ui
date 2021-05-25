@@ -24,14 +24,14 @@ class Kaui::AccountEmailsControllerTest < Kaui::FunctionalTestHelper
              :email => 'toto@example.com'
          }
     assert_redirected_to account_path(account_id)
-    assert_equal "Error while communicating with the Kill Bill server: Error 404: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
+    assert_equal "Error while communicating with the Kill Bill server: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
   end
 
   test 'should handle Kill Bill errors during deletion' do
     account_id = 'invalid-id'
     delete :destroy, :account_id => account_id, :id => 'toto@example.com'
     assert_redirected_to account_path(account_id)
-    assert_equal 'Error while communicating with the Kill Bill server: Error 404: ', flash[:error]
+    assert_equal 'Error while communicating with the Kill Bill server: ', flash[:error]
   end
 
   test 'should add and destroy email' do

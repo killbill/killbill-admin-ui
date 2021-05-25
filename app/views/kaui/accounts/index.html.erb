@@ -13,8 +13,9 @@
       <tr>
         <th></th>
         <th>ID</th>
-        <th>External key</th>
-        <th>Balance</th>
+        <% Kaui.account_search_columns.call()[0].each do |title| %>
+          <th><%= title %></th>
+        <% end %>
       </tr>
       </thead>
       <tbody>
@@ -39,8 +40,10 @@ $(document).ready(function() {
     },
     "pageLength": <%= @limit %>,
     "displayStart": <%= @offset %>,
-    <% unless @ordering.blank? %>
-        "order": [[ 1, "<%= @ordering %>" ]],
+    <% if @search_query.blank? %>
+      "ordering": false,
+    <% elsif !@ordering.blank? %>
+      "order": [[ 1, "<%= @ordering %>" ]],
     <% end %>
     "processing": true,
     "serverSide": true,

@@ -41,7 +41,7 @@ module Kaui::EngineControllerUtil
       b = data_extractor.call(b, ordering_column)
       sort = a <=> b
       sort.nil? ? -1 : sort
-    end unless search_key.nil? # Keep DB ordering when listing all entries
+    end unless search_key.nil? # Keep DB ordering when listing all entries (note! make sure to set "ordering": false in DataTables config as the client-side sort behavior can be confusing)
     pages.reverse! if ordering_dir == 'desc' && limit >= 0 || ordering_dir == 'asc' && limit < 0
 
     pages.each { |page| json[:data] << formatter.call(page) }
@@ -51,25 +51,29 @@ module Kaui::EngineControllerUtil
     end
   end
 
-  def promise(execute = true, &block)
-    promise = Concurrent::Promise.new({:executor => Kaui.thread_pool}, &block)
-    promise.execute if execute
-    promise
+  def promise
+    # Evaluation starts immediately
+    ::Concurrent::Promises.future do
+      # https://github.com/rails/rails/issues/26847
+      Rails.application.executor.wrap do
+        yield
+      end
+    end
   end
 
   def wait(promise)
-    # If already executed, no-op
-    promise.execute
-
-    # Make sure to set a timeout to avoid infinite wait
-    value = promise.value!(60)
-    raise promise.reason unless promise.reason.nil?
-    if value.nil? && promise.state != :fulfilled
-      # Could be https://github.com/ruby-concurrency/concurrent-ruby/issues/585
-      Rails.logger.warn("Unable to run promise #{promise_as_string(promise)}")
-      raise Timeout::Error
+    # https://github.com/rails/rails/issues/26847
+    ActiveSupport::Dependencies.interlock.permit_concurrent_loads do
+      # Make sure to set a timeout to avoid infinite wait
+      value = promise.value!(60)
+      raise promise.reason unless promise.reason.nil?
+      if value.nil? && promise.state != :fulfilled
+        # Could be https://github.com/ruby-concurrency/concurrent-ruby/issues/585
+        Rails.logger.warn("Unable to run promise #{promise_as_string(promise)}")
+        raise Timeout::Error
+      end
+      value
     end
-    value
   end
 
   def promise_as_string(promise)
@@ -82,7 +86,9 @@ module Kaui::EngineControllerUtil
   # Used to format flash error messages
   def as_string(e)
     if e.is_a?(KillBillClient::API::ResponseError)
-      "Error #{e.response.code}: #{as_string_from_response(e.response.body)}"
+      as_string_from_response(e.response.body)
+    elsif e.respond_to?(:cause) && !e.cause.nil?
+      as_string(e.cause)
     else
       log_rescue_error(e)
       e.message
@@ -104,6 +110,7 @@ module Kaui::EngineControllerUtil
     if error_message.respond_to? :[] and error_message['message'].present?
       # Likely BillingExceptionJson
       error_message = error_message['message']
+      error_message += " (code=#{error_message['code']})" unless error_message['code'].blank?
     end
     # Limit the error size to avoid ActionDispatch::Cookies::CookieOverflow
     error_message[0..1000]

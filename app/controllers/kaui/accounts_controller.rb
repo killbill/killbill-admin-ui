@@ -29,12 +29,9 @@ class Kaui::AccountsController < Kaui::EngineController
     data_extractor = lambda do |account, column|
       [
           account.parent_account_id,
-          account.name,
           account.account_id,
           account.external_key,
-          account.account_balance,
-          account.city,
-          account.country
+          account.account_balance
       ][column]
     end
 
@@ -44,12 +41,9 @@ class Kaui::AccountsController < Kaui::EngineController
         child_label = account.parent_account_id.nil? ? '' : view_context.content_tag(:span, 'Child', class: ['label', 'label-info', 'account-child-label'])
       end
 
-      [
-          child_label,
-          view_context.link_to(account.account_id, view_context.url_for(:action => :show, :account_id => account.account_id)),
-          account.external_key,
-          view_context.humanized_money_with_symbol(account.balance_to_money)
-      ]
+      row = [child_label, view_context.link_to(account.account_id, view_context.url_for(:action => :show, :account_id => account.account_id))]
+      row += Kaui.account_search_columns.call(account, view_context)[1]
+      row
     end
 
     paginate searcher, data_extractor, formatter
@@ -83,17 +77,17 @@ class Kaui::AccountsController < Kaui::EngineController
     @account = Kaui::Account::find_by_id_or_key(params.require(:account_id), true, true, cached_options_for_klient)
 
     fetch_children = promise { @account.children(false, false, 'NONE',cached_options_for_klient)}
-    fetch_parent = promise (!@account.parent_account_id.nil?){ Kaui::Account::find_by_id(@account.parent_account_id,false,false,cached_options_for_klient)}
+    fetch_parent = @account.parent_account_id.nil? ? nil : promise { Kaui::Account::find_by_id(@account.parent_account_id,false,false,cached_options_for_klient) }
     fetch_overdue_state = promise { @account.overdue(cached_options_for_klient) }
     fetch_account_tags = promise { @account.tags(false, 'NONE', cached_options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b } }
     fetch_account_fields = promise { @account.custom_fields('NONE', cached_options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase } }
     fetch_account_emails = promise { Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', cached_options_for_klient) }
     fetch_payments = promise { @account.payments(cached_options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_payment(payment) } }
-    fetch_payment_methods = promise(false) { Kaui::PaymentMethod.find_all_by_account_id(@account.account_id, false, cached_options_for_klient) }
+    fetch_payment_methods = promise { Kaui::PaymentMethod.find_all_by_account_id(@account.account_id, false, cached_options_for_klient) }
 
     # is email notification plugin available
     is_email_notifications_plugin_available = Kenui::EmailNotificationService.email_notification_plugin_available?(cached_options_for_klient).first
-    fetch_email_notification_configuration = promise(is_email_notifications_plugin_available) do
+    fetch_email_notification_configuration = !is_email_notifications_plugin_available ? nil : promise do
       Kenui::EmailNotificationService.get_configuration_per_account(params.require(:account_id),cached_options_for_klient)
     end.then do |configuration|
       if configuration.first.is_a?(FalseClass)
@@ -106,7 +100,7 @@ class Kaui::AccountsController < Kaui::EngineController
     fetch_payment_methods_with_details = fetch_payment_methods.then do |pms|
       ops = []
       pms.each do |pm|
-        ops << promise(false) {
+        ops << promise {
           begin
             Kaui::PaymentMethod.find_by_id(pm.payment_method_id, true, cached_options_for_klient)
           rescue => e
@@ -125,7 +119,7 @@ class Kaui::AccountsController < Kaui::EngineController
     @custom_fields = wait(fetch_account_fields)
     @account_emails = wait(fetch_account_emails)
     wait(fetch_payment_methods)
-    @payment_methods = wait(fetch_payment_methods_with_details).map { |pm_f| pm_f.execute }.map { |pm_f| wait(pm_f) }.reject { |pm| pm.nil? }
+    @payment_methods = wait(fetch_payment_methods_with_details).map{ |pm_f| wait(pm_f) }.reject { |pm| pm.nil? }
     @available_tags = wait(fetch_available_tags)
     @children = wait(fetch_children)
     @account_parent = @account.parent_account_id.nil? ? nil : wait(fetch_parent)
@@ -183,6 +177,8 @@ class Kaui::AccountsController < Kaui::EngineController
       redirect_to account_path(account_id), :notice => "Nothing to generate for target date #{target_date.nil? ? 'today' : target_date}"
     elsif dry_run
       @invoice = Kaui::Invoice.build_from_raw_invoice(invoice)
+      @invoice_tags = []
+      @available_invoice_tags = []
       @payments = []
       @payment_methods = nil
       @account = Kaui::Account.find_by_id(account_id, false, false, options_for_klient)

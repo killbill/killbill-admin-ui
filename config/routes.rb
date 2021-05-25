@@ -46,6 +46,10 @@ Kaui::Engine.routes.draw do
         match '/edit' => 'bundle_tags#edit', :via => :get, :as => 'edit_bundle_tags'
         match '/edit' => 'bundle_tags#update', :via => :post, :as => 'update_bundle_tags'
       end
+      scope '/invoice_tags' do
+        match '/edit' => 'invoice_tags#edit', :via => :get, :as => 'edit_invoice_tags'
+        match '/edit' => 'invoice_tags#update', :via => :post, :as => 'update_invoice_tags'
+      end
       scope '/timeline' do
         match '/' => 'account_timelines#show', :via => :get, :as => 'account_timeline'
       end
@@ -86,6 +90,7 @@ Kaui::Engine.routes.draw do
 
   scope '/payment_methods' do
     match '/validate_external_key' => 'payment_methods#validate_external_key', :via => :get, :as => 'payment_methods_validate_external_key'
+    match '/refresh' => 'payment_methods#refresh', :via => :post, :as => 'refresh_payment_methods'
   end
   resources :payment_methods, :only => [:new, :create, :show, :destroy]
 
@@ -94,6 +99,7 @@ Kaui::Engine.routes.draw do
     match '/:id/show_html' => 'invoices#show_html', :via => :get, :as => 'show_html_invoice'
     match '/:id' => 'invoices#restful_show', :via => :get, :as => 'invoice'
     match '/commit' => 'invoices#commit_invoice', :via => :post, :as => 'commit_invoice'
+    match '/void' => 'invoices#void_invoice', :via => :delete, :as => 'void_invoice'
   end
   resources :invoices, :only => [ :index ]
 

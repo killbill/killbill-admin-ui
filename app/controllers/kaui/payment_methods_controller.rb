@@ -101,6 +101,11 @@ class Kaui::PaymentMethodsController < Kaui::EngineController
     end
   end
 
+  def refresh
+    Kaui::PaymentMethod.refresh(params.require(:account_id), current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    redirect_to kaui_engine.account_path(params.require(:account_id)), :notice => 'Payment methods successfully refreshed'
+  end
+
   private
 
   def find_value_from_properties(properties, key)

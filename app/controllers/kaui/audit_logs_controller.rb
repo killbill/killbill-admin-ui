@@ -65,7 +65,7 @@ class Kaui::AuditLogsController < Kaui::EngineController
         elsif object_type == 'CUSTOM_FIELD'
           audit_logs_with_history = Kaui::CustomField.new({:custom_field_id => object_id}).audit_logs_with_history(cached_options_for_klient)
         elsif object_type == 'INVOICE'
-          invoice = Kaui::Invoice::find_by_id(object_id, false, "NONE", cached_options_for_klient)
+          invoice = Kaui::Invoice::find_by_id(object_id, "NONE", cached_options_for_klient)
           audit_logs_with_history = invoice.audit_logs_with_history(cached_options_for_klient)
         elsif object_type == 'INVOICE_ITEM'
           invoice_item = Kaui::InvoiceItem.new

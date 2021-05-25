@@ -1,0 +1,21 @@
+<% can_change_tags = can?(:add, Kaui::Tag) || can?(:delete, Kaui::Tag) %>
+<%= form_tag update_invoice_tags_path do %>
+  <%= hidden_field_tag :invoice_id, invoice_id %>
+
+  <% available_tags.each do |tag| %>
+        <%= check_box_tag "tag_#{tag.id}", tag.name, tag_names.include?(tag.name), :disabled => !can_change_tags, :readonly => !can_change_tags %>
+        <label class='tag-description' rel='tooltip' title='<%= tag.description %>'><%= tag.name %></label>
+    <% end %>
+
+    <% if can_change_tags %>
+        <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label' %>
+        <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
+        <%= submit_tag 'Update', :class => 'btn btn-default' %>
+    <% end %>
+<% end %>
+
+<%= javascript_tag do %>
+$(function() {
+  $(".tag-description").tooltip();
+});
+<% end %>

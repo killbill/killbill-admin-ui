@@ -10,8 +10,18 @@ module Kaui
   mattr_accessor :new_user_session_path
   mattr_accessor :destroy_user_session_path
 
+  mattr_accessor :bundle_details_partial
+
+  mattr_accessor :pretty_account_identifier
   mattr_accessor :bundle_key_display_string
   mattr_accessor :creditcard_plugin_name
+
+  mattr_accessor :account_search_columns
+  mattr_accessor :invoice_search_columns
+  mattr_accessor :account_invoices_columns
+
+  mattr_accessor :customer_invoice_link
+
   mattr_accessor :layout
 
   mattr_accessor :thread_pool
@@ -39,8 +49,53 @@ module Kaui
   self.home_path = lambda { Kaui::Engine.routes.url_helpers.home_path }
   self.tenant_home_path = lambda { Kaui::Engine.routes.url_helpers.tenants_path }
 
+  self.bundle_details_partial = 'kaui/bundles/bundle_details'
+
+  self.pretty_account_identifier = lambda { |account| account.name.presence || account.email.presence || Kaui::UuidHelper.truncate_uuid(account.external_key) }
   self.bundle_key_display_string =  lambda {|bundle_key| bundle_key }
   self.creditcard_plugin_name =  lambda { '__EXTERNAL_PAYMENT__' }
+
+  self.account_search_columns = lambda do |account=nil, view_context=nil|
+    [
+      ['External key', 'Balance'],
+      [
+        account&.external_key,
+        account.nil? || view_context.nil? ? nil : view_context.humanized_money_with_symbol(account.balance_to_money)
+      ]
+    ]
+  end
+
+  self.invoice_search_columns = lambda do |invoice=nil, view_context=nil|
+    default_label = 'label-info'
+    default_label = 'label-default' if invoice&.status == 'DRAFT'
+    default_label = 'label-success' if invoice&.status == 'COMMITTED'
+    default_label = 'label-danger' if invoice&.status == 'VOID'
+    [
+      ['Date', 'Status'],
+      [
+        invoice&.invoice_date,
+        invoice.nil? || view_context.nil? ? nil : view_context.content_tag(:span, invoice.status, class: ['label', default_label])
+      ]
+    ]
+  end
+
+  self.account_invoices_columns = lambda do |invoice=nil, view_context=nil|
+    default_label = 'label-info'
+    default_label = 'label-default' if invoice&.status == 'DRAFT'
+    default_label = 'label-success' if invoice&.status == 'COMMITTED'
+    default_label = 'label-danger' if invoice&.status == 'VOID'
+    [
+      ['Date', 'Amount', 'Balance', 'Status'],
+      [
+        invoice&.invoice_date,
+        invoice.nil? || view_context.nil? ? nil : view_context.humanized_money_with_symbol(invoice.amount_to_money),
+        invoice.nil? || view_context.nil? ? nil : view_context.humanized_money_with_symbol(invoice.balance_to_money),
+        invoice.nil? || view_context.nil? ? nil : view_context.content_tag(:span, invoice.status, class: ['label', default_label])
+      ]
+    ]
+  end
+
+  self.customer_invoice_link = lambda { |invoice, ctx| ctx.link_to 'View customer invoice html', ctx.kaui_engine.show_html_invoice_path(invoice.invoice_id), :class => 'btn', :target => '_blank' }
 
   self.demo_mode = false
 
