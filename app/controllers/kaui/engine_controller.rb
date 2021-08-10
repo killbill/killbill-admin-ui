@@ -21,6 +21,7 @@ class Kaui::EngineController < ApplicationController
     super
   end
 
+  # Called lazily by the can? helper
   def current_ability
     # Redefined here to namespace Ability in the correct module
     @current_ability ||= Kaui::Ability.new(current_user)

@@ -6,6 +6,8 @@ module Kaui
 
     skip_before_action :check_for_redirect_to_tenant_screen, raise: false
 
+    # The sign-in flow eventually calls authenticate! from config/initializers/killbill_authenticatable.rb
+
     protected
 
     # Override after_sign_in_path_for to not have to rely on the default 'root' config which we want to keep on home#index
