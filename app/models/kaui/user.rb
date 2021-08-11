@@ -9,9 +9,8 @@ module Kaui
 
     # Called by Devise to perform authentication
     # Throws KillBillClient::API::Unauthorized on failure
-    def self.find_permissions(kb_username, kb_password)
-      do_find_permissions :username => kb_username,
-                          :password => kb_password
+    def self.find_permissions(options)
+      do_find_permissions(options)
     end
 
     # Called by CanCan to perform authorization
@@ -20,7 +19,7 @@ module Kaui
       User.do_find_permissions :session_id => kb_session_id
     end
 
-    # Verify the Kill Bill session hasn't timed-out
+    # Verify the Kill Bill session hasn't timed-out (ran as part of Warden::Proxy#set_user)
     def authenticated_with_killbill?
       begin
         subject = KillBillClient::Model::Security.find_subject :session_id => kb_session_id

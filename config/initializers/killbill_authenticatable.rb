@@ -1,33 +1,79 @@
 require 'devise/strategies/authenticatable'
+require 'jwt'
 
 module Devise
   module Strategies
-    class KillbillAuthenticatable < Authenticatable
-      # Invoked by warden to execute the strategy
-      def authenticate!
 
-        creds = params[:user] || {}
-        kb_username = creds[:kb_username]
-        kb_password = password
-        # Find the associated user object
-        resource = valid_password? && mapping.to.find_for_killbill_authentication(kb_username)
-        return fail(:not_found_in_database) unless resource
+    module KillbillHelpers
+      def kb_authenticate!(kb_username, creds)
+        # Find the associated user object (see find_for_killbill_authentication in app/models/kaui/killbill_authenticatable.rb)
+        resource = mapping.to.find_for_killbill_authentication(kb_username)
 
-        # Validate the credentials
-        if validate(resource){ resource.valid_killbill_password?(kb_username, kb_password) }
+        # Validate the credentials (see valid_killbill_password? in app/models/kaui/killbill_authenticatable.rb)
+        if validate(resource) { resource.valid_killbill_password?(creds) }
           # Create the user if needed
           resource.after_killbill_authentication
           # Tell warden to halt the strategy and set the user in the appropriate scope
           success!(resource)
         end
-      rescue Errno::ECONNREFUSED => _
-        return fail(:killbill_not_available)
+      end
+    end
+
+    class KillbillAuthenticatable < Authenticatable
+
+      include KillbillHelpers
+
+      # Invoked by Warden::Strategies::Base#_run! to execute the strategy
+      def authenticate!
+        return false unless valid_password?
+
+        user = params[:user] || {}
+        kb_authenticate!(user[:kb_username], {:username => user[:kb_username], :password => password})
+      end
+    end
+
+    # Warden strategy to authenticate an user through a JWT token in the `Authorization` request header
+    class KillbillJWTAuthenticatable < Authenticatable
+
+      # Must match the Kill Bill configuration (e.g. org.killbill.security.auth0.usernameClaim)
+      mattr_accessor :username_claim
+      self.username_claim = 'sub'
+
+      include KillbillHelpers
+
+      # Invoked by Warden::Strategies::Base#_run! to execute the strategy
+      def authenticate!
+        payload, _ = ::JWT.decode(token, nil, false)
+        kb_username = payload[self.username_claim].presence
+        return false unless kb_username
+        kb_authenticate!(kb_username, {:bearer => token})
+      end
+
+      def valid?
+        !token.nil?
+      end
+
+      def store?
+        false
+      end
+
+      private
+
+      def token
+        @token ||= begin
+                     auth = env['HTTP_AUTHORIZATION']
+                     return nil unless auth
+
+                     method, token = auth.split
+                     method == 'Bearer' ? token : nil
+                   end
       end
     end
   end
 end
 
 Warden::Strategies.add(:killbill_authenticatable, Devise::Strategies::KillbillAuthenticatable)
+Warden::Strategies.add(:killbill_jwt, Devise::Strategies::KillbillJWTAuthenticatable)
 
 Warden::Manager.after_set_user do |user, auth, opts|
   unless user.authenticated_with_killbill?
@@ -42,3 +88,9 @@ Devise.add_module(:killbill_authenticatable,
                   :route => :session,
                   :controller => :sessions,
                   :model => 'kaui/killbill_authenticatable')
+
+Devise::Strategies::KillbillJWTAuthenticatable.username_claim = if defined?(JRUBY_VERSION)
+                                                                  java.lang.System.getProperty('kaui.jwt.username_claim', ENV['KAUI_USERNAME_CLAIM'] || 'sub')
+                                                                else
+                                                                  ENV['KAUI_USERNAME_CLAIM'] || 'sub'
+                                                                end
