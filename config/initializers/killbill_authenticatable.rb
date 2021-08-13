@@ -53,10 +53,6 @@ module Devise
         !token.nil?
       end
 
-      def store?
-        false
-      end
-
       private
 
       def token
