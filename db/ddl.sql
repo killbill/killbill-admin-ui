@@ -1,3 +1,5 @@
+USE kaui;
+
 CREATE TABLE kaui_users (
   id serial unique,
   kb_username varchar(255) NOT NULL,
