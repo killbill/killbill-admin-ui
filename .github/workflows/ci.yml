@@ -8,7 +8,7 @@ env:
   COMPOSE_DOCKER_CLI_BUILD: 1
   DB_NAME: kaui
   DOCKER_BUILDKIT: 1
-  JRUBY_OPTS: --2.0 -J-Xmx1024M
+  JRUBY_OPTS: --debug -J-Xmx1024M
   KB_ADDRESS: 127.0.0.1
   KB_PORT: 8080
   RAILS_ENV: test
@@ -19,25 +19,25 @@ jobs:
     strategy:
       matrix:
         include:
-          - ruby-version: '2.4.2'
+          - ruby-version: '2.7.5'
             database-adapter: 'mysql2'
             database-user: 'root'
             database-password: 'root'
             database-port: '3306'
             docker-compose-file: 'docker-compose.ci.mysql.yml'
-          - ruby-version: 'jruby-9.1.17.0'
+          - ruby-version: 'jruby-9.2.20.1'
             database-adapter: 'mysql2'
             database-user: 'root'
             database-password: 'root'
             database-port: '3306'
             docker-compose-file: 'docker-compose.ci.mysql.yml'
-          - ruby-version: '2.4.2'
+          - ruby-version: '2.7.5'
             database-adapter: 'postgresql'
             database-user: 'postgres'
             database-password: 'postgres'
             database-port: '5432'
             docker-compose-file: 'docker-compose.ci.postgresql.yml'
-          - ruby-version: 'jruby-9.1.17.0'
+          - ruby-version: 'jruby-9.2.20.1'
             database-adapter: 'postgresql'
             database-user: 'postgres'
             database-password: 'postgres'
