@@ -4,4 +4,4 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    target-branch: "dependencies-updates"
+    target-branch: "work-for-release-0.23.x"
