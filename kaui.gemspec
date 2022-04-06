@@ -8,18 +8,18 @@ Gem::Specification.new do |s|
   s.summary = 'Killbill Admin UI mountable engine'
   s.description = 'Rails UI plugin for Killbill administration.'
 
-  s.required_ruby_version = '>= 1.8.7'
+  s.required_ruby_version = '>= 2.5.0'
 
-  s.license = 'Apache License (2.0)'
+  s.license = 'MIT'
 
   s.author = 'Killbill core team'
   s.email = 'killbilling-users@googlegroups.com'
-  s.homepage = 'http://www.killbill.io'
+  s.homepage = 'https://killbill.io'
 
   s.files = Dir['{app,config,db,lib}/**/*'] + %w(MIT-LICENSE Rakefile README.md)
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'rails', '~> 5.1'
+  s.add_dependency 'rails', '~> 5.2'
   s.add_dependency 'js-routes', '>= 1.1', '< 3.0'
   s.add_dependency 'jquery-rails', '~> 4.3'
   s.add_dependency 'jquery-datatables-rails', '~> 3.3'
