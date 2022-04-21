@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*'] + %w(MIT-LICENSE Rakefile README.md)
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'rails', '~> 5.2'
+  s.add_dependency 'rails', '>= 5.2', '< 8.0'
   s.add_dependency 'js-routes', '>= 1.1', '< 3.0'
   s.add_dependency 'jquery-rails', '~> 4.3'
   s.add_dependency 'jquery-datatables-rails', '~> 3.3'
