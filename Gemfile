@@ -5,7 +5,7 @@ gemspec
 if defined?(JRUBY_VERSION)
   group :development do
     # Releases for Rails 5.1 aren't available yet
-    github 'jruby/activerecord-jdbc-adapter', ref: '54c94fd4fe74648acc6590841a2f3e59652f85a8' do
+    git 'https://github.com/jruby/activerecord-jdbc-adapter', ref: '54c94fd4fe74648acc6590841a2f3e59652f85a8' do
       # Pulls activerecord-jdbc-adapter and jdbc-mysql
       gem 'activerecord-jdbcmysql-adapter'
       # Add MariaDB driver as well
