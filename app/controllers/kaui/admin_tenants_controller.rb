@@ -456,7 +456,7 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     @available_standalone_products = latest_catalog && latest_catalog.products ?
         latest_catalog.products.select { |p| p.type == 'STANDALONE' }.map { |p| p.name } : []
     @product_categories = [:BASE, :ADD_ON, :STANDALONE]
-    @billing_period = [:DAILY, :WEEKLY, :BIWEEKLY, :THIRTY_DAYS, :MONTHLY, :QUARTERLY, :BIANNUAL, :ANNUAL, :BIENNIAL]
+    @billing_period = [:DAILY, :WEEKLY, :BIWEEKLY, :THIRTY_DAYS, :THIRTY_ONE_DAYS, :MONTHLY, :QUARTERLY, :BIANNUAL, :ANNUAL, :SESQUIENNIAL, :BIENNIAL, :TRIENNIAL]
     @time_units = [:UNLIMITED, :DAYS, :WEEKS, :MONTHS, :YEARS]
   end
 
