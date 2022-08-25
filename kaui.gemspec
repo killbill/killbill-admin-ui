@@ -8,19 +8,19 @@ Gem::Specification.new do |s|
   s.summary = 'Killbill Admin UI mountable engine'
   s.description = 'Rails UI plugin for Killbill administration.'
 
-  s.required_ruby_version = '>= 1.8.7'
+  s.required_ruby_version = '>= 2.5.0'
 
-  s.license = 'Apache License (2.0)'
+  s.license = 'MIT'
 
   s.author = 'Killbill core team'
   s.email = 'killbilling-users@googlegroups.com'
-  s.homepage = 'http://www.killbill.io'
+  s.homepage = 'https://killbill.io'
 
   s.files = Dir['{app,config,db,lib}/**/*'] + %w(MIT-LICENSE Rakefile README.md)
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'rails', '~> 5.1'
-  s.add_dependency 'js-routes', '~> 1.1'
+  s.add_dependency 'rails', '~> 5.2'
+  s.add_dependency 'js-routes', '>= 1.1', '< 3.0'
   s.add_dependency 'jquery-rails', '~> 4.3'
   s.add_dependency 'jquery-datatables-rails', '~> 3.3'
   s.add_dependency 'money-rails', '~> 1.9'
@@ -31,18 +31,18 @@ Gem::Specification.new do |s|
   s.add_dependency 'killbill-client', '~> 3.3'
   s.add_dependency 'devise', '~> 4.3'
   s.add_dependency 'cancan', '~> 1.6.10'
-  s.add_dependency 'country_select', '~> 3.0'
-  s.add_dependency 'symmetric-encryption', '~> 3.9'
-  s.add_dependency 'jwt', '~> 2.2.3'
+  s.add_dependency 'country_select', '>= 3', '< 9'
+  s.add_dependency 'symmetric-encryption', '>= 3.9', '< 5.0'
+  s.add_dependency 'jwt', '>= 2.2.3', '< 2.5.0'
 
   s.add_dependency 'kenui', '~> 2.0'
 
   s.add_dependency 'jquery-ui-rails', '~> 6.0'
   s.add_dependency 'sass-rails', '~> 5.0'
-  s.add_dependency 'less-rails', '~> 3.0'
+  s.add_dependency 'less-rails', '>= 3', '< 6'
   s.add_dependency 'concurrent-ruby', '~> 1.0'
   s.add_dependency 'sprockets-rails', '~> 3.2'
-  s.add_dependency 'mustache-js-rails', '~> 0.0.7'
+  s.add_dependency 'mustache-js-rails', '>= 0.0.7', '< 4.2.0'
 
   s.add_development_dependency 'rails-controller-testing'
   s.add_development_dependency 'multi_json'
@@ -63,7 +63,7 @@ Gem::Specification.new do |s|
 
     s.add_development_dependency 'therubyracer', '~> 0.12.2'
 
-    s.add_development_dependency 'mysql2', '~> 0.4.10'
+    s.add_development_dependency 'mysql2', '~> 0.5.3'
     s.add_development_dependency 'pg'
 
     s.add_development_dependency 'rack-mini-profiler'
