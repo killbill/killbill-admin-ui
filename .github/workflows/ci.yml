@@ -1,8 +1,9 @@
 name: ci
 
 on:
-  push:
-  workflow_dispatch:
+  - push
+  - pull_request
+  - workflow_dispatch
 
 env:
   COMPOSE_DOCKER_CLI_BUILD: 1
