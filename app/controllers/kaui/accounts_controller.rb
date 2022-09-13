@@ -54,6 +54,17 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def create
+
+    test_phone = KauiPhoneValid.new
+    test_phone.phone = params[:phone]
+
+
+    unless test_phone.valid?
+      flash.now[:error] = "Phone number is invalid"
+      render :action => :new and return
+    end
+
+
     @account = Kaui::Account.new(params.require(:account).delete_if { |key, value| value.blank? })
 
     # Transform "1" into boolean
