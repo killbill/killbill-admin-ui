@@ -1,5 +1,10 @@
 class Kaui::Account < KillBillClient::Model::Account
 
+  include ActiveModel::Validations
+  attr_accessor :phone
+  validates :phone, format: { with: /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/i, :message => :invalid_phone }
+
+
   def self.find_by_id_or_key(account_id_or_key, with_balance = false, with_balance_and_cba = false, options = {})
     if account_id_or_key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
       begin
