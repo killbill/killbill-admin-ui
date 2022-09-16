@@ -3,11 +3,14 @@
     <% if flash[key] %>
         <div class="row server-alert">
           <div class="col-md-12">
-            <div class="alert alert-danger"><%= flash[key] %></div>
+            <div class="alert alert-danger"><%= flash[key].first %></div>
           </div>
         </div>
     <% end %>
 <% end %>
+
+
+
 <% if flash[:warning] %>
   <div class="row server-alert">
     <div class="col-md-12">
