@@ -1,3 +1,6 @@
 en:
   account: "Account"
   unknown_bcd: "Unknown bill cycle day"
+  errors:
+    messages:
+      invalid_phone: "Invalid Phone number!"
