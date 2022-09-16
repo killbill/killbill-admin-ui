@@ -61,7 +61,7 @@ class Kaui::AccountsController < Kaui::EngineController
 
     unless @account.valid?
       # ap @account.errors.full_messages
-      flash.now[:error] = @account.errors.messages.values.flatten
+      flash.now[:errors] = @account.errors.messages.values.flatten
       render :action => :new and return
     end
 
