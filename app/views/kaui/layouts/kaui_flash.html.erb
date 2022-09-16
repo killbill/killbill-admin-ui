@@ -9,7 +9,9 @@
     <% end %>
 <% end %>
 
-<% if @account.errors.any? %>
+
+
+<% if @account && @account.errors.any? %>
   <h3>The following errors prevented the account from being created:</h3>
 
   <div class="row server-alert">
@@ -24,6 +26,10 @@
     </div>
   </div>
 <% end %>
+
+
+
+
 
 
 <% if flash[:warning] %>
