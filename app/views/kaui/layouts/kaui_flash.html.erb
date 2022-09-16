@@ -10,8 +10,8 @@
 <% end %>
 
 
-
-<% if @account && @account.errors.any? %>
+<% if defined?(@account)  %>
+<% if @account.errors.any? %>
   <h3>The following errors prevented the account from being created:</h3>
 
   <div class="row server-alert">
@@ -26,7 +26,7 @@
     </div>
   </div>
 <% end %>
-
+<% end %>
 
 
 
