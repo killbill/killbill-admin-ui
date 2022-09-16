@@ -57,10 +57,7 @@ class Kaui::AccountsController < Kaui::EngineController
 
     @account = Kaui::Account.new(params.require(:account).delete_if { |key, value| value.blank? })
 
-    ap @account
-
     unless @account.valid?
-      # ap @account.errors.full_messages
       flash.now[:errors] = @account.errors.messages.values.flatten
       render :action => :new and return
     end
