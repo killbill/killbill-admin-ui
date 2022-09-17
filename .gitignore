@@ -2,6 +2,7 @@
 log/*.log
 pkg/
 test/dummy/db/*.sqlite3
+test/dummy/db/schema.rb
 test/dummy/log/*.log
 test/dummy/tmp/
 test/dummy/.sass-cache
@@ -19,3 +20,6 @@ Gemfile.lock
 .byebug_history
 .generators
 .rakeTasks
+test/dummy/config/database.yml
+test/dummy/config/database.yml
+test/dummy/db/schema.rb
