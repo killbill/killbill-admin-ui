@@ -20,7 +20,3 @@ Gemfile.lock
 .byebug_history
 .generators
 .rakeTasks
-test/dummy/config/database.yml
-test/dummy/config/database.yml
-test/dummy/db/schema.rb
-test/dummy/config/database.yml
