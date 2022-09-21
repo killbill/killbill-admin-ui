@@ -24,6 +24,12 @@ class Kaui::AccountTest < ActiveSupport::TestCase
 
   end
 
+  test 'ok when bililng cycle is added' do
+    account = Kaui::Account.new(:account_balance => 12.42, :account_cba => 54.32, :currency => 'USD', :phone => '+1323323323', :bill_cycle_day_local => 31)
+    assert_equal true, account.check_account_details_bill_cycle_day_local
+
+  end
+
   # test 'fail when phone is short' do
   #   account = Kaui::Account.new(:account_balance => 12.42, :account_cba => 54.32, :currency => 'USD', :phone => '1323', :bill_cycle_day_local => 1)
   #   assert_equal false, account.valid?

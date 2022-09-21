@@ -3,8 +3,16 @@ class Kaui::Account < KillBillClient::Model::Account
   attr_accessor  :phone, :bill_cycle_day_local
 
 
-  def check_account_details_phone(user = nil, reason = nil, comment = nil, options = {})
+  def check_account_details_phone
       if phone =~ /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/i
+        return true
+      else
+        return false
+      end
+  end
+
+  def check_account_details_bill_cycle_day_local
+      if bill_cycle_day_local.between?(1, 31)
         return true
       else
         return false
