@@ -61,11 +61,19 @@ class Kaui::AccountsController < Kaui::EngineController
     unless @account.phone.nil?
       unless @account.check_account_details_phone
         @account.errors.add(:phone, :invalid_phone)
-        flash.now[:errors] = @account.errors.messages.values.flatten
-        render :action => :new and return
       end
     end
 
+    unless @account.bill_cycle_day_local.nil?
+      unless @account.check_account_details_bill_cycle_day_local
+        @account.errors.add(:check_account_details_bill_cycle_day_local, :invalid_bill_cycle_day_local)
+      end
+    end
+
+    unless @account.errors.empty?
+      flash.now[:errors] = @account.errors.messages.values.flatten
+      render :action => :new and return
+    end
 
 
     # Transform "1" into boolean

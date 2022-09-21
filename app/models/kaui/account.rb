@@ -12,7 +12,7 @@ class Kaui::Account < KillBillClient::Model::Account
   end
 
   def check_account_details_bill_cycle_day_local
-      if bill_cycle_day_local.between?(1, 31)
+      if bill_cycle_day_local.to_i.between?(1, 31)
         return true
       else
         return false
