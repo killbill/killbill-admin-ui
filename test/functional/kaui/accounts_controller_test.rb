@@ -116,7 +116,9 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
              :email => SecureRandom.uuid.to_s + '@example.com',
              :time_zone => '-06:00',
              :country => 'AR',
-             :is_migrated => '1'
+             :is_migrated => '1',
+             :phone => '+1323323323',
+             :bill_cycle_day_local => 1
          }
     assert_redirected_to account_path(assigns(:account).account_id)
     assert_equal 'Account was successfully created', flash[:notice]

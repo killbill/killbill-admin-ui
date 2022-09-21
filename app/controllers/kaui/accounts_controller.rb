@@ -54,7 +54,27 @@ class Kaui::AccountsController < Kaui::EngineController
   end
 
   def create
+
     @account = Kaui::Account.new(params.require(:account).delete_if { |key, value| value.blank? })
+
+
+    unless @account.phone.nil?
+      unless @account.check_account_details_phone
+        @account.errors.add(:phone, :invalid_phone)
+      end
+    end
+
+    unless @account.bill_cycle_day_local.nil?
+      unless @account.check_account_details_bill_cycle_day_local
+        @account.errors.add(:check_account_details_bill_cycle_day_local, :invalid_bill_cycle_day_local)
+      end
+    end
+
+    unless @account.errors.empty?
+      flash.now[:errors] = @account.errors.messages.values.flatten
+      render :action => :new and return
+    end
+
 
     # Transform "1" into boolean
     @account.is_migrated = @account.is_migrated == '1'
