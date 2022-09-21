@@ -57,10 +57,15 @@ class Kaui::AccountsController < Kaui::EngineController
 
     @account = Kaui::Account.new(params.require(:account).delete_if { |key, value| value.blank? })
 
-    unless @account.valid?
-      flash.now[:errors] = @account.errors.messages.values.flatten
-      render :action => :new and return
+
+    unless @account.phone.nil?
+      unless @account.check_account_details_phone
+        @account.errors.add(:phone, :invalid_phone)
+        flash.now[:errors] = @account.errors.messages.values.flatten
+        render :action => :new and return
+      end
     end
+
 
 
     # Transform "1" into boolean

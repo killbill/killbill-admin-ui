@@ -1,9 +1,15 @@
 class Kaui::Account < KillBillClient::Model::Account
 
-  include ActiveModel::Validations
-  attr_accessor :phone, :bill_cycle_day_local
-  validates :phone, format: { with: /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/i, :message => :invalid_phone }
-  validates :bill_cycle_day_local, :inclusion => { :in => 1..31, :message => :invalid_bill_cycle_day_local }
+  attr_accessor  :phone, :bill_cycle_day_local
+
+
+  def check_account_details_phone(user = nil, reason = nil, comment = nil, options = {})
+      if phone =~ /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/i
+        return true
+      else
+        return false
+      end
+  end
 
   def self.find_by_id_or_key(account_id_or_key, with_balance = false, with_balance_and_cba = false, options = {})
     if account_id_or_key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
