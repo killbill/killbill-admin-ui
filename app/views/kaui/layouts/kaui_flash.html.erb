@@ -8,6 +8,30 @@
         </div>
     <% end %>
 <% end %>
+
+
+<% if defined?(@account)  %>
+<% if @account.errors.any? %>
+  <h3>The following errors prevented the account from being created:</h3>
+
+  <div class="row server-alert">
+    <div class="col-md-12">
+      <div class="alert alert-danger">
+        <% @account.errors.values.flatten.each do |msg| %>
+
+          <li><%= msg %></li>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<% end %>
+
+
+
+
+
 <% if flash[:warning] %>
   <div class="row server-alert">
     <div class="col-md-12">
