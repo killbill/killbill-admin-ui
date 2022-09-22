@@ -256,6 +256,13 @@ class Kaui::AdminTenantsController < Kaui::EngineController
     uploaded_overdue_config = params[:overdue]
     overdue_config_xml = uploaded_overdue_config.read
 
+    begin
+      Nokogiri::XML(overdue_config_xml) { |config| config.strict }
+    rescue Nokogiri::XML::SyntaxError => e
+      flash[:error] = I18n.translate('errors.messages.invalid_xml', error: e)
+      redirect_to admin_tenant_path(current_tenant.id) and return
+    end
+
     Kaui::AdminTenant.upload_overdue_config(overdue_config_xml, options[:username], nil, comment, options)
 
     redirect_to admin_tenant_path(current_tenant.id), :notice => 'Overdue config was successfully uploaded'
