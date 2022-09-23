@@ -21,6 +21,7 @@ require 'cancan'
 require 'country_select'
 require 'concurrent'
 require 'mustache-js-rails'
+require 'nokogiri'
 
 module Kaui
   class Engine < ::Rails::Engine

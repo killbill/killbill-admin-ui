@@ -1,3 +1,8 @@
 en:
   account: "Account"
   unknown_bcd: "Unknown bill cycle day"
+  errors:
+    messages:
+      invalid_phone: "Invalid phone number!"
+      invalid_bill_cycle_day_local: "Incorrect day of the billing cycle. It should be in the range from 1 to 31."
+      invalid_xml: "Invalid XML: %{error}"
