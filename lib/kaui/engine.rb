@@ -22,6 +22,7 @@ require 'country_select'
 require 'concurrent'
 require 'mustache-js-rails'
 require 'nokogiri'
+require 'time'
 
 module Kaui
   class Engine < ::Rails::Engine
