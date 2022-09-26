@@ -1,9 +1,8 @@
 require 'test_helper'
 
 class Kaui::QueuesControllerTest < Kaui::FunctionalTestHelper
-
   test 'should get queues' do
-    get :index, :account_id => @account.account_id, :with_history => true
+    get :index, account_id: @account.account_id, with_history: true
     now = assigns(:now)
     queues_entries = assigns(:queues_entries)
 
@@ -14,4 +13,18 @@ class Kaui::QueuesControllerTest < Kaui::FunctionalTestHelper
     assert_response :success
   end
 
+  test 'should get min_date error' do
+    get :index, account_id: @account.account_id, with_history: true, min_date: 'char date'
+
+    assert_equal 'Invalid min date format', flash[:error]
+    assert_response 302
+  end
+
+  test 'should get max_date error' do
+    get :index, account_id: @account.account_id, with_history: true, max_date: 'char date'
+
+    assert_equal 'Invalid max date format', flash[:error]
+    assert_response 302
+  end
+  
 end

@@ -6,3 +6,5 @@ en:
       invalid_phone: "Invalid phone number!"
       invalid_bill_cycle_day_local: "Incorrect day of the billing cycle. It should be in the range from 1 to 31."
       invalid_xml: "Invalid XML: %{error}"
+      invalid_min_date: "Invalid min date format"
+      invalid_max_date: "Invalid max date format"
