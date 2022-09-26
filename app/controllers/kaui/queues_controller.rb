@@ -9,7 +9,7 @@ class Kaui::QueuesController < Kaui::EngineController
       ensure
         if max_date_test.nil?
           flash[:error] = I18n.translate('errors.messages.invalid_max_date')
-          redirect_to account_path(@account.account_id) and return
+          redirect_to account_queues_path(@account.account_id) and return
         end
       end
     end
@@ -21,7 +21,7 @@ class Kaui::QueuesController < Kaui::EngineController
       ensure
         if min_date_test.nil?
           flash[:error] = I18n.translate('errors.messages.invalid_min_date')
-          redirect_to account_path(@account.account_id) and return
+          redirect_to account_queues_path(@account.account_id) and return
         end
       end
     end
