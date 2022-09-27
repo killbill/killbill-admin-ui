@@ -1,6 +1,10 @@
 en:
   account: "Account"
   unknown_bcd: "Unknown bill cycle day"
+  payment_method_id: "Payment Method ID:"
+  external_key_with_colon: "External Key:"
+  external_id_with_colon: "External ID:"
+  name_with_colon: "Name:"
   errors:
     messages:
       invalid_phone: "Invalid phone number!"
