@@ -47,17 +47,19 @@ class Kaui::CustomFieldsController < Kaui::EngineController
 
   def check_object_exist
 
-    param_uuid = params[:uuid] || []
+    param_uuid = params[:uuid]
 
-    begin
-      test_uuid = Kaui::InvoiceItem.new(:invoice_item_id => param_uuid)
-    rescue StandardError
-    ensure
-      if !test_uuid.blank? && (test_uuid.invoice_item_id == param_uuid)
-        msg = { status: '200', message: 'UUID do exist in INVOICE ITEMS object database.' }
-        render json: msg and return
-      end
-    end
+    # to-do
+    # begin
+    #   test_uuid = Kaui::InvoiceItem.new(:invoice_item_id => param_uuid)
+    #   ap test_uuid and return
+    # rescue StandardError
+    # ensure
+    #   if !test_uuid.blank? && (test_uuid.invoice_item_id == param_uuid)
+    #     msg = { status: '200', message: 'UUID do exist in INVOICE ITEMS object database.' }
+    #     render json: msg and return
+    #   end
+    # end
 
     begin
       test_uuid = Kaui::Account.find_by_id_or_key(param_uuid, false, false, options_for_klient)
