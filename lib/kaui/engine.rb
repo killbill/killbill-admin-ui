@@ -23,7 +23,6 @@ require 'concurrent'
 require 'mustache-js-rails'
 require 'nokogiri'
 require 'time'
-require 'gon'
 
 module Kaui
   class Engine < ::Rails::Engine

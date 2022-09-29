@@ -142,9 +142,10 @@ jQuery(document).ready(function ($) {
     $('#custom_field_object_id').on('keyup', function(e) {
 
       var uuid = $(this).val();
+      var my_url = '/custom_fields/check_object_exist';
 
       $.ajax({
-        url: gon.url,
+        url: my_url,
         type: "GET",
         dataType: "json",
         data: {
