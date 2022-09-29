@@ -18,10 +18,10 @@ if defined?(JRUBY_VERSION)
   end
 end
 
+gem 'gon'
 #gem 'killbill-client', :path => '../killbill-client-ruby'
 #gem 'killbill-client', :git => 'https://github.com/killbill/killbill-client-ruby.git', :branch => 'work-for-release-0.21.x'
 #gem 'killbill-client', '3.2.0'
 
 #gem 'kenui', :path => '../killbill-email-notifications-ui'
 #gem 'kenui', :git => 'https://github.com/killbill/killbill-email-notifications-ui.git', :branch => 'work-for-release-0.21.x'
-
