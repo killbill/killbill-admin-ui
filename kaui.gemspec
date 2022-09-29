@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'jwt', '~> 2.2.3'
 
   s.add_dependency 'kenui', '~> 2.0'
-  s.add_dependency 'gon', '~> 6.2.1'
+  s.add_dependency 'gon', '~> 6.1.0'
 
 
   s.add_dependency 'jquery-ui-rails', '~> 6.0'
@@ -50,7 +50,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'multi_json'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'pry-rails'
-  s.add_development_dependency 'simplecov', '>= 0.20.0'
+  s.add_development_dependency 'simplecov'
   s.add_development_dependency 'json', '>= 1.8.6'
   s.add_development_dependency 'listen'
   s.add_development_dependency 'puma'
