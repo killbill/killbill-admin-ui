@@ -14,7 +14,6 @@ if defined?(JRUBY_VERSION)
       gem 'activerecord-jdbcpostgresql-adapter'
       # Pulls activerecord-jdbc-adapter and jdbc-sqlite3
       gem 'activerecord-jdbcsqlite3-adapter'
-      gem 'gon'
     end
   end
 end
