@@ -50,7 +50,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'multi_json'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'pry-rails'
-  s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'simplecov', '~> 0.21.2'
   s.add_development_dependency 'json', '>= 1.8.6'
   s.add_development_dependency 'listen'
   s.add_development_dependency 'puma'
