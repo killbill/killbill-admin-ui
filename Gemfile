@@ -14,11 +14,12 @@ if defined?(JRUBY_VERSION)
       gem 'activerecord-jdbcpostgresql-adapter'
       # Pulls activerecord-jdbc-adapter and jdbc-sqlite3
       gem 'activerecord-jdbcsqlite3-adapter'
+      gem 'gon'
     end
   end
 end
 
-gem 'gon'
+
 #gem 'killbill-client', :path => '../killbill-client-ruby'
 #gem 'killbill-client', :git => 'https://github.com/killbill/killbill-client-ruby.git', :branch => 'work-for-release-0.21.x'
 #gem 'killbill-client', '3.2.0'
