@@ -118,6 +118,7 @@ jQuery(document).ready(function ($) {
     /*
      * Calculate first name length
      */
+
     $('#account_name').on('keyup', function(e){
         set_first_name_length($(this).val());
     });
@@ -137,6 +138,37 @@ jQuery(document).ready(function ($) {
             $('#account_first_name_length').val('');
         }
     }
+
+    $('#custom_field_object_id').on('keyup', function(e) {
+
+      var uuid = $(this).val();
+      var my_url = '/custom_fields/check_object_exist';
+
+      $.ajax({
+        url: my_url,
+        type: "GET",
+        dataType: "json",
+        data: {
+          uuid: $(this).val()
+        },
+        success: function(data) {
+          if (data.status == 200) {
+
+            var msg = uuid + ' - ' + data["message"];
+            ajaxCloseAlert()
+            ajaxInfoAlert(msg, 4000);
+
+          } else {
+            var msg = uuid + ' - ' + data["message"];
+            ajaxCloseAlert()
+            ajaxErrorAlert(msg);
+          }
+        }
+      });
+
+
+    });
+
 
     /*
      *  Validate external key
