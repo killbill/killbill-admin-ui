@@ -127,7 +127,7 @@ class Kaui::CustomFieldsController < Kaui::EngineController
 
 
 
-    msg = { status: '431', message: 'UUID do exist in  object database.' }
+    msg = { status: '431', message: 'UUID do not  exist in  object database.' }
     render json: msg and return
 
   end
