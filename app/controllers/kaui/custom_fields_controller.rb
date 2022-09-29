@@ -43,6 +43,9 @@ class Kaui::CustomFieldsController < Kaui::EngineController
 
   def new
     @custom_field = Kaui::CustomField.new
+    cf_url = custom_fields_check_object_exist_path
+
+    gon.url = "#{cf_url}"
   end
 
   def check_object_exist
