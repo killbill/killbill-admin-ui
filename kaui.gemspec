@@ -36,8 +36,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'jwt', '~> 2.2.3'
 
   s.add_dependency 'kenui', '~> 2.0'
-  s.add_dependency 'gon', '~> 6.4.0'
-  s.add_dependency 'docile', '~> 1.4.0'
+  s.add_dependency 'gon', '~> v6.2.1'
+
 
   s.add_dependency 'jquery-ui-rails', '~> 6.0'
   s.add_dependency 'sass-rails', '~> 5.0'
