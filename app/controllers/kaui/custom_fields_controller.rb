@@ -67,7 +67,7 @@ class Kaui::CustomFieldsController < Kaui::EngineController
     rescue StandardError
     ensure
       if !test_uuid.blank? && (test_uuid.account_id == param_uuid)
-        msg = { status: '200', message: 'UUID do exist in ACCOUNT object database.' }
+        msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_account_db')  }
         render json: msg and return
       end
     end
@@ -77,7 +77,7 @@ class Kaui::CustomFieldsController < Kaui::EngineController
     rescue StandardError
     ensure
       if !test_uuid.blank? && (test_uuid.bundle_id == param_uuid)
-        msg = { status: '200', message: 'UUID do exist in BUNDLE object database.' }
+        msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_bundle_db') }
         render json: msg and return
       end
     end
@@ -87,7 +87,7 @@ class Kaui::CustomFieldsController < Kaui::EngineController
     rescue StandardError
     ensure
       if !test_uuid.blank? && (test_uuid.subscription_id == param_uuid)
-        msg = { status: '200', message: 'UUID do exist in SUBSCRIPCTION object database.' }
+        msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_subscripction_db') }
         render json: msg and return
       end
     end
@@ -98,7 +98,7 @@ class Kaui::CustomFieldsController < Kaui::EngineController
     rescue StandardError
     ensure
       if !test_uuid.blank? && (test_uuid.invoice_id == param_uuid)
-        msg = { status: '200', message: 'UUID do exist in INVOICE object database.' }
+        msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_invoice_db') }
         render json: msg and return
       end
     end
@@ -108,7 +108,7 @@ class Kaui::CustomFieldsController < Kaui::EngineController
     rescue StandardError
     ensure
       if !test_uuid.blank? && (test_uuid.payment_id == param_uuid)
-        msg = { status: '200', message: 'UUID do exist in PAYMENT object database.' }
+        msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_payment_db') }
         render json: msg and return
       end
     end
@@ -118,14 +118,14 @@ class Kaui::CustomFieldsController < Kaui::EngineController
     rescue StandardError
     ensure
       if !test_uuid.blank? && (test_uuid.payment_id == param_uuid)
-        msg = { status: '200', message: 'UUID do exist in INVOICE PAYMENT object database.' }
+        msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_invoice_payment_db') }
         render json: msg and return
       end
     end
 
 
 
-    msg = { status: '431', message: 'UUID do not  exist in  object database.' }
+    msg = { status: '431', message: I18n.translate('custom_field_uuid_do_not_exist_in_db') }
     render json: msg and return
 
   end
