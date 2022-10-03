@@ -68,7 +68,7 @@ class Kaui::CustomFieldsControllerTest < Kaui::FunctionalTestHelper
   end
 
 
-  test 'should get error duriing creation of custom field without params suppplied' do
+  test 'should get error duriing creation of custom field without params supplied' do
 
     get :check_object_exist, as: :json
     assert_response 200
