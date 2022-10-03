@@ -80,6 +80,34 @@ class Kaui::CustomFieldsControllerTest < Kaui::FunctionalTestHelper
 
   end
 
+  test 'should get confirmation that custom field with object type ACCOUNT exist in database' do
+
+    get :new
+    assert_response 200
+    assert_not_nil assigns(:custom_field)
+
+    post :create,
+         custom_field: {
+           object_id: @account.account_id,
+           object_type: 'ACCOUNT',
+           name: SecureRandom.uuid.to_s,
+           value: SecureRandom.uuid.to_s
+         }
+
+    assert_response 302
+    assert_equal 'Custom field was successfully created', flash[:notice]
+
+
+    get :check_object_exist, :uuid => @account.account_id, as: :json
+    assert_response 200
+
+    json_response = JSON.parse(response.body)
+
+    assert_equal "200", json_response["status"]
+    assert_equal "UUID do exist in ACCOUNT object database.", json_response["message"]
+
+  end
+
 
 
 
