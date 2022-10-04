@@ -156,7 +156,7 @@ class Kaui::CustomFieldsControllerTest < Kaui::FunctionalTestHelper
     assert_equal 'UUID do exist in BUNDLE object database.', json_response['message']
   end
 
-  test 'should get confirmation that custom field with object type SUBSCRIPCTION exist in database' do
+  test 'should get confirmation that custom field with object type SUBSCRIPTION exist in database' do
     _bundle = @bundle
     _subscription = _bundle.subscriptions.first
 
@@ -167,7 +167,7 @@ class Kaui::CustomFieldsControllerTest < Kaui::FunctionalTestHelper
     json_response = JSON.parse(response.body)
 
     assert_equal '200', json_response['status']
-    assert_equal 'UUID do exist in SUBSCRIPCTION object database.', json_response['message']
+    assert_equal 'UUID do exist in SUBSCRIPTION object database.', json_response['message']
   end
 
 
