@@ -1,5 +1,8 @@
 en:
   account: "Account"
+  new_account: "New Account"
+  transfer: "Transfer"
+  comment: "Comment"
   unknown_bcd: "Unknown bill cycle day"
   payment_method_id: "Payment Method ID:"
   external_key_with_colon: "External Key:"
@@ -13,6 +16,11 @@ en:
   custom_field_uuid_exist_in_invoice_payment_db: "UUID do exist in INVOICE PAYMENT object database."
   custom_field_uuid_do_not_exist_in_db: "UUID do not exist in object database."
   custom_field_uuid_exist_in_invoice_item_db: "UUID do exist in INVOICE ITEMS object database."
+  immediate: "Immediate"
+  start_of_term: "Start of term"
+  end_of_term: "End of term"
+  billing_policy: "Billing Policy"
+  new_account_id_or_external_key: "New account id or external key"
   errors:
     messages:
       invalid_phone: "Invalid phone number!"
