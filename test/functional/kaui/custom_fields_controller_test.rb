@@ -144,5 +144,18 @@ class Kaui::CustomFieldsControllerTest < Kaui::FunctionalTestHelper
     assert_equal 'UUID do exist in PAYMENT object database.', json_response['message']
   end
 
+  test 'should get confirmation that custom field with object type BUNDLE exist in database' do
+    _bundle = @bundle
+
+    get :check_object_exist, uuid: _bundle.bundle_id, as: :json
+    assert_response 200
+
+    json_response = JSON.parse(response.body)
+
+    assert_equal '200', json_response['status']
+    assert_equal 'UUID do exist in BUNDLE object database.', json_response['message']
+  end
+
+
 
 end
