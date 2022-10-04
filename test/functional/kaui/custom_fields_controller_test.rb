@@ -108,6 +108,41 @@ class Kaui::CustomFieldsControllerTest < Kaui::FunctionalTestHelper
 
   end
 
+test 'should get confirmation that custom field with object type INVOICE exist in database' do
+  invoice_id = create_charge(@account, @tenant).invoice_id
+
+  get :check_object_exist, uuid: invoice_id, as: :json
+  assert_response 200
+
+  json_response = JSON.parse(response.body)
+
+  assert_equal '200', json_response['status']
+  assert_equal 'UUID do exist in INVOICE object database.', json_response['message']
+end
+
+test 'should get confirmation that custom field with object type INVOICE ITEMS exist in database' do
+  invoice_item = create_charge(@account, @tenant).invoice_item_id
+
+  get :check_object_exist, uuid: invoice_item, as: :json
+  assert_response 200
+
+  json_response = JSON.parse(response.body)
+
+  assert_equal '200', json_response['status']
+  assert_equal 'UUID do exist in INVOICE ITEMS object database.', json_response['message']
+end
+
+test 'should get confirmation that custom field with object type PAYMENT exist in database' do
+  _payment = @payment
+
+  get :check_object_exist, uuid: _payment.payment_id, as: :json
+  assert_response 200
+
+  json_response = JSON.parse(response.body)
+
+  assert_equal '200', json_response['status']
+  assert_equal 'UUID do exist in PAYMENT object database.', json_response['message']
+end
 
 
 
