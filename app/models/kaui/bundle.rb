@@ -50,6 +50,10 @@ def self.list_transfer_policy_params
   ]
 end
 
+def self.list_transfer_policy_params_keys
+  @policy_params = ['START_OF_TERM','END_OF_TERM','IMMEDIATE']
+end
+
 
 
 end

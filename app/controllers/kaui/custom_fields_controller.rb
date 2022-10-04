@@ -86,7 +86,7 @@ class Kaui::CustomFieldsController < Kaui::EngineController
     rescue StandardError
     ensure
       if !test_uuid.blank? && (test_uuid.subscription_id == param_uuid)
-        msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_subscripction_db') }
+        msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_subscription_db') }
         render json: msg and return
       end
     end
