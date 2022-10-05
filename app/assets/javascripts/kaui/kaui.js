@@ -139,6 +139,10 @@ jQuery(document).ready(function ($) {
         }
     }
 
+    /*
+     * Custom Fields Errors
+     */
+
     $('#custom_field_object_id').on('keyup', function(e) {
 
       var uuid = $(this).val();
@@ -152,16 +156,17 @@ jQuery(document).ready(function ($) {
           uuid: $(this).val()
         },
         success: function(data) {
-          if (data.status == 200) {
-
+          if (data.status == 431) {
             var msg = uuid + ' - ' + data["message"];
-            ajaxCloseAlert()
-            ajaxInfoAlert(msg, 4000);
 
-          } else {
-            var msg = uuid + ' - ' + data["message"];
-            ajaxCloseAlert()
             ajaxErrorAlert(msg);
+
+            setTimeout(function() {
+                ajaxCloseAlert();
+           }, 5000);
+
+
+
           }
         }
       });
