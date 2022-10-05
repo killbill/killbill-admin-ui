@@ -50,77 +50,107 @@ class Kaui::CustomFieldsController < Kaui::EngineController
 
     param_uuid = params[:uuid]
 
-    begin
-      test_uuid = Kaui::Invoice.find_by_invoice_item_id(param_uuid,false,'NONE', options_for_klient)
+    param_object_type = params[:object_type]
 
-    rescue StandardError
-    ensure
-      if !test_uuid.blank?
-        msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_invoice_item_db')  }
-        render json: msg and return
+    ap "param_object_type"
+    ap param_object_type
+
+    case param_object_type
+    when  'INVOICE_ITEM'
+      begin
+        test_uuid = Kaui::Invoice.find_by_invoice_item_id(param_uuid,false,'NONE', options_for_klient)
+
+      rescue StandardError
+      ensure
+        if !test_uuid.blank?
+          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_invoice_item_db')  }
+          render json: msg and return
+        end
+      end
+    when  'ACCOUNT'
+      begin
+        test_uuid = Kaui::Account.find_by_id_or_key(param_uuid, false, false, options_for_klient)
+      rescue StandardError
+      ensure
+        if !test_uuid.blank? && (test_uuid.account_id == param_uuid)
+          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_account_db')  }
+          render json: msg and return
+        end
+      end
+    when  'BUNDLE'
+      begin
+        test_uuid = Kaui::Bundle.find_by_id_or_key(param_uuid, options_for_klient)
+      rescue StandardError
+      ensure
+        if !test_uuid.blank? && (test_uuid.bundle_id == param_uuid)
+          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_bundle_db') }
+          render json: msg and return
+        end
+      end
+    when  'SUBSCRIPTION'
+      begin
+        test_uuid = Kaui::Subscription.find_by_id(param_uuid, options_for_klient)
+      rescue StandardError
+      ensure
+        if !test_uuid.blank? && (test_uuid.subscription_id == param_uuid)
+          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_subscription_db') }
+          render json: msg and return
+        end
+      end
+    when  'INVOICE'
+      begin
+        cached_options_for_klient = options_for_klient
+        test_uuid = Kaui::Invoice.find_by_id(param_uuid, 'FULL', cached_options_for_klient)
+      rescue StandardError
+      ensure
+        if !test_uuid.blank? && (test_uuid.invoice_id == param_uuid)
+          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_invoice_db') }
+          render json: msg and return
+        end
+      end
+    when  'INVOICE'
+      begin
+        cached_options_for_klient = options_for_klient
+        test_uuid = Kaui::Invoice.find_by_id(param_uuid, 'FULL', cached_options_for_klient)
+      rescue StandardError
+      ensure
+        if !test_uuid.blank? && (test_uuid.invoice_id == param_uuid)
+          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_invoice_db') }
+          render json: msg and return
+        end
+      end
+    when  'PAYMENT'
+      begin
+        test_uuid = Kaui::InvoicePayment.find_by_id(param_uuid, false, true, options_for_klient)
+      rescue StandardError
+      ensure
+        if !test_uuid.blank? && (test_uuid.payment_id == param_uuid)
+          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_invoice_payment_db') }
+          render json: msg and return
+        end
+      end
+      begin
+        test_uuid = Kaui::Payment.find_by_external_key(param_uuid, false, true, options_for_klient)
+      rescue StandardError
+      ensure
+        if !test_uuid.blank? && (test_uuid.payment_id == param_uuid)
+          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_payment_db') }
+          render json: msg and return
+        end
       end
     end
 
-    begin
-      test_uuid = Kaui::Account.find_by_id_or_key(param_uuid, false, false, options_for_klient)
-    rescue StandardError
-    ensure
-      if !test_uuid.blank? && (test_uuid.account_id == param_uuid)
-        msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_account_db')  }
-        render json: msg and return
-      end
-    end
 
-    begin
-      test_uuid = Kaui::Bundle.find_by_id_or_key(param_uuid, options_for_klient)
-    rescue StandardError
-    ensure
-      if !test_uuid.blank? && (test_uuid.bundle_id == param_uuid)
-        msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_bundle_db') }
-        render json: msg and return
-      end
-    end
 
-    begin
-      test_uuid = Kaui::Subscription.find_by_id(param_uuid, options_for_klient)
-    rescue StandardError
-    ensure
-      if !test_uuid.blank? && (test_uuid.subscription_id == param_uuid)
-        msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_subscription_db') }
-        render json: msg and return
-      end
-    end
 
-    begin
-      cached_options_for_klient = options_for_klient
-      test_uuid = Kaui::Invoice.find_by_id(param_uuid, 'FULL', cached_options_for_klient)
-    rescue StandardError
-    ensure
-      if !test_uuid.blank? && (test_uuid.invoice_id == param_uuid)
-        msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_invoice_db') }
-        render json: msg and return
-      end
-    end
 
-    begin
-      test_uuid = Kaui::Payment.find_by_external_key(param_uuid, false, true, options_for_klient)
-    rescue StandardError
-    ensure
-      if !test_uuid.blank? && (test_uuid.payment_id == param_uuid)
-        msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_payment_db') }
-        render json: msg and return
-      end
-    end
 
-    begin
-      test_uuid = Kaui::InvoicePayment.find_by_id(param_uuid, false, true, options_for_klient)
-    rescue StandardError
-    ensure
-      if !test_uuid.blank? && (test_uuid.payment_id == param_uuid)
-        msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_invoice_payment_db') }
-        render json: msg and return
-      end
-    end
+
+
+
+
+
+
 
 
 
