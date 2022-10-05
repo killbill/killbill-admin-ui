@@ -49,11 +49,7 @@ class Kaui::CustomFieldsController < Kaui::EngineController
   def check_object_exist
 
     param_uuid = params[:uuid]
-
     param_object_type = params[:object_type]
-
-    ap "param_object_type"
-    ap param_object_type
 
     case param_object_type
     when  'INVOICE_ITEM'
