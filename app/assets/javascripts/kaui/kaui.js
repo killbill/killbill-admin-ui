@@ -170,11 +170,6 @@ jQuery(document).ready(function ($) {
 
               ajaxErrorAlert(msg);
 
-              setTimeout(function() {
-                  ajaxCloseAlert();
-             }, 5000);
-
-
 
             }
           }
@@ -203,10 +198,6 @@ jQuery(document).ready(function ($) {
             var msg = uuid + ' - ' + data["message"];
 
             ajaxErrorAlert(msg);
-
-            setTimeout(function() {
-                ajaxCloseAlert();
-           }, 5000);
 
 
 
