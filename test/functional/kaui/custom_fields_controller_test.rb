@@ -42,7 +42,7 @@ class Kaui::CustomFieldsControllerTest < Kaui::FunctionalTestHelper
            }
       if object_type.eql?(:INVALID)
         assert_redirected_to custom_fields_path
-        assert_equal 'Invalid object type INVALID or object id do not exist.', flash[:error]
+        assert_equal 'Object type INVALID or object id do not exist.', flash[:error]
       else
         assert_redirected_to custom_fields_path
         assert_equal 'Custom field was successfully created', flash[:notice]
