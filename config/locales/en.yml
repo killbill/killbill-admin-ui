@@ -9,6 +9,7 @@ en:
   external_key_with_colon: "External Key:"
   external_id_with_colon: "External ID:"
   name_with_colon: "Name:"
+  custom_field_created_success: "Custom field was successfully created"
   custom_field_uuid_exist_in_account_db: "UUID do exist in ACCOUNT object database."
   custom_field_uuid_exist_in_bundle_db: "UUID do exist in BUNDLE object database."
   custom_field_uuid_exist_in_subscription_db: "UUID do exist in SUBSCRIPTION object database."
@@ -25,6 +26,7 @@ en:
   object_invalid_dont_exist: "Invalid object type INVALID or object id do not exist."
   errors:
     messages:
+      invalid_object_type: "Invalid Object Type: %{error}"
       invalid_phone: "Invalid phone number!"
       invalid_bill_cycle_day_local: "Incorrect day of the billing cycle. It should be in the range from 1 to 31."
       invalid_xml: "Invalid XML: %{error}"

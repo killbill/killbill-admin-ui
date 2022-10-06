@@ -148,12 +148,12 @@ class Kaui::CustomFieldsController < Kaui::EngineController
   when :INVOICE_ITEM
     Kaui::InvoiceItem.new(:invoice_item_id => @custom_field.object_id)
 else
-  flash.now[:error] = "Invalid object type #{@custom_field.object_type}"
+  flash.now[:error] = I18n.translate('invalid_object_type', error: @custom_field.object_type)
   render :new and return
  end
   model.add_custom_field(@custom_field, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
 
-  redirect_to custom_fields_path, :notice => 'Custom field was successfully created'
+  redirect_to custom_fields_path, :notice => I18n.translate('custom_field_created_success')
 end
 
 

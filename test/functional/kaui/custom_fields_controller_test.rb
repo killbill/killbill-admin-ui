@@ -67,18 +67,17 @@ class Kaui::CustomFieldsControllerTest < Kaui::FunctionalTestHelper
     assert_equal 'Custom field was successfully created', flash[:notice]
   end
 
+  test 'should get error duriing creation of custom field without params supplied' do
 
-  # test 'should get error duriing creation of custom field without params supplied' do
+    get :check_object_exist, as: :json
+    assert_response 200
 
-  #   get :check_object_exist, as: :json
-  #   assert_response 200
+    json_response = JSON.parse(response.body)
 
-  #   json_response = JSON.parse(response.body)
+    assert_equal "431", json_response["status"]
+    assert_equal "UUID do not exist in object database.", json_response["message"]
 
-  #   assert_equal "431", json_response["status"]
-  #   assert_equal "UUID do not exist in object database.", json_response["message"]
-
-  # end
+  end
 
   # test 'should get confirmation that custom field with object type ACCOUNT exist in database' do
 
