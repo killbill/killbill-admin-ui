@@ -1,10 +1,6 @@
 class Kaui::CustomFieldsController < Kaui::EngineController
 
   def index
-
-
-
-
     @search_query = params[:q]
 
     @ordering = params[:ordering] || (@search_query.blank? ? 'desc' : 'asc')
@@ -68,8 +64,8 @@ class Kaui::CustomFieldsController < Kaui::EngineController
       rescue StandardError
       ensure
         unless !test_uuid.blank?
-          flash.now[:error] = "Invalid object type #{@custom_field.object_type}"
-          render :new and return
+          flash[:error] =  I18n.translate('object_invalid_dont_exist')
+          redirect_to custom_fields_path and return
         end
       end
     when :BUNDLE
@@ -78,8 +74,8 @@ class Kaui::CustomFieldsController < Kaui::EngineController
       rescue StandardError
       ensure
         unless !test_uuid.blank?
-          flash.now[:error] = "Invalid object type #{@custom_field.object_type}"
-          render :new and return
+          flash[:error] =  I18n.translate('object_invalid_dont_exist')
+          redirect_to custom_fields_path and return
         end
       end
     when :SUBSCRIPTION
@@ -88,8 +84,8 @@ class Kaui::CustomFieldsController < Kaui::EngineController
       rescue StandardError
       ensure
         unless !test_uuid.blank?
-          flash.now[:error] = "Invalid object type #{@custom_field.object_type}"
-          render :new and return
+          flash[:error] =  I18n.translate('object_invalid_dont_exist')
+          redirect_to custom_fields_path and return
         end
       end
     when :INVOICE
@@ -99,8 +95,8 @@ class Kaui::CustomFieldsController < Kaui::EngineController
       rescue StandardError
       ensure
         unless !test_uuid.blank?
-          flash.now[:error] = "Invalid object type #{@custom_field.object_type}"
-          render :new and return
+          flash[:error] =  I18n.translate('object_invalid_dont_exist')
+          redirect_to custom_fields_path and return
         end
       end
     when :PAYMENT
@@ -109,8 +105,8 @@ class Kaui::CustomFieldsController < Kaui::EngineController
       rescue StandardError
       ensure
         unless !test_uuid.blank?
-          flash.now[:error] = "Invalid object type #{@custom_field.object_type}"
-          render :new and return
+          flash[:error] =  I18n.translate('object_invalid_dont_exist')
+          redirect_to custom_fields_path and return
         end
       end
       begin
@@ -118,8 +114,8 @@ class Kaui::CustomFieldsController < Kaui::EngineController
       rescue StandardError
       ensure
         unless !test_uuid.blank?
-          flash.now[:error] = "Invalid object type #{@custom_field.object_type}"
-          render :new and return
+          flash[:error] =  I18n.translate('object_invalid_dont_exist')
+          redirect_to custom_fields_path and return
         end
       end
     when :INVOICE_ITEM
@@ -129,13 +125,13 @@ class Kaui::CustomFieldsController < Kaui::EngineController
       rescue StandardError
       ensure
         unless !test_uuid.blank?
-          flash.now[:error] = "Invalid object type #{@custom_field.object_type}"
-          render :new and return
+          flash[:error] =  I18n.translate('object_invalid_dont_exist')
+          redirect_to custom_fields_path and return
         end
       end
     else
-      flash.now[:error] = "Invalid object type #{@custom_field.object_type}"
-      render :new and return
+      flash[:error] =  I18n.translate('object_invalid_dont_exist')
+      redirect_to custom_fields_path and return
   end
 
   model = case @custom_field.object_type.to_sym

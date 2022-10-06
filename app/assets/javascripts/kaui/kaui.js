@@ -167,9 +167,7 @@ jQuery(document).ready(function ($) {
           success: function(data) {
             if (data.status == 431) {
               var msg = uuid + ' - ' + data["message"];
-
               ajaxErrorAlert(msg);
-
 
             }
           }
@@ -196,11 +194,7 @@ jQuery(document).ready(function ($) {
         success: function(data) {
           if (data.status == 431) {
             var msg = uuid + ' - ' + data["message"];
-
             ajaxErrorAlert(msg);
-
-
-
           }
         }
       });

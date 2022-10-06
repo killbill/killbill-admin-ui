@@ -22,6 +22,7 @@ en:
   end_of_term: "End of term"
   billing_policy: "Billing Policy"
   new_account_id_or_external_key: "New account id or external key"
+  object_invalid_dont_exist: "Invalid object type INVALID or object id do not exist."
   errors:
     messages:
       invalid_phone: "Invalid phone number!"
