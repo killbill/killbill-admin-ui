@@ -145,23 +145,18 @@ jQuery(document).ready(function ($) {
      */
 
 
-    var custom_fields_object_type = 'ACCOUNT';
-
     $('#custom_field_object_type').change(function(){
-
-        custom_fields_object_type = $(this).val();
 
         var uuid = document.getElementById("custom_field_object_id").value;
         var my_url = '/custom_fields/check_object_exist';
-        obj_type = custom_fields_object_type;
+        obj_type = document.getElementById("custom_field_object_type").value;
 
         $.ajax({
           url: my_url,
-
           type: "GET",
           dataType: "json",
           data: {
-            uuid: $(this).val(),
+            uuid: uuid,
             object_type: obj_type
           },
           success: function(data) {
@@ -180,11 +175,10 @@ jQuery(document).ready(function ($) {
 
       var uuid = $(this).val();
       var my_url = '/custom_fields/check_object_exist';
-      obj_type = custom_fields_object_type;
+      obj_type = document.getElementById("custom_field_object_type").value;
 
       $.ajax({
         url: my_url,
-
         type: "GET",
         dataType: "json",
         data: {
