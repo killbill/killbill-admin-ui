@@ -147,6 +147,8 @@ jQuery(document).ready(function ($) {
 
     $('#custom_field_object_type').change(function(){
 
+        ajaxCloseAlert();
+
         var uuid = document.getElementById("custom_field_object_id").value;
         var my_url = '/custom_fields/check_object_exist';
         obj_type = document.getElementById("custom_field_object_type").value;
@@ -172,6 +174,8 @@ jQuery(document).ready(function ($) {
       });
 
     $('#custom_field_object_id').on('keyup', function(e) {
+
+      ajaxCloseAlert();
 
       var uuid = $(this).val();
       var my_url = '/custom_fields/check_object_exist';
