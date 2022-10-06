@@ -39,30 +39,211 @@ class Kaui::CustomFieldsController < Kaui::EngineController
 
   def new
     @custom_field = Kaui::CustomField.new
+
   end
+
+  def check_object_exist
+
+    param_uuid = params[:uuid]
+    param_object_type = params[:object_type]
+
+    _check_object_exist(param_uuid, param_object_type)
+
+  end
+
 
   def create
     @custom_field = Kaui::CustomField.new(params.require(:custom_field))
 
-    model = case @custom_field.object_type.to_sym
-              when :ACCOUNT
-                Kaui::Account.new(:account_id => @custom_field.object_id)
-              when :BUNDLE
-                Kaui::Bundle.new(:bundle_id => @custom_field.object_id)
-              when :SUBSCRIPTION
-                Kaui::Subscription.new(:subscription_id => @custom_field.object_id)
-              when :INVOICE
-                Kaui::Invoice.new(:invoice_id => @custom_field.object_id)
-              when :PAYMENT
-                Kaui::Payment.new(:payment_id => @custom_field.object_id)
-              when :INVOICE_ITEM
-                Kaui::InvoiceItem.new(:invoice_item_id => @custom_field.object_id)
-              else
-                flash.now[:error] = "Invalid object type #{@custom_field.object_type}"
-                render :new and return
-            end
-    model.add_custom_field(@custom_field, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+    param_uuid = @custom_field.object_id
 
-    redirect_to custom_fields_path, :notice => 'Custom field was successfully created'
+    case @custom_field.object_type.to_sym
+    when :ACCOUNT
+      begin
+        test_uuid = Kaui::Account.find_by_id_or_key(param_uuid, false, false, options_for_klient)
+      rescue StandardError
+      ensure
+        unless !test_uuid.blank?
+          flash[:error] =  I18n.translate('object_invalid_dont_exist')
+          redirect_to custom_fields_path and return
+        end
+      end
+    when :BUNDLE
+      begin
+        test_uuid = Kaui::Bundle.find_by_id_or_key(param_uuid, options_for_klient)
+      rescue StandardError
+      ensure
+        unless !test_uuid.blank?
+          flash[:error] =  I18n.translate('object_invalid_dont_exist')
+          redirect_to custom_fields_path and return
+        end
+      end
+    when :SUBSCRIPTION
+      begin
+        test_uuid = Kaui::Subscription.find_by_id(param_uuid, options_for_klient)
+      rescue StandardError
+      ensure
+        unless !test_uuid.blank?
+          flash[:error] =  I18n.translate('object_invalid_dont_exist')
+          redirect_to custom_fields_path and return
+        end
+      end
+    when :INVOICE
+      begin
+        test_uuid = Kaui::Invoice.find_by_invoice_item_id(param_uuid,false,'NONE', options_for_klient)
+
+      rescue StandardError
+      ensure
+        unless !test_uuid.blank?
+          flash[:error] =  I18n.translate('object_invalid_dont_exist')
+          redirect_to custom_fields_path and return
+        end
+      end
+    when :PAYMENT
+      begin
+        test_uuid = Kaui::InvoicePayment.find_by_id(param_uuid, false, true, options_for_klient)
+      rescue StandardError
+      ensure
+        unless !test_uuid.blank?
+          flash[:error] =  I18n.translate('object_invalid_dont_exist')
+          redirect_to custom_fields_path and return
+        end
+      end
+      begin
+        test_uuid = Kaui::Payment.find_by_external_key(param_uuid, false, true, options_for_klient)
+      rescue StandardError
+      ensure
+        unless !test_uuid.blank?
+          flash[:error] =  I18n.translate('object_invalid_dont_exist')
+          redirect_to custom_fields_path and return
+        end
+      end
+    when :INVOICE_ITEM
+      begin
+        test_uuid = Kaui::Invoice.find_by_invoice_item_id(param_uuid,false,'NONE', options_for_klient)
+
+      rescue StandardError
+      ensure
+        unless !test_uuid.blank?
+          flash[:error] =  I18n.translate('object_invalid_dont_exist')
+          redirect_to custom_fields_path and return
+        end
+      end
+    else
+      flash[:error] =  I18n.translate('object_invalid_dont_exist')
+      redirect_to custom_fields_path and return
   end
+
+  model = case @custom_field.object_type.to_sym
+  when :ACCOUNT
+    Kaui::Account.new(:account_id => @custom_field.object_id)
+  when :BUNDLE
+    Kaui::Bundle.new(:bundle_id => @custom_field.object_id)
+  when :SUBSCRIPTION
+    Kaui::Subscription.new(:subscription_id => @custom_field.object_id)
+  when :INVOICE
+    Kaui::Invoice.new(:invoice_id => @custom_field.object_id)
+  when :PAYMENT
+    Kaui::Payment.new(:payment_id => @custom_field.object_id)
+  when :INVOICE_ITEM
+    Kaui::InvoiceItem.new(:invoice_item_id => @custom_field.object_id)
+else
+  flash.now[:error] = I18n.translate('invalid_object_type', error: @custom_field.object_type)
+  render :new and return
+ end
+  model.add_custom_field(@custom_field, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+
+  redirect_to custom_fields_path, :notice => I18n.translate('custom_field_created_success')
+end
+
+
+
+
+
+  private
+
+  def _check_object_exist(uuid, object_type)
+
+    param_uuid = uuid
+    param_object_type = object_type
+
+    case param_object_type
+    when  'INVOICE_ITEM'
+      begin
+        test_uuid = Kaui::Invoice.find_by_invoice_item_id(param_uuid,false,'NONE', options_for_klient)
+
+      rescue StandardError
+      ensure
+        if !test_uuid.blank?
+          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_invoice_item_db')  }
+          render json: msg and return
+        end
+      end
+    when  'ACCOUNT'
+      begin
+        test_uuid = Kaui::Account.find_by_id_or_key(param_uuid, false, false, options_for_klient)
+      rescue StandardError
+      ensure
+        if !test_uuid.blank? && (test_uuid.account_id == param_uuid)
+          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_account_db')  }
+          render json: msg and return
+        end
+      end
+    when  'BUNDLE'
+      begin
+        test_uuid = Kaui::Bundle.find_by_id_or_key(param_uuid, options_for_klient)
+      rescue StandardError
+      ensure
+        if !test_uuid.blank? && (test_uuid.bundle_id == param_uuid)
+          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_bundle_db') }
+          render json: msg and return
+        end
+      end
+    when  'SUBSCRIPTION'
+      begin
+        test_uuid = Kaui::Subscription.find_by_id(param_uuid, options_for_klient)
+      rescue StandardError
+      ensure
+        if !test_uuid.blank? && (test_uuid.subscription_id == param_uuid)
+          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_subscription_db') }
+          render json: msg and return
+        end
+      end
+    when  'INVOICE'
+      begin
+        cached_options_for_klient = options_for_klient
+        test_uuid = Kaui::Invoice.find_by_id(param_uuid, 'FULL', cached_options_for_klient)
+      rescue StandardError
+      ensure
+        if !test_uuid.blank? && (test_uuid.invoice_id == param_uuid)
+          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_invoice_db') }
+          render json: msg and return
+        end
+      end
+    when  'PAYMENT'
+      begin
+        test_uuid = Kaui::InvoicePayment.find_by_id(param_uuid, false, true, options_for_klient)
+      rescue StandardError
+      ensure
+        if !test_uuid.blank? && (test_uuid.payment_id == param_uuid)
+          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_invoice_payment_db') }
+          render json: msg and return
+        end
+      end
+      begin
+        test_uuid = Kaui::Payment.find_by_external_key(param_uuid, false, true, options_for_klient)
+      rescue StandardError
+      ensure
+        if !test_uuid.blank? && (test_uuid.payment_id == param_uuid)
+          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_payment_db') }
+          render json: msg and return
+        end
+      end
+    end
+
+    msg = { status: '431', message: I18n.translate('custom_field_uuid_do_not_exist_in_db') }
+    render json: msg and return
+
+  end
+
 end
