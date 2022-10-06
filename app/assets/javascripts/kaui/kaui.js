@@ -153,22 +153,31 @@ jQuery(document).ready(function ($) {
         var my_url = '/custom_fields/check_object_exist';
         obj_type = document.getElementById("custom_field_object_type").value;
 
-        $.ajax({
-          url: my_url,
-          type: "GET",
-          dataType: "json",
-          data: {
-            uuid: uuid,
-            object_type: obj_type
-          },
-          success: function(data) {
-            if (data.status == 431) {
-              var msg = uuid + ' - ' + data["message"];
-              ajaxErrorAlert(msg);
+        if (uuid){
+            $.ajax({
+                url: my_url,
+                type: "GET",
+                dataType: "json",
+                data: {
+                  uuid: uuid,
+                  object_type: obj_type
+                },
+                success: function(data) {
+                  if (data.status == 431) {
+                    var msg = uuid + ' - ' + data["message"];
+                    ajaxErrorAlert(msg);
 
-            }
-          }
-        });
+                  }
+                }
+              });
+        }else{
+            var msg = 'Object ID cannot be empty';
+            ajaxErrorAlert(msg);
+        }
+
+
+
+
 
 
       });
