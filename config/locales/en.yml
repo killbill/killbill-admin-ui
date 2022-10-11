@@ -34,6 +34,14 @@ en:
   gateway_code: "Gateway code"
   gateway_message: "Gateway message"
   status: "Status"
+  payments: "Payments"
+  number: "Number"
+  auth_amount: "Auth amount"
+  capture_amount: "Capture amount"
+  refund_amount: "Refund amount"
+  last_transaction_status: "Last transaction status"
+  external_key: "External key"
+  loading_data_from_server: "Loading data from server"
   errors:
     messages:
       invalid_object_type: "Invalid Object Type: %{error}"
