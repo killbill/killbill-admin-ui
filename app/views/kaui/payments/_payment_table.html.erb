@@ -102,8 +102,8 @@
               <% end %>
             </td>
             <td>
-            <% if transaction.<%= transaction.processed_amount.present? %>
-                  <%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
+            <% if transaction.processed_amount.present? %>
+                  <%= humanized_money_with_symbol Kaui::Transaction.processed_amount_to_money(transaction) %>
                   (<%= transaction.currency %>)
             <% end %>
 

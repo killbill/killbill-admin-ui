@@ -34,12 +34,17 @@ class Kaui::Transaction < KillBillClient::Model::Transaction
     Kaui::Base.to_money(amount, currency)
   end
 
+
+  def processed_amount_to_money
+    Kaui::Base.to_money(processed_amount, currency)
+  end
+
   def self.amount_to_money(transaction)
     self.new(:amount => transaction.amount, :currency => transaction.currency).amount_to_money
   end
 
   def self.processed_amount_to_money(transaction)
-    self.new(:processed_amount => transaction.processed_amount, :currency => transaction.processedCurrency).amount_to_money
+    self.new(:processed_amount => transaction.processed_amount, :currency => transaction.currency).processed_amount_to_money
   end
 
 end
