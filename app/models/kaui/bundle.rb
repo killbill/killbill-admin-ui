@@ -41,4 +41,19 @@ class Kaui::Bundle < KillBillClient::Model::Bundle
 
     latest_bundle
   end
+
+def self.list_transfer_policy_params
+  @policy_params = [
+    [I18n.translate('start_of_term'), 'START_OF_TERM'],
+    [I18n.translate('end_of_term'), 'END_OF_TERM'],
+    [I18n.translate('immediate'), 'IMMEDIATE']
+  ]
+end
+
+def self.list_transfer_policy_params_keys
+  @policy_params = ['START_OF_TERM','END_OF_TERM','IMMEDIATE']
+end
+
+
+
 end

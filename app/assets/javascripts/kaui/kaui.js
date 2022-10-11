@@ -118,6 +118,7 @@ jQuery(document).ready(function ($) {
     /*
      * Calculate first name length
      */
+
     $('#account_name').on('keyup', function(e){
         set_first_name_length($(this).val());
     });
@@ -137,6 +138,77 @@ jQuery(document).ready(function ($) {
             $('#account_first_name_length').val('');
         }
     }
+
+
+    /*
+     * Custom Fields Errors
+     */
+
+
+    $('#custom_field_object_type').change(function(){
+
+        ajaxCloseAlert();
+
+        var uuid = document.getElementById("custom_field_object_id").value;
+        var my_url = '/custom_fields/check_object_exist';
+        obj_type = document.getElementById("custom_field_object_type").value;
+
+        if (uuid){
+            $.ajax({
+                url: my_url,
+                type: "GET",
+                dataType: "json",
+                data: {
+                  uuid: uuid,
+                  object_type: obj_type
+                },
+                success: function(data) {
+                  if (data.status == 431) {
+                    var msg = data["message"];
+                    ajaxErrorAlert(msg);
+
+                  }
+                }
+              });
+        }else{
+            var msg = 'Object ID cannot be empty';
+            ajaxErrorAlert(msg);
+        }
+
+
+
+
+
+
+      });
+
+    $('#custom_field_object_id').on('keyup', function(e) {
+
+      ajaxCloseAlert();
+
+      var uuid = $(this).val();
+      var my_url = '/custom_fields/check_object_exist';
+      obj_type = document.getElementById("custom_field_object_type").value;
+
+      $.ajax({
+        url: my_url,
+        type: "GET",
+        dataType: "json",
+        data: {
+          uuid: $(this).val(),
+          object_type: obj_type
+        },
+        success: function(data) {
+          if (data.status == 431) {
+            var msg = data["message"];
+            ajaxErrorAlert(msg);
+          }
+        }
+      });
+
+
+    });
+
 
     /*
      *  Validate external key

@@ -41,12 +41,42 @@ class Kaui::CustomFieldsControllerTest < Kaui::FunctionalTestHelper
                :value => SecureRandom.uuid.to_s,
            }
       if object_type.eql?(:INVALID)
-        assert_response :success
-        assert_equal 'Invalid object type INVALID',flash.now[:error]
+        assert_redirected_to custom_fields_path
+        assert_equal 'Object type INVALID or object id do not exist.', flash[:error]
       else
         assert_redirected_to custom_fields_path
         assert_equal 'Custom field was successfully created', flash[:notice]
       end
     end
   end
+
+  test 'should create custom field account and check if this object exist' do
+    get :new
+    assert_response 200
+    assert_not_nil assigns(:custom_field)
+
+    post :create,
+         custom_field: {
+           object_id: @account.account_id,
+           object_type: 'ACCOUNT',
+           name: SecureRandom.uuid.to_s,
+           value: SecureRandom.uuid.to_s
+         }
+
+    assert_redirected_to custom_fields_path
+    assert_equal 'Custom field was successfully created', flash[:notice]
+  end
+
+  test 'should get error duriing creation of custom field without params supplied' do
+
+    get :check_object_exist, as: :json
+    assert_response 200
+
+    json_response = JSON.parse(response.body)
+
+    assert_equal "431", json_response["status"]
+    assert_equal "UUID do not exist in object database.", json_response["message"]
+
+  end
+
 end
