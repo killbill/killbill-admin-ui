@@ -81,6 +81,7 @@
         <th>Date</th>
         <th>Type</th>
         <th>Amount</th>
+        <th>Processed Amount</th>
         <th>Transaction external key</th>
         <th>First id</th>
         <th>Second id</th>
@@ -99,6 +100,13 @@
                   <%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
                   (<%= transaction.currency %>)
               <% end %>
+            </td>
+            <td>
+            <% if transaction.<%= transaction.processed_amount.present? %>
+                  <%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
+                  (<%= transaction.currency %>)
+            <% end %>
+
             </td>
             <td><%= transaction.transaction_external_key %></td>
             <td><%= transaction.first_payment_reference_id %></td>
