@@ -78,16 +78,16 @@
     <table id="payment_<%= payment.payment_id %>" class="table table-condensed mobile-data">
       <thead>
       <tr>
-        <th>Date</th>
-        <th>Type</th>
-        <th>Amount</th>
-        <th>Processed Amount</th>
-        <th>Transaction external key</th>
-        <th>First id</th>
-        <th>Second id</th>
-        <th>Gateway code</th>
-        <th>Gateway message</th>
-        <th>Status</th>
+        <th><%= I18n.translate('date') %></th>
+        <th><%= I18n.translate('type') %></th>
+        <th><%= I18n.translate('amount') %></th>
+        <th><%= I18n.translate('processed_amount') %></th>
+        <th><%= I18n.translate('transaction_external_key') %></th>
+        <th><%= I18n.translate('first_id') %></th>
+        <th><%= I18n.translate('second_id') %></th>
+        <th><%= I18n.translate('gateway_code') %></th>
+        <th><%= I18n.translate('gateway_message') %></th>
+        <th><%= I18n.translate('status') %></th>
       </tr>
       </thead>
       <tbody>
