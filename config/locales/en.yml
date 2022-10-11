@@ -23,7 +23,17 @@ en:
   end_of_term: "End of term"
   billing_policy: "Billing Policy"
   new_account_id_or_external_key: "New account id or external key"
-  object_invalid_dont_exist: "Object type INVALID or object id do not exist."
+  object_invalid_dont_exist: "Invalid object type INVALID or object id do not exist."
+  date: "Date"
+  type: "Type"
+  amount: "Amount"
+  processed_amount: "Processed Amount"
+  transaction_external_key: "Transaction external key"
+  first_id: "First id"
+  second_id: "Second id"
+  gateway_code: "Gateway code"
+  gateway_message: "Gateway message"
+  status: "Status"
   errors:
     messages:
       invalid_object_type: "Invalid Object Type: %{error}"
