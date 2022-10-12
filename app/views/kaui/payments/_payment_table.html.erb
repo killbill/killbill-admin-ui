@@ -81,7 +81,6 @@
         <th><%= I18n.translate('date') %></th>
         <th><%= I18n.translate('type') %></th>
         <th><%= I18n.translate('amount') %></th>
-        <th><%= I18n.translate('processed_amount') %></th>
         <th><%= I18n.translate('transaction_external_key') %></th>
         <th><%= I18n.translate('first_id') %></th>
         <th><%= I18n.translate('second_id') %></th>
@@ -97,16 +96,21 @@
             <td><%= transaction.transaction_type %></td>
             <td>
               <% if transaction.amount.present? %>
-                  <%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
-                  (<%= transaction.currency %>)
-              <% end %>
-            </td>
-            <td>
-            <% if transaction.processed_amount.present? %>
+                  <% if transaction.amount != transaction.processed_amount %>
                   <%= humanized_money_with_symbol Kaui::Transaction.processed_amount_to_money(transaction) %>
                   (<%= transaction.currency %>)
-            <% end %>
-
+                  <a href="#" data-toggle="tooltip" class="kb-tooltip" title="<%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>(<%= transaction.currency %>)">(?)</a>
+                  <div class="tooltip bs-tooltip-top" role="tooltip">
+                    <div class="arrow"></div>
+                    <div class="tooltip-inner">
+                      <%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>(<%= transaction.currency %>)
+                    </div>
+                  </div>
+                  <% else%>
+                  <%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
+                  (<%= transaction.currency %>)
+                  <% end %>
+              <% end %>
             </td>
             <td><%= transaction.transaction_external_key %></td>
             <td><%= transaction.first_payment_reference_id %></td>
@@ -153,6 +157,12 @@
       "dom": "t",
       "paging": false
     });
+
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+
   });
 <% end %>
 
+<%=  stylesheet_link_tag "kaui/tooltip"  %>
