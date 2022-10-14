@@ -42,6 +42,7 @@ en:
   last_transaction_status: "Last transaction status"
   external_key: "External key"
   loading_data_from_server: "Loading data from server"
+  requested_amount_colon: "Requested amount: "
   errors:
     messages:
       invalid_object_type: "Invalid Object Type: %{error}"

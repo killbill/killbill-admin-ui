@@ -99,13 +99,7 @@
                   <% if transaction.amount != transaction.processed_amount %>
                   <%= humanized_money_with_symbol Kaui::Transaction.processed_amount_to_money(transaction) %>
                   (<%= transaction.currency %>)
-                  <a href="#" data-toggle="tooltip" class="kb-tooltip" title="<%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>(<%= transaction.currency %>)">(?)</a>
-                  <div class="tooltip bs-tooltip-top" role="tooltip">
-                    <div class="arrow"></div>
-                    <div class="tooltip-inner">
-                      <%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>(<%= transaction.currency %>)
-                    </div>
-                  </div>
+                  <a href="#" data-toggle="tooltip" class="kb-tooltip" title="<%= I18n.translate('requested_amount_colon') %> <%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>(<%= transaction.currency %>)">(?)</a>
                   <% else%>
                   <%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
                   (<%= transaction.currency %>)
