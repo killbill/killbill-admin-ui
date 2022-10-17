@@ -34,15 +34,15 @@ class Kaui::QueuesController < Kaui::EngineController
     end
 
     unless params[:max_date].blank?
-      min_date = Time.parse(params[:min_date]).strftime('%F')
+      min_date = Time.parse(params[:min_date]).to_s(:date_only)
     else
       min_date = '1970-01-01'
     end
 
     unless params[:max_date].blank?
-      max_date = Time.parse(params[:max_date]).strftime('%F')
+      max_date = Time.parse(params[:max_date]).to_s(:date_only)
     else
-      max_date = Time.now.strftime('%F')
+      max_date = Time.now.to_s(:date_only)
     end
 
     with_history = params[:with_history] || false
