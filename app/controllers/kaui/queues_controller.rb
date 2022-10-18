@@ -33,7 +33,7 @@ class Kaui::QueuesController < Kaui::EngineController
       @now = DateTime.now.in_time_zone('UTC')
     end
 
-    unless params[:max_date].blank?
+    unless params[:min_date].blank?
       min_date = Time.parse(params[:min_date]).iso8601
     else
       min_date =  Time.parse('1970-01-01').iso8601
