@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gemspec
 
@@ -24,3 +24,4 @@ end
 
 #gem 'kenui', :path => '../killbill-email-notifications-ui'
 #gem 'kenui', :git => 'https://github.com/killbill/killbill-email-notifications-ui.git', :branch => 'work-for-release-0.21.x'
+#
