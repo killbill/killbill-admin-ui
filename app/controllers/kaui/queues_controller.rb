@@ -33,17 +33,9 @@ class Kaui::QueuesController < Kaui::EngineController
       @now = DateTime.now.in_time_zone('UTC')
     end
 
-    unless params[:min_date].blank?
-      min_date = Time.parse(params[:min_date]).iso8601
-    else
-      min_date =  Time.parse('1970-01-01').iso8601
-    end
+    min_date = (Time.parse(params[:min_date]).iso8601 unless params[:min_date].blank?) || '1970-01-01'
+    max_date = (Time.parse(params[:max_date]).iso8601 unless params[:max_date].blank?) || Time.now.iso8601
 
-    unless params[:max_date].blank?
-      max_date = Time.parse(params[:max_date]).iso8601
-    else
-      max_date = Time.now.iso8601
-    end
 
     with_history = params[:with_history] || false
     @queues_entries = Kaui::Admin.get_queues_entries(@account_id,
