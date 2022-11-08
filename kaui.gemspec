@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'jquery-rails'
   s.add_dependency 'jquery-datatables-rails'
   s.add_dependency 'money-rails'
-  # See https://github.com/seyhunak/twitter-bootstrap-rails/issues/897
   s.add_dependency 'bootstrap'
   s.add_dependency 'bootstrap-sass'
   s.add_dependency 'font-awesome-rails'
@@ -43,7 +42,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'sprockets-rails'
   s.add_dependency 'mustache-js-rails'
   s.add_dependency 'actionpack'
-  s.add_dependency 'awesome_print'
   s.add_dependency 'bootsnap'
   s.add_dependency 'mysql2'
   s.add_dependency 'pg'
