@@ -1,0 +1,89 @@
+/*
+ * Home Page
+ */
+ $smphone: unquote("max-width: 450px");
+$phone: unquote("max-width: 768px");
+$tablet: unquote("max-width: 1024px");
+.home {
+    text-align: center;
+
+    #home_searchform {
+        padding-top: 150px;
+
+        @media ($phone) {
+            padding-top: 50px;
+        }
+
+        #search {
+            line-height: 48px;
+            padding: 0 25px;
+            font-size: 18px;
+            width: 330px;
+            height: 50px;
+
+            @media ($phone) {
+                line-height: 33px;
+                padding: 0 10px;
+                font-size: 16px;
+                width: 220px;
+                height: 35px;
+            }
+        }
+
+        input[type=submit] {
+            background: #00919d asset-url("kaui/search_white.png") no-repeat center center;
+            height: 50px;
+            padding: 0 20px;
+            text-indent: 999999px;
+            overflow: hidden;
+            width: 82px;
+            border-radius: 25px;
+            vertical-align: top;
+            margin: 0 0 0 10px;
+
+            @media ($phone) {
+                height: 35px;
+                width: 42px;
+                border-radius: 15px;
+                background-size: 20px;
+            }
+        }
+    }
+
+    .legend {
+        margin-top: 40px;
+    }
+
+    .duck_help {
+        width: 352px;
+        height: 260px;
+        padding: 35px 120px 100px 30px;
+        font-size: 18px;
+        color: #666;
+        display: block;
+        position: fixed;
+        bottom: 0;
+        right: 20%;
+        background: asset-url("kaui/duck.png") no-repeat center center;
+        text-align: center;
+
+        @media ($phone) {
+            position: relative;
+            right: initial;
+            bottom: initial;
+            width: 300px;
+            background-size: 300px auto;
+            font-size: 16px;
+            padding: 20px 120px 110px 40px;
+            top: 50px;
+            height: 220px;
+            display: inline-block;
+        }
+
+        @media (min-height: 600px) {
+            position: fixed;
+            top: auto;
+            bottom: 0;
+        }
+    }
+}

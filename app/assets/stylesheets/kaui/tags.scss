@@ -1,3 +1,7 @@
+$smphone: unquote("max-width: 450px");
+$phone: unquote("max-width: 768px");
+$tablet: unquote("max-width: 1024px");
+
 .tag-bar {
     border-bottom: 1px solid #ddd;
     margin-bottom: 0;
@@ -7,7 +11,7 @@
         display: inline-block;
         vertical-align: middle;
 
-        @media (@smphone) {
+        @media ($smphone) {
             width: 35%;
         }
 
@@ -17,7 +21,7 @@
             display: block;
             border-right: 1px solid #ddd;
 
-            @media (@phone) {
+            @media ($phone) {
                 border: 0;
             }
 
@@ -65,7 +69,7 @@
             border-bottom: 0;
             display: inline-block;
 
-            @media (@phone) {
+            @media ($phone) {
                 border: 0;
             }
 
@@ -118,7 +122,7 @@
         padding: 2px 5px;
         vertical-align: middle;
 
-        @media (@phone) {
+        @media ($phone) {
             width: 64%;
             padding: 2px;
             overflow: hidden;
@@ -139,7 +143,7 @@
                 background-color: #cce9eb;
             }
 
-            @media (@phone) {
+            @media ($phone) {
                 font-size: 10px;
                 padding: 3px 5px;
                 display: block;

@@ -1,13 +1,16 @@
 /*
  * Home Page
  */
+ $smphone: unquote("max-width: 450px");
+$phone: unquote("max-width: 768px");
+$tablet: unquote("max-width: 1024px");
 .home {
     text-align: center;
 
     #home_searchform {
         padding-top: 150px;
 
-        @media (@phone) {
+        @media ($phone) {
             padding-top: 50px;
         }
 
@@ -18,7 +21,7 @@
             width: 330px;
             height: 50px;
 
-            @media (@phone) {
+            @media ($phone) {
                 line-height: 33px;
                 padding: 0 10px;
                 font-size: 16px;
@@ -38,7 +41,7 @@
             vertical-align: top;
             margin: 0 0 0 10px;
 
-            @media (@phone) {
+            @media ($phone) {
                 height: 35px;
                 width: 42px;
                 border-radius: 15px;
@@ -64,7 +67,7 @@
         background: asset-url("kaui/duck.png") no-repeat center center;
         text-align: center;
 
-        @media (@phone) {
+        @media ($phone) {
             position: relative;
             right: initial;
             bottom: initial;

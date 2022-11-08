@@ -1,0 +1,27 @@
+table tr.expired {
+    td {
+        color: #cccccc;
+    }
+}
+
+#cancel_subscription_by_date_modal {
+  .modal-footer {
+    text-align: left;
+    padding-bottom: 0;
+
+    .alert {
+      margin-bottom: 0;
+
+      .label-default {
+        color: white;
+      }
+    }
+  }
+}
+
+.price-override-popover {
+  cursor: pointer;
+}
+$smphone: unquote("max-width: 450px");
+$phone: unquote("max-width: 768px");
+$tablet: unquote("max-width: 1024px");

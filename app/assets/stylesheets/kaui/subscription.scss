@@ -22,3 +22,6 @@ table tr.expired {
 .price-override-popover {
   cursor: pointer;
 }
+$smphone: unquote("max-width: 450px");
+$phone: unquote("max-width: 768px");
+$tablet: unquote("max-width: 1024px");

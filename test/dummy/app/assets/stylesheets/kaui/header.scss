@@ -1,0 +1,197 @@
+/*
+ * Header Layout
+ */
+ $smphone: unquote("max-width: 450px");
+$phone: unquote("max-width: 768px");
+$tablet: unquote("max-width: 1024px");
+
+header {
+    padding: 25px 0;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 40px;
+
+    img {
+        vertical-align: middle;
+
+        @media ($phone) {
+            display: block;
+            margin: 0 auto 10px;
+        }
+    }
+
+    #searchform {
+        margin: 0 30px;
+        vertical-align: middle;
+        position: relative;
+        display: inline-block;
+
+        @media ($phone) {
+            width: 185px;
+            display: block;
+            margin: 0 auto 10px;
+        }
+
+        input[type="text"] {
+            padding-right: 28px;
+
+            @media ($tablet) {
+                width: 100px;
+            }
+
+            @media ($phone) {
+                width: 100%;
+            }
+        }
+
+        input[type="submit"] {
+            display: block;
+            width: 18px;
+            height: 15px;
+            position: absolute;
+            top: 7px;
+            right: 5px;
+            background: asset-url("kaui/search.png") no-repeat top left;
+            border: 0;
+            text-indent: 999999px;
+            overflow: hidden;
+            outline: 0;
+            padding: 0;
+        }
+    }
+
+    a {
+        font-size: 12px;
+        text-transform: uppercase;
+
+        @media ($phone) {
+            text-align: center;
+            display: block;
+        }
+    }
+
+    nav {
+        @media ($phone) {
+            text-align: center;
+        }
+
+        ul {
+            padding: 6px 0;
+            margin: 0;
+
+            @media ($tablet) {
+                text-align: center;
+
+                &.account-menu {
+                    margin: -10px 0;
+                }
+            }
+
+            @media ($phone) {
+
+            }
+
+            li {
+                list-style: none;
+                display: inline-block;
+                vertical-align: middle;
+
+                a {
+                    color: rgb(119, 119, 119);
+                    padding: 0 10px;
+                    border-right: 1px solid #ccc;
+
+                    &:hover {
+                        color: #000;
+                    }
+                }
+
+                &:last-of-type {
+                    a {
+                        border: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.title-nav-area {
+    background: #c7e4e7;
+    margin: 0 0 30px;
+    font-size: 0;
+    margin-top: -40px;
+
+    .container {
+        @media ($phone) {
+            text-align: center;
+            width: 100%;
+            padding: 0 15px;
+        }
+    }
+
+    a,p {
+        display: inline-block;
+        padding: 12px 40px;
+        font-size: 12px;
+        margin: 0;
+        line-height: 12px;
+        background: transparent;
+        vertical-align: top;
+
+        @media ($phone) {
+            width: 30%;
+            padding: 12px 0;
+            text-align: center;
+            border-bottom: 1px solid #fff;
+
+            &:nth-of-type(4), &:nth-of-type(5) {
+                width: 45%;
+            }
+
+            &:nth-of-type(3), &:nth-of-type(5) {
+                border-right: 1px solid #fff;
+            }
+        }
+
+        @media ($smphone) {
+            width: 50%;
+            border: 0;
+
+            &:nth-of-type(2), &:nth-of-type(4), &:nth-of-type(5) {
+                border-right: 1px solid #fff;
+            }
+
+            &:nth-of-type(3) {
+                border-right: 0;
+            }
+
+            &:nth-of-type(4) {
+                width: 50%;
+            }
+
+            &:nth-of-type(5) {
+                width: 100%;
+            }
+        }
+    }
+
+    a {
+        color: #666666;
+        text-transform: uppercase;
+        border-left: 1px solid #fff;
+
+        &:hover, &.current {
+            color: #fff;
+            background: #00919d;
+        }
+
+        &:last-of-type {
+            border-right: 1px solid #fff;
+        }
+    }
+
+    p {
+        font-weight: normal;
+    }
+}

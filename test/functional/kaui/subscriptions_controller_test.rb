@@ -137,7 +137,7 @@ class Kaui::SubscriptionsControllerTest < Kaui::FunctionalTestHelper
   end
 
   test 'should get edit bcd' do
-    get :edit_bcd, :id => @bundle.subscriptions.first.subscription_id
+    get :edit_bcd, {id: @bundle.subscriptions.first.subscription_id }
     assert_response :success
     assert_equal get_value_from_input_field('subscription_account_id'), @bundle.subscriptions.first.account_id
     assert_equal get_value_from_input_field('subscription_bill_cycle_day_local'), @bundle.subscriptions.first.bill_cycle_day_local.to_s

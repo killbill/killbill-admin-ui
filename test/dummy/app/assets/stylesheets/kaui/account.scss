@@ -1,0 +1,52 @@
+$smphone: unquote("max-width: 450px");
+$phone: unquote("max-width: 768px");
+$tablet: unquote("max-width: 1024px");
+
+h1 span.account-child-label{
+  float: right;
+}
+
+.account-child-label{
+  color: white !important;
+}
+
+.naked {
+  background-color: transparent;
+  color: #00919d;
+  padding: 0;
+  font-size: inherit;
+}
+
+.naked:hover{
+  background-color: transparent;
+  color: #2a6496;
+
+}
+
+.title-nav-area {
+  .container {
+    p {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    a {
+      max-width: 125px;
+      min-width: 90px;
+      padding: 12px 12px;
+      text-align: center;
+    }
+
+    span.label-danger {
+      margin: 8px;
+    }
+  }
+}
+
+.form-force-inline {
+  display: inline;
+}
+
+.form-right {
+  float: right;
+}

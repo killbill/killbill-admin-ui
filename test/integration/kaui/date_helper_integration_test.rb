@@ -2,7 +2,6 @@ require 'test_helper'
 
 module Kaui
   class DateHelperIntegrationTest < IntegrationTestHelper
-
     include Kaui::DateHelper
 
     test 'can get killbill server current time depending of time zone' do

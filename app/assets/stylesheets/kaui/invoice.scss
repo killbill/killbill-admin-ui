@@ -1,9 +1,13 @@
+$smphone: unquote("max-width: 450px");
+$phone: unquote("max-width: 768px");
+$tablet: unquote("max-width: 1024px");
+
 table.invoice-totals {
     border-top: 0;
     padding-top: 15px;
     margin-top: 45px;
 
-    @media (@phone) {
+    @media ($phone) {
         tr:first-of-type {
             th {
                 padding-top: 60px;
@@ -22,7 +26,7 @@ table.invoice-totals {
         text-align: right;
         padding-right: 15px;
 
-        @media (@phone) {
+        @media ($phone) {
             width: 50%;
         }
     }
@@ -30,7 +34,7 @@ table.invoice-totals {
     td {
         width: 20%;
 
-        @media (@phone) {
+        @media ($phone) {
             width: 50%;
         }
     }
