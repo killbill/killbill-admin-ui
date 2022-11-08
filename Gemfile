@@ -5,7 +5,7 @@ gemspec
 
 if defined?(JRUBY_VERSION)
   group :development do
-    # Releases for Rails 5.2 is 52-stable for futher relases change to different branch
+    # Releases for Rails 5.2 is 52-stable for further relases change to different branch
     git 'https://github.com/jruby/activerecord-jdbc-adapter', :branch => '52-stable' do
       # Pulls activerecord-jdbc-adapter and jdbc-mysql
       gem 'activerecord-jdbcmysql-adapter'
