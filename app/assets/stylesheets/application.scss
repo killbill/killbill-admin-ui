@@ -10,5 +10,11 @@
  *= require bootstrap_and_overrides
  *= require kaui/kaui
 */
+
 @import "bootstrap";
 @import "font-awesome";
+
+// popover max width
+.popover {
+    max-width: 350px;
+  }
