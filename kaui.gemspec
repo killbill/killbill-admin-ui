@@ -48,12 +48,12 @@ Gem::Specification.new do |s|
   s.add_dependency 'font-awesome-sass', '~> 6.2.0'
 
 
-  s.add_development_dependency 'rails-controller-testing'
-  s.add_development_dependency 'multi_json'
-  s.add_development_dependency 'rake'
-  s.add_development_dependency 'pry-rails'
-  s.add_development_dependency 'simplecov'
-  s.add_development_dependency 'json'
+  s.add_development_dependency 'rails-controller-testing', '~> 1.0.5'
+  s.add_development_dependency 'multi_json', '~> 1.15.0'
+  s.add_development_dependency 'rake', '~> 13.0.6'
+  s.add_development_dependency 'pry-rails', '~> 0.3.9'
+  s.add_development_dependency 'simplecov', '~> 0.21.2'
+  s.add_development_dependency 'json', '~> 2.6.2'
   s.add_development_dependency 'listen'
   s.add_development_dependency 'puma'
   s.add_development_dependency 'gem-release'
