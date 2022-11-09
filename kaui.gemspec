@@ -45,6 +45,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'bootsnap'
   s.add_dependency 'mysql2'
   s.add_dependency 'pg'
+  s.add_dependency 'font-awesome-sass', '~> 6.2.0'
 
 
   s.add_development_dependency 'rails-controller-testing'
@@ -62,4 +63,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rack-mini-profiler'
   s.add_development_dependency 'flamegraph'
   s.add_development_dependency 'stackprof'
+
 end
