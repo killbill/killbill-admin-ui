@@ -18,8 +18,8 @@
     max-width: 350px;
   }
 
-  //@todo: remove?
-  /// Set the correct sprite paths
+//@todo: Remove?
+/// Set the correct sprite paths
 // $iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
 // $iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");
 
@@ -30,8 +30,9 @@ $fontAwesomeWoffPath: font-url("fontawesome-webfont.woff");
 $fontAwesomeTtfPath: font-url("fontawesome-webfont.ttf");
 $fontAwesomeSvgPath: font-url("fontawesome-webfont.svg#fontawesomeregular");
 
+//@todo: Remove?
 // Font Awesome
-@import "font-awesome.css";
+//@import "font-awesome.css";
 
 /* Override Bootstrap 5 font locations */
 @font-face {
