@@ -47,21 +47,18 @@ Gem::Specification.new do |s|
   s.add_dependency 'pg', '~> 1.4.4'
   s.add_dependency 'font-awesome-sass', '~> 6.2.0'
 
-
   s.add_development_dependency 'rails-controller-testing', '~> 1.0.5'
   s.add_development_dependency 'multi_json', '~> 1.15.0'
   s.add_development_dependency 'rake', '~> 13.0.6'
   s.add_development_dependency 'pry-rails', '~> 0.3.9'
   s.add_development_dependency 'simplecov', '~> 0.21.2'
   s.add_development_dependency 'json', '~> 2.6.2'
-  s.add_development_dependency 'listen'
-  s.add_development_dependency 'puma'
-  s.add_development_dependency 'gem-release'
-  s.add_development_dependency 'mysql2'
-  s.add_development_dependency 'pg'
+  s.add_development_dependency 'listen', '~> 3.7.1'
+  s.add_development_dependency 'puma', '~> 6.0.0'
+  s.add_development_dependency 'gem-release', '~> 2.2.2'
   s.add_development_dependency 'awesome_print'
-  s.add_development_dependency 'rack-mini-profiler'
-  s.add_development_dependency 'flamegraph'
-  s.add_development_dependency 'stackprof'
+  s.add_development_dependency 'rack-mini-profiler', '~> 3.0.0'
+  s.add_development_dependency 'flamegraph', '~> 0.9.5'
+  s.add_development_dependency 'stackprof', '~> 0.2.22'
 
 end
