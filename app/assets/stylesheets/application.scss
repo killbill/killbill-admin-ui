@@ -18,9 +18,10 @@
     max-width: 350px;
   }
 
+  //@todo: remove?
   /// Set the correct sprite paths
-$iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
-$iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");
+// $iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
+// $iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");
 
 // Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
 $fontAwesomeEotPath: font-url("fontawesome-webfont.eot");
