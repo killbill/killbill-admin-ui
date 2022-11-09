@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'bootstrap', '~> 5.2.2'
   s.add_dependency 'bootstrap-sass', '~> 3.4.1'
   s.add_dependency 'font-awesome-rails', '~> 4.7.0.8'
-  s.add_dependency 'bootstrap-datepicker-rails'
+  s.add_dependency 'bootstrap-datepicker-rails', '~> 1.9.0.1'
   s.add_dependency 'killbill-client', '~> 3.3.1'
   s.add_dependency 'devise', '~> 4.8.1'
   s.add_dependency 'cancan', '~> 1.6.10'
@@ -41,10 +41,10 @@ Gem::Specification.new do |s|
   s.add_dependency 'concurrent-ruby', '~> 1.1.10'
   s.add_dependency 'sprockets-rails', '~> 3.4.2'
   s.add_dependency 'mustache-js-rails', '~> 4.1.0.3'
-  s.add_dependency 'actionpack'
-  s.add_dependency 'bootsnap'
-  s.add_dependency 'mysql2'
-  s.add_dependency 'pg'
+  s.add_dependency 'actionpack', '~> 5.2.8.1'
+  s.add_dependency 'bootsnap', '~> 1.13.0'
+  s.add_dependency 'mysql2', '~> 0.5.4'
+  s.add_dependency 'pg', '~> 1.4.4'
   s.add_dependency 'font-awesome-sass', '~> 6.2.0'
 
 
