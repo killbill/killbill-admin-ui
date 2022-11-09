@@ -56,7 +56,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'listen', '~> 3.7.1'
   s.add_development_dependency 'puma', '~> 6.0.0'
   s.add_development_dependency 'gem-release', '~> 2.2.2'
-  s.add_development_dependency 'awesome_print'
   s.add_development_dependency 'rack-mini-profiler', '~> 3.0.0'
   s.add_development_dependency 'flamegraph', '~> 0.9.5'
   s.add_development_dependency 'stackprof', '~> 0.2.22'
