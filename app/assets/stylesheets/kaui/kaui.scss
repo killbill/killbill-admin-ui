@@ -2,20 +2,20 @@ $smphone: unquote("max-width: 450px");
 $phone: unquote("max-width: 768px");
 $tablet: unquote("max-width: 1024px");
 
-@import "common.scss";
-@import "header.scss";
+@import "kaui/common.scss";
+@import "kaui/header.scss";
 
-@import "home.scss";
+@import "kaui/home.scss";
 
-@import "tags.scss";
-@import "subscription.scss";
-@import "invoice.scss";
-@import "payment.scss";
-@import "timeline.scss";
+@import "kaui/tags.scss";
+@import "kaui/subscription.scss";
+@import "kaui/invoice.scss";
+@import "kaui/payment.scss";
+@import "kaui/timeline.scss";
 
-@import "datatable.scss";
+@import "kaui/datatable.scss";
 
-@import "account.scss";
-@import "overdue.scss";
+@import "kaui/account.scss";
+@import "kaui/overdue.scss";
 
-@import "audit.scss";
+@import "kaui/audit.scss";
