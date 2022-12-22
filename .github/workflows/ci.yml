@@ -18,7 +18,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - ruby-version: '2.6.10'
+          - ruby-version: '2.7.6'
             database-adapter: 'mysql2'
             database-user: 'root'
             database-password: 'root'
@@ -30,7 +30,7 @@ jobs:
             database-password: 'root'
             database-port: '3306'
             docker-compose-file: 'docker-compose.ci.mysql.yml'
-          - ruby-version: '2.6.10'
+          - ruby-version: '2.7.6'
             database-adapter: 'postgresql'
             database-user: 'postgres'
             database-password: 'postgres'
