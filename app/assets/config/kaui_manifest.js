@@ -1,4 +1,3 @@
-
 //= link jquery.js
 //= link jquery3.js
 //= link popper.js
