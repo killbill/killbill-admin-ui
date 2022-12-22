@@ -25,6 +25,6 @@ end
 
 # gem 'kenui', :path => '../killbill-email-notifications-ui'
 # @todo: move to github.com/killbill/killbill-email-notifications-ui.git
-
-gem 'kenui', :git => 'https://github.com/kpbacode/killbill-email-notifications-ui.git', :branch => 'master'
 gem "importmap-rails"
+gem 'kenui', :git => 'https://github.com/kpbacode/killbill-email-notifications-ui.git', :branch => 'master'
+
