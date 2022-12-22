@@ -24,7 +24,6 @@
 //= link dataTables/bootstrap/3/jquery.dataTables.bootstrap.css
 //= link bootstrap_and_overrides.css
 //= link kaui/kaui.scss
-//= link kaui_application.scss
 //= link kaui_application.css
 
 // Kanaui
