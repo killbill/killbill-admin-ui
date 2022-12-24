@@ -27,4 +27,3 @@ end
 # @todo: move to github.com/killbill/killbill-email-notifications-ui.git
 gem "importmap-rails"
 gem 'kenui', :git => 'https://github.com/kpbacode/killbill-email-notifications-ui.git', :branch => 'master'
-
