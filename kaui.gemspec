@@ -48,6 +48,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'pg'
   s.add_dependency 'font-awesome-sass'
   s.add_dependency 'popper_js', '~> 2.11.5'
+  s.add_dependency 'importmap-rails'
 
   s.add_development_dependency 'rails-controller-testing'
   s.add_development_dependency 'multi_json'
