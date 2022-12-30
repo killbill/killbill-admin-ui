@@ -25,6 +25,7 @@
 //= link bootstrap_and_overrides.css
 //= link kaui/kaui.scss
 //= link kaui_application.css
+//= link kaui/populate_plugin_menu.js
 
 // Kanaui
 //= require js-routes
