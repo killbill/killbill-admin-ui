@@ -8,10 +8,10 @@
 //= link  js-routes
 //= link  jquery-ui/widgets/autocomplete
 //= link  jquery_ujs
-//= require bootstrap-sprockets
+//= link  bootstrap-sprockets
 //= link  dataTables/jquery.dataTables
 //= link  dataTables/bootstrap/3/jquery.dataTables.bootstrap
-//= link  bootstrap-datepicker
+//= link  bootstrap-datepicker3
 //= link  kaui/bootstrap-tweaks
 //= link  mustache
 //= link  kaui/kaui
