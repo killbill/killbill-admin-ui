@@ -1,5 +1,4 @@
 //= link jquery.js
-//= link jquery3.js
 //= link popper.js
 //= link bootstrap-sprockets
 //= link bootstrap-datepicker.js
@@ -32,8 +31,10 @@
 // Required by log4javascript
 //= require jquery-ui/widgets/autocomplete
 //= require log4javascript
-//= require spin
-//= require jquery.spin
+//= require  spin
+//= require  jquery.spin
+//= link spin.js
+//= link jquery.spin.js
 // KPM
 // kpm/kpm.js
 

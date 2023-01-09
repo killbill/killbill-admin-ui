@@ -5,6 +5,8 @@
 
   <title>Kaui</title>
   <%= stylesheet_link_tag 'kaui_application', :media => 'all' %>
+
+
   <%= csrf_meta_tags %>
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -15,16 +17,26 @@
 
   <![endif]-->
 
+
   <%= javascript_include_tag "jquery" %>
+  <%= javascript_include_tag "popper" %>
   <%= javascript_include_tag "routes" %>
+  <%= javascript_include_tag "jquery.spin" %>
+  <%= javascript_include_tag "spin" %>
+
   <%= javascript_include_tag "dataTables/jquery.dataTables" %>
   <%= javascript_include_tag "dataTables/bootstrap/3/jquery.dataTables.bootstrap" %>
   <%= javascript_include_tag "mustache"  %>
   <%= javascript_include_tag "bootstrap-datepicker"  %>
   <%= javascript_include_tag "kaui/bootstrap-tweaks" %>
   <%= stylesheet_link_tag "bootstrap_and_overrides" %>
+
+  <%= javascript_include_tag "bootstrap-datepicker" %>
   <%= javascript_include_tag "kaui/kaui" %>
-  <%= javascript_include_tag "kaui/populate_plugin_menu" %>
+
   <%= javascript_importmap_tags %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css" integrity="sha512-rxThY3LYIfYsVCWPCW9dB0k+e3RZB39f23ylUYTEuZMDrN/vRqLdaCBo/FbvVT6uC2r0ObfPzotsfKF9Qc5W5g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js" integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
 </head>

@@ -11,7 +11,7 @@
 //= link  bootstrap-sprockets
 //= link  dataTables/jquery.dataTables
 //= link  dataTables/bootstrap/3/jquery.dataTables.bootstrap
-//= link  bootstrap-datepicker3
+//= link  bootstrap-datepicker
 //= link  kaui/bootstrap-tweaks
 //= link  mustache
 //= link  kaui/kaui

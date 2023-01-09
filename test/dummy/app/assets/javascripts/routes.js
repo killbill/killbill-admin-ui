@@ -3032,6 +3032,70 @@
 
   /**
    * Generates rails route to
+   * /rails/info(.:format)
+   * @param {object | undefined} options
+   * @returns {string} route path
+   */
+  rails_info_url: __jsr.r({"format":{}}, [2,[7,"/"],[2,[6,"rails"],[2,[7,"/"],[2,[6,"info"],[1,[2,[8,"."],[3,"format"]]]]]]], true),
+
+  /**
+   * Generates rails route to
+   * /rails/info(.:format)
+   * @param {object | undefined} options
+   * @returns {string} route path
+   */
+  rails_info_path: __jsr.r({"format":{}}, [2,[7,"/"],[2,[6,"rails"],[2,[7,"/"],[2,[6,"info"],[1,[2,[8,"."],[3,"format"]]]]]]]),
+
+  /**
+   * Generates rails route to
+   * /rails/info/properties(.:format)
+   * @param {object | undefined} options
+   * @returns {string} route path
+   */
+  rails_info_properties_url: __jsr.r({"format":{}}, [2,[7,"/"],[2,[6,"rails"],[2,[7,"/"],[2,[6,"info"],[2,[7,"/"],[2,[6,"properties"],[1,[2,[8,"."],[3,"format"]]]]]]]]], true),
+
+  /**
+   * Generates rails route to
+   * /rails/info/properties(.:format)
+   * @param {object | undefined} options
+   * @returns {string} route path
+   */
+  rails_info_properties_path: __jsr.r({"format":{}}, [2,[7,"/"],[2,[6,"rails"],[2,[7,"/"],[2,[6,"info"],[2,[7,"/"],[2,[6,"properties"],[1,[2,[8,"."],[3,"format"]]]]]]]]]),
+
+  /**
+   * Generates rails route to
+   * /rails/info/routes(.:format)
+   * @param {object | undefined} options
+   * @returns {string} route path
+   */
+  rails_info_routes_url: __jsr.r({"format":{}}, [2,[7,"/"],[2,[6,"rails"],[2,[7,"/"],[2,[6,"info"],[2,[7,"/"],[2,[6,"routes"],[1,[2,[8,"."],[3,"format"]]]]]]]]], true),
+
+  /**
+   * Generates rails route to
+   * /rails/info/routes(.:format)
+   * @param {object | undefined} options
+   * @returns {string} route path
+   */
+  rails_info_routes_path: __jsr.r({"format":{}}, [2,[7,"/"],[2,[6,"rails"],[2,[7,"/"],[2,[6,"info"],[2,[7,"/"],[2,[6,"routes"],[1,[2,[8,"."],[3,"format"]]]]]]]]]),
+
+  /**
+   * Generates rails route to
+   * /rails/mailers(.:format)
+   * @param {object | undefined} options
+   * @returns {string} route path
+   */
+  rails_mailers_url: __jsr.r({"format":{}}, [2,[7,"/"],[2,[6,"rails"],[2,[7,"/"],[2,[6,"mailers"],[1,[2,[8,"."],[3,"format"]]]]]]], true),
+
+  /**
+   * Generates rails route to
+   * /rails/mailers(.:format)
+   * @param {object | undefined} options
+   * @returns {string} route path
+   */
+  rails_mailers_path: __jsr.r({"format":{}}, [2,[7,"/"],[2,[6,"rails"],[2,[7,"/"],[2,[6,"mailers"],[1,[2,[8,"."],[3,"format"]]]]]]]),
+
+  /**
+   * Generates rails route to
    * /rails/action_mailbox/mailgun/inbound_emails/mime(.:format)
    * @param {object | undefined} options
    * @returns {string} route path
