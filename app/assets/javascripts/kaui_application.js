@@ -11,13 +11,16 @@
 //= link  bootstrap-sprockets
 //= link  dataTables/jquery.dataTables
 //= link  dataTables/bootstrap/3/jquery.dataTables.bootstrap
-//= link  bootstrap-datepicker
 //= link  kaui/bootstrap-tweaks
 //= link  mustache
 //= link  kaui/kaui
 //= link  popper
-
+//= link  bootstrap-datepicker3
 
 import * as d3 from "d3"
 window.d3 = d3
 
+import jquery from 'jquery';
+window.jQuery = jquery;
+window.$ = jquery;
+window.jquery = jquery;

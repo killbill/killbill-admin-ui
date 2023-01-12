@@ -1,11 +1,9 @@
-@import "font-awesome";
-@import "bootstrap-sprockets";
-@import "bootstrap";
 
 $smphone: unquote("max-width: 450px");
 $phone: unquote("max-width: 768px");
 $tablet: unquote("max-width: 1024px");
 
+@import "kaui/kaui_bootstrap.scss";
 @import "kaui/common.scss";
 @import "kaui/header.scss";
 

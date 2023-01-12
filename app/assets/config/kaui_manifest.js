@@ -1,27 +1,24 @@
+//= require jquery
+//= require jquery_ujs
+
 //= link jquery.js
+//= link jquery-ui.js
 //= link popper.js
-//= link bootstrap-sprockets
+//= link bootstrap-sprockets.js
 //= link bootstrap-datepicker.js
 //= link_tree ../images/kaui
-//= link_directory ../stylesheets .scss
-//= link_directory ../stylesheets/kaui .scss
-//= link_directory ../stylesheets .css
-//= link_directory ../stylesheets/kaui .css
 //= link_directory ../javascripts .js
 //= link mustache.js
-//= link bootstrap-datepicker/core.js
-//= link bootstrap-datepicker.css
 //= link bootstrap-datepicker3.css
 //= link jquery-ui/widgets/autocomplete.js
 //= link dataTables/jquery.dataTables.js
 //= link dataTables/bootstrap/3/jquery.dataTables.bootstrap.js
 //= link dataTables/extras/dataTables.colVis.js
 //= link d3.js
-//= link bootstrap-datepicker.css
 //= link dataTables/jquery.dataTables.css
 //= link jquery-ui/autocomplete.css
 //= link dataTables/bootstrap/3/jquery.dataTables.bootstrap.css
-//= link bootstrap_and_overrides.css
+//= link bootstrap_and_overrides.scss
 //= link kaui/kaui.scss
 //= link kaui_application.css
 //= link kaui/populate_plugin_menu.js
@@ -48,3 +45,4 @@
 //= link kaui/bootstrap-tweaks.js
 //= link kaui/kaui.js
 //
+
