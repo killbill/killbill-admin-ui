@@ -25,7 +25,6 @@ require 'nokogiri'
 require 'time'
 require 'd3-rails'
 require 'spinjs-rails'
-require 'popper_js'
 
 
 module Kaui
