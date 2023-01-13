@@ -34,6 +34,7 @@
 <%= javascript_tag do %>
     $(document).ready(function() {
         var auditLogs = JSON.parse($("#audit-logs").val());
+          $.noConflict();
         $('#audit-logs-table').DataTable({
             dom: "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
             data: auditLogs,

@@ -25,6 +25,7 @@
 
 <%= javascript_tag do %>
 $(document).ready(function() {
+  $.noConflict();
   $('#account-children-table').DataTable({
     "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
     "paging": false,

@@ -26,6 +26,7 @@
 
 <%= javascript_tag do %>
 $(document).ready(function() {
+  $.noConflict();
   var table = $('#invoices-table').DataTable({
     <% if @account.account_id.blank? %>
         "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
