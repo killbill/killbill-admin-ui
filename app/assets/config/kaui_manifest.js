@@ -1,9 +1,13 @@
 //= require jquery
 //= require jquery_ujs
-
+//= require popper
 //= link jquery.js
 //= link jquery-ui.js
 //= link popper.js
+//= require  spin
+//= require  jquery.spin
+//= link spin.js
+//= link jquery.spin.js
 //= link bootstrap-sprockets.js
 //= link bootstrap-datepicker.js
 //= link_tree ../images/kaui
@@ -21,7 +25,6 @@
 //= link bootstrap_and_overrides.scss
 //= link kaui/kaui.scss
 //= link kaui_application.css
-//= link kaui/populate_plugin_menu.js
 
 // Kanaui
 //= require js-routes

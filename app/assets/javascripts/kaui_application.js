@@ -8,7 +8,7 @@
 //= link  js-routes
 //= link  jquery-ui/widgets/autocomplete
 //= link  jquery_ujs
-//= link  bootstrap-sprockets
+//= link  bootstrap-sprockets.js
 //= link  dataTables/jquery.dataTables
 //= link  dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= link  kaui/bootstrap-tweaks

@@ -37,6 +37,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'sprockets'
   s.add_dependency 'kenui'
   s.add_dependency 'jquery-ui-rails'
+  s.add_dependency 'jquery-rails', '~> 4.5.1'
   s.add_dependency 'sass'
   s.add_dependency 'sass-rails'
   s.add_dependency 'concurrent-ruby'
