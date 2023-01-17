@@ -27,7 +27,6 @@
 <%= javascript_tag do %>
     $(document).ready(function() {
         var customFields = JSON.parse($("#custom-fields").val());
-          $.noConflict();
         $('#custom_fields-table').DataTable({
             "dom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
             data: customFields

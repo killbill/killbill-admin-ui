@@ -28,11 +28,9 @@
   </div>
 
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js" integrity="sha512-6UofPqm0QupIL0kzS/UIzekR73/luZdC6i/kXDbWnLOJoqwklBK6519iUnShaYceJ0y4FaiPtX/hRnV/X/xlUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <%= javascript_tag do %>
 $(document).ready(function() {
-  $.noConflict();
   var table = $('#accounts-table').DataTable({
     "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
     "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
