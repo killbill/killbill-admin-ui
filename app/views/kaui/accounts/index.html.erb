@@ -31,6 +31,7 @@
 
 <%= javascript_tag do %>
 $(document).ready(function() {
+   $.noConflict();
   var table = $('#accounts-table').DataTable({
     "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
     "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
