@@ -1,0 +1,15 @@
+
+.tooltip-arrow,
+.kb-tooltip + .tooltip > .tooltip-inner {background-color: #C0E0E3;}
+.kb-tooltip + .tooltip.top > .tooltip-arrow {background-color: #fff; border-top: #C0E0E3;}
+
+
+.kb-tooltip + .bs-tooltip-auto[x-placement^=top] .arrow::before,
+.kb-tooltip + .bs-tooltip-top .arrow::before {
+  border-bottom-color: #C0E0E3;
+}
+
+.tooltip .tooltip-arrow {
+border-top: 5px solid #C0E0E3 !important;}
+
+

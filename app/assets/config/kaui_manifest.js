@@ -1,6 +1,4 @@
-//= require jquery
-//= require jquery_ujs
-//= require popper
+
 //= link jquery.js
 //= link jquery-ui.js
 //= link popper.js
