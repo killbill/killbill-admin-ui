@@ -7,6 +7,7 @@ Rails.application.configure do
   # and recreated between test runs. Don't rely on the data there!
   config.cache_classes = true
   config.action_view.cache_template_loading = true
+  config.active_record.migration_error = false
 
   ## Eager load code on boot. This is required to work-around an obscure bug
   # where Kaui::AccountEmail isn't loading (hangs) in the lambda of AccountsController#show

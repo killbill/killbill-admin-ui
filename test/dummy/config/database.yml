@@ -8,8 +8,8 @@ development: &default
   pool: 50
   timeout: 5000
 <% else %>
-  url: <%= java.lang.System.getProperty('kaui.db.url', ENV['KAUI_DB_URL'] || 'jdbc:mysql://localhost:8027/kaui?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC') %>
-  username: <%= java.lang.System.getProperty('kaui.db.username', ENV['KAUI_DB_USERNAME'] || 'killbill') %>
+  url: <%= java.lang.System.getProperty('kaui.db.url', ENV['KAUI_DB_URL'] || 'jdbc:mysql://localhost:3306/kaui?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC') %>
+  username: <%= java.lang.System.getProperty('kaui.db.username', ENV['KAUI_DB_USERNAME'] || 'root') %>
   password: <%= java.lang.System.getProperty('kaui.db.password', ENV['KAUI_DB_PASSWORD'] || 'killbill') %>
   host: <%= java.lang.System.getProperty('kaui.db.host', ENV['KAUI_DB_HOST']) %>
   port: <%= java.lang.System.getProperty('kaui.db.port', ENV['KAUI_DB_PORT']) %>
@@ -20,10 +20,10 @@ development: &default
   adapter: mysql2
   encoding: utf8
   database: <%= ENV['RAILS_DATABASE'] || 'kaui' %>
-  username: <%= ENV['RAILS_DATABASE_USERNAME'] || 'killbill' %>
+  username: <%= ENV['RAILS_DATABASE_USERNAME'] || 'root' %>
   password: <%= ENV['RAILS_DATABASE_PASSWORD'] || 'killbill' %>
   host: <%= ENV['RAILS_DATABASE_HOST'] || '127.0.0.1' %>
-  port: <%= ENV['RAILS_DATABASE_PORT'] || 8027 %>
+  port: <%= ENV['RAILS_DATABASE_PORT'] || 3306 %>
   pool: 50
   timeout: 5000
 <% end %>
@@ -34,10 +34,10 @@ development: &default
 test:
   adapter: <%= ENV.fetch('DB_ADAPTER', 'mysql2') %>
   encoding: utf8
-  username: <%= ENV.fetch('DB_USER', 'killbill') %>
+  username: <%= ENV.fetch('DB_USER', 'root') %>
   password: <%= ENV.fetch('DB_PASSWORD', 'killbill') %>
   host: <%= ENV.fetch('DB_HOST', '127.0.0.1') %>
-  port: <%= ENV.fetch('DB_PORT', '8027') %>
+  port: <%= ENV.fetch('DB_PORT', '3306') %>
   pool: 25
   timeout: 5000
   # Work around broken PostgreSQL activerecord-jdbc-adapter on Rails 5
