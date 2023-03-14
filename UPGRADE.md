@@ -4,7 +4,7 @@
 Upgrade issues
 -----------------------
 
-| Kaui version | Kill Bill version |
+| Tag          | Descripction      |
 | -----------: | ----------------: |
 | 0.14.y       | 0.16.z            |
 | 0.15.y       | 0.18.z (Rails 4)  |
