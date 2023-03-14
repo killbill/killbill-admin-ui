@@ -4,7 +4,7 @@
 Upgrade issues
 -----------------------
 
-| Tag          | Description | Tag          |
+| Tag          | Description | Status          |
 | -----------: | ------------| -----------: |
 | 0.14.y       | dd        |
 | 0.15.y       | 0.18.z (Rails 4)  |
