@@ -6,7 +6,7 @@ gemspec
 if defined?(JRUBY_VERSION)
   group :development do
     # Releases for Rails 5.2 is 52-stable for further relases change to different branch
-    git 'https://github.com/jruby/activerecord-jdbc-adapter', :branch => '52-stable' do
+    git 'https://github.com/jruby/activerecord-jdbc-adapter', branch: '52-stable' do
       # Pulls activerecord-jdbc-adapter and jdbc-mysql
       gem 'activerecord-jdbcmysql-adapter'
       # Add MariaDB driver as well
@@ -23,8 +23,8 @@ end
 # gem 'killbill-client', :git => 'https://github.com/killbill/killbill-client-ruby.git', :branch => 'work-for-release-0.21.x'
 # gem 'killbill-client', '3.2.0'
 
-# gem 'kenui', :path => '../killbill-email-notifications-ui'
+#gem 'kenui', :path => '../killbill-email-notifications-ui'
 #gem 'kenui', :git => 'https://github.com/killbill/killbill-email-notifications-ui.git', :branch => 'master'
 # @todo: move to github.com/killbill/killbill-email-notifications-ui.git
 gem "importmap-rails"
-gem 'kenui', :git => 'https://github.com/kpbacode/killbill-email-notifications-ui.git', :branch => 'master'
+gem 'kenui', :git => 'https://github.com/kpbacode/killbill-email-notifications-ui.git', branch: 'master'

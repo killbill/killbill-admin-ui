@@ -12,11 +12,10 @@ Upgrade issues
 | bug | https://github.com/kpbacode/killbill-admin-ui/issues/3 | pending
 | bug | https://github.com/kpbacode/killbill-admin-ui/issues/4 | pending
 | bug | https://github.com/kpbacode/killbill-admin-ui/issues/5 | pending
-| bug | https://github.com/kpbacode/killbill-admin-ui/issues/6 | pending
-| bug | https://github.com/kpbacode/killbill-admin-ui/issues/7 | pending
 | bug | https://github.com/kpbacode/killbill-admin-ui/issues/8 | pending
 | bug | https://github.com/kpbacode/killbill-admin-ui/issues/9 | pending
 | bug | Chrome JS console errors | pending
+| ruby | Ruby 3.x compatibility to enable JRuby CI jobs | pending
 
 Notes
 ------------
