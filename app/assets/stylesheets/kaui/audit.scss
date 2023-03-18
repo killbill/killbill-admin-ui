@@ -1,0 +1,42 @@
+$smphone: unquote("max-width: 450px");
+$phone: unquote("max-width: 768px");
+$tablet: unquote("max-width: 1024px");
+
+#showHistoryModal
+{
+  #templatesPlaceHolder
+  {
+    display: flex;
+
+    .panel {
+      margin-left: 5px;
+
+      .panel-heading {
+        white-space: nowrap;
+      }
+    }
+
+    .list-group-item {
+      padding: 5px;
+      min-height: 32px;
+      overflow-x: hidden;
+      white-space: nowrap;
+    }
+
+    #templateFieldsPlaceHolder {
+      .list-group-item {
+        span {
+          text-transform: capitalize;
+          font-weight: bold;
+        }
+      }
+    }
+
+    #templatePlaceHolder
+    {
+      display: flex;
+      overflow-x: auto;
+    }
+
+  }
+}

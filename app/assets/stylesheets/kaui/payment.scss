@@ -1,0 +1,43 @@
+$smphone: unquote("max-width: 450px");
+$phone: unquote("max-width: 768px");
+$tablet: unquote("max-width: 1024px");
+#invoice-payments h3 {
+    text-align: left;
+    border-bottom: 0;
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #777777;
+}
+
+.payment-details {
+    padding-bottom: 0;
+    padding-left: 45px;
+
+    table.transparent {
+        margin-bottom: 0;
+
+        th {
+            text-transform: none;
+        }
+    }
+}
+
+.payment-method-details {
+    table.transparent {
+        th {
+            text-transform: none;
+        }
+    }
+}
+
+.gateway-link {
+    float: right;
+    padding-top: 5px;
+
+    span {
+        padding: 5px 20px;
+        text-align: center;
+    }
+}

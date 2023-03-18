@@ -1,0 +1,265 @@
+
+$smphone: unquote("max-width: 450px");
+$phone: unquote("max-width: 768px");
+$tablet: unquote("max-width: 1024px");
+
+@import "kaui/kaui_bootstrap.scss";
+@import "kaui/common.scss";
+@import "kaui/header.scss";
+
+@import "kaui/home.scss";
+
+@import "kaui/tags.scss";
+@import "kaui/subscription.scss";
+@import "kaui/invoice.scss";
+@import "kaui/payment.scss";
+@import "kaui/timeline.scss";
+
+@import "kaui/datatable.scss";
+
+@import "kaui/account.scss";
+@import "kaui/overdue.scss";
+
+@import "kaui/audit.scss";
+@import "kaui/tooltip.scss";
+
+// popover max width
+.popover {
+    max-width: 350px;
+  }
+
+//@todo: Remove?
+/// Set the correct sprite paths
+
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+$fontAwesomeEotPath: font-url("fontawesome-webfont.eot");
+$fontAwesomeEotPath_iefix: font-url("fontawesome-webfont.eot?#iefix");
+$fontAwesomeWoffPath: font-url("fontawesome-webfont.woff");
+$fontAwesomeTtfPath: font-url("fontawesome-webfont.ttf");
+$fontAwesomeSvgPath: font-url("fontawesome-webfont.svg#fontawesomeregular");
+
+//@todo: Remove?
+// Font Awesome
+//@import "font-awesome.css";
+
+/* Override Bootstrap 5 font locations */
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: image-url('glyphicons-halflings-regular.eot');
+  src: image-url('glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+  image-url('glyphicons-halflings-regular.woff') format('woff'),
+  image-url('glyphicons-halflings-regular.ttf') format('truetype'),
+  image-url('glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+
+$smphone: unquote("max-width: 450px");
+$phone: unquote("max-width: 768px");
+$tablet: unquote("max-width: 1024px");
+
+.tag-bar {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 0;
+    position: relative;
+
+    .tag-select {
+        display: inline-block;
+        vertical-align: middle;
+
+        @media ($smphone) {
+            width: 35%;
+        }
+
+        span {
+            padding: 5px 20px;
+            text-align: center;
+            display: block;
+            border-right: 1px solid #ddd;
+
+            @media ($phone) {
+                border: 0;
+            }
+
+            i {
+                margin: 0 5px;
+                color: #515151;
+                font-size: 16px;
+
+                &.fa-caret-down {
+                    color: #999999;
+                    font-size: 12px;
+                }
+
+                &.fa-tag {
+                    font-size: 18px;
+                }
+
+                &.fa-money, &.fa-credit-card {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        &:hover {
+            .tag-select-box {
+                max-height: 500px;
+                padding: 20px 25px;
+                border: 1px solid #ddd;
+                box-shadow: 1px 3px 2px rgba(0, 0, 0, 0.11);
+            }
+        }
+
+        .tag-select-box {
+            position: absolute;
+            top: 100%;
+            left: -1px;
+            max-height: 0;
+            background-color: #fff;
+            z-index: 100;
+            padding: 0 15px;
+            font-size: 12px;
+            color: #999999;
+            overflow: auto;
+            width: auto;
+            border-bottom: 0;
+            display: inline-block;
+
+            @media ($phone) {
+                border: 0;
+            }
+
+            strong {
+                display: block;
+                font-weight: 400;
+                margin: 0 0 10px;
+            }
+
+            form {
+                display: inline-block;
+                width: 210px;
+            }
+
+            input[type=checkbox] {
+                display: inline-block;
+                width: 9%;
+                margin: 0 1% 0 0;
+                line-height: 20px;
+                vertical-align: middle;
+            }
+
+            label {
+                font-size: 12px;
+                display: inline-block;
+                width: 85%;
+                line-height: 20px;
+                vertical-align: middle;
+                margin: 0;
+                font-weight: 400;
+            }
+
+            textarea {
+                resize: none;
+                height: 80px;
+                margin: 0 0 20px;
+                width: 100%;
+            }
+
+            a {
+                display: block;
+                font-size: 12px;
+                line-height: 20px;
+            }
+        }
+    }
+
+    .tag-selected {
+        display: inline-block;
+        padding: 2px 5px;
+        vertical-align: middle;
+
+        @media ($phone) {
+            width: 64%;
+            padding: 2px;
+            overflow: hidden;
+            border-left: 1px solid #ddd;
+        }
+
+        span {
+            display: inline-block;
+            font-size: 12px;
+            color: #777777;
+            background: #e5e5e5;
+            padding: 3px 20px;
+            margin: 0 5px;
+            transition: all 0.5s;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #cce9eb;
+            }
+
+            @media ($phone) {
+                font-size: 10px;
+                padding: 3px 5px;
+                display: block;
+                margin: 0 0 2px;
+            }
+        }
+    }
+}
+
+.tag-bar-breathe {
+    margin-bottom: 30px;
+}
+
+.tag-bar-no-border {
+    border-bottom: 0;
+
+    .tag-select {
+        span {
+            border-right: 0;
+        }
+    }
+}
+
+#main-menu {
+    .tag-bar {
+        .tag-select {
+            position: relative;
+        }
+        .tag-select-box {
+          word-break: keep-all;
+          white-space: nowrap;
+        }
+    }
+}
+
+.inline-row-tag-bar{
+    padding-left: 10px !important;
+
+    .tag-bar {
+
+      .tag-select {
+        span {
+          padding: 5px;
+          border-right: none;
+
+          i {
+            margin: 0 3px;
+            font-size: 12px;
+
+            &.fa-tag {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+      .tag-select-box {
+        label {
+          white-space: nowrap;
+        }
+      }
+    }
+}
+

@@ -1,5 +1,4 @@
 name: ci
-
 on:
   - push
   - pull_request
@@ -13,32 +12,31 @@ env:
   KB_ADDRESS: 127.0.0.1
   KB_PORT: 8080
   RAILS_ENV: test
-
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         include:
-          - ruby-version: '2.4.2'
+          - ruby-version: '2.7.6'
             database-adapter: 'mysql2'
             database-user: 'root'
             database-password: 'root'
             database-port: '3306'
             docker-compose-file: 'docker-compose.ci.mysql.yml'
-          - ruby-version: 'jruby-9.1.17.0'
+          - ruby-version: 'jruby-9.2.13.0'
             database-adapter: 'mysql2'
             database-user: 'root'
             database-password: 'root'
             database-port: '3306'
             docker-compose-file: 'docker-compose.ci.mysql.yml'
-          - ruby-version: '2.4.2'
+          - ruby-version: '2.7.6'
             database-adapter: 'postgresql'
             database-user: 'postgres'
             database-password: 'postgres'
             database-port: '5432'
             docker-compose-file: 'docker-compose.ci.postgresql.yml'
-          - ruby-version: 'jruby-9.1.17.0'
+          - ruby-version: 'jruby-9.2.13.0'
             database-adapter: 'postgresql'
             database-user: 'postgres'
             database-password: 'postgres'

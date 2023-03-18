@@ -3,6 +3,7 @@ jQuery(document).ready(function ($) {
     /*
      * Mobile Data Adjustment
      */
+
     var running = false;
     $('table.mobile-data').each(function () {
         var count = $(this).find($('table.mobile-data tr')).length - 1;
@@ -446,3 +447,6 @@ function setObjectIdPopover(){
         setObjectIdPopover();
     });
 }
+
+
+

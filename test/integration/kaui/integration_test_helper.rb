@@ -1,5 +1,6 @@
 module Kaui
   class IntegrationTestHelper < ActionDispatch::IntegrationTest
+    include Devise::Test::IntegrationHelpers
 
     BASE_PATH     = '/kaui'
     TENANTS_PATH  = '/kaui/tenants'

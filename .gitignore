@@ -19,3 +19,4 @@ Gemfile.lock
 .byebug_history
 .generators
 .rakeTasks
+node_modules/

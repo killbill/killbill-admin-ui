@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
+ruby '2.7.6'
 
 gemspec
 
 if defined?(JRUBY_VERSION)
   group :development do
-    # Releases for Rails 5.1 aren't available yet
-    git 'https://github.com/jruby/activerecord-jdbc-adapter', ref: '54c94fd4fe74648acc6590841a2f3e59652f85a8' do
+    # Releases for Rails 5.2 is 52-stable for further relases change to different branch
+    git 'https://github.com/jruby/activerecord-jdbc-adapter', :branch => '52-stable' do
       # Pulls activerecord-jdbc-adapter and jdbc-mysql
       gem 'activerecord-jdbcmysql-adapter'
       # Add MariaDB driver as well
@@ -18,10 +19,12 @@ if defined?(JRUBY_VERSION)
   end
 end
 
-#gem 'killbill-client', :path => '../killbill-client-ruby'
-#gem 'killbill-client', :git => 'https://github.com/killbill/killbill-client-ruby.git', :branch => 'work-for-release-0.21.x'
-#gem 'killbill-client', '3.2.0'
+# gem 'killbill-client', :path => '../killbill-client-ruby'
+# gem 'killbill-client', :git => 'https://github.com/killbill/killbill-client-ruby.git', :branch => 'work-for-release-0.21.x'
+# gem 'killbill-client', '3.2.0'
 
-#gem 'kenui', :path => '../killbill-email-notifications-ui'
-#gem 'kenui', :git => 'https://github.com/killbill/killbill-email-notifications-ui.git', :branch => 'work-for-release-0.21.x'
-#
+# gem 'kenui', :path => '../killbill-email-notifications-ui'
+#gem 'kenui', :git => 'https://github.com/killbill/killbill-email-notifications-ui.git', :branch => 'master'
+# @todo: move to github.com/killbill/killbill-email-notifications-ui.git
+gem "importmap-rails"
+gem 'kenui', :git => 'https://github.com/kpbacode/killbill-email-notifications-ui.git', :branch => 'master'

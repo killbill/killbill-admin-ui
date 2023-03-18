@@ -1,0 +1,115 @@
+$smphone: unquote("max-width: 450px");
+$phone: unquote("max-width: 768px");
+$tablet: unquote("max-width: 1024px");
+.search {
+    table {
+        font-weight: 400;
+
+        th, td {
+            &:first-of-type {
+                padding-left: 60px;
+
+                @media ($phone) {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+
+    table.table-small-padding {
+        th, td {
+            white-space: nowrap;
+
+            &:first-of-type {
+                padding-left: 20px;
+            }
+        }
+    }
+
+    table.table-colored-rows {
+        tr.insert {
+            background-color: #dff0d8;
+        }
+        tr.update {
+            background-color: #fcf8e3;
+        }
+        tr.delete {
+            background-color: #f2dede;
+        }
+
+        th, td {
+
+            &:first-of-type {
+                padding-left: 20px;
+            }
+        }
+    }
+
+    tr.disabled {
+        background-color: #f5f5f5;
+    }
+}
+
+table.dataTable {
+    padding: 0;
+}
+
+table.dataTable thead th {
+    position: relative;
+}
+
+table.dataTable thead th,
+table.dataTable tbody td {
+    vertical-align: middle;
+}
+
+table.dataTable thead th.sorting:after,
+table.dataTable thead th.sorting_asc:after,
+table.dataTable thead th.sorting_desc:after {
+    content: '' !important;
+}
+
+table.dataTable {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+
+    @media ($phone) {
+        margin-bottom: 30px !important;
+    }
+}
+
+table.dataTable thead th,
+table.dataTable thead td {
+    font-size: 12px;
+    border-bottom: 0;
+}
+
+table.dataTable.no-footer {
+    border-bottom: 1px solid #dddddd;
+}
+
+.info-wrapper table.dataTable.no-footer {
+    border-bottom: 0;
+}
+
+#invoice-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+#accounts-table {
+    @media ($phone) {
+        width: 100% !important;
+    }
+}
+
+table.dataTable.table-condensed thead > tr > th {
+    border-right: 1px solid #c9c9c9;
+
+    &:last-of-type {
+        border-right: 0;
+    }
+}
+
+.dataTables_paginate.paging_full_numbers {
+    padding-top: 30px;
+}

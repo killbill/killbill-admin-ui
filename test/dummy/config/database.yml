@@ -1,8 +1,41 @@
-default: &default
+development: &default
+<% if defined?(JRUBY_VERSION) %>
+<% adapter = java.lang.System.getProperty('kaui.db.adapter', ENV['DB_ADAPTER'] || 'mysql2') %>
+  adapter: <%= adapter %>
+  encoding: <%= java.lang.System.getProperty('kaui.db.encoding', ENV['DB_ENCODING'] || 'utf8') %>
+<% if adapter == 'sqlite3' %>
+  database: <%= java.lang.System.getProperty('kaui.db.database', ENV['DB_DATABASE'] || '/var/tmp/kaui.sqlite3') %>
+  pool: 50
+  timeout: 5000
+<% else %>
+  url: <%= java.lang.System.getProperty('kaui.db.url', ENV['DB_URL'] || 'jdbc:mysql://localhost:3306/kaui?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC') %>
+  username: <%= java.lang.System.getProperty('kaui.db.username', ENV['DB_USERNAME'] || 'root') %>
+  password: <%= java.lang.System.getProperty('kaui.db.password', ENV['DB_PASSWORD'] || 'root') %>
+  host: <%= java.lang.System.getProperty('kaui.db.host', ENV['DB_HOST']) %>
+  port: <%= java.lang.System.getProperty('kaui.db.port', ENV['DB_PORT']) %>
+  pool: <%= java.lang.System.getProperty('kaui.db.pool', ENV['DB_POOL'] || '50') %>
+  timeout: <%= java.lang.System.getProperty('kaui.db.timeout', ENV['DB_TIMEOUT'] || '5000') %>
+<% end %>
+<% else %>
+  adapter: mysql2
+  encoding: utf8
+  database: <%= ENV['DB_DATABASE'] || 'kaui' %>
+  username: <%= ENV['DB_USERNAME'] || 'root' %>
+  password: <%= ENV['DB_PASSWORD'] || 'root' %>
+  host: <%= ENV['DB_HOST'] || '127.0.0.1' %>
+  port: <%= ENV['DB_PORT'] || 3306 %>
+  pool: 50
+  timeout: 5000
+<% end %>
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
   adapter: <%= ENV.fetch('DB_ADAPTER', 'mysql2') %>
   encoding: utf8
   username: <%= ENV.fetch('DB_USER', 'root') %>
-  password: <%= ENV.fetch('DB_PASSWORD', 'root') %>
+  password: <%= ENV.fetch('DB_PASSWORD', 'killbill') %>
   host: <%= ENV.fetch('DB_HOST', '127.0.0.1') %>
   port: <%= ENV.fetch('DB_PORT', '3306') %>
   pool: 25
@@ -14,14 +47,7 @@ default: &default
   # MySQL
   requireSSL: false
   useSSL: false
-
-development:
-  <<: *default
-  database: <%= ENV.fetch('DB_NAME', 'kaui') %>
-
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
-test:
-  <<: *default
   database: <%= ENV.fetch('DB_NAME', 'kaui_test') %>
+
+production:
+  <<: *default

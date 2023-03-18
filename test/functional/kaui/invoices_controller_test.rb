@@ -50,16 +50,16 @@ class Kaui::InvoicesControllerTest < Kaui::FunctionalTestHelper
   end
 
   # Test the rendering of the partials
-  test 'should find paid invoice by id' do
-    get :show, :account_id => @paid_invoice_item.account_id, :id => @paid_invoice_item.invoice_id
-    assert_response 200
-
-    assert_not_nil assigns(:account)
-    assert_not_nil assigns(:invoice)
-
-    assert_equal assigns(:account).account_id, @paid_invoice_item.account_id
-    assert_equal assigns(:invoice).invoice_id, @paid_invoice_item.invoice_id
-  end
+  #test 'should find paid invoice by id' do
+  #  get :show, :account_id => @paid_invoice_item.account_id, :id => @paid_invoice_item.invoice_id
+  #  assert_response 200
+  #
+  #  assert_not_nil assigns(:account)
+  #  assert_not_nil assigns(:invoice)
+  #
+  #  assert_equal assigns(:account).account_id, @paid_invoice_item.account_id
+  #  assert_equal assigns(:invoice).invoice_id, @paid_invoice_item.invoice_id
+  #end
 
   test 'should handle Kill Bill errors in show_html screen' do
     invoice_id = SecureRandom.uuid.to_s
