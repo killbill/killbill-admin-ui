@@ -1,16 +1,25 @@
 <table class="transparent">
+
   <tr>
-    <th>Name:</th>
+    <th><%= I18n.translate('name_with_colon') %></th>
     <td><%= payment_method.plugin_name %></td>
   </tr>
+
+  <% if payment_method.external_key.present? %>
   <tr>
-    <th>ID:</th>
+    <th><%= I18n.translate('external_key_with_colon') %></th>
+    <td><%= payment_method.external_key %></td>
+  </tr>
+  <% end %>
+
+  <tr>
+    <th><%= I18n.translate('payment_method_id') %></th>
     <td><%= payment_method.payment_method_id %></td>
   </tr>
   <% unless payment_method.plugin_info.blank? %>
       <% unless payment_method.plugin_info.external_payment_method_id.blank? %>
           <tr>
-            <th>Key:</th>
+            <th><%= I18n.translate('external_id_with_colon') %></th>
             <td><%= payment_method.plugin_info.external_payment_method_id %></td>
           </tr>
       <% end %>

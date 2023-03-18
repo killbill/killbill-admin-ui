@@ -33,11 +33,13 @@ class Kaui::PaymentMethodsControllerTest < Kaui::FunctionalTestHelper
          :state              => SecureRandom.uuid.to_s,
          :country            => SecureRandom.uuid.to_s
     assert_response 302
+    assert_equal 'Payment method was successfully created', flash[:notice]
   end
 
   test 'should delete payment methods' do
     delete :destroy, :id => @payment_method.payment_method_id, :set_auto_pay_off => true
     assert_response 302
+    assert_equal "Payment method #{@payment_method.payment_method_id} successfully deleted", flash[:notice]
   end
 
   test 'should validate external key if found' do
@@ -49,4 +51,57 @@ class Kaui::PaymentMethodsControllerTest < Kaui::FunctionalTestHelper
     assert_response :success
     assert_equal JSON[@response.body]['is_found'], true
   end
+
+  test 'should get new payment method with external key, fail when duplicated external key' do
+
+    new_account = create_account(@tenant)
+
+    new_acc = new_account.account_id
+    post :create,
+         :payment_method     => {
+             # Note that @account already has an external payment method
+             :account_id => new_acc,
+             :is_default => true,
+             :plugin_name => '__EXTERNAL_PAYMENT__',
+             :external_key => 'paypal'
+
+         },
+         :card_type          => SecureRandom.uuid.to_s,
+         :card_holder_name   => SecureRandom.uuid.to_s,
+         :expiration_year    => 2020,
+         :expiration_month   => 12,
+         :credit_card_number => 4111111111111111,
+         :address1           => SecureRandom.uuid.to_s,
+         :city               => SecureRandom.uuid.to_s,
+         :postal_code        => SecureRandom.uuid.to_s,
+         :state              => SecureRandom.uuid.to_s,
+         :country            => SecureRandom.uuid.to_s
+
+    assert_response 302
+    assert_equal 'Payment method was successfully created', flash[:notice]
+
+    post :create,
+         :payment_method     => {
+             # Note that @account already has an external payment method
+             :account_id => new_acc,
+             :is_default => true,
+             :plugin_name => '__EXTERNAL_PAYMENT__',
+             :external_key => 'paypal'
+
+         },
+         :card_type          => SecureRandom.uuid.to_s,
+         :card_holder_name   => SecureRandom.uuid.to_s,
+         :expiration_year    => 2020,
+         :expiration_month   => 12,
+         :credit_card_number => 4111111111111111,
+         :address1           => SecureRandom.uuid.to_s,
+         :city               => SecureRandom.uuid.to_s,
+         :postal_code        => SecureRandom.uuid.to_s,
+         :state              => SecureRandom.uuid.to_s,
+         :country            => SecureRandom.uuid.to_s
+
+    assert_response 200
+    assert_equal "Error while creating payment method: External payment method already exists for account #{new_acc}", flash[:error]
+  end
+
 end

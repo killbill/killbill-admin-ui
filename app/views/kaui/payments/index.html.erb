@@ -2,23 +2,23 @@
 
   <div class="column-block">
 
-    <h1>Payments</h1>
+    <h1><%= I18n.translate('payments') %></h1>
 
     <table id="payments-table" class="table table-condensed mobile-data">
       <thead>
       <tr>
-        <th>Number</th>
-        <th>Date</th>
-        <th>Auth amount</th>
-        <th>Capture amount</th>
-        <th>Refund amount</th>
-        <th>Last transaction status</th>
-        <th>External key</th>
+        <th><%= I18n.translate('number') %></th>
+        <th><%= I18n.translate('date') %></th>
+        <th><%= I18n.translate('auth_amount') %></th>
+        <th><%= I18n.translate('capture_amount') %></th>
+        <th><%= I18n.translate('refund_amount') %></th>
+        <th><%= I18n.translate('last_transaction_status') %></th>
+        <th><%= I18n.translate('external_key') %></th>
       </tr>
       </thead>
       <tbody>
       <tr>
-        <td colspan="1" class="dataTables_empty">Loading data from server</td>
+        <td colspan="1" class="dataTables_empty"><%= I18n.translate('loading_data_from_server') %></td>
       </tr>
       </tbody>
     </table>

@@ -147,8 +147,10 @@ Kaui::Engine.routes.draw do
 
   scope '/custom_fields' do
     match '/pagination' => 'custom_fields#pagination', :via => :get, :as => 'custom_fields_pagination'
+    match '/check_object_exist' => 'custom_fields#check_object_exist', :via => :get, :as => 'custom_fields_check_object_exist'
+
   end
-  resources :custom_fields, :only => [:index, :new, :create]
+  resources :custom_fields, :only => [:index, :new, :create, :check_object_exist]
 
   scope '/tenants' do
     match '/' => 'tenants#index', :via => :get, :as => 'tenants'
