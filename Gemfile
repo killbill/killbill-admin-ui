@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.7.6'
+ruby '2.7.8'
 
 gemspec
 
@@ -26,5 +26,4 @@ end
 #gem 'kenui', :path => '../killbill-email-notifications-ui'
 #gem 'kenui', :git => 'https://github.com/killbill/killbill-email-notifications-ui.git', :branch => 'master'
 # @todo: move to github.com/killbill/killbill-email-notifications-ui.git
-gem "importmap-rails"
 gem 'kenui', :git => 'https://github.com/kpbacode/killbill-email-notifications-ui.git', branch: 'master'

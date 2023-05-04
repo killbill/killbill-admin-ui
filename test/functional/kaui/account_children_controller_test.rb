@@ -3,7 +3,7 @@ require 'test_helper'
 class Kaui::AccountChildrenControllerTest < Kaui::FunctionalTestHelper
 
   test 'should get index' do
-    get :index, :account_id => @account.account_id
+    get :index, params: { :account_id => @account.account_id }
     assert_response :success
   end
 
@@ -19,7 +19,7 @@ class Kaui::AccountChildrenControllerTest < Kaui::FunctionalTestHelper
         :format => :json,
         :account_id => @account.account_id
     }
-    get :pagination, parameters
+    get :pagination, params: parameters
     assert_response :success
 
     body = MultiJson.decode(@response.body)

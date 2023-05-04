@@ -15,7 +15,7 @@ class Kaui::CustomFieldsControllerTest < Kaui::FunctionalTestHelper
 
   test 'should search custom fields' do
     # Test search
-    get :pagination, :search => {:search => 'foo'}, :format => :json
+    get :pagination, params: { :search => {:search => 'foo'}, :format => :json }
     verify_pagination_results!
   end
 
@@ -34,11 +34,13 @@ class Kaui::CustomFieldsControllerTest < Kaui::FunctionalTestHelper
         :INVALID => 0
     }.each do |object_type, object_id|
       post :create,
-           :custom_field => {
+           params: {
+             :custom_field => {
                :object_id => object_id,
                :object_type => object_type,
                :name => SecureRandom.uuid.to_s,
                :value => SecureRandom.uuid.to_s,
+             }
            }
       if object_type.eql?(:INVALID)
         assert_redirected_to custom_fields_path
@@ -56,11 +58,13 @@ class Kaui::CustomFieldsControllerTest < Kaui::FunctionalTestHelper
     assert_not_nil assigns(:custom_field)
 
     post :create,
-         custom_field: {
-           object_id: @account.account_id,
-           object_type: 'ACCOUNT',
-           name: SecureRandom.uuid.to_s,
-           value: SecureRandom.uuid.to_s
+         params: {
+           custom_field: {
+             object_id: @account.account_id,
+             object_type: 'ACCOUNT',
+             name: SecureRandom.uuid.to_s,
+             value: SecureRandom.uuid.to_s
+           }
          }
 
     assert_redirected_to custom_fields_path
@@ -69,7 +73,7 @@ class Kaui::CustomFieldsControllerTest < Kaui::FunctionalTestHelper
 
   test 'should get error duriing creation of custom field without params supplied' do
 
-    get :check_object_exist, as: :json
+    get :check_object_exist, params: { as: :json }
     assert_response 200
 
     json_response = JSON.parse(response.body)

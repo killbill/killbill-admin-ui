@@ -3,7 +3,7 @@ require 'test_helper'
 class Kaui::AccountTimelinesControllerTest < Kaui::FunctionalTestHelper
 
   test 'should show the timeline page' do
-    get :show, :account_id => @account.account_id
+    get :show, params: { :account_id => @account.account_id }
     assert_response 200
 
     assert_not_nil assigns(:account)

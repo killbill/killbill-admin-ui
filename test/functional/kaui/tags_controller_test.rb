@@ -9,13 +9,13 @@ class Kaui::TagsControllerTest < Kaui::FunctionalTestHelper
 
   test 'should list tags' do
     # Test pagination
-    get :pagination, :format => :json
+    get :pagination, params: { :format => :json }
     verify_pagination_results!
   end
 
   test 'should search tags' do
     # Test search
-    get :pagination, :search => {:search => 'foo'}, :format => :json
+    get :pagination, params: { :search => {:search => 'foo'}, :format => :json }
     verify_pagination_results!
   end
 end

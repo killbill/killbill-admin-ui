@@ -18,7 +18,7 @@ Kill Bill compatibility
 Dependencies
 ------------
 
-Ruby 2.7.6+ or JRuby 9.1.14.0+ required.
+Ruby 2.7.8+ or JRuby 9.1.14.0+ required.
 
 Running Kaui locally
 ---------------------

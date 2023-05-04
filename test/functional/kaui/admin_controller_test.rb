@@ -23,11 +23,11 @@ class Kaui::AdminControllerTest < Kaui::FunctionalTestHelper
     assert_response :success
 
     # update killbill clock
-    put :set_clock, :commit => 'Submit', :new_date => clock
+    put :set_clock, params: { :commit => 'Submit', :new_date => clock }
     assert_response :redirect
 
     # reset killbill clock
-    put :set_clock, :commit => nil
+    put :set_clock, params: { :commit => nil }
     assert_response :redirect
 
   end

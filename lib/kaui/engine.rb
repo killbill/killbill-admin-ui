@@ -32,11 +32,6 @@ module Kaui
   class Engine < ::Rails::Engine
     isolate_namespace Kaui
 
-    initializer "kaui_engine.importmap", before: "importmap" do |app|
-      app.config.importmap.paths << Engine.root.join("config/importmap.rb")
-    end
-
-
     initializer 'kaui_engine.action_controller' do |app|
       ActiveSupport.on_load :action_controller do
         helper Kaui::Engine.helpers

@@ -16,7 +16,7 @@ class Kaui::AccountCustomFieldsControllerTest < Kaui::FunctionalTestHelper
 
 
     # get custom field list
-    get :index, :account_id => new_account.account_id
+    get :index, params: { :account_id => new_account.account_id }
     assert_response :success
     custom_fields_from_response = get_value_from_input_field('custom-fields').gsub!('&quot;','"');
     assert_not_nil custom_fields_from_response

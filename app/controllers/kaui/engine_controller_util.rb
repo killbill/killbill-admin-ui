@@ -87,6 +87,9 @@ module Kaui::EngineControllerUtil
   def as_string(e)
     if e.is_a?(KillBillClient::API::ResponseError)
       as_string_from_response(e.response.body)
+    elsif e.is_a?(ActionController::ParameterMissing)
+      # e.message contains corrections, which we don't want
+      "missing parameter #{e.param}"
     elsif e.respond_to?(:cause) && !e.cause.nil?
       as_string(e.cause)
     else

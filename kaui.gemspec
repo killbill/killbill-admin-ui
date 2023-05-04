@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*'] + %w(MIT-LICENSE Rakefile README.md)
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'rails', '~> 6.0.6'
+  s.add_dependency 'rails', '~> 6.1'
   s.add_dependency 'd3-rails'
   s.add_dependency 'spinjs-rails'
   s.add_dependency 'js-routes'
@@ -50,7 +50,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'pg'
   s.add_dependency 'font-awesome-sass'
   s.add_dependency 'popper_js', '~> 2.11.5'
-  s.add_dependency 'importmap-rails'
 
   s.add_development_dependency 'rails-controller-testing'
   s.add_development_dependency 'multi_json'
@@ -65,4 +64,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'flamegraph'
   s.add_development_dependency 'stackprof'
 
+  # This silences warnings, see https://github.com/ruby/net-imap/issues/16#issuecomment-803086765
+  # TODO: Update to Ruby 3.x as an alternative.
+  s.add_development_dependency "net-http"
 end

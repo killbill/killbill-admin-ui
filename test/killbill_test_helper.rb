@@ -28,7 +28,7 @@ module Kaui
       @bundle            = create_bundle(@account, @tenant)
       @invoice_item      = create_charge(@account, @tenant)
       @paid_invoice_item = create_charge(@account, @tenant, true)
-      @bundle_invoice    = @account.invoices(build_options(@tenant)).first
+      @bundle_invoice    = @account.invoices({ params: { includeInvoiceComponents: true } }.merge(build_options(@tenant))).first
       @payment_method    = create_payment_method(true, @account, @tenant)
       @payment           = create_payment(@paid_invoice_item, @account, @tenant)
 

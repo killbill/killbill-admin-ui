@@ -15,7 +15,7 @@ class Kaui::TenantsControllerTest < Kaui::FunctionalTestHelperNoSetup
   #
   test 'should get index with 0 tenant with NO KillBillClient.api_key set' do
     setup_functional_test(0, false)
-    get :index, :use_route => 'kaui'
+    get :index, params: { :use_route => 'kaui' }
     # Sign-up flow
     assert_redirected_to new_admin_tenant_path
   end
@@ -25,7 +25,7 @@ class Kaui::TenantsControllerTest < Kaui::FunctionalTestHelperNoSetup
   #
   test 'should get index with 0 tenant with KillBillClient.api_key set' do
     setup_functional_test(0)
-    get :index, :use_route => 'kaui'
+    get :index, params: { :use_route => 'kaui' }
     assert_response 302
     assert_redirected_to Kaui::IntegrationTestHelper::HOME_PATH
     assert_equal 'Signed in successfully.', flash[:notice]
@@ -36,7 +36,7 @@ class Kaui::TenantsControllerTest < Kaui::FunctionalTestHelperNoSetup
   #
   test 'should get index with 1 tenant' do
     setup_functional_test(1)
-    get :index, :use_route => 'kaui'
+    get :index, params: { :use_route => 'kaui' }
     assert_includes (200..399), response.code.to_i
     assert_equal 'Signed in successfully.', flash[:notice]
   end
@@ -47,14 +47,14 @@ class Kaui::TenantsControllerTest < Kaui::FunctionalTestHelperNoSetup
   #
   test 'should get index with 2 tenant' do
     setup_functional_test(2)
-    get :index, :use_route => 'kaui'
+    get :index, params: { :use_route => 'kaui' }
     assert_response :success
     assert_equal 'Signed in successfully.', flash[:notice]
   end
 
   test 'should select a tenant' do
     setup_functional_test
-    post :select_tenant, :kb_tenant_id => session[:kb_tenant_id]
+    post :select_tenant, params: { :kb_tenant_id => session[:kb_tenant_id] }
     assert_redirected_to Kaui::IntegrationTestHelper::HOME_PATH
   end
 end

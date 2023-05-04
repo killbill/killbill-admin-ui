@@ -14,15 +14,17 @@ class Kaui::TagDefinitionsControllerTest < Kaui::FunctionalTestHelper
 
     tag_definition = SecureRandom.uuid[0..5]
     post :create,
-         :tag_definition => {
-             :name        => tag_definition,
+         params: {
+           :tag_definition => {
+             :name => tag_definition,
              :description => SecureRandom.uuid,
-             :applicable_object_types => {"0" => "ACCOUNT"}
+             :applicable_object_types => { "0" => "ACCOUNT" }
+           }
          }
     assert_redirected_to tag_definitions_path
     assert_equal 'Tag definition successfully created', flash[:notice]
 
-    delete :destroy, :id => assigns(:tag_definition).id
+    delete :destroy, params: { :id => assigns(:tag_definition).id }
     assert_redirected_to tag_definitions_path
     assert_equal 'Tag definition successfully deleted', flash[:notice]
   end

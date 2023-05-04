@@ -13,7 +13,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
       :q => @account.account_id
     }
 
-    get :index, parameters
+    get :index, params: parameters
     assert_response :redirect
     assert_redirected_to account_path(@account.account_id)
 
@@ -22,32 +22,32 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
         :q => 'THIS_IS_NOT_FOUND_REDIRECT'
     }
 
-    get :index, parameters
+    get :index, params: parameters
     assert_response :redirect
     assert_redirected_to home_path
   end
 
   test 'should list accounts' do
     # Test pagination
-    get :pagination, :format => :json
+    get :pagination, params: { :format => :json }
     verify_pagination_results!
   end
 
   test 'should search accounts' do
     # Test search
-    get :pagination, :sSearch => 'foo', :format => :json
+    get :pagination, params: { :sSearch => 'foo', :format => :json }
     verify_pagination_results!
   end
 
   test 'should handle Kill Bill errors when showing account details' do
     account_id = SecureRandom.uuid.to_s
-    get :show, :account_id => account_id
+    get :show, params: { :account_id => account_id }
     assert_redirected_to home_path
     assert_equal "Error while communicating with the Kill Bill server: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
   end
 
   test 'should find account by id' do
-    get :show, :account_id => @account.account_id
+    get :show, params: { :account_id => @account.account_id }
     assert_response 200
     assert_not_nil assigns(:tags)
     assert_not_nil assigns(:account_emails)
@@ -56,7 +56,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
   end
 
   test 'should check that overdue state is Good' do
-    get :show, :account_id => @account.account_id
+    get :show, params: { :account_id => @account.account_id }
     assert_response 200
 
     overdue_status_proc_count = 0
@@ -96,10 +96,10 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     assert_equal 'Required parameter missing: account', flash[:error]
 
     external_key = SecureRandom.uuid.to_s
-    post :create, :account => {:external_key => external_key}
+    post :create, params: { :account => {:external_key => external_key} }
     assert_redirected_to account_path(assigns(:account).account_id)
 
-    post :create, :account => {:external_key => external_key}
+    post :create, params: { :account => {:external_key => external_key} }
     assert_template :new
     assert_equal "Error while creating account: Account already exists for key #{external_key}", flash[:error]
   end
@@ -110,13 +110,15 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
     assert_not_nil assigns(:account)
 
     post :create,
-         :account => {
+         params: {
+           :account => {
              :name => SecureRandom.uuid.to_s,
              :external_key => SecureRandom.uuid.to_s,
              :email => SecureRandom.uuid.to_s + '@example.com',
              :time_zone => '-06:00',
              :country => 'AR',
              :is_migrated => '1'
+           }
          }
     assert_redirected_to account_path(assigns(:account).account_id)
     assert_equal 'Account was successfully created', flash[:notice]
@@ -127,48 +129,50 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
   end
 
   test 'should update account' do
-    get :edit, :account_id => @account.account_id
+    get :edit, params: { :account_id => @account.account_id }
     assert_response 200
     assert_not_nil assigns(:account)
 
     latest_account_attributes = assigns(:account).to_hash
     put :update,
-        :account_id => @account.account_id,
-        :account => latest_account_attributes.merge({
-            :name => SecureRandom.uuid.to_s,
-            :email => SecureRandom.uuid.to_s + '@example.com'
-        })
+        params: {
+          :account_id => @account.account_id,
+          :account => latest_account_attributes.merge({
+                                                        :name => SecureRandom.uuid.to_s,
+                                                        :email => SecureRandom.uuid.to_s + '@example.com'
+                                                      })
+        }
     assert_redirected_to account_path(assigns(:account).account_id)
     assert_equal 'Account successfully updated', flash[:notice]
   end
 
   test 'should be redirected if no payment_method_id is specified when setting default payment method' do
-    put :set_default_payment_method, :account_id => @account.account_id
+    put :set_default_payment_method, params: { :account_id => @account.account_id }
     assert_redirected_to account_path(@account.account_id)
     assert_equal 'Required parameter missing: payment_method_id', flash[:error]
   end
 
   test 'should handle Kill Bill errors when setting default payment method' do
     account_id = SecureRandom.uuid.to_s
-    put :set_default_payment_method, :account_id => account_id, :payment_method_id => @payment_method.payment_method_id
+    put :set_default_payment_method, params: { :account_id => account_id, :payment_method_id => @payment_method.payment_method_id }
     assert_redirected_to home_path
     assert_equal "Error while communicating with the Kill Bill server: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
   end
 
   test 'should set default payment method' do
-    put :set_default_payment_method, :account_id => @account.account_id, :payment_method_id => @payment_method.payment_method_id
+    put :set_default_payment_method, params: { :account_id => @account.account_id, :payment_method_id => @payment_method.payment_method_id }
     assert_response 302
   end
 
   test 'should handle Kill Bill errors when paying all invoices' do
     account_id = SecureRandom.uuid.to_s
-    post :pay_all_invoices, :account_id => account_id
+    post :pay_all_invoices, params: { :account_id => account_id }
     assert_redirected_to home_path
     assert_equal "Error while communicating with the Kill Bill server: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
   end
 
   test 'should pay all invoices' do
-    post :pay_all_invoices, :account_id => @account.account_id, :is_external_payment => true
+    post :pay_all_invoices, params: { :account_id => @account.account_id, :is_external_payment => true }
     assert_response 302
   end
 
@@ -181,7 +185,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
       :dry_run => '0'
     }
 
-    post :trigger_invoice, parameters
+    post :trigger_invoice, params: parameters
     assert_equal 'Nothing to generate for target date today', flash[:notice]
     assert_redirected_to account_path(account.account_id)
 
@@ -193,7 +197,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
       :target_date => today_next_month
     }
 
-    post :trigger_invoice, parameters
+    post :trigger_invoice, params: parameters
     assert_response :success
     assert_select 'table tbody tr:first' do
       assert_select 'td:first', "sports-monthly-evergreen"
@@ -203,7 +207,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
 
     # persist it
     parameters[:dry_run] = '0'
-    post :trigger_invoice, parameters
+    post :trigger_invoice, params: parameters
     assert_response :redirect
     assert_match(/Generated invoice.*for target date.*/, flash[:notice])
     a_tag = (/<a.href="(?<href>.*?)">/).match(@response.body)
@@ -211,20 +215,20 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
   end
 
   test 'should get next_invoice_date' do
-    get :next_invoice_date, :account_id => @account.account_id
+    get :next_invoice_date, params: { :account_id => @account.account_id }
     assert_not_nil @response.body
   end
 
   test 'should validate external key if found' do
-    get :validate_external_key, :external_key => 'foo'
+    get :validate_external_key, params: { :external_key => 'foo' }
     assert_response :success
     assert_equal JSON[@response.body]['is_found'], false
 
     external_key = SecureRandom.uuid.to_s
-    post :create, :account => {:external_key => external_key}
+    post :create, params: { :account => {:external_key => external_key} }
     assert_redirected_to account_path(get_redirected_account_id)
 
-    get :validate_external_key, :external_key => external_key
+    get :validate_external_key, params: { :external_key => external_key }
     assert_response :success
     assert_equal JSON[@response.body]['is_found'], true
   end
@@ -235,24 +239,26 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
 
     # force an error linking a parent account
     child.parent_account_id = SecureRandom.uuid.to_s
-    put :link_to_parent, {
-        :account => child.to_hash,
-        :account_id => child.account_id
-    }
+    put :link_to_parent,
+        params: {
+          :account => child.to_hash,
+          :account_id => child.account_id
+        }
     assert_equal "Parent account id not found: #{child.parent_account_id}",flash[:error]
     assert_redirected_to account_path(child.account_id)
 
     # link parent account
     child.parent_account_id = parent.account_id
-    put :link_to_parent, {
-        :account => child.to_hash,
-        :account_id => child.account_id
-    }
+    put :link_to_parent,
+        params: {
+          :account => child.to_hash,
+          :account_id => child.account_id
+        }
     assert_equal 'Account successfully updated',flash[:notice]
     assert_redirected_to account_path(child.account_id)
 
     # un-link parent account
-    delete :link_to_parent, :account_id => child.account_id
+    delete :link_to_parent, params: { :account_id => child.account_id }
     assert_equal 'Account successfully updated',flash[:notice]
     assert_redirected_to account_path(child.account_id)
 
@@ -267,7 +273,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
         }
     }
 
-    post :set_email_notifications_configuration, parameters
+    post :set_email_notifications_configuration, params: parameters
     assert_equal('Email notification plugin is not installed',flash[:error]) unless flash[:error].blank?
     assert_equal("Email notifications for account #{@account.account_id} was successfully updated",flash[:notice]) if flash[:error].blank?
     assert_redirected_to account_path(@account.account_id)
@@ -277,7 +283,7 @@ class Kaui::AccountsControllerTest < Kaui::FunctionalTestHelper
   test 'should close an account' do
     account_to_be_closed = create_account(@tenant)
 
-    delete :destroy, :account_id => account_to_be_closed.account_id
+    delete :destroy, params: { :account_id => account_to_be_closed.account_id }
     assert_redirected_to account_path(account_to_be_closed.account_id)
     assert_equal "Account #{account_to_be_closed.account_id} successfully closed", flash[:notice]
 
