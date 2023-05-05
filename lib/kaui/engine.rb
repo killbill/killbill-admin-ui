@@ -27,7 +27,6 @@ require 'd3-rails'
 require 'spinjs-rails'
 require 'popper_js'
 
-
 module Kaui
   class Engine < ::Rails::Engine
     isolate_namespace Kaui

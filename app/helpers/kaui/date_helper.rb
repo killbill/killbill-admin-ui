@@ -16,7 +16,7 @@ module Kaui
 
       # If not, convert into account timezone and return the date part only
       parsed_date = DateTime.parse(date.to_s).in_time_zone(timezone)
-      parsed_date.to_s(:date_only)
+      parsed_date.to_fs(:date_only)
     end
 
     def truncate_millis(date_s)

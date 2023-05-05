@@ -26,9 +26,6 @@
 
 // Kanaui
 //= require js-routes
-// Required by log4javascript
-//= require jquery-ui/widgets/autocomplete
-//= require log4javascript
 //= require  spin
 //= require  jquery.spin
 //= link spin.js

@@ -1,5 +1,8 @@
 require 'killbill_client'
 
+# Hack for Zeitwerk
+module Kaui::KillbillAuthenticatable; end
+
 module Devise
   module Models
     module KillbillAuthenticatable

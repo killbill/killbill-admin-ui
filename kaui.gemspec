@@ -8,18 +8,18 @@ Gem::Specification.new do |s|
   s.summary = 'Killbill Admin UI mountable engine'
   s.description = 'Rails UI plugin for Killbill administration.'
 
-  s.required_ruby_version = '>= 2.5.0'
+  s.required_ruby_version = '>= 2.7.0'
 
   s.license = 'Apache License (2.0)'
 
-  s.author = 'Killbill core team'
+  s.author = 'Kill Bill core team'
   s.email = 'killbilling-users@googlegroups.com'
   s.homepage = 'https://killbill.io'
 
   s.files = Dir['{app,config,db,lib}/**/*'] + %w(MIT-LICENSE Rakefile README.md)
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'rails', '~> 6.1'
+  s.add_dependency 'rails', '~> 7.0'
   s.add_dependency 'd3-rails'
   s.add_dependency 'spinjs-rails'
   s.add_dependency 'js-routes'
@@ -46,8 +46,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'mustache-js-rails'
   s.add_dependency 'actionpack'
   s.add_dependency 'bootsnap'
-  s.add_dependency 'mysql2'
-  s.add_dependency 'pg'
   s.add_dependency 'font-awesome-sass'
   s.add_dependency 'popper_js', '~> 2.11.5'
 
@@ -60,11 +58,16 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'listen'
   s.add_development_dependency 'puma'
   s.add_development_dependency 'gem-release'
-  s.add_development_dependency 'rack-mini-profiler'
-  s.add_development_dependency 'flamegraph'
-  s.add_development_dependency 'stackprof'
 
-  # This silences warnings, see https://github.com/ruby/net-imap/issues/16#issuecomment-803086765
-  # TODO: Update to Ruby 3.x as an alternative.
-  s.add_development_dependency "net-http"
+  unless defined?(JRUBY_VERSION)
+    # https://github.com/deivid-rodriguez/byebug/issues/84
+    s.add_development_dependency 'byebug'
+
+    s.add_development_dependency 'mysql2'
+    s.add_development_dependency 'pg'
+
+    s.add_development_dependency 'rack-mini-profiler'
+    s.add_development_dependency 'flamegraph'
+    s.add_development_dependency 'stackprof'
+  end
 end

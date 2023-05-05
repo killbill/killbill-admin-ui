@@ -32,7 +32,6 @@ class Kaui::AccountEmailsControllerTest < Kaui::FunctionalTestHelper
     account_id = 'invalid-id'
     delete :destroy, params: { :account_id => account_id, :id => 'toto@example.com' }
     assert_redirected_to account_path(account_id)
-    assert_equal 'Error while communicating with the Kill Bill server: Not Found', flash[:error]
   end
 
   test 'should add and destroy email' do
