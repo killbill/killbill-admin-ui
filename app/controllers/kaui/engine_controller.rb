@@ -28,7 +28,7 @@ class Kaui::EngineController < ApplicationController
   end
 
   def check_for_redirect_to_tenant_screen
-    unless Kaui.is_user_assigned_valid_tenant?(current_user, session)
+    unless Kaui.user_assigned_valid_tenant?(current_user, session)
       session[:kb_tenant_id] = nil
       redirect_to Kaui.tenant_home_path.call
     end

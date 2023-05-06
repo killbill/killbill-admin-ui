@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Dependencies
 #
 # Sigh. Rails autoloads the gems specified in the Gemfile and nothing else.
@@ -31,7 +33,7 @@ module Kaui
   class Engine < ::Rails::Engine
     isolate_namespace Kaui
 
-    initializer 'kaui_engine.action_controller' do |app|
+    initializer 'kaui_engine.action_controller' do |_app|
       ActiveSupport.on_load :action_controller do
         helper Kaui::Engine.helpers
       end

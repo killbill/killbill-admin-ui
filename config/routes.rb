@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ActionDispatch
   module Routing
     class Mapper
@@ -14,13 +16,12 @@ module ActionDispatch
 end
 
 Kaui::Engine.routes.draw do
-
   devise_for :users,
-             :class_name => 'Kaui::User',
-             :module => :devise,
-             :controllers => { :sessions => 'kaui/sessions', :registrations => 'kaui/registrations' }
+             class_name: 'Kaui::User',
+             module: :devise,
+             controllers: { sessions: 'kaui/sessions', registrations: 'kaui/registrations' }
 
-  root :to => 'home#index', as: 'kaui'
+  root to: 'home#index', as: 'kaui'
 
   scope '/accounts' do
     match '/pagination' => 'accounts#pagination', :via => :get, :as => 'accounts_pagination'
@@ -65,7 +66,7 @@ Kaui::Engine.routes.draw do
       end
     end
   end
-  resources :accounts, :only => [ :index, :new, :create, :edit, :update, :show, :destroy ], :param => :account_id do
+  resources :accounts, only: %i[index new create edit update show destroy], param: :account_id do
     member do
       put :set_default_payment_method
       delete :delete_payment_method
@@ -74,25 +75,25 @@ Kaui::Engine.routes.draw do
     end
 
     # The id is the email itself
-    resources :account_emails, :only => [:new, :create, :destroy], :constraints => { :id => /[\w+\-;@\.]+/ }, :path => 'emails'
-    resources :bundles, :only => [:index]
-    resources :charges, :only => [:new, :create]
-    resources :chargebacks, :only => [:new, :create]
-    resources :credits, :only => [:new, :create]
-    resources :invoices, :only => [:index, :show]
-    resources :invoice_items, :only => [:edit]
-    resources :payments, :only => [:index, :show, :new, :create]
-    resources :refunds, :only => [:new, :create]
-    resources :transactions, :only => [:new, :create]
-    resources :queues, :only => [:index]
-    resources :audit_logs, :only => [:index]
+    resources :account_emails, only: %i[new create destroy], constraints: { id: /[\w+\-;@.]+/ }, path: 'emails'
+    resources :bundles, only: [:index]
+    resources :charges, only: %i[new create]
+    resources :chargebacks, only: %i[new create]
+    resources :credits, only: %i[new create]
+    resources :invoices, only: %i[index show]
+    resources :invoice_items, only: [:edit]
+    resources :payments, only: %i[index show new create]
+    resources :refunds, only: %i[new create]
+    resources :transactions, only: %i[new create]
+    resources :queues, only: [:index]
+    resources :audit_logs, only: [:index]
   end
 
   scope '/payment_methods' do
     match '/validate_external_key' => 'payment_methods#validate_external_key', :via => :get, :as => 'payment_methods_validate_external_key'
     match '/refresh' => 'payment_methods#refresh', :via => :post, :as => 'refresh_payment_methods'
   end
-  resources :payment_methods, :only => [:new, :create, :show, :destroy]
+  resources :payment_methods, only: %i[new create show destroy]
 
   scope '/invoices' do
     match '/pagination' => 'invoices#pagination', :via => :get, :as => 'invoices_pagination'
@@ -101,19 +102,19 @@ Kaui::Engine.routes.draw do
     match '/commit' => 'invoices#commit_invoice', :via => :post, :as => 'commit_invoice'
     match '/void' => 'invoices#void_invoice', :via => :delete, :as => 'void_invoice'
   end
-  resources :invoices, :only => [ :index ]
+  resources :invoices, only: [:index]
 
   scope '/invoice_items' do
     match '/:id/tags' => 'invoice_items#update_tags', :via => :post, :as => 'update_invoice_items_tags'
   end
-  resources :invoice_items, :only => [:update, :destroy]
+  resources :invoice_items, only: %i[update destroy]
 
   scope '/payments' do
     match '/pagination' => 'payments#pagination', :via => :get, :as => 'payments_pagination'
     match '/:id' => 'payments#restful_show', :via => :get, :as => 'payment'
     match '/:id/cancel_scheduled_payment' => 'payments#cancel_scheduled_payment', :via => :delete, :as => 'payment_cancel_scheduled_payment'
   end
-  resources :payments, :only => [ :index ]
+  resources :payments, only: [:index]
 
   scope '/transactions' do
     match '/:id' => 'transactions#restful_show', :via => :get, :as => 'transaction'
@@ -121,10 +122,10 @@ Kaui::Engine.routes.draw do
   end
 
   scope '/bundles' do
-    put '/:id/do_pause_resume', :to => 'bundles#do_pause_resume', :as => 'do_pause_resume_bundle'
-    get '/:id/pause_resume', :to => 'bundles#pause_resume', :as => 'pause_resume_bundle'
-    put '/:id/do_transfer', :to => 'bundles#do_transfer', :as => 'do_transfer_bundle'
-    get '/:id/transfer', :to => 'bundles#transfer', :as => 'transfer_bundle'
+    put '/:id/do_pause_resume', to: 'bundles#do_pause_resume', as: 'do_pause_resume_bundle'
+    get '/:id/pause_resume', to: 'bundles#pause_resume', as: 'pause_resume_bundle'
+    put '/:id/do_transfer', to: 'bundles#do_transfer', as: 'do_transfer_bundle'
+    get '/:id/transfer', to: 'bundles#transfer', as: 'transfer_bundle'
     match '/:id' => 'bundles#restful_show', :via => :get, :as => 'bundle'
   end
 
@@ -136,21 +137,20 @@ Kaui::Engine.routes.draw do
     match '/validate_external_key' => 'subscriptions#validate_external_key', :via => :get, :as => 'subscriptions_validate_external_key'
     match '/validate_bundle_external_key' => 'subscriptions#validate_bundle_external_key', :via => :get, :as => 'subscriptions_validate_bundle_external_key'
   end
-  resources :subscriptions, :only => [:new, :create, :show, :edit, :update, :destroy]
+  resources :subscriptions, only: %i[new create show edit update destroy]
 
   scope '/tags' do
     match '/pagination' => 'tags#pagination', :via => :get, :as => 'tags_pagination'
   end
-  resources :tags, :only => [:index]
+  resources :tags, only: [:index]
 
-  resources :tag_definitions, :only => [:index, :new, :create, :destroy]
+  resources :tag_definitions, only: %i[index new create destroy]
 
   scope '/custom_fields' do
     match '/pagination' => 'custom_fields#pagination', :via => :get, :as => 'custom_fields_pagination'
     match '/check_object_exist' => 'custom_fields#check_object_exist', :via => :get, :as => 'custom_fields_check_object_exist'
-
   end
-  resources :custom_fields, :only => [:index, :new, :create, :check_object_exist]
+  resources :custom_fields, only: %i[index new create check_object_exist]
 
   scope '/tenants' do
     match '/' => 'tenants#index', :via => :get, :as => 'tenants'
@@ -197,12 +197,12 @@ Kaui::Engine.routes.draw do
     match '/switch' => 'admin_tenants#switch_tenant', :via => :get, :as => 'switch_tenant'
     match '/:id/download_catalog' => 'admin_tenants#download_catalog_xml', :via => :get, :as => 'download_catalog_xml'
   end
-  resources :admin_tenants, :only => [ :index, :new, :create, :show ]
+  resources :admin_tenants, only: %i[index new create show]
 
   resources :admin_allowed_users
   scope '/admin_allowed_users' do
     match '/add_tenant' => 'admin_allowed_users#add_tenant', :via => :post, :as => 'add_tenant'
   end
 
-  resources :role_definitions, :only => [ :new, :create ]
+  resources :role_definitions, only: %i[new create]
 end

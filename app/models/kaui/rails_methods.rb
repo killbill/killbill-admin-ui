@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Kaui
   module RailsMethods
-
     def self.included(base_class)
       base_class.class_eval do
         # Required to build urls in views
@@ -10,7 +11,7 @@ module Kaui
         include ActiveModel::Conversion
 
         def ==(other)
-          !other.nil? && self.class == other.class && self.to_hash == other.to_hash
+          !other.nil? && self.class == other.class && to_hash == other.to_hash
         end
 
         def persisted?
@@ -36,7 +37,7 @@ module Kaui
           false
         end
 
-        def update_attributes(tag_definition)
+        def update_attributes(_tag_definition)
           @errors.add(:update, 'Updating this object is not yet supported')
           false
         end
@@ -45,11 +46,10 @@ module Kaui
           @errors.add(:destroy, 'Destroying this object is not yet supported')
           false
         end
-
-      end # end instance methods
+      end
 
       base_class.instance_eval do
-        def self.human_attribute_name(attr, options = {})
+        def self.human_attribute_name(attr, _options = {})
           attr
         end
 
@@ -65,10 +65,10 @@ module Kaui
           all.count
         end
 
-        def self.find(id)
+        def self.find(_id)
           nil
         end
-      end # end class methods
-    end # end def included
+      end
+    end
   end
 end

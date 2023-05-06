@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Kaui
   class IntegrationTestHelper < ActionDispatch::IntegrationTest
     include Devise::Test::IntegrationHelpers
@@ -5,9 +7,9 @@ module Kaui
     BASE_PATH     = '/kaui'
     TENANTS_PATH  = '/kaui/tenants'
     HOME_PATH     = '/kaui/home'
-    SIGN_IN_PATH  = BASE_PATH + '/users/sign_in'
-    SIGN_OUT_PATH = BASE_PATH + '/users/sign_out'
-    ACCOUNTS_PATH = BASE_PATH + '/accounts'
+    SIGN_IN_PATH  = "#{BASE_PATH}/users/sign_in".freeze
+    SIGN_OUT_PATH = "#{BASE_PATH}/users/sign_out".freeze
+    ACCOUNTS_PATH = "#{BASE_PATH}/accounts".freeze
 
     include KillbillTestHelper
 
@@ -24,10 +26,9 @@ module Kaui
     protected
 
     def setup_integration_test
-      setup_test_data
+      setup_test_data(1, true)
     end
 
-    def teardown_integration_test
-    end
+    def teardown_integration_test; end
   end
 end

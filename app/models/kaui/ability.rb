@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Kaui
   class Ability
     include CanCan::Ability
@@ -14,19 +16,28 @@ module Kaui
         # permission is something like invoice:item_adjust or payment:refund
         # We rely on a naming convention where the left part refers to a Kaui model
         model, action = permission_to_model_action(permission)
-        if model == '*' and action == '*'
+        if (model == '*') && (action == '*')
           # All permissions!
           can :manage, :all
-        elsif model == '*' and action != '*'
+        elsif (model == '*') && (action != '*')
           # TODO
         elsif action == '*'
-          # TODO Not sure the :all is really working (but we don't use it)
-          can :all, ('Kaui::' + model.camelize).constantize rescue nil
+          # TODO: Not sure the :all is really working (but we don't use it)
+          begin
+            can :all, "Kaui::#{model.camelize}".constantize
+          rescue StandardError
+            nil
+          end
         else
-          can action.to_sym, ('Kaui::' + model.camelize).constantize rescue nil
+          begin
+            can action.to_sym, "Kaui::#{model.camelize}".constantize
+          rescue StandardError
+            nil
+          end
         end
       end
-    rescue KillBillClient::API::Unauthorized => _
+    rescue KillBillClient::API::Unauthorized => _e
+      nil
     end
 
     def permission_to_model_action(permission)
@@ -39,12 +50,8 @@ module Kaui
       #
       to_be_model, action = permission.split(':')
       # Currently the only actions implemented for overdue and catalog (upload_config) are those implemented at the tenant level:
-      if %w(tenant overdue catalog).include?(to_be_model)
-        to_be_model = 'admin_tenant'
-      end
-      if to_be_model == 'entitlement'
-        to_be_model = 'subscription'
-      end
+      to_be_model = 'admin_tenant' if %w[tenant overdue catalog].include?(to_be_model)
+      to_be_model = 'subscription' if to_be_model == 'entitlement'
 
       [to_be_model, action]
     end

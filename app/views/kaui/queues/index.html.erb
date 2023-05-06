@@ -36,7 +36,7 @@
                     <tr>
                 <% end %>
                   <td><%= truncate_millis(bus_event['createdDate']) %></td>
-                  <td><%= truncate_class_name(bus_event['className']) %></td>
+                  <td><%= truncate_class_name(bus_event['className'], false) %></td>
                   <td><%= "<pre>#{JSON.pretty_generate(bus_event['event'])}</pre>".html_safe %></td>
                   <td><%= object_id_popover(bus_event['userToken'], 'left') %></td>
                   <% if @account_id.blank? %>

@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Kaui
   module DateHelper
-
     LOCAL_DATE_RE = /^\d+-\d+-\d+$/
 
     def format_date(date, timezone)
@@ -30,7 +31,7 @@ module Kaui
     # +time_zone+:: The time zone of the current time to return.
     # +options+:: A hash that contains credentials needed to retrieve the time from the
     #             killbill server.
-    def current_time(time_zone=nil, options=nil)
+    def current_time(time_zone = nil, options = nil)
       current_utc_time = nil
       begin
         # fetch time from killbill server

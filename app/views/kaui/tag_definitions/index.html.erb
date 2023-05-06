@@ -25,10 +25,10 @@
             <td><%= object_id_popover(tag_definition.id) %></td>
             <td><%= tag_definition.name %></td>
             <td><%= tag_definition.description %></td>
-            <td><%= tag_definition.is_system_tag? %></td>
+            <td><%= tag_definition.system_tag? %></td>
             <td><%= tag_definition.pretty_applicable_object_types %></td>
             <td>
-              <% unless tag_definition.is_system_tag? %>
+              <% unless tag_definition.system_tag? %>
                   <%= link_to 'Destroy', kaui_engine.tag_definition_path(tag_definition.id), :confirm => 'Are you sure?', :method => :delete %>
               <% end %>
             </td>

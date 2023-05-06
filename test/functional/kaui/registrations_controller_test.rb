@@ -1,15 +1,16 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 module Kaui
   class RegistrationsControllerTest < Kaui::FunctionalTestHelper
-
     test 'should get new' do
       logout
 
       get :new
       assert_response :success
-      assert has_input_field('user_kb_username'), 'Expected input with id user_kb_username not found'
-      assert has_input_field('user_password'), 'Expected input with id user_password not found'
+      assert input_field?('user_kb_username'), 'Expected input with id user_kb_username not found'
+      assert input_field?('user_password'), 'Expected input with id user_password not found'
     end
 
     test 'should get create' do
@@ -19,9 +20,9 @@ module Kaui
       Kaui.disable_sign_up_link = false
 
       parameters = {
-        :user => {
-          :kb_username => 'Voltron',
-          :password => 'Voltron'
+        user: {
+          kb_username: 'Voltron',
+          password: 'Voltron'
         }
       }
       post :create, params: parameters
@@ -44,6 +45,5 @@ module Kaui
       # validate redirect path
       assert response_path.include?('/users/sign_in'), "#{response_path} is expected to contain /users/sign_in"
     end
-
   end
 end
