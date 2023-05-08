@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup git user
         env:
           BUILD_USER: ${{ secrets.BUILD_USER }}
@@ -24,7 +24,7 @@ jobs:
           git config --global url."https://${BUILD_USER}:${BUILD_TOKEN}@github.com/".insteadOf "git@github.com:"
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.7.5'
+          ruby-version: '3.2.2'
       - name: Download Ruby dependencies
         run: |
           bundle install

@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Kaui
   module KillbillTestHelper
-
     USERNAME = 'admin'
     PASSWORD = 'password'
 
@@ -10,8 +11,8 @@ module Kaui
 
     def check_no_flash_error
       unless flash.now.nil?
-        assert_nil flash.now[:alert], 'Found flash alert: ' + flash.now[:alert].to_s
-        assert_nil flash.now[:error], 'Found flash error: ' + flash.now[:error].to_s
+        assert_nil flash.now[:alert], "Found flash alert: #{flash.now[:alert]}"
+        assert_nil flash.now[:error], "Found flash error: #{flash.now[:error]}"
       end
       assert_nil flash[:alert]
       assert_nil flash[:error]
@@ -21,14 +22,14 @@ module Kaui
     # Kill Bill specific helpers
     #
 
-    def setup_test_data(nb_configured_tenants =  1, setup_tenant_key_secret = true)
+    def setup_test_data(nb_configured_tenants, setup_tenant_key_secret)
       @tenant            = setup_and_create_test_tenant(nb_configured_tenants)
       @account           = create_account(@tenant)
       @account2          = create_account(@tenant)
       @bundle            = create_bundle(@account, @tenant)
       @invoice_item      = create_charge(@account, @tenant)
       @paid_invoice_item = create_charge(@account, @tenant, true)
-      @bundle_invoice    = @account.invoices(build_options(@tenant)).first
+      @bundle_invoice    = @account.invoices({ params: { includeInvoiceComponents: true } }.merge(build_options(@tenant))).first
       @payment_method    = create_payment_method(true, @account, @tenant)
       @payment           = create_payment(@paid_invoice_item, @account, @tenant)
 
@@ -49,11 +50,8 @@ module Kaui
     end
 
     def setup_and_create_test_tenant(nb_configured_tenants)
-
       # If we need to configure 0 tenant, we still create one with Kill Bill but add nothing in the kaui_tenants and kaui_allowed_users tables
-      if nb_configured_tenants == 0
-        return create_tenant
-      end
+      return create_tenant if nb_configured_tenants.zero?
 
       # Setup AllowedUser
       au = Kaui::AllowedUser.find_or_create_by(kb_username: 'admin')
@@ -61,7 +59,7 @@ module Kaui
       # Create the tenant with Kill Bill
       all_tenants = []
       test_tenant = nil
-      (1..nb_configured_tenants).each do |i|
+      (1..nb_configured_tenants).each do |_i|
         cur_tenant = create_tenant
         test_tenant = cur_tenant if test_tenant.nil?
 
@@ -75,7 +73,7 @@ module Kaui
       end
 
       # setup kaui_tenants
-      all_tenants.each { |e| au.kaui_tenants  << e } if all_tenants.size > 0
+      all_tenants.each { |e| au.kaui_tenants << e } unless all_tenants.empty?
       test_tenant
     end
 
@@ -92,7 +90,7 @@ module Kaui
       account.time_zone                = 'UTC'
       account.address1                 = '5, ruby road'
       account.address2                 = 'Apt 4'
-      account.postal_code              = 10293
+      account.postal_code              = 10_293
       account.company                  = 'KillBill, Inc.'
       account.city                     = 'SnakeCase'
       account.state                    = 'Awesome'
@@ -106,7 +104,7 @@ module Kaui
 
     # Return the killbill server clock
     def get_clock(tenant = nil)
-      tenant  = create_tenant(user, reason, comment) if tenant.nil?
+      tenant = create_tenant(user, reason, comment) if tenant.nil?
       Kaui::Admin.get_clock(nil, build_options(tenant, USERNAME, PASSWORD))
     end
 
@@ -120,27 +118,30 @@ module Kaui
       tenant  = create_tenant(user, reason, comment) if tenant.nil?
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
 
-      entitlement = KillBillClient::Model::Subscription.new(:account_id       => account.account_id,
-                                                            :external_key     => SecureRandom.uuid,
-                                                            :product_name     => 'Sports', # Sports, so we can add addons
-                                                            :product_category => 'BASE',
-                                                            :billing_period   => 'MONTHLY',
-                                                            :price_list       => 'DEFAULT')
+      entitlement = KillBillClient::Model::Subscription.new(account_id: account.account_id,
+                                                            external_key: SecureRandom.uuid,
+                                                            product_name: 'Sports', # Sports, so we can add addons
+                                                            product_category: 'BASE',
+                                                            billing_period: 'MONTHLY',
+                                                            price_list: 'DEFAULT')
       entitlement = entitlement.create(user, reason, comment, nil, false, build_options(tenant, username, password))
 
       KillBillClient::Model::Bundle.find_by_id(entitlement.bundle_id, build_options(tenant, username, password))
     end
 
     # Return a new test payment method
+    # rubocop:disable Style/OptionalBooleanParameter
     def create_payment_method(set_default = false, account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
 
-      payment_method = Kaui::PaymentMethod.new(:account_id => account.account_id, :plugin_name => '__EXTERNAL_PAYMENT__', :is_default => set_default)
+      payment_method = Kaui::PaymentMethod.new(account_id: account.account_id, plugin_name: '__EXTERNAL_PAYMENT__', is_default: set_default)
       payment_method.create(true, user, reason, comment, build_options(tenant, username, password))
     end
+    # rubocop:enable Style/OptionalBooleanParameter
 
     # Return the created external charge
-    def create_charge(account = nil, tenant = nil, auto_commit=false, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
+    # rubocop:disable Style/OptionalBooleanParameter
+    def create_charge(account = nil, tenant = nil, auto_commit = false, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
       tenant  = create_tenant(user, reason, comment) if tenant.nil?
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
 
@@ -150,21 +151,24 @@ module Kaui
       invoice_item.amount     = 123.98
 
       invoice_item.create(auto_commit, user, reason, comment, build_options(tenant, username, password))
-    rescue
+    rescue StandardError
       nil
     end
+    # rubocop:enable Style/OptionalBooleanParameter
 
     # Return the created credit
-    def create_cba(invoice_id = nil, account = nil, tenant = nil,  auto_commit=false, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
+    # rubocop:disable Style/OptionalBooleanParameter
+    def create_cba(invoice_id = nil, account = nil, tenant = nil, _auto_commit = false, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
       tenant  = create_tenant(user, reason, comment) if tenant.nil?
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
 
-      credit = KillBillClient::Model::Credit.new(:invoice_id => invoice_id, :account_id => account.account_id, :amount => 23.22)
+      credit = KillBillClient::Model::Credit.new(invoice_id:, account_id: account.account_id, amount: 23.22)
       credit = credit.create(true, user, reason, comment, build_options(tenant, username, password)).first
 
       invoice = KillBillClient::Model::Invoice.find_by_id(credit.invoice_id, 'NONE', build_options(tenant, username, password))
       invoice.items.find { |ii| ii.amount == -credit.amount }
     end
+    # rubocop:enable Style/OptionalBooleanParameter
 
     def commit_invoice(invoice_id, tenant, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
       invoice = KillBillClient::Model::Invoice.find_by_id(invoice_id, 'NONE', build_options(tenant, username, password))
@@ -178,7 +182,7 @@ module Kaui
 
       assert_not_nil invoice_item
 
-      payment = Kaui::InvoicePayment.new({:account_id => account.account_id, :target_invoice_id => invoice_item.invoice_id, :purchased_amount => invoice_item.amount})
+      payment = Kaui::InvoicePayment.new({ account_id: account.account_id, target_invoice_id: invoice_item.invoice_id, purchased_amount: invoice_item.amount })
       payment.create(true, user, reason, comment, build_options(tenant, username, password))
     end
 
@@ -197,7 +201,7 @@ module Kaui
       tenant.api_secret = api_secret
 
       # Upload the default SpyCarAdvanced.xml catalog
-      catalog_xml = File.read("test/fixtures/SpyCarAdvanced.xml")
+      catalog_xml = File.read('test/fixtures/SpyCarAdvanced.xml')
       Kaui::AdminTenant.upload_catalog(catalog_xml, user, reason, comment, build_options(tenant))
 
       tenant
@@ -205,10 +209,10 @@ module Kaui
 
     def build_options(tenant = nil, username = USERNAME, password = PASSWORD)
       {
-          :api_key    => tenant.nil? ? nil : tenant.api_key,
-          :api_secret => tenant.nil? ? nil : tenant.api_secret,
-          :username   => username,
-          :password   => password
+        api_key: tenant&.api_key,
+        api_secret: tenant&.api_secret,
+        username:,
+        password:
       }
     end
 

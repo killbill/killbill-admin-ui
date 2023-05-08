@@ -31,6 +31,7 @@
 
 <%= javascript_tag do %>
 $(document).ready(function() {
+
   var table = $('#accounts-table').DataTable({
     "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
     "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
@@ -64,6 +65,7 @@ $(document).ready(function() {
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->
   <% if @max_nb_records.nil? %>
     $('#accounts-table').on('draw.dt', function() {
+      $.noConflict();
       var noMoreData = table.column(0)
                             .data()
                             .length == 0;

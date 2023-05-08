@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 module Kaui
   class AllowedUser < ApplicationRecord
-
     has_many :kaui_allowed_user_tenants,
-             :class_name => 'Kaui::AllowedUserTenant',
-             :foreign_key => 'kaui_allowed_user_id'
+             class_name: 'Kaui::AllowedUserTenant',
+             foreign_key: 'kaui_allowed_user_id'
 
     has_many :kaui_tenants, -> { distinct },
-             :through => :kaui_allowed_user_tenants,
-             :source => :kaui_tenant
+             through: :kaui_allowed_user_tenants,
+             source: :kaui_tenant
 
     # Create the user locally and in Kill Bill (if needed)
     def create_in_kb!(password, roles = [], user = nil, reason = nil, comment = nil, options = {})
@@ -20,8 +21,12 @@ module Kaui
       begin
         kb_user.create(user, reason, comment, options)
       rescue KillBillClient::API::BadRequest => e
-        error_code = JSON.parse(e.response.body)['code'] rescue nil
-        raise e unless error_code == 40002 # SECURITY_USER_ALREADY_EXISTS
+        error_code = begin
+          JSON.parse(e.response.body)['code']
+        rescue StandardError
+          nil
+        end
+        raise e unless error_code == 40_002 # SECURITY_USER_ALREADY_EXISTS
       end
 
       # Save locally
@@ -30,7 +35,6 @@ module Kaui
 
     # Update the user locally and in Kill Bill (if needed)
     def update_in_kb!(password, roles, user = nil, reason = nil, comment = nil, options = {})
-
       user_role = KillBillClient::Model::UserRoles.new
       user_role.username = kb_username
 
@@ -55,7 +59,7 @@ module Kaui
 
       begin
         user_role.destroy(user, reason, comment, options)
-      rescue KillBillClient::API::BadRequest => _
+      rescue KillBillClient::API::BadRequest => _e
         # User already deactivated in Kill Bill
       end
 

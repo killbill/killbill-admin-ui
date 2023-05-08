@@ -1,6 +1,10 @@
 /*
  * Header Layout
  */
+ $smphone: unquote("max-width: 450px");
+$phone: unquote("max-width: 768px");
+$tablet: unquote("max-width: 1024px");
+
 header {
     padding: 25px 0;
     background: #fff;
@@ -10,7 +14,7 @@ header {
     img {
         vertical-align: middle;
 
-        @media (@phone) {
+        @media ($phone) {
             display: block;
             margin: 0 auto 10px;
         }
@@ -22,7 +26,7 @@ header {
         position: relative;
         display: inline-block;
 
-        @media (@phone) {
+        @media ($phone) {
             width: 185px;
             display: block;
             margin: 0 auto 10px;
@@ -31,11 +35,11 @@ header {
         input[type="text"] {
             padding-right: 28px;
 
-            @media (@tablet) {
+            @media ($tablet) {
                 width: 100px;
             }
 
-            @media (@phone) {
+            @media ($phone) {
                 width: 100%;
             }
         }
@@ -60,14 +64,14 @@ header {
         font-size: 12px;
         text-transform: uppercase;
 
-        @media (@phone) {
+        @media ($phone) {
             text-align: center;
             display: block;
         }
     }
 
     nav {
-        @media (@phone) {
+        @media ($phone) {
             text-align: center;
         }
 
@@ -75,7 +79,7 @@ header {
             padding: 6px 0;
             margin: 0;
 
-            @media (@tablet) {
+            @media ($tablet) {
                 text-align: center;
 
                 &.account-menu {
@@ -83,8 +87,8 @@ header {
                 }
             }
 
-            @media (@phone) {
-                
+            @media ($phone) {
+
             }
 
             li {
@@ -119,7 +123,7 @@ header {
     margin-top: -40px;
 
     .container {
-        @media (@phone) {
+        @media ($phone) {
             text-align: center;
             width: 100%;
             padding: 0 15px;
@@ -135,7 +139,7 @@ header {
         background: transparent;
         vertical-align: top;
 
-        @media (@phone) {
+        @media ($phone) {
             width: 30%;
             padding: 12px 0;
             text-align: center;
@@ -150,7 +154,7 @@ header {
             }
         }
 
-        @media (@smphone) {
+        @media ($smphone) {
             width: 50%;
             border: 0;
 

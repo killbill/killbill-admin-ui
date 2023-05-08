@@ -116,7 +116,7 @@
                       <div class="form-group">
                         <%= label_tag :target_date, 'Trigger invoice generation', :class => 'col-sm-6 control-label', :style => 'padding-left: 0;' %>
                         <div class="col-sm-3">
-                          <input class="form-control" name="target_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
+                          <input class="form-control" id="target_date" name="target_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
                         </div>
                         <% if can? :dry_run, Kaui::Invoice %>
                           <div style="width: 14.5%; float: left; padding: 0;">

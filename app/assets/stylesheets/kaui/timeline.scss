@@ -1,0 +1,7 @@
+#timeline-table ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+$smphone: unquote("max-width: 450px");
+$phone: unquote("max-width: 768px");
+$tablet: unquote("max-width: 1024px");

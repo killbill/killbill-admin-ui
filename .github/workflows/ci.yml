@@ -1,5 +1,4 @@
 name: ci
-
 on:
   - push
   - pull_request
@@ -9,36 +8,35 @@ env:
   COMPOSE_DOCKER_CLI_BUILD: 1
   DB_NAME: kaui
   DOCKER_BUILDKIT: 1
-  JRUBY_OPTS: --debug -J-Xmx1024M
+  JRUBY_OPTS: -J-Xmx1024M
   KB_ADDRESS: 127.0.0.1
   KB_PORT: 8080
   RAILS_ENV: test
-
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         include:
-          - ruby-version: '2.7.5'
+          - ruby-version: '3.2.2'
             database-adapter: 'mysql2'
             database-user: 'root'
             database-password: 'root'
             database-port: '3306'
             docker-compose-file: 'docker-compose.ci.mysql.yml'
-          - ruby-version: 'jruby-9.2.20.1'
+          - ruby-version: 'jruby-9.4.2.0'
             database-adapter: 'mysql2'
             database-user: 'root'
             database-password: 'root'
             database-port: '3306'
             docker-compose-file: 'docker-compose.ci.mysql.yml'
-          - ruby-version: '2.7.5'
+          - ruby-version: '3.2.2'
             database-adapter: 'postgresql'
             database-user: 'postgres'
             database-password: 'postgres'
             database-port: '5432'
             docker-compose-file: 'docker-compose.ci.postgresql.yml'
-          - ruby-version: 'jruby-9.2.20.1'
+          - ruby-version: 'jruby-9.4.2.0'
             database-adapter: 'postgresql'
             database-user: 'postgres'
             database-password: 'postgres'
@@ -46,7 +44,7 @@ jobs:
             docker-compose-file: 'docker-compose.ci.postgresql.yml'
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -112,6 +110,7 @@ jobs:
           DB_PASSWORD: ${{ matrix.database-password }}
           DB_PORT: ${{ matrix.database-port }}
         run: |
+          gem update --system
           bundle exec rails db:migrate
           # Some flakiness unfortunately
           ./bin/retry bundle exec rails t -w -f

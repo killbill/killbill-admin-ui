@@ -133,7 +133,7 @@
                 <% (transaction.properties || []).sort_by { |p| p.key }.each do |property| %>
                     <% next if property.value.blank? %>
                     <li><strong><%= property.key %>:</strong>
-                        <%= is_json?(property.value) ? "<pre>#{JSON.pretty_generate(JSON.parse(property.value))}</pre>".html_safe : property.value %></li>
+                        <%= json?(property.value) ? "<pre>#{JSON.pretty_generate(JSON.parse(property.value))}</pre>".html_safe : property.value %></li>
                 <% end %>
               </ul>
             </td>
@@ -158,5 +158,3 @@
 
   });
 <% end %>
-
-<%=  stylesheet_link_tag "kaui/tooltip"  %>

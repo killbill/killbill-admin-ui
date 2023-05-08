@@ -37,7 +37,7 @@
           <%= render :partial => 'kaui/custom_fields/list_bar',
                      :locals => {:custom_fields => @custom_fields_per_bundle[bundle.bundle_id] || []} %>
 
-          <% if !is_subscription_cancelled?(@subscription[bundle.bundle_id]) &&
+          <% if !subscription_cancelled?(@subscription[bundle.bundle_id]) &&
               (can?(:create, Kaui::Subscription) || can?(:transfer, Kaui::Subscription) || can?(:pause_resume, Kaui::Subscription)) %>
               <div class="tag-select" onclick="void(0)">
                 <span><i class="fa fa-gift"></i><i class="fa fa-caret-down"></i></span>

@@ -1,19 +1,21 @@
+# frozen_string_literal: true
+
 module Kaui
   module ObjectHelper
-
     # Because we don't have access to the account_id, we use the restful_show routes
     def url_for_object(object_id, object_type)
-      if object_type == 'ACCOUNT'
+      case object_type
+      when 'ACCOUNT'
         account_path(object_id)
-      elsif object_type == 'BUNDLE'
+      when 'BUNDLE'
         bundle_path(object_id)
-      elsif object_type == 'SUBSCRIPTION'
+      when 'SUBSCRIPTION'
         subscription_path(object_id)
-      elsif object_type == 'INVOICE'
+      when 'INVOICE'
         invoice_path(object_id)
-      elsif object_type == 'PAYMENT'
+      when 'PAYMENT'
         payment_path(object_id)
-      elsif object_type == 'PAYMENT_METHOD'
+      when 'PAYMENT_METHOD'
         payment_method_path(object_id)
       else
         nil
@@ -21,12 +23,11 @@ module Kaui
     end
 
     def object_types
-      [:ACCOUNT, :BUNDLE, :INVOICE, :INVOICE_ITEM, :INVOICE_PAYMENT, :PAYMENT, :SUBSCRIPTION, :TRANSACTION]
+      %i[ACCOUNT BUNDLE INVOICE INVOICE_ITEM INVOICE_PAYMENT PAYMENT SUBSCRIPTION TRANSACTION]
     end
 
     def object_types_for_advanced_search
-      [:ACCOUNT, :BUNDLE, :INVOICE, :CREDIT, :CUSTOM_FIELD, :INVOICE_PAYMENT, :INVOICE, :PAYMENT, :SUBSCRIPTION, :TRANSACTION, :TAG, :TAG_DEFINITION]
+      %i[ACCOUNT BUNDLE INVOICE CREDIT CUSTOM_FIELD INVOICE_PAYMENT INVOICE PAYMENT SUBSCRIPTION TRANSACTION TAG TAG_DEFINITION]
     end
-
   end
 end

@@ -2,7 +2,9 @@
  * Basic & Common
  */
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,900,300);
-
+$smphone: unquote("max-width: 450px");
+$phone: unquote("max-width: 768px");
+$tablet: unquote("max-width: 1024px");
 body {
     background: #f9f9f9;
     animation: all 0.5s;
@@ -187,7 +189,7 @@ table {
     border: 1px solid #f3f3f3;
     padding: 0 60px;
 
-    @media (@phone) {
+    @media ($phone) {
         padding: 0 5px;
     }
 
@@ -199,7 +201,7 @@ table {
         text-transform: uppercase;
         padding: 10px 20px;
 
-        @media (@phone) {
+        @media ($phone) {
             padding: 5px;
             word-break: break-word;
         }
@@ -216,7 +218,7 @@ table {
     td {
         padding: 20px;
 
-        @media (@phone) {
+        @media ($phone) {
             padding: 5px;
             word-break: break-word;
         }
@@ -227,7 +229,7 @@ table {
             display: none;
         }
 
-        @media (@phone) {
+        @media ($phone) {
             padding: 0;
             display: block;
             line-height: 0;
@@ -312,7 +314,7 @@ table {
         th, td {
             padding: 5px;
 
-            @media (@phone) {
+            @media ($phone) {
                 padding: 2px;
                 font-size: 10px;
             }
@@ -328,7 +330,7 @@ table {
 table.transparent {
     margin-bottom: 30px;
 
-    @media (@phone) {
+    @media ($phone) {
         th {
             width: 40%;
             word-break: break-all;
@@ -384,14 +386,14 @@ table.subtitle {
 .fix-position {
     padding-left: 20px;
 
-    @media (@phone) {
+    @media ($phone) {
         padding-left: 15px;
     }
 }
 
 > .row {
     > .col-md-5 {
-        @media (@phone) {
+        @media ($phone) {
             padding: 0 15px 0 25px;
         }
     }
@@ -406,7 +408,7 @@ table.subtitle {
     overflow: hidden;
     transition: all 0.5s;
 
-    @media (@phone) {
+    @media ($phone) {
         padding: 0 10px;
     }
 
@@ -443,7 +445,7 @@ table.subtitle {
     .first-line {
         cursor: pointer;
 
-        @media (@phone) {
+        @media ($phone) {
             font-size: 12px;
         }
 
@@ -478,7 +480,7 @@ table.subtitle {
     .expires {
         float: right;
 
-        @media (@phone) {
+        @media ($phone) {
             display: none;
         }
     }
@@ -491,7 +493,7 @@ table.subtitle {
             border-bottom: 1px solid #ccc;
             margin-bottom: 30px;
 
-            @media (@phone) {
+            @media ($phone) {
                 margin: 0 -10px;
                 padding: 0 10px;
             }
@@ -505,7 +507,7 @@ table.subtitle {
                     margin: 0 5px 0 0;
                 }
 
-                @media (@phone) {
+                @media ($phone) {
                     width: 32%;
                     display: inline-block;
                     text-align: center;
@@ -546,7 +548,7 @@ form[id^="new_tag_definition"] {
 
       .tag-definition-select {
         display: inline-block;
-        width: calc(~"100% - 25px");
+        width: calc(unquote("100% - 25px"));
       }
     }
   }

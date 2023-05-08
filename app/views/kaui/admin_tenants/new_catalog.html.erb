@@ -7,7 +7,7 @@
   </div>
   <%= form_for @simple_plan, :url => {:action => :create_simple_plan}, :html => {:class => 'form-horizontal'} do |f| %>
 
-      <%= f.hidden_field_tag(:id, @tenant.id) %>
+      <%= hidden_field_tag(:id, @tenant.id) %>
       <div class="form-group" id="form_category">
         <%= f.label :product_category, 'Product Category', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-4">

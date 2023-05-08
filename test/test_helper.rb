@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'simplecov'
 require 'pry'
 SimpleCov.start 'rails'
@@ -8,7 +10,7 @@ ENV['RAILS_ENV'] = 'test'
 require 'rails-controller-testing'
 Rails::Controller::Testing.install
 
-require File.expand_path('../dummy/config/environment.rb', __FILE__)
+require File.expand_path('dummy/config/environment.rb', __dir__)
 require 'rails/test_help'
 
 Rails.backtrace_cleaner.remove_silencers!

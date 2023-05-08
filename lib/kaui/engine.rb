@@ -1,17 +1,19 @@
+# frozen_string_literal: true
+
 # Dependencies
 #
 # Sigh. Rails autoloads the gems specified in the Gemfile and nothing else.
 # We need to explicitly require all of our dependencies listed in kaui.gemspec
 #
 # See also https://github.com/carlhuda/bundler/issues/49
+
 require 'js-routes'
 require 'jquery-rails'
 require 'jquery-ui-rails'
 require 'jquery-datatables-rails'
-require 'font-awesome-rails'
-require 'twitter-bootstrap-rails'
+require 'font-awesome-sass'
+require 'bootstrap-sass'
 require 'bootstrap-datepicker-rails'
-require 'less-rails'
 require 'json'
 require 'money-rails'
 require 'killbill_client'
@@ -23,12 +25,15 @@ require 'concurrent'
 require 'mustache-js-rails'
 require 'nokogiri'
 require 'time'
+require 'd3-rails'
+require 'spinjs-rails'
+require 'popper_js'
 
 module Kaui
   class Engine < ::Rails::Engine
     isolate_namespace Kaui
 
-    initializer 'kaui_engine.action_controller' do |app|
+    initializer 'kaui_engine.action_controller' do |_app|
       ActiveSupport.on_load :action_controller do
         helper Kaui::Engine.helpers
       end
