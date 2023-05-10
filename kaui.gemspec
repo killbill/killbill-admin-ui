@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*'] + %w(MIT-LICENSE Rakefile README.md)
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'rails', '~> 6.0.6'
+  s.add_dependency 'rails', '~> 6.1.7'
   s.add_dependency 'd3-rails'
   s.add_dependency 'spinjs-rails'
   s.add_dependency 'js-routes'
