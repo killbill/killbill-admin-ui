@@ -180,10 +180,8 @@ module Kaui
     # test 'should show for triggering invoice' do
     #   account = create_account(@tenant)
     #   bundle = create_bundle(account, @tenant)
-
     #   # @role_definition = Kaui::RoleDefinition.new
     #   @new_role = Kaui::RoleDefinition.new
-
     #   @new_role.role = 'test001'
     #   @new_role.permissions = ['invoice:dry_run']
     #   @new_role.create(account.name, nil, nil, options_for_klient)
@@ -193,12 +191,8 @@ module Kaui
     #     account_id: account.account_id,
     #     dry_run: '0'
     #   }
-
     #   post :trigger_invoice, params: parameters
-
     #   assert_match /some text/, response.body
-
-
     # end
     test 'should trigger invoice' do
       account = create_account(@tenant)
