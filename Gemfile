@@ -17,7 +17,6 @@ group :development do
   gem 'rubocop'
   gem 'simplecov'
 
-
   if defined?(JRUBY_VERSION)
     git 'https://github.com/jruby/activerecord-jdbc-adapter', branch: 'master' do
       # Pulls activerecord-jdbc-adapter and jdbc-mysql
