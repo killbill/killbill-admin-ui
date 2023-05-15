@@ -15,8 +15,9 @@ group :development do
   gem 'rails-controller-testing'
   gem 'rake'
   gem 'rubocop'
-  gem 'simplecov'
   gem 'cancancan'
+  gem 'simplecov'
+
 
   if defined?(JRUBY_VERSION)
     git 'https://github.com/jruby/activerecord-jdbc-adapter', branch: 'master' do
