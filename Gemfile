@@ -16,6 +16,7 @@ group :development do
   gem 'rake'
   gem 'rubocop'
   gem 'simplecov'
+  gem 'cancancan'
 
   if defined?(JRUBY_VERSION)
     git 'https://github.com/jruby/activerecord-jdbc-adapter', branch: 'master' do
