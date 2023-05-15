@@ -15,7 +15,6 @@ group :development do
   gem 'rails-controller-testing'
   gem 'rake'
   gem 'rubocop'
-  gem 'cancancan'
   gem 'simplecov'
 
 
