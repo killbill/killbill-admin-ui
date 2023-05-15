@@ -177,8 +177,6 @@ module Kaui
       post :pay_all_invoices, params: { account_id: @account.account_id, is_external_payment: true }
       assert_response 302
     end
-
-
     # test 'should show for triggering invoice' do
     #   account = create_account(@tenant)
     #   bundle = create_bundle(account, @tenant)
@@ -202,7 +200,6 @@ module Kaui
 
 
     # end
-
     test 'should trigger invoice' do
       account = create_account(@tenant)
       bundle = create_bundle(account, @tenant)
