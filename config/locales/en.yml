@@ -43,6 +43,12 @@ en:
   external_key: "External key"
   loading_data_from_server: "Loading data from server"
   requested_amount_colon: "Requested amount: "
+
+  flashes:
+    notices:
+      clock_updated_successfully: "Clock was successfully updated to %{new_date}"
+      clock_reset_successfully: 'Clock was successfully reset'
+
   errors:
     messages:
       invalid_object_type: "Invalid Object Type: %{error}"

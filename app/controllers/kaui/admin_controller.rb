@@ -22,16 +22,14 @@ module Kaui
 
     def set_clock
       if params[:commit] == 'Submit'
-        current_datetime = DateTime.parse(Kaui::Admin.get_clock(nil, options_for_klient)['currentUtcTime'])
-        new_local_date = Date.parse(params[:new_date])
-        new_datetime = DateTime.new(new_local_date.year, new_local_date.month, new_local_date.day, current_datetime.hour, current_datetime.min, current_datetime.sec, 'Z').to_s
-        msg = "Clock was successfully updated to #{new_datetime}"
+        date = Date.parse(params[:new_date]).strftime('%Y-%m-%d')
+        msg = I18n.translate('flashes.notices.clock_updated_successfully', new_date: date)
       else
-        new_datetime = nil
-        msg = 'Clock was successfully reset'
+        date = nil
+        msg = I18n.translate('flashes.notices.clock_reset_successfully')
       end
       begin
-        Kaui::Admin.set_clock(new_datetime, nil, options_for_klient)
+        Kaui::Admin.set_clock(date, nil, options_for_klient)
       rescue KillBillClient::API::NotFound
         flash[:error] = 'Failed to set current KB clock: Kill Bill server must be started with system property org.killbill.server.test.mode=true'
         redirect_to admin_tenants_path and return
