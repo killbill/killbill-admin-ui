@@ -26,6 +26,7 @@ module Kaui
       # update killbill clock
       put :set_clock, params: { commit: 'Submit', new_date: clock }
       assert_response :redirect
+      assert_equal I18n.translate('flashes.notices.clock_updated_successfully', new_date: date), flash[:notice]
 
       # reset killbill clock
       put :set_clock, params: { commit: nil }
