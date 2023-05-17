@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'cancan', '~> 1.6.10'
   s.add_dependency 'country_select', '>= 3', '< 9'
   s.add_dependency 'symmetric-encryption', '>= 3.9', '< 5.0'
-  s.add_dependency 'jwt', '>= 2.2.3', '< 2.5.0'
+  s.add_dependency 'jwt', '>= 2.2.3', '< 2.8.0'
 
   s.add_dependency 'kenui', '~> 2.0'
 
