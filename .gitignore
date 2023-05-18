@@ -20,3 +20,5 @@ Gemfile.lock
 .generators
 .rakeTasks
 node_modules/
+test/dummy/app/assets/javascripts/routes.js
+test/dummy/app/assets/javascripts/routes.d.ts
