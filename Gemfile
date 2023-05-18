@@ -43,5 +43,4 @@ end
 # gem 'killbill-client', '3.2.0'
 
 # gem 'kenui', :path => '../killbill-email-notifications-ui'
-# gem 'kenui', :git => 'https://github.com/killbill/killbill-email-notifications-ui.git', :branch => 'master'
-gem 'kenui', git: 'https://github.com/killbill/killbill-email-notifications-ui.git', branch: 'rails-upgrade'
+gem 'kenui', git: 'https://github.com/killbill/killbill-email-notifications-ui.git', branch: 'master'

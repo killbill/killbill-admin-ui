@@ -33,6 +33,3 @@ module Dummy
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
-
-# Hack - not sure why it's required
-Dir["#{File.dirname(__FILE__)}/../../../app/helpers/kaui/*.rb"].each { |file| require file }
