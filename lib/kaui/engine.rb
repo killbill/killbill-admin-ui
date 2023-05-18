@@ -32,9 +32,14 @@ require 'popper_js'
 module Kaui
   class Engine < ::Rails::Engine
     isolate_namespace Kaui
+    config.autoload_once_paths = %W[
+      #{root}/app/controllers
+      #{root}/app/helpers
+      #{root}/app/models
+    ]
 
-    initializer 'kaui_engine.action_controller' do |_app|
-      ActiveSupport.on_load :action_controller do
+    initializer 'kaui_engine.action_controller', before: :load_config_initializers do |_app|
+      ActiveSupport.on_load :action_controller_base do
         helper Kaui::Engine.helpers
       end
 
