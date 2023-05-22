@@ -35,10 +35,7 @@
       <div class="modal-footer">
         <div class="alert alert-warning">
           <strong>Notice</strong>
-          <ul>
-            <li>When <span class="label label-default">Use requested date for billing?</span> is checked, then entitlement date and billing date are going to be equal to the requested date.</li>
-            <li>When <strong>not</strong> checked, then the entitlement date will be set with requested date, and billing date will default to now.</li>
-          </ul>
+          <%= raw t('views.subscriptions.requested_date_for_billing_notice') %>
         </div>
       </div>
     </div><!-- /.modal-content -->

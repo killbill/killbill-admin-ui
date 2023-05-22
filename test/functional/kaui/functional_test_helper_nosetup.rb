@@ -13,10 +13,9 @@ module Kaui
     # Rails helpers
     #
 
-    def setup_functional_test(nb_configured_tenants, setup_tenant_key_secret)
+    def setup_functional_test(nb_configured_tenants, setup_tenant_key_secret, tenant_data = {})
       # Create useful data to exercise the code
-      created_tenant = setup_test_data(nb_configured_tenants, setup_tenant_key_secret)
-
+      created_tenant = setup_test_data(nb_configured_tenants, setup_tenant_key_secret, tenant_data)
       @routes                        = Kaui::Engine.routes
       @request.env['devise.mapping'] = Devise.mappings[:user]
 
