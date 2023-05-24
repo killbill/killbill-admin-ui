@@ -57,3 +57,9 @@ en:
       invalid_xml: "Invalid XML: %{error}"
       invalid_min_date: "Invalid min date format"
       invalid_max_date: "Invalid max date format"
+  views:
+    subscriptions:
+      requested_date_for_billing_notice: <ul>
+        <li>When <span class="label label-default">Use requested date for billing?</span> is checked, then entitlement date and billing date are going to be equal to the requested date.</li>
+        <li>When <strong>not</strong> checked, then the entitlement date will be set with requested date, and billing date will be derived from the catalog policy.</li>
+        </ul>

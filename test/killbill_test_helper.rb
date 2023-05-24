@@ -22,7 +22,8 @@ module Kaui
     # Kill Bill specific helpers
     #
 
-    def setup_test_data(nb_configured_tenants, setup_tenant_key_secret)
+    def setup_test_data(nb_configured_tenants, setup_tenant_key_secret, tenant_data = {})
+      @tenant_data = tenant_data
       @tenant            = setup_and_create_test_tenant(nb_configured_tenants)
       @account           = create_account(@tenant)
       @account2          = create_account(@tenant)
@@ -201,7 +202,7 @@ module Kaui
       tenant.api_secret = api_secret
 
       # Upload the default SpyCarAdvanced.xml catalog
-      catalog_xml = File.read('test/fixtures/SpyCarAdvanced.xml')
+      catalog_xml = File.read((@tenant_data && @tenant_data[:catalog_file]) || 'test/fixtures/SpyCarAdvanced.xml')
       Kaui::AdminTenant.upload_catalog(catalog_xml, user, reason, comment, build_options(tenant))
 
       tenant

@@ -4,6 +4,7 @@ require 'test_helper'
 
 module Kaui
   class SubscriptionsControllerTest < Kaui::FunctionalTestHelper
+    OVERRIDE_CATALOG = 'test/fixtures/catalog-sample-for-cancel-subscription.xml'
     test 'should handle Kill Bill errors in new screen' do
       bundle_id = SecureRandom.uuid.to_s
       get :new, params: { bundle_id:, account_id: @account.account_id, product_category: 'ADD_ON' }
@@ -147,6 +148,89 @@ module Kaui
 
       put :reinstate, params: { id: @bundle.subscriptions.first.subscription_id }
       assert_response 302
+    end
+
+    test 'should cancel by default' do
+      setup_functional_test(1, true, catalog_file: OVERRIDE_CATALOG)
+      delete :destroy,
+             params: {
+               id: @bundle.subscriptions.first.subscription_id
+             }
+      assert_response 302
+      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, build_options(@tenant))
+      assert_equal Date.parse(subscription.cancelled_date), Date.today
+      assert_equal Date.parse(subscription.billing_end_date), Date.today + 1.month
+    end
+
+    test 'should cancel start of term' do
+      setup_functional_test(1, true, catalog_file: OVERRIDE_CATALOG)
+      delete :destroy,
+             params: {
+               id: @bundle.subscriptions.first.subscription_id,
+               policy: 'START_OF_TERM'
+             }
+      assert_response 302
+      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, build_options(@tenant))
+      assert_equal Date.parse(subscription.cancelled_date), Date.today
+      assert_equal Date.parse(subscription.billing_end_date), Date.today
+    end
+
+    test 'should cancel immediate' do
+      setup_functional_test(1, true, catalog_file: OVERRIDE_CATALOG)
+      delete :destroy,
+             params: {
+               id: @bundle.subscriptions.first.subscription_id,
+               policy: 'IMMEDIATE'
+             }
+      assert_response 302
+      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, build_options(@tenant))
+      assert_equal Date.parse(subscription.cancelled_date), Date.today
+      assert_equal Date.parse(subscription.billing_end_date), Date.today
+    end
+
+    test 'should cancel end of term' do
+      setup_functional_test(1, true, catalog_file: OVERRIDE_CATALOG)
+      delete :destroy,
+             params: {
+               id: @bundle.subscriptions.first.subscription_id,
+               policy: 'END_OF_TERM'
+             }
+      assert_response 302
+      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, build_options(@tenant))
+      assert_equal Date.parse(subscription.cancelled_date), Date.parse(subscription.billing_start_date) + 1.month
+      assert_equal Date.parse(subscription.billing_end_date), Date.parse(subscription.billing_start_date) + 1.month
+    end
+
+    test 'should cancel by requested date' do
+      setup_functional_test(1, true, catalog_file: OVERRIDE_CATALOG)
+      requested_date = Time.now.utc + 5.days
+      delete :destroy,
+             params: {
+               id: @bundle.subscriptions.first.subscription_id,
+               requested_date: requested_date.strftime('%Y-%m-%d'),
+               use_requested_date_for_billing: '0'
+             }
+      assert_response 302
+
+      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, build_options(@tenant))
+      assert_equal Date.parse(subscription.cancelled_date), requested_date.to_date
+      assert_equal Date.parse(subscription.billing_end_date), Date.parse(subscription.start_date) + 1.month
+    end
+
+    test 'should cancel by requested date and use requested date for billing' do
+      setup_functional_test(1, true, catalog_file: OVERRIDE_CATALOG)
+      requested_date = Time.now.utc + 5.days
+      delete :destroy,
+             params: {
+               id: @bundle.subscriptions.first.subscription_id,
+               requested_date: requested_date.strftime('%Y-%m-%d'),
+               use_requested_date_for_billing: '1'
+             }
+      assert_response 302
+
+      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, build_options(@tenant))
+      assert_equal Date.parse(subscription.cancelled_date), requested_date.to_date
+      assert_equal Date.parse(subscription.billing_end_date), requested_date.to_date
     end
 
     test 'should get show' do

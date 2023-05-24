@@ -118,13 +118,14 @@ module Kaui
       # START_OF_TERM is *not* a valid entitlement_policy and so would default to IMMEDIATE
       entitlement_policy = billing_policy && billing_policy == 'START_OF_TERM' ? 'IMMEDIATE' : billing_policy
 
-      # true by default
-      use_requested_date_for_billing = (params[:use_requested_date_for_billing] || '1') == '1'
-
+      # true by default except default policy
+      use_requested_date_for_billing = if requested_date
+                                         (params[:use_requested_date_for_billing] || '1') == '1'
+                                       else
+                                         nil
+                                       end
       subscription = Kaui::Subscription.find_by_id(params.require(:id), options_for_klient)
-
       subscription.cancel(current_user.kb_username, params[:reason], params[:comment], requested_date, entitlement_policy, billing_policy, use_requested_date_for_billing, options_for_klient)
-
       redirect_to kaui_engine.account_bundles_path(subscription.account_id), notice: 'Subscription was successfully cancelled'
     end
 
