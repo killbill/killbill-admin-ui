@@ -55,15 +55,33 @@ module Kaui
       post :upload_catalog, params: { id: tenant.id, catalog: fixture_file_upload("#{FIXTURES_PATH}/catalog-v1.xml") }
 
       assert_redirected_to admin_tenant_path(tenant.id)
-      assert_equal 'Catalog was successfully uploaded', flash[:notice]
+      assert_equal I18n.translate('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
     end
 
     test 'should upload overdue config' do
       tenant = create_kaui_tenant
       post :upload_overdue_config, params: { id: tenant.id, overdue: fixture_file_upload("#{FIXTURES_PATH}/overdue-v1.xml") }
 
-      assert_redirected_to admin_tenant_path(tenant.id)
-      assert_equal 'Overdue config was successfully uploaded', flash[:notice]
+      assert_redirected_to admin_tenant_path(tenant.id, active_tab: 'OverdueShow')
+      assert_equal I18n.translate('flashes.notices.overdue_uploaded_successfully'), flash[:notice]
+    end
+
+    test 'should raise missing param when upload an empty file' do
+      tenant = create_kaui_tenant
+      post :upload_catalog, params: { id: tenant.id }
+      assert_equal 'Required parameter missing: catalog', flash[:error]
+
+      post :upload_overdue_config, params: { id: tenant.id }
+      assert_equal 'Required parameter missing: overdue', flash[:error]
+
+      post :upload_invoice_template, params: { id: tenant.id }
+      assert_equal 'Required parameter missing: invoice_template', flash[:error]
+
+      post :upload_invoice_translation, params: { id: tenant.id }
+      assert_equal 'Required parameter missing: invoice_translation', flash[:error]
+
+      post :upload_catalog_translation, params: { id: tenant.id }
+      assert_equal 'Required parameter missing: catalog_translation', flash[:error]
     end
 
     test 'should upload invoice template' do
@@ -71,7 +89,7 @@ module Kaui
       post :upload_invoice_template, params: { id: tenant.id, invoice_template: fixture_file_upload("#{FIXTURES_PATH}/invoice_template-v1.html") }
 
       assert_redirected_to admin_tenant_path(tenant.id)
-      assert_equal 'Invoice template was successfully uploaded', flash[:notice]
+      assert_equal I18n.translate('flashes.notices.invoice_template_uploaded_successfully'), flash[:notice]
     end
 
     test 'should upload invoice translation' do
@@ -79,7 +97,7 @@ module Kaui
       post :upload_invoice_translation, params: { id: tenant.id, invoice_translation: fixture_file_upload("#{FIXTURES_PATH}/invoice_translation_fr-v1.properties"), translation_locale: 'fr_FR' }
 
       assert_redirected_to admin_tenant_path(tenant.id)
-      assert_equal 'Invoice translation was successfully uploaded', flash[:notice]
+      assert_equal I18n.translate('flashes.notices.invoice_translation_uploaded_successfully'), flash[:notice]
     end
 
     test 'should upload catalog translation' do
@@ -87,7 +105,7 @@ module Kaui
       post :upload_catalog_translation, params: { id: tenant.id, catalog_translation: fixture_file_upload("#{FIXTURES_PATH}/catalog_translation_fr-v1.properties"), translation_locale: 'fr_FR' }
 
       assert_redirected_to admin_tenant_path(tenant.id)
-      assert_equal 'Catalog translation was successfully uploaded', flash[:notice]
+      assert_equal I18n.translate('flashes.notices.catalog_translation_uploaded_successfully'), flash[:notice]
     end
 
     test 'should upload plugin config' do
@@ -121,7 +139,7 @@ module Kaui
       # upload catalog first
       post :upload_catalog, params: { id: tenant.id, catalog: fixture_file_upload("#{FIXTURES_PATH}/catalog-v1.xml") }
       assert_redirected_to admin_tenant_path(tenant.id)
-      assert_equal 'Catalog was successfully uploaded', flash[:notice]
+      assert_equal I18n.translate('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
 
       get :new_plan_currency, params: { id: tenant.id, plan_id: }
       assert_response :success
@@ -208,8 +226,8 @@ module Kaui
 
       post :modify_overdue_config, params: parameters
       assert_response :redirect
-      assert_redirected_to admin_tenant_path(tenant.id)
-      assert_equal 'Overdue config was successfully added', flash[:notice].to_s.strip
+      assert_redirected_to admin_tenant_path(tenant.id, active_tab: 'OverdueShow')
+      assert_equal I18n.translate('flashes.notices.overdue_added_successfully'), flash[:notice].to_s.strip
     end
 
     test 'should display catalog xml' do
@@ -218,7 +236,7 @@ module Kaui
       post :upload_catalog, params: { id: tenant.id, catalog: fixture_file_upload("#{FIXTURES_PATH}/catalog-v1.xml") }
 
       assert_redirected_to admin_tenant_path(tenant.id)
-      assert_equal 'Catalog was successfully uploaded', flash[:notice]
+      assert_equal I18n.translate('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
 
       post :display_catalog_xml, params: { effective_date:, id: tenant.id }
 
@@ -305,7 +323,7 @@ module Kaui
       post :upload_catalog, params: { id: tenant.id, catalog: fixture_file_upload("#{FIXTURES_PATH}/catalog-v1.xml") }
 
       assert_redirected_to admin_tenant_path(tenant.id)
-      assert_equal 'Catalog was successfully uploaded', flash[:notice]
+      assert_equal I18n.translate('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
 
       get :download_catalog_xml, params: { effective_date:, id: tenant.id }
       assert_response :success

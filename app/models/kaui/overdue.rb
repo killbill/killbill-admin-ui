@@ -43,6 +43,11 @@ module Kaui
         result
       end
 
+      def get_tenant_overdue_config(options)
+        overdue_xml = KillBillClient::Model::Overdue.get_tenant_overdue_config_xml(options)
+        Nokogiri::XML(overdue_xml, &:noblanks)
+      end
+
       def get_overdue_json(options)
         result = KillBillClient::Model::Overdue.get_tenant_overdue_config_json(options)
         class << result
