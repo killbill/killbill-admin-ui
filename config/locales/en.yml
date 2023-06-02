@@ -48,6 +48,12 @@ en:
     notices:
       clock_updated_successfully: "Clock was successfully updated to %{new_date}"
       clock_reset_successfully: 'Clock was successfully reset'
+      overdue_uploaded_successfully: 'Overdue config was successfully uploaded'
+      overdue_added_successfully: 'Overdue config was successfully added'
+      invoice_template_uploaded_successfully: 'Invoice template was successfully uploaded'
+      invoice_translation_uploaded_successfully: 'Invoice translation was successfully uploaded'
+      catalog_translation_uploaded_successfully: 'Catalog translation was successfully uploaded'
+      catalog_uploaded_successfully: 'Catalog was successfully uploaded'
 
   errors:
     messages:
