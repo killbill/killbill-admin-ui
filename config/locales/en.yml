@@ -63,3 +63,12 @@ en:
         <li>When <span class="label label-default">Use requested date for billing?</span> is checked, then entitlement date and billing date are going to be equal to the requested date.</li>
         <li>When <strong>not</strong> checked, then the entitlement date will be set with requested date, and billing date will be derived from the catalog policy.</li>
         </ul>
+    catalogs:
+      show:
+        plan_table:
+          plan_id: "Plan Id"
+          product: "Product"
+          category: "Category"
+          billing_period: "Billing Period"
+          trial: "Trial"
+          final_phase_duration: "Final Phase Duration"
