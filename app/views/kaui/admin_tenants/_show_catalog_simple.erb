@@ -30,12 +30,13 @@
 
     <thead>
     <tr>
-      <th>Plan Id</th>
-      <th>Product</th>
-      <th>Category</th>
-      <th>Billing Period</th>
+      <th><%= I18n.translate('views.catalogs.show.plan_table.plan_id') %></th>
+      <th><%= I18n.translate('views.catalogs.show.plan_table.product') %></th>
+      <th><%= I18n.translate('views.catalogs.show.plan_table.category') %></th>
+      <th><%= I18n.translate('views.catalogs.show.plan_table.billing_period') %></th>
       <th id="currency_select"></th>
-      <th>Trial</th>
+      <th><%= I18n.translate('views.catalogs.show.plan_table.trial') %></th>
+      <th><%= I18n.translate('views.catalogs.show.plan_table.final_phase_duration') %></th>
       <th></th>
     </tr>
     </thead>
@@ -72,6 +73,11 @@
             {{#trial_length}} {{trial_length}} {{#humanized_time_unit}}{{trial_time_unit}}{{/humanized_time_unit}} {{/trial_length}}
             {{^trial_length}} N/A {{/trial_length}}
           </td>
+
+          <td>
+            {{final_phase_duration}}
+          </td>
+
           <td><a class="btn btn-xs"
                  href="{{new_plan_currency_path}}"><i class="fa fa-plus-square"></i> currency</a></td>
         </tr>

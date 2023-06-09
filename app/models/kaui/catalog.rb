@@ -92,7 +92,7 @@ module Kaui
           end
         end.flatten!
 
-        selected = tmp.select { |p| p.phases.length.to_i <= 2 && p.phases[p.phases.length - 1].type == 'EVERGREEN' }
+        selected = tmp.select { |p| p.phases.length.to_i <= 2 }
 
         currencies = catalog.currencies
 
@@ -104,7 +104,7 @@ module Kaui
 
           # Embellish SimplePlanAttributes to contain a map currency -> amount (required in the view)
           class << simple_plan
-            attr_accessor :prices
+            attr_accessor :prices, :final_phase_duration
           end
           simple_plan.prices = plan.phases[-1].prices.each_with_object({}) do |e, r|
             r[e.currency] = e.value
@@ -118,6 +118,12 @@ module Kaui
           simple_plan.billing_period = plan.billing_period
           simple_plan.trial_length = has_trial ? plan.phases[0].duration.number : 0
           simple_plan.trial_time_unit = has_trial ? plan.phases[0].duration.unit : 'N/A'
+          last_phase_duration = plan.phases.last.duration
+          simple_plan.final_phase_duration = if last_phase_duration.number.positive?
+                                               "#{last_phase_duration.number} #{last_phase_duration.unit.downcase}"
+                                             else
+                                               last_phase_duration.unit
+                                             end
 
           result << simple_plan
         end
