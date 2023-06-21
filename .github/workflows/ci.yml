@@ -8,7 +8,7 @@ env:
   COMPOSE_DOCKER_CLI_BUILD: 1
   DB_NAME: kaui
   DOCKER_BUILDKIT: 1
-  JRUBY_OPTS: -J-Xmx1024M
+  JRUBY_OPTS: -J-Xmx1024M --debug
   KB_ADDRESS: 127.0.0.1
   KB_PORT: 8080
   RAILS_ENV: test
@@ -25,7 +25,7 @@ jobs:
             database-port: '3306'
             docker-compose-file: 'docker-compose.ci.mysql.yml'
           - ruby-version: 'jruby-9.4.2.0'
-            database-adapter: 'mysql2'
+            database-adapter: 'mariadb'
             database-user: 'root'
             database-password: 'root'
             database-port: '3306'
