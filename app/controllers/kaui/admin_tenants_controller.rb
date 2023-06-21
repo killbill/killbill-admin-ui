@@ -79,7 +79,7 @@ module Kaui
       options[:api_secret] = @tenant.api_secret
 
       fetch_catalog_versions = promise do
-        Kaui::Catalog.get_tenant_catalog_versions(options)
+        Kaui::Catalog.get_tenant_catalog_versions(nil, options)
       rescue StandardError
         @catalog_versions = []
       end

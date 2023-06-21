@@ -219,7 +219,7 @@ module Kaui
             end
           end
         end
-        plans_details = Kaui::Catalog.available_addons(base_product_name, options_for_klient)
+        plans_details = Kaui::Catalog.available_addons(base_product_name, subscription.account_id, options_for_klient)
       else
         bundle = nil
         plans_details = catalog_plans(subscription.product_category == 'BASE' ? nil : subscription.product_category)
@@ -228,11 +228,11 @@ module Kaui
     end
 
     def catalog_plans(product_category = nil)
-      return Kaui::Catalog.available_base_plans(options_for_klient) if product_category == 'BASE'
+      return Kaui::Catalog.available_base_plans(@subscription.account_id, options_for_klient) if product_category == 'BASE'
 
       options = options_for_klient
 
-      catalog = Kaui::Catalog.get_tenant_catalog_json(DateTime.now.to_s, options)
+      catalog = Kaui::Catalog.get_tenant_catalog_json(DateTime.now.to_s, @subscription.account_id, options)
       return [] if catalog.blank?
 
       plans = []

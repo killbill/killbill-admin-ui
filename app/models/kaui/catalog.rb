@@ -18,7 +18,7 @@ module Kaui
             }.merge(options)
       end
 
-      def get_tenant_catalog_json(requested_date = nil, options = {})
+      def get_tenant_catalog_json(requested_date = nil, account_id = nil, options = {})
         super
       rescue ::KillBillClient::API::InternalServerError => e
         if !e.response.nil? && !e.response.body.nil?
@@ -36,7 +36,7 @@ module Kaui
       end
 
       def get_catalog_json(latest, requested_date, options)
-        catalogs = get_tenant_catalog_json(requested_date, options)
+        catalogs = get_tenant_catalog_json(requested_date, nil, options)
         return catalogs.length.positive? ? catalogs[catalogs.length - 1] : nil if latest
 
         # Order by latest
@@ -64,7 +64,7 @@ module Kaui
       end
 
       def get_catalog_xml(requested_date, options)
-        catalog_xml = KillBillClient::Model::Catalog.get_tenant_catalog_xml(requested_date, options)
+        catalog_xml = KillBillClient::Model::Catalog.get_tenant_catalog_xml(requested_date, nil, options)
 
         parsed_catalog = parse_catalog_xml(catalog_xml)
 
