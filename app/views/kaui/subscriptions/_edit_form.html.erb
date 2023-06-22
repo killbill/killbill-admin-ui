@@ -9,7 +9,7 @@
     <div class="form-group">
       <%= label_tag :price_override, 'Price Override', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
-        <%= number_field_tag :price_override, nil, :step => :any, :class => 'form-control' %>
+        <%= number_field_tag :price_override, nil, min: 0, :step => :any, :class => 'form-control' %>
       </div>
     </div>
     <div class="form-group">

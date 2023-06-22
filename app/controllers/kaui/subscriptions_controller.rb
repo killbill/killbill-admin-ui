@@ -253,7 +253,7 @@ module Kaui
     end
 
     def price_overrides(phase_type, override_fixed_price, override_recurring_price)
-      return nil if params[:price_override].blank?
+      return nil if params[:price_override].blank? || params[:price_override].to_i.negative?
 
       price_override = params[:price_override]
       overrides = []
