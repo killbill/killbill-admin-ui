@@ -19,14 +19,11 @@ group :development do
 
   if defined?(JRUBY_VERSION)
     git 'https://github.com/jruby/activerecord-jdbc-adapter', branch: 'master' do
-      # Pulls activerecord-jdbc-adapter and jdbc-mysql
-      gem 'activerecord-jdbcmysql-adapter'
-      # Add MariaDB driver as well
+      gem 'activerecord-jdbc-adapter'
+      # Add the drivers
       gem 'jdbc-mariadb'
-      # Pulls activerecord-jdbc-adapter and jdbc-postgres
-      gem 'activerecord-jdbcpostgresql-adapter'
-      # Pulls activerecord-jdbc-adapter and jdbc-sqlite3
-      gem 'activerecord-jdbcsqlite3-adapter'
+      gem 'jdbc-postgres'
+      gem 'jdbc-sqlite3'
     end
   else
     gem 'byebug'
