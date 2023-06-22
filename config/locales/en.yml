@@ -48,6 +48,12 @@ en:
     notices:
       clock_updated_successfully: "Clock was successfully updated to %{new_date}"
       clock_reset_successfully: 'Clock was successfully reset'
+      overdue_uploaded_successfully: 'Overdue config was successfully uploaded'
+      overdue_added_successfully: 'Overdue config was successfully added'
+      invoice_template_uploaded_successfully: 'Invoice template was successfully uploaded'
+      invoice_translation_uploaded_successfully: 'Invoice translation was successfully uploaded'
+      catalog_translation_uploaded_successfully: 'Catalog translation was successfully uploaded'
+      catalog_uploaded_successfully: 'Catalog was successfully uploaded'
 
   errors:
     messages:
@@ -63,3 +69,12 @@ en:
         <li>When <span class="label label-default">Use requested date for billing?</span> is checked, then entitlement date and billing date are going to be equal to the requested date.</li>
         <li>When <strong>not</strong> checked, then the entitlement date will be set with requested date, and billing date will be derived from the catalog policy.</li>
         </ul>
+    catalogs:
+      show:
+        plan_table:
+          plan_id: "Plan Id"
+          product: "Product"
+          category: "Category"
+          billing_period: "Billing Period"
+          trial: "Trial"
+          final_phase_duration: "Final Phase Duration"

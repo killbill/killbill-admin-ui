@@ -89,7 +89,7 @@ module Kaui
         @overdue = nil
       end
       fetch_overdue_xml = promise do
-        Kaui::Overdue.get_tenant_overdue_config('xml', options)
+        Kaui::Overdue.get_tenant_overdue_config(options)
       rescue StandardError
         @overdue_xml = nil
       end
@@ -127,12 +127,12 @@ module Kaui
       options[:api_key] = current_tenant.api_key
       options[:api_secret] = current_tenant.api_secret
 
-      uploaded_catalog = params[:catalog]
+      uploaded_catalog = params.require(:catalog)
       catalog_xml = uploaded_catalog.read
 
       Kaui::AdminTenant.upload_catalog(catalog_xml, options[:username], nil, comment, options)
 
-      redirect_to admin_tenant_path(current_tenant.id), notice: 'Catalog was successfully uploaded'
+      redirect_to admin_tenant_path(current_tenant.id), notice: I18n.translate('flashes.notices.catalog_uploaded_successfully')
     end
 
     def new_catalog
@@ -264,17 +264,17 @@ module Kaui
 
       overdue = Kaui::Overdue.from_overdue_form_model(view_form_model)
       Kaui::Overdue.upload_tenant_overdue_config_json(overdue.to_json, options[:username], nil, comment, options)
-      redirect_to admin_tenant_path(current_tenant.id), notice: 'Overdue config was successfully added '
+      redirect_to admin_tenant_path(current_tenant.id, active_tab: 'OverdueShow'), notice: I18n.translate('flashes.notices.overdue_added_successfully')
     end
 
     def upload_overdue_config
+      uploaded_overdue_config = params.require(:overdue)
       current_tenant = safely_find_tenant_by_id(params[:id])
 
       options = tenant_options_for_client
       options[:api_key] = current_tenant.api_key
       options[:api_secret] = current_tenant.api_secret
 
-      uploaded_overdue_config = params[:overdue]
       overdue_config_xml = uploaded_overdue_config.read
 
       begin
@@ -286,7 +286,7 @@ module Kaui
 
       Kaui::AdminTenant.upload_overdue_config(overdue_config_xml, options[:username], nil, comment, options)
 
-      redirect_to admin_tenant_path(current_tenant.id), notice: 'Overdue config was successfully uploaded'
+      redirect_to admin_tenant_path(current_tenant.id, active_tab: 'OverdueShow'), notice: I18n.translate('flashes.notices.overdue_uploaded_successfully')
     end
 
     def upload_invoice_template
@@ -297,12 +297,12 @@ module Kaui
       options[:api_secret] = current_tenant.api_secret
 
       is_manual_pay = params[:manual_pay]
-      uploaded_invoice_template = params[:invoice_template]
+      uploaded_invoice_template = params.require(:invoice_template)
       invoice_template = uploaded_invoice_template.read
 
       Kaui::AdminTenant.upload_invoice_template(invoice_template, is_manual_pay, true, options[:username], nil, comment, options)
 
-      redirect_to admin_tenant_path(current_tenant.id), notice: 'Invoice template was successfully uploaded'
+      redirect_to admin_tenant_path(current_tenant.id), notice: I18n.translate('flashes.notices.invoice_template_uploaded_successfully')
     end
 
     def upload_invoice_translation
@@ -313,12 +313,12 @@ module Kaui
       options[:api_secret] = current_tenant.api_secret
 
       locale = params[:translation_locale]
-      uploaded_invoice_translation = params[:invoice_translation]
+      uploaded_invoice_translation = params.require(:invoice_translation)
       invoice_translation = uploaded_invoice_translation.read
 
       Kaui::AdminTenant.upload_invoice_translation(invoice_translation, locale, true, options[:username], nil, comment, options)
 
-      redirect_to admin_tenant_path(current_tenant.id), notice: 'Invoice translation was successfully uploaded'
+      redirect_to admin_tenant_path(current_tenant.id), notice: I18n.translate('flashes.notices.invoice_translation_uploaded_successfully')
     end
 
     def upload_catalog_translation
@@ -329,12 +329,12 @@ module Kaui
       options[:api_secret] = current_tenant.api_secret
 
       locale = params[:translation_locale]
-      uploaded_catalog_translation = params[:catalog_translation]
+      uploaded_catalog_translation = params.require(:catalog_translation)
       catalog_translation = uploaded_catalog_translation.read
 
       Kaui::AdminTenant.upload_catalog_translation(catalog_translation, locale, true, options[:username], nil, comment, options)
 
-      redirect_to admin_tenant_path(current_tenant.id), notice: 'Catalog translation was successfully uploaded'
+      redirect_to admin_tenant_path(current_tenant.id), notice: I18n.translate('flashes.notices.catalog_translation_uploaded_successfully')
     end
 
     def upload_plugin_config
