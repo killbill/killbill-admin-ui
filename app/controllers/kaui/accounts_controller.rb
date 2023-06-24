@@ -202,7 +202,7 @@ module Kaui
         render template: 'kaui/invoices/show'
       else
         # Redirect to fetch payments, etc.
-        redirect_to invoice_path(invoice.invoice_id, account_id:), notice: "Generated invoice #{invoice.invoice_number} for target date #{invoice.target_date}"
+        redirect_to invoice_path(invoice.invoice_id, account_id: account_id), notice: "Generated invoice #{invoice.invoice_number} for target date #{invoice.target_date}"
       end
     end
 

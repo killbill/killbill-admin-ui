@@ -38,8 +38,8 @@ module Kaui
         post :create,
              params: {
                custom_field: {
-                 object_id:,
-                 object_type:,
+                 object_id: object_id,
+                 object_type: object_type,
                  name: SecureRandom.uuid.to_s,
                  value: SecureRandom.uuid.to_s
                }

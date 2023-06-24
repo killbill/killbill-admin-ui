@@ -29,7 +29,7 @@ module Kaui
       role_definition['role'] = "test#{SecureRandom.base64(9).gsub(%r{[/+=]}, '')}"
       role_definition['permissions'] = 'account:delete_emails,account:add_emails'
 
-      post :create, params: { role_definition: }
+      post :create, params: { role_definition: role_definition }
 
       assert_equal 'Role was successfully created', flash[:notice]
       assert_response :redirect
@@ -41,7 +41,7 @@ module Kaui
       role_definition['role'] = "test#{SecureRandom.base64(9).gsub(%r{[/+=]}, '')}"
       role_definition['permissions'] = 'account:delete_emails,account:add_emails'
 
-      post :create, params: { role_definition:, reason: SecureRandom.base64(4000), comment: SecureRandom.base64(4000) }
+      post :create, params: { role_definition: role_definition, reason: SecureRandom.base64(4000), comment: SecureRandom.base64(4000) }
       assert_match 'Error while creating role', flash[:error]
       assert_response :success
     end

@@ -393,8 +393,8 @@ module Kaui
 
     def create_account_tag_definition(name = 'account', description = 'i am an account')
       tag_definition = Kaui::TagDefinition.new({ is_control_tag: false,
-                                                 name:,
-                                                 description:,
+                                                 name: name,
+                                                 description: description,
                                                  applicable_object_types: ['ACCOUNT'] })
 
       tag_definition.create('kaui search test', nil, nil, build_options(@tenant, USERNAME, PASSWORD))

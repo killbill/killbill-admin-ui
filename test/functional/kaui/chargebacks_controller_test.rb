@@ -6,7 +6,7 @@ module Kaui
   class ChargebacksControllerTest < Kaui::FunctionalTestHelper
     test 'should handle Kill Bill errors in new screen' do
       payment_id = SecureRandom.uuid.to_s
-      get :new, params: { account_id: @account.account_id, payment_id: }
+      get :new, params: { account_id: @account.account_id, payment_id: payment_id }
       assert_redirected_to account_path(@account.account_id)
       assert_equal "Error while communicating with the Kill Bill server: Object id=#{payment_id} type=PAYMENT doesn't exist!", flash[:error]
     end
@@ -22,7 +22,7 @@ module Kaui
            params: {
              account_id: @account.account_id,
              chargeback: {
-               payment_id:,
+               payment_id: payment_id,
                amount: @payment.paid_amount_to_money.to_f,
                currency: @payment.currency
              }

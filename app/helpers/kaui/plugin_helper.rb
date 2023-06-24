@@ -21,7 +21,7 @@ module Kaui
         plugin_key = plugin.plugin_key
         installed_plugins << {
           # Unique identifier chosen by the user and used for kpm operations
-          plugin_key:,
+          plugin_key: plugin_key,
           # Notes:
           #   * plugin.plugin_name comes from kpm and is arbitrary (see Utils.get_plugin_name_from_file_path in the kpm codebase for instance)
           #   * plugin_name here is the plugin name as seen by Kill Bill and is typically defined in the Activator.java (this value is the one that matters for plugin configuration)

@@ -104,7 +104,7 @@ module Kaui
           error = e.message
         end
 
-        { audits: audit_logs_with_history, error: }
+        { audits: audit_logs_with_history, error: error }
       end
     end
 

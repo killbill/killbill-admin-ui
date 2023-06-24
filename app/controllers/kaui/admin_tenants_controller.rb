@@ -448,10 +448,10 @@ module Kaui
 
           catalog << { version_date: data[:version_date],
                        currencies: data[:currencies],
-                       plans: }
+                       plans: plans }
         end
 
-        { catalog: }
+        { catalog: catalog }
       end
     end
 

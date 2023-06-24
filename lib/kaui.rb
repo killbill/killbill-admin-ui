@@ -202,12 +202,3 @@ module Kaui
     }
   end
 end
-
-# ruby-1.8 compatibility
-module Kernel
-  def define_singleton_method(*args, &)
-    class << self
-      self
-    end.send(:define_method, *args, &)
-  end
-end

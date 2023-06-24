@@ -53,15 +53,17 @@ module Kaui
       pages.each { |page| json[:data] << formatter.call(page) }
 
       respond_to do |format|
-        format.json { render json: }
+        format.json { render json: json }
       end
     end
 
-    def promise(&)
+    def promise
       # Evaluation starts immediately
       ::Concurrent::Promises.future do
         # https://github.com/rails/rails/issues/26847
-        Rails.application.executor.wrap(&)
+        Rails.application.executor.wrap do
+          yield
+        end
       end
     end
 

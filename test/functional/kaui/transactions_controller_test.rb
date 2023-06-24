@@ -49,7 +49,7 @@ module Kaui
                  payment_external_key: SecureRandom.uuid,
                  amount: 12,
                  currency: 'USD',
-                 transaction_type:
+                 transaction_type: transaction_type
                }
              }
 
@@ -64,10 +64,10 @@ module Kaui
              params: {
                account_id: @account.account_id,
                transaction: {
-                 payment_id:,
+                 payment_id: payment_id,
                  amount: 12,
                  currency: 'USD',
-                 transaction_type:
+                 transaction_type: transaction_type
                }
              }
         assert_redirected_to account_payment_path(@account.account_id, payment_id)

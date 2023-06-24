@@ -28,7 +28,7 @@ module Devise
         return false unless valid_password?
 
         user = params[:user] || {}
-        kb_authenticate!(user[:kb_username], { username: user[:kb_username], password: })
+        kb_authenticate!(user[:kb_username], { username: user[:kb_username], password: password })
       end
     end
 
@@ -77,7 +77,7 @@ Warden::Manager.after_set_user do |user, auth, opts|
   unless user.authenticated_with_killbill?
     scope = opts[:scope]
     auth.logout(scope)
-    throw(:warden, scope:, reason: 'Kill Bill session expired')
+    throw(:warden, scope: scope, reason: 'Kill Bill session expired')
   end
 end
 

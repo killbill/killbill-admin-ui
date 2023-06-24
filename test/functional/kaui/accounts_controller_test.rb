@@ -43,7 +43,7 @@ module Kaui
 
     test 'should handle Kill Bill errors when showing account details' do
       account_id = SecureRandom.uuid.to_s
-      get :show, params: { account_id: }
+      get :show, params: { account_id: account_id }
       assert_redirected_to home_path
       assert_equal "Error while communicating with the Kill Bill server: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
     end
@@ -98,10 +98,10 @@ module Kaui
       assert_equal 'Required parameter missing: account', flash[:error]
 
       external_key = SecureRandom.uuid.to_s
-      post :create, params: { account: { external_key: } }
+      post :create, params: { account: { external_key: external_key } }
       assert_redirected_to account_path(assigns(:account).account_id)
 
-      post :create, params: { account: { external_key: } }
+      post :create, params: { account: { external_key: external_key } }
       assert_template :new
       assert_equal "Error while creating account: Account already exists for key #{external_key}", flash[:error]
     end
@@ -156,7 +156,7 @@ module Kaui
 
     test 'should handle Kill Bill errors when setting default payment method' do
       account_id = SecureRandom.uuid.to_s
-      put :set_default_payment_method, params: { account_id:, payment_method_id: @payment_method.payment_method_id }
+      put :set_default_payment_method, params: { account_id: account_id, payment_method_id: @payment_method.payment_method_id }
       assert_redirected_to home_path
       assert_equal "Error while communicating with the Kill Bill server: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
     end
@@ -168,7 +168,7 @@ module Kaui
 
     test 'should handle Kill Bill errors when paying all invoices' do
       account_id = SecureRandom.uuid.to_s
-      post :pay_all_invoices, params: { account_id: }
+      post :pay_all_invoices, params: { account_id: account_id }
       assert_redirected_to home_path
       assert_equal "Error while communicating with the Kill Bill server: Object id=#{account_id} type=ACCOUNT doesn't exist!", flash[:error]
     end
@@ -226,10 +226,10 @@ module Kaui
       assert_equal JSON[@response.body]['is_found'], false
 
       external_key = SecureRandom.uuid.to_s
-      post :create, params: { account: { external_key: } }
+      post :create, params: { account: { external_key: external_key } }
       assert_redirected_to account_path(redirected_account_id)
 
-      get :validate_external_key, params: { external_key: }
+      get :validate_external_key, params: { external_key: external_key }
       assert_response :success
       assert_equal JSON[@response.body]['is_found'], true
     end
