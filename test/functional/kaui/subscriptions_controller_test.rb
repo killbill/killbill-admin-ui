@@ -71,6 +71,58 @@ module Kaui
       assert_response 302
     end
 
+    test 'should support create subscription with bundle external key and subscription external key' do
+      post :create,
+           params: {
+             subscription: {
+               account_id: @account.account_id,
+               external_key: SecureRandom.uuid.to_s,
+               bundle_external_key: SecureRandom.uuid.to_s
+             },
+             plan_name: 'standard-monthly'
+           }
+      assert_response 302
+      assert_equal 'Subscription was successfully created', flash[:notice]
+    end
+
+    test 'should support create subscription with bundle external key only' do
+      post :create,
+           params: {
+             subscription: {
+               account_id: @account.account_id,
+               bundle_external_key: SecureRandom.uuid.to_s
+             },
+             plan_name: 'standard-monthly'
+           }
+      assert_response 302
+      assert_equal 'Subscription was successfully created', flash[:notice]
+    end
+
+    test 'should support create subscription with subscription external key only' do
+      post :create,
+           params: {
+             subscription: {
+               account_id: @account.account_id,
+               external_key: SecureRandom.uuid.to_s
+             },
+             plan_name: 'standard-monthly'
+           }
+      assert_response 302
+      assert_equal 'Subscription was successfully created', flash[:notice]
+    end
+
+    test 'should support create subscription without bundle external key or subscription external key' do
+      post :create,
+           params: {
+             subscription: {
+               account_id: @account.account_id
+             },
+             plan_name: 'standard-monthly'
+           }
+      assert_response 302
+      assert_equal 'Subscription was successfully created', flash[:notice]
+    end
+
     test 'should create a new addon subscription' do
       post :create,
            params: {
