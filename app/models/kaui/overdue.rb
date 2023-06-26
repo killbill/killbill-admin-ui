@@ -19,7 +19,7 @@ module Kaui
             state.subscription_cancellation_policy = nil
           else
             state.is_disable_entitlement = true
-            state.subscription_cancellation_policy = state_model['subscription_cancellation_policy'].blank? ? :NONE : state_model['subscription_cancellation_policy'].to_s.gsub!(/POLICY_/, '')
+            state.subscription_cancellation_policy = state_model['subscription_cancellation_policy'].blank? ? :NONE : state_model['subscription_cancellation_policy'].to_s.gsub!('POLICY_', '')
           end
 
           if state_model['condition']
