@@ -78,8 +78,8 @@ module Kaui
            params: {
              subscription: {
                account_id: @account.account_id,
-               external_key: external_key,
-               bundle_external_key: bundle_external_key
+               external_key:,
+               bundle_external_key:
              },
              plan_name: 'standard-monthly'
            }
@@ -96,7 +96,7 @@ module Kaui
            params: {
              subscription: {
                account_id: @account.account_id,
-               bundle_external_key: bundle_external_key
+               bundle_external_key:
              },
              plan_name: 'standard-monthly'
            }
@@ -112,7 +112,7 @@ module Kaui
            params: {
              subscription: {
                account_id: @account.account_id,
-               external_key: external_key
+               external_key:
              },
              plan_name: 'standard-monthly'
            }

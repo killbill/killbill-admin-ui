@@ -87,7 +87,7 @@ module Kaui
     end
 
     def input_field?(input_id_name)
-      return nil if input_id_name.nil? || @response.nil? || @response.body.nil?
+      return false if input_id_name.nil? || @response.nil? || @response.body.nil?
 
       pattern = Regexp.new("<input.*(id=.#{input_id_name}|name=.#{input_id_name})..*>")
       input = pattern.match(@response.body)
