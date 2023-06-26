@@ -72,43 +72,54 @@ module Kaui
     end
 
     test 'should support create subscription with bundle external key and subscription external key' do
+      external_key = SecureRandom.uuid.to_s
+      bundle_external_key = SecureRandom.uuid.to_s
       post :create,
            params: {
              subscription: {
                account_id: @account.account_id,
-               external_key: SecureRandom.uuid.to_s,
-               bundle_external_key: SecureRandom.uuid.to_s
+               external_key: external_key,
+               bundle_external_key: bundle_external_key
              },
              plan_name: 'standard-monthly'
            }
       assert_response 302
       assert_equal 'Subscription was successfully created', flash[:notice]
+      subsciption = @account.bundles(build_options(@tenant)).last.subscriptions.first
+      assert_equal subsciption.external_key, external_key
+      assert_equal subsciption.bundle_external_key, bundle_external_key
     end
 
     test 'should support create subscription with bundle external key only' do
+      bundle_external_key = SecureRandom.uuid.to_s
       post :create,
            params: {
              subscription: {
                account_id: @account.account_id,
-               bundle_external_key: SecureRandom.uuid.to_s
+               bundle_external_key: bundle_external_key
              },
              plan_name: 'standard-monthly'
            }
       assert_response 302
       assert_equal 'Subscription was successfully created', flash[:notice]
+      subsciption = @account.bundles(build_options(@tenant)).last.subscriptions.first
+      assert_equal subsciption.bundle_external_key, bundle_external_key
     end
 
     test 'should support create subscription with subscription external key only' do
+      external_key = SecureRandom.uuid.to_s
       post :create,
            params: {
              subscription: {
                account_id: @account.account_id,
-               external_key: SecureRandom.uuid.to_s
+               external_key: external_key
              },
              plan_name: 'standard-monthly'
            }
       assert_response 302
       assert_equal 'Subscription was successfully created', flash[:notice]
+      subsciption = @account.bundles(build_options(@tenant)).last.subscriptions.first
+      assert_equal subsciption.external_key, external_key
     end
 
     test 'should support create subscription without bundle external key or subscription external key' do
