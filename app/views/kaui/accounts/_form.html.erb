@@ -45,7 +45,7 @@
         <div class="form-group">
           <%= f.label :bill_cycle_day_local, 'Bill cycle day', :class => 'col-sm-3 control-label' %>
           <div class="col-sm-9">
-            <%= f.text_field :bill_cycle_day_local, :class => 'form-control' %>
+            <%= f.number_field :bill_cycle_day_local, :class => 'form-control', :min => 0, max: 31 %>
           </div>
         </div>
         <div class="form-group">
@@ -117,7 +117,7 @@
     <div class="form-group">
         <%= f.label :phone, 'Phone', :class => 'col-sm-3 control-label' %>
         <div class="col-sm-9">
-            <%= f.text_field :phone, :class => 'form-control' %>
+            <%= f.number_field :phone, :class => 'form-control' %>
         </div>
     </div>
     <div class="form-group">

@@ -33,7 +33,7 @@ module Kaui
 
         raw_tenant_config.each_with_object({}) do |e, hsh|
           # Strip prefix '/PLUGIN_CONFIG_'
-          plugin_name = e.key.gsub!(/PLUGIN_CONFIG_/, '')
+          plugin_name = e.key.gsub!('PLUGIN_CONFIG_', '')
 
           # Construct simple hash with one property (first value)
           hsh[plugin_name] = e.values[0]

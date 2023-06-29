@@ -35,8 +35,8 @@ module Kaui
         raise e
       end
 
-      def get_catalog_json(latest, requested_date, options)
-        catalogs = get_tenant_catalog_json(requested_date, nil, options)
+      def get_catalog_json(latest, requested_date, account_id, options)
+        catalogs = get_tenant_catalog_json(requested_date, account_id, options)
         return catalogs.length.positive? ? catalogs[catalogs.length - 1] : nil if latest
 
         # Order by latest
