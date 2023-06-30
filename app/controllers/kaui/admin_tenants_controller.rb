@@ -174,7 +174,7 @@ module Kaui
       options[:api_key] = @tenant.api_key
       options[:api_secret] = @tenant.api_secret
 
-      catalog = Kaui::Catalog.get_catalog_json(true, nil, options)
+      catalog = Kaui::Catalog.get_catalog_json(true, nil, nil, options)
 
       # seek if plan id exists
       catalog.products.each do |product|
@@ -434,7 +434,7 @@ module Kaui
 
         catalog = []
         result = begin
-          Kaui::Catalog.get_catalog_json(false, effective_date, options)
+          Kaui::Catalog.get_catalog_json(false, effective_date, nil, options)
         rescue StandardError
           catalog = []
         end
@@ -475,7 +475,7 @@ module Kaui
       options[:api_key] = @tenant.api_key
       options[:api_secret] = @tenant.api_secret
 
-      latest_catalog = Kaui::Catalog.get_catalog_json(true, nil, options)
+      latest_catalog = Kaui::Catalog.get_catalog_json(true, nil, nil, options)
       @all_plans = latest_catalog ? (latest_catalog.products || []).map(&:plans).flatten.map(&:name) : []
 
       @ao_mapping = Kaui::Catalog.build_ao_mapping(latest_catalog)

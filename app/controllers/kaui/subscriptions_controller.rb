@@ -210,7 +210,7 @@ module Kaui
 
     def lookup_bundle_and_plan_details(subscription, base_product_name = nil)
       if subscription.product_category == 'ADD_ON'
-        bundle = Kaui::Bundle.find_by_id(@subscription.bundle_id, options_for_klient)
+        bundle = Kaui::Bundle.find_by_id(subscription.bundle_id, options_for_klient)
         if base_product_name.blank?
           bundle.subscriptions.each do |sub|
             if sub.product_category == 'BASE'
@@ -222,17 +222,17 @@ module Kaui
         plans_details = Kaui::Catalog.available_addons(base_product_name, subscription.account_id, options_for_klient)
       else
         bundle = nil
-        plans_details = catalog_plans(subscription.product_category == 'BASE' ? nil : subscription.product_category)
+        plans_details = catalog_plans(subscription.product_category == 'BASE' ? nil : subscription.product_category, subscription.account_id)
       end
       [bundle, plans_details]
     end
 
-    def catalog_plans(product_category = nil)
-      return Kaui::Catalog.available_base_plans(@subscription.account_id, options_for_klient) if product_category == 'BASE'
+    def catalog_plans(product_category = nil, account_id = nil)
+      return Kaui::Catalog.available_base_plans(account_id, options_for_klient) if product_category == 'BASE'
 
       options = options_for_klient
 
-      catalog = Kaui::Catalog.get_tenant_catalog_json(DateTime.now.to_s, @subscription.account_id, options)
+      catalog = Kaui::Catalog.get_tenant_catalog_json(DateTime.now.to_s, account_id, options)
       return [] if catalog.blank?
 
       plans = []
