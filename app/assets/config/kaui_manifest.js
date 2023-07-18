@@ -23,6 +23,7 @@
 //= link bootstrap_and_overrides.scss
 //= link kaui/kaui.scss
 //= link kaui_application.css
+//= link application.js
 
 // Kanaui
 //= require js-routes
