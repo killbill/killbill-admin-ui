@@ -46,6 +46,7 @@ module Kaui
   mattr_accessor :gateways_urls
 
   mattr_accessor :disable_sign_up_link
+  mattr_accessor :additional_headers_partial
 
   self.home_path = -> { Kaui::Engine.routes.url_helpers.home_path }
   self.tenant_home_path = -> { Kaui::Engine.routes.url_helpers.tenants_path }

@@ -5,7 +5,9 @@
 
   <title>Kaui</title>
   <%= stylesheet_link_tag 'kaui_application', :media => 'all' %>
-
+  <% unless Kaui.additional_headers_partial.nil? %>
+    <%= render :partial => Kaui.additional_headers_partial %>
+  <% end %>
 
   <%= csrf_meta_tags %>
 
