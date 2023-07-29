@@ -98,6 +98,7 @@ Kaui::Engine.routes.draw do
   scope '/invoices' do
     match '/pagination' => 'invoices#pagination', :via => :get, :as => 'invoices_pagination'
     match '/:id/show_html' => 'invoices#show_html', :via => :get, :as => 'show_html_invoice'
+    match '/:number' => 'invoices#restful_show_by_number', :via => :get, :constraints => { number: /\d+/ }
     match '/:id' => 'invoices#restful_show', :via => :get, :as => 'invoice'
     match '/commit' => 'invoices#commit_invoice', :via => :post, :as => 'commit_invoice'
     match '/void' => 'invoices#void_invoice', :via => :delete, :as => 'void_invoice'

@@ -75,6 +75,11 @@ module Kaui
       assert_redirected_to account_invoice_path(@invoice_item.account_id, @invoice_item.invoice_id)
     end
 
+    test 'should expose restful show by number endpoint' do
+      get :restful_show_by_number, params: { number: @bundle_invoice.invoice_number }
+      assert_redirected_to account_invoice_path(@bundle_invoice.account_id, @bundle_invoice.invoice_id)
+    end
+
     test 'should render HTML invoice' do
       get :show_html, params: { id: @invoice_item.invoice_id }
       assert_response 200
