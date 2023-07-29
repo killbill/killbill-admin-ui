@@ -2,6 +2,8 @@
 
 module Kaui
   module ObjectHelper
+    ADVANCED_SEARCH_OBJECT_FIELDS = %w[ID EXTERNAL_KEY NUMBER].freeze
+
     # Because we don't have access to the account_id, we use the restful_show routes
     def url_for_object(object_id, object_type)
       case object_type
@@ -28,6 +30,10 @@ module Kaui
 
     def object_types_for_advanced_search
       %i[ACCOUNT BUNDLE INVOICE CREDIT CUSTOM_FIELD INVOICE_PAYMENT INVOICE PAYMENT SUBSCRIPTION TRANSACTION TAG TAG_DEFINITION]
+    end
+
+    def object_fields_for_advanced_search
+      [' '] + ADVANCED_SEARCH_OBJECT_FIELDS
     end
   end
 end

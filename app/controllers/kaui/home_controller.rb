@@ -61,6 +61,13 @@ module Kaui
         end
       elsif search_by == 'EXTERNAL_KEY'
         unsupported_external_key_search('INVOICE')
+      elsif search_by == 'NUMBER'
+        begin
+          invoice = Kaui::Invoice.find_by_number(search_query, 'NONE', options)
+          redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id) and return
+        rescue KillBillClient::API::NotFound, KillBillClient::API::BadRequest => _e
+          search_error("No invoice matches \"#{search_query}\"")
+        end
       else
         invoice = Kaui::Invoice.list_or_search(search_query, 0, 1, options).first
         if invoice.blank?
@@ -267,7 +274,7 @@ module Kaui
         '0'
       end
 
-      search_error("\"#{search_by}\" is not a valid search by value") if !search_by.blank? && !%w[ID EXTERNAL_KEY].include?(search_by)
+      search_error("\"#{search_by}\" is not a valid search by value") if !search_by.blank? && !search_by.in?(Kaui::ObjectHelper::ADVANCED_SEARCH_OBJECT_FIELDS)
 
       [object_type, search_for, search_by, fast]
     end

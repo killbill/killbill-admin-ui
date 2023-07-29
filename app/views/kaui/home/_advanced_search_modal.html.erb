@@ -23,7 +23,7 @@
           <div class="form-group">
             <%= label_tag :search_by, 'Search by', :class => 'col-sm-4 control-label' %>
             <div class="col-sm-8">
-              <%= select_tag :search_by, options_for_select(['', 'ID', 'EXTERNAL_KEY'],''), :class => 'form-control' %>
+              <%= select_tag :search_by, options_for_select(object_fields_for_advanced_search,''), :class => 'form-control' %>
             </div>
           </div>
           <div class="form-group">
