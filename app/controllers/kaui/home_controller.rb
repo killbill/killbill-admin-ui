@@ -60,7 +60,7 @@ module Kaui
           search_error("No invoice matches \"#{search_query}\"")
         end
       elsif search_by == 'EXTERNAL_KEY'
-        unsupported_external_key_search('INVOICE')
+        unsupported_search_field('INVOICE', search_by)
       elsif search_by == 'NUMBER'
         begin
           invoice = Kaui::Invoice.find_by_number(search_query, 'NONE', options)
@@ -164,7 +164,7 @@ module Kaui
           search_error("No credit matches \"#{search_query}\"")
         end
       else
-        unsupported_external_key_search('CREDIT')
+        unsupported_search_field('CREDIT', search_by)
       end
     end
 
@@ -177,7 +177,7 @@ module Kaui
           redirect_to custom_fields_path(q: search_query, fast:)
         end
       else
-        unsupported_external_key_search('CUSTOM FIELD')
+        unsupported_search_field('CUSTOM FIELD', search_by)
       end
     end
 
@@ -190,7 +190,7 @@ module Kaui
           search_error("No invoice payment matches \"#{search_query}\"")
         end
       else
-        unsupported_external_key_search('INVOICE PAYMENT')
+        unsupported_search_field('INVOICE PAYMENT', search_by)
       end
     end
 
@@ -203,7 +203,7 @@ module Kaui
           search_error("No subscription matches \"#{search_query}\"")
         end
       else
-        unsupported_external_key_search('SUBSCRIPTION')
+        unsupported_search_field('SUBSCRIPTION', search_by)
       end
     end
 
@@ -216,7 +216,7 @@ module Kaui
           redirect_to tags_path(q: search_query, fast:)
         end
       else
-        unsupported_external_key_search('TAG')
+        unsupported_search_field('TAG', search_by)
       end
     end
 
@@ -229,7 +229,7 @@ module Kaui
           search_error("No tag definition matches \"#{search_query}\"")
         end
       elsif search_by == 'EXTERNAL_KEY'
-        unsupported_external_key_search('TAG DEFINITION')
+        unsupported_search_field('TAG DEFINITION', search_by)
       else
         tag_definition = Kaui::TagDefinition.find_by_name(search_query, 'NONE', options)
         if tag_definition.blank?
@@ -245,8 +245,8 @@ module Kaui
       end
     end
 
-    def unsupported_external_key_search(object_type)
-      search_error("\"#{object_type}\": Search by \"EXTERNAL KEY\" is not supported.")
+    def unsupported_search_field(object_type, object_field)
+      search_error("\"#{object_type}\": Search by \"#{object_field}\" is not supported.")
     end
 
     def search_error(message)
