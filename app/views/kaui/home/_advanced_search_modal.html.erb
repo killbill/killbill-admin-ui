@@ -68,13 +68,34 @@
             $('#advancedQuery').val(query);
         }
 
+        const searchByFieldsMap = <%= advanced_search_object_fields_map.to_json.html_safe %>;
+        function refresh_search_by() {
+            var objectType = $('#object_type').val();
+
+            // Clears the selected field if it's not supported by the selected object type
+            var searchBy = $('#search_by').val();
+            if (searchByFieldsMap[searchBy] && !searchByFieldsMap[searchBy].includes(objectType)) {
+              $('#search_by').val(' ');
+              refresh_query();
+            }
+
+            // Updates search options to only show fields supported by the selected object type
+            for (field in searchByFieldsMap) {
+                var isSupported = searchByFieldsMap[field].includes(objectType);
+                var fieldOption = $(`#search_by > option[value=${field}]`);
+                isSupported ? fieldOption.show() : fieldOption.hide();
+            }
+        }
+
         $('#search_for').keyup(function(){ refresh_query(); });
         $('#search_for').change(function(){ refresh_query(); });
         $('#object_type').change(function(){ refresh_query(); });
+        $('#object_type').change(function(){ refresh_search_by(); });
         $('#search_by').change(function(){ refresh_query(); });
         $('#fast').change(function(){ refresh_query(); });
 
         refresh_query();
+        refresh_search_by();
 
     });
 <% end %>
