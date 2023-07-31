@@ -246,7 +246,8 @@ module Kaui
     end
 
     def unsupported_search_field(object_type, object_field)
-      search_error("\"#{object_type}\": Search by \"#{object_field}\" is not supported.")
+      field_name = object_field.gsub('_', ' ')
+      search_error("\"#{object_type}\": Search by \"#{field_name}\" is not supported.")
     end
 
     def search_error(message)
