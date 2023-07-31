@@ -66,6 +66,15 @@ module Kaui
       assert_redirected_to home_path
       assert_equal '"INVOICE": Search by "EXTERNAL KEY" is not supported.', flash[:error]
 
+      # search by number
+      get :search, params: { q: query_builder('INVOICE', @bundle_invoice.invoice_number, 'NUMBER') }
+      assert_redirected_to account_invoice_path(@bundle_invoice.account_id, @bundle_invoice.invoice_id)
+
+      # search by number and fails
+      get :search, params: { q: query_builder('INVOICE', '112', 'NUMBER') }
+      assert_redirected_to home_path
+      assert_equal 'No invoice matches "112"', flash[:error]
+
       # search by BLANK only first
       get :search, params: { q: query_builder('INVOICE', @bundle_invoice.invoice_number, nil, '1') }
       assert_redirected_to account_invoice_path(@bundle_invoice.account_id, @bundle_invoice.invoice_id)

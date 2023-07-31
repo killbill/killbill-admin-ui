@@ -147,6 +147,11 @@ module Kaui
       redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id)
     end
 
+    def restful_show_by_number
+      invoice = Kaui::Invoice.find_by_number(params.require(:number), 'NONE', options_for_klient)
+      redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id)
+    end
+
     def show_html
       render html: Kaui::Invoice.as_html(params.require(:id), options_for_klient).html_safe
     end
