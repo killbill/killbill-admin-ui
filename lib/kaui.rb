@@ -206,9 +206,11 @@ end
 
 # ruby-1.8 compatibility
 module Kernel
+  # rubocop:disable Style/ArgumentsForwarding
   def define_singleton_method(*args, &)
     class << self
       self
     end.send(:define_method, *args, &)
   end
+  # rubocop:enable Style/ArgumentsForwarding
 end

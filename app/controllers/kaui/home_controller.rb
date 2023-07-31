@@ -52,16 +52,17 @@ module Kaui
     end
 
     def invoice_search(search_query, search_by = nil, fast = 0, options = {})
-      if search_by == 'ID'
+      case search_by
+      when 'ID'
         begin
           invoice = Kaui::Invoice.find_by_id(search_query, 'NONE', options)
           redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id) and return
         rescue KillBillClient::API::NotFound => _e
           search_error("No invoice matches \"#{search_query}\"")
         end
-      elsif search_by == 'EXTERNAL_KEY'
+      when 'EXTERNAL_KEY'
         unsupported_search_field('INVOICE', search_by)
-      elsif search_by == 'NUMBER'
+      when 'NUMBER'
         begin
           invoice = Kaui::Invoice.find_by_number(search_query, 'NONE', options)
           redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id) and return
