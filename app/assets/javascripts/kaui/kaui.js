@@ -386,7 +386,6 @@ function setObjectIdPopover(){
             content: function() {
                 var template = '<div class="{{id}}-content" >' +
                     '{{id}}&emsp;<i id="{{id}}-copy" class="fa fa-clipboard copy-icon" aria-hidden="true"></i> ' +
-                    '<input id="{{id}}-placeholder" class="form-control hidden"> ' +
                     '</div>';
 
                 var popover_html = Mustache.render( template , { id: $(this).data("id") });
@@ -415,14 +414,7 @@ function setObjectIdPopover(){
             copyIdImg.data("popover",$(this).attr("id"));
             copyIdImg.click(function(e){
                 var id = ($(this).attr("id")).replace('-copy','');
-                var placeholder = $("#" + objectId + "-placeholder");
-                var popover = $("#" + copyIdImg.data("popover"));
-                placeholder.val(id);
-                placeholder.removeClass("hidden");
-                placeholder.select();
-
-                document.execCommand("Copy");
-                placeholder.addClass("hidden");
+                navigator.clipboard.writeText(id);
                 ajaxInfoAlert("Id [" + id + "] was copied into the clipboard!", 4000);
 
                 if (!isBlank(popover)) {
