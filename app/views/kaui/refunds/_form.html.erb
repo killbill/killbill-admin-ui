@@ -26,7 +26,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label"></label>
             <div class="col-sm-10">
-                <input type="checkbox" id="selectall">
+                <input type="checkbox" id="selectAll">
                 <%="Select All" %>
             </div>
         </div>
@@ -163,11 +163,11 @@
                 checkedCheckBoxCount++;
             }
         });
-        $("#selectall").prop('checked', checkedCheckBoxCount == checkboxListCount);
+        $("#selectAll").prop('checked', checkedCheckBoxCount == checkboxListCount);
     }
 
     /*
-    * When clicking checkbox for each item, disable amount, check select all status and recompute total refund amount
+    * When clicking checkbox for each item, disable amount, Changes SelectAll status and recompute total refund amount
     */
     var onClickInvoiceItemAdjustment = function(event) {
         var id = checkboxToTextId(this.id);
@@ -186,14 +186,11 @@
     * When clicking select all checkbox - select each items, disable amount and recompute total refund amount
     */
     var onClickInvoiceItemsSelectAll = function(event){
-        var isChecked = false;
-        if ($(this).is(':checked')) {
-            isChecked = true;
-        }
+        var isChecked = $('#selectAll').prop('checked');
         $('input').filter(function() { return this.id.match(/tf_adj_/) }).each(function() {
             var textFieldId = this.id;
             var checkboxId = textToCheckboxId(this.id);
-            if(checkboxId && textFieldId){
+            if(checkboxId){
                 $("#" + checkboxId).prop('checked', isChecked);
                 $("#" + textFieldId).prop('readonly', isChecked);
                 if(!isChecked){
@@ -261,9 +258,7 @@
         /*
         * Attach handler onClickInvoiceItemsSelectAll for selectall checkbox
         */
-        $('input').filter(function() {
-            return this.id.match(/selectall/);
-        }).click(onClickInvoiceItemsSelectAll);
+        $('#selectAll').click(onClickInvoiceItemsSelectAll);
 
         /*
         * Attach handler for all invoice item text areas so that:
