@@ -20,6 +20,7 @@ module Kaui
   mattr_accessor :account_search_columns
   mattr_accessor :invoice_search_columns
   mattr_accessor :account_invoices_columns
+  mattr_accessor :refund_invoice_description
 
   mattr_accessor :customer_invoice_link
 
@@ -96,6 +97,11 @@ module Kaui
       ]
     ]
   end
+
+  self.refund_invoice_description = ->(index, ii, bundle_result) {
+    "Item #{index + 1} : #{ii.description} #{"(bundle #{bundle_result.external_key})" unless bundle_result.nil?}"
+  }
+
 
   self.customer_invoice_link = ->(invoice, ctx) { ctx.link_to 'View customer invoice html', ctx.kaui_engine.show_html_invoice_path(invoice.invoice_id), class: 'btn', target: '_blank' }
 
