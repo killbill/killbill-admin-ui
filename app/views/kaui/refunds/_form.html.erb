@@ -189,12 +189,13 @@
         var isChecked = $('#selectAll').prop('checked');
         $('input').filter(function() { return this.id.match(/tf_adj_/) }).each(function() {
             var textFieldId = this.id;
+            var textFieldIdElm = $("#" + textFieldId);
             var checkboxId = textToCheckboxId(this.id);
             if(checkboxId){
                 $("#" + checkboxId).prop('checked', isChecked);
-                $("#" + textFieldId).prop('readonly', isChecked);
+                textFieldIdElm.prop('readonly', isChecked);
                 if(!isChecked){
-                    $("#" + textFieldId).attr('value', $("#" + textFieldId).attr('originalValue'));
+                    textFieldIdElm.attr('value', textFieldIdElm.attr('originalValue'));
                 }
                 validateInvoiceItemAmount(textFieldId);
             }
