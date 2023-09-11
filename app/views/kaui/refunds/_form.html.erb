@@ -23,6 +23,13 @@
     </div>
 
     <div id="invoiceItems" style="display:none">
+        <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+            <div class="col-sm-10">
+                <input type="checkbox" id="selectAll">
+                <%="Select All" %>
+            </div>
+        </div>
       <% @invoice.items.each_with_index do |ii, index| %>
           <% if ii.amount > 0 %>
               <div id=<%= "div_#{ii.invoice_item_id}" %> class="form-group">
@@ -144,9 +151,23 @@
         }
         validateRefundAmount();
     };
+    /*
+     * Check status of all items check-box check/uncheck status for select all chec-kbox 
+     */
+    var checkSelectAllCheckboxStatus = function(){
+        var checkedCheckBoxCount = 0;
+        var checkboxList = $('input').filter(function() { return this.id.match(/cb_adj_/) });
+        var checkboxListCount = checkboxList.length;
+        checkboxList.each(function() {
+            if ($(this).is(':checked')) {
+                checkedCheckBoxCount++;
+            }
+        });
+        $("#selectAll").prop('checked', checkedCheckBoxCount == checkboxListCount);
+    }
 
     /*
-    * When clicking checkbox for each item, disable amount and recompute total refund amount
+    * When clicking checkbox for each item, disable amount, Changes SelectAll status and recompute total refund amount
     */
     var onClickInvoiceItemAdjustment = function(event) {
         var id = checkboxToTextId(this.id);
@@ -158,7 +179,29 @@
         }
         recomputeRefundAmountAndValidateAmount();
         validateInvoiceItemAmount(id);
+        checkSelectAllCheckboxStatus();
     };
+
+    /*
+    * When clicking select all checkbox - select each items, disable amount and recompute total refund amount
+    */
+    var onClickInvoiceItemsSelectAll = function(event){
+        var isChecked = $('#selectAll').prop('checked');
+        $('input').filter(function() { return this.id.match(/tf_adj_/) }).each(function() {
+            var textFieldId = this.id;
+            var textFieldIdElm = $("#" + textFieldId);
+            var checkboxId = textToCheckboxId(this.id);
+            if(checkboxId){
+                $("#" + checkboxId).prop('checked', isChecked);
+                textFieldIdElm.prop('readonly', isChecked);
+                if(!isChecked){
+                    textFieldIdElm.attr('value', textFieldIdElm.attr('originalValue'));
+                }
+                validateInvoiceItemAmount(textFieldId);
+            }
+        });
+        recomputeRefundAmountAndValidateAmount();
+    }
 
     /*
     * When selecting Invoice Adjustment or No Adjustment, hide invoice items and recompute refund Amount
@@ -212,6 +255,11 @@
         $('input').filter(function() {
             return this.id.match(/cb_adj_/);
         }).click(onClickInvoiceItemAdjustment);
+
+        /*
+        * Attach handler onClickInvoiceItemsSelectAll for selectall checkbox
+        */
+        $('#selectAll').click(onClickInvoiceItemsSelectAll);
 
         /*
         * Attach handler for all invoice item text areas so that:
