@@ -1,9 +1,15 @@
 <div class="search">
 
   <div class="column-block">
-
     <h1>Invoices</h1>
-
+    <div class="invoice-bar">
+      <div>
+        <input type="text" id="invoice-search" placeholder="Search Invoice" />
+        <span class="search-icon"><i class="fa fa-search" aria-hidden="true"></i></span>
+        <button id="search-invoice-btn">Search</button>
+      </div>
+      <%= link_to 'Latest invoices', kaui_engine.invoices_path %>
+    </div>
     <table id="invoices-table" class="table table-condensed mobile-data">
       <thead>
       <tr>
@@ -32,7 +38,8 @@ $(document).ready(function() {
         "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
         "language": {
           <!-- See DefaultPaginationSqlDaoHelper.java -->
-          "info": <% if @max_nb_records.nil? -%>"Showing _START_ to _END_ of <%= number_with_delimiter(Kaui::EngineControllerUtil::SIMPLE_PAGINATION_THRESHOLD) -%>+ entries"<% else -%>"Showing _START_ to _END_ of _TOTAL_ entries"<% end -%>
+          "info": <% if @max_nb_records.nil? -%>"Showing _START_ to _END_ of <%= number_with_delimiter(Kaui::EngineControllerUtil::SIMPLE_PAGINATION_THRESHOLD) -%>+ entries"<% else -%>"Showing _START_ to _END_ of _TOTAL_ entries"<% end -%>,
+          "zeroRecords": "No matching records found, please click on Latest Invoices"
         },
         "pageLength": <%= @limit %>,
         "displayStart": <%= @offset %>,
@@ -63,5 +70,22 @@ $(document).ready(function() {
       $(".dataTables_info").toggle(!noMoreData);
     });
   <% end %>
+
+  function searchInvoices () {
+    var invoiceSearch = document.getElementById('invoice-search').value;
+    table.search( invoiceSearch ).draw();
+  }
+
+  var searchInput = document.getElementById('invoice-search');
+
+  searchInput.addEventListener("keypress", function(event) {
+    if (event.keyCode == 13) {
+      searchInvoices();
+    }
+  });
+
+  $('#search-invoice-btn').on("click", function(event) {
+    searchInvoices();
+  });
 });
 <% end %>

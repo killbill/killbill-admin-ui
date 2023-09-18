@@ -56,3 +56,18 @@ table.invoice-totals {
     font-size: 12px;
     padding: 5px 30px;
 }
+
+.invoice-bar{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.search-icon{
+    margin-left: -25px;
+    opacity: 0.5;
+}
+
+#search-invoice-btn{
+    margin-left: 10px;
+}
