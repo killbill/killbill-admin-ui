@@ -13,7 +13,7 @@ module Kaui
       assert !Kaui::TagDefinition.new(id: SecureRandom.uuid).system_tag?
     end
 
-    test 'can list all tags user and control' do
+    test 'can list all user and control tags' do
       tenant = create_tenant
       assert_not_nil(tenant)
       options_for_klient = build_options(tenant)
