@@ -52,9 +52,8 @@ module Kaui
     test 'invoice related tags list should have WRITTEN_OFF tag' do
       options_for_klient = build_options_for_klient
       invoice_tags = Kaui::TagDefinition.all_for_invoice(options_for_klient)
-      invoice_tags.each do |invoice_tag|
-        assert_equal 'WRITTEN_OFF', invoice_tag.name
-      end
+      assert_equal 1, invoice_tags.count
+      assert_equal 'WRITTEN_OFF', invoice_tags[0].name
     end
 
     def build_options_for_klient
