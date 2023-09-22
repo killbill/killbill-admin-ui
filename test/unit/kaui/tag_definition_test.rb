@@ -14,24 +14,20 @@ module Kaui
     end
 
     test 'can create awesome_customer tag and should return it for object_types=[ACCOUNT] tags ' do
-      random_id = SecureRandom.uuid
       options_for_klient = build_options_for_klient
-
       tag_definition = Kaui::TagDefinition.new({
-                                                 id: random_id,
                                                  is_control_tag: false,
                                                  name: 'awesome_customer',
                                                  description: 'A user-defined tag',
                                                  applicable_object_types: ['ACCOUNT']
                                                })
-      tag_definition.create('kaui search test', nil, nil, options_for_klient) # creates 'awesome_customer tag definition for object_types=[ACCOUNT]
-
+      tag_definition = tag_definition.create('kaui search test', nil, nil, options_for_klient) # creates 'awesome_customer tag definition for object_types=[ACCOUNT]
       tags = Kaui::TagDefinition.all_for_account(options_for_klient) # gets all tag definition list for object_types=[ACCOUNT]
 
       tags.each do |tag|
-        next unless tag.id == random_id
+        next unless tag.id == tag_definition.id
 
-        assert 'awesome_customer', tag.name # checks 'awesome_customer tag is available in the list or not
+        assert_equal 'awesome_customer', tag.name # checks 'awesome_customer tag is available in the list or not
       end
     end
 
