@@ -39,7 +39,7 @@ module Kaui
         end
         formatter = lambda do |invoice|
           row = [view_context.link_to(invoice.invoice_number, view_context.url_for(controller: :invoices, action: :show, account_id: invoice.account_id, id: invoice.invoice_id))]
-          row += Kaui.invoice_search_columns.call(invoice, view_context)[1]
+          row += Kaui.invoice_search_columns.call(invoice, view_context, invoice_search_columns)[1]
           row
         end
       else
