@@ -68,7 +68,7 @@ module Kaui
     ]
   end
 
-  self.invoice_search_columns = lambda do |invoice = nil, view_context = nil|
+  self.invoice_search_columns = lambda do |invoice = nil, view_context = nil, cached_options_for_klient = nil|
     default_label = 'label-info'
     default_label = 'label-default' if invoice&.status == 'DRAFT'
     default_label = 'label-success' if invoice&.status == 'COMMITTED'
