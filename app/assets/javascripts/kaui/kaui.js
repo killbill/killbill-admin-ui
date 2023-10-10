@@ -299,7 +299,7 @@ jQuery(document).ready(function ($) {
     }
 
     // this will prevent DataTable to show an alert message box when an error occurs
-    $.fn.dataTable.ext.errMode = 'none';
+    // $.fn.DataTable.ext.errMode = 'none';
     // this will try to register a DataTable error event to all tables, and if an error occurs will display the error on screen
     $( document ).find(".table").on('error.dt', function ( e, settings, techNote, message ) {
         ajaxErrorAlert('An error has been reported by DataTables: ' + message);

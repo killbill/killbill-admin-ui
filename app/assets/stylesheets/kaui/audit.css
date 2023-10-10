@@ -1,0 +1,19 @@
+#showHistoryModal #templatesPlaceHolder {
+  display: flex; }
+  #showHistoryModal #templatesPlaceHolder .panel {
+    margin-left: 5px; }
+    #showHistoryModal #templatesPlaceHolder .panel .panel-heading {
+      white-space: nowrap; }
+  #showHistoryModal #templatesPlaceHolder .list-group-item {
+    padding: 5px;
+    min-height: 32px;
+    overflow-x: hidden;
+    white-space: nowrap; }
+  #showHistoryModal #templatesPlaceHolder #templateFieldsPlaceHolder .list-group-item span {
+    text-transform: capitalize;
+    font-weight: bold; }
+  #showHistoryModal #templatesPlaceHolder #templatePlaceHolder {
+    display: flex;
+    overflow-x: auto; }
+
+/*# sourceMappingURL=audit.css.map */

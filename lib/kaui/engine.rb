@@ -10,9 +10,6 @@
 require 'js-routes'
 require 'jquery-rails'
 require 'jquery-ui-rails'
-require 'jquery-datatables-rails'
-require 'font-awesome-sass'
-require 'bootstrap-sass'
 require 'bootstrap-datepicker-rails'
 require 'json'
 require 'money-rails'
@@ -25,9 +22,9 @@ require 'concurrent'
 require 'mustache-js-rails'
 require 'nokogiri'
 require 'time'
-require 'd3-rails'
 require 'spinjs-rails'
 require 'popper_js'
+require 'killbill-assets-ui'
 
 module Kaui
   class Engine < ::Rails::Engine
