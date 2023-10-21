@@ -27,9 +27,9 @@ module Kaui
                                 { transactionStatus: transaction_status }.to_json,
                                 {},
                                 {
-                                  user:,
-                                  reason:,
-                                  comment:
+                                  user: user,
+                                  reason: reason,
+                                  comment: comment
                                 }.merge(options)
       end
 

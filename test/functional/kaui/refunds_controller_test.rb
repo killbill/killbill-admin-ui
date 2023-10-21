@@ -6,12 +6,12 @@ module Kaui
   class RefundsControllerTest < Kaui::FunctionalTestHelper
     test 'should handle Kill Bill errors in new screen' do
       invoice_id = SecureRandom.uuid.to_s
-      get :new, params: { account_id: @account.account_id, invoice_id:, payment_id: @payment.payment_id }
+      get :new, params: { account_id: @account.account_id, invoice_id: invoice_id, payment_id: @payment.payment_id }
       assert_redirected_to account_path(@account.account_id)
       assert_equal "Error while communicating with the Kill Bill server: Object id=#{invoice_id} type=INVOICE doesn't exist!", flash[:error]
 
       payment_id = SecureRandom.uuid.to_s
-      get :new, params: { account_id: @account.account_id, invoice_id: @paid_invoice_item.invoice_id, payment_id: }
+      get :new, params: { account_id: @account.account_id, invoice_id: @paid_invoice_item.invoice_id, payment_id: payment_id }
       assert_redirected_to account_path(@account.account_id)
       assert_equal "Error while communicating with the Kill Bill server: Object id=#{payment_id} type=PAYMENT doesn't exist!", flash[:error]
     end

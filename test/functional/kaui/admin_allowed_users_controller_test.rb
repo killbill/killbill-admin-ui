@@ -88,7 +88,7 @@ module Kaui
       assert response_path.include?(expected_response_path(id)), "#{response_path} is expected to contain #{expected_response_path(id)}"
 
       parameters = {
-        id:,
+        id: id,
         allowed_user: { description: 'An post-apocalyptic super hero' },
         roles: 'one,two'
       }
@@ -100,13 +100,13 @@ module Kaui
       assert response_path.include?(expected_response_path(id)), "#{response_path} is expected to contain #{expected_response_path(id)}"
 
       # get the user to verify that the data was actually updated
-      get :edit, params: { id: }
+      get :edit, params: { id: id }
       description = extract_allowed_description
       assert_response :success
       assert_equal parameters[:allowed_user][:description], description
 
       # delete created user
-      delete :destroy, params: { id: }
+      delete :destroy, params: { id: id }
       assert_equal 'User was successfully deleted', flash[:notice]
       assert_response :redirect
       # validate redirect path
@@ -126,14 +126,14 @@ module Kaui
       # validate redirect path
       assert response_path.include?(expected_response_path(id)), "#{response_path} is expected to contain #{expected_response_path(id)}"
 
-      delete :destroy, params: { id: }
+      delete :destroy, params: { id: id }
       assert_equal 'User was successfully deleted', flash[:notice]
       assert_response :redirect
       # validate redirect path
       assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
 
       # should respond with an error if tried to delete again
-      delete :destroy, params: { id: }
+      delete :destroy, params: { id: id }
       assert_equal "Error: Couldn't find Kaui::AllowedUser with 'id'=#{id}", flash[:error]
       assert_response :redirect
       # validate redirect path
@@ -151,7 +151,7 @@ module Kaui
 
       allowed_user[:id] = au.id
 
-      put :add_tenant, params: { allowed_user:, tenant_1: nil }
+      put :add_tenant, params: { allowed_user: allowed_user, tenant_1: nil }
       assert_equal 'Successfully set tenants for user', flash[:notice]
       assert_response :redirect
       # validate redirect path

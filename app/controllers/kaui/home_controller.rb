@@ -46,7 +46,7 @@ module Kaui
         elsif true?(fast)
           redirect_to account_path(account.account_id) and return
         else
-          redirect_to accounts_path(q: search_query, fast:) and return
+          redirect_to accounts_path(q: search_query, fast: fast) and return
         end
       end
     end
@@ -81,7 +81,7 @@ module Kaui
         elsif true?(fast)
           redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id) and return
         else
-          redirect_to account_invoices_path(account_id: invoice.account_id, q: search_query, fast:) and return
+          redirect_to account_invoices_path(account_id: invoice.account_id, q: search_query, fast: fast) and return
         end
       end
     end
@@ -108,7 +108,7 @@ module Kaui
         elsif true?(fast)
           redirect_to account_payment_path(payment.account_id, payment.payment_id) and return
         else
-          redirect_to account_payments_path(account_id: payment.account_id, q: search_query, fast:) and return
+          redirect_to account_payments_path(account_id: payment.account_id, q: search_query, fast: fast) and return
         end
       end
     end
@@ -175,7 +175,7 @@ module Kaui
         if custom_field.blank?
           search_error("No custom field matches \"#{search_query}\"")
         else
-          redirect_to custom_fields_path(q: search_query, fast:)
+          redirect_to custom_fields_path(q: search_query, fast: fast)
         end
       else
         unsupported_search_field('CUSTOM FIELD', search_by)
@@ -214,7 +214,7 @@ module Kaui
         if tag.blank?
           search_error("No tag matches \"#{search_query}\"")
         else
-          redirect_to tags_path(q: search_query, fast:)
+          redirect_to tags_path(q: search_query, fast: fast)
         end
       else
         unsupported_search_field('TAG', search_by)
@@ -225,7 +225,7 @@ module Kaui
       if search_by == 'ID'
         begin
           Kaui::TagDefinition.find_by_id(search_query, 'NONE', options)
-          redirect_to tag_definitions_path(q: search_query, fast:)
+          redirect_to tag_definitions_path(q: search_query, fast: fast)
         rescue KillBillClient::API::NotFound => _e
           search_error("No tag definition matches \"#{search_query}\"")
         end
@@ -236,12 +236,12 @@ module Kaui
         if tag_definition.blank?
           begin
             Kaui::TagDefinition.find_by_id(search_query, 'NONE', options)
-            redirect_to tag_definitions_path(q: search_query, fast:) and return
+            redirect_to tag_definitions_path(q: search_query, fast: fast) and return
           rescue KillBillClient::API::NotFound => _e
             search_error("No tag definition matches \"#{search_query}\"")
           end
         else
-          redirect_to tag_definitions_path(q: search_query, fast:)
+          redirect_to tag_definitions_path(q: search_query, fast: fast)
         end
       end
     end

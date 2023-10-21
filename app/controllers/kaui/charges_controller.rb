@@ -15,7 +15,7 @@ module Kaui
         currency = params[:currency] || 'USD'
       end
 
-      @charge = Kaui::InvoiceItem.new(account_id: params.require(:account_id), invoice_id:, amount:, currency:)
+      @charge = Kaui::InvoiceItem.new(account_id: params.require(:account_id), invoice_id: invoice_id, amount: amount, currency: currency)
     end
 
     def create

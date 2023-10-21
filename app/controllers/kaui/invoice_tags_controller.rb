@@ -26,7 +26,7 @@ module Kaui
       end
 
       Kaui::Tag.set_for_invoice(invoice_id, tags, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
-      redirect_to kaui_engine.invoice_path(invoice_id, account_id:), notice: 'Invoice tags successfully set'
+      redirect_to kaui_engine.invoice_path(invoice_id, account_id: account_id), notice: 'Invoice tags successfully set'
     end
   end
 end

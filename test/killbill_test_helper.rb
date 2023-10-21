@@ -163,7 +163,7 @@ module Kaui
       tenant  = create_tenant(user, reason, comment) if tenant.nil?
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
 
-      credit = KillBillClient::Model::Credit.new(invoice_id:, account_id: account.account_id, amount: 23.22)
+      credit = KillBillClient::Model::Credit.new(invoice_id: invoice_id, account_id: account.account_id, amount: 23.22)
       credit = credit.create(true, user, reason, comment, build_options(tenant, username, password)).first
 
       invoice = KillBillClient::Model::Invoice.find_by_id(credit.invoice_id, 'NONE', build_options(tenant, username, password))
@@ -212,8 +212,8 @@ module Kaui
       {
         api_key: tenant&.api_key,
         api_secret: tenant&.api_secret,
-        username:,
-        password:
+        username: username,
+        password: password
       }
     end
 

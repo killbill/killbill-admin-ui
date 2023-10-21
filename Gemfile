@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '>= 3.1.0'
+ruby '>= 2.6.0'
 
 gemspec
 
@@ -18,7 +18,7 @@ group :development do
   gem 'simplecov'
 
   if defined?(JRUBY_VERSION)
-    git 'https://github.com/jruby/activerecord-jdbc-adapter', branch: 'master' do
+    git 'https://github.com/jruby/activerecord-jdbc-adapter', branch: 'v61.2' do
       gem 'activerecord-jdbc-adapter'
       # Add the drivers
       gem 'jdbc-mariadb'
@@ -40,4 +40,4 @@ gem 'killbill-client', git: 'https://github.com/killbill/killbill-client-ruby.gi
 # gem 'killbill-client', '3.2.0'
 
 # gem 'kenui', :path => '../killbill-email-notifications-ui'
-gem 'kenui', git: 'https://github.com/killbill/killbill-email-notifications-ui.git', branch: 'master'
+# gem 'kenui', git: 'https://github.com/killbill/killbill-email-notifications-ui.git', branch: 'master'

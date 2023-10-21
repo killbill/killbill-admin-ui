@@ -10,7 +10,7 @@ module Kaui
       assert_equal 'Required parameter missing: invoice_id', flash[:error]
 
       invoice_id = SecureRandom.uuid.to_s
-      get :edit, params: { account_id: @account.account_id, id: @invoice_item.invoice_item_id, invoice_id: }
+      get :edit, params: { account_id: @account.account_id, id: @invoice_item.invoice_item_id, invoice_id: invoice_id }
       assert_redirected_to account_path(@account.account_id)
       assert_equal "Error while communicating with the Kill Bill server: Object id=#{invoice_id} type=INVOICE doesn't exist!", flash[:error]
 
@@ -32,7 +32,7 @@ module Kaui
           params: { id: @invoice_item.invoice_item_id,
                     invoice_item: {
                       account_id: @account.account_id,
-                      invoice_id:,
+                      invoice_id: invoice_id,
                       invoice_item_id: @invoice_item.invoice_item_id,
                       amount: 5.34,
                       currency: :USD
@@ -68,7 +68,7 @@ module Kaui
       delete :destroy,
              params: {
                id: @cba.invoice_item_id,
-               invoice_id:,
+               invoice_id: invoice_id,
                account_id: @account.account_id
              }
       assert_redirected_to account_path(@account.account_id)

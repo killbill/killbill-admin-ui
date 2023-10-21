@@ -141,7 +141,7 @@ module Kaui
       assert_redirected_to admin_tenant_path(tenant.id)
       assert_equal I18n.translate('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
 
-      get :new_plan_currency, params: { id: tenant.id, plan_id: }
+      get :new_plan_currency, params: { id: tenant.id, plan_id: plan_id }
       assert_response :success
       assert_equal extract_value_from_input_field('simple_plan_plan_id'), plan_id
 
@@ -238,7 +238,7 @@ module Kaui
       assert_redirected_to admin_tenant_path(tenant.id)
       assert_equal I18n.translate('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
 
-      post :display_catalog_xml, params: { effective_date:, id: tenant.id }
+      post :display_catalog_xml, params: { effective_date: effective_date, id: tenant.id }
 
       doc = nil
       assert_nothing_raised { doc = Nokogiri::XML(@response.body, &:strict) }
@@ -261,7 +261,7 @@ module Kaui
       tenant = create_kaui_tenant
       post :upload_catalog, params: { id: tenant.id, catalog: fixture_file_upload("#{FIXTURES_PATH}/catalog-v1.xml") }
 
-      get :catalog_by_effective_date, params: { id: tenant.id, effective_date: }
+      get :catalog_by_effective_date, params: { id: tenant.id, effective_date: effective_date }
       assert_response :success
 
       result = nil
@@ -325,7 +325,7 @@ module Kaui
       assert_redirected_to admin_tenant_path(tenant.id)
       assert_equal I18n.translate('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
 
-      get :download_catalog_xml, params: { effective_date:, id: tenant.id }
+      get :download_catalog_xml, params: { effective_date: effective_date, id: tenant.id }
       assert_response :success
       assert_equal 'application/xml', @response.header['Content-Type']
       assert_equal ActionDispatch::Http::ContentDisposition.format(disposition: 'attachment', filename: "catalog_#{effective_date}.xml"), @response.header['Content-Disposition']

@@ -6,7 +6,7 @@ module Kaui
   class AccountTagsControllerTest < Kaui::FunctionalTestHelper
     test 'should handle Kill Bill errors when getting edit screen' do
       account_id = '1234'
-      get :edit, params: { account_id: }
+      get :edit, params: { account_id: account_id }
       assert_redirected_to account_path(account_id)
     end
 

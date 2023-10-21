@@ -10,7 +10,7 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 3.2.2
+        ruby-version: 2.6.10
     - name: Install gems
       run: |
         bundle config path vendor/bundle

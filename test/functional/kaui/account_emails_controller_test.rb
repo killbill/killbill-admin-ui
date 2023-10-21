@@ -21,7 +21,7 @@ module Kaui
     test 'should handle Kill Bill errors during creation' do
       account_id = SecureRandom.uuid.to_s
       post :create,
-           params: { account_id:,
+           params: { account_id: account_id,
                      account_email: {
                        email: 'toto@example.com'
                      } }
@@ -31,7 +31,7 @@ module Kaui
 
     test 'should handle Kill Bill errors during deletion' do
       account_id = 'invalid-id'
-      delete :destroy, params: { account_id:, id: 'toto@example.com' }
+      delete :destroy, params: { account_id: account_id, id: 'toto@example.com' }
       assert_redirected_to account_path(account_id)
     end
 
@@ -45,7 +45,7 @@ module Kaui
            params: {
              account_id: @account.account_id,
              account_email: {
-               email:
+               email: email
              }
            }
       assert_redirected_to account_path(@account.account_id)

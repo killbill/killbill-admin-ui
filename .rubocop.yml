@@ -51,3 +51,9 @@ Style/Documentation:
 
 Style/EmptyElse:
   EnforcedStyle: empty
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/ExplicitBlockArgument:
+  Enabled: false

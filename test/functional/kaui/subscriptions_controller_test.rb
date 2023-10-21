@@ -7,7 +7,7 @@ module Kaui
     OVERRIDE_CATALOG = 'test/fixtures/catalog-sample-for-cancel-subscription.xml'
     test 'should handle Kill Bill errors in new screen' do
       bundle_id = SecureRandom.uuid.to_s
-      get :new, params: { bundle_id:, account_id: @account.account_id, product_category: 'ADD_ON' }
+      get :new, params: { bundle_id: bundle_id, account_id: @account.account_id, product_category: 'ADD_ON' }
       assert_redirected_to account_path(@account.account_id)
       assert_equal "Error while communicating with the Kill Bill server: Object id=#{bundle_id} type=BUNDLE doesn't exist!", flash[:error]
     end
