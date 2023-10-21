@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'font-awesome-rails'
   s.add_dependency 'font-awesome-sass'
   s.add_dependency 'jquery-datatables-rails'
-  s.add_dependency 'jquery-rails', '~> 4.5.1'
+  s.add_dependency 'jquery-rails', '>= 4.5.1', '< 4.7.0'
   s.add_dependency 'jquery-ui-rails'
   s.add_dependency 'js-routes'
   s.add_dependency 'jwt'
