@@ -5,6 +5,7 @@ ruby '>= 3.1.0'
 
 gemspec
 
+gem 'rails', '~> 7.0.1'
 group :development do
   gem 'gem-release'
   gem 'json'
@@ -18,13 +19,11 @@ group :development do
   gem 'simplecov'
 
   if defined?(JRUBY_VERSION)
-    git 'https://github.com/jruby/activerecord-jdbc-adapter', branch: 'master' do
-      gem 'activerecord-jdbc-adapter'
-      # Add the drivers
-      gem 'jdbc-mariadb'
-      gem 'jdbc-postgres'
-      gem 'jdbc-sqlite3'
-    end
+    gem 'activerecord-jdbc-adapter', '~> 70.0'
+    # Add the drivers
+    gem 'jdbc-mariadb'
+    gem 'jdbc-postgres'
+    gem 'jdbc-sqlite3'
   else
     gem 'byebug'
     gem 'flamegraph'
@@ -35,9 +34,12 @@ group :development do
   end
 end
 
+# gem 'kenui', :path => '../killbill-email-notifications-ui'
+gem 'kenui', git: 'https://github.com/killbill/killbill-email-notifications-ui.git', branch: 'master'
+
+gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'main'
+# gem 'killbill-assets-ui', path: '../killbill-assets-ui'
+
 # gem 'killbill-client', :path => '../killbill-client-ruby'
 gem 'killbill-client', git: 'https://github.com/killbill/killbill-client-ruby.git', branch: 'master'
 # gem 'killbill-client', '3.2.0'
-
-# gem 'kenui', :path => '../killbill-email-notifications-ui'
-gem 'kenui', git: 'https://github.com/killbill/killbill-email-notifications-ui.git', branch: 'master'
