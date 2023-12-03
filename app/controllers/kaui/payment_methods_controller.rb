@@ -47,7 +47,7 @@ module Kaui
       }
 
       @plugin_properties = begin
-        params[:plugin_properties].values.reject { |item| (item['value'].blank? || item['key'].blank?) }
+        params[:plugin_properties].values.reject { |item| item['value'].blank? || item['key'].blank? }
       rescue StandardError
         @plugin_properties = nil
       end

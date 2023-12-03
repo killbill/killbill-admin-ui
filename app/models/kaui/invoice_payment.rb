@@ -21,7 +21,7 @@ module Kaui
           result.send("#{attr}=", raw_payment.send(attr))
         end
         # Use  Kaui::Transaction to benefit from additional fields (e.g next_retry_date)
-        original_transactions = (result.transactions || [])
+        original_transactions = result.transactions || []
         result.transactions = []
         original_transactions.each do |transaction|
           new_transaction = Kaui::Transaction.new

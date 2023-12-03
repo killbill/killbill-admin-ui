@@ -193,10 +193,11 @@ module Kaui
     def update_tags
       subscription_id = params.require(:id)
       subscription = Kaui::Subscription.find_by_id(subscription_id, options_for_klient)
-
       tags = []
-      params.each do |tag|
-        tag_info = tag.split('_')
+      params.each_key do |key|
+        next unless key.include? 'tag'
+
+        tag_info = key.split('_')
         next if (tag_info.size != 2) || (tag_info[0] != 'tag')
 
         tags << tag_info[1]

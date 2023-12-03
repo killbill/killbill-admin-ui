@@ -26,7 +26,7 @@ module Kaui
     def create
       transaction = Kaui::Transaction.new(params[:transaction].delete_if { |_key, value| value.blank? })
 
-      plugin_properties = params[:plugin_properties].values.reject { |item| (item['value'].blank? || item['key'].blank?) } unless params[:plugin_properties].blank?
+      plugin_properties = params[:plugin_properties].values.reject { |item| item['value'].blank? || item['key'].blank? } unless params[:plugin_properties].blank?
       unless plugin_properties.blank?
         plugin_properties.map! do |property|
           KillBillClient::Model::PluginPropertyAttributes.new(property)

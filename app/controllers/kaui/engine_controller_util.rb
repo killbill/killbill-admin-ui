@@ -37,7 +37,7 @@ module Kaui
       pages ||= []
 
       # Until we support server-side sorting
-      ordering = ((params[:order] || {})[:'0'] || {})
+      ordering = (params[:order] || {})[:'0'] || {}
       ordering_column = (ordering[:column] || 0).to_i
       ordering_dir = ordering[:dir] || 'asc'
       unless search_key.nil?
