@@ -95,7 +95,7 @@ module Kaui
       end
 
       tenants = []
-      params.each do |tenant, _|
+      params.each_key do |tenant|
         tenant_info = tenant.split('_')
         next if (tenant_info.size != 2) || (tenant_info[0] != 'tenant')
 

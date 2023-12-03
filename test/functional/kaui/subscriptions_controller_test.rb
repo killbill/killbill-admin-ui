@@ -358,5 +358,26 @@ module Kaui
       assert_redirected_to account_bundles_path(@account.account_id)
       assert_equal 'Subscription was successfully created', flash[:notice]
     end
+
+    test 'should linked tag' do
+      subscription_id = SecureRandom.uuid.to_s
+      options_for_klient = build_options(@tenant)
+      tag_definition = Kaui::TagDefinition.new({
+                                                 is_control_tag: false,
+                                                 name: 'subscription tag',
+                                                 description: 'A user-defined tag',
+                                                 applicable_object_types: ['SUBSCRIPTION']
+                                               })
+      tag_definition = tag_definition.create('kaui search test', nil, nil, options_for_klient)
+      params = {
+        id: subscription_id,
+        bundle_id: @bundle.bundle_id,
+        "tag_#{tag_definition.id}": 'This is name',
+        comment: '',
+        commit: 'Update'
+      }
+      post(:update_tags, params:)
+      assert_response 302
+    end
   end
 end

@@ -60,7 +60,7 @@ module Kaui
             attr_accessor :subscription_cancellation
           end
           state.subscription_cancellation = if state.is_disable_entitlement
-                                              state.subscription_cancellation_policy ? "POLICY_#{state.subscription_cancellation_policy}".to_sym : :NONE
+                                              state.subscription_cancellation_policy ? :"POLICY_#{state.subscription_cancellation_policy}" : :NONE
                                             else
                                               :NONE
                                             end

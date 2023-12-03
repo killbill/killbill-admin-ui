@@ -18,7 +18,7 @@ module Kaui
       bundle_id = params.require(:bundle_id)
 
       tags = []
-      params.each do |tag, _tag_name|
+      params.each_key do |tag|
         tag_info = tag.split('_')
         next if (tag_info.size != 2) || (tag_info[0] != 'tag')
 

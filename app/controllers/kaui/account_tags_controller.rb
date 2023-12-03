@@ -37,7 +37,7 @@ module Kaui
       account_id = params.require(:account_id)
 
       tags = []
-      params.each do |tag, _tag_name|
+      params.each_key do |tag|
         tag_info = tag.split('_')
         next if (tag_info.size != 2) || (tag_info[0] != 'tag')
 
