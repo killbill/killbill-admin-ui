@@ -7,6 +7,9 @@
       <% unless @invoice.invoice_number.blank? %>
         <%= Kaui.customer_invoice_link.call(@invoice, self) %>
       <% end %>
+      <% unless @invoice.invoice_number.blank? %>
+        <%= Kaui.customer_bulk_invoice_adjust_link.call(@invoice, self) %>
+      <% end %>
     </h1>
 
     <% dry_run = @invoice.invoice_number.blank? %>
