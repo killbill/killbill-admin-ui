@@ -105,7 +105,7 @@ module Kaui
 
   self.customer_invoice_link = ->(invoice, ctx) { ctx.link_to 'View customer invoice html', ctx.kaui_engine.show_html_invoice_path(invoice.invoice_id), class: 'btn', target: '_blank' }
 
-  self.customer_bulk_invoice_adjust_link = ->(invoice, ctx) {  }
+  self.customer_bulk_invoice_adjust_link = ->(invoice, ctx) {}
 
   self.demo_mode = false
 
