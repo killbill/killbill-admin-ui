@@ -4,10 +4,8 @@
 
     <h1>
       Invoice <%= @invoice.invoice_number %>
-      <% unless @invoice.invoice_number.blank? %>
+      <% if !@invoice.invoice_number.blank? %>
         <%= Kaui.customer_invoice_link.call(@invoice, self) %>
-      <% end %>
-      <% unless @invoice.invoice_number.blank? %>
         <%= Kaui.customer_bulk_invoice_adjust_link.call(@invoice, self) %>
       <% end %>
     </h1>
