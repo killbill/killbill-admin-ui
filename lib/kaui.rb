@@ -48,7 +48,7 @@ module Kaui
 
   mattr_accessor :disable_sign_up_link
   mattr_accessor :additional_headers_partial
-  mattr_accessor :customer_bulk_invoice_adjust_link
+  mattr_accessor :additional_invoice_links
 
   self.home_path = -> { Kaui::Engine.routes.url_helpers.home_path }
   self.tenant_home_path = -> { Kaui::Engine.routes.url_helpers.tenants_path }
@@ -105,7 +105,7 @@ module Kaui
 
   self.customer_invoice_link = ->(invoice, ctx) { ctx.link_to 'View customer invoice html', ctx.kaui_engine.show_html_invoice_path(invoice.invoice_id), class: 'btn', target: '_blank' }
 
-  self.customer_bulk_invoice_adjust_link = ->(invoice, ctx) {}
+  self.additional_invoice_links = ->(invoice, ctx) {}
 
   self.demo_mode = false
 
