@@ -6,7 +6,7 @@
       Invoice <%= @invoice.invoice_number %>
       <% if !@invoice.invoice_number.blank? %>
         <%= Kaui.customer_invoice_link.call(@invoice, self) %>
-        <%= Kaui.customer_bulk_invoice_adjust_link.call(@invoice, self) %>
+        <%= Kaui.additional_invoice_links.call(@invoice, self) %>
       <% end %>
     </h1>
 
