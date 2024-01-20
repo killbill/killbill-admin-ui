@@ -24,7 +24,7 @@ require 'nokogiri'
 require 'time'
 require 'spinjs-rails'
 require 'popper_js'
-require 'killbill-assets-ui'
+require 'killbill_assets_ui'
 
 module Kaui
   class Engine < ::Rails::Engine
