@@ -115,9 +115,8 @@ module Kaui
                                                end
 
       fetch_payment_methods_with_details = fetch_payment_methods.then do |pms|
-        ops = []
-        pms.each do |pm|
-          ops << promise do
+        ops = pms.map do |pm|
+          promise do
             Kaui::PaymentMethod.find_by_id(pm.payment_method_id, true, cached_options_for_klient)
           rescue StandardError => e
             # Maybe the plugin is not registered or the plugin threw an exception
