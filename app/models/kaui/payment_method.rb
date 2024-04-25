@@ -11,12 +11,12 @@ module Kaui
     end
 
     def self.find_safely_by_id(id, options = {})
-      Kaui::PaymentMethod.find_by_id(id, true, options)
+      Kaui::PaymentMethod.find_by_id(id, false, true, [], 'NONE', options)
     rescue StandardError => e
       # Maybe the plugin is not registered or the plugin threw an exception
       Rails.logger.warn(e)
       begin
-        Kaui::PaymentMethod.find_by_id(id, false, options)
+        Kaui::PaymentMethod.find_by_id(id, false, true, [], 'NONE', options)
       rescue StandardError
         nil
       end
@@ -26,7 +26,7 @@ module Kaui
       pms = Kaui::PaymentMethod.find_all_by_account_id(account_id, false, options)
 
       pms.each_with_index do |pm, i|
-        pms[i] = Kaui::PaymentMethod.find_by_id(pm.payment_method_id, true, options)
+        pms[i] = Kaui::PaymentMethod.find_by_id(pm.payment_method_id, false, true, [], 'NONE', options)
       rescue StandardError => e
         # Maybe the plugin is not registered or the plugin threw an exception
         Rails.logger.warn(e)
@@ -49,7 +49,7 @@ module Kaui
 
         # The payment method may have been deleted
         payment_methods_cache[payment.payment_method_id] ||= begin
-          Kaui::PaymentMethod.find_by_id(payment.payment_method_id, true, options)
+          Kaui::PaymentMethod.find_by_id(payment.payment_method_id, false, true, [], 'NONE', options)
         rescue StandardError
           nil
         end

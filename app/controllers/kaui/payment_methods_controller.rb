@@ -74,7 +74,7 @@ module Kaui
     def destroy
       payment_method_id = params[:id]
 
-      payment_method = Kaui::PaymentMethod.find_by_id(payment_method_id, false, options_for_klient)
+      payment_method = Kaui::PaymentMethod.find_by_id(payment_method_id, false, false, [], 'NONE', options_for_klient)
       begin
         Kaui::PaymentMethod.destroy(payment_method_id, params[:set_auto_pay_off], false, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
         redirect_to kaui_engine.account_path(payment_method.account_id), notice: "Payment method #{payment_method_id} successfully deleted"
@@ -89,7 +89,7 @@ module Kaui
     end
 
     def restful_show
-      payment_method = Kaui::PaymentMethod.find_by_id(params.require(:id), false, options_for_klient)
+      payment_method = Kaui::PaymentMethod.find_by_id(params.require(:id), false, false, [], 'NONE', options_for_klient)
       redirect_to kaui_engine.account_path(payment_method.account_id)
     end
 
@@ -98,7 +98,7 @@ module Kaui
         external_key = params.require(:external_key)
 
         begin
-          payment_methods = Kaui::PaymentMethod.find_by_external_key(external_key, false, false, 'NONE', options_for_klient)
+          payment_methods = Kaui::PaymentMethod.find_by_external_key(external_key, false, false, [], 'NONE', options_for_klient)
         rescue KillBillClient::API::NotFound
           payment_methods = nil
         end

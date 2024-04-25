@@ -68,7 +68,7 @@ module Kaui
           when 'CUSTOM_FIELD'
             audit_logs_with_history = Kaui::CustomField.new({ custom_field_id: object_id }).audit_logs_with_history(cached_options_for_klient)
           when 'INVOICE'
-            invoice = Kaui::Invoice.find_by_id(object_id, 'NONE', cached_options_for_klient)
+            invoice = Kaui::Invoice.find_by_id(object_id, false, 'NONE', cached_options_for_klient)
             audit_logs_with_history = invoice.audit_logs_with_history(cached_options_for_klient)
           when 'INVOICE_ITEM'
             invoice_item = Kaui::InvoiceItem.new
@@ -84,10 +84,10 @@ module Kaui
             payment = Kaui::Payment.find_by_id(object_id, false, false, cached_options_for_klient)
             audit_logs_with_history = payment.audit_logs_with_history(cached_options_for_klient)
           when 'PAYMENT_METHOD'
-            payment_method = Kaui::PaymentMethod.find_by_id(object_id, false, cached_options_for_klient)
+            payment_method = Kaui::PaymentMethod.find_by_id(object_id, false, false, [], 'NONE', cached_options_for_klient)
             audit_logs_with_history = payment_method.audit_logs_with_history(cached_options_for_klient)
           when 'SUBSCRIPTION'
-            subscription = Kaui::Subscription.find_by_id(object_id, cached_options_for_klient)
+            subscription = Kaui::Subscription.find_by_id(object_id, 'NONE', cached_options_for_klient)
             audit_logs_with_history = subscription.audit_logs_with_history(cached_options_for_klient)
           when 'SUBSCRIPTION_EVENT'
             audit_logs_with_history = Kaui::Subscription.event_audit_logs_with_history(object_id, cached_options_for_klient)

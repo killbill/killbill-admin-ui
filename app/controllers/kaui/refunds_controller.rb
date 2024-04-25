@@ -5,8 +5,9 @@ module Kaui
     def new
       cached_options_for_klient = options_for_klient
 
-      fetch_invoice = promise { Kaui::Invoice.find_by_id(params.require(:invoice_id), 'NONE', cached_options_for_klient) }
+      fetch_invoice = promise { Kaui::Invoice.find_by_id(params.require(:invoice_id), false, 'NONE', cached_options_for_klient) }
       fetch_payment = promise { Kaui::InvoicePayment.find_by_id(params.require(:payment_id), false, false, cached_options_for_klient) }
+
       fetch_bundles = promise { @account.bundles(cached_options_for_klient) }
 
       @invoice = wait(fetch_invoice)
@@ -18,7 +19,7 @@ module Kaui
 
     # rubocop:disable Lint/FloatComparison
     def create
-      invoice = Kaui::Invoice.find_by_id(params.require(:invoice_id), 'NONE', options_for_klient)
+      invoice = Kaui::Invoice.find_by_id(params.require(:invoice_id), false, 'NONE', options_for_klient)
 
       if params[:adjustment_type] == 'invoiceItemAdjustment'
         items = []
