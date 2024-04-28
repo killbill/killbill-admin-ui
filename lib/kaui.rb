@@ -210,4 +210,8 @@ module Kaui
       layout: layout || 'kaui/layouts/kaui_application'
     }
   end
+
+  def self.version
+    Kaui::VERSION
+  end
 end
