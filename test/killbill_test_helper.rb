@@ -166,13 +166,13 @@ module Kaui
       credit = KillBillClient::Model::Credit.new(invoice_id:, account_id: account.account_id, amount: 23.22)
       credit = credit.create(true, user, reason, comment, build_options(tenant, username, password)).first
 
-      invoice = KillBillClient::Model::Invoice.find_by_id(credit.invoice_id, 'NONE', build_options(tenant, username, password))
+      invoice = KillBillClient::Model::Invoice.find_by_id(credit.invoice_id, false, 'NONE', build_options(tenant, username, password))
       invoice.items.find { |ii| ii.amount == -credit.amount }
     end
     # rubocop:enable Style/OptionalBooleanParameter
 
     def commit_invoice(invoice_id, tenant, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
-      invoice = KillBillClient::Model::Invoice.find_by_id(invoice_id, 'NONE', build_options(tenant, username, password))
+      invoice = KillBillClient::Model::Invoice.find_by_id(invoice_id, false, 'NONE', build_options(tenant, username, password))
       invoice.commit(user, reason, comment, build_options(tenant, username, password))
     end
 

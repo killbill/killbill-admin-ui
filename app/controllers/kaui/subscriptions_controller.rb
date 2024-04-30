@@ -72,7 +72,7 @@ module Kaui
     end
 
     def edit
-      @subscription = Kaui::Subscription.find_by_id(params.require(:id), options_for_klient)
+      @subscription = Kaui::Subscription.find_by_id(params.require(:id), 'NONE', options_for_klient)
       _, plans_details = lookup_bundle_and_plan_details(@subscription)
       # Use a Set to deal with multiple pricelists
       @plans = Set.new.merge(plans_details.map(&:plan))
@@ -86,7 +86,7 @@ module Kaui
 
       wait_for_completion = params[:wait_for_completion] == '1'
 
-      subscription = Kaui::Subscription.find_by_id(params.require(:id), options_for_klient)
+      subscription = Kaui::Subscription.find_by_id(params.require(:id), 'NONE', options_for_klient)
 
       input = { planName: plan_name }
 
@@ -124,13 +124,13 @@ module Kaui
                                        else
                                          nil
                                        end
-      subscription = Kaui::Subscription.find_by_id(params.require(:id), options_for_klient)
+      subscription = Kaui::Subscription.find_by_id(params.require(:id), 'NONE', options_for_klient)
       subscription.cancel(current_user.kb_username, params[:reason], params[:comment], requested_date, entitlement_policy, billing_policy, use_requested_date_for_billing, options_for_klient)
       redirect_to kaui_engine.account_bundles_path(subscription.account_id), notice: 'Subscription was successfully cancelled'
     end
 
     def reinstate
-      subscription = Kaui::Subscription.find_by_id(params.require(:id), options_for_klient)
+      subscription = Kaui::Subscription.find_by_id(params.require(:id), 'NONE', options_for_klient)
 
       subscription.uncancel(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
 
@@ -138,7 +138,7 @@ module Kaui
     end
 
     def edit_bcd
-      @subscription = Kaui::Subscription.find_by_id(params.require(:id), options_for_klient)
+      @subscription = Kaui::Subscription.find_by_id(params.require(:id), 'NONE', options_for_klient)
     end
 
     def update_bcd
@@ -158,7 +158,7 @@ module Kaui
     end
 
     def restful_show
-      subscription = Kaui::Subscription.find_by_id(params.require(:id), options_for_klient)
+      subscription = Kaui::Subscription.find_by_id(params.require(:id), 'NONE', options_for_klient)
       redirect_to kaui_engine.account_bundles_path(subscription.account_id)
     end
 
@@ -181,7 +181,7 @@ module Kaui
         external_key = params.require(:external_key)
 
         begin
-          subscription = Kaui::Subscription.find_by_external_key(external_key, options_for_klient)
+          subscription = Kaui::Subscription.find_by_external_key(external_key, 'NONE', options_for_klient)
         rescue KillBillClient::API::NotFound
           subscription = nil
         end
@@ -192,7 +192,7 @@ module Kaui
 
     def update_tags
       subscription_id = params.require(:id)
-      subscription = Kaui::Subscription.find_by_id(subscription_id, options_for_klient)
+      subscription = Kaui::Subscription.find_by_id(subscription_id, 'NONE', options_for_klient)
       tags = []
       params.each_key do |key|
         next unless key.include? 'tag'

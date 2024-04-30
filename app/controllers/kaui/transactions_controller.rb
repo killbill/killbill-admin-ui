@@ -3,7 +3,7 @@
 module Kaui
   class TransactionsController < Kaui::EngineController
     def restful_show
-      payment = Kaui::Payment.find_by_transaction_id(params.require(:id), false, true, options_for_klient)
+      payment = Kaui::Payment.find_by_transaction_id(params.require(:id), false, true, [], 'NONE', options_for_klient)
       redirect_to account_payment_path(payment.account_id, payment.payment_id)
     end
 
@@ -18,7 +18,7 @@ module Kaui
                                              currency: params[:currency],
                                              transaction_type: params[:transaction_type])
       else
-        payment = Kaui::Payment.find_by_transaction_id(transaction_id, false, false, options_for_klient)
+        payment = Kaui::Payment.find_by_transaction_id(transaction_id, false, false, [], 'NONE', options_for_klient)
         @transaction = Kaui::Transaction.build_from_raw_transaction(payment.transactions.find { |tx| tx.transaction_id == transaction_id })
       end
     end

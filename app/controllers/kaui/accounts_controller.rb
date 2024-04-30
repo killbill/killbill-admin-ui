@@ -117,7 +117,7 @@ module Kaui
       fetch_payment_methods_with_details = fetch_payment_methods.then do |pms|
         ops = pms.map do |pm|
           promise do
-            Kaui::PaymentMethod.find_by_id(pm.payment_method_id, true, cached_options_for_klient)
+            Kaui::PaymentMethod.find_by_id(pm.payment_method_id, false, true, [], 'NONE', cached_options_for_klient)
           rescue StandardError => e
             # Maybe the plugin is not registered or the plugin threw an exception
             Rails.logger.warn(e)
@@ -181,7 +181,7 @@ module Kaui
       invoice = nil
       begin
         invoice = if dry_run
-                    Kaui::Invoice.trigger_invoice_dry_run(account_id, target_date, false, options_for_klient)
+                    Kaui::Invoice.trigger_invoice_dry_run(account_id, target_date, false, [], current_user.kb_username, params[:reason], params[:comment], options_for_klient)
                   else
                     Kaui::Invoice.trigger_invoice(account_id, target_date, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
                   end
@@ -208,7 +208,7 @@ module Kaui
     # Fetched asynchronously, as it takes time. This also helps with enforcing permissions.
     def next_invoice_date
       json_response do
-        next_invoice = Kaui::Invoice.trigger_invoice_dry_run(params.require(:account_id), nil, true, options_for_klient)
+        next_invoice = Kaui::Invoice.trigger_invoice_dry_run(params.require(:account_id), nil, true, [], current_user.kb_username, params[:reason], params[:comment], options_for_klient)
         next_invoice ? next_invoice.target_date.to_json : nil
       end
     end
