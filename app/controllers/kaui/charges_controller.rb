@@ -7,7 +7,7 @@ module Kaui
       amount = params[:amount]
 
       if invoice_id.present?
-        @invoice = Kaui::Invoice.find_by_id(invoice_id, 'NONE', options_for_klient)
+        @invoice = Kaui::Invoice.find_by_id(invoice_id, false, 'NONE', options_for_klient)
         amount ||= @invoice.balance
         currency = @invoice.currency
       else

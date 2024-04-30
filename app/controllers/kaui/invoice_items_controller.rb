@@ -7,7 +7,7 @@ module Kaui
       invoice_id = params.require(:invoice_id)
 
       # See https://github.com/killbill/killbill/issues/7
-      invoice = Kaui::Invoice.find_by_id(invoice_id, 'NONE', options_for_klient)
+      invoice = Kaui::Invoice.find_by_id(invoice_id, false, 'NONE', options_for_klient)
       @invoice_item = invoice.items.find { |ii| ii.invoice_item_id == invoice_item_id }
 
       return unless @invoice_item.nil?

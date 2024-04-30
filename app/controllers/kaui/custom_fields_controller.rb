@@ -71,7 +71,7 @@ module Kaui
         end
       when :SUBSCRIPTION
         begin
-          test_uuid = Kaui::Subscription.find_by_id(param_uuid, options_for_klient)
+          test_uuid = Kaui::Subscription.find_by_id(param_uuid, 'NONE', options_for_klient)
         rescue StandardError
           # Ignore
         end
@@ -163,7 +163,7 @@ module Kaui
         end
       when  'SUBSCRIPTION'
         begin
-          test_uuid = Kaui::Subscription.find_by_id(param_uuid, options_for_klient)
+          test_uuid = Kaui::Subscription.find_by_id(param_uuid, 'NONE', options_for_klient)
         rescue StandardError
           # Ignore
         ensure
@@ -172,7 +172,7 @@ module Kaui
       when  'INVOICE'
         begin
           cached_options_for_klient = options_for_klient
-          test_uuid = Kaui::Invoice.find_by_id(param_uuid, 'FULL', cached_options_for_klient)
+          test_uuid = Kaui::Invoice.find_by_id(param_uuid, false, 'FULL', cached_options_for_klient)
         rescue StandardError
           # Ignore
         ensure

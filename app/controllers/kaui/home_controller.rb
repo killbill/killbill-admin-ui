@@ -55,7 +55,7 @@ module Kaui
       case search_by
       when 'ID'
         begin
-          invoice = Kaui::Invoice.find_by_id(search_query, 'NONE', options)
+          invoice = Kaui::Invoice.find_by_id(search_query, false, 'NONE', options)
           redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id) and return
         rescue KillBillClient::API::NotFound => _e
           search_error("No invoice matches \"#{search_query}\"")
@@ -64,7 +64,7 @@ module Kaui
         unsupported_search_field('INVOICE', search_by)
       when 'NUMBER'
         begin
-          invoice = Kaui::Invoice.find_by_number(search_query, 'NONE', options)
+          invoice = Kaui::Invoice.find_by_number(search_query, false, 'NONE', options)
           redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id) and return
         rescue KillBillClient::API::NotFound, KillBillClient::API::BadRequest => _e
           search_error("No invoice matches \"#{search_query}\"")
@@ -116,14 +116,14 @@ module Kaui
     def transaction_search(search_query, search_by = nil, _fast = 0, options = {})
       if search_by.blank? || search_by == 'ID'
         begin
-          payment = Kaui::Payment.find_by_transaction_id(search_query, false, true, options)
+          payment = Kaui::Payment.find_by_transaction_id(search_query, false, true, [], 'NONE', options)
           redirect_to account_payment_path(payment.account_id, payment.payment_id) and return
         rescue KillBillClient::API::NotFound => _e
           search_error("No transaction matches \"#{search_query}\"")
         end
       else
         begin
-          payment = Kaui::Payment.find_by_transaction_external_key(search_query, false, true, 'NONE', options)
+          payment = Kaui::Payment.find_by_transaction_external_key(search_query, false, true, [], 'NONE', options)
           redirect_to account_payment_path(payment.account_id, payment.payment_id) and return
         rescue KillBillClient::API::NotFound => _e
           search_error("No transaction matches \"#{search_query}\"")
@@ -198,7 +198,7 @@ module Kaui
     def subscription_search(search_query, search_by = nil, _fast = 0, options = {})
       if search_by.blank? || search_by == 'ID'
         begin
-          subscription = Kaui::Subscription.find_by_id(search_query, options)
+          subscription = Kaui::Subscription.find_by_id(search_query, 'NONE', options)
           redirect_to account_bundles_path(subscription.account_id) and return
         rescue KillBillClient::API::NotFound => _e
           search_error("No subscription matches \"#{search_query}\"")

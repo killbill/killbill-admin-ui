@@ -108,17 +108,15 @@ module Kaui
     private
 
     def plugins_repo
-      plugins_info = []
       hash_plugin_info = JSON.parse(PLUGIN_REPO)
-      hash_plugin_info.each do |plugin|
-        plugins_info << {
+      hash_plugin_info.map do |plugin|
+        {
           plugin_key: plugin['plugin_key'],
           plugin_name: plugin['plugin_name'],
           plugin_type: nil,
           installed: true
         }
       end
-      plugins_info
     end
 
     def assert_split(splitted)
