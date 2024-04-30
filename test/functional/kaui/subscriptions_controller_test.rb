@@ -220,7 +220,7 @@ module Kaui
                id: @bundle.subscriptions.first.subscription_id
              }
       assert_response 302
-      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, build_options(@tenant))
+      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, 'NONE', build_options(@tenant))
       assert_equal Date.parse(subscription.cancelled_date), Date.today
       assert_equal Date.parse(subscription.billing_end_date), Date.today + 1.month
     end
@@ -233,7 +233,7 @@ module Kaui
                policy: 'START_OF_TERM'
              }
       assert_response 302
-      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, build_options(@tenant))
+      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, 'NONE', build_options(@tenant))
       assert_equal Date.parse(subscription.cancelled_date), Date.today
       assert_equal Date.parse(subscription.billing_end_date), Date.today
     end
@@ -246,7 +246,7 @@ module Kaui
                policy: 'IMMEDIATE'
              }
       assert_response 302
-      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, build_options(@tenant))
+      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, 'NONE', build_options(@tenant))
       assert_equal Date.parse(subscription.cancelled_date), Date.today
       assert_equal Date.parse(subscription.billing_end_date), Date.today
     end
@@ -259,7 +259,7 @@ module Kaui
                policy: 'END_OF_TERM'
              }
       assert_response 302
-      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, build_options(@tenant))
+      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, 'NONE', build_options(@tenant))
       assert_equal Date.parse(subscription.cancelled_date), Date.parse(subscription.billing_start_date) + 1.month
       assert_equal Date.parse(subscription.billing_end_date), Date.parse(subscription.billing_start_date) + 1.month
     end
@@ -275,7 +275,7 @@ module Kaui
              }
       assert_response 302
 
-      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, build_options(@tenant))
+      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, 'NONE', build_options(@tenant))
       assert_equal Date.parse(subscription.cancelled_date), requested_date.to_date
       assert_equal Date.parse(subscription.billing_end_date), Date.parse(subscription.start_date) + 1.month
     end
@@ -291,7 +291,7 @@ module Kaui
              }
       assert_response 302
 
-      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, build_options(@tenant))
+      subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, 'NONE', build_options(@tenant))
       assert_equal Date.parse(subscription.cancelled_date), requested_date.to_date
       assert_equal Date.parse(subscription.billing_end_date), requested_date.to_date
     end

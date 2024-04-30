@@ -6,7 +6,7 @@ module Kaui
       if search_key.present?
         find_in_batches_by_search_key(search_key, offset, limit, options)
       else
-        find_in_batches(offset, limit, options)
+        find_in_batches(offset, limit, 'NONE', options)
       end
     end
   end

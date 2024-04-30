@@ -67,7 +67,7 @@ module Kaui
       # Go to the database once
       cached_options_for_klient = options_for_klient
 
-      @invoice = Kaui::Invoice.find_by_id(params.require(:id), 'FULL', cached_options_for_klient)
+      @invoice = Kaui::Invoice.find_by_id(params.require(:id), false, 'FULL', cached_options_for_klient)
       # This will put the TAX items at the bottom
       precedence = {
         'EXTERNAL_CHARGE' => 0,
@@ -132,7 +132,7 @@ module Kaui
 
     def void_invoice
       cached_options_for_klient = options_for_klient
-      invoice = KillBillClient::Model::Invoice.find_by_id(params.require(:id), 'NONE', cached_options_for_klient)
+      invoice = KillBillClient::Model::Invoice.find_by_id(params.require(:id), false, 'NONE', cached_options_for_klient)
       begin
         invoice.void(current_user.kb_username, params[:reason], params[:comment], cached_options_for_klient)
         redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id), notice: 'Invoice successfully voided'
@@ -143,12 +143,12 @@ module Kaui
     end
 
     def restful_show
-      invoice = Kaui::Invoice.find_by_id(params.require(:id), 'NONE', options_for_klient)
+      invoice = Kaui::Invoice.find_by_id(params.require(:id), false, 'NONE', options_for_klient)
       redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id)
     end
 
     def restful_show_by_number
-      invoice = Kaui::Invoice.find_by_number(params.require(:number), 'NONE', options_for_klient)
+      invoice = Kaui::Invoice.find_by_number(params.require(:number), false, 'NONE', options_for_klient)
       redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id)
     end
 
@@ -158,7 +158,7 @@ module Kaui
 
     def commit_invoice
       cached_options_for_klient = options_for_klient
-      invoice = KillBillClient::Model::Invoice.find_by_id(params.require(:id), 'NONE', cached_options_for_klient)
+      invoice = KillBillClient::Model::Invoice.find_by_id(params.require(:id), false, 'NONE', cached_options_for_klient)
       invoice.commit(current_user.kb_username, params[:reason], params[:comment], cached_options_for_klient)
       redirect_to account_invoice_path(invoice.account_id, invoice.invoice_id), notice: 'Invoice successfully committed'
     end
