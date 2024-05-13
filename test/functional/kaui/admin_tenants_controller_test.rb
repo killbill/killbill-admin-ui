@@ -50,6 +50,14 @@ module Kaui
       assert_response 200
     end
 
+    test 'should validate catalog' do
+      tenant = create_kaui_tenant
+      post :upload_catalog, params: { id: tenant.id, catalog: fixture_file_upload("#{FIXTURES_PATH}/missing-name-catalog.xml") }
+
+      assert_redirected_to admin_tenant_new_catalog_path(id: tenant.id)
+      assert_includes flash[:error], "One of '{catalogName}' is expected."
+    end
+
     test 'should upload catalog' do
       tenant = create_kaui_tenant
       post :upload_catalog, params: { id: tenant.id, catalog: fixture_file_upload("#{FIXTURES_PATH}/catalog-v1.xml") }

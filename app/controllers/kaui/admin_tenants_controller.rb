@@ -130,9 +130,23 @@ module Kaui
       uploaded_catalog = params.require(:catalog)
       catalog_xml = uploaded_catalog.read
 
-      Kaui::AdminTenant.upload_catalog(catalog_xml, options[:username], nil, comment, options)
-
-      redirect_to admin_tenant_path(current_tenant.id), notice: I18n.translate('flashes.notices.catalog_uploaded_successfully')
+      validate_response = Kaui::Catalog.validate_catalog(catalog_xml, options[:username], nil, comment, options)
+      catalog_validation_errors = begin
+        JSON.parse(validate_response.response.body)['catalogValidationErrors']
+      rescue StandardError
+        nil
+      end
+      if catalog_validation_errors.blank?
+        Kaui::AdminTenant.upload_catalog(catalog_xml, options[:username], nil, comment, options)
+        redirect_to admin_tenant_path(current_tenant.id), notice: I18n.translate('flashes.notices.catalog_uploaded_successfully')
+      else
+        errors = ''
+        catalog_validation_errors.each do |validation_error|
+          errors += (validation_error['errorDescription'])
+        end
+        flash[:error] = errors
+        redirect_to admin_tenant_new_catalog_path(id: current_tenant.id)
+      end
     end
 
     def new_catalog
