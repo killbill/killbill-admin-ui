@@ -43,5 +43,5 @@ gem 'kenui'
 gem 'killbill-assets-ui'
 
 # gem 'killbill-client', path: '../killbill-client-ruby'
-gem 'killbill-client', git: 'https://github.com/killbill/killbill-client-ruby.git', branch: 'master'
-# gem 'killbill-client'
+# gem 'killbill-client', git: 'https://github.com/killbill/killbill-client-ruby.git', branch: 'master'
+gem 'killbill-client'
