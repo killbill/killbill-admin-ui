@@ -63,6 +63,9 @@ en:
       invalid_xml: "Invalid XML: %{error}"
       invalid_min_date: "Invalid min date format"
       invalid_max_date: "Invalid max date format"
+      unable_to_connect_database: "Unable to connect to the database."
+      unable_to_connect_killbill: "Unable to connect to the Kill Bill server."
+      error_communicating_killbill: "Error while communicating with the Kill Bill server."
   views:
     subscriptions:
       requested_date_for_billing_notice: <ul>
