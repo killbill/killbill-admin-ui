@@ -5,8 +5,10 @@ module Kaui
     # rubocop:disable Lint/HashCompareByIdentity
     def index
       cached_options_for_klient = options_for_klient
+      @per_page = (params[:per_page] || 10).to_i
+      @page = (params[:page] || 1).to_i
 
-      fetch_bundles = promise { @account.bundles(cached_options_for_klient) }
+      fetch_bundles = promise { Kaui::Account.paginated_bundles(@account.account_id, (@page - 1) * @per_page, @per_page, 'NONE', cached_options_for_klient) }
       fetch_bundle_tags = promise do
         all_bundle_tags = @account.all_tags(:BUNDLE, false, 'NONE', cached_options_for_klient)
         all_bundle_tags.each_with_object({}) do |entry, hsh|
@@ -35,6 +37,8 @@ module Kaui
       fetch_available_subscription_tags = promise { Kaui::TagDefinition.all_for_subscription(cached_options_for_klient) }
 
       @bundles = wait(fetch_bundles)
+      @total_pages = (@bundles.pagination_max_nb_records.to_f / @per_page).ceil
+
       @tags_per_bundle = wait(fetch_bundle_tags)
       @tags_per_subscription = wait(fetch_subscription_tags)
       @custom_fields_per_bundle = wait(fetch_bundle_fields)

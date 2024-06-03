@@ -76,4 +76,38 @@
       <% end %>
   <% end %>
 
+  <div class="text-right" style="margin-top: 20px;">
+    <%= link_to 'First', account_bundles_path(page: 1), class: "btn btn-custom #{'disabled' if @page == 1}" %>
+    <%= link_to 'Previous', account_bundles_path(page: @page - 1), class: "btn btn-custom #{'disabled' if @page == 1}" %>
+
+    <% if @total_pages <= 10 %>
+        <% (1..@total_pages).each do |num| %>
+            <%= link_to num, account_bundles_path(page: num), class: paging_button_class(num, @page) %>
+        <% end %>
+    <% else %>
+        <%= link_to 1, account_bundles_path(page: 1), class: paging_button_class(1, @page) %>
+        <% if @page < 5 %>
+            <% (2..5).each do |num| %>
+                <%= link_to num, account_bundles_path(page: num), class: paging_button_class(num, @page) %>
+            <% end %>
+            <%= '...' %>
+        <% elsif @page > @total_pages - 4 %>
+            <%= '...' %>
+            <% (@total_pages-4..@total_pages-1).each do |num| %>
+                <%= link_to num, account_bundles_path(page: num), class: paging_button_class(num, @page) %>
+            <% end %>
+        <% else %>
+            <%= '...' %>
+            <% (@page-1..@page+1).each do |num| %>
+                <%= link_to num, account_bundles_path(page: num), class: paging_button_class(num, @page) %>
+            <% end %>
+            <%= '...' %>
+        <% end %>
+        <%= link_to @total_pages, account_bundles_path(page: @total_pages), class: paging_button_class(@total_pages, @page) %>
+    <% end %>
+
+    <%= link_to 'Next', account_bundles_path(page: @page + 1), class: "btn btn-custom #{'disabled' if @page == @total_pages}" %>
+    <%= link_to 'Last', account_bundles_path(page: @total_pages), class: "btn btn-custom #{'disabled' if @page == @total_pages}" %>
+  </div>
+
 </div>

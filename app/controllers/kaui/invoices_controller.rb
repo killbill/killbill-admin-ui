@@ -24,7 +24,7 @@ module Kaui
         if account.nil?
           Kaui::Invoice.list_or_search(search_key, offset, limit, cached_options_for_klient)
         else
-          account.invoices(cached_options_for_klient.merge({ params: { includeVoidedInvoices: true } })).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
+          Kaui::Account.paginated_invoices(search_key, offset, limit, 'NONE', cached_options_for_klient.merge({ params: { includeVoidedInvoices: true } })).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
         end
       end
 
