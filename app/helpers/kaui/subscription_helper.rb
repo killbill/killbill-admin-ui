@@ -172,5 +172,9 @@ module Kaui
     def subscription_cancelled?(sub)
       sub.present? and sub.billing_end_date.present?
     end
+
+    def paging_button_class(num, current_page)
+      num == current_page ? 'btn btn-primary' : 'btn btn-custom'
+    end
   end
 end
