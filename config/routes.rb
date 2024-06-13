@@ -22,6 +22,7 @@ Kaui::Engine.routes.draw do
              controllers: { sessions: 'kaui/sessions', registrations: 'kaui/registrations' }
 
   root to: 'home#index', as: 'kaui'
+  get '/500', to: 'errors#show', code: 500
 
   scope '/accounts' do
     match '/pagination' => 'accounts#pagination', :via => :get, :as => 'accounts_pagination'

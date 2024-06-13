@@ -3,11 +3,18 @@
 module Kaui
   # Subclassed to specify the correct layout
   class SessionsController < Devise::SessionsController
+    include Kaui::ExceptionHelper
+
     layout Kaui.config[:layout]
 
     skip_before_action :check_for_redirect_to_tenant_screen, raise: false
 
     # The sign-in flow eventually calls authenticate! from config/initializers/killbill_authenticatable.rb
+
+    rescue_from(StandardError) do |exception|
+      @error = standardize_exception(exception)
+      render 'kaui/errors/500', status: 500, layout: false
+    end
 
     protected
 
