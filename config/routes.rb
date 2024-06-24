@@ -27,6 +27,7 @@ Kaui::Engine.routes.draw do
   scope '/accounts' do
     match '/pagination' => 'accounts#pagination', :via => :get, :as => 'accounts_pagination'
     match '/validate_external_key' => 'accounts#validate_external_key', :via => :get, :as => 'accounts_validate_external_key'
+    get '/export/:account_id', to: 'accounts#export_account', as: 'export_account'
 
     scope '/email_notifications' do
       match '/' => 'accounts#set_email_notifications_configuration', :via => :post, :as => 'email_notifications_configuration'

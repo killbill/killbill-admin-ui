@@ -18,6 +18,13 @@
                     :class => 'btn btn-xs text-danger',
                     data: {toggle: 'modal', name: @account.name || '(not set)', account_id: @account.account_id}) %>
       <% end %>
+
+      <% if can? :export, Kaui::AdminTenant %>
+        <%= link_to '<i class="fa fa-arrow-down" aria-hidden="true"></i>Export'.html_safe,
+                    kaui_engine.export_account_path(@account.account_id),
+                    :class => 'btn btn-xs', :id => 'download_link', :title => 'Export Account Data'  %>
+      <% end %>
+
       <% unless @account.parent_account_id.nil? %>
           <span class="label label-info account-child-label">Child</span>
       <% end %>

@@ -286,6 +286,14 @@ module Kaui
       assert_equal "Account #{account_to_be_closed.account_id} successfully closed", flash[:notice]
     end
 
+    test 'should download a data' do
+      account = create_account(@tenant)
+
+      get :export_account, params: { account_id: account.account_id }
+      assert_response :success
+      assert_equal 'text/plain', @response.header['Content-Type']
+    end
+
     private
 
     def redirected_account_id
