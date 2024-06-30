@@ -331,6 +331,11 @@ module Kaui
       end
     end
 
+    def export_account
+      data = KillBillClient::Model::Export.find_by_account_id(params[:account_id], current_user.kb_username, options_for_klient)
+      send_data data, filename: "account#{params[:account_id]}.txt", type: :txt
+    end
+
     private
 
     def email_notification_plugin_available?(options_for_klient)
