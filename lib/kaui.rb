@@ -60,13 +60,25 @@ module Kaui
   self.creditcard_plugin_name =  -> { '__EXTERNAL_PAYMENT__' }
 
   self.account_search_columns = lambda do |account = nil, view_context = nil|
-    [
-      ['External key', 'Balance'],
-      [
-        account&.external_key,
+    fields = KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
+    headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
+    # Add additional headers if needed
+    headers << 'Child'
+    values = fields.map do |attr|
+      case attr
+      when 'account_id'
+        account.nil? || view_context.nil? ? nil : view_context.link_to(account.account_id, view_context.url_for(action: :show, account_id: account.account_id))
+      when 'parent_account_id'
+        account.nil? || view_context.nil? || account.parent_account_id.nil? ? nil : view_context.link_to(account.account_id, view_context.url_for(action: :show, account_id: account.parent_account_id))
+      when 'account_balance'
         account.nil? || view_context.nil? ? nil : view_context.humanized_money_with_symbol(account.balance_to_money)
-      ]
-    ]
+      else
+        account&.send(attr.downcase)
+      end
+    end
+    # Add additional values if needed
+    values << (account.nil? || account.parent_account_id.nil? ? '' : view_context.content_tag(:span, 'Child', class: %w[label label-info account-child-label]))
+    [headers, values]
   end
 
   self.invoice_search_columns = lambda do |invoice = nil, view_context = nil, _cached_options_for_klient = nil|

@@ -39,14 +39,7 @@ module Kaui
       end
 
       formatter = lambda do |account|
-        child_label = ''
-        unless account.parent_account_id.nil?
-          child_label = account.parent_account_id.nil? ? '' : view_context.content_tag(:span, 'Child', class: %w[label label-info account-child-label])
-        end
-
-        row = [child_label, view_context.link_to(account.account_id, view_context.url_for(action: :show, account_id: account.account_id))]
-        row += Kaui.account_search_columns.call(account, view_context)[1]
-        row
+        Kaui.account_search_columns.call(account, view_context)[1]
       end
 
       paginate searcher, data_extractor, formatter
