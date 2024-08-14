@@ -7,12 +7,11 @@
     <% else %>
         <h1>Showing all accounts</h1>
     <% end %>
+    <%= render :partial => 'edit_columns' %>
 
-    <table id="accounts-table" class="table table-condensed mobile-data">
+    <table id="accounts-table" class="table table-condensed mobile-data" style="width:100%">
       <thead>
       <tr>
-        <th></th>
-        <th>ID</th>
         <% Kaui.account_search_columns.call()[0].each do |title| %>
           <th><%= title %></th>
         <% end %>
@@ -24,15 +23,18 @@
       </tr>
       </tbody>
     </table>
-
   </div>
-
 </div>
 
 <%= javascript_tag do %>
 $(document).ready(function() {
 
   var table = $('#accounts-table').DataTable({
+    "colReorder": {
+      "enable": false
+    },
+    "stateSave": true,
+    "scrollX": true,
     "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
     "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
     "language": {
@@ -50,13 +52,6 @@ $(document).ready(function() {
     "serverSide": true,
     "search": {"search": "<%= @search_query %>"},
     "ajax": "<%= accounts_pagination_path(:ordering => @ordering, :format => :json) %>",
-    "columnDefs": [
-    { "orderable": false, "targets": 0, "createdCell": function (td, cellData, rowData, row, col) {
-        $(td).css('padding-left', '20px');
-        $(td).css('width', '60px');
-
-    } }
-    ],
     drawCallback: function() {
         setObjectIdPopover();
     }
