@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'csv'
 module Kaui
   class AccountsController < Kaui::EngineController
     def index
@@ -25,6 +26,7 @@ module Kaui
 
     def pagination
       cached_options_for_klient = options_for_klient
+
       searcher = lambda do |search_key, offset, limit|
         Kaui::Account.list_or_search(search_key, offset, limit, cached_options_for_klient)
       end
@@ -43,6 +45,26 @@ module Kaui
       end
 
       paginate searcher, data_extractor, formatter
+    end
+
+    def download_accounts
+      columns = params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
+      accounts = Kaui::Account.list_or_search(nil, 0, 1000, options_for_klient)
+
+      csv_string = CSV.generate(headers: true) do |csv|
+        csv << columns
+        accounts.each do |account|
+          data = columns.map do |attr|
+            if attr == 'child'
+              account.parent_account_id.nil? ? '' : 'Child'
+            else
+              account&.send(attr.downcase)
+            end
+          end
+          csv << data
+        end
+      end
+      send_data csv_string, filename: "accounts-#{Date.today}.csv", type: 'text/csv'
     end
 
     def new

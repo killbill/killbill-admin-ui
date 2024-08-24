@@ -51,9 +51,19 @@ $(document).ready(function() {
     "processing": true,
     "serverSide": true,
     "search": {"search": "<%= @search_query %>"},
-    "ajax": "<%= accounts_pagination_path(:ordering => @ordering, :format => :json) %>",
-    drawCallback: function() {
-        setObjectIdPopover();
+    "ajax": {
+      url: "<%= accounts_pagination_path(:ordering => @ordering, :format => :json) %>",
+      dataSrc: function(json) {
+        var colOrder = $('#accounts-table').DataTable().colReorder.order();
+        var reorderedData = json.data.map(function(row) {
+          var newRow = [];
+          for (var i = 0; i < colOrder.length; i++) {
+            newRow.push(row[colOrder[i]]);
+          }
+          return newRow;
+        });
+        return reorderedData;
+      }
     }
   });
 

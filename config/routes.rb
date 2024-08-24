@@ -27,6 +27,7 @@ Kaui::Engine.routes.draw do
   scope '/accounts' do
     match '/pagination' => 'accounts#pagination', :via => :get, :as => 'accounts_pagination'
     match '/validate_external_key' => 'accounts#validate_external_key', :via => :get, :as => 'accounts_validate_external_key'
+    match '/download_accounts' => 'accounts#download_accounts', :via => :get, :as => 'download_accounts'
     get '/export/:account_id', to: 'accounts#export_account', as: 'export_account'
 
     scope '/email_notifications' do
@@ -99,6 +100,7 @@ Kaui::Engine.routes.draw do
 
   scope '/invoices' do
     match '/pagination' => 'invoices#pagination', :via => :get, :as => 'invoices_pagination'
+    match '/download_invoices' => 'invoices#download_invoices', :via => :get, :as => 'download_invoices'
     match '/:id/show_html' => 'invoices#show_html', :via => :get, :as => 'show_html_invoice'
     match '/:number' => 'invoices#restful_show_by_number', :via => :get, :constraints => { number: /\d+/ }
     match '/:id' => 'invoices#restful_show', :via => :get, :as => 'invoice'
