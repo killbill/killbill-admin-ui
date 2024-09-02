@@ -4,6 +4,8 @@ module Kaui
   class Account < KillBillClient::Model::Account
     attr_accessor :phone, :bill_cycle_day_local
 
+    SENSIVITE_DATA_FIELDS = %w[name email].freeze
+
     def check_account_details_phone
       return true if phone =~ /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/i
 

@@ -1,15 +1,17 @@
 <div class="dropdown-container">
-  <button class="btn btn-default download-button-right" type="button" id="modalDownloadButton">
-    <i class="glyphicon glyphicon-download-alt"></i>
-    <strong>Download CSV</strong>
-  </button>
+  <% unless @account.account_id.blank? %>
+    <button class="btn btn-default download-button-right" type="button" id="modalDownloadButton">
+      <i class="glyphicon glyphicon-download-alt"></i>
+      <strong>Download CSV</strong>
+    </button>
+  <% end %>
   <div class="dropdown">
     <button class="btn btn-default dropdown-toggle toggle-button-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
       <i class="glyphicon glyphicon-cog"></i>
       <strong>Edit Columns</strong>
     </button>
     <ul class="dropdown-menu" id="column-visibility" aria-labelledby="v">
-      <%  Kaui.account_invoices_columns.call()[0].each_with_index do |title, index| %>
+      <%  (@account.account_id.blank? ? Kaui.invoice_search_columns : Kaui.account_invoices_columns).call()[0].each_with_index do |title, index| %>
           <li class="list-group-item-manual" data-id="<%= index %>">
             <label class="label-group-item-manual">
               <input type="checkbox" class="column-toggle" draggable="true" data-column="<%= index %>" checked> <%= title %>

@@ -14,15 +14,19 @@ module Kaui
     end
 
     def download_invoices
-      account_id = params.require(:account_id)
+      account_id = params[:account_id]
       start_date = params[:startDate]
       end_date = params[:endDate]
       columns = params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
       kb_params = {}
       kb_params[:startDate] = Date.parse(start_date).strftime('%Y-%m-%d') if start_date
       kb_params[:endDate] = Date.parse(end_date).strftime('%Y-%m-%d') if end_date
-      account = Kaui::Account.find_by_id_or_key(account_id, false, false, options_for_klient)
-      invoices = account.invoices(options_for_klient.merge(params: kb_params))
+      if account_id.present?
+        account = Kaui::Account.find_by_id_or_key(account_id, false, false, options_for_klient)
+        invoices = account.invoices(options_for_klient.merge(params: kb_params))
+      else
+        invoices = Kaui::Invoice.list_or_search(nil, 0, 0, options_for_klient.merge(params: kb_params))
+      end
 
       csv_string = CSV.generate(headers: true) do |csv|
         csv << columns
@@ -61,7 +65,7 @@ module Kaui
         end
         formatter = lambda do |invoice|
           row = [view_context.link_to(invoice.invoice_number, view_context.url_for(controller: :invoices, action: :show, account_id: invoice.account_id, id: invoice.invoice_id))]
-          row += Kaui.invoice_search_columns.call(invoice, view_context, cached_options_for_klient)[1]
+          row += Kaui.invoice_search_columns.call(invoice, view_context)[1]
           row
         end
       else

@@ -12,7 +12,7 @@
       <% Kaui.account_search_columns.call()[0].each_with_index do |title, index| %>
           <li class="list-group-item-manual" data-id="<%= index %>">
             <label class="label-group-item-manual">
-              <input type="checkbox" class="column-toggle" draggable="true" data-column="<%= index %>" checked> <%= title %>
+              <input type="checkbox" class="column-toggle" draggable="true" data-column="<%= index %>" <%= 'checked' if @dropdown_default[index][:visible] %> > <%= title %>
               <span class="glyphicon glyphicon-option-vertical icon-drag" aria-hidden="true"></span>
             </label>
           </li>

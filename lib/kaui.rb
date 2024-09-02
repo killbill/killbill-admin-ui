@@ -60,11 +60,11 @@ module Kaui
   self.creditcard_plugin_name =  -> { '__EXTERNAL_PAYMENT__' }
 
   self.account_search_columns = lambda do |account = nil, view_context = nil|
-    # fields = KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
-    fields = %w[account_id external_key account_balance]
+    original_fields = KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
+    # Add additional fields if needed
+    fields = original_fields.dup
+
     headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
-    # Add additional headers if needed
-    headers << 'Child'
     values = fields.map do |attr|
       case attr
       when 'account_id'
@@ -77,9 +77,7 @@ module Kaui
         account&.send(attr.downcase)
       end
     end
-    # Add additional values if needed
-    values << (account.nil? || account.parent_account_id.nil? ? '' : view_context.content_tag(:span, 'Child', class: %w[label label-info account-child-label]))
-    [headers, values]
+    [headers, values, fields]
   end
 
   self.invoice_search_columns = lambda do |invoice = nil, view_context = nil, _cached_options_for_klient = nil|

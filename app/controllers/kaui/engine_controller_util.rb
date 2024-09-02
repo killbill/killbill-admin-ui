@@ -13,7 +13,7 @@ module Kaui
     end
     # rubocop:enable Lint/UselessAssignment, Naming/AccessorMethodName
 
-    def paginate(searcher, data_extractor, formatter)
+    def paginate(searcher, data_extractor, formatter, table_default_columns = [])
       search_key = (params[:search] || {})[:value].presence
       offset = (params[:start] || 0).to_i
       limit = (params[:length] || 10).to_i
@@ -30,7 +30,8 @@ module Kaui
         # We need to fill-in a number to make DataTables happy
         recordsTotal: pages.nil? ? 0 : (pages.pagination_max_nb_records || SIMPLE_PAGINATION_THRESHOLD),
         recordsFiltered: pages.nil? ? 0 : (pages.pagination_total_nb_records || SIMPLE_PAGINATION_THRESHOLD),
-        data: []
+        data: [],
+        columns: table_default_columns
       }
       json[:error] = error unless error.nil?
 
@@ -150,6 +151,10 @@ module Kaui
         response_status = 500
       end
       render json: response, status: response_status
+    end
+
+    def default_columns(fields, sensivite_fields)
+      fields.map { |field| { "data": fields.index(field), "visible": !(sensivite_fields.include? field) } }
     end
   end
 end

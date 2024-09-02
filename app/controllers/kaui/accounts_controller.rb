@@ -17,9 +17,11 @@ module Kaui
         return
       end
 
+      @dropdown_default = default_columns(Kaui.account_search_columns.call()[2], Kaui::Account::SENSIVITE_DATA_FIELDS)
+
       @ordering = params[:ordering] || (@search_query.blank? ? 'desc' : 'asc')
       @offset = params[:offset] || 0
-      @limit = params[:limit] || 50
+      @limit = params[:limit] || 4
 
       @max_nb_records = @search_query.blank? ? Kaui::Account.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records : 0
     end
@@ -44,7 +46,7 @@ module Kaui
         Kaui.account_search_columns.call(account, view_context)[1]
       end
 
-      paginate searcher, data_extractor, formatter
+      paginate searcher, data_extractor, formatter, default_columns(Kaui.account_search_columns.call()[2], Kaui::Account::SENSIVITE_DATA_FIELDS)
     end
 
     def download_accounts
