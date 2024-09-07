@@ -116,6 +116,7 @@ Kaui::Engine.routes.draw do
 
   scope '/payments' do
     match '/pagination' => 'payments#pagination', :via => :get, :as => 'payments_pagination'
+    match '/download_payments' => 'payments#download_payments', :via => :get, :as => 'download_payments'
     match '/:id' => 'payments#restful_show', :via => :get, :as => 'payment'
     match '/:id/cancel_scheduled_payment' => 'payments#cancel_scheduled_payment', :via => :delete, :as => 'payment_cancel_scheduled_payment'
   end

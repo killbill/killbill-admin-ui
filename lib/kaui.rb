@@ -20,6 +20,7 @@ module Kaui
   mattr_accessor :account_search_columns
   mattr_accessor :invoice_search_columns
   mattr_accessor :account_invoices_columns
+  mattr_accessor :account_payments_columns
   mattr_accessor :refund_invoice_description
 
   mattr_accessor :customer_invoice_link
@@ -80,18 +81,22 @@ module Kaui
     [headers, values, fields]
   end
 
-  self.invoice_search_columns = lambda do |invoice = nil, view_context = nil, _cached_options_for_klient = nil|
-    default_label = 'label-info'
-    default_label = 'label-default' if invoice&.status == 'DRAFT'
-    default_label = 'label-success' if invoice&.status == 'COMMITTED'
-    default_label = 'label-danger' if invoice&.status == 'VOID'
-    [
-      %w[Date Status],
-      [
-        invoice&.invoice_date,
+  self.invoice_search_columns = lambda do |invoice = nil, view_context = nil|
+    fields = ['invoice_number', 'invoice_date', 'status']
+    headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
+    values = fields.map do |attr|
+      case attr
+      when 'status'
+        default_label = 'label-info'
+        default_label = 'label-default' if invoice&.status == 'DRAFT'
+        default_label = 'label-success' if invoice&.status == 'COMMITTED'
+        default_label = 'label-danger' if invoice&.status == 'VOID'
         invoice.nil? || view_context.nil? ? nil : view_context.content_tag(:span, invoice.status, class: ['label', default_label])
-      ]
-    ]
+      else
+        invoice&.send(attr.downcase)
+      end
+    end
+    [headers, values]
   end
 
   self.account_invoices_columns = lambda do |invoice = nil, view_context = nil|
@@ -121,6 +126,40 @@ module Kaui
         invoice&.send(attr.downcase)
       end
     end
+    # Add additional values if needed
+    [headers, values]
+  end
+
+  self.account_payments_columns = lambda do |account = nil, payment = nil, view_context = nil|
+    fields = KillBillClient::Model::PaymentAttributes.instance_variable_get('@json_attributes')
+    # Change the order if needed
+    fields = ['payment_date', 'total_authed_amount_to_money', 'paid_amount_to_money', 'returned_amount_to_money'] + fields
+    fields -= ['payment_number', 'transactions', 'audit_logs']
+    fields.unshift('status')
+    fields.unshift('payment_number')
+
+    headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
+    return [headers, []] if payment.nil?
+
+    values = fields.map do |attr|
+      case attr
+      when 'payment_number'
+        view_context.link_to(payment.payment_number, view_context.url_for(controller: :payments, action: :show, account_id: payment.account_id, id: payment.payment_id))
+      when 'payment_date'
+        view_context.format_date(payment.payment_date, account&.time_zone)
+      when 'total_authed_amount_to_money'
+        view_context.humanized_money_with_symbol(payment.total_authed_amount_to_money)
+      when 'paid_amount_to_money'
+        view_context.humanized_money_with_symbol(payment.paid_amount_to_money)
+      when 'returned_amount_to_money'
+        view_context.humanized_money_with_symbol(payment.returned_amount_to_money)
+      when 'status'
+        payment.transactions.empty? ? nil : view_context.colored_transaction_status(payment.transactions[-1].status)
+      else
+        payment&.send(attr.downcase)
+      end
+    end
+
     # Add additional values if needed
     [headers, values]
   end

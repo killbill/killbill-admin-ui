@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'csv'
 
 module Kaui
   class PaymentsController < Kaui::EngineController
@@ -12,7 +13,59 @@ module Kaui
       @max_nb_records = @search_query.blank? ? Kaui::Payment.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records : 0
     end
 
+    def download_payments
+      account_id = params[:account_id]
+      start_date = params[:startDate]
+      end_date = params[:endDate]
+      columns = params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
+      kb_params = {}
+      kb_params[:startDate] = Date.parse(start_date).strftime('%Y-%m-%d') if start_date
+      kb_params[:endDate] = Date.parse(end_date).strftime('%Y-%m-%d') if end_date
+      if account_id.present?
+        account = Kaui::Account.find_by_id_or_key(account_id, false, false, options_for_klient)
+        payments = account.payments(options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_payment(payment) }
+      else
+        payments = Kaui::Payment.list_or_search(nil, 0, 0, options_for_klient.merge(params: kb_params))
+      end
+      payments.each do |payment|
+        created_date = nil
+        payment.transactions.each do |transaction|
+          transaction_date = Date.parse(transaction.effective_date)
+          created_date = transaction_date if created_date.nil? || (transaction_date < created_date)
+        end
+        payment.payment_date = created_date
+      end
+
+      csv_string = CSV.generate(headers: true) do |csv|
+        csv << columns
+
+        payments.each do |payment|
+          data = columns.map do |attr|
+            case attr
+            when 'payment_number'
+              payment.payment_number
+            when 'payment_date'
+              view_context.format_date(payment.payment_date, account&.time_zone)
+            when 'total_authed_amount_to_money'
+              view_context.humanized_money_with_symbol(payment.total_authed_amount_to_money)
+            when 'paid_amount_to_money'
+              view_context.humanized_money_with_symbol(payment.paid_amount_to_money)
+            when 'returned_amount_to_money'
+              view_context.humanized_money_with_symbol(payment.returned_amount_to_money)
+            when 'status'
+              payment.transactions.empty? ? nil : payment.transactions[-1].status
+            else
+              payment&.send(attr.downcase)
+            end
+          end
+          csv << data
+        end
+      end
+      send_data csv_string, filename: "payments-#{Date.today}.csv", type: 'text/csv'
+    end
+
     def pagination
+      account = nil
       searcher = lambda do |search_key, offset, limit|
         if Kaui::Payment::TRANSACTION_STATUSES.include?(search_key)
           # Search is done by payment state on the server side, see http://docs.killbill.io/latest/userguide_payment.html#_payment_states
@@ -30,6 +83,7 @@ module Kaui
           rescue StandardError
             nil
           end
+
           payments = if account.nil?
                        Kaui::Payment.list_or_search(search_key, offset, limit, options_for_klient)
                      else
@@ -62,15 +116,7 @@ module Kaui
       end
 
       formatter = lambda do |payment|
-        [
-          view_context.link_to(payment.payment_number, view_context.url_for(controller: :payments, action: :show, account_id: payment.account_id, id: payment.payment_id)),
-          view_context.format_date(payment.payment_date, @account.time_zone),
-          view_context.humanized_money_with_symbol(payment.total_authed_amount_to_money),
-          view_context.humanized_money_with_symbol(payment.paid_amount_to_money),
-          view_context.humanized_money_with_symbol(payment.returned_amount_to_money),
-          payment.transactions.empty? ? nil : view_context.colored_transaction_status(payment.transactions[-1].status),
-          payment.payment_external_key
-        ]
+        Kaui.account_payments_columns.call(account, payment, view_context)[1]
       end
 
       paginate searcher, data_extractor, formatter

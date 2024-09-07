@@ -3,18 +3,15 @@
   <div class="column-block">
 
     <h1><%= I18n.translate('payments') %></h1>
+    <%= render :partial => 'multi_functions_bar' %>
 
     <table id="payments-table" class="table table-condensed mobile-data">
       <thead>
-      <tr>
-        <th><%= I18n.translate('number') %></th>
-        <th><%= I18n.translate('date') %></th>
-        <th><%= I18n.translate('auth_amount') %></th>
-        <th><%= I18n.translate('capture_amount') %></th>
-        <th><%= I18n.translate('refund_amount') %></th>
-        <th><%= I18n.translate('last_transaction_status') %></th>
-        <th><%= I18n.translate('external_key') %></th>
-      </tr>
+        <tr>
+          <% Kaui.account_payments_columns.call()[0].each do |title| %>
+            <th><%= title %></th>
+          <% end %>
+        </tr>
       </thead>
       <tbody>
       <tr>
@@ -30,26 +27,63 @@
 <%= javascript_tag do %>
 $(document).ready(function() {
   var table = $('#payments-table').DataTable({
+    "colReorder": {
+      "enable": false
+    },
+    "stateSave": true,
+    "stateSaveCallback": function(settings, data) {
+      localStorage.setItem('DataTables_payments-table', JSON.stringify(data));
+    },
+    "stateLoadCallback": function(settings) {
+      return JSON.parse(localStorage.getItem('DataTables_payments-table'));
+    },
+    "scrollX": true,
     <% if @account.account_id.blank? %>
-        "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-        "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
-        "language": {
-          <!-- See DefaultPaginationSqlDaoHelper.java -->
-          "info": <% if @max_nb_records.nil? -%>"Showing _START_ to _END_ of <%= number_with_delimiter(Kaui::EngineControllerUtil::SIMPLE_PAGINATION_THRESHOLD) -%>+ entries"<% else -%>"Showing _START_ to _END_ of _TOTAL_ entries"<% end -%>
-        },
-        "pageLength": <%= @limit %>,
-        "displayStart": <%= @offset %>,
-        "ajax": "<%= payments_pagination_path(:ordering => @ordering, :format => :json) %>",
+      "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+      "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
+      "language": {
+        <!-- See DefaultPaginationSqlDaoHelper.java -->
+        "info": <% if @max_nb_records.nil? -%>"Showing _START_ to _END_ of <%= number_with_delimiter(Kaui::EngineControllerUtil::SIMPLE_PAGINATION_THRESHOLD) -%>+ entries"<% else -%>"Showing _START_ to _END_ of _TOTAL_ entries"<% end -%>
+      },
+      "pageLength": <%= @limit %>,
+      "displayStart": <%= @offset %>,
+      "ajax": {
+        url: "<%= payments_pagination_path(:ordering => @ordering, :format => :json) %>",
+        dataSrc: function(json) {
+          var colOrder = $('#payments-table').DataTable().colReorder.order();
+          var reorderedData = json.data.map(function(row) {
+            var newRow = [];
+            for (var i = 0; i < colOrder.length; i++) {
+              newRow.push(row[colOrder[i]]);
+            }
+            return newRow;
+          });
+          return reorderedData;
+        }
+      },
     <% else %>
-        // No paging for per-account listings
-        "dom": "t",
-        "paging": false,
-        "ajax": "<%= payments_pagination_path :format => :json %>",
+      // No paging for per-account listings
+      "dom": "t",
+      "paging": false,
+      "ajax": {
+        url: "<%= payments_pagination_path(:format => :json) %>",
+        dataSrc: function(json) {
+          var colOrder = $('#payments-table').DataTable().colReorder.order();
+          var reorderedData = json.data.map(function(row) {
+            var newRow = [];
+            for (var i = 0; i < colOrder.length; i++) {
+              newRow.push(row[colOrder[i]]);
+            }
+            return newRow;
+          });
+          return reorderedData;
+        }
+      },
     <% end %>
     <% if @search_query.blank? %>
-        "ordering": false,
+      "ordering": false,
     <% elsif !@ordering.blank? %>
-        "order": [[ 0, "<%= @ordering %>" ]],
+      "order": [[ 0, "<%= @ordering %>" ]],
     <% end %>
     "processing": true,
     "serverSide": true,

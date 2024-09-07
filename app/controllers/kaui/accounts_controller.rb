@@ -57,11 +57,7 @@ module Kaui
         csv << columns
         accounts.each do |account|
           data = columns.map do |attr|
-            if attr == 'child'
-              account.parent_account_id.nil? ? '' : 'Child'
-            else
-              account&.send(attr.downcase)
-            end
+            account&.send(attr.downcase)
           end
           csv << data
         end
