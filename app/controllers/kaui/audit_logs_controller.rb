@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'csv'
 
 module Kaui
   class AuditLogsController < Kaui::EngineController
@@ -40,6 +41,30 @@ module Kaui
       audit_logs.each { |page| @audit_logs_json << formatter.call(page) }
 
       @audit_logs_json = @audit_logs_json.to_json
+    end
+
+    def download
+      account_id = params.require(:account_id)
+      start_date = params[:startDate]
+      end_date = params[:endDate]
+      start_date = Date.parse(start_date) rescue nil
+      end_date = Date.parse(end_date) rescue nil
+
+      account = Kaui::Account.find_by_id_or_key(account_id, false, false, options_for_klient)
+      audit_logs = account.audit(options_for_klient)
+
+      csv_file = CSV.generate do |csv|
+        csv << Kaui.account_audit_logs_columns.call()[0]
+        audit_logs.each do |log|
+          change_date = Date.parse(log.change_date) rescue nil
+          if start_date && end_date && change_date
+            next unless change_date > start_date && change_date < end_date
+          end
+          csv << [log.change_date, log.object_id, log.object_type, log.change_type, log.changed_by, log.reason_code, log.comments, log.user_token]
+        end
+      end
+
+      send_data csv_file, type: 'text/csv', filename: "audit_logs_#{account_id}.csv"
     end
 
     def history

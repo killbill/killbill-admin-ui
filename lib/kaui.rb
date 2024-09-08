@@ -21,6 +21,7 @@ module Kaui
   mattr_accessor :invoice_search_columns
   mattr_accessor :account_invoices_columns
   mattr_accessor :account_payments_columns
+  mattr_accessor :account_audit_logs_columns
   mattr_accessor :refund_invoice_description
 
   mattr_accessor :customer_invoice_link
@@ -162,6 +163,11 @@ module Kaui
 
     # Add additional values if needed
     [headers, values]
+  end
+
+  self.account_audit_logs_columns = lambda do
+    headers = %w[CreatedDate ObjectID ObjectType ChangeType Username Reason Comment UserToken]
+    [headers, []]
   end
 
   self.refund_invoice_description = lambda { |index, ii, bundle_result|

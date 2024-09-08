@@ -49,7 +49,7 @@ module Kaui
       paginate searcher, data_extractor, formatter, default_columns(Kaui.account_search_columns.call()[2], Kaui::Account::SENSIVITE_DATA_FIELDS)
     end
 
-    def download_accounts
+    def download
       columns = params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
       accounts = Kaui::Account.list_or_search(nil, 0, 1000, options_for_klient)
 

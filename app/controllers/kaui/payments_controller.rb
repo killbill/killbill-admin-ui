@@ -13,7 +13,7 @@ module Kaui
       @max_nb_records = @search_query.blank? ? Kaui::Payment.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records : 0
     end
 
-    def download_payments
+    def download
       account_id = params[:account_id]
       start_date = params[:startDate]
       end_date = params[:endDate]
