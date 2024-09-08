@@ -1,0 +1,171 @@
+<div class="functions-container">
+  <button class="btn btn-default download-button-right" type="button" id="modalDownloadButton">
+    <i class="glyphicon glyphicon-download-alt"></i>
+    <strong>Download CSV</strong>
+  </button>
+</div>
+
+<div class="modal fade" id="downloadCsvModal" tabindex="-1" role="dialog" aria-labelledby="downloadCsvModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="downloadCsvModalLabel">Download</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="downloadCsvForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="startDate">Start Date:</label>
+                <input type="text" class="form-control" id="startDate" name="startDate">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="endDate">End Date:</label>
+                <input type="text" class="form-control" id="endDate" name="endDate">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-check">
+                <div>
+                  <input type="radio" id="customDate" name="download_option" value="customDate">
+                  <label for="customDate">Custom date</label>
+                </div>
+                <div>
+                  <input type="radio" id="allData" name="download_option" value="all">
+                  <label for="allData">All logs</label>
+                </div>
+                <div>
+                  <input type="radio" id="thisWeek" name="download_option" value="thisWeek">
+                  <label for="thisWeek">This week</label>
+                </div>
+                <div>
+                  <input type="radio" id="thisMonth" name="download_option" value="thisMonth">
+                  <label for="thisMonth">This month</label>
+                </div>
+                <div>
+                  <input type="radio" id="thisYear" name="download_option" value="thisYear">
+                  <label for="thisYear">This year</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="downloadButton">Download</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .download-button-right {
+    float: right;
+    margin-left: 10px;
+    background-color: white;
+    color: black;
+    text-transform: none;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+  }
+
+  .functions-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+</style>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $('#modalDownloadButton').click(function() {
+    $('#downloadCsvModal').modal('show');
+  });
+  $('#startDate, #endDate').datepicker();
+
+  $('#downloadCsvModal').on('show.bs.modal', function (e) {
+    $('#customDate').prop('checked', true);
+    $('#startDate, #endDate').prop('disabled', false);
+    $('#startDate').val(null);
+    $('#endDate').val(null);
+  });
+
+  $('#allData').change(function() {
+    var isChecked = $(this).is(':checked');
+    $('#startDate, #endDate').prop('disabled', true);
+  });
+
+  function setDateRange(option) {
+    var currentDate = new Date();
+    var startDate, endDate;
+
+    if (option === "week") {
+      startDate = new Date(currentDate.setDate(currentDate.getDate() - currentDate.getDay() + 1));
+      currentDate = new Date();
+      endDate = new Date(currentDate.setDate(currentDate.getDate() - currentDate.getDay() + 7));
+    } else if (option === "month") {
+      startDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+      endDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+    } else if (option === "year") {
+      startDate = new Date(currentDate.getFullYear(), 0, 1);
+      endDate = new Date(currentDate.getFullYear(), 11, 31);
+    }
+
+    var startDateFormatted = startDate.toISOString().split('T')[0];
+    var endDateFormatted = endDate.toISOString().split('T')[0];
+
+    $('#startDate').val(startDateFormatted);
+    $('#endDate').val(endDateFormatted);
+    $('#startDate, #endDate').prop('disabled', true);
+  }
+
+  $('#thisWeek').change(function() {
+    if ($(this).is(':checked')) {
+      setDateRange("week");
+    }
+  });
+
+  $('#thisMonth').change(function() {
+    if ($(this).is(':checked')) {
+      setDateRange("month");
+    }
+  });
+
+  $('#thisYear').change(function() {
+    if ($(this).is(':checked')) {
+      setDateRange("year");
+    }
+  });
+
+  $('#customDate').change(function() {
+    var isChecked = $(this).is(':checked');
+    $('#startDate, #endDate').prop('disabled', false);
+    $('#startDate').val(null);
+    $('#endDate').val(null);
+  });
+
+  var downloadButton = document.getElementById('downloadButton');
+  if (downloadButton) {
+    downloadButton.addEventListener('click', function() {
+      event.preventDefault();
+      var startDate = $('#startDate').val();
+      var endDate = $('#endDate').val();
+      var downloadAll = $('#allData').is(':checked');
+      var eventToFilter = $('#event_types').val().toUpperCase()
+      
+      if (downloadAll) {
+        window.open("<%= download_account_timeline_path %>?account_id=<%=@account.account_id%>&eventType="+eventToFilter, '_blank');
+      } else {
+        window.open("<%= download_account_timeline_path %>?account_id=<%=@account.account_id%>&startDate="+startDate+"&endDate="+endDate+"&eventType="+eventToFilter, '_blank');
+      }
+    });
+  }
+});
+<% end %>

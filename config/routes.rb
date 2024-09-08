@@ -56,6 +56,7 @@ Kaui::Engine.routes.draw do
       end
       scope '/timeline' do
         match '/' => 'account_timelines#show', :via => :get, :as => 'account_timeline'
+        match '/download' => 'account_timelines#download', :via => :get, :as => 'download_account_timeline'
       end
       scope '/custom_fields' do
         match '/' => 'account_custom_fields#index', :via => :get, :as => 'account_custom_fields'
