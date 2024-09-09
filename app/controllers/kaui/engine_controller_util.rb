@@ -4,6 +4,7 @@ module Kaui
   module EngineControllerUtil
     # See DefaultPaginationSqlDaoHelper.java
     SIMPLE_PAGINATION_THRESHOLD = 20_000
+    MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD = 1000
 
     protected
 
@@ -154,7 +155,7 @@ module Kaui
     end
 
     def default_columns(fields, sensivite_fields)
-      fields.map { |field| { "data": fields.index(field), "visible": !(sensivite_fields.include? field) } }
+      fields.map { |field| { data: fields.index(field), visible: !(sensivite_fields.include? field) } }
     end
   end
 end

@@ -1,20 +1,18 @@
 <div class="dropdown-container">
-  <% unless @account.account_id.blank? %>
-    <button class="btn btn-default download-button-right" type="button" id="modalDownloadButton">
-      <i class="glyphicon glyphicon-download-alt"></i>
-      <strong>Download CSV</strong>
-    </button>
-  <% end %>
+  <button class="btn btn-default download-button-right" type="button" id="modalDownloadButton">
+    <i class="glyphicon glyphicon-download-alt"></i>
+    <strong>Download CSV</strong>
+  </button>
   <div class="dropdown">
     <button class="btn btn-default dropdown-toggle toggle-button-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
       <i class="glyphicon glyphicon-cog"></i>
       <strong>Edit Columns</strong>
     </button>
     <ul class="dropdown-menu" id="column-visibility" aria-labelledby="v">
-      <%  (@account.account_id.blank? ? Kaui.invoice_search_columns : Kaui.account_invoices_columns).call()[0].each_with_index do |title, index| %>
+      <% Kaui.account_search_columns.call[0].each_with_index do |title, index| %>
           <li class="list-group-item-manual" data-id="<%= index %>">
             <label class="label-group-item-manual">
-              <input type="checkbox" class="column-toggle" draggable="true" data-column="<%= index %>" checked> <%= title %>
+              <input type="checkbox" class="column-toggle" draggable="true" data-column="<%= index %>" <%= 'checked' if @dropdown_default[index][:visible] %> > <%= title %>
               <span class="glyphicon glyphicon-option-vertical icon-drag" aria-hidden="true"></span>
             </label>
           </li>
@@ -56,8 +54,8 @@
                   <label for="customDate">Custom date</label>
                 </div>
                 <div>
-                  <input type="radio" id="allInvoices" name="download_option" value="all">
-                  <label for="allInvoices">All invoices</label>
+                  <input type="radio" id="allAccounts" name="download_option" value="all">
+                  <label for="allAccounts">All accounts</label>
                 </div>
                 <div>
                   <input type="radio" id="thisWeek" name="download_option" value="thisWeek">
@@ -94,6 +92,7 @@
   .dropdown-menu {
     padding: 5px;
   }
+
   .toggle-button-right {
     float: right;
     margin-bottom: 10px;
@@ -138,19 +137,26 @@
 
 <%= javascript_tag do %>
 $(document).ready(function() {
+  $('.dropdown-menu').on('click', 'input[type="checkbox"], label', function(event) {
+    event.stopPropagation();
+  });
+
   $('#modalDownloadButton').click(function() {
     $('#downloadCsvModal').modal('show');
   });
-  $('#startDate, #endDate').datepicker();
+
+  $('#startDate, #endDate').datepicker({
+    dateFormat: 'yy-mm-dd'
+  });
 
   $('#downloadCsvModal').on('show.bs.modal', function (e) {
-    $('#customDate').prop('checked', true);
-    $('#startDate, #endDate').prop('disabled', false);
+    $('#allAccounts').prop('checked', true);
+    $('#startDate, #endDate').prop('disabled', true);
     $('#startDate').val(null);
     $('#endDate').val(null);
   });
 
-  $('#allInvoices').change(function() {
+  $('#allAccounts').change(function() {
     var isChecked = $(this).is(':checked');
     $('#startDate, #endDate').prop('disabled', true);
   });
@@ -212,41 +218,48 @@ $(document).ready(function() {
       // Retrieve the values and checked state
       var startDate = $('#startDate').val();
       var endDate = $('#endDate').val();
-      var downloadAll = $('#allInvoices').is(':checked');
-      var thElements = document.querySelectorAll('#invoices-table th');
+      var downloadAll = $('#allAccounts').is(':checked');
+      var thElements = document.querySelectorAll('#accounts-table th');
       var columnTitles = Array.from(thElements).map(function(th) {
         return th.textContent.trim();
       });
 
       var columnsString = columnTitles.join(',')
-      
       if (downloadAll) {
-        window.open("<%= download_invoices_path %>?account_id=<%=@account.account_id%>&columnsString="+columnsString, '_blank');
+        window.open("<%= download_accounts_path %>?columnsString="+columnsString, '_blank');
       } else {
-        window.open("<%= download_invoices_path %>?account_id=<%=@account.account_id%>&columnsString="+columnsString+"&startDate="+startDate+"&endDate="+endDate, '_blank');
+        window.open("<%= download_accounts_path %>?columnsString="+columnsString+"&startDate="+startDate+"&endDate="+endDate, '_blank');
       }
     });
   }
 
   updateDropdownOrder();
 
-  function loadState() {
-    var state = JSON.parse(localStorage.getItem('DataTables_invoices-table'));
-    return state || { columns: [], columnOrder: [] };
-  }
-
   function updateDropdownOrder() {
-    var state = loadState();
+    var state = JSON.parse(localStorage.getItem('DataTables_accounts-table_' + window.location.pathname));
+    if (state === null) {
+      return;
+    }
     var columnOrder = state.ColReorder;
     var $list = $('#column-visibility');
-    var thElements = document.querySelectorAll('#invoices-table th');
+    var thElements = document.querySelectorAll('#accounts-table th');
     var $columnTitles = Array.from(thElements).map(function(th) {
       return th.textContent.trim();
     });
+
     if (columnOrder !== undefined) {
       $list.empty();
+      var state = JSON.parse(localStorage.getItem('DataTables_accounts-table_' + window.location.pathname));
+      if (state !== null) {
+        var colsOrder = state.ColReorder;
+      }
       columnOrder.forEach(function(colIdx, index) {
-        var $item = $('<li>', { class: "list-group-item-manual", "data-id": index });
+        if (colsOrder) {
+          var data_id = colsOrder[index];
+        } else {
+          var data_id = index;
+        }
+        var $item = $('<li>', { class: "list-group-item-manual", "data-id": data_id });
         var column = state.columns[colIdx];
         var col_name = $columnTitles[colIdx];
         var $label = $('<label>', {
@@ -281,7 +294,7 @@ $(document).ready(function() {
   $("#column-visibility").disableSelection();
 
   function reorderTableColumns(order) {
-    var table = $('#invoices-table').DataTable();
+    var table = $('#accounts-table').DataTable();
     var columnIndexes = order.map(Number);
     console.log('New column order:', columnIndexes);
     table.colReorder.order(columnIndexes);
@@ -304,7 +317,7 @@ $(document).ready(function() {
   }
 
   $('.column-toggle').on('change', function() {
-    var table = $('#invoices-table').DataTable();
+    var table = $('#accounts-table').DataTable();
     var column = table.column($(this).attr('data-column'));
     column.visible(!column.visible());
   });

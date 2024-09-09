@@ -34,8 +34,21 @@ module Kaui
 
     def download
       timeline = Kaui::AccountTimeline.find_by_account_id(params.require(:account_id), 'FULL', options_for_klient)
+      start_date = params[:startDate]
+      end_date = params[:endDate]
+      start_date = begin
+        Date.parse(start_date)
+      rescue StandardError
+        nil
+      end
+      end_date = begin
+        Date.parse(end_date)
+      rescue StandardError
+        nil
+      end
       start_date = params[:startDate].present? ? Date.parse(params[:startDate]) : nil
       end_date = params[:endDate].present? ? Date.parse(params[:endDate]) : nil
+
       event_type = params[:eventType]
       @account = timeline.account
       @bundles = timeline.bundles
@@ -66,14 +79,14 @@ module Kaui
         csv << ['Effective Date', 'Bundles', 'Even Type', 'Details', 'Reason Code/ Comments']
         if %w[INVOICE ALL].include?(event_type)
           @invoices.each do |invoice_stub|
-            invoice = invoice_stub.invoice_id.present? && @invoices_by_id.has_key?(invoice_stub.invoice_id) ? @invoices_by_id[invoice_stub.invoice_id] : invoice_stub
+            invoice = invoice_stub.invoice_id.present? && @invoices_by_id.key?(invoice_stub.invoice_id) ? @invoices_by_id[invoice_stub.invoice_id] : invoice_stub
             target_date = invoice.target_date.present? ? invoice.target_date : '[unknown]'
             bundle_keys = invoice_stub.bundle_keys.present? ? invoice_stub.bundle_keys.split(',').map { |bundle_key| @bundle_names[bundle_key] }.join(', ') : ''
             invoice_details = []
             invoice_details << "Amount: #{invoice.amount_to_money} (#{@account.currency})"
             invoice_details << "Balance: #{invoice.balance_to_money} (#{@account.currency})"
-            invoice_details << "Credit adjustment: #{invoice.credit_adjustment_to_money} (#{@account.currency})" if invoice.credit_adj.present? && invoice.credit_adj > 0
-            invoice_details << "Refund adjustment: #{invoice.refund_adjustment_to_money} (#{@account.currency})" if invoice.refund_adj.present? && invoice.refund_adj < 0
+            invoice_details << "Credit adjustment: #{invoice.credit_adjustment_to_money} (#{@account.currency})" if invoice.credit_adj.present? && invoice.credit_adj.positive?
+            invoice_details << "Refund adjustment: #{invoice.refund_adjustment_to_money} (#{@account.currency})" if invoice.refund_adj.present? && invoice.refund_adj.negative?
             invoice_details << "Invoice #: #{invoice.invoice_number}"
             audit_logs = invoice_stub.audit_logs.present? ? invoice_stub.audit_logs.map { |entry| Kaui::AuditLog.description(entry) }.join(', ') : ''
             csv << [target_date, bundle_keys, 'INVOICE', invoice_details.join('; '), audit_logs] if filter_date(target_date, start_date, end_date)

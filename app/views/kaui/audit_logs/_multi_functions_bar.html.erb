@@ -120,10 +120,17 @@
 
 <%= javascript_tag do %>
 $(document).ready(function() {
+  $('.dropdown-menu').on('click', 'input[type="checkbox"], label', function(event) {
+    event.stopPropagation();
+  });
+
   $('#modalDownloadButton').click(function() {
     $('#downloadCsvModal').modal('show');
   });
-  $('#startDate, #endDate').datepicker();
+
+  $('#startDate, #endDate').datepicker({
+    dateFormat: 'yy-mm-dd'
+  });
 
   $('#downloadCsvModal').on('show.bs.modal', function (e) {
     $('#customDate').prop('checked', true);

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'csv'
 
 module Kaui
@@ -25,7 +26,7 @@ module Kaui
         account = Kaui::Account.find_by_id_or_key(account_id, false, false, options_for_klient)
         payments = account.payments(options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_payment(payment) }
       else
-        payments = Kaui::Payment.list_or_search(nil, 0, 0, options_for_klient.merge(params: kb_params))
+        payments = Kaui::Payment.list_or_search(nil, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
       end
       payments.each do |payment|
         created_date = nil

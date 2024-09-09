@@ -82,8 +82,8 @@ module Kaui
     [headers, values, fields]
   end
 
-  self.invoice_search_columns = lambda do |invoice = nil, view_context = nil|
-    fields = ['invoice_number', 'invoice_date', 'status']
+  self.invoice_search_columns = lambda do |invoice = nil, view_context = nil, _cached_options_for_klient = nil|
+    fields = %w[invoice_number invoice_date status]
     headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
     values = fields.map do |attr|
       case attr
@@ -134,8 +134,8 @@ module Kaui
   self.account_payments_columns = lambda do |account = nil, payment = nil, view_context = nil|
     fields = KillBillClient::Model::PaymentAttributes.instance_variable_get('@json_attributes')
     # Change the order if needed
-    fields = ['payment_date', 'total_authed_amount_to_money', 'paid_amount_to_money', 'returned_amount_to_money'] + fields
-    fields -= ['payment_number', 'transactions', 'audit_logs']
+    fields = %w[payment_date total_authed_amount_to_money paid_amount_to_money returned_amount_to_money] + fields
+    fields -= %w[payment_number transactions audit_logs]
     fields.unshift('status')
     fields.unshift('payment_number')
 

@@ -25,7 +25,7 @@ module Kaui
         account = Kaui::Account.find_by_id_or_key(account_id, false, false, options_for_klient)
         invoices = account.invoices(options_for_klient.merge(params: kb_params))
       else
-        invoices = Kaui::Invoice.list_or_search(nil, 0, 0, options_for_klient.merge(params: kb_params))
+        invoices = Kaui::Invoice.list_or_search(nil, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
       end
 
       csv_string = CSV.generate(headers: true) do |csv|
@@ -65,7 +65,7 @@ module Kaui
         end
         formatter = lambda do |invoice|
           row = [view_context.link_to(invoice.invoice_number, view_context.url_for(controller: :invoices, action: :show, account_id: invoice.account_id, id: invoice.invoice_id))]
-          row += Kaui.invoice_search_columns.call(invoice, view_context)[1]
+          row += Kaui.invoice_search_columns.call(invoice, view_context, cached_options_for_klient)[1]
           row
         end
       else

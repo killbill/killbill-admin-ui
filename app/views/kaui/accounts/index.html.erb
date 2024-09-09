@@ -7,12 +7,12 @@
     <% else %>
         <h1>Showing all accounts</h1>
     <% end %>
-    <%= render :partial => 'edit_columns' %>
+    <%= render :partial => 'multi_functions_bar' %>
 
     <table id="accounts-table" class="table table-condensed mobile-data" style="width:100%">
       <thead>
       <tr>
-        <% Kaui.account_search_columns.call()[0].each do |title| %>
+        <% Kaui.account_search_columns.call[0].each do |title| %>
           <th><%= title %></th>
         <% end %>
       </tr>

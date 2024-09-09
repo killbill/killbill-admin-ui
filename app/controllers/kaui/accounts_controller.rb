@@ -17,18 +17,17 @@ module Kaui
         return
       end
 
-      @dropdown_default = default_columns(Kaui.account_search_columns.call()[2], Kaui::Account::SENSIVITE_DATA_FIELDS)
+      @dropdown_default = default_columns(Kaui.account_search_columns.call[2], Kaui::Account::SENSIVITE_DATA_FIELDS)
 
       @ordering = params[:ordering] || (@search_query.blank? ? 'desc' : 'asc')
       @offset = params[:offset] || 0
-      @limit = params[:limit] || 4
+      @limit = params[:limit] || 50
 
       @max_nb_records = @search_query.blank? ? Kaui::Account.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records : 0
     end
 
     def pagination
       cached_options_for_klient = options_for_klient
-
       searcher = lambda do |search_key, offset, limit|
         Kaui::Account.list_or_search(search_key, offset, limit, cached_options_for_klient)
       end
@@ -46,19 +45,34 @@ module Kaui
         Kaui.account_search_columns.call(account, view_context)[1]
       end
 
-      paginate searcher, data_extractor, formatter, default_columns(Kaui.account_search_columns.call()[2], Kaui::Account::SENSIVITE_DATA_FIELDS)
+      paginate searcher, data_extractor, formatter, default_columns(Kaui.account_search_columns.call[2], Kaui::Account::SENSIVITE_DATA_FIELDS)
     end
 
     def download
       columns = params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
-      accounts = Kaui::Account.list_or_search(nil, 0, 1000, options_for_klient)
+      start_date = params[:startDate]
+      end_date = params[:endDate]
+      start_date = begin
+        Date.parse(start_date)
+      rescue StandardError
+        nil
+      end
+      end_date = begin
+        Date.parse(end_date)
+      rescue StandardError
+        nil
+      end
+      accounts = Kaui::Account.list_or_search(nil, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient)
 
       csv_string = CSV.generate(headers: true) do |csv|
         csv << columns
         accounts.each do |account|
+          change_date = Date.parse(account.reference_time)
           data = columns.map do |attr|
             account&.send(attr.downcase)
           end
+          next if start_date && end_date && change_date && (change_date < start_date || change_date > end_date)
+
           csv << data
         end
       end
