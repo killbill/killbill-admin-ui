@@ -4,10 +4,11 @@
 
     <h1>Invoices</h1>
 
-    <table id="invoices-table" class="table table-condensed mobile-data">
+    <%= render :partial => 'multi_functions_bar' %>
+
+    <table id="invoices-table" class="table table-condensed mobile-data" style="width:100%">
       <thead>
       <tr>
-        <th>Number</th>
         <% (@account.account_id.blank? ? Kaui.invoice_search_columns : Kaui.account_invoices_columns).call()[0].each do |title| %>
           <th><%= title %></th>
         <% end %>
@@ -27,6 +28,17 @@
 <%= javascript_tag do %>
 $(document).ready(function() {
   var table = $('#invoices-table').DataTable({
+    "colReorder": {
+      "enable": false
+    },
+    "stateSave": true,
+    "stateSaveCallback": function(settings, data) {
+      localStorage.setItem('DataTables_invoices-table', JSON.stringify(data));
+    },
+    "stateLoadCallback": function(settings) {
+      return JSON.parse(localStorage.getItem('DataTables_invoices-table'));
+    },
+    "scrollX": true,
     "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
     "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
     "language": {
@@ -34,7 +46,6 @@ $(document).ready(function() {
     },
     "pageLength": <%= @limit %>,
     "displayStart": <%= @offset %>,
-    "ajax": "<%= invoices_pagination_path(:ordering => @ordering, :format => :json) %>",
     <% if @search_query.blank? %>
         "ordering": false,
     <% elsif !@ordering.blank? %>
@@ -43,6 +54,20 @@ $(document).ready(function() {
     "processing": true,
     "serverSide": true,
     "search": {"search": "<%= @search_query %>"},
+    "ajax": {
+      url: "<%= invoices_pagination_path(:ordering => @ordering, :format => :json) %>",
+      dataSrc: function(json) {
+        var colOrder = $('#invoices-table').DataTable().colReorder.order();
+        var reorderedData = json.data.map(function(row) {
+          var newRow = [];
+          for (var i = 0; i < colOrder.length; i++) {
+            newRow.push(row[colOrder[i]]);
+          }
+          return newRow;
+        });
+        return reorderedData;
+      }
+    }
   });
 
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->

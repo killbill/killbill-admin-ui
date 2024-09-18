@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'csv'
 module Kaui
   class AccountsController < Kaui::EngineController
     def index
@@ -15,6 +16,8 @@ module Kaui
         end
         return
       end
+
+      @dropdown_default = default_columns(Kaui.account_search_columns.call[2], Kaui::Account::SENSIVITE_DATA_FIELDS)
 
       @ordering = params[:ordering] || (@search_query.blank? ? 'desc' : 'asc')
       @offset = params[:offset] || 0
@@ -42,7 +45,38 @@ module Kaui
         Kaui.account_search_columns.call(account, view_context)[1]
       end
 
-      paginate searcher, data_extractor, formatter
+      paginate searcher, data_extractor, formatter, default_columns(Kaui.account_search_columns.call[2], Kaui::Account::SENSIVITE_DATA_FIELDS)
+    end
+
+    def download
+      columns = params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
+      start_date = params[:startDate]
+      end_date = params[:endDate]
+      start_date = begin
+        Date.parse(start_date)
+      rescue StandardError
+        nil
+      end
+      end_date = begin
+        Date.parse(end_date)
+      rescue StandardError
+        nil
+      end
+      accounts = Kaui::Account.list_or_search(nil, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient)
+
+      csv_string = CSV.generate(headers: true) do |csv|
+        csv << columns
+        accounts.each do |account|
+          change_date = Date.parse(account.reference_time)
+          data = columns.map do |attr|
+            account&.send(attr.downcase)
+          end
+          next if start_date && end_date && change_date && (change_date < start_date || change_date > end_date)
+
+          csv << data
+        end
+      end
+      send_data csv_string, filename: "accounts-#{Date.today}.csv", type: 'text/csv'
     end
 
     def new

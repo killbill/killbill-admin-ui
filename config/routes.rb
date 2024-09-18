@@ -27,6 +27,7 @@ Kaui::Engine.routes.draw do
   scope '/accounts' do
     match '/pagination' => 'accounts#pagination', :via => :get, :as => 'accounts_pagination'
     match '/validate_external_key' => 'accounts#validate_external_key', :via => :get, :as => 'accounts_validate_external_key'
+    match '/download' => 'accounts#download', :via => :get, :as => 'download_accounts'
     get '/export/:account_id', to: 'accounts#export_account', as: 'export_account'
 
     scope '/email_notifications' do
@@ -55,6 +56,7 @@ Kaui::Engine.routes.draw do
       end
       scope '/timeline' do
         match '/' => 'account_timelines#show', :via => :get, :as => 'account_timeline'
+        match '/download' => 'account_timelines#download', :via => :get, :as => 'download_account_timeline'
       end
       scope '/custom_fields' do
         match '/' => 'account_custom_fields#index', :via => :get, :as => 'account_custom_fields'
@@ -65,6 +67,7 @@ Kaui::Engine.routes.draw do
       end
       scope '/audit_logs' do
         match '/history' => 'audit_logs#history', :via => :get, :as => 'audit_logs_history'
+        match '/download' => 'audit_logs#download', :via => :get, :as => 'download_audit_logs'
       end
     end
   end
@@ -99,6 +102,7 @@ Kaui::Engine.routes.draw do
 
   scope '/invoices' do
     match '/pagination' => 'invoices#pagination', :via => :get, :as => 'invoices_pagination'
+    match '/download' => 'invoices#download', :via => :get, :as => 'download_invoices'
     match '/:id/show_html' => 'invoices#show_html', :via => :get, :as => 'show_html_invoice'
     match '/:number' => 'invoices#restful_show_by_number', :via => :get, :constraints => { number: /\d+/ }
     match '/:id' => 'invoices#restful_show', :via => :get, :as => 'invoice'
@@ -114,6 +118,7 @@ Kaui::Engine.routes.draw do
 
   scope '/payments' do
     match '/pagination' => 'payments#pagination', :via => :get, :as => 'payments_pagination'
+    match '/download' => 'payments#download', :via => :get, :as => 'download_payments'
     match '/:id' => 'payments#restful_show', :via => :get, :as => 'payment'
     match '/:id/cancel_scheduled_payment' => 'payments#cancel_scheduled_payment', :via => :delete, :as => 'payment_cancel_scheduled_payment'
   end

@@ -1,0 +1,318 @@
+<div class="dropdown-container">
+  <% unless @account.account_id.blank? %>
+    <button class="btn btn-default download-button-right" type="button" id="modalDownloadButton">
+      <i class="glyphicon glyphicon-download-alt"></i>
+      <strong>Download CSV</strong>
+    </button>
+  <% end %>
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle toggle-button-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <i class="glyphicon glyphicon-cog"></i>
+      <strong>Edit Columns</strong>
+    </button>
+    <ul class="dropdown-menu" id="column-visibility" aria-labelledby="v">
+      <%  (@account.account_id.blank? ? Kaui.invoice_search_columns : Kaui.account_invoices_columns).call()[0].each_with_index do |title, index| %>
+          <li class="list-group-item-manual" data-id="<%= index %>">
+            <label class="label-group-item-manual">
+              <input type="checkbox" class="column-toggle" draggable="true" data-column="<%= index %>" checked> <%= title %>
+              <span class="glyphicon glyphicon-option-vertical icon-drag" aria-hidden="true"></span>
+            </label>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="modal fade" id="downloadCsvModal" tabindex="-1" role="dialog" aria-labelledby="downloadCsvModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="downloadCsvModalLabel">Download</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="downloadCsvForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="startDate">Start Date:</label>
+                <input type="text" class="form-control" id="startDate" name="startDate">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="endDate">End Date:</label>
+                <input type="text" class="form-control" id="endDate" name="endDate">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-check">
+                <div>
+                  <input type="radio" id="customDate" name="download_option" value="customDate">
+                  <label for="customDate">Custom date</label>
+                </div>
+                <div>
+                  <input type="radio" id="allInvoices" name="download_option" value="all">
+                  <label for="allInvoices">All invoices</label>
+                </div>
+                <div>
+                  <input type="radio" id="thisWeek" name="download_option" value="thisWeek">
+                  <label for="thisWeek">This week</label>
+                </div>
+                <div>
+                  <input type="radio" id="thisMonth" name="download_option" value="thisMonth">
+                  <label for="thisMonth">This month</label>
+                </div>
+                <div>
+                  <input type="radio" id="thisYear" name="download_option" value="thisYear">
+                  <label for="thisYear">This year</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="downloadButton">Download</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .dropdown-menu#column-visibility {
+    max-height: 300px;
+    width: 200px;
+    overflow-y: auto;
+  }
+  
+  .dropdown-menu {
+    padding: 5px;
+  }
+  .toggle-button-right {
+    float: right;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: white;
+    color: black;
+    text-transform: none;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+  }
+
+  .download-button-right {
+    float: right;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: white;
+    color: black;
+    text-transform: none;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+  }
+
+  .icon-drag {
+    float: right;
+    padding: 5px;
+  }
+
+  .dropdown-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .label-group-item-manual {
+    margin: 5px;
+    width: -webkit-fill-available;
+    cursor: grab;
+  }
+  .label-group-item-manual:active {
+      cursor: grabbing;
+  }
+</style>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $('.dropdown-menu').on('click', 'input[type="checkbox"], label', function(event) {
+    event.stopPropagation();
+  });
+
+  $('#modalDownloadButton').click(function() {
+    $('#downloadCsvModal').modal('show');
+  });
+  $('#startDate, #endDate').datepicker({
+    dateFormat: 'yy-mm-dd'
+  });
+
+  $('#downloadCsvModal').on('show.bs.modal', function (e) {
+    $('#customDate').prop('checked', true);
+    $('#startDate, #endDate').prop('disabled', false);
+    $('#startDate').val(null);
+    $('#endDate').val(null);
+  });
+
+  $('#allInvoices').change(function() {
+    var isChecked = $(this).is(':checked');
+    $('#startDate, #endDate').prop('disabled', true);
+  });
+
+  function setDateRange(option) {
+    var currentDate = new Date();
+    var startDate, endDate;
+
+    if (option === "week") {
+      startDate = new Date(currentDate.setDate(currentDate.getDate() - currentDate.getDay() + 1));
+      currentDate = new Date();
+      endDate = new Date(currentDate.setDate(currentDate.getDate() - currentDate.getDay() + 7));
+    } else if (option === "month") {
+      startDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+      endDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+    } else if (option === "year") {
+      startDate = new Date(currentDate.getFullYear(), 0, 1);
+      endDate = new Date(currentDate.getFullYear(), 11, 31);
+    }
+
+    var startDateFormatted = startDate.toISOString().split('T')[0];
+    var endDateFormatted = endDate.toISOString().split('T')[0];
+
+    $('#startDate').val(startDateFormatted);
+    $('#endDate').val(endDateFormatted);
+    $('#startDate, #endDate').prop('disabled', true);
+  }
+
+  $('#thisWeek').change(function() {
+    if ($(this).is(':checked')) {
+      setDateRange("week");
+    }
+  });
+
+  $('#thisMonth').change(function() {
+    if ($(this).is(':checked')) {
+      setDateRange("month");
+    }
+  });
+
+  $('#thisYear').change(function() {
+    if ($(this).is(':checked')) {
+      setDateRange("year");
+    }
+  });
+
+  $('#customDate').change(function() {
+    var isChecked = $(this).is(':checked');
+    $('#startDate, #endDate').prop('disabled', false);
+    $('#startDate').val(null);
+    $('#endDate').val(null);
+  });
+
+  var downloadButton = document.getElementById('downloadButton');
+  if (downloadButton) {
+    downloadButton.addEventListener('click', function() {
+      event.preventDefault(); // Prevent the default form submission if the button is a submit type
+
+      // Retrieve the values and checked state
+      var startDate = $('#startDate').val();
+      var endDate = $('#endDate').val();
+      var downloadAll = $('#allInvoices').is(':checked');
+      var thElements = document.querySelectorAll('#invoices-table th');
+      var columnTitles = Array.from(thElements).map(function(th) {
+        return th.textContent.trim();
+      });
+
+      var columnsString = columnTitles.join(',')
+      
+      if (downloadAll) {
+        window.open("<%= download_invoices_path %>?account_id=<%=@account.account_id%>&columnsString="+columnsString, '_blank');
+      } else {
+        window.open("<%= download_invoices_path %>?account_id=<%=@account.account_id%>&columnsString="+columnsString+"&startDate="+startDate+"&endDate="+endDate, '_blank');
+      }
+    });
+  }
+
+  updateDropdownOrder();
+
+  function loadState() {
+    var state = JSON.parse(localStorage.getItem('DataTables_invoices-table'));
+    return state || { columns: [], columnOrder: [] };
+  }
+
+  function updateDropdownOrder() {
+    var state = loadState();
+    var columnOrder = state.ColReorder;
+    var $list = $('#column-visibility');
+    var thElements = document.querySelectorAll('#invoices-table th');
+    var $columnTitles = Array.from(thElements).map(function(th) {
+      return th.textContent.trim();
+    });
+    if (columnOrder !== undefined) {
+      $list.empty();
+      columnOrder.forEach(function(colIdx, index) {
+        var $item = $('<li>', { class: "list-group-item-manual", "data-id": index });
+        var column = state.columns[colIdx];
+        var col_name = $columnTitles[colIdx];
+        var $label = $('<label>', {
+          class: "label-group-item-manual",
+          });
+        var $checkbox = $("<input>", {
+          type: "checkbox",
+          value: colIdx,
+          checked: column.visible,
+          "data-column": colIdx,
+          class: "column-toggle"
+        });
+        $label.append($checkbox).append(" " + col_name);
+        var $icon = $("<span>", { class: "glyphicon glyphicon-option-vertical icon-drag"});
+        $label.append($icon);
+        $item.append($label);
+        $list.append($item);
+      });
+    }
+    resetDataColumn();
+    resetDataId();
+  }
+
+  $("#column-visibility").sortable({
+    axis: "y",
+    containment: "parent",
+    stop: function(event, ui) {
+      var order = $("#column-visibility").sortable('toArray', {attribute: 'data-id'});
+      reorderTableColumns(order);
+    }
+  });
+  $("#column-visibility").disableSelection();
+
+  function reorderTableColumns(order) {
+    var table = $('#invoices-table').DataTable();
+    var columnIndexes = order.map(Number);
+    console.log('New column order:', columnIndexes);
+    table.colReorder.order(columnIndexes);
+    resetDataColumn();
+    resetDataId();
+  }
+
+  function resetDataId() {
+    var elements = document.querySelectorAll('.list-group-item-manual');
+    elements.forEach(function(element, index) {
+      element.setAttribute('data-id', index);
+    });
+  }
+
+  function resetDataColumn() {
+    var elements = document.querySelectorAll('.column-toggle');
+    elements.forEach(function(element, index) {
+      element.setAttribute('data-column', index);
+    });
+  }
+
+  $('.column-toggle').on('change', function() {
+    var table = $('#invoices-table').DataTable();
+    var column = table.column($(this).attr('data-column'));
+    column.visible(!column.visible());
+  });
+});
+<% end %>

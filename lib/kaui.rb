@@ -20,6 +20,8 @@ module Kaui
   mattr_accessor :account_search_columns
   mattr_accessor :invoice_search_columns
   mattr_accessor :account_invoices_columns
+  mattr_accessor :account_payments_columns
+  mattr_accessor :account_audit_logs_columns
   mattr_accessor :refund_invoice_description
 
   mattr_accessor :customer_invoice_link
@@ -60,10 +62,11 @@ module Kaui
   self.creditcard_plugin_name =  -> { '__EXTERNAL_PAYMENT__' }
 
   self.account_search_columns = lambda do |account = nil, view_context = nil|
-    fields = KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
+    original_fields = KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
+    # Add additional fields if needed
+    fields = original_fields.dup
+
     headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
-    # Add additional headers if needed
-    headers << 'Child'
     values = fields.map do |attr|
       case attr
       when 'account_id'
@@ -76,39 +79,95 @@ module Kaui
         account&.send(attr.downcase)
       end
     end
-    # Add additional values if needed
-    values << (account.nil? || account.parent_account_id.nil? ? '' : view_context.content_tag(:span, 'Child', class: %w[label label-info account-child-label]))
-    [headers, values]
+    [headers, values, fields]
   end
 
   self.invoice_search_columns = lambda do |invoice = nil, view_context = nil, _cached_options_for_klient = nil|
-    default_label = 'label-info'
-    default_label = 'label-default' if invoice&.status == 'DRAFT'
-    default_label = 'label-success' if invoice&.status == 'COMMITTED'
-    default_label = 'label-danger' if invoice&.status == 'VOID'
-    [
-      %w[Date Status],
-      [
-        invoice&.invoice_date,
+    fields = %w[invoice_number invoice_date status]
+    headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
+    values = fields.map do |attr|
+      case attr
+      when 'status'
+        default_label = 'label-info'
+        default_label = 'label-default' if invoice&.status == 'DRAFT'
+        default_label = 'label-success' if invoice&.status == 'COMMITTED'
+        default_label = 'label-danger' if invoice&.status == 'VOID'
         invoice.nil? || view_context.nil? ? nil : view_context.content_tag(:span, invoice.status, class: ['label', default_label])
-      ]
-    ]
+      else
+        invoice&.send(attr.downcase)
+      end
+    end
+    [headers, values]
   end
 
   self.account_invoices_columns = lambda do |invoice = nil, view_context = nil|
-    default_label = 'label-info'
-    default_label = 'label-default' if invoice&.status == 'DRAFT'
-    default_label = 'label-success' if invoice&.status == 'COMMITTED'
-    default_label = 'label-danger' if invoice&.status == 'VOID'
-    [
-      %w[Date Amount Balance Status],
-      [
-        invoice&.invoice_date,
-        invoice.nil? || view_context.nil? ? nil : view_context.humanized_money_with_symbol(invoice.amount_to_money),
-        invoice.nil? || view_context.nil? ? nil : view_context.humanized_money_with_symbol(invoice.balance_to_money),
+    fields = KillBillClient::Model::InvoiceAttributes.instance_variable_get('@json_attributes')
+    # Change the order if needed
+    fields.delete('invoice_id')
+    fields.unshift('invoice_id')
+
+    headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
+    # Add additional headers if needed
+
+    values = fields.map do |attr|
+      case attr
+      when 'amount_to_money'
+        invoice.nil? || view_context.nil? ? nil : view_context.humanized_money_with_symbol(invoice.amount_to_money)
+      when 'balance_to_money'
+        invoice.nil? || view_context.nil? ? nil : view_context.humanized_money_with_symbol(invoice.balance_to_money)
+      when 'invoice_id'
+        invoice.nil? || view_context.nil? ? nil : view_context.link_to(invoice.invoice_number, view_context.url_for(controller: :invoices, action: :show, account_id: invoice.account_id, id: invoice.invoice_id))
+      when 'status'
+        default_label = 'label-info'
+        default_label = 'label-default' if invoice&.status == 'DRAFT'
+        default_label = 'label-success' if invoice&.status == 'COMMITTED'
+        default_label = 'label-danger' if invoice&.status == 'VOID'
         invoice.nil? || view_context.nil? ? nil : view_context.content_tag(:span, invoice.status, class: ['label', default_label])
-      ]
-    ]
+      else
+        invoice&.send(attr.downcase)
+      end
+    end
+    # Add additional values if needed
+    [headers, values]
+  end
+
+  self.account_payments_columns = lambda do |account = nil, payment = nil, view_context = nil|
+    fields = KillBillClient::Model::PaymentAttributes.instance_variable_get('@json_attributes')
+    # Change the order if needed
+    fields = %w[payment_date total_authed_amount_to_money paid_amount_to_money returned_amount_to_money] + fields
+    fields -= %w[payment_number transactions audit_logs]
+    fields.unshift('status')
+    fields.unshift('payment_number')
+
+    headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
+    return [headers, []] if payment.nil?
+
+    values = fields.map do |attr|
+      case attr
+      when 'payment_number'
+        view_context.link_to(payment.payment_number, view_context.url_for(controller: :payments, action: :show, account_id: payment.account_id, id: payment.payment_id))
+      when 'payment_date'
+        view_context.format_date(payment.payment_date, account&.time_zone)
+      when 'total_authed_amount_to_money'
+        view_context.humanized_money_with_symbol(payment.total_authed_amount_to_money)
+      when 'paid_amount_to_money'
+        view_context.humanized_money_with_symbol(payment.paid_amount_to_money)
+      when 'returned_amount_to_money'
+        view_context.humanized_money_with_symbol(payment.returned_amount_to_money)
+      when 'status'
+        payment.transactions.empty? ? nil : view_context.colored_transaction_status(payment.transactions[-1].status)
+      else
+        payment&.send(attr.downcase)
+      end
+    end
+
+    # Add additional values if needed
+    [headers, values]
+  end
+
+  self.account_audit_logs_columns = lambda do
+    headers = %w[CreatedDate ObjectID ObjectType ChangeType Username Reason Comment UserToken]
+    [headers, []]
   end
 
   self.refund_invoice_description = lambda { |index, ii, bundle_result|

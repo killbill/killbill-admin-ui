@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'csv'
 module Kaui
   class InvoicesController < Kaui::EngineController
     def index
@@ -10,6 +11,31 @@ module Kaui
       @limit = params[:limit] || 50
 
       @max_nb_records = @search_query.blank? ? Kaui::Invoice.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records : 0
+    end
+
+    def download
+      account_id = params[:account_id]
+      start_date = params[:startDate]
+      end_date = params[:endDate]
+      columns = params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
+      kb_params = {}
+      kb_params[:startDate] = Date.parse(start_date).strftime('%Y-%m-%d') if start_date
+      kb_params[:endDate] = Date.parse(end_date).strftime('%Y-%m-%d') if end_date
+      if account_id.present?
+        account = Kaui::Account.find_by_id_or_key(account_id, false, false, options_for_klient)
+        invoices = account.invoices(options_for_klient.merge(params: kb_params))
+      else
+        invoices = Kaui::Invoice.list_or_search(nil, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
+      end
+
+      csv_string = CSV.generate(headers: true) do |csv|
+        csv << columns
+
+        invoices.each do |invoice|
+          csv << columns.map { |attr| invoice&.send(attr.downcase) }
+        end
+      end
+      send_data csv_string, filename: "invoices-#{Date.today}.csv", type: 'text/csv'
     end
 
     def pagination
@@ -24,7 +50,7 @@ module Kaui
         if account.nil?
           Kaui::Invoice.list_or_search(search_key, offset, limit, cached_options_for_klient)
         else
-          Kaui::Account.paginated_invoices(search_key, offset, limit, 'NONE', cached_options_for_klient.merge({ params: { includeVoidedInvoices: true } })).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
+          Kaui::Account.paginated_invoices(search_key, offset, limit, 'NONE', cached_options_for_klient).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
         end
       end
 
@@ -53,9 +79,7 @@ module Kaui
           ][column]
         end
         formatter = lambda do |invoice|
-          row = [view_context.link_to(invoice.invoice_number, view_context.url_for(controller: :invoices, action: :show, account_id: invoice.account_id, id: invoice.invoice_id))]
-          row += Kaui.account_invoices_columns.call(invoice, view_context)[1]
-          row
+          Kaui.account_invoices_columns.call(invoice, view_context)[1]
         end
       end
 
