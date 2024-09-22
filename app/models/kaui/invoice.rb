@@ -2,6 +2,8 @@
 
 module Kaui
   class Invoice < KillBillClient::Model::Invoice
+    TABLE_IGNORE_COLUMNS = %w[amount balance credit_adj refund_adj items is_parent_invoice parent_invoice_id parent_account_id].freeze
+
     def self.build_from_raw_invoice(raw_invoice)
       result = Kaui::Invoice.new
       KillBillClient::Model::InvoiceAttributes.instance_variable_get('@json_attributes').each do |attr|

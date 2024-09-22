@@ -9,7 +9,7 @@
     <table id="invoices-table" class="table table-condensed mobile-data" style="width:100%">
       <thead>
       <tr>
-        <% (@account.account_id.blank? ? Kaui.invoice_search_columns : Kaui.account_invoices_columns).call()[0].each do |title| %>
+        <% Kaui.account_invoices_columns.call[0].each do |title| %>
           <th><%= title %></th>
         <% end %>
       </tr>
@@ -69,6 +69,11 @@ $(document).ready(function() {
       }
     }
   });
+
+  var searchQuery = "<%= @search_query %>";
+  if (searchQuery) {
+    table.search(searchQuery).draw();
+  }
 
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->
   <% if @max_nb_records.nil? %>

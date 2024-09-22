@@ -1,17 +1,15 @@
 <div class="dropdown-container">
-  <% unless @account.account_id.blank? %>
-    <button class="btn btn-default download-button-right" type="button" id="modalDownloadButton">
-      <i class="glyphicon glyphicon-download-alt"></i>
-      <strong>Download CSV</strong>
-    </button>
-  <% end %>
+  <button class="btn btn-default download-button-right" type="button" id="modalDownloadButton">
+    <i class="glyphicon glyphicon-download-alt"></i>
+    <strong>Download CSV</strong>
+  </button>
   <div class="dropdown">
     <button class="btn btn-default dropdown-toggle toggle-button-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
       <i class="glyphicon glyphicon-cog"></i>
       <strong>Edit Columns</strong>
     </button>
     <ul class="dropdown-menu" id="column-visibility" aria-labelledby="v">
-      <%  (@account.account_id.blank? ? Kaui.invoice_search_columns : Kaui.account_invoices_columns).call()[0].each_with_index do |title, index| %>
+      <%  Kaui.account_invoices_columns.call[0].each_with_index do |title, index| %>
           <li class="list-group-item-manual" data-id="<%= index %>">
             <label class="label-group-item-manual">
               <input type="checkbox" class="column-toggle" draggable="true" data-column="<%= index %>" checked> <%= title %>
@@ -27,7 +25,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="downloadCsvModalLabel">Download</h5>
+        <h3 class="modal-title" id="downloadCsvModalLabel">Download</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -37,13 +35,13 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="startDate">Start Date:</label>
+                <label for="startDate">Invoice Date From:</label>
                 <input type="text" class="form-control" id="startDate" name="startDate">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="endDate">End Date:</label>
+                <label for="endDate">To:</label>
                 <input type="text" class="form-control" id="endDate" name="endDate">
               </div>
             </div>
@@ -56,8 +54,8 @@
                   <label for="customDate">Custom date</label>
                 </div>
                 <div>
-                  <input type="radio" id="allInvoices" name="download_option" value="all">
-                  <label for="allInvoices">All invoices</label>
+                  <input type="radio" id="allData" name="download_option" value="all">
+                  <label for="allData">All invoices</label>
                 </div>
                 <div>
                   <input type="radio" id="thisWeek" name="download_option" value="thisWeek">
@@ -71,6 +69,19 @@
                   <input type="radio" id="thisYear" name="download_option" value="thisYear">
                   <label for="thisYear">This year</label>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h5>Additional Options</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="allFields" name="allFields">
+                <label class="form-check-label" for="allFields">All fields</label>
               </div>
             </div>
           </div>
@@ -150,14 +161,15 @@ $(document).ready(function() {
   });
 
   $('#downloadCsvModal').on('show.bs.modal', function (e) {
-    $('#customDate').prop('checked', true);
-    $('#startDate, #endDate').prop('disabled', false);
+    $('#allData').prop('checked', true);
+    $('#startDate, #endDate').prop('disabled', true);
     $('#startDate').val(null);
     $('#endDate').val(null);
   });
 
-  $('#allInvoices').change(function() {
-    var isChecked = $(this).is(':checked');
+  $('#allData').change(function() {
+    $('#startDate').val(null);
+    $('#endDate').val(null);
     $('#startDate, #endDate').prop('disabled', true);
   });
 
@@ -165,7 +177,11 @@ $(document).ready(function() {
     var currentDate = new Date();
     var startDate, endDate;
 
-    if (option === "week") {
+    if (option === "day") {
+      startDate = new Date();
+      endDate = new Date();
+      endDate.setDate(endDate.getDate() + 1);
+    } else if (option === "week") {
       startDate = new Date(currentDate.setDate(currentDate.getDate() - currentDate.getDay() + 1));
       currentDate = new Date();
       endDate = new Date(currentDate.setDate(currentDate.getDate() - currentDate.getDay() + 7));
@@ -204,33 +220,39 @@ $(document).ready(function() {
   });
 
   $('#customDate').change(function() {
-    var isChecked = $(this).is(':checked');
-    $('#startDate, #endDate').prop('disabled', false);
-    $('#startDate').val(null);
-    $('#endDate').val(null);
+    if ($(this).is(':checked')) {
+      setDateRange("day");
+      $('#startDate, #endDate').prop('disabled', false);
+    }
   });
 
   var downloadButton = document.getElementById('downloadButton');
   if (downloadButton) {
     downloadButton.addEventListener('click', function() {
-      event.preventDefault(); // Prevent the default form submission if the button is a submit type
+      event.preventDefault();
 
-      // Retrieve the values and checked state
+      var allFieldsChecked = $('#allFields').is(':checked');
       var startDate = $('#startDate').val();
       var endDate = $('#endDate').val();
-      var downloadAll = $('#allInvoices').is(':checked');
+      var downloadAll = $('#allData').is(':checked');
       var thElements = document.querySelectorAll('#invoices-table th');
       var columnTitles = Array.from(thElements).map(function(th) {
         return th.textContent.trim();
       });
-
       var columnsString = columnTitles.join(',')
-      
-      if (downloadAll) {
-        window.open("<%= download_invoices_path %>?account_id=<%=@account.account_id%>&columnsString="+columnsString, '_blank');
-      } else {
-        window.open("<%= download_invoices_path %>?account_id=<%=@account.account_id%>&columnsString="+columnsString+"&startDate="+startDate+"&endDate="+endDate, '_blank');
+
+      var url = new URL("<%= download_invoices_path %>", window.location.origin);
+      var params = new URLSearchParams();
+      params.append('account_id', "<%=@account.account_id%>");
+      params.append('columnsString', columnsString);
+      if (!downloadAll) {
+        params.append('startDate', startDate);
+        params.append('endDate', endDate);
       }
+      params.append('allFieldsChecked', allFieldsChecked);
+      url.search = params.toString();
+      console.log(url.toString());
+      window.open(url.toString(), '_blank');
     });
   }
 

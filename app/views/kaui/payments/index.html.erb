@@ -5,7 +5,7 @@
     <h1><%= I18n.translate('payments') %></h1>
     <%= render :partial => 'multi_functions_bar' %>
 
-    <table id="payments-table" class="table table-condensed mobile-data">
+    <table id="payments-table" class="table table-condensed mobile-data" style="width:100%">
       <thead>
         <tr>
           <% Kaui.account_payments_columns.call()[0].each do |title| %>
@@ -89,6 +89,11 @@ $(document).ready(function() {
     "serverSide": true,
     "search": {"search": "<%= @search_query %>"},
   });
+
+  var searchQuery = "<%= @search_query %>";
+  if (searchQuery) {
+    table.search(searchQuery).draw();
+  }
 
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->
   <% if @max_nb_records.nil? %>

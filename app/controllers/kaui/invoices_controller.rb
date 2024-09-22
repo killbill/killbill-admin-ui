@@ -17,7 +17,13 @@ module Kaui
       account_id = params[:account_id]
       start_date = params[:startDate]
       end_date = params[:endDate]
-      columns = params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
+      all_fields_checked = params[:allFieldsChecked] == 'true'
+      columns = if all_fields_checked
+                  KillBillClient::Model::InvoiceAttributes.instance_variable_get('@json_attributes') - Kaui::Invoice::TABLE_IGNORE_COLUMNS
+                else
+                  params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
+                end
+
       kb_params = {}
       kb_params[:startDate] = Date.parse(start_date).strftime('%Y-%m-%d') if start_date
       kb_params[:endDate] = Date.parse(end_date).strftime('%Y-%m-%d') if end_date
@@ -55,32 +61,27 @@ module Kaui
       end
 
       account_id = (params[:search] || {})[:value]
-      if account_id.blank?
-        # Don't show amount and balance, and they will not be populated
-        data_extractor = lambda do |invoice, column|
-          [
-            invoice.invoice_number.to_i,
-            invoice.invoice_date
-          ][column]
-        end
-        formatter = lambda do |invoice|
-          row = [view_context.link_to(invoice.invoice_number, view_context.url_for(controller: :invoices, action: :show, account_id: invoice.account_id, id: invoice.invoice_id))]
-          row += Kaui.invoice_search_columns.call(invoice, view_context, cached_options_for_klient)[1]
-          row
-        end
-      else
-        data_extractor = lambda do |invoice, column|
-          [
-            invoice.invoice_number.to_i,
-            invoice.invoice_date,
-            invoice.amount,
-            invoice.balance,
-            invoice.status
-          ][column]
-        end
-        formatter = lambda do |invoice|
-          Kaui.account_invoices_columns.call(invoice, view_context)[1]
-        end
+      data_extractor = if account_id.blank?
+                         lambda do |invoice, column|
+                           [
+                             invoice.invoice_number.to_i,
+                             invoice.invoice_date
+                           ][column]
+                         end
+                       else
+                         lambda do |invoice, column|
+                           [
+                             invoice.invoice_number.to_i,
+                             invoice.invoice_date,
+                             invoice.amount,
+                             invoice.balance,
+                             invoice.status
+                           ][column]
+                         end
+                       end
+
+      formatter = lambda do |invoice|
+        Kaui.account_invoices_columns.call(invoice, view_context)[1]
       end
 
       paginate searcher, data_extractor, formatter
