@@ -49,9 +49,15 @@ module Kaui
     end
 
     def download
-      columns = params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
       start_date = params[:startDate]
       end_date = params[:endDate]
+      all_fields_checked = params[:allFieldsChecked] == 'true'
+
+      columns = if all_fields_checked
+                  KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
+                else
+                  params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
+                end
       start_date = begin
         Date.parse(start_date)
       rescue StandardError

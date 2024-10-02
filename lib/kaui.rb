@@ -103,6 +103,7 @@ module Kaui
   self.account_invoices_columns = lambda do |invoice = nil, view_context = nil|
     fields = KillBillClient::Model::InvoiceAttributes.instance_variable_get('@json_attributes')
     # Change the order if needed
+    fields -= Kaui::Invoice::TABLE_IGNORE_COLUMNS
     fields.delete('invoice_id')
     fields.unshift('invoice_id')
 
@@ -110,19 +111,23 @@ module Kaui
     # Add additional headers if needed
 
     values = fields.map do |attr|
+      next nil if invoice.nil? || view_context.nil?
+
       case attr
-      when 'amount_to_money'
-        invoice.nil? || view_context.nil? ? nil : view_context.humanized_money_with_symbol(invoice.amount_to_money)
-      when 'balance_to_money'
-        invoice.nil? || view_context.nil? ? nil : view_context.humanized_money_with_symbol(invoice.balance_to_money)
+      when 'account_id'
+        view_context.link_to(invoice.account_id, view_context.url_for(controller: :accounts, action: :show, account_id: invoice.account_id))
+      when 'amount'
+        view_context.humanized_money_with_symbol(invoice.amount_to_money)
+      when 'balance'
+        view_context.humanized_money_with_symbol(invoice.balance_to_money)
       when 'invoice_id'
-        invoice.nil? || view_context.nil? ? nil : view_context.link_to(invoice.invoice_number, view_context.url_for(controller: :invoices, action: :show, account_id: invoice.account_id, id: invoice.invoice_id))
+        view_context.link_to(invoice.invoice_number, view_context.url_for(controller: :invoices, action: :show, account_id: invoice.account_id, id: invoice.invoice_id))
       when 'status'
         default_label = 'label-info'
         default_label = 'label-default' if invoice&.status == 'DRAFT'
         default_label = 'label-success' if invoice&.status == 'COMMITTED'
         default_label = 'label-danger' if invoice&.status == 'VOID'
-        invoice.nil? || view_context.nil? ? nil : view_context.content_tag(:span, invoice.status, class: ['label', default_label])
+        view_context.content_tag(:span, invoice.status, class: ['label', default_label])
       else
         invoice&.send(attr.downcase)
       end

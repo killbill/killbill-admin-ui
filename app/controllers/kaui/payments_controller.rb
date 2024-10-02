@@ -18,7 +18,13 @@ module Kaui
       account_id = params[:account_id]
       start_date = params[:startDate]
       end_date = params[:endDate]
-      columns = params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
+      all_fields_checked = params[:allFieldsChecked] == 'true'
+      columns = if all_fields_checked
+                  KillBillClient::Model::PaymentAttributes.instance_variable_get('@json_attributes') - %w[transactions audit_logs]
+                else
+                  params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
+                end
+
       kb_params = {}
       kb_params[:startDate] = Date.parse(start_date).strftime('%Y-%m-%d') if start_date
       kb_params[:endDate] = Date.parse(end_date).strftime('%Y-%m-%d') if end_date
@@ -28,11 +34,12 @@ module Kaui
       else
         payments = Kaui::Payment.list_or_search(nil, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
       end
+
       payments.each do |payment|
         created_date = nil
         payment.transactions.each do |transaction|
           transaction_date = Date.parse(transaction.effective_date)
-          created_date = transaction_date if created_date.nil? || (transaction_date < created_date)
+          created_date ||= transaction_date if transaction_date < created_date
         end
         payment.payment_date = created_date
       end
@@ -41,6 +48,8 @@ module Kaui
         csv << columns
 
         payments.each do |payment|
+          next if start_date && end_date && (payment.payment_date < Date.parse(start_date) || payment.payment_date > Date.parse(end_date))
+
           data = columns.map do |attr|
             case attr
             when 'payment_number'
