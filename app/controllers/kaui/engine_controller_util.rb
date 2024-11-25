@@ -16,6 +16,11 @@ module Kaui
 
     def paginate(searcher, data_extractor, formatter, table_default_columns = [])
       search_key = (params[:search] || {})[:value].presence
+      if search_key.present? && search_key.include?('_q=1&')
+        # byebug
+        # search_key.gsub!('_q=1&', '')
+        # search_key = "_q=1&"+ CGI.escape(search_key)
+      end
       offset = (params[:start] || 0).to_i
       limit = (params[:length] || 10).to_i
 

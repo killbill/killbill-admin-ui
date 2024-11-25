@@ -21,9 +21,15 @@ module Kaui
 
       @ordering = params[:ordering] || (@search_query.blank? ? 'desc' : 'asc')
       @offset = params[:offset] || 0
-      @limit = params[:limit] || 50
+      @limit = params[:limit] || 2
 
       @max_nb_records = @search_query.blank? ? Kaui::Account.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records : 0
+    end
+
+    def advanced_search
+      @search_query = params[:search_query]
+
+      @max_nb_records = Kaui::Account.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records
     end
 
     def pagination

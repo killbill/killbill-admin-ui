@@ -1,3 +1,21 @@
+
+<div class="filter-bar-container">
+  <div class="filter-bar">
+    <button class="btn btn-default download-button-right" data-toggle="modal" data-target="#advanceSearchModal">
+      <i class="glyphicon glyphicon-search"></i>
+      <strong>Advance Search</strong>
+    </button>
+
+    <div id="search-labels-container" class="ml-2">
+      <!-- Dynamic search labels will be added here -->
+    </div>
+
+  </div>
+</div>
+
+<%= render :partial => 'account_filterbar' %>
+
+
 <div class="dropdown-container">
   <button class="btn btn-default download-button-right" type="button" id="modalDownloadButton">
     <i class="glyphicon glyphicon-download-alt"></i>
@@ -20,6 +38,8 @@
     </ul>
   </div>
 </div>
+
+
 
 <div class="modal fade" id="downloadCsvModal" tabindex="-1" role="dialog" aria-labelledby="downloadCsvModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -96,6 +116,11 @@
 </div>
 
 <style>
+  
+
+
+
+
   .dropdown-menu#column-visibility {
     max-height: 300px;
     width: 200px;

@@ -1,0 +1,218 @@
+<!-- Modal Structure -->
+<div class="modal fade" id="advanceSearchModal" tabindex="-1" role="dialog" aria-labelledby="advanceSearchModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="advanceSearchModalLabel">Advance Search</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Add your advanced search form here -->
+        <form id="advanceSearchForm">
+          <div class="form-group d-flex align-items-center">
+            <label for="searchFieldSelect" class="mr-2" style="width: 30%;">Search Fields:</label>
+            <select id="searchFieldSelect" class="form-control mr-2">
+              <option value="id">Id</option>
+              <option value="external_key">External Key</option>
+              <option value="email">Email</option>
+              <option value="name">Name</option>
+              <option value="first_name_length">First Name Length</option>
+              <option value="currency">Currency</option>
+              <option value="billing_cycle_day_local">Billing Cycle Day Local</option>
+              <option value="parent_account_id">Parent Account Id</option>
+              <option value="is_payment_delegated_to_parent">Is Payment Delegated To Parent</option>
+              <option value="payment_method_id">Payment Method Id</option>
+              <option value="reference_time">Reference Time</option>
+              <option value="time_zone">Time Zone</option>
+              <option value="locale">Locale</option>
+              <option value="address1">Address1</option>
+              <option value="address2">Address2</option>
+              <option value="company_name">Company Name</option>
+              <option value="city">City</option>
+              <option value="state_or_province">State Or Province</option>
+              <option value="country">Country</option>
+              <option value="postal_code">Postal Code</option>
+              <option value="phone">Phone</option>
+              <option value="notes">Notes</option>
+              <option value="migrated">Migrated</option>
+              <option value="created_by">Created By</option>
+              <option value="created_date">Created Date</option>
+              <option value="updated_by">Updated By</option>
+              <option value="updated_date">Updated Date</option>
+              <!-- Add more search fields as needed -->
+            </select>
+            <button type="button" class="btn btn-secondary" id="addSearchField">Add</button>
+          </div>
+          <div id="search-fields-container">
+            <!-- Dynamic search fields will be added here -->
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="applyAdvanceSearch">Apply Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Template for search fields -->
+<template id="search-field-template">
+  <div class="form-group row align-items-center search-field">
+    <label class="col-sm-4 col-form-label search-field-label"></label>
+    <div class="col-sm-3">
+      <select class="form-control search-field-filter">
+        <option value="eq">Equals</option>
+        <option value="neq">Not Equals</option>
+        <option value="gt">Greater Than</option>
+        <option value="gte">Greater Than Or Equal</option>
+        <option value="lt">Less Than</option>
+        <option value="lte">Less Than Or Equal</option>
+        <option value="like">Like</option>
+      </select>
+    </div>
+    <div class="col-sm-4">
+      <input type="text" class="form-control search-field-value">
+    </div>
+    <div class="col-sm-1">
+      <%# <button type="button" class="btn btn-danger btn-sm remove-search-field"> %>
+        <i class="glyphicon glyphicon-remove" id=remove-search-field></i>
+      <%# </button> %>
+    </div>
+  </div>
+</template>
+
+<style>
+  .form-group.row.align-items-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .form-group.row.align-items-center label {
+    margin-bottom: 0; /* Remove default margin */
+  }
+
+  .form-group.row.align-items-center .form-control {
+    margin-right: 10px; /* Add some space between elements */
+  }
+
+  .form-group.d-flex {
+    display: flex;
+    align-items: center;
+  }
+
+  .form-group.d-flex label {
+    margin-bottom: 0; /* Remove default margin */
+  }
+
+  .form-group.d-flex .form-control {
+    margin-right: 10px; /* Add some space between the select box and the button */
+  }
+
+  #search-labels-container .label {
+    margin-left: 5px; /* Add space between labels */
+    margin-bottom: 5px; /* Add space below labels if they wrap to the next line */
+    color: white;
+  }
+
+  .filter-bar-container {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center; /* Center items vertically */
+  }
+
+  .filter-bar {
+    display: flex;
+    align-items: center; /* Center items vertically */
+  }
+
+  .filter-bar label {
+    margin: 10px; /* Add some space between the label and the select box */
+  }
+</style>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  // Handle the "Add" button click to add new search fields
+  $('#addSearchField').on('click', function() {
+    var selectedField = $('#searchFieldSelect option:selected').text();
+    var template = document.getElementById('search-field-template').content.cloneNode(true);
+
+    // Set the label and input names based on the selected field
+    template.querySelector('.search-field-label').textContent = selectedField.replace(/([A-Z])/g, ' $1').trim();
+    template.querySelector('.search-field-filter').name = selectedField + 'Filter';
+
+    // Check if the field should use a date input
+    var dateFields = ['Created Date', 'Updated Date'];
+    if (dateFields.includes(selectedField)) {
+      template.querySelector('.search-field-value').type = 'date';
+    } else {
+      template.querySelector('.search-field-value').type = 'text';
+    }
+    template.querySelector('.search-field-value').name = selectedField;
+
+    // Append the new search field to the container
+    document.getElementById('search-fields-container').appendChild(template);
+  });
+
+  // Handle the "Apply Search" button click inside the modal
+  $('#applyAdvanceSearch').on('click', function() {
+    var searchFields = $('.search-field');
+    var searchLabelsContainer = $('#search-labels-container');
+    searchLabelsContainer.empty(); // Clear existing labels
+
+    var searchLabels = searchFields.map(function() {
+      var filter = $(this).find('.search-field-filter').val();
+      var value = $(this).find('.search-field-value').val();
+      var columnName = $(this).find('.search-field-filter').attr('name').replace('Filter', '').toLowerCase().replace(/\s+/g, '_');
+
+      if (value !== '') {
+        return columnName + '[' + filter + ']' + value;
+      }
+    }).get().join('&');
+
+    var searchLabelString = searchLabels.length > 0 ? searchLabels : 'No search filters applied';
+    console.log(searchLabelString);
+
+    // Gọi API mới với filter đã được áp dụng
+    var table = $('#accounts-table').DataTable();
+
+
+    table.on('preXhr.dt', function(e, settings, data) {
+      data.search.value = "_q=1&" + searchLabelString;  // Cập nhật giá trị search động
+      <%# data.search.value = "_q=1&name%25Blike%25Dtest"; %>
+    });
+
+    table.ajax.url("<%= accounts_pagination_path(:ordering => @ordering, :format => :json) %>").load();
+
+
+
+    searchFields.each(function() {
+      var filter = $(this).find('.search-field-filter option:selected').text();
+      var value = $(this).find('.search-field-value').val();
+      var columnName = $(this).find('.search-field-filter').attr('name').replace('Filter', '');
+
+      // Apply the search filters to the DataTable
+
+      // table.column(columnName).search(filter + ':' + value).draw();
+
+      // Create and append the search label
+      if (value !== '') {
+        var label = $('<span>', {
+          class: 'label label-info',
+          text: columnName + ' [' + filter + '] ' + value
+        });
+      }
+      searchLabelsContainer.append(label);
+    });
+    $('#advanceSearchModal').modal('hide');
+  });
+
+  // Handle the remove icon click event to remove search fields
+  $('#search-fields-container').on('click', '#remove-search-field', function() {
+    $(this).closest('.search-field').remove();
+  });
+});
+<% end %>
