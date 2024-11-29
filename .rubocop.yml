@@ -8,6 +8,7 @@ AllCops:
     - 'app/controllers/kaui/engine_controller.rb' # Too much magic going on
   NewCops: enable
   SuggestExtensions: false
+  TargetRubyVersion: 3.2
 
 Gemspec/RequiredRubyVersion:
   Enabled: false

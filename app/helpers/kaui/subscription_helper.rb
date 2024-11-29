@@ -98,7 +98,7 @@ module Kaui
         ''
       else
         current_plan = sub.prices.select { |price| price['phaseType'] == sub.phase_type && price['planName'] == sub.plan_name }
-        price_override = current_plan.last['fixedPrice'] || current_plan.last['recurringPrice']
+        price_override = current_plan.last ? (current_plan.last['fixedPrice'] || current_plan.last['recurringPrice']) : nil
 
         if price_override.blank?
           ''
