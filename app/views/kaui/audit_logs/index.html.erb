@@ -31,6 +31,12 @@
 
 </div>
 
+<style>
+  #audit-logs-table td, #audit-logs-table tr {
+    white-space: nowrap;
+  }
+</style>
+
 
 <%= javascript_tag do %>
     $(document).ready(function() {
@@ -38,6 +44,7 @@
         $('#audit-logs-table').DataTable({
             dom: "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
             data: auditLogs,
+            "scrollX": true,
             order: [[ 0, 'desc' ]],
             createdRow: function( row, data, dataIndex ) {
                 if ( data[3] == "INSERT" ) {

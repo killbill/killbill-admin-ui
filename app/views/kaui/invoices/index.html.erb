@@ -1,11 +1,7 @@
 <div class="search">
-
   <div class="column-block">
-
     <h1>Invoices</h1>
-
     <%= render :partial => 'multi_functions_bar' %>
-
     <table id="invoices-table" class="table table-condensed mobile-data" style="width:100%">
       <thead>
       <tr>
@@ -20,10 +16,14 @@
       </tr>
       </tbody>
     </table>
-
   </div>
-
 </div>
+
+<style>
+  #invoices-table td, #invoices-table tr {
+    white-space: nowrap;
+  }
+</style>
 
 <%= javascript_tag do %>
 $(document).ready(function() {
