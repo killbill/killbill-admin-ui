@@ -77,6 +77,7 @@ $(document).ready(function() {
 
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->
   <% if @max_nb_records.nil? %>
+    var table = $('#accounts-table').DataTable();
     $('#accounts-table').on('draw.dt', function() {
       var noMoreData = table.column(0)
                             .data()
