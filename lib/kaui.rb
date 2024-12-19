@@ -65,6 +65,7 @@ module Kaui
     original_fields = KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
     # Add additional fields if needed
     fields = original_fields.dup
+    fields -= %w[audit_logs]
 
     headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
     values = fields.map do |attr|

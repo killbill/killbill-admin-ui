@@ -1,10 +1,7 @@
 <div class="search">
-
   <div class="column-block">
-
     <h1><%= I18n.translate('payments') %></h1>
     <%= render :partial => 'multi_functions_bar' %>
-
     <table id="payments-table" class="table table-condensed mobile-data" style="width:100%">
       <thead>
         <tr>
@@ -19,10 +16,14 @@
       </tr>
       </tbody>
     </table>
-
   </div>
-
 </div>
+
+<style>
+  #payments-table td, #payments-table tr {
+    white-space: nowrap;
+  }
+</style>
 
 <%= javascript_tag do %>
 $(document).ready(function() {
