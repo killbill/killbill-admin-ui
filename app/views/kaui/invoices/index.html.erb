@@ -57,7 +57,7 @@ $(document).ready(function() {
     "ajax": {
       url: "<%= invoices_pagination_path(:ordering => @ordering, :format => :json) %>",
       dataSrc: function(json) {
-        var colOrder = $('#invoices-table').DataTable().colReorder.order();
+        var colOrder = table.colReorder.order();
         var reorderedData = json.data.map(function(row) {
           var newRow = [];
           for (var i = 0; i < colOrder.length; i++) {
@@ -69,11 +69,6 @@ $(document).ready(function() {
       }
     }
   });
-
-  var searchQuery = "<%= @search_query %>";
-  if (searchQuery) {
-    table.search(searchQuery).draw();
-  }
 
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->
   <% if @max_nb_records.nil? %>

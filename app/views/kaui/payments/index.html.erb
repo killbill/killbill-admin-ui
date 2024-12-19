@@ -91,11 +91,6 @@ $(document).ready(function() {
     "search": {"search": "<%= @search_query %>"},
   });
 
-  var searchQuery = "<%= @search_query %>";
-  if (searchQuery) {
-    table.search(searchQuery).draw();
-  }
-
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->
   <% if @max_nb_records.nil? %>
       $('#payments-table').on('draw.dt', function() {
