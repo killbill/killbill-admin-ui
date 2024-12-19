@@ -65,6 +65,7 @@ module Kaui
     original_fields = KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
     # Add additional fields if needed
     fields = original_fields.dup
+    fields -= %w[audit_logs]
 
     headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
     values = fields.map do |attr|
@@ -139,7 +140,7 @@ module Kaui
   self.account_payments_columns = lambda do |account = nil, payment = nil, view_context = nil|
     fields = KillBillClient::Model::PaymentAttributes.instance_variable_get('@json_attributes')
     # Change the order if needed
-    fields = %w[payment_date total_authed_amount_to_money paid_amount_to_money returned_amount_to_money] + fields
+    fields = %w[payment_date authed_amount paid_amount returned_amount] + fields
     fields -= %w[payment_number transactions audit_logs]
     fields.unshift('status')
     fields.unshift('payment_number')
@@ -153,11 +154,11 @@ module Kaui
         view_context.link_to(payment.payment_number, view_context.url_for(controller: :payments, action: :show, account_id: payment.account_id, id: payment.payment_id))
       when 'payment_date'
         view_context.format_date(payment.payment_date, account&.time_zone)
-      when 'total_authed_amount_to_money'
+      when 'authed_amount'
         view_context.humanized_money_with_symbol(payment.total_authed_amount_to_money)
-      when 'paid_amount_to_money'
+      when 'paid_amount'
         view_context.humanized_money_with_symbol(payment.paid_amount_to_money)
-      when 'returned_amount_to_money'
+      when 'returned_amount'
         view_context.humanized_money_with_symbol(payment.returned_amount_to_money)
       when 'status'
         payment.transactions.empty? ? nil : view_context.colored_transaction_status(payment.transactions[-1].status)
