@@ -53,11 +53,16 @@ module Kaui
       end_date = params[:endDate]
       all_fields_checked = params[:allFieldsChecked] == 'true'
 
-      columns = if all_fields_checked
-                  KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
-                else
-                  params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
-                end
+      if all_fields_checked
+        columns = KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
+      else
+        columns = params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
+        Kaui::Account::REMAPPING_FIELDS.each do |k, v|
+          index = columns.index(v)
+          columns[index] = k if index
+        end
+      end
+
       start_date = begin
         Date.parse(start_date)
       rescue StandardError
