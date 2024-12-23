@@ -65,21 +65,33 @@ module Kaui
     original_fields = KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
     # Add additional fields if needed
     fields = original_fields.dup
-    fields -= %w[audit_logs]
+    fields -= %w[audit_logs first_name_length]
 
     headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
     values = fields.map do |attr|
+      next if account.nil? || view_context.nil?
+
       case attr
+      when 'is_payment_delegated_to_parent', 'is_migrated'
+        "<div style='text-align: center;'><input type='checkbox' class='custom-checkbox' #{account&.send(attr.downcase) ? 'checked' : ''}></div>"
       when 'account_id'
-        account.nil? || view_context.nil? ? nil : view_context.link_to(account.account_id, view_context.url_for(action: :show, account_id: account.account_id))
+        view_context.link_to(account.account_id, view_context.url_for(action: :show, account_id: account.account_id))
       when 'parent_account_id'
-        account.nil? || view_context.nil? || account.parent_account_id.nil? ? nil : view_context.link_to(account.account_id, view_context.url_for(action: :show, account_id: account.parent_account_id))
+        account.parent_account_id.nil? ? nil : view_context.link_to(account.account_id, view_context.url_for(action: :show, account_id: account.parent_account_id))
       when 'account_balance'
-        account.nil? || view_context.nil? ? nil : view_context.humanized_money_with_symbol(account.balance_to_money)
+        view_context.humanized_money_with_symbol(account.balance_to_money)
       else
         account&.send(attr.downcase)
       end
     end
+
+    # Update headers if needed
+    headers[fields.index('is_payment_delegated_to_parent')] = 'Payment via parent'
+    headers[fields.index('bill_cycle_day_local')] = 'BCD'
+    headers[fields.index('account_balance')] = 'Balance'
+    headers[fields.index('account_cba')] = 'CBA'
+    headers[fields.index('is_migrated')] = 'Migrated'
+
     [headers, values, fields]
   end
 
@@ -146,10 +158,19 @@ module Kaui
     fields.unshift('payment_number')
 
     headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
+    # Update headers if needed
+    headers[fields.index('auth_amount')] = 'Auth'
+    headers[fields.index('captured_amount')] = 'Capture'
+    headers[fields.index('purchased_amount')] = 'Purchase'
+    headers[fields.index('refunded_amount')] = 'Refund'
+    headers[fields.index('credited_amount')] = 'Credit'
+
     return [headers, []] if payment.nil?
 
     values = fields.map do |attr|
       case attr
+      when 'auth_amount', 'captured_amount', 'purchased_amount', 'refunded_amount', 'credited_amount'
+        view_context.humanized_money_with_symbol(payment&.send(attr.downcase))
       when 'payment_number'
         view_context.link_to(payment.payment_number, view_context.url_for(controller: :payments, action: :show, account_id: payment.account_id, id: payment.payment_id))
       when 'payment_date'
