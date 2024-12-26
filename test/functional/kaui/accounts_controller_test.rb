@@ -294,6 +294,22 @@ module Kaui
       assert_equal 'text/plain', @response.header['Content-Type']
     end
 
+    test 'should download accounts data' do
+      start_date = Date.today.strftime('%Y-%m-%d')
+      end_date = Date.today.strftime('%Y-%m-%d')
+      columns = %w[account_id name email bcd cba]
+      account = create_account(@tenant)
+
+      get :download, params: { startDate: start_date, endDate: end_date, allFieldsChecked: 'false', columnsString: columns.join(',') }
+      assert_response :success
+      assert_equal 'text/csv', @response.header['Content-Type']
+      assert_includes @response.header['Content-Disposition'], "filename=\"accounts-#{Date.today}.csv\""
+      assert_includes @response.body, account.account_id
+
+      csv = CSV.parse(@response.body, headers: true)
+      assert_equal %w[account_id name email bill_cycle_day_local account_cba], csv.headers
+    end
+
     private
 
     def redirected_account_id
