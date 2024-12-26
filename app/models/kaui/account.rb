@@ -6,7 +6,7 @@ module Kaui
 
     SENSIVITE_DATA_FIELDS = %w[name email].freeze
     REMAPPING_FIELDS = {
-      'is_payment_delegated_to_parent' => 'pay_via_parrent',
+      'is_payment_delegated_to_parent' => 'pay_via_parent',
       'bill_cycle_day_local' => 'bcd',
       'account_balance' => 'balance',
       'account_cba' => 'cba',

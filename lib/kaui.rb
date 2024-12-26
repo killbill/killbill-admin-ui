@@ -66,8 +66,6 @@ module Kaui
     # Add additional fields if needed
     fields = original_fields.dup
     fields -= %w[audit_logs first_name_length]
-
-    headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
     headers = fields.dup
     Kaui::Account::REMAPPING_FIELDS.each do |k, v|
       headers[fields.index(k)] = v
