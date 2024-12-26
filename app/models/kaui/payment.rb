@@ -7,6 +7,13 @@ module Kaui
     attr_accessor :payment_date, :target_invoice_id
 
     TRANSACTION_STATUSES = %w[SUCCESS PENDING PAYMENT_FAILURE PLUGIN_FAILURE UNKNOWN].freeze
+    REMAPPING_FIELDS = {
+      'auth_amount' => 'auth',
+      'captured_amount' => 'capture',
+      'purchased_amount' => 'purchase',
+      'credited_amount' => 'credit',
+      'refunded_amount' => 'refund'
+    }.freeze
 
     def self.build_from_raw_payment(raw_payment)
       result = Kaui::Payment.new

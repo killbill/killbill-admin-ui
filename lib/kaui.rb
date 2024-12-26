@@ -66,8 +66,12 @@ module Kaui
     # Add additional fields if needed
     fields = original_fields.dup
     fields -= %w[audit_logs first_name_length]
+    headers = fields.dup
+    Kaui::Account::REMAPPING_FIELDS.each do |k, v|
+      headers[fields.index(k)] = v
+    end
+    headers.map! { |attr| attr.split('_').join(' ').capitalize }
 
-    headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
     values = fields.map do |attr|
       next if account.nil? || view_context.nil?
 
@@ -84,13 +88,6 @@ module Kaui
         account&.send(attr.downcase)
       end
     end
-
-    # Update headers if needed
-    headers[fields.index('is_payment_delegated_to_parent')] = 'Payment via parent'
-    headers[fields.index('bill_cycle_day_local')] = 'BCD'
-    headers[fields.index('account_balance')] = 'Balance'
-    headers[fields.index('account_cba')] = 'CBA'
-    headers[fields.index('is_migrated')] = 'Migrated'
 
     [headers, values, fields]
   end
@@ -157,13 +154,11 @@ module Kaui
     fields.unshift('status')
     fields.unshift('payment_number')
 
-    headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
-    # Update headers if needed
-    headers[fields.index('auth_amount')] = 'Auth'
-    headers[fields.index('captured_amount')] = 'Capture'
-    headers[fields.index('purchased_amount')] = 'Purchase'
-    headers[fields.index('refunded_amount')] = 'Refund'
-    headers[fields.index('credited_amount')] = 'Credit'
+    headers = fields.dup
+    Kaui::Payment::REMAPPING_FIELDS.each do |k, v|
+      headers[fields.index(k)] = v
+    end
+    headers.map! { |attr| attr.split('_').join(' ').capitalize }
 
     return [headers, []] if payment.nil?
 

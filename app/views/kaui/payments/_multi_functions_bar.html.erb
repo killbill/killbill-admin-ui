@@ -1,10 +1,8 @@
 <div class="dropdown-container">
-  <% unless @account.account_id.blank? %>
     <button class="btn btn-default download-button-right" type="button" id="modalDownloadButton">
       <i class="glyphicon glyphicon-download-alt"></i>
       <strong>Download CSV</strong>
     </button>
-  <% end %>
   <div class="dropdown">
     <button class="btn btn-default dropdown-toggle toggle-button-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
       <i class="glyphicon glyphicon-cog"></i>
@@ -174,6 +172,7 @@ $(document).ready(function() {
   });
 
   $('#downloadCsvModal').on('show.bs.modal', function (e) {
+    $('#allData').prop('checked', true);
     $('#startDate, #endDate').prop('disabled', true);
     $('#startDate').val(null);
     $('#endDate').val(null);
