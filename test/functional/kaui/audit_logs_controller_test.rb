@@ -61,6 +61,15 @@ module Kaui
       end
     end
 
+    test 'should download audit logs data' do
+      get :download, params: { account_id: @account.account_id }
+      assert_response :success
+      assert_equal 'text/csv', @response.header['Content-Type']
+      assert_includes @response.header['Content-Disposition'], "filename=\"audit-logs-#{Date.today}.csv\""
+      assert_includes @response.body, @payment.payment_id
+      assert_includes @response.body, @account.account_id
+    end
+
     private
 
     def add_a_note(account)

@@ -92,5 +92,21 @@ module Kaui
       assert_redirected_to account_invoice_path(@account.account_id, invoice_id)
       assert_equal 'Invoice successfully committed', flash[:notice]
     end
+
+    test 'should download invoices data' do
+      start_date = Date.today.strftime('%Y-%m-%d')
+      end_date = Date.today.strftime('%Y-%m-%d')
+      columns = %w[invoice_id currency status]
+      invoice = create_charge(@account, @tenant)
+
+      get :download, params: { startDate: start_date, endDate: end_date, allFieldsChecked: 'false', columnsString: columns.join(',') }
+      assert_response :success
+      assert_equal 'text/csv', @response.header['Content-Type']
+      assert_includes @response.header['Content-Disposition'], "filename=\"invoices-#{Date.today}.csv\""
+      assert_includes @response.body, invoice.invoice_id
+
+      csv = CSV.parse(@response.body, headers: true)
+      assert_equal columns, csv.headers
+    end
   end
 end
