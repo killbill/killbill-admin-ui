@@ -70,13 +70,7 @@ module Kaui
                          end
                        else
                          lambda do |invoice, column|
-                           [
-                             invoice.invoice_number.to_i,
-                             invoice.invoice_date,
-                             invoice.amount,
-                             invoice.balance,
-                             invoice.status
-                           ][column]
+                           Kaui.account_invoices_columns.call(invoice, view_context)[2][column]
                          end
                        end
 

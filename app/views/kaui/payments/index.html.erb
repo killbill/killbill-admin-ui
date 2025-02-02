@@ -76,6 +76,9 @@ $(document).ready(function() {
       "paging": false,
       "ajax": {
         url: "<%= payments_pagination_path(:format => :json) %>",
+        data: function(d) {
+          d.colum_order = $('#payments-table').DataTable().colReorder.order();
+        },
         dataSrc: function(json) {
           var colOrder = $('#payments-table').DataTable().colReorder.order();
           var reorderedData = json.data.map(function(row) {

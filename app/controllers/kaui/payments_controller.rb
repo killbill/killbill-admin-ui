@@ -118,15 +118,7 @@ module Kaui
       end
 
       data_extractor = lambda do |payment, column|
-        [
-          payment.payment_number.to_i,
-          payment.payment_date,
-          payment.total_authed_amount_to_money,
-          payment.paid_amount_to_money,
-          payment.returned_amount_to_money,
-          payment.transactions.empty? ? nil : payment.transactions[-1].status,
-          payment.payment_external_key
-        ][column]
+        Kaui.account_payments_columns.call(account, payment, view_context)[2][column]
       end
 
       formatter = lambda do |payment|
