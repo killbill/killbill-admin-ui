@@ -132,12 +132,7 @@ jQuery(document).ready(function ($) {
 
     function set_first_name_length(name){
         var name_in_parts = name.trim().split(' ');
-
-        if (name_in_parts.length > 1){
-            $('#account_first_name_length').val(name_in_parts[0].length);
-        }else{
-            $('#account_first_name_length').val('');
-        }
+        $('#account_first_name_length').val(name_in_parts[0].length);
     }
 
 

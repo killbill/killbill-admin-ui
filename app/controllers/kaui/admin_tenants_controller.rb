@@ -142,7 +142,7 @@ module Kaui
       else
         errors = ''
         catalog_validation_errors.each do |validation_error|
-          errors += (validation_error['errorDescription'])
+          errors += validation_error['errorDescription']
         end
         flash[:error] = errors
         redirect_to admin_tenant_new_catalog_path(id: current_tenant.id)
