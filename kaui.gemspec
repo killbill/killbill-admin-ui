@@ -32,7 +32,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'jquery-ui-rails'
   s.add_dependency 'js-routes'
   s.add_dependency 'jwt'
-  s.add_dependency 'kenui'
   s.add_dependency 'killbill-assets-ui'
   s.add_dependency 'killbill-client'
   s.add_dependency 'money-rails'

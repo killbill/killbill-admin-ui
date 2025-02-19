@@ -39,10 +39,6 @@ group :development do
   end
 end
 
-# gem 'kenui', :path => '../killbill-email-notifications-ui'
-# gem 'kenui', git: 'https://github.com/killbill/killbill-email-notifications-ui.git', branch: 'master'
-gem 'kenui'
-
 # gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'main'
 # gem 'killbill-assets-ui', path: '../killbill-assets-ui'
 gem 'killbill-assets-ui'
