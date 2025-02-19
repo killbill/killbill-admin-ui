@@ -20,8 +20,9 @@ ARGV = [SANDBOX_ROOT_PATH, '--skip-bundle'].freeze
 Rails::Generators::AppGenerator.start
 
 puts 'Setting up Kaui'
-ARGV = [SANDBOX_ROOT_PATH, "--path=#{KAUI_ROOT_PATH}", '--skip-bundle'].freeze
-KauiCmd::Installer.start
+installer_args = [SANDBOX_ROOT_PATH, "--path=#{KAUI_ROOT_PATH}", '--skip-bundle'].freeze
+KauiCmd::Installer.start(installer_args)
+
 FileUtils.rm_f "#{SANDBOX_ROOT_PATH}/public/index.html"
 
 puts 'Running migrations'

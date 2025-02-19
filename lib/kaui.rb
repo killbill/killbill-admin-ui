@@ -142,8 +142,10 @@ module Kaui
         invoice&.send(attr.downcase)
       end
     end
-    # Add additional values if needed
-    [headers, values]
+
+    raw_data = fields.map { |attr| invoice&.send(attr.downcase) }
+
+    [headers, values, raw_data]
   end
 
   self.account_payments_columns = lambda do |account = nil, payment = nil, view_context = nil|
@@ -177,8 +179,17 @@ module Kaui
       end
     end
 
+    raw_data = fields.map do |attr|
+      case attr
+      when 'status'
+        payment.transactions.empty? ? nil : view_context.colored_transaction_status(payment.transactions[-1].status)
+      else
+        payment&.send(attr.downcase)
+      end
+    end
+
     # Add additional values if needed
-    [headers, values]
+    [headers, values, raw_data]
   end
 
   self.account_audit_logs_columns = lambda do

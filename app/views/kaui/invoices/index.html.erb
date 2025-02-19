@@ -64,6 +64,9 @@ $(document).ready(function() {
     "search": {"search": "<%= @search_query %>"},
     "ajax": {
       url: "<%= invoices_pagination_path(:ordering => @ordering, :format => :json) %>",
+      data: function(d) {
+        d.colum_order = $('#invoices-table').DataTable().colReorder.order();
+      },
       dataSrc: function(json) {
         var colOrder = table.colReorder.order();
         var reorderedData = json.data.map(function(row) {
