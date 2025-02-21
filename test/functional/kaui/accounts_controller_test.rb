@@ -273,7 +273,7 @@ module Kaui
       }
 
       post :set_email_notifications_configuration, params: parameters
-      assert_equal('Email notification plugin is not installed', flash[:error]) unless flash[:error].blank?
+      assert_equal(I18n.translate('errors.messages.email_notification_plugin_not_available'), flash[:error]) unless flash[:error].blank?
       assert_equal("Email notifications for account #{@account.account_id} was successfully updated", flash[:notice]) if flash[:error].blank?
       assert_redirected_to account_path(@account.account_id)
     end

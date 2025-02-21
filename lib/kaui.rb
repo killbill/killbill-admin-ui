@@ -182,7 +182,7 @@ module Kaui
     raw_data = fields.map do |attr|
       case attr
       when 'status'
-        payment.transactions.empty? ? nil : view_context.colored_transaction_status(payment.transactions[-1].status)
+        payment.transactions.empty? ? nil : payment.transactions[-1].status
       else
         payment&.send(attr.downcase)
       end
