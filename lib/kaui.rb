@@ -65,20 +65,30 @@ module Kaui
     original_fields = KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
     # Add additional fields if needed
     fields = original_fields.dup
+    fields -= %w[audit_logs first_name_length]
+    headers = fields.dup
+    Kaui::Account::REMAPPING_FIELDS.each do |k, v|
+      headers[fields.index(k)] = v
+    end
+    headers.map! { |attr| attr.split('_').join(' ').capitalize }
 
-    headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
     values = fields.map do |attr|
+      next if account.nil? || view_context.nil?
+
       case attr
+      when 'is_payment_delegated_to_parent', 'is_migrated'
+        "<div style='text-align: center;'><input type='checkbox' class='custom-checkbox' #{account&.send(attr.downcase) ? 'checked' : ''}></div>"
       when 'account_id'
-        account.nil? || view_context.nil? ? nil : view_context.link_to(account.account_id, view_context.url_for(action: :show, account_id: account.account_id))
+        view_context.link_to(account.account_id, view_context.url_for(action: :show, account_id: account.account_id))
       when 'parent_account_id'
-        account.nil? || view_context.nil? || account.parent_account_id.nil? ? nil : view_context.link_to(account.account_id, view_context.url_for(action: :show, account_id: account.parent_account_id))
+        account.parent_account_id.nil? ? nil : view_context.link_to(account.account_id, view_context.url_for(action: :show, account_id: account.parent_account_id))
       when 'account_balance'
-        account.nil? || view_context.nil? ? nil : view_context.humanized_money_with_symbol(account.balance_to_money)
+        view_context.humanized_money_with_symbol(account.balance_to_money)
       else
         account&.send(attr.downcase)
       end
     end
+
     [headers, values, fields]
   end
 
@@ -121,7 +131,7 @@ module Kaui
       when 'balance'
         view_context.humanized_money_with_symbol(invoice.balance_to_money)
       when 'invoice_id'
-        view_context.link_to(invoice.invoice_number, view_context.url_for(controller: :invoices, action: :show, account_id: invoice.account_id, id: invoice.invoice_id))
+        view_context.link_to(invoice.invoice_id, view_context.url_for(controller: :invoices, action: :show, account_id: invoice.account_id, id: invoice.invoice_id))
       when 'status'
         default_label = 'label-info'
         default_label = 'label-default' if invoice&.status == 'DRAFT'
@@ -132,33 +142,36 @@ module Kaui
         invoice&.send(attr.downcase)
       end
     end
-    # Add additional values if needed
-    [headers, values]
+
+    raw_data = fields.map { |attr| invoice&.send(attr.downcase) }
+
+    [headers, values, raw_data]
   end
 
   self.account_payments_columns = lambda do |account = nil, payment = nil, view_context = nil|
     fields = KillBillClient::Model::PaymentAttributes.instance_variable_get('@json_attributes')
     # Change the order if needed
-    fields = %w[payment_date total_authed_amount_to_money paid_amount_to_money returned_amount_to_money] + fields
+    fields = %w[payment_date] + fields
     fields -= %w[payment_number transactions audit_logs]
     fields.unshift('status')
     fields.unshift('payment_number')
 
-    headers = fields.map { |attr| attr.split('_').join(' ').capitalize }
+    headers = fields.dup
+    Kaui::Payment::REMAPPING_FIELDS.each do |k, v|
+      headers[fields.index(k)] = v
+    end
+    headers.map! { |attr| attr.split('_').join(' ').capitalize }
+
     return [headers, []] if payment.nil?
 
     values = fields.map do |attr|
       case attr
+      when 'auth_amount', 'captured_amount', 'purchased_amount', 'refunded_amount', 'credited_amount'
+        view_context.humanized_money_with_symbol(payment&.send(attr.downcase))
       when 'payment_number'
         view_context.link_to(payment.payment_number, view_context.url_for(controller: :payments, action: :show, account_id: payment.account_id, id: payment.payment_id))
       when 'payment_date'
         view_context.format_date(payment.payment_date, account&.time_zone)
-      when 'total_authed_amount_to_money'
-        view_context.humanized_money_with_symbol(payment.total_authed_amount_to_money)
-      when 'paid_amount_to_money'
-        view_context.humanized_money_with_symbol(payment.paid_amount_to_money)
-      when 'returned_amount_to_money'
-        view_context.humanized_money_with_symbol(payment.returned_amount_to_money)
       when 'status'
         payment.transactions.empty? ? nil : view_context.colored_transaction_status(payment.transactions[-1].status)
       else
@@ -166,8 +179,17 @@ module Kaui
       end
     end
 
+    raw_data = fields.map do |attr|
+      case attr
+      when 'status'
+        payment.transactions.empty? ? nil : payment.transactions[-1].status
+      else
+        payment&.send(attr.downcase)
+      end
+    end
+
     # Add additional values if needed
-    [headers, values]
+    [headers, values, raw_data]
   end
 
   self.account_audit_logs_columns = lambda do

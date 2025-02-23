@@ -6,6 +6,11 @@ ruby '>= 3.1.0'
 gemspec
 
 gem 'rails', '~> 7.0.1'
+
+# This fix is temporary until the next release of the gem
+# See https://stackoverflow.com/questions/79360526/uninitialized-constant-activesupportloggerthreadsafelevellogger-nameerror
+gem 'concurrent-ruby', '1.3.4'
+
 group :development do
   gem 'gem-release'
   gem 'json'
@@ -33,10 +38,6 @@ group :development do
     gem 'stackprof'
   end
 end
-
-# gem 'kenui', :path => '../killbill-email-notifications-ui'
-# gem 'kenui', git: 'https://github.com/killbill/killbill-email-notifications-ui.git', branch: 'master'
-gem 'kenui'
 
 # gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'main'
 # gem 'killbill-assets-ui', path: '../killbill-assets-ui'

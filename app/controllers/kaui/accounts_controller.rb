@@ -21,15 +21,9 @@ module Kaui
 
       @ordering = params[:ordering] || (@search_query.blank? ? 'desc' : 'asc')
       @offset = params[:offset] || 0
-      @limit = params[:limit] || 2
+      @limit = params[:limit] || 50
 
       @max_nb_records = @search_query.blank? ? Kaui::Account.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records : 0
-    end
-
-    def advanced_search
-      @search_query = params[:search_query]
-
-      @max_nb_records = Kaui::Account.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records
     end
 
     def pagination
@@ -58,12 +52,18 @@ module Kaui
       start_date = params[:startDate]
       end_date = params[:endDate]
       all_fields_checked = params[:allFieldsChecked] == 'true'
+      search_value = params[:search]
 
-      columns = if all_fields_checked
-                  KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
-                else
-                  params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
-                end
+      if all_fields_checked
+        columns = KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
+      else
+        columns = params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
+        Kaui::Account::REMAPPING_FIELDS.each do |k, v|
+          index = columns.index(v)
+          columns[index] = k if index
+        end
+      end
+
       start_date = begin
         Date.parse(start_date)
       rescue StandardError
@@ -74,7 +74,7 @@ module Kaui
       rescue StandardError
         nil
       end
-      accounts = Kaui::Account.list_or_search(nil, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient)
+      accounts = Kaui::Account.list_or_search(search_value, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient)
 
       csv_string = CSV.generate(headers: true) do |csv|
         csv << columns
@@ -136,12 +136,10 @@ module Kaui
       fetch_account_emails = promise { Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', cached_options_for_klient) }
       fetch_payments = promise { @account.payments(cached_options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_payment(payment) } }
       fetch_payment_methods = promise { Kaui::PaymentMethod.find_all_by_account_id(@account.account_id, false, cached_options_for_klient) }
-
-      # is email notification plugin available
-      is_email_notifications_plugin_available = Kenui::EmailNotificationService.email_notification_plugin_available?(cached_options_for_klient).first
+      is_email_notifications_plugin_available = Dependencies::Kenui::EmailNotification.email_notification_plugin_available?(cached_options_for_klient).first
       fetch_email_notification_configuration = if is_email_notifications_plugin_available
                                                  promise do
-                                                   Kenui::EmailNotificationService.get_configuration_per_account(params.require(:account_id), cached_options_for_klient)
+                                                   Dependencies::Kenui::EmailNotification.get_configuration_per_account(params.require(:account_id), cached_options_for_klient)
                                                  end.then do |configuration|
                                                    if configuration.first.is_a?(FalseClass)
                                                      Rails.logger.warn(configuration[1])
@@ -176,7 +174,7 @@ module Kaui
       @available_tags = wait(fetch_available_tags)
       @children = wait(fetch_children)
       @account_parent = @account.parent_account_id.nil? ? nil : wait(fetch_parent)
-      @email_notification_configuration = wait(fetch_email_notification_configuration) if is_email_notifications_plugin_available
+      @email_notification_configuration = is_email_notifications_plugin_available ? wait(fetch_email_notification_configuration) : []
 
       @last_transaction_by_payment_method_id = {}
       wait(fetch_payments).each do |payment|
@@ -346,15 +344,15 @@ module Kaui
       event_types = configuration[:event_types]
       cached_options_for_klient = options_for_klient
 
-      is_success, message = email_notification_plugin_available?(cached_options_for_klient)
+      is_success, message = Dependencies::Kenui::EmailNotification.email_notification_plugin_available?(cached_options_for_klient)
 
       if is_success
-        is_success, message = Kenui::EmailNotificationService.set_configuration_per_account(account_id,
-                                                                                            event_types,
-                                                                                            current_user.kb_username,
-                                                                                            params[:reason],
-                                                                                            params[:comment],
-                                                                                            cached_options_for_klient)
+        is_success, message = Dependencies::Kenui::EmailNotification.set_configuration_per_account(account_id,
+                                                                                                   event_types,
+                                                                                                   current_user.kb_username,
+                                                                                                   params[:reason],
+                                                                                                   params[:comment],
+                                                                                                   cached_options_for_klient)
       end
       if is_success
         flash[:notice] = message
@@ -366,24 +364,13 @@ module Kaui
 
     def events_to_consider
       json_response do
-        { data: Kenui::EmailNotificationService.get_events_to_consider(options_for_klient) }
+        { data: Dependencies::Kenui::EmailNotification.get_events_to_consider(options_for_klient) }
       end
     end
 
     def export_account
       data = KillBillClient::Model::Export.find_by_account_id(params[:account_id], current_user.kb_username, options_for_klient)
       send_data data, filename: "account#{params[:account_id]}.txt", type: :txt
-    end
-
-    private
-
-    def email_notification_plugin_available?(options_for_klient)
-      error_message = 'Email notification plugin is not installed'
-
-      is_available = Kenui::EmailNotificationService.email_notification_plugin_available?(options_for_klient).first
-      [is_available, is_available ? nil : error_message]
-    rescue StandardError
-      [false, error_message]
     end
   end
 end

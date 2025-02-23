@@ -34,20 +34,16 @@ module Kaui
 
     def download
       timeline = Kaui::AccountTimeline.find_by_account_id(params.require(:account_id), 'FULL', options_for_klient)
-      start_date = params[:startDate]
-      end_date = params[:endDate]
       start_date = begin
-        Date.parse(start_date)
+        Date.parse(params[:startDate])
       rescue StandardError
         nil
       end
       end_date = begin
-        Date.parse(end_date)
+        Date.parse(params[:endDate])
       rescue StandardError
         nil
       end
-      start_date = params[:startDate].present? ? Date.parse(params[:startDate]) : nil
-      end_date = params[:endDate].present? ? Date.parse(params[:endDate]) : nil
 
       event_type = params[:eventType]
       @account = timeline.account

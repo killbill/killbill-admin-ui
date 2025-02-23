@@ -19,11 +19,15 @@ module Kaui
       start_date = params[:startDate]
       end_date = params[:endDate]
       all_fields_checked = params[:allFieldsChecked] == 'true'
-      columns = if all_fields_checked
-                  KillBillClient::Model::PaymentAttributes.instance_variable_get('@json_attributes') - %w[transactions audit_logs]
-                else
-                  params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
-                end
+      if all_fields_checked
+        columns = KillBillClient::Model::PaymentAttributes.instance_variable_get('@json_attributes') - %w[transactions audit_logs]
+      else
+        columns = params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
+        Kaui::Payment::REMAPPING_FIELDS.each do |k, v|
+          index = columns.index(v)
+          columns[index] = k if index
+        end
+      end
 
       kb_params = {}
       kb_params[:startDate] = Date.parse(start_date).strftime('%Y-%m-%d') if start_date
@@ -39,7 +43,7 @@ module Kaui
         created_date = nil
         payment.transactions.each do |transaction|
           transaction_date = Date.parse(transaction.effective_date)
-          created_date ||= transaction_date if transaction_date < created_date
+          created_date = transaction_date if created_date.nil? || (transaction_date < created_date)
         end
         payment.payment_date = created_date
       end
@@ -114,15 +118,7 @@ module Kaui
       end
 
       data_extractor = lambda do |payment, column|
-        [
-          payment.payment_number.to_i,
-          payment.payment_date,
-          payment.total_authed_amount_to_money,
-          payment.paid_amount_to_money,
-          payment.returned_amount_to_money,
-          payment.transactions.empty? ? nil : payment.transactions[-1].status,
-          payment.payment_external_key
-        ][column]
+        Kaui.account_payments_columns.call(account, payment, view_context)[2][column]
       end
 
       formatter = lambda do |payment|

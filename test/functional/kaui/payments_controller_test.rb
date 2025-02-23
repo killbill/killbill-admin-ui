@@ -60,5 +60,20 @@ module Kaui
       expected_response_path = "/accounts/#{@payment.account_id}/payments/#{@payment.payment_id}"
       assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
     end
+
+    test 'should download payments data' do
+      start_date = Date.today.strftime('%Y-%m-%d')
+      end_date = Date.today.strftime('%Y-%m-%d')
+      columns = %w[payment_id auth currency capture purchase refund credit]
+
+      get :download, params: { startDate: start_date, endDate: end_date, allFieldsChecked: 'false', columnsString: columns.join(',') }
+      assert_response :success
+      assert_equal 'text/csv', @response.header['Content-Type']
+      assert_includes @response.header['Content-Disposition'], "filename=\"payments-#{Date.today}.csv\""
+      assert_includes @response.body, @payment.payment_id
+
+      csv = CSV.parse(@response.body, headers: true)
+      assert_equal %w[payment_id auth_amount currency captured_amount purchased_amount refunded_amount credited_amount], csv.headers
+    end
   end
 end

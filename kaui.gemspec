@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
   s.metadata['rubygems_mfa_required'] = 'true'
 
   s.add_dependency 'actionpack'
-  s.add_dependency 'bootsnap'
   s.add_dependency 'cancan'
   s.add_dependency 'concurrent-ruby'
   s.add_dependency 'country_select'
@@ -33,7 +32,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'jquery-ui-rails'
   s.add_dependency 'js-routes'
   s.add_dependency 'jwt'
-  s.add_dependency 'kenui'
   s.add_dependency 'killbill-assets-ui'
   s.add_dependency 'killbill-client'
   s.add_dependency 'money-rails'

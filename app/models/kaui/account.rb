@@ -5,6 +5,13 @@ module Kaui
     attr_accessor :phone, :bill_cycle_day_local
 
     SENSIVITE_DATA_FIELDS = %w[name email].freeze
+    REMAPPING_FIELDS = {
+      'is_payment_delegated_to_parent' => 'pay_via_parent',
+      'bill_cycle_day_local' => 'bcd',
+      'account_balance' => 'balance',
+      'account_cba' => 'cba',
+      'is_migrated' => 'migrated'
+    }.freeze
 
     def check_account_details_phone
       return true if phone =~ /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/i

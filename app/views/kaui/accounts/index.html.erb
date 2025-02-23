@@ -26,53 +26,54 @@
   </div>
 </div>
 
+<style>
+  #accounts-table td, #accounts-table tr {
+    white-space: nowrap;
+  }
+  .custom-checkbox {
+    pointer-events: none;
+  }
+</style>
+
 <%= javascript_tag do %>
 $(document).ready(function() {
-  $.ajax({
-    url: "<%= accounts_pagination_path(:ordering => @ordering, :format => :json) %>",
-    type: "GET",
-    success: function(response) {
-      const visibleColumns = response.columns;
-
-      var table = $('#accounts-table').DataTable({
-        "colReorder": {
-          "enable": false
-        },
-        "stateSave": true,
-        "scrollX": true,
-        "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-        "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
-        "language": {
-          <!-- See DefaultPaginationSqlDaoHelper.java -->
-          "info": <% if @max_nb_records.nil? -%>"Showing _START_ to _END_ of <%= number_with_delimiter(Kaui::EngineControllerUtil::SIMPLE_PAGINATION_THRESHOLD) -%>+ entries"<% else -%>"Showing _START_ to _END_ of _TOTAL_ entries"<% end -%>
-        },
-        "pageLength": <%= @limit %>,
-        "displayStart": <%= @offset %>,
-        <% if @search_query.blank? %>
-          "ordering": false,
-        <% elsif !@ordering.blank? %>
-          "order": [[ 1, "<%= @ordering %>" ]],
-        <% end %>
-        "processing": true,
-        "serverSide": true,
-        "search": {"search": "<%= @search_query %>"},
-        "ajax": {
-          url: "<%= accounts_pagination_path(:ordering => @ordering, :format => :json) %>",
-          dataSrc: function(json) {
-            var colOrder = $('#accounts-table').DataTable().colReorder.order();
-            var reorderedData = json.data.map(function(row) {
-              var newRow = [];
-              for (var i = 0; i < colOrder.length; i++) {
-                newRow.push(row[colOrder[i]]);
-              }
-              return newRow;
-            });
-            return reorderedData;
+  var table = $('#accounts-table').DataTable({
+    "colReorder": {
+      "enable": false
+    },
+    "stateSave": true,
+    "scrollX": true,
+    "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+    "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
+    "language": {
+      <!-- See DefaultPaginationSqlDaoHelper.java -->
+      "info": <% if @max_nb_records.nil? -%>"Showing _START_ to _END_ of <%= number_with_delimiter(Kaui::EngineControllerUtil::SIMPLE_PAGINATION_THRESHOLD) -%>+ entries"<% else -%>"Showing _START_ to _END_ of _TOTAL_ entries"<% end -%>
+    },
+    "pageLength": <%= @limit %>,
+    "displayStart": <%= @offset %>,
+    <% if @search_query.blank? %>
+      "ordering": false,
+    <% elsif !@ordering.blank? %>
+      "order": [[ 1, "<%= @ordering %>" ]],
+    <% end %>
+    "processing": true,
+    "serverSide": true,
+    "search": {"search": "<%= @search_query %>"},
+    "ajax": {
+      url: "<%= accounts_pagination_path(:ordering => @ordering, :format => :json) %>",
+      dataSrc: function(json) {
+        var colOrder = table.colReorder.order();
+        var reorderedData = json.data.map(function(row) {
+          var newRow = [];
+          for (var i = 0; i < colOrder.length; i++) {
+            newRow.push(row[colOrder[i]]);
           }
-        },
-        "columns": visibleColumns
-      });
-    }
+          return newRow;
+        });
+        return reorderedData;
+      }
+    },
+    "columns": <%= raw @visible_columns.to_json %>
   });
 
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->

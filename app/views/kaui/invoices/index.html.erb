@@ -1,11 +1,7 @@
 <div class="search">
-
   <div class="column-block">
-
     <h1>Invoices</h1>
-
     <%= render :partial => 'multi_functions_bar' %>
-
     <table id="invoices-table" class="table table-condensed mobile-data" style="width:100%">
       <thead>
       <tr>
@@ -20,13 +16,25 @@
       </tr>
       </tbody>
     </table>
-
   </div>
-
 </div>
+
+<style>
+  #invoices-table td, #invoices-table tr {
+    white-space: nowrap;
+  }
+</style>
 
 <%= javascript_tag do %>
 $(document).ready(function() {
+  var stateKey = 'DataTables_invoices-table';
+  var state = JSON.parse(localStorage.getItem(stateKey));
+  if (state) {
+    state.start = <%= @offset %>;
+    state.search = { search: "<%= @search_query %>" };
+    localStorage.setItem(stateKey, JSON.stringify(state));
+  }
+
   var table = $('#invoices-table').DataTable({
     "colReorder": {
       "enable": false
@@ -56,8 +64,11 @@ $(document).ready(function() {
     "search": {"search": "<%= @search_query %>"},
     "ajax": {
       url: "<%= invoices_pagination_path(:ordering => @ordering, :format => :json) %>",
+      data: function(d) {
+        d.colum_order = $('#invoices-table').DataTable().colReorder.order();
+      },
       dataSrc: function(json) {
-        var colOrder = $('#invoices-table').DataTable().colReorder.order();
+        var colOrder = table.colReorder.order();
         var reorderedData = json.data.map(function(row) {
           var newRow = [];
           for (var i = 0; i < colOrder.length; i++) {
@@ -69,11 +80,6 @@ $(document).ready(function() {
       }
     }
   });
-
-  var searchQuery = "<%= @search_query %>";
-  if (searchQuery) {
-    table.search(searchQuery).draw();
-  }
 
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->
   <% if @max_nb_records.nil? %>
