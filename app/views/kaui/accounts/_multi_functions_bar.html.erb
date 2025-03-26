@@ -250,7 +250,6 @@ $(document).ready(function() {
       params.append('allFieldsChecked', allFieldsChecked);
       params.append('search', searchQuery());
       url.search = params.toString();
-      console.log(url.toString());
       window.open(url.toString(), '_blank');
     });
   }
@@ -341,7 +340,6 @@ $(document).ready(function() {
   function reorderTableColumns(order) {
     var table = $('#accounts-table').DataTable();
     var columnIndexes = order.map(Number);
-    console.log('New column order:', columnIndexes);
     table.colReorder.order(columnIndexes);
     resetDataColumn();
     resetDataId();

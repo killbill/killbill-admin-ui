@@ -16,6 +16,8 @@ module Kaui
 
     def paginate(searcher, data_extractor, formatter, table_default_columns = [])
       search_key = (params[:search] || {})[:value].presence
+      advance_search_query = params[:advance_search_query].presence
+      search_key = advance_search_query ? advance_search_query : search_key
       offset = (params[:start] || 0).to_i
       limit = (params[:length] || 10).to_i
 

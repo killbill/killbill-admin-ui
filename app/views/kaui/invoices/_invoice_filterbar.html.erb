@@ -9,13 +9,13 @@
       </div>
       <div class="modal-body">
         <form id="advanceSearchForm">
-          <div class="form-group d-flex align-items-center">
+            <div class="form-group d-flex align-items-center">
             <label for="searchFieldSelect" class="mr-2" style="width: 30%;">Search Fields:</label>
-              <select id="searchFieldSelect" class="form-control mr-2">
-                <% @search_fields.each do |value, title| %>
-                  <option value="<%= value %>"><%= title %></option>
-                <% end %>
-              </select>
+            <select id="searchFieldSelect" class="form-control mr-2">
+              <% @search_fields.each do |value, title| %>
+                <option value="<%= value %>"><%= title %></option>
+              <% end %>
+            </select>
             <button type="button" class="btn btn-secondary" id="addSearchField">Add</button>
           </div>
           <div id="search-fields-container">
@@ -117,7 +117,7 @@ $(document).ready(function() {
     template.querySelector('.search-field-filter').name = selectedField + 'Filter';
 
     // Check if the field should use a date input
-    var dateFields = ['Created date', 'Updated date', 'Reference time'];
+    var dateFields = ['Invoice date', 'Target date'];
     if (dateFields.includes(selectedField)) {
       template.querySelector('.search-field-value').type = 'date';
     } else {
@@ -135,15 +135,15 @@ $(document).ready(function() {
     var searchLabelsContainer = $('#search-labels-container');
     searchLabelsContainer.empty();
 
-    var table = $('#accounts-table').DataTable();
+    var table = $('#invoices-table').DataTable();
     table.on('preXhr.dt', function(e, settings, data) {
-      data.search.value = searchQuery;
+      data.search.value = searchQuery("<%= @search_query.to_s %>");
     });
 
-    table.ajax.url("<%= accounts_pagination_path(:ordering => @ordering, :format => :json) %>").load();
+    table.ajax.url("<%= invoices_pagination_path(:ordering => @ordering, :format => :json) %>").load();
 
     // Update the URL with the search parameters
-    var searchParams = searchQuery('');
+    var searchParams = searchQuery("<%= @search_query.to_s %>");
     if (searchParams) {
       var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + searchParams;
       window.history.pushState({ path: newUrl }, '', newUrl);
@@ -163,7 +163,6 @@ $(document).ready(function() {
       }
       searchLabelsContainer.append(label);
     });
-
     $('#advanceSearchModal').modal('hide');
   });
 

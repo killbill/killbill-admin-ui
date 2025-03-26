@@ -5,7 +5,7 @@ module Kaui
   class AccountsController < Kaui::EngineController
     def index
       @search_query = params[:q]
-
+      @advance_search_query = request.query_string
       if params[:fast] == '1' && !@search_query.blank?
         account = Kaui::Account.list_or_search(@search_query, -1, 1, options_for_klient).first
         if account.nil?
@@ -16,7 +16,7 @@ module Kaui
         end
         return
       end
-
+      @search_fields = Kaui::Account::ADVANCED_SEARCH_COLUMNS.map { |attr| [attr, attr.split('_').join(' ').capitalize] }
       @dropdown_default = default_columns(Kaui.account_search_columns.call[2], Kaui::Account::SENSIVITE_DATA_FIELDS)
 
       @ordering = params[:ordering] || (@search_query.blank? ? 'desc' : 'asc')

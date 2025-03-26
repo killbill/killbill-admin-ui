@@ -1,3 +1,19 @@
+<div class="filter-bar-container">
+  <div class="filter-bar">
+    <button class="btn btn-default download-button-right" data-toggle="modal" data-target="#advanceSearchModal">
+      <i class="glyphicon glyphicon-search"></i>
+      <strong>Advance Search</strong>
+    </button>
+
+    <div id="search-labels-container" class="ml-2">
+      <!-- Dynamic search labels will be added here -->
+    </div>
+
+  </div>
+</div>
+
+<%= render :partial => 'payment_filterbar' %>
+
 <div class="dropdown-container">
     <button class="btn btn-default download-button-right" type="button" id="modalDownloadButton">
       <i class="glyphicon glyphicon-download-alt"></i>
@@ -233,8 +249,8 @@ $(document).ready(function() {
         params.append('endDate', endDate);
       }
       params.append('allFieldsChecked', allFieldsChecked);
+      params.append('search', searchQuery());
       url.search = params.toString();
-      console.log(url.toString());
       window.open(url.toString(), '_blank');
     });
   }
@@ -294,7 +310,6 @@ $(document).ready(function() {
   function reorderTableColumns(order) {
     var table = $('#payments-table').DataTable();
     var columnIndexes = order.map(Number);
-    console.log('New column order:', columnIndexes);
     table.colReorder.order(columnIndexes);
     resetDataColumn();
     resetDataId();

@@ -6,10 +6,11 @@ module Kaui
   class PaymentsController < Kaui::EngineController
     def index
       @search_query = params[:q] || params[:account_id]
-
+      @advance_search_query = request.query_string
       @ordering = params[:ordering] || (@search_query.blank? ? 'desc' : 'asc')
       @offset = params[:offset] || 0
       @limit = params[:limit] || 50
+      @search_fields = Kaui::Payment::ADVANCED_SEARCH_COLUMNS.map { |attr| [attr, attr.split('_').join(' ').capitalize] }
 
       @max_nb_records = @search_query.blank? ? Kaui::Payment.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records : 0
     end
@@ -19,6 +20,7 @@ module Kaui
       start_date = params[:startDate]
       end_date = params[:endDate]
       all_fields_checked = params[:allFieldsChecked] == 'true'
+      search_value = params[:search]
       if all_fields_checked
         columns = KillBillClient::Model::PaymentAttributes.instance_variable_get('@json_attributes') - %w[transactions audit_logs]
       else
@@ -32,11 +34,12 @@ module Kaui
       kb_params = {}
       kb_params[:startDate] = Date.parse(start_date).strftime('%Y-%m-%d') if start_date
       kb_params[:endDate] = Date.parse(end_date).strftime('%Y-%m-%d') if end_date
-      if account_id.present?
-        account = Kaui::Account.find_by_id_or_key(account_id, false, false, options_for_klient)
-        payments = account.payments(options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_payment(payment) }
+      account = account_id.present? ? Kaui::Account.find_by_id_or_key(account_id, false, false, options_for_klient) : nil
+
+      payments = if account_id.present? && search_value.blank?
+        Kaui::Account.paginated_payments(account_id, nil, nil, 'NONE', options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_invoice(payment) }
       else
-        payments = Kaui::Payment.list_or_search(nil, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
+        Kaui::Payment.list_or_search(search_value, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
       end
 
       payments.each do |payment|

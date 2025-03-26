@@ -57,7 +57,7 @@ $(document).ready(function() {
       "pageLength": <%= @limit %>,
       "displayStart": <%= @offset %>,
       "ajax": {
-        url: "<%= payments_pagination_path(:ordering => @ordering, :format => :json) %>",
+        url: "<%= payments_pagination_path(:ordering => @ordering, :format => :json, :advance_search_query => @advance_search_query) %>",
         dataSrc: function(json) {
           var colOrder = $('#payments-table').DataTable().colReorder.order();
           var reorderedData = json.data.map(function(row) {
@@ -75,7 +75,7 @@ $(document).ready(function() {
       "dom": "t",
       "paging": false,
       "ajax": {
-        url: "<%= payments_pagination_path(:format => :json) %>",
+        url: "<%= payments_pagination_path(:format => :json, :advance_search_query => @advance_search_query) %>",
         data: function(d) {
           d.colum_order = $('#payments-table').DataTable().colReorder.order();
         },
