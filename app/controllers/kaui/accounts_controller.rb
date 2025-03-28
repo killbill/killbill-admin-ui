@@ -52,7 +52,7 @@ module Kaui
       start_date = params[:startDate]
       end_date = params[:endDate]
       all_fields_checked = params[:allFieldsChecked] == 'true'
-      search_value = params[:search]
+      query_string = params[:search]
 
       if all_fields_checked
         columns = KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
@@ -74,7 +74,7 @@ module Kaui
       rescue StandardError
         nil
       end
-      accounts = Kaui::Account.list_or_search(search_value, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient)
+      accounts = Kaui::Account.list_or_search(query_string, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient)
 
       csv_string = CSV.generate(headers: true) do |csv|
         csv << columns

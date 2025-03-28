@@ -19,7 +19,7 @@ module Kaui
       start_date = params[:startDate]
       end_date = params[:endDate]
       all_fields_checked = params[:allFieldsChecked] == 'true'
-      search_value = params[:search]
+      query_string = handle_balance_search(params[:search])
       columns = if all_fields_checked
                   KillBillClient::Model::InvoiceAttributes.instance_variable_get('@json_attributes') - Kaui::Invoice::TABLE_IGNORE_COLUMNS
                 else
@@ -30,10 +30,10 @@ module Kaui
       kb_params[:startDate] = Date.parse(start_date).strftime('%Y-%m-%d') if start_date
       kb_params[:endDate] = Date.parse(end_date).strftime('%Y-%m-%d') if end_date
 
-      invoices = if account_id.present? && search_value.blank?
+      invoices = if account_id.present? && query_string.blank?
         Kaui::Account.paginated_invoices(account_id, nil, nil, 'NONE', options_for_klient).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
       else
-        Kaui::Invoice.list_or_search(search_value, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
+        Kaui::Invoice.list_or_search(query_string, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
       end
 
       csv_string = CSV.generate(headers: true) do |csv|

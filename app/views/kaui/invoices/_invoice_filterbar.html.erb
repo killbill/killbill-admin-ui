@@ -21,6 +21,9 @@
           <div id="search-fields-container">
           </div>
         </form>
+        <div class="alert alert-info" role="alert">
+          * The Balance option won't work alongside other filters. If you search using Balance, all other filters will be ignored.
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -120,6 +123,8 @@ $(document).ready(function() {
     var dateFields = ['Invoice date', 'Target date'];
     if (dateFields.includes(selectedField)) {
       template.querySelector('.search-field-value').type = 'date';
+    } else if (selectedField === 'Balance') {
+    template.querySelector('.search-field-value').type = 'number';
     } else {
       template.querySelector('.search-field-value').type = 'text';
     }

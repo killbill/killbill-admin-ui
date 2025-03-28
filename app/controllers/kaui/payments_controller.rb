@@ -20,7 +20,7 @@ module Kaui
       start_date = params[:startDate]
       end_date = params[:endDate]
       all_fields_checked = params[:allFieldsChecked] == 'true'
-      search_value = params[:search]
+      query_string = params[:search]
       if all_fields_checked
         columns = KillBillClient::Model::PaymentAttributes.instance_variable_get('@json_attributes') - %w[transactions audit_logs]
       else
@@ -36,10 +36,10 @@ module Kaui
       kb_params[:endDate] = Date.parse(end_date).strftime('%Y-%m-%d') if end_date
       account = account_id.present? ? Kaui::Account.find_by_id_or_key(account_id, false, false, options_for_klient) : nil
 
-      payments = if account_id.present? && search_value.blank?
+      payments = if account_id.present? && query_string.blank?
         Kaui::Account.paginated_payments(account_id, nil, nil, 'NONE', options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_invoice(payment) }
       else
-        Kaui::Payment.list_or_search(search_value, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
+        Kaui::Payment.list_or_search(query_string, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
       end
 
       payments.each do |payment|

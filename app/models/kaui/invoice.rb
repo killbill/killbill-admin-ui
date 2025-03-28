@@ -3,7 +3,7 @@
 module Kaui
   class Invoice < KillBillClient::Model::Invoice
     TABLE_IGNORE_COLUMNS = %w[amount balance credit_adj refund_adj items is_parent_invoice parent_invoice_id parent_account_id audit_logs bundle_keys].freeze
-    ADVANCED_SEARCH_COLUMNS = %w[id account_id invoice_date target_date currency status].freeze
+    ADVANCED_SEARCH_COLUMNS = %w[id account_id invoice_date target_date currency status balance].freeze
 
     def self.build_from_raw_invoice(raw_invoice)
       result = Kaui::Invoice.new

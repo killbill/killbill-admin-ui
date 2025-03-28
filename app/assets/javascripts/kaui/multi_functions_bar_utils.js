@@ -30,9 +30,12 @@ function populateSearchLabelsFromUrl() {
   var searchLabelsContainer = $('#search-labels-container');
   searchLabelsContainer.empty();
 
+  var hasBalanceFilter = window.location.search.includes('balance');
+
   for (var key in params) {
     if (params.hasOwnProperty(key)) {
       var value = params[key];
+      value = value.replace(/%/g, '');
       var match = key.match(/(.*)\[(.*)\]/);
       if (match) {
         var columnName = match[1].replace(/_/g, ' ').replace(/^\w/, function(l) { return l.toUpperCase(); });
@@ -40,11 +43,15 @@ function populateSearchLabelsFromUrl() {
           continue;
         }
         var filter = searchFormatOperator(match[2]);
-
         var label = $('<span>', {
           class: 'label label-info',
           text: columnName + ' [' + filter + '] ' + value
         });
+
+        if (hasBalanceFilter && columnName.toLowerCase() !== 'balance') {
+          label.attr('class', 'label label-default');
+        }
+
         searchLabelsContainer.append(label);
       }
     }
