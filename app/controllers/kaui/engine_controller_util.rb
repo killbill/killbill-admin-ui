@@ -28,9 +28,18 @@ module Kaui
       balance_params
     end
 
+    def remapping_addvanced_search_fields(search_string, advanced_search_name_changes)
+      return search_string if search_string.blank? || !(search_string.include? '_q')
+      advanced_search_name_changes.each do |new_name, old_name|
+        search_string = search_string.gsub(new_name, old_name)
+      end
+      search_string
+    end
+
     def paginate(searcher, data_extractor, formatter, table_default_columns = [])
       search_key = (params[:search] || {})[:value].presence
       advance_search_query = params[:advance_search_query].presence
+
       search_key = advance_search_query ? advance_search_query : search_key
       search_key = handle_balance_search(search_key) if search_key.present?
       offset = (params[:start] || 0).to_i

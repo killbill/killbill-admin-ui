@@ -29,6 +29,7 @@ module Kaui
     def pagination
       cached_options_for_klient = options_for_klient
       searcher = lambda do |search_key, offset, limit|
+        search_key = remapping_addvanced_search_fields(search_key, Kaui::Account::ADVANCED_SEARCH_NAME_CHANGES)
         Kaui::Account.list_or_search(search_key, offset, limit, cached_options_for_klient)
       end
 
@@ -56,8 +57,14 @@ module Kaui
 
       if all_fields_checked
         columns = KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
+        csv_headers = columns.dup
+        Kaui::Account::REMAPPING_FIELDS.each do |k, v|
+          index = csv_headers.index(k)
+          csv_headers[index] = v if index
+        end
       else
         columns = params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
+        csv_headers = columns.dup
         Kaui::Account::REMAPPING_FIELDS.each do |k, v|
           index = columns.index(v)
           columns[index] = k if index
@@ -74,10 +81,11 @@ module Kaui
       rescue StandardError
         nil
       end
+      query_string = remapping_addvanced_search_fields(query_string, Kaui::Account::ADVANCED_SEARCH_NAME_CHANGES)
       accounts = Kaui::Account.list_or_search(query_string, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient)
 
       csv_string = CSV.generate(headers: true) do |csv|
-        csv << columns
+        csv << csv_headers
         accounts.each do |account|
           change_date = Date.parse(account.reference_time)
           data = columns.map do |attr|

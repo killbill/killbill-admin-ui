@@ -14,7 +14,8 @@ module Kaui
       'credited_amount' => 'credit',
       'refunded_amount' => 'refund'
     }.freeze
-    ADVANCED_SEARCH_COLUMNS = %w[id account_id payment_method_id external_key state_name].freeze
+    ADVANCED_SEARCH_COLUMNS = %w[id account_id payment_method_id external_key].freeze
+    ADVANCED_SEARCH_NAME_CHANGES = [['ac_id', 'account_id']].freeze
 
     def self.build_from_raw_payment(raw_payment)
       result = Kaui::Payment.new

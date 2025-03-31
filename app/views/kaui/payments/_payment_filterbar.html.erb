@@ -12,8 +12,14 @@
             <div class="form-group d-flex align-items-center">
             <label for="searchFieldSelect" class="mr-2" style="width: 30%;">Search Fields:</label>
             <select id="searchFieldSelect" class="form-control mr-2">
-              <% @search_fields.each do |value, title| %>
-                <option value="<%= value %>"><%= title %></option>
+              <% if @account.account_id.present? %>
+                <% @search_fields.reject { |value, _| value == 'account_id' }.each do |value, title| %>
+                  <option value="<%= value %>"><%= title %></option>
+                <% end %>
+              <% else %>
+                <% @search_fields.each do |value, title| %>
+                  <option value="<%= value %>"><%= title %></option>
+                <% end %>
               <% end %>
             </select>
             <button type="button" class="btn btn-secondary" id="addSearchField">Add</button>
@@ -145,6 +151,7 @@ $(document).ready(function() {
     // Update the URL with the search parameters
     var searchParams = searchQuery("<%= @search_query.to_s %>");
     if (searchParams) {
+      searchParams = searchParams.replace(/account_id/g, 'ac_id');
       var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + searchParams;
       window.history.pushState({ path: newUrl }, '', newUrl);
     }

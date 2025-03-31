@@ -5,8 +5,10 @@ module Kaui
     def standardize_exception(exception)
       if defined?(JRUBY_VERSION)
         case exception
-        when ActiveRecord::JDBCError
+        when ActiveRecord::JDBCError, ActiveRecord::NoDatabaseError, ActiveRecord::DatabaseConnectionError, ActiveRecord::ConnectionNotEstablished
           return I18n.translate('errors.messages.unable_to_connect_database')
+        else
+          return "#{exception.message}"
         end
       end
 

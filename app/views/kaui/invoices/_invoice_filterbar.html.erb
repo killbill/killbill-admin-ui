@@ -12,8 +12,14 @@
             <div class="form-group d-flex align-items-center">
             <label for="searchFieldSelect" class="mr-2" style="width: 30%;">Search Fields:</label>
             <select id="searchFieldSelect" class="form-control mr-2">
-              <% @search_fields.each do |value, title| %>
-                <option value="<%= value %>"><%= title %></option>
+              <% if @account.account_id.present? %>
+                <% @search_fields.reject { |value, _| value == 'balance' || value == 'account_id' }.each do |value, title| %>
+                  <option value="<%= value %>"><%= title %></option>
+                <% end %>
+              <% else %>
+                <% @search_fields.each do |value, title| %>
+                  <option value="<%= value %>"><%= title %></option>
+                <% end %>
               <% end %>
             </select>
             <button type="button" class="btn btn-secondary" id="addSearchField">Add</button>
@@ -21,9 +27,11 @@
           <div id="search-fields-container">
           </div>
         </form>
-        <div class="alert alert-info" role="alert">
-          * The Balance option won't work alongside other filters. If you search using Balance, all other filters will be ignored.
-        </div>
+        <% unless @account.account_id.present? %>
+          <div class="alert alert-info" role="alert">
+            * The Balance option won't work alongside other filters. If you search using Balance, all other filters will be ignored.
+          </div>
+        <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -109,7 +117,7 @@
 <%= javascript_tag do %>
 $(document).ready(function() {
   populateSearchLabelsFromUrl();
-
+  var dateFields = ['Invoice date', 'Target date'];
   // Handle the "Add" button click to add new search fields
   $('#addSearchField').on('click', function() {
     var selectedField = $('#searchFieldSelect option:selected').text();
@@ -120,7 +128,6 @@ $(document).ready(function() {
     template.querySelector('.search-field-filter').name = selectedField + 'Filter';
 
     // Check if the field should use a date input
-    var dateFields = ['Invoice date', 'Target date'];
     if (dateFields.includes(selectedField)) {
       template.querySelector('.search-field-value').type = 'date';
     } else if (selectedField === 'Balance') {
@@ -150,6 +157,7 @@ $(document).ready(function() {
     // Update the URL with the search parameters
     var searchParams = searchQuery("<%= @search_query.to_s %>");
     if (searchParams) {
+      searchParams = searchParams.replace(/account_id/g, 'ac_id');
       var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + searchParams;
       window.history.pushState({ path: newUrl }, '', newUrl);
     }
@@ -174,6 +182,14 @@ $(document).ready(function() {
   // Populate the modal with the current filters when it is shown
   $('#advanceSearchModal').on('show.bs.modal', function() {
     showAdvanceSearchModal();
+    $('#search-fields-container .search-field').each(function() {
+      var input = $(this).find('.search-field-value');
+      if (dateFields.includes(input.attr('name'))) {
+        input.attr('type', 'date');
+      } else if (input.attr('name') === 'Balance') {
+        input.attr('type', 'number');
+      }
+    });
   });
 
   $('#clearAdvanceSearch').on('click', function() {

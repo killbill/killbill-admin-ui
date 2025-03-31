@@ -29,7 +29,7 @@ module Kaui
       kb_params = {}
       kb_params[:startDate] = Date.parse(start_date).strftime('%Y-%m-%d') if start_date
       kb_params[:endDate] = Date.parse(end_date).strftime('%Y-%m-%d') if end_date
-
+      query_string = remapping_addvanced_search_fields(query_string, Kaui::Invoice::ADVANCED_SEARCH_NAME_CHANGES)
       invoices = if account_id.present? && query_string.blank?
         Kaui::Account.paginated_invoices(account_id, nil, nil, 'NONE', options_for_klient).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
       else
@@ -56,6 +56,7 @@ module Kaui
           nil
         end
         if account.nil?
+          search_key = remapping_addvanced_search_fields(search_key, Kaui::Invoice::ADVANCED_SEARCH_NAME_CHANGES)
           Kaui::Invoice.list_or_search(search_key, offset, limit, cached_options_for_klient)
         else
           Kaui::Account.paginated_invoices(search_key, offset, limit, 'NONE', cached_options_for_klient).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }

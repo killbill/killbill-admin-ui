@@ -16,6 +16,7 @@ function searchFormatOperator(operator) {
 function getUrlParams() {
   var params = {};
   var queryString = window.location.search.substring(1);
+  queryString = queryString.replace(/ac_id/g, 'account_id');
   var regex = /([^&=]+)=([^&]*)/g;
   var m;
   while (m = regex.exec(queryString)) {
@@ -39,9 +40,6 @@ function populateSearchLabelsFromUrl() {
       var match = key.match(/(.*)\[(.*)\]/);
       if (match) {
         var columnName = match[1].replace(/_/g, ' ').replace(/^\w/, function(l) { return l.toUpperCase(); });
-        if (columnName === 'Account id') {
-          continue;
-        }
         var filter = searchFormatOperator(match[2]);
         var label = $('<span>', {
           class: 'label label-info',
@@ -82,6 +80,9 @@ function searchQuery(account_id){
   }
 
   var searchLabelString = searchLabels.length > 0 ? ('_q=1&' + searchLabels) : '';
+  if (searchLabelString == '') {
+    clearAdvanceSearch();
+  }
   return searchLabelString;
 };
 

@@ -106,7 +106,7 @@
 <%= javascript_tag do %>
 $(document).ready(function() {
   populateSearchLabelsFromUrl();
-
+  var dateFields = ['Created date', 'Updated date', 'Reference time'];
   // Handle the "Add" button click to add new search fields
   $('#addSearchField').on('click', function() {
     var selectedField = $('#searchFieldSelect option:selected').text();
@@ -117,7 +117,6 @@ $(document).ready(function() {
     template.querySelector('.search-field-filter').name = selectedField + 'Filter';
 
     // Check if the field should use a date input
-    var dateFields = ['Created date', 'Updated date', 'Reference time'];
     if (dateFields.includes(selectedField)) {
       template.querySelector('.search-field-value').type = 'date';
     } else {
@@ -170,6 +169,12 @@ $(document).ready(function() {
   // Populate the modal with the current filters when it is shown
   $('#advanceSearchModal').on('show.bs.modal', function() {
     showAdvanceSearchModal();
+    $('#search-fields-container .search-field').each(function() {
+      var input = $(this).find('.search-field-value');
+      if (dateFields.includes(input.attr('name'))) {
+        input.attr('type', 'date');
+      }
+    });
   });
 
   $('#clearAdvanceSearch').on('click', function() {

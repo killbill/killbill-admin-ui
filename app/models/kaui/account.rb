@@ -7,15 +7,13 @@ module Kaui
     SENSIVITE_DATA_FIELDS = %w[name email].freeze
     REMAPPING_FIELDS = {
       'is_payment_delegated_to_parent' => 'pay_via_parent',
-      'bill_cycle_day_local' => 'bcd',
       'account_balance' => 'balance',
       'account_cba' => 'cba',
       'is_migrated' => 'migrated'
     }.freeze
 
-    ADVANCED_SEARCH_COLUMNS = %w[id external_key email name first_name_length currency billing_cycle_day_local
-    parent_account_id is_payment_delegated_to_parent payment_method_id reference_time time_zone locale address1 address2
-    company_name city state_or_province country postal_code phone notes migrated created_by created_date updated_by updated_date ].freeze
+    ADVANCED_SEARCH_COLUMNS = %w[id external_key email name currency parent_account_id pay_via_parent payment_method_id time_zone country postal_code ].freeze
+    ADVANCED_SEARCH_NAME_CHANGES = [['pay_via_parent', 'is_payment_delegated_to_parent']].freeze
 
     def check_account_details_phone
       return true if phone =~ /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/i
