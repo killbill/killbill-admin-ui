@@ -1,3 +1,20 @@
+
+<div class="filter-bar-container">
+  <div class="filter-bar">
+    <button class="btn btn-default download-button-right" data-toggle="modal" data-target="#advanceSearchModal">
+      <i class="glyphicon glyphicon-search"></i>
+      <strong>Advance Search</strong>
+    </button>
+
+    <div id="search-labels-container" class="ml-2">
+      <!-- Dynamic search labels will be added here -->
+    </div>
+
+  </div>
+</div>
+
+<%= render :partial => 'account_filterbar' %>
+
 <div class="dropdown-container">
   <button class="btn btn-default download-button-right" type="button" id="modalDownloadButton">
     <i class="glyphicon glyphicon-download-alt"></i>
@@ -231,11 +248,34 @@ $(document).ready(function() {
         params.append('endDate', endDate);
       }
       params.append('allFieldsChecked', allFieldsChecked);
+      params.append('search', searchQuery());
       url.search = params.toString();
-      console.log(url.toString());
       window.open(url.toString(), '_blank');
     });
   }
+
+  function searchQuery(){
+    var searchFields = $('.search-field');
+    var searchLabelsContainer = $('#search-labels-container');
+    searchLabelsContainer.empty();
+
+    var searchLabels = searchFields.map(function() {
+      var filter = $(this).find('.search-field-filter').val();
+      var value = $(this).find('.search-field-value').val();
+      var columnName = $(this).find('.search-field-filter').attr('name').replace('Filter', '').toLowerCase().replace(/\s+/g, '_');
+
+      if (value !== '') {
+        if (filter === 'like') {
+          return columnName + encodeURIComponent('[' + filter + ']') + '=' + encodeURIComponent('%' + value + '%');
+        } else {
+          return columnName + encodeURIComponent('[' + filter + ']') + '=' + encodeURIComponent(value);
+        }
+      }
+    }).get().join('&');
+
+    var searchLabelString = searchLabels.length > 0 ? ('_q=1&' + searchLabels) : '';
+    return searchLabelString;
+  };
 
   updateDropdownOrder();
 
@@ -300,7 +340,6 @@ $(document).ready(function() {
   function reorderTableColumns(order) {
     var table = $('#accounts-table').DataTable();
     var columnIndexes = order.map(Number);
-    console.log('New column order:', columnIndexes);
     table.colReorder.order(columnIndexes);
     resetDataColumn();
     resetDataId();

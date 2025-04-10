@@ -12,6 +12,8 @@ module Kaui
     # The sign-in flow eventually calls authenticate! from config/initializers/killbill_authenticatable.rb
 
     rescue_from(StandardError) do |exception|
+      Rails.logger.error(exception.message)
+      Rails.logger.error(exception.backtrace.join("\n")) if exception.backtrace
       @error = standardize_exception(exception)
       render 'kaui/errors/500', status: 500, layout: false
     end

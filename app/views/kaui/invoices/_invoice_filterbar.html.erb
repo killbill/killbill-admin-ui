@@ -1,0 +1,204 @@
+<div class="modal fade" id="advanceSearchModal" tabindex="-1" role="dialog" aria-labelledby="advanceSearchModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="advanceSearchModalLabel">Advance Search</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="advanceSearchForm">
+            <div class="form-group d-flex align-items-center">
+            <label for="searchFieldSelect" class="mr-2" style="width: 30%;">Search Fields:</label>
+            <select id="searchFieldSelect" class="form-control mr-2">
+              <% if @account.account_id.present? %>
+                <% @search_fields.reject { |value, _| value == 'balance' || value == 'account_id' }.each do |value, title| %>
+                  <option value="<%= value %>"><%= title %></option>
+                <% end %>
+              <% else %>
+                <% @search_fields.each do |value, title| %>
+                  <option value="<%= value %>"><%= title %></option>
+                <% end %>
+              <% end %>
+            </select>
+            <button type="button" class="btn btn-secondary" id="addSearchField">Add</button>
+          </div>
+          <div id="search-fields-container">
+          </div>
+        </form>
+        <% unless @account.account_id.present? %>
+          <div class="alert alert-info" role="alert">
+            * The Balance option won't work alongside other filters. If you search using Balance, all other filters will be ignored.
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="applyAdvanceSearch">Apply Search</button>
+        <button type="button" class="btn btn-danger" id="clearAdvanceSearch">Clear Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<template id="search-field-template">
+  <div class="form-group row align-items-center search-field">
+    <label class="col-sm-4 col-form-label search-field-label"></label>
+    <div class="col-sm-3">
+      <select class="form-control search-field-filter">
+        <option value="eq">Equals</option>
+        <option value="neq">Not Equals</option>
+        <option value="gt">Greater Than</option>
+        <option value="gte">Greater Than Or Equal</option>
+        <option value="lt">Less Than</option>
+        <option value="lte">Less Than Or Equal</option>
+        <option value="like">Like</option>
+      </select>
+    </div>
+    <div class="col-sm-4">
+      <input type="text" class="form-control search-field-value">
+    </div>
+    <div class="col-sm-1">
+      <i class="glyphicon glyphicon-remove" id=remove-search-field></i>
+    </div>
+  </div>
+</template>
+
+<style>
+  .form-group.row.align-items-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .form-group.row.align-items-center label {
+    margin-bottom: 0; /* Remove default margin */
+  }
+
+  .form-group.row.align-items-center .form-control {
+    margin-right: 10px; /* Add some space between elements */
+  }
+
+  .form-group.d-flex {
+    display: flex;
+    align-items: center;
+  }
+
+  .form-group.d-flex label {
+    margin-bottom: 0; /* Remove default margin */
+  }
+
+  .form-group.d-flex .form-control {
+    margin-right: 10px; /* Add some space between the select box and the button */
+  }
+
+  #search-labels-container .label {
+    margin-left: 5px; /* Add space between labels */
+    margin-bottom: 5px; /* Add space below labels if they wrap to the next line */
+    color: white;
+  }
+
+  .filter-bar-container {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center; /* Center items vertically */
+  }
+
+  .filter-bar {
+    display: flex;
+    align-items: center; /* Center items vertically */
+  }
+
+  .filter-bar label {
+    margin: 10px; /* Add some space between the label and the select box */
+  }
+</style>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  populateSearchLabelsFromUrl();
+  var dateFields = ['Invoice date', 'Target date'];
+  // Handle the "Add" button click to add new search fields
+  $('#addSearchField').on('click', function() {
+    var selectedField = $('#searchFieldSelect option:selected').text();
+    var template = document.getElementById('search-field-template').content.cloneNode(true);
+
+    // Set the label and input names based on the selected field
+    template.querySelector('.search-field-label').textContent = selectedField.replace(/([A-Z])/g, ' $1').trim();
+    template.querySelector('.search-field-filter').name = selectedField + 'Filter';
+
+    // Check if the field should use a date input
+    if (dateFields.includes(selectedField)) {
+      template.querySelector('.search-field-value').type = 'date';
+    } else if (selectedField === 'Balance') {
+    template.querySelector('.search-field-value').type = 'number';
+    } else {
+      template.querySelector('.search-field-value').type = 'text';
+    }
+    template.querySelector('.search-field-value').name = selectedField;
+
+    // Append the new search field to the container
+    document.getElementById('search-fields-container').appendChild(template);
+  });
+
+  // Handle the "Apply Search" button click inside the modal
+  $('#applyAdvanceSearch').on('click', function() {
+    var searchFields = $('.search-field');
+    var searchLabelsContainer = $('#search-labels-container');
+    searchLabelsContainer.empty();
+
+    var table = $('#invoices-table').DataTable();
+    table.on('preXhr.dt', function(e, settings, data) {
+      data.search.value = searchQuery("<%= @search_query.to_s %>");
+    });
+
+    table.ajax.url("<%= invoices_pagination_path(:ordering => @ordering, :format => :json) %>").load();
+
+    // Update the URL with the search parameters
+    var searchParams = searchQuery("<%= @search_query.to_s %>");
+    if (searchParams) {
+      searchParams = searchParams.replace(/account_id/g, 'ac_id');
+      var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + searchParams;
+      window.history.pushState({ path: newUrl }, '', newUrl);
+    }
+
+    searchFields.each(function() {
+      var filter = $(this).find('.search-field-filter option:selected').text();
+      var value = $(this).find('.search-field-value').val();
+      var columnName = $(this).find('.search-field-filter').attr('name').replace('Filter', '');
+
+      // Create and append the search label
+      if (value !== '') {
+        var label = $('<span>', {
+          class: 'label label-info',
+          text: columnName + ' [' + filter + '] ' + value
+        });
+      }
+      searchLabelsContainer.append(label);
+    });
+    $('#advanceSearchModal').modal('hide');
+  });
+
+  // Populate the modal with the current filters when it is shown
+  $('#advanceSearchModal').on('show.bs.modal', function() {
+    showAdvanceSearchModal();
+    $('#search-fields-container .search-field').each(function() {
+      var input = $(this).find('.search-field-value');
+      if (dateFields.includes(input.attr('name'))) {
+        input.attr('type', 'date');
+      } else if (input.attr('name') === 'Balance') {
+        input.attr('type', 'number');
+      }
+    });
+  });
+
+  $('#clearAdvanceSearch').on('click', function() {
+    clearAdvanceSearch();
+  });
+
+  // Handle the remove icon click event to remove search fields
+  $('#search-fields-container').on('click', '#remove-search-field', function() {
+    $(this).closest('.search-field').remove();
+  });
+});
+<% end %>

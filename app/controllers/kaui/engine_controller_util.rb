@@ -14,8 +14,34 @@ module Kaui
     end
     # rubocop:enable Lint/UselessAssignment, Naming/AccessorMethodName
 
+    # Remove this when we support balance search alongside the other search
+    def handle_balance_search(query_string)
+      return nil if query_string.blank?
+      return query_string unless query_string.include?('balance')
+
+      CGI.unescape(query_string)
+         .split('&')
+         .grep(/_q|balance/)
+         .map { |param| param.split('=') }
+         .map { |key, value| "#{CGI.escape(key)}=#{value}" }
+         .join('&')
+    end
+
+    def remapping_addvanced_search_fields(search_string, advanced_search_name_changes)
+      return search_string if search_string.blank? || !(search_string.include? '_q')
+
+      advanced_search_name_changes.each do |new_name, old_name|
+        search_string = search_string.gsub(new_name, old_name)
+      end
+      search_string
+    end
+
     def paginate(searcher, data_extractor, formatter, table_default_columns = [])
       search_key = (params[:search] || {})[:value].presence
+      advance_search_query = params[:advance_search_query].presence
+
+      search_key = advance_search_query if advance_search_query
+      search_key = handle_balance_search(search_key) if search_key.present?
       offset = (params[:start] || 0).to_i
       limit = (params[:length] || 10).to_i
 

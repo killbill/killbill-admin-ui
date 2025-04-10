@@ -63,7 +63,7 @@ $(document).ready(function() {
     "serverSide": true,
     "search": {"search": "<%= @search_query %>"},
     "ajax": {
-      url: "<%= invoices_pagination_path(:ordering => @ordering, :format => :json) %>",
+      url: "<%= invoices_pagination_path(:ordering => @ordering, :format => :json, :advance_search_query => @advance_search_query) %>",
       data: function(d) {
         d.colum_order = $('#invoices-table').DataTable().colReorder.order();
       },
@@ -81,15 +81,22 @@ $(document).ready(function() {
     }
   });
 
+  // Add an action whenever the page changes
+  table.on('page.dt', function() {
+    debugger;
+    populateSearchLabelsFromUrl();
+  });
+
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->
-  <% if @max_nb_records.nil? %>
-    $('#invoices-table').on('draw.dt', function() {
+  $('#invoices-table').on('draw.dt', function() {
+    <% if @max_nb_records.nil? %>
       var noMoreData = table.column(0)
                             .data()
                             .length == 0;
       $(".next.paginate_button").toggleClass("disabled", noMoreData);
       $(".dataTables_info").toggle(!noMoreData);
-    });
-  <% end %>
+    <% end %>
+    populateSearchLabelsFromUrl();
+  });
 });
 <% end %>

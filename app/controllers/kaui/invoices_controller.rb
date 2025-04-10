@@ -5,10 +5,11 @@ module Kaui
   class InvoicesController < Kaui::EngineController
     def index
       @search_query = params[:account_id]
-
+      @advance_search_query = request.query_string
       @ordering = params[:ordering] || (@search_query.blank? ? 'desc' : 'asc')
       @offset = params[:offset] || 0
       @limit = params[:limit] || 50
+      @search_fields = Kaui::Invoice::ADVANCED_SEARCH_COLUMNS.map { |attr| [attr, attr.split('_').join(' ').capitalize] }
 
       @max_nb_records = @search_query.blank? ? Kaui::Invoice.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records : 0
     end
@@ -18,6 +19,7 @@ module Kaui
       start_date = params[:startDate]
       end_date = params[:endDate]
       all_fields_checked = params[:allFieldsChecked] == 'true'
+      query_string = handle_balance_search(params[:search])
       columns = if all_fields_checked
                   KillBillClient::Model::InvoiceAttributes.instance_variable_get('@json_attributes') - Kaui::Invoice::TABLE_IGNORE_COLUMNS
                 else
@@ -27,12 +29,12 @@ module Kaui
       kb_params = {}
       kb_params[:startDate] = Date.parse(start_date).strftime('%Y-%m-%d') if start_date
       kb_params[:endDate] = Date.parse(end_date).strftime('%Y-%m-%d') if end_date
-      if account_id.present?
-        account = Kaui::Account.find_by_id_or_key(account_id, false, false, options_for_klient)
-        invoices = account.invoices(options_for_klient.merge(params: kb_params))
-      else
-        invoices = Kaui::Invoice.list_or_search(nil, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
-      end
+      query_string = remapping_addvanced_search_fields(query_string, Kaui::Invoice::ADVANCED_SEARCH_NAME_CHANGES)
+      invoices = if account_id.present? && query_string.blank?
+                   Kaui::Account.paginated_invoices(account_id, nil, nil, 'NONE', options_for_klient).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
+                 else
+                   Kaui::Invoice.list_or_search(query_string, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
+                 end
 
       csv_string = CSV.generate(headers: true) do |csv|
         csv << columns
@@ -54,6 +56,7 @@ module Kaui
           nil
         end
         if account.nil?
+          search_key = remapping_addvanced_search_fields(search_key, Kaui::Invoice::ADVANCED_SEARCH_NAME_CHANGES)
           Kaui::Invoice.list_or_search(search_key, offset, limit, cached_options_for_klient)
         else
           Kaui::Account.paginated_invoices(search_key, offset, limit, 'NONE', cached_options_for_klient).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }

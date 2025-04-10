@@ -6,10 +6,11 @@ module Kaui
   class PaymentsController < Kaui::EngineController
     def index
       @search_query = params[:q] || params[:account_id]
-
+      @advance_search_query = request.query_string
       @ordering = params[:ordering] || (@search_query.blank? ? 'desc' : 'asc')
       @offset = params[:offset] || 0
       @limit = params[:limit] || 50
+      @search_fields = Kaui::Payment::ADVANCED_SEARCH_COLUMNS.map { |attr| [attr, attr.split('_').join(' ').capitalize] }
 
       @max_nb_records = @search_query.blank? ? Kaui::Payment.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records : 0
     end
@@ -19,25 +20,34 @@ module Kaui
       start_date = params[:startDate]
       end_date = params[:endDate]
       all_fields_checked = params[:allFieldsChecked] == 'true'
+      query_string = params[:search]
+
       if all_fields_checked
         columns = KillBillClient::Model::PaymentAttributes.instance_variable_get('@json_attributes') - %w[transactions audit_logs]
+        csv_headers = columns.dup
+        Kaui::Payment::REMAPPING_FIELDS.each do |k, v|
+          index = csv_headers.index(k)
+          csv_headers[index] = v if index
+        end
       else
         columns = params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
+        csv_headers = columns.dup
         Kaui::Payment::REMAPPING_FIELDS.each do |k, v|
           index = columns.index(v)
           columns[index] = k if index
         end
       end
-
+      query_string = remapping_addvanced_search_fields(query_string, Kaui::Payment::ADVANCED_SEARCH_NAME_CHANGES)
       kb_params = {}
       kb_params[:startDate] = Date.parse(start_date).strftime('%Y-%m-%d') if start_date
       kb_params[:endDate] = Date.parse(end_date).strftime('%Y-%m-%d') if end_date
-      if account_id.present?
-        account = Kaui::Account.find_by_id_or_key(account_id, false, false, options_for_klient)
-        payments = account.payments(options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_payment(payment) }
-      else
-        payments = Kaui::Payment.list_or_search(nil, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
-      end
+      account = account_id.present? ? Kaui::Account.find_by_id_or_key(account_id, false, false, options_for_klient) : nil
+
+      payments = if account_id.present? && query_string.blank?
+                   Kaui::Account.paginated_payments(account_id, nil, nil, 'NONE', options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_invoice(payment) }
+                 else
+                   Kaui::Payment.list_or_search(query_string, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
+                 end
 
       payments.each do |payment|
         created_date = nil
@@ -99,6 +109,7 @@ module Kaui
           end
 
           payments = if account.nil?
+                       search_key = remapping_addvanced_search_fields(search_key, Kaui::Payment::ADVANCED_SEARCH_NAME_CHANGES)
                        Kaui::Payment.list_or_search(search_key, offset, limit, options_for_klient)
                      else
                        account.payments(options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_payment(payment) }
