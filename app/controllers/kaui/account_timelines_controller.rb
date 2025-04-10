@@ -146,7 +146,7 @@ module Kaui
       rescue StandardError
         nil
       end
-      target_date >= start_date && target_date <= end_date
+      target_date.between?(start_date, end_date)
     end
 
     def load_bundle_name_for_timeline(bundle_key)

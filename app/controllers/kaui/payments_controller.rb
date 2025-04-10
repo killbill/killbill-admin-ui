@@ -44,10 +44,10 @@ module Kaui
       account = account_id.present? ? Kaui::Account.find_by_id_or_key(account_id, false, false, options_for_klient) : nil
 
       payments = if account_id.present? && query_string.blank?
-        Kaui::Account.paginated_payments(account_id, nil, nil, 'NONE', options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_invoice(payment) }
-      else
-        Kaui::Payment.list_or_search(query_string, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
-      end
+                   Kaui::Account.paginated_payments(account_id, nil, nil, 'NONE', options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_invoice(payment) }
+                 else
+                   Kaui::Payment.list_or_search(query_string, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
+                 end
 
       payments.each do |payment|
         created_date = nil

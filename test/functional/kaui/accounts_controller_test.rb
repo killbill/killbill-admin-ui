@@ -300,14 +300,14 @@ module Kaui
       columns = %w[account_id name email bcd cba]
       account = create_account(@tenant)
 
-      get :download, params: { startDate: start_date, endDate: end_date, allFieldsChecked: 'false', columnsString: columns.join(',') }
+      get :download, params: { startDate: start_date, endDate: end_date, allFieldsChecked: 'false', columnsString: columns.join(','), search: account.account_id }
       assert_response :success
       assert_equal 'text/csv', @response.header['Content-Type']
       assert_includes @response.header['Content-Disposition'], "filename=\"accounts-#{Date.today}.csv\""
       assert_includes @response.body, account.account_id
 
       csv = CSV.parse(@response.body, headers: true)
-      assert_equal %w[account_id name email bill_cycle_day_local account_cba], csv.headers
+      assert_equal %w[account_id name email bcd cba], csv.headers
     end
 
     private

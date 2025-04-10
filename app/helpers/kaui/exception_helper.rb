@@ -8,7 +8,7 @@ module Kaui
         when ActiveRecord::JDBCError, ActiveRecord::NoDatabaseError, ActiveRecord::DatabaseConnectionError, ActiveRecord::ConnectionNotEstablished
           return I18n.translate('errors.messages.unable_to_connect_database')
         else
-          return "#{exception.message}"
+          return exception.message
         end
       end
 

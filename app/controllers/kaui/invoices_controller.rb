@@ -31,10 +31,10 @@ module Kaui
       kb_params[:endDate] = Date.parse(end_date).strftime('%Y-%m-%d') if end_date
       query_string = remapping_addvanced_search_fields(query_string, Kaui::Invoice::ADVANCED_SEARCH_NAME_CHANGES)
       invoices = if account_id.present? && query_string.blank?
-        Kaui::Account.paginated_invoices(account_id, nil, nil, 'NONE', options_for_klient).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
-      else
-        Kaui::Invoice.list_or_search(query_string, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
-      end
+                   Kaui::Account.paginated_invoices(account_id, nil, nil, 'NONE', options_for_klient).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
+                 else
+                   Kaui::Invoice.list_or_search(query_string, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
+                 end
 
       csv_string = CSV.generate(headers: true) do |csv|
         csv << columns
