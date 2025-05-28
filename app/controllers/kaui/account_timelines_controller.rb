@@ -85,7 +85,7 @@ module Kaui
             invoice_details << "Refund adjustment: #{invoice.refund_adjustment_to_money} (#{@account.currency})" if invoice.refund_adj.present? && invoice.refund_adj.negative?
             invoice_details << "Invoice #: #{invoice.invoice_number}"
             audit_logs = invoice_stub.audit_logs.present? ? invoice_stub.audit_logs.map { |entry| Kaui::AuditLog.description(entry) }.join(', ') : ''
-            csv << [target_date, bundle_keys, 'INVOICE', invoice_details.join('; '), audit_logs] if filter_date(target_date, start_date, end_date)
+            csv << [target_date, bundle_keys, 'INVOICE', invoice_details.join('; '), audit_logs] if filter_date?(target_date, start_date, end_date)
           end
         end
         if %w[PAYMENT ALL].include?(event_type)
@@ -108,7 +108,7 @@ module Kaui
 
               audit_logs = transaction.audit_logs.present? ? transaction.audit_logs.map { |entry| Kaui::AuditLog.description(entry) }.chunk { |x| x }.map(&:first).join(', ') : ''
 
-              csv << [effective_date, bundle_keys, transaction_type, details.join('; '), audit_logs] if filter_date(effective_date, start_date, end_date)
+              csv << [effective_date, bundle_keys, transaction_type, details.join('; '), audit_logs] if filter_date?(effective_date, start_date, end_date)
             end
           end
         end
@@ -126,7 +126,7 @@ module Kaui
                 phase = event.phase
                 audit_logs = event.audit_logs.present? ? event.audit_logs.map { |entry| Kaui::AuditLog.description(entry) }.join(', ') : ''
 
-                csv << [effective_date, bundle_keys, event_type, phase, audit_logs] if filter_date(effective_date, start_date, end_date)
+                csv << [effective_date, bundle_keys, event_type, phase, audit_logs] if filter_date?(effective_date, start_date, end_date)
               end
             end
           end
@@ -138,7 +138,7 @@ module Kaui
 
     private
 
-    def filter_date(target_date, start_date, end_date)
+    def filter_date?(target_date, start_date, end_date)
       return true if start_date.nil? || end_date.nil?
 
       target_date = begin
