@@ -1,17 +1,19 @@
 /*
  * Basic & Common
  */
-@import url(https://fonts.googleapis.com/css?family=Lato:400,700,900,300);
+@import url(https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap);
 body {
   background: #f9f9f9;
   animation: all 0.5s;
-  font-family: "Lato", sans-serif;
+  font-family: "Inter", sans-serif !important;
   color: #777777;
-  padding-bottom: 50px; }
+  min-height: 100%;
+  padding-bottom: 0 !important;
+  width: 100%;}
 
 h1, h2, h3 {
   margin: 0 0 20px;
-  font-family: "Lato", sans-serif; }
+  font-family: "Inter", sans-serif !important; }
 
 h1 {
   font-size: 18px;

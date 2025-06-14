@@ -1,0 +1,45 @@
+.kaui-container {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #fff;
+}
+
+.auth-form-container {
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-form-content {
+  position: relative;
+  max-width: 360px;
+  padding: 60px 0px !important;
+  width: 100%;
+  margin: auto;
+}
+
+.auth-form-title {
+}
+
+.form-control {
+  height: 44px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #717680;
+  background-color: #fff;
+  background-clip: padding-box;
+  shadow: none;
+  border: 1px solid #d5d7da;
+  border-radius: 0.1rem;
+}
+
+input.form-control::-webkit-input-placeholder {
+  color: #717680;
+  font-weight: 400;
+  font-style: normal !important;
+  opacity: 1; /* required for Firefox */
+}

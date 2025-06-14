@@ -1,0 +1,55 @@
+:root {
+  --bs-primary: #1570ef; /* your custom primary color */
+  --bs-secondary: #777777;
+  --bs-success: #4caf50;
+  --bs-danger: #f44336;
+  --bs-warning: #ffc107;
+  --bs-info: #00bcd4;
+  --bs-light: #f1f1f1;
+  --bs-dark: #212121;
+}
+
+.btn-primary {
+  background-color: #1570ef !important;
+  border-color: ##1570ef !important;
+}
+
+.text-primary {
+  color: #ff5722 !important;
+}
+
+.bg-primary {
+  background-color: #ff5722 !important;
+}
+
+.text-black-900 {
+  color: #181d27 !important;
+}
+
+.text-black-700 {
+  color: #414651 !important;
+}
+
+.text-tertiary {
+  color: #535862 !important;
+}
+
+.fw-500 {
+  font-weight: 500 !important;
+}
+
+.fw-600 {
+  font-weight: 600 !important;
+}
+
+.radius-md {
+  border-radius: 0.375rem !important;
+}
+
+.fs-7 {
+  font-size: 0.875rem !important;
+}
+
+.custom-hover:hover {
+  opacity: 0.6;
+}

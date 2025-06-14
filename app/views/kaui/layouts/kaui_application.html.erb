@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <%= render :template => 'kaui/layouts/kaui_header' %>
-  <body>
-  <%= render :template => 'kaui/layouts/kaui_navbar' %>
+<%= render :template => 'kaui/layouts/kaui_header' %>
 
-  <% if params[:account_id].present? %>
-      <%= render :template => 'kaui/layouts/kaui_account_navbar' %>
-  <% end %>
+<body>
 
-  <div class="container">
-    <%= render :template => 'kaui/layouts/kaui_flash' %>
-    <div class="row">
-      <div class="col-md-12">
+    <% if user_signed_in? -%>
+    <%= render :template => 'kaui/layouts/kaui_navbar' %>
+    <% end %>
+
+    <% if params[:account_id].present? %>
+    <%= render :template => 'kaui/layouts/kaui_account_navbar' %>
+    <% end %>
+
+    <div class="container-fluid kaui-container">
+        <%= render :template => 'kaui/layouts/kaui_flash' %>
         <%= yield %>
-      </div>
     </div>
-  </div>
-  <%= render :template => 'kaui/layouts/kaui_footer' %>
-  </body>
+    <%= render :template => 'kaui/layouts/kaui_footer' %>
+</body>
+
 </html>
