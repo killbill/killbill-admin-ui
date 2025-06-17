@@ -1,3 +1,11 @@
-<button type="<%= type || 'button' %>" class="btn <%= variant || 'btn-primary' %> <%= html_class %>">
-    <%= label %>
-</button>
+<% variant ||= "btn-primary" %>
+<% type ||= "button" %>
+<% label ||= "Submit" %>
+<% html_class ||= "" %>
+<% html_options ||= {} %>
+
+<%= tag.button label,
+  type: type,
+  class: "btn #{variant} #{html_class}",
+  **html_options
+%>

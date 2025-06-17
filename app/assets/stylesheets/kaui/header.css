@@ -5,125 +5,219 @@ header {
   padding: 25px 0;
   background: #fff;
   border-bottom: 1px solid #ccc;
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+}
+header img {
+  vertical-align: middle;
+}
+@media (max-width: 768px) {
   header img {
-    vertical-align: middle; }
-    @media (max-width: 768px) {
-      header img {
-        display: block;
-        margin: 0 auto 10px; } }
+    display: block;
+    margin: 0 auto 10px;
+  }
+}
+header #searchform {
+  margin: 0 30px;
+  vertical-align: middle;
+  position: relative;
+  display: inline-block;
+}
+@media (max-width: 768px) {
   header #searchform {
-    margin: 0 30px;
-    vertical-align: middle;
-    position: relative;
-    display: inline-block; }
-    @media (max-width: 768px) {
-      header #searchform {
-        width: 185px;
-        display: block;
-        margin: 0 auto 10px; } }
-    header #searchform input[type="text"] {
-      padding-right: 28px; }
-      @media (max-width: 1024px) {
-        header #searchform input[type="text"] {
-          width: 100px; } }
-      @media (max-width: 768px) {
-        header #searchform input[type="text"] {
-          width: 100%; } }
-    header #searchform input[type="submit"] {
-      display: block;
-      width: 18px;
-      height: 15px;
-      position: absolute;
-      top: 7px;
-      right: 5px;
-      background: url("kaui/search.png") no-repeat top left;
-      border: 0;
-      text-indent: 999999px;
-      overflow: hidden;
-      outline: 0;
-      padding: 0; }
+    width: 185px;
+    display: block;
+    margin: 0 auto 10px;
+  }
+}
+header #searchform input[type="text"] {
+  padding-right: 28px;
+}
+@media (max-width: 1024px) {
+  header #searchform input[type="text"] {
+    width: 100px;
+  }
+}
+@media (max-width: 768px) {
+  header #searchform input[type="text"] {
+    width: 100%;
+  }
+}
+header #searchform input[type="submit"] {
+  display: block;
+  width: 18px;
+  height: 15px;
+  position: absolute;
+  top: 7px;
+  right: 5px;
+  background: url("kaui/search.png") no-repeat top left;
+  border: 0;
+  text-indent: 999999px;
+  overflow: hidden;
+  outline: 0;
+  padding: 0;
+}
+header a {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+@media (max-width: 768px) {
   header a {
-    font-size: 12px;
-    text-transform: uppercase; }
-    @media (max-width: 768px) {
-      header a {
-        text-align: center;
-        display: block; } }
-  @media (max-width: 768px) {
-    header nav {
-      text-align: center; } }
+    text-align: center;
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  header nav {
+    text-align: center;
+  }
+}
+header nav ul {
+  padding: 6px 0;
+  margin: 0;
+}
+@media (max-width: 1024px) {
   header nav ul {
-    padding: 6px 0;
-    margin: 0; }
-    @media (max-width: 1024px) {
-      header nav ul {
-        text-align: center; }
-        header nav ul.account-menu {
-          margin: -10px 0; } }
-    header nav ul li {
-      list-style: none;
-      display: inline-block;
-      vertical-align: middle; }
-      header nav ul li a {
-        color: #777777;
-        padding: 0 10px;
-        border-right: 1px solid #ccc; }
-        header nav ul li a:hover {
-          color: #000; }
-      header nav ul li:last-of-type a {
-        border: 0; }
+    text-align: center;
+  }
+  header nav ul.account-menu {
+    margin: -10px 0;
+  }
+}
+header nav ul li {
+  list-style: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+header nav ul li a {
+  color: #777777;
+  padding: 0 10px;
+  border-right: 1px solid #ccc;
+}
+header nav ul li a:hover {
+  color: #000;
+}
+header nav ul li:last-of-type a {
+  border: 0;
+}
 
 .title-nav-area {
   background: #c7e4e7;
   margin: 0 0 30px;
   font-size: 0;
-  margin-top: -40px; }
-  @media (max-width: 768px) {
-    .title-nav-area .container {
-      text-align: center;
-      width: 100%;
-      padding: 0 15px; } }
-  .title-nav-area a, .title-nav-area p {
-    display: inline-block;
-    padding: 12px 40px;
-    font-size: 12px;
-    margin: 0;
-    line-height: 12px;
-    background: transparent;
-    vertical-align: top; }
-    @media (max-width: 768px) {
-      .title-nav-area a, .title-nav-area p {
-        width: 30%;
-        padding: 12px 0;
-        text-align: center;
-        border-bottom: 1px solid #fff; }
-        .title-nav-area a:nth-of-type(4), .title-nav-area a:nth-of-type(5), .title-nav-area p:nth-of-type(4), .title-nav-area p:nth-of-type(5) {
-          width: 45%; }
-        .title-nav-area a:nth-of-type(3), .title-nav-area a:nth-of-type(5), .title-nav-area p:nth-of-type(3), .title-nav-area p:nth-of-type(5) {
-          border-right: 1px solid #fff; } }
-    @media (max-width: 450px) {
-      .title-nav-area a, .title-nav-area p {
-        width: 50%;
-        border: 0; }
-        .title-nav-area a:nth-of-type(2), .title-nav-area a:nth-of-type(4), .title-nav-area a:nth-of-type(5), .title-nav-area p:nth-of-type(2), .title-nav-area p:nth-of-type(4), .title-nav-area p:nth-of-type(5) {
-          border-right: 1px solid #fff; }
-        .title-nav-area a:nth-of-type(3), .title-nav-area p:nth-of-type(3) {
-          border-right: 0; }
-        .title-nav-area a:nth-of-type(4), .title-nav-area p:nth-of-type(4) {
-          width: 50%; }
-        .title-nav-area a:nth-of-type(5), .title-nav-area p:nth-of-type(5) {
-          width: 100%; } }
-  .title-nav-area a {
-    color: #666666;
-    text-transform: uppercase;
-    border-left: 1px solid #fff; }
-    .title-nav-area a:hover, .title-nav-area a.current {
-      color: #fff;
-      background: #00919d; }
-    .title-nav-area a:last-of-type {
-      border-right: 1px solid #fff; }
+  margin-top: -40px;
+}
+@media (max-width: 768px) {
+  .title-nav-area .container {
+    text-align: center;
+    width: 100%;
+    padding: 0 15px;
+  }
+}
+.title-nav-area a,
+.title-nav-area p {
+  display: inline-block;
+  padding: 12px 40px;
+  font-size: 12px;
+  margin: 0;
+  line-height: 12px;
+  background: transparent;
+  vertical-align: top;
+}
+@media (max-width: 768px) {
+  .title-nav-area a,
   .title-nav-area p {
-    font-weight: normal; }
+    width: 30%;
+    padding: 12px 0;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+  }
+  .title-nav-area a:nth-of-type(4),
+  .title-nav-area a:nth-of-type(5),
+  .title-nav-area p:nth-of-type(4),
+  .title-nav-area p:nth-of-type(5) {
+    width: 45%;
+  }
+  .title-nav-area a:nth-of-type(3),
+  .title-nav-area a:nth-of-type(5),
+  .title-nav-area p:nth-of-type(3),
+  .title-nav-area p:nth-of-type(5) {
+    border-right: 1px solid #fff;
+  }
+}
+@media (max-width: 450px) {
+  .title-nav-area a,
+  .title-nav-area p {
+    width: 50%;
+    border: 0;
+  }
+  .title-nav-area a:nth-of-type(2),
+  .title-nav-area a:nth-of-type(4),
+  .title-nav-area a:nth-of-type(5),
+  .title-nav-area p:nth-of-type(2),
+  .title-nav-area p:nth-of-type(4),
+  .title-nav-area p:nth-of-type(5) {
+    border-right: 1px solid #fff;
+  }
+  .title-nav-area a:nth-of-type(3),
+  .title-nav-area p:nth-of-type(3) {
+    border-right: 0;
+  }
+  .title-nav-area a:nth-of-type(4),
+  .title-nav-area p:nth-of-type(4) {
+    width: 50%;
+  }
+  .title-nav-area a:nth-of-type(5),
+  .title-nav-area p:nth-of-type(5) {
+    width: 100%;
+  }
+}
+.title-nav-area a {
+  color: #666666;
+  text-transform: uppercase;
+  border-left: 1px solid #fff;
+}
+.title-nav-area a:hover,
+.title-nav-area a.current {
+  color: #fff;
+  background: #00919d;
+}
+.title-nav-area a:last-of-type {
+  border-right: 1px solid #fff;
+}
+.title-nav-area p {
+  font-weight: normal;
+}
 
-/*# sourceMappingURL=header.css.map */
+/* Updated */
+.search-container {
+  max-width: 650px;
+  width: 100%;
+}
+.search-box {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  border-radius: 0.50rem;
+}
+.search-box input.form-control::-webkit-input-placeholder {
+  color: #717680;
+  font-weight: 400;
+  font-size: 1rem;
+  font-style: normal !important;
+  opacity: 1; /* required for Firefox */
+}
+.dropdown-menu {
+  padding: 0.75rem 0;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 2rem;
+}
+ul.header-menu {
+
+}
+ul.header-menu li a {
+  height: 2.5rem;
+  padding: 0 1rem;
+}
+ul.header-menu li span {
+  text-transform: none;
+}

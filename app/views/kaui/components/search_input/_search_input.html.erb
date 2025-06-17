@@ -1,0 +1,15 @@
+<%= form_tag kaui_engine.search_path, role: 'search', id: 'searchform', method: :get, class: "flex-grow-1 mx-4" do %>
+    <div class="mx-4 search-container">
+        <div class="input-group border overflow-hidden search-box">
+            <span class="input-group-text bg-white border-0 ps-3">
+                <%= link_to image_tag('kaui/header/search_icon.svg', :alt => 'Search Icon'), kaui_engine.home_path %>
+            </span>
+
+            <%= text_field_tag :q, params[:q], placeholder: "Search", class: "form-control border-0" %>
+
+            <span class="input-group-text bg-white border-0 pe-3 text-muted">
+                ⌘K
+            </span>
+        </div>
+    </div>
+<% end %>

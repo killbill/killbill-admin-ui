@@ -1,0 +1,41 @@
+<div class="dropdown dropdown-menu-end">
+    <%= render "kaui/components/button/button",
+        label: "+ Create...",
+        variant: "btn-primary",
+        html_class: "px-3",
+        type: "button",
+        html_options: {
+            id: "menuDropdown",
+            data: { bs_toggle: "dropdown" },
+            aria: { expanded: "false" }
+        }
+    %>
+
+
+    <ul class="dropdown-menu header-menu shadow border-0 rounded-3" aria-labelledby="menuDropdown" style="min-width: 200px;">
+        <li>
+            <%= link_to "#", class: "dropdown-item d-flex align-items-center gap-2" do %>
+            <%= image_tag 'kaui/header/account.svg', alt: 'Account Icon' %>
+            <span class="text-black-700 fs-6 text-normal">Account</span>
+            <% end %>
+        </li>
+        <li>
+            <%= link_to "#", class: "dropdown-item d-flex align-items-center gap-2" do %>
+            <%= image_tag 'kaui/header/invoice.svg', alt: 'Account Icon' %>
+            <span class="text-black-700 fs-6 text-normal">Invoice</span>
+            <% end %>
+        </li>
+        <li>
+            <%= link_to "#", class: "dropdown-item d-flex align-items-center gap-2" do %>
+            <%= image_tag 'kaui/header/subscription.svg', alt: 'Account Icon' %>
+            <span class="text-black-700 fs-6 text-normal">Subscription</span>
+            <% end %>
+        </li>
+        <li>
+            <%= link_to "#", class: "dropdown-item d-flex align-items-center gap-2" do %>
+            <%= image_tag 'kaui/header/payment.svg', alt: 'Account Icon' %>
+            <span class="text-black-700 fs-6 text-normal">Payment</span>
+            <% end %>
+        </li>
+    </ul>
+</div>
