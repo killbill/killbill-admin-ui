@@ -1,38 +1,81 @@
-<div class="home">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3 text-center">
+<div>
+    <div class="kaui-container py-5">
+        <div class="row">
+            <div class="col-md-9 col-lg-9 mb-4">
+                <h5 class="fw-semibold pb-4 text-black-900 fs-4 fw-500">Get Started</h5>
+                <div class="row mb-4">
+                    <%= render partial: "kaui/components/dashboard/card", locals: { title: "Accounts", count: "876 accounts", icon: "kaui/header/account.svg", path: "#" } %>
+                    <%= render partial: "kaui/components/dashboard/card", locals: { title: "Invoices", count: "1,440 invoices", icon: "kaui/header/invoice.svg", path: "#" } %>
+                    <%= render partial: "kaui/components/dashboard/card", locals: { title: "Payments", count: "1,634 payments", icon: "kaui/header/payment.svg", path: "#" } %>
+                </div>
 
-      <%= form_tag search_path, :id => 'home_searchform', :method => 'get' do %>
-          <%= text_field_tag :q, @search_query, :id => 'search', :placeholder => 'What are you looking for?' %>
-          <%= submit_tag 'Search' %>
+                <!-- Settings Section -->
+                <h5 class="fw-semibold pb-4 text-black-900 pt-4 fs-4 fw-500">Settings</h5>
+                <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+                    <%= render partial: "kaui/components/dashboard/setting", locals: { path: "#", icon: "kaui/dashboard/tenant.svg", title: "Tenant", desc: "Run multiple tenants for each Kill Bill deployment." } %>
+                    <%= render partial: "kaui/components/dashboard/setting", locals: { path: "#", icon: "kaui/dashboard/users.svg", title: "Users", desc: "Manage users in Kaui – create roles, assign users to tenants." } %>
+                    <%= render partial: "kaui/components/dashboard/setting", locals: { path: "#", icon: "kaui/dashboard/tags.svg", title: "Tags", desc: "Apply tags to accounts and invoices." } %>
+                    <%= render partial: "kaui/components/dashboard/setting", locals: { path: "#", icon: "kaui/dashboard/custom-field.svg", title: "Custom Fields", desc: "Create and attach custom key/value fields." } %>
+                    <%= render partial: "kaui/components/dashboard/setting", locals: { path: "#", icon: "kaui/dashboard/plugins.svg", title: "Plugins", desc: "Install and manage runtime plugins." } %>
+                    <%= render partial: "kaui/components/dashboard/setting", locals: { path: "#", icon: "kaui/dashboard/aviate.svg", title: "Aviate", desc: "System observability, BI, and streamlined configs." } %>
+                </div>
+            </div>
 
-          <div id="advanced">
-            <%= link_to('Advanced search','#advancedSearchModal', data: { toggle: 'modal', target: '#advancedSearchModal' }) %>
-          </div>
-      <% end %>
+            <div class="col-md-3 col-lg-3 mb-4">
+                <!-- Documentation Section -->
+                <h5 class="fw-semibold mb-3 text-black-900 fs-4 fw-500">Documentation</h5>
+                <div class="card border-0 shadow-sm rounded-3 p-4" style="max-width: 360px;">
+
+                    <%= image_tag 'kaui/dashboard/kaui-doc-img.png', class: "mb-3 img-fluid" %>
+                    <h6>Kaui</h6>
+                    <p class="text-muted small">Kill Bill's Admin User Interface for Subscription Management</p>
+                    <%= link_to "View Docs", "#", class: "text-primary text-decoration-none fw-medium small" %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <%
+=begin%>
+    <div class="home">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+
+                <%= form_tag search_path, :id => 'home_searchform', :method => 'get' do %>
+                <%= text_field_tag :q, @search_query, :id => 'search', :placeholder => 'What are you looking for?' %>
+                <%= submit_tag 'Search' %>
+
+                <div id="advanced">
+                    <%= link_to('Advanced search','#advancedSearchModal', data: { toggle: 'modal', target: '#advancedSearchModal' }) %>
+                </div>
+                <% end %>
+
+            </div>
+            <div class="col-md-6 col-md-offset-3 legend">
+                <p class="text-center">
+                    <%= link_to 'Latest accounts', kaui_engine.accounts_path %> /
+                    <%= link_to 'Latest invoices', kaui_engine.invoices_path %> /
+                    <%= link_to 'Latest payments', kaui_engine.payments_path %>
+                </p>
+            </div>
+        </div>
+        <span class="duck_help">Accounts are searched by default. For complex searches, use <b>Advanced Search</b>.</span>
 
     </div>
-    <div class="col-md-6 col-md-offset-3 legend">
-      <p class="text-center">
-        <%= link_to 'Latest accounts', kaui_engine.accounts_path %> /
-        <%= link_to 'Latest invoices', kaui_engine.invoices_path %> /
-        <%= link_to 'Latest payments', kaui_engine.payments_path %>
-      </p>
-    </div>
-  </div>
-  <span class="duck_help">Accounts are searched by default. For complex searches, use <b>Advanced Search</b>.</span>
 
+    <%= render :partial => 'advanced_search_modal' %>
+
+    <script language="javascript">
+        $(document).ready(function() {
+            function alignToSearch() {
+                var leftPosition = $('#search').position().left + 25;
+                $('#advanced').css('padding-left', leftPosition);
+            }
+
+            alignToSearch();
+        });
+    </script>
+    <%
+=end%>
 </div>
-
-<%= render :partial => 'advanced_search_modal' %>
-
-<script language="javascript">
-    $(document).ready(function() {
-        function alignToSearch() {
-            var leftPosition = $('#search').position().left + 25;
-            $('#advanced').css('padding-left',leftPosition);
-        }
-
-        alignToSearch();
-    });
-</script>

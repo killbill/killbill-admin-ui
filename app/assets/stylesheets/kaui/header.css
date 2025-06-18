@@ -5,7 +5,6 @@ header {
   padding: 25px 0;
   background: #fff;
   border-bottom: 1px solid #ccc;
-  margin-bottom: 40px;
 }
 header img {
   vertical-align: middle;
@@ -197,7 +196,7 @@ header nav ul li:last-of-type a {
   position: relative;
   display: inline-block;
   width: 100%;
-  border-radius: 0.50rem;
+  border-radius: 0.5rem;
 }
 .search-box input.form-control::-webkit-input-placeholder {
   color: #717680;
@@ -212,7 +211,6 @@ header nav ul li:last-of-type a {
   border-radius: 2rem;
 }
 ul.header-menu {
-
 }
 ul.header-menu li a {
   height: 2.5rem;

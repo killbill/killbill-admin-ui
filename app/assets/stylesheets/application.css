@@ -11,6 +11,7 @@
  *= require kaui/common.css
  *= require kaui/datatable.css
  *= require kaui/header.css
+ *= require kaui/dashboard.css
  *= require kaui/home.css
  *= require kaui/invoice.css
  *= require kaui/overdue.css

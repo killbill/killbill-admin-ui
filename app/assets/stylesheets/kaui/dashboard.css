@@ -1,0 +1,26 @@
+.dashboard-card {
+  transition: box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Rounded sections */
+.dashboard-card {
+  border-radius: 0.7rem;
+}
+
+.dashboard-card-divider {
+  border-top: 1px solid #e9ecef;
+}
+
+.dashboard-card-icon {
+  height: 3rem;
+  width: 3rem;
+}
+
+.setting-card-icon {
+  height: 2.5rem;
+  width: 2.5rem;
+}

@@ -6,3 +6,10 @@
 //= link kaui/header/subscription.svg
 //= link kaui/header/payment.svg
 //= link kaui/header/invoice.svg
+//= link kaui/dashboard/kaui-doc-img.png
+//= link kaui/dashboard/aviate.svg
+//= link kaui/dashboard/users.svg
+//= link kaui/dashboard/tenant.svg
+//= link kaui/dashboard/tags.svg
+//= link kaui/dashboard/plugins.svg
+//= link kaui/dashboard/custom-field.svg
