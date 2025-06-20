@@ -219,3 +219,18 @@ ul.header-menu li a {
 ul.header-menu li span {
   text-transform: none;
 }
+.autocomplete-box {
+  z-index: 1050;
+  max-height: 420px;
+  overflow-y: auto;
+}
+.header-tag {
+  border: 1px solid #ccc;
+}
+.header-tag a {
+  text-transform: none;
+  font-size: 1rem;
+}
+.header-tag:hover {
+  background-color: #fff !important;
+}
