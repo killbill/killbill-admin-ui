@@ -19,7 +19,7 @@
             <% end %>
         </li>
         <li>
-            <%= link_to "#", class: "dropdown-item d-flex align-items-center gap-2" do %>
+            <%= link_to kaui_engine.invoices_path, class: "dropdown-item d-flex align-items-center gap-2" do %>
             <%= image_tag 'kaui/header/invoice.svg', alt: 'Account Icon' %>
             <span class="text-black-700 fs-6 text-normal">Invoice</span>
             <% end %>
@@ -31,7 +31,7 @@
             <% end %>
         </li>
         <li>
-            <%= link_to "#", class: "dropdown-item d-flex align-items-center gap-2" do %>
+            <%= link_to kaui_engine.payments_path, class: "dropdown-item d-flex align-items-center gap-2" do %>
             <%= image_tag 'kaui/header/payment.svg', alt: 'Account Icon' %>
             <span class="text-black-700 fs-6 text-normal">Payment</span>
             <% end %>

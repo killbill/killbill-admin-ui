@@ -15,17 +15,18 @@
     <div id="search-suggestions" class="autocomplete-box position-absolute bg-white rounded-4 shadow mt-1 p-3 w-100 d-none border">
         <div class="mb-2 fw-semibold text-muted">Jump to…</div>
         <div class="d-flex flex-wrap gap-2 mb-3">
+
             <div class="d-flex header-tag custom-hover align-items-center gap-2 border-secondary px-2 border-2 rounded-4 ">
                 <%= link_to image_tag('kaui/header/account.svg', :alt => 'Account Icon'), kaui_engine.home_path %>
-                <%= link_to "All Accounts", "#", class: "text-decoration-none text-black-700" %>
+                <%= link_to "All Accounts", kaui_engine.accounts_path, class: "text-decoration-none text-black-700" %>
             </div>
             <div class="d-flex header-tag custom-hover align-items-center gap-2 border-secondary px-2 border-2 rounded-4 ">
                 <%= link_to image_tag('kaui/header/invoice.svg', :alt => 'Account Icon'), kaui_engine.home_path %>
-                <%= link_to "All Invoices", "#", class: "text-decoration-none text-black-700" %>
+                <%= link_to "All Invoices", kaui_engine.invoices_path, class: "text-decoration-none text-black-700" %>
             </div>
             <div class="d-flex header-tag custom-hover align-items-center gap-2 border-secondary px-2 border-2 rounded-4 ">
                 <%= link_to image_tag('kaui/header/payment.svg', :alt => 'Account Icon'), kaui_engine.home_path %>
-                <%= link_to "All Payments", "#", class: "text-decoration-none text-black-700" %>
+                <%= link_to "All Payments", kaui_engine.payments_path, class: "text-decoration-none text-black-700" %>
             </div>
         </div>
 
