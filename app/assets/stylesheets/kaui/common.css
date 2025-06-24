@@ -722,5 +722,6 @@ form[id^="new_tag_definition"] #object_types div .tag-definition-select {
 .kaui-container {
   width: 100%;
   margin: 0 auto;
+  padding-bottom: 10px !important;
   max-width: 1280px;
 }

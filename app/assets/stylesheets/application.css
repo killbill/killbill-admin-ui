@@ -9,7 +9,6 @@
  *= require kaui/account.css
  *= require kaui/audit.css
  *= require kaui/common.css
- *= require kaui/datatable.css
  *= require kaui/header.css
  *= require kaui/dashboard.css
  *= require kaui/home.css
@@ -21,5 +20,7 @@
  *= require kaui/timeline.css
  *= require kaui/tooltip.css
  *= require kaui/kaui.css
+ *= require kaui/breadcrumb.css
  *= require assets/common
+ *= require kaui/datatable.css
 */

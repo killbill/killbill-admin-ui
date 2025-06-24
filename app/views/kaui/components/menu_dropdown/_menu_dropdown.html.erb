@@ -1,40 +1,31 @@
-<div class="dropdown dropdown-menu-end">
-    <%= render "kaui/components/button/button",
-        label: "+ Create...",
-        variant: "btn-primary",
-        html_class: "px-3",
-        type: "button",
-        html_options: {
-            id: "menuDropdown",
-            data: { bs_toggle: "dropdown" },
-            aria: { expanded: "false" }
-        }
-    %>
+<% variant ||= "btn-primary" %>
+<% type ||= "button" %>
+<% label ||= "Submit" %>
+<% icon ||= nil %>
+<% html_class ||= "" %>
+<% html_options ||= {} %>
+<% dropdown_id ||= "menuDropdown" %>
 
-    <ul class="dropdown-menu header-menu shadow border-0 rounded-3" aria-labelledby="menuDropdown" style="min-width: 200px;">
-        <li>
-            <%= link_to kaui_engine.new_account_path, class: "dropdown-item d-flex align-items-center gap-2" do %>
-            <%= image_tag 'kaui/header/account.svg', alt: 'Account Icon' %>
-            <span class="text-black-700 fs-6 text-normal">Account</span>
-            <% end %>
-        </li>
-        <li>
-            <%= link_to kaui_engine.invoices_path, class: "dropdown-item d-flex align-items-center gap-2" do %>
-            <%= image_tag 'kaui/header/invoice.svg', alt: 'Account Icon' %>
-            <span class="text-black-700 fs-6 text-normal">Invoice</span>
-            <% end %>
-        </li>
-        <li>
-            <%= link_to "#", class: "dropdown-item d-flex align-items-center gap-2" do %>
-            <%= image_tag 'kaui/header/subscription.svg', alt: 'Account Icon' %>
-            <span class="text-black-700 fs-6 text-normal">Subscription</span>
-            <% end %>
-        </li>
-        <li>
-            <%= link_to kaui_engine.payments_path, class: "dropdown-item d-flex align-items-center gap-2" do %>
-            <%= image_tag 'kaui/header/payment.svg', alt: 'Account Icon' %>
-            <span class="text-black-700 fs-6 text-normal">Payment</span>
-            <% end %>
-        </li>
-    </ul>
+<% icon_html = icon.present? ? image_tag(icon, class: "me-1", size: "16x16") : "" %>
+
+<div class="dropdown dropdown-menu-end">
+  <%= tag.button raw("#{icon_html}#{label}"),
+      type: type,
+      class: "btn kaui-dropdown custom-hover #{variant} #{html_class}",
+      id: dropdown_id,
+      data: { bs_toggle: "dropdown" },
+      aria: { expanded: "false" } %>
+
+  <ul class="dropdown-menu header-menu shadow border-0 rounded-3"
+      aria-labelledby="<%= dropdown_id %>"
+      style="min-width: 200px;">
+    <% menu_items&.each do |item| %>
+      <li>
+        <%= link_to item[:path], class: "dropdown-item d-flex align-items-center gap-2" do %>
+          <%= image_tag(item[:icon], alt: "#{item[:label]} Icon", size: "16x16") if item[:icon].present? %>
+          <span class="text-black-700 fs-6 text-normal"><%= item[:label] %></span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 </div>

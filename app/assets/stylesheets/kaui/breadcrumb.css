@@ -1,0 +1,38 @@
+.breadcrumb-nav {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #5E6272;
+  padding: 32px 0;
+}
+
+.breadcrumb-separator {
+  margin: 0 10px;
+  color: #A4A7AE;
+  font-size: 18px;
+}
+
+.breadcrumb-home svg,
+.breadcrumb-home-link svg {
+  vertical-align: top;
+  margin-top: 2px;
+}
+
+.breadcrumb-link {
+  text-decoration: none;
+  color: #5E6272;
+}
+
+.breadcrumb-link:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-current {
+  background-color: #F4F4F4;
+  color: #3F4254;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600 !important;
+  padding: 2px 6px;
+  border-radius: 4px;
+}

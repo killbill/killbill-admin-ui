@@ -1,0 +1,41 @@
+<%# Required variables: title (string), actions (array of hashes) %>
+<div class="d-flex justify-content-between align-items-center pb-4 custom-border-bottom mb-4">
+  <h4 class="fw-semibold mb-0 title"><%= title %></h4>
+
+  <div class="d-flex gap-2">
+    <% actions.each_with_index do |action, index| %>
+      <% if action[:type] == "dropdown" %>
+        <%= render "kaui/components/menu_dropdown/menu_dropdown", {
+          label: action[:label],
+          icon: action[:icon],
+          dropdown_id: "menuDropdown#{index}",
+          menu_items: action[:items] # Array of hashes with :label, :icon, :path
+        } %>
+      <% else %>
+        <%= render "kaui/components/button/button", {
+          label: action[:label],
+          icon: action[:icon],
+          variant: "btn-#{action[:variant] || 'outline-secondary'} d-inline-flex align-items-center gap-1",
+          type: "button",
+          html_class: action[:html_class],
+          html_options: {
+            onclick: "window.location='#{action[:path]}'"
+          }
+        } %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<style>
+  .title {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+    color: #181D27;
+  }
+
+  .custom-border-bottom {
+    border-bottom: 1px solid #E9EAEB;
+  }
+</style>

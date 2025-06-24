@@ -16,9 +16,20 @@
                     <a href="#" class="custom-hover">
                         <%= link_to image_tag('kaui/header/cog_icon.svg', :alt => 'Kill Bill Logo'), kaui_engine.home_path %>
                     </a>
-                    <div class="ms-1">
-                        <%= render 'kaui/components/menu_dropdown/menu_dropdown' %>
-                    </div>
+                  
+                    <%= render partial: "kaui/components/menu_dropdown/menu_dropdown", locals: {
+                        label: "Create...",
+                        icon: "kaui/plus.svg",
+                        dropdown_id: "createMenuDropdown",
+                        menu_items: [
+                            { label: "Account", path: kaui_engine.new_account_path, icon: 'kaui/header/account.svg' },
+                            { label: "Invoice", path: kaui_engine.invoices_path, icon: 'kaui/header/invoice.svg' },
+                            { label: "Subscription", path: "#", icon: 'kaui/header/subscription.svg' },
+                            { label: "Payment", path: kaui_engine.payments_path, icon: 'kaui/header/payment.svg' }
+                        ]
+                    } %>
+
+
                 </div>
             </div>
         </div>
