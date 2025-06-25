@@ -20,6 +20,12 @@ module Kaui
       false
     end
 
+    def aviate_plugin_installed
+      Killbill::Aviate::AviateClient.aviate_plugin_installed(Kaui.current_tenant_user_options(current_user, session)).first
+    rescue StandardError
+      false
+    end
+
     def account_closed?
       return false if @account.nil?
 

@@ -16,13 +16,13 @@ module Kaui
     ADVANCED_SEARCH_COLUMNS = %w[id external_key email name currency parent_account_id pay_via_parent payment_method_id time_zone country postal_code].freeze
     ADVANCED_SEARCH_NAME_CHANGES = [%w[pay_via_parent is_payment_delegated_to_parent]].freeze
 
-    def check_account_details_phone
+    def check_account_details_phone?
       return true if phone =~ /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/i
 
       false
     end
 
-    def check_account_details_bill_cycle_day_local
+    def check_account_details_bill_cycle_day_local?
       return true if bill_cycle_day_local.to_i.between?(1, 31)
 
       false

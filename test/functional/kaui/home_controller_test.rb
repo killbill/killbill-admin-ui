@@ -383,7 +383,12 @@ module Kaui
     private
 
     def query_builder(object_type, search_for, search_by = nil, fast = nil)
-      "FIND:#{object_type} #{search_by.nil? ? '' : "BY:#{search_by}"} FOR:#{search_for} #{fast.nil? ? '' : "ONLY_FIRST:#{fast}"}"
+      [
+        "FIND:#{object_type}",
+        (search_by.nil? ? nil : "BY:#{search_by}"),
+        "FOR:#{search_for}",
+        (fast.nil? ? nil : "ONLY_FIRST:#{fast}")
+      ].compact.join(' ')
     end
 
     def create_credit

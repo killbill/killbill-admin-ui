@@ -4,6 +4,9 @@
     <p><%= pretty_account_identifier %></p>
 
     <%= link_to 'Account', kaui_engine.account_path(params[:account_id]), :class => (params[:controller].ends_with?('accounts') ? 'current' : 'non-current') %>
+    <% if aviate_plugin_installed %>
+      <%= link_to 'Wallets', aviate_engine.account_wallets_path(params[:account_id]), :class => (params[:controller].ends_with?('wallets') ? 'current' : 'non-current') %>
+    <% end %>
     <%= link_to 'Subscriptions', kaui_engine.account_bundles_path(params[:account_id]), :class => (params[:controller].ends_with?('bundles') ? 'current' : 'non-current') %>
     <%= link_to 'Invoices', kaui_engine.account_invoices_path(params[:account_id]), :class => (params[:controller].ends_with?('invoices') ? 'current' : 'non-current') %>
     <%= link_to 'Payments', kaui_engine.account_payments_path(params[:account_id]), :class => (params[:controller].ends_with?('payments') ? 'current' : 'non-current') %>

@@ -106,9 +106,9 @@ module Kaui
     def create
       @account = Kaui::Account.new(params.require(:account).delete_if { |_key, value| value.blank? })
 
-      @account.errors.add(:phone, :invalid_phone) if !@account.phone.nil? && !@account.check_account_details_phone
+      @account.errors.add(:phone, :invalid_phone) if !@account.phone.nil? && !@account.check_account_details_phone?
 
-      @account.errors.add(:check_account_details_bill_cycle_day_local, :invalid_bill_cycle_day_local) if !@account.bill_cycle_day_local.nil? && !@account.check_account_details_bill_cycle_day_local
+      @account.errors.add(:check_account_details_bill_cycle_day_local, :invalid_bill_cycle_day_local) if !@account.bill_cycle_day_local.nil? && !@account.check_account_details_bill_cycle_day_local?
 
       unless @account.errors.empty?
         flash.now[:errors] = @account.errors.messages.values.flatten
