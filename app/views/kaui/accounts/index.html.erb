@@ -3,11 +3,8 @@
     <div>
       
       <%= render "kaui/components/breadcrumb/breadcrumb" %>
-      <%
-=begin%>
- <%= render :partial => 'multi_functions_bar' %>  
-<%
-=end%>
+      <%= render :partial => 'account_filterbar' %>   
+
       <%= render partial: 'functions_bar', locals: {
         title: "Accounts",
         actions: [
@@ -16,21 +13,27 @@
             icon: 'kaui/search.svg',
             html_class: "kaui-button custom-hover",
             path: "#",
-            variant: "outline-secondary"
+            variant: "outline-secondary",
+            data: {
+              bs_toggle: "modal",
+              bs_target: "#advanceSearchModal"
+            }
           },
           {
             label: "Download CSV",
             icon: 'kaui/download.svg',
             html_class: "kaui-button custom-hover",
             path: "#",
-            variant: "outline-secondary"
+            variant: "outline-secondary",
+            id: "modalDownloadButton"
           },
           {
             label: "Edit Columns",
             icon: 'kaui/setting.svg',
             html_class: "kaui-button custom-hover",
             path: "#",
-            variant: "outline-secondary"
+            variant: "outline-secondary",
+            id: "dropdownMenu1"
           },
           {
             label: "Create Account",

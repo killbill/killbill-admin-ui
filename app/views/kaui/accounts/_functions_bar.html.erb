@@ -9,7 +9,7 @@
           label: action[:label],
           icon: action[:icon],
           dropdown_id: "menuDropdown#{index}",
-          menu_items: action[:items] # Array of hashes with :label, :icon, :path
+          menu_items: action[:items]
         } %>
       <% else %>
         <%= render "kaui/components/button/button", {
@@ -19,11 +19,102 @@
           type: "button",
           html_class: action[:html_class],
           html_options: {
-            onclick: "window.location='#{action[:path]}'"
+            id: action[:id],
+            onclick: "window.location='#{action[:path]}'",
+            data: action[:data]
           }
         } %>
       <% end %>
     <% end %>
+
+    <div class="dropdown position-relative">
+      <ul class="dropdown-menu" id="column-visibility" style="display: none;">
+        <% Kaui.account_search_columns.call[0].each_with_index do |title, index| %>
+          <li class="list-group-item-manual" data-id="<%= index %>">
+           <label class="label-group-item-manual">
+              <input type="checkbox" class="column-toggle" draggable="true" data-column="<%= index %>" <%= 'checked' if @dropdown_default[index][:visible] %> >
+              <%= title %>
+              <span class="icon-drag" aria-hidden="true">
+              </span>
+            </label>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="downloadCsvModal" tabindex="-1" role="dialog" aria-labelledby="downloadCsvModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="downloadCsvModalLabel">Download</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="downloadCsvForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="startDate">Account Creation Date From:</label>
+                <input type="text" class="form-control" id="startDate" name="startDate">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="endDate">To:</label>
+                <input type="text" class="form-control" id="endDate" name="endDate">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-check">
+                <div>
+                  <input type="radio" id="customDate" name="download_option" value="customDate">
+                  <label for="customDate">Custom date</label>
+                </div>
+                <div>
+                  <input type="radio" id="allData" name="download_option" value="all">
+                  <label for="allData">All accounts</label>
+                </div>
+                <div>
+                  <input type="radio" id="thisWeek" name="download_option" value="thisWeek">
+                  <label for="thisWeek">This week</label>
+                </div>
+                <div>
+                  <input type="radio" id="thisMonth" name="download_option" value="thisMonth">
+                  <label for="thisMonth">This month</label>
+                </div>
+                <div>
+                  <input type="radio" id="thisYear" name="download_option" value="thisYear">
+                  <label for="thisYear">This year</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h5>Additional Options</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="allFields" name="allFields">
+                <label class="form-check-label" for="allFields">All fields</label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="downloadButton">Download</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -38,4 +129,382 @@
   .custom-border-bottom {
     border-bottom: 1px solid #E9EAEB;
   }
+
+  .dropdown-menu#column-visibility {
+    max-height: 300px;
+    width: 200px;
+    overflow-y: auto;
+  }
+
+  .dropdown-menu#column-visibility::before {
+    content: 'Drag to reorder columns';
+    display: block;
+    height: 30px;
+    text-align: center;
+    color: darkgrey;
+    padding-top: 5px;
+  }
+  
+  .dropdown-menu {
+    padding: 5px;
+  }
+
+  #column-visibility {
+    position: absolute;
+    top: 100%;
+    right: 150px;
+    background: white;
+    border: 1px solid #ccc;
+    max-height: 300px;
+    width: 220px;
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 10px 0 10px 10px;
+  }
+
+  #column-visibility::before {
+    content: 'Drag to reorder columns';
+    display: block;
+    height: 30px;
+    text-align: center;
+    color: darkgrey;
+    padding-top: 5px;
+    font-size: 12px;
+  }
+
+  .icon-drag {
+    margin-left: auto;
+  }
+
+  .toggle-button-right {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    cursor: pointer;
+  }
+
+  .list-group-item-manual {
+    cursor: grab;
+    margin-bottom: 5px;
+  }
+
+  .list-group-item-manual:active {
+    cursor: grabbing;
+  }
+
+  .download-button-right {
+    float: right;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: white;
+    color: black;
+    text-transform: none;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+  }
+
+  .dropdown-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .label-group-item-manual {
+    padding: 8px 10px;
+    width: -webkit-fill-available;
+    cursor: grab;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #252B37;
+  }
+
+  .label-group-item-manual:active {
+      background: #FAFAFA;
+  }
+
+  .label-group-item-manual span {
+    cursor: grab;
+  }
+
+  .label-group-item-manual:has(input[type="checkbox"]:checked) {
+    background-color: #FAFAFA;
+    border-radius: 4px;
+    cursor: pointer !important;
+  }
+
+  .dropdown-menu.ui-sortable {
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+    border-radius: 6px;
+    border: 1px solid #00000014 !important;
+    margin: 10px 0 0;
+    min-width: 210px;
+  }
+
+  .dropdown-menu.ui-sortable::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .dropdown-menu.ui-sortable::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 3px;
+  }
+
+  .dropdown-menu.ui-sortable::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
 </style>
+
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $('.dropdown-menu').on('click', 'input[type="checkbox"], label', function(event) {
+    event.stopPropagation();
+  });
+
+  $('#modalDownloadButton').click(function() {
+    $('#downloadCsvModal').modal('show');
+  });
+
+  $('#startDate, #endDate').datepicker({
+    dateFormat: 'yy-mm-dd'
+  });
+
+  $('#downloadCsvModal').on('show.bs.modal', function (e) {
+    $('#allData').prop('checked', true);
+    $('#startDate, #endDate').prop('disabled', true);
+    $('#startDate').val(null);
+    $('#endDate').val(null);
+  });
+
+  $('#allData').change(function() {
+    $('#startDate').val(null);
+    $('#endDate').val(null);
+    $('#startDate, #endDate').prop('disabled', true);
+  });
+
+  $('#thisWeek').change(function() {
+    if ($(this).is(':checked')) {
+      setDateRange("week");
+    }
+  });
+
+  $('#thisMonth').change(function() {
+    if ($(this).is(':checked')) {
+      setDateRange("month");
+    }
+  });
+
+  $('#thisYear').change(function() {
+    if ($(this).is(':checked')) {
+      setDateRange("year");
+    }
+  });
+
+  $('#customDate').change(function() {
+    if ($(this).is(':checked')) {
+      setDateRange("day");
+      $('#startDate, #endDate').prop('disabled', false);
+    }
+  });
+
+  $('#dropdownMenu1').click(function(event) {
+    event.stopPropagation();
+    $('#column-visibility').toggle();
+  });
+
+  // Clicking outside closes the dropdown
+  $(document).click(function() {
+    $('#column-visibility').hide();
+  });
+
+  // Clicking inside the dropdown should not close it
+  $('#column-visibility').click(function(event) {
+    event.stopPropagation();
+  });
+
+  // Example: Checkbox column visibility toggle (DataTable logic if needed)
+  $('.column-toggle').on('change', function() {
+    var columnIdx = $(this).attr('data-column');
+    var table = $('#accounts-table').DataTable();
+    var column = table.column(columnIdx);
+    column.visible(!column.visible());
+  });
+
+  // Make columns sortable (optional, requires jQuery UI Sortable)
+  $('#column-visibility').sortable({
+    axis: "y",
+    containment: "parent",
+    stop: function(event, ui) {
+      var order = $("#column-visibility").sortable('toArray', {attribute: 'data-id'});
+      reorderTableColumns(order);
+    }
+  }).disableSelection();
+
+  function reorderTableColumns(order) {
+    var table = $('#accounts-table').DataTable();
+    var newOrder = order.map(Number);
+    table.colReorder.order(newOrder);
+  }
+
+  var downloadButton = document.getElementById('downloadButton');
+  if (downloadButton) {
+    downloadButton.addEventListener('click', function() {
+      event.preventDefault();
+
+      var allFieldsChecked = document.getElementById('allFields').checked;
+      var startDate = $('#startDate').val();
+      var endDate = $('#endDate').val();
+      var downloadAll = $('#allData').is(':checked');
+      var thElements = document.querySelectorAll('#accounts-table th');
+      var columnTitles = Array.from(thElements).map(function(th) {
+        return th.textContent.trim();
+      });
+      var columnsString = columnTitles.join(',')
+      var url = new URL("<%= download_accounts_path %>", window.location.origin);
+      var params = new URLSearchParams();
+      params.append('columnsString', columnsString);
+      if (!downloadAll) {
+        params.append('startDate', startDate);
+        params.append('endDate', endDate);
+      }
+      params.append('allFieldsChecked', allFieldsChecked);
+      params.append('search', searchQuery());
+      url.search = params.toString();
+      window.open(url.toString(), '_blank');
+    });
+  }
+
+  function searchQuery(){
+    var searchFields = $('.search-field');
+    var searchLabelsContainer = $('#search-labels-container');
+    searchLabelsContainer.empty();
+
+    var searchLabels = searchFields.map(function() {
+      var filter = $(this).find('.search-field-filter').val();
+      var value = $(this).find('.search-field-value').val();
+      var columnName = $(this).find('.search-field-filter').attr('name').replace('Filter', '').toLowerCase().replace(/\s+/g, '_');
+
+      if (value !== '') {
+        if (filter === 'like') {
+          return columnName + encodeURIComponent('[' + filter + ']') + '=' + encodeURIComponent('%' + value + '%');
+        } else {
+          return columnName + encodeURIComponent('[' + filter + ']') + '=' + encodeURIComponent(value);
+        }
+      }
+    }).get().join('&');
+
+    var searchLabelString = searchLabels.length > 0 ? ('_q=1&' + searchLabels) : '';
+    return searchLabelString;
+  };
+
+  updateDropdownOrder();
+
+  function updateDropdownOrder() {
+    var state = JSON.parse(localStorage.getItem('DataTables_accounts-table_' + window.location.pathname));
+    if (state === null) {
+      return;
+    }
+    var columnOrder = state.ColReorder;
+    var $list = $('#column-visibility');
+    var thElements = document.querySelectorAll('#accounts-table th');
+    var $columnTitles = Array.from(thElements).map(function(th) {
+      return th.textContent.trim();
+    });
+
+    if (columnOrder !== undefined) {
+      $list.empty();
+      var state = JSON.parse(localStorage.getItem('DataTables_accounts-table_' + window.location.pathname));
+      if (state !== null) {
+        var colsOrder = state.ColReorder;
+      }
+
+      columnOrder.forEach(function(colIdx, index) {
+        if (colsOrder) {
+          var data_id = colsOrder[index];
+        } else {
+          var data_id = index;
+        }
+
+        var $item = $('<li>', { class: "list-group-item-manual", "data-id": data_id });
+        var column = state.columns[colIdx];
+        var col_name = $columnTitles[colIdx];
+
+        var $label = $('<label>', {
+          class: "label-group-item-manual",
+        });
+
+        var $checkbox = $("<input>", {
+          type: "checkbox",
+          value: colIdx,
+          checked: column.visible,
+          "data-column": colIdx,
+          class: "column-toggle"
+        });
+
+        $label.append($checkbox).append(" " + col_name);
+
+        // ✅ Custom SVG drag icon
+        var $icon = $(`
+          <span class="icon-drag" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.66669 5H6.67198M6.66669 10H6.67198M6.66669 15H6.67198M13.3281 5H13.3334M13.3281 10H13.3334M13.3281 15H13.3334" stroke="#A4A7AE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        `);
+
+        $label.append($icon);
+        $item.append($label);
+        $list.append($item);
+      });
+    }
+
+    resetDataColumn();
+    resetDataId();
+  }
+
+
+  $("#column-visibility").sortable({
+    axis: "y",
+    containment: "parent",
+    stop: function(event, ui) {
+      var order = $("#column-visibility").sortable('toArray', {attribute: 'data-id'});
+      reorderTableColumns(order);
+    }
+  });
+  $("#column-visibility").disableSelection();
+
+  function reorderTableColumns(order) {
+    var table = $('#accounts-table').DataTable();
+    var columnIndexes = order.map(Number);
+    table.colReorder.order(columnIndexes);
+    resetDataColumn();
+    resetDataId();
+  }
+
+  function resetDataId() {
+    var elements = document.querySelectorAll('.list-group-item-manual');
+    elements.forEach(function(element, index) {
+      element.setAttribute('data-id', index);
+    });
+  }
+
+  function resetDataColumn() {
+    var elements = document.querySelectorAll('.column-toggle');
+    elements.forEach(function(element, index) {
+      element.setAttribute('data-column', index);
+    });
+  }
+
+  $('.column-toggle').on('change', function() {
+    var table = $('#accounts-table').DataTable();
+    var column = table.column($(this).attr('data-column'));
+    column.visible(!column.visible());
+  });
+});
+<% end %>

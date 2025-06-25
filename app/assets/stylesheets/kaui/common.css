@@ -725,3 +725,7 @@ form[id^="new_tag_definition"] #object_types div .tag-definition-select {
   padding-bottom: 10px !important;
   max-width: 1280px;
 }
+
+header {
+  border-bottom: 0 !important;
+}
