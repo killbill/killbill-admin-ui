@@ -8,9 +8,22 @@
     <%= render :template => 'kaui/layouts/kaui_navbar' %>
     <% end %>
 
-    <% if params[:account_id].present? %>
+    <%
+=begin%>
+ <% if params[:account_id].present? %>
     <%= render :template => 'kaui/layouts/kaui_account_navbar' %>
-    <% end %>
+    <% end %> 
+<%
+=end%>
+
+
+    <%
+=begin%>
+ <% if params[:account_id].present? %>
+        <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+    <% end %>  
+<%
+=end%>
 
     <div class="container-fluid auth-container">
         <%= render :template => 'kaui/layouts/kaui_flash' %>

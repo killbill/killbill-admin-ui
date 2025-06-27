@@ -1,4 +1,6 @@
-<tr>
+<%
+=begin%>
+ <tr>
   <th>Contact emails</th>
   <td>
     <% if account_emails.present? %>
@@ -8,6 +10,32 @@
     <% end %>
     <% if can? :add_emails, Kaui::Account %>
         <%= link_to '&nbsp<i class="fa fa-plus"></i>'.html_safe, kaui_engine.new_account_account_email_path(@account.account_id) %>
+    <% end %>
+  </td>
+</tr> 
+<%
+=end%>
+
+<tr>
+  <td>
+    <% if account_emails.present? %>
+      <div class="account-emails-list">
+        <% account_emails.each_with_index do |account_email, idx| %>
+          <div>
+            <%= account_email.email %><% if can? :delete_emails, Kaui::Account -%><%= link_to '<svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <path d="M9.8335 2.5L2.8335 9.50001M2.8335 2.5L9.8335 9.50001" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>'.html_safe, kaui_engine.account_account_email_path(account_email.account_id, account_email.email), :method => :delete -%><% end -%>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <% if can? :add_emails, Kaui::Account %>
+      <%= link_to kaui_engine.new_account_account_email_path(@account.account_id), class: 'add-link' do %>
+        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.33333 2.66675V13.3334M13.6667 8.00008H3" stroke="#1570EF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Add
+      <% end %>
     <% end %>
   </td>
 </tr>

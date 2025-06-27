@@ -393,7 +393,7 @@ table.subtitle td {
   padding: 0 25px;
   font-size: 14px;
   line-height: 50px;
-  max-height: 50px;
+  max-height: 58px;
   overflow: hidden;
   transition: all 0.5s;
 }

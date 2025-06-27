@@ -2,12 +2,14 @@
 <% type ||= "button" %>
 <% label ||= "Submit" %>
 <% icon ||= nil %>
+<% trailing_icon ||= nil %>
 <% html_class ||= "" %>
 <% html_options ||= {} %>
 
 <% icon_html = icon.present? ? image_tag(icon, class: "me-1", size: "16x16") : "" %>
+<% trailing_icon_html = trailing_icon.present? ? image_tag(trailing_icon, class: "ms-1", size: "16x16") : "" %>
 
-<%= tag.button raw("#{icon_html}#{label}"),
+<%= tag.button raw("#{icon_html}#{label}#{trailing_icon_html}"),
   type: type,
   class: "btn #{variant} #{html_class}",
   **html_options

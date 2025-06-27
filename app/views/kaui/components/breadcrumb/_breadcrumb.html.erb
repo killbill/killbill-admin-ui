@@ -35,7 +35,13 @@
         <% end %>
       <% end %>
     <% else %>
-      <% label = segment.titleize %>
+      <% # Check for UUID format for this segment %>
+      <% if segment.match?(/\A[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\z/i) && defined?(pretty_account_identifier) %>
+        <% label = pretty_account_identifier %>
+      <% else %>
+        <% label = segment.titleize %>
+      <% end %>
+
       <% if is_last %>
         <span class="breadcrumb-current"><%= label %></span>
       <% else %>
