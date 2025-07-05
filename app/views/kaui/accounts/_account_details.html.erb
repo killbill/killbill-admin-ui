@@ -1,0 +1,260 @@
+<div class="account-details">
+
+  <div class="d-flex flex-column ">
+
+    <div class="account-details-header">
+      <div class="d-flex align-items-center">
+      <h2>Account Information</h2>
+      <% unless @account.parent_account_id.nil? %>
+        <span class="label label-info account-child-label">Child</span>
+      <% end %>
+      <% if @children.size > 0 %>
+        <span class="label label-info account-child-label">Parent</span>
+      <% end %>
+      </div>
+      <span>
+        <% if @children.size > 0 %>
+          <% if @children.size > 0 %>
+            <%= link_to kaui_engine.account_children_path(@account.account_id),
+                        class: "btn btn-xs",
+                        title: "View Children" do %>
+              <%= render "kaui/components/button/button", {
+                    label: "Children (#{@children.size})",
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "button",
+                    html_class: "kaui-button custom-hover"
+                  } %>
+            <% end %>
+          <% end %>
+
+        <% end %>
+        <span class="tag-bar tag-bar-breathe">
+          <% unless @available_tags.blank? %>
+            <div class="tag-select" onclick="void(0)">
+              <%= render "kaui/components/button/button", {
+                label: "Tag As",
+                trailing_icon: "kaui/account/down-arrow.svg", 
+                variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                type: "button",
+                html_class: "kaui-button custom-hover",
+              } %>
+              <div class="tag-select-box">
+                <strong>Tag As:</strong>
+                <%= render :partial => 'kaui/account_tags/form_bar',
+                          :locals => {:account_id => @account.account_id,
+                                      :tag_names => @tags.map { |tag| tag.tag_definition_name },
+                                      :available_tags => @available_tags} %>
+              </div>
+            </div>
+          <% end %>
+        </span>
+
+        <% if can? :export, Kaui::AdminTenant %>
+          <%= link_to kaui_engine.export_account_path(@account.account_id), 
+                      :class => 'btn btn-xs', 
+                      :id => 'download_link', 
+                      :title => 'Export Account Data' do %>
+            <%= render "kaui/components/button/button", {
+                  label: "Export",
+                  icon: "kaui/download.svg", 
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-button custom-hover",
+                } %>
+          <% end %>
+        <% end %>
+
+        <% if can? :update, Kaui::Account %>
+          <%= link_to kaui_engine.edit_account_path(@account.account_id), 
+                      :class => 'btn btn-xs' do %>
+            <%= render "kaui/components/button/button", {
+                  label: "Edit",
+                  icon: "kaui/account/edit.svg", 
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-dropdown custom-hover",
+                } %>
+          <% end %>
+        <% end %>
+
+      </span>
+    </div>
+
+    <% unless @tags.find { |tag| tag.tag_definition_name == '__PARK__' }.nil? %>
+        <div class="alert alert-danger">
+          This account is parked, meaning the system detected inconsistent state which could lead to mis-billing. For safety, no more invoices will be generated.
+          <% if can? :trigger, Kaui::Invoice %>
+              Once the data is fixed, you can unpark it by manually <%= link_to 'triggering an invoice run', kaui_engine.trigger_invoice_path(params.to_h), :method => :post %>.
+          <% end %>
+        </div>
+    <% end %>
+
+    <div class="account-details-body">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h2 class="fw-semibold">ID</h2>
+          <p class="text-muted small mb-3 d-flex align-items-center">
+            <%= @account.account_id %>
+            <i class="fa fa-copy ms-2" role="button" title="Copy"></i>
+          </p>
+
+          <h2 class="fw-semibold">External Key</h2>
+          <p class="text-muted small mb-3"><%= @account.external_key %></p>
+
+          <h2 class="fw-semibold">Currency</h2>
+          <p class="text-muted small mb-3"><%= @account.currency %></p>
+
+          <% if can_close_account? && !account_closed? %>
+            <h2 class="mt-2">
+              <%= link_to(
+                raw('<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.6671 3.33325L3.33374 12.6666M3.33374 3.33325L12.6671 12.6666" stroke="#F04438" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg> Close Account'),
+                '#closeAccountModal',
+                class: 'text-danger fw-semibold text-decoration-none small d-inline-flex align-items-center gap-1',
+                data: { bs_toggle: 'modal', name: @account.name || '(not set)', account_id: @account.account_id }
+              ) %>
+            </h2>
+          <% end %>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <h2 class="fw-semibold">Timezone</h2>
+          <p class="text-muted small mb-3"><%= @account.time_zone %></p>
+
+          <h2 class="fw-semibold">Locale</h2>
+          <p class="text-muted small mb-3"><%= @account.locale %></p>
+
+          <h2 class="fw-semibold">Notes</h2>
+          <% if @account.notes.present? %>
+            <p class="text-muted small mb-3"><%= @account.notes %></p>
+          <% else %>
+            <p class="text-muted small mb-3">N/A</p>
+          <% end %>
+        </div>
+
+        <div class="col-md-4 mb-3 add_parent">
+          <h2 class="fw-semibold">Parent</h2>
+          <%= render partial: 'add_parent', locals: { account_parent: @account_parent } %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+  .account-details .account-details-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0;
+    border-bottom: 1px solid #E9EAEB;
+  }
+
+  .account-details .account-details-header h2 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    color: #414651;
+    margin-bottom: 20px;
+  }
+
+  .account-details .account-details-header .d-flex.align-items-center span {
+    margin: 0 0 16px 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    color: #067647 !important;
+    border: 1px solid #DCFAE6;
+    background: #ECFDF3;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+
+  }
+
+  .account-details .account-details-header a {
+    padding: 0;
+  }
+
+  .account-details .tag-bar button {
+    margin-top: -10px;
+
+  }
+
+  .account-details .tag-bar {
+    border-bottom: 0;
+  }
+
+  .account-details .account-details-body {
+    margin-top: 16px;
+  }
+
+  .account-details .account-details-body h2 {
+    color: #414651 !important;
+    font-weight: 600;
+    font-size: 14px !important;
+    line-height: 20px;
+    text-align: left;
+    margin-bottom: 0 !important;
+  }
+
+  .account-details .account-details-body p {
+    color: #717680 !important;
+    font-weight: 500;
+    font-size: 14px !important;
+    line-height: 20px;
+    text-align: left;
+  }
+
+  .account-details .account-details-body h2 a {
+    color: #D92D20 !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    line-height: 20px;
+    letter-spacing: 0px;
+
+  }
+
+  .account-details .account-details-body button {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #175CD3;
+    display: flex;
+    text-transform: capitalize;
+    align-items: center;
+    margin-top: 4px;
+    gap: 4px;
+  }
+
+  .account-details .add_parent a {
+    display: inline-block;
+    padding: 2px 8px;
+    font-family: system-ui, sans-serif;
+    font-size: 14px;
+    color: #434854;
+    text-decoration: none;
+    border: 1px solid #f1f1f1;
+    background: #fafafa;
+  }
+
+  .account-details .add_parent a:first-of-type {
+    border-right: none;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  .account-details .add_parent a:nth-of-type(2) {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-left: none;
+    margin-left: -5px;
+    color: #A4A7AE;
+    cursor: pointer;
+  }
+
+  .account-details .add_parent a:nth-of-type(2):hover {
+    color: #000;
+  }
+
+</style>

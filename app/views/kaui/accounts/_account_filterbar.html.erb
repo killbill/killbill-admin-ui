@@ -2,39 +2,63 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="advanceSearchModalLabel">Advance Search</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <h5 class="modal-title d-flex align-items-center gap-3" id="advanceSearchModalLabel">
+          <span class="icon-container">
+            <%= image_tag("kaui/modal/search.svg", width: 20, height: 20) %>
+          </span>
+          Advance Search
+        </h5>
+        <button type="button" class="close close-button custom-hover" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <%= image_tag("kaui/modal/close.svg", width: 20, height: 20) %>
+          </span>
         </button>
       </div>
       <div class="modal-body">
         <form id="advanceSearchForm">
           <div class="form-group d-flex align-items-center">
-            <label for="searchFieldSelect" class="mr-2" style="width: 30%;">Search Fields:</label>
-              <select id="searchFieldSelect" class="form-control mr-2">
-                <% @search_fields.each do |value, title| %>
-                  <option value="<%= value %>"><%= title %></option>
-                <% end %>
-              </select>
-            <button type="button" class="btn btn-secondary" id="addSearchField">Add</button>
+            <label for="searchFieldSelect" class="mr-2 field-label" style="width: 30%;">Search Field</label>
+            <select id="searchFieldSelect" class="form-control mr-2">
+              <% @search_fields.each do |value, title| %>
+                <option value="<%= value %>"><%= title %></option>
+              <% end %>
+            </select>
+            <button type="button" class="border-button custom-hover" id="addSearchField">
+              <%= image_tag("kaui/modal/plus.svg", width: 16, height: 16) %>
+            </button>
           </div>
           <div id="search-fields-container">
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="applyAdvanceSearch">Apply Search</button>
-        <button type="button" class="btn btn-danger" id="clearAdvanceSearch">Clear Search</button>
+        <%= render "kaui/components/button/button", {
+          label: 'Clear Search',
+          variant: "outline-secondary d-inline-flex align-items-center gap-1",
+          type: "button",
+          html_class: "kaui-button custom-hover",
+          html_options: {
+            id: "clearAdvanceSearch"
+          }
+        } %>
+        <%= render "kaui/components/button/button", {
+          label: 'Apply Search',
+          variant: "outline-secondary d-inline-flex align-items-center gap-1",
+          type: "button",
+          html_class: "kaui-dropdown custom-hover",
+          html_options: {
+            id: "applyAdvanceSearch"
+          }
+        } %>
       </div>
     </div>
   </div>
 </div>
 
 <template id="search-field-template">
-  <div class="form-group row align-items-center search-field">
-    <label class="col-sm-4 col-form-label search-field-label"></label>
-    <div class="col-sm-3">
+  <div class="form-group row align-items-center justify-content-between search-field">
+    <label class="col-sm-3 col-form-label search-field-label"></label>
+    <div class="col-sm-4">
       <select class="form-control search-field-filter">
         <option value="eq">Equals</option>
         <option value="neq">Not Equals</option>
@@ -48,13 +72,87 @@
     <div class="col-sm-4">
       <input type="text" class="form-control search-field-value">
     </div>
-    <div class="col-sm-1">
-      <i class="glyphicon glyphicon-remove" id=remove-search-field></i>
-    </div>
+    <button type="button" class="button custom-hover" id="remove-search-field">
+      <%= image_tag("kaui/modal/red-close.svg", width: 16, height: 16) %>
+    </button>
   </div>
 </template>
 
 <style>
+  .modal-content {
+    border-radius: 16px;
+    min-width: 648px;
+  }
+
+  .modal-body {
+    padding-bottom: 6px !important;
+    padding-top: 20px !important;
+  }
+
+  .modal-header { 
+    padding: 24px 24px 16px 24px !important;
+  }
+
+  .modal-footer {
+    padding: 16px 24px 24px 24px !important;
+  }
+
+  .modal-title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    color: #181D27;
+  }
+
+  .close-button {
+    background: transparent;
+    padding: 0;
+    margin-top: -20px;
+  }
+
+  .close-button:hover {
+    background: transparent;
+    padding: 0;
+  }
+
+  .border-button {
+    background: transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #D5D7DA;       
+    border-radius: 6px;           
+    width: 40px;                  
+    height: 40px;
+    padding: 10px;  
+  }
+
+  .border-button:hover {
+    background: transparent;
+  }
+
+  .button {
+    background: transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;                  
+    height: 40px;
+    padding: 10px;  
+  }
+
+  .button:hover {
+    background: transparent;
+  }
+
+  .field-label {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #414651;
+    min-width: 153.5px;
+  }
+
   .form-group.row.align-items-center {
     display: flex;
     align-items: center;
@@ -65,7 +163,19 @@
   }
 
   .form-group.row.align-items-center .form-control {
-    margin-right: 10px; /* Add some space between elements */
+    margin-right: 4px; /* Add some space between elements */
+    height: 40px;
+    border-radius: 6px;
+  }
+
+  .form-group.row.align-items-center.search-field div{
+    padding: 0;
+    margin-right: 4px;
+  }
+
+  .form-group.row.align-items-center .form-control:focus {
+    outline: none;
+    box-shadow: none;
   }
 
   .form-group.d-flex {
@@ -78,13 +188,35 @@
   }
 
   .form-group.d-flex .form-control {
-    margin-right: 10px; /* Add some space between the select box and the button */
+    margin-right: 4px; /* Add some space between the select box and the button */
+    height: 40px;
+    border-radius: 6px;
+  }
+
+  .form-group.d-flex .form-control:focus {
+    outline: none;
+    box-shadow: none;
   }
 
   #search-labels-container .label {
     margin-left: 5px; /* Add space between labels */
     margin-bottom: 5px; /* Add space below labels if they wrap to the next line */
     color: white;
+  }
+
+  .col-form-label {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #414651;
+    padding: 0;
+  }
+
+  #search-fields-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 16px 12px;
   }
 
   .filter-bar-container {
@@ -100,6 +232,40 @@
 
   .filter-bar label {
     margin: 10px; /* Add some space between the label and the select box */
+  }
+
+  .modal-header .icon-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #D5D7DA;       
+    border-radius: 6px;           
+    width: 40px;                  
+    height: 40px;
+    padding: 4px;                 
+  }
+
+  .modal-header .icon-container img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .form-group select.form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+
+    padding-right: 30px; /* To make space for the arrow */
+  }
+
+  select.form-control:focus {
+    box-shadow: none;
+    outline: none;
   }
 </style>
 

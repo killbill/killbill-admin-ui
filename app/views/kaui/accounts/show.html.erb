@@ -1,16 +1,34 @@
-<div class="row">
-  <%= render :partial => 'account_info' %>
+<div class="kaui-container">
+<%= render "kaui/components/breadcrumb/breadcrumb" %>
+<div class="d-flex" style="gap: 64px;">
+  <% if params[:account_id].present? %>
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+  <% end %>
+<div class="d-flex flex-column w-100">
+  <%
+=begin%>
+ <%= render :partial => 'account_info' %> 
+<%
+=end%>
+  <%= render :partial => 'account_details' %>
 
-  <%= render :partial => 'billing_info' %>
+  <%= render :partial => 'billing_details' %>
+
+  <%= render :partial => 'personal_details' %>
+
+  <%= render :partial => 'payment_gateways' %>
 </div>
-<div class="row">
-  <%= render :partial => 'personal_info' %>
-
-  <%= render :partial => 'payment_methods' %>
+</div>
 </div>
 
 
-<%= render :partial => 'link_parent_modal' %>
+<%
+=begin%>
+ <%= render :partial => 'link_parent_modal' %> 
+<%
+=end%>
+
+<%= render :partial => 'link_parent_to_modal' %>
 
 <% if email_notifications_plugin_available? %>
   <%= render :partial => 'kenui/email_notifications/configure_events_modal' %>

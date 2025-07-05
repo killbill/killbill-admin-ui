@@ -1,4 +1,6 @@
-<div class="modal fade" id="closeAccountModal" tabindex="-1" role="dialog">
+<%
+=begin%>
+ <div class="modal fade" id="closeAccountModal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content column-block">
       <div>
@@ -95,4 +97,261 @@
             $("#writeoffUnpaidInvoices").prop("checked",!$(this).prop("checked"));
         });
     });
+<% end %> 
+<%
+=end%>
+
+<div class="modal fade close_account_modal" id="closeAccountModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content column-block">
+      <div class="modal-header">
+        <h5 class="modal-title d-flex align-items-center gap-3">
+          <span class="icon-container">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.3334 5.83333C13.3334 7.67428 11.841 9.16667 10.0001 9.16667C8.15913 9.16667 6.66675 7.67428 6.66675 5.83333C6.66675 3.99238 8.15913 2.5 10.0001 2.5C11.841 2.5 13.3334 3.99238 13.3334 5.83333Z" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15.8334 15.8332C15.8334 13.532 13.9679 11.6665 11.6667 11.6665H8.33341C6.03223 11.6665 4.16675 13.532 4.16675 15.8332V17.4998H15.8334V15.8332Z" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          Close account
+        </h5>
+        <button type="button" class="close close-button custom-hover" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <%= image_tag("kaui/modal/close.svg", width: 20, height: 20) %>
+          </span>
+        </button>
+      </div>
+        <%= form_for :close, :url =>  '' , :method => :delete, :html => {:class => 'form-horizontal', :id => 'account-close-form'} do |f| %>
+      <div class="modal-body">
+            <div class='form-group mb-3'>
+              <%= f.label :name, 'Name', :class => 'col-sm-4 control-label' %>
+              <div class="col-sm-8">
+                <%= f.text_field :name, :class => 'form-control', :readonly => true %>
+              </div>
+            </div>
+            <div class='form-group mb-3'>
+              <%= f.label :account_id, 'Account id', :class => 'col-sm-4 control-label' %>
+              <div class="col-sm-8">
+                <%= f.text_field :account_id, :class => 'form-control', :readonly => true %>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4"></div>
+              <div class="col-sm-8 ml-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="options[]" id="cancelAllSubscriptions" value="cancel_all_subscriptions">
+                  <label class="form-check-label capitalize" for="cancelAllSubscriptions">
+                    Cancel all subscriptions.
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-4"></div>
+              <div class="col-sm-8 ml-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="options[]" id="writeoffUnpaidInvoices" value="writeoff_unpaid_invoices">
+                  <label class="form-check-label capitalize" for="writeoffUnpaidInvoices">
+                    Write off unpaid invoices.
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-4"></div>
+              <div class="col-sm-8 ml-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="options[]" id="itemAdjustUnpaidInvoices" value="item_adjust_unpaid_invoices">
+                  <label class="form-check-label capitalize" for="itemAdjustUnpaidInvoices">
+                    Item adjust unpaid invoices.
+                  </label>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <%= render "kaui/components/button/button", {
+              label: 'Cancel',
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "button",
+              html_class: "kaui-button custom-hover",
+              html_options: {
+                data: {
+                  bs_dismiss: "modal"
+                }
+              }
+            } %>
+            <%= render "kaui/components/button/button", {
+              label: 'Close Account',
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "submit",
+              html_class: "kaui-dropdown custom-hover"
+            } %>
+          </div>
+        <% end %>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<%= javascript_tag do %>
+    $(document).ready(function() {
+
+        $('#closeAccountModal').on('show.bs.modal', function (e) {
+            $("#close_account_id").val(e.relatedTarget.dataset['accountId']);
+            $("#close_name").val(e.relatedTarget.dataset['name']);
+
+            // reset toggles
+            var options = $("#closeAccountModal").find('input[type="checkbox"]');
+            $.each( options, function( index, elem ) {
+                $(elem).prop('checked',false);
+            });
+
+            $("#account-close-form").attr("action", Routes.kaui_engine_account_path(e.relatedTarget.dataset['accountId']));
+
+        });
+
+        $('#writeoffUnpaidInvoices').change(function(){
+            $("#itemAdjustUnpaidInvoices").prop("checked",!$(this).prop("checked"));
+        });
+
+        $('#itemAdjustUnpaidInvoices').change(function(){
+            $("#writeoffUnpaidInvoices").prop("checked",!$(this).prop("checked"));
+        });
+    });
 <% end %>
+
+
+<style>
+  .close_account_modal .modal-content {
+    border-radius: 16px;
+    min-width: 600px;
+    padding: 0;
+  }
+
+  .close_account_modal .modal-body {
+    padding-bottom: 16px !important;
+    padding-top: 20px !important;
+  }
+
+  .close_account_modal .modal-header { 
+    padding: 24px 24px 16px 24px !important;
+  }
+
+  .close_account_modal .modal-footer {
+    padding: 16px 24px 24px 24px !important;
+  }
+
+  .close_account_modal .modal-title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    color: #181D27;
+  }
+
+  .close_account_modal .close-button {
+    background: transparent;
+    padding: 0;
+    margin-top: -20px;
+  }
+
+  .close_account_modal .form-check label {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #414651;
+  }
+
+  .close_account_modal .form-group.mb-3 input {
+    background-color: #fafafa !important;
+  }
+
+  .close_account_modal .close-button:hover {
+    background: transparent;
+    padding: 0;
+  }
+
+  .close_account_modal .form-group {
+    display: flex;
+    align-items: center;
+  }
+
+  .close_account_modal .form-group label {
+    margin-bottom: 0; /* Remove default margin */
+  }
+
+  .close_account_modal .form-group .form-control {
+    margin-right: 4px; /* Add some space between elements */
+    height: 40px;
+    border-radius: 6px;
+  }
+
+  .close_account_modal .form-group div{
+    padding: 0;
+    margin-right: 20px;
+  }
+
+  .close_account_modal .form-group .form-control:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .close_account_modal .form-group.d-flex {
+    display: flex;
+    align-items: center;
+  }
+
+  .close_account_modal .form-group.d-flex label {
+    margin-bottom: 0;
+  }
+
+  .close_account_modal .form-group.d-flex .form-control {
+    margin-right: 4px;
+    height: 40px;
+    border-radius: 6px;
+  }
+
+  .close_account_modal .form-group.d-flex .form-control:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  #search-labels-container .label {
+    margin-left: 5px; 
+    margin-bottom: 5px;
+    color: white;
+  }
+
+  .close_account_modal .col-form-label {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #414651;
+    padding: 0;
+  }
+
+  .close_account_modal .modal-header .icon-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #D5D7DA;       
+    border-radius: 6px;           
+    width: 40px;                  
+    height: 40px;
+    padding: 4px;                 
+  }
+
+
+  .close_account_modal .label-group-item-manual {
+    padding: 8px 0;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #252B37;
+  }
+
+</style>

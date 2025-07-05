@@ -1,22 +1,82 @@
-<div class="search">
+<div class="kaui-container">
+  <div class="search">
+    <div>
+      
+      <%= render "kaui/components/breadcrumb/breadcrumb" %>
+      <%= render :partial => 'account_filterbar' %>   
 
-  <div class="column-block">
-    <%= render :partial => 'multi_functions_bar' %>
+      <%= render partial: 'functions_bar', locals: {
+        title: "Accounts",
+        actions: [
+          {
+            label: "Advanced Search",
+            icon: 'kaui/search.svg',
+            html_class: "kaui-button custom-hover",
+            path: "#",
+            variant: "outline-secondary",
+            data: {
+              bs_toggle: "modal",
+              bs_target: "#advanceSearchModal"
+            }
+          },
+          {
+            label: "Download CSV",
+            icon: 'kaui/download.svg',
+            html_class: "kaui-button custom-hover",
+            path: "#",
+            variant: "outline-secondary",
+            id: "modalDownloadButton"
+          },
+          {
+            label: "Edit Columns",
+            icon: 'kaui/setting.svg',
+            html_class: "kaui-button custom-hover",
+            path: "#",
+            variant: "outline-secondary",
+            id: "dropdownMenu1"
+          },
+          {
+            label: "Create Account",
+            icon: 'kaui/plus.svg',
+            path: kaui_engine.new_account_path,
+            html_class: "kaui-dropdown custom-hover",
+            variant: "outline-secondary"
+          }
+        ]
+      } %>
 
-    <table id="accounts-table" class="table table-condensed mobile-data" style="width:100%">
-      <thead>
-      <tr>
-        <% Kaui.account_search_columns.call[0].each do |title| %>
-          <th><%= title %></th>
-        <% end %>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td colspan="1" class="dataTables_empty">Loading data from server</td>
-      </tr>
-      </tbody>
-    </table>
+      <table id="accounts-table" class="table table-condensed mobile-data" style="width:100%">
+        <thead>
+        <%
+=begin%>
+ <% desired_order = ["Email", "Name", "Created At"] %>
+<% headers = Kaui.account_search_columns.call[0] %>
+<% sorted_headers = desired_order & headers %>
+<tr>
+  <% sorted_headers.each do |title| %>
+    <th><%= title %></th>
+  <% end %>
+</tr> 
+<%
+=end%>
+
+        <tr>
+          <% Kaui.account_search_columns.call[0].each do |title| %>
+            <th><%= title %></th>
+          <% end %>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+=begin%>
+ <tr>
+          <td colspan="1" class="dataTables_empty">Loading data from server</td>
+        </tr> 
+<%
+=end%>
+        </tbody>
+      </table> 
+    </div>
   </div>
 </div>
 

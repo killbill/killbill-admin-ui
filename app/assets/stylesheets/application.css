@@ -3,13 +3,14 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
+ *= require kaui/auth_pages.css
  *= require jquery-ui/autocomplete
  *= require bootstrap-datepicker3
  *= require kaui/account.css
  *= require kaui/audit.css
  *= require kaui/common.css
- *= require kaui/datatable.css
  *= require kaui/header.css
+ *= require kaui/dashboard.css
  *= require kaui/home.css
  *= require kaui/invoice.css
  *= require kaui/overdue.css
@@ -19,5 +20,7 @@
  *= require kaui/timeline.css
  *= require kaui/tooltip.css
  *= require kaui/kaui.css
+ *= require kaui/breadcrumb.css
  *= require assets/common
+ *= require kaui/datatable.css
 */
