@@ -1,6 +1,23 @@
 <% full_path = request.fullpath.gsub(/\?.*/, '') %>
 <% segments = full_path.split("/").reject(&:blank?) %>
 
+<% if params[:account_id].present? && full_path.starts_with?("/kaui/queues") %>
+  <% segments = ["kaui", "accounts", params[:account_id], "queues"] %>
+<% end %>
+
+<% # Map controller suffixes to their friendly sidebar labels %>
+<% segment_label_map = {
+  'accounts' => 'Account',
+  'bundles' => 'Subscriptions',
+  'invoices' => 'Invoices',
+  'payments' => 'Payments',
+  'timelines' => 'Timeline',
+  'account_tags' => 'Tags',
+  'custom_fields' => 'Custom Fields',
+  'queues' => 'Queues',
+  'logs' => 'Audit'
+} %>
+
 <nav class="breadcrumb-nav" aria-label="Breadcrumb">
   <% segments.each_with_index do |segment, index| %>
     <% is_last = index == segments.size - 1 %>
@@ -35,9 +52,11 @@
         <% end %>
       <% end %>
     <% else %>
-      <% # Check for UUID format for this segment %>
+      <% # Determine label for each segment %>
       <% if segment.match?(/\A[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\z/i) && defined?(pretty_account_identifier) %>
         <% label = pretty_account_identifier %>
+      <% elsif segment_label_map[segment] %>
+        <% label = segment_label_map[segment] %>
       <% else %>
         <% label = segment.titleize %>
       <% end %>

@@ -1,4 +1,6 @@
-<div class="search">
+<%
+=begin%>
+ <div class="search">
   <div class="column-block">
     <h1><%= I18n.translate('payments') %></h1>
     <%= render :partial => 'multi_functions_bar' %>
@@ -24,6 +26,462 @@
     white-space: nowrap;
   }
 </style>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  var stateKey = 'DataTables_payments-table';
+  var state = JSON.parse(localStorage.getItem(stateKey));
+  if (state) {
+    state.start = <%= @offset %>;
+    state.search = { search: "<%= @search_query %>" };
+    localStorage.setItem(stateKey, JSON.stringify(state));
+  }
+
+  var table = $('#payments-table').DataTable({
+    "colReorder": {
+      "enable": false
+    },
+    "stateSave": true,
+    "stateSaveCallback": function(settings, data) {
+      localStorage.setItem('DataTables_payments-table', JSON.stringify(data));
+    },
+    "stateLoadCallback": function(settings) {
+      return JSON.parse(localStorage.getItem('DataTables_payments-table'));
+    },
+    "scrollX": true,
+    <% if @account.account_id.blank? %>
+      "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+      "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
+      "language": {
+        <!-- See DefaultPaginationSqlDaoHelper.java -->
+        "info": <% if @max_nb_records.nil? -%>"Showing _START_ to _END_ of <%= number_with_delimiter(Kaui::EngineControllerUtil::SIMPLE_PAGINATION_THRESHOLD) -%>+ entries"<% else -%>"Showing _START_ to _END_ of _TOTAL_ entries"<% end -%>
+      },
+      "pageLength": <%= @limit %>,
+      "displayStart": <%= @offset %>,
+      "ajax": {
+        url: "<%= payments_pagination_path(:ordering => @ordering, :format => :json, :advance_search_query => @advance_search_query) %>",
+        dataSrc: function(json) {
+          var colOrder = $('#payments-table').DataTable().colReorder.order();
+          var reorderedData = json.data.map(function(row) {
+            var newRow = [];
+            for (var i = 0; i < colOrder.length; i++) {
+              newRow.push(row[colOrder[i]]);
+            }
+            return newRow;
+          });
+          return reorderedData;
+        }
+      },
+    <% else %>
+      // No paging for per-account listings
+      "dom": "t",
+      "paging": false,
+      "ajax": {
+        url: "<%= payments_pagination_path(:format => :json, :advance_search_query => @advance_search_query) %>",
+        data: function(d) {
+          d.colum_order = $('#payments-table').DataTable().colReorder.order();
+        },
+        dataSrc: function(json) {
+          var colOrder = $('#payments-table').DataTable().colReorder.order();
+          var reorderedData = json.data.map(function(row) {
+            var newRow = [];
+            for (var i = 0; i < colOrder.length; i++) {
+              newRow.push(row[colOrder[i]]);
+            }
+            return newRow;
+          });
+          return reorderedData;
+        }
+      },
+    <% end %>
+    <% if @search_query.blank? %>
+      "ordering": false,
+    <% elsif !@ordering.blank? %>
+      "order": [[ 0, "<%= @ordering %>" ]],
+    <% end %>
+    "processing": true,
+    "serverSide": true,
+    "search": {"search": "<%= @search_query %>"},
+  });
+
+  <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->
+  $('#payments-table').on('draw.dt', function() {
+    <% if @max_nb_records.nil? %>
+      var noMoreData = table.column(0)
+                            .data()
+                            .length == 0;
+      $(".next.paginate_button").toggleClass("disabled", noMoreData);
+      $(".dataTables_info").toggle(!noMoreData);
+    <% end %>
+    populateSearchLabelsFromUrl();
+  });
+});
+<% end %> 
+<%
+=end%>
+
+<div class="kaui-container">
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <div class="d-flex " style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+    <div class="payments">
+      <div class="d-flex flex-column ">
+        <div class="payments-header mb-4">
+          <div class="d-flex align-items-center">
+          <h2><%= I18n.translate('payments') %></h2>
+          </div>
+          <span>
+            <%= render :partial => 'multi_functions_bar' %>
+          </span>
+        </div>
+        <div id="search-labels-container" class="ml-2">
+          <!-- Dynamic search labels will be added here -->
+        </div>
+        <table id="payments-table" class="payments-table">
+          <thead class="table-header">
+            <tr>
+              <% Kaui.account_payments_columns.call()[0].each do |title| %>
+                <th><%= title %></th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody class="table-body">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .payments {
+    max-width: 67.5625rem;
+  }
+
+  .payments .payments-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0;
+    border-bottom: 0.0625rem solid #E9EAEB;
+  }
+
+  .payments-table {
+  }
+
+  .payments-table th,
+  .payments-table td {
+    white-space: nowrap;
+    text-align: left;
+  }
+
+  .payments .payments-header h2 {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #414651;
+    margin-bottom: 1.25rem;
+  }
+
+  .payments .bundle-details-header b {
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+    color: #414651;
+  }
+
+  .payments .bundle-details-header p {
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+    color: #717680;
+  }
+
+  .payments .payments-table {
+    overflow-x: auto;
+    min-width: 100%;
+  }
+
+
+  .payments .payments-table th {
+    padding: 0.375rem 1.625rem 0.375rem 0.75rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    letter-spacing: 0;
+    color: #717680;
+    text-transform: capitalize;
+  }
+
+  .payments .payments-table tr td:not(:first-child) a {
+    color: #535862 !important;
+    text-decoration: none !important;
+  }
+
+  .payments .payments-table td span.alert-success {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.125rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 62.4375rem;
+    background-color: #ECFDF3;
+    border: 0.0625rem solid #DCFAE6;
+    color: #067647;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    position: relative;
+  }
+
+  .payments .payments-table td span.alert-success::before {
+    content: '';
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 3L4.5 8.5L2 6' stroke='%2317B26A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .payments .payments-table td span.alert-danger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.125rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 62.4375rem;
+    background-color: #FEF3F2;
+    border: 0.0625rem solid #FEE4E2;
+    color: #B42318;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    position: relative;
+  }
+
+  .payments .payments-table td span.alert-danger::before {
+    content: '';
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.5 3.5L3.5 8.5M3.5 3.5L8.5 8.5' stroke='%23F97066' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .payments .payments-table .label.label-default {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.125rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 62.4375rem;
+    background-color: #FAFAFA;
+    border: 0.0625rem solid #F5F5F5;
+    color: #414651;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    position: relative;
+  }
+
+  .payments .payments-table .category-bedge {
+    display: inline-block;
+    padding: 0.125rem 0.5rem !important;
+    border: 0.0625rem solid #F5F5F5 !important;
+    border-radius: 624.9375rem;
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    color: #414651 !important;
+    background-color: #FAFAFA;
+    text-transform: capitalize;
+  }
+
+  .payments .payments-table .phase-type {
+    display: inline-block;
+    padding: 0.125rem 0.5rem !important;
+    border: 0.0625rem solid #D1E9FF !important;
+    border-radius: 624.9375rem;
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    color: #175CD3 !important;
+    background-color: #EFF8FF;
+    text-transform: capitalize;
+  }
+
+  .payments .payments-table td {
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    padding: 1rem 0.5rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    width: ;
+    color: #535862 !important;
+    text-transform: capitalize !important;
+  }
+
+  .payments .search table th:first-of-type, .search table td:first-of-type {
+    font-weight: 500 !important;
+  }
+
+  .payments .cancel-menu ul {
+    padding: 0.25rem 0.375rem !important;
+    min-width: 16rem;
+  }
+
+  .payments .cancel-menu li {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+  }
+
+  .payments .cancel-menu li:hover {
+    background-color: #FAFAFA !important;
+  }
+
+  .payments .cancel-menu li a {
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
+    letter-spacing: 0 !important;
+    color: #717680 !important;
+    text-transform: capitalize !important;
+    text-decoration: none;
+  }
+
+  .payments .cancel-button {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    color: #D92D20 !important;
+    flex-direction: row-reverse;
+    text-transform: capitalize;
+    gap: 0.00625rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+    margin-left: 0.75rem;
+    text-decoration: none;
+  }
+
+  .payments table.dataTable {
+    overflow: auto !important;
+  }
+
+  .payments .dots-menu {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    margin-left: 0.75rem !important;
+  }
+
+  .payments .change-btn {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+    color: #535862;
+    margin-left: 0.75rem;
+    text-decoration: none;
+  }
+
+  .payments .dataTables_scrollHead table thead tr th::after {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 5.5L6 2.5L9 5.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0.75rem 0.75rem !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    top: 45% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .payments .dataTables_scrollHead table thead tr th::before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6.5L6 9.5L9 6.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0.75rem 0.75rem !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    bottom: 45% !important;
+    transform: translateY(50%) !important;
+  }
+
+  .payments .pagination a:not(:first-child):not(:last-child) {
+    color: #717680;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+  }
+
+  .payments .pagination a:not(:first-child):not(:last-child).btn-primary {
+    color: #414651;
+    background-color: #F5F5F5 !important;
+    border: 0 !important;
+  }
+
+  .payments .dataTables_paginate {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .payments .dataTables_paginate span .paginate_button {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #717680 !important; 
+    text-decoration: none;
+    border: 0 !important;
+  }
+
+  .payments .dataTables_paginate .paginate_button:hover {
+    background-color: #F3F4F6;
+  }
+
+  .payments .dataTables_paginate .paginate_button.current {
+    background-color: #F5F5F5 !important;
+    border-radius: 0.375rem !important;
+    color: #414651 !important;
+  }
+
+  .payments .dataTables_paginate .paginate_button.last,
+  .payments .dataTables_paginate .paginate_button.previous {
+    border: 0.0625rem solid #E5E7EB;
+    border-radius: 0.5rem;
+    background-color: white;
+    padding: 0.5rem 0.875rem;
+    color: #374151;
+  }
+
+  .payments #payments-table_first,
+  .payments #payments-table_last {
+    display: none !important;
+  }
+
+</style>
+
 
 <%= javascript_tag do %>
 $(document).ready(function() {

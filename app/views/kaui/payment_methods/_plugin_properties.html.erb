@@ -1,4 +1,6 @@
-<div id="plugin_properties" class="row">
+<%
+=begin%>
+ <div id="plugin_properties" class="row">
   <a class='btn btn-xs' href="javascript:void(0);" onclick="payment_new_property();" id="new_property"><%= '<i class="fa fa-plus-square"></i>'.html_safe + " add property" %></a>
   <table id="plugin_properties_table" class="table table-condensed">
     <thead>
@@ -70,6 +72,96 @@
           $(this).contents().each(function(){
             $(this).val('');
           });
+        });
+      }
+    }
+
+<% end %> 
+<%
+=end%>
+
+<div id="plugin_properties" class="">
+  <a class='dots-menu kaui-button' href="javascript:void(0);" onclick="payment_new_property();" id="new_property"><%= '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.99992 3.3335V16.6668M16.6666 10.0002H3.33325" stroke="#1570EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>'.html_safe + " Add Property" %></a>
+  <table id="plugin_properties_table" class="">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% (@plugin_properties ||= [{}]).each_with_index do |plugin_properties, index| %>
+      <%= fields :plugin_properties do |property| %>
+        <%= property.fields_for "#{index}", plugin_properties do |key_value| %>
+          <tr id="plugin_property_<%= index %>" >
+            <td><%= key_value.text_field :key, class: 'form-control' %></td>
+            <td><%= key_value.text_field :value, class: 'form-control' %></td>
+            <td>
+              <a href="javascript:void(0);" onclick="delete_property(this);" id="delete_plugin_property_<%= index %>"><%= '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_394_21877)">
+                <path d="M12.6671 3.3335L3.33374 12.6668M3.33374 3.3335L12.6671 12.6668" stroke="#D92D20" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_394_21877">
+                <rect width="16" height="16" fill="white"/>
+                </clipPath>
+                </defs>
+                </svg>'.html_safe %>
+              </a>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+  <hr/>
+</div>
+
+<%= javascript_tag do %>
+
+    function payment_new_property() {
+      /* Compute max index value to assign new rows with unsued index */
+      var max_idx = $.map($('[id^=delete_plugin_property_]'), function(e, i) {
+        return e.id.split("delete_plugin_property_")[1] }
+        ).sort(function(a, b) {
+            return b - a
+      })[0];
+
+      /* Clone existing row and reset id based on max_idx */
+      var row = $('#plugin_properties_table tbody>tr:last').clone(true);
+      var row_idx = (parseInt(max_idx) + 1).toString();
+      row.attr('id', "plugin_property_" + row_idx);
+      row.children("td:last").children('a').attr('id', "delete_plugin_property_" + row_idx);
+
+      /* update the index and reset value on content */
+      row.find('td').each(function(){
+        $(this).contents().each(function(){
+
+          if ($(this).attr('name') != undefined){
+            $(this).attr('name',($(this).attr('name')).replace(max_idx,row_idx));
+          }
+
+          $(this).val('');
+        });
+      });
+
+      /* Attach row into dom */
+      row.insertAfter('#plugin_properties_table tbody>tr:last');
+    }
+
+    function delete_property(obj) {
+      var idx = obj.id.split("delete_plugin_property_")[1];
+      var rowCount = $('#plugin_properties_table tbody tr').length;
+
+      if (rowCount > 1) {
+        $("#plugin_property_" + idx).remove();
+      } else {
+        $("#plugin_property_" + idx).find('td').each(function(){
+          $(this).find('input').val('');
         });
       }
     }

@@ -1,4 +1,6 @@
-<div class="filter-bar-container">
+<%
+=begin%>
+ <div class="filter-bar-container">
   <div class="filter-bar">
     <button class="btn btn-default download-button-right" data-toggle="modal" data-target="#advanceSearchModal">
       <i class="glyphicon glyphicon-search"></i>
@@ -332,6 +334,523 @@ $(document).ready(function() {
     var table = $('#invoices-table').DataTable();
     var column = table.column($(this).attr('data-column'));
     column.visible(!column.visible());
+  });
+});
+<% end %> 
+<%
+=end%>
+
+<div class="d-flex">
+<div class="filter-bar-container">
+  <div class="filter-bar">
+    <%= render "kaui/components/button/button", {
+      label: "Advance Search",
+      icon: "kaui/search.svg",
+      variant: "outline-secondary d-inline-flex align-items-center gap-1",
+      type: "button",
+      html_class: "kaui-button custom-hover",
+      html_options: {
+        data: {
+          bs_toggle: "modal",
+          bs_target: "#advanceSearchModal"
+        }
+      }
+    } %>
+
+    <%
+=begin%>
+ <div id="search-labels-container" class="ml-2">
+      <!-- Dynamic search labels will be added here -->
+    </div> 
+<%
+=end%>
+
+  </div>
+</div>
+
+<%= render :partial => 'invoice_filterbar' %>
+
+<div class="dropdown-container">
+  <%= render "kaui/components/button/button", {
+    label: "Download CSV",
+    icon: "kaui/download.svg",
+    variant: "outline-secondary d-inline-flex align-items-center gap-1 mx-2",
+    type: "button",
+    html_class: "kaui-button custom-hover",
+    html_options: {
+      id: "modalDownloadButton"
+    }
+  } %>
+  <div class="dropdown">
+    <%= render "kaui/components/button/button", {
+      label: "Edit Columns",
+      icon: "kaui/setting.svg",
+      variant: "outline-secondary d-inline-flex align-items-center gap-1",
+      type: "button",
+      html_class: "kaui-button custom-hover",
+      html_options: {
+        id: "dropdownMenu1",
+        data: {
+          bs_toggle: "dropdown"
+        }
+      }
+    } %>
+    <ul class="dropdown-menu" id="column-visibility" aria-labelledby="v">
+      <%  Kaui.account_invoices_columns.call[0].each_with_index do |title, index| %>
+          <li class="list-group-item-manual" data-id="<%= index %>">
+            <label class="label-group-item-manual">
+              <input type="checkbox" class="column-toggle" draggable="true" data-column="<%= index %>" checked> 
+              <%= title %>
+              <span class="icon-drag" aria-hidden="true"></span>
+            </label>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="modal fade" id="downloadCsvModal" tabindex="-1" role="dialog" aria-labelledby="downloadCsvModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title d-flex align-items-center gap-3" id="downloadCsvModalLabel">
+          <span class="icon-container">
+            <%= image_tag("kaui/download-csv.svg") %>
+          </span>
+          Download
+        </h5>
+        <button type="button" class="close close-button custom-hover" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <%= image_tag("kaui/modal/close.svg", width: 20, height: 20) %>
+          </span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="downloadCsvForm">
+          <div class="row">
+            <div class="d-flex align-items-center">
+              <label for="searchFieldSelect" class="field-label col-sm-3">Account Creation Date</label>
+                <div class="fake-select-wrapper col-sm-9">
+                  <input type="checkbox" id="single-toggle" hidden />
+                  <div class="d-flex align-items-center position-relative">
+                    <label for="single-toggle" class="fake-select-display">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.5833 12.5V18.3333M17.5 15.4167H11.6666" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13.75 1.6665V4.99984M6.25 1.6665V4.99984" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.5 10.8335V5.00016C17.5 4.07969 16.7538 3.3335 15.8333 3.3335H4.16667C3.24619 3.3335 2.5 4.07969 2.5 5.00016V16.6668C2.5 17.5873 3.24619 18.3335 4.16667 18.3335H10" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2.5 8.3335H17.5" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </label>
+                    <input type="text" class="form-control center-input" id="startDate" placeholder="All accounts" name="startDate">
+                    <div id="dash" class="dash">–</div>
+                    <input type="text" class="form-control right-input" id="endDate" name="endDate">
+                    <div id="toggle-wrapper" class="position-absolute" style="width: 100%; height: 100%;" onclick="document.getElementById('single-toggle').click()"></div>
+                  </div>
+
+                  <% today = Date.today %>
+
+                  <% start_of_year = Date.new(today.year, 1, 1) %>
+                  <% end_of_year = Date.new(today.year, 12, 31) %>
+                  <% this_year_range = "#{start_of_year.strftime('%b %-d, %Y')} – #{end_of_year.strftime('%b %-d, %Y')}" %>
+
+                  <% start_of_month = Date.new(today.year, today.month, 1) %>
+                  <% end_of_month = Date.new(today.year, today.month, -1) %>
+                  <% this_month_range = "#{start_of_month.strftime('%b %-d, %Y')} – #{end_of_month.strftime('%b %-d, %Y')}" %>
+
+                  <% start_of_week = today - ((today.wday - 1) % 7) %>
+                  <% end_of_week = start_of_week + 6 %>
+                  <% this_week_range = "#{start_of_week.strftime('%b %-d, %Y')} – #{end_of_week.strftime('%b %-d, %Y')}" %>
+
+
+                  <div class="fake-select-dropdown">
+                    <label class="fake-select-option">
+                      <input type="radio" name="download_option" id="allData" />
+                      <span>All accounts</span>
+                    </label>
+
+                    <label class="fake-select-option">
+                      <input type="radio" name="download_option" id="thisWeek" />
+                      <span>This week <small>(<%= this_week_range %>)</small></span>
+                    </label>
+
+                    <label class="fake-select-option">
+                      <input type="radio" name="download_option" id="thisMonth" />
+                      <span>This month <small>(<%= this_month_range %>)</small></span>
+                    </label>
+
+                    <label class="fake-select-option">
+                      <input type="radio" name="download_option" id="thisYear" />
+                      <span>This year <small>(<%= this_year_range %>)</small></span>
+                    </label>
+                    <label class="fake-select-option">
+                      <input type="radio" name="download_option" id="customDate" />
+                      <span>Custom date</span>
+                    </label>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="d-flex align-items-center">
+              <label for="searchFieldSelect" class="field-label col-sm-3">Include fields</label>
+              <div class="col-md-9">
+                <div class="chip-select">
+                  <input type="checkbox" id="dropdown-toggle" hidden />
+
+                  <label for="dropdown-toggle" class="chip-input-box position-relative">
+                    <div class="chip-list">
+                      <input type="checkbox" id="allFields" hidden />
+                      <label for="allFields" class="chip">All fields</label>
+                      <svg width="16" height="16" class="position-absolute" style="top: 0.625rem; right: 0.625rem;" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 6L8 10L12 6" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <div id="" class="position-absolute" style="width: 100%; height: 100%; top: 0; left: 0;"></div>
+                  </label>
+                  <div class="chip-dropdown">
+                    <label class="chip-option">
+                      <input type="checkbox" id="allFields" onchange="document.getElementById('allFields').click()" />
+                      All fields
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <%= render "kaui/components/button/button", {
+          label: 'Close',
+          variant: "outline-secondary d-inline-flex align-items-center gap-1",
+          type: "button",
+          html_class: "kaui-button custom-hover mx-2 my-0",
+          html_options: {
+            data: {
+              bs_dismiss: "modal"
+            },
+          }
+        } %>
+        <%= render "kaui/components/button/button", {
+          label: 'Download CSV',
+          variant: "outline-secondary d-inline-flex align-items-center gap-1",
+          type: "button",
+          html_class: "kaui-dropdown custom-hover m-0",
+          html_options: {
+            id: "downloadButton"
+          }
+        } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<style>
+  .dropdown-menu#column-visibility {
+    max-height: 18.75rem;
+    width: 12.5rem;
+    overflow-y: auto;
+  }
+
+  .dropdown-menu {
+    padding: 0.3125rem;
+  }
+
+  .dropdown-menu#column-visibility::before {
+    content: 'Drag to reorder columns';
+    display: block;
+    height: 1.875rem;
+    text-align: center;
+    color: darkgrey;
+    padding-top: 0.3125rem;
+  }
+
+  .toggle-button-right {
+    float: right;
+    margin-bottom: 0.625rem;
+    margin-left: 0.625rem;
+    background-color: white;
+    color: black;
+    text-transform: none;
+    border: 0.0625rem solid #ccc;
+    padding: 0.5rem 0.9375rem;
+  }
+
+  .download-button-right {
+    float: right;
+    margin-bottom: 0.625rem;
+    margin-left: 0.625rem;
+    background-color: white;
+    color: black;
+    text-transform: none;
+    border: 0.0625rem solid #ccc;
+    padding: 0.5rem 0.9375rem;
+  }
+
+  .icon-drag {
+    margin-left: auto;
+  }
+
+  .dropdown-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .label-group-item-manual {
+    margin: 0.3125rem;
+    padding: 0.5rem 0.625rem;
+    width: -webkit-fill-available;
+    cursor: grab;
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #252B37;
+  }
+
+  .label-group-item-manual:active {
+    background: #FAFAFA;
+    cursor: grabbing;
+  }
+
+  .label-group-item-manual span {
+    cursor: grab;
+  }
+
+  .label-group-item-manual:has(input[type="checkbox"]:checked) {
+    background-color: #FAFAFA;
+    border-radius: 0.25rem;
+    cursor: pointer !important;
+  }
+
+  .list-group-item-manual {
+    cursor: grab;
+    margin-bottom: 0.3125rem;
+  }
+
+  .list-group-item-manual:active {
+    cursor: grabbing;
+  }
+
+  .dropdown-menu.ui-sortable {
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+    border-radius: 0.375rem;
+    border: 0.0625rem solid #00000014 !important;
+    margin: 0.625rem 0 0;
+    min-width: 13.125rem;
+  }
+
+  .dropdown-menu.ui-sortable::-webkit-scrollbar {
+    width: 0.375rem;
+  }
+
+  .dropdown-menu.ui-sortable::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 0.1875rem;
+  }
+
+  .dropdown-menu.ui-sortable::-webkit-scrollbar-track {
+    background: transparent;
+  }
+</style>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $('.dropdown-menu').on('click', 'input[type="checkbox"], label', function(event) {
+    event.stopPropagation();
+  });
+
+  $('#modalDownloadButton').click(function() {
+    $('#downloadCsvModal').modal('show');
+  });
+  $('#startDate, #endDate').datepicker({
+    dateFormat: 'yy-mm-dd'
+  });
+
+  $('#downloadCsvModal').on('show.bs.modal', function (e) {
+    $('#allData').prop('checked', true);
+    $('#startDate, #endDate').prop('disabled', true);
+    $('#toggle-wrapper').show();
+    $('#dash').hide();
+    $('#startDate').val(null);
+    $('#endDate').val(null);
+  });
+
+  $('#allData').change(function() {
+    $('#startDate').val(null);
+    $('#endDate').val(null);
+    $('#toggle-wrapper').show();
+    $('#dash').hide();
+    $('#startDate, #endDate').prop('disabled', true);
+  });
+
+  $('#thisWeek').change(function() {
+    if ($(this).is(':checked')) {
+      setDateRange("week");
+      $('#toggle-wrapper').show();
+      $('#dash').show();
+    }
+  });
+
+  $('#thisMonth').change(function() {
+    if ($(this).is(':checked')) {
+      setDateRange("month");
+      $('#toggle-wrapper').show();
+      $('#dash').show();
+    }
+  });
+
+  $('#thisYear').change(function() {
+    if ($(this).is(':checked')) {
+      setDateRange("year");
+      $('#toggle-wrapper').show();
+      $('#dash').show();
+    }
+  });
+
+  $('#customDate').change(function() {
+    if ($(this).is(':checked')) {
+      setDateRange("day");
+      $('#startDate, #endDate').prop('disabled', false);
+      $('#toggle-wrapper').hide();
+      $('#dash').show();
+    }
+  });
+
+  var downloadButton = document.getElementById('downloadButton');
+  if (downloadButton) {
+    downloadButton.addEventListener('click', function() {
+      event.preventDefault();
+
+      var allFieldsChecked = $('#allFields').is(':checked');
+      var startDate = $('#startDate').val();
+      var endDate = $('#endDate').val();
+      var downloadAll = $('#allData').is(':checked');
+      var thElements = document.querySelectorAll('#invoices-table th');
+      var columnTitles = Array.from(thElements).map(function(th) {
+        return th.textContent.trim();
+      });
+      var columnsString = columnTitles.join(',')
+
+      var url = new URL("<%= download_invoices_path %>", window.location.origin);
+      var params = new URLSearchParams();
+      params.append('account_id', "<%=@account.account_id%>");
+      params.append('columnsString', columnsString);
+      if (!downloadAll) {
+        params.append('startDate', startDate);
+        params.append('endDate', endDate);
+      }
+      params.append('allFieldsChecked', allFieldsChecked);
+      params.append('search', searchQuery());
+      url.search = params.toString();
+      window.open(url.toString(), '_blank');
+    });
+  }
+
+  updateDropdownOrder();
+
+  function loadState() {
+    var state = JSON.parse(localStorage.getItem('DataTables_invoices-table'));
+    return state || { columns: [], columnOrder: [] };
+  }
+
+  function updateDropdownOrder() {
+    var state = loadState();
+    var columnOrder = state.ColReorder;
+    var $list = $('#column-visibility');
+    var thElements = document.querySelectorAll('#invoices-table th');
+    var $columnTitles = Array.from(thElements).map(function(th) {
+      return th.textContent.trim();
+    });
+    if (columnOrder !== undefined) {
+      $list.empty();
+      columnOrder.forEach(function(colIdx, index) {
+        var $item = $('<li>', { class: "list-group-item-manual", "data-id": index });
+        var column = state.columns[colIdx];
+        var col_name = $columnTitles[colIdx];
+        var $label = $('<label>', {
+          class: "label-group-item-manual",
+          });
+        var $checkbox = $("<input>", {
+          type: "checkbox",
+          value: colIdx,
+          checked: column.visible,
+          "data-column": colIdx,
+          class: "column-toggle"
+        });
+        $label.append($checkbox).append(" " + col_name);
+        var $icon = $(`
+          <span class="icon-drag" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.66669 5H6.67198M6.66669 10H6.67198M6.66669 15H6.67198M13.3281 5H13.3334M13.3281 10H13.3334M13.3281 15H13.3334" stroke="#A4A7AE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        `);
+        $label.append($icon);
+        $item.append($label);
+        $list.append($item);
+      });
+    }
+    resetDataColumn();
+    resetDataId();
+  }
+
+  $("#column-visibility").sortable({
+    axis: "y",
+    containment: "parent",
+    stop: function(event, ui) {
+      var order = $("#column-visibility").sortable('toArray', {attribute: 'data-id'});
+      reorderTableColumns(order);
+    }
+  });
+  $("#column-visibility").disableSelection();
+
+  function reorderTableColumns(order) {
+    var table = $('#invoices-table').DataTable();
+    var columnIndexes = order.map(Number);
+    table.colReorder.order(columnIndexes);
+    resetDataColumn();
+    resetDataId();
+  }
+
+  function resetDataId() {
+    var elements = document.querySelectorAll('.list-group-item-manual');
+    elements.forEach(function(element, index) {
+      element.setAttribute('data-id', index);
+    });
+  }
+
+  function resetDataColumn() {
+    var elements = document.querySelectorAll('.column-toggle');
+    elements.forEach(function(element, index) {
+      element.setAttribute('data-column', index);
+    });
+  }
+
+  $('.column-toggle').on('change', function() {
+    var table = $('#invoices-table').DataTable();
+    var column = table.column($(this).attr('data-column'));
+    column.visible(!column.visible());
+  });
+
+  document.addEventListener('click', function (e) {
+    const wrapper = document.querySelector('.chip-select');
+    const toggle = document.getElementById('dropdown-toggle');
+
+    if (wrapper && !wrapper.contains(e.target)) {
+      toggle.checked = false; // close dropdown
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    const wrapper = document.querySelector('.fake-select-wrapper');
+    const toggle = document.getElementById('single-toggle');
+    if (!wrapper.contains(e.target)) toggle.checked = false;
   });
 });
 <% end %>

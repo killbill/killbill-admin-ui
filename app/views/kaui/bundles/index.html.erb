@@ -1,4 +1,6 @@
-<div class="column-block subscription-bundle">
+<%
+=begin%>
+ <div class="column-block subscription-bundle">
 
   <h1>Subscription Bundles
     <% if can? :create, Kaui::Subscription %>
@@ -110,4 +112,320 @@
     <%= link_to 'Last', account_bundles_path(page: @total_pages), class: "btn btn-custom #{'disabled' if @page == @total_pages}" %>
   </div>
 
+</div> 
+<%
+=end%>
+
+<div class="kaui-container">
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <div class="d-flex" style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+    <div class="subscription-bundle">
+      <div class="d-flex flex-column ">
+        <div class="subscription-bundle-header mb-4">
+          <div class="d-flex align-items-center">
+          <h2>Subscription Bundles</h2>
+          </div>
+          <span>
+            <% if can? :create, Kaui::Subscription %>
+              <%= link_to kaui_engine.new_subscription_path(:params => { :account_id => @account.account_id, :product_category => 'BASE' }) do %>
+                <%= render "kaui/components/button/button", {
+                      label: "Create Subscription",
+                      icon: "kaui/plus.svg",
+                      variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                      type: "button",
+                      html_class: "kaui-dropdown custom-hover",
+                    } %>
+              <% end %>
+            <% end %>
+          </span>
+        </div>
+        <div>
+          <% @bundles.each_with_index do |bundle, idx| %>
+            <div class="row">
+              <div class="d-flex">
+                <%= render :partial => Kaui.bundle_details_partial, :locals => { :bundle => bundle, :account => @account, :catalog => @catalog } %>
+              </div>
+              <% if bundle.subscriptions.present? %>
+                  <div class="search">
+                    <%= render :partial => 'kaui/subscriptions/subscriptions_table', :locals => {:bundle => bundle, :account => @account, :catalog => @catalog} %>
+                  </div>
+              <% end %>
+            </div>
+          <% end %>
+
+          
+          <div class="text-right d-flex justify-content-end pagination" style="">
+            <%= link_to account_bundles_path(page: @page - 1), class: "btn btn-custom #{'disabled' if @page == 1}" do %>
+              <%= render "kaui/components/button/button", {
+                    label: "Previous",
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "button",
+                    html_class: "kaui-button custom-hover"
+                  } %>
+            <% end %>
+
+            <% if @total_pages <= 10 %>
+                <% (1..@total_pages).each do |num| %>
+                    <%= link_to num, account_bundles_path(page: num), class: paging_button_class(num, @page) %>
+                <% end %>
+            <% else %>
+                <%= link_to 1, account_bundles_path(page: 1), class: paging_button_class(1, @page) %>
+                <% if @page < 5 %>
+                    <% (2..5).each do |num| %>
+                        <%= link_to num, account_bundles_path(page: num), class: paging_button_class(num, @page) %>
+                    <% end %>
+                    <%= '...' %>
+                <% elsif @page > @total_pages - 4 %>
+                    <%= '...' %>
+                    <% (@total_pages-4..@total_pages-1).each do |num| %>
+                        <%= link_to num, account_bundles_path(page: num), class: paging_button_class(num, @page) %>
+                    <% end %>
+                <% else %>
+                    <%= '...' %>
+                    <% (@page-1..@page+1).each do |num| %>
+                        <%= link_to num, account_bundles_path(page: num), class: paging_button_class(num, @page) %>
+                    <% end %>
+                    <%= '...' %>
+                <% end %>
+                <%= link_to @total_pages, account_bundles_path(page: @total_pages), class: paging_button_class(@total_pages, @page) %>
+            <% end %>
+            <%= link_to account_bundles_path(page: @page + 1), class: "btn btn-custom #{'disabled' if @page == @total_pages}" do %>
+              <%= render "kaui/components/button/button", {
+                    label: "Next",
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "button",
+                    html_class: "kaui-button custom-hover"
+                  } %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+<style>
+  .subscription-bundle {
+    width: 100%;
+  }
+
+  .subscription-bundle .subscription-bundle-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0;
+    border-bottom: 0.0625rem solid #E9EAEB;
+  }
+
+  .subscription-bundle .subscription-bundle-header h2 {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #414651;
+    margin-bottom: 1.25rem;
+  }
+
+  .subscription-bundle .bundle-details-header b {
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+    color: #414651;
+  }
+
+  .subscription-bundle .bundle-details-header p {
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+    color: #717680;
+  }
+
+  .subscription-bundle .dropdown-menu {
+    border: 0;
+  }
+
+  .subscription-bundle .dropdown-menu li:hover a {
+    color: #181D27 !important;
+  }
+
+  .subscription-bundle .subscriptions-table th {
+    padding: 0.375rem 1.625rem 0.375rem 0.75rem;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    letter-spacing: 0;
+    color: #717680;
+    text-transform: capitalize;
+  }
+
+  .subscription-bundle .subscriptions-table .category-bedge {
+    display: inline-block;
+    padding: 0.125rem 0.5rem !important;
+    border: 0.0625rem solid #F5F5F5 !important;
+    border-radius: 9999rem;
+    font-weight: 500 !important;
+    font-size: 0.75rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    color: #414651 !important;
+    background-color: #FAFAFA;
+    text-transform: capitalize;
+  }
+
+  .subscription-bundle .subscriptions-table .phase-type {
+    display: inline-block;
+    padding: 0.125rem 0.5rem !important;
+    border: 0.0625rem solid #D1E9FF !important;
+    border-radius: 9999rem;
+    font-weight: 500 !important;
+    font-size: 0.75rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    color: #175CD3 !important;
+    background-color: #EFF8FF;
+    text-transform: capitalize;
+  }
+
+  .subscription-bundle .subscriptions-table td {
+    font-weight: 500 !important;
+    font-size: 0.75rem !important;
+    padding: 1rem 0.5rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    color: #535862 !important;
+    text-transform: capitalize !important;
+  }
+
+  .subscription-bundle .search table th:first-of-type, .search table td:first-of-type {
+    font-weight: 500 !important;
+  }
+
+  .subscription-bundle .cancel-menu ul {
+    padding: 0.25rem 0.375rem !important;
+    min-width: 16rem;
+  }
+
+  .subscription-bundle .cancel-menu li {
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+  }
+
+  .subscription-bundle .cancel-menu li:hover {
+    background-color: #FAFAFA !important;
+  }
+
+  .subscription-bundle .cancel-menu li a {
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
+    letter-spacing: 0 !important;
+    color: #717680 !important;
+    text-transform: capitalize !important;
+    text-decoration: none;
+  }
+
+  .subscription-bundle .cancel-button {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    color: #D92D20 !important;
+    flex-direction: row-reverse;
+    text-transform: capitalize;
+    gap: 0.1rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+    margin-left: 0.75rem;
+    text-decoration: none;
+  }
+
+  .subscription-bundle table.dataTable {
+    overflow: auto !important;
+  }
+
+  .subscription-bundle .dots-menu {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    margin-left: 0.75rem !important;
+  }
+
+  .subscription-bundle .change-btn {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+    color: #535862;
+    margin-left: 0.75rem;
+    text-decoration: none;
+  }
+
+  .subscription-bundle table thead > tr > th.sorting::after,
+  .subscription-bundle table thead > tr > th.sorting_asc::after,
+  .subscription-bundle table thead > tr > th.sorting_desc::after,
+  .subscription-bundle table thead > tr > th.sorting_asc_disabled::after,
+  .subscription-bundle table thead > tr > th.sorting_desc_disabled::after,
+  .subscription-bundle table thead > tr > td.sorting::after,
+  .subscription-bundle table thead > tr > td.sorting_asc::after,
+  .subscription-bundle table thead > tr > td.sorting_desc::after,
+  .subscription-bundle table thead > tr > td.sorting_asc_disabled::after,
+  .subscription-bundle table thead > tr > td.sorting_desc_disabled::after {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 5.5L6 2.5L9 5.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0.75rem 0.75rem !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    top: 45% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .subscription-bundle table thead > tr > th.sorting::before,
+  .subscription-bundle table thead > tr > th.sorting_asc::before,
+  .subscription-bundle table thead > tr > th.sorting_desc::before,
+  .subscription-bundle table thead > tr > th.sorting_asc_disabled::before,
+  .subscription-bundle table thead > tr > th.sorting_desc_disabled::before,
+  .subscription-bundle table thead > tr > td.sorting::before,
+  .subscription-bundle table thead > tr > td.sorting_asc::before,
+  .subscription-bundle table thead > tr > td.sorting_desc::before,
+  .subscription-bundle table thead > tr > td.sorting_asc_disabled::before,
+  .subscription-bundle table thead > tr > td.sorting_desc_disabled::before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6.5L6 9.5L9 6.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0.75rem 0.75rem !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    bottom: 45% !important;
+    transform: translateY(50%) !important;
+  }
+
+  .subscription-bundle .pagination a:not(:first-child):not(:last-child) {
+    color: #717680;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+  }
+
+  .subscription-bundle .pagination a:not(:first-child):not(:last-child).btn-primary {
+    color: #414651;
+    background-color: #F5F5F5 !important;
+    border: 0 !important;
+  }
+</style>

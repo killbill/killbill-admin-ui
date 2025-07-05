@@ -1,8 +1,10 @@
-<div class="modal fade" id="cancel_subscription_by_date_modal" tabindex="-1" role="dialog">
+<%
+=begin%>
+ <div class="modal fade" id="cancel_subscription_by_date_modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content column-block">
       <div>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h1 class="modal-title">Cancel a subscription given a date</h1>
       </div>
       <div class="modal-body">
@@ -41,6 +43,266 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<%= javascript_tag do %>
+    $(document).ready(function() {
+
+        $('#cancel_subscription_by_date_modal').on('show.bs.modal', function (e) {
+            $("#cancel_subscription_form").attr("action", Routes.kaui_engine_subscription_path(e.relatedTarget.dataset['id']));
+
+        });
+
+        $('#is_requested_date_for_billing').change(function(e) {
+            $('#use_requested_date_for_billing').val($(this).is(':checked') ? 1 : 0);
+        });
+
+    });
+
+<% end %> 
+<%
+=end%>
+
+<div class="modal fade cancel_subscription_by_date_modal" id="cancel_subscription_by_date_modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title d-flex align-items-center gap-3">
+          <span class="icon-container">
+            <%= image_tag("kaui/subscription/cancel.svg" , width: 20, height: 20) %>
+          </span>
+          Cancel a Subscription Given a Date
+        </h5>
+        <button type="button" class="close close-button custom-hover" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <%= image_tag("kaui/modal/close.svg", width: 20, height: 20) %>
+          </span>
+        </button>
+      </div>
+        <%= form_for :subscription, :url =>  '' , :method => :delete, :html => {:class => 'form-horizontal', :id => 'cancel_subscription_form'} do |f| %>
+          <div class="modal-body">
+              <div class="form-group d-flex pb-3">
+                <%= label_tag :resume_requested_date, 'Date', :class => 'col-sm-3 control-label field-label' %>
+                <div class="col-sm-9">
+                    <div class="custom-date-input-wrapper kaui-button custom-hover">
+                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.9167 12.5V18.3333M17.8333 15.4167H12" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14.0833 1.66675V5.00008M6.58325 1.66675V5.00008" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17.8333 10.8333V4.99992C17.8333 4.07944 17.0871 3.33325 16.1666 3.33325H4.49992C3.57944 3.33325 2.83325 4.07944 2.83325 4.99992V16.6666C2.83325 17.5871 3.57944 18.3333 4.49992 18.3333H10.3333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2.83325 8.33325H17.8333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <input class="form-control" value="<%=Date.parse(Time.now.to_s).to_s%>" name="requested_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
+                    </div>
+                </div>
+              </div>
+              <div class="form-group d-flex">
+                <div class="col-sm-3"></div>
+                  <div class="checkbox col-sm-9">
+                    <%= label_tag :use_requested_date_for_billing do %>
+                        <input type="checkbox" class="form-check-input" id="is_requested_date_for_billing">
+                        Use requested date for billing
+                        <input type="hidden" id="use_requested_date_for_billing" name="use_requested_date_for_billing" value="0">
+                    <% end %>
+                </div>
+              </div>
+          </div>
+          <div class="notice-worning">
+            <%= image_tag("kaui/warning.png", width: 35, height: 35) %>
+            <div>
+              <strong>Notice</strong>
+              <%= raw t('views.subscriptions.requested_date_for_billing_notice') %>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <%= render "kaui/components/button/button", {
+              label: 'Close',
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "button",
+              html_class: "kaui-button custom-hover",
+              html_options: {
+                data: {
+                  bs_dismiss: "modal"
+                }
+              }
+            } %>
+            <%= render "kaui/components/button/button", {
+              label: 'Save Subscription',
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "submit",
+              html_class: "kaui-dropdown custom-hover"
+            } %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .cancel_subscription_by_date_modal .modal-content {
+    border-radius: 1rem;
+    min-width: 40.5rem;
+  }
+
+  .cancel_subscription_by_date_modal .modal-body {
+    padding-bottom: 0.375rem !important;
+    padding-top: 1.25rem !important;
+  }
+
+  .cancel_subscription_by_date_modal .modal-header {
+    padding: 1.5rem 1.5rem 1rem 1.5rem !important;
+  }
+
+  .cancel_subscription_by_date_modal .modal-footer {
+    padding: 1rem 1.5rem 1.5rem 1.5rem !important;
+  }
+
+  .cancel_subscription_by_date_modal .modal-title {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #181D27;
+  }
+
+  .cancel_subscription_by_date_modal .close-button {
+    background: transparent;
+    padding: 0;
+    margin-top: -1.25rem;
+  }
+
+  .cancel_subscription_by_date_modal .close-button:hover {
+    background: transparent;
+    padding: 0;
+  }
+
+  .cancel_subscription_by_date_modal .field-label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+    margin-top: -1.25rem;
+    min-width: 9.59375rem;
+  }
+
+  .cancel_subscription_by_date_modal .form-group.d-flex {
+    display: flex;
+    align-items: center;
+  }
+
+  .cancel_subscription_by_date_modal .form-group.d-flex label {
+    margin-bottom: 0;
+  }
+
+  .cancel_subscription_by_date_modal .checkbox label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .cancel_subscription_by_date_modal .modal-header .icon-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.0625rem solid #D5D7DA;
+    border-radius: 0.375rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.25rem;
+  }
+
+  .cancel_subscription_by_date_modal .modal-header .icon-container img {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .cancel_subscription_by_date_modal .custom-date-input-wrapper {
+    padding: 0 0.625rem !important;
+    border: 0.0625rem solid #D5D7DA !important;
+    border-radius: 0.375rem;
+    cursor: pointer;
+  }
+
+  .cancel_subscription_by_date_modal .custom-date-input-wrapper svg {
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .cancel_subscription_by_date_modal .custom-date-input-wrapper input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0 !important;
+    font-size: 1rem;
+    color: #6B7280;
+    height: 2.5rem;
+  }
+
+  .cancel_subscription_by_date_modal .custom-date-input-wrapper input::placeholder {
+    color: #717680;
+  }
+
+  .cancel_subscription_by_date_modal .custom-date-input-wrapper input.form-control {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .cancel_subscription_by_date_modal .form-group select.form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.625rem center;
+    background-size: 1rem 1rem;
+    padding-right: 1.875rem;
+  }
+
+  select.form-control:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  .cancel_subscription_by_date_modal .notice-worning {
+    margin: 1.25rem 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: #FAFAFA;
+    border-radius: 0.75rem;
+    border: 0.0625rem solid #E9EAEB;
+  }
+
+  .cancel_subscription_by_date_modal .notice-worning div {
+    padding: 0.5rem 0;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #535862 !important;
+  }
+
+  .cancel_subscription_by_date_modal .notice-worning div span {
+    color: #535862 !important;
+  }
+
+  .cancel_subscription_by_date_modal .notice-worning div ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+  }
+
+  .cancel_subscription_by_date_modal .notice-worning strong {
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+    margin-bottom: 0.25rem;
+  }
+
+</style>
 
 <%= javascript_tag do %>
     $(document).ready(function() {

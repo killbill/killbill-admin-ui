@@ -1,4 +1,6 @@
-<p class="text-center">
+<%
+=begin%>
+ <p class="text-center">
   <%= link_to 'Current or future entries', kaui_engine.queues_path(params.to_h.merge(:with_history => false, :max_date => @now + 1.week)) %> /
   <% unless params[:account_id].present? -%>
     <%= link_to 'Historical entries (last week)', kaui_engine.queues_path(params.to_h.merge(:with_history => true, :min_date => @now - 1.week, :max_date => @now + 1.week)) %> /
@@ -141,4 +143,480 @@
       ]
     });
 });
+<% end %> 
+<%
+=end%>
+
+<div class="kaui-container">
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <div class="d-flex " style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+    <div class="queues">
+      <div class="d-flex flex-column ">
+        <div class="queues-header mb-4">
+          <div class="d-flex align-items-center">
+            <h2>Queues</h2>
+          </div>
+        </div>
+        <div class="text-center filter-tabs">
+          <%= link_to 'Current or future entries', kaui_engine.queues_path(params.to_h.merge(with_history: false, max_date: @now + 1.week)), class: (params[:with_history] == 'false' ? 'activelink' : '') %>
+
+
+          <% unless params[:account_id].present? -%>
+            <%= link_to 'Historical entries (last week)', kaui_engine.queues_path(params.to_h.merge(with_history: true, min_date: @now - 1.week, max_date: @now + 1.week)), class: (params[:with_history] == 'true' && params[:min_date] == (@now - 1.week).to_s ? 'activelink' : '') %>
+            <%= link_to 'Historical entries (last month)', kaui_engine.queues_path(params.to_h.merge(with_history: true, min_date: @now - 1.month, max_date: @now + 1.week)), class: (params[:with_history] == 'true' && params[:min_date] == (@now - 1.month).to_s ? 'activelink' : '') %>
+          <% end -%>
+
+          <%= link_to 'All historical entries', kaui_engine.queues_path(params.to_h.merge(with_history: true)), class: (params[:with_history] == 'true' && !params[:min_date].present? ? 'activelink' : '') %>
+
+        </div>
+        <div class="search">
+
+          <% unless (@queues_entries['busEvents'] || []).empty? %>
+            <div class="d-flex flex-column ">
+              <div class="queues-header mb-4">
+                <div class="d-flex align-items-center">
+                  <h2>Bus events</h2>
+                </div>
+              </div>
+
+              <div>
+                <table id="bus-table" class="bus-table">
+                  <thead>
+                  <tr>
+                    <th></th>
+                    <th>Created date</th>
+                    <th>Class name</th>
+                    <th>Event</th>
+                    <th>User token</th>
+                    <% if @account_id.blank? %>
+                        <th>Account record id</th>
+                    <% end %>
+                    <th>User token</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% @queues_entries['busEvents'].each do |bus_event| %>
+                      <tr>
+                        <td class="timeline">
+                          <span class="dot"></span>
+                        </td>
+                        <td><span><%= truncate_millis(bus_event['createdDate']) %></span></td>
+                        <td><%= truncate_class_name(bus_event['className'], false) %></td>
+                        <td><%= "<pre>#{JSON.pretty_generate(bus_event['event'])}</pre>".html_safe %></td>
+                        <td><%= object_id_popover(bus_event['userToken'], 'left') %></td>
+                        <% if @account_id.blank? %>
+                          <td><%= bus_event['searchKey1'] %></td>
+                        <% end %>
+                        <td><%= bus_event['userToken'] %></td>
+                      </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+          <% unless (@queues_entries['notifications'] || []).empty? %>
+            <div class="d-flex flex-column ">
+              <div class="queues-header mb-4">
+                <div class="d-flex align-items-center">
+                  <h2>Notifications</h2>
+                </div>
+              </div>
+
+              <div>
+                <table id="notifications-table" class="notifications-table">
+                  <thead>
+                  <tr>
+                    <th></th>
+                    <th>Effective date</th>
+                    <th>Queue name</th>
+                    <th>Event</th>
+                    <th>User token</th>
+                    <% if @account_id.blank? %>
+                        <th>Account record id</th>
+                    <% end %>
+                    <th>User token</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% @queues_entries['notifications'].each do |notification| %>
+                      <% if notification['effectiveDate'].to_datetime < @now %>
+                          <tr class="">
+                      <% else %>
+                          <tr>
+                      <% end %>
+                        <td class="timeline">
+                          <div class="dot"></div>
+                        </td>
+                        <td><span><%= truncate_millis(notification['effectiveDate']) %></span></td>
+                        <td>
+                          <%= notification['queueName'] %>
+                        </td>
+                        <td><%= "<pre>#{JSON.pretty_generate(notification['event'])}</pre>".html_safe %></td>
+                        <td><%= object_id_popover(notification['userToken'], 'left') %></td>
+                        <% if @account_id.blank? %>
+                            <td><%= notification['searchKey1'] %></td>
+                        <% end %>
+                        <td><%= notification['userToken'] %></td>
+                      </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .queues {
+    width: 67.5625rem;
+  }
+
+  .queues .queues-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0;
+    border-bottom: 0.0625rem solid #E9EAEB;
+  }
+
+  .queues .queues-header h2 {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #414651;
+    margin-bottom: 1.25rem;
+  }
+
+  .queues .filter-tabs {
+    background-color: #FAFAFA;
+    border: 0.0625rem solid #E9EAEB;
+    border-radius: 0.375rem;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    margin: 0;
+    margin-bottom: 1.5rem;
+    padding: 0.25rem;
+    height: 2.5rem;
+  }
+
+  .queues .filter-tabs a {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #717680;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    height: 2rem;
+  }
+
+  .queues .filter-tabs .activelink {
+    color: #414651;
+    background-color: #FFFFFF;
+    box-shadow: 0rem 0.0625rem 0.125rem -0.0625rem #0A0D121A;
+    box-shadow: 0rem 0.0625rem 0.1875rem 0rem #0A0D121A;
+  }
+
+  #bus-table_wrapper,
+  #notifications-table_wrapper {
+    //overflow: auto;
+    max-width: 67.5625rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  #bus-table_filter,
+  #notifications-table_filter {
+    position: absolute;
+    top: -4.5rem;
+    right: 0;
+  }
+
+  .table-wrapper {
+    max-width: 67.5625rem !important;
+    overflow-x: auto !important;
+    width: 100% !important;
+  }
+
+  .table-wrapper::-webkit-scrollbar{
+    display: none;
+  }
+
+  .queues .bus-table td,
+  .queues .notifications-table td {
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    padding: 1rem 0.5rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    width: ;
+    color: #535862 !important;
+    text-transform: capitalize !important;
+    display: table-cell !important;
+    text-align: left !important;
+    vertical-align: top;
+    border-bottom: 0 !important;
+  }
+
+
+  .queues .bus-table td:nth-of-type(2) span,
+  .queues .notifications-table td:nth-of-type(2) span {
+    padding: 0.1875rem 0.5rem;
+    font-weight: 500 !important;
+    font-size: 0.75rem !important;
+    line-height: 1.125rem !important;
+    color: #414651 !important;
+    border-radius: 0.125rem !important;
+    border: 0.0625rem solid #D5D7DA !important;
+  }
+
+  .queues .bus-table td pre,
+  .queues .notifications-table td pre {
+    padding: 0.1875rem 0.5rem;
+    font-weight: 500 !important;
+    font-size: 0.75rem !important;
+    line-height: 1.125rem !important;
+    color: #414651 !important;
+    border-radius: 0.5rem !important;
+    border: 0.0625rem solid #D5D7DA !important;
+  }
+
+
+  .queues .bus-table th,
+  .queues .notifications-table th {
+    padding: 0.375rem 1.625rem 0.375rem 0.75rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    letter-spacing: 0;
+    color: #717680;
+    text-transform: capitalize;
+  }
+
+  .queues .bus-table th,
+  .queues .bus-table td,
+  .queues .notifications-table th,
+  .queues .notifications-table td {
+    white-space: nowrap;
+    text-align: left;
+  }
+
+  .queues #bus-table thead tr th::after,
+  .queues #notifications-table thead tr th::after {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 5.5L6 2.5L9 5.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0.75rem 0.75rem !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    top: 45% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .queues #bus-table thead tr th::before,
+  .queues #notifications-table thead tr th::before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6.5L6 9.5L9 6.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0.75rem 0.75rem !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    bottom: 45% !important;
+    transform: translateY(50%) !important;
+  }
+
+  .queues .pagination a:not(:first-child):not(:last-child) {
+    color: #717680;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+  }
+
+  .queues .pagination a:not(:first-child):not(:last-child).btn-primary {
+    color: #414651;
+    background-color: #F5F5F5 !important;
+    border: 0 !important;
+  }
+
+  .queues .dataTables_paginate {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .queues .dataTables_paginate span .paginate_button {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #717680 !important; 
+    text-decoration: none;
+    border: 0 !important;
+  }
+
+  .queues .dataTables_paginate .paginate_button:hover {
+    background-color: #F3F4F6;
+  }
+
+  .queues .dataTables_paginate .paginate_button.current {
+    background-color: #F5F5F5 !important;
+    border-radius: 0.375rem !important;
+    color: #414651 !important;
+  }
+
+  .queues .dataTables_paginate .paginate_button.last,
+  .queues .dataTables_paginate .paginate_button.previous {
+    border: 0.0625rem solid #E5E7EB;
+    border-radius: 0.5rem;
+    background-color: white;
+    padding: 0.5rem 0.875rem;
+    color: #374151;
+  }
+
+  .queues #bus-table_first,
+  .queues #bus-table_last,
+  .queues #notifications-table_first,
+  .queues #notifications-table_last {
+    display: none !important;
+  }
+
+  .queues #bus-table_wrapper .row:nth-of-type(2),
+  .queues #notifications-table_wrapper .row:nth-of-type(2) {
+    margin-top: 1.5rem;
+  }
+
+  .queues #bus-table_filter input,
+  .queues #notifications-table_filter input {
+    width: 20rem;
+    height: 2.2rem;
+    padding: 0.3rem 1rem;
+    border: 0.0625rem solid #E5E7EB;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+    outline: none;
+  } 
+
+  .timeline {
+    position: relative;
+    width: 1.25rem;
+    margin-left: 0.375rem !important;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.5rem;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      transparent 0.375rem,
+      #d1d5db 0.375rem,
+      #D5D7DA 0.5rem
+    );
+  }
+
+  .dot {
+    position: absolute;
+    left: 0.1875rem;
+    top: 1rem;
+    width: 0.5rem;
+    height: 1.125rem;
+    background-color: #fff !important;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .dot::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.3125rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #D5D7DA !important;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+</style>
+
+<% nb_bus_entries = (@queues_entries['busEvents'] || []).size %>
+<% nb_notifications_entries = (@queues_entries['notifications'] || []).size %>
+<%= javascript_tag do %>
+  $(document).ready(function() {
+    $('#bus-table').dataTable({
+      <% if nb_bus_entries <= 50 %>
+        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t",
+        "paging": "false",
+      <% else %>
+        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+        "pagingType": "full_numbers",
+        "displayStart": <%= [0, nb_bus_entries - 50].max %>,
+      <% end %>
+      "pageLength": 50,
+      "order": [],
+      "columnDefs": [
+        {
+          "targets": [ <%= @account_id.blank? ? 5 : 4 %> ],
+          "visible": false,
+          "searchable": true
+        }
+      ]
+    });
+    $('#notifications-table').dataTable({
+      <% if nb_notifications_entries <= 50 %>
+        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t",
+        "paging": "false",
+      <% else %>
+        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+        "pagingType": "full_numbers",
+        "displayStart": 0,
+      <% end %>
+      "pageLength": 50,
+      "order": [],
+      "columnDefs": [
+        {
+          "targets": [ <%= @account_id.blank? ? 5 : 4 %> ],
+          "visible": false,
+          "searchable": true
+        }
+      ]
+    });
+
+    $('#bus-table').wrap('<div class="table-wrapper"></div>');
+    $('#notifications-table').wrap('<div class="table-wrapper"></div>');
+  });
 <% end %>

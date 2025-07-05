@@ -27,6 +27,7 @@
 //= link kaui/dots.svg
 //= link kaui/account.svg
 //= link kaui/generate.svg
+//= link kaui/copy.svg
 //= link kaui/sidebar/account.svg
 //= link kaui/sidebar/audit.svg
 //= link kaui/sidebar/custom-fields.svg
@@ -36,3 +37,10 @@
 //= link kaui/sidebar/subscriptions.svg
 //= link kaui/sidebar/tags.svg
 //= link kaui/sidebar/timeline.svg
+//= link kaui/subscription/add-on.svg
+//= link kaui/subscription/date.svg
+//= link kaui/subscription/pause.svg
+//= link kaui/subscription/change.svg
+//= link kaui/subscription/cancel.svg
+//= link kaui/warning.png
+//= link kaui/download-csv.svg

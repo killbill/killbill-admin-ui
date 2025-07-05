@@ -82,9 +82,18 @@
 
       <div class="column method-id">
         <strong>Payment Method ID</strong>
-        <div>
+        <div class="d-flex align-items-center">
           <span class="payment-method-id"><%= payment_method.payment_method_id %></span>
-          <span class="copy-icon"><i class="fa fa-copy"></i></span>
+          <%= render "kaui/components/button/button", {
+            label: '',
+            icon: "kaui/copy.svg",
+            variant: "outline-secondary d-inline-flex align-items-center gap-1",
+            type: "button",
+            html_class: "dots-menu kaui-button",
+            html_options: {
+              onclick: "navigator.clipboard.writeText('#{payment_method.payment_method_id}')"
+            }
+          } %>
         </div>
       </div>
 

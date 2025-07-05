@@ -1,4 +1,6 @@
-<div class="modal fade" id="advanceSearchModal" tabindex="-1" role="dialog" aria-labelledby="advanceSearchModalLabel" aria-hidden="true">
+<%
+=begin%>
+ <div class="modal fade" id="advanceSearchModal" tabindex="-1" role="dialog" aria-labelledby="advanceSearchModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -106,6 +108,368 @@
 
   .filter-bar label {
     margin: 10px; /* Add some space between the label and the select box */
+  }
+</style>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  populateSearchLabelsFromUrl();
+
+  // Handle the "Add" button click to add new search fields
+  $('#addSearchField').on('click', function() {
+    var selectedField = $('#searchFieldSelect option:selected').text();
+    var template = document.getElementById('search-field-template').content.cloneNode(true);
+
+    // Set the label and input names based on the selected field
+    template.querySelector('.search-field-label').textContent = selectedField.replace(/([A-Z])/g, ' $1').trim();
+    template.querySelector('.search-field-filter').name = selectedField + 'Filter';
+
+    // Check if the field should use a date input
+    var dateFields = ['Invoice date', 'Target date'];
+    if (dateFields.includes(selectedField)) {
+      template.querySelector('.search-field-value').type = 'date';
+    } else {
+      template.querySelector('.search-field-value').type = 'text';
+    }
+    template.querySelector('.search-field-value').name = selectedField;
+
+    // Append the new search field to the container
+    document.getElementById('search-fields-container').appendChild(template);
+  });
+
+  // Handle the "Apply Search" button click inside the modal
+  $('#applyAdvanceSearch').on('click', function() {
+    var searchFields = $('.search-field');
+    var searchLabelsContainer = $('#search-labels-container');
+    searchLabelsContainer.empty();
+
+    var table = $('#payments-table').DataTable();
+    table.on('preXhr.dt', function(e, settings, data) {
+      data.search.value = searchQuery("<%= @search_query.to_s %>");
+    });
+
+    table.ajax.url("<%= payments_pagination_path(:ordering => @ordering, :format => :json) %>").load();
+
+    // Update the URL with the search parameters
+    var searchParams = searchQuery("<%= @search_query.to_s %>");
+    if (searchParams) {
+      searchParams = searchParams.replace(/account_id/g, 'ac_id');
+      var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + searchParams;
+      window.history.pushState({ path: newUrl }, '', newUrl);
+    }
+
+    searchFields.each(function() {
+      var filter = $(this).find('.search-field-filter option:selected').text();
+      var value = $(this).find('.search-field-value').val();
+      var columnName = $(this).find('.search-field-filter').attr('name').replace('Filter', '');
+
+      // Create and append the search label
+      if (value !== '') {
+        var label = $('<span>', {
+          class: 'label label-info',
+          text: columnName + ' [' + filter + '] ' + value
+        });
+      }
+      searchLabelsContainer.append(label);
+    });
+    $('#advanceSearchModal').modal('hide');
+  });
+
+  // Populate the modal with the current filters when it is shown
+  $('#advanceSearchModal').on('show.bs.modal', function() {
+    showAdvanceSearchModal();
+  });
+
+   $('#clearAdvanceSearch').on('click', function() {
+    clearAdvanceSearch();
+  });
+
+  // Handle the remove icon click event to remove search fields
+  $('#search-fields-container').on('click', '#remove-search-field', function() {
+    $(this).closest('.search-field').remove();
+  });
+});
+<% end %> 
+<%
+=end%>
+
+<div class="modal fade" id="advanceSearchModal" tabindex="-1" role="dialog" aria-labelledby="advanceSearchModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title d-flex align-items-center gap-3" id="advanceSearchModalLabel">
+          <span class="icon-container">
+            <%= image_tag("kaui/modal/search.svg", width: 20, height: 20) %>
+          </span>
+          Advance Search
+        </h5>
+        <button type="button" class="close close-button custom-hover" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <%= image_tag("kaui/modal/close.svg", width: 20, height: 20) %>
+          </span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="advanceSearchForm">
+            <div class="form-group d-flex align-items-center">
+              <label for="searchFieldSelect" class="mr-2 field-label" style="width: 30%;">Search Field</label>
+              <select id="searchFieldSelect" class="form-control mr-2">
+                <% if @account.account_id.present? %>
+                  <% @search_fields.reject { |value, _| value == 'account_id' }.each do |value, title| %>
+                    <option value="<%= value %>"><%= title %></option>
+                  <% end %>
+                <% else %>
+                  <% @search_fields.each do |value, title| %>
+                    <option value="<%= value %>"><%= title %></option>
+                  <% end %>
+                <% end %>
+              </select>
+              <button type="button" class="border-button custom-hover" id="addSearchField">
+                <%= image_tag("kaui/modal/plus.svg", width: 16, height: 16) %>
+              </button>
+          </div>
+          <div id="search-fields-container">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <%= render "kaui/components/button/button", {
+          label: 'Clear Search',
+          variant: "outline-secondary d-inline-flex align-items-center gap-1",
+          type: "button",
+          html_class: "kaui-button custom-hover",
+          html_options: {
+            id: "clearAdvanceSearch"
+          }
+        } %>
+        <%= render "kaui/components/button/button", {
+          label: 'Apply Search',
+          variant: "outline-secondary d-inline-flex align-items-center gap-1",
+          type: "button",
+          html_class: "kaui-dropdown custom-hover",
+          html_options: {
+            id: "applyAdvanceSearch"
+          }
+        } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<template id="search-field-template">
+  <div class="form-group row align-items-center justify-content-between search-field">
+    <label class="col-sm-3 col-form-label search-field-label"></label>
+    <div class="col-sm-4">
+      <select class="form-control search-field-filter">
+        <option value="eq">Equals</option>
+        <option value="neq">Not Equals</option>
+        <option value="gt">Greater Than</option>
+        <option value="gte">Greater Than Or Equal</option>
+        <option value="lt">Less Than</option>
+        <option value="lte">Less Than Or Equal</option>
+        <option value="like">Like</option>
+      </select>
+    </div>
+    <div class="col-sm-4">
+      <input type="text" class="form-control search-field-value">
+    </div>
+    <button type="button" class="button custom-hover" id="remove-search-field">
+      <%= image_tag("kaui/modal/red-close.svg", width: 16, height: 16) %>
+    </button>
+  </div>
+</template>
+
+<style>
+  .modal-content {
+    border-radius: 1rem;
+    min-width: 40.5rem;
+  }
+
+  .modal-body {
+    padding-bottom: 0.375rem !important;
+    padding-top: 1.25rem !important;
+  }
+
+  .modal-header {
+    padding: 1.5rem 1.5rem 1rem 1.5rem !important;
+  }
+
+  .modal-footer {
+    padding: 1rem 1.5rem 1.5rem 1.5rem !important;
+  }
+
+  .modal-title {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #181D27;
+  }
+
+  .close-button {
+    background: transparent;
+    padding: 0;
+    margin-top: -1.25rem;
+  }
+
+  .close-button:hover {
+    background: transparent;
+    padding: 0;
+  }
+
+  .border-button {
+    background: transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.0625rem solid #D5D7DA;
+    border-radius: 0.375rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.625rem;
+  }
+
+  .border-button:hover {
+    background: transparent;
+  }
+
+  .button {
+    background: transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.625rem;
+  }
+
+  .button:hover {
+    background: transparent;
+  }
+
+  .field-label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+    margin-top: -1.25rem;
+    min-width: 9.59375rem;
+  }
+
+  .search-field-label {
+    margin-top: -1.25rem;
+  }
+
+  .form-group.row.align-items-center {
+    display: flex;
+    align-items: center;
+  }
+
+  .form-group.row.align-items-center label {
+    margin-bottom: 0;
+  }
+
+  .form-group.row.align-items-center .form-control {
+    margin-right: 0.25rem;
+    height: 2.5rem;
+    border-radius: 0.375rem;
+  }
+
+  .form-group.row.align-items-center.search-field div {
+    padding: 0;
+    margin-right: 0.25rem;
+  }
+
+  .form-group.row.align-items-center .form-control:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .form-group.d-flex {
+    display: flex;
+    align-items: center;
+  }
+
+  .form-group.d-flex label {
+    margin-bottom: 0;
+  }
+
+  .form-group.d-flex .form-control {
+    margin-right: 0.25rem;
+    height: 2.5rem;
+    border-radius: 0.375rem;
+  }
+
+  .form-group.d-flex .form-control:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  #search-labels-container .label {
+    margin-left: 0.3125rem;
+    margin-bottom: 0.3125rem;
+    color: white;
+  }
+
+  .col-form-label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+    padding: 0;
+  }
+
+  #search-fields-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0.75rem;
+  }
+
+  .filter-bar-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .filter-bar {
+    display: flex;
+    align-items: center;
+  }
+
+  .filter-bar label {
+    margin: 0.625rem;
+  }
+
+  .modal-header .icon-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.0625rem solid #D5D7DA;
+    border-radius: 0.375rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.25rem;
+  }
+
+  .modal-header .icon-container img {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .form-group select.form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.625rem center;
+    background-size: 1rem 1rem;
+    padding-right: 1.875rem;
+  }
+
+  select.form-control:focus {
+    box-shadow: none;
+    outline: none;
   }
 </style>
 

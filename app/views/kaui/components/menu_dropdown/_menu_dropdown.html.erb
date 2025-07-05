@@ -23,7 +23,7 @@
       <li>
         <%= link_to item[:path], class: "dropdown-item d-flex align-items-center gap-2" do %>
           <%= image_tag(item[:icon], alt: "#{item[:label]} Icon", size: "16x16") if item[:icon].present? %>
-          <span class="text-black-700 fs-6 text-normal"><%= item[:label] %></span>
+          <span class="text-black-700 fs-6 text-normal" style="font-weight: 500; font-size: 0.875rem !important; line-height: 1.25rem;"><%= item[:label] %></span>
         <% end %>
       </li>
     <% end %>

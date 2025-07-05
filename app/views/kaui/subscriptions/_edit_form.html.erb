@@ -1,4 +1,6 @@
-<%= form_for @subscription, :url => subscription_path(@subscription.subscription_id), :html => {:method => :put, :class => 'form-horizontal'} do |f| %>
+<%
+=begin%>
+ <%= form_for @subscription, :url => subscription_path(@subscription.subscription_id), :html => {:method => :put, :class => 'form-horizontal'} do |f| %>
     <div class="form-group">
       <%= label_tag :plan_name, 'New plan', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
@@ -76,4 +78,233 @@ $(document).ready(function() {
         onTypeChange();
     });
 });
+<% end %> 
+<%
+=end%>
+
+
+<%= form_for @subscription, :url => subscription_path(@subscription.subscription_id), :html => {:method => :put, :class => 'form-horizontal'} do |f| %>
+    <div class="form-group d-flex pb-3">
+      <%= label_tag :plan_name, 'New plan', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= select_tag :plan_name, options_for_select(@plans, @subscription.plan_name.gsub(/ *-\d+$/, '')), :class => 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group d-flex pb-3 border-bottom mb-3">
+      <%= label_tag :price_override, 'Price Override', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= number_field_tag :price_override, nil, min: 0, :step => :any, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group d-flex pb-3" id="radio_group">
+      <%= label_tag :type_change, 'Type', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-offset-2 col-sm-9">
+        <div class="toggle-segment">
+          <div class="radio">
+            <%= label_tag 'type_change_default' do %>
+              <%= radio_button_tag :type_change, 'DEFAULT', true, id: 'type_change_default' %>
+              Default policy
+            <% end %>
+          </div>
+
+          <div class="radio">
+            <%= label_tag 'type_change_policy' do %>
+              <%= radio_button_tag :type_change, 'POLICY', false, id: 'type_change_policy' %>
+              Specify Policy
+            <% end %>
+          </div>
+
+          <div class="radio">
+            <%= label_tag 'type_change_date' do %>
+              <%= radio_button_tag :type_change, 'DATE', false, id: 'type_change_date' %>
+              Specify a date
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group pb-3 border-bottom mb-3", id="form_requested_date" >
+        <%= label_tag :requested_date, 'Change Date', :class => 'col-sm-3 control-label' %>
+        <div class="col-sm-9">
+          <input class="form-control" value="<%=Date.parse(Time.now.to_s).to_s%>" name="requested_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
+        </div>
+    </div>
+    <div class="form-group pb-3 border-bottom mb-3", id="form_policy">
+      <%= label_tag :policy, 'Policy', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= select_tag :policy, options_for_select(['', 'IMMEDIATE', 'END_OF_TERM']), :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group d-flex justify-content-end pb-3">
+      <%= render "kaui/components/button/button", {
+        label: 'Close',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "button",
+        html_class: "kaui-button custom-hover mx-2",
+        html_options: {
+          id: "closeButton",
+          onclick: "window.history.back();"
+        }
+      } %>
+      <%= render "kaui/components/button/button", {
+        label: 'Save Subscription',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "submit",
+        html_class: "kaui-dropdown custom-hover",
+        html_options: {
+          id: "saveButton"
+        }
+      } %>
+    </div>
 <% end %>
+
+<%= javascript_tag do %>
+
+function onTypeChange() {
+    var value = $("input[type=radio]:checked").val();
+    var radioGroupDiv = $("#radio_group");
+    
+    if (value == "DEFAULT") {
+        radioGroupDiv.addClass("border-bottom mb-3");
+        $("#form_requested_date").hide();
+        $("#form_policy").hide();
+        $("#form_requested_date, #form_policy").removeClass("d-flex");
+    } else if (value == "POLICY")  {
+        radioGroupDiv.removeClass("border-bottom mb-3");
+        $("#form_requested_date").hide();
+        $("#form_policy").show().addClass("d-flex");
+        $("#form_requested_date").removeClass("d-flex");
+    } else if (value == "DATE") {
+        radioGroupDiv.removeClass("border-bottom mb-3");
+        $("#form_policy").hide();
+        $("#form_requested_date").show().addClass("d-flex");
+        $("#form_policy").removeClass("d-flex");
+    }
+}
+
+
+$(document).ready(function() {
+    onTypeChange();
+    $( "input[type=radio]").on("click", function() {
+        onTypeChange();
+    });
+});
+<% end %>
+
+
+<style>
+  .control-label {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25rem !important;
+    color: #414651 !important;
+  }
+
+  .question-circle {
+    color: #A4A7AE;
+    font-size: 1rem;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    line-height: 1rem;
+    text-align: center;
+  }
+
+  .col-sm-9.position-relative a {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .form-group.d-flex.pb-3 .form-control {
+    height: 2.5rem;
+    border-radius: 0.375rem;
+  }
+
+  .form-group.d-flex .form-control:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .toggle-segment {
+    display: flex;
+    align-items: center;
+    border: 0.0625rem solid #D5D7DA;
+    width: fit-content;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    font-size: 0.875rem;
+  }
+
+  .toggle-segment .radio label {
+    display: flex;
+    align-items: center;
+    padding: 0.625rem 1rem !important;
+    cursor: pointer;
+    color: #414651;
+    border-right: 0.0625rem solid #D5D7DA;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+  }
+
+  .toggle-segment .radio:last-child label {
+    border-right: none;
+  }
+
+  .toggle-segment .radio label input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    border: 0;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+  }
+
+  .toggle-segment .radio label input[type="radio"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 0.25rem;
+    left: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #17B26A;
+    border-radius: 50%;
+  }
+
+  .toggle-segment .radio label:has(input[type="radio"]:checked) {
+    background-color: #FAFAFA;
+    font-weight: 600;
+    color: #252B37;
+    gap: 1rem;
+  }
+
+  .toggle-segment .radio label:not(:has(input[type="radio"]:checked)) {
+    gap: 0;
+  }
+
+  .form-group select.form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.625rem center;
+    background-size: 1rem 1rem;
+    padding-right: 1.875rem;
+  }
+
+  select.form-control:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+</style>

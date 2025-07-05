@@ -1,38 +1,130 @@
 <%= form_for @credit, :url => {:action => :create}, :html => {:class => 'form-horizontal'} do |f| %>
     <%= f.hidden_field :invoice_id %>
 
-    <div class="form-group">
-      <%= f.label :amount, 'Amount', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
-        <%= f.number_field :amount, :step => :any, :id => 'amount', :class => 'form-control' %>
-        <% if @invoice.present? %>
-            <p class="help-block">Currency: <%= @invoice.currency %></p>
-        <% end %>
-      </div>
-    </div>
-    <% unless @invoice.present? %>
-        <div class="form-group">
-          <%= f.label :currency, 'Currency', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
-            <%= f.select :currency, currencies, {}, :class => 'form-control' %>
-          </div>
+    <div class="form-group d-flex pb-3">
+      <%= f.label :amount, 'Amount', class: 'col-sm-3 control-label' %>
+      <div class="input-group">
+        <%= f.number_field :amount, step: :any, id: 'charge_amount', class: 'form-control', placeholder: '$ 0.00' %>
+        
+        <div>
+          <% if @invoice.present? %>
+            <span class="input-group-text"><%= @invoice.currency %></span>
+            <%= f.hidden_field :currency %>
+          <% else %>
+            <%= f.select :currency, currencies, {}, class: 'form-control currency-select' %>
+          <% end %>
         </div>
-    <% end %>
-    <div class="form-group">
-      <%= label_tag :reason, 'Reason', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+      </div>
+      <% if @invoice.present? %>
+        <p class="help-block mt-1">Currency: <%= @invoice.currency %></p>
+      <% end %>
+    </div>
+    <div class="form-group d-flex pb-3">
+      <%= label_tag :reason, 'Reason', :class => 'col-sm-3 control-label' %>
+      <div class="input-group">
         <%= select_tag :reason, options_for_select(Kaui.credit_reason_codes), :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
-      <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+    <div class="form-group d-flex pb-3 border-bottom mb-3">
+      <%= label_tag :comment, 'Comment', :class => 'col-sm-3 control-label' %>
+      <div class="input-group">
         <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <%= submit_tag 'Save', :class => 'btn btn-default' %>
-      </div>
+    <div class="form-group d-flex justify-content-end pb-3">
+      <%= render "kaui/components/button/button", {
+        label: 'Close',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "button",
+        html_class: "kaui-button custom-hover mx-2",
+        html_options: {
+          id: "closeButton",
+          onclick: "window.history.back();"
+        }
+      } %>
+      <%= render "kaui/components/button/button", {
+        label: 'Save Charge',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "submit",
+        html_class: "kaui-dropdown custom-hover",
+        html_options: {
+          id: "saveButton"
+        }
+      } %>
     </div>
 <% end %>
+
+
+
+<style>
+  .control-label {
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      line-height: 20px !important;
+      color: #414651 !important;
+  }
+
+  .question-circle {
+      color: #A4A7AE;
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      line-height: 16px;
+      text-align: center;
+  }
+
+  .col-sm-9.position-relative a {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+  }
+
+  .form-group.d-flex.pb-3 .form-control {
+      height: 40px;
+      border-radius: 6px;
+  }
+
+  .form-group.d-flex .form-control:focus {
+      outline: none;
+      box-shadow: none;
+  }
+
+  .form-group select.form-control {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+
+      background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 16px 16px;
+
+      padding-right: 30px;
+      /* To make space for the arrow */
+  }
+
+  select.form-control:focus {
+      box-shadow: none;
+      outline: none;
+  }
+
+  .checkbox label {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      color: #414651;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+  }
+
+  .form-group.d-flex .input-group input {
+    border-right: 0px;
+  }
+
+  .form-group.d-flex .input-group select.currency-select {
+    border-left: 0px;
+    border-radius: 0 6px 6px 0 !important;
+  }
+</style>

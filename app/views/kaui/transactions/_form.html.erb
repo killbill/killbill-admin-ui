@@ -5,69 +5,230 @@
     <%= hidden_field_tag :account_id, @account_id %>
     <%= hidden_field_tag :payment_method_id, @payment_method_id %>
 
-    <div class="form-group">
+    <div class="form-group d-flex pb-3">
       <%= f.label :transaction_type, 'Transaction type', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
         <%= f.select :transaction_type, %w(AUTHORIZE CAPTURE CHARGEBACK CREDIT PURCHASE REFUND VOID), {}, :class => 'form-control', :disabled => fix_transaction_state %>
       </div>
     </div>
     <% unless @transaction.transaction_type == 'VOID' %>
-        <div class="form-group">
-          <%= f.label :amount, 'Amount', :class => 'col-sm-3 control-label' %>
-          <div class="col-sm-9">
-            <%= f.text_field :amount, :id => 'charge_amount', :class => 'form-control', :disabled => fix_transaction_state %>
+      <div class="form-group d-flex pb-3 border-bottom mb-3">
+        <%= f.label :amount, 'Amount', class: 'col-sm-3 control-label' %>
+        <div class="input-group">
+          <%= f.number_field :amount, step: :any, id: 'charge_amount', class: 'form-control', placeholder: '$ 0.00', disabled: fix_transaction_state %>
+          <div class="input-group-append">
+            <% if @invoice.present? %>
+              <span class="input-group-text"><%= @invoice.currency %></span>
+              <%= f.hidden_field :currency %>
+            <% else %>
+              <%= f.select :currency, currencies, {}, class: 'form-control currency-select', disabled: fix_transaction_state %>
+            <% end %>
           </div>
         </div>
-        <div class="form-group">
-          <%= f.label :currency, 'Currency', :class => 'col-sm-3 control-label' %>
-          <div class="col-sm-9">
-            <%= f.select :currency, currencies, {}, :class => 'form-control', :disabled => fix_transaction_state %>
-          </div>
-        </div>
+      </div>
     <% end %>
+
     <% unless @transaction.payment_id.present? %>
-        <div class="form-group">
+        <div class="form-group d-flex pb-3">
           <%= f.label :payment_external_key, 'Payment key', :class => 'col-sm-3 control-label' %>
           <div class="col-sm-9">
             <%= f.text_field :payment_external_key, :class => 'form-control', :disabled => fix_transaction_state %>
           </div>
         </div>
     <% end %>
-    <div class="form-group">
+    <div class="form-group d-flex pb-3">
       <%= f.label :transaction_external_key, 'Transaction key', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
         <%= f.text_field :transaction_external_key, :class => 'form-control', :disabled => fix_transaction_state %>
       </div>
     </div>
     <% if fix_transaction_state %>
-        <div class="form-group">
+        <div class="form-group d-flex pb-3">
           <%= f.label :transaction_status, 'Transaction status', :class => 'col-sm-3 control-label' %>
           <div class="col-sm-9">
             <%= f.select :status, transaction_statuses, {}, :class => 'form-control' %>
           </div>
         </div>
     <% end %>
-    <div class="form-group">
+    <div class="form-group d-flex pb-3">
       <%= label_tag :reason, 'Reason', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
         <%= select_tag :reason, options_for_select(Kaui.payment_reason_codes), :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group d-flex pb-3 border-bottom mb-3">
       <%= label_tag :comment, 'Comment', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
         <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
       </div>
     </div>
-    <div id="control_plugins" class="col-sm-offset-3 col-sm-9">
-      <%= render :partial => 'control_plugin_names' %>
-    </div>
-    <div id="properties" class="col-sm-offset-3 col-sm-9">
-      <%= render :partial => 'kaui/payment_methods/plugin_properties' %>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-3 col-sm-9">
-        <%= submit_tag 'Save', :class => 'btn btn-default' %>
+    <div class="form-group d-flex pb-3 border-bottom mb-3 payment-method-form">
+      <div class="col-sm-3"></div>
+      <div id="control_plugins" class="col-sm-9">
+        <%= render :partial => 'control_plugin_names' %>
       </div>
     </div>
+    <div class="form-group d-flex pb-3 border-bottom mb-3 payment-method-form">
+      <div class="col-sm-3"></div>
+      <div id="properties" class="col-sm-offset-3 col-sm-9">
+        <%= render :partial => 'kaui/payment_methods/plugin_properties' %>
+      </div>
+    </div>
+
+    <div class="form-group d-flex justify-content-end pb-3">
+      <%= render "kaui/components/button/button", {
+        label: 'Close',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "button",
+        html_class: "kaui-button custom-hover mx-2",
+        html_options: {
+          id: "closeButton",
+          onclick: "window.history.back();"
+        }
+      } %>
+      <%= render "kaui/components/button/button", {
+        label: 'Save Charge',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "submit",
+        html_class: "kaui-dropdown custom-hover",
+        html_options: {
+          id: "saveButton"
+        }
+      } %>
+    </div>
 <% end %>
+
+
+<style>
+  .control-label {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25rem !important;
+    color: #414651 !important;
+  }
+
+  .question-circle {
+    color: #A4A7AE;
+    font-size: 1rem;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    line-height: 1rem;
+    text-align: center;
+  }
+
+  .col-sm-9.position-relative a {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .form-group.d-flex.pb-3 .form-control {
+    height: 2.5rem;
+    border-radius: 0.375rem;
+  }
+
+  .form-group.d-flex .form-control:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .form-group select.form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.625rem center;
+    background-size: 1rem 1rem;
+    padding-right: 1.875rem;
+  }
+
+  select.form-control:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  .checkbox label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  .form-group.d-flex .input-group input {
+    border-right: 0;
+  }
+
+  .form-group.d-flex .input-group select.currency-select {
+    border-left: 0;
+    border-radius: 0 0.375rem 0.375rem 0 !important;
+  }
+
+  .payment-method-form .dots-menu {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    text-decoration: none !important;
+    color: #175CD3 !important;
+    margin-bottom: 1rem;
+  }
+
+  .payment-method-form table {
+    border: 0 !important;
+    margin-bottom: 0;
+  }
+
+  .payment-method-form table tr:last-of-type {
+    border-color: #ccc !important;
+  }
+
+  .payment-method-form .table>:not(:last-child)>:last-child>* {
+    border-bottom-color: transparent !important;
+  }
+
+  .payment-method-form table thead th {
+    color: #717680;
+    font-weight: 500 !important;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    background: #FAFAFA !important;
+    text-transform: capitalize;
+  }
+
+  .payment-method-form table thead th:first-child {
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+  }
+
+  .payment-method-form table thead th:last-child {
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+  }
+
+  .payment-method-form table thead tr th {
+    padding: 0.3125rem 0.75rem;
+  }
+
+  .payment-method-form table tbody tr td {
+    padding: 0.3125rem 0.75rem;
+  }
+
+  .payment-method-form hr {
+    margin: 0;
+  }
+
+  .payment-method-form .close-icon {
+    padding: 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .payment-method-form .close-icon a svg {
+    height: 3.125rem;
+  }
+
+</style>
