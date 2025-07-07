@@ -954,18 +954,17 @@ table thead th:last-child {
   justify-content: space-between;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  font-size: 0.875rem;
   position: relative;
   margin-bottom: 0.125rem;
   border-radius: 0.375rem;
   font-weight: 500;
-  line-height: 1.25rem;
-  color: #717680;
+  font-size: 16px;
+  line-height: 24px;
+  color: #181D27;
 }
 
 #downloadCsvModal .fake-select-option:has(input[type="radio"]:checked) {
   background: #FAFAFA;
-  color: #252B37;
 }
 
 #downloadCsvModal .fake-select-option:hover {
@@ -983,7 +982,7 @@ table thead th:last-child {
   top: 0.625rem;
   width: 1rem;
   height: 1rem;
-  background-image: url("data:image/svg+xml,%3Csvg width='1rem' height='1rem' ...");
+  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2716%27%20height%3D%2716%27%20viewBox%3D%270%200%2016%2016%27%20fill%3D%27none%27%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%3E%3Cpath%20d%3D%27M13.3333%204L5.99996%2011.3333L2.66663%208%27%20stroke%3D%27%231570EF%27%20stroke-width%3D%271.5%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -1081,6 +1080,13 @@ table thead th:last-child {
   font-weight: 500;
   line-height: 1.25rem;
   color: #717680;
+}
+
+#downloadCsvModal small {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #535862;
 }
 
 
