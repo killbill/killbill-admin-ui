@@ -145,7 +145,7 @@ module Kaui
              base_product_name: 'Sports',
              plan_name: 'oilslick-monthly'
            }
-      assert_includes((200..399), response.code.to_i)
+      assert_includes(200..399, response.code.to_i)
     end
 
     test 'should handle Kill Bill errors in edit screen' do

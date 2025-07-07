@@ -77,7 +77,8 @@ module Kaui
 
       case attr
       when 'is_payment_delegated_to_parent', 'is_migrated'
-        "<div style='text-align: center;'><input type='checkbox' class='custom-checkbox' #{account&.send(attr.downcase) ? 'checked' : ''}></div>"
+        checked_attr = account&.send(attr.downcase) ? 'checked' : nil
+        "<div style='text-align: center;'><input type='checkbox' class='custom-checkbox' #{checked_attr}></div>"
       when 'account_id'
         view_context.link_to(account.account_id, view_context.url_for(action: :show, account_id: account.account_id))
       when 'parent_account_id'
@@ -296,6 +297,7 @@ module Kaui
       password: user.password,
       session_id: user.kb_session_id
     }
+    result[:jwt_token] = session[:jwt_token] if session[:jwt_token]
     if user_tenant
       result[:api_key] = user_tenant.api_key
       result[:api_secret] = user_tenant.api_secret

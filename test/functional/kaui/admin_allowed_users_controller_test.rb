@@ -215,7 +215,7 @@ module Kaui
     private
 
     def expected_response_path(id = nil)
-      "/kaui/admin_allowed_users#{id.nil? ? '' : "/#{id}"}"
+      id.nil? ? '/kaui/admin_allowed_users' : "/kaui/admin_allowed_users/#{id}"
     end
 
     def extract_allowed_username
