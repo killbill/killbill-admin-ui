@@ -1,4 +1,6 @@
-<%= render :partial => 'tenant_details' %>
+<%
+=begin%>
+ <%= render :partial => 'tenant_details' %>
 
 <%= render :partial => 'useful_links' %>
 
@@ -129,4 +131,322 @@
       $('#tenant_tabs a[href="#' + $('#tenant_tabs').attr('active_tab') + '"]').tab('show');
     }
   });
-<% end %>
+<% end %> 
+<%
+=end%>
+
+<div class="kaui-container">
+  <%= render partial: 'kaui/components/breadcrumb/breadcrumb', locals: {
+    breadcrumbs: [
+      { label: 'Settings', href: '/kaui' },
+      { label: "Account", href: '#' }
+    ]
+  } %>
+
+  <div class="d-flex" style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_setting_sidebar', 
+      locals: {
+        identifier: "Settings",
+        controller: params[:controller],
+        menu_items: [
+          { label: 'Account', path: kaui_engine.admin_tenant_path(session[:tenant_id]), controller_suffix: "#{session[:tenant_id]}", icon_path: 'kaui/setting/account.svg' },
+          { label: 'Tenants', path: kaui_engine.admin_tenants_path, controller_suffix: 'admin_tenants', icon_path: 'kaui/setting/tenants.svg' },
+          { label: 'Users', path: kaui_engine.admin_allowed_users_path, controller_suffix: 'admin_allowed_users', icon_path: 'kaui/setting/users.svg' },
+          { label: 'Tags', path: kaui_engine.tags_path, controller_suffix: 'tags', icon_path: 'kaui/setting/tags.svg' },
+          { label: 'Tag Definitions', path: kaui_engine.tag_definitions_path, controller_suffix: 'tag_definitions', icon_path: 'kaui/setting/tag-definitions.svg' },
+          { label: 'Custom Fields', path: kaui_engine.custom_fields_path, controller_suffix: 'custom_fields', icon_path: 'kaui/setting/custom-field.svg' },
+          { label: 'Plugins', path: "#", controller_suffix: 'invoices', icon_path: 'kaui/setting/plugins.svg' },
+          { label: 'Analytics', path: "#", controller_suffix: 'invoices', icon_path: 'kaui/setting/analytics.svg' },
+        ]
+      }
+    %>
+
+
+    <div class="w-100">
+      <%= render :partial => 'tenant_details' %>
+
+      <%= render :partial => 'useful_links' %>
+
+      <%= render :partial => 'add_allowed_user_modal' %>
+
+      <% unless @allowed_users.empty? %>
+        <div class="kaui-container">
+          <div class="allowed-users-container">
+            <div class="d-flex flex-column">
+              <div class="allowed-users-header mb-3">
+                <div class="d-flex align-items-start flex-column">
+                  <h2>Allowed Users</h2>
+                </div>
+                <span>
+                  <%= render "kaui/components/button/button", {
+                    label: "Create User",
+                    icon: "kaui/plus.svg",
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "button",
+                    html_class: "kaui-dropdown custom-hover",
+                    html_options: {
+                      id: "addAllowedUserModal",
+                      data: { 
+                        bs_toggle: "modal",
+                        bs_target: "#addAllowedUserModal"
+                      }
+                    }
+                  } %>
+                </span>
+              </div>
+              <div class="">
+                <table id="allowed-users-for-tenant-table" class="table table-condensed">
+                  <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <% @allowed_users.each do |u| %>
+                      <tr>
+                        <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
+                        <td><%= u.description %></td>
+                        <td class="text-end">
+                          <% if current_user.root? %>
+                            <%= render "kaui/components/button/button", {
+                              label: "Remove",
+                              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                              type: "button",
+                              html_class: "kaui-button dots-menu custom-hover",
+                              html_options: {
+                                id: "allowed-user-remove-#{u.id}"
+                              }
+                            } %>
+                          <% end %>
+
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= javascript_tag do %>
+          $(document).ready(function() {
+            $('#allowed-users-for-tenant-table').dataTable({
+              "dom": "t",
+              "paging": false,
+              "order": [[ 0, "asc" ]],
+              "columns": [
+                null,
+                null,
+                { "orderable": false }
+              ]
+            });
+          });
+        <% end %>
+      <% end %>
+
+
+      <div class="kaui-container nav-tabs-details">
+        <ul class="nav nav-tabs" id="tenant_tabs" active_tab="<%= @active_tab %>">
+          <li class="nav-item">
+            <a class="nav-link" href="#CatalogShow" data-bs-toggle="tab">Catalog Show</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#OverdueShow" data-bs-toggle="tab">Overdue Show</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#InvoiceTemplate" data-bs-toggle="tab">Invoice Template</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#InvoiceTranslation" data-bs-toggle="tab">Invoice Translation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#CatalogTranslation" data-bs-toggle="tab">Catalog Translation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#PluginConfig" data-bs-toggle="tab">Plugin Config</a>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+          <%= render :partial => 'show_catalog' %>
+          <%= render :partial => 'show_overdue' %>
+          <%= render :partial => 'form_invoice_template' %>
+          <%= render :partial => 'form_invoice_translation' %>
+          <%= render :partial => 'form_catalog_translation' %>
+          <%= render :partial => 'form_plugin_config' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<style>
+  .allowed-users-container {
+    max-width: 80rem; 
+    width: 100%;
+  }
+
+  .allowed-users-container .allowed-users-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0;
+    border-bottom: 0.0625rem solid #E9EAEB;
+  }
+
+  .allowed-users-container .allowed-users-header h2 {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #414651;
+    margin-bottom: 1.25rem;
+  }
+
+  .allowed-users-container .dots-menu {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    text-decoration: none !important;
+    color: #D92D20 !important;
+    font-weight: 500;
+    padding-right: 0.5rem !important; 
+    font-size: 0.875rem; 
+    line-height: 1.125rem;  
+  }
+
+
+  table {
+    overflow-x: auto;
+    min-width: 100%;
+  }
+
+  table th {
+    padding: 0.375rem 0.75rem !important; 
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    letter-spacing: 0;
+    color: #717680;
+    text-transform: capitalize;
+  }
+
+  table td {
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    padding: 1rem 0.5rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    width: ;
+    color: #535862 !important;
+    text-transform: capitalize !important;
+  }
+
+
+  table thead tr th::after {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 5.5L6 2.5L9 5.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0.75rem 0.75rem !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    top: 45% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  table thead tr th::before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6.5L6 9.5L9 6.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0.75rem 0.75rem !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    bottom: 45% !important;
+    transform: translateY(50%) !important;
+  }
+
+
+  .nav-tabs-details .nav-link.active {
+    border-bottom: 0.125rem solid #1570EF !important; 
+    color: #175CD3 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    
+  }
+  .nav-tabs-details .nav-link {
+    border-bottom: 0.125rem solid transparent;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    padding: 0.25rem 0 0.75rem 0.25rem !important;
+    color: #717680;
+    margin-right: 0.75rem !important;
+    font-weight: 500 !important;
+    font-size: 0.875rem !important; 
+    line-height: 1.25rem !important;
+  }
+
+</style>
+
+
+<%= javascript_tag do %>
+
+
+   function updateBrowserHistory(target) {
+      // Check if we are already on the right tab
+      res = $.grep(location.href.split('?'), function(el) {
+        if (el.startsWith("active_tab")) {
+          return true;
+        }
+      });
+      if (res.length > 0) {
+        if (res[0].split('=')[1] == target) {
+          return;
+        }
+      }
+
+     // If not update the browser history
+     var base_url = location.href.split('?')[0]
+     var newUrl = base_url + "?active_tab=" + target
+
+     var stateObj = { tenantTab: target };
+     history.pushState(stateObj, "New tab ", newUrl);
+    }
+
+
+  $(document).ready(function() {
+    $('[id^=allowed-user-remove-]').click(function() {
+      var allowedUser = $(this);
+      $.ajax({ type: "DELETE",
+        url: "<%= remove_allowed_user_path :format => :json %>",
+        data: { allowed_user: { id: this['id'].split('-')[3] }, id: <%= @tenant.id %>},
+        success: function(data) {  allowedUser.parent().parent().hide(); return false; },
+        error: function(request, textStatus, errorThrown) { console.log("AJAX FAILED!!!! request.status " + request.status + ", textStatus = " + textStatus); return false; }
+      });
+    });
+
+    $('#tenant_tabs li').on('shown.bs.tab', function (e) {
+      var target = $(e.target).attr("href");
+      updateBrowserHistory(target.split('#')[1])
+    });
+
+
+    if ($('#tenant_tabs').attr('active_tab') != "") {
+      $('#tenant_tabs a[href="#' + $('#tenant_tabs').attr('active_tab') + '"]').tab('show');
+    }
+  });
+<% end %> 

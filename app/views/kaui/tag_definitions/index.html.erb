@@ -1,4 +1,6 @@
-<div class="search">
+<%
+=begin%>
+ <div class="search">
 
   <div class="column-block">
 
@@ -40,6 +42,225 @@
   </div>
 
 </div>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  $('#tag_definitions-table').dataTable({
+    "dom": "t",
+    "paging": "false",
+    "order": [],
+    "columns": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    { "orderable": false }
+    ]
+  });
+});
+<% end %> 
+<%
+=end%>
+
+
+<div class="kaui-container">
+  <%= render partial: 'kaui/components/breadcrumb/breadcrumb', locals: {
+    breadcrumbs: [
+      { label: 'Settings', href: '/kaui' },
+      { label: "Tag Definitions", href: '#' }
+    ]
+  } %>
+
+  <div class="d-flex" style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_setting_sidebar', 
+      locals: {
+        identifier: "Settings",
+        controller: params[:controller],
+        menu_items: [
+          { label: 'Account', path: kaui_engine.admin_tenant_path(session[:tenant_id]), controller_suffix: "#{session[:tenant_id]}", icon_path: 'kaui/setting/account.svg' },
+          { label: 'Tenants', path: kaui_engine.admin_tenants_path, controller_suffix: 'admin_tenants', icon_path: 'kaui/setting/tenants.svg' },
+          { label: 'Users', path: kaui_engine.admin_allowed_users_path, controller_suffix: 'admin_allowed_users', icon_path: 'kaui/setting/users.svg' },
+          { label: 'Tags', path: kaui_engine.tags_path, controller_suffix: 'tags', icon_path: 'kaui/setting/tags.svg' },
+          { label: 'Tag Definitions', path: kaui_engine.tag_definitions_path, controller_suffix: 'tag_definitions', icon_path: 'kaui/setting/tag-definitions.svg' },
+          { label: 'Custom Fields', path: kaui_engine.custom_fields_path, controller_suffix: 'custom_fields', icon_path: 'kaui/setting/custom-field.svg' },
+          { label: 'Plugins', path: "#", controller_suffix: 'invoices', icon_path: 'kaui/setting/plugins.svg' },
+          { label: 'Analytics', path: "#", controller_suffix: 'invoices', icon_path: 'kaui/setting/analytics.svg' },
+        ]
+      }
+    %>
+    <div class="tag-definitions-details w-100">
+      <div class="d-flex flex-column">
+        <div class="tag-definitions-details-header">
+          <h2>Tag Definitions</h2>
+          <span>
+            <% if can? :create_tag_definition, Kaui::Tag %>
+              <%= link_to kaui_engine.new_tag_definition_path do %>
+                <%= render "kaui/components/button/button", {
+                  label: "Create Definition",
+                  icon: "kaui/plus.svg",
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-dropdown custom-hover",
+                } %>
+              <% end %>
+            <% end %>
+          </span>
+        </div>
+
+        <div class="mt-4">
+          <table id='tag_definitions-table' class='tag-definitions-table'>
+            <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>System tag</th>
+              <th>Applicable types</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @tag_definitions.each do |tag_definition| %>
+                <tr>
+                  <td><%= object_id_popover(tag_definition.id) %></td>
+                  <td><%= tag_definition.name %></td>
+                  <td><%= tag_definition.description %></td>
+                  <td><span class="<%= tag_definition.system_tag? %>"><%= tag_definition.system_tag? %></span></td>
+                  <td><span><%= tag_definition.pretty_applicable_object_types %></span></td>
+                  <td>
+                    <% unless tag_definition.system_tag? %> 
+                      <%= link_to 'Destroy', kaui_engine.tag_definition_path(tag_definition.id), :confirm => 'Are you sure?', :method => :delete %>
+                    <% end %> 
+                  </td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .tag-definitions-details-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0;
+    border-bottom: 0.0625rem solid #E9EAEB;
+  }
+
+  .tag-definitions-details-header h2 {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #414651;
+    margin-bottom: 1.25rem;
+  }
+
+  table {
+    overflow-x: auto;
+    min-width: 100%;
+  }
+
+  table th {
+    padding: 0.375rem 0.75rem !important;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    letter-spacing: 0;
+    color: #717680;
+    text-transform: capitalize;
+    white-space: nowrap;
+  }
+
+
+  table td {
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    padding: 1rem 0.5rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    width: ;
+    color: #535862 !important;
+    text-transform: capitalize !important;
+  }
+
+
+  table thead tr th::after {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 5.5L6 2.5L9 5.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0.75rem 0.75rem !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    top: 45% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  table thead tr th::before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6.5L6 9.5L9 6.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0.75rem 0.75rem !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    bottom: 45% !important;
+    transform: translateY(50%) !important;
+  }
+
+  .tag-definitions-table tbody tr td:nth-of-type(5) span {
+    padding: 0.125rem 0.5rem;
+    border-radius: 62.4375rem;
+    background-color: #EFF8FF;
+    border: 0.0625rem solid #D1E9FF;
+    color: #175CD3;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+
+  .tag-definitions-table tbody tr td:nth-of-type(4) .true {
+    padding: 0.125rem 0.5rem;
+    border-radius: 62.4375rem;
+    background-color: #ECFDF3;
+    border: 0.0625rem solid #DCFAE6;
+    color: #067647;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+
+  .tag-definitions-table tbody tr td:nth-of-type(4) .false {
+    padding: 0.125rem 0.5rem;
+    border-radius: 62.4375rem;
+    background-color: #FEF3F2;
+    border: 0.0625rem solid #FEE4E2;
+    color: #B42318;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+
+  .tag-definitions-table tbody tr td:nth-of-type(6) a {
+    color: #D92D20;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-decoration: none;
+  }
+</style>
 
 <%= javascript_tag do %>
 $(document).ready(function() {

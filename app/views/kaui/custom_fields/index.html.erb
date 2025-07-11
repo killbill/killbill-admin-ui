@@ -1,4 +1,6 @@
-<div class="search">
+<%
+=begin%>
+ <div class="search">
 
   <div class="column-block">
 
@@ -27,6 +29,312 @@
   </div>
 
 </div>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+  var table = $('#custom_fields-table').DataTable({
+    "dom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+    "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
+    "language": {
+      <!-- See DefaultPaginationSqlDaoHelper.java -->
+      "info": <% if @max_nb_records.nil? -%>"Showing _START_ to _END_ of <%= number_with_delimiter(Kaui::EngineControllerUtil::SIMPLE_PAGINATION_THRESHOLD) -%>+ entries"<% else -%>"Showing _START_ to _END_ of _TOTAL_ entries"<% end -%>
+    },
+    "pageLength": <%= @limit %>,
+    "displayStart": <%= @offset %>,
+    <% unless @ordering.blank? %>
+        "order": [[ 0, "<%= @ordering %>" ]],
+    <% end %>
+    "processing": true,
+    "serverSide": true,
+    "ajax": "<%= custom_fields_pagination_path(:ordering => @ordering, :format => :json) %>"
+  });
+
+  <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->
+  <% if @max_nb_records.nil? %>
+    $('#custom_fields-table').on('draw.dt', function() {
+      var noMoreData = table.column(0)
+                            .data()
+                            .length == 0;
+      $(".next.paginate_button").toggleClass("disabled", noMoreData);
+      $(".dataTables_info").toggle(!noMoreData);
+    });
+  <% end %>
+});
+<% end %> 
+<%
+=end%>
+
+<div class="kaui-container">
+  <%= render partial: 'kaui/components/breadcrumb/breadcrumb', locals: {
+    breadcrumbs: [
+      { label: 'Settings', href: '/kaui' },
+      { label: "Custom Fields", href: '#' }
+    ]
+  } %>
+
+  <div class="d-flex" style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_setting_sidebar', 
+      locals: {
+        identifier: "Settings",
+        controller: params[:controller],
+        menu_items: [
+          { label: 'Account', path: kaui_engine.admin_tenant_path(session[:tenant_id]), controller_suffix: "#{session[:tenant_id]}", icon_path: 'kaui/setting/account.svg' },
+          { label: 'Tenants', path: kaui_engine.admin_tenants_path, controller_suffix: 'admin_tenants', icon_path: 'kaui/setting/tenants.svg' },
+          { label: 'Users', path: kaui_engine.admin_allowed_users_path, controller_suffix: 'admin_allowed_users', icon_path: 'kaui/setting/users.svg' },
+          { label: 'Tags', path: kaui_engine.tags_path, controller_suffix: 'tags', icon_path: 'kaui/setting/tags.svg' },
+          { label: 'Tag Definitions', path: kaui_engine.tag_definitions_path, controller_suffix: 'tag_definitions', icon_path: 'kaui/setting/tag-definitions.svg' },
+          { label: 'Custom Fields', path: kaui_engine.custom_fields_path, controller_suffix: 'custom_fields', icon_path: 'kaui/setting/custom-field.svg' },
+          { label: 'Plugins', path: "#", controller_suffix: 'invoices', icon_path: 'kaui/setting/plugins.svg' },
+          { label: 'Analytics', path: "#", controller_suffix: 'invoices', icon_path: 'kaui/setting/analytics.svg' },
+        ]
+      }
+    %>
+    <div class="custom-fields-details w-100">
+      <div class="d-flex flex-column">
+        <div class="custom-fields-details-header">
+          <h2>Custom Fields</h2>
+          <span>
+            <% if can? :add, Kaui::CustomField %>
+              <%= link_to new_custom_field_path do %>
+                <%= render "kaui/components/button/button", {
+                  label: "Create Field",
+                  icon: "kaui/plus.svg",
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-dropdown custom-hover",
+                } %>
+                <% end %>
+            <% end %>
+          </span>
+        </div>
+
+        <div class="mt-4">
+          <table id="custom_fields-table" class="table table-condensed mobile-data">
+            <thead>
+            <tr>
+              <th>Object ID</th>
+              <th>Object type</th>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .custom-fields-details-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0;
+    border-bottom: 0.0625rem solid #E9EAEB;
+  }
+
+  .custom-fields-details-header h2 {
+     font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    color: #414651;
+    margin-bottom: 1.25rem; 
+  }
+
+
+  table {
+    overflow-x: auto;
+    min-width: 100%;
+  }
+
+  table th {
+    padding: 0.375rem 0.75rem !important;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    letter-spacing: 0;
+    color: #717680;
+    text-transform: capitalize;
+    white-space: nowrap;
+  }
+
+  table td {
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    padding: 1rem 0.5rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    width: ;
+    color: #535862 !important;
+    text-transform: capitalize !important;
+  }
+
+
+  table thead tr th::after {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 5.5L6 2.5L9 5.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0.75rem 0.75rem !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    top: 45% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  table thead tr th::before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6.5L6 9.5L9 6.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0.75rem 0.75rem !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    bottom: 45% !important;
+    transform: translateY(50%) !important;
+  }
+
+  .tag-definitions-table tbody tr td:nth-of-type(5) span {
+    padding: 0.125rem 0.5rem;
+    border-radius: 62.4375rem;
+    background-color: #EFF8FF;
+    border: 0.0625rem solid #D1E9FF;
+    color: #175CD3;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+
+  .tag-definitions-table tbody tr td:nth-of-type(4) .true {
+    padding: 0.125rem 0.5rem;
+    border-radius: 62.4375rem;
+    background-color: #ECFDF3;
+    border: 0.0625rem solid #DCFAE6;
+    color: #067647;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+
+  .tag-definitions-table tbody tr td:nth-of-type(4) .false {
+    padding: 0.125rem 0.5rem;
+    border-radius: 62.4375rem;
+    background-color: #FEF3F2;
+    border: 0.0625rem solid #FEE4E2;
+    color: #B42318;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+
+  .tag-definitions-table tbody tr td:nth-of-type(6) a {
+    color: #D92D20;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    text-decoration: none;
+  }
+
+  #custom_fields-table_filter {
+    position: absolute;
+    top: -4.5625rem; 
+    right: 8rem; 
+  }
+
+  #custom_fields-table_filter input {
+    width: 20rem;
+    height: 2.2rem;
+    padding: 0.3rem 1rem;
+    border: 0.0625rem solid #E5E7EB;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+    outline: none;
+  }
+
+  #custom_fields-table_filter input:focus {
+    border-color: blue;
+  }
+
+
+  .pagination a:not(:first-child):not(:last-child) {
+    color: #717680;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+  }
+
+  .pagination a:not(:first-child):not(:last-child).btn-primary {
+    color: #414651;
+    background-color: #F5F5F5 !important;
+    border: 0 !important;
+  }
+
+  div:has(> div > .dataTables_paginate) {
+    margin-top: 1.5rem;
+  }
+
+  .dataTables_paginate {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .dataTables_paginate span .paginate_button {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #717680 !important; 
+    text-decoration: none;
+    border: 0 !important;
+  }
+
+  .dataTables_paginate .paginate_button:hover {
+    background-color: #F3F4F6;
+  }
+
+  .dataTables_paginate .paginate_button.current {
+    background-color: #F5F5F5 !important;
+    border-radius: 0.375rem !important;
+    color: #414651 !important;
+  }
+
+  .dataTables_paginate .paginate_button.last,
+  .dataTables_paginate .paginate_button.previous {
+    border: 0.0625rem solid #E5E7EB;
+    border-radius: 0.5rem;
+    background-color: white;
+    padding: 0.5rem 0.875rem;
+    color: #374151;
+  }
+
+  #custom_fields-table_first,
+  #custom_fields-table_last {
+    display: none !important;
+  }
+
+</style>
 
 <%= javascript_tag do %>
 $(document).ready(function() {

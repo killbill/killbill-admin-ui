@@ -140,7 +140,8 @@ $(document).ready(function() {
 
 <style>
   .invoices {
-    max-width: 67.5625rem;
+    max-width: <%= request.path.include?('/accounts/') ? '1080px' : '1280px' %>;
+    width: 100%;
   }
 
   .invoices .invoices-header {
@@ -166,22 +167,6 @@ $(document).ready(function() {
     line-height: 1.75rem;
     color: #414651;
     margin-bottom: 1.25rem;
-  }
-
-  .invoices .bundle-details-header b {
-    font-weight: 600;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    letter-spacing: 0;
-    color: #414651;
-  }
-
-  .invoices .bundle-details-header p {
-    font-weight: 400;
-    font-size: 0.75rem;
-    line-height: 1.25rem;
-    letter-spacing: 0;
-    color: #717680;
   }
 
   .invoices .invoices-table {

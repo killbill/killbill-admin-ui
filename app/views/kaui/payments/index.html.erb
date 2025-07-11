@@ -155,7 +155,7 @@ $(document).ready(function() {
 
 <style>
   .payments {
-    max-width: 67.5625rem;
+    max-width: <%= request.path.include?('/accounts/') ? '1080px' : '1280px' %>;
   }
 
   .payments .payments-header {

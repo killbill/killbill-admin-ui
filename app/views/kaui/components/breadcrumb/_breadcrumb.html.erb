@@ -1,71 +1,95 @@
-<% full_path = request.fullpath.gsub(/\?.*/, '') %>
-<% segments = full_path.split("/").reject(&:blank?) %>
+<%# Accept optional breadcrumbs array (e.g., passed via locals) %>
+<% custom_breadcrumbs = local_assigns[:breadcrumbs] %>
 
-<% if params[:account_id].present? && full_path.starts_with?("/kaui/queues") %>
-  <% segments = ["kaui", "accounts", params[:account_id], "queues"] %>
-<% end %>
-
-<% # Map controller suffixes to their friendly sidebar labels %>
-<% segment_label_map = {
-  'accounts' => 'Account',
-  'bundles' => 'Subscriptions',
-  'invoices' => 'Invoices',
-  'payments' => 'Payments',
-  'timelines' => 'Timeline',
-  'account_tags' => 'Tags',
-  'custom_fields' => 'Custom Fields',
-  'queues' => 'Queues',
-  'logs' => 'Audit'
-} %>
-
+<% if custom_breadcrumbs.present? %>
 <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-  <% segments.each_with_index do |segment, index| %>
-    <% is_last = index == segments.size - 1 %>
-    <% path = "/" + segments[0..index].join("/") %>
+  <span class="breadcrumb-home">
+      <%= link_to '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.33331 6.99994L7.16705 2.33295C7.65398 1.94338 8.34598 1.94338 8.83291 2.33295L14.6666 6.99994" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.66669 6V13C2.66669 13.7364 3.26364 14.3333 4.00002 14.3333H12C12.7364 14.3333 13.3334 13.7364 13.3334 13V6" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 11.6667V12.3334" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>'.html_safe,
+  "/kaui", class: "breadcrumb-home" %>
+  </span>
+  <span class="breadcrumb-separator">/</span>
+  <% custom_breadcrumbs.each_with_index do |item, index| %>
+    <% is_last = index == custom_breadcrumbs.size - 1 %>
 
     <% if index > 0 %>
       <span class="breadcrumb-separator">/</span>
     <% end %>
 
-    <% if index == 0 && segment == "kaui" %>
-      <% if is_last %>
-        <span class="breadcrumb-home">
-          <%= raw <<~SVG
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.33331 6.99994L7.16705 2.33295C7.65398 1.94338 8.34598 1.94338 8.83291 2.33295L14.6666 6.99994" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M2.66669 6V13C2.66669 13.7364 3.26364 14.3333 4.00002 14.3333H12C12.7364 14.3333 13.3334 13.7364 13.3334 13V6" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M8 11.6667V12.3334" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          SVG
-          %>
-        </span>
-      <% else %>
-        <%= link_to path, class: "breadcrumb-home-link" do %>
-          <%= raw <<~SVG
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.33331 6.99994L7.16705 2.33295C7.65398 1.94338 8.34598 1.94338 8.83291 2.33295L14.6666 6.99994" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M2.66669 6V13C2.66669 13.7364 3.26364 14.3333 4.00002 14.3333H12C12.7364 14.3333 13.3334 13.7364 13.3334 13V6" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M8 11.6667V12.3334" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          SVG
-          %>
-        <% end %>
-      <% end %>
+    <% if is_last %>
+      <span class="breadcrumb-current"><%= item[:label] %></span>
     <% else %>
-      <% # Determine label for each segment %>
-      <% if segment.match?(/\A[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\z/i) && defined?(pretty_account_identifier) %>
-        <% label = pretty_account_identifier %>
-      <% elsif segment_label_map[segment] %>
-        <% label = segment_label_map[segment] %>
-      <% else %>
-        <% label = segment.titleize %>
-      <% end %>
-
-      <% if is_last %>
-        <span class="breadcrumb-current"><%= label %></span>
-      <% else %>
-        <%= link_to label, path, class: "breadcrumb-link" %>
-      <% end %>
+      <%= link_to item[:label], item[:href], class: "breadcrumb-link" %>
     <% end %>
   <% end %>
 </nav>
+<% else %>
+  <% full_path = request.fullpath.gsub(/\?.*/, '') %>
+  <% segments = full_path.split("/").reject(&:blank?) %>
+
+  <% if params[:account_id].present? && full_path.starts_with?("/kaui/queues") %>
+    <% segments = ["kaui", "accounts", params[:account_id], "queues"] %>
+  <% end %>
+
+  <% segment_label_map = {
+    'accounts' => 'Account',
+    'bundles' => 'Subscriptions',
+    'invoices' => 'Invoices',
+    'payments' => 'Payments',
+    'timelines' => 'Timeline',
+    'account_tags' => 'Tags',
+    'custom_fields' => 'Custom Fields',
+    'queues' => 'Queues',
+    'logs' => 'Audit'
+  } %>
+
+  <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+    <% segments.each_with_index do |segment, index| %>
+      <% is_last = index == segments.size - 1 %>
+      <% path = "/" + segments[0..index].join("/") %>
+
+      <% if index > 0 %>
+        <span class="breadcrumb-separator">/</span>
+      <% end %>
+
+      <% if index == 0 && segment == "kaui" %>
+        <% if is_last %>
+          <span class="breadcrumb-home">
+            <%= raw <<~SVG
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.33331 6.99994L7.16705 2.33295C7.65398 1.94338 8.34598 1.94338 8.83291 2.33295L14.6666 6.99994" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.66669 6V13C2.66669 13.7364 3.26364 14.3333 4.00002 14.3333H12C12.7364 14.3333 13.3334 13.7364 13.3334 13V6" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 11.6667V12.3334" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            SVG
+            %>
+          </span>
+        <% else %>
+          <%= link_to path, class: "breadcrumb-home-link" do %>
+            <%= raw <<~SVG
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.33331 6.99994L7.16705 2.33295C7.65398 1.94338 8.34598 1.94338 8.83291 2.33295L14.6666 6.99994" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2.66669 6V13C2.66669 13.7364 3.26364 14.3333 4.00002 14.3333H12C12.7364 14.3333 13.3334 13.7364 13.3334 13V6" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 11.6667V12.3334" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            SVG
+            %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <% if segment.match?(/\A[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\z/i) && defined?(pretty_account_identifier) %>
+          <% label = pretty_account_identifier %>
+        <% elsif segment_label_map[segment] %>
+          <% label = segment_label_map[segment] %>
+        <% else %>
+          <% label = segment.titleize %>
+        <% end %>
+
+        <% if is_last %>
+          <span class="breadcrumb-current"><%= label %></span>
+        <% else %>
+          <%= link_to label, path, class: "breadcrumb-link" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </nav>
+<% end %>

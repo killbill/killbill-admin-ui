@@ -1,3 +1,6 @@
+<%
+=begin%>
+
 <div id="overdue_config_simple">
 
     <div>
@@ -151,6 +154,450 @@ function overdue_delete_state(obj) {
 
 $(document).ready(function() {
     switch_overdue_basic_config();
+});
+
+
+<% end %>
+<%
+=end%>
+
+
+
+
+<div class="kaui-container">
+    <div class="">
+        <div class="mx-auto">
+            <h5 class="add-account-title pb-3 mb-3 border-bottom">
+                <span class="icon-container">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.9166 10.0007C12.9166 11.6115 11.6108 12.9173 9.99998 12.9173C8.38915 12.9173 7.08331 11.6115 7.08331 10.0007C7.08331 8.38982 8.38915 7.08398 9.99998 7.08398C11.6108 7.08398 12.9166 8.38982 12.9166 10.0007Z" stroke="#414651" stroke-width="1.5"/>
+                      <path d="M8.14341 2.23582L7.50001 4.16602L6.20014 4.98815L4.07331 4.4619C3.71675 4.37368 3.34448 4.52931 3.15681 4.84505L2.01998 6.75762C1.81512 7.10229 1.88473 7.54398 2.18568 7.80891L3.67746 9.12218V10.8765L2.18615 12.1898C1.88527 12.4547 1.81569 12.8963 2.02053 13.2409L3.15741 15.1536C3.34508 15.4694 3.71736 15.625 4.07391 15.5368L6.20075 15.0105L7.43216 15.7011L8.01996 17.7311C8.12313 18.0874 8.44943 18.3327 8.82043 18.3327H11.1803C11.5512 18.3327 11.8775 18.0874 11.9807 17.7311L12.5685 15.7011L13.7993 15.0105L15.9261 15.5368C16.2827 15.625 16.6549 15.4694 16.8426 15.1536L18.0009 13.2048C18.196 12.8767 18.1431 12.4578 17.8726 12.1885L16.3674 10.6899L16.368 9.30877L17.8732 7.81017C18.1438 7.5408 18.1967 7.12202 18.0016 6.79384L16.8432 4.84505C16.6555 4.52931 16.2833 4.37368 15.9267 4.4619L13.7998 4.98815L12.5 4.16602L11.8566 2.23582C11.7432 1.89554 11.4248 1.66602 11.066 1.66602H8.93401C8.57526 1.66602 8.25683 1.89554 8.14341 2.23582Z" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                Overdue Configuration
+            </h5>
+            <div class="form-group d-flex pb-3">
+              <label class="col-sm-1 control-label">Type</label>
+              <div class="toggle-segment col-sm-9">
+                <a href="javascript:void(0);" class="toggle-option active-btn" onclick="switch_overdue_basic_config();">
+                  <span class="dot"></span>
+                  Simple Configuration
+                </a>
+                <a href="javascript:void(0);" class="toggle-option" onclick="switch_overdue_xml_config();">
+                  <span class="dot"></span>
+                  Advanced Configuration
+                </a>
+              </div>
+            </div>
+
+            <div id="overdue_config_simple">
+
+              <%= form_for @overdue, :url => {:action => :modify_overdue_config}, :html => {:class => 'form-horizontal'} do |f| %>
+                <%= link_to "javascript:void(0);", onclick: "overdue_new_state();", class:"text-decoration-none", id: "new_state" do %>
+                  <%= render "kaui/components/button/button", {
+                    label: "New Overdue States",
+                    icon: "kaui/setting/plus.svg",
+                    variant: "outline-secondary d-inline-flex align-items-center",
+                    type: "button",
+                    html_class: "new-overdue-states-button kaui-button",
+                  } %>
+                <% end %>
+
+                <table id="existing-overdue-config-for-tenants" class="existing-overdue-config-for-tenants">
+                  <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>External Message</th>
+                    <th>Block Subscription Changes</th>
+                    <th>Subscription Cancellation</th>
+                    <th>Days since earliest unpaid invoice</th>
+                    <th>Tag inclusion</th>
+                    <th>Tag exclusion</th>
+                    <th>Number of unpaid invoices</th>
+                    <th>Total unpaid invoice balance</th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <%= hidden_field_tag(:id, @tenant.id) %>
+
+                  <% @overdue.overdue_states.reverse.each_with_index do |state, idx| %>
+                      <tr class="overdue_state_<%= state %>" id="tr_state_<%= idx %>">
+                        <%= f.fields 'states' do |state_form_group| %>
+                          <%= state_form_group.fields_for "#{idx}", state do |state_form| %>
+                            <td><%= state_form.text_field :name %></td>
+                            <td><%= state_form.text_field :external_message %></td>
+                            <td><%= state_form.select :is_block_changes, options_for_select([true, false ], state.is_block_changes), :class => 'form-control'  %></td>
+                            <td><%= state_form.select :subscription_cancellation_policy, options_for_select([:NONE, :POLICY_NONE, :POLICY_IMMEDIATE, :POLICY_END_OF_TERM], state.subscription_cancellation), :class => 'form-control' %></td>
+                            <%= state_form.fields_for 'condition' do |condition| %>
+                              <td><%= condition.number_field :time_since_earliest_unpaid_invoice_equals_or_exceeds, :value => state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds&.number %></td>
+                              <td><%= condition.select :control_tag_inclusion, options_for_select([:NONE, :AUTO_PAY_OFF, :AUTO_INVOICING_OFF, :OVERDUE_ENFORCEMENT_OFF, :MANUAL_PAY, :TEST, :PARTNER], state.condition&.control_tag_inclusion), :class => 'form-control'  %></td>
+                              <td><%= condition.select :control_tag_exclusion, options_for_select([:NONE, :AUTO_PAY_OFF, :AUTO_INVOICING_OFF, :OVERDUE_ENFORCEMENT_OFF, :MANUAL_PAY, :TEST, :PARTNER], state.condition&.control_tag_exclusion), :class => 'form-control'%></td>
+                              <td><%= condition.number_field :number_of_unpaid_invoices_equals_or_exceeds, :value => state.condition&.number_of_unpaid_invoices_equals_or_exceeds %></td>
+                              <td><%= condition.number_field :total_unpaid_invoice_balance_equals_or_exceeds, :step => :any, :value => state.condition&.total_unpaid_invoice_balance_equals_or_exceeds %></td>
+                            <% end %>
+                          <% end %>
+                        <% end %>
+                        <td>
+                        <%= link_to "javascript:void(0);", onclick: "overdue_delete_state(this);", class: "text-decoration-none", id: "delete_state_#{idx}" do %>
+                          <%= render "kaui/components/button/button", {
+                            label: "",
+                            icon: "kaui/modal/red-close.svg",
+                            variant: "outline-secondary d-inline-flex align-items-center",
+                            type: "button",
+                            html_class: "close-button kaui-button"
+                          } %>
+                        <% end %>
+
+                        </td>
+                        
+                      </tr>
+                  <% end %>
+                </tbody>
+                </table>
+                <div class="form-group d-flex justify-content-end pt-3 mt-3 border-top">
+                  <%= render "kaui/components/button/button", {
+                    label: 'Close',
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "button",
+                    html_class: "kaui-button custom-hover mx-2",
+                    html_options: {
+                      onclick: "window.history.back();"
+                    }
+                  } %>
+                  <%= render "kaui/components/button/button", {
+                    label: 'Save Overdue',
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "submit",
+                    html_class: "kaui-dropdown custom-hover"
+                  } %>
+                </div>
+              <% end %>
+            </div>
+
+            <div id="overdue_config_xml">
+              <% if can? :config_upload, Kaui::AdminTenant %>
+                  <%= form_tag({:action => :upload_overdue_config}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
+                      <%= hidden_field_tag(:id, @tenant.id) %>
+
+                      <div class="upload-box form-group" data-file="">
+                        <div class="upload-content">
+                          <%= image_tag 'kaui/file-upload.svg', alt: 'Upload Icon' %>
+                          <p>
+                            <span class="highlight">Click to upload</span> or drag and drop
+                          </p>
+                        </div>
+
+                        <%= file_field_tag 'overdue', 
+                          class: 'form-control', 
+                          required: true,
+                          data: { file: '' },
+                          onchange: "this.parentNode.setAttribute('data-file', this.files[0]?.name || '')" 
+                        %>
+                      </div>
+                      <div class="form-group d-flex justify-content-end pt-3 mt-3 border-top">
+                        <%= render "kaui/components/button/button", {
+                          label: 'Close',
+                          variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                          type: "button",
+                          html_class: "kaui-button custom-hover mx-2",
+                          html_options: {
+                            onclick: "window.history.back();"
+                          }
+                        } %>
+                        <%= render "kaui/components/button/button", {
+                          label: 'Upload',
+                          variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                          type: "submit",
+                          html_class: "kaui-dropdown custom-hover"
+                        } %>
+                      </div>
+                  <% end %>
+              <% else %>
+                  You don't have the permission to upload the XML config
+              <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+  .add-account-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    letter-spacing: 0;
+    color: #1B1C1E;
+    padding: 1.5rem 0;
+  }
+
+  .icon-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.0625rem solid #D5D7DA;
+    border-radius: 0.375rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.25rem;
+  }
+
+  .icon-container img {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .toggle-segment {
+    display: flex;
+    align-items: center;
+    border: 0.0625rem solid #D5D7DA;
+    width: fit-content;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    font-size: 0.875rem;
+  }
+
+  .toggle-segment .toggle-option {
+    display: flex;
+    align-items: center;
+    padding: 0.625rem 1rem;
+    cursor: pointer;
+    color: #414651;
+    border-right: 0.0625rem solid #D5D7DA;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-decoration: none;
+    position: relative;
+    gap: 0;
+  }
+
+  .toggle-segment .toggle-option:last-child {
+    border-right: none;
+  }
+
+  .toggle-segment .toggle-option .dot {
+    display: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #17B26A;
+    border-radius: 50%;
+  }
+
+  .toggle-segment .toggle-option.active-btn {
+    background-color: #FAFAFA;
+    font-weight: 600;
+    color: #252B37;
+    gap: 1rem;
+  }
+
+  .toggle-segment .toggle-option.active-btn .dot {
+    display: inline-block;
+  }
+
+  .control-label {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25rem !important;
+    color: #414651 !important;
+  }
+
+  .new-overdue-states-button {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    color: #175CD3 !important;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    margin: 1rem 0;
+  }
+
+  .new-overdue-states-button img {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .close-button {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .close-button img {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  table.existing-overdue-config-for-tenants {
+    overflow-x: auto;
+    min-width: 100%;
+    border: none !important;
+  }
+
+  table.existing-overdue-config-for-tenants select {
+    appearance: none;
+    display: block;
+    height: 2.5rem;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0.0625rem solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.625rem center;
+    background-size: 1rem 1rem;
+    padding-right: 1.875rem;
+  }
+
+  table.existing-overdue-config-for-tenants select:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  table.existing-overdue-config-for-tenants th {
+    padding: 0 0.5rem !important;
+    font-weight: 500 !important;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    letter-spacing: 0;
+    color: #717680;
+    text-transform: capitalize;
+    background-color: #FAFAFA !important;
+    max-width: 8.5625rem !important;
+  }
+
+  table.existing-overdue-config-for-tenants td {
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    padding: 0.3125rem 0.75rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    color: #535862 !important;
+    text-transform: capitalize !important;
+    max-width: 8.5625rem !important;
+  }
+
+  table.existing-overdue-config-for-tenants td:last-child,
+  table.existing-overdue-config-for-tenants th:last-child {
+    max-width: 3.125rem !important;
+  }
+
+  table.existing-overdue-config-for-tenants td input {
+    width: 100%;
+    display: block;
+    height: 2.5rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0.0625rem solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  table.existing-overdue-config-for-tenants td input:focus {
+    box-shadow: none;
+    outline: none;
+    border-color: #1570ef;
+  }
+
+  select:focus {
+    box-shadow: none;
+    outline: none;
+    border-color: #1570ef;
+  }
+</style>
+
+<%= javascript_tag do %>
+
+
+function switch_overdue_xml_config() {
+    $('#overdue_config_simple').hide();
+    $('#overdue_config_xml').show();
+}
+
+function switch_overdue_basic_config() {
+    $('#overdue_config_xml').hide();
+    $('#overdue_config_simple').show();
+}
+
+
+function overdue_new_state() {
+    /* Compute max index value to assign new rows with unsued index */
+    var max_idx = $.map($('[id^=delete_state_]'), function(e, i) {
+        return e.id.split("delete_state_")[1] }
+    ).sort(function(a, b) {
+        return b - a
+    })[0];
+
+    /* Clone existing row and reset id based on max_idx */
+    var row = $('#existing-overdue-config-for-tenants tbody>tr:last').clone(true);
+    var row_idx = (parseInt(max_idx) + 1).toString();
+    row.attr('id', "tr_state_" + row_idx);
+    row.children("td:last").children('a').attr('id', "delete_state_" + row_idx);
+
+    /* update the index on content */
+    row.find('td').each(function(){
+        $(this).contents().each(function(){
+
+          if ($(this).attr('name') != undefined){
+            $(this).attr('name',($(this).attr('name')).replace(max_idx,row_idx));
+          }
+
+          if ($(this).attr('id') != undefined){
+            $(this).attr('id',($(this).attr('id')).replace(max_idx,row_idx));
+          }
+        });
+    });
+
+    /* Attach row into dom */
+    row.insertAfter('#existing-overdue-config-for-tenants tbody>tr:last');
+
+    /* Also reset the disabled state */
+    $('#' + row.attr('id') + ' :input').each( function() {
+    $(this).prop('disabled', false); }
+    );
+
+    /* The cloned version may need to be displayed */
+    row.show();
+}
+
+function overdue_delete_state(obj) {
+    var idx = obj.id.split("delete_state_")[1];
+    /* Disable the entry in the form */
+    $("#tr_state_" + idx + " :input").each( function() {
+        $(this).prop('disabled', true); }
+    );
+    /* Hide the table row */
+    $("#tr_state_" + idx).hide();
+};
+
+$(document).ready(function() {
+    switch_overdue_basic_config();
+});
+
+document.querySelectorAll('.toggle-option').forEach(el => {
+  el.addEventListener('click', () => {
+    document.querySelectorAll('.toggle-option').forEach(opt => opt.classList.remove('active-btn'));
+    el.classList.add('active-btn');
+  });
 });
 
 

@@ -1,0 +1,81 @@
+<% if menu_items.present? %>
+  <div class="title-sidebar-area">
+    <div class="container">
+      <p><%= identifier %></p>
+
+      <% menu_items.each do |item| %>
+        <% css_class = request.path == item[:path] ? 'current' : 'non-current' %>
+
+        <%= link_to item[:path], class: css_class do %>
+          <span class="icon">
+            <%= image_tag(item[:icon_path], size: "20x20") %>
+          </span>
+          <%= item[:label] %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<style>
+  .title-sidebar-area .container {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    width: 140px;
+    background-color: #fff;
+  }
+
+  .title-sidebar-area .container p {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    color: #414651;
+    margin-bottom: 20px;
+  }
+
+  .title-sidebar-area .container a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    text-decoration: none;
+    color: #717680;
+    font-size: 14px;
+    border-radius: 8px;
+    font-weight: 500;
+    line-height: 20px;
+  }
+
+  .title-sidebar-area .container a.current {
+    background-color: #EFF8FF;
+    color: #175CD3;
+  }
+
+  .title-sidebar-area .container a .icon {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+  }
+
+  .title-sidebar-area .container span.label.label-danger {
+    margin-left: 16px;
+    color: #fff;
+    background: #dc3545; 
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    display: inline-block;
+    margin-top: 10px;
+  }
+
+  .title-sidebar-area .container a .icon img {
+    filter: grayscale(100%) brightness(0.7); /* Non-active icons grayish */
+  }
+
+  .title-sidebar-area .container a.current .icon img {
+    /* Active icon - blue color */
+    filter: brightness(0) saturate(100%) invert(32%) sepia(98%) saturate(748%) hue-rotate(189deg) brightness(93%) contrast(101%);
+  }
+
+</style>
