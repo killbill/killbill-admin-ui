@@ -13,8 +13,8 @@
 
                 <!-- Right Section: Settings + Create -->
                 <div class="flex align-items-center">
-                    <a href="#" class="custom-hover">
-                        <%= link_to image_tag('kaui/header/cog_icon.svg', :alt => 'Kill Bill Logo'), kaui_engine.home_path %>
+                    <a href="" class="custom-hover">
+                        <%= link_to image_tag('kaui/header/cog_icon.svg', :alt => 'Kill Bill Logo'), kaui_engine.admin_tenant_path(session[:tenant_id]) %>
                     </a>
                   
                     <%= render partial: "kaui/components/menu_dropdown/menu_dropdown", locals: {

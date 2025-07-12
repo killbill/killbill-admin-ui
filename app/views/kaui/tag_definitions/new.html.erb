@@ -1,4 +1,6 @@
-<div class="register">
+<%
+=begin%>
+ <div class="register">
   <div class="col-md-8 col-md-offset-2">
 
     <div class="column-block">
@@ -7,4 +9,114 @@
     </div>
 
   </div>
+</div> 
+<%
+=end%>
+
+<div class="register add-new-tag-definition-details">
+  <div class="">
+        <div class="mx-auto" style="max-width: 600px;">
+          <h5 class="add-new-tag-definition-title border-bottom pb-3 mb-3">
+              <span class="icon-container">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.6665 11.667L8.33425 13.3368" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 5.00033L18.3333 1.66699" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.98807 17.1545L2.84508 12.0115C2.19422 11.3607 2.19422 10.3053 2.84508 9.65451L8.67841 3.82117C8.99099 3.5086 9.41491 3.33301 9.85691 3.33301H16.6666V10.1427C16.6666 10.5847 16.491 11.0086 16.1784 11.3212L10.3451 17.1545C9.69424 17.8053 8.63891 17.8053 7.98807 17.1545Z" stroke="#414651" stroke-width="1.5" stroke-linejoin="round"/>
+                  </svg>
+              </span>
+              Add New Tag Definition
+          </h5>
+          <%= render 'form' %>
+        </div>
+    </div>
 </div>
+
+
+
+<style>
+  .add-new-tag-definition-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    letter-spacing: 0;
+    color: #1B1C1E;
+    padding: 1.5rem 0;
+  }
+
+  .icon-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.0625rem solid #D5D7DA;
+    border-radius: 0.375rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.25rem;
+  }
+
+  .icon-container img {
+    width: 1rem;
+    height: 1rem;
+  }
+    
+  .control-label {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25rem !important;
+    color: #414651 !important;
+  }
+
+  .add-new-tag-definition-details select.form-control  {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.625rem center;
+    background-size: 1rem 1rem;
+  }
+
+  .add-new-tag-definition-details select:focus {
+    box-shadow: none;
+    outline: none;
+    border-color: #1570ef;
+  }
+
+  .form-group .form-control {
+    margin-right: 0.25rem;
+    height: 2.5rem;
+    border-radius: 0.375rem;
+  }
+
+  .border-button {
+    background: transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.0625rem solid #D5D7DA;
+    border-radius: 0.375rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.625rem;
+  }
+
+  .border-button:hover {
+    background: transparent;
+  }
+
+  .button {
+    background: transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.625rem;
+  }
+
+  .button:hover {
+    background: transparent;
+  }
+</style>

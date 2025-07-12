@@ -1,4 +1,6 @@
-<% if can? :config_upload, Kaui::AdminTenant %>
+<%
+=begin%>
+ <% if can? :config_upload, Kaui::AdminTenant %>
     <div class="tab-pane fade" id="InvoiceTemplate">
       <%= form_tag({:action => :upload_invoice_template}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
           <%= hidden_field_tag(:id, @tenant.id) %>
@@ -25,4 +27,65 @@
           </div>
       <% end %>
     </div>
+<% end %> 
+<%
+=end%>
+<% if can? :config_upload, Kaui::AdminTenant %>
+    <div class="tab-pane fade invoice-template" id="InvoiceTemplate">
+      <%= form_tag({:action => :upload_invoice_template}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
+          <%= hidden_field_tag(:id, @tenant.id) %>
+
+          <div class="upload-box form-group" data-file="">
+            <div class="upload-content">
+              <%= image_tag 'kaui/file-upload.svg', alt: 'Upload Icon' %>
+              <p>
+                <span class="highlight">Click to upload</span> or drag and drop
+              </p>
+            </div>
+
+            <%= file_field_tag 'invoice_template', 
+              class: 'form-control', 
+              required: true,
+              data: { file: '' },
+              onchange: "this.parentNode.setAttribute('data-file', this.files[0]?.name || '')" 
+            %>
+          </div>
+
+
+
+          <div class="form-group pb-3 border-bottom mb-3">
+            <div class="col-sm-10">
+              <div class="checkbox">
+                <label>
+                  <%= check_box_tag :manual_pay %>
+                  <span>Manual Pay</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end">
+            <%= render "kaui/components/button/button", {
+              label: 'Upload',
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "submit",
+              html_class: "kaui-dropdown custom-hover m-0"
+            } %>
+          </div>
+      <% end %>
+    </div>
 <% end %>
+
+<style>
+  .checkbox label {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .checkbox label span {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+  }
+</style>

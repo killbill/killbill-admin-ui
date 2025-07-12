@@ -6,9 +6,9 @@
     <% if @subscription.product_category == 'ADD_ON' %>
         <%= hidden_field_tag :base_product_name, @base_product_name %>
     <% elsif @subscription.product_category == 'BASE' %>
-        <div class="form-group">
-          <%= f.label :bundle_external_key, 'Bundle Key', :class => 'col-sm-2 control-label' %>
-          <div class="col-sm-10">
+        <div class="form-group d-flex pb-3">
+          <%= f.label :bundle_external_key, 'Bundle Key', :class => 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
             <%= f.text_field :bundle_external_key, :class => 'form-control', :id => 'bundle_external_key' %>
             <div class="subscription_bundle_external_key_invalid_msg text-danger">
               Warning! External key already in use.
@@ -17,9 +17,9 @@
         </div>
     <% end %>
 
-    <div class="form-group">
-      <%= f.label :subscription_external_key, 'Subscription Key', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+    <div class="form-group d-flex pb-3">
+      <%= f.label :subscription_external_key, 'Subscription Key', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= f.text_field :external_key, :class => 'form-control', :id => 'subscription_external_key' %>
         <div class="subscription_external_key_invalid_msg text-danger">
           Warning! External key already in use.
@@ -28,44 +28,74 @@
     </div>
 
 
-    <div class="form-group">
-      <%= label_tag :plan_name, 'Plan', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+    <div class="form-group d-flex pb-3">
+      <%= label_tag :plan_name, 'Plan', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= select_tag :plan_name, options_for_select(@plans), :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
-      <%= label_tag :price_override, 'Price Override', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+    <div class="form-group d-flex pb-3 border-bottom mb-3">
+      <%= label_tag :price_override, 'Price Override', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= number_field_tag :price_override, nil, :step => :any, :min => 0, :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <div class="radio">
-          <%= label_tag :type_change do %>
-              <%= radio_button_tag :type_change, 'IMM', :checked => true %>
+    <div class="form-group d-flex pb-3">
+      <%= label_tag :type_change, 'Type', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-offset-2 col-sm-9">
+        <div class="toggle-segment">
+          <div class="radio">
+            <%= label_tag 'type_change_imm' do %>
+              <%= radio_button_tag :type_change, 'IMM', true, id: 'type_change_imm' %>
               Immediate Creation
-          <% end %>
-        </div>
-        <div class="radio">
-          <%= label_tag :type_change do %>
-              <%= radio_button_tag :type_change, 'DATE' %>
+            <% end %>
+          </div>
+
+          <div class="radio">
+            <%= label_tag 'type_change_date' do %>
+              <%= radio_button_tag :type_change, 'DATE', false, id: 'type_change_date' %>
               Specify a date
-          <% end %>
+            <% end %>
+          </div>
         </div>
+
       </div>
     </div>
-    <div class="form-group" id="form_requested_date">
-      <%= label_tag :requested_date, 'Date', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
-      <input class="form-control" value="<%=Date.parse(Time.now.to_s).to_s%>" name="requested_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
+    <div class="form-group d-flex pb-3 border-bottom mb-3" id="form_requested_date">
+      <%= label_tag :requested_date, 'Date', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <div class="custom-date-input-wrapper kaui-button custom-hover">
+          <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.9167 12.5V18.3333M17.8333 15.4167H12" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14.0833 1.66675V5.00008M6.58325 1.66675V5.00008" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M17.8333 10.8333V4.99992C17.8333 4.07944 17.0871 3.33325 16.1666 3.33325H4.49992C3.57944 3.33325 2.83325 4.07944 2.83325 4.99992V16.6666C2.83325 17.5871 3.57944 18.3333 4.49992 18.3333H10.3333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2.83325 8.33325H17.8333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <input class="form-control" value="<%=Date.parse(Time.now.to_s).to_s%>" name="requested_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
+        </div>
+        
       </div>
     </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <%= submit_tag 'Save', :class => 'btn btn-default' %>
-        </div>
+    <div class="form-group d-flex justify-content-end pb-3">
+      <%= render "kaui/components/button/button", {
+        label: 'Close',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "button",
+        html_class: "kaui-button custom-hover mx-2",
+        html_options: {
+          id: "closeButton",
+          onclick: "window.history.back();"
+        }
+      } %>
+      <%= render "kaui/components/button/button", {
+        label: 'Save Subscription',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "submit",
+        html_class: "kaui-dropdown custom-hover",
+        html_options: {
+          id: "saveButton"
+        }
+      } %>
     </div>
 <% end %>
 
@@ -88,3 +118,102 @@ $(document).ready(function() {
     });
 });
 <% end %>
+
+
+<style>
+  .control-label {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25rem !important;
+    color: #414651 !important;
+  }
+
+  .question-circle {
+    color: #A4A7AE;
+    font-size: 1rem;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    line-height: 1rem;
+    text-align: center;
+  }
+
+  .col-sm-9.position-relative a {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .form-group.d-flex.pb-3 .form-control {
+    height: 2.5rem;
+    border-radius: 0.375rem;
+  }
+
+  .form-group.d-flex .form-control:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .toggle-segment {
+    display: flex;
+    align-items: center;
+    border: 0.0625rem solid #D5D7DA;
+    width: fit-content;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    font-size: 0.875rem;
+  }
+
+  .toggle-segment .radio label {
+    display: flex;
+    align-items: center;
+    padding: 0.625rem 1rem !important;
+    cursor: pointer;
+    color: #414651;
+    border-right: 0.0625rem solid #D5D7DA;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+  }
+
+  .toggle-segment .radio:last-child label {
+    border-right: none;
+  }
+
+  .toggle-segment .radio label input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    border: 0;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+  }
+
+  .toggle-segment .radio label input[type="radio"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 0.25rem;
+    left: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #17B26A;
+    border-radius: 50%;
+  }
+
+  .toggle-segment .radio label:has(input[type="radio"]:checked) {
+    background-color: #FAFAFA;
+    font-weight: 600;
+    color: #252B37;
+    gap: 1rem;
+  }
+
+  .toggle-segment .radio label:not(:has(input[type="radio"]:checked)) {
+    gap: 0;
+  }
+
+</style>
