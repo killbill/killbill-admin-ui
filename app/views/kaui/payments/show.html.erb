@@ -1,4 +1,6 @@
-<div class="search">
+<%
+=begin%>
+ <div class="search">
 
   <div class="column-block">
 
@@ -43,4 +45,569 @@
     <% end %>
   </div>
 
+</div> 
+<%
+=end%>
+
+
+<div class="kaui-container">
+
+  <%= render partial: 'kaui/components/breadcrumb/breadcrumb', locals: {
+    breadcrumbs: [
+      { label: 'Payments', href: '/kaui/payments' },
+      { label: "Payment #{@payment.payment_number}", href: '/kaui/payments' }
+    ]
+  } %>
+  <div class="payments">
+    <div class="d-flex flex-column ">
+      <div class="payments-header mb-4">
+        <div class="d-flex align-items-center">
+          <h2>Payment <%= @payment.payment_number %></h2>
+        </div>
+        <span>
+        <% if @payment.capturable? || @payment.voidable? || (@payment.refundable? && (can?(:refund, Kaui::Payment) || can?(:chargeback, Kaui::Payment))) %>
+
+
+                <div class="tag-select-box">
+
+                  <% if @payment.refundable? %>
+                    <% if @payment.refundable? %>
+                      <% if can? :chargeback, Kaui::Payment %>
+                        <% if @payment.target_invoice_id.present? %>
+                          <%= link_to kaui_engine.new_account_chargeback_path(@payment.account_id, {
+                                payment_id: @payment.payment_id,
+                                invoice_id: @payment.target_invoice_id
+                              }) do %>
+                            <%= render "kaui/components/button/button", {
+                              label: "Chargeback",
+                              icon: "kaui/account/refresh.svg",
+                              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                              type: "button",
+                              html_class: "kaui-button custom-hover",
+                            } %>
+                          <% end %>
+                        <% else %>
+                          <%= link_to kaui_engine.new_account_transaction_path(@payment.account_id, {
+                                payment_id: @payment.payment_id,
+                                payment_method_id: @payment.payment_method_id,
+                                amount: @payment.amount_refundable,
+                                currency: @payment.currency,
+                                transaction_type: "CHARGEBACK"
+                              }) do %>
+                            <%= render "kaui/components/button/button", {
+                              label: "Chargeback",
+                              icon: "kaui/account/refresh.svg",
+                              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                              type: "button",
+                              html_class: "kaui-button custom-hover",
+                            } %>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+
+                  <% end %>
+
+                  <% if @payment.capturable? %>
+                    <%= link_to kaui_engine.new_account_transaction_path(@payment.account_id, {
+                          payment_id: @payment.payment_id,
+                          payment_method_id: @payment.payment_method_id,
+                          amount: @payment.amount_capturable,
+                          currency: @payment.currency,
+                          transaction_type: "CAPTURE"
+                        }) do %>
+                      <%= render "kaui/components/button/button", {
+                        label: "Capture",
+                        icon: "kaui/card.svg",
+                        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                        type: "button",
+                        html_class: "kaui-button custom-hover",
+                      } %>
+                    <% end %>
+                  <% end %>
+
+
+                  <% if @payment.voidable? %>
+                    <%= link_to kaui_engine.new_account_transaction_path(@payment.account_id, {
+                          payment_id: @payment.payment_id,
+                          payment_method_id: @payment.payment_method_id,
+                          transaction_type: "VOID"
+                        }) do %>
+                      <%= render "kaui/components/button/button", {
+                        label: "Void",
+                        icon: "kaui/delete.svg",
+                        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                        type: "button",
+                        html_class: "kaui-button custom-hover",
+                      } %>
+                    <% end %>
+                  <% end %>
+
+
+                  <% if can? :refund, Kaui::Payment %>
+                        <% if @payment.target_invoice_id.present? %>
+                          <%= link_to kaui_engine.new_account_refund_path(@payment.account_id, params: {
+                                payment_id: @payment.payment_id,
+                                invoice_id: @payment.target_invoice_id
+                              }) do %>
+                            <%= render "kaui/components/button/button", {
+                              label: "Refund",
+                              icon: "kaui/payment/refund.svg",
+                              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                              type: "button",
+                              html_class: "kaui-dropdown custom-hover",
+                            } %>
+                          <% end %>
+                        <% else %>
+                          <%= link_to kaui_engine.new_account_transaction_path(@payment.account_id,
+                                payment_id: @payment.payment_id,
+                                payment_method_id: @payment.payment_method_id,
+                                amount: @payment.amount_refundable,
+                                currency: @payment.currency,
+                                transaction_type: 'REFUND') do %>
+                            <%= render "kaui/components/button/button", {
+                              label: "Refund",
+                              icon: "kaui/payment/refund.svg",
+                              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                              type: "button",
+                              html_class: "kaui-dropdown custom-hover",
+                            } %>
+                          <% end %>
+                        <% end %>
+
+                    <% end %>
+
+                </div>
+
+            <% end %>
+        </span>
+      </div>
+      
+
+    <% if @payment.target_invoice_id.present? %>
+        
+      <div class="row payments-detail">
+        <div class="col-sm-6">
+          <div>
+            <b>Payment</b>
+            <p class="payment-link"><%= link_to @payment.payment_number, account_payment_path(@account.account_id, @payment.payment_id) %></p>
+          </div>
+          <div>
+            <b>External key</b>
+            <p>
+              <%= @payment.payment_external_key %>
+              <%= render "kaui/components/button/button", {
+                label: '',
+                icon: "kaui/copy.svg",
+                variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                type: "button",
+                html_class: "dots-menu kaui-button",
+                html_options: {
+                  onclick: "navigator.clipboard.writeText('#{@payment.payment_external_key}')"
+                }
+              } %>
+            </p>
+          </div>
+          <div>
+            <b>Invoice ID</b>
+            <p><%= link_to @payment.target_invoice_id, account_invoice_path(@account.account_id, @payment.target_invoice_id) %>
+              <%= render "kaui/components/button/button", {
+                label: '',
+                icon: "kaui/copy.svg",
+                variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                type: "button",
+                html_class: "dots-menu kaui-button",
+                html_options: {
+                  onclick: "navigator.clipboard.writeText('#{@payment.target_invoice_id}')"
+                }
+              } %></p>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div>
+            <b>Account Id</b>
+            <p>
+              <%= @payment.account_id %>
+              <%= render "kaui/components/button/button", {
+                label: '',
+                icon: "kaui/copy.svg",
+                variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                type: "button",
+                html_class: "dots-menu kaui-button",
+                html_options: {
+                  onclick: "navigator.clipboard.writeText('#{@payment.account_id}')",
+                  title: "copy to"
+                }
+              } %>
+            </p>
+          </div>
+          <div>
+            <b>Payment method Id</b>
+            <p>
+              <%= @payment.payment_method_id %>
+              <%= render "kaui/components/button/button", {
+                label: '',
+                icon: "kaui/copy.svg",
+                variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                type: "button",
+                html_class: "dots-menu kaui-button",
+                html_options: {
+                  onclick: "navigator.clipboard.writeText('#{@payment.payment_method_id}')"
+                }
+              } %>
+            </p>
+          </div>
+          <%= render :partial => 'kaui/custom_fields/list_bar',
+               :locals => {:custom_fields => @custom_fields} %>
+        </div>
+      </div>
+    <% end %>
+
+      <%= render :partial => 'kaui/payments/payment_table',
+               :locals => {:payment_method => @payment_method,
+                           :payment => @payment,
+                           :account => @account,
+                           :custom_fields => @custom_fields} %>
+    
+    </div>
+  </div>
 </div>
+
+
+<div class="kaui-container py-5">
+  <div class="d-flex " style="gap: 4rem;">
+    <div class="payments">
+      <div class="d-flex flex-column ">
+        <div class="payments-header mb-4">
+          <div class="d-flex align-items-center">
+            <h2>Payment Method Details</h2>
+          </div>
+        </div>
+        <div class="payment-details">
+          <% if @payment_method.nil? %>
+              The Payment method has been deleted.
+          <% else %>
+              <%= render :partial => 'kaui/payment_methods/payment_methods_details_table', :locals => {:payment_method => @payment_method} %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .payments {
+    max-width: 80rem;
+    width: 100%;
+  }
+
+  .payments .payments-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0;
+    border-bottom: 0.0625rem solid #E9EAEB;
+  }
+
+  .payments .payments-header h2 {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #414651;
+    margin-bottom: 1.25rem;
+  }
+
+  .tag-bar {
+    border: 0 !important;
+  }
+
+  .info-wrapper {
+    border: 0 !important;
+  }
+
+  .tag-select-box a {
+    text-decoration: none !important;
+  }
+
+  .payment-table th,
+  .payment-table td {
+    white-space: nowrap;
+    text-align: left;
+  }
+  
+  .payment-table tr td:not(:first-child) a {
+    color: #535862 !important;
+    text-decoration: none !important;
+  }
+
+  .payment-table th {
+    padding: 0.375rem 1.625rem 0.375rem 0.75rem !important;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    letter-spacing: 0;
+    color: #717680;
+    text-transform: capitalize;
+  }
+
+  .payment-table td {
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    padding: 1rem 0.5rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    vertical-align: baseline !important;
+    color: #535862 !important;
+    text-transform: capitalize !important;
+  }
+
+  .payment-table .alert-success {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.125rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 62.4375rem;
+    background-color: #ECFDF3;
+    border: 0.0625rem solid #DCFAE6;
+    color: #067647;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    position: relative;
+  }
+
+  .dataTables_wrapper {
+    margin: 0;
+  }
+
+  .payment-table ul {
+    margin: 0;
+  }
+
+  .payment-table .phase-type {
+    display: inline-block;
+    padding: 0.125rem 0.5rem !important;
+    border: 0.0625rem solid #D1E9FF !important;
+    border-radius: 624.9375rem;
+    font-weight: 500 !important;
+    font-size: 0.75rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    color: #175CD3 !important;
+    background-color: #EFF8FF;
+    text-transform: capitalize;
+  }
+
+  .payment-table .alert-success::before {
+    content: '';
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 3L4.5 8.5L2 6' stroke='%2317B26A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .payment-table .alert-danger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.125rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 62.4375rem;
+    background-color: #FEF3F2;
+    border: 0.0625rem solid #FEE4E2;
+    color: #B42318;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    position: relative;
+  }
+
+  .payment-table .alert-danger::before {
+    content: '';
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.5 3.5L3.5 8.5M3.5 3.5L8.5 8.5' stroke='%23F97066' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+
+  table thead tr th::after {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 5.5L6 2.5L9 5.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0.75rem 0.75rem !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    top: 45% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  table thead tr th::before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6.5L6 9.5L9 6.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0.75rem 0.75rem !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    bottom: 45% !important;
+    transform: translateY(50%) !important;
+  }
+
+  .payments-detail b {
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+  }
+
+  .payments-detail p,
+  .payments-detail p a {
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+    color: #717680;
+    text-decoration: none;
+  }
+
+  .dots-menu {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+  }
+
+  .adjust-button {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    color: #175CD3 !important;
+  }
+
+  .invoice-totals p {
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
+    color: #414651 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .payment-link a {
+    color: #717680 !important;
+    text-decoration: none !important;
+  }
+
+
+  .tag-select:hover .tag-as-select-box {
+    padding: 0.625rem !important;
+    border-radius: 0.375rem;
+    border: 0.0625rem solid #00000014 !important;
+  }
+
+  .tag-bar .tag-select .tag-select-box label {
+    width: 100%;
+    min-width: 12.5rem;
+  }
+
+  .tag-as-select-box .form-control {
+    width: 100%;
+    min-width: 14.5rem;
+  }
+
+  .label-group-item-manual {
+    padding: 0.5rem 0.625rem;
+    width: max-content;
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 0.25rem;
+    align-items: center;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #252B37;
+  }
+
+  .label-group-item-manual:active {
+    background: #FAFAFA;
+  }
+
+  .label-group-item-manual:has(input[type="checkbox"]:checked) {
+    background-color: #FAFAFA;
+    border-radius: 0.25rem;
+    cursor: pointer !important;
+  }
+
+  .tag-as-select-box::-webkit-scrollbar {
+    width: 0.375rem;
+  }
+
+  .tag-as-select-box::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 0.1875rem;
+  }
+
+  .tag-as-select-box::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .tag-bar .tag-select .tag-select-box form {
+    width: 100%;
+  }
+
+  .scrollable-payment-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+  }
+
+  .scrollable-payment-table::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollable-payment-table {
+    -ms-overflow-style: none;
+    scrollbar-width: none;   
+  }
+
+  .gateway-link a {
+    color: #175CD3 !important;
+    text-decoration: none !important;
+  }
+
+  .payment-details {
+    padding: 0;
+  }
+
+  .payment-method-details .detail-item {
+    margin-bottom: 1rem;
+  }
+
+  .payment-method-details .detail-item b {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: #414651 !important;
+    font-weight: 600;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem;
+    text-align: left;
+  }
+
+  .payment-method-details .detail-item span {
+    display: block;
+    color: #717680 !important;
+    font-weight: 400;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem;
+    text-align: left;
+  }
+</style>

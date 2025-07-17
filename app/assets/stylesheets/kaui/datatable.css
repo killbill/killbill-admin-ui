@@ -135,6 +135,7 @@ table.dataTable thead th {
   font-size: 12px;
   line-height: 18px;
   color: #717680;
+  text-transform: capitalize;
 }
 
 /* 5. Body cells */

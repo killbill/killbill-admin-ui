@@ -1,4 +1,6 @@
-<div id="catalog_xml">
+<%
+=begin%>
+ <div id="catalog_xml">
   <hr/>
 
   <div>
@@ -36,6 +38,131 @@
 
   </div>
 </div>
+
+<%= javascript_tag do %>
+function submit_xml(version_id) {
+    $("#submit_form_xml_" + version_id).submit();
+};
+<% end %> 
+<%
+=end%>
+
+
+<div class="kaui-container" id="catalog_xml">
+    <div class="catalog-container mt-4">
+      <div class="d-flex flex-column">
+        <div class="catalog-header mb-3">
+          <div class="d-flex align-items-start flex-column">
+            <h2>Catalog XML</h2>
+          </div>
+          <span>
+            <%= link_to "javascript:void(0);", onclick: "switchBasicConfig();", class:"text-decoration-none" do %>
+                <%= render "kaui/components/button/button", {
+                    label: "Simple Configuration",
+                    icon: "kaui/view-doc.svg",
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "button",
+                    html_class: "kaui-button custom-hover"
+                } %>
+            <% end %>
+          </span>
+        </div>
+        <div class="">
+          <table id="catalog-xml-for-tenant" class="catalog-table">
+            <thead>
+              <tr>
+                <th>Catalog Version</th>
+                <th>Effective Date</th>
+                <th class="text-end">Catalog XML</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @catalog_versions.each do |catalog| %>
+                <tr>
+                  <td><%= catalog[:version] %></td>
+                  <td><%= catalog[:version_date] %></td>
+                  <td class="text-end">
+                    <div class="d-flex align-items-center justify-content-end gap-2 w-fit">
+                      <%= form_tag(kaui_engine.admin_tenant_display_catalog_xml_path, :id => "submit_form_xml_#{catalog[:version]}", :method => 'post', :multipart => true, :class => "hide") do %>
+                          <%= hidden_field_tag(:effective_date, catalog[:version_date]) %>
+                          <%= hidden_field_tag(:id, @tenant.id) %>
+                          <%= render "kaui/components/button/button", {
+                            label: "Submit",
+                            variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                            type: "submit",
+                            html_class: "kaui-dropdown custom-hover py-0 px-2 rounded-pill",
+                          } %>
+                      <% end %>
+                        <%= link_to "javascript:void(0);", onclick: "submit_xml(#{catalog[:version]});", class: "text-decoration-none" do %>
+                          <%= render "kaui/components/button/button", {
+                              label: "View XML",
+                              variant: "outline-secondary d-inline-flex align-items-center",
+                              type: "button",
+                              html_class: "currency-button kaui-button",
+                          } %>
+                        <% end %>
+                    </div>
+                  </td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<style>
+  .catalog-container {
+    max-width: 80rem;
+    width: 100%;
+  }
+
+  .catalog-container .catalog-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0;
+    border-bottom: 0.0625rem solid #E9EAEB;
+  }
+
+  .catalog-container .catalog-header h2 {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #414651;
+    margin-bottom: 1.25rem;
+  }
+
+  table.catalog-table {
+    overflow-x: auto;
+    min-width: 100%;
+    border: none !important;
+  }
+
+  table.catalog-table th {
+    padding: 0.375rem 0.75rem !important;
+    font-weight: 500 !important;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    letter-spacing: 0;
+    color: #717680;
+    text-transform: capitalize;
+    background-color: #FAFAFA !important;
+  }
+
+  table.catalog-table td {
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    padding: 1rem 0.5rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    width: ;
+    color: #535862 !important;
+    text-transform: capitalize !important;
+  }
+
+</style> 
 
 <%= javascript_tag do %>
 function submit_xml(version_id) {

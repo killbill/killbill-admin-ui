@@ -1,4 +1,6 @@
-<div class="search">
+<%
+=begin%>
+ <div class="search">
 
   <div class="column-block">
 
@@ -61,4 +63,310 @@
         });
     });
 
+<% end %> 
+<%
+=end%>
+
+<div class="kaui-container">
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <div class="d-flex " style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+    <div class="audit-logs">
+      <div class="d-flex flex-column ">
+        <div class="audit-logs-header mb-4">
+          <div class="d-flex align-items-center">
+            <h2>Audit logs</h2>
+          </div>
+          <span>
+            <%= render :partial => 'multi_functions_bar' %>
+            <input type="hidden" id="audit-logs" value="<%= @audit_logs_json %>">
+          </span>
+        </div>
+        <table id="audit-logs-table" class="audit-logs-table">
+          <thead>
+          <tr>
+            <th>Created date</th>
+            <th>Object id</th>
+            <th>Object type</th>
+            <th>Change type</th>
+            <th>Username</th>
+            <th>Reason</th>
+            <th>Comment</th>
+            <th>User token</th>
+          </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      <%= render :partial => 'show_history_modal' %>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .audit-logs {
+    max-width: 67.5625rem;
+  }
+
+  .audit-logs .audit-logs-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0;
+    border-bottom: 0.0625rem solid #E9EAEB;
+  }
+
+  .audit-logs-table {
+  }
+
+  .audit-logs-table th,
+  .audit-logs-table td {
+    white-space: nowrap;
+    text-align: left;
+  }
+
+  .audit-logs .audit-logs-header h2 {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #414651;
+    margin-bottom: 1.25rem;
+  }
+
+  .audit-logs .audit-logs-table {
+    overflow-x: auto;
+    min-width: 100%;
+  }
+
+  .audit-logs .audit-logs-table th {
+    padding: 0.375rem 1.625rem 0.375rem 0.75rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
+    letter-spacing: 0;
+    color: #717680;
+    text-transform: capitalize;
+  }
+
+  .audit-logs .audit-logs-table tr td:not(:first-child) a {
+    color: #535862 !important;
+    text-decoration: none !important;
+  }
+
+  .audit-logs tbody tr td:nth-child(3) span {
+    gap: 0.125rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 62.4375rem;
+    background-color: #EFF8FF;
+    border: 0.0625rem solid #D1E9FF;
+    color: #175CD3;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+
+  .audit-logs tbody tr.delete td:nth-child(4) span {
+    gap: 0.125rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 62.4375rem;
+    background-color: #FEF3F2;
+    border: 0.0625rem solid #FEE4E2;
+    color: #B42318;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+
+  .audit-logs tbody tr.insert td:nth-child(4) span {
+    gap: 0.125rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 62.4375rem;
+    background-color: #ECFDF3;
+    border: 0.0625rem solid #DCFAE6;
+    color: #067647;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+
+  .audit-logs tbody tr.update td:nth-child(4) span {
+    gap: 0.125rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 62.4375rem;
+    background-color: #FFFAEB;
+    border: 0.0625rem solid #FEF0C7;
+    color: #B54708;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+  }
+
+  .audit-logs tbody tr td:nth-child(2) {
+    font-weight: 600 !important;
+  }
+
+  .audit-logs .audit-logs-table td {
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    padding: 1rem 0.5rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    width: ;
+    color: #535862 !important;
+    text-transform: capitalize !important;
+  }
+
+  .audit-logs table.dataTable {
+    overflow: auto !important;
+  }
+
+  .audit-logs .dataTables_scrollHead table thead tr th::after {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 5.5L6 2.5L9 5.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0.75rem 0.75rem !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    top: 45% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .audit-logs .dataTables_scrollHead table thead tr th::before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6.5L6 9.5L9 6.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 0.75rem 0.75rem !important;
+    position: absolute !important;
+    right: 0.5rem !important;
+    bottom: 45% !important;
+    transform: translateY(50%) !important;
+  }
+
+  .audit-logs .pagination a:not(:first-child):not(:last-child) {
+    color: #717680;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+  }
+
+  .audit-logs .pagination a:not(:first-child):not(:last-child).btn-primary {
+    color: #414651;
+    background-color: #F5F5F5 !important;
+    border: 0 !important;
+  }
+
+  .audit-logs .dataTables_paginate {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .audit-logs .dataTables_paginate span .paginate_button {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #717680 !important; 
+    text-decoration: none;
+    border: 0 !important;
+  }
+
+  .audit-logs .dataTables_paginate .paginate_button:hover {
+    background-color: #F3F4F6;
+  }
+
+  .audit-logs .dataTables_paginate .paginate_button.current {
+    background-color: #F5F5F5 !important;
+    border-radius: 0.375rem !important;
+    color: #414651 !important;
+  }
+
+  .audit-logs .dataTables_paginate .paginate_button.last,
+  .audit-logs .dataTables_paginate .paginate_button.previous {
+    border: 0.0625rem solid #E5E7EB;
+    border-radius: 0.5rem;
+    background-color: white;
+    padding: 0.5rem 0.875rem;
+    color: #374151;
+  }
+
+  .audit-logs #audit-logs-table_first,
+  .audit-logs #audit-logs-table_last {
+    display: none !important;
+  }
+
+  .audit-logs #audit-logs-table_filter {
+    position: absolute;
+    right: 10rem;
+    top: -4.625rem;
+  }
+
+  .audit-logs #audit-logs-table_filter input {
+    width: 20rem;
+    height: 2.2rem;
+    padding: 0.3rem 1rem;
+    border: 0.0625rem solid #E5E7EB;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+    outline: none;
+  }
+
+</style>
+
+
+<%= javascript_tag do %>
+    $(document).ready(function() {
+        var auditLogs = JSON.parse($("#audit-logs").val());
+        $('#audit-logs-table').DataTable({
+            dom: "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+            data: auditLogs,
+            "scrollX": true,
+            order: [[ 0, 'desc' ]],
+            createdRow: function( row, data, dataIndex ) {
+                if ( data[3] == "INSERT" ) {
+                    $(row).addClass( 'insert' );
+                } else if ( data[3] == "UPDATE" ) {
+                    $(row).addClass( 'update' );
+                } else if ( data[3] == "DELETE" ) {
+                    $(row).addClass( 'delete' );
+                }
+                if (data[4] || data[3]) {
+                  $(row).each(function () {
+                    $(this).find('td').each(function () {
+                      const content = $(this).text().trim();
+                      $(this).html(`<span>${content}</span>`);
+                    });
+                  });
+                }
+            },
+            drawCallback: function() {
+                setObjectIdPopover();
+            }
+        });
+    });
+
+    setTimeout(() => {
+
+    }, 50);
 <% end %>

@@ -1,7 +1,7 @@
 <%= form_for @payment_method, :html => {:class => 'form-horizontal'} do |f| %>
     <%= f.hidden_field :account_id %>
 
-    <div class="form-group">
+    <div class="form-group d-flex pb-3">
       <%= f.label :external_key, 'External key', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
         <%= f.text_field :external_key, :class => 'form-control' %>
@@ -10,19 +10,23 @@
         </div>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group d-flex pb-3 border-bottom mb-3">
       <%= f.label :plugin_name, 'Plugin name', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
         <%= f.text_field :plugin_name, :class => 'form-control', :required => true %>
       </div>
     </div>
-    <div id="creditcard">
+    <div id="creditcard" class="new-creditcard-payment-method">
       <%= render :partial => 'new_creditcard_payment_method' %>
     </div>
-    <div id="properties" class="col-sm-offset-3 col-sm-9">
-      <%= render :partial => 'plugin_properties' %>
+     <div class="form-group d-flex pb-3 border-bottom mb-3 payment-method-form">
+      <div class="col-sm-3"></div>
+      <div id="properties" class="col-sm-offset-3 col-sm-9">
+        <%= render :partial => 'plugin_properties' %>
+      </div>
     </div>
-    <div class="form-group">
+    <div class="form-group d-flex pb-3 border-bottom mb-3">
+      <div class="col-sm-3"></div>
       <div class="col-sm-offset-3 col-sm-9">
         <div class="checkbox">
           <%= f.label :is_default do %>
@@ -31,9 +35,125 @@
         </div>
       </div>
     </div>
-    <div class="form-group">
+    <%
+=begin%>
+ <div class="form-group d-flex pb-3">
       <div class="col-sm-offset-3 col-sm-9">
         <%= submit_tag 'Save', :class => 'btn btn-default' %>
       </div>
+    </div> 
+<%
+=end%>
+
+    <div class="form-group d-flex justify-content-end pb-3">
+      <%= render "kaui/components/button/button", {
+        label: 'Close',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "button",
+        html_class: "kaui-button custom-hover mx-2",
+        html_options: {
+          id: "closeButton",
+          onclick: "window.history.back();"
+        }
+      } %>
+      <%= render "kaui/components/button/button", {
+        label: 'Save Method',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "submit",
+        html_class: "kaui-dropdown custom-hover",
+        html_options: {
+          id: "saveButton"
+        }
+      } %>
     </div>
 <% end %>
+
+
+<style>
+ .control-label {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25rem !important;
+    color: #414651 !important;
+  }
+
+  .question-circle {
+    color: #A4A7AE;
+    font-size: 1rem;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    line-height: 1rem;
+    text-align: center;
+  }
+
+  .col-sm-9.position-relative a {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .form-group.d-flex.pb-3 .form-control {
+    height: 2.5rem;
+    border-radius: 0.375rem;
+  }
+
+  .form-group.d-flex .form-control:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .checkbox label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  .payment-method-form .dots-menu {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    text-decoration: none !important;
+    color: #175CD3 !important;
+    margin-bottom: 1rem;
+  }
+
+  .payment-method-form table {
+    border: 0 !important;
+  }
+
+  .payment-method-form table thead th {
+    color: #717680;
+    font-weight: 500 !important;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    background: #FAFAFA !important;
+  }
+
+  .payment-method-form table thead th:first-child {
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+  }
+
+  .payment-method-form table thead th:last-child {
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+  }
+
+  .payment-method-form table thead tr th {
+    padding: 0.3125rem 0.75rem;
+  }
+
+  .payment-method-form table tbody tr td {
+    padding: 0.3125rem 0.75rem;
+  }
+
+  .payment-method-form hr {
+    margin: 0;
+  }
+  
+</style>

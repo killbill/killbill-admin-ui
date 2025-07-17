@@ -1,4 +1,6 @@
-<div class="col-md-6">
+<%
+=begin%>
+ <div class="col-md-6">
 
   <div class="column-block">
 
@@ -18,4 +20,114 @@
 
   </div>
 
+</div> 
+<%
+=end%>
+
+<div class="kaui-container">
+  <div class="tenant-details-container">
+    <div class="d-flex flex-column">
+      <div class="tenant-details-header mb-3">
+        <div class="d-flex align-items-start flex-column">
+          <h2>Tenant details</h2>
+        </div>
+        <span>
+        </span>
+      </div>
+      <div class="row tenant-details">
+        <div class="col-sm-4">
+          <b>Name:</b> 
+          <p><%= @tenant.name %>&nbsp; 
+            <% if session[:kb_tenant_name] == @tenant.name %>
+              <i class="fa fa-toggle-on switch-tenant-active" title="Currently selected"></i>
+            <% else %>
+              <%= link_to("<i class=\"fa fa-toggle-off\" aria-hidden=\"true\"></i>".html_safe, switch_tenant_path(:kb_tenant_id => @tenant.kb_tenant_id), title: 'Click the toggle to switch tenant') %>
+            <% end %>
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <b>Tenant ID:</b> 
+          <p>
+            <%= @tenant.kb_tenant_id %>
+            <%= render "kaui/components/button/button", {
+              label: '',
+              icon: "kaui/copy.svg",
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "button",
+              html_class: "dots-menu kaui-button",
+              html_options: {
+                onclick: "navigator.clipboard.writeText('#{@tenant.kb_tenant_id}')"
+              }
+            } %>
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <b>API Key:</b> 
+          <p>
+            <%= @tenant.api_key %>
+            <%= render "kaui/components/button/button", {
+              label: '',
+              icon: "kaui/copy.svg",
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "button",
+              html_class: "dots-menu kaui-button",
+              html_options: {
+                onclick: "navigator.clipboard.writeText('#{@tenant.api_key}')"
+              }
+            } %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+
+<style>
+  .tenant-details-container {
+    max-width: 80rem;
+    width: 100%;
+  }
+
+  .tenant-details-container .tenant-details-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0;
+    border-bottom: 0.0625rem solid #E9EAEB;
+    padding-bottom: 1rem;
+  }
+
+  .tenant-details-container .tenant-details-header h2 {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #414651;
+    margin: 0;
+  }
+
+  .tenant-details-container .tenant-details b {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: #414651 !important;
+    font-weight: 600;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem;
+    text-align: left;
+  }
+
+  .tenant-details-container .tenant-details p {
+    display: block;
+    color: #717680 !important;
+    font-weight: 400;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem;
+    text-align: left;
+  }
+
+  .tenant-details-container .dots-menu {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+  }
+</style>

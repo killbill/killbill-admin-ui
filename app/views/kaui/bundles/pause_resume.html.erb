@@ -1,4 +1,6 @@
-<div class="register">
+<%
+=begin%>
+ <div class="register">
   <div class="col-md-8 col-md-offset-2">
 
     <div class="column-block">
@@ -39,4 +41,185 @@
     </div>
 
   </div>
+</div> 
+<%
+=end%>
+
+
+<div class="register subscription-details">
+  <div class="">
+        <div class="mx-auto" style="max-width: 600px;">
+            <h5 class="add-account-title border-bottom pb-3 mb-3">
+                <span class="icon-container">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.16675 11.6665H13.3334M6.66675 11.6665H6.67423M10.8334 14.9998H6.66675M13.3334 14.9998H13.3259" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M13.75 1.6665V4.99984M6.25 1.6665V4.99984" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M15.8333 3.3335H4.16667C3.24619 3.3335 2.5 4.07969 2.5 5.00016V16.6668C2.5 17.5873 3.24619 18.3335 4.16667 18.3335H15.8333C16.7538 18.3335 17.5 17.5873 17.5 16.6668V5.00016C17.5 4.07969 16.7538 3.3335 15.8333 3.3335Z" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M2.5 8.3335H17.5" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <% if @base_subscription.state == 'BLOCKED' %>
+                  Resume
+                <% else %>
+                  Pause / Resume
+                <% end %>
+            </h5>
+            <%= form_tag do_pause_resume_bundle_path(:account_id => @account.account_id, :id => @bundle.bundle_id), :class => 'form-horizontal', :method => :put do %>
+              <% if @base_subscription.state != 'BLOCKED' %>
+                <div class="form-group d-flex pb-3" id="form_effective_from_date">
+                  <%= label_tag :pause_requested_date, 'Pause date', :class => 'col-sm-3 control-label' %>
+                  <div class="col-sm-9">
+                      <div class="custom-date-input-wrapper kaui-button custom-hover">
+                          <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M14.9167 12.5V18.3333M17.8333 15.4167H12" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M14.0833 1.66675V5.00008M6.58325 1.66675V5.00008" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M17.8333 10.8333V4.99992C17.8333 4.07944 17.0871 3.33325 16.1666 3.33325H4.49992C3.57944 3.33325 2.83325 4.07944 2.83325 4.99992V16.6666C2.83325 17.5871 3.57944 18.3333 4.49992 18.3333H10.3333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M2.83325 8.33325H17.8333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <input class="form-control" name="pause_requested_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
+                      </div>
+                  </div>
+                </div>
+              <% end %>
+              <div class="form-group d-flex pb-3" id="form_effective_from_date">
+                <%= label_tag :resume_requested_date, 'Resume date', :class => 'col-sm-3 control-label' %>
+                <div class="col-sm-9">
+                    <div class="custom-date-input-wrapper kaui-button custom-hover">
+                        <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.9167 12.5V18.3333M17.8333 15.4167H12" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14.0833 1.66675V5.00008M6.58325 1.66675V5.00008" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17.8333 10.8333V4.99992C17.8333 4.07944 17.0871 3.33325 16.1666 3.33325H4.49992C3.57944 3.33325 2.83325 4.07944 2.83325 4.99992V16.6666C2.83325 17.5871 3.57944 18.3333 4.49992 18.3333H10.3333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2.83325 8.33325H17.8333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <input class="form-control" name="resume_requested_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
+                    </div>
+                </div>
+              </div>
+              <div class="form-group d-flex pb-3 border-bottom mb-3">
+                <%= label_tag :comment, 'Comment', :class => 'col-sm-3 control-label' %>
+                <div class="col-sm-9">
+                  <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
+                </div>
+              </div>
+              <div class="form-group d-flex justify-content-end pb-3">
+                <%= render "kaui/components/button/button", {
+                    label: 'Close',
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "button",
+                    html_class: "kaui-button custom-hover mx-2",
+                    html_options: {
+                    id: "closeButton",
+                    onclick: "window.history.back();"
+                    }
+                } %>
+                <%= render "kaui/components/button/button", {
+                    label: @base_subscription.state == 'BLOCKED' ? 'Resume' : 'Pause / Resume',
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "submit",
+                    html_class: "kaui-dropdown custom-hover"
+                } %>
+              </div>
+            <% end %>
+        </div>
+    </div>
 </div>
+
+
+<style>
+  .add-account-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    letter-spacing: 0;
+    color: #1B1C1E;
+    padding: 1.5rem 0;
+  }
+
+  .icon-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.0625rem solid #D5D7DA;
+    border-radius: 0.375rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.25rem;
+  }
+
+  .icon-container img {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .subscription-details .custom-date-input-wrapper {
+    padding: 0 0.625rem !important;
+    border: 0.0625rem solid #D5D7DA !important;
+    border-radius: 0.375rem;
+    cursor: pointer;
+  }
+
+  .subscription-details .custom-date-input-wrapper svg {
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .subscription-details .custom-date-input-wrapper input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0 !important;
+    font-size: 1rem;
+    color: #6B7280;
+    height: 2.5rem;
+  }
+
+  .subscription-details .custom-date-input-wrapper input::placeholder {
+    color: #717680;
+  }
+
+  .subscription-details .custom-date-input-wrapper input.form-control {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+  }
+
+  .control-label {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25rem !important;
+    color: #414651 !important;
+  }
+
+  .question-circle {
+    color: #A4A7AE;
+    font-size: 1rem;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    line-height: 1rem;
+    text-align: center;
+  }
+
+  .col-sm-9.position-relative a {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .form-group.d-flex.pb-3 .form-control {
+    height: 2.5rem;
+    border-radius: 0.375rem;
+  }
+
+  .form-group.d-flex .form-control:focus {
+    outline: none;
+    box-shadow: none;
+  }
+</style>
+
+
+
+
