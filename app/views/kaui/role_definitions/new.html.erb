@@ -1,4 +1,6 @@
-<div class="register">
+<%
+=begin%>
+ <div class="register">
   <div class="col-md-8 col-md-offset-2">
 
     <div class="column-block">
@@ -7,4 +9,139 @@
     </div>
 
   </div>
+</div> 
+<%
+=end%>
+
+
+<div class="register kaui-container">
+  <div class="">
+        <div class="" style="max-width: 600px; margin: 0 auto;">
+            <h5 class="new-role-definition-title border-bottom">
+                <span class="icon-container">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M13.3334 5.83333C13.3334 7.67428 11.841 9.16667 10.0001 9.16667C8.15913 9.16667 6.66675 7.67428 6.66675 5.83333C6.66675 3.99238 8.15913 2.5 10.0001 2.5C11.841 2.5 13.3334 3.99238 13.3334 5.83333Z" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M15.8334 15.8337C15.8334 13.5325 13.9679 11.667 11.6667 11.667H8.33341C6.03223 11.667 4.16675 13.5325 4.16675 15.8337V17.5003H15.8334V15.8337Z" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                Add New Role Definition
+            </h5>
+            <%= render 'form' %>
+        </div>
+    </div>
 </div>
+
+<style>
+  .new-role-definition-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: 0;
+      color: #1B1C1E;
+      padding: 16px 0;
+      margin-bottom: 24px;
+  }
+
+  .icon-container {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #D5D7DA;
+      border-radius: 6px;
+      width: 40px;
+      height: 40px;
+      padding: 4px;
+  }
+
+  .icon-container img {
+      width: 16px;
+      height: 16px;
+  }
+
+  .control-label {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25rem !important;
+    color: #414651 !important;
+  }
+
+  .form-control {
+    border-radius: 0.375rem !important;
+    height: 2.5rem !important;
+  }
+
+  .help-block {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #535862;
+  }
+
+  .border-button {
+    background: transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #D5D7DA;       
+    border-radius: 6px;           
+    width: 40px;                  
+    height: 40px;
+    padding: 10px;  
+  }
+
+  .border-button:hover {
+    background: transparent;
+  }
+
+  .premissions-group .chip-input-container {
+    min-height: 40px;
+    cursor: text;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 8px;
+      
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .premissions-group .chip-input-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .premissions-group .chip {
+    background: #FAFAFA !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    border: 1px solid #F5F5F5 !important;
+    display: flex !important;
+    color: #414651 !important;
+    align-items: center !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+    white-space: nowrap !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    line-height: 18px !important;
+    text-align: center !important;
+
+  }
+
+  .premissions-group .chip .remove-chip {
+    margin-left: 8px;
+    cursor: pointer;
+    color: #666;
+  }
+
+  .premissions-group .chip-text-input {
+    min-width: 100px;
+    width: 100% !important;
+    outline: none;
+  }
+</style>
+

@@ -23,7 +23,7 @@
 
 
 
-<div class="kaui-container">
+<div class="kaui-container pb-0">
   <div class="useful-links-container">
     <div class="d-flex flex-column">
       <div class="useful-links-header mb-3">
@@ -33,7 +33,7 @@
         <span>
         </span>
       </div>
-      <div class="">
+      <div class="useful-links">
         <ul>
           <li><%= link_to 'Parked accounts', kaui_engine.tags_path(:q => '__PARK__') %></li>
           <li><%= link_to 'AUTO_INVOICING_OFF accounts', kaui_engine.tags_path(:q => 'AUTO_INVOICING_OFF') %></li>
@@ -88,5 +88,24 @@
     font-size: 0.875rem !important;
     line-height: 1.25rem;
     text-align: left;
+  }
+
+  .useful-links ul {
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  .useful-links li {
+    list-style-type: none;
+  }
+
+  .useful-links li a {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    color: #717680 !important;
   }
 </style>

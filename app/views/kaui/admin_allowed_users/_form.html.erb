@@ -1,4 +1,6 @@
-<% # Unclear why this url/method hack is needed %>
+<%
+=begin%>
+ <% # Unclear why this url/method hack is needed %>
 <%= form_for @allowed_user, :url => @allowed_user.persisted? ? admin_allowed_user_path(@allowed_user.id) : admin_allowed_users_path, :method => @allowed_user.persisted? ? :put : :post, :html => {:class => 'form-horizontal'} do |f| %>
     <input type="hidden" id="killbillManaged" value="<%= @is_killbill_managed %>" />
     <div class='form-group'>
@@ -29,7 +31,7 @@
       </div>
     </div>
     <div class="form-group">
-      <%= label_tag :roles, 'Roles', :class => 'col-sm-2 control-label' %>
+      <%= label_tag :roles, '.', :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10">
         <%= text_field_tag :roles, @roles.join(','), :class => 'form-control' %>
         <p class="help-block">Comma separated, e.g. customer_support,finance.</p>
@@ -80,5 +82,186 @@
         }
 
         is_killbill_managed();
+    });
+<% end %> 
+<%
+=end%>
+
+
+<% # Unclear why this url/method hack is needed %>
+<%= form_for @allowed_user, :url => @allowed_user.persisted? ? admin_allowed_user_path(@allowed_user.id) : admin_allowed_users_path, :method => @allowed_user.persisted? ? :put : :post, :html => {:class => 'form-horizontal'} do |f| %>
+    <input type="hidden" id="killbillManaged" value="<%= @is_killbill_managed %>" />
+    <div class='form-group d-flex pb-3'>
+      <%= f.label ' ', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <div class="checkbox">
+          <label for="external" class="d-flex align-items-center gap-2 control-label">
+            <%= check_box_tag :external, '1', false, disabled: !@allowed_user.id.blank?, id: 'external', class: "pt-2" %>
+            Managed externally (LDAP, Okta, etc.)?
+          </label>
+        </div>
+
+      </div>
+    </div>
+    <div class="form-group d-flex pb-3">
+      <%= f.label :kb_username, 'Name', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= f.text_field :kb_username, :class => 'form-control', :required => true, :disabled => @allowed_user.persisted?, :readonly => @allowed_user.persisted? %>
+      </div>
+    </div>
+    <div class="form-group d-flex pb-3">
+      <%= f.label  :password, 'Password', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= password_field_tag :password, nil, class:'form-control' %>
+      </div>
+    </div>
+    <div class="form-group d-flex pb-3">
+      <%= f.label :description, 'Description', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
+        <%= f.text_field :description, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group d-flex pb-3">
+      <%= label_tag :roles, 'Roles', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9 d-flex gap-2">
+        <div id="chip-container" class="chip-input-container form-control d-flex flex-wrap align-items-center p-2" onclick="focusChipInput()">
+          <span id="chip-input" class="chip-text-input" contenteditable="true"></span>
+        </div>
+        <%= hidden_field_tag :roles, @roles.join(','), id: 'roles-hidden' %>
+
+        <%= link_to new_role_definition_path, class: "border-button custom-hover add-role-button" do %>
+          <%= image_tag("kaui/modal/plus.svg", width: 16, height: 16) %>
+        <% end %>
+      </div>
+    </div>
+    <div class="form-group d-flex justify-content-end pt-3 border-top mb-3">
+      <%= render "kaui/components/button/button", {
+        label: 'Close',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "button",
+        html_class: "kaui-button custom-hover mx-2",
+        html_options: {
+          id: "closeButton",
+          onclick: "window.history.back();"
+        }
+      } %>
+      <%= render "kaui/components/button/button", {
+        label: 'Save User',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "submit",
+        html_class: "kaui-dropdown custom-hover",
+      } %>
+    </div>
+<% end %>
+
+<!-- is the user been edited? -->
+<% if @allowed_user.persisted? %>
+  <div class="notice-worning">
+    <%= image_tag("kaui/warning.png", width: 35, height: 35) %>
+    <div>
+      <strong>Notice</strong>
+      <p id="noticeMessage">This user is managed externally (LDAP, Okta, etc.) or via Shiro configuration file.</p>
+    </div>
+  </div>
+<% end %>
+
+
+<%= javascript_tag do %>
+    $(document).ready(function() {
+
+        $('#external').change(function() {
+            is_killbill_managed();
+        });
+
+        function is_killbill_managed() {
+            var isKillbillManaged = isBlank($('#killbillManaged').val()) || $('#killbillManaged').val() == 'true';
+
+            if ($('#external').is(":checked") || !isKillbillManaged) {
+                $('#password').attr('disabled', true);
+                $('#roles').attr('disabled', true);
+                $('.add-role-button').hide();
+                $('#chip-container').addClass('disabled-container');
+                $('#chip-input').attr('contenteditable', false).addClass('disabled');
+                $('.help-block').hide();
+                $('.managed-externally-notice').show();
+            }
+            else {
+                $('#password').attr('disabled', false);
+                $('#roles').attr('disabled', false);
+                $('.add-role-button').show();
+                $('#chip-input').attr('contenteditable', true).removeClass('disabled');
+                $('#chip-container').removeClass('disabled-container');
+                $('.help-block').show();
+                $('.managed-externally-notice').hide();
+            }
+        }
+
+        is_killbill_managed();
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const chipContainer = document.getElementById("chip-container");
+      const chipInput = document.getElementById("chip-input");
+      const hiddenInput = document.getElementById("roles-hidden");
+
+      function addChip(text) {
+        if (!text) return;
+        const chip = document.createElement("span");
+        chip.className = "chip";
+        chip.innerHTML = `
+          ${text}
+          <span class="remove-chip">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.50049 1.5L1.50049 8.50001M1.50049 1.5L8.50049 8.50001" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        `;
+        chip.querySelector(".remove-chip").addEventListener("click", () => {
+          chip.remove();
+          updateHiddenInput();
+        });
+        chipContainer.insertBefore(chip, chipInput);
+        updateHiddenInput();
+      }
+
+      function updateHiddenInput() {
+        const chips = chipContainer.querySelectorAll(".chip");
+        const values = Array.from(chips).map(chip => chip.childNodes[0].nodeValue.trim());
+        hiddenInput.value = values.join(",");
+      }
+
+      chipInput.addEventListener("keydown", function (e) {
+        if (e.key === ',' || e.key === 'Enter') {
+          e.preventDefault();
+          const text = chipInput.innerText.trim().replace(/,$/, '');
+          if (text !== "") {
+            addChip(text);
+            chipInput.innerText = "";
+          }
+        } else if (e.key === 'Backspace' && chipInput.innerText === '') {
+          const lastChip = chipContainer.querySelectorAll(".chip");
+          if (lastChip.length > 0) {
+            lastChip[lastChip.length - 1].remove();
+            updateHiddenInput();
+          }
+        }
+      });
+
+      chipInput.addEventListener("blur", () => {
+        const text = chipInput.innerText.trim();
+        if (text !== "") {
+          addChip(text);
+          chipInput.innerText = "";
+        }
+      });
+
+      // Load initial roles if any
+      const initialRoles = hiddenInput.value.split(',').filter(Boolean);
+      initialRoles.forEach(role => addChip(role));
+
+      // Focus handler
+      window.focusChipInput = function () {
+        chipInput.focus();
+      };
     });
 <% end %>

@@ -84,7 +84,8 @@ $(document).ready(function() {
           { label: 'Tags', path: kaui_engine.tags_path, controller_suffix: 'tags', icon_path: 'kaui/setting/tags.svg' },
           { label: 'Tag Definitions', path: kaui_engine.tag_definitions_path, controller_suffix: 'tag_definitions', icon_path: 'kaui/setting/tag-definitions.svg' },
           { label: 'Custom Fields', path: kaui_engine.custom_fields_path, controller_suffix: 'custom_fields', icon_path: 'kaui/setting/custom-field.svg' },
-          { label: 'Plugins', path: "#", controller_suffix: 'invoices', icon_path: 'kaui/setting/plugins.svg' },
+          { label: 'Plugin Manager', path: "/kpm", controller_suffix: 'kpm', icon_path: 'kaui/setting/plugins.svg' },
+          { label: 'E-notifications', path: "/kenui", controller_suffix: 'kenui', icon_path: 'kaui/setting/e-notifications.svg' },
           { label: 'Analytics', path: "#", controller_suffix: 'invoices', icon_path: 'kaui/setting/analytics.svg' },
         ]
       }
@@ -247,7 +248,7 @@ $(document).ready(function() {
 
   #custom_fields-table_filter {
     position: absolute;
-    top: -4.5625rem; 
+    top: -4.375rem;
     right: 8rem; 
   }
 

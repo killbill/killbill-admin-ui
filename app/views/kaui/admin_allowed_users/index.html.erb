@@ -64,7 +64,8 @@
           { label: 'Tags', path: kaui_engine.tags_path, controller_suffix: 'tags', icon_path: 'kaui/setting/tags.svg' },
           { label: 'Tag Definitions', path: kaui_engine.tag_definitions_path, controller_suffix: 'tag_definitions', icon_path: 'kaui/setting/tag-definitions.svg' },
           { label: 'Custom Fields', path: kaui_engine.custom_fields_path, controller_suffix: 'custom_fields', icon_path: 'kaui/setting/custom-field.svg' },
-          { label: 'Plugins', path: "#", controller_suffix: 'invoices', icon_path: 'kaui/setting/plugins.svg' },
+          { label: 'Plugin Manager', path: "/kpm", controller_suffix: 'kpm', icon_path: 'kaui/setting/plugins.svg' },
+          { label: 'E-notifications', path: "/kenui", controller_suffix: 'kenui', icon_path: 'kaui/setting/e-notifications.svg' },
           { label: 'Analytics', path: "#", controller_suffix: 'invoices', icon_path: 'kaui/setting/analytics.svg' },
         ]
       }
@@ -96,6 +97,7 @@
               <tr>
                 <th>Name</th>
                 <th>Description</th>
+                <th></th>
               </tr>
               </thead>
               <tbody>
@@ -103,6 +105,32 @@
                   <tr>
                     <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
                     <td><%= u.description %></td>
+                    <td class="text-end">
+
+                        
+                      <%= render "kaui/components/button/button", {
+                        label: 'Delete',
+                        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                        type: "button",
+                        html_class: "kaui-button delete-button custom-hover",
+                        html_options: { 
+                          data: { 
+                            confirm: "Are you sure?",
+                            method: "delete",
+                            turbo: false,
+                            "url": kaui_engine.admin_allowed_user_path(u.id)
+                          }
+                        }
+                      } %>
+                      <%= link_to kaui_engine.edit_admin_allowed_user_path(u.id), :class => '' do %>
+                        <%= render "kaui/components/button/button", {
+                          label: "Edit",
+                          variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                          type: "button",
+                          html_class: "kaui-button edit-button custom-hover",
+                        } %>
+                      <% end %>
+                    </td>
                   </tr>
               <% end %>
               </tbody>
@@ -194,5 +222,31 @@
     right: 0.5rem !important;
     bottom: 45% !important;
     transform: translateY(50%) !important;
+  }
+
+  .delete-button {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    text-decoration: none !important;
+    color: #D92D20 !important;
+    font-weight: 500;
+    padding-right: 5px !important;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 0.625rem;
+  }
+
+  .edit-button {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    text-decoration: none !important;
+    color: #535862 !important;
+    font-weight: 500;
+    padding-right: 5px !important;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 0.625rem;
   }
 </style>

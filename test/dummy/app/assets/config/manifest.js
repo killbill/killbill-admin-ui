@@ -60,3 +60,10 @@
 //= link kaui/setting/tags.svg
 //= link kaui/setting/tenants.svg
 //= link kaui/setting/users.svg
+//= link kaui/timeline/authorize.svg
+//= link kaui/timeline/chargeback.svg
+//= link kaui/timeline/credit.svg
+//= link kaui/timeline/invoice.svg
+//= link kaui/timeline/purchase.svg
+//= link kaui/timeline/refund.svg
+//= link kaui/timeline/void.svg

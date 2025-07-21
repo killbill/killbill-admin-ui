@@ -1,4 +1,6 @@
-<div class="register">
+<%
+=begin%>
+ <div class="register">
   <div class="col-md-8 col-md-offset-2">
 
     <div class="column-block">
@@ -7,4 +9,168 @@
     </div>
 
   </div>
+</div> 
+<%
+=end%>
+
+
+<div class="register kaui-container kaui-tenant-select">
+  <div class="">
+        <div class="" style="max-width: 600px; margin: 0 auto;">
+            <h5 class="new-user-title border-bottom">
+                <span class="icon-container">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M13.3334 5.83333C13.3334 7.67428 11.841 9.16667 10.0001 9.16667C8.15913 9.16667 6.66675 7.67428 6.66675 5.83333C6.66675 3.99238 8.15913 2.5 10.0001 2.5C11.841 2.5 13.3334 3.99238 13.3334 5.83333Z" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M15.8334 15.8337C15.8334 13.5325 13.9679 11.667 11.6667 11.667H8.33341C6.03223 11.667 4.16675 13.5325 4.16675 15.8337V17.5003H15.8334V15.8337Z" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                Update user
+            </h5>
+            <%= render 'form' %>
+        </div>
+    </div>
 </div>
+
+<style>
+  .new-user-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: 0;
+      color: #1B1C1E;
+      padding: 16px 0;
+      margin-bottom: 24px;
+  }
+
+  .icon-container {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #D5D7DA;
+      border-radius: 6px;
+      width: 40px;
+      height: 40px;
+      padding: 4px;
+  }
+
+  .icon-container img {
+      width: 16px;
+      height: 16px;
+  }
+
+  .control-label {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25rem !important;
+    color: #414651 !important;
+  }
+
+  .form-control {
+    border-radius: 0.375rem !important;
+    height: 2.5rem !important;
+  }
+
+
+  .border-button {
+    background: transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #D5D7DA;       
+    border-radius: 6px;           
+    width: 40px;                  
+    height: 40px;
+    padding: 10px;  
+  }
+
+  .border-button:hover {
+    background: transparent;
+  }
+
+   .chip-input-container {
+    min-height: 40px;
+    cursor: text;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 8px;
+      
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .chip-input-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .chip {
+    background: #FAFAFA;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid #F5F5F5;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    white-space: nowrap;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+
+  }
+
+  .chip .remove-chip {
+    margin-left: 8px;
+    cursor: pointer;
+    color: #666;
+  }
+
+  .chip-text-input.disabled > .chip-input-container {
+    background-color: #e9ecef !important;
+    pointer-events: none !important;
+    color: #6c757d !important;
+  }
+
+  .chip-input-container.disabled-container {
+    background-color: #e9ecef !important;
+    pointer-events: none !important;
+    color: #6c757d !important;
+  }
+
+  .chip-text-input {
+    min-width: 100px;
+    outline: none;
+  }
+
+  .notice-worning {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: #FAFAFA;
+    border-radius: 0.75rem;
+    border: 0.0625rem solid #E9EAEB;
+  }
+
+  .notice-worning p {
+    padding: 0.5rem 0;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #535862 !important;
+    margin: 0;
+  }
+
+  .notice-worning strong {
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+    margin-bottom: 0.25rem;
+  }
+</style>
+
+

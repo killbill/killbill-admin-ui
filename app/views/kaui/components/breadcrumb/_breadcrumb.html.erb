@@ -52,7 +52,7 @@
         <span class="breadcrumb-separator">/</span>
       <% end %>
 
-      <% if index == 0 && segment == "kaui" %>
+      <% if (segment == "kaui" || segment === "/") %>
         <% if is_last %>
           <span class="breadcrumb-home">
             <%= raw <<~SVG

@@ -12,10 +12,10 @@
                 <!-- Settings Section -->
                 <h5 class="fw-semibold pb-4 text-black-900 pt-4 fs-4 fw-500">Settings</h5>
                 <div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
-                    <%= render partial: "kaui/components/dashboard/setting", locals: { path: "#", icon: "kaui/dashboard/tenant.svg", title: "Tenant", desc: "Run multiple tenants for each Kill Bill deployment." } %>
-                    <%= render partial: "kaui/components/dashboard/setting", locals: { path: "#", icon: "kaui/dashboard/users.svg", title: "Users", desc: "Manage users in Kaui – create user roles, create and edit users, assign roles and tenants to users." } %>
-                    <%= render partial: "kaui/components/dashboard/setting", locals: { path: "#", icon: "kaui/dashboard/tags.svg", title: "Tags", desc: "Apply one or more tags to accounts and invoices, a tag being a single value." } %>
-                    <%= render partial: "kaui/components/dashboard/setting", locals: { path: "#", icon: "kaui/dashboard/custom-field.svg", title: "Custom Fields", desc: "Create custom fields (key/value pairs) and attach them to objects like accounts, payments." } %>
+                    <%= render partial: "kaui/components/dashboard/setting", locals: { path: kaui_engine.admin_tenants_path, icon: "kaui/dashboard/tenant.svg", title: "Tenant", desc: "Run multiple tenants for each Kill Bill deployment." } %>
+                    <%= render partial: "kaui/components/dashboard/setting", locals: { path: kaui_engine.admin_allowed_users_path, icon: "kaui/dashboard/users.svg", title: "Users", desc: "Manage users in Kaui – create user roles, create and edit users, assign roles and tenants to users." } %>
+                    <%= render partial: "kaui/components/dashboard/setting", locals: { path: kaui_engine.tags_path, icon: "kaui/dashboard/tags.svg", title: "Tags", desc: "Apply one or more tags to accounts and invoices, a tag being a single value." } %>
+                    <%= render partial: "kaui/components/dashboard/setting", locals: { path: kaui_engine.custom_fields_path, icon: "kaui/dashboard/custom-field.svg", title: "Custom Fields", desc: "Create custom fields (key/value pairs) and attach them to objects like accounts, payments." } %>
                     <%= render partial: "kaui/components/dashboard/setting", locals: { path: "#", icon: "kaui/dashboard/plugins.svg", title: "Plugins", desc: "Install and uninstall plugins, as well as start, stop, and restart them at runtime." } %>
                     <%= render partial: "kaui/components/dashboard/setting", locals: { path: "#", icon: "kaui/dashboard/aviate.svg", title: "Aviate", desc: "Enhanced system observability, streamlined configurations, and valuable business intelligence." } %>
                 </div>
