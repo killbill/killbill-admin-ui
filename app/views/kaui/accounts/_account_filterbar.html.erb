@@ -80,34 +80,34 @@
 
 <style>
   .modal-content {
-    border-radius: 16px;
-    min-width: 648px;
+    border-radius: 1rem;
+    min-width: 40.5rem;
   }
 
   .modal-body {
-    padding-bottom: 6px !important;
-    padding-top: 20px !important;
+    padding-bottom: 0.375rem !important;
+    padding-top: 1.25rem !important;
   }
 
-  .modal-header { 
-    padding: 24px 24px 16px 24px !important;
+  .modal-header {
+    padding: 1.5rem 1.5rem 1rem 1.5rem !important;
   }
 
   .modal-footer {
-    padding: 16px 24px 24px 24px !important;
+    padding: 1rem 1.5rem 1.5rem 1.5rem !important;
   }
 
   .modal-title {
     font-weight: 600;
-    font-size: 18px;
-    line-height: 28px;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
     color: #181D27;
   }
 
   .close-button {
     background: transparent;
     padding: 0;
-    margin-top: -20px;
+    margin-top: -1.25rem;
   }
 
   .close-button:hover {
@@ -120,11 +120,11 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #D5D7DA;       
-    border-radius: 6px;           
-    width: 40px;                  
-    height: 40px;
-    padding: 10px;  
+    border: 0.0625rem solid #D5D7DA;
+    border-radius: 0.375rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.625rem;
   }
 
   .border-button:hover {
@@ -136,9 +136,9 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 40px;                  
-    height: 40px;
-    padding: 10px;  
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.625rem;
   }
 
   .button:hover {
@@ -147,15 +147,15 @@
 
   .field-label {
     font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
     color: #414651;
-    margin-top: -20px;
-    min-width: 153.5px;
+    margin-top: -1.25rem;
+    min-width: 9.59375rem;
   }
 
   .search-field-label {
-    margin-top: -20px;
+    margin-top: -1.25rem;
   }
 
   .form-group.row.align-items-center {
@@ -164,18 +164,18 @@
   }
 
   .form-group.row.align-items-center label {
-    margin-bottom: 0; /* Remove default margin */
+    margin-bottom: 0;
   }
 
   .form-group.row.align-items-center .form-control {
-    margin-right: 4px; /* Add some space between elements */
-    height: 40px;
-    border-radius: 6px;
+    margin-right: 0.25rem;
+    height: 2.5rem;
+    border-radius: 0.375rem;
   }
 
-  .form-group.row.align-items-center.search-field div{
+  .form-group.row.align-items-center.search-field div {
     padding: 0;
-    margin-right: 4px;
+    margin-right: 0.25rem;
   }
 
   .form-group.row.align-items-center .form-control:focus {
@@ -189,13 +189,13 @@
   }
 
   .form-group.d-flex label {
-    margin-bottom: 0; /* Remove default margin */
+    margin-bottom: 0;
   }
 
   .form-group.d-flex .form-control {
-    margin-right: 4px; /* Add some space between the select box and the button */
-    height: 40px;
-    border-radius: 6px;
+    margin-right: 0.25rem;
+    height: 2.5rem;
+    border-radius: 0.375rem;
   }
 
   .form-group.d-flex .form-control:focus {
@@ -204,15 +204,15 @@
   }
 
   #search-labels-container .label {
-    margin-left: 5px; /* Add space between labels */
-    margin-bottom: 5px; /* Add space below labels if they wrap to the next line */
+    margin-left: 0.3125rem;
+    margin-bottom: 0.3125rem;
     color: white;
   }
 
   .col-form-label {
     font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
     color: #414651;
     padding: 0;
   }
@@ -220,34 +220,34 @@
   #search-fields-container {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin: 16px 12px;
+    gap: 1rem;
+    margin: 1rem 0.75rem;
   }
 
   .filter-bar-container {
     display: flex;
-    justify-content: flex-start; /* Align items to the left */
-    align-items: center; /* Center items vertically */
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .filter-bar {
     display: flex;
-    align-items: center; /* Center items vertically */
+    align-items: center;
   }
 
   .filter-bar label {
-    margin: 10px; /* Add some space between the label and the select box */
+    margin: 0.625rem;
   }
 
   .modal-header .icon-container {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #D5D7DA;       
-    border-radius: 6px;           
-    width: 40px;                  
-    height: 40px;
-    padding: 4px;                 
+    border: 0.0625rem solid #D5D7DA;
+    border-radius: 0.375rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.25rem;
   }
 
   .modal-header .icon-container img {
@@ -259,13 +259,11 @@
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-
     background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
     background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 16px 16px;
-
-    padding-right: 30px; /* To make space for the arrow */
+    background-position: right 0.625rem center;
+    background-size: 1rem 1rem;
+    padding-right: 1.875rem;
   }
 
   select.form-control:focus {

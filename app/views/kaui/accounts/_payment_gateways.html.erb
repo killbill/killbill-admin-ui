@@ -44,10 +44,9 @@
 
 
 
-
 <style>
   .payment-methods {
-    margin-top: 48px;
+    margin-top: 3rem;
   }
 
   .payment-methods .payment-methods-header {
@@ -55,15 +54,15 @@
     align-items: start;
     justify-content: space-between;
     padding: 0;
-    border-bottom: 1px solid #E9EAEB;
+    border-bottom: 0.0625rem solid #E9EAEB;
   }
 
   .payment-methods .payment-methods-header h2 {
     font-weight: 600;
-    font-size: 18px;
-    line-height: 28px;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
     color: #414651;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
 
   .payment-methods .payment-methods-header a {
@@ -71,14 +70,13 @@
   }
 
   .payment-methods .tag-bar button {
-    margin-top: -5px;
-
+    margin-top: -0.3125rem;
   }
 
   .payment-methods .info-wrapper {
     border: none !important;
-    margin-top: 20px;
-    border-bottom: 1px solid #E9EAEB !important;
+    margin-top: 1.25rem;
+    border-bottom: 0.0625rem solid #E9EAEB !important;
   }
 
   .payment-methods .info-wrapper .toggler {
@@ -86,10 +84,10 @@
     padding-right: 0;
     background: transparent;
   }
-  
+
   .payment-methods .payment-method {
-    border-bottom: 1px solid #e0e0e0;
-    padding: 6px 0;
+    border-bottom: 0.0625rem solid #e0e0e0;
+    padding: 0.375rem 0;
     font-family: sans-serif;
     position: relative;
   }
@@ -98,36 +96,36 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
+    gap: 1rem;
     flex-wrap: wrap;
     cursor: pointer;
   }
 
   .payment-methods .column {
-    min-width: 160px;
+    min-width: 10rem;
     flex: 1;
   }
 
   .payment-methods .column strong {
     color: #414651 !important;
     font-weight: 600;
-    font-size: 14px !important;
-    line-height: 20px;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem;
     text-align: left;
-    margin-bottom: 4px;
+    margin-bottom: 0.25rem;
   }
 
   .payment-methods .column div {
     color: #717680 !important;
     font-weight: 500;
-    font-size: 14px !important;
-    line-height: 20px;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem;
     text-align: left;
   }
 
   .payment-methods .payment-method-id {
     display: inline-block;
-    max-width: 240px;  
+    max-width: 15rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -135,7 +133,7 @@
   }
 
   .payment-methods .copy-icon {
-    margin-left: 8px;
+    margin-left: 0.5rem;
     cursor: pointer;
     color: #888;
   }
@@ -143,11 +141,11 @@
   .payment-methods .delete-link {
     color: #D92D20;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
     cursor: pointer;
-    margin-right: 12px;
+    margin-right: 0.75rem;
     text-decoration: none;
   }
 
@@ -160,23 +158,21 @@
   .payment-methods .primary {
     color: #A4A7AE;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0px;
-
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
   }
 
   .payment-methods .make-primary {
     font-weight: 500;
     color: #535862;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: 0px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
     cursor: pointer;
     text-decoration: none;
   }
 
-  /* Toggle for detail section */
   .payment-methods .payment-detail {
     max-height: 0;
     overflow: hidden;
@@ -185,22 +181,21 @@
   }
 
   .payment-methods .toggle-checkbox:checked + .payment-summary + .payment-detail {
-    max-height: 1000px;
-    padding-top: 12px;
-    border-top: 1px solid #E9EAEB;
-    margin-top: 12px;
+    max-height: 62.5rem;
+    padding-top: 0.75rem;
+    border-top: 0.0625rem solid #E9EAEB;
+    margin-top: 0.75rem;
   }
 
-  /* Dropdown styles */
   .payment-methods .action-menu-wrapper {
     position: relative;
     display: inline-block;
-    margin-left: 8px;
+    margin-left: 0.5rem;
   }
 
   .payment-methods .menu-trigger {
     cursor: pointer;
-    padding: 4px;
+    padding: 0.25rem;
     display: inline-block;
   }
 
@@ -211,14 +206,14 @@
   .payment-methods .action-dropdown {
     display: none;
     position: absolute;
-    top: 28px;
+    top: 1.75rem;
     right: 0;
     background: white;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    min-width: 140px;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.1);
+    min-width: 8.75rem;
     z-index: 100;
-    padding: 8px 0;
+    padding: 0.5rem 0;
   }
 
   .payment-methods .action-dropdown ul {
@@ -228,10 +223,10 @@
   }
 
   .payment-methods .action-dropdown li {
-    padding: 10px 16px;
+    padding: 0.625rem 1rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
     cursor: pointer;
   }
 
@@ -245,11 +240,11 @@
     font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 0.625rem;
   }
 
   .payment-methods .action-dropdown i {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .payment-methods .menu-toggle:checked ~ .dropdown-overlay {
@@ -270,16 +265,16 @@
   }
 
   .payment-methods .payment-method-details .detail-item {
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
   }
 
   .payment-methods .payment-method-details .detail-item b {
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 0.25rem;
     color: #414651 !important;
     font-weight: 600;
-    font-size: 14px !important;
-    line-height: 20px;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem;
     text-align: left;
   }
 
@@ -287,8 +282,8 @@
     display: block;
     color: #717680 !important;
     font-weight: 400;
-    font-size: 14px !important;
-    line-height: 20px;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem;
     text-align: left;
   }
 
@@ -296,7 +291,7 @@
     padding: 0 !important;
     background-color: transparent !important;
     border: none !important;
-    margin-left: 12px !important;
+    margin-left: 0.75rem !important;
   }
 
 </style>

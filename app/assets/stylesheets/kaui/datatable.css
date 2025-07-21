@@ -86,39 +86,37 @@ table.dataTable.table-condensed thead > tr > th {
 }
 
 .dataTables_scroll {
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 #accounts-table {
-  margin-top: 0px !important;
+  margin-top: 0rem !important;
 }
 
-/* 3. Core table styling */
 table.dataTable {
   width: 100% !important;
   border-collapse: separate !important;
   border-spacing: 0;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   overflow: hidden;
   font-size: 0.95rem;
-  border: 0px !important;
+  border: 0rem !important;
 }
 
-/* 4. Header row */
 table.dataTable thead tr {
-  border: 0px !important;
+  border: 0rem !important;
 }
 
 table.dataTable thead {
-  border: 0px !important;
+  border: 0rem !important;
 }
 
 table th:first-of-type,
 .search table td:first-of-type {
-  padding-left: 20px !important;
+  padding-left: 1.25rem !important;
   font-weight: 600 !important;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   color: blue;
 }
 
@@ -131,51 +129,46 @@ table.dataTable thead th {
   background-color: #fafafa;
   font-weight: 500 !important;
   padding: 0.75rem;
-  border: 0px !important;
-  font-size: 12px;
-  line-height: 18px;
+  border: 0rem !important;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
   color: #717680;
   text-transform: capitalize;
 }
 
-/* 5. Body cells */
 table.dataTable tbody td {
-  padding: 0.75rem;
+  padding: 0.9375rem 0.75rem !important;
   vertical-align: middle;
-  border-bottom: 1px solid #e9eaeb !important;
+  border-bottom: 0.0625rem solid #e9eaeb !important;
   font-weight: 400 !important;
-  font-size: 14px;
-  line-height: 20px;
-  padding: 15px 12px !important;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   color: #535862;
 }
 
-/* 6. Row hover */
 table.dataTable tbody tr:hover {
   background-color: #f5f7fa;
 }
 
-/* 7. Checkbox centering */
 table.dataTable td input[type="checkbox"] {
   margin: 0 auto;
   display: block;
 }
 
-/* 8. Search field (DataTables’ built-in filter) */
 .dataTables_filter {
   margin-bottom: 1rem;
   text-align: right;
 }
+
 .dataTables_filter input {
   border-radius: 0.5rem;
   padding: 0.4rem 0.75rem;
-  border: 1px solid #ced4da;
+  border: 0.0625rem solid #ced4da;
   font-size: 0.9rem;
   width: auto;
   display: inline-block;
 }
 
-/* 9. Pagination controls */
 .dataTables_paginate {
   margin-top: 1rem;
   text-align: right;
@@ -183,14 +176,14 @@ table.dataTable td input[type="checkbox"] {
 
 .paginate_button {
   border: none !important;
-  margin: 0 3px !important;
-  border-radius: 6px !important;
-  padding: 6px 10px !important;
-  font-size: 14px !important;
+  margin: 0 0.1875rem !important;
+  border-radius: 0.375rem !important;
+  padding: 0.375rem 0.625rem !important;
+  font-size: 0.875rem !important;
   font-weight: 500 !important;
-  line-height: 20px !important;
+  line-height: 1.25rem !important;
   color: #414651 !important;
-  border: 1px solid #d5d7da !important;
+  border: 0.0625rem solid #d5d7da !important;
 }
 
 .paginate_button.current,
@@ -206,18 +199,16 @@ table.dataTable td input[type="checkbox"] {
 }
 
 .dataTables_processing {
-  padding: 100px 0px !important;
+  padding: 6.25rem 0rem !important;
 }
 
-/* 10. “Showing X–Y of Z entries” info text */
 .dataTables_info {
-  font-size: 14px !important;
+  font-size: 0.875rem !important;
   font-weight: 400 !important;
-  line-height: 20px !important;
+  line-height: 1.25rem !important;
   color: #717680 !important;
 }
 
-/* 11. Hide “Show N entries” length dropdown if fixed per-page */
 .dataTables_length {
   display: none;
 }

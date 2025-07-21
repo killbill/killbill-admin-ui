@@ -28,14 +28,14 @@
 
 .auth-form-content {
   position: relative;
-  max-width: 360px;
-  padding: 60px 0px !important;
+  max-width: 22.5rem;
+  padding: 3.75rem 0 !important;
   width: 100%;
   margin: auto;
 }
 
 .form-control {
-  height: 44px;
+  height: 2.75rem;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
@@ -43,7 +43,7 @@
   background-color: #fff;
   background-clip: padding-box;
   shadow: none;
-  border: 1px solid #d5d7da;
+  border: 0.0625rem solid #d5d7da;
   border-radius: 0.1rem;
 }
 
@@ -51,7 +51,7 @@ input.form-control::-webkit-input-placeholder {
   color: #717680;
   font-weight: 400;
   font-style: normal !important;
-  opacity: 1; /* required for Firefox */
+  opacity: 1;
 }
 
 input.form-control:focus {
@@ -63,7 +63,7 @@ input.form-control:focus {
 .btn {
   text-transform: none;
   border-radius: 0.5rem !important;
-  height: 44px;
+  height: 2.75rem;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;

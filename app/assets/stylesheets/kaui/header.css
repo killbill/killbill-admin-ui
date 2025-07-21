@@ -2,52 +2,52 @@
  * Header Layout
  */
 header {
-  padding: 25px 0;
+  padding: 1.5625rem 0;
   background: #fff;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 0.0625rem solid #ccc;
 }
 header img {
   vertical-align: middle;
 }
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   header img {
     display: block;
-    margin: 0 auto 10px;
+    margin: 0 auto 0.625rem;
   }
 }
 header #searchform {
-  margin: 0 30px;
+  margin: 0 1.875rem;
   vertical-align: middle;
   position: relative;
   display: inline-block;
 }
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   header #searchform {
-    width: 185px;
+    width: 11.5625rem;
     display: block;
-    margin: 0 auto 10px;
+    margin: 0 auto 0.625rem;
   }
 }
 header #searchform input[type="text"] {
-  padding-right: 28px;
+  padding-right: 1.75rem;
 }
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
   header #searchform input[type="text"] {
-    width: 100px;
+    width: 6.25rem;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   header #searchform input[type="text"] {
     width: 100%;
   }
 }
 header #searchform input[type="submit"] {
   display: block;
-  width: 18px;
-  height: 15px;
+  width: 1.125rem;
+  height: 0.9375rem;
   position: absolute;
-  top: 7px;
-  right: 5px;
+  top: 0.4375rem;
+  right: 0.3125rem;
   background: url("kaui/search.png") no-repeat top left;
   border: 0;
   text-indent: 999999px;
@@ -56,30 +56,30 @@ header #searchform input[type="submit"] {
   padding: 0;
 }
 header a {
-  font-size: 12px;
+  font-size: 0.75rem;
   text-transform: uppercase;
 }
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   header a {
     text-align: center;
     display: block;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   header nav {
     text-align: center;
   }
 }
 header nav ul {
-  padding: 6px 0;
+  padding: 0.375rem 0;
   margin: 0;
 }
-@media (max-width: 1024px) {
+@media (max-width: 64rem) {
   header nav ul {
     text-align: center;
   }
   header nav ul.account-menu {
-    margin: -10px 0;
+    margin: -0.625rem 0;
   }
 }
 header nav ul li {
@@ -89,8 +89,8 @@ header nav ul li {
 }
 header nav ul li a {
   color: #777777;
-  padding: 0 10px;
-  border-right: 1px solid #ccc;
+  padding: 0 0.625rem;
+  border-right: 0.0625rem solid #ccc;
 }
 header nav ul li a:hover {
   color: #000;
@@ -101,34 +101,34 @@ header nav ul li:last-of-type a {
 
 .title-nav-area {
   background: #c7e4e7;
-  margin: 0 0 30px;
+  margin: 0 0 1.875rem;
   font-size: 0;
-  margin-top: -40px;
+  margin-top: -2.5rem;
 }
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .title-nav-area .container {
     text-align: center;
     width: 100%;
-    padding: 0 15px;
+    padding: 0 0.9375rem;
   }
 }
 .title-nav-area a,
 .title-nav-area p {
   display: inline-block;
-  padding: 12px 40px;
-  font-size: 12px;
+  padding: 0.75rem 2.5rem;
+  font-size: 0.75rem;
   margin: 0;
-  line-height: 12px;
+  line-height: 0.75rem;
   background: transparent;
   vertical-align: top;
 }
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
   .title-nav-area a,
   .title-nav-area p {
     width: 30%;
-    padding: 12px 0;
+    padding: 0.75rem 0;
     text-align: center;
-    border-bottom: 1px solid #fff;
+    border-bottom: 0.0625rem solid #fff;
   }
   .title-nav-area a:nth-of-type(4),
   .title-nav-area a:nth-of-type(5),
@@ -140,10 +140,10 @@ header nav ul li:last-of-type a {
   .title-nav-area a:nth-of-type(5),
   .title-nav-area p:nth-of-type(3),
   .title-nav-area p:nth-of-type(5) {
-    border-right: 1px solid #fff;
+    border-right: 0.0625rem solid #fff;
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 28.125rem) {
   .title-nav-area a,
   .title-nav-area p {
     width: 50%;
@@ -155,7 +155,7 @@ header nav ul li:last-of-type a {
   .title-nav-area p:nth-of-type(2),
   .title-nav-area p:nth-of-type(4),
   .title-nav-area p:nth-of-type(5) {
-    border-right: 1px solid #fff;
+    border-right: 0.0625rem solid #fff;
   }
   .title-nav-area a:nth-of-type(3),
   .title-nav-area p:nth-of-type(3) {
@@ -173,7 +173,7 @@ header nav ul li:last-of-type a {
 .title-nav-area a {
   color: #666666;
   text-transform: uppercase;
-  border-left: 1px solid #fff;
+  border-left: 0.0625rem solid #fff;
 }
 .title-nav-area a:hover,
 .title-nav-area a.current {
@@ -181,7 +181,7 @@ header nav ul li:last-of-type a {
   background: #00919d;
 }
 .title-nav-area a:last-of-type {
-  border-right: 1px solid #fff;
+  border-right: 0.0625rem solid #fff;
 }
 .title-nav-area p {
   font-weight: normal;
@@ -189,7 +189,7 @@ header nav ul li:last-of-type a {
 
 /* Updated */
 .search-container {
-  max-width: 650px;
+  max-width: 40.625rem;
   width: 100%;
 }
 .search-box {
@@ -207,7 +207,7 @@ header nav ul li:last-of-type a {
 }
 .dropdown-menu {
   padding: 0.75rem 0;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0.375rem 1.5rem rgba(0, 0, 0, 0.08);
   border-radius: 2rem;
 }
 ul.header-menu {
@@ -221,11 +221,11 @@ ul.header-menu li span {
 }
 .autocomplete-box {
   z-index: 1050;
-  max-height: 420px;
+  max-height: 26.25rem;
   overflow-y: auto;
 }
 .header-tag {
-  border: 1px solid #ccc;
+  border: 0.0625rem solid #ccc;
 }
 .header-tag a {
   text-transform: none;
