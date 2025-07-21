@@ -867,7 +867,7 @@ table thead th:last-child {
   background-repeat: no-repeat;
   background-position: right 0.625rem center;
   background-size: 1rem 1rem;
-
+  height: 2.5rem;
   padding-right: 1.875rem;
 }
 
