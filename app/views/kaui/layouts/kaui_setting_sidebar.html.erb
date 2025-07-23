@@ -1,3 +1,16 @@
+<% identifier = "Settings" %>
+<% menu_items = [
+  { label: 'Account', path: kaui_engine.admin_tenant_path(session[:tenant_id]), controller_suffix: "#{session[:tenant_id]}", icon_path: 'kaui/setting/account.svg' },
+  { label: 'Tenants', path: kaui_engine.admin_tenants_path, controller_suffix: 'admin_tenants', icon_path: 'kaui/setting/tenants.svg' },
+  { label: 'Users', path: kaui_engine.admin_allowed_users_path, controller_suffix: 'admin_allowed_users', icon_path: 'kaui/setting/users.svg' },
+  { label: 'Tags', path: kaui_engine.tags_path, controller_suffix: 'tags', icon_path: 'kaui/setting/tags.svg' },
+  { label: 'Tag Definitions', path: kaui_engine.tag_definitions_path, controller_suffix: 'tag_definitions', icon_path: 'kaui/setting/tag-definitions.svg' },
+  { label: 'Custom Fields', path: kaui_engine.custom_fields_path, controller_suffix: 'custom_fields', icon_path: 'kaui/setting/custom-field.svg' },
+  { label: 'Plugin Manager', path: "/kpm", controller_suffix: 'kpm', icon_path: 'kaui/setting/plugins.svg' },
+  { label: 'E-notifications', path: "/kenui", controller_suffix: 'kenui', icon_path: 'kaui/setting/e-notifications.svg' },
+  { label: 'Analytics', path: "/analytics", controller_suffix: 'analytics', icon_path: 'kaui/setting/analytics.svg' },
+] %>
+
 <% if menu_items.present? %>
   <div class="title-sidebar-area">
     <div class="container">
@@ -16,6 +29,7 @@
     </div>
   </div>
 <% end %>
+
 <style>
   .title-sidebar-area .container {
     display: flex;
