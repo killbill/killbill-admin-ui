@@ -1,4 +1,13 @@
 <% identifier = "Settings" %>
+<% 
+  # Try to determine root path dynamically
+  if request.path.start_with?('/kaui')
+    dynamic_root = '/kaui'
+  else
+    dynamic_root = '/'
+  end
+%>
+
 <% menu_items = [
   { label: 'Account', path: kaui_engine.admin_tenant_path(session[:tenant_id]), controller_suffix: "#{session[:tenant_id]}", icon_path: 'kaui/setting/account.svg' },
   { label: 'Tenants', path: kaui_engine.admin_tenants_path, controller_suffix: 'admin_tenants', icon_path: 'kaui/setting/tenants.svg' },

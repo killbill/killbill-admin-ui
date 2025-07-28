@@ -8,17 +8,16 @@
 
 <% icon_html = icon.present? ? image_tag(icon, class: "me-1", size: "16x16") : "" %>
 
-<div class="dropdown dropdown-menu-end">
+<div class="dropdown dropdown-menu-end position-relative" id="<%= dropdown_id %>_wrapper">
   <%= tag.button raw("#{icon_html}#{label}"),
       type: type,
       class: "btn kaui-dropdown custom-hover #{variant} #{html_class}",
-      id: dropdown_id,
-      data: { bs_toggle: "dropdown" },
+      id: "#{dropdown_id}_button",
       aria: { expanded: "false" } %>
 
   <ul class="dropdown-menu header-menu shadow border-0 rounded-3"
-      aria-labelledby="<%= dropdown_id %>"
-      style="min-width: 6.25rem;">
+      id="<%= dropdown_id %>_menu"
+      style="min-width: 6.25rem; display: none;">
     <% menu_items&.each do |item| %>
       <li>
         <%= link_to item[:path], class: "dropdown-item d-flex align-items-center gap-2" do %>
@@ -29,3 +28,23 @@
     <% end %>
   </ul>
 </div>
+
+<%= javascript_tag do %>
+  document.addEventListener('DOMContentLoaded', function () {
+    const button = document.getElementById('<%= dropdown_id %>_button');
+    const menu = document.getElementById('<%= dropdown_id %>_menu');
+    const wrapper = document.getElementById('<%= dropdown_id %>_wrapper');
+
+    button.addEventListener('click', function (e) {
+      e.stopPropagation();
+      const isShown = menu.style.display === 'block';
+      menu.style.display = isShown ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!wrapper.contains(e.target)) {
+        menu.style.display = 'none';
+      }
+    });
+  });
+<% end %>

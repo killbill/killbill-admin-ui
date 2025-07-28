@@ -117,7 +117,6 @@
 <%
 =end%>
 
-
 <table id="subscriptions_<%= bundle.bundle_id %>" class="subscriptions-table">
   <thead>
   <tr>
@@ -135,6 +134,7 @@
   </thead>
   <tbody>
     <% (bundle.subscriptions || []).each do |sub| %>
+      <% dropdown_id = "cancelDropdown-#{sub.subscription_id}" %>
       <tr class="<%= subscription_cancelled?(sub) ? 'expired' : 'non-expired' %>">
         <% unless @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? %>
           <td class="inline-row-tag-bar">
@@ -148,9 +148,9 @@
 
                     <%= render :partial => 'kaui/bundle_tags/form_bar',
                                :locals => {:params => { :bundle_id => bundle.bundle_id},
-                                           :tag_names => (@tags_per_subscription[sub.subscription_id] || []).map { |tag| tag.tag_definition_name },
-                                           :available_tags => @available_subscription_tags,
-                                           :update_tags_path => update_subscriptions_tags_path(sub.subscription_id)
+                                 :tag_names => (@tags_per_subscription[sub.subscription_id] || []).map { |tag| tag.tag_definition_name },
+                                 :available_tags => @available_subscription_tags,
+                                 :update_tags_path => update_subscriptions_tags_path(sub.subscription_id)
                                } %>
                   </div>
                 </div>
@@ -174,24 +174,27 @@
         <td><%= humanized_subscription_charged_through_date(sub, account) %></td>
         <td class="text-center">
           <% if subscription_future_cancelled?(sub, account) %>
-              <%= link_to 'Reinstate', kaui_engine.reinstate_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-xs' %>
+            <%= link_to 'Reinstate', kaui_engine.reinstate_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-xs' %>
           <% elsif !subscription_cancelled?(sub) %>
             <div class="d-flex justify-content-center align-items-center">
               <% if can? :cancel, Kaui::Subscription %>
-                <div class="btn-group cancel-menu">
-                    <button class="cancel-button" data-bs-toggle="dropdown" href="#">
-                      Cancel
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 6.00003L8.00002 10L12 6" stroke="#D92D20" stroke-width="1.5" stroke-miterlimit="16" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><%= link_to 'Cancel (default policy)', kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete %></li>
-                      <li><%= link_to 'Cancel start of term (full credit)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'START_OF_TERM'), :method => :delete %></li>
-                      <li><%= link_to 'Cancel immediately (partial credit)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'IMMEDIATE'), :method => :delete %></li>
-                      <li><%= link_to 'Cancel end of term (no credit)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'END_OF_TERM'), :method => :delete %></li>
-                      <li><%= link_to 'Cancel a subscription given a date', '#cancel_subscription_by_date_modal', data: {bs_toggle: 'modal', id: sub.subscription_id} %></li>
-                    </ul>
+                <div class="btn-group cancel-menu position-relative" id="<%= dropdown_id %>Wrapper">
+                  <button id="<%= dropdown_id %>Btn" class="cancel-button">
+                    Cancel
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6.00003L8.00002 10L12 6" stroke="#D92D20" stroke-width="1.5" stroke-miterlimit="16" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+
+                  <ul class="dropdown-menu"
+                      id="<%= dropdown_id %>Menu"
+                      style="display: none;">
+                    <li><%= link_to 'Cancel (default policy)', kaui_engine.subscription_path(id: sub.subscription_id), method: :delete %></li>
+                    <li><%= link_to 'Cancel start of term (full credit)', kaui_engine.subscription_path(id: sub.subscription_id, policy: 'START_OF_TERM'), method: :delete %></li>
+                    <li><%= link_to 'Cancel immediately (partial credit)', kaui_engine.subscription_path(id: sub.subscription_id, policy: 'IMMEDIATE'), method: :delete %></li>
+                    <li><%= link_to 'Cancel end of term (no credit)', kaui_engine.subscription_path(id: sub.subscription_id, policy: 'END_OF_TERM'), method: :delete %></li>
+                    <li><%= link_to 'Cancel a subscription given a date', '#cancel_subscription_by_date_modal', data: { bs_toggle: 'modal', id: sub.subscription_id } %></li>
+                  </ul>
                 </div>
               <% end %>
 
@@ -278,6 +281,30 @@
     $(".price-override-popover").popover({
       container: 'body',
       trigger: 'hover'
+    });
+
+    document.querySelectorAll('.cancel-button').forEach(function(button) {
+      const idPrefix = button.id.replace('Btn', '');
+      const menu = document.getElementById(idPrefix + 'Menu');
+      const wrapper = document.getElementById(idPrefix + 'Wrapper');
+
+      button.addEventListener('click', function (e) {
+        e.stopPropagation();
+
+        // Close all open dropdowns first
+        document.querySelectorAll('.dropdown-menu').forEach(m => m.style.display = 'none');
+
+        // Toggle this one
+        const isOpen = menu.style.display === 'block';
+        menu.style.display = isOpen ? 'none' : 'block';
+      });
+
+      // Close dropdown on outside click
+      document.addEventListener('click', function (e) {
+        if (!wrapper.contains(e.target)) {
+          menu.style.display = 'none';
+        }
+      });
     });
   });
 <% end %>

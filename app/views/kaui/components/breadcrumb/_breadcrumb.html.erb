@@ -1,11 +1,21 @@
 <%# Accept optional breadcrumbs array (e.g., passed via locals) %>
 <% custom_breadcrumbs = local_assigns[:breadcrumbs] %>
 
+<%# Improved dynamic root detection %>
+<% 
+  # Try to determine root path dynamically
+  if request.path.start_with?('/kaui')
+    dynamic_root = '/kaui'
+  else
+    dynamic_root = '/'
+  end
+%>
+
 <% if custom_breadcrumbs.present? %>
 <nav class="breadcrumb-nav" aria-label="Breadcrumb">
   <span class="breadcrumb-home">
       <%= link_to '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.33331 6.99994L7.16705 2.33295C7.65398 1.94338 8.34598 1.94338 8.83291 2.33295L14.6666 6.99994" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.66669 6V13C2.66669 13.7364 3.26364 14.3333 4.00002 14.3333H12C12.7364 14.3333 13.3334 13.7364 13.3334 13V6" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 11.6667V12.3334" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>'.html_safe,
-  "/kaui", class: "breadcrumb-home" %>
+  dynamic_root, class: "breadcrumb-home" %>
   </span>
   <span class="breadcrumb-separator">/</span>
   <% custom_breadcrumbs.each_with_index do |item, index| %>
@@ -18,7 +28,8 @@
     <% if is_last %>
       <span class="breadcrumb-current"><%= item[:label] %></span>
     <% else %>
-      <%= link_to item[:label], item[:href], class: "breadcrumb-link" %>
+      <% href = item[:href] == "/" ? dynamic_root : item[:href] %>
+      <%= link_to item[:label], href, class: "breadcrumb-link" %>
     <% end %>
   <% end %>
 </nav>
@@ -43,53 +54,65 @@
   } %>
 
   <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-    <% sanitized_segments = segments.map { |segment| CGI.escapeHTML(segment) } %>
-    <% sanitized_segments.each_with_index do |segment, index| %>
-      <% is_last = index == sanitized_segments.size - 1 %>
-      <% path = "/" + sanitized_segments[0..index].join("/") %>
+    <%# Always show home icon first %>
+    <% if segments.empty? || (segments.size == 1 && segments.first == "kaui") %>
+      <%# Home is the current/last page %>
+      <span class="breadcrumb-home">
+        <%= raw <<~SVG
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.33331 6.99994L7.16705 2.33295C7.65398 1.94338 8.34598 1.94338 8.83291 2.33295L14.6666 6.99994" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2.66669 6V13C2.66669 13.7364 3.26364 14.3333 4.00002 14.3333H12C12.7364 14.3333 13.3334 13.7364 13.3334 13V6" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 11.6667V12.3334" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        SVG
+        %>
+      </span>
+    <% else %>
+      <%# Home is a link %>
+      <%= link_to dynamic_root, class: "breadcrumb-home-link" do %>
+        <%= raw <<~SVG
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.33331 6.99994L7.16705 2.33295C7.65398 1.94338 8.34598 1.94338 8.83291 2.33295L14.6666 6.99994" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2.66669 6V13C2.66669 13.7364 3.26364 14.3333 4.00002 14.3333H12C12.7364 14.3333 13.3334 13.7364 13.3334 13V6" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 11.6667V12.3334" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        SVG
+        %>
+      <% end %>
+    <% end %>
 
-      <% if index > 0 %>
-        <span class="breadcrumb-separator">/</span>
+    <%# Process remaining segments (excluding root "kaui" segment) %>
+    <% sanitized_segments = segments.map { |segment| CGI.escapeHTML(segment) } %>
+    <% 
+      # Skip the first segment if it's "kaui" since we already handled home
+      display_segments = sanitized_segments.first == "kaui" ? sanitized_segments[1..-1] : sanitized_segments
+    %>
+    
+    <% display_segments.each_with_index do |segment, index| %>
+      <% is_last = index == display_segments.size - 1 %>
+      <% 
+        # Reconstruct path for this segment
+        if sanitized_segments.first == "kaui"
+          segment_path = "/" + (["kaui"] + display_segments[0..index]).join("/")
+        else
+          segment_path = "/" + display_segments[0..index].join("/")
+        end
+      %>
+
+      <span class="breadcrumb-separator">/</span>
+
+      <% if segment.match?(/\A[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\z/i) && defined?(pretty_account_identifier) %>
+        <% label = pretty_account_identifier %>
+      <% elsif segment_label_map[segment] %>
+        <% label = segment_label_map[segment] %>
+      <% else %>
+        <% label = segment.titleize %>
       <% end %>
 
-      <% if (segment == "kaui" || segment === "/") %>
-        <% if is_last %>
-          <span class="breadcrumb-home">
-            <%= raw <<~SVG
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1.33331 6.99994L7.16705 2.33295C7.65398 1.94338 8.34598 1.94338 8.83291 2.33295L14.6666 6.99994" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2.66669 6V13C2.66669 13.7364 3.26364 14.3333 4.00002 14.3333H12C12.7364 14.3333 13.3334 13.7364 13.3334 13V6" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 11.6667V12.3334" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            SVG
-            %>
-          </span>
-        <% else %>
-          <%= link_to html_escape(path), class: "breadcrumb-home-link" do %>
-            <%= raw <<~SVG
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1.33331 6.99994L7.16705 2.33295C7.65398 1.94338 8.34598 1.94338 8.83291 2.33295L14.6666 6.99994" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2.66669 6V13C2.66669 13.7364 3.26364 14.3333 4.00002 14.3333H12C12.7364 14.3333 13.3334 13.7364 13.3334 13V6" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 11.6667V12.3334" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            SVG
-            %>
-          <% end %>
-        <% end %>
+      <% if is_last %>
+        <span class="breadcrumb-current"><%= label %></span>
       <% else %>
-        <% if segment.match?(/\A[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\z/i) && defined?(pretty_account_identifier) %>
-          <% label = pretty_account_identifier %>
-        <% elsif segment_label_map[segment] %>
-          <% label = segment_label_map[segment] %>
-        <% else %>
-          <% label = segment.titleize %>
-        <% end %>
-
-        <% if is_last %>
-          <span class="breadcrumb-current"><%= label %></span>
-        <% else %>
-          <%= link_to label, CGI.escapeHTML(path), class: "breadcrumb-link" %>
-        <% end %>
+        <%= link_to label, CGI.escapeHTML(segment_path), class: "breadcrumb-link" %>
       <% end %>
     <% end %>
   </nav>
