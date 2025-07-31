@@ -1,50 +1,218 @@
-<div id="catalog_simple">
-  <hr/>
+<div class="kaui-container" id="catalog_simple">
+<div class="existing-plans-container mt-4">
+    <div class="d-flex flex-column">
+    <div class="existing-plans-header mb-3">
+        <div class="d-flex align-items-start flex-column">
+        <h2>Existing Plans</h2>
+        </div>
+        <span>
+        <div class="select-catalog-version d-inline-flex align-items-center gap-1">
+            <b>Catalog Versions:</b>
+            <select id="select_catalog" class="selectpicker show-menu-arrow">
+                <% @catalog_versions.reverse_each do |catalog, i| %>
+                    <option idx="<%= catalog[:version] %>"><%= catalog[:version_date] %></option>
+                <% end %>
+            </select>
+        </div>
 
-    <h1>Existing Plans
+        <%= link_to download_catalog_xml_path(id: @tenant.id, effective_date: @latest_version), id: "download_link", class: "text-decoration-none" do %>
+            <%= render "kaui/components/button/button", {
+                label: "Download XML",
+                icon: "kaui/download.svg",
+                variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                type: "button",
+                html_class: "kaui-button custom-hover"
+            } %>
+        <% end %>
+        
+        <%= link_to "javascript:void(0);", onclick: "switchXMLConfig();", class:"text-decoration-none" do %>
+            <%= render "kaui/components/button/button", {
+                label: "XML View",
+                icon: "kaui/view-doc.svg",
+                variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                type: "button",
+                html_class: "kaui-button custom-hover"
+            } %>
+        <% end %>
+
         <% if can? :config_upload, Kaui::AdminTenant %>
-            <%= link_to '<i class="fa fa-plus-square"></i>'.html_safe,
-                        admin_tenant_new_catalog_path(:id => @tenant.id),
-                        :class => 'btn btn-xs' %>
+            <%= link_to admin_tenant_new_catalog_path(:id => @tenant.id) do %>
+                <%= render "kaui/components/button/button", {
+                    label: "Add Catalog",
+                    icon: "kaui/plus.svg",
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "button",
+                    html_class: "kaui-dropdown custom-hover"
+                } %>
+            <% end %>
         <% end %>
-        <%= link_to '<i class="fa fa-arrow-down" aria-hidden="true"></i>'.html_safe,
-                    download_catalog_xml_path(:id => @tenant.id, :effective_date => @latest_version),
-                    :class => 'btn btn-xs', :id => 'download_link' %>
-        <% if can?(:delete, Kaui::AdminTenant) %>
-            <%= link_to '<i class="fa fa-times"></i>'.html_safe,
-                        admin_tenant_delete_catalog_path(:id => @tenant.id), :method => :delete, :class => 'btn btn-xs' %>
-        <% end %>
-        <a class='btn btn-xs' href="javascript:void(0);" onclick="switchXMLConfig();">Enable XML View</a>
-    </h1>
+        </span>
+    </div>
+    <div class="">
+        <table id="existing-plans-for-tenants" class="existing-plans-table">
+            <thead>
+            <tr>
+            <th><%= I18n.translate('views.catalogs.show.plan_table.plan_id') %></th>
+            <th><%= I18n.translate('views.catalogs.show.plan_table.product') %></th>
+            <th><%= I18n.translate('views.catalogs.show.plan_table.category') %></th>
+            <th><%= I18n.translate('views.catalogs.show.plan_table.billing_period') %></th>
+            <th id="currency_select"></th>
+            <th><%= I18n.translate('views.catalogs.show.plan_table.trial') %></th>
+            <th><%= I18n.translate('views.catalogs.show.plan_table.final_phase_duration') %></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody id="catalog_detail">
 
-  <table id="existing-plans-for-tenants" class="table table-condensed">
-
-    <span class='label'>
-        <b>Catalog Versions:</b>
-    </span>
-    <select id="select_catalog" class="selectpicker show-menu-arrow">
-      <% @catalog_versions.reverse_each do |catalog, i| %>
-          <option idx="<%= catalog[:version] %>"><%= catalog[:version_date] %></option>
-      <% end %>
-    </select>
-
-    <thead>
-    <tr>
-      <th><%= I18n.translate('views.catalogs.show.plan_table.plan_id') %></th>
-      <th><%= I18n.translate('views.catalogs.show.plan_table.product') %></th>
-      <th><%= I18n.translate('views.catalogs.show.plan_table.category') %></th>
-      <th><%= I18n.translate('views.catalogs.show.plan_table.billing_period') %></th>
-      <th id="currency_select"></th>
-      <th><%= I18n.translate('views.catalogs.show.plan_table.trial') %></th>
-      <th><%= I18n.translate('views.catalogs.show.plan_table.final_phase_duration') %></th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody id="catalog_detail">
-
-    </tbody>
-  </table>
+            </tbody>
+        </table>
+    </div>
+    </div>
 </div>
+</div>
+
+<style>
+  .existing-plans-container {
+    max-width: 80rem;
+    width: 100%;
+  }
+
+  .existing-plans-container .existing-plans-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0;
+    border-bottom: 0.0625rem solid #E9EAEB;
+  }
+
+  .existing-plans-container .existing-plans-header h2 {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #414651;
+    margin-bottom: 1.25rem;
+  }
+
+  .select-catalog-version select {
+    height: 2.125rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0.0625rem solid #ced4da;
+    border-radius: 0.375rem;
+    margin-top: 0.0625rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 6L8 10L12 6' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 0.625rem center;
+    background-size: 1rem 1rem;
+    padding: 0 1.875rem 0 0.625rem;
+  }
+
+  .select-catalog-version b {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+  }
+
+  .select-catalog-version select:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  table.existing-plans-table {
+    overflow-x: auto;
+    min-width: 100%;
+    border: none !important;
+  }
+
+  table.existing-plans-table select {
+    height: 1.375rem;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0.0625rem solid #ced4da;
+    border-radius: 0.375rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 6L8 10L12 6' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 0.3125rem center;
+    background-size: 1rem 1rem;
+    padding: 0 1.25rem 0 0.5rem;
+  }
+
+  table.existing-plans-table select:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  table.existing-plans-table th {
+    padding: 0.375rem 0.75rem !important;
+    font-weight: 500 !important;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    letter-spacing: 0;
+    color: #717680;
+    text-transform: capitalize;
+    background-color: #FAFAFA !important;
+  }
+
+  table.existing-plans-table td {
+    font-weight: 500 !important;
+    font-size: 0.875rem !important;
+    padding: 1rem 0.5rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    color: #535862 !important;
+    text-transform: capitalize !important;
+  }
+
+  .currency-button {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    color: #175CD3 !important;
+    font-weight: 500 !important;
+    font-size: 0.75rem !important;
+    line-height: 1.125rem !important;
+  }
+
+  .selected_catalog .category {
+    display: inline-block;
+    padding: 0.125rem 0.5rem !important;
+    border: 0.0625rem solid #D1E9FF !important;
+    border-radius: 39.0586rem;
+    font-weight: 500 !important;
+    font-size: 0.75rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    color: #175CD3 !important;
+    background-color: #EFF8FF;
+    text-transform: capitalize;
+  }
+
+  .selected_catalog .phase-duration {
+    display: inline-block;
+    padding: 0.125rem 0.5rem !important;
+    border: 0.0625rem solid #DCFAE6 !important;
+    border-radius: 39.0586rem;
+    font-weight: 500 !important;
+    font-size: 0.75rem !important;
+    line-height: 1.125rem !important;
+    text-align: start;
+    color: #067647 !important;
+    background-color: #ECFDF3;
+    text-transform: capitalize;
+  }
+</style>
 
 <script id="currencies_template" type="text/template">
   {{#catalog}}
@@ -62,7 +230,7 @@
         <tr class="selected_catalog">
           <td>{{plan_id}}</td>
           <td>{{#humanized_product_name}}{{product_name}}{{/humanized_product_name}}</td>
-          <td>{{#humanized_product_category}}{{product_category}}{{/humanized_product_category}}</td>
+          <td> <span class="category">{{#humanized_product_category}}{{product_category}}{{/humanized_product_category}}</span></td>
           <td>{{#humanized_billing_period}}{{billing_period}}{{/humanized_billing_period}}</td>
           <td>
             {{#currenciesWithPrices}}
@@ -75,11 +243,20 @@
           </td>
 
           <td>
-            {{final_phase_duration}}
+            <span class="phase-duration">{{final_phase_duration}}</span>
           </td>
 
-          <td><a class="btn btn-xs"
-                 href="{{new_plan_currency_path}}"><i class="fa fa-plus-square"></i> currency</a></td>
+          <td>
+            <%= link_to "{{new_plan_currency_path}}", class:"text-decoration-none" do %>
+                <%= render "kaui/components/button/button", {
+                    label: "Currency",
+                    icon: "kaui/setting/plus.svg",
+                    variant: "outline-secondary d-inline-flex align-items-center",
+                    type: "button",
+                    html_class: "currency-button kaui-button",
+                } %>
+            <% end %>
+          </td>
         </tr>
       {{/plans}}
     {{/catalog}}

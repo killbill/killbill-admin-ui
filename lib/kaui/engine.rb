@@ -46,5 +46,16 @@ module Kaui
                                                             # Explicitly throw an exception (:caller_runs can introduce weird deadlocks with Promise)
                                                             fallback_policy: :abort)
     end
+
+    initializer 'kaui_engine.assets.precompile' do |app|
+      app.config.assets.precompile += %w[
+        kaui_manifest.js
+        kaui/**/*.svg
+        kaui/**/*.png
+        kaui/**/*.jpg
+        kaui/**/*.jpeg
+        kaui/**/*.gif
+      ]
+    end
   end
 end

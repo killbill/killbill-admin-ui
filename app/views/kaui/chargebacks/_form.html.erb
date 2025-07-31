@@ -2,37 +2,143 @@
     <%= f.hidden_field :payment_id %>
     <%= f.hidden_field :currency %>
 
-    <div class="form-group">
-      <%= f.label :amount, 'Amount', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+    <div class="form-group d-flex pb-3">
+      <%= f.label :amount, 'Amount', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9  d-flex currency-group">
         <%= f.number_field :amount, :step => :any, :id => 'chargeback_amount', :class => 'form-control' %>
-        <p class="help-block">Currency: <%= @chargeback.currency %></p>
+        <div class="currency"><%= @chargeback.currency %></div>
       </div>
     </div>
-    <div class="form-group">
-      <%= label_tag :reason, 'Reason', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+    <div class="form-group d-flex pb-3">
+      <%= label_tag :reason, 'Reason', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= select_tag :reason, options_for_select(Kaui.chargeback_reason_codes), :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
+    <div class="form-group d-flex pb-3">
+      <%= label_tag :cancel_all_subs, '', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <div class="checkbox">
           <%= label_tag :cancel_all_subs do %>
-              <%= check_box_tag :cancel_all_subs %>Cancel account subscriptions?
+              <%= check_box_tag :cancel_all_subs %>Cancel Account Subscriptions
           <% end %>
         </div>
       </div>
     </div>
-    <div class="form-group">
-      <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+    <div class="form-group d-flex pb-3 border-bottom mb-3">
+      <%= label_tag :comment, 'Comment', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <%= submit_tag 'Save', :class => 'btn btn-default' %>
-      </div>
+    <div class="form-group d-flex justify-content-end pb-3">
+      <%= render "kaui/components/button/button", {
+        label: 'Close',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "button",
+        html_class: "kaui-button custom-hover mx-2",
+        html_options: {
+          id: "closeButton",
+          onclick: "window.history.back();"
+        }
+      } %>
+      <%= render "kaui/components/button/button", {
+        label: 'Save Payment',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "submit",
+        html_class: "kaui-dropdown custom-hover",
+        html_options: {
+          id: "saveButton"
+        }
+      } %>
     </div>
 <% end %>
+
+
+
+<style>
+  .control-label {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25rem !important;
+    color: #414651 !important;
+  }
+
+  .question-circle {
+    color: #A4A7AE;
+    font-size: 1rem;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    line-height: 1rem;
+    text-align: center;
+  }
+
+  .col-sm-9.position-relative a {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .form-group.d-flex.pb-3 .form-control {
+    height: 2.5rem;
+    border-radius: 0.375rem;
+  }
+
+  .form-group.d-flex .form-control:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .form-group select.form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.625rem center;
+    background-size: 1rem 1rem;
+
+    padding-right: 1.875rem;
+  }
+
+  select.form-control:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  .checkbox label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  .form-group.d-flex .currency-group input {
+    border-right: 0;
+    border-radius: 0.375rem 0 0 0.375rem !important;
+  }
+
+  .form-group.d-flex .currency-group .currency {
+    border-left: 0 !important;
+    border: 0.0625rem solid #ced4da;
+    border-radius: 0 0.375rem 0.375rem 0 !important;
+    padding: 0.375rem 0.75rem;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #535862;
+  }
+
+  .help-block {
+    margin: 0;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #535862;
+  }
+</style>

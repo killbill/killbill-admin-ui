@@ -1,7 +1,9 @@
 #existing-overdue-config-for-tenants.table tr td > select {
-  max-width: 140px; }
+  max-width: 8.75rem;
+}
 
-#existing-overdue-config-for-tenants.table tr td > input[type=number] {
-  max-width: 100px; }
+#existing-overdue-config-for-tenants.table tr td > input[type="number"] {
+  max-width: 6.25rem;
+}
 
 /*# sourceMappingURL=overdue.css.map */

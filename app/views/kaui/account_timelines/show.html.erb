@@ -1,205 +1,454 @@
-<div class="search">
-
-  <div class="column-block">
-
-    <h1>Account timeline</h1>
-
-    <form class="form-horizontal">
-      <div class="form-group">
-        <label for="bundles" class="col-sm-2 control-label">Filter by bundle</label>
-
-        <div class="col-sm-10">
-          <%= select_tag 'bundles', options_for_select([''] + @bundle_names.values.sort, @selected_bundle || 'all'), :class => 'form-control' %>
+<div class="kaui-container">
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <div class="d-flex " style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+    <div class="account-timeline">
+      <div class="d-flex flex-column ">
+        <div class="account-timeline-header mb-4">
+          <div class="d-flex align-items-center">
+            <h2>Account Timeline</h2>
+          </div>
+          <span>
+            <%= render :partial => 'multi_functions_bar' %>
+          </span>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="events" class="col-sm-2 control-label">Filter by event type</label>
 
-        <div class="col-sm-10  ">
-          <%= select_tag 'event_types', options_for_select('<option value="all">ALL</option><option value="invoice">INVOICE</option><option value="payment">PAYMENT</option><option value="entitlement">ENTITLEMENTS</option>'.html_safe), :class => 'form-control' %>
-        </div>
-      </div>
-    </form>
+        <form class="form-horizontal row mb-4 pb-3 border-bottom mx-0">
+          <div class="form-group col-sm-3 p-0">
+            <label for="search" class="control-label">Search</label>
+            <div class="input-group">
+              <input type="text" id="search" class="form-control" placeholder="Search">
+            </div>
+          </div>
+          <div class="form-group col-sm-3 p-0">
+            <label for="bundles" class="control-label">Filter by bundle</label>
+            <div class="">
+              <%= select_tag 'bundles', options_for_select([''] + @bundle_names.values.sort, @selected_bundle || 'all'), :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group col-sm-3 p-0 mx-2">
+            <label for="events" class="control-label">Filter by event type</label>
+            <div class="">
+              <%= select_tag 'event_types', options_for_select('<option value="all">ALL</option><option value="invoice">INVOICE</option><option value="payment">PAYMENT</option><option value="entitlement">ENTITLEMENTS</option>'.html_safe), :class => 'form-control' %>
+            </div>
+          </div>
+      
+        </form>
 
-    <%= render :partial => 'multi_functions_bar' %>
-
-    <hr/>
-
-    <table id="timeline-table" class="table table-condensed mobile-data">
-      <thead>
-      <tr>
-        <th>Effective Date</th>
-        <th>Bundle</th>
-        <th>Event Type</th>
-        <th>Details</th>
-        <th>Reason Code / Comments</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% if @account.present? %>
-          <% @invoices.each do |invoice_stub| %>
-              <% if invoice_stub.bundle_keys.present? %>
-                  <% bundles = invoice_stub.bundle_keys.split(',').map { |bundle_key| @bundle_names[bundle_key] }.join(',') %>
-              <% end %>
-              <% if invoice_stub.invoice_id.present? && @invoices_by_id.has_key?(invoice_stub.invoice_id) %>
-                  <% invoice = @invoices_by_id[invoice_stub.invoice_id] %>
-              <% else %>
-                  <% invoice = invoice_stub %>
-              <% end %>
-              <tr title="<%= bundles %>" data-event_type="INVOICE">
-                <td>
-                  <% if invoice.target_date.present? %>
-                      <%= invoice.target_date %>
-                  <% else %>
-                      [unknown]
-                  <% end %>
-                </td>
-                <td>
-                  <% if invoice_stub.bundle_keys.present? %>
-                      <ul>
-                        <% invoice_stub.bundle_keys.split(',').each do |bundle_key| %>
-                            <li><%= truncate_uuid(@bundle_names[bundle_key]) %></li>
+        <div>
+          <% if @account.present? %>
+            <% @invoices.each do |invoice_stub| %>
+            <% if invoice_stub.bundle_keys.present? %>
+                <% bundles = invoice_stub.bundle_keys.split(',').map { |bundle_key| @bundle_names[bundle_key] }.join(',') %>
+            <% end %>
+            <% if invoice_stub.invoice_id.present? && @invoices_by_id.has_key?(invoice_stub.invoice_id) %>
+                <% invoice = @invoices_by_id[invoice_stub.invoice_id] %>
+            <% else %>
+                <% invoice = invoice_stub %>
+            <% end %>
+            <div title="<%= bundles %>" data-event-type="INVOICE">
+              <div class="datetime-container">
+                <% if invoice.target_date.present? %>
+                    <%= invoice.target_date %>
+                <% else %>
+                    [unknown]
+                <% end %>
+              </div>
+              <div class="account-timeline-card d-flex gap-3">
+                <span class="icon-container">
+                  <%= image_tag("kaui/timeline/invoice.svg", width: 20, height: 20) %>
+                </span>
+                
+                <div class="d-flex justify-content-start flex-column gap-3 w-100 row">
+                  <h3>INVOICE</h3>
+                  <div class="w-100">
+                    <div class="row account-timeline-card-detail">
+                      <div class="col-sm-4">
+                        <div class="mb-3">
+                          <b>Amount</b>
+                          <p>
+                            <%= humanized_money_with_symbol invoice.amount_to_money %>(<%= @account.currency %>)<span class="hide" title="<%= invoice.invoice_number %>"></span>
+                          </p>
+                        </div>
+                        <div>
+                          <b>Refund Adjustment</b>
+                          <p>
+                            <%= humanized_money_with_symbol invoice.refund_adjustment_to_money %>(<%= @account.currency %>)
+                            </p>
+                        </div>
+                        <% if invoice_stub.audit_logs.present? %>
+                          <div class="mt-3">
+                            <b>Reason Code / Comments</b>
+                            <p>
+                              <% invoice_stub.audit_logs.each do |entry| %>
+                                <%= Kaui::AuditLog.description(entry) %>
+                              <% end %>
+                            </p>
+                          </div>
+                        <% end %> 
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="mb-3">
+                          <b>Balance</b>
+                          <p>
+                            <%= humanized_money_with_symbol invoice.balance_to_money %>(<%= @account.currency %>)
+                          </p>
+                        </div>
+                        <div>
+                          <b>Invoice number</b>
+                          <p><%= link_to invoice.invoice_number, account_invoice_path(invoice.account_id, invoice.invoice_id) %></p>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="mb-3">
+                          <b>Credit Adjustment</b>
+                          <p>
+                            <%= humanized_money_with_symbol invoice.credit_adjustment_to_money %>(<%= @account.currency %>)
+                          </p>
+                        </div>
+                        <% if invoice_stub.bundle_keys.present? %>
+                          <div>
+                            <b>Bundle</b>
+                            <p>
+                              <% invoice_stub.bundle_keys.split(',').each do |bundle_key| %>
+                                <%= truncate_uuid(@bundle_names[bundle_key]) %>
+                              <% end %>
+                            </p>
+                          </div>
                         <% end %>
-                      </ul>
-                  <% end %>
-                </td>
-                <td>INVOICE</td>
-                <td>
-                  <ul>
-                    <li><span class="hide" title="<%= invoice.invoice_number %>"></span>
-                      <%= 'Amount:' %> <%= humanized_money_with_symbol invoice.amount_to_money %>
-                      (<%= @account.currency %>)
-                    </li>
-                    <li><%= 'Balance:' %> <%= humanized_money_with_symbol invoice.balance_to_money %>
-                      (<%= @account.currency %>)
-                    </li>
-                    </li>
-                    <% if invoice.credit_adj.present? && invoice.credit_adj > 0 %>
-                        <li><%= 'Credit adjustment:' %> <%= humanized_money_with_symbol invoice.credit_adjustment_to_money %>
-                          (<%= @account.currency %>)
-                        </li>
-                    <% end %>
-                    <% if invoice.refund_adj.present? && invoice.refund_adj < 0 %>
-                        <li><%= 'Refund adjustment:' %> <%= humanized_money_with_symbol invoice.refund_adjustment_to_money %>
-                          (<%= @account.currency %>)
-                        </li>
-                    <% end %>
-                    <li><%= 'Invoice #' %>&nbsp;<%= link_to invoice.invoice_number, account_invoice_path(invoice.account_id, invoice.invoice_id) %></li>
-                  </ul>
-                </td>
-                <td>
-                  <% if invoice_stub.audit_logs.present? %>
-                      <ul>
-                        <% invoice_stub.audit_logs.each do |entry| %>
-                            <li><%= Kaui::AuditLog.description(entry) %></li>
-                        <% end %>
-                      </ul>
-                  <% end %>
-                </td>
-              </tr>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           <% end %>
+
           <% @payments.each do |payment| %>
-              <% if payment.target_invoice_id.present? %>
-                  <% bundles = @bundle_names_by_invoice_id[payment.target_invoice_id].to_a.join(',') %>
-                  <% invoice = @invoices_by_id[payment.target_invoice_id] %>
-              <% else %>
-                  <% bundles = nil %>
-                  <% invoice = nil %>
-              <% end %>
-              <% payment.transactions.each do |transaction| %>
-                  <tr title="<%= bundles %>" data-event_type="PAYMENT">
-                    <td>
-                      <% if transaction.effective_date.present? %>
-                          <%= format_date(transaction.effective_date, @account.time_zone).html_safe %>
-                      <% else %>
-                          [unknown]
-                      <% end %>
-                    </td>
-                    <td>
-                      <% if @bundle_keys_by_invoice_id[payment.target_invoice_id].present? %>
-                          <ul>
-                            <% @bundle_keys_by_invoice_id[payment.target_invoice_id].each do |bundle_key| %>
-                                <li><%= truncate_uuid(@bundle_names[bundle_key]) %></li>
-                            <% end %>
-                          </ul>
-                      <% end %>
-                    </td>
-                    <td><%= transaction.transaction_type %></td>
-                    <td>
-                      <ul>
-                        <li>
-                          <% unless transaction.transaction_type == 'VOID' %>
-                            <%= 'Amount:' %>&nbsp;<%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>
-                            (<%= transaction.currency %>)
-                          <% end %>
-                        </li>
-                        <li>
-                          <%= colored_transaction_status(transaction.status) %>
-                        </li>
-                        <li><%= 'Payment #' %>&nbsp;<%= link_to payment.payment_number, account_payment_path(payment.account_id, payment.payment_id) %></li>
-                        <% unless invoice.nil? %>
-                            <li><%= 'Invoice #' %>&nbsp;<%= link_to invoice.invoice_number, account_invoice_path(invoice.account_id, invoice.invoice_id) %></li>
-                        <% end %>
-                      </ul>
-                    </td>
-                    <td>
-                      <% if transaction.audit_logs.present? %>
-                          <ul>
-                            <% transaction.audit_logs
-                                   .map { |entry| Kaui::AuditLog.description(entry) }
-                                   .chunk { |x| x }
-                                   .map(&:first)
-                                   .each do |entry| %>
-                                <li><%= entry %></li>
-                            <% end %>
-                          </ul>
-                      <% end %>
-                    </td>
-                  </tr>
-              <% end %>
-          <% end %>
-          <% @bundles.each do |bundle| %>
-              <% bundle.subscriptions.each do |sub| %>
-                  <% sub.events.each do |event| %>
-                      <!-- SKIP SERVICE_STATE_CHANGE  -->
-                      <% next if event.event_type == 'SERVICE_STATE_CHANGE' %>
-                      <tr title="<%= @bundle_names[bundle.external_key] %>" data-event_type="<%= event.event_type %>">
-                        <td>
-                          <% if event.effective_date.present? %>
-                              <%= format_date(event.effective_date, @account.time_zone).html_safe %>
-                          <% else %>
-                              [unknown]
-                          <% end %>
-                        </td>
-                        <td>
-                          <ul>
-                            <li><%= truncate_uuid(@bundle_names[bundle.external_key]) %></li>
-                          </ul>
-                        </td>
-                        <td><%= event.event_type %></td>
-                        <td>
-                          <ul>
-                            <li><span class="hide" title="<%= sub.product_category %>"></span><%= event.phase %></li>
-                          </ul>
-                        </td>
-                        <td>
-                          <% if event.audit_logs.present? %>
-                              <ul>
-                                <% event.audit_logs.each do |entry| %>
-                                    <li><%= Kaui::AuditLog.description(entry) %></li>
-                                <% end %>
-                              </ul>
-                          <% end %>
-                        </td>
-                      </tr>
+            <% if payment.target_invoice_id.present? %>
+                <% bundles = @bundle_names_by_invoice_id[payment.target_invoice_id].to_a.join(',') %>
+                <% invoice = @invoices_by_id[payment.target_invoice_id] %>
+            <% else %>
+                <% bundles = nil %>
+                <% invoice = nil %>
+            <% end %>
+            <% payment.transactions.each do |transaction| %>
+              <div title="<%= bundles %>" data-event-type="<%= transaction.transaction_type %>">
+                <div class="datetime-container">
+                  <% if transaction.effective_date.present? %>
+                    <%= format_date(transaction.effective_date, @account.time_zone).html_safe %>
+                  <% else %>
+                    [unknown]
                   <% end %>
-              <% end %>
+                </div>
+                <div class="account-timeline-card d-flex gap-3">
+                  <span class="icon-container">
+                    <%= image_tag("kaui/timeline/#{transaction.transaction_type.downcase}.svg", width: 20, height: 20) %>
+                  </span>
+                  
+                  <div class="d-flex justify-content-start flex-column gap-3 w-100 row">
+                    <h3><%= transaction.transaction_type %></h3>
+                    <div class="w-100">
+                      <div class="row account-timeline-card-detail">
+                        <div class="col-sm-4">
+                          <% unless transaction.transaction_type == 'VOID' %>
+                            <div class="mb-3">
+                              <b>Amount</b>
+                              <p>
+                                <%= humanized_money_with_symbol Kaui::Transaction.amount_to_money(transaction) %>(<%= transaction.currency %>)
+                              </p>
+                            </div>
+                          <% end %>
+                          <div>
+                            <b>Payment Number</b>
+                            <p><%= link_to payment.payment_number, account_payment_path(payment.account_id, payment.payment_id) %></p>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="mb-3">
+                            <b>Status</b>
+                            <p class="transaction-status"><%= colored_transaction_status(transaction.status) %></p>
+                          </div>
+                          <% unless invoice.nil? %>
+                            <div>
+                              <b>Invoice Number</b>
+                              <p><%= link_to invoice.invoice_number, account_invoice_path(invoice.account_id, invoice.invoice_id) %></p>
+                            </div>
+                          <% end %>
+                        </div>
+                        <div class="col-sm-4">
+                          <% if @bundle_keys_by_invoice_id[payment.target_invoice_id].present? %>
+                            <div class="mb-3">
+                              <b>Bundle</b>
+                              <p>
+                                  <% @bundle_keys_by_invoice_id[payment.target_invoice_id].each do |bundle_key| %>
+                                    <%= truncate_uuid(@bundle_names[bundle_key]) %>
+                                  <% end %>
+                              </p>
+                            </div>
+                          <% end %>
+                          <% if transaction.audit_logs.present? %>
+                            <div>
+                              <b>Reason Code / Comments</b>
+                              <p>
+                                <% transaction.audit_logs
+                                      .map { |entry| Kaui::AuditLog.description(entry) }
+                                      .chunk { |x| x }
+                                      .map(&:first)
+                                      .each do |entry| %>
+                                    <%= entry %>
+                                <% end %>
+                              </p>
+                            </div>  
+                          <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           <% end %>
-      <% end %>
-      </tbody>
-    </table>
+
+          <% @bundles.each do |bundle| %>
+            <% bundle.subscriptions.each do |sub| %>
+              <% sub.events.each do |event| %>
+                <% next if event.event_type == 'SERVICE_STATE_CHANGE' %>
+                <div title="<%= @bundle_names[bundle.external_key] %>" data-event_type="<%= event.event_type %>">
+                  <div class="datetime-container">
+                    <% if event.effective_date.present? %>
+                        <%= format_date(event.effective_date, @account.time_zone).html_safe %>
+                    <% else %>
+                        [unknown]
+                    <% end %>
+                  </div>
+                  <div class="account-timeline-card d-flex gap-3">
+                    <span class="icon-container">
+                      <%= image_tag("kaui/timeline/invoice.svg", width: 20, height: 20) %>
+                    </span>
+                    
+                    <div class="d-flex justify-content-start flex-column gap-3 w-100 row">
+                      <h3><%= event.event_type %></h3>
+                      <div class="w-100">
+                        <div class="row account-timeline-card-detail">
+                          <div class="col-sm-4">
+                            <div>
+                              <b>Details</b>
+                              <p>
+                                <%= event.phase %><span class="hide" title="<%= sub.product_category %>"></span>
+                              </p>
+                            </div>
+                            
+                          </div>
+                          <div class="col-sm-4">
+                            <div>
+                              <b>Bundle</b>
+                              <p>
+                                <%= truncate_uuid(@bundle_names[bundle.external_key]) %>
+                              </p>
+                            </div>
+                          </div>
+                          <div class="col-sm-4">
+                           <div>
+                              <b>Reason Code / Comments</b>
+                              <p>
+                                <% if event.audit_logs.present? %>
+                                  <% event.audit_logs.each do |entry| %>
+                                    <%= Kaui::AuditLog.description(entry) %>
+                                  <% end %>
+                                <% end %> 
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<style>
+  .account-timeline {
+    width: 67.5625rem;
+  }
+
+  .account-timeline .account-timeline-header {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0;
+    border-bottom: 0.0625rem solid #E9EAEB;
+  }
+
+  .account-timeline .account-timeline-header h2 {
+    font-weight: 600;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #414651;
+    margin-bottom: 1.25rem;
+  }
+
+  .account-timeline select {
+    height: 2rem !important;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+  }
+
+  .account-timeline select:focus {
+    border-color: blue;
+    outline: none;
+    box-shadow: none;
+  }
+
+  .control-label {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25rem !important;
+    color: #414651 !important;
+  }
+
+  .account-timeline-card {
+    background: #FAFAFA;
+    border: 0.0625rem solid #E9EAEB;
+    border-radius: 1rem;
+    box-shadow: 0rem 0.0625rem 0.125rem 0rem var(--ColorsEffectsShadowsshadow-xs);
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .icon-container {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+    border: 0.0625rem solid #D5D7DA;
+    border-radius: 0.375rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.25rem;
+  }
+
+  .icon-container img {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .account-timeline-card h3 {
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: left;
+    margin-bottom: 0rem;
+    line-height: 1.5rem;
+    color: #414651;
+  }
+
+  .account-timeline-card-detail b {
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+  }
+
+  .account-timeline-card-detail p,
+  .account-timeline-card-detail p a {
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    margin-bottom: 0rem;
+    color: #717680;
+    text-decoration: none;
+  }
+
+  .dots-menu {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+  }
+
+  .datetime-container {
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #414651;
+  }
+
+  .transaction-status .alert-success {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.125rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 3.90234rem;
+    background-color: #ECFDF3;
+    border: 0.0625rem solid #DCFAE6;
+    color: #067647;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    margin: 0;
+    position: relative;
+  }
+
+  .transaction-status .alert-success::before {
+    content: '';
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 3L4.5 8.5L2 6' stroke='%2317B26A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .transaction-status .alert-danger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.125rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 3.90234rem;
+    background-color: #FEF3F2;
+    border: 0.0625rem solid #FEE4E2;
+    color: #B42318;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+    margin: 0;
+    position: relative;
+  }
+
+  .transaction-status .alert-danger::before {
+    content: '';
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.5 3.5L3.5 8.5M3.5 3.5L8.5 8.5' stroke='%23F97066' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  #search {
+    height: 2rem;
+    margin-right: 0.5rem;
+    border-radius: 0.375rem;
+  }
+
+  #search:focus {
+    border-color: blue;
+    outline: none;
+    box-shadow: none;
+  }
+</style>
 
 <%= javascript_tag do %>
     function disableLinks() {
@@ -263,75 +512,71 @@
       });
     }
 
-    function filterEachNode(rows) {
-        var bundle = $("#bundles").val();
-        var event_to_filter = $('#event_types').val().toUpperCase();
-
-    for (i = 0; i < rows.length; i++)
-    {
-        tr = $(rows[i]);
-
-        //filter bundles
-        if (bundle == "" || tr.attr("title").split(",").indexOf(bundle) >= 0) {
-            //first level filtering, so can remove hide
-            tr.removeClass("hide");
-        }
-        else {
-            //remove tr's not under this filter mode
-            tr.addClass("hide");
-        }
-
-        //filter events
-        if ("ALL" != event_to_filter)
-            filterEvents(tr, event_to_filter);
-
-            //add more filters here
-            //do not unhide any rows
-        }
+    function filterTimeline() {
+      const selectedBundle = $("#bundles").val();
+      const selectedEventType = $('#event_types').val().toUpperCase();
+      const searchQuery = $('#search').val().toLowerCase();
+      
+      // Show all cards initially
+      $('.account-timeline-card').parent().show();
+      
+      // Filter by bundle if selected
+      if (selectedBundle && selectedBundle !== '') {
+        $('.account-timeline-card').parent().each(function() {
+          const bundleTitle = $(this).attr('title');
+          if (!bundleTitle || !bundleTitle.includes(selectedBundle)) {
+            $(this).hide();
+          }
+        });
+      }
+      
+      // Filter by event type if not "ALL"
+      if (selectedEventType !== "ALL") {
+        $('.account-timeline-card').parent().each(function() {
+          const eventType = $(this).data('event-type');
+          
+          // Special handling for ENTITLEMENT filter
+          if (selectedEventType === "ENTITLEMENT") {
+            if (!eventType || ["INVOICE", "PAYMENT", "AUTHORIZE", "PURCHASE", "CAPTURE", "CREDIT", "REFUND", "VOID", "CHARGEBACK"].includes(eventType)) {
+              $(this).hide();
+            }
+          } 
+          // Filter for specific event types
+          else if (eventType !== selectedEventType) {
+            $(this).hide();
+          }
+        });
+      }
+      
+      // Apply search filter if query exists
+      if (searchQuery) {
+        $('.account-timeline-card').parent().each(function() {
+          const cardText = $(this).text().toLowerCase();
+          if (!cardText.includes(searchQuery)) {
+            $(this).hide();
+          }
+        });
+      }
     }
-
-    function filterEvents(tr, event_to_filter) {
-        tr_event_type = tr.data().event_type;
-
-        core_events = ["INVOICE", "PAYMENT"]; //events which are not entitlements
-
-        //is tr event not an event in question
-        tr_event_does_not_match_filter = ("ENTITLEMENT" != event_to_filter &&
-        tr_event_type != event_to_filter);
-
-        //tr event is not an entitlement
-        tr_event_is_not_entitlement = ("ENTITLEMENT" == event_to_filter &&
-        core_events.indexOf(tr_event_type) >= 0);
-
-        if ( tr_event_does_not_match_filter || tr_event_is_not_entitlement )
-        {
-            //add hide to all who dont deserve the filter
-            tr.addClass("hide");
-        }
-    }
-
-    function filterTable()
-    {
-        var dataTable = initTable();
-        var all_nodes = dataTable.fnGetNodes();
-
-        filterEachNode(all_nodes);
-
-        //my rows are filtered, draw table
-        dataTable.fnDraw();
-    }
-
 
     $(document).ready(function() {
-        disableLinks();
-        // When going through the pages of the table, disable links as needed
-        $('#timeline-table').bind('draw', function (e) {
-            disableLinks();
-        });
-
-        initTable();
-
-        $("#bundles, #event_types").change(filterTable);
-        filterTable();
+      disableLinks();
+      
+      // Initialize filters with debounce for search
+      let searchTimeout;
+      $("#bundles, #event_types").on('change', filterTimeline);
+      $('#search').on('keyup', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(filterTimeline, 300);
+      });
+      
+      // Clear search button
+      $('#clear-search').click(function() {
+        $('#search').val('');
+        filterTimeline();
+      });
+      
+      // Apply initial filters if any are selected
+      filterTimeline();
     });
 <% end %>

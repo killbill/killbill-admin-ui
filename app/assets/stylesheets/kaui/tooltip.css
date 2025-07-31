@@ -1,16 +1,20 @@
 .tooltip-arrow,
 .kb-tooltip + .tooltip > .tooltip-inner {
-  background-color: #C0E0E3; }
+  background-color: #c0e0e3;
+}
 
 .kb-tooltip + .tooltip.top > .tooltip-arrow {
   background-color: #fff;
-  border-top: #C0E0E3; }
+  border-top: #c0e0e3;
+}
 
-.kb-tooltip + .bs-tooltip-auto[x-placement^=top] .arrow::before,
+.kb-tooltip + .bs-tooltip-auto[x-placement^="top"] .arrow::before,
 .kb-tooltip + .bs-tooltip-top .arrow::before {
-  border-bottom-color: #C0E0E3; }
+  border-bottom-color: #c0e0e3;
+}
 
 .tooltip .tooltip-arrow {
-  border-top: 5px solid #C0E0E3 !important; }
+  border-top: 0.3125rem solid #c0e0e3 !important;
+}
 
 /*# sourceMappingURL=tooltip.css.map */

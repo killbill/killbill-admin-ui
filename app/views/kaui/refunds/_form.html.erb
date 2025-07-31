@@ -3,74 +3,247 @@
     <%= hidden_field_tag :payment_id, @payment.payment_id %>
     <%= hidden_field_tag :invoice_id, @invoice.invoice_id %>
 
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <div class="checkbox">
-          <%= label_tag :adjustment_type do %>
-              <%= radio_button_tag :adjustment_type, 'noInvoiceAdjustment', :checked => true %>
-              No Invoice Adjustment
-          <% end %>
-        </div>
-        <% if can? :item_adjust, Kaui::Invoice %>
+    
+
+    <div class="form-group d-flex pb-3">
+        <%= label_tag :adjustment_type, 'Type', :class => 'col-sm-3 control-label' %>
+        <div class="col-sm-offset-2 col-sm-9">
+            <div class="toggle-segment">
             <div class="checkbox">
-              <%= label_tag :adjustment_type do %>
-                  <%= radio_button_tag :adjustment_type, 'invoiceItemAdjustment' %>
-                  Invoice Item Adjustment
-              <% end %>
+                <%= label_tag :adjustment_type, for: 'adjustment_type_noInvoiceAdjustment' do %>
+                <%= radio_button_tag :adjustment_type, 'noInvoiceAdjustment', true, id: 'adjustment_type_noInvoiceAdjustment' %>
+                No Invoice Adjustment
+                <% end %>
             </div>
-        <% end %>
-      </div>
+            <% if can? :item_adjust, Kaui::Invoice %>
+                <div class="checkbox">
+                <%= label_tag :adjustment_type, for: 'adjustment_type_invoiceItemAdjustment' do %>
+                    <%= radio_button_tag :adjustment_type, 'invoiceItemAdjustment', false, id: 'adjustment_type_invoiceItemAdjustment' %>
+                    Invoice Item Adjustment
+                <% end %>
+                </div>
+            <% end %>
+            </div>
+        </div>
     </div>
 
+
     <div id="invoiceItems" style="display:none">
-        <div class="form-group">
-            <label class="col-sm-2 control-label"></label>
-            <div class="col-sm-10">
-                <input type="checkbox" id="selectAll">
-                <%="Select All" %>
+        <div class="form-group d-flex pb-3">
+            <label class="col-sm-3 control-label"></label>
+            <div class="col-sm-9 checkbox-label d-flex align-items-center gap-2">
+                <label for="selectAll" class="d-flex align-items-center gap-2 m-0">
+                    <input type="checkbox" id="selectAll">
+                    Select All
+                </label>
             </div>
         </div>
       <% @invoice.items.each_with_index do |ii, index| %>
           <% if ii.amount > 0 %>
-              <div id=<%= "div_#{ii.invoice_item_id}" %> class="form-group">
-                <label class="col-sm-2 control-label"></label>
+              <div id=<%= "div_#{ii.invoice_item_id}" %> class="form-group d-flex pb-3">
+                <label class="col-sm-3 control-label "></label>
 
                 <% bundle_result = @bundles.find { |bundle| bundle.bundle_id == ii.bundle_id } %>
-                <div class="col-sm-10">
-                  <input type="checkbox" id=<%= "cb_adj_#{ii.invoice_item_id}" %>>
-                  <%= Kaui.refund_invoice_description.call(index, ii, bundle_result) %>
-                  <%= text_field_tag "adjustments[#{ii.invoice_item_id}]", index, :id => "tf_adj_#{ii.invoice_item_id}", :value => ii.amount, :class => 'form-control' %>
-                </div>
+                    <div class="col-sm-9 checkbox-label">
+                        <label for="<%= "cb_adj_#{ii.invoice_item_id}" %>" class="d-flex align-items-center gap-2 mb-1">
+                            <input type="checkbox" id="<%= "cb_adj_#{ii.invoice_item_id}" %>">
+                            <%= Kaui.refund_invoice_description.call(index, ii, bundle_result) %>
+                        </label>
+                        <%= text_field_tag "adjustments[#{ii.invoice_item_id}]", index, id: "tf_adj_#{ii.invoice_item_id}", value: ii.amount, class: 'form-control checkbox-label' %>
+                    </div>
               </div>
           <% end %>
       <% end %>
     </div>
 
-    <div id="div_refund_amount" class="form-group">
-      <%= label_tag :amount, 'Amount', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+    <div class="form-group d-flex pb-3">
+      <%= label_tag :amount, 'Amount', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9  d-flex currency-group">
         <%= number_field_tag :amount, @payment.purchased_amount, :id => 'refund_amount', :class => 'form-control' %>
-        <p class="help-block">Currency: <%= @invoice.currency %></p>
+        <div class="currency"><%= @invoice.currency %></div>
       </div>
     </div>
-    <div class="form-group">
-      <%= label_tag :reason, 'Reason', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+    <div class="form-group d-flex pb-3">
+      <%= label_tag :reason, 'Reason', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= select_tag :reason, options_for_select(Kaui.refund_reason_codes), :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
-      <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+    <div class="form-group d-flex pb-3 border-bottom mb-3">
+      <%= label_tag :comment, 'Comment', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <%= submit_tag 'Save', :class => 'btn btn-default' %>
-      </div>
+    <div class="form-group d-flex justify-content-end pb-3">
+      <%= render "kaui/components/button/button", {
+        label: 'Close',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "button",
+        html_class: "kaui-button custom-hover mx-2",
+        html_options: {
+          id: "closeButton",
+          onclick: "window.history.back();"
+        }
+      } %>
+      <%= render "kaui/components/button/button", {
+        label: 'Save Payment',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "submit",
+        html_class: "kaui-dropdown custom-hover"
+      } %>
     </div>
 <% end %>
+
+
+
+<style>
+  .control-label {
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    line-height: 1.25rem !important;
+    color: #414651 !important;
+  }
+
+  .question-circle {
+    color: #A4A7AE;
+    font-size: 1rem;
+    width: 1rem;
+    height: 1rem;
+    display: inline-block;
+    line-height: 1rem;
+    text-align: center;
+  }
+
+  .col-sm-9.position-relative a {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .form-group.d-flex.pb-3 .form-control {
+    height: 2.5rem;
+    border-radius: 0.375rem;
+  }
+
+  .form-group.d-flex .form-control:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .form-group select.form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.625rem center;
+    background-size: 1rem 1rem;
+    padding-right: 1.875rem;
+  }
+
+  select.form-control:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  .checkbox label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #414651;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  .form-group.d-flex .currency-group input {
+    border-right: 0;
+    border-radius: 0.375rem 0 0 0.375rem !important;
+  }
+
+  .form-group.d-flex .currency-group .currency {
+    border-left: 0 !important;
+    border: 0.0625rem solid #ced4da;
+    border-radius: 0 0.375rem 0.375rem 0 !important;
+    padding: 0.375rem 0.75rem;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #535862;
+  }
+
+  .toggle-segment {
+    display: flex;
+    align-items: center;
+    border: 0.0625rem solid #D5D7DA;
+    width: fit-content;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    font-size: 0.875rem;
+  }
+
+  .toggle-segment .checkbox label {
+    display: flex;
+    align-items: center;
+    padding: 0.625rem 1rem !important;
+    cursor: pointer;
+    color: #414651;
+    border-right: 0.0625rem solid #D5D7DA;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0;
+  }
+
+  .toggle-segment .checkbox:last-child label {
+    border-right: none;
+  }
+
+  .toggle-segment .checkbox label input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    border: 0;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+  }
+
+  .toggle-segment .checkbox label input[type="radio"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 0.25rem;
+    left: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #17B26A;
+    border-radius: 50%;
+  }
+
+  .toggle-segment .checkbox label:has(input[type="radio"]:checked) {
+    background-color: #FAFAFA;
+    font-weight: 600;
+    color: #252B37;
+    gap: 1rem;
+  }
+
+  .toggle-segment .checkbox label:not(:has(input[type="radio"]:checked)) {
+    gap: 0;
+  }
+
+  .checkbox-label {
+    margin: 0;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #535862;
+  }
+
+</style>
 
 <%= javascript_tag do %>
     var textToDivId = function(textId) {
@@ -96,19 +269,19 @@
     var validateInvoiceItemAmount = function(id) {
         var divId = textToDivId(id);
         if (Number($("#" + id).attr('value')) > Number($("#" + id).attr('originalValue'))) {
-            setClassForElement($("#" + divId), "form-group error");
+            setClassForElement($("#" + divId), "form-group d-flex pb-3 error");
         } else {
-            setClassForElement($("#" + divId), "form-group");
+            setClassForElement($("#" + divId), "form-group d-flex pb-3");
         }
     };
 
     var validateRefundAmount = function() {
         if (Number($("#refund_amount").attr('value')) > <%= @payment.purchased_amount %> ||
           Number($("#refund_amount").attr('value')) <= 0) {
-          setClassForElement("#div_refund_amount", "form-group error");
+          setClassForElement("#div_refund_amount", "form-group d-flex pb-3 error");
           $('#new_kill_bill_client_model_invoice_item :submit').prop('disabled', true);
         } else {
-          setClassForElement("#div_refund_amount", "form-group");
+          setClassForElement("#div_refund_amount", "form-group d-flex pb-3");
           $('#new_kill_bill_client_model_invoice_item :submit').prop('disabled', false);
         }
     };
