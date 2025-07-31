@@ -66,229 +66,111 @@
         <% end %>
       </span>
     </div>
+    <div class="account-summary">
 
-    <div class="">
+      <div class="row">
 
-      <%
-=begin%>
- <div class="row">
-  <div class="col-sm-12">
-    <div class="fix-position account-info">
-
-      <div class="account-info-item">
-        <p class="label-title">Account balance:</p>
-        <p>
-          <% if @account.account_balance.nil? %>
-            <span class='label'>N/A</span>
-          <% elsif @account.account_balance <= 0 %>
-            <span class="label label-success"><%= humanized_money_with_symbol @account.balance_to_money %></span>
-          <% else %>
-            <span class="label label-danger"><%= humanized_money_with_symbol @account.balance_to_money %></span>
-          <% end %>
-        </p>
-      </div>
-
-      <div class="account-info-item">
-        <p class="label-title">Account credit:</p>
-        <p>
-          <% if @account.account_cba.nil? %>
-            <span class='label'>N/A</span>
-          <% elsif @account.account_cba >= 0 %>
-            <span class="label label-success"><%= humanized_money_with_symbol @account.cba_to_money %></span>
-          <% else %>
-            <span class="label label-danger"><%= humanized_money_with_symbol @account.cba_to_money %></span>
-          <% end %>
-        </p>
-      </div>
-
-      <div class="account-info-item">
-        <p class="label-title">Overdue status:</p>
-        <p>
-          <% if @overdue_state.nil? %>
-            <span class='label'>N/A</span>
-          <% elsif @overdue_state.is_clear_state %>
-            <span class='label label-success'>Good</span>
-          <% else %>
-            <span class='label label-danger'><%= @overdue_state.name %></span>
-          <% end %>
-        </p>
-      </div>
-
-      <div class="account-info-item">
-        <p class="label-title">Bill cycle day:</p>
-        <p>
-          <% if @account.bill_cycle_day_local > 0  %>
-            <span class='label'><%= @account.bill_cycle_day_local %> (user timezone)</span>
-          <% else %>
-            <span class='label'>N/A</span>
-          <% end %>
-        </p>
-      </div>
-
-      <% if can? :trigger, Kaui::Invoice %>
-        <div class="account-info-item">
-          <p class="label-title">Next Invoice Date:</p>
-          <p><span class='label' id='next-invoice-date'>N/A</span></p>
-        </div>
-      <% end %>
-
-      <% if email_notifications_plugin_available? %>
-        <div class="account-info-item">
-          <div class="d-flex align-items-center justify-content-between">
-            <p class="label-title">Email Notifications:</p>
-            <%= link_to('<i class="fa fa-cog" aria-hidden="true"></i>'.html_safe,
-              '#configureEmailNotification',
-              data: { name: @account.name, account_id: @account.account_id,
-                      events: @email_notification_configuration.map { |event| event[:eventType] }.join(', '),
-                      toggle: 'modal', target: '#configureEmailNotification'}) %>
-          </div>
-          <p>
-            <% @email_notification_configuration.each do |configuration|%>
-              - <%= configuration[:eventType] %><br/>
+        <!-- Left Column -->
+        <div class="col-md-4">
+          <div class="info-item">
+            <b>Account balance</b>
+            <% if @account.account_balance.nil? %>
+              <p class="badge neutral">N/A</p>
+            <% elsif @account.account_balance <= 0 %>
+              <p class="badge success"><%= humanized_money_with_symbol @account.balance_to_money %></p>
+            <% else %>
+              <p class="badge danger"><%= humanized_money_with_symbol @account.balance_to_money %></p>
             <% end %>
-          </p>
-        </div>
-      <% end %>
+          </div>
 
-      <% if (can? :trigger, Kaui::Invoice) || (can? :dry_run, Kaui::Invoice) %>
-        <div class="trigger-invoice-form" style="padding-bottom: 50px;">
-          <%= form_tag kaui_engine.trigger_invoice_path(params.to_h), :method => :post do %>
-            <div class="form-group">
-              <%= label_tag :target_date, 'Trigger invoice generation', :class => 'col-sm-6 control-label', :style => 'padding-left: 0;' %>
-              <div class="col-sm-3">
-                <input class="form-control" id="target_date" name="target_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
-              </div>
-              <div style="width: 14.5%; float: left; padding: 0;">
-                <%= label_tag :dry_run do %>
-                  <%= check_box_tag :dry_run, '1', true, :disabled => !can?(:trigger, Kaui::Invoice) %>&nbsp;<small>Dry-run</small>
-                <% end %>
-              </div>
-              <div class="col-xs-1" style="padding: 0;">
-                <%= button_tag '<i class="fa fa-magic"></i>'.html_safe, :class => 'btn btn-xs' %>
-              </div>
+          <div class="info-item">
+            <b>Account credit</b>
+            <% if @account.account_cba.nil? %>
+              <p class="badge neutral">N/A</p>
+            <% elsif @account.account_cba >= 0 %>
+              <p class="badge success"><%= humanized_money_with_symbol @account.cba_to_money %></p>
+            <% else %>
+              <p class="badge danger"><%= humanized_money_with_symbol @account.cba_to_money %></p>
+            <% end %>
+          </div>
+
+          <div class="info-item">
+            <b>Overdue status</b>
+            <% if @overdue_state.nil? %>
+              <p class="badge neutral">N/A</p>
+            <% elsif @overdue_state.is_clear_state %>
+              <p class="badge success">Good</p>
+            <% else %>
+              <p class="badge danger"><%= @overdue_state.name %></p>
+            <% end %>
+          </div>
+        </div>
+
+        <!-- Middle Column -->
+        <div class="col-md-4">
+          <div class="info-item">
+            <b>Bill cycle day</b>
+            <% if @account.bill_cycle_day_local > 0  %>
+              <p><%= @account.bill_cycle_day_local %> (user timezone)</p>
+            <% else %>
+              <p>N/A</p>
+            <% end %>
+          </div>
+
+          <% if can? :trigger, Kaui::Invoice %>
+            <div class="info-item">
+              <b>Next invoice date</b>
+              <p id='next-invoice-date'>N/A</p>
             </div>
           <% end %>
         </div>
-      <% end %>
 
-    </div>
-  </div>
-</div> 
-<%
-=end%>
-
-<div class="account-summary">
-
-  <div class="row">
-
-    <!-- Left Column -->
-    <div class="col-md-4">
-      <div class="info-item">
-        <b>Account balance</b>
-        <% if @account.account_balance.nil? %>
-          <p class="badge neutral">N/A</p>
-        <% elsif @account.account_balance <= 0 %>
-          <p class="badge success"><%= humanized_money_with_symbol @account.balance_to_money %></p>
-        <% else %>
-          <p class="badge danger"><%= humanized_money_with_symbol @account.balance_to_money %></p>
-        <% end %>
-      </div>
-
-      <div class="info-item">
-        <b>Account credit</b>
-        <% if @account.account_cba.nil? %>
-          <p class="badge neutral">N/A</p>
-        <% elsif @account.account_cba >= 0 %>
-          <p class="badge success"><%= humanized_money_with_symbol @account.cba_to_money %></p>
-        <% else %>
-          <p class="badge danger"><%= humanized_money_with_symbol @account.cba_to_money %></p>
-        <% end %>
-      </div>
-
-      <div class="info-item">
-        <b>Overdue status</b>
-        <% if @overdue_state.nil? %>
-          <p class="badge neutral">N/A</p>
-        <% elsif @overdue_state.is_clear_state %>
-          <p class="badge success">Good</p>
-        <% else %>
-          <p class="badge danger"><%= @overdue_state.name %></p>
-        <% end %>
-      </div>
-    </div>
-
-    <!-- Middle Column -->
-    <div class="col-md-4">
-      <div class="info-item">
-        <b>Bill cycle day</b>
-        <% if @account.bill_cycle_day_local > 0  %>
-          <p><%= @account.bill_cycle_day_local %> (user timezone)</p>
-        <% else %>
-          <p>N/A</p>
-        <% end %>
-      </div>
-
-      <% if can? :trigger, Kaui::Invoice %>
-        <div class="info-item">
-          <b>Next invoice date</b>
-          <p id='next-invoice-date'>N/A</p>
-        </div>
-      <% end %>
-    </div>
-
-    <!-- Right Column -->
-    <div class="col-md-4">
-      <% if (can? :trigger, Kaui::Invoice) || (can? :dry_run, Kaui::Invoice) %>
-        <div class="trigger-invoice-box">
-          <b>Trigger invoice generation</b>
-          <%= form_tag kaui_engine.trigger_invoice_path(params.to_h), :method => :post do %>
-            <div class="d-flex align-items-center mb-2">
-              <div class="custom-date-input-wrapper kaui-button custom-hover">
-                <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M14.9167 12.5V18.3333M17.8333 15.4167H12" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M14.0833 1.66675V5.00008M6.58325 1.66675V5.00008" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M17.8333 10.8333V4.99992C17.8333 4.07944 17.0871 3.33325 16.1666 3.33325H4.49992C3.57944 3.33325 2.83325 4.07944 2.83325 4.99992V16.6666C2.83325 17.5871 3.57944 18.3333 4.49992 18.3333H10.3333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M2.83325 8.33325H17.8333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+        <!-- Right Column -->
+        <div class="col-md-4">
+          <% if (can? :trigger, Kaui::Invoice) || (can? :dry_run, Kaui::Invoice) %>
+            <div class="trigger-invoice-box">
+              <b>Trigger invoice generation</b>
+              <%= form_tag kaui_engine.trigger_invoice_path(params.to_h), :method => :post do %>
+                <div class="d-flex align-items-center mb-2">
+                  <div class="custom-date-input-wrapper kaui-button custom-hover">
+                    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.9167 12.5V18.3333M17.8333 15.4167H12" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M14.0833 1.66675V5.00008M6.58325 1.66675V5.00008" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M17.8333 10.8333V4.99992C17.8333 4.07944 17.0871 3.33325 16.1666 3.33325H4.49992C3.57944 3.33325 2.83325 4.07944 2.83325 4.99992V16.6666C2.83325 17.5871 3.57944 18.3333 4.49992 18.3333H10.3333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M2.83325 8.33325H17.8333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
 
 
-                <input
-                  class="form-control"
-                  id="target_date"
-                  name="target_date"
-                  type="text"
-                  placeholder="Select date"
-                  data-provide="datepicker"
-                  data-date-format="yyyy-mm-dd"
-                />
-              </div>
+                    <input
+                      class="form-control"
+                      id="target_date"
+                      name="target_date"
+                      type="text"
+                      placeholder="Select date"
+                      data-provide="datepicker"
+                      data-date-format="yyyy-mm-dd"
+                    />
+                  </div>
 
-              <%= render "kaui/components/button/button", {
-                label: "Generate",
-                icon: "kaui/generate.svg", 
-                variant: "outline-secondary d-inline-flex align-items-center gap-1",
-                type: "submit",
-                html_class: "btn btn-xs kaui-dropdown custom-hover py-2 px-3",
-              } %>
-            </div>
-            <div class="form-check">
-              <%= check_box_tag :dry_run, '1', true, class: 'form-check-input', id: 'dry_run_checkbox', disabled: !can?(:trigger, Kaui::Invoice) %>
-              <%= label_tag :dry_run, 'Dry-run', class: 'form-check-label' %>
+                  <%= render "kaui/components/button/button", {
+                    label: "Generate",
+                    icon: "kaui/generate.svg", 
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "submit",
+                    html_class: "btn btn-xs kaui-dropdown custom-hover py-2 px-3",
+                  } %>
+                </div>
+                <div class="form-check">
+                  <%= check_box_tag :dry_run, '1', true, class: 'form-check-input', id: 'dry_run_checkbox', disabled: !can?(:trigger, Kaui::Invoice) %>
+                  <%= label_tag :dry_run, 'Dry-run', class: 'form-check-label' %>
+                </div>
+              <% end %>
             </div>
           <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
-
   </div>
-
-</div>
-
-
-    </div>
-
-  </div>
-
 </div>
 
 <%= javascript_tag do %>

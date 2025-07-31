@@ -1,20 +1,3 @@
-<%
-=begin%>
- <table class="transparent subtitle">
-  <tr>
-    <th>Bundle ID</th>
-    <td><%= bundle.bundle_id %></td>
-  </tr>
-  <% unless bundle.bundle_id == bundle.external_key %>
-    <tr>
-      <th>Bundle key</th>
-      <td><%= bundle.external_key %></td>
-    </tr>
-  <% end %>
-</table> 
-<%
-=end%>
-
 <div class="d-flex align-items-center w-100 mb-4 bundle-details-header">
   <div class="col-sm-6">
     <b>Bundle ID</b>

@@ -1,220 +1,112 @@
-<%
-=begin%>
- <div class="tab-pane fade" id="OverdueShow">
-
-
-  <hr/>
-
-  <h1>Existing Overdue Config
-    <% if can? :config_upload, Kaui::AdminTenant %>
-        <%= link_to '<i class="fa fa-plus-square"></i>'.html_safe,
-                    kaui_engine.admin_tenant_new_overdue_config_path(:id => @tenant.id),
-                    :class => 'btn btn-xs' %>
-    <% end %>
-    <a class='btn btn-xs' href="javascript:void(0);" onclick="submit_overdue_xml();">View overdue xml</a>
-  </h1>
-
-  <table id="existing-overdue-config-for-tenants" class="table table-condensed">
-
-    <span class='label'>
-    </span>
-    <% if @overdue.nil? || @overdue.has_states %>
-        No overdue configuration defined for tenant
-    <% else %>
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>External Message</th>
-          <th>Actions</th>
-          <th>Conditions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% @overdue.overdue_states.reverse_each do |state| %>
-            <tr class="overdue_state_<%= state %>">
-              <td><%= state.name %></td>
-              <td><%= state.external_message %></td>
-              <td>
-                <ul>
-                  <% if state.is_block_changes %>
-                      <li>
-                        <%= 'Block changes:' %><%= state.is_block_changes %>
-                      </li>
-                  <% end %>
-                  <% if state.is_disable_entitlement %>
-                      <li>
-                        <%= 'Cancel subscriptions:' %><%= state.is_disable_entitlement %>
-                        (policy:<%= state.subscription_cancellation_policy %>)
-                      </li>
-                  <% end %>
-                </ul>
-              </td>
-              <td>
-                <% if state.condition %>
+<div class="kaui-container tab-pane fade" id="OverdueShow">
+  <div class="existing-overdue-config-for-tenants-container mt-4">
+    <div class="d-flex flex-column">
+      <div class="existing-overdue-config-for-tenants-header mb-3">
+        <div class="d-flex align-items-start flex-column">
+          <h2>Existing Overdue Config</h2>
+        </div>
+        <span>
+          <%= link_to "javascript:void(0);", onclick: "submit_overdue_xml();", class:"text-decoration-none" do %>
+              <%= render "kaui/components/button/button", {
+                  label: "XML View",
+                  icon: "kaui/view-doc.svg",
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-button custom-hover"
+              } %>
+          <% end %>
+          <% if can? :config_upload, Kaui::AdminTenant %>
+            <%= link_to kaui_engine.admin_tenant_new_overdue_config_path(:id => @tenant.id), class:"text-decoration-none" do %>
+              <%= render "kaui/components/button/button", {
+                  label: "Add Overdue",
+                  icon: "kaui/plus.svg",
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-dropdown custom-hover"
+              } %>
+            <% end %>
+          <% end %>
+        </span>
+      </div>
+      <div>
+        <table id="existing-overdue-config-for-tenants" class="existing-overdue-config-for-tenants-table">
+          <span class='label'>
+          </span>
+          <% if @overdue.nil? || @overdue.has_states %>
+            No overdue configuration defined for tenant
+          <% else %>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>External Message</th>
+                <th>Actions</th>
+                <th>Conditions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @overdue.overdue_states.reverse_each do |state| %>
+                <tr class="overdue_state_<%= state %>">
+                  <td><%= state.name %></td>
+                  <td><%= state.external_message %></td>
+                  <td>
                     <ul>
-                      <% if state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds %>
+                      <% if state.is_block_changes %>
+                        <li>
+                          <%= 'Block changes:' %><%= state.is_block_changes %>
+                        </li>
+                      <% end %>
+                      <% if state.is_disable_entitlement %>
+                        <li>
+                          <%= 'Cancel subscriptions:' %><%= state.is_disable_entitlement %>
+                          (policy:<%= state.subscription_cancellation_policy %>)
+                        </li>
+                      <% end %>
+                    </ul>
+                  </td>
+                  <td>
+                    <% if state.condition %>
+                      <ul>
+                        <% if state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds %>
                           <li>
                             <%= 'Time Since earliest unpaid invoice >=' %> <%= state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.number %><%= state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.unit %>
                           </li>
-                      <% end %>
-                      <% if state.condition.control_tag_inclusion %>
+                        <% end %>
+                        <% if state.condition.control_tag_inclusion %>
                           <li>
                             <%= 'Control tag inclusion' %> <%= state.condition.control_tag_inclusion %>
                           </li>
-                      <% end %>
-                      <% if state.condition.control_tag_exclusion %>
+                        <% end %>
+                        <% if state.condition.control_tag_exclusion %>
                           <li>
                             <%= 'Control tag exclusion' %> <%= state.condition.control_tag_exclusion %>
                           </li>
-                      <% end %>
-                      <% if state.condition.number_of_unpaid_invoices_equals_or_exceeds %>
+                        <% end %>
+                        <% if state.condition.number_of_unpaid_invoices_equals_or_exceeds %>
                           <li>
                             <%= 'Number of unpaid invoices >=' %> <%= state.condition.number_of_unpaid_invoices_equals_or_exceeds %>
                           </li>
-                      <% end %>
-                      <% if state.condition.total_unpaid_invoice_balance_equals_or_exceeds %>
+                        <% end %>
+                        <% if state.condition.total_unpaid_invoice_balance_equals_or_exceeds %>
                           <li>
                             <%= 'Total unpaid invoice balance >=' %> <%= state.condition.total_unpaid_invoice_balance_equals_or_exceeds %>
                           </li>
-                      <% end %>
-                    </ul>
-                <% end %>
-              </td>
-            </tr>
-        <% end %>
-    <% end %>
-    </tbody>
-  </table>
-
-  <%= form_tag(kaui_engine.admin_tenant_display_overdue_xml_path, :id => "submit_overdue_form_xml", :method => 'post', :multipart => true, :class => "hide") do %>
-      <%= hidden_field_tag(:xml, @overdue_xml) %>
-      <%= submit_tag 'submit' %>
-  <% end %>
-
-</div>
-
-
-<%= javascript_tag do %>
-    function submit_overdue_xml() {
-    $("#submit_overdue_form_xml").submit();
-    };
-<% end %> 
-<%
-=end%>
-
-
-<div class="kaui-container tab-pane fade" id="OverdueShow">
-    <div class="existing-overdue-config-for-tenants-container mt-4">
-      <div class="d-flex flex-column">
-        <div class="existing-overdue-config-for-tenants-header mb-3">
-          <div class="d-flex align-items-start flex-column">
-            <h2>Existing Overdue Config</h2>
-          </div>
-          <span>
-            <%= link_to "javascript:void(0);", onclick: "submit_overdue_xml();", class:"text-decoration-none" do %>
-                <%= render "kaui/components/button/button", {
-                    label: "XML View",
-                    icon: "kaui/view-doc.svg",
-                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
-                    type: "button",
-                    html_class: "kaui-button custom-hover"
-                } %>
-            <% end %>
-            <% if can? :config_upload, Kaui::AdminTenant %>
-              <%= link_to kaui_engine.admin_tenant_new_overdue_config_path(:id => @tenant.id), class:"text-decoration-none" do %>
-                <%= render "kaui/components/button/button", {
-                    label: "Add Overdue",
-                    icon: "kaui/plus.svg",
-                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
-                    type: "button",
-                    html_class: "kaui-dropdown custom-hover"
-                } %>
+                        <% end %>
+                      </ul>
+                    <% end %>
+                  </td>
+                </tr>
               <% end %>
             <% end %>
-            
-           
-          </span>
-        </div>
-        <div class="">
-          <table id="existing-overdue-config-for-tenants" class="existing-overdue-config-for-tenants-table">
-
-            <span class='label'>
-            </span>
-            <% if @overdue.nil? || @overdue.has_states %>
-                No overdue configuration defined for tenant
-            <% else %>
-                <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>External Message</th>
-                  <th>Actions</th>
-                  <th>Conditions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <% @overdue.overdue_states.reverse_each do |state| %>
-                    <tr class="overdue_state_<%= state %>">
-                      <td><%= state.name %></td>
-                      <td><%= state.external_message %></td>
-                      <td>
-                        <ul>
-                          <% if state.is_block_changes %>
-                              <li>
-                                <%= 'Block changes:' %><%= state.is_block_changes %>
-                              </li>
-                          <% end %>
-                          <% if state.is_disable_entitlement %>
-                              <li>
-                                <%= 'Cancel subscriptions:' %><%= state.is_disable_entitlement %>
-                                (policy:<%= state.subscription_cancellation_policy %>)
-                              </li>
-                          <% end %>
-                        </ul>
-                      </td>
-                      <td>
-                        <% if state.condition %>
-                            <ul>
-                              <% if state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds %>
-                                  <li>
-                                    <%= 'Time Since earliest unpaid invoice >=' %> <%= state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.number %><%= state.condition.time_since_earliest_unpaid_invoice_equals_or_exceeds.unit %>
-                                  </li>
-                              <% end %>
-                              <% if state.condition.control_tag_inclusion %>
-                                  <li>
-                                    <%= 'Control tag inclusion' %> <%= state.condition.control_tag_inclusion %>
-                                  </li>
-                              <% end %>
-                              <% if state.condition.control_tag_exclusion %>
-                                  <li>
-                                    <%= 'Control tag exclusion' %> <%= state.condition.control_tag_exclusion %>
-                                  </li>
-                              <% end %>
-                              <% if state.condition.number_of_unpaid_invoices_equals_or_exceeds %>
-                                  <li>
-                                    <%= 'Number of unpaid invoices >=' %> <%= state.condition.number_of_unpaid_invoices_equals_or_exceeds %>
-                                  </li>
-                              <% end %>
-                              <% if state.condition.total_unpaid_invoice_balance_equals_or_exceeds %>
-                                  <li>
-                                    <%= 'Total unpaid invoice balance >=' %> <%= state.condition.total_unpaid_invoice_balance_equals_or_exceeds %>
-                                  </li>
-                              <% end %>
-                            </ul>
-                        <% end %>
-                      </td>
-                    </tr>
-                <% end %>
-            <% end %>
-            </tbody>
-          </table>
-          <%= form_tag(kaui_engine.admin_tenant_display_overdue_xml_path, :id => "submit_overdue_form_xml", :method => 'post', :multipart => true, :class => "hide") do %>
-            <%= hidden_field_tag(:xml, @overdue_xml) %>
-            <%= submit_tag 'submit', class: 'd-none' %>
-          <% end %>
-        </div>
+          </tbody>
+        </table>
+        <%= form_tag(kaui_engine.admin_tenant_display_overdue_xml_path, :id => "submit_overdue_form_xml", :method => 'post', :multipart => true, :class => "hide") do %>
+          <%= hidden_field_tag(:xml, @overdue_xml) %>
+          <%= submit_tag 'submit', class: 'd-none' %>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
 
 <style>
   .existing-overdue-config-for-tenants-container {

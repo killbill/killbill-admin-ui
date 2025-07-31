@@ -1,389 +1,187 @@
-<%
-=begin%>
-<div id="catalog_simple">
-
-  <div>
-    <h1>Catalog Configuration
-      <a class='btn btn-xs' href="javascript:void(0);" onclick="switch_xml_config();">Enable Advanced Configuration (Upload XML)</a>
-    </h1>
-  </div>
-  <%= form_for @simple_plan, :url => {:action => :create_simple_plan}, :html => {:class => 'form-horizontal'} do |f| %>
-
-      <%= hidden_field_tag(:id, @tenant.id) %>
-      <div class="form-group" id="form_category">
-        <%= f.label :product_category, 'Product Category', :class => 'col-sm-3 control-label' %>
-        <div class="col-sm-4">
-          <%= f.select :product_category, options_for_select(@product_categories.map {|p| [humanized_product_category(p), p] }, @simple_plan.product_category), :class => 'form-control' %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :product_name, 'Product Name', :class => 'col-sm-3 control-label' %>
-        <div class="col-sm-4">
-          <%= f.text_field :product_name,
-                           :class => 'form-control',
-                           :required => true,
-                           :pattern => "^[a-zA-Z_][\\w\\.-]*$",
-                           :title => 'xs:ID format: it must start with a letter or underscore, and can only contain letters, digits, underscores, hyphens, and periods',
-                           :known_base => @available_base_products.join(","),
-                           :known_ao => @available_ao_products.join(","),
-                           :known_std => @available_standalone_products.join(","),
-                           :ao_mappings => @ao_mapping %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :plan_id, 'Plan Name', :class => 'col-sm-3 control-label' %>
-        <div class="col-sm-4">
-          <%= f.text_field :plan_id,
-                           :class => 'form-control',
-                           :required => true,
-                           :pattern => "^[a-zA-Z_][\\w\\.-]*$",
-                           :title => 'xs:ID format: it must start with a letter or underscore, and can only contain letters, digits, underscores, hyphens, and periods' %>
-        </div>
-      </div>
-      <div class="form-group" id="form_base_products">
-        <%= f.label :available_base_products, 'Available Base Products', :class => 'col-sm-3 control-label' %>
-        <div class="col-sm-4">
-          <%= f.select :available_base_products, options_for_select(@available_base_products), {}, {:multiple => true, :class => "form-control"} %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :amount, 'Amount', :class => 'col-sm-3 control-label' %>
-        <div class="col-sm-4">
-          <%= f.number_field :amount, :class => 'form-control', :step => :any %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :currency, 'Currency', :class => 'col-sm-3 control-label' %>
-        <div class="col-sm-4">
-          <%= f.select :currency, currencies, {:selected => @simple_plan.currency}, :class => 'form-control' %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :billing_period, 'Billing Period', :class => 'col-sm-3 control-label' %>
-        <div class="col-sm-4">
-          <%= f.select :billing_period, options_for_select(@billing_period.map {|bp| [humanized_billing_period(bp), bp] }, @simple_plan.billing_period), :class => 'form-control' %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :trial_length, 'Trial Length', :class => 'col-sm-3 control-label' %>
-        <div class="col-sm-4">
-          <%= f.number_field :trial_length, :class => 'form-control', :type => 'number', :min => 0, :step => 1 %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :trial_time_unit, 'Trial Time Unit', :class => 'col-sm-3 control-label' %>
-        <div class="col-sm-4">
-          <%= f.select :trial_time_unit, options_for_select(@time_units.map {|tu| [humanized_time_unit(tu), tu]}, @simple_plan.trial_time_unit), :class => 'form-control' %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-9">
-          <%= submit_tag 'Save', :class => 'btn btn-default' %>
-        </div>
-      </div>
-  <% end %>
-</div>
-
-
-<div id="catalog_xml">
-  <div>
-    <h1>Advanced Configuration
-      <a class="btn btn btn-xs" href="javascript:void(0);" onclick="switch_basic_config();">Enable Simple Configuration</a>
-    </h1>
-  </div>
-
-
-  <%= form_tag({:action => :upload_catalog}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
-      <%= hidden_field_tag(:id, @tenant.id) %>
-
-      <div class="form-group">
-        <div class="col-sm-10">
-          <%= file_field_tag 'catalog', :class => 'form-control', :required => true %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-10">
-          <%= submit_tag 'Upload', :class => 'btn btn-default' %>
-        </div>
-      </div>
-  <% end %>
-</div>
-
-<%= javascript_tag do %>
-
-function known_products() {
-    var result = [];
-    var selected_category = $("#simple_plan_product_category option:selected").val();
-    if (selected_category == 'BASE') {
-        result = $('#simple_plan_product_name').attr('known_base');
-    } else if (selected_category == 'ADD_ON') {
-        result = $('#simple_plan_product_name').attr('known_ao');
-    } else {
-        result = $('#simple_plan_product_name').attr('known_std');
-    }
-    if (result) {
-      return result.split(",");
-    } else {
-      return [];
-    }
-}
-
-function switch_xml_config() {
-    $('#catalog_simple').hide();
-    $('#catalog_xml').show();
-}
-
-function recompute_available_base_products_for_ao() {
-    if ($("#simple_plan_product_category option:selected" ).val() != 'ADD_ON') {
-        return;
-    }
-    var product_name = $('#simple_plan_product_name').val();
-
-    var ao_mappings_str = $('#simple_plan_product_name').attr('ao_mappings');
-    if (ao_mappings_str != "") {
-        var ao_mappings = {};
-        $.map(ao_mappings_str.split(";"), function(el) { sel = el.split(':'); ao_mappings[sel[0]] = sel[1].split(',') });
-        if (ao_mappings[product_name] !=  undefined) {
-            $('#simple_plan_available_base_products').val(ao_mappings[product_name]);
-            return;
-        }
-    }
-    /* Unless we found a mapping to update, we clear the existing mapping */
-    $('#simple_plan_available_base_products').val([]);
-}
-
-function display_available_base_products_for_ao() {
-    if ($("#simple_plan_product_category option:selected" ).val() == 'ADD_ON') {
-        $('#form_base_products').show();
-    } else {
-        $('#form_base_products').hide();
-    }
-}
-
-function switch_basic_config() {
-    $('#catalog_xml').hide();
-    $('#catalog_simple').show();
-}
-
-
-$(document).ready(function() {
-    switch_basic_config();
-
-    $('#simple_plan_product_name').autocomplete({
-        source: function(query, process) {
-            process(known_products());
-        }
-    });
-
-    $('#simple_plan_product_category').change(function() {
-        display_available_base_products_for_ao();
-    });
-    display_available_base_products_for_ao();
-
-
-    $('#simple_plan_product_name').on('mouseleave', function() {
-        recompute_available_base_products_for_ao();
-    });
-});
-
-<% end %> %>
-<%
-=end%>
-
 <div class="register">
-    <div class="">
-        <div class="mx-auto" style="max-width: 37.5rem;">
-            <h5 class="add-account-title pb-3 mb-3 border-bottom">
-                <span class="icon-container">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12.9166 10.0007C12.9166 11.6115 11.6108 12.9173 9.99998 12.9173C8.38915 12.9173 7.08331 11.6115 7.08331 10.0007C7.08331 8.38982 8.38915 7.08398 9.99998 7.08398C11.6108 7.08398 12.9166 8.38982 12.9166 10.0007Z" stroke="#414651" stroke-width="1.5"/>
-                      <path d="M8.14341 2.23582L7.50001 4.16602L6.20014 4.98815L4.07331 4.4619C3.71675 4.37368 3.34448 4.52931 3.15681 4.84505L2.01998 6.75762C1.81512 7.10229 1.88473 7.54398 2.18568 7.80891L3.67746 9.12218V10.8765L2.18615 12.1898C1.88527 12.4547 1.81569 12.8963 2.02053 13.2409L3.15741 15.1536C3.34508 15.4694 3.71736 15.625 4.07391 15.5368L6.20075 15.0105L7.43216 15.7011L8.01996 17.7311C8.12313 18.0874 8.44943 18.3327 8.82043 18.3327H11.1803C11.5512 18.3327 11.8775 18.0874 11.9807 17.7311L12.5685 15.7011L13.7993 15.0105L15.9261 15.5368C16.2827 15.625 16.6549 15.4694 16.8426 15.1536L18.0009 13.2048C18.196 12.8767 18.1431 12.4578 17.8726 12.1885L16.3674 10.6899L16.368 9.30877L17.8732 7.81017C18.1438 7.5408 18.1967 7.12202 18.0016 6.79384L16.8432 4.84505C16.6555 4.52931 16.2833 4.37368 15.9267 4.4619L13.7998 4.98815L12.5 4.16602L11.8566 2.23582C11.7432 1.89554 11.4248 1.66602 11.066 1.66602H8.93401C8.57526 1.66602 8.25683 1.89554 8.14341 2.23582Z" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </span>
-                Catalog Configuration
-            </h5>
-            <div class="form-group d-flex pb-3">
-              <label class="col-sm-3 control-label">Type</label>
-              <div class="toggle-segment col-sm-9">
-                <a href="javascript:void(0);" class="toggle-option active-btn" onclick="switch_basic_config();">
-                  <span class="dot"></span>
-                  Simple Configuration
-                </a>
-                <a href="javascript:void(0);" class="toggle-option" onclick="switch_xml_config();">
-                  <span class="dot"></span>
-                  Advanced Configuration
-                </a>
-              </div>
-            </div>
-
-
-
-            <div id="catalog_simple">
-              <%= form_for @simple_plan, :url => {:action => :create_simple_plan}, :html => {:class => 'form-horizontal'} do |f| %>
-
-                  <%= hidden_field_tag(:id, @tenant.id) %>
-                  <div class="form-group d-flex pb-3" id="form_category">
-                    <%= f.label :product_category, 'Product Category', :class => 'col-sm-3 control-label' %>
-                    <div class="col-sm-9">
-                      <%= f.select :product_category, options_for_select(@product_categories.map {|p| [humanized_product_category(p), p] }, @simple_plan.product_category), :class => 'form-control' %>
-                    </div>
-                  </div>
-                  <div class="form-group d-flex pb-3">
-                    <%= f.label :product_name, 'Product Name', :class => 'col-sm-3 control-label' %>
-                    <div class="col-sm-9">
-                      <%= f.text_field :product_name,
-                                      :class => 'form-control',
-                                      :required => true,
-                                      :pattern => "^[a-zA-Z_][\\w\\.-]*$",
-                                      :title => 'xs:ID format: it must start with a letter or underscore, and can only contain letters, digits, underscores, hyphens, and periods',
-                                      :known_base => @available_base_products.join(","),
-                                      :known_ao => @available_ao_products.join(","),
-                                      :known_std => @available_standalone_products.join(","),
-                                      :ao_mappings => @ao_mapping %>
-                    </div>
-                  </div>
-                  <div class="form-group d-flex pb-3">
-                    <%= f.label :plan_id, 'Plan Name', :class => 'col-sm-3 control-label' %>
-                    <div class="col-sm-9">
-                      <%= f.text_field :plan_id,
-                                      :class => 'form-control',
-                                      :required => true,
-                                      :pattern => "^[a-zA-Z_][\\w\\.-]*$",
-                                      :title => 'xs:ID format: it must start with a letter or underscore, and can only contain letters, digits, underscores, hyphens, and periods' %>
-                    </div>
-                  </div>
-                  <div class="form-group pb-3" id="form_base_products">
-                    <%= f.label :available_base_products, 'Available Base Products', :class => 'col-sm-3 control-label' %>
-                    <div class="col-sm-9 additional-base-products">
-                      <%= f.select :available_base_products, options_for_select(@available_base_products), {}, {:multiple => true, :class => "form-control"} %>
-                      
-                    </div>
-                  </div>
-                  <div class="form-group d-flex pb-3">
-                    <%= f.label :amount, 'Amount', :class => 'col-sm-3 control-label' %>
-                    <div class="col-sm-9">
-                      <%= f.number_field :amount, :class => 'form-control', :step => :any %>
-                    </div>
-                  </div>
-                  <div class="form-group d-flex pb-3">
-                    <%= f.label :currency, 'Currency', :class => 'col-sm-3 control-label' %>
-                    <div class="col-sm-9 currency-select">
-                      <%= f.select :currency, currencies, {:selected => @simple_plan.currency}, :class => 'form-control' %>
-                    </div>
-                  </div>
-                  <div class="form-group d-flex pb-3">
-                    <%= f.label :billing_period, 'Billing Period', :class => 'col-sm-3 control-label' %>
-                    <div class="col-sm-9">
-                      <%= f.select :billing_period, options_for_select(@billing_period.map {|bp| [humanized_billing_period(bp), bp] }, @simple_plan.billing_period), :class => 'form-control' %>
-                    </div>
-                  </div>
-                  <div class="form-group d-flex pb-3">
-                    <%= f.label :trial_length, 'Trial Length', :class => 'col-sm-3 control-label' %>
-                    <div class="col-sm-9">
-                      <%= f.number_field :trial_length, :class => 'form-control', :type => 'number', :min => 0, :step => 1 %>
-                    </div>
-                  </div>
-                  <div class="form-group d-flex pb-3 border-bottom mb-3">
-                    <%= f.label :trial_time_unit, 'Trial Time Unit', :class => 'col-sm-3 control-label' %>
-                    <div class="col-sm-9">
-                      <%= f.select :trial_time_unit, options_for_select(@time_units.map {|tu| [humanized_time_unit(tu), tu]}, @simple_plan.trial_time_unit), :class => 'form-control' %>
-                    </div>
-                  </div>
-                  <div class="form-group d-flex justify-content-end pb-3">
-                    <%= render "kaui/components/button/button", {
-                      label: 'Close',
-                      variant: "outline-secondary d-inline-flex align-items-center gap-1",
-                      type: "button",
-                      html_class: "kaui-button custom-hover mx-2",
-                      html_options: {
-                        onclick: "window.history.back();"
-                      }
-                    } %>
-                    <%= render "kaui/components/button/button", {
-                      label: 'Save Catalog',
-                      variant: "outline-secondary d-inline-flex align-items-center gap-1",
-                      type: "submit",
-                      html_class: "kaui-dropdown custom-hover"
-                    } %>
-                  </div>
-              <% end %>
-            </div>
-
-
-            <div id="catalog_xml">
-
-              <%= form_tag({:action => :upload_catalog}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
-                  <%= hidden_field_tag(:id, @tenant.id) %>
-
-
-                  <div class="upload-box form-group my-0" id="uploadPromptBox">
-                    <div class="upload-content">
-                      <%= image_tag 'kaui/file-upload.svg', alt: 'Upload Icon' %>
-                      <p><span class="highlight">Click to upload</span> or drag and drop</p>
-                    </div>
-                    <%= file_field_tag 'catalog', class: 'form-control', id: 'fileInput', required: true %>
-                  </div>
-
-                  <div class="upload-status-box form-group my-3 d-none" id="uploadStatusBox">
-                    <div class="d-flex align-items-center gap-2">
-                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11 0.75H27C27.1212 0.75 27.2375 0.798088 27.3232 0.883789L38.1162 11.6768C38.2019 11.7625 38.25 11.8788 38.25 12V36C38.25 37.7949 36.7949 39.25 35 39.25H11C9.20507 39.25 7.75 37.7949 7.75 36V4C7.75 2.20507 9.20508 0.75 11 0.75Z" stroke="#D5D7DA" stroke-width="1.5"/>
-                        <path d="M27 0.5V8C27 10.2091 28.7909 12 31 12H38.5" stroke="#D5D7DA" stroke-width="1.5"/>
-                        <path d="M1 20C1 18.8954 1.89543 18 3 18H27C28.1046 18 29 18.8954 29 20V32C29 33.1046 28.1046 34 27 34H3C1.89543 34 1 33.1046 1 32V20Z" fill="#155EEF"/>
-                        <path d="M6.08754 22.7273L7.55415 25.206H7.61097L9.08469 22.7273H10.8212L8.60174 26.3636L10.8709 30H9.10245L7.61097 27.5178H7.55415L6.06268 30H4.30131L6.57759 26.3636L4.34393 22.7273H6.08754ZM11.7942 22.7273H13.6905L15.6934 27.6136H15.7786L17.7814 22.7273H19.6777V30H18.1863V25.2663H18.1259L16.2438 29.9645H15.2282L13.3461 25.2486H13.2857V30H11.7942V22.7273ZM20.9446 30V22.7273H22.4822V28.7322H25.6001V30H20.9446Z" fill="white"/>
-                      </svg>
-
-                      <div class="flex-grow-1">
-                        <strong id="fileName">Filename.xml</strong>
-                        <div class="d-flex align-items-center"> 
-                          <div class="text-muted small" id="fileSize">0 KB of 0 KB</div>
-                          <div class="text-muted small mx-2">
-                          <svg width="2" height="14" viewBox="0 0 2 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1V13" stroke="#D5D7DA" stroke-linecap="round"/>
-                          </svg>
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M11.6518 6.00737C11.6567 6.00735 11.6617 6.00734 11.6667 6.00734C13.3236 6.00734 14.6667 7.35293 14.6667 9.01287C14.6667 10.5599 13.5 11.8339 12 12M11.6518 6.00737C11.6616 5.89737 11.6667 5.78597 11.6667 5.67339C11.6667 3.64463 10.0251 2 8.00004 2C6.0822 2 4.50826 3.47511 4.34699 5.35461M11.6518 6.00737C11.5836 6.76507 11.2858 7.4564 10.8286 8.011M4.34699 5.35461C2.65603 5.51582 1.33337 6.9426 1.33337 8.67887C1.33337 10.2945 2.47855 11.6421 4.00004 11.9515M4.34699 5.35461C4.45221 5.34458 4.55886 5.33945 4.66671 5.33945C5.41725 5.33945 6.10987 5.58796 6.66704 6.00734" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M6.33337 10.6667L8.00004 9L9.66671 10.6667M8.00004 14V9.40587" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            Uploading...
-                          </div>
-                        </div>
-                      </div>
-                      <svg onclick="resetUpload()" style="cursor: pointer; margin-top: -2.5rem; margin-right: -1rem;" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18.667 9.33398L9.33362 18.6673M9.33362 9.33398L18.667 18.6673" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-
-                    </div>
-                    <div class="d-flex align-items-center w-100">
-                      <div class="progress mt-2 w-100" style="height: 0.375rem; margin-right: 0.75rem;">
-                        <div id="uploadProgress" class="progress-bar bg-primary" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <div class="text-end small text-muted mt-2" id="uploadPercent">0%</div>
-                    </div>
-                  </div>
-
-
-                  <div class="form-group d-flex justify-content-end pt-3 mt-3 border-top">
-                    <%= render "kaui/components/button/button", {
-                      label: 'Close',
-                      variant: "outline-secondary d-inline-flex align-items-center gap-1",
-                      type: "button",
-                      html_class: "kaui-button custom-hover mx-2",
-                      html_options: {
-                        onclick: "window.history.back();"
-                      }
-                    } %>
-                    <%= render "kaui/components/button/button", {
-                      label: 'Upload XML',
-                      variant: "outline-secondary d-inline-flex align-items-center gap-1",
-                      type: "submit",
-                      html_class: "kaui-dropdown custom-hover"
-                    } %>
-                  </div>
-              <% end %>
-            </div>
+  <div class="">
+    <div class="mx-auto" style="max-width: 37.5rem;">
+      <h5 class="add-account-title pb-3 mb-3 border-bottom">
+          <span class="icon-container">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.9166 10.0007C12.9166 11.6115 11.6108 12.9173 9.99998 12.9173C8.38915 12.9173 7.08331 11.6115 7.08331 10.0007C7.08331 8.38982 8.38915 7.08398 9.99998 7.08398C11.6108 7.08398 12.9166 8.38982 12.9166 10.0007Z" stroke="#414651" stroke-width="1.5"/>
+                <path d="M8.14341 2.23582L7.50001 4.16602L6.20014 4.98815L4.07331 4.4619C3.71675 4.37368 3.34448 4.52931 3.15681 4.84505L2.01998 6.75762C1.81512 7.10229 1.88473 7.54398 2.18568 7.80891L3.67746 9.12218V10.8765L2.18615 12.1898C1.88527 12.4547 1.81569 12.8963 2.02053 13.2409L3.15741 15.1536C3.34508 15.4694 3.71736 15.625 4.07391 15.5368L6.20075 15.0105L7.43216 15.7011L8.01996 17.7311C8.12313 18.0874 8.44943 18.3327 8.82043 18.3327H11.1803C11.5512 18.3327 11.8775 18.0874 11.9807 17.7311L12.5685 15.7011L13.7993 15.0105L15.9261 15.5368C16.2827 15.625 16.6549 15.4694 16.8426 15.1536L18.0009 13.2048C18.196 12.8767 18.1431 12.4578 17.8726 12.1885L16.3674 10.6899L16.368 9.30877L17.8732 7.81017C18.1438 7.5408 18.1967 7.12202 18.0016 6.79384L16.8432 4.84505C16.6555 4.52931 16.2833 4.37368 15.9267 4.4619L13.7998 4.98815L12.5 4.16602L11.8566 2.23582C11.7432 1.89554 11.4248 1.66602 11.066 1.66602H8.93401C8.57526 1.66602 8.25683 1.89554 8.14341 2.23582Z" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+          </span>
+          Catalog Configuration
+      </h5>
+      <div class="form-group d-flex pb-3">
+        <label class="col-sm-3 control-label">Type</label>
+        <div class="toggle-segment col-sm-9">
+          <a href="javascript:void(0);" class="toggle-option active-btn" onclick="switch_basic_config();">
+            <span class="dot"></span>
+            Simple Configuration
+          </a>
+          <a href="javascript:void(0);" class="toggle-option" onclick="switch_xml_config();">
+            <span class="dot"></span>
+            Advanced Configuration
+          </a>
         </div>
+      </div>
+      <div id="catalog_simple">
+        <%= form_for @simple_plan, :url => {:action => :create_simple_plan}, :html => {:class => 'form-horizontal'} do |f| %>
+          <%= hidden_field_tag(:id, @tenant.id) %>
+          <div class="form-group d-flex pb-3" id="form_category">
+            <%= f.label :product_category, 'Product Category', :class => 'col-sm-3 control-label' %>
+            <div class="col-sm-9">
+              <%= f.select :product_category, options_for_select(@product_categories.map {|p| [humanized_product_category(p), p] }, @simple_plan.product_category), :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group d-flex pb-3">
+            <%= f.label :product_name, 'Product Name', :class => 'col-sm-3 control-label' %>
+            <div class="col-sm-9">
+              <%= f.text_field :product_name,
+                :class => 'form-control',
+                :required => true,
+                :pattern => "^[a-zA-Z_][\\w\\.-]*$",
+                :title => 'xs:ID format: it must start with a letter or underscore, and can only contain letters, digits, underscores, hyphens, and periods',
+                :known_base => @available_base_products.join(","),
+                :known_ao => @available_ao_products.join(","),
+                :known_std => @available_standalone_products.join(","),
+                :ao_mappings => @ao_mapping %>
+            </div>
+          </div>
+          <div class="form-group d-flex pb-3">
+            <%= f.label :plan_id, 'Plan Name', :class => 'col-sm-3 control-label' %>
+            <div class="col-sm-9">
+              <%= f.text_field :plan_id,
+                :class => 'form-control',
+                :required => true,
+                :pattern => "^[a-zA-Z_][\\w\\.-]*$",
+                :title => 'xs:ID format: it must start with a letter or underscore, and can only contain letters, digits, underscores, hyphens, and periods' %>
+            </div>
+          </div>
+          <div class="form-group pb-3" id="form_base_products">
+            <%= f.label :available_base_products, 'Available Base Products', :class => 'col-sm-3 control-label' %>
+            <div class="col-sm-9 additional-base-products">
+              <%= f.select :available_base_products, options_for_select(@available_base_products), {}, {:multiple => true, :class => "form-control"} %>
+            </div>
+          </div>
+          <div class="form-group d-flex pb-3">
+            <%= f.label :amount, 'Amount', :class => 'col-sm-3 control-label' %>
+            <div class="col-sm-9">
+              <%= f.number_field :amount, :class => 'form-control', :step => :any %>
+            </div>
+          </div>
+          <div class="form-group d-flex pb-3">
+            <%= f.label :currency, 'Currency', :class => 'col-sm-3 control-label' %>
+            <div class="col-sm-9 currency-select">
+              <%= f.select :currency, currencies, {:selected => @simple_plan.currency}, :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group d-flex pb-3">
+            <%= f.label :billing_period, 'Billing Period', :class => 'col-sm-3 control-label' %>
+            <div class="col-sm-9">
+              <%= f.select :billing_period, options_for_select(@billing_period.map {|bp| [humanized_billing_period(bp), bp] }, @simple_plan.billing_period), :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group d-flex pb-3">
+            <%= f.label :trial_length, 'Trial Length', :class => 'col-sm-3 control-label' %>
+            <div class="col-sm-9">
+              <%= f.number_field :trial_length, :class => 'form-control', :type => 'number', :min => 0, :step => 1 %>
+            </div>
+          </div>
+          <div class="form-group d-flex pb-3 border-bottom mb-3">
+            <%= f.label :trial_time_unit, 'Trial Time Unit', :class => 'col-sm-3 control-label' %>
+            <div class="col-sm-9">
+              <%= f.select :trial_time_unit, options_for_select(@time_units.map {|tu| [humanized_time_unit(tu), tu]}, @simple_plan.trial_time_unit), :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group d-flex justify-content-end pb-3">
+            <%= render "kaui/components/button/button", {
+              label: 'Close',
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "button",
+              html_class: "kaui-button custom-hover mx-2",
+              html_options: {
+                onclick: "window.history.back();"
+              }
+            } %>
+            <%= render "kaui/components/button/button", {
+              label: 'Save Catalog',
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "submit",
+              html_class: "kaui-dropdown custom-hover"
+            } %>
+          </div>
+        <% end %>
+      </div>
+
+      <div id="catalog_xml">
+        <%= form_tag({:action => :upload_catalog}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
+          <%= hidden_field_tag(:id, @tenant.id) %>
+          <div class="upload-box form-group my-0" id="uploadPromptBox">
+            <div class="upload-content">
+              <%= image_tag 'kaui/file-upload.svg', alt: 'Upload Icon' %>
+              <p><span class="highlight">Click to upload</span> or drag and drop</p>
+            </div>
+            <%= file_field_tag 'catalog', class: 'form-control', id: 'fileInput', required: true %>
+          </div>
+
+          <div class="upload-status-box form-group my-3 d-none" id="uploadStatusBox">
+            <div class="d-flex align-items-center gap-2">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 0.75H27C27.1212 0.75 27.2375 0.798088 27.3232 0.883789L38.1162 11.6768C38.2019 11.7625 38.25 11.8788 38.25 12V36C38.25 37.7949 36.7949 39.25 35 39.25H11C9.20507 39.25 7.75 37.7949 7.75 36V4C7.75 2.20507 9.20508 0.75 11 0.75Z" stroke="#D5D7DA" stroke-width="1.5"/>
+                <path d="M27 0.5V8C27 10.2091 28.7909 12 31 12H38.5" stroke="#D5D7DA" stroke-width="1.5"/>
+                <path d="M1 20C1 18.8954 1.89543 18 3 18H27C28.1046 18 29 18.8954 29 20V32C29 33.1046 28.1046 34 27 34H3C1.89543 34 1 33.1046 1 32V20Z" fill="#155EEF"/>
+                <path d="M6.08754 22.7273L7.55415 25.206H7.61097L9.08469 22.7273H10.8212L8.60174 26.3636L10.8709 30H9.10245L7.61097 27.5178H7.55415L6.06268 30H4.30131L6.57759 26.3636L4.34393 22.7273H6.08754ZM11.7942 22.7273H13.6905L15.6934 27.6136H15.7786L17.7814 22.7273H19.6777V30H18.1863V25.2663H18.1259L16.2438 29.9645H15.2282L13.3461 25.2486H13.2857V30H11.7942V22.7273ZM20.9446 30V22.7273H22.4822V28.7322H25.6001V30H20.9446Z" fill="white"/>
+              </svg>
+
+              <div class="flex-grow-1">
+                <strong id="fileName">Filename.xml</strong>
+                <div class="d-flex align-items-center"> 
+                  <div class="text-muted small" id="fileSize">0 KB of 0 KB</div>
+                  <div class="text-muted small mx-2">
+                  <svg width="2" height="14" viewBox="0 0 2 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1V13" stroke="#D5D7DA" stroke-linecap="round"/>
+                  </svg>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.6518 6.00737C11.6567 6.00735 11.6617 6.00734 11.6667 6.00734C13.3236 6.00734 14.6667 7.35293 14.6667 9.01287C14.6667 10.5599 13.5 11.8339 12 12M11.6518 6.00737C11.6616 5.89737 11.6667 5.78597 11.6667 5.67339C11.6667 3.64463 10.0251 2 8.00004 2C6.0822 2 4.50826 3.47511 4.34699 5.35461M11.6518 6.00737C11.5836 6.76507 11.2858 7.4564 10.8286 8.011M4.34699 5.35461C2.65603 5.51582 1.33337 6.9426 1.33337 8.67887C1.33337 10.2945 2.47855 11.6421 4.00004 11.9515M4.34699 5.35461C4.45221 5.34458 4.55886 5.33945 4.66671 5.33945C5.41725 5.33945 6.10987 5.58796 6.66704 6.00734" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6.33337 10.6667L8.00004 9L9.66671 10.6667M8.00004 14V9.40587" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Uploading...
+                  </div>
+                </div>
+              </div>
+              <svg onclick="resetUpload()" style="cursor: pointer; margin-top: -2.5rem; margin-right: -1rem;" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.667 9.33398L9.33362 18.6673M9.33362 9.33398L18.667 18.6673" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+
+            </div>
+            <div class="d-flex align-items-center w-100">
+              <div class="progress mt-2 w-100" style="height: 0.375rem; margin-right: 0.75rem;">
+                <div id="uploadProgress" class="progress-bar bg-primary" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="text-end small text-muted mt-2" id="uploadPercent">0%</div>
+            </div>
+          </div>
+
+          <div class="form-group d-flex justify-content-end pt-3 mt-3 border-top">
+            <%= render "kaui/components/button/button", {
+              label: 'Close',
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "button",
+              html_class: "kaui-button custom-hover mx-2",
+              html_options: {
+                onclick: "window.history.back();"
+              }
+            } %>
+            <%= render "kaui/components/button/button", {
+              label: 'Upload XML',
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "submit",
+              html_class: "kaui-dropdown custom-hover"
+            } %>
+          </div>
+        <% end %>
+      </div>
     </div>
+  </div>
 </div>
 
 <style>

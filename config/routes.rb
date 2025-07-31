@@ -184,6 +184,7 @@ Kaui::Engine.routes.draw do
   end
 
   scope '/admin_tenants' do
+    match '/:id/clock' => 'admin_tenants#set_clock', :via => :put, :as => 'admin_tenant_set_clock'
     match '/:id/new_catalog' => 'admin_tenants#new_catalog', :via => :get, :as => 'admin_tenant_new_catalog'
     match '/:id/delete_catalog' => 'admin_tenants#delete_catalog', :via => :delete, :as => 'admin_tenant_delete_catalog'
     match '/:id/new_plan_currency' => 'admin_tenants#new_plan_currency', :via => :get, :as => 'admin_tenant_new_plan_currency'

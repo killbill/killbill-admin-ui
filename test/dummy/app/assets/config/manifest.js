@@ -48,6 +48,7 @@
 //= link kaui/download-csv.svg
 //= link kaui/card.svg
 //= link kaui/delete.svg
+//= link kaui/logout.svg
 //= link kaui/view-doc.svg
 //= link kaui/file-upload.svg
 //= link kaui/setting/account.svg
@@ -60,6 +61,7 @@
 //= link kaui/setting/tags.svg
 //= link kaui/setting/tenants.svg
 //= link kaui/setting/users.svg
+//= link kaui/setting/e-notifications.svg
 //= link kaui/timeline/authorize.svg
 //= link kaui/timeline/chargeback.svg
 //= link kaui/timeline/credit.svg

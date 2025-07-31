@@ -51,33 +51,13 @@
 
       <table id="accounts-table" class="table table-condensed mobile-data" style="width:100%">
         <thead>
-        <%
-=begin%>
- <% desired_order = ["Email", "Name", "Created At"] %>
-<% headers = Kaui.account_search_columns.call[0] %>
-<% sorted_headers = desired_order & headers %>
-<tr>
-  <% sorted_headers.each do |title| %>
-    <th><%= title %></th>
-  <% end %>
-</tr> 
-<%
-=end%>
-
-        <tr>
-          <% Kaui.account_search_columns.call[0].each do |title| %>
-            <th><%= title %></th>
-          <% end %>
-        </tr>
+          <tr>
+            <% Kaui.account_search_columns.call[0].each do |title| %>
+              <th><%= title %></th>
+            <% end %>
+          </tr>
         </thead>
         <tbody>
-        <%
-=begin%>
- <tr>
-          <td colspan="1" class="dataTables_empty">Loading data from server</td>
-        </tr> 
-<%
-=end%>
         </tbody>
       </table> 
     </div>
