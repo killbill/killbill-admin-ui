@@ -117,7 +117,7 @@ module Kaui
     def find_value_from_properties(properties, key)
       return nil if key.nil? || properties.nil?
 
-      prop = (properties.find { |kv| kv.key.to_s == key.to_s })
+      prop = properties.find { |kv| kv.key.to_s == key.to_s }
       prop&.value
     end
   end
