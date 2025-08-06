@@ -103,7 +103,7 @@ module Kaui
       end
 
       tenants_for_current_user = retrieve_tenants_for_current_user
-      tenants = (Kaui::Tenant.where(id: tenants).select { |tenant| tenants_for_current_user.include?(tenant.kb_tenant_id) }).map(&:id)
+      tenants = Kaui::Tenant.where(id: tenants).select { |tenant| tenants_for_current_user.include?(tenant.kb_tenant_id) }.map(&:id)
 
       allowed_user.kaui_tenant_ids = tenants
 
