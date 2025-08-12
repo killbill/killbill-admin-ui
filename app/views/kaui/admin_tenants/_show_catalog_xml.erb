@@ -1,4 +1,4 @@
-<div class="kaui-container" id="catalog_xml">
+<div class="kaui-container show-catalog-xml">
     <div class="catalog-container mt-4">
       <div class="d-flex flex-column">
         <div class="catalog-header mb-3">
@@ -61,57 +61,6 @@
       </div>
     </div>
   </div>
-
-<style>
-  .catalog-container {
-    max-width: 80rem;
-    width: 100%;
-  }
-
-  .catalog-container .catalog-header {
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    padding: 0;
-    border-bottom: 0.0625rem solid #E9EAEB;
-  }
-
-  .catalog-container .catalog-header h2 {
-    font-weight: 600;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    color: #414651;
-    margin-bottom: 1.25rem;
-  }
-
-  table.catalog-table {
-    overflow-x: auto;
-    min-width: 100%;
-    border: none !important;
-  }
-
-  table.catalog-table th {
-    padding: 0.375rem 0.75rem !important;
-    font-weight: 500 !important;
-    font-size: 0.875rem;
-    line-height: 1.125rem;
-    letter-spacing: 0;
-    color: #717680;
-    text-transform: capitalize;
-    background-color: #FAFAFA !important;
-  }
-
-  table.catalog-table td {
-    font-weight: 500 !important;
-    font-size: 0.875rem !important;
-    padding: 1rem 0.5rem !important;
-    line-height: 1.125rem !important;
-    text-align: start;
-    color: #535862 !important;
-    text-transform: capitalize !important;
-  }
-
-</style> 
 
 <%= javascript_tag do %>
 function submit_xml(version_id) {

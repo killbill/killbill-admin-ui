@@ -57,7 +57,7 @@
           <% if subscription_future_cancelled?(sub, account) %>
             <%= link_to 'Reinstate', kaui_engine.reinstate_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-xs' %>
           <% elsif !subscription_cancelled?(sub) %>
-            <div class="d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
               <% if can? :cancel, Kaui::Subscription %>
                 <div class="btn-group cancel-menu position-relative" id="<%= dropdown_id %>Wrapper">
                   <button id="<%= dropdown_id %>Btn" class="cancel-button">
@@ -126,7 +126,8 @@
                     label: "",
                     icon: "kaui/dots.svg",
                     html_class: "dots-menu",
-                    menu_items: menu_items
+                    menu_items: menu_items,
+                    dropdown_id: "dotsDropdown-#{sub.subscription_id}",
                 } %>
               <% end %>
             </div>

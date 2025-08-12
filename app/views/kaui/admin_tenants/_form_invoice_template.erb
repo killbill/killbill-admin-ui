@@ -1,5 +1,5 @@
 <% if can? :config_upload, Kaui::AdminTenant %>
-    <div class="tab-pane fade invoice-template" id="InvoiceTemplate">
+    <div class="tab-pane fade invoice-template form-invoice-template" id="InvoiceTemplate">
       <%= form_tag({:action => :upload_invoice_template}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
           <%= hidden_field_tag(:id, @tenant.id) %>
 
@@ -42,18 +42,3 @@
       <% end %>
     </div>
 <% end %>
-
-<style>
-  .checkbox label {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-
-  .checkbox label span {
-    font-weight: 500;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    color: #414651;
-  }
-</style>

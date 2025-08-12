@@ -1,4 +1,4 @@
-<div class="kaui-container">
+<div class="kaui-container admin-tenant-details">
   <%= render partial: 'kaui/components/breadcrumb/breadcrumb', locals: {
     breadcrumbs: [
       { label: 'Settings', href: '/' },
@@ -9,7 +9,7 @@
   <div class="d-flex" style="gap: 4rem;">
     <%= render :template => 'kaui/layouts/kaui_setting_sidebar' %>
     
-    <div class="admin-tenant-details w-100">
+    <div class="w-100">
       <div class="d-flex flex-column">
         <div class="admin-tenant-details-header">
           <h2>Tenants</h2>
@@ -38,83 +38,3 @@
     </div>
   </div>
 </div>
-
-
-
-<style>
-  .admin-tenant-details {
-  }
-
-  .admin-tenant-details-header {
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
-    padding: 0;
-    border-bottom: 0.0625rem solid #E9EAEB;
-  }
-
-  .admin-tenant-details-header h2 {
-    font-weight: 600;
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-    color: #414651;
-    margin-bottom: 1.25rem;
-  }
-
-  table {
-    overflow-x: auto;
-    min-width: 100%;
-  }
-
-  table th {
-    padding: 0.375rem 0.75rem !important;
-    font-weight: 500;
-    font-size: 0.875rem;
-    line-height: 1.125rem;
-    letter-spacing: 0;
-    color: #717680;
-    text-transform: capitalize;
-  }
-
-  table td {
-    font-weight: 500 !important;
-    font-size: 0.875rem !important;
-    padding: 1rem 0.5rem !important;
-    line-height: 1.125rem !important;
-    text-align: start;
-    color: #535862 !important;
-    text-transform: capitalize !important;
-  }
-
-
-  table thead tr th::after {
-    content: "" !important;
-    display: inline-block !important;
-    width: 0.75rem !important;
-    height: 0.75rem !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 5.5L6 2.5L9 5.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-size: 0.75rem 0.75rem !important;
-    position: absolute !important;
-    right: 0.5rem !important;
-    top: 45% !important;
-    transform: translateY(-50%) !important;
-  }
-
-  table thead tr th::before {
-    content: "" !important;
-    display: inline-block !important;
-    width: 0.75rem !important;
-    height: 0.75rem !important;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6.5L6 9.5L9 6.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-size: 0.75rem 0.75rem !important;
-    position: absolute !important;
-    right: 0.5rem !important;
-    bottom: 45% !important;
-    transform: translateY(50%) !important;
-  }
-
-</style>

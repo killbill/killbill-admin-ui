@@ -2,7 +2,7 @@
 <% label_class = ['tag-description', local_assigns[:label_class]].compact.join(' ') %>
 
 <% unless custom_fields.blank? %>
-  <div class="<%= container_class %>">
+  <div class="<%= container_class %> list-bar-custom-fields">
     <strong>Custom fields</strong>
     <div class="tag-select-box">
       <% custom_fields.each do |cf| %>
@@ -11,32 +11,3 @@
     </div>
   </div>
 <% end %>
-
-
-<style>
-  .custom-fields strong {
-    font-weight: 600;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    letter-spacing: 0;
-    color: #414651;
-  }
-  .custom-fields .tag-select-box label {
-    margin: 0;
-    margin-bottom: 0.25rem;
-  }
-
-  .custom-fields .tag-description {
-    border-radius: 0.25rem;
-    background-color: #FAFAFA;
-    padding: 0.125rem 0.5rem;
-    margin: 0 0.25rem;
-    font-weight: 500;
-    font-size: 0.75rem;
-    line-height: 1.125rem;
-    letter-spacing: 0;
-    text-align: center;
-    color: #717680;
-    border: 0.0625rem solid #F5F5F5;
-  }
-</style>

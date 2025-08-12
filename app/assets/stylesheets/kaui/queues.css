@@ -1,0 +1,263 @@
+.kaui-queues-index .queues {
+  width: 67.5625rem;
+}
+
+.kaui-queues-index .queues .queues-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 0.0625rem solid #e9eaeb;
+}
+
+.kaui-queues-index .queues .queues-header h2 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #414651;
+  margin-bottom: 1.25rem;
+}
+
+.kaui-queues-index .queues .filter-tabs {
+  background-color: #fafafa;
+  border: 0.0625rem solid #e9eaeb;
+  border-radius: 0.375rem;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  margin: 0;
+  margin-bottom: 1.5rem;
+  padding: 0.25rem;
+  height: 2.5rem;
+}
+
+.kaui-queues-index .queues .filter-tabs a {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #717680;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  height: 2rem;
+}
+
+.kaui-queues-index .queues .filter-tabs .activelink {
+  color: #414651;
+  background-color: #ffffff;
+  box-shadow: 0rem 0.0625rem 0.125rem -0.0625rem #0a0d121a;
+  box-shadow: 0rem 0.0625rem 0.1875rem 0rem #0a0d121a;
+}
+
+.kaui-queues-index #bus-table_wrapper,
+.kaui-queues-index #notifications-table_wrapper {
+  //overflow: auto;
+  max-width: 67.5625rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.kaui-queues-index #bus-table_filter,
+.kaui-queues-index #notifications-table_filter {
+  position: absolute;
+  top: -4.5rem;
+  right: 0;
+}
+
+.kaui-queues-index .table-wrapper {
+  max-width: 67.5625rem !important;
+  overflow-x: auto !important;
+  width: 100% !important;
+}
+
+.kaui-queues-index .table-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.kaui-queues-index .queues .bus-table td,
+.kaui-queues-index .queues .notifications-table td {
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  padding: 1rem 0.5rem !important;
+  line-height: 1.125rem !important;
+  text-align: start;
+  color: #535862 !important;
+  text-transform: capitalize !important;
+  display: table-cell !important;
+  text-align: left !important;
+  vertical-align: top;
+  border-bottom: 0 !important;
+}
+
+.kaui-queues-index .queues .bus-table td:nth-of-type(2) span,
+.kaui-queues-index .queues .notifications-table td:nth-of-type(2) span {
+  padding: 0.1875rem 0.5rem;
+  font-weight: 500 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.125rem !important;
+  color: #414651 !important;
+  border-radius: 0.125rem !important;
+  border: 0.0625rem solid #d5d7da !important;
+}
+
+.kaui-queues-index .queues .bus-table td pre,
+.kaui-queues-index .queues .notifications-table td pre {
+  padding: 0.1875rem 0.5rem;
+  font-weight: 500 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.125rem !important;
+  color: #414651 !important;
+  border-radius: 0.5rem !important;
+  border: 0.0625rem solid #d5d7da !important;
+}
+
+.kaui-queues-index .queues .bus-table th,
+.kaui-queues-index .queues .notifications-table th {
+  padding: 0.375rem 1.625rem 0.375rem 0.75rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  letter-spacing: 0;
+  color: #717680;
+  text-transform: capitalize;
+}
+
+.kaui-queues-index .queues .bus-table th,
+.kaui-queues-index .queues .bus-table td,
+.kaui-queues-index .queues .notifications-table th,
+.kaui-queues-index .queues .notifications-table td {
+  white-space: nowrap;
+  text-align: left;
+}
+
+.kaui-queues-index .queues .pagination a:not(:first-child):not(:last-child) {
+  color: #717680;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: 0;
+}
+
+.kaui-queues-index
+  .queues
+  .pagination
+  a:not(:first-child):not(:last-child).btn-primary {
+  color: #414651;
+  background-color: #f5f5f5 !important;
+  border: 0 !important;
+}
+
+.kaui-queues-index .queues .dataTables_paginate {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.kaui-queues-index .queues .dataTables_paginate span .paginate_button {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #717680 !important;
+  text-decoration: none;
+  border: 0 !important;
+}
+
+.kaui-queues-index .queues .dataTables_paginate .paginate_button:hover {
+  background-color: #f3f4f6;
+}
+
+.kaui-queues-index .queues .dataTables_paginate .paginate_button.current {
+  background-color: #f5f5f5 !important;
+  border-radius: 0.375rem !important;
+  color: #414651 !important;
+}
+
+.kaui-queues-index .queues .dataTables_paginate .paginate_button.last,
+.kaui-queues-index .queues .dataTables_paginate .paginate_button.previous {
+  border: 0.0625rem solid #e5e7eb;
+  border-radius: 0.5rem;
+  background-color: white;
+  padding: 0.5rem 0.875rem;
+  color: #374151;
+}
+
+.kaui-queues-index .queues #bus-table_first,
+.kaui-queues-index .queues #bus-table_last,
+.kaui-queues-index .queues #notifications-table_first,
+.kaui-queues-index .queues #notifications-table_last {
+  display: none !important;
+}
+
+.kaui-queues-index .queues #bus-table_wrapper .row:nth-of-type(2),
+.kaui-queues-index .queues #notifications-table_wrapper .row:nth-of-type(2) {
+  margin-top: 1.5rem;
+}
+
+.kaui-queues-index .queues #bus-table_filter input,
+.kaui-queues-index .queues #notifications-table_filter input {
+  width: 20rem;
+  height: 2.2rem;
+  padding: 0.3rem 1rem;
+  border: 0.0625rem solid #e5e7eb;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+  outline: none;
+}
+
+.kaui-queues-index .timeline {
+  position: relative;
+  width: 1.25rem;
+  margin-left: 0.375rem !important;
+}
+
+.kaui-queues-index .timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.5rem;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 0.375rem,
+    #d1d5db 0.375rem,
+    #d5d7da 0.5rem
+  );
+}
+
+.kaui-queues-index .dot {
+  position: absolute;
+  left: 0.1875rem;
+  top: 1rem;
+  width: 0.5rem;
+  height: 1.125rem;
+  background-color: #fff !important;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.kaui-queues-index .dot::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3125rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #d5d7da !important;
+  border-radius: 50%;
+  z-index: 1;
+}
