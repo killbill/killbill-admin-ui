@@ -1,15 +1,7 @@
 <% identifier = "Settings" %>
-<% 
-  # Try to determine root path dynamically
-  if request.path.start_with?('/kaui')
-    dynamic_root = '/kaui'
-  else
-    dynamic_root = '/'
-  end
-%>
 
 <% menu_items = [
-  { label: 'Account', path: kaui_engine.admin_tenant_path(session[:tenant_id]), controller_suffix: "#{session[:tenant_id]}", icon_path: 'kaui/setting/account.svg' },
+  session[:tenant_id].present? ? { label: 'Account', path: kaui_engine.admin_tenant_path(session[:tenant_id]), controller_suffix: "#{session[:tenant_id]}", icon_path: 'kaui/setting/account.svg' } : nil,
   { label: 'Tenants', path: kaui_engine.admin_tenants_path, controller_suffix: 'admin_tenants', icon_path: 'kaui/setting/tenants.svg' },
   { label: 'Users', path: kaui_engine.admin_allowed_users_path, controller_suffix: 'admin_allowed_users', icon_path: 'kaui/setting/users.svg' },
   { label: 'Tags', path: kaui_engine.tags_path, controller_suffix: 'tags', icon_path: 'kaui/setting/tags.svg' },
@@ -18,7 +10,7 @@
   { label: 'Plugin Manager', path: "/kpm", controller_suffix: 'kpm', icon_path: 'kaui/setting/plugins.svg' },
   { label: 'E-notifications', path: "/kenui", controller_suffix: 'kenui', icon_path: 'kaui/setting/e-notifications.svg' },
   { label: 'Analytics', path: "/analytics", controller_suffix: 'analytics', icon_path: 'kaui/setting/analytics.svg' },
-] %>
+].compact %>
 
 <% if menu_items.present? %>
   <div class="setting-sidebar-area">

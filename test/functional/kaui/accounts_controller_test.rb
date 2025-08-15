@@ -61,35 +61,12 @@ module Kaui
       get :show, params: { account_id: @account.account_id }
       assert_response 200
 
-      overdue_status_proc_count = 0
-
-      assert_select 'table' do |tables|
-        tables.each do |table|
-          assert_select table, 'tr' do |rows|
-            rows.each do |row|
-              # find overdue status in the response
-              is_overdue_state = false
-              assert_select row, 'th' do |col|
-                is_overdue_state = col[0].text.eql?('Overdue status')
-              end
-
-              # if found
-              next unless is_overdue_state
-
-              overdue_status_proc_count += 1
-              assert_select row, 'td' do |col|
-                assert_select col, 'span' do |content|
-                  assert 'Good', content[0].text
-                  overdue_status_proc_count += 1 if content[0].text.eql?('Good')
-                end
-              end
-            end
-          end
-        end
-      end
-
-      # assert that overdue state is found with result equal to Good
-      assert overdue_status_proc_count, 2
+      # Simple check: ensure the overdue status text appears in the response
+      assert_includes @response.body, 'Overdue status'
+      
+      # Check that it shows "Good" status (account is in good standing)  
+      assert_select '.info-item b', text: 'Overdue status'
+      assert_select '.badge.success', text: 'Good'
     end
 
     test 'should handle Kill Bill errors when creating account' do
