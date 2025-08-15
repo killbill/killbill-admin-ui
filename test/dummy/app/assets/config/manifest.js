@@ -9,7 +9,6 @@
 //= link kaui/dashboard/kaui-doc-img.png
 //= link kaui/dashboard/aviate.svg
 //= link kaui/dashboard/users.svg
-//= link kaui/dashboard/tenant.svg
 //= link kaui/dashboard/tags.svg
 //= link kaui/dashboard/plugins.svg
 //= link kaui/dashboard/custom-field.svg
@@ -25,7 +24,6 @@
 //= link kaui/account/authorize.svg
 //= link kaui/account/purchase.svg
 //= link kaui/dots.svg
-//= link kaui/account.svg
 //= link kaui/generate.svg
 //= link kaui/copy.svg
 //= link kaui/sidebar/account.svg
