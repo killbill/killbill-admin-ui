@@ -23,4 +23,12 @@
  *= require kaui/breadcrumb.css
  *= require assets/common
  *= require kaui/datatable.css
+ *= require kaui/tenants.css
+ *= require kaui/tag_definitions.css
+ *= require kaui/queues.css
+ *= require kaui/custom_fields.css
+ *= require kaui/clock.css
+ *= require kaui/role_definitions.css
+ *= require kaui/admin_allowed_users.css
+ *= require kaui/refunds.css
 */

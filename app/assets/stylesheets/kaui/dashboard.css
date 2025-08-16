@@ -3,7 +3,7 @@
 }
 
 .dashboard-card:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, 0.06);
 }
 
 /* Rounded sections */
@@ -12,7 +12,7 @@
 }
 
 .dashboard-card-divider {
-  border-top: 1px solid #e9ecef;
+  border-top: 0.0625rem solid #e9ecef;
 }
 
 .dashboard-card-icon {

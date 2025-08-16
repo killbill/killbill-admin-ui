@@ -1,0 +1,111 @@
+.kaui-role-definitions-new .new-role-definition-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  color: #1b1c1e;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.kaui-role-definitions-new .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #d5d7da;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.kaui-role-definitions-new .icon-container img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.kaui-role-definitions-new .control-label {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  color: #414651 !important;
+}
+
+.kaui-role-definitions-new .form-control {
+  border-radius: 0.375rem !important;
+  height: 2.5rem !important;
+}
+
+.kaui-role-definitions-new .help-block {
+  margin: 0;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #535862;
+}
+
+.kaui-role-definitions-new .border-button {
+  background: transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #d5d7da;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.625rem;
+}
+
+.kaui-role-definitions-new .border-button:hover {
+  background: transparent;
+}
+
+.kaui-role-definitions-new .premissions-group .chip-input-container {
+  min-height: 2.5rem;
+  cursor: text;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 0.5rem;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.kaui-role-definitions-new
+  .premissions-group
+  .chip-input-container::-webkit-scrollbar {
+  display: none;
+}
+
+.kaui-role-definitions-new .premissions-group .chip {
+  background: #fafafa !important;
+  padding: 0.125rem 0.375rem !important;
+  border-radius: 0.25rem !important;
+  border: 0.0625rem solid #f5f5f5 !important;
+  display: flex !important;
+  color: #414651 !important;
+  align-items: center !important;
+  font-size: 0.75rem !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+  font-weight: 500 !important;
+  line-height: 1.125rem !important;
+  text-align: center !important;
+}
+
+.kaui-role-definitions-new .premissions-group .chip .remove-chip {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.kaui-role-definitions-new .premissions-group .chip-text-input {
+  min-width: 6.25rem;
+  width: 100% !important;
+  outline: none;
+}

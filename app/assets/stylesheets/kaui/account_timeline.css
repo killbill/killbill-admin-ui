@@ -1,0 +1,171 @@
+.kaui-account-timelines-show .account-timeline {
+  width: 67.5625rem;
+}
+
+.kaui-account-timelines-show .account-timeline .account-timeline-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 0.0625rem solid #e9eaeb;
+}
+
+.kaui-account-timelines-show .account-timeline .account-timeline-header h2 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #414651;
+  margin-bottom: 1.25rem;
+}
+
+.kaui-account-timelines-show .account-timeline select {
+  height: 2rem !important;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+}
+
+.kaui-account-timelines-show .account-timeline select:focus {
+  border-color: blue;
+  outline: none;
+  box-shadow: none;
+}
+
+.kaui-account-timelines-show .control-label {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  color: #414651 !important;
+}
+
+.kaui-account-timelines-show .account-timeline-card {
+  background: #fafafa;
+  border: 0.0625rem solid #e9eaeb;
+  border-radius: 1rem;
+  box-shadow: 0rem 0.0625rem 0.125rem 0rem var(--ColorsEffectsShadowsshadow-xs);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.kaui-account-timelines-show .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  border: 0.0625rem solid #d5d7da;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.kaui-account-timelines-show .icon-container img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.kaui-account-timelines-show .account-timeline-card h3 {
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: left;
+  margin-bottom: 0rem;
+  line-height: 1.5rem;
+  color: #414651;
+}
+
+.kaui-account-timelines-show .account-timeline-card-detail b {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+}
+
+.kaui-account-timelines-show .account-timeline-card-detail p,
+.kaui-account-timelines-show .account-timeline-card-detail p a {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-bottom: 0rem;
+  color: #717680;
+  text-decoration: none;
+}
+
+.kaui-account-timelines-show .dots-menu {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.kaui-account-timelines-show .datetime-container {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #414651;
+}
+
+.kaui-account-timelines-show .transaction-status .alert-success {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 3.90234rem;
+  background-color: #ecfdf3;
+  border: 0.0625rem solid #dcfae6;
+  color: #067647;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  margin: 0;
+  position: relative;
+}
+
+.kaui-account-timelines-show .transaction-status .alert-success::before {
+  content: "";
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 3L4.5 8.5L2 6' stroke='%2317B26A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.kaui-account-timelines-show .transaction-status .alert-danger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 3.90234rem;
+  background-color: #fef3f2;
+  border: 0.0625rem solid #fee4e2;
+  color: #b42318;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  margin: 0;
+  position: relative;
+}
+
+.kaui-account-timelines-show .transaction-status .alert-danger::before {
+  content: "";
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.5 3.5L3.5 8.5M3.5 3.5L8.5 8.5' stroke='%23F97066' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.kaui-account-timelines-show #search {
+  height: 2rem;
+  margin-right: 0.5rem;
+  border-radius: 0.375rem;
+}
+
+.kaui-account-timelines-show #search:focus {
+  border-color: blue;
+  outline: none;
+  box-shadow: none;
+}

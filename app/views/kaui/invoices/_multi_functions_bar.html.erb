@@ -1,13 +1,19 @@
+<div class="d-flex">
 <div class="filter-bar-container">
   <div class="filter-bar">
-    <button class="btn btn-default download-button-right" data-toggle="modal" data-target="#advanceSearchModal">
-      <i class="glyphicon glyphicon-search"></i>
-      <strong>Advance Search</strong>
-    </button>
-
-    <div id="search-labels-container" class="ml-2">
-      <!-- Dynamic search labels will be added here -->
-    </div>
+    <%= render "kaui/components/button/button", {
+      label: "Advance Search",
+      icon: "kaui/search.svg",
+      variant: "outline-secondary d-inline-flex align-items-center gap-1",
+      type: "button",
+      html_class: "kaui-button custom-hover",
+      html_options: {
+        data: {
+          bs_toggle: "modal",
+          bs_target: "#advanceSearchModal"
+        }
+      }
+    } %>
 
   </div>
 </div>
@@ -15,21 +21,37 @@
 <%= render :partial => 'invoice_filterbar' %>
 
 <div class="dropdown-container">
-  <button class="btn btn-default download-button-right" type="button" id="modalDownloadButton">
-    <i class="glyphicon glyphicon-download-alt"></i>
-    <strong>Download CSV</strong>
-  </button>
+  <%= render "kaui/components/button/button", {
+    label: "Download CSV",
+    icon: "kaui/download.svg",
+    variant: "outline-secondary d-inline-flex align-items-center gap-1 mx-2",
+    type: "button",
+    html_class: "kaui-button custom-hover",
+    html_options: {
+      id: "modalDownloadButton"
+    }
+  } %>
   <div class="dropdown">
-    <button class="btn btn-default dropdown-toggle toggle-button-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      <i class="glyphicon glyphicon-cog"></i>
-      <strong>Edit Columns</strong>
-    </button>
+    <%= render "kaui/components/button/button", {
+      label: "Edit Columns",
+      icon: "kaui/setting.svg",
+      variant: "outline-secondary d-inline-flex align-items-center gap-1",
+      type: "button",
+      html_class: "kaui-button custom-hover",
+      html_options: {
+        id: "dropdownMenu1",
+        data: {
+          bs_toggle: "dropdown"
+        }
+      }
+    } %>
     <ul class="dropdown-menu" id="column-visibility" aria-labelledby="v">
       <%  Kaui.account_invoices_columns.call[0].each_with_index do |title, index| %>
           <li class="list-group-item-manual" data-id="<%= index %>">
             <label class="label-group-item-manual">
-              <input type="checkbox" class="column-toggle" draggable="true" data-column="<%= index %>" checked> <%= title %>
-              <span class="glyphicon glyphicon-option-vertical icon-drag" aria-hidden="true"></span>
+              <input type="checkbox" class="column-toggle" draggable="true" data-column="<%= index %>" checked> 
+              <%= title %>
+              <span class="icon-drag" aria-hidden="true"></span>
             </label>
           </li>
       <% end %>
@@ -41,137 +63,139 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="downloadCsvModalLabel">Download</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <h5 class="modal-title d-flex align-items-center gap-3" id="downloadCsvModalLabel">
+          <span class="icon-container">
+            <%= image_tag("kaui/download-csv.svg") %>
+          </span>
+          Download
+        </h5>
+        <button type="button" class="close close-button custom-hover" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <%= image_tag("kaui/modal/close.svg", width: 20, height: 20) %>
+          </span>
         </button>
       </div>
       <div class="modal-body">
         <form id="downloadCsvForm">
           <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="startDate">Invoice Date From:</label>
-                <input type="text" class="form-control" id="startDate" name="startDate">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="endDate">To:</label>
-                <input type="text" class="form-control" id="endDate" name="endDate">
-              </div>
+            <div class="d-flex align-items-center">
+              <label for="searchFieldSelect" class="field-label col-sm-3">Account Creation Date</label>
+                <div class="fake-select-wrapper col-sm-9">
+                  <input type="checkbox" id="single-toggle" hidden />
+                  <div class="d-flex align-items-center position-relative">
+                    <label for="single-toggle" class="fake-select-display">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.5833 12.5V18.3333M17.5 15.4167H11.6666" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13.75 1.6665V4.99984M6.25 1.6665V4.99984" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.5 10.8335V5.00016C17.5 4.07969 16.7538 3.3335 15.8333 3.3335H4.16667C3.24619 3.3335 2.5 4.07969 2.5 5.00016V16.6668C2.5 17.5873 3.24619 18.3335 4.16667 18.3335H10" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2.5 8.3335H17.5" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </label>
+                    <input type="text" class="form-control center-input" id="startDate" placeholder="All accounts" name="startDate">
+                    <div id="dash" class="dash">–</div>
+                    <input type="text" class="form-control right-input" id="endDate" name="endDate">
+                    <div id="toggle-wrapper" class="position-absolute" style="width: 100%; height: 100%;" onclick="document.getElementById('single-toggle').click()"></div>
+                  </div>
+
+                  <% today = Date.today %>
+
+                  <% start_of_year = Date.new(today.year, 1, 1) %>
+                  <% end_of_year = Date.new(today.year, 12, 31) %>
+                  <% this_year_range = "#{start_of_year.strftime('%b %-d, %Y')} – #{end_of_year.strftime('%b %-d, %Y')}" %>
+
+                  <% start_of_month = Date.new(today.year, today.month, 1) %>
+                  <% end_of_month = Date.new(today.year, today.month, -1) %>
+                  <% this_month_range = "#{start_of_month.strftime('%b %-d, %Y')} – #{end_of_month.strftime('%b %-d, %Y')}" %>
+
+                  <% start_of_week = today - ((today.wday - 1) % 7) %>
+                  <% end_of_week = start_of_week + 6 %>
+                  <% this_week_range = "#{start_of_week.strftime('%b %-d, %Y')} – #{end_of_week.strftime('%b %-d, %Y')}" %>
+
+
+                  <div class="fake-select-dropdown">
+                    <label class="fake-select-option">
+                      <input type="radio" name="download_option" id="allData" />
+                      <span>All accounts</span>
+                    </label>
+
+                    <label class="fake-select-option">
+                      <input type="radio" name="download_option" id="thisWeek" />
+                      <span>This week <small>(<%= this_week_range %>)</small></span>
+                    </label>
+
+                    <label class="fake-select-option">
+                      <input type="radio" name="download_option" id="thisMonth" />
+                      <span>This month <small>(<%= this_month_range %>)</small></span>
+                    </label>
+
+                    <label class="fake-select-option">
+                      <input type="radio" name="download_option" id="thisYear" />
+                      <span>This year <small>(<%= this_year_range %>)</small></span>
+                    </label>
+                    <label class="fake-select-option">
+                      <input type="radio" name="download_option" id="customDate" />
+                      <span>Custom date</span>
+                    </label>
+                  </div>
+                </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6">
-              <div class="form-check">
-                <div>
-                  <input type="radio" id="customDate" name="download_option" value="customDate">
-                  <label for="customDate">Custom date</label>
+            <div class="d-flex align-items-center">
+              <label for="searchFieldSelect" class="field-label col-sm-3">Include fields</label>
+              <div class="col-md-9">
+                <div class="chip-select">
+                  <input type="checkbox" id="dropdown-toggle" hidden />
+
+                  <label for="dropdown-toggle" class="chip-input-box position-relative">
+                    <div class="chip-list">
+                      <input type="checkbox" id="allFields" hidden />
+                      <label for="allFields" class="chip">All fields</label>
+                      <svg width="16" height="16" class="position-absolute" style="top: 0.625rem; right: 0.625rem;" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 6L8 10L12 6" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <div id="" class="position-absolute" style="width: 100%; height: 100%; top: 0; left: 0;"></div>
+                  </label>
+                  <div class="chip-dropdown">
+                    <label class="chip-option">
+                      <input type="checkbox" id="allFields" onchange="document.getElementById('allFields').click()" />
+                      All fields
+                    </label>
+                  </div>
                 </div>
-                <div>
-                  <input type="radio" id="allData" name="download_option" value="all">
-                  <label for="allData">All invoices</label>
-                </div>
-                <div>
-                  <input type="radio" id="thisWeek" name="download_option" value="thisWeek">
-                  <label for="thisWeek">This week</label>
-                </div>
-                <div>
-                  <input type="radio" id="thisMonth" name="download_option" value="thisMonth">
-                  <label for="thisMonth">This month</label>
-                </div>
-                <div>
-                  <input type="radio" id="thisYear" name="download_option" value="thisYear">
-                  <label for="thisYear">This year</label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <h5>Additional Options</h5>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="allFields" name="allFields">
-                <label class="form-check-label" for="allFields">All fields</label>
               </div>
             </div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="downloadButton">Download</button>
+        <%= render "kaui/components/button/button", {
+          label: 'Close',
+          variant: "outline-secondary d-inline-flex align-items-center gap-1",
+          type: "button",
+          html_class: "kaui-button custom-hover mx-2 my-0",
+          html_options: {
+            data: {
+              bs_dismiss: "modal"
+            },
+          }
+        } %>
+        <%= render "kaui/components/button/button", {
+          label: 'Download CSV',
+          variant: "outline-secondary d-inline-flex align-items-center gap-1",
+          type: "button",
+          html_class: "kaui-dropdown custom-hover m-0",
+          html_options: {
+            id: "downloadButton"
+          }
+        } %>
       </div>
     </div>
   </div>
 </div>
 
-<style>
-  .dropdown-menu#column-visibility {
-    max-height: 300px;
-    width: 200px;
-    overflow-y: auto;
-  }
-  
-  .dropdown-menu {
-    padding: 5px;
-  }
-
-  .dropdown-menu#column-visibility::before {
-    content: 'Drag to reorder columns';
-    display: block;
-    height: 30px;
-    text-align: center;
-    color: darkgrey;
-    padding-top: 5px;
-  }
-
-  .toggle-button-right {
-    float: right;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    background-color: white;
-    color: black;
-    text-transform: none;
-    border: 1px solid #ccc;
-    padding: 8px 15px;
-  }
-
-  .download-button-right {
-    float: right;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    background-color: white;
-    color: black;
-    text-transform: none;
-    border: 1px solid #ccc;
-    padding: 8px 15px;
-  }
-
-  .icon-drag {
-    float: right;
-    padding: 5px;
-  }
-
-  .dropdown-container {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .label-group-item-manual {
-    margin: 5px;
-    width: -webkit-fill-available;
-    cursor: grab;
-  }
-  .label-group-item-manual:active {
-      cursor: grabbing;
-  }
-</style>
+</div>
 
 <%= javascript_tag do %>
 $(document).ready(function() {
@@ -189,6 +213,8 @@ $(document).ready(function() {
   $('#downloadCsvModal').on('show.bs.modal', function (e) {
     $('#allData').prop('checked', true);
     $('#startDate, #endDate').prop('disabled', true);
+    $('#toggle-wrapper').show();
+    $('#dash').hide();
     $('#startDate').val(null);
     $('#endDate').val(null);
   });
@@ -196,24 +222,32 @@ $(document).ready(function() {
   $('#allData').change(function() {
     $('#startDate').val(null);
     $('#endDate').val(null);
+    $('#toggle-wrapper').show();
+    $('#dash').hide();
     $('#startDate, #endDate').prop('disabled', true);
   });
 
   $('#thisWeek').change(function() {
     if ($(this).is(':checked')) {
       setDateRange("week");
+      $('#toggle-wrapper').show();
+      $('#dash').show();
     }
   });
 
   $('#thisMonth').change(function() {
     if ($(this).is(':checked')) {
       setDateRange("month");
+      $('#toggle-wrapper').show();
+      $('#dash').show();
     }
   });
 
   $('#thisYear').change(function() {
     if ($(this).is(':checked')) {
       setDateRange("year");
+      $('#toggle-wrapper').show();
+      $('#dash').show();
     }
   });
 
@@ -221,6 +255,8 @@ $(document).ready(function() {
     if ($(this).is(':checked')) {
       setDateRange("day");
       $('#startDate, #endDate').prop('disabled', false);
+      $('#toggle-wrapper').hide();
+      $('#dash').show();
     }
   });
 
@@ -286,7 +322,13 @@ $(document).ready(function() {
           class: "column-toggle"
         });
         $label.append($checkbox).append(" " + col_name);
-        var $icon = $("<span>", { class: "glyphicon glyphicon-option-vertical icon-drag"});
+        var $icon = $(`
+          <span class="icon-drag" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.66669 5H6.67198M6.66669 10H6.67198M6.66669 15H6.67198M13.3281 5H13.3334M13.3281 10H13.3334M13.3281 15H13.3334" stroke="#A4A7AE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        `);
         $label.append($icon);
         $item.append($label);
         $list.append($item);
@@ -332,6 +374,21 @@ $(document).ready(function() {
     var table = $('#invoices-table').DataTable();
     var column = table.column($(this).attr('data-column'));
     column.visible(!column.visible());
+  });
+
+  document.addEventListener('click', function (e) {
+    const wrapper = document.querySelector('.chip-select');
+    const toggle = document.getElementById('dropdown-toggle');
+
+    if (wrapper && !wrapper.contains(e.target)) {
+      toggle.checked = false; // close dropdown
+    }
+  });
+
+  document.addEventListener('click', function (e) {
+    const wrapper = document.querySelector('.fake-select-wrapper');
+    const toggle = document.getElementById('single-toggle');
+    if (!wrapper.contains(e.target)) toggle.checked = false;
   });
 });
 <% end %>

@@ -1,40 +1,61 @@
 <%= form_for @tag_definition, :html => {:class => 'form-horizontal'} do |f| %>
-    <%= f.hidden_field :id %>
+  <%= f.hidden_field :id %>
 
-    <div class="form-group">
-      <%= f.label :object_type, :class => 'col-sm-2 control-label'  do %>
-          Object type<a class='btn btn-xs tag-definition-add-link' href="javascript:void(0);" onclick="new_object_type();" id="new_object_type">
-            <%= '<i class="fa fa-plus-square"></i>'.html_safe %>
-          </a>
-      <% end %>
-      <div class="col-sm-10" id="object_types">
+  <div class="form-group d-flex">
+    <%= f.label :object_type, :class => 'col-sm-3 control-label'  do %>
+      Object Type
+    <% end %>
+    <div class="col-sm-9 d-flex" >
+      <div class="w-100 col-sm-6" id="object_types">
         <% (@tag_definition.applicable_object_types || [:account]).each_with_index do |object_type, index| %>
-        <div id="object_type_line_<%= index %>">
-        <%= select_tag "tag_definition[applicable_object_types][#{index}]", options_for_select(object_types),  {:selected => object_type, :id => "object_type_#{index}", :class => 'form-control tag-definition-select'} %>
-          <a class='btn btn-xs' href="javascript:void(0);" onclick="delete_object_type(this);" id="delete_object_type_<%= index %>" <%= "style='display: none;'".html_safe if index == 0 %>>
-            <%= '<i class="fa fa-times"></i>'.html_safe %>
-          </a>
-        </div>
+          <div class="d-flex" id="object_type_line_<%= index %>">
+            <%= select_tag "tag_definition[applicable_object_types][#{index}]", options_for_select(object_types),  {:selected => object_type, :id => "object_type_#{index}", :class => 'form-control tag-definition-select'} %>
+              <a class='' href="javascript:void(0);" onclick="delete_object_type(this);" id="delete_object_type_<%= index %>" <%= "style='display: none;'".html_safe if index == 0 %>>
+                <button type="button" class="button custom-hover">
+                  <%= image_tag("kaui/modal/red-close.svg", width: 16, height: 16) %>
+                </button>
+              </a>
+              <a class='d-none' href="javascript:void(0);" onclick="new_object_type();" id="new_object_type" <%= "style='display: block !important;'".html_safe if index == 0 %>>
+              <button type="button" class="border-button custom-hover">
+                <%= image_tag("kaui/modal/plus.svg", width: 16, height: 16) %>
+              </button>
+              </a>
+
+          </div>
         <% end %>
       </div>
+      
     </div>
-    <div class='form-group'>
-      <%= f.label :name, 'Name', :class => 'col-sm-2 control-label' %>
-      <div class='col-sm-10'>
-        <%= f.text_field :name, :class => 'form-control' %>
-      </div>
+  </div>
+  <div class='form-group d-flex pb-3'>
+    <%= f.label :name, 'Name', :class => 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :name, :class => 'form-control' %>
     </div>
-    <div class='form-group'>
-      <%= f.label :description, 'Description', :class => 'col-sm-2 control-label' %>
-      <div class='col-sm-10'>
-        <%= f.text_field :description, :class => 'form-control' %>
-      </div>
+  </div>
+  <div class='form-group d-flex pb-3'>
+    <%= f.label :description, 'Description', :class => 'col-sm-3 control-label' %>
+    <div class='col-sm-9'>
+      <%= f.text_field :description, :class => 'form-control' %>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <%= submit_tag 'Save', :class => 'btn btn-default' %>
-      </div>
-    </div>
+  </div>
+  <div class="form-group d-flex justify-content-end pt-3 border-top">
+    <%= render "kaui/components/button/button", {
+      label: 'Close',
+      variant: "outline-secondary d-inline-flex align-items-center gap-1",
+      type: "button",
+      html_class: "kaui-button custom-hover mx-2",
+      html_options: {
+        onclick: "window.history.back();"
+      }
+    } %>
+    <%= render "kaui/components/button/button", {
+      label: 'Save Definition',
+      variant: "outline-secondary d-inline-flex align-items-center gap-1",
+      type: "submit",
+      html_class: "kaui-dropdown custom-hover"
+    } %>
+  </div>
 <% end %>
 
 <%= javascript_tag do %>

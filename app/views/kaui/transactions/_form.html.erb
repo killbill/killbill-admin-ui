@@ -5,69 +5,95 @@
     <%= hidden_field_tag :account_id, @account_id %>
     <%= hidden_field_tag :payment_method_id, @payment_method_id %>
 
-    <div class="form-group">
+    <div class="form-group d-flex pb-3">
       <%= f.label :transaction_type, 'Transaction type', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
         <%= f.select :transaction_type, %w(AUTHORIZE CAPTURE CHARGEBACK CREDIT PURCHASE REFUND VOID), {}, :class => 'form-control', :disabled => fix_transaction_state %>
       </div>
     </div>
     <% unless @transaction.transaction_type == 'VOID' %>
-        <div class="form-group">
-          <%= f.label :amount, 'Amount', :class => 'col-sm-3 control-label' %>
-          <div class="col-sm-9">
-            <%= f.text_field :amount, :id => 'charge_amount', :class => 'form-control', :disabled => fix_transaction_state %>
+      <div class="form-group d-flex pb-3 border-bottom mb-3">
+        <%= f.label :amount, 'Amount', class: 'col-sm-3 control-label' %>
+        <div class="input-group">
+          <%= f.number_field :amount, step: :any, id: 'charge_amount', class: 'form-control', placeholder: '$ 0.00', disabled: fix_transaction_state %>
+          <div class="input-group-append">
+            <% if @invoice.present? %>
+              <span class="input-group-text"><%= @invoice.currency %></span>
+              <%= f.hidden_field :currency %>
+            <% else %>
+              <%= f.select :currency, currencies, {}, class: 'form-control currency-select', disabled: fix_transaction_state %>
+            <% end %>
           </div>
         </div>
-        <div class="form-group">
-          <%= f.label :currency, 'Currency', :class => 'col-sm-3 control-label' %>
-          <div class="col-sm-9">
-            <%= f.select :currency, currencies, {}, :class => 'form-control', :disabled => fix_transaction_state %>
-          </div>
-        </div>
+      </div>
     <% end %>
+
     <% unless @transaction.payment_id.present? %>
-        <div class="form-group">
+        <div class="form-group d-flex pb-3">
           <%= f.label :payment_external_key, 'Payment key', :class => 'col-sm-3 control-label' %>
           <div class="col-sm-9">
             <%= f.text_field :payment_external_key, :class => 'form-control', :disabled => fix_transaction_state %>
           </div>
         </div>
     <% end %>
-    <div class="form-group">
+    <div class="form-group d-flex pb-3">
       <%= f.label :transaction_external_key, 'Transaction key', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
         <%= f.text_field :transaction_external_key, :class => 'form-control', :disabled => fix_transaction_state %>
       </div>
     </div>
     <% if fix_transaction_state %>
-        <div class="form-group">
+        <div class="form-group d-flex pb-3">
           <%= f.label :transaction_status, 'Transaction status', :class => 'col-sm-3 control-label' %>
           <div class="col-sm-9">
             <%= f.select :status, transaction_statuses, {}, :class => 'form-control' %>
           </div>
         </div>
     <% end %>
-    <div class="form-group">
+    <div class="form-group d-flex pb-3">
       <%= label_tag :reason, 'Reason', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
         <%= select_tag :reason, options_for_select(Kaui.payment_reason_codes), :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group d-flex pb-3 border-bottom mb-3">
       <%= label_tag :comment, 'Comment', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
         <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
       </div>
     </div>
-    <div id="control_plugins" class="col-sm-offset-3 col-sm-9">
-      <%= render :partial => 'control_plugin_names' %>
-    </div>
-    <div id="properties" class="col-sm-offset-3 col-sm-9">
-      <%= render :partial => 'kaui/payment_methods/plugin_properties' %>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-3 col-sm-9">
-        <%= submit_tag 'Save', :class => 'btn btn-default' %>
+    <div class="form-group d-flex pb-3 border-bottom mb-3 payment-method-form">
+      <div class="col-sm-3"></div>
+      <div id="control_plugins" class="col-sm-9">
+        <%= render :partial => 'control_plugin_names' %>
       </div>
+    </div>
+    <div class="form-group d-flex pb-3 border-bottom mb-3 payment-method-form">
+      <div class="col-sm-3"></div>
+      <div id="properties" class="col-sm-offset-3 col-sm-9">
+        <%= render :partial => 'kaui/payment_methods/plugin_properties' %>
+      </div>
+    </div>
+
+    <div class="form-group d-flex justify-content-end pb-3">
+      <%= render "kaui/components/button/button", {
+        label: 'Close',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "button",
+        html_class: "kaui-button custom-hover mx-2",
+        html_options: {
+          id: "closeButton",
+          onclick: "window.history.back();"
+        }
+      } %>
+      <%= render "kaui/components/button/button", {
+        label: 'Save Charge',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "submit",
+        html_class: "kaui-dropdown custom-hover",
+        html_options: {
+          id: "saveButton"
+        }
+      } %>
     </div>
 <% end %>

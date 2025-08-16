@@ -1,32 +1,20 @@
 <div class="kaui-container">
-<%= render "kaui/components/breadcrumb/breadcrumb" %>
-<div class="d-flex" style="gap: 64px;">
-  <% if params[:account_id].present? %>
-    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
-  <% end %>
-<div class="d-flex flex-column w-100">
-  <%
-=begin%>
- <%= render :partial => 'account_info' %> 
-<%
-=end%>
-  <%= render :partial => 'account_details' %>
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <div class="d-flex" style="gap: 4rem;">
+    <% if params[:account_id].present? %>
+      <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+    <% end %>
+    <div class="d-flex flex-column w-100">
+      <%= render :partial => 'account_details' %>
 
-  <%= render :partial => 'billing_details' %>
+      <%= render :partial => 'billing_details' %>
 
-  <%= render :partial => 'personal_details' %>
+      <%= render :partial => 'personal_details' %>
 
-  <%= render :partial => 'payment_gateways' %>
+      <%= render :partial => 'payment_gateways' %>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-
-
-<%
-=begin%>
- <%= render :partial => 'link_parent_modal' %> 
-<%
-=end%>
 
 <%= render :partial => 'link_parent_to_modal' %>
 

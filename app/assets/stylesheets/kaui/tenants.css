@@ -1,0 +1,1524 @@
+.control-label {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  color: #414651 !important;
+}
+
+.kaui-tenant-select .choose-tenant-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  color: #1b1c1e;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.kaui-tenant-select .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #d5d7da;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.kaui-tenant-select .icon-container img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.kaui-tenant-select .control-label {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  color: #414651 !important;
+}
+
+.kaui-tenant-select select#kb_tenant_id {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: block;
+  height: 2.5rem;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.0625rem solid #ced4da;
+  border-radius: 0.375rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-image: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 6L8 10L12 6' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.625rem center;
+  background-size: 1rem 1rem;
+  padding-right: 1.875rem;
+}
+
+.kaui-tenant-select select#kb_tenant_id:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #1570ef;
+}
+
+/* app/views/kaui/admin_tenants/index.html.erb */
+
+.admin-tenant-details .admin-tenant-details-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 0.0625rem solid #E9EAEB;
+}
+
+.admin-tenant-details .admin-tenant-details-header h2 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #414651;
+  margin-bottom: 1.25rem;
+}
+
+.admin-tenant-details table {
+  overflow-x: auto;
+  min-width: 100%;
+}
+
+.admin-tenant-details table th {
+  padding: 0.375rem 0.75rem !important;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  letter-spacing: 0;
+  color: #717680;
+  text-transform: capitalize;
+}
+
+.admin-tenant-details table td {
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  padding: 1rem 0.5rem !important;
+  line-height: 1.125rem !important;
+  text-align: start;
+  color: #535862 !important;
+  text-transform: capitalize !important;
+}
+
+
+.admin-tenant-details table thead tr th::after {
+  content: "" !important;
+  display: inline-block !important;
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 5.5L6 2.5L9 5.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 0.75rem 0.75rem !important;
+  position: absolute !important;
+  right: 0.5rem !important;
+  top: 45% !important;
+  transform: translateY(-50%) !important;
+}
+
+.admin-tenant-details table thead tr th::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6.5L6 9.5L9 6.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 0.75rem 0.75rem !important;
+  position: absolute !important;
+  right: 0.5rem !important;
+  bottom: 45% !important;
+  transform: translateY(50%) !important;
+}
+
+/* app/views/kaui/admin_tenants/new.html.erb */
+
+.add-new-tenant-details .add-new-tenant-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  color: #1B1C1E;
+  padding: 1.5rem 0;
+}
+
+.add-new-tenant-details .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #D5D7DA;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.add-new-tenant-details .icon-container img {
+  width: 1rem;
+  height: 1rem;
+}
+  
+.add-new-tenant-details .control-label {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  color: #414651 !important;
+}
+
+.add-new-tenant-details .form-group .form-control {
+  margin-right: 0.25rem;
+  height: 2.5rem;
+  border-radius: 0.375rem;
+}
+
+/* app/views/kaui/admin_tenants/_useful_links.html.erb */
+
+.useful-links-container {
+  max-width: 80rem;
+  width: 100%;
+}
+
+.useful-links-container .useful-links-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 0.0625rem solid #E9EAEB;
+  padding-bottom: 1rem;
+}
+
+.useful-links-container .useful-links-header h2 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #414651;
+  margin: 0;
+}
+
+.useful-links-container .useful-links b {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #414651 !important;
+  font-weight: 600;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem;
+  text-align: left;
+}
+
+.useful-links-container .useful-links p {
+  display: block;
+  color: #717680 !important;
+  font-weight: 400;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem;
+  text-align: left;
+}
+
+.useful-links-container .useful-links ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.useful-links-container .useful-links li {
+  list-style-type: none;
+}
+
+.useful-links-container .useful-links li a {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  color: #717680 !important;
+}
+
+/* app/views/kaui/admin_tenants/_tenant_details.html.erb */
+
+.tenant-details-container {
+  max-width: 80rem;
+  width: 100%;
+}
+
+.tenant-details-container .tenant-details-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 0.0625rem solid #E9EAEB;
+  padding-bottom: 1rem;
+}
+
+.tenant-details-container .tenant-details-header h2 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #414651;
+  margin: 0;
+}
+
+.tenant-details-container .tenant-details b {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #414651 !important;
+  font-weight: 600;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem;
+  text-align: left;
+}
+
+.tenant-details-container .tenant-details p {
+  display: block;
+  color: #717680 !important;
+  font-weight: 400;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem;
+  text-align: left;
+}
+
+.tenant-details-container .dots-menu {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* app/views/kaui/admin_tenants/show.html.erb */
+
+.admin-tenant-show .allowed-users-container {
+  max-width: 80rem; 
+  width: 100%;
+}
+
+.admin-tenant-show .allowed-users-container .allowed-users-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 0.0625rem solid #E9EAEB;
+}
+
+.admin-tenant-show .allowed-users-container .allowed-users-header h2 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #414651;
+  margin-bottom: 1.25rem;
+}
+
+.admin-tenant-show .allowed-users-container .dots-menu {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  text-decoration: none !important;
+  color: #D92D20 !important;
+  font-weight: 500;
+  padding-right: 0.5rem !important; 
+  font-size: 0.875rem; 
+  line-height: 1.125rem;  
+}
+
+.admin-tenant-show .card {
+  background: #FAFAFA;
+  border: 0.0625rem solid #E9EAEB;
+  border-radius: 0.5rem;
+}
+
+.admin-tenant-show .gap-container {
+  margin-bottom: 3.375rem !important;
+}
+
+.admin-tenant-show .dataTables_wrapper {
+  margin-bottom: 0 !important;
+}
+
+.admin-tenant-show table {
+  overflow-x: auto;
+  min-width: 100%;
+}
+
+.admin-tenant-show table th {
+  padding: 0.375rem 0.75rem !important; 
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  letter-spacing: 0;
+  color: #717680;
+  text-transform: capitalize;
+}
+
+.admin-tenant-show table td {
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  padding: 1rem 0.5rem !important;
+  line-height: 1.125rem !important;
+  text-align: start;
+  color: #535862 !important;
+  text-transform: capitalize !important;
+}
+
+.admin-tenant-show table#allowed-users-for-tenant-table thead tr th::after {
+  content: "" !important;
+  display: inline-block !important;
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 5.5L6 2.5L9 5.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 0.75rem 0.75rem !important;
+  position: absolute !important;
+  right: 0.5rem !important;
+  top: 45% !important;
+  transform: translateY(-50%) !important;
+}
+
+.admin-tenant-show table#allowed-users-for-tenant-table thead tr th::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6.5L6 9.5L9 6.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 0.75rem 0.75rem !important;
+  position: absolute !important;
+  right: 0.5rem !important;
+  bottom: 45% !important;
+  transform: translateY(50%) !important;
+}
+
+.admin-tenant-show .nav-tabs-details .nav-link.active {
+  border-bottom: 0.125rem solid #1570EF !important; 
+  color: #175CD3 !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  
+}
+.admin-tenant-show .nav-tabs-details .nav-link {
+  border-bottom: 0.125rem solid transparent;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  padding: 0.25rem 0 0.75rem 0.25rem !important;
+  color: #717680;
+  margin-right: 0.75rem !important;
+  font-weight: 500 !important;
+  font-size: 0.875rem !important; 
+  line-height: 1.25rem !important;
+}
+
+/* app/views/kaui/admin_tenants/_add_allowed_user_modal.html.erb */
+
+.addAllowedUserModal .modal-content {
+  border-radius: 1rem;
+  max-width: 40.5rem;
+  width: 100%;
+}
+
+.addAllowedUserModal .control-label {
+  margin-top: -1.25rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+}
+
+.addAllowedUserModal .modal-body {
+  padding: 0 !important;
+}
+
+.addAllowedUserModal .modal-header {
+  padding: 1.5rem 1.5rem 1rem 1.5rem !important;
+}
+
+.addAllowedUserModal .modal-footer {
+  padding: 1rem 1.5rem 1.5rem 1.5rem !important;
+}
+
+.addAllowedUserModal .modal-title {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #181D27;
+}
+
+.addAllowedUserModal .close-button {
+  background: transparent;
+  padding: 0;
+  margin-top: -1.25rem;
+}
+
+.addAllowedUserModal .close-button:hover {
+  background: transparent;
+  padding: 0;
+}
+
+.addAllowedUserModal .border-button {
+  background: transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #D5D7DA;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.625rem;
+}
+
+.addAllowedUserModal .border-button:hover {
+  background: transparent;
+}
+
+.addAllowedUserModal .button {
+  background: transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.625rem;
+}
+
+.addAllowedUserModal .button:hover {
+  background: transparent;
+}
+
+.addAllowedUserModal .field-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+  margin-top: -1.25rem;
+  min-width: 9.59375rem;
+}
+
+.addAllowedUserModal .search-field-label {
+  margin-top: -1.25rem;
+}
+
+.addAllowedUserModal .form-group.row.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+.addAllowedUserModal .form-group.row.align-items-center label {
+  margin-bottom: 0;
+}
+
+.addAllowedUserModal .form-group.row.align-items-center .form-control {
+  margin-right: 0.25rem;
+  height: 2.5rem;
+  border-radius: 0.375rem;
+}
+
+.addAllowedUserModal .form-group.row.align-items-center.search-field div {
+  padding: 0;
+  margin-right: 0.25rem;
+}
+
+.addAllowedUserModal .form-group.row.align-items-center .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.addAllowedUserModal .form-group.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.addAllowedUserModal .form-group.d-flex label {
+  margin-bottom: 0;
+}
+
+.addAllowedUserModal .form-group.d-flex .form-control {
+  margin-right: 0.25rem;
+  height: 2.5rem;
+  border-radius: 0.375rem;
+}
+
+.addAllowedUserModal .form-group.d-flex .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.addAllowedUserModal #search-labels-container .label {
+  margin-left: 0.3125rem;
+  margin-bottom: 0.3125rem;
+  color: white;
+}
+
+.addAllowedUserModal .col-form-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+  padding: 0;
+}
+
+.addAllowedUserModal #search-fields-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0.75rem;
+}
+
+.addAllowedUserModal .filter-bar-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.addAllowedUserModal .filter-bar {
+  display: flex;
+  align-items: center;
+}
+
+.addAllowedUserModal .filter-bar label {
+  margin: 0.625rem;
+}
+
+.addAllowedUserModal .modal-header .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #D5D7DA;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.addAllowedUserModal .modal-header .icon-container img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.addAllowedUserModal .form-group select.form-control {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 6L8 10L12 6' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.625rem center;
+  background-size: 1rem 1rem;
+  padding-right: 1.875rem;
+}
+
+.addAllowedUserModal select.form-control:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+/* app/views/kaui/admin_tenants/_show_overdue.erb */
+
+.existing-overdue-config-for-tenants-container {
+  max-width: 80rem;
+  width: 100%;
+}
+
+.existing-overdue-config-for-tenants-container .existing-overdue-config-for-tenants-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 0.0625rem solid #E9EAEB;
+}
+
+.existing-overdue-config-for-tenants-container .existing-overdue-config-for-tenants-header h2 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #414651;
+  margin-bottom: 1.25rem;
+}
+
+.existing-overdue-config-for-tenants-container table.existing-overdue-config-for-tenants-table {
+  overflow-x: auto;
+  min-width: 100%;
+  border: none !important;
+}
+
+.existing-overdue-config-for-tenants-container table.existing-overdue-config-for-tenants-table tbody tr {
+  border-bottom: 0.0625rem solid #E9EAEB !important;
+}
+
+.existing-overdue-config-for-tenants-container table.existing-overdue-config-for-tenants-table ul {
+  margin-bottom: 0 !important;
+  padding-left: 0 !important;
+}
+
+.existing-overdue-config-for-tenants-container table.existing-overdue-config-for-tenants-table ul li {
+  list-style: none !important;
+}
+
+.existing-overdue-config-for-tenants-container table.existing-overdue-config-for-tenants-table th {
+  padding: 0.375rem 0.75rem !important;
+  font-weight: 500 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.125rem;
+  letter-spacing: 0;
+  color: #717680;
+  text-transform: capitalize;
+  background-color: #FAFAFA !important;
+}
+
+.existing-overdue-config-for-tenants-container table.existing-overdue-config-for-tenants-table td {
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  padding: 1rem 0.5rem !important;
+  line-height: 1.125rem !important;
+  text-align: start;
+  padding: 0.3125rem 0.75rem !important;
+  color: #535862 !important;
+  text-transform: capitalize !important;
+}
+
+/* app/views/kaui/admin_tenants/_form_invoice_template.erb */
+
+.form-invoice-template .checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.form-invoice-template .checkbox label span {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+}
+
+/* app/views/kaui/admin_tenants/_show_catalog_simple.erb */
+
+.show-catalog-simple .existing-plans-container {
+  max-width: 80rem;
+  width: 100%;
+}
+
+.show-catalog-simple .existing-plans-container .existing-plans-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 0.0625rem solid #E9EAEB;
+}
+
+.show-catalog-simple .existing-plans-container .existing-plans-header h2 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #414651;
+  margin-bottom: 1.25rem;
+}
+
+.show-catalog-simple .select-catalog-version select {
+  height: 2.125rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.0625rem solid #ced4da;
+  border-radius: 0.375rem;
+  margin-top: 0.0625rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 6L8 10L12 6' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.625rem center;
+  background-size: 1rem 1rem;
+  padding: 0 1.875rem 0 0.625rem;
+}
+
+.show-catalog-simple .select-catalog-version b {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+}
+
+.show-catalog-simple .select-catalog-version select:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.show-catalog-simple table.existing-plans-table {
+  overflow-x: auto;
+  min-width: 100%;
+  border: none !important;
+}
+
+.show-catalog-simple table.existing-plans-table select {
+  height: 1.375rem;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.0625rem solid #ced4da;
+  border-radius: 0.375rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 6L8 10L12 6' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.3125rem center;
+  background-size: 1rem 1rem;
+  padding: 0 1.25rem 0 0.5rem;
+}
+
+.show-catalog-simple table.existing-plans-table select:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.show-catalog-simple table.existing-plans-table th {
+  padding: 0.375rem 0.75rem !important;
+  font-weight: 500 !important;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  letter-spacing: 0;
+  color: #717680;
+  text-transform: capitalize;
+  background-color: #FAFAFA !important;
+}
+
+.show-catalog-simple table.existing-plans-table td {
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  padding: 1rem 0.5rem !important;
+  line-height: 1.125rem !important;
+  text-align: start;
+  color: #535862 !important;
+  text-transform: capitalize !important;
+}
+
+.show-catalog-simple .currency-button {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  color: #175CD3 !important;
+  font-weight: 500 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.125rem !important;
+}
+
+.show-catalog-simple .selected_catalog .category {
+  display: inline-block;
+  padding: 0.125rem 0.5rem !important;
+  border: 0.0625rem solid #D1E9FF !important;
+  border-radius: 39.0586rem;
+  font-weight: 500 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.125rem !important;
+  text-align: start;
+  color: #175CD3 !important;
+  background-color: #EFF8FF;
+  text-transform: capitalize;
+}
+
+.show-catalog-simple .selected_catalog .phase-duration {
+  display: inline-block;
+  padding: 0.125rem 0.5rem !important;
+  border: 0.0625rem solid #DCFAE6 !important;
+  border-radius: 39.0586rem;
+  font-weight: 500 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.125rem !important;
+  text-align: start;
+  color: #067647 !important;
+  background-color: #ECFDF3;
+  text-transform: capitalize;
+}
+
+/* app/views/kaui/admin_tenants/_show_catalog_xml.erb */
+
+.show-catalog-xml .catalog-container {
+  max-width: 80rem;
+  width: 100%;
+}
+
+.show-catalog-xml .catalog-container .catalog-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 0.0625rem solid #E9EAEB;
+}
+
+.show-catalog-xml .catalog-container .catalog-header h2 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #414651;
+  margin-bottom: 1.25rem;
+}
+
+.show-catalog-xml table {
+  overflow-x: auto;
+  min-width: 100%;
+  border: none !important;
+}
+
+.show-catalog-xml table th {
+  padding: 0.375rem 0.75rem !important;
+  font-weight: 500 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.125rem;
+  letter-spacing: 0;
+  color: #717680;
+  text-transform: capitalize;
+  background-color: #FAFAFA !important;
+}
+
+.show-catalog-xml table td {
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  padding: 1rem 0.5rem !important;
+  line-height: 1.125rem !important;
+  text-align: start;
+  color: #535862 !important;
+  text-transform: capitalize !important;
+}
+
+.show-catalog-xml .currency-button {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  color: #175CD3 !important;
+  font-weight: 500 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.125rem !important;
+}
+
+/* app/views/kaui/admin_tenants/new_catalog.html.erb */
+
+.kaui-new-catalog .add-account-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  color: #1B1C1E;
+  padding: 1.5rem 0;
+}
+
+.kaui-new-catalog .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #D5D7DA;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.kaui-new-catalog .icon-container img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.kaui-new-catalog .control-label {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  color: #414651 !important;
+}
+
+.kaui-new-catalog .question-circle {
+  color: #A4A7AE;
+  font-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  line-height: 1rem;
+  text-align: center;
+}
+
+.kaui-new-catalog .col-sm-9.position-relative a {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.kaui-new-catalog .form-group.d-flex.pb-3 .form-control {
+  height: 2.5rem;
+  border-radius: 0.375rem;
+}
+
+.kaui-new-catalog .form-group.d-flex .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.kaui-new-catalog .form-group select,
+.kaui-new-catalog .currency-select select.form-control {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: block;
+  height: 2.5rem;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.0625rem solid #ced4da;
+  border-radius: 0.375rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-image: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 6L8 10L12 6' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.625rem center;
+  background-size: 1rem 1rem;
+  padding-right: 1.875rem;
+}
+
+.kaui-new-catalog select:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #1570ef;
+}
+
+.kaui-new-catalog .additional-base-products select {
+  display: block;
+  height: 7.5rem;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.0625rem solid #ced4da;
+  border-radius: 0.375rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.kaui-new-catalog .additional-base-products select:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #1570ef;
+}
+
+.kaui-new-catalog .toggle-segment {
+  display: flex;
+  align-items: center;
+  border: 0.0625rem solid #D5D7DA;
+  width: fit-content;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  font-size: 0.875rem;
+}
+
+.kaui-new-catalog .toggle-segment .toggle-option {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem 1rem;
+  cursor: pointer;
+  color: #414651;
+  border-right: 0.0625rem solid #D5D7DA;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-decoration: none;
+  position: relative;
+  gap: 0;
+}
+
+.kaui-new-catalog .toggle-segment .toggle-option:last-child {
+  border-right: none;
+}
+
+.kaui-new-catalog .toggle-segment .toggle-option .dot {
+  display: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #17B26A;
+  border-radius: 50%;
+}
+
+.kaui-new-catalog .toggle-segment .toggle-option.active-btn {
+  background-color: #FAFAFA;
+  font-weight: 600;
+  color: #252B37;
+  gap: 1rem;
+}
+
+.kaui-new-catalog .toggle-segment .toggle-option.active-btn .dot {
+  display: inline-block;
+}
+
+.kaui-new-catalog .upload-status {
+  border: 0.0625rem solid #E9EAEB;
+  border-radius: 0.75rem;
+  background-color: #fff;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.kaui-new-catalog .upload-status-box {
+  border: 0.0625rem solid #d5d7da;
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  background-color: #fff;
+}
+
+.kaui-new-catalog #fileName {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+}
+
+.kaui-new-catalog .upload-content p {
+  margin: 0;
+  color: #555;
+}
+
+.kaui-new-catalog .upload-content .highlight {
+  color: #1570ef;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.kaui-new-catalog .file-icon .badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.375rem;
+}
+
+/* app/views/kaui/admin_tenants/new_overdue_config.html.erb */
+
+.kaui-new-overdue-config .add-account-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  color: #1B1C1E;
+  padding: 1.5rem 0;
+}
+
+.kaui-new-overdue-config .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #D5D7DA;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.kaui-new-overdue-config .icon-container img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.kaui-new-overdue-config .toggle-segment {
+  display: flex;
+  align-items: center;
+  border: 0.0625rem solid #D5D7DA;
+  width: fit-content;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  font-size: 0.875rem;
+}
+
+.kaui-new-overdue-config .toggle-segment .toggle-option {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem 1rem;
+  cursor: pointer;
+  color: #414651;
+  border-right: 0.0625rem solid #D5D7DA;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-decoration: none;
+  position: relative;
+  gap: 0;
+}
+
+.kaui-new-overdue-config .toggle-segment .toggle-option:last-child {
+  border-right: none;
+}
+
+.kaui-new-overdue-config .toggle-segment .toggle-option .dot {
+  display: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #17B26A;
+  border-radius: 50%;
+}
+
+.kaui-new-overdue-config .toggle-segment .toggle-option.active-btn {
+  background-color: #FAFAFA;
+  font-weight: 600;
+  color: #252B37;
+  gap: 1rem;
+}
+
+.kaui-new-overdue-config .toggle-segment .toggle-option.active-btn .dot {
+  display: inline-block;
+}
+
+.kaui-new-overdue-config .control-label {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  color: #414651 !important;
+}
+
+.kaui-new-overdue-config .new-overdue-states-button {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  color: #175CD3 !important;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin: 1rem 0;
+}
+
+.kaui-new-overdue-config .new-overdue-states-button img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.kaui-new-overdue-config .close-button {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.kaui-new-overdue-config .close-button img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.kaui-new-overdue-config table.existing-overdue-config-for-tenants {
+  overflow-x: auto;
+  min-width: 100%;
+  border: none !important;
+}
+
+.kaui-new-overdue-config table.existing-overdue-config-for-tenants select {
+  appearance: none;
+  display: block;
+  height: 2.5rem;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.0625rem solid #ced4da;
+  border-radius: 0.375rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.625rem center;
+  background-size: 1rem 1rem;
+  padding-right: 1.875rem;
+}
+
+.kaui-new-overdue-config table.existing-overdue-config-for-tenants select:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.kaui-new-overdue-config table.existing-overdue-config-for-tenants th {
+  padding: 0 0.5rem !important;
+  font-weight: 500 !important;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+  letter-spacing: 0;
+  color: #717680;
+  text-transform: capitalize;
+  background-color: #FAFAFA !important;
+  max-width: 8.5625rem !important;
+}
+
+.kaui-new-overdue-config table.existing-overdue-config-for-tenants td {
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  padding: 0.3125rem 0.75rem !important;
+  line-height: 1.125rem !important;
+  text-align: start;
+  color: #535862 !important;
+  text-transform: capitalize !important;
+  max-width: 8.5625rem !important;
+}
+
+.kaui-new-overdue-config table.existing-overdue-config-for-tenants td:last-child,
+.kaui-new-overdue-config table.existing-overdue-config-for-tenants th:last-child {
+  max-width: 3.125rem !important;
+}
+
+.kaui-new-overdue-config table.existing-overdue-config-for-tenants td input {
+  width: 100%;
+  display: block;
+  height: 2.5rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.0625rem solid #ced4da;
+  border-radius: 0.375rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.kaui-new-overdue-config table.existing-overdue-config-for-tenants td input:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #1570ef;
+}
+
+.kaui-new-overdue-config select:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #1570ef;
+}
+
+/* app/views/kaui/admin_tenants/new_plan_currency.html.erb */
+
+.catalog-simple-new-plan-currency .add-account-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  color: #1B1C1E;
+  padding: 1.5rem 0;
+}
+
+.catalog-simple-new-plan-currency .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #D5D7DA;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.catalog-simple-new-plan-currency .icon-container img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.catalog-simple-new-plan-currency .control-label {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  color: #414651 !important;
+}
+
+.catalog-simple-new-plan-currency .question-circle {
+  color: #A4A7AE;
+  font-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  line-height: 1rem;
+  text-align: center;
+}
+
+.catalog-simple-new-plan-currency .col-sm-9.position-relative a {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+.catalog-simple-new-plan-currency .form-group.d-flex.pb-3 .form-control {
+  height: 2.5rem;
+  border-radius: 0.375rem;
+}
+
+.catalog-simple-new-plan-currency .form-group.d-flex .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.catalog-simple-new-plan-currency .currency-select select.form-control {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: block;
+  height: 2.5rem;
+  width: fit-content;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.0625rem solid #ced4da;
+  border-left: none;
+  border-radius: 0 0.375rem 0.375rem 0 !important;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-image: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 6L8 10L12 6' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.625rem center;
+  background-size: 1rem 1rem;
+  padding-right: 1.875rem;
+}
+
+.catalog-simple-new-plan-currency select:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #1570ef;
+}
+
+.catalog-simple-new-plan-currency .amount-input {
+  height: 2.5rem;
+  border: 0.0625rem solid #D5D7DA;
+  border-right: none;
+  border-radius: 0.375rem 0 0 0.375rem !important;
+}
+
+.catalog-simple-new-plan-currency .additional-base-products select {
+  display: block;
+  height: 7.5rem;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.0625rem solid #ced4da;
+  border-radius: 0.375rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.catalog-simple-new-plan-currency .additional-base-products select:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #1570ef;
+}
+
+.catalog-simple-new-plan-currency .toggle-segment {
+  display: flex;
+  align-items: center;
+  border: 0.0625rem solid #D5D7DA;
+  width: fit-content;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  font-size: 0.875rem;
+}
+
+.catalog-simple-new-plan-currency .toggle-segment .toggle-option {
+  display: flex;
+  align-items: center;
+  padding: 0.625rem 1rem;
+  cursor: pointer;
+  color: #414651;
+  border-right: 0.0625rem solid #D5D7DA;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-decoration: none;
+  position: relative;
+  gap: 0;
+}
+
+.catalog-simple-new-plan-currency .toggle-segment .toggle-option:last-child {
+  border-right: none;
+}
+
+.catalog-simple-new-plan-currency .toggle-segment .toggle-option .dot {
+  display: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #17B26A;
+  border-radius: 50%;
+}
+
+.catalog-simple-new-plan-currency .toggle-segment .toggle-option.active-btn {
+  background-color: #FAFAFA;
+  font-weight: 600;
+  color: #252B37;
+  gap: 1rem;
+}
+
+.catalog-simple-new-plan-currency .toggle-segment .toggle-option.active-btn .dot {
+  display: inline-block;
+}
+
+.catalog-simple-new-plan-currency .upload-status {
+  border: 0.0625rem solid #E9EAEB;
+  border-radius: 0.75rem;
+  background-color: #fff;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.catalog-simple-new-plan-currency .upload-status-box {
+  border: 0.0625rem solid #d5d7da;
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  background-color: #fff;
+}
+
+.catalog-simple-new-plan-currency #fileName {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+}
+
+.catalog-simple-new-plan-currency .upload-content p {
+  margin: 0;
+  color: #555;
+}
+
+.catalog-simple-new-plan-currency .upload-content .highlight {
+  color: #1570ef;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.catalog-simple-new-plan-currency .file-icon .badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.375rem;
+}
