@@ -482,7 +482,7 @@ module Kaui
 
     def set_clock
       @tenant = safely_find_tenant_by_id(params[:id])
-      
+
       if params[:commit] == 'Submit'
         date = Date.parse(params[:new_date]).strftime('%Y-%m-%d')
         msg = I18n.translate('flashes.notices.clock_updated_successfully', new_date: date)
@@ -490,7 +490,7 @@ module Kaui
         date = nil
         msg = I18n.translate('flashes.notices.clock_reset_successfully')
       end
-      
+
       begin
         Kaui::Admin.set_clock(date, nil, options_for_klient)
       rescue KillBillClient::API::NotFound

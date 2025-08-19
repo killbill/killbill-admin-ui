@@ -63,8 +63,8 @@ module Kaui
 
       # Simple check: ensure the overdue status text appears in the response
       assert_includes @response.body, 'Overdue status'
-      
-      # Check that it shows "Good" status (account is in good standing)  
+
+      # Check that it shows "Good" status (account is in good standing)
       assert_select '.info-item b', text: 'Overdue status'
       assert_select '.badge.success', text: 'Good'
     end
