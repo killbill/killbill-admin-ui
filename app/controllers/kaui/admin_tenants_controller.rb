@@ -31,8 +31,12 @@ module Kaui
           options[:api_key] = param_tenant[:api_key]
           options[:api_secret] = param_tenant[:api_secret]
           new_tenant = Kaui::AdminTenant.find_by_api_key(param_tenant[:api_key], options)
-        rescue KillBillClient::API::Unauthorized, KillBillClient::API::NotFound
+        rescue KillBillClient::API::Unauthorized, KillBillClient::API::NotFound, KillBillClient::API::InternalServerError => e
           # Create the tenant in Kill Bill
+          if e.instance_of?(KillBillClient::API::InternalServerError) && !e.message&.include?('TenantCacheLoader cannot find value')
+            flash[:error] = "Internal server error while retrieving tenant: #{as_string(e)}"
+            redirect_to admin_tenants_path and return
+          end
           new_tenant = Kaui::AdminTenant.new
           new_tenant.external_key = param_tenant[:name]
           new_tenant.api_key = param_tenant[:api_key]
