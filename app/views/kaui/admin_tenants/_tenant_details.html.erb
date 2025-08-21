@@ -1,21 +1,57 @@
-<div class="col-md-6">
-
-  <div class="column-block">
-
-    <h1>Tenant details</h1>
-
-    <b>Name:</b> <%= @tenant.name %>&nbsp;
-      <% if session[:kb_tenant_name] == @tenant.name %>
-        <i class="fa fa-toggle-on switch-tenant-active" title="Currently selected"></i>
-      <% else %>
-        <%= link_to("<i class=\"fa fa-toggle-off\" aria-hidden=\"true\"></i>".html_safe,
-                  switch_tenant_path(:kb_tenant_id => @tenant.kb_tenant_id), title: 'Click the toggle to switch tenant') %>
-      <% end %>
-    <br/>
-    <b>Tenant ID:</b> <%= @tenant.kb_tenant_id %>
-    <br/>
-    <b>API Key:</b> <%= @tenant.api_key %>
-
+<div class="kaui-container gap-container">
+  <div class="tenant-details-container">
+    <div class="d-flex flex-column">
+      <div class="tenant-details-header mb-3">
+        <div class="d-flex align-items-start flex-column">
+          <h2>Tenant details</h2>
+        </div>
+        <span>
+        </span>
+      </div>
+      <div class="row tenant-details">
+        <div class="col-sm-4">
+          <b>Name:</b> 
+          <p><%= @tenant.name %>&nbsp; 
+            <% if session[:kb_tenant_name] == @tenant.name %>
+              <i class="fa fa-toggle-on switch-tenant-active" title="Currently selected"></i>
+            <% else %>
+              <%= link_to("<i class=\"fa fa-toggle-off\" aria-hidden=\"true\"></i>".html_safe, switch_tenant_path(:kb_tenant_id => @tenant.kb_tenant_id), title: 'Click the toggle to switch tenant') %>
+            <% end %>
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <b>Tenant ID:</b> 
+          <p>
+            <%= @tenant.kb_tenant_id %>
+            <%= render "kaui/components/button/button", {
+              label: '',
+              icon: "kaui/copy.svg",
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "button",
+              html_class: "dots-menu kaui-button",
+              html_options: {
+                onclick: "navigator.clipboard.writeText('#{@tenant.kb_tenant_id}')"
+              }
+            } %>
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <b>API Key:</b> 
+          <p>
+            <%= @tenant.api_key %>
+            <%= render "kaui/components/button/button", {
+              label: '',
+              icon: "kaui/copy.svg",
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "button",
+              html_class: "dots-menu kaui-button",
+              html_options: {
+                onclick: "navigator.clipboard.writeText('#{@tenant.api_key}')"
+              }
+            } %>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
-
 </div>

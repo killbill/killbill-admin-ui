@@ -1,4 +1,4 @@
-<div class="link_account modal fade" id="link_account" tabindex="-1" role="dialog">
+<div class="link-to-parent-account modal fade" id="link_account" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content column-block">
       <div class="modal-header">
@@ -39,7 +39,7 @@
           <div class="modal-footer">
             <%= render "kaui/components/button/button", {
               label: 'Close',
-              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              variant: "outline-secondary d-inline-flex align-items-center gap-1 m-0 mx-2",
               type: "button",
               html_class: "kaui-button custom-hover",
               html_options: {
@@ -50,7 +50,7 @@
             } %>
             <%= render "kaui/components/button/button", {
               label: 'Save',
-              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              variant: "outline-secondary d-inline-flex align-items-center gap-1 m-0",
               type: "submit",
               html_class: "kaui-dropdown custom-hover"
             } %>
@@ -60,125 +60,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  .link_account .modal-content {
-    border-radius: 16px;
-    min-width: 600px;
-    padding: 0;
-  }
-
-  .link_account .modal-body {
-    padding-bottom: 6px !important;
-    padding-top: 20px !important;
-  }
-
-  .link_account .modal-header { 
-    padding: 24px 24px 16px 24px !important;
-  }
-
-  .link_account .modal-footer {
-    padding: 16px 24px 24px 24px !important;
-  }
-
-  .link_account .modal-title {
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 28px;
-    color: #181D27;
-  }
-
-  .link_account .close-button {
-    background: transparent;
-    padding: 0;
-    margin-top: -20px;
-  }
-
-  .link_account .close-button:hover {
-    background: transparent;
-    padding: 0;
-  }
-
-  .link_account .form-group {
-    display: flex;
-    align-items: center;
-  }
-
-  .link_account .form-group label {
-    margin-bottom: 0; /* Remove default margin */
-  }
-
-  .link_account .form-group .form-control {
-    margin-right: 4px;
-    height: 40px;
-    border-radius: 6px;
-  }
-
-  .link_account .form-group div{
-    padding: 0;
-    margin-right: 4px;
-  }
-
-  .link_account .form-group .form-control:focus {
-    outline: none;
-    box-shadow: none;
-  }
-
-  .link_account .form-group.d-flex {
-    display: flex;
-    align-items: center;
-  }
-
-  .link_account .form-group.d-flex label {
-    margin-bottom: 0;
-  }
-
-  .link_account .form-group.d-flex .form-control {
-    margin-right: 4px;
-    height: 40px;
-    border-radius: 6px;
-  }
-
-  .link_account .form-group.d-flex .form-control:focus {
-    outline: none;
-    box-shadow: none;
-  }
-
-  #search-labels-container .label {
-    margin-left: 5px; 
-    margin-bottom: 5px;
-    color: white;
-  }
-
-  .link_account .col-form-label {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    color: #414651;
-    padding: 0;
-  }
-
-  .link_account .modal-header .icon-container {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #D5D7DA;       
-    border-radius: 6px;           
-    width: 40px;                  
-    height: 40px;
-    padding: 4px;                 
-  }
-
-
-  .link_account .label-group-item-manual {
-    padding: 8px 0;
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
-    color: #252B37;
-  }
-
-</style>

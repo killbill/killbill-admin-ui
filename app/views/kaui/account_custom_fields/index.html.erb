@@ -1,35 +1,47 @@
-<div class="search">
-
-  <div class="column-block">
-
-    <h1>Custom Fields</h1>
-    <input type="hidden" id="custom-fields" value="<%= @custom_fields_json %>">
-    <table id="custom_fields-table" class="table table-condensed mobile-data">
-      <thead>
-      <tr>
-        <th>Object ID</th>
-        <th>Object type</th>
-        <th>Name</th>
-        <th>Value</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td colspan="1" class="dataTables_empty">Loading data from server</td>
-      </tr>
-      </tbody>
-    </table>
-
+<div class="kaui-container kaui-account-custom-fields-index">
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <div class="d-flex " style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+    <div class="custom-fields">
+      <div class="d-flex flex-column ">
+        <div class="custom-fields-header mb-4">
+          <div class="d-flex align-items-center">
+            <h2>Custom Fields</h2>
+          </div>
+          <input type="hidden" id="custom-fields" value="<%= @custom_fields_json %>">
+        </div>
+        <table id="custom_fields-table" class="custom-fields-table">
+          <thead>
+            <tr>
+              <th>Object ID</th>
+              <th>Object type</th>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-
 </div>
 
+
 <%= javascript_tag do %>
-    $(document).ready(function() {
-        var customFields = JSON.parse($("#custom-fields").val());
-        $('#custom_fields-table').DataTable({
-            "dom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-            data: customFields
-        });
+  $(document).ready(function() {
+    var customFields = JSON.parse($("#custom-fields").val());
+    $('#custom_fields-table').DataTable({
+      "dom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+      data: customFields
     });
+
+    setTimeout(() => {
+      $('#custom_fields-table tbody tr').each(function () {
+        const $td = $(this).find('td:nth-of-type(2)');
+        const content = $td.text().trim();
+        $td.html(`<span>${content}</span>`);
+      });
+    }, 50);
+  });
 <% end %>

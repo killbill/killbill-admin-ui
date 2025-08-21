@@ -1,45 +1,68 @@
-<div class="search">
+<div class="kaui-container kaui-tag-definitions-index">
+  <%= render partial: 'kaui/components/breadcrumb/breadcrumb', locals: {
+    breadcrumbs: [
+      { label: 'Settings', href: '/' },
+      { label: "Tag Definitions", href: '#' }
+    ]
+  } %>
 
-  <div class="column-block">
+  <div class="d-flex" style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_setting_sidebar' %>
 
-    <h1>Tag Definitions
-      <% if can? :create_tag_definition, Kaui::Tag %>
-          <%= link_to '&nbsp;<i class="fa fa-plus-square"></i>'.html_safe, kaui_engine.new_tag_definition_path %>
-      <% end %>
-    </h1>
-
-    <table id='tag_definitions-table' class='table table-condensed mobile-data'>
-      <thead>
-      <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>System tag?</th>
-        <th>Applicable types</th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @tag_definitions.each do |tag_definition| %>
-          <tr>
-            <td><%= object_id_popover(tag_definition.id) %></td>
-            <td><%= tag_definition.name %></td>
-            <td><%= tag_definition.description %></td>
-            <td><%= tag_definition.system_tag? %></td>
-            <td><%= tag_definition.pretty_applicable_object_types %></td>
-            <td>
-              <% unless tag_definition.system_tag? %>
-                  <%= link_to 'Destroy', kaui_engine.tag_definition_path(tag_definition.id), :confirm => 'Are you sure?', :method => :delete %>
+    <div class="tag-definitions-details w-100">
+      <div class="d-flex flex-column">
+        <div class="tag-definitions-details-header">
+          <h2>Tag Definitions</h2>
+          <span>
+            <% if can? :create_tag_definition, Kaui::Tag %>
+              <%= link_to kaui_engine.new_tag_definition_path do %>
+                <%= render "kaui/components/button/button", {
+                  label: "Create Definition",
+                  icon: "kaui/plus.svg",
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-dropdown custom-hover",
+                } %>
               <% end %>
-            </td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
+            <% end %>
+          </span>
+        </div>
 
+        <div class="mt-4">
+          <table id='tag_definitions-table' class='tag-definitions-table'>
+            <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>System tag</th>
+              <th>Applicable types</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @tag_definitions.each do |tag_definition| %>
+                <tr>
+                  <td><%= object_id_popover(tag_definition.id) %></td>
+                  <td><%= tag_definition.name %></td>
+                  <td><%= tag_definition.description %></td>
+                  <td><span class="<%= tag_definition.system_tag? %>"><%= tag_definition.system_tag? %></span></td>
+                  <td><span><%= tag_definition.pretty_applicable_object_types %></span></td>
+                  <td>
+                    <% unless tag_definition.system_tag? %> 
+                      <%= link_to 'Destroy', kaui_engine.tag_definition_path(tag_definition.id), :confirm => 'Are you sure?', :method => :delete %>
+                    <% end %> 
+                  </td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-
 </div>
+
 
 <%= javascript_tag do %>
 $(document).ready(function() {

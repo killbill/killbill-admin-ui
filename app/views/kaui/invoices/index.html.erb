@@ -1,29 +1,35 @@
-<div class="search">
-  <div class="column-block">
-    <h1>Invoices</h1>
-    <%= render :partial => 'multi_functions_bar' %>
-    <table id="invoices-table" class="table table-condensed mobile-data" style="width:100%">
-      <thead>
-      <tr>
-        <% Kaui.account_invoices_columns.call[0].each do |title| %>
-          <th><%= title %></th>
-        <% end %>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td colspan="1" class="dataTables_empty">Loading data from server</td>
-      </tr>
-      </tbody>
-    </table>
+<div class="kaui-container invoice-index">
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <div class="d-flex " style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+    <div class="invoices" style="max-width: <%= request.path.include?('/accounts/') ? '67.5rem' : '80rem' %>;">
+      <div class="d-flex flex-column ">
+        <div class="invoices-header mb-4">
+          <div class="d-flex align-items-center">
+          <h2>Invoices</h2>
+          </div>
+          <span>
+            <%= render :partial => 'multi_functions_bar' %>
+          </span>
+        </div>
+        <div id="search-labels-container" class="ml-2">
+          <!-- Dynamic search labels will be added here -->
+        </div>
+        <table id="invoices-table" class="invoices-table">
+          <thead class="table-header">
+          <tr>
+            <% Kaui.account_invoices_columns.call[0].each do |title| %>
+              <th><%= title %></th>
+            <% end %>
+          </tr>
+          </thead>
+          <tbody class="table-body">
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
-
-<style>
-  #invoices-table td, #invoices-table tr {
-    white-space: nowrap;
-  }
-</style>
 
 <%= javascript_tag do %>
 $(document).ready(function() {

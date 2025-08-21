@@ -1,20 +1,21 @@
-<table id="subscriptions_<%= bundle.bundle_id %>" class="table table-condensed mobile-data">
+<table id="subscriptions_<%= bundle.bundle_id %>" class="subscriptions-table">
   <thead>
   <tr>
     <% unless @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? %>
       <th></th>
     <% end %>
-    <th>Category</th>
     <th>Name</th>
+    <th>Category</th>
     <th>Phase type</th>
     <th>Start date</th>
-    <th>Charged through date</th>
     <th>Cancel information</th>
-    <th>Actions</th>
+    <th>Charged Date</th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
-  <% (bundle.subscriptions || []).each do |sub| %>
+    <% (bundle.subscriptions || []).each do |sub| %>
+      <% dropdown_id = "cancelDropdown-#{sub.subscription_id}" %>
       <tr class="<%= subscription_cancelled?(sub) ? 'expired' : 'non-expired' %>">
         <% unless @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? %>
           <td class="inline-row-tag-bar">
@@ -28,9 +29,9 @@
 
                     <%= render :partial => 'kaui/bundle_tags/form_bar',
                                :locals => {:params => { :bundle_id => bundle.bundle_id},
-                                           :tag_names => (@tags_per_subscription[sub.subscription_id] || []).map { |tag| tag.tag_definition_name },
-                                           :available_tags => @available_subscription_tags,
-                                           :update_tags_path => update_subscriptions_tags_path(sub.subscription_id)
+                                 :tag_names => (@tags_per_subscription[sub.subscription_id] || []).map { |tag| tag.tag_definition_name },
+                                 :available_tags => @available_subscription_tags,
+                                 :update_tags_path => update_subscriptions_tags_path(sub.subscription_id)
                                } %>
                   </div>
                 </div>
@@ -42,45 +43,98 @@
 
           </td>
         <% end %>
+        <td><%= humanized_subscription_plan_or_product_name(sub, catalog) %></td>
         <td>
-          <span id="<%= sub.subscription_id %>-popover" class="object-id-popover" title="Subscription ID" data-id="<%= sub.subscription_id %>">
+          <span id="<%= sub.subscription_id %>-popover" class="object-id-popover category-bedge" title="Subscription ID" data-id="<%= sub.subscription_id %>">
             <%= humanized_subscription_product_category(sub) %>
           </span>
         </td>
-        <td><%= humanized_subscription_plan_or_product_name(sub, catalog) %></td>
-        <td><%= humanized_subscription_phase_type(sub) %></td>
+        <td><span class="phase-type"><%= humanized_subscription_phase_type(sub).downcase %></span></td>
         <td><%= humanized_subscription_start_date(sub, account) %></td>
-        <td><%= humanized_subscription_charged_through_date(sub, account) %></td>
         <td><%= humanized_subscription_cancelled_information(sub, account) %></td>
+        <td><%= humanized_subscription_charged_through_date(sub, account) %></td>
         <td class="text-center">
-            <% if subscription_future_cancelled?(sub, account) %>
-                <%= link_to 'Reinstate', kaui_engine.reinstate_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-xs' %>
-            <% elsif !subscription_cancelled?(sub) %>
-                <% if can? :change_plan, Kaui::Subscription %>
-                    <%= link_to 'Change', kaui_engine.edit_subscription_path(sub.subscription_id), :class => 'btn btn-xs' %>
+          <% if subscription_future_cancelled?(sub, account) %>
+            <%= link_to 'Reinstate', kaui_engine.reinstate_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-xs' %>
+          <% elsif !subscription_cancelled?(sub) %>
+            <div class="d-flex justify-content-between align-items-center">
+              <% if can? :cancel, Kaui::Subscription %>
+                <div class="btn-group cancel-menu position-relative" id="<%= dropdown_id %>Wrapper">
+                  <button id="<%= dropdown_id %>Btn" class="cancel-button">
+                    Cancel
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6.00003L8.00002 10L12 6" stroke="#D92D20" stroke-width="1.5" stroke-miterlimit="16" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+
+                  <ul class="dropdown-menu"
+                      id="<%= dropdown_id %>Menu"
+                      style="display: none;">
+                    <li><%= link_to 'Cancel (default policy)', kaui_engine.subscription_path(id: sub.subscription_id), method: :delete %></li>
+                    <li><%= link_to 'Cancel start of term (full credit)', kaui_engine.subscription_path(id: sub.subscription_id, policy: 'START_OF_TERM'), method: :delete %></li>
+                    <li><%= link_to 'Cancel immediately (partial credit)', kaui_engine.subscription_path(id: sub.subscription_id, policy: 'IMMEDIATE'), method: :delete %></li>
+                    <li><%= link_to 'Cancel end of term (no credit)', kaui_engine.subscription_path(id: sub.subscription_id, policy: 'END_OF_TERM'), method: :delete %></li>
+                    <li><%= link_to 'Cancel a subscription given a date', '#cancel_subscription_by_date_modal', data: { bs_toggle: 'modal', id: sub.subscription_id } %></li>
+                  </ul>
+                </div>
+              <% end %>
+
+              <% if can?(:create, Kaui::Subscription) || can?(:pause_resume, Kaui::Subscription) || can?(:change_plan, Kaui::Subscription) %>
+                <% menu_items = [] %>
+
+                <% if can?(:change_plan, Kaui::Subscription) %>
+                  <% menu_items << {
+                    label: "Change Plan",
+                    path: kaui_engine.edit_subscription_path(sub.subscription_id),
+                    icon: "kaui/subscription/change.svg"
+                  } %>
                 <% end %>
-                <% if can? :cancel, Kaui::Subscription %>
-                    <div class="btn-group">
-                        <a class="btn btn-xs dropdown-toggle" data-toggle="dropdown" href="#">
-                            Cancel
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><%= link_to 'Cancel (default policy)', kaui_engine.subscription_path(:id => sub.subscription_id), :method => :delete %></li>
-                            <li><%= link_to 'Cancel start of term (full credit)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'START_OF_TERM'), :method => :delete %></li>
-                            <li><%= link_to 'Cancel immediately (partial credit)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'IMMEDIATE'), :method => :delete %></li>
-                            <li><%= link_to 'Cancel end of term (no credit)', kaui_engine.subscription_path(:id => sub.subscription_id, :policy => 'END_OF_TERM'), :method => :delete %></li>
-                            <li><%= link_to 'Cancel a subscription given a date', '#cancel_subscription_by_date_modal', data: {toggle: 'modal', id: sub.subscription_id} %></li>
-                        </ul>
-                    </div>
+
+                <% if can?(:create, Kaui::Subscription) && @subscription[bundle.bundle_id].present? %>
+                  <% menu_items << {
+                    label: @subscription[bundle.bundle_id].product_category == 'BASE' ? 'Add add-on' : 'Add standalone subscription',
+                    path: kaui_engine.new_subscription_path(
+                      params: {
+                        account_id: bundle.account_id,
+                        bundle_id: bundle.bundle_id,
+                        base_product_name: @subscription[bundle.bundle_id].product_name,
+                        product_category: @subscription[bundle.bundle_id].product_category == 'BASE' ? 'ADD_ON' : 'STANDALONE'
+                      }
+                    ),
+                    icon: "kaui/subscription/add-on.svg"
+                  } %>
                 <% end %>
-                <% if can? :create, Kaui::Subscription %>
-                    <%= link_to 'Update BCD', kaui_engine.edit_bcd_path(:id => sub.subscription_id),  :class => 'btn btn-xs' %>
+
+                <% if can?(:pause_resume, Kaui::Subscription) %>
+                  <% menu_items << {
+                    label: "Pause / resume",
+                    path: kaui_engine.pause_resume_bundle_path(account_id: bundle.account_id, id: bundle.bundle_id),
+                    icon: "kaui/subscription/pause.svg"
+                  } %>
                 <% end %>
-            <% end %>
+
+                <% if can?(:create, Kaui::Subscription) %>
+                  <% menu_items << {
+                    label: "Update BCD",
+                    path: kaui_engine.edit_bcd_path(id: sub.subscription_id),
+                    icon: "kaui/subscription/date.svg"
+                  } %>
+                <% end %>
+
+                <%= render partial: "kaui/components/menu_dropdown/menu_dropdown", locals: {
+                    variant: "btn-light",
+                    label: "",
+                    icon: "kaui/dots.svg",
+                    html_class: "dots-menu",
+                    menu_items: menu_items,
+                    dropdown_id: "dotsDropdown-#{sub.subscription_id}",
+                } %>
+              <% end %>
+            </div>
+          <% end %>
         </td>
       </tr>
-  <% end %>
+    <% end %>
   </tbody>
 </table>
 
@@ -109,6 +163,30 @@
     $(".price-override-popover").popover({
       container: 'body',
       trigger: 'hover'
+    });
+
+    document.querySelectorAll('.cancel-button').forEach(function(button) {
+      const idPrefix = button.id.replace('Btn', '');
+      const menu = document.getElementById(idPrefix + 'Menu');
+      const wrapper = document.getElementById(idPrefix + 'Wrapper');
+
+      button.addEventListener('click', function (e) {
+        e.stopPropagation();
+
+        // Close all open dropdowns first
+        document.querySelectorAll('.dropdown-menu').forEach(m => m.style.display = 'none');
+
+        // Toggle this one
+        const isOpen = menu.style.display === 'block';
+        menu.style.display = isOpen ? 'none' : 'block';
+      });
+
+      // Close dropdown on outside click
+      document.addEventListener('click', function (e) {
+        if (!wrapper.contains(e.target)) {
+          menu.style.display = 'none';
+        }
+      });
     });
   });
 <% end %>

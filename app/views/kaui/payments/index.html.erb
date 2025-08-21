@@ -1,29 +1,35 @@
-<div class="search">
-  <div class="column-block">
-    <h1><%= I18n.translate('payments') %></h1>
-    <%= render :partial => 'multi_functions_bar' %>
-    <table id="payments-table" class="table table-condensed mobile-data" style="width:100%">
-      <thead>
-        <tr>
-          <% Kaui.account_payments_columns.call()[0].each do |title| %>
-            <th><%= title %></th>
-          <% end %>
-        </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td colspan="1" class="dataTables_empty"><%= I18n.translate('loading_data_from_server') %></td>
-      </tr>
-      </tbody>
-    </table>
+<div class="kaui-container payments-index">
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <div class="d-flex " style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+    <div class="payments" style="max-width: <%= request.path.include?('/accounts/') ? '67.5rem' : '80rem' %>;">
+      <div class="d-flex flex-column ">
+        <div class="payments-header mb-4">
+          <div class="d-flex align-items-center">
+          <h2><%= I18n.translate('payments') %></h2>
+          </div>
+          <span>
+            <%= render :partial => 'multi_functions_bar' %>
+          </span>
+        </div>
+        <div id="search-labels-container" class="ml-2">
+          <!-- Dynamic search labels will be added here -->
+        </div>
+        <table id="payments-table" class="payments-table">
+          <thead class="table-header">
+            <tr>
+              <% Kaui.account_payments_columns.call()[0].each do |title| %>
+                <th><%= title %></th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody class="table-body">
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
-
-<style>
-  #payments-table td, #payments-table tr {
-    white-space: nowrap;
-  }
-</style>
 
 <%= javascript_tag do %>
 $(document).ready(function() {
@@ -106,8 +112,8 @@ $(document).ready(function() {
   $('#payments-table').on('draw.dt', function() {
     <% if @max_nb_records.nil? %>
       var noMoreData = table.column(0)
-                            .data()
-                            .length == 0;
+                            .payments-index .data()
+                            .payments-index .length == 0;
       $(".next.paginate_button").toggleClass("disabled", noMoreData);
       $(".dataTables_info").toggle(!noMoreData);
     <% end %>

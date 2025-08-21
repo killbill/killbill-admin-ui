@@ -2,15 +2,22 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="advanceSearchModalLabel">Advance Search</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <h5 class="modal-title d-flex align-items-center gap-3" id="advanceSearchModalLabel">
+          <span class="icon-container">
+            <%= image_tag("kaui/modal/search.svg", width: 20, height: 20) %>
+          </span>
+          Advance Search
+        </h5>
+        <button type="button" class="close close-button custom-hover" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">
+            <%= image_tag("kaui/modal/close.svg", width: 20, height: 20) %>
+          </span>
         </button>
       </div>
       <div class="modal-body">
         <form id="advanceSearchForm">
-            <div class="form-group d-flex align-items-center">
-            <label for="searchFieldSelect" class="mr-2" style="width: 30%;">Search Fields:</label>
+          <div class="form-group d-flex align-items-center">
+            <label for="searchFieldSelect" class="mr-2 field-label" style="width: 30%;">Search Field</label>
             <select id="searchFieldSelect" class="form-control mr-2">
               <% if @account.account_id.present? %>
                 <% @search_fields.reject { |value, _| value == 'balance' || value == 'account_id' }.each do |value, title| %>
@@ -22,7 +29,9 @@
                 <% end %>
               <% end %>
             </select>
-            <button type="button" class="btn btn-secondary" id="addSearchField">Add</button>
+            <button type="button" class="border-button custom-hover" id="addSearchField">
+              <%= image_tag("kaui/modal/plus.svg", width: 16, height: 16) %>
+            </button>
           </div>
           <div id="search-fields-container">
           </div>
@@ -34,18 +43,33 @@
         <% end %>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="applyAdvanceSearch">Apply Search</button>
-        <button type="button" class="btn btn-danger" id="clearAdvanceSearch">Clear Search</button>
+        <%= render "kaui/components/button/button", {
+          label: 'Clear Search',
+          variant: "outline-secondary d-inline-flex align-items-center gap-1",
+          type: "button",
+          html_class: "kaui-button custom-hover",
+          html_options: {
+            id: "clearAdvanceSearch"
+          }
+        } %>
+        <%= render "kaui/components/button/button", {
+          label: 'Apply Search',
+          variant: "outline-secondary d-inline-flex align-items-center gap-1",
+          type: "button",
+          html_class: "kaui-dropdown custom-hover",
+          html_options: {
+            id: "applyAdvanceSearch"
+          }
+        } %>
       </div>
     </div>
   </div>
 </div>
 
 <template id="search-field-template">
-  <div class="form-group row align-items-center search-field">
-    <label class="col-sm-4 col-form-label search-field-label"></label>
-    <div class="col-sm-3">
+  <div class="form-group row align-items-center justify-content-between search-field">
+    <label class="col-sm-3 col-form-label search-field-label"></label>
+    <div class="col-sm-4">
       <select class="form-control search-field-filter">
         <option value="eq">Equals</option>
         <option value="neq">Not Equals</option>
@@ -59,60 +83,12 @@
     <div class="col-sm-4">
       <input type="text" class="form-control search-field-value">
     </div>
-    <div class="col-sm-1">
-      <i class="glyphicon glyphicon-remove" id=remove-search-field></i>
-    </div>
+    <button type="button" class="button custom-hover" id="remove-search-field">
+      <%= image_tag("kaui/modal/red-close.svg", width: 16, height: 16) %>
+    </button>
   </div>
 </template>
 
-<style>
-  .form-group.row.align-items-center {
-    display: flex;
-    align-items: center;
-  }
-
-  .form-group.row.align-items-center label {
-    margin-bottom: 0; /* Remove default margin */
-  }
-
-  .form-group.row.align-items-center .form-control {
-    margin-right: 10px; /* Add some space between elements */
-  }
-
-  .form-group.d-flex {
-    display: flex;
-    align-items: center;
-  }
-
-  .form-group.d-flex label {
-    margin-bottom: 0; /* Remove default margin */
-  }
-
-  .form-group.d-flex .form-control {
-    margin-right: 10px; /* Add some space between the select box and the button */
-  }
-
-  #search-labels-container .label {
-    margin-left: 5px; /* Add space between labels */
-    margin-bottom: 5px; /* Add space below labels if they wrap to the next line */
-    color: white;
-  }
-
-  .filter-bar-container {
-    display: flex;
-    justify-content: flex-start; /* Align items to the left */
-    align-items: center; /* Center items vertically */
-  }
-
-  .filter-bar {
-    display: flex;
-    align-items: center; /* Center items vertically */
-  }
-
-  .filter-bar label {
-    margin: 10px; /* Add some space between the label and the select box */
-  }
-</style>
 
 <%= javascript_tag do %>
 $(document).ready(function() {

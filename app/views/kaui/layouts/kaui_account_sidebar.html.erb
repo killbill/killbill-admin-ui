@@ -1,101 +1,38 @@
-<div class="title-sidebar-area">
-  <div class="container">
-    <p><%= pretty_account_identifier %></p>
+<% if params[:account_id].present? %>
+  <div class="account-sidebar-area">
+    <div class="container">
+      <p><%= pretty_account_identifier %></p>
 
-    <% menu_items = [
-      { label: 'Account', path: kaui_engine.account_path(params[:account_id]), controller_suffix: 'accounts', icon_path: 'kaui/sidebar/account.svg' },
-      { label: 'Subscriptions', path: kaui_engine.account_bundles_path(params[:account_id]), controller_suffix: 'bundles', icon_path: 'kaui/sidebar/subscriptions.svg' },
-      { label: 'Invoices', path: kaui_engine.account_invoices_path(params[:account_id]), controller_suffix: 'invoices', icon_path: 'kaui/sidebar/invoices.svg' },
-      { label: 'Payments', path: kaui_engine.account_payments_path(params[:account_id]), controller_suffix: 'payments', icon_path: 'kaui/sidebar/payments.svg' },
-      { label: 'Timeline', path: kaui_engine.account_timeline_path(params[:account_id]), controller_suffix: 'timelines', icon_path: 'kaui/sidebar/timeline.svg' },
-      { label: 'Tags', path: kaui_engine.account_tags_path(params[:account_id]), controller_suffix: 'tags', icon_path: 'kaui/sidebar/tags.svg' },
-      { label: 'Custom Fields', path: kaui_engine.account_custom_fields_path(params[:account_id]), controller_suffix: 'custom_fields', icon_path: 'kaui/sidebar/custom-fields.svg' }
-    ] %>
-
-    <% if current_user.root? %>
-      <% menu_items += [
-        { label: 'Queues', path: kaui_engine.account_queues_path(params[:account_id]), controller_suffix: 'queues', icon_path: 'kaui/sidebar/queues.svg' },
-        { label: 'Audit', path: kaui_engine.account_audit_logs_path(params[:account_id]), controller_suffix: 'logs', icon_path: 'kaui/sidebar/audit.svg' }
+      <% menu_items = [
+        { label: 'Account', path: kaui_engine.account_path(params[:account_id]), controller_suffix: 'accounts', icon_path: 'kaui/sidebar/account.svg' },
+        { label: 'Subscriptions', path: kaui_engine.account_bundles_path(params[:account_id]), controller_suffix: 'bundles', icon_path: 'kaui/sidebar/subscriptions.svg' },
+        { label: 'Invoices', path: kaui_engine.account_invoices_path(params[:account_id]), controller_suffix: 'invoices', icon_path: 'kaui/sidebar/invoices.svg' },
+        { label: 'Payments', path: kaui_engine.account_payments_path(params[:account_id]), controller_suffix: 'payments', icon_path: 'kaui/sidebar/payments.svg' },
+        { label: 'Timeline', path: kaui_engine.account_timeline_path(params[:account_id]), controller_suffix: 'timelines', icon_path: 'kaui/sidebar/timeline.svg' },
+        { label: 'Tags', path: kaui_engine.account_tags_path(params[:account_id]), controller_suffix: 'tags', icon_path: 'kaui/sidebar/tags.svg' },
+        { label: 'Custom Fields', path: kaui_engine.account_custom_fields_path(params[:account_id]), controller_suffix: 'custom_fields', icon_path: 'kaui/sidebar/custom-fields.svg' }
       ] %>
-    <% end %>
 
-    <% menu_items.each do |item| %>
-      <% css_class = params[:controller].ends_with?(item[:controller_suffix]) ? 'current' : 'non-current' %>
-      <%= link_to item[:path], class: css_class do %>
-        <span class="icon">
-          <%= image_tag(item[:icon_path], size: "20x20") %>
-        </span>
-        <%= item[:label] %>
+      <% if current_user.root? %>
+        <% menu_items += [
+          { label: 'Queues', path: kaui_engine.account_queues_path(params[:account_id]), controller_suffix: 'queues', icon_path: 'kaui/sidebar/queues.svg' },
+          { label: 'Audit', path: kaui_engine.account_audit_logs_path(params[:account_id]), controller_suffix: 'logs', icon_path: 'kaui/sidebar/audit.svg' }
+        ] %>
       <% end %>
-    <% end %>
 
-    <% if account_closed? %>
-      <span class="label label-danger">CLOSED</span>
-    <% end %>
+      <% menu_items.each do |item| %>
+        <% css_class = params[:controller].ends_with?(item[:controller_suffix]) ? 'current' : 'non-current' %>
+        <%= link_to item[:path], class: css_class do %>
+          <span class="icon">
+            <%= image_tag(item[:icon_path], size: "20x20") %>
+          </span>
+          <%= item[:label] %>
+        <% end %>
+      <% end %>
+
+      <% if account_closed? %>
+        <span class="label label-danger">CLOSED</span>
+      <% end %>
+    </div>
   </div>
-</div>
-
-
-<style>
-  .title-sidebar-area .container {
-    display: flex;
-    flex-direction: column;
-    padding: 16px 0;
-    width: 135px;
-    background-color: #fff;
-  }
-
-  .title-sidebar-area .container p {
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 28px;
-    color: #414651;
-    margin-bottom: 20px;
-  }
-
-  .title-sidebar-area .container a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px;
-    text-decoration: none;
-    color: #717680;
-    font-size: 14px;
-    border-radius: 8px;
-    font-weight: 500;
-    line-height: 20px;
-  }
-
-  .title-sidebar-area .container a.current {
-    background-color: #EFF8FF;
-    color: #175CD3;
-    
-  }
-
-  .title-sidebar-area .container a .icon {
-    font-size: 16px;
-    width: 20px;
-    text-align: center;
-  }
-
-  .title-sidebar-area .container span.label.label-danger {
-    margin-left: 16px;
-    color: #fff;
-    background: #dc3545;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    display: inline-block;
-    margin-top: 10px;
-  }
-
-  .title-sidebar-area .container a .icon img {
-    filter: grayscale(100%) brightness(0.7); /* Non-active icons grayish */
-  }
-
-  .title-sidebar-area .container a.current .icon img {
-    /* Active icon - blue color */
-    filter: brightness(0) saturate(100%) invert(32%) sepia(98%) saturate(748%) hue-rotate(189deg) brightness(93%) contrast(101%);
-  }
-
-</style>
+<% end %>

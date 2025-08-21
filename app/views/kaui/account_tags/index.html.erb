@@ -1,27 +1,30 @@
-<div class="search">
-
-  <div class="column-block">
-
-    <h1>Tags</h1>
-    <input type="hidden" id="tags" value="<%= @tags_json %>">
-    <table id="tags-table" class="table table-condensed mobile-data">
-      <thead>
-      <tr>
-        <th>Tag ID</th>
-        <th>Object ID</th>
-        <th>Object type</th>
-        <th>Tag definition name</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td colspan="1" class="dataTables_empty">Loading data from server</td>
-      </tr>
-      </tbody>
-    </table>
-
+<div class="kaui-container kaui-account-tags-index">
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <div class="d-flex " style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+    <div class="account-tags">
+      <div class="d-flex flex-column ">
+        <div class="account-tags-header mb-4">
+          <div class="d-flex align-items-center">
+            <h2>Tags</h2>
+          </div>
+          <input type="hidden" id="tags" value="<%= @tags_json %>">
+        </div>
+        <table id="tags-table" class="account-tags-table">
+          <thead>
+          <tr>
+            <th>Tag ID</th>
+            <th>Object ID</th>
+            <th>Object type</th>
+            <th>Tag definition name</th>
+          </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-
 </div>
 
 <%= javascript_tag do %>
@@ -32,4 +35,12 @@
             data: tags
         });
     });
+
+    setTimeout(() => {
+      $('#tags-table tbody tr').each(function () {
+        const $td = $(this).find('td:nth-of-type(3)');
+        const content = $td.text().trim();
+        $td.html(`<span>${content}</span>`);
+      });
+    }, 50);
 <% end %>

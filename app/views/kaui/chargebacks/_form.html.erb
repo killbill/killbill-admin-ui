@@ -2,37 +2,54 @@
     <%= f.hidden_field :payment_id %>
     <%= f.hidden_field :currency %>
 
-    <div class="form-group">
-      <%= f.label :amount, 'Amount', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+    <div class="form-group d-flex pb-3">
+      <%= f.label :amount, 'Amount', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9  d-flex currency-group">
         <%= f.number_field :amount, :step => :any, :id => 'chargeback_amount', :class => 'form-control' %>
-        <p class="help-block">Currency: <%= @chargeback.currency %></p>
+        <div class="currency"><%= @chargeback.currency %></div>
       </div>
     </div>
-    <div class="form-group">
-      <%= label_tag :reason, 'Reason', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+    <div class="form-group d-flex pb-3">
+      <%= label_tag :reason, 'Reason', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= select_tag :reason, options_for_select(Kaui.chargeback_reason_codes), :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
+    <div class="form-group d-flex pb-3">
+      <%= label_tag :cancel_all_subs, '', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <div class="checkbox">
           <%= label_tag :cancel_all_subs do %>
-              <%= check_box_tag :cancel_all_subs %>Cancel account subscriptions?
+              <%= check_box_tag :cancel_all_subs %>Cancel Account Subscriptions
           <% end %>
         </div>
       </div>
     </div>
-    <div class="form-group">
-      <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
+    <div class="form-group d-flex pb-3 border-bottom mb-3">
+      <%= label_tag :comment, 'Comment', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <%= submit_tag 'Save', :class => 'btn btn-default' %>
-      </div>
+    <div class="form-group d-flex justify-content-end pb-3">
+      <%= render "kaui/components/button/button", {
+        label: 'Close',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "button",
+        html_class: "kaui-button custom-hover mx-2",
+        html_options: {
+          id: "closeButton",
+          onclick: "window.history.back();"
+        }
+      } %>
+      <%= render "kaui/components/button/button", {
+        label: 'Save Payment',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "submit",
+        html_class: "kaui-dropdown custom-hover",
+        html_options: {
+          id: "saveButton"
+        }
+      } %>
     </div>
 <% end %>

@@ -1,63 +1,3 @@
-<%
-=begin%>
- <% payment_methods.each do |payment_method| %>
-    <div class="toggler">
-
-      <div class="first-line">
-        <% if payment_method.is_default %>
-            <a href="#" class="default-payment-method"><i class="fa fa-star"></i></a>
-        <% else %>
-            <% if can? :create, Kaui::PaymentMethod %>
-                <%= link_to '<i class="fa fa-star-o"></i>'.html_safe, kaui_engine.set_default_payment_method_account_path(payment_method.account_id, :params => {:payment_method_id => payment_method.payment_method_id}),
-                            :method => :put,
-                            :class => 'non-default-payment-method' %>
-            <% else %>
-                <a href="#" class="non-default-payment-method"><i class="fa fa-star-o"></i></a>
-            <% end %>
-        <% end %>
-
-        <%= payment_method.plugin_name %>
-
-        <% if can? :delete, Kaui::PaymentMethod %>
-            <% if payment_method.is_default %>
-                <%= link_to '<i class="fa fa-times"></i>'.html_safe, kaui_engine.payment_method_path(payment_method.payment_method_id, :params => {:set_auto_pay_off => 'true'}), :method => :delete %>
-            <% else %>
-                <%= link_to '<i class="fa fa-times"></i>'.html_safe, kaui_engine.payment_method_path(payment_method.payment_method_id), :method => :delete %>
-            <% end %>
-        <% end %>
-
-        <i class="fa fa-caret-down"></i>
-        <i class="fa fa-caret-up"></i>
-        <% unless last_transaction_by_payment_method_id[payment_method.payment_method_id].nil? %>
-            <span class="expires">Last used: <%= format_date(last_transaction_by_payment_method_id[payment_method.payment_method_id].effective_date, account.time_zone) %></span>
-        <% end %>
-      </div>
-
-      <div class="toggle">
-
-        <% if can? :trigger, Kaui::Payment %>
-            <div class="actions">
-              <% %w(AUTHORIZE PURCHASE CREDIT).each do |transaction_type| %>
-                  <%= link_to "<i class='fa fa-plus-square'></i>&nbsp;#{transaction_type.downcase.camelize}".html_safe, kaui_engine.new_account_transaction_path(payment_method.account_id,
-                                                                                                                                                                 :currency => account.currency,
-                                                                                                                                                                 :payment_method_id => payment_method.payment_method_id,
-                                                                                                                                                                 :transaction_type => transaction_type) %>
-              <% end %>
-            </div>
-        <% end %>
-
-        <div class="payment-method-details">
-          <%= render :partial => 'kaui/payment_methods/payment_methods_details_table', :locals => {:payment_method => payment_method} %>
-        </div>
-
-      </div>
-
-    </div>
-<% end %> 
-<%
-=end%>
-
-
 <% payment_methods.each_with_index do |payment_method, index| %>
   <div class="payment-method">
     <input type="checkbox" id="toggle-<%= index %>" class="toggle-checkbox" hidden>
@@ -82,9 +22,18 @@
 
       <div class="column method-id">
         <strong>Payment Method ID</strong>
-        <div>
+        <div class="d-flex align-items-center">
           <span class="payment-method-id"><%= payment_method.payment_method_id %></span>
-          <span class="copy-icon"><i class="fa fa-copy"></i></span>
+          <%= render "kaui/components/button/button", {
+            label: '',
+            icon: "kaui/copy.svg",
+            variant: "outline-secondary d-inline-flex align-items-center gap-1",
+            type: "button",
+            html_class: "dots-menu kaui-button",
+            html_options: {
+              onclick: "navigator.clipboard.writeText('#{payment_method.payment_method_id}')"
+            }
+          } %>
         </div>
       </div>
 

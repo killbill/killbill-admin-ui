@@ -1,0 +1,122 @@
+/* app/views/kaui/layouts/kaui_account_sidebar.html.erb */
+
+.account-sidebar-area .container {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  width: 8.4375rem;
+  background-color: #fff;
+}
+
+.account-sidebar-area .container p {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #414651;
+  margin-bottom: 1.25rem;
+}
+
+.account-sidebar-area .container a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #717680;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+}
+
+.account-sidebar-area .container a.current {
+  background-color: #EFF8FF;
+  color: #175CD3;
+}
+
+.account-sidebar-area .container a .icon {
+  font-size: 1rem;
+  width: 1.25rem;
+  text-align: center;
+}
+
+.account-sidebar-area .container span.label.label-danger {
+  margin-left: 1rem;
+  color: #fff;
+  background: #dc3545;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  display: inline-block;
+  margin-top: 0.625rem;
+}
+
+.account-sidebar-area .container a .icon img {
+  filter: grayscale(100%) brightness(0.7);
+}
+
+.account-sidebar-area .container a.current .icon img {
+  filter: brightness(0) saturate(100%) invert(32%) sepia(98%) saturate(748%) hue-rotate(189deg) brightness(93%) contrast(101%);
+}
+
+/* app/views/kaui/layouts/kaui_setting_sidebar.html.erb */
+
+.setting-sidebar-area .container {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  width: 9rem;
+  background-color: #fff;
+}
+
+.setting-sidebar-area .container p {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #414651;
+  margin-bottom: 1.25rem;
+}
+
+.setting-sidebar-area .container a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #717680;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+}
+
+.setting-sidebar-area .container a.current {
+  background-color: #eff8ff;
+  color: #175cd3;
+}
+
+.setting-sidebar-area .container a .icon {
+  font-size: 1rem;
+  width: 1.25rem;
+  text-align: center;
+}
+
+.setting-sidebar-area .container span.label.label-danger {
+  margin-left: 1rem;
+  color: #fff;
+  background: #dc3545;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  display: inline-block;
+  margin-top: 0.625rem;
+}
+
+.setting-sidebar-area .container a .icon img {
+  filter: grayscale(100%) brightness(0.7);
+}
+
+.setting-sidebar-area .container a.current .icon img {
+  filter: brightness(0) saturate(100%) invert(32%) sepia(98%) saturate(748%)
+    hue-rotate(189deg) brightness(93%) contrast(101%);
+}

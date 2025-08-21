@@ -1,42 +1,39 @@
-<div class="search">
-
-  <div class="column-block">
-
-    <h1>Audit logs</h1>
-    <%= render :partial => 'multi_functions_bar' %>
-    <input type="hidden" id="audit-logs" value="<%= @audit_logs_json %>">
-    <table id="audit-logs-table" class="table table-condensed table-colored-rows mobile-data">
-      <thead>
-      <tr>
-        <th>Created date</th>
-        <th>Object id</th>
-        <th>Object type</th>
-        <th>Change type</th>
-        <th>Username</th>
-        <th>Reason</th>
-        <th>Comment</th>
-        <th>User token</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td colspan="1" class="dataTables_empty">Loading data from server</td>
-      </tr>
-      </tbody>
-    </table>
-
+<div class="kaui-container kaui-audit-logs-index">
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <div class="d-flex " style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+    <div class="audit-logs">
+      <div class="d-flex flex-column ">
+        <div class="audit-logs-header mb-4">
+          <div class="d-flex align-items-center">
+            <h2>Audit logs</h2>
+          </div>
+          <span>
+            <%= render :partial => 'multi_functions_bar' %>
+            <input type="hidden" id="audit-logs" value="<%= @audit_logs_json %>">
+          </span>
+        </div>
+        <table id="audit-logs-table" class="audit-logs-table">
+          <thead>
+          <tr>
+            <th>Created date</th>
+            <th>Object id</th>
+            <th>Object type</th>
+            <th>Change type</th>
+            <th>Username</th>
+            <th>Reason</th>
+            <th>Comment</th>
+            <th>User token</th>
+          </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      <%= render :partial => 'show_history_modal' %>
+    </div>
   </div>
-
-  <%= render :partial => 'show_history_modal' %>
-
 </div>
-
-<style>
-  #audit-logs-table td, #audit-logs-table tr {
-    white-space: nowrap;
-  }
-</style>
-
 
 <%= javascript_tag do %>
     $(document).ready(function() {
@@ -54,6 +51,14 @@
                 } else if ( data[3] == "DELETE" ) {
                     $(row).addClass( 'delete' );
                 }
+                if (data[4] || data[3]) {
+                  $(row).each(function () {
+                    $(this).find('td').each(function () {
+                      const content = $(this).text().trim();
+                      $(this).html(`<span>${content}</span>`);
+                    });
+                  });
+                }
             },
             drawCallback: function() {
                 setObjectIdPopover();
@@ -61,4 +66,7 @@
         });
     });
 
+    setTimeout(() => {
+
+    }, 50);
 <% end %>
