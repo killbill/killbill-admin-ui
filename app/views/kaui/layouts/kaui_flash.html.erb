@@ -1,27 +1,30 @@
 <%- # :alert used by devise -%>
 <% [:error, :alert].each do |key| %>
-    <% if flash[key] %>
-        <div class="row server-alert">
-          <div class="col-md-12">
-            <div class="alert alert-danger"><%= flash[key] %></div>
-          </div>
+  <% if flash[key] %>
+    <div class="row server-alert kaui-container mx-auto">
+      <div class="col-md-12">
+        <div class="custom-alert custom-alert-danger">
+          <i class="bi bi-x-circle-fill"></i>
+          <span><%= flash[key] %></span>
         </div>
-    <% end %>
-<% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %> 
 
 
 <% if defined?(@account)  %>
 <% if @account.errors.any? %>
-  <h3>The following errors prevented the account from being created:</h3>
-
-  <div class="row server-alert">
+  <div class="row server-alert kaui-container mx-auto">
+    <h3 class="error-title">The following errors prevented the account from being created:</h3>
     <div class="col-md-12">
-      <div class="alert alert-danger">
-        <% @account.errors.values.flatten.each do |msg| %>
-
-          <li><%= msg %></li>
-
-        <% end %>
+      <div class="custom-alert custom-alert-danger">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <ul>
+          <% @account.errors.values.flatten.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
@@ -33,38 +36,48 @@
 
 
 <% if flash[:warning] %>
-  <div class="row server-alert">
+  <div class="row server-alert kaui-container mx-auto">
     <div class="col-md-12">
-      <div class="alert alert-warning"><%= flash[:warning] %></div>
+      <div class="custom-alert custom-alert-warning">
+        <i class="bi bi-exclamation-circle-fill"></i>
+        <span><%= flash[:warning] %></span>
+      </div>
     </div>
   </div>
 <% end %>
 <% if flash[:notice] %>
-    <div class="row server-alert">
-      <div class="col-md-12">
-        <div class="alert alert-info"><%= flash[:notice] %></div>
+  <div class="row server-alert kaui-container mx-auto">
+    <div class="col-md-12">
+      <div class="custom-alert custom-alert-info">
+        <i class="bi bi-info-circle-fill"></i>
+        <span><%= flash[:notice] %></span>
       </div>
     </div>
+  </div>
 <% end %>
 <!--This is for ajax calls that need to notify for error, to trigger this alert use ajaxAlert(message, timeout)-->
-<div id="ajaxErrorAlert" class="row ajaxAlert" style="display: none">
+<div id="ajaxErrorAlert" class="row ajaxAlert kaui-container mx-auto" style="display: none">
   <div class="col-md-12">
-    <div class="alert alert-danger">
-      <button type="button" class="close" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <span id="ajaxErrorAlertMessage" class="ajaxAlertMessage"></span>
+    <div class="custom-alert custom-alert-danger">
+      <div class="d-flex justify-content-between align-items-start w-100">
+        <span id="ajaxErrorAlertMessage" class="ajaxAlertMessage"></span>
+        <button type="button" class="close-btn" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
 <!--This is for ajax calls that need to notify information, to trigger this alert use ajaxInfo(message, timeout)-->
-<div id="ajaxInfoAlert" class="row ajaxAlert" style="display: none">
+<div id="ajaxInfoAlert" class="row ajaxAlert kaui-container mx-auto" style="display: none">
   <div class="col-md-12">
-    <div class="alert alert-info">
-      <button type="button" class="close" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <span id="ajaxInfoAlertMessage" class="ajaxAlertMessage"></span>
+    <div class="custom-alert custom-alert-info">
+      <div class="d-flex justify-content-between align-items-start w-100">
+        <span id="ajaxInfoAlertMessage" class="ajaxAlertMessage"></span>
+        <button type="button" class="close-btn" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
