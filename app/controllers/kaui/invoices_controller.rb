@@ -5,7 +5,7 @@ module Kaui
   class InvoicesController < Kaui::EngineController
     def index
       @search_query = params[:account_id]
-      @advance_search_query = request.query_string
+      @advance_search_query = params[:q] ? params[:q] : request.query_string
       @ordering = params[:ordering] || (@search_query.blank? ? 'desc' : 'asc')
       @offset = params[:offset] || 0
       @limit = params[:limit] || 50

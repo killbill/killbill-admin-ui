@@ -5,7 +5,7 @@ module Kaui
   class AccountsController < Kaui::EngineController
     def index
       @search_query = params[:q]
-      @advance_search_query = request.query_string
+      @advance_search_query = @search_query ? @search_query : request.query_string
       if params[:fast] == '1' && !@search_query.blank?
         account = Kaui::Account.list_or_search(@search_query, -1, 1, options_for_klient).first
         if account.nil?
