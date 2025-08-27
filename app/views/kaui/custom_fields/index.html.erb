@@ -63,7 +63,7 @@ $(document).ready(function() {
     <% end %>
     "processing": true,
     "serverSide": true,
-    "ajax": "<%= custom_fields_pagination_path(:ordering => @ordering, :format => :json) %>"
+    "ajax": "<%= custom_fields_pagination_path(:ordering => @ordering, :format => :json, :advance_search_query => @advance_search_query) %>"
   });
 
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->
