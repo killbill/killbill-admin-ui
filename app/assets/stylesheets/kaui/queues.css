@@ -72,10 +72,6 @@
   width: 100% !important;
 }
 
-/* .kaui-queues-index .table-wrapper::-webkit-scrollbar {
-  display: none;
-} */
-
 .kaui-queues-index .queues .bus-table td,
 .kaui-queues-index .queues .notifications-table td {
   font-weight: 500 !important;
@@ -122,13 +118,6 @@
   letter-spacing: 0;
   color: #717680;
   text-transform: capitalize;
-}
-
- th::,
-.kaui-queues-index .queues .notifications-table th {
-
-  
-
 }
 
 .kaui-queues-index .queues .bus-table th::after,
