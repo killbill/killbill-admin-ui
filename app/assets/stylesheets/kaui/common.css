@@ -1209,6 +1209,10 @@ table thead th:last-child {
   animation: fadeInUp 0.4s ease;
 }
 
+.max-width-148 {
+  max-width: 148px;
+}
+
 .custom-alert i {
   font-size: 1.125rem;
 }

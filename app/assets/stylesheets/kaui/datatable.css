@@ -76,14 +76,14 @@ table.dataTable.table-condensed thead > tr > th {
   margin-bottom: 2rem;
 }
 
-.dataTables_scrollBody {
+/* .dataTables_scrollBody {
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
 }
 
 .dataTables_scrollBody::-webkit-scrollbar {
   display: none !important;
-}
+} */
 
 .dataTables_scroll {
   margin-bottom: 1.5rem;
@@ -207,8 +207,4 @@ table.dataTable td input[type="checkbox"] {
   font-weight: 400 !important;
   line-height: 1.25rem !important;
   color: #717680 !important;
-}
-
-.dataTables_length {
-  display: none;
 }
