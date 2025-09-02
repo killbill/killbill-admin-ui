@@ -98,6 +98,18 @@
   border: none !important;
 }
 
+.kaui-account-timelines-show .link-button {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  color: blue !important; 
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-decoration: none !important;
+  text-transform: capitalize;
+}
+
 .kaui-account-timelines-show .datetime-container {
   font-weight: 600;
   font-size: 0.875rem;

@@ -13,26 +13,40 @@
           </span>
         </div>
 
-        <form class="form-horizontal row mb-4 pb-3 border-bottom mx-0">
-          <div class="form-group col-sm-3 p-0">
+        <form class="form-horizontal d-flex gap-2 mb-4 pb-3 border-bottom mx-0">
+          <div class="form-group p-0 w-100">
             <label for="search" class="control-label">Search</label>
             <div class="input-group">
-              <input type="text" id="search" class="form-control" placeholder="Search">
+              <input type="text" id="search" class="form-control m-0" placeholder="Search">
             </div>
           </div>
-          <div class="form-group col-sm-3 p-0">
+          <div class="form-group p-0 w-100 max-width-148">
             <label for="bundles" class="control-label">Filter by bundle</label>
-            <div class="">
+            <div class="d-flex">
               <%= select_tag 'bundles', options_for_select([''] + @bundle_names.values.sort, @selected_bundle || 'all'), :class => 'form-control' %>
             </div>
           </div>
-          <div class="form-group col-sm-3 p-0 mx-2">
-            <label for="events" class="control-label">Filter by event type</label>
-            <div class="">
-              <%= select_tag 'event_types', options_for_select('<option value="all">ALL</option><option value="invoice">INVOICE</option><option value="payment">PAYMENT</option><option value="entitlement">ENTITLEMENTS</option>'.html_safe), :class => 'form-control' %>
+          <div class="form-group p-0 w-100 max-width-148">
+            <label for="payment_filter" class="control-label">Payment</label>
+            <div class="d-flex">
+              <%= select_tag 'payment_filter', options_for_select('<option value="all">ALL</option><option value="authorize">AUTHORIZE</option><option value="purchase">PURCHASE</option><option value="capture">CAPTURE</option><option value="credit">CREDIT</option><option value="refund">REFUND</option><option value="void">VOID</option><option value="chargeback">CHARGEBACK</option>'.html_safe), :class => 'form-control' %>
             </div>
           </div>
-      
+          <div class="form-group p-0 w-100 max-width-148">
+            <label for="subscription_filter" class="control-label">Subscription</label>
+            <div class="d-flex">
+              <%= select_tag 'subscription_filter', options_for_select('<option value="all">ALL</option><option value="start_entitlement">START_ENTITLEMENT</option><option value="pause_entitlement">PAUSE_ENTITLEMENT</option><option value="resume_entitlement">RESUME_ENTITLEMENT</option><option value="stop_entitlement">STOP_ENTITLEMENT</option><option value="phase">PHASE</option><option value="change">CHANGE</option>'.html_safe), :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group p-0 w-100 max-width-148">
+            <label for="billing_filter" class="control-label">Billing</label>
+            <div class="d-flex">
+              <%= select_tag 'billing_filter', options_for_select('<option value="all">ALL</option><option value="invoice">INVOICE</option><option value="start_billing">START_BILLING</option><option value="pause_billing">PAUSE_BILLING</option><option value="resume_billing">RESUME_BILLING</option><option value="stop_billing">STOP_BILLING</option>'.html_safe), :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group p-0 d-flex align-self-end justify-content-end w-100">
+            <button type="button" id="clear-all-filters" class="dots-menu link-button">Clear Filters</button>
+          </div>
         </form>
 
         <div>
@@ -215,7 +229,7 @@
             <% bundle.subscriptions.each do |sub| %>
               <% sub.events.each do |event| %>
                 <% next if event.event_type == 'SERVICE_STATE_CHANGE' %>
-                <div title="<%= @bundle_names[bundle.external_key] %>" data-event_type="<%= event.event_type %>">
+                <div title="<%= @bundle_names[bundle.external_key] %>" data-event-type="<%= event.event_type %>">
                   <div class="datetime-container">
                     <% if event.effective_date.present? %>
                         <%= format_date(event.effective_date, @account.time_zone).html_safe %>
@@ -283,7 +297,7 @@
         });
     }
 
-    eventsOrder = ["START_ENTITLEMENT", "START_BILLING", "PAUSE_ENTITLEMENT", "PAUSE_BILLING", "RESUME_ENTITLEMENT",
+    var eventsOrder = ["START_ENTITLEMENT", "START_BILLING", "PAUSE_ENTITLEMENT", "PAUSE_BILLING", "RESUME_ENTITLEMENT",
     "RESUME_BILLING", "PHASE", "CHANGE", "STOP_ENTITLEMENT", "STOP_BILLING", "INVOICE", "AUTHORIZE", "PURCHASE", "CAPTURE",
     "CREDIT", "REFUND", "VOID", "CHARGEBACK"];
 
@@ -302,7 +316,7 @@
     function extractTitleAttributeFromText(txt) {
         // Ugly - better way of doing this?
         var matches = txt.match(/title="\w+"/g);
-        if (matches == null || matches.size == 0) {
+        if (matches == null || matches.length == 0) {
             return null;
         }
         return matches[0].split('=')[1];
@@ -339,66 +353,88 @@
     }
 
     function filterTimeline() {
-      const selectedBundle = $("#bundles").val();
-      const selectedEventType = $('#event_types').val().toUpperCase();
-      const searchQuery = $('#search').val().toLowerCase();
+      var selectedBundle = $("#bundles").val();
+      var selectedPayment = $('#payment_filter').val().toUpperCase();
+      var selectedSubscription = $('#subscription_filter').val().toUpperCase();
+      var selectedBilling = $('#billing_filter').val().toUpperCase();
+      var searchQuery = $('#search').val().toLowerCase();
       
       // Show all cards initially
       $('.account-timeline-card').parent().show();
       
-      // Filter by bundle if selected
-      if (selectedBundle && selectedBundle !== '') {
-        $('.account-timeline-card').parent().each(function() {
-          const bundleTitle = $(this).attr('title');
-          if (!bundleTitle || !bundleTitle.includes(selectedBundle)) {
-            $(this).hide();
+      // Apply all filters to each card
+      $('.account-timeline-card').parent().each(function() {
+        var $card = $(this);
+        var eventType = $card.data('event-type');
+        var bundleTitle = $card.attr('title');
+        var cardText = $card.text().toLowerCase();
+        
+        var shouldShow = true;
+        
+        // Filter by bundle if selected
+        if (selectedBundle && selectedBundle !== '') {
+          if (!bundleTitle || bundleTitle.indexOf(selectedBundle) === -1) {
+            shouldShow = false;
           }
-        });
-      }
-      
-      // Filter by event type if not "ALL"
-      if (selectedEventType !== "ALL") {
-        $('.account-timeline-card').parent().each(function() {
-          const eventType = $(this).data('event-type');
-          
-          // Special handling for ENTITLEMENT filter
-          if (selectedEventType === "ENTITLEMENT") {
-            if (!eventType || ["INVOICE", "PAYMENT", "AUTHORIZE", "PURCHASE", "CAPTURE", "CREDIT", "REFUND", "VOID", "CHARGEBACK"].includes(eventType)) {
-              $(this).hide();
-            }
-          } 
-          // Filter for specific event types
-          else if (eventType !== selectedEventType) {
-            $(this).hide();
+        }
+        
+        // Filter by payment events if not "ALL"
+        if (selectedPayment !== "ALL" && shouldShow) {
+          if (!eventType || eventType !== selectedPayment) {
+            shouldShow = false;
           }
-        });
-      }
-      
-      // Apply search filter if query exists
-      if (searchQuery) {
-        $('.account-timeline-card').parent().each(function() {
-          const cardText = $(this).text().toLowerCase();
-          if (!cardText.includes(searchQuery)) {
-            $(this).hide();
+        }
+        
+        // Filter by subscription events if not "ALL"
+        if (selectedSubscription !== "ALL" && shouldShow) {
+          if (!eventType || eventType !== selectedSubscription) {
+            shouldShow = false;
           }
-        });
-      }
+        }
+        
+        // Filter by billing events if not "ALL"
+        if (selectedBilling !== "ALL" && shouldShow) {
+          if (!eventType || eventType !== selectedBilling) {
+            shouldShow = false;
+          }
+        }
+        
+        // Apply search filter if query exists
+        if (searchQuery && shouldShow) {
+          if (cardText.indexOf(searchQuery) === -1) {
+            shouldShow = false;
+          }
+        }
+        
+        // Show or hide the card based on all filters
+        if (shouldShow) {
+          $card.show();
+        } else {
+          $card.hide();
+        }
+      });
     }
 
     $(document).ready(function() {
       disableLinks();
       
       // Initialize filters with debounce for search
-      let searchTimeout;
-      $("#bundles, #event_types").on('change', filterTimeline);
+      var searchTimeout;
+      $("#bundles, #payment_filter, #subscription_filter, #billing_filter").on('change', filterTimeline);
       $('#search').on('keyup', function() {
         clearTimeout(searchTimeout);
         searchTimeout = setTimeout(filterTimeline, 300);
       });
       
-      // Clear search button
-      $('#clear-search').click(function() {
+
+      
+      // Clear all filters button
+      $('#clear-all-filters').click(function() {
         $('#search').val('');
+        $('#bundles').val('');
+        $('#payment_filter').val('all');
+        $('#subscription_filter').val('all');
+        $('#billing_filter').val('all');
         filterTimeline();
       });
       

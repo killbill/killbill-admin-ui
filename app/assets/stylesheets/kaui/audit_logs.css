@@ -247,6 +247,41 @@
   outline: none;
 }
 
+.kaui-audit-logs-index .audit-logs #audit-logs-table_length {
+  position: absolute;
+  left: 14rem;
+  bottom: 0.5rem;
+}
+
+.kaui-audit-logs-index .audit-logs #audit-logs-table_length select {
+  width: 5rem;
+  height: 2.2rem;
+  padding: 0.3rem;
+  padding-right: 1.875rem;
+  border: 0.0625rem solid #e5e7eb;
+  border-radius: 0.375rem;
+}
+
+.kaui-audit-logs-index .audit-logs #audit-logs-table_length select:focus {
+  outline: none;
+  box-shadow: none;
+  border: 0.0625rem solid #e5e7eb;
+}
+
+.kaui-audit-logs-index .audit-logs #audit-logs-table_length select {
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.0625rem solid #ced4da;
+  border-radius: 0.375rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 6L8 10L12 6' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.3125rem center;
+  background-size: 1rem 1rem;
+  padding: 0 1.25rem 0 0.5rem;
+}
 .kaui-audit-logs-index .dropdown-menu#column-visibility {
   max-height: 18.75rem;
   width: 13.75rem;
