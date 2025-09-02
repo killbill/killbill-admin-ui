@@ -47,6 +47,8 @@
 //= link kaui/card.svg
 //= link kaui/delete.svg
 //= link kaui/logout.svg
+//= link kaui/eye.svg
+//= link kaui/eye-off.svg
 //= link kaui/view-doc.svg
 //= link kaui/file-upload.svg
 //= link kaui/setting/account.svg
