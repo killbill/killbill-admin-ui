@@ -87,7 +87,7 @@
         }
       } %>
       <%= render "kaui/components/button/button", {
-        label: 'Save Charge',
+        label: "#{fix_transaction_state ? 'Update' : 'Save'} #{@transaction.transaction_type&.titleize || 'Transaction'}",
         variant: "outline-secondary d-inline-flex align-items-center gap-1",
         type: "submit",
         html_class: "kaui-dropdown custom-hover",
@@ -96,4 +96,39 @@
         }
       } %>
     </div>
+
+    <script>
+      $(document).ready(function() {
+        var isUpdate = <%= fix_transaction_state ? 'true' : 'false' %>;
+        var actionPrefix = isUpdate ? 'Update' : 'Save';
+        
+        function getButtonLabel(transactionType) {
+          if (!transactionType) return actionPrefix + ' Transaction';
+          
+          var labels = {
+            'AUTHORIZE': actionPrefix + ' Authorization',
+            'CAPTURE': actionPrefix + ' Capture',
+            'CHARGEBACK': actionPrefix + ' Chargeback',
+            'CREDIT': actionPrefix + ' Credit',
+            'PURCHASE': actionPrefix + ' Purchase',
+            'REFUND': actionPrefix + ' Refund',
+            'VOID': actionPrefix + ' Void'
+          };
+          
+          return labels[transactionType] || actionPrefix + ' ' + transactionType.charAt(0) + transactionType.slice(1).toLowerCase();
+        }
+        
+        $('#transaction_transaction_type').on('change', function() {
+          var selectedType = $(this).val();
+          var buttonLabel = getButtonLabel(selectedType);
+          $('#saveButton').text(buttonLabel);
+        });
+        
+        // Set initial button label
+        var initialType = $('#transaction_transaction_type').val();
+        if (initialType) {
+          $('#saveButton').text(getButtonLabel(initialType));
+        }
+      });
+    </script>
 <% end %>

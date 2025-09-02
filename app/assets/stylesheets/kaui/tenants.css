@@ -848,6 +848,19 @@
   text-transform: capitalize;
 }
 
+.show-catalog-simple .dots-menu {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  text-decoration: none !important;
+  color: #D92D20 !important;
+  font-weight: 500;
+  padding-right: 0.3125rem !important;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin-left: 1rem;
+}
+
 /* app/views/kaui/admin_tenants/_show_catalog_xml.erb */
 
 .show-catalog-xml .catalog-container {

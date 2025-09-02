@@ -6,15 +6,30 @@
         <h2>Existing Plans</h2>
         </div>
         <span>
-        <div class="select-catalog-version d-inline-flex align-items-center gap-1">
-            <b>Catalog Versions:</b>
-            <select id="select_catalog" class="selectpicker show-menu-arrow">
-                <% @catalog_versions.reverse_each do |catalog, i| %>
-                    <option idx="<%= catalog[:version] %>"><%= catalog[:version_date] %></option>
-                <% end %>
-            </select>
-        </div>
+        <% if @catalog_versions.present? %>
+            <div class="select-catalog-version d-inline-flex align-items-center gap-1">
+                <b>Catalog Versions:</b>
+                <select id="select_catalog" class="selectpicker show-menu-arrow">
+                    <% @catalog_versions.reverse_each do |catalog, i| %>
+                        <option idx="<%= catalog[:version] %>">
+                            <%= catalog[:version_date] %>
+                        </option>
+                    <% end %>
+                </select>
+            </div>
+        <% end %>
 
+
+        <% if can?(:delete, Kaui::AdminTenant) %>
+            <%= link_to admin_tenant_delete_catalog_path(id: @tenant.id), :method => :delete, class: "text-decoration-none" do %>
+                <%= render "kaui/components/button/button", {
+                    label: "Delete Catalog",
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "button",
+                    html_class: "kaui-button dots-menu custom-hover",
+                } %>
+            <% end %>
+        <% end %>
         <%= link_to download_catalog_xml_path(id: @tenant.id, effective_date: @latest_version), id: "download_link", class: "text-decoration-none" do %>
             <%= render "kaui/components/button/button", {
                 label: "Download XML",

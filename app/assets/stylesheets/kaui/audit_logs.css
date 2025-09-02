@@ -10,9 +10,6 @@
   border-bottom: 0.0625rem solid #e9eaeb;
 }
 
-.kaui-audit-logs-index .audit-logs-table {
-}
-
 .kaui-audit-logs-index .audit-logs-table th,
 .kaui-audit-logs-index .audit-logs-table td {
   white-space: nowrap;
@@ -223,11 +220,6 @@
   color: #374151;
 }
 
-.kaui-audit-logs-index .audit-logs #audit-logs-table_first,
-.kaui-audit-logs-index .audit-logs #audit-logs-table_last {
-  display: none !important;
-}
-
 .kaui-audit-logs-index .audit-logs #audit-logs-table_filter {
   position: absolute;
   right: 10rem;
@@ -282,6 +274,7 @@
   background-size: 1rem 1rem;
   padding: 0 1.25rem 0 0.5rem;
 }
+
 .kaui-audit-logs-index .dropdown-menu#column-visibility {
   max-height: 18.75rem;
   width: 13.75rem;

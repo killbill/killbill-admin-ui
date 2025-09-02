@@ -51,7 +51,50 @@
             } %>
           </p>
         </div>
+        <div class="col-sm-4">
+          <b>API Secret:</b>
+          <p>
+            <span id="api-secret">
+              <%= @tenant.api_secret %>
+            </span>
+
+            <%= render "kaui/components/button/button", {
+              label: '',
+              icon: "kaui/eye.svg",
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "button",
+              html_class: "dots-menu kaui-button",
+              html_options: {
+                id: "toggle-eye-btn",
+                onclick: "toggleSecret()"
+              }
+            } %>
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  function toggleSecret() {
+    const secretSpan = document.getElementById("api-secret");
+    const eyeBtn = document.getElementById("toggle-eye-btn").querySelector("img");
+
+    if (secretSpan.dataset.visible === "true") {
+      secretSpan.textContent = "✴✴✴✴✴";
+      secretSpan.dataset.visible = "false";
+      eyeBtn.src = "/assets/kaui/eye.svg"; // eye closed
+    } else {
+      secretSpan.textContent = "<%= j @tenant.api_secret %>";
+      secretSpan.dataset.visible = "true";
+      eyeBtn.src = "/assets/kaui/eye-off.svg"; // eye open
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const secretSpan = document.getElementById("api-secret");
+    secretSpan.dataset.visible = "false";
+    secretSpan.textContent = "✴✴✴✴✴";
+  });
+</script>

@@ -365,11 +365,6 @@ table.invoice-totals tr:last-of-type {
   color: #374151;
 }
 
-.invoice-index .invoices #invoices-table_first,
-.invoice-index .invoices #invoices-table_last {
-  display: none !important;
-}
-
 .invoice-index .dropdown-menu#column-visibility {
   max-height: 18.75rem;
   width: 12.5rem;

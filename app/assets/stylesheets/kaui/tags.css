@@ -320,7 +320,6 @@
   border-color: blue;
 }
 
-
 .kaui-tags-index .pagination a:not(:first-child):not(:last-child) {
   color: #717680;
   display: flex;
@@ -379,11 +378,6 @@
   background-color: white;
   padding: 0.5rem 0.875rem;
   color: #374151;
-}
-
-.kaui-tags-index #tags-table_first,
-.kaui-tags-index #tags-table_last {
-  display: none !important;
 }
 
 /* app/views/kaui/account_tags/index.html.erb */
@@ -635,11 +629,6 @@
   color: #374151;
 }
 
-.kaui-account-tags-index .account-tags #account-tags-table_first,
-.kaui-account-tags-index .account-tags #account-tags-table_last {
-  display: none !important;
-}
-
 .kaui-account-tags-index .account-tags #tags-table_filter {
   position: absolute;
   right: 0;
@@ -680,4 +669,40 @@
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.125rem;
+}
+
+.kaui-account-tags-index #tags-table_length {
+  position: absolute;
+  left: 14rem;
+  bottom: 0;
+}
+
+.kaui-account-tags-index #tags-table_length select {
+  width: 5rem;
+  height: 2.2rem;
+  padding: 0.3rem;
+  padding-right: 1.875rem;
+  border: 0.0625rem solid #e5e7eb;
+  border-radius: 0.375rem;
+}
+
+.kaui-account-tags-index #tags-table_length select:focus {
+  outline: none;
+  box-shadow: none;
+  border: 0.0625rem solid #e5e7eb;
+}
+
+.kaui-account-tags-index #tags-table_length select {
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0.0625rem solid #ced4da;
+  border-radius: 0.375rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 6L8 10L12 6' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.3125rem center;
+  background-size: 1rem 1rem;
+  padding: 0 1.25rem 0 0.5rem;
 }

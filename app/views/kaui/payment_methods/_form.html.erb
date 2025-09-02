@@ -42,10 +42,11 @@
         type: "button",
         html_class: "kaui-button custom-hover mx-2",
         html_options: {
-          id: "closeButton",
-          onclick: "window.history.back();"
+          id: "cancelButton",
+          onclick: "window.location.href='#{kaui_engine.account_path(@payment_method.account_id)}'"
         }
       } %>
+
       <%= render "kaui/components/button/button", {
         label: 'Save Method',
         variant: "outline-secondary d-inline-flex align-items-center gap-1",

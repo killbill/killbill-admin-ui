@@ -99,7 +99,7 @@
               type: "button",
               html_class: "kaui-button custom-hover mx-2",
               html_options: {
-                onclick: "window.history.back();"
+                onclick: "window.location.href='#{kaui_engine.admin_tenant_path(session[:tenant_id])}'"
               }
             } %>
             <%= render "kaui/components/button/button", {
@@ -168,7 +168,7 @@
               type: "button",
               html_class: "kaui-button custom-hover mx-2",
               html_options: {
-                onclick: "window.history.back();"
+                onclick: "window.location.href='#{kaui_engine.admin_tenant_path(session[:tenant_id])}'"
               }
             } %>
             <%= render "kaui/components/button/button", {
