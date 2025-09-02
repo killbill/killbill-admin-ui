@@ -359,15 +359,6 @@
       var selectedBilling = $('#billing_filter').val().toUpperCase();
       var searchQuery = $('#search').val().toLowerCase();
       
-      // Debug logging
-      console.log('Filter values:', {
-        bundle: selectedBundle,
-        payment: selectedPayment,
-        subscription: selectedSubscription,
-        billing: selectedBilling,
-        search: searchQuery
-      });
-      
       // Show all cards initially
       $('.account-timeline-card').parent().show();
       
