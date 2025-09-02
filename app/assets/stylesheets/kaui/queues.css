@@ -219,12 +219,6 @@
   color: #374151;
 }
 
-.kaui-queues-index .queues #bus-table_first,
-.kaui-queues-index .queues #bus-table_last,
-.kaui-queues-index .queues #notifications-table_first,
-.kaui-queues-index .queues #notifications-table_last {
-  display: none !important;
-}
 
 .kaui-queues-index .queues #bus-table_wrapper .row:nth-of-type(2),
 .kaui-queues-index .queues #notifications-table_wrapper .row:nth-of-type(2) {

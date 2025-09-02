@@ -1,13 +1,7 @@
 
 
 <div class="kaui-container payments-show">
-
-  <%= render partial: 'kaui/components/breadcrumb/breadcrumb', locals: {
-    breadcrumbs: [
-      { label: 'Payments', href: '/kaui/payments' },
-      { label: "Payment #{@payment.payment_number}", href: '/kaui/payments' }
-    ]
-  } %>
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
   <div class="payments">
     <div class="d-flex flex-column ">
       <div class="payments-header mb-4">

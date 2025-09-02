@@ -1253,6 +1253,7 @@ table thead th:last-child {
   color: inherit;
   cursor: pointer;
   padding: 0;
+  padding-top: 0.3125rem;
   transition: transform 0.2s;
 }
 

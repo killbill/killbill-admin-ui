@@ -50,7 +50,16 @@
     'account_tags' => 'Tags',
     'custom_fields' => 'Custom Fields',
     'queues' => 'Queues',
-    'logs' => 'Audit'
+    'logs' => 'Audit',
+    'payment_methods' => 'Payment Methods',
+    'subscriptions' => 'Subscriptions',
+    'credits' => 'Credits',
+    'refunds' => 'Refunds',
+    'chargebacks' => 'Chargebacks',
+    'transactions' => 'Transactions',
+    'admin' => 'Admin',
+    'tenants' => 'Tenants',
+    'home' => 'Dashboard'
   } %>
 
   <nav class="breadcrumb-nav" aria-label="Breadcrumb">
@@ -101,14 +110,32 @@
 
       <span class="breadcrumb-separator">/</span>
 
-      <% if segment.match?(/\A[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\z/i) && defined?(pretty_account_identifier) %>
-        <% label = pretty_account_identifier %>
-      <% elsif segment_label_map[segment] %>
-        <% label = segment_label_map[segment] %>
-      <% else %>
-        <% label = segment.titleize %>
-      <% end %>
-
+      <% if segment.match?(/\A[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\z/i)
+          if defined?(@account) && @account&.account_id == segment
+            label = @account.name.present? ? @account.name : "Account #{@account.account_id[0..7]}..."  
+          elsif defined?(@payment) && @payment&.payment_id == segment
+            label = @payment.payment_number.present? ? "Payment #{@payment.payment_number}" : "Payment #{@payment.payment_id[0..7]}..."
+          elsif defined?(@invoice) && @invoice&.invoice_id == segment
+            label = @invoice.invoice_number.present? ? "Invoice #{@invoice.invoice_number}" : "Invoice #{@invoice.invoice_id[0..7]}..."
+          elsif defined?(@bundle) && @bundle&.bundle_id == segment
+            label = @bundle.external_key.present? ? "Bundle #{@bundle.external_key}" : "Bundle #{@bundle.bundle_id[0..7]}..."
+          elsif defined?(@subscription) && @subscription&.subscription_id == segment
+            label = @subscription.external_key.present? ? "Subscription #{@subscription.external_key}" : "Subscription #{@subscription.subscription_id[0..7]}..."
+          # Additional checks for common patterns using params
+          elsif segment == params[:account_id] && defined?(@account)
+            label = @account.name.present? ? @account.name : "Account #{@account.account_id[0..7]}..."
+          elsif segment == params[:payment_id] && defined?(@payment)
+            label = @payment.payment_number.present? ? "Payment #{@payment.payment_number}" : "Payment #{@payment.payment_id[0..7]}..."
+          elsif segment == params[:invoice_id] && defined?(@invoice)
+            label = @invoice.invoice_number.present? ? "Invoice #{@invoice.invoice_number}" : "Invoice #{@invoice.invoice_id[0..7]}..."
+          else
+            label = segment[0..7] + "..."
+          end
+        elsif segment_label_map[segment] %>
+          <% label = segment_label_map[segment] %>
+        <% else %>
+          <% label = segment.titleize %>
+        <% end %>
       <% if is_last %>
         <span class="breadcrumb-current"><%= label %></span>
       <% else %>

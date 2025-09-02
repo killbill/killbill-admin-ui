@@ -356,11 +356,6 @@
   color: #374151;
 }
 
-.payments-index .payments #payments-table_first,
-.payments-index .payments #payments-table_last {
-  display: none !important;
-}
-
 
 /* app/views/kaui/payments/_multi_functions_bar.html.erb */
 
