@@ -114,6 +114,12 @@ $(document).ready(function() {
       $(".next.paginate_button").toggleClass("disabled", noMoreData);
       $(".dataTables_info").toggle(!noMoreData);
     <% end %>
+
+    $("td.dataTables_empty").each(function() {
+      var text = $(this).text().trim();
+      $(this).html('<p class="max-text-container">' + text + '</p>');
+    });
+
     populateSearchLabelsFromUrl();
   });
 });

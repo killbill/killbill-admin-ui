@@ -103,7 +103,6 @@ table tr.expired td {
   line-height: 1.125rem !important;
   text-align: start;
   color: #535862 !important;
-  text-transform: capitalize !important;
 }
 
 .subscription-bundl-index .subscription-bundle .search table th:first-of-type, .search table td:first-of-type {

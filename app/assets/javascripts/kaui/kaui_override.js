@@ -301,6 +301,7 @@ jQuery(document).ready(function ($) {
     });
 
     setObjectIdPopover();
+    setObjectIdTooltip();
 });
 
 
@@ -433,4 +434,144 @@ function setObjectIdPopover(){
     $(".modal").on('hide.bs.modal',function(e){
         setObjectIdPopover();
     });
+}
+
+// Custom tooltip function for object IDs
+// attributes:
+//      data-id = content of the tooltip, object id; required
+//      title = title of the tooltip; not required
+function setObjectIdTooltip() {
+  // Remove any existing tooltips
+  $(".custom-tooltip").remove();
+
+  $(".object-id-popover").each(function (idx, e) {
+    var $element = $(this);
+    var objectId = $element.data("id");
+
+    if (!objectId) return;
+
+    // Remove any existing event handlers
+    $element.off(".customTooltip");
+
+    // Add hover event handler
+    $element.on("mouseenter.customTooltip", function (e) {
+      // Hide any existing tooltips immediately when opening a new one
+      hideCustomTooltip();
+      showCustomTooltip(this, objectId);
+    });
+  });
+
+  // Close tooltips when modals open
+  $(".modal").on("show.bs.modal.customTooltip", function (e) {
+    hideCustomTooltip();
+  });
+}
+
+// Show custom tooltip
+function showCustomTooltip(element, objectId) {
+  // Hide any existing tooltip
+  hideCustomTooltip();
+
+  var $element = $(element);
+  var position = $element.offset();
+  var elementHeight = $element.outerHeight();
+  var elementWidth = $element.outerWidth();
+
+  // Create tooltip content with header and custom SVG icon
+  var svgIcon =
+    '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+    '<path d="M11.3332 5.94864V2.66659C11.3332 1.93021 10.7363 1.33325 9.99989 1.33325H2.66659C1.93021 1.33325 1.33325 1.93021 1.33325 2.66659V9.99992C1.33325 10.7363 1.93021 11.3333 2.66659 11.3333H5.94864" stroke="#717680" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+    '<path d="M13.3333 6C14.0697 6 14.6666 6.59695 14.6666 7.33333M7.33331 6C6.59695 6 6 6.59695 6 7.33333M13.3333 14.6667C14.0697 14.6667 14.6666 14.0697 14.6666 13.3333M7.33331 14.6667C6.59695 14.6667 6 14.0697 6 13.3333M9.33331 6H11.3333M9.33331 14.6667H11.3333M14.6666 9.33333V11.3333M6 9.33333V11.3333" stroke="#717680" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+    "</svg>";
+
+  var tooltipContent =
+    '<div class="tooltip-header">Subscription ID</div>' +
+    '<div class="tooltip-content">' +
+    '<span class="tooltip-id">' +
+    objectId +
+    "</span>" +
+    '<div class="copy-icon-wrapper" data-copy-id="' +
+    objectId +
+    '" title="Copy to clipboard">' +
+    svgIcon +
+    "</div>" +
+    "</div>" +
+    '<div class="tooltip-timer"></div>';
+
+  // Create tooltip element
+  var $tooltip = $('<div class="custom-tooltip">' + tooltipContent + "</div>");
+
+  // Add tooltip to body
+  $("body").append($tooltip);
+
+  // Store tooltip reference globally for management
+  window.currentTooltip = $tooltip;
+
+  // Position tooltip
+  var tooltipWidth = $tooltip.outerWidth();
+  var tooltipHeight = $tooltip.outerHeight();
+  var windowWidth = $(window).width();
+  var windowHeight = $(window).height();
+  var scrollTop = $(window).scrollTop();
+  var scrollLeft = $(window).scrollLeft();
+
+  // Calculate position (try right first, then left, then top, then bottom)
+  var top = position.top + elementHeight / 2 - tooltipHeight / 2;
+  var left = position.left + elementWidth + 12;
+  var placement = "right";
+
+  // Check if tooltip goes off screen horizontally
+  if (left + tooltipWidth > windowWidth + scrollLeft) {
+    left = position.left - tooltipWidth - 12;
+    placement = "left";
+    $tooltip.addClass("left");
+  }
+
+  // Check if tooltip goes off screen vertically
+  if (top + tooltipHeight > windowHeight + scrollTop) {
+    top = windowHeight + scrollTop - tooltipHeight - 10;
+  }
+  if (top < scrollTop) {
+    top = scrollTop + 10;
+  }
+
+  $tooltip.css({
+    top: top + "px",
+    left: left + "px",
+  });
+
+  // Add click handler for copy icon
+  $tooltip.find(".copy-icon-wrapper").on("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var copyId = $(this).data("copy-id");
+    navigator.clipboard.writeText(copyId);
+    ajaxInfoAlert("Id [" + copyId + "] was copied to clipboard!", 3000);
+    hideCustomTooltip();
+  });
+
+  // Show tooltip with animation
+  $tooltip.fadeIn(150);
+
+  // Set 5-second auto-hide timer
+  window.tooltipAutoHideTimeout = setTimeout(function () {
+    hideCustomTooltip();
+  }, 5000); // 5 seconds
+}
+
+// Hide custom tooltip
+function hideCustomTooltip() {
+  // Clear any existing auto-hide timer
+  if (window.tooltipAutoHideTimeout) {
+    clearTimeout(window.tooltipAutoHideTimeout);
+    window.tooltipAutoHideTimeout = null;
+  }
+
+  // Clear tooltip reference
+  window.currentTooltip = null;
+
+  // Hide and remove tooltip
+  $(".custom-tooltip").fadeOut(100, function () {
+    $(this).remove();
+  });
 }

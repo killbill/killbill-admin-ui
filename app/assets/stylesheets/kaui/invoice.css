@@ -211,7 +211,6 @@ table.invoice-totals tr:last-of-type {
   line-height: 1.125rem !important;
   text-align: start;
   color: #535862 !important;
-  text-transform: capitalize !important;
 }
 
 .invoice-index .invoices .search table th:first-of-type, .search table td:first-of-type {
@@ -730,7 +729,6 @@ table.invoice-totals tr:last-of-type {
   line-height: 1.125rem !important;
   text-align: start;
   color: #535862 !important;
-  text-transform: capitalize !important;
 }
 
 .invoice-show .payment-table th,
@@ -761,7 +759,6 @@ table.invoice-totals tr:last-of-type {
   line-height: 1.125rem !important;
   text-align: start;
   color: #535862 !important;
-  text-transform: capitalize !important;
 }
 
 .invoice-show .payment-table .alert-success {
