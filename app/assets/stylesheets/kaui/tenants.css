@@ -111,7 +111,6 @@
   line-height: 1.125rem !important;
   text-align: start;
   color: #535862 !important;
-  text-transform: capitalize !important;
 }
 
 
@@ -370,7 +369,6 @@
   line-height: 1.125rem !important;
   text-align: start;
   color: #535862 !important;
-  text-transform: capitalize !important;
 }
 
 .admin-tenant-show table#allowed-users-for-tenant-table thead tr th::after {
@@ -687,7 +685,6 @@
   text-align: start;
   padding: 0.3125rem 0.75rem !important;
   color: #535862 !important;
-  text-transform: capitalize !important;
 }
 
 /* app/views/kaui/admin_tenants/_form_invoice_template.erb */
@@ -807,7 +804,6 @@
   line-height: 1.125rem !important;
   text-align: start;
   color: #535862 !important;
-  text-transform: capitalize !important;
 }
 
 .show-catalog-simple .currency-button {
@@ -908,7 +904,6 @@
   line-height: 1.125rem !important;
   text-align: start;
   color: #535862 !important;
-  text-transform: capitalize !important;
 }
 
 .show-catalog-xml .currency-button {
@@ -1290,7 +1285,6 @@
   line-height: 1.125rem !important;
   text-align: start;
   color: #535862 !important;
-  text-transform: capitalize !important;
   max-width: 8.5625rem !important;
 }
 

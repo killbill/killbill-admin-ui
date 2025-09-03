@@ -100,7 +100,6 @@
   line-height: 1.125rem !important;
   text-align: start;
   color: #535862 !important;
-  text-transform: capitalize !important;
 }
 
 .kaui-account-custom-fields-index .custom-fields .search table th:first-of-type,
@@ -385,7 +384,6 @@
   line-height: 1.125rem !important;
   text-align: start;
   color: #535862 !important;
-  text-transform: capitalize !important;
 }
 
 .kaui-custom-fields-index table thead tr th::after {

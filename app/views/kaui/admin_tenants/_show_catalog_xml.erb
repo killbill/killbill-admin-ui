@@ -33,7 +33,7 @@
                   <td><%= catalog[:version_date] %></td>
                   <td class="text-end">
                     <div class="d-flex align-items-center justify-content-end gap-2 w-fit">
-                      <%= form_tag(kaui_engine.admin_tenant_display_catalog_xml_path, :id => "submit_form_xml_#{catalog[:version]}", :method => 'post', :multipart => true, :class => "hide") do %>
+                      <%= form_tag(kaui_engine.admin_tenant_display_catalog_xml_path, :id => "submit_form_xml_#{catalog[:version]}", :method => 'post', :multipart => true, :class => "d-none") do %>
                           <%= hidden_field_tag(:effective_date, catalog[:version_date]) %>
                           <%= hidden_field_tag(:id, @tenant.id) %>
                           <%= render "kaui/components/button/button", {

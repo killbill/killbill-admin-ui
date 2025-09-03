@@ -1,7 +1,7 @@
 <% if params[:account_id].present? %>
   <div class="account-sidebar-area">
     <div class="container">
-      <p><%= pretty_account_identifier %></p>
+      <p class="line-break-anywhere"><%= pretty_account_identifier %></p>
 
       <% menu_items = [
         { label: 'Account', path: kaui_engine.account_path(params[:account_id]), controller_suffix: 'accounts', icon_path: 'kaui/sidebar/account.svg' },

@@ -45,7 +45,7 @@
         <% end %>
         <td><%= humanized_subscription_plan_or_product_name(sub, catalog) %></td>
         <td>
-          <span id="<%= sub.subscription_id %>-popover" class="object-id-popover category-bedge" title="Subscription ID" data-id="<%= sub.subscription_id %>">
+          <span id="<%= sub.subscription_id %>-popover" class="object-id-popover category-bedge" data-id="<%= sub.subscription_id %>">
             <%= humanized_subscription_product_category(sub) %>
           </span>
         </td>
@@ -157,7 +157,10 @@
         null,
         null,
         { "orderable": false }
-      ]
+      ],
+      "drawCallback": function() {
+        setObjectIdTooltip();
+      }
     });
 
     $(".price-override-popover").popover({

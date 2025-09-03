@@ -36,7 +36,6 @@
   line-height: 1.125rem !important;
   text-align: start;
   color: #535862 !important;
-  text-transform: capitalize !important;
 }
 
 .kaui-users-index table thead tr th::after {
