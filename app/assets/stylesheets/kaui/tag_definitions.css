@@ -39,6 +39,79 @@
   color: #535862 !important;
 }
 
+.kaui-tag-definitions-index .clickable-id {
+  cursor: pointer;
+  color: #1570ef !important;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.kaui-tag-definitions-index .clickable-id:hover {
+  color: #0f4c8a !important;
+}
+
+/* Custom Object ID Tooltip Styles */
+.object-id-tooltip {
+  background: #ffffff;
+  border: 0.0625rem solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1),
+              0 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.06);
+  padding: 0.75rem;
+  min-width: 12.5rem;
+  max-width: 18.75rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  display: none;
+}
+
+.object-id-tooltip .tooltip-header {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03125rem;
+}
+
+.object-id-tooltip .tooltip-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.object-id-tooltip .tooltip-id {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1f2937;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  word-break: break-all;
+  flex: 1;
+}
+
+.object-id-tooltip .copy-btn {
+  background: #f3f4f6;
+  border: 0.0625rem solid #d1d5db;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.object-id-tooltip .copy-btn:hover {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+.object-id-tooltip .copy-btn:active {
+  background: #d1d5db;
+  transform: scale(0.95);
+}
+
 .kaui-tag-definitions-index table thead tr th::after {
   content: "" !important;
   display: inline-block !important;

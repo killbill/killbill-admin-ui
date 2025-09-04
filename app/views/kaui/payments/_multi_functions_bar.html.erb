@@ -78,7 +78,7 @@
         <form id="downloadCsvForm">
           <div class="row">
             <div class="d-flex align-items-center">
-              <label for="searchFieldSelect" class="field-label col-sm-3">Account Creation Date</label>
+              <label for="searchFieldSelect" class="field-label col-sm-3">Payment Date</label>
                 <div class="fake-select-wrapper col-sm-9">
                   <input type="checkbox" id="single-toggle" hidden />
                   <div class="d-flex align-items-center position-relative">
@@ -90,9 +90,9 @@
                         <path d="M2.5 8.3335H17.5" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       </svg>
                     </label>
-                    <input type="text" class="form-control center-input" id="startDate" placeholder="All accounts" name="startDate">
+                    <input type="text" class="form-control center-input" id="startDate" placeholder="All Accounts" name="startDate">
                     <div id="dash" class="dash">–</div>
-                    <input type="text" class="form-control right-input" id="endDate" name="endDate">
+                    <input type="text" class="form-control right-input" id="endDate" placeholder="" name="endDate">
                     <div id="toggle-wrapper" class="position-absolute" style="width: 100%; height: 100%;" onclick="document.getElementById('single-toggle').click()"></div>
                   </div>
 
@@ -206,8 +206,13 @@ $(document).ready(function() {
     $('#downloadCsvModal').modal('show');
   });
 
-  $('#startDate, #endDate').datepicker({
-    dateFormat: 'yy-mm-dd'
+  // Native date inputs are used; no jQuery UI datepicker initialization needed
+
+  // Open native date picker on input click/focus
+  $('#startDate, #endDate').on('click focus', function() {
+    if (!this.disabled && typeof this.showPicker === 'function') {
+      this.showPicker();
+    }
   });
 
   $('#downloadCsvModal').on('show.bs.modal', function (e) {
@@ -225,6 +230,8 @@ $(document).ready(function() {
     $('#toggle-wrapper').show();
     $('#dash').hide();
     $('#startDate, #endDate').prop('disabled', true);
+    // Change to text inputs to show placeholder
+    $('#startDate, #endDate').attr('type', 'text');
   });
 
   $('#thisWeek').change(function() {
@@ -232,6 +239,8 @@ $(document).ready(function() {
       setDateRange("week");
       $('#toggle-wrapper').show();
       $('#dash').show();
+      // Change back to date inputs
+      $('#startDate, #endDate').attr('type', 'date');
     }
   });
 
@@ -240,6 +249,8 @@ $(document).ready(function() {
       setDateRange("month");
       $('#toggle-wrapper').show();
       $('#dash').show();
+      // Change back to date inputs
+      $('#startDate, #endDate').attr('type', 'date');
     }
   });
 
@@ -248,6 +259,8 @@ $(document).ready(function() {
       setDateRange("year");
       $('#toggle-wrapper').show();
       $('#dash').show();
+      // Change back to date inputs
+      $('#startDate, #endDate').attr('type', 'date');
     }
   });
 
@@ -257,6 +270,8 @@ $(document).ready(function() {
       $('#startDate, #endDate').prop('disabled', false);
       $('#toggle-wrapper').hide();
       $('#dash').show();
+      // Change back to date inputs
+      $('#startDate, #endDate').attr('type', 'date');
     }
   });
 

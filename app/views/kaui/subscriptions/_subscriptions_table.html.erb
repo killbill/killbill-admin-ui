@@ -3,7 +3,7 @@
   <tr>
     <% unless @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? %>
       <th></th>
-    <% end %>
+    <% end %> 
     <th>Name</th>
     <th>Category</th>
     <th>Phase type</th>
@@ -16,31 +16,35 @@
   <tbody>
     <% (bundle.subscriptions || []).each do |sub| %>
       <% dropdown_id = "cancelDropdown-#{sub.subscription_id}" %>
-      <tr class="<%= subscription_cancelled?(sub) ? 'expired' : 'non-expired' %>">
-        <% unless @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? %>
-          <td class="inline-row-tag-bar">
-            <div class="tag-bar tag-bar-no-border">
-              <% unless @available_subscription_tags.blank? %>
+      <tr class="<%= subscription_cancelled?(sub) ? 'expired expired-row' : 'non-expired' %>">
+        <% unless @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? %> 
+          <td class="full-visible">
+            <div class="tag-bar tag-bar-no-border children-tag-bar">
+              <% unless @available_subscription_tags.blank? %> 
+
                 <div class="tag-select" onclick="void(0)">
-                  <span><i class="fa fa-tag"></i><i class="fa fa-caret-down"></i></span>
+                  <%= render "kaui/components/button/button", {
+                    label: "",
+                    trailing_icon: "kaui/sidebar/tags.svg", 
+                    variant: "",
+                    type: "button",
+                    html_class: "kaui-button custom-hover dots-menu me-2",
+                  } %>
 
-                  <div class="tag-select-box">
-                    <strong>Tag as:</strong>
-
+                  <div class="tag-select-box tag-as-select-box d-flex flex-column align-items-start children-tag-select-box" style="opacity: 1;">
+                    <strong>Tag As:</strong>
                     <%= render :partial => 'kaui/bundle_tags/form_bar',
-                               :locals => {:params => { :bundle_id => bundle.bundle_id},
-                                 :tag_names => (@tags_per_subscription[sub.subscription_id] || []).map { |tag| tag.tag_definition_name },
-                                 :available_tags => @available_subscription_tags,
-                                 :update_tags_path => update_subscriptions_tags_path(sub.subscription_id)
-                               } %>
+                                :locals => {:params => { :bundle_id => bundle.bundle_id},
+                                  :tag_names => (@tags_per_subscription[sub.subscription_id] || []).map { |tag| tag.tag_definition_name },
+                                  :available_tags => @available_subscription_tags,
+                                  :update_tags_path => update_subscriptions_tags_path(sub.subscription_id)
+                                } %> 
                   </div>
                 </div>
-              <% end %>
+              <% end %> 
 
-              <%= render :partial => 'kaui/custom_fields/list_bar',
-                         :locals => {:custom_fields => @custom_fields_per_subscription[sub.subscription_id] || []} %>
+              <%= render :partial => 'kaui/custom_fields/list_bar', :locals => {:custom_fields => @custom_fields_per_subscription[sub.subscription_id] || []} %>
             </div>
-
           </td>
         <% end %>
         <td><%= humanized_subscription_plan_or_product_name(sub, catalog) %></td>
@@ -57,7 +61,7 @@
           <% if subscription_future_cancelled?(sub, account) %>
             <%= link_to 'Reinstate', kaui_engine.reinstate_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-xs' %>
           <% elsif !subscription_cancelled?(sub) %>
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-end align-items-center">
               <% if can? :cancel, Kaui::Subscription %>
                 <div class="btn-group cancel-menu position-relative" id="<%= dropdown_id %>Wrapper">
                   <button id="<%= dropdown_id %>Btn" class="cancel-button">
@@ -132,6 +136,7 @@
               <% end %>
             </div>
           <% end %>
+
         </td>
       </tr>
     <% end %>

@@ -1,8 +1,8 @@
 <div class="kaui-container kaui-queues-index">
   <%= render "kaui/components/breadcrumb/breadcrumb" %>
-  <div class="d-flex " style="gap: 4rem;">
+  <div class="d-flex w-100" style="gap: 4rem;">
     <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
-    <div class="queues">
+    <div class="queues w-100">
       <div class="d-flex flex-column ">
         <div class="queues-header mb-4">
           <div class="d-flex align-items-center">
@@ -10,17 +10,46 @@
           </div>
         </div>
         <div class="text-center filter-tabs">
-          <%= link_to 'Current or future entries', kaui_engine.queues_path(params.to_h.merge(with_history: false, max_date: @now + 1.week)), class: (params[:with_history] == 'false' ? 'activelink' : '') %>
-
+          <%= link_to 'Current or future entries',
+              kaui_engine.queues_path(
+                params.to_unsafe_h.except(:min_date, :max_date, :tab, :with_history)
+                      .merge(with_history: 'false',
+                            tab: 'future',
+                            max_date: (@now + 1.week).utc.iso8601)
+              ),
+              class: (params[:tab] == 'future' ? 'activelink' : '') %>
 
           <% unless params[:account_id].present? -%>
-            <%= link_to 'Historical entries (last week)', kaui_engine.queues_path(params.to_h.merge(with_history: true, min_date: @now - 1.week, max_date: @now + 1.week)), class: (params[:with_history] == 'true' && params[:min_date] == (@now - 1.week).to_s ? 'activelink' : '') %>
-            <%= link_to 'Historical entries (last month)', kaui_engine.queues_path(params.to_h.merge(with_history: true, min_date: @now - 1.month, max_date: @now + 1.week)), class: (params[:with_history] == 'true' && params[:min_date] == (@now - 1.month).to_s ? 'activelink' : '') %>
+            <%= link_to 'Historical entries (last week)',
+                kaui_engine.queues_path(
+                  params.to_unsafe_h.except(:min_date, :max_date, :tab, :with_history)
+                        .merge(with_history: 'true',
+                              tab: 'week',
+                              min_date: (@now - 1.week).utc.iso8601,
+                              max_date: (@now + 1.week).utc.iso8601)
+                ),
+                class: (params[:tab] == 'week' ? 'activelink' : '') %>
+
+            <%= link_to 'Historical entries (last month)',
+                kaui_engine.queues_path(
+                  params.to_unsafe_h.except(:min_date, :max_date, :tab, :with_history)
+                        .merge(with_history: 'true',
+                              tab: 'month',
+                              min_date: (@now - 1.month).utc.iso8601,
+                              max_date: (@now + 1.week).utc.iso8601)
+                ),
+                class: (params[:tab] == 'month' ? 'activelink' : '') %>
           <% end -%>
 
-          <%= link_to 'All historical entries', kaui_engine.queues_path(params.to_h.merge(with_history: true)), class: (params[:with_history] == 'true' && !params[:min_date].present? ? 'activelink' : '') %>
-
+          <%= link_to 'All historical entries',
+              kaui_engine.queues_path(
+                params.to_unsafe_h.except(:min_date, :max_date, :tab, :with_history)
+                      .merge(with_history: 'true',
+                            tab: 'all')
+              ),
+              class: (params[:tab] == 'all' ? 'activelink' : '') %>
         </div>
+
         <div class="search">
 
           <% unless (@queues_entries['busEvents'] || []).empty? %>
@@ -31,7 +60,7 @@
                 </div>
               </div>
 
-              <div>
+              <div class="<%= params[:account_id].present? ? 'max-width-67' : 'max-width-80' %>">
                 <table id="bus-table" class="bus-table">
                   <thead>
                   <tr>
@@ -43,7 +72,9 @@
                     <% if @account_id.blank? %>
                         <th>Account record id</th>
                     <% end %>
-                    <th>User token</th>
+                    <% if @account_id.present? %>
+                      <th>User token</th>
+                    <% end %>
                   </tr>
                   </thead>
                   <tbody>
@@ -55,11 +86,13 @@
                         <td><span><%= truncate_millis(bus_event['createdDate']) %></span></td>
                         <td><%= truncate_class_name(bus_event['className'], false) %></td>
                         <td><%= "<pre>#{JSON.pretty_generate(bus_event['event'])}</pre>".html_safe %></td>
-                        <td><%= object_id_popover(bus_event['userToken'], 'left') %></td>
+                        <td><%= bus_event['userToken'] %></td>
                         <% if @account_id.blank? %>
                           <td><%= bus_event['searchKey1'] %></td>
                         <% end %>
-                        <td><%= bus_event['userToken'] %></td>
+                        <% if @account_id.present? %>
+                            <td><%= bus_event['userToken'] %></td>
+                        <% end %>
                       </tr>
                   <% end %>
                   </tbody>
@@ -75,7 +108,7 @@
                 </div>
               </div>
 
-              <div>
+              <div class="<%= params[:account_id].present? ? 'max-width-67' : 'max-width-80' %>">
                 <table id="notifications-table" class="notifications-table">
                   <thead>
                   <tr>
@@ -87,7 +120,9 @@
                     <% if @account_id.blank? %>
                         <th>Account record id</th>
                     <% end %>
-                    <th>User token</th>
+                    <% if @account_id.present? %>
+                        <th>User token</th>
+                    <% end %>
                   </tr>
                   </thead>
                   <tbody>
@@ -105,11 +140,13 @@
                           <%= notification['queueName'] %>
                         </td>
                         <td><%= "<pre>#{JSON.pretty_generate(notification['event'])}</pre>".html_safe %></td>
-                        <td><%= object_id_popover(notification['userToken'], 'left') %></td>
+                        <td><%= notification['userToken'] %></td>
                         <% if @account_id.blank? %>
                             <td><%= notification['searchKey1'] %></td>
                         <% end %>
-                        <td><%= notification['userToken'] %></td>
+                        <% if @account_id.present? %>
+                            <td><%= notification['userToken'] %></td>
+                        <% end %>
                       </tr>
                   <% end %>
                   </tbody>

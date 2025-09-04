@@ -68,6 +68,14 @@ table tr.expired td {
   text-transform: capitalize;
 }
 
+.subscription-bundl-index .subscription-bundle .subscriptions-table .expired-row td {
+  opacity: 0.5;
+}
+
+.subscription-bundl-index .subscription-bundle .subscriptions-table .expired-row td.full-visible {
+  opacity: 1;
+}
+
 .subscription-bundl-index .subscription-bundle .subscriptions-table .category-bedge {
   display: inline-block;
   padding: 0.125rem 0.5rem !important;
@@ -104,6 +112,63 @@ table tr.expired td {
   text-align: start;
   color: #535862 !important;
 }
+
+.subscription-bundl-index .tag-select:hover .tag-as-select-box {
+  padding: 0.625rem !important;
+  border-radius: 0.375rem;
+  border: 0.0625rem solid #00000014 !important;
+}
+
+.subscription-bundl-index .tag-bar .tag-select .tag-select-box label {
+  width: 100%;
+  min-width: 12.5rem;
+}
+
+.subscription-bundl-index .tag-as-select-box .form-control {
+  width: 100%;
+  min-width: 14.5rem;
+}
+
+.subscription-bundl-index .label-group-item-manual {
+  padding: 0.5rem 0.625rem;
+  width: max-content;
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.25rem;
+  align-items: center;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #252B37;
+}
+
+.subscription-bundl-index .label-group-item-manual:active {
+  background: #FAFAFA;
+}
+
+.subscription-bundl-index .label-group-item-manual:has(input[type="checkbox"]:checked) {
+  background-color: #FAFAFA;
+  border-radius: 0.25rem;
+  cursor: pointer !important;
+}
+
+.subscription-bundl-index .tag-as-select-box::-webkit-scrollbar {
+  width: 0.375rem;
+}
+
+.subscription-bundl-index .tag-as-select-box::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 0.1875rem;
+}
+
+.subscription-bundl-index .tag-as-select-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.subscription-bundl-index .tag-bar .tag-select .tag-select-box form {
+  width: 100%;
+}
+
 
 .subscription-bundl-index .subscription-bundle .search table th:first-of-type, .search table td:first-of-type {
   font-weight: 500 !important;
@@ -222,7 +287,9 @@ table tr.expired td {
   color: #717680;
   display: flex;
   align-items: center;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem;
+  max-height: 2.5rem;
+  margin: auto 0 0 0;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -233,6 +300,97 @@ table tr.expired td {
   color: #414651;
   background-color: #F5F5F5 !important;
   border: 0 !important;
+}
+
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table th:nth-child(1),
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table td:nth-child(1) {
+  width: 6.25rem !important;
+  min-width: 6.25rem !important;
+}
+
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table th:nth-child(2),
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table td:nth-child(2) {
+  width: 4.375rem !important;
+  min-width: 4.375rem !important;
+}
+
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table th:nth-child(3),
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table td:nth-child(3) {
+  width: 4.375rem !important;  
+  min-width: 4.375rem !important;
+}
+
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table th:nth-child(4),
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table td:nth-child(4) {
+  width: 4.375rem !important;
+  min-width: 4.375rem !important;
+}
+
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table th:nth-child(5),
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table td:nth-child(5) {
+  width: 9.375rem !important;
+  min-width: 9.375rem !important;
+}
+
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table th:nth-child(6),
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table td:nth-child(6) {
+  width: 8.75rem !important;
+  min-width: 8.75rem !important;
+}
+
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table th:last-child,
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table td:last-child {
+  width: 4.375rem !important;
+  min-width: 4.375rem !important;
+}
+
+/* .full-visible default (small) */
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table td.full-visible,
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table th.full-visible {
+  width: 0.625rem !important;
+  min-width: 0.625rem !important;
+}
+
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table:has(th:first-child.full-visible) th:nth-child(2),
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table:has(td:first-child.full-visible) td:nth-child(2) {
+  width: 6.25rem !important;
+  min-width: 6.25rem !important;
+}
+
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table:has(th:first-child.full-visible) th:nth-child(3),
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table:has(td:first-child.full-visible) td:nth-child(3) {
+  width: 4.375rem !important;
+  min-width: 4.375rem !important;
+}
+
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table:has(th:first-child.full-visible) th:nth-child(4),
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table:has(td:first-child.full-visible) td:nth-child(4) {
+  width: 4.375rem !important;
+  min-width: 4.375rem !important;
+}
+
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table:has(th:first-child.full-visible) th:nth-child(5),
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table:has(td:first-child.full-visible) td:nth-child(5) {
+  width: 4.375rem !important;
+  min-width: 4.375rem !important;
+}
+
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table:has(th:first-child.full-visible) th:nth-child(6),
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table:has(td:first-child.full-visible) td:nth-child(6) {
+  width: 9.375rem !important;
+  min-width: 9.375rem !important;
+}
+
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table:has(th:first-child.full-visible) th:nth-child(7),
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table:has(td:first-child.full-visible) td:nth-child(7) {
+  width: 8.75rem !important;
+  min-width: 8.75rem !important;
+}
+
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table:has(th:first-child.full-visible) th:last-child,
+.subscription-bundl-index .subscription-bundle .subscriptions-scroll .subscriptions-table:has(td:first-child.full-visible) td:last-child {
+  width: 6.25rem !important;
+  min-width: 6.25rem !important;
 }
 
 

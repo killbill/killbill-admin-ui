@@ -79,5 +79,17 @@ $(document).ready(function() {
     { "orderable": false }
     ]
   });
+
+  // Add hover tooltip functionality for object IDs
+  $('.object-id-popover').each(function() {
+    var $element = $(this);
+    var objectId = $element.data('id');
+    
+    if (objectId) {
+      $element.on('mouseenter', function() {
+        showObjectIdTooltip(this, objectId);
+      });
+    }
+  });
 });
 <% end %>

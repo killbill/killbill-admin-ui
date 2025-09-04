@@ -9,7 +9,7 @@
         </span>
       </div>
       <div class="row tenant-details">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <b>Name:</b> 
           <p><%= @tenant.name %>&nbsp; 
             <% if session[:kb_tenant_name] == @tenant.name %>
@@ -19,7 +19,7 @@
             <% end %>
           </p>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <b>Tenant ID:</b> 
           <p>
             <%= @tenant.kb_tenant_id %>
@@ -35,7 +35,7 @@
             } %>
           </p>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <b>API Key:</b> 
           <p>
             <%= @tenant.api_key %>
@@ -51,7 +51,7 @@
             } %>
           </p>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <b>API Secret:</b>
           <p>
             <span id="api-secret">
