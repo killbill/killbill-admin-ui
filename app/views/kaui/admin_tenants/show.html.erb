@@ -2,7 +2,7 @@
   <%= render partial: 'kaui/components/breadcrumb/breadcrumb', locals: {
     breadcrumbs: [
       { label: 'Settings', href: '/' },
-      { label: "Account", href: '#' }
+      { label: @tenant.name, href: '#' }
     ]
   } %>
 
@@ -11,9 +11,13 @@
 
     <div class="w-100">
       <div class="row gap-4 m-0 gap-container pb-2">
-        <div class="p-4 card w-100 col">
+        <%
+=begin%>
+ <div class="p-4 card w-100 col">
           <%= render :partial => 'clock' %>      
-        </div>
+        </div> 
+<%
+=end%>
 
         <div class="p-4 card w-100 col">
           <%= render :partial => 'useful_links' %>

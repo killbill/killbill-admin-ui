@@ -55,15 +55,10 @@
             <%= link_to image_tag('kaui/header/cog_icon.svg', alt: 'setting'), kaui_engine.admin_tenant_path(session[:tenant_id]), class: 'p-2' %>
           <% end %>
 
-          <!-- Logout Button -->
-          <% if user_signed_in? %>
-            <%= link_to image_tag('kaui/logout.svg', alt: 'logout'), kaui_engine.destroy_user_session_path, method: :delete, class: 'p-2' %>
-          <% end %>
 
           <!-- Create Menu Dropdown -->
-          <%
-=begin%>
- <% if user_signed_in? && can?(:create, Kaui::Account) && tenant_selected? %>
+          
+          <% if user_signed_in? && can?(:create, Kaui::Account) && tenant_selected? %>
             <%= render partial: "kaui/components/menu_dropdown/menu_dropdown", locals: {
                 label: "Create...",
                 icon: "kaui/plus.svg",
@@ -73,11 +68,15 @@
                   { label: "Invoice", path: kaui_engine.invoices_path, icon: 'kaui/header/invoice.svg' },
                   { label: "Subscription", path: "#", icon: 'kaui/header/subscription.svg' },
                   { label: "Payment", path: kaui_engine.payments_path, icon: 'kaui/header/payment.svg' }
-                ]
+                ],
+                html_class: "mx-2",
               } %>
           <% end %> 
-<%
-=end%>
+
+                    <% if user_signed_in? %>
+            <%= link_to image_tag('kaui/logout.svg', alt: 'logout'), kaui_engine.destroy_user_session_path, method: :delete, class: 'p-2' %>
+          <% end %>
+
 
           <!-- User Identity Display / Auth Links -->
           <%

@@ -89,12 +89,16 @@ $(document).ready(function() {
 
   // Add an action whenever the page changes
   table.on('page.dt', function() {
-    debugger;
     populateSearchLabelsFromUrl();
   });
 
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->
   $('#invoices-table').on('draw.dt', function() {
+    $("td.dataTables_empty").each(function() {
+      var text = $(this).text().trim();
+      $(this).html('<p class="max-text-container">' + text + '</p>');
+    });
+
     <% if @max_nb_records.nil? %>
       var noMoreData = table.column(0)
                             .data()

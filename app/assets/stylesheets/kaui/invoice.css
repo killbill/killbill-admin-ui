@@ -204,10 +204,14 @@ table.invoice-totals tr:last-of-type {
   text-transform: capitalize;
 }
 
+.invoice-index .invoices .invoices-table td:first-child {
+  padding-left: 1.25rem !important;
+}
+
 .invoice-index .invoices .invoices-table td {
   font-weight: 500 !important;
   font-size: 0.875rem !important;
-  padding: 1rem 0.5rem !important;
+  padding: 1rem 0.75rem !important;
   line-height: 1.125rem !important;
   text-align: start;
   color: #535862 !important;
