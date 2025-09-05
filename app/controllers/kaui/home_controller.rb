@@ -14,15 +14,17 @@ module Kaui
     end
 
     def search
-      object_type, search_query, search_by, fast = parse_query(params[:q])
-
-      return if object_type.nil?
+      object_type, search_query = splitting_new_search(params[:q])
 
       cached_options_for_klient = options_for_klient
-      send("#{object_type}_search", search_query, search_by, fast, cached_options_for_klient)
+      send("#{object_type}_search", search_query, nil, 0, cached_options_for_klient)
     end
 
     private
+
+    def splitting_new_search(search_query)
+      search_query.split(':').map(&:strip)
+    end
 
     def account_search(search_query, search_by = nil, fast = 0, options = {})
       if search_by == 'ID'
