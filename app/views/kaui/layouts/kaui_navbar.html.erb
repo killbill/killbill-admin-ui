@@ -50,12 +50,6 @@
 <%
 =end%>
 
-          <!-- Settings Icon -->
-          <% if user_signed_in? && session[:tenant_id].present? %>
-            <%= link_to image_tag('kaui/header/cog_icon.svg', alt: 'setting'), kaui_engine.admin_tenant_path(session[:tenant_id]), class: 'p-2' %>
-          <% end %>
-
-
           <!-- Create Menu Dropdown -->
           
           <% if user_signed_in? && can?(:create, Kaui::Account) && tenant_selected? %>
@@ -73,8 +67,14 @@
               } %>
           <% end %> 
 
-                    <% if user_signed_in? %>
-            <%= link_to image_tag('kaui/logout.svg', alt: 'logout'), kaui_engine.destroy_user_session_path, method: :delete, class: 'p-2' %>
+          <!-- Settings Icon -->
+          <% if user_signed_in? && session[:tenant_id].present? %>
+            <%= link_to image_tag('kaui/header/cog_icon.svg', alt: 'setting'), kaui_engine.admin_tenant_path(session[:tenant_id]), class: 'p-2 header-icon' %>
+          <% end %>
+
+          <!-- Logout Icon -->
+          <% if user_signed_in? %>
+            <%= link_to image_tag('kaui/logout.svg', alt: 'logout'), kaui_engine.destroy_user_session_path, method: :delete, class: 'p-2 header-icon' %>
           <% end %>
 
 

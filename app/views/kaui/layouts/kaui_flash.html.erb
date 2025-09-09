@@ -1,15 +1,13 @@
 <%- # :alert used by devise -%>
 <% [:error, :alert].each do |key| %>
   <% if flash[key] %>
-    <div id="flash-<%= key %>" class="row server-alert kaui-container mx-auto">
-      <div class="col-md-12">
-        <div class="custom-alert custom-alert-danger">
-          <div class="d-flex justify-content-between align-items-start w-100">
-            <span><%= flash[key] %></span>
-            <button type="button" class="close-btn" aria-label="Close" onclick="closeFlashMessage('<%= key %>')">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
+    <div id="flash-<%= key %>" class="server-alert kaui-container centered-absolute">
+      <div class="custom-alert custom-alert-danger">
+        <div class="d-flex justify-content-between align-items-start w-100">
+          <span><%= flash[key] %></span>
+          <button type="button" class="close-btn" aria-label="Close" onclick="closeFlashMessage('<%= key %>')">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
       </div>
     </div>
@@ -19,17 +17,15 @@
 
 <% if defined?(@account)  %>
 <% if @account.errors.any? %>
-  <div class="row server-alert kaui-container mx-auto">
+  <div class="server-alert kaui-container centered-absolute">
     <h3 class="error-title">The following errors prevented the account from being created:</h3>
-    <div class="col-md-12">
-      <div class="custom-alert custom-alert-danger">
-        <i class="bi bi-exclamation-triangle-fill"></i>
-        <ul>
-          <% @account.errors.values.flatten.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
+    <div class="custom-alert custom-alert-danger">
+      <i class="bi bi-exclamation-triangle-fill"></i>
+      <ul>
+        <% @account.errors.values.flatten.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 <% end %>
@@ -40,56 +36,48 @@
 
 
 <% if flash[:warning] %>
-  <div id="flash-warning" class="row server-alert kaui-container mx-auto">
-    <div class="col-md-12">
-      <div class="custom-alert custom-alert-warning">
-        <div class="d-flex justify-content-between align-items-start w-100">
-          <span><%= flash[:warning] %></span>
-          <button type="button" class="close-btn" aria-label="Close" onclick="closeFlashMessage('warning')">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+  <div id="flash-warning" class="server-alert kaui-container centered-absolute">
+    <div class="custom-alert custom-alert-warning">
+      <div class="d-flex justify-content-between align-items-start w-100">
+        <span><%= flash[:warning] %></span>
+        <button type="button" class="close-btn" aria-label="Close" onclick="closeFlashMessage('warning')">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
     </div>
   </div>
 <% end %>
 <% if flash[:notice] %>
-  <div id="flash-notice" class="row server-alert kaui-container mx-auto">
-    <div class="col-md-12">
-      <div class="custom-alert custom-alert-info">
-        <div class="d-flex justify-content-between align-items-start w-100">
-          <span><%= flash[:notice] %></span>
-          <button type="button" class="close-btn" aria-label="Close" onclick="closeFlashMessage('notice')">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
+  <div id="flash-notice" class="server-alert kaui-container centered-absolute">
+    <div class="custom-alert custom-alert-info">
+      <div class="d-flex justify-content-between align-items-start w-100">
+        <span><%= flash[:notice] %></span>
+        <button type="button" class="close-btn" aria-label="Close" onclick="closeFlashMessage('notice')">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
     </div>
   </div>
 <% end %>
 <!--This is for ajax calls that need to notify for error, to trigger this alert use ajaxAlert(message, timeout)-->
-<div id="ajaxErrorAlert" class="row ajaxAlert kaui-container mx-auto" style="display: none">
-  <div class="col-md-12">
-    <div class="custom-alert custom-alert-danger">
-      <div class="d-flex justify-content-between align-items-start w-100">
-        <span id="ajaxErrorAlertMessage" class="ajaxAlertMessage"></span>
-        <button type="button" class="close-btn" aria-label="Close" onclick="closeAjaxAlert('error')">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+<div id="ajaxErrorAlert" class="ajaxAlert kaui-container centered-absolute" style="display: none">
+  <div class="custom-alert custom-alert-danger">
+    <div class="d-flex justify-content-between align-items-start w-100">
+      <span id="ajaxErrorAlertMessage" class="ajaxAlertMessage"></span>
+      <button type="button" class="close-btn" aria-label="Close" onclick="closeAjaxAlert('error')">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
   </div>
 </div>
 <!--This is for ajax calls that need to notify information, to trigger this alert use ajaxInfo(message, timeout)-->
-<div id="ajaxInfoAlert" class="row ajaxAlert kaui-container mx-auto" style="display: none">
-  <div class="col-md-12">
-    <div class="custom-alert custom-alert-info">
-      <div class="d-flex justify-content-between align-items-start w-100">
-        <span id="ajaxInfoAlertMessage" class="ajaxAlertMessage"></span>
-        <button type="button" class="close-btn" aria-label="Close" onclick="closeAjaxAlert('info')">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+<div id="ajaxInfoAlert" class="ajaxAlert kaui-container centered-absolute" style="display: none">
+  <div class="custom-alert custom-alert-info">
+    <div class="d-flex justify-content-between align-items-start w-100">
+      <span id="ajaxInfoAlertMessage" class="ajaxAlertMessage"></span>
+      <button type="button" class="close-btn" aria-label="Close" onclick="closeAjaxAlert('info')">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
   </div>
 </div>
