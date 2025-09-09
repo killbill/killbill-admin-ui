@@ -37,14 +37,14 @@
         </div>
         <div class="col-sm-3">
           <b>API Key:</b> 
-          <p>
+          <p class="d-flex align-items-center gap-2 flex-nowrap">
             <%= @tenant.api_key %>
             <%= render "kaui/components/button/button", {
               label: '',
               icon: "kaui/copy.svg",
               variant: "outline-secondary d-inline-flex align-items-center gap-1",
               type: "button",
-              html_class: "dots-menu kaui-button",
+              html_class: "dots-menu kaui-button flex-shrink-0",
               html_options: {
                 onclick: "navigator.clipboard.writeText('#{@tenant.api_key}')"
               }
@@ -53,8 +53,8 @@
         </div>
         <div class="col-sm-3">
           <b>API Secret:</b>
-          <p>
-            <span id="api-secret">
+          <p class="d-flex align-items-center gap-2 flex-nowrap">
+            <span class="mx-0" id="api-secret">
               <%= @tenant.api_secret %>
             </span>
 
@@ -63,7 +63,7 @@
               icon: "kaui/eye.svg",
               variant: "outline-secondary d-inline-flex align-items-center gap-1",
               type: "button",
-              html_class: "dots-menu kaui-button",
+              html_class: "dots-menu kaui-button flex-shrink-0",
               html_options: {
                 id: "toggle-eye-btn",
                 onclick: "toggleSecret()"

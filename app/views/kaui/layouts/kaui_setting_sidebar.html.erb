@@ -18,7 +18,7 @@
       <p><%= identifier %></p>
 
       <% menu_items.each do |item| %>
-        <% css_class = request.path == item[:path] ? 'current' : 'non-current' %>
+        <% css_class = request.path == item[:path] ? 'current' : 'non-current', "text-ellipsis" %>
 
         <%= link_to item[:path], class: css_class do %>
           <span class="icon">

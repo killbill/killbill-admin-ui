@@ -68,10 +68,19 @@
 
               <div class='form-group'>
                 <div class="col-sm-offset-2 col-sm-10">
+                  <!-- Check All/Uncheck All Section -->
+                  <div class="checkbox pb-2">
+                    <label class="d-flex align-items-center gap-2 control-label">
+                      <%= check_box_tag "check_all_tenants", "all", false, :disabled => !current_user.root?, class: "pt-2", id: "check_all_tenants" %>
+                      <span class="fw-bold"><strong>All Tenants</strong></span>
+                    </label>
+                  </div>
+                  
+                  <!-- Individual Tenant Checkboxes -->
                   <% @tenants.each do |tenant| %>
                       <div class="checkbox pb-2">
                         <label class="d-flex align-items-center gap-2 control-label">
-                          <%= check_box_tag "tenant_#{tenant.id}", tenant.id, @allowed_user.kaui_tenants.map(&:id).include?(tenant.id), :disabled => !current_user.root?, class: "pt-2"  %>
+                          <%= check_box_tag "tenant_#{tenant.id}", tenant.id, @allowed_user.kaui_tenants.map(&:id).include?(tenant.id), :disabled => !current_user.root?, class: "pt-2 tenant-checkbox"  %>
                           <span><%= tenant.name || tenant.api_key %></span>
                         </label>
                       </div>
@@ -104,3 +113,49 @@
     </div>
   </div>
 <% end %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const checkAllCheckbox = document.getElementById('check_all_tenants');
+    const tenantCheckboxes = document.querySelectorAll('.tenant-checkbox');
+    
+    if (checkAllCheckbox && tenantCheckboxes.length > 0) {
+      // Handle "Check All" checkbox change
+      checkAllCheckbox.addEventListener('change', function() {
+        const isChecked = this.checked;
+        tenantCheckboxes.forEach(function(checkbox) {
+          if (!checkbox.disabled) {
+            checkbox.checked = isChecked;
+          }
+        });
+      });
+      
+      // Handle individual tenant checkbox changes
+      tenantCheckboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+          updateCheckAllState();
+        });
+      });
+      
+      // Update "Check All" state based on individual checkboxes
+      function updateCheckAllState() {
+        const enabledCheckboxes = Array.from(tenantCheckboxes).filter(cb => !cb.disabled);
+        const checkedCount = enabledCheckboxes.filter(cb => cb.checked).length;
+        
+        if (checkedCount === 0) {
+          checkAllCheckbox.checked = false;
+          checkAllCheckbox.indeterminate = false;
+        } else if (checkedCount === enabledCheckboxes.length) {
+          checkAllCheckbox.checked = true;
+          checkAllCheckbox.indeterminate = false;
+        } else {
+          checkAllCheckbox.checked = false;
+          checkAllCheckbox.indeterminate = true;
+        }
+      }
+      
+      // Initialize the check all state
+      updateCheckAllState();
+    }
+  });
+</script>

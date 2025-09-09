@@ -1380,3 +1380,40 @@ table thead th:last-child {
 .object-id-popover:hover {
   opacity: 0.8;
 }
+
+.centered-absolute {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1050;
+  width: 100%;
+}
+
+/* Navbar color changes - Higher specificity to override existing rules */
+header .header-icon {
+  color: #374151 !important;
+  transition: color 0.3s ease;
+}
+
+header .header-icon:hover {
+  color: #1f2937 !important;
+}
+
+header .header-icon img {
+  filter: brightness(0) saturate(100%) invert(25%) sepia(8%) saturate(1234%) hue-rotate(201deg) brightness(95%) contrast(88%);
+  transition: 0.3s ease-in-out;
+}
+
+header .header-icon:hover img {
+  opacity: 0.5;
+}
+
+.text-ellipsis {
+  display: inline-block !important;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
