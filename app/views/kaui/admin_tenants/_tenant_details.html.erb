@@ -69,6 +69,16 @@
                 onclick: "toggleSecret()"
               }
             } %>
+            <%= render "kaui/components/button/button", {
+              label: '',
+              icon: "kaui/copy.svg",
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "button",
+              html_class: "dots-menu kaui-button flex-shrink-0",
+              html_options: {
+                onclick: "navigator.clipboard.writeText('#{@tenant.api_secret}')"
+              }
+            } %>
           </p>
         </div>
       </div>
