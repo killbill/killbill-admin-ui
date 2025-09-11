@@ -704,6 +704,14 @@
 
 /* app/views/kaui/admin_tenants/_show_catalog_simple.erb */
 
+#catalog_simple, #catalog_xml {
+  display: none;
+}
+
+#catalog_simple.active, #catalog_xml.active {
+  display: block;
+}
+
 .show-catalog-simple .existing-plans-container {
   max-width: 80rem;
   width: 100%;

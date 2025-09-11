@@ -42,14 +42,26 @@ function populateSearchLabelsFromUrl() {
         var columnName = match[1].replace(/_/g, ' ').replace(/^\w/, function(l) { return l.toUpperCase(); });
         var filter = searchFormatOperator(match[2]);
         var label = $('<span>', {
-          class: 'label label-info',
-          text: columnName + ' [' + filter + '] ' + value
+          class: 'label label-info d-inline-flex align-items-center gap-2',
+          'data-field': columnName,
+          'data-filter': filter,
+          'data-value': value
         });
 
         if (hasBalanceFilter && columnName.toLowerCase() !== 'balance') {
-          label.attr('class', 'label label-default');
+          label.attr('class', 'label label-default d-inline-flex align-items-center gap-2');
         }
 
+        var labelText = $('<span>', {
+          text: columnName + ' [' + filter + '] ' + value
+        });
+
+        var closeIcon = $('<span>', {
+          class: 'filter-close-icon',
+          style: 'cursor: pointer; margin-left: 5px; display: inline-flex; align-items: center;'
+        }).html('<svg width="12" height="12" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.8337 4.1665L4.16699 15.8332M4.16699 4.1665L15.8337 15.8332" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+
+        label.append(labelText).append(closeIcon);
         searchLabelsContainer.append(label);
       }
     }
@@ -130,3 +142,47 @@ function showAdvanceSearchModal() {
     });
   });
 }
+
+// Handle the close icon click event to remove applied filters
+$(document).on('click', '.filter-close-icon', function() {
+  var filterLabel = $(this).closest('.label');
+  var fieldName = filterLabel.data('field');
+  var filterType = filterLabel.data('filter');
+  var filterValue = filterLabel.data('value');
+  
+  // Remove the filter label
+  filterLabel.remove();
+  
+  // Remove corresponding search field from modal if it exists
+  $('#search-fields-container .search-field').each(function() {
+    var searchField = $(this);
+    var fieldInput = searchField.find('.search-field-value');
+    var fieldFilter = searchField.find('.search-field-filter');
+    
+    if (fieldInput.attr('name') === fieldName && 
+        fieldFilter.find('option:selected').text() === filterType && 
+        fieldInput.val() === filterValue) {
+      searchField.remove();
+    }
+  });
+  
+  // Reapply search without the removed filter
+  var table = $('#accounts-table').DataTable();
+  if (table && table.ajax) {
+    table.on('preXhr.dt', function(e, settings, data) {
+      data.search.value = searchQuery();
+    });
+    
+    table.ajax.url(window.location.pathname + '?format=json').load();
+  }
+  
+  // Update URL
+  var searchParams = searchQuery();
+  if (searchParams) {
+    var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + searchParams;
+    window.history.pushState({ path: newUrl }, '', newUrl);
+  } else {
+    var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+    window.history.pushState({ path: newUrl }, '', newUrl);
+  }
+});
