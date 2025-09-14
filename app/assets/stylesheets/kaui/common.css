@@ -1043,11 +1043,11 @@ table thead th:last-child {
 #downloadCsvModal .chip-list {
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
   gap: 0.5rem;
 }
 
 #downloadCsvModal .chip {
-  display: none;
   background: #FAFAFA;
   padding: 0.125rem 0.375rem;
   border: 0.0625rem solid #F5F5F5;
@@ -1342,7 +1342,6 @@ table thead th:last-child {
 }
 
 .custom-tooltip .tooltip-id {
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
   font-size: 0.8125rem;
   font-weight: 500;
   color: #1f2937;
@@ -1416,4 +1415,370 @@ header .header-icon:hover img {
   text-overflow: ellipsis;
   white-space: nowrap;
   vertical-align: middle;
+}
+
+.admin-info img {
+  filter: brightness(0) saturate(100%) invert(25%) sepia(8%) saturate(1234%) hue-rotate(201deg) brightness(95%) contrast(88%);
+  transition: 0.3s ease-in-out;
+}
+
+.admin-info {
+  padding: 6px 10px;
+  border-radius: 0.375rem;
+  color: #374151 !important;
+}
+
+.admin-info:hover {
+  opacity: 0.7;
+}
+
+/* Aviate Configuration */
+
+.aviate-configuration .add-account-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  color: #1b1c1e;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #d5d7da;
+}
+
+.aviate-configuration .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #d5d7da;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.aviate-configuration .control-label {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  color: #414651 !important;
+}
+
+.aviate-configuration .question-circle {
+  color: #a4a7ae;
+  font-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  line-height: 1rem;
+  text-align: center;
+}
+
+.aviate-configuration .form-control {
+  height: 2.5rem;
+  border-radius: 0.375rem;
+}
+
+.aviate-configuration .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.aviate-configuration .checkbox label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+/* configuration index */
+
+.configuration-index .configuration {
+  max-width: '80rem';
+  width: 100%;
+}
+
+.configuration-index .configuration .configuration-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 0.0625rem solid #E9EAEB;
+}
+
+.configuration-index .configuration-table th,
+.configuration-index .configuration-table td {
+  white-space: nowrap;
+  text-align: left;
+}
+
+.configuration-index .configuration .configuration-header h2 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #414651;
+  margin-bottom: 1.25rem;
+}
+
+.configuration-index .configuration-table {
+  overflow-x: auto;
+  min-width: 100%;
+}
+
+
+.configuration-index .configuration-table th {
+  padding: 0.375rem 1.625rem 0.375rem 0.75rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  letter-spacing: 0;
+  color: #717680;
+  text-transform: capitalize;
+}
+
+.configuration-index .configuration-table tr td a {
+  color: #535862 !important;
+  text-decoration: none !important;
+}
+
+.configuration-index .configuration-table td:last-child a {
+  color: red !important;
+}
+
+.configuration-index .configuration-table thead tr th:not(:last-child)::after {
+  content: "" !important;
+  display: inline-block !important;
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 5.5L6 2.5L9 5.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 0.75rem 0.75rem !important;
+  position: absolute !important;
+  right: 0.5rem !important;
+  top: 45% !important;
+  transform: translateY(-50%) !important;
+}
+
+.configuration-index .configuration-table thead tr th:not(:last-child)::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6.5L6 9.5L9 6.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 0.75rem 0.75rem !important;
+  position: absolute !important;
+  right: 0.5rem !important;
+  bottom: 45% !important;
+  transform: translateY(50%) !important;
+}
+
+.configuration-index .configuration-table th:last-child,
+.configuration-index .configuration-table td:last-child {
+  width: 100px;
+}
+
+.configuration-index .configuration-table td:last-child a {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* configure plugin configuration form */
+
+.configure-plugin-configuration-form .add-account-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  color: #1b1c1e;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #d5d7da;
+}
+
+.configure-plugin-configuration-form .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #d5d7da;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.configure-plugin-configuration-form .control-label {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  color: #414651 !important;
+}
+
+.configure-plugin-configuration-form .question-circle {
+  color: #a4a7ae;
+  font-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  line-height: 1rem;
+  text-align: center;
+}
+
+.configure-plugin-configuration-form .form-control {
+  height: 2.5rem;
+  border-radius: 0.375rem;
+}
+
+.configure-plugin-configuration-form .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.configure-plugin-configuration-form .checkbox label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+/* configure exemption form */
+.configure-exemption-form .add-account-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  color: #1b1c1e;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #d5d7da;
+}
+
+.configure-exemption-form .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #d5d7da;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.configure-exemption-form .control-label {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  color: #414651 !important;
+}
+
+.configure-exemption-form .question-circle {
+  color: #a4a7ae;
+  font-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  line-height: 1rem;
+  text-align: center;
+}
+
+.configure-exemption-form .form-control {
+  height: 2.5rem;
+  border-radius: 0.375rem;
+}
+
+.configure-exemption-form .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.configure-exemption-form .checkbox label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+
+/* configure product form */
+
+.configure-product-form .add-account-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  color: #1b1c1e;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #d5d7da;
+}
+
+.configure-product-form .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #d5d7da;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.configure-product-form .control-label {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  color: #414651 !important;
+}
+
+.configure-product-form .question-circle {
+  color: #a4a7ae;
+  font-size: 1rem;
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  line-height: 1rem;
+  text-align: center;
+}
+
+.configure-product-form .form-control {
+  height: 2.5rem;
+  border-radius: 0.375rem;
+}
+
+.configure-product-form .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.configure-product-form .checkbox label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
 }

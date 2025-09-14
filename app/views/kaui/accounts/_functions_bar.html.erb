@@ -130,23 +130,32 @@
               <label for="searchFieldSelect" class="field-label col-sm-3">Include fields</label>
               <div class="col-md-9">
                 <div class="chip-select">
+                  <input type="checkbox" id="allFields" hidden />
                   <input type="checkbox" id="dropdown-toggle" hidden />
 
-                  <label for="dropdown-toggle" class="chip-input-box position-relative">
-                    <div class="chip-list">
-                      <input type="checkbox" id="allFields" hidden />
-                      <label for="allFields" class="chip">All fields</label>
+                  <label for="dropdown-toggle" class="chip-input-box position-relative" style="position: relative; overflow: hidden;">
+                    <div class="chip-list" id="selected-fields-chips">
+                      <%# This will be dynamically populated with chips for selected fields %>
+                      <span class="chip" style="color: #999;">No fields selected</span>
                       <svg width="16" height="16" class="position-absolute" style="top: 0.625rem; right: 0.625rem;" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4 6L8 10L12 6" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       </svg>
                     </div>
-                    <div id="" class="position-absolute" style="width: 100%; height: 100%; top: 0; left: 0;"></div>
+                    <div id="" class="position-absolute" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;"></div>
                   </label>
                   <div class="chip-dropdown">
                     <label class="chip-option">
-                      <input type="checkbox" id="allFields" onchange="document.getElementById('allFields').click()" />
+                      <input type="checkbox" id="allFieldsDropdown" />
                       All fields
                     </label>
+                    <div class="mt-2" id="field-selection">
+                      <% Kaui.account_search_columns.call[0].each_with_index do |title, index| %>
+                        <label class="chip-option d-flex align-items-center gap-2">
+                          <input type="checkbox" class="field-toggle" data-field-index="<%= index %>" checked />
+                          <span><%= title %></span>
+                        </label>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -301,21 +310,33 @@ $(document).ready(function() {
 
   var downloadButton = document.getElementById('downloadButton');
   if (downloadButton) {
-    downloadButton.addEventListener('click', function() {
-      event.preventDefault();
+    downloadButton.addEventListener('click', function(e) {
+      e.preventDefault();
 
       var allFieldsChecked = document.getElementById('allFields').checked;
       var startDate = $('#startDate').val();
       var endDate = $('#endDate').val();
       var downloadAll = $('#allData').is(':checked');
-      var thElements = document.querySelectorAll('#accounts-table th');
-      var columnTitles = Array.from(thElements).map(function(th) {
-        return th.textContent.trim();
-      });
-      var columnsString = columnTitles.join(',')
       var url = new URL("<%= download_accounts_path %>", window.location.origin);
       var params = new URLSearchParams();
-      params.append('columnsString', columnsString);
+      
+      if (allFieldsChecked) {
+        // Include all table columns when "All fields" is checked
+        var thElements = document.querySelectorAll('#accounts-table th');
+        var columnTitles = Array.from(thElements).map(function(th) {
+          return th.textContent.trim();
+        });
+        params.append('columnsString', columnTitles.join(','));
+      } else {
+        // Only include selected fields when "All fields" is unchecked
+        var selectedFields = [];
+        $('#field-selection input.field-toggle:checked').each(function() {
+          var labelText = $(this).closest('label').find('span').text().trim();
+          selectedFields.push(labelText);
+        });
+        params.append('columnsString', selectedFields.join(','));
+      }
+      
       if (!downloadAll) {
         params.append('startDate', startDate);
         params.append('endDate', endDate);
@@ -469,6 +490,111 @@ $(document).ready(function() {
     const wrapper = document.querySelector('.fake-select-wrapper');
     const toggle = document.getElementById('single-toggle');
     if (!wrapper.contains(e.target)) toggle.checked = false;
+  });
+
+  // No longer disabling fields - users can freely select/deselect
+  function setFieldsDisabled(disabled) {
+    // Function kept for compatibility but no longer disables fields
+  }
+
+  // Initialize on modal open
+  $('#downloadCsvModal').on('show.bs.modal', function () {
+    $('#allFields').prop('checked', true);
+    updateChipLabel();
+  });
+
+  // Initial binding
+  bindAllFieldsToggle();
+  bindDropdownAllFieldsToggle();
+
+  // Toggle behavior - this will be re-bound in updateChipLabel
+  function bindAllFieldsToggle() {
+    $('#allFields').off('change').on('change', function() {
+      var checked = $(this).is(':checked');
+      
+      // When "All fields" is checked, select all individual fields
+      // When unchecked, deselect all individual fields
+      $('#field-selection input.field-toggle').prop('checked', checked);
+      $('#allFieldsDropdown').prop('checked', checked);
+      
+      updateChipLabel();
+    });
+  }
+
+  // Also bind to the dropdown "All fields" checkbox
+  function bindDropdownAllFieldsToggle() {
+    $('#allFieldsDropdown').off('change').on('change', function() {
+      var checked = $(this).is(':checked');
+      
+      // Sync with the main checkbox
+      $('#allFields').prop('checked', checked);
+      
+      // When "All fields" is checked, select all individual fields
+      // When unchecked, deselect all individual fields
+      $('#field-selection input.field-toggle').prop('checked', checked);
+      
+      updateChipLabel();
+    });
+  }
+
+  // Update chip display based on selected fields
+  function updateChipLabel() {
+    var allFieldsChecked = $('#allFields').is(':checked');
+    var $chipList = $('#selected-fields-chips');
+    
+    if (allFieldsChecked) {
+      // Show "All fields" chip
+      $chipList.html(`
+        <span class="chip">All fields</span>
+        <svg width="16" height="16" class="position-absolute" style="top: 0.625rem; right: 0.625rem;" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6L8 10L12 6" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      `);
+    } else {
+      // Show individual field chips
+      var selectedFields = [];
+      $('#field-selection input.field-toggle:checked').each(function() {
+        var labelText = $(this).closest('label').find('span').text().trim();
+        selectedFields.push(labelText);
+      });
+      
+      if (selectedFields.length === 0) {
+        $chipList.html(`
+          <span class="chip" style="color: #999;">No fields selected</span>
+          <svg width="16" height="16" class="position-absolute" style="top: 0.625rem; right: 0.625rem;" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6L8 10L12 6" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        `);
+      } else {
+        var chipsHtml = selectedFields.map(function(field) {
+          return `<span class="chip">${field}</span>`;
+        }).join('');
+        chipsHtml = chipsHtml + `
+          <svg width="16" height="16" class="position-absolute" style="top: 0.625rem; right: 0.625rem;" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6L8 10L12 6" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        `;
+        $chipList.html(chipsHtml);
+      }
+    }
+  }
+
+  // Update chip label when individual fields change
+  $('#field-selection input.field-toggle').on('change', function() {
+    // Check if all individual fields are selected
+    var totalFields = $('#field-selection input.field-toggle').length;
+    var checkedFields = $('#field-selection input.field-toggle:checked').length;
+    
+    // Update "All fields" checkbox based on individual field selections
+    if (checkedFields === totalFields) {
+      $('#allFields').prop('checked', true);
+      $('#allFieldsDropdown').prop('checked', true);
+    } else {
+      $('#allFields').prop('checked', false);
+      $('#allFieldsDropdown').prop('checked', false);
+    }
+    
+    updateChipLabel();
   });
 });
 <% end %>

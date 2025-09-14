@@ -7,18 +7,28 @@
 <%= javascript_tag do %>
 
 function switchBasicConfig() {
-    $('#catalog_xml').hide();
-    initBasicConfig();
-    $('#catalog_simple').show();
+    console.log('Switching to Basic Config');
+    $('#catalog_xml').removeClass('active').hide();
+    if (typeof initBasicConfig === 'function') {
+        initBasicConfig();
+    }
+    $('#catalog_simple').addClass('active').show();
 }
 
 function switchXMLConfig() {
-    $('#catalog_simple').hide();
-    $('#catalog_xml').show();
+    console.log('Switching to XML Config');
+    $('#catalog_simple').removeClass('active').hide();
+    $('#catalog_xml').addClass('active').show();
 }
 
 $(document).ready(function() {
-    switchBasicConfig();
+    console.log('Document ready - initializing catalog view');
+    // Ensure both sections exist before switching
+    if ($('#catalog_simple').length && $('#catalog_xml').length) {
+        switchBasicConfig();
+    } else {
+        console.error('Catalog sections not found');
+    }
 });
 
 <% end %>

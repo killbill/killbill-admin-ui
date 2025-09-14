@@ -53,23 +53,35 @@
           <!-- Create Menu Dropdown -->
           
           <% if user_signed_in? && can?(:create, Kaui::Account) && tenant_selected? %>
-            <%= render partial: "kaui/components/menu_dropdown/menu_dropdown", locals: {
-                label: "Create...",
+              <%= render "kaui/components/button/button", {
+                label: "Create Account",
                 icon: "kaui/plus.svg",
-                dropdown_id: "createMenuDropdown",
-                menu_items: [
-                  { label: "Account", path: kaui_engine.new_account_path, icon: 'kaui/header/account.svg' },
-                  { label: "Invoice", path: kaui_engine.invoices_path, icon: 'kaui/header/invoice.svg' },
-                  { label: "Subscription", path: "#", icon: 'kaui/header/subscription.svg' },
-                  { label: "Payment", path: kaui_engine.payments_path, icon: 'kaui/header/payment.svg' }
-                ],
-                html_class: "mx-2",
+                variant: "outline-secondary d-inline-flex align-items-center gap-1 mx-2",
+                type: "button",
+                html_class: "kaui-dropdown custom-hover text-nowrap",
+                html_options: {
+                  onclick: "window.location.href='#{kaui_engine.new_account_path}'"
+                }
               } %>
           <% end %> 
 
           <!-- Settings Icon -->
           <% if user_signed_in? && session[:tenant_id].present? %>
-            <%= link_to image_tag('kaui/header/cog_icon.svg', alt: 'setting'), kaui_engine.admin_tenant_path(session[:tenant_id]), class: 'p-2 header-icon' %>
+            <%= link_to kaui_engine.admin_tenant_path(session[:tenant_id]), class: 'd-flex align-items-center gap-2 border admin-info text-decoration-none' do %>
+              <%= image_tag 'kaui/header/cog_icon.svg', alt: 'setting' %>              
+              <% if user_signed_in? %>
+                <div class="text-sm text-nowrap">
+                  <% if session[:kb_tenant_name].present? && session[:tenant_id].present? %>
+                    <%= "#{current_user.kb_username} / #{session[:kb_tenant_name]}" %>
+                  <% elsif session[:kb_tenant_name].present? %>
+                    <%= "#{current_user.kb_username} / #{session[:kb_tenant_name]}" %>
+                  <% else %>
+                    <%= current_user.kb_username %>
+                  <% end %>
+                </div>
+              <% end %>
+            <% end %>
+
           <% end %>
 
           <!-- Logout Icon -->
@@ -79,6 +91,7 @@
 
 
           <!-- User Identity Display / Auth Links -->
+          
           <%
 =begin%>
  <% if user_signed_in? %>
@@ -100,7 +113,7 @@
                 <%= link_to 'Sign-up', kaui_engine.new_user_registration_path, class: 'btn btn-sm btn-outline-secondary' %>
               <% end %>
             <% end %>
-          <% end %> 
+          <% end %>  
 <%
 =end%>
 
