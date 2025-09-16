@@ -70,6 +70,7 @@ $(document).ready(function() {
     "colReorder": {
       "enable": false
     },
+    "stateSave": true,
     "scrollX": true,
     "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
     "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
@@ -101,7 +102,10 @@ $(document).ready(function() {
         return reorderedData;
       }
     },
-    "columns": <%= raw @visible_columns.to_json %>
+    "columns": <%= raw @visible_columns.to_json %>,
+    "stateSaveParams": function(settings, data) {
+      data.start = 0; // always first page when restoring state
+    }
   });
 
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->

@@ -290,6 +290,7 @@ $(document).ready(function() {
     var table = $('#accounts-table').DataTable();
     var column = table.column(columnIdx);
     column.visible(!column.visible());
+    table.state.save();
   });
 
   // Make columns sortable (optional, requires jQuery UI Sortable)
@@ -306,6 +307,7 @@ $(document).ready(function() {
     var table = $('#accounts-table').DataTable();
     var newOrder = order.map(Number);
     table.colReorder.order(newOrder);
+    table.state.save();
   }
 
   var downloadButton = document.getElementById('downloadButton');
@@ -450,6 +452,7 @@ $(document).ready(function() {
     var table = $('#accounts-table').DataTable();
     var columnIndexes = order.map(Number);
     table.colReorder.order(columnIndexes);
+    table.state.save();
     resetDataColumn();
     resetDataId();
   }
@@ -472,6 +475,7 @@ $(document).ready(function() {
     var table = $('#accounts-table').DataTable();
     var column = table.column($(this).attr('data-column'));
     column.visible(!column.visible());
+    table.state.save();
   });
 
   document.addEventListener('click', function (e) {
