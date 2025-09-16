@@ -11,6 +11,11 @@ module Kaui
 
     def index
       @search_query = params[:q]
+      @max_records = {}
+      %w[account payment invoice].each do |type|
+        model = "Kaui::#{type.capitalize}".constantize
+        @max_records[type.to_sym] = model.list_or_search(nil, 0, 0, options_for_klient).pagination_max_nb_records || 0
+      end
     end
 
     def search

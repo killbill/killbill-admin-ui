@@ -4,9 +4,9 @@
             <div class="col-md-9 col-lg-9 mb-4">
                 <h5 class="fw-semibold pb-4 text-black-900 fs-4 fw-500">Get Started</h5>
                 <div class="row mb-4">
-                    <%= render partial: "kaui/components/dashboard/card", locals: { title: "Accounts", count: "876 accounts", icon: "kaui/header/account.svg", path: kaui_engine.accounts_path } %>
-                    <%= render partial: "kaui/components/dashboard/card", locals: { title: "Invoices", count: "1,440 invoices", icon: "kaui/header/invoice.svg", path: kaui_engine.invoices_path } %>
-                    <%= render partial: "kaui/components/dashboard/card", locals: { title: "Payments", count: "1,634 payments", icon: "kaui/header/payment.svg", path: kaui_engine.payments_path } %>
+                    <%= render partial: "kaui/components/dashboard/card", locals: { title: "Accounts", count: @max_records[:account], icon: "kaui/header/account.svg", path: kaui_engine.accounts_path } %>
+                    <%= render partial: "kaui/components/dashboard/card", locals: { title: "Invoices", count: @max_records[:invoice], icon: "kaui/header/invoice.svg", path: kaui_engine.invoices_path } %>
+                    <%= render partial: "kaui/components/dashboard/card", locals: { title: "Payments", count: @max_records[:payment], icon: "kaui/header/payment.svg", path: kaui_engine.payments_path } %>
                 </div>
 
                 <!-- Settings Section -->
