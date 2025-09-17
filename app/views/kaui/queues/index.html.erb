@@ -65,15 +65,63 @@
                   <thead>
                   <tr>
                     <th></th>
-                    <th>Created date</th>
-                    <th>Class name</th>
-                    <th>Event</th>
-                    <th>User token</th>
+                    <th class="sortable-header" data-column="1">
+                      <div class="header-content">
+                        <span class="header-text">Created date</span>
+                        <div class="sort-icons">
+                          <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="sortable-header" data-column="2">
+                      <div class="header-content">
+                        <span class="header-text">Class name</span>
+                        <div class="sort-icons">
+                          <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="sortable-header" data-column="3">
+                      <div class="header-content">
+                        <span class="header-text">Event</span>
+                        <div class="sort-icons">
+                          <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="sortable-header" data-column="4">
+                      <div class="header-content">
+                        <span class="header-text">User token</span>
+                        <div class="sort-icons">
+                          <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
                     <% if @account_id.blank? %>
-                        <th>Account record id</th>
+                        <th class="sortable-header" data-column="5">
+                          <div class="header-content">
+                            <span class="header-text">Account record id</span>
+                            <div class="sort-icons">
+                              <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                              <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                            </div>
+                          </div>
+                        </th>
                     <% end %>
                     <% if @account_id.present? %>
-                      <th>User token</th>
+                      <th class="sortable-header" data-column="5">
+                        <div class="header-content">
+                          <span class="header-text">User token</span>
+                          <div class="sort-icons">
+                            <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                            <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                          </div>
+                        </div>
+                      </th>
                     <% end %>
                   </tr>
                   </thead>
@@ -113,15 +161,63 @@
                   <thead>
                   <tr>
                     <th></th>
-                    <th>Effective date</th>
-                    <th>Queue name</th>
-                    <th>Event</th>
-                    <th>User token</th>
+                    <th class="sortable-header" data-column="1">
+                      <div class="header-content">
+                        <span class="header-text">Effective date</span>
+                        <div class="sort-icons">
+                          <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="sortable-header" data-column="2">
+                      <div class="header-content">
+                        <span class="header-text">Queue name</span>
+                        <div class="sort-icons">
+                          <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="sortable-header" data-column="3">
+                      <div class="header-content">
+                        <span class="header-text">Event</span>
+                        <div class="sort-icons">
+                          <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="sortable-header" data-column="4">
+                      <div class="header-content">
+                        <span class="header-text">User token</span>
+                        <div class="sort-icons">
+                          <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
                     <% if @account_id.blank? %>
-                        <th>Account record id</th>
+                        <th class="sortable-header" data-column="5">
+                          <div class="header-content">
+                            <span class="header-text">Account record id</span>
+                            <div class="sort-icons">
+                              <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                              <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                            </div>
+                          </div>
+                        </th>
                     <% end %>
                     <% if @account_id.present? %>
-                        <th>User token</th>
+                        <th class="sortable-header" data-column="5">
+                          <div class="header-content">
+                            <span class="header-text">User token</span>
+                            <div class="sort-icons">
+                              <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                              <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                            </div>
+                          </div>
+                        </th>
                     <% end %>
                   </tr>
                   </thead>
@@ -165,7 +261,7 @@
 <% nb_notifications_entries = (@queues_entries['notifications'] || []).size %>
 <%= javascript_tag do %>
   $(document).ready(function() {
-    $('#bus-table').dataTable({
+    var busTable = $('#bus-table').DataTable({
       <% if nb_bus_entries <= 50 %>
         "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t",
         "paging": "false",
@@ -184,7 +280,7 @@
         }
       ]
     });
-    $('#notifications-table').dataTable({
+    var notificationsTable = $('#notifications-table').DataTable({
       <% if nb_notifications_entries <= 50 %>
         "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t",
         "paging": "false",
@@ -203,6 +299,42 @@
         }
       ]
     });
+
+    // Custom sorting for Bus table
+    (function() {
+      var currentSortColumn = -1;
+      var currentSortDirection = 'asc';
+      $('#bus-table thead .sortable-header').on('click', function() {
+        var columnIndex = parseInt($(this).data('column'));
+        var newDirection = (currentSortColumn === columnIndex && currentSortDirection === 'asc') ? 'desc' : 'asc';
+        currentSortColumn = columnIndex;
+        currentSortDirection = newDirection;
+        updateSortIndicators($('#bus-table'), columnIndex, newDirection);
+        busTable.order([columnIndex, newDirection]).draw();
+      });
+    })();
+
+    // Custom sorting for Notifications table
+    (function() {
+      var currentSortColumn = -1;
+      var currentSortDirection = 'asc';
+      $('#notifications-table thead .sortable-header').on('click', function() {
+        var columnIndex = parseInt($(this).data('column'));
+        var newDirection = (currentSortColumn === columnIndex && currentSortDirection === 'asc') ? 'desc' : 'asc';
+        currentSortColumn = columnIndex;
+        currentSortDirection = newDirection;
+        updateSortIndicators($('#notifications-table'), columnIndex, newDirection);
+        notificationsTable.order([columnIndex, newDirection]).draw();
+      });
+    })();
+
+    function updateSortIndicators($table, columnIndex, direction) {
+      $table.find('.sortable-header').removeClass('sort-asc-active sort-desc-active');
+      $table.find('.sort-icon').removeClass('active');
+      var $header = $table.find('.sortable-header[data-column="' + columnIndex + '"]');
+      $header.addClass(direction + '-active');
+      $header.find('.sort-' + direction).addClass('active');
+    }
 
     $('#bus-table').wrap('<div class="table-wrapper"></div>');
     $('#notifications-table').wrap('<div class="table-wrapper"></div>');

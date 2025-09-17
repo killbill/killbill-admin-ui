@@ -5,12 +5,60 @@
       <% unless (@available_invoice_item_tags ||= nil).blank? && (@custom_fields_per_invoice_item ||= nil).blank? %>
           <th></th>
       <% end %>
-      <th>Description</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Subscription ID</th>
-      <th>Amount</th>
-      <th>Comments</th>
+      <th class="sortable-header" data-column="<%= (@available_invoice_item_tags.blank? && @custom_fields_per_invoice_item.blank?) ? 0 : 1 %>">
+        <div class="header-content">
+          <span class="header-text">Description</span>
+          <div class="sort-icons">
+            <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+            <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+          </div>
+        </div>
+      </th>
+      <th class="sortable-header" data-column="<%= (@available_invoice_item_tags.blank? && @custom_fields_per_invoice_item.blank?) ? 1 : 2 %>">
+        <div class="header-content">
+          <span class="header-text">Start date</span>
+          <div class="sort-icons">
+            <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+            <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+          </div>
+        </div>
+      </th>
+      <th class="sortable-header" data-column="<%= (@available_invoice_item_tags.blank? && @custom_fields_per_invoice_item.blank?) ? 2 : 3 %>">
+        <div class="header-content">
+          <span class="header-text">End date</span>
+          <div class="sort-icons">
+            <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+            <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+          </div>
+        </div>
+      </th>
+      <th class="sortable-header" data-column="<%= (@available_invoice_item_tags.blank? && @custom_fields_per_invoice_item.blank?) ? 3 : 4 %>">
+        <div class="header-content">
+          <span class="header-text">Subscription ID</span>
+          <div class="sort-icons">
+            <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+            <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+          </div>
+        </div>
+      </th>
+      <th class="sortable-header" data-column="<%= (@available_invoice_item_tags.blank? && @custom_fields_per_invoice_item.blank?) ? 4 : 5 %>">
+        <div class="header-content">
+          <span class="header-text">Amount</span>
+          <div class="sort-icons">
+            <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+            <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+          </div>
+        </div>
+      </th>
+      <th class="sortable-header" data-column="<%= (@available_invoice_item_tags.blank? && @custom_fields_per_invoice_item.blank?) ? 5 : 6 %>">
+        <div class="header-content">
+          <span class="header-text">Comments</span>
+          <div class="sort-icons">
+            <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+            <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+          </div>
+        </div>
+      </th>
       <th></th>
     </tr>
     </thead>

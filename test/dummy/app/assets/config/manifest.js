@@ -69,3 +69,5 @@
 //= link kaui/timeline/purchase.svg
 //= link kaui/timeline/refund.svg
 //= link kaui/timeline/void.svg
+//= link kaui/sort-up.svg
+//= link kaui/sort-down.svg

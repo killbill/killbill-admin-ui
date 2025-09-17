@@ -113,37 +113,6 @@
   color: #535862 !important;
 }
 
-
-.admin-tenant-details table thead tr th::after {
-  content: "" !important;
-  display: inline-block !important;
-  width: 0.75rem !important;
-  height: 0.75rem !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 5.5L6 2.5L9 5.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: 0.75rem 0.75rem !important;
-  position: absolute !important;
-  right: 0.5rem !important;
-  top: 45% !important;
-  transform: translateY(-50%) !important;
-}
-
-.admin-tenant-details table thead tr th::before {
-  content: "" !important;
-  display: inline-block !important;
-  width: 0.75rem !important;
-  height: 0.75rem !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6.5L6 9.5L9 6.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: 0.75rem 0.75rem !important;
-  position: absolute !important;
-  right: 0.5rem !important;
-  bottom: 45% !important;
-  transform: translateY(50%) !important;
-}
-
 /* app/views/kaui/admin_tenants/new.html.erb */
 
 .add-new-tenant-details .add-new-tenant-title {
@@ -369,36 +338,6 @@
   line-height: 1.125rem !important;
   text-align: start;
   color: #535862 !important;
-}
-
-.admin-tenant-show table#allowed-users-for-tenant-table thead tr th::after {
-  content: "" !important;
-  display: inline-block !important;
-  width: 0.75rem !important;
-  height: 0.75rem !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 5.5L6 2.5L9 5.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: 0.75rem 0.75rem !important;
-  position: absolute !important;
-  right: 0.5rem !important;
-  top: 45% !important;
-  transform: translateY(-50%) !important;
-}
-
-.admin-tenant-show table#allowed-users-for-tenant-table thead tr th::before {
-  content: "" !important;
-  display: inline-block !important;
-  width: 0.75rem !important;
-  height: 0.75rem !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6.5L6 9.5L9 6.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: 0.75rem 0.75rem !important;
-  position: absolute !important;
-  right: 0.5rem !important;
-  bottom: 45% !important;
-  transform: translateY(50%) !important;
 }
 
 .admin-tenant-show .nav-tabs-details .nav-link.active {

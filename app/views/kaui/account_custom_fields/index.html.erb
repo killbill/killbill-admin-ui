@@ -13,10 +13,42 @@
         <table id="custom_fields-table" class="custom-fields-table">
           <thead>
             <tr>
-              <th>Object ID</th>
-              <th>Object type</th>
-              <th>Name</th>
-              <th>Value</th>
+              <th class="sortable-header" data-column="0">
+                <div class="header-content">
+                  <span class="header-text">Object ID</span>
+                  <div class="sort-icons">
+                    <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
+              <th class="sortable-header" data-column="1">
+                <div class="header-content">
+                  <span class="header-text">Object type</span>
+                  <div class="sort-icons">
+                    <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
+              <th class="sortable-header" data-column="2">
+                <div class="header-content">
+                  <span class="header-text">Name</span>
+                  <div class="sort-icons">
+                    <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
+              <th class="sortable-header" data-column="3">
+                <div class="header-content">
+                  <span class="header-text">Value</span>
+                  <div class="sort-icons">
+                    <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -31,7 +63,7 @@
 <%= javascript_tag do %>
   $(document).ready(function() {
     var customFields = JSON.parse($("#custom-fields").val());
-    $('#custom_fields-table').DataTable({
+    var table = $('#custom_fields-table').DataTable({
       "dom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
       data: customFields
     });
@@ -43,5 +75,27 @@
         $td.html(`<span>${content}</span>`);
       });
     }, 50);
+
+    // Custom sorting functionality
+    (function() {
+      var currentSortColumn = -1;
+      var currentSortDirection = 'asc';
+      $('#custom_fields-table thead .sortable-header').on('click', function() {
+        var columnIndex = parseInt($(this).data('column'));
+        var newDirection = (currentSortColumn === columnIndex && currentSortDirection === 'asc') ? 'desc' : 'asc';
+        currentSortColumn = columnIndex;
+        currentSortDirection = newDirection;
+        updateSortIndicators($('#custom_fields-table'), columnIndex, newDirection);
+        table.order([columnIndex, newDirection]).draw();
+      });
+    })();
+
+    function updateSortIndicators($table, columnIndex, direction) {
+      $table.find('.sortable-header').removeClass('sort-asc-active sort-desc-active');
+      $table.find('.sort-icon').removeClass('active');
+      var $header = $table.find('.sortable-header[data-column="' + columnIndex + '"]');
+      $header.addClass(direction + '-active');
+      $header.find('.sort-' + direction).addClass('active');
+    }
   });
 <% end %>

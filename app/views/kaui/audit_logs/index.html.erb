@@ -16,14 +16,78 @@
         <table id="audit-logs-table" class="audit-logs-table">
           <thead>
           <tr>
-            <th>Created date</th>
-            <th>Object id</th>
-            <th>Object type</th>
-            <th>Change type</th>
-            <th>Username</th>
-            <th>Reason</th>
-            <th>Comment</th>
-            <th>User token</th>
+            <th class="sortable-header" data-column="0">
+              <div class="header-content">
+                <span class="header-text">Created date</span>
+                <div class="sort-icons">
+                  <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                  <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                </div>
+              </div>
+            </th>
+            <th class="sortable-header" data-column="1">
+              <div class="header-content">
+                <span class="header-text">Object id</span>
+                <div class="sort-icons">
+                  <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                  <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                </div>
+              </div>
+            </th>
+            <th class="sortable-header" data-column="2">
+              <div class="header-content">
+                <span class="header-text">Object type</span>
+                <div class="sort-icons">
+                  <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                  <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                </div>
+              </div>
+            </th>
+            <th class="sortable-header" data-column="3">
+              <div class="header-content">
+                <span class="header-text">Change type</span>
+                <div class="sort-icons">
+                  <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                  <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                </div>
+              </div>
+            </th>
+            <th class="sortable-header" data-column="4">
+              <div class="header-content">
+                <span class="header-text">Username</span>
+                <div class="sort-icons">
+                  <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                  <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                </div>
+              </div>
+            </th>
+            <th class="sortable-header" data-column="5">
+              <div class="header-content">
+                <span class="header-text">Reason</span>
+                <div class="sort-icons">
+                  <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                  <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                </div>
+              </div>
+            </th>
+            <th class="sortable-header" data-column="6">
+              <div class="header-content">
+                <span class="header-text">Comment</span>
+                <div class="sort-icons">
+                  <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                  <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                </div>
+              </div>
+            </th>
+            <th class="sortable-header" data-column="7">
+              <div class="header-content">
+                <span class="header-text">User token</span>
+                <div class="sort-icons">
+                  <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                  <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                </div>
+              </div>
+            </th>
           </tr>
           </thead>
           <tbody>
@@ -38,7 +102,7 @@
 <%= javascript_tag do %>
     $(document).ready(function() {
         var auditLogs = JSON.parse($("#audit-logs").val());
-        $('#audit-logs-table').DataTable({
+        var table = $('#audit-logs-table').DataTable({
             dom: "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
             pagingType: "full_numbers",
             data: auditLogs,
@@ -65,6 +129,32 @@
                 setObjectIdPopover();
             }
         });
+
+        // Custom sorting functionality and indicators
+        (function() {
+          var currentSortColumn = 0;
+          var currentSortDirection = 'desc';
+
+          updateSortIndicators(currentSortColumn, currentSortDirection);
+
+          $('#audit-logs-table thead .sortable-header').on('click', function() {
+            var columnIndex = parseInt($(this).data('column'));
+            var newDirection = (currentSortColumn === columnIndex && currentSortDirection === 'asc') ? 'desc' : 'asc';
+            currentSortColumn = columnIndex;
+            currentSortDirection = newDirection;
+            updateSortIndicators(columnIndex, newDirection);
+            table.order([columnIndex, newDirection]).draw();
+          });
+
+          function updateSortIndicators(columnIndex, direction) {
+            var $table = $('#audit-logs-table');
+            $table.find('.sortable-header').removeClass('sort-asc-active sort-desc-active');
+            $table.find('.sort-icon').removeClass('active');
+            var $header = $table.find('.sortable-header[data-column="' + columnIndex + '"]');
+            $header.addClass(direction + '-active');
+            $header.find('.sort-' + direction).addClass('active');
+          }
+        })();
     });
 
     setTimeout(() => {

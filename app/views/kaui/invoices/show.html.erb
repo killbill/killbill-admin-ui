@@ -400,7 +400,7 @@
   $(document).ready(function() {
     disableLinks();
 
-    $('#invoice-table').dataTable({
+    var table = $('#invoice-table').DataTable({
       "dom": "t",
       "paging": false,
       "order": [],
@@ -414,5 +414,29 @@
         { "orderable": false }
       ]
     });
+
+    // Custom sorting behavior with indicators (scoped to this table)
+    (function attachSortHandlers() {
+      var currentSortColumn = -1;
+      var currentSortDirection = 'asc';
+      var $table = $('#invoice-table');
+
+      $table.find('thead .sortable-header').on('click', function() {
+        var columnIndex = parseInt($(this).data('column'));
+        var newDirection = (currentSortColumn === columnIndex && currentSortDirection === 'asc') ? 'desc' : 'asc';
+        currentSortColumn = columnIndex;
+        currentSortDirection = newDirection;
+        updateSortIndicators($table, columnIndex, newDirection);
+        table.order([columnIndex, newDirection]).draw();
+      });
+    })();
+
+    function updateSortIndicators($table, columnIndex, direction) {
+      $table.find('.sortable-header').removeClass('sort-asc-active sort-desc-active');
+      $table.find('.sort-icon').removeClass('active');
+      var $header = $table.find('.sortable-header[data-column="' + columnIndex + '"]');
+      $header.addClass(direction + '-active');
+      $header.find('.sort-' + direction).addClass('active');
+    }
   });
 <% end %>

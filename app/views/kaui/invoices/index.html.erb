@@ -18,8 +18,16 @@
         <table id="invoices-table" class="invoices-table">
           <thead class="table-header">
           <tr>
-            <% Kaui.account_invoices_columns.call[0].each do |title| %>
-              <th><%= title %></th>
+            <% Kaui.account_invoices_columns.call[0].each_with_index do |title, index| %>
+              <th class="sortable-header" data-column="<%= index %>">
+                <div class="header-content">
+                  <span class="header-text"><%= title %></span>
+                  <div class="sort-icons">
+                    <%= image_tag "sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th> 
             <% end %>
           </tr>
           </thead>
@@ -61,7 +69,7 @@ $(document).ready(function() {
     "pageLength": <%= @limit %>,
     "displayStart": <%= @offset %>,
     <% if @search_query.blank? %>
-        "ordering": false,
+        "ordering": true,
     <% elsif !@ordering.blank? %>
         "order": [[ 0, "<%= @ordering %>" ]],
     <% end %>
@@ -86,6 +94,49 @@ $(document).ready(function() {
       }
     }
   });
+
+  // Custom sorting functionality
+  var currentSortColumn = -1;
+  var currentSortDirection = 'asc';
+
+  // Handle custom header clicks
+  $('.sortable-header').on('click', function() {
+    var columnIndex = parseInt($(this).data('column'));
+    var newDirection = 'asc';
+    
+    // If clicking the same column, toggle direction
+    if (currentSortColumn === columnIndex) {
+      newDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
+    }
+    
+    currentSortColumn = columnIndex;
+    currentSortDirection = newDirection;
+    
+    // Update visual indicators
+    updateSortIndicators(columnIndex, newDirection);
+    
+    // Apply DataTable sorting
+    table.order([columnIndex, newDirection]).draw();
+  });
+
+  // Function to update sort indicators
+  function updateSortIndicators(columnIndex, direction) {
+    // Reset all headers
+    $('.sortable-header').removeClass('sort-asc-active sort-desc-active');
+    $('.sort-icon').removeClass('active');
+    
+    // Set active state for current column
+    var $header = $('.sortable-header[data-column="' + columnIndex + '"]');
+    $header.addClass(direction + '-active');
+    $header.find('.sort-' + direction).addClass('active');
+  }
+
+  // Initialize sort indicators based on current state
+  <% if !@ordering.blank? %>
+    var initialColumn = 0;
+    var initialDirection = "<%= @ordering %>";
+    updateSortIndicators(initialColumn, initialDirection);
+  <% end %>
 
   // Add an action whenever the page changes
   table.on('page.dt', function() {
