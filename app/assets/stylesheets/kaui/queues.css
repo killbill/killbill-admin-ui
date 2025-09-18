@@ -180,6 +180,10 @@
   color: #374151;
 }
 
+.kaui-queues-index .queues #bus-table_wrapper .table-wrapper,
+.kaui-queues-index .queues #notifications-table_wrapper .table-wrapper {
+  margin-bottom: 1rem;
+}
 
 .kaui-queues-index .queues #bus-table_wrapper .row:nth-of-type(2),
 .kaui-queues-index .queues #notifications-table_wrapper .row:nth-of-type(2) {

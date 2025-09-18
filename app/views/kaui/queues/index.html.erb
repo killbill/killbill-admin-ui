@@ -262,15 +262,11 @@
 <%= javascript_tag do %>
   $(document).ready(function() {
     var busTable = $('#bus-table').DataTable({
-      <% if nb_bus_entries <= 50 %>
-        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t",
-        "paging": "false",
-      <% else %>
-        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-        "pagingType": "full_numbers",
-        "displayStart": <%= [0, nb_bus_entries - 50].max %>,
-      <% end %>
-      "pageLength": 50,
+      "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+      "paging": true,
+      "pagingType": "full_numbers",
+      "pageLength": 25,
+      "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
       "order": [],
       "columnDefs": [
         {
@@ -278,18 +274,28 @@
           "visible": false,
           "searchable": true
         }
-      ]
+      ],
+      "language": {
+        "paginate": {
+          "first": "First",
+          "last": "Last",
+          "next": "Next",
+          "previous": "Previous"
+        },
+        "lengthMenu": "Show _MENU_ entries",
+        "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+        "infoEmpty": "Showing 0 to 0 of 0 entries",
+        "infoFiltered": "(filtered from _MAX_ total entries)",
+        "search": "Search:",
+        "zeroRecords": "No matching records found"
+      }
     });
     var notificationsTable = $('#notifications-table').DataTable({
-      <% if nb_notifications_entries <= 50 %>
-        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t",
-        "paging": "false",
-      <% else %>
-        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-        "pagingType": "full_numbers",
-        "displayStart": 0,
-      <% end %>
-      "pageLength": 50,
+      "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+      "paging": true,
+      "pagingType": "full_numbers",
+      "pageLength": 25,
+      "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
       "order": [],
       "columnDefs": [
         {
@@ -297,7 +303,21 @@
           "visible": false,
           "searchable": true
         }
-      ]
+      ],
+      "language": {
+        "paginate": {
+          "first": "First",
+          "last": "Last",
+          "next": "Next",
+          "previous": "Previous"
+        },
+        "lengthMenu": "Show _MENU_ entries",
+        "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+        "infoEmpty": "Showing 0 to 0 of 0 entries",
+        "infoFiltered": "(filtered from _MAX_ total entries)",
+        "search": "Search:",
+        "zeroRecords": "No matching records found"
+      }
     });
 
     // Custom sorting for Bus table
