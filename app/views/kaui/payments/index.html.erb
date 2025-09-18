@@ -169,8 +169,8 @@ $(document).ready(function() {
 
     <% if @max_nb_records.nil? %>
       var noMoreData = table.column(0)
-                            .payments-index .data()
-                            .payments-index .length == 0;
+                            .data()
+                            .length == 0;
       $(".next.paginate_button").toggleClass("disabled", noMoreData);
       $(".dataTables_info").toggle(!noMoreData);
     <% end %>
