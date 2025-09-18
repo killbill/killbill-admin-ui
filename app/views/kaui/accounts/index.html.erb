@@ -71,6 +71,12 @@ $(document).ready(function() {
       "enable": false
     },
     "stateSave": true,
+    "stateSaveCallback": function(settings, data) {
+      localStorage.setItem('DataTables_accounts-table_' + window.location.pathname, JSON.stringify(data));
+    },
+    "stateLoadCallback": function(settings) {
+      return JSON.parse(localStorage.getItem('DataTables_accounts-table_' + window.location.pathname));
+    },
     "scrollX": true,
     "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
     "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
