@@ -4,12 +4,60 @@
     <% unless @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? %>
       <th></th>
     <% end %> 
-    <th>Name</th>
-    <th>Category</th>
-    <th>Phase type</th>
-    <th>Start date</th>
-    <th>Cancel information</th>
-    <th>Charged Date</th>
+    <th class="sortable-header" data-column="<%= (@available_subscription_tags.blank? && @custom_fields_per_subscription.blank?) ? 0 : 1 %>">
+      <div class="header-content">
+        <span class="header-text">Name</span>
+        <div class="sort-icons">
+          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+        </div>
+      </div>
+    </th>
+    <th class="sortable-header" data-column="<%= (@available_subscription_tags.blank? && @custom_fields_per_subscription.blank?) ? 1 : 2 %>">
+      <div class="header-content">
+        <span class="header-text">Category</span>
+        <div class="sort-icons">
+          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+        </div>
+      </div>
+    </th>
+    <th class="sortable-header" data-column="<%= (@available_subscription_tags.blank? && @custom_fields_per_subscription.blank?) ? 2 : 3 %>">
+      <div class="header-content">
+        <span class="header-text">Phase type</span>
+        <div class="sort-icons">
+          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+        </div>
+      </div>
+    </th>
+    <th class="sortable-header" data-column="<%= (@available_subscription_tags.blank? && @custom_fields_per_subscription.blank?) ? 3 : 4 %>">
+      <div class="header-content">
+        <span class="header-text">Start date</span>
+        <div class="sort-icons">
+          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+        </div>
+      </div>
+    </th>
+    <th class="sortable-header" data-column="<%= (@available_subscription_tags.blank? && @custom_fields_per_subscription.blank?) ? 4 : 5 %>">
+      <div class="header-content">
+        <span class="header-text">Cancel information</span>
+        <div class="sort-icons">
+          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+        </div>
+      </div>
+    </th>
+    <th class="sortable-header" data-column="<%= (@available_subscription_tags.blank? && @custom_fields_per_subscription.blank?) ? 5 : 6 %>">
+      <div class="header-content">
+        <span class="header-text">Charged Date</span>
+        <div class="sort-icons">
+          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+        </div>
+      </div>
+    </th>
     <th></th>
   </tr>
   </thead>
@@ -149,7 +197,7 @@
   $(document).ready(function() {
     $('.subscription-id-popover').popover();
 
-    $('#subscriptions_<%= bundle.bundle_id %>').dataTable({
+    var table = $('#subscriptions_<%= bundle.bundle_id %>').DataTable({
       "dom": "t",
       "paging": false,
       "order": [[ <%= @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? ? 3 : 4 %>, "asc" ]],
@@ -167,6 +215,22 @@
         setObjectIdTooltip();
       }
     });
+
+    // Custom sorting functionality for this table
+    (function() {
+      var currentSortColumn = <%= @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? ? 3 : 4 %>;
+      var currentSortDirection = 'asc';
+      updateSortIndicators($('#subscriptions_<%= bundle.bundle_id %>'), currentSortColumn, currentSortDirection);
+
+      $('#subscriptions_<%= bundle.bundle_id %> thead .sortable-header').on('click', function() {
+        var columnIndex = parseInt($(this).data('column'));
+        var newDirection = (currentSortColumn === columnIndex && currentSortDirection === 'asc') ? 'desc' : 'asc';
+        currentSortColumn = columnIndex;
+        currentSortDirection = newDirection;
+        updateSortIndicators($('#subscriptions_<%= bundle.bundle_id %>'), columnIndex, newDirection);
+        table.order([columnIndex, newDirection]).draw();
+      });
+    })();
 
     $(".price-override-popover").popover({
       container: 'body',
@@ -197,4 +261,12 @@
       });
     });
   });
+  
+  function updateSortIndicators($table, columnIndex, direction) {
+    $table.find('.sortable-header').removeClass('sort-asc-active sort-desc-active');
+    $table.find('.sort-icon').removeClass('active');
+    var $header = $table.find('.sortable-header[data-column="' + columnIndex + '"]');
+    $header.addClass(direction + '-active');
+    $header.find('.sort-' + direction).addClass('active');
+  }
 <% end %>

@@ -44,7 +44,7 @@
         }
       }
     } %>
-    <ul class="dropdown-menu" id="column-visibility" aria-labelledby="v">
+    <ul class="dropdown-menu" id="column-visibility" aria-labelledby="dropdownMenu1">
       <%  Kaui.account_payments_columns.call()[0].each_with_index do |title, index| %>
           <li class="list-group-item-manual" data-id="<%= index %>">
             <label class="label-group-item-manual">
@@ -206,6 +206,19 @@
 
 <%= javascript_tag do %>
 $(document).ready(function() {
+  // Initialize Bootstrap dropdown
+  var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+  var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+    return new bootstrap.Dropdown(dropdownToggleEl);
+  });
+
+  // Manual dropdown toggle as fallback
+  $('#dropdownMenu1').on('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $('#column-visibility').toggleClass('show');
+  });
+
   $('.dropdown-menu').on('click', 'input[type="checkbox"], label', function(event) {
     event.stopPropagation();
   });
@@ -422,6 +435,19 @@ $(document).ready(function() {
     const wrapper = document.querySelector('.fake-select-wrapper');
     const toggle = document.getElementById('single-toggle');
     if (!wrapper.contains(e.target)) toggle.checked = false;
+  });
+
+  // Handle click outside for Edit Columns dropdown
+  document.addEventListener('click', function (e) {
+    const dropdownContainer = document.querySelector('.dropdown-container .dropdown');
+    const dropdownMenu = document.getElementById('column-visibility');
+    
+    if (dropdownContainer && !dropdownContainer.contains(e.target)) {
+      // Close dropdown if clicking outside
+      if (dropdownMenu && dropdownMenu.classList.contains('show')) {
+        dropdownMenu.classList.remove('show');
+      }
+    }
   });
 
   // Initialize on modal open

@@ -32,11 +32,51 @@
           <table id='tag_definitions-table' class='tag-definitions-table'>
             <thead>
             <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Description</th>
-              <th>System tag</th>
-              <th>Applicable types</th>
+              <th class="sortable-header" data-column="0">
+                <div class="header-content">
+                  <span class="header-text">Id</span>
+                  <div class="sort-icons">
+                    <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
+              <th class="sortable-header" data-column="1">
+                <div class="header-content">
+                  <span class="header-text">Name</span>
+                  <div class="sort-icons">
+                    <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
+              <th class="sortable-header" data-column="2">
+                <div class="header-content">
+                  <span class="header-text">Description</span>
+                  <div class="sort-icons">
+                    <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
+              <th class="sortable-header" data-column="3">
+                <div class="header-content">
+                  <span class="header-text">System tag</span>
+                  <div class="sort-icons">
+                    <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
+              <th class="sortable-header" data-column="4">
+                <div class="header-content">
+                  <span class="header-text">Applicable types</span>
+                  <div class="sort-icons">
+                    <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
               <th></th>
             </tr>
             </thead>
@@ -66,9 +106,9 @@
 
 <%= javascript_tag do %>
 $(document).ready(function() {
-  $('#tag_definitions-table').dataTable({
+  var table = $('#tag_definitions-table').DataTable({
     "dom": "t",
-    "paging": "false",
+    "paging": false,
     "order": [],
     "columns": [
     null,
@@ -79,6 +119,42 @@ $(document).ready(function() {
     { "orderable": false }
     ]
   });
+
+  // Custom sorting functionality
+  var currentSortColumn = -1;
+  var currentSortDirection = 'asc';
+
+  // Handle custom header clicks
+  $('.sortable-header').on('click', function() {
+    var columnIndex = parseInt($(this).data('column'));
+    var newDirection = 'asc';
+    
+    // If clicking the same column, toggle direction
+    if (currentSortColumn === columnIndex) {
+      newDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
+    }
+    
+    currentSortColumn = columnIndex;
+    currentSortDirection = newDirection;
+    
+    // Update visual indicators
+    updateSortIndicators(columnIndex, newDirection);
+    
+    // Apply DataTable sorting
+    table.order([columnIndex, newDirection]).draw();
+  });
+
+  // Function to update sort indicators
+  function updateSortIndicators(columnIndex, direction) {
+    // Reset all headers
+    $('.sortable-header').removeClass('sort-asc-active sort-desc-active');
+    $('.sort-icon').removeClass('active');
+    
+    // Set active state for current column
+    var $header = $('.sortable-header[data-column="' + columnIndex + '"]');
+    $header.addClass(direction + '-active');
+    $header.find('.sort-' + direction).addClass('active');
+  }
 
   // Add hover tooltip functionality for object IDs
   $('.object-id-popover').each(function() {

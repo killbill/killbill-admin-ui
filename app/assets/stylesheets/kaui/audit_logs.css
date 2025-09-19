@@ -111,48 +111,6 @@
 
 .kaui-audit-logs-index
   .audit-logs
-  .dataTables_scrollHead
-  table
-  thead
-  tr
-  th::after {
-  content: "" !important;
-  display: inline-block !important;
-  width: 0.75rem !important;
-  height: 0.75rem !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 5.5L6 2.5L9 5.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: 0.75rem 0.75rem !important;
-  position: absolute !important;
-  right: 0.5rem !important;
-  top: 45% !important;
-  transform: translateY(-50%) !important;
-}
-
-.kaui-audit-logs-index
-  .audit-logs
-  .dataTables_scrollHead
-  table
-  thead
-  tr
-  th::before {
-  content: "" !important;
-  display: inline-block !important;
-  width: 0.75rem !important;
-  height: 0.75rem !important;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M3 6.5L6 9.5L9 6.5' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  background-size: 0.75rem 0.75rem !important;
-  position: absolute !important;
-  right: 0.5rem !important;
-  bottom: 45% !important;
-  transform: translateY(50%) !important;
-}
-
-.kaui-audit-logs-index
-  .audit-logs
   .pagination
   a:not(:first-child):not(:last-child) {
   color: #717680;
@@ -236,42 +194,6 @@
   line-height: 1.25rem;
   color: #414651;
   outline: none;
-}
-
-.kaui-audit-logs-index .audit-logs #audit-logs-table_length {
-  position: absolute;
-  left: 14rem;
-  bottom: 0.5rem;
-}
-
-.kaui-audit-logs-index .audit-logs #audit-logs-table_length select {
-  width: 5rem;
-  height: 2.2rem;
-  padding: 0.3rem;
-  padding-right: 1.875rem;
-  border: 0.0625rem solid #e5e7eb;
-  border-radius: 0.375rem;
-}
-
-.kaui-audit-logs-index .audit-logs #audit-logs-table_length select:focus {
-  outline: none;
-  box-shadow: none;
-  border: 0.0625rem solid #e5e7eb;
-}
-
-.kaui-audit-logs-index .audit-logs #audit-logs-table_length select {
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 0.0625rem solid #ced4da;
-  border-radius: 0.375rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 6L8 10L12 6' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-  background-repeat: no-repeat;
-  background-position: right 0.3125rem center;
-  background-size: 1rem 1rem;
-  padding: 0 1.25rem 0 0.5rem;
 }
 
 .kaui-audit-logs-index .dropdown-menu#column-visibility {

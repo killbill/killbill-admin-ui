@@ -18,6 +18,7 @@ module Kaui
       end
       @search_fields = Kaui::Account::ADVANCED_SEARCH_COLUMNS.map { |attr| [attr, attr.split('_').join(' ').capitalize] }
       @dropdown_default = default_columns(Kaui.account_search_columns.call[2], Kaui::Account::SENSIVITE_DATA_FIELDS)
+      @visible_columns = @dropdown_default
 
       @ordering = params[:ordering] || (@search_query.blank? ? 'desc' : 'asc')
       @offset = params[:offset] || 0

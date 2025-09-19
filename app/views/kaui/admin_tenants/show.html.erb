@@ -57,8 +57,24 @@
                 <table id="allowed-users-for-tenant-table" class="table table-condensed">
                   <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Description</th>
+                    <th class="sortable-header" data-column="0">
+                      <div class="header-content">
+                        <span class="header-text">Name</span>
+                        <div class="sort-icons">
+                          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="sortable-header" data-column="1">
+                      <div class="header-content">
+                        <span class="header-text">Description</span>
+                        <div class="sort-icons">
+                          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
                     <th></th>
                   </tr>
                   </thead>
@@ -168,6 +184,66 @@
 
 
   $(document).ready(function() {
+    // Initialize DataTable for allowed users table
+    var allowedUsersTable;
+    
+    // Wait for the table to be available
+    setTimeout(function() {
+      try {
+        // Check if table is already initialized as DataTable
+        if ($.fn.DataTable.isDataTable('#allowed-users-for-tenant-table')) {
+          allowedUsersTable = $('#allowed-users-for-tenant-table').DataTable();
+        } else {
+          allowedUsersTable = $('#allowed-users-for-tenant-table').DataTable({
+            "dom": "t",
+            "paging": false,
+            "ordering": true
+          });
+        }
+        
+        // Custom sorting functionality for allowed users table
+        var currentSortColumn = -1;
+        var currentSortDirection = 'asc';
+
+        // Handle custom header clicks
+        $('.sortable-header').on('click', function() {
+          var columnIndex = parseInt($(this).data('column'));
+          var newDirection = 'asc';
+          
+          // If clicking the same column, toggle direction
+          if (currentSortColumn === columnIndex) {
+            newDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
+          }
+          
+          currentSortColumn = columnIndex;
+          currentSortDirection = newDirection;
+          
+          // Update visual indicators
+          updateSortIndicators(columnIndex, newDirection);
+          
+          // Apply DataTable sorting
+          if (allowedUsersTable && allowedUsersTable.order) {
+            allowedUsersTable.order([columnIndex, newDirection]).draw();
+          }
+        });
+
+        // Function to update sort indicators
+        function updateSortIndicators(columnIndex, direction) {
+          // Reset all headers
+          $('.sortable-header').removeClass('sort-asc-active sort-desc-active');
+          $('.sort-icon').removeClass('active');
+          
+          // Set active state for current column
+          var $header = $('.sortable-header[data-column="' + columnIndex + '"]');
+          $header.addClass(direction + '-active');
+          $header.find('.sort-' + direction).addClass('active');
+        }
+        
+      } catch (error) {
+        console.log('DataTable initialization error:', error);
+      }
+    }, 100);
+
     $('[id^=allowed-user-remove-]').click(function() {
       var allowedUser = $(this);
       $.ajax({ type: "DELETE",
