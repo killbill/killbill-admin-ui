@@ -200,17 +200,18 @@ table tr.expired td {
 
 .subscription-bundl-index .subscription-bundle .cancel-button {
   background-color: transparent !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border: none !important;
   padding: 0 !important;
   color: #D92D20 !important;
-  flex-direction: row-reverse;
   text-transform: capitalize;
   gap: 0.1rem;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
   letter-spacing: 0;
-  margin-left: 0.75rem;
   text-decoration: none;
 }
 
