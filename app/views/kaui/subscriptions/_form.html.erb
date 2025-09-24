@@ -61,22 +61,23 @@
 
       </div>
     </div>
-    <div class="form-group d-flex pb-3 border-bottom mb-3" id="form_requested_date">
-      <%= label_tag :requested_date, 'Date', :class => 'col-sm-3 control-label' %>
-      <div class="col-sm-9">
-        <div class="custom-date-input-wrapper kaui-button custom-hover">
-          <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14.9167 12.5V18.3333M17.8333 15.4167H12" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M14.0833 1.66675V5.00008M6.58325 1.66675V5.00008" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M17.8333 10.8333V4.99992C17.8333 4.07944 17.0871 3.33325 16.1666 3.33325H4.49992C3.57944 3.33325 2.83325 4.07944 2.83325 4.99992V16.6666C2.83325 17.5871 3.57944 18.3333 4.49992 18.3333H10.3333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M2.83325 8.33325H17.8333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <input class="form-control" value="<%=Date.parse(Time.now.to_s).to_s%>" name="requested_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
-        </div>
-        
+    <div id="form_requested_date" style="dispay: none;">
+      <div class="form-group d-flex pb-3">
+        <%= label_tag :requested_date, 'Date', :class => 'col-sm-3 control-label' %>
+        <div class="col-sm-9">
+          <div class="custom-date-input-wrapper kaui-button custom-hover">
+            <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.9167 12.5V18.3333M17.8333 15.4167H12" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14.0833 1.66675V5.00008M6.58325 1.66675V5.00008" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M17.8333 10.8333V4.99992C17.8333 4.07944 17.0871 3.33325 16.1666 3.33325H4.49992C3.57944 3.33325 2.83325 4.07944 2.83325 4.99992V16.6666C2.83325 17.5871 3.57944 18.3333 4.49992 18.3333H10.3333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2.83325 8.33325H17.8333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input class="form-control" value="<%=Date.parse(Time.now.to_s).to_s%>" name="requested_date" type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-today-highlight="true">
+          </div>
+        </div>        
       </div>
     </div>
-    <div class="form-group d-flex justify-content-end pb-3">
+    <div class="form-group d-flex justify-content-end pt-3 border-top">
       <%= render "kaui/components/button/button", {
         label: 'Close',
         variant: "outline-secondary d-inline-flex align-items-center gap-1",
