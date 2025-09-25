@@ -63,20 +63,9 @@ module Kaui
         end
       end
 
-      account_id = (params[:search] || {})[:value]
-      data_extractor = if account_id.blank?
-                         lambda do |invoice, column|
-                           [
-                             invoice.invoice_number.to_i,
-                             invoice.invoice_date
-                           ][column]
-                         end
-                       else
-                         lambda do |invoice, column|
-                           Kaui.account_invoices_columns.call(invoice, view_context)[2][column]
-                         end
-                       end
-
+      data_extractor = lambda do |invoice, column|
+        Kaui.account_invoices_columns.call(invoice, view_context)[2][column]
+      end
       formatter = lambda do |invoice|
         Kaui.account_invoices_columns.call(invoice, view_context)[1]
       end
