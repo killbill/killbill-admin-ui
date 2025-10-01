@@ -273,7 +273,7 @@ jQuery(document).ready(function ($) {
             return;
         }
 
-        var message = 'Request error: ' + getMessageFromResponse(jqxhr);
+        var message = getMessageFromResponse(jqxhr);
 
         if (jqxhr.status == 200) {
             message = thrownError.message == undefined ? thrownError : thrownError.message;
