@@ -139,18 +139,26 @@ $(document).ready(function() {
     }
 
     searchFields.each(function() {
-      var filter = $(this).find('.search-field-filter option:selected').text();
-      var value = $(this).find('.search-field-value').val();
-      var columnName = $(this).find('.search-field-filter').attr('name').replace('Filter', '');
+      var filter = $(this).find('.search-field-filter option:selected').text().trim();
+      var value = $(this).find('.search-field-value').val().trim();
+      var columnName = $(this).find('.search-field-filter').attr('name').replace('Filter', '').trim();
 
       // Create and append the search label
       if (value !== '') {
         var label = $('<span>', {
-          class: 'label label-info',
-          text: columnName + ' [' + filter + '] ' + value
+          class: 'label label-info d-inline-flex align-items-center gap-2',
+          'data-field': columnName,
+          'data-filter': filter,
+          'data-value': value
         });
+        var labelText = $('<span>', { text: columnName + ' [' + filter + '] ' + value });
+        var closeIcon = $('<span>', {
+          class: 'filter-close-icon',
+          style: 'cursor: pointer; margin-left: 5px; display: inline-flex; align-items: center;'
+        }).html('<svg width="12" height="12" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.8337 4.1665L4.16699 15.8332M4.16699 4.1665L15.8337 15.8332" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+        label.append(labelText).append(closeIcon);
+        searchLabelsContainer.append(label);
       }
-      searchLabelsContainer.append(label);
     });
     $('#advanceSearchModal').modal('hide');
   });
