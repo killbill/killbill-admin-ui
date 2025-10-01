@@ -13,6 +13,10 @@
         { label: 'Custom Fields', path: kaui_engine.account_custom_fields_path(params[:account_id]), controller_suffix: 'custom_fields', icon_path: 'kaui/sidebar/custom-fields.svg' }
       ] %>
 
+      <% if aviate_plugin_installed %>
+        <% menu_items << { label: 'Wallets', path: aviate_engine.account_wallets_path(params[:account_id]), controller_suffix: 'wallets', icon_path: 'kaui/sidebar/invoices.svg' } %>
+      <% end %>
+
       <% if current_user.root? %>
         <% menu_items += [
           { label: 'Queues', path: kaui_engine.account_queues_path(params[:account_id]), controller_suffix: 'queues', icon_path: 'kaui/sidebar/queues.svg' },
