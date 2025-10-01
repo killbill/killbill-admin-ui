@@ -48,7 +48,7 @@
 
         <div class="fw-semibold text-muted mb-2">Other search queries</div>
         <div class="d-flex flex-wrap gap-2">
-            <% %w[bundle: ID: credit: custom\ field: subscription: transaction: tag: tag\ definition: external\ key:].each do |term| %>
+            <% %w[custom\ field: subscription: tag:].each do |term| %>
             <span class="badge text-dark border border-secondary rounded-3 px-3 py-2 custom-hover"><%= term %></span>
             <% end %>
         </div>
