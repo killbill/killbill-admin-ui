@@ -1,0 +1,524 @@
+.kaui-tag-definitions-index .tag-definitions-details-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 0.0625rem solid #e9eaeb;
+}
+
+.kaui-tag-definitions-index .tag-definitions-details-header h2 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #414651;
+  margin-bottom: 1.25rem;
+}
+
+.kaui-tag-definitions-index table {
+  overflow-x: auto;
+  min-width: 100%;
+}
+
+.kaui-tag-definitions-index table th {
+  padding: 0.375rem 0.75rem !important;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  letter-spacing: 0;
+  color: #717680;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.kaui-tag-definitions-index table td {
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  padding: 1rem 0.5rem !important;
+  line-height: 1.125rem !important;
+  text-align: start;
+  color: #535862 !important;
+}
+
+.kaui-tag-definitions-index .clickable-id {
+  cursor: pointer;
+  color: #1570ef !important;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.kaui-tag-definitions-index .clickable-id:hover {
+  color: #0f4c8a !important;
+}
+
+/* Custom Object ID Tooltip Styles */
+.object-id-tooltip {
+  background: #ffffff;
+  border: 0.0625rem solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1),
+              0 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.06);
+  padding: 0.75rem;
+  min-width: 12.5rem;
+  max-width: 18.75rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  display: none;
+}
+
+.object-id-tooltip .tooltip-header {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03125rem;
+}
+
+.object-id-tooltip .tooltip-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.object-id-tooltip .tooltip-id {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1f2937;
+  word-break: break-all;
+  flex: 1;
+}
+
+.object-id-tooltip .copy-btn {
+  background: #f3f4f6;
+  border: 0.0625rem solid #d1d5db;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.object-id-tooltip .copy-btn:hover {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+.object-id-tooltip .copy-btn:active {
+  background: #d1d5db;
+  transform: scale(0.95);
+}
+
+.kaui-tag-definitions-index
+  .tag-definitions-table
+  tbody
+  tr
+  td:nth-of-type(5)
+  span {
+  padding: 0.125rem 0.5rem;
+  border-radius: 62.4375rem;
+  background-color: #eff8ff;
+  border: 0.0625rem solid #d1e9ff;
+  color: #175cd3;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+}
+
+.kaui-tag-definitions-index
+  .tag-definitions-table
+  tbody
+  tr
+  td:nth-of-type(4)
+  .true {
+  padding: 0.125rem 0.5rem;
+  border-radius: 62.4375rem;
+  background-color: #ecfdf3;
+  border: 0.0625rem solid #dcfae6;
+  color: #067647;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+}
+
+.kaui-tag-definitions-index
+  .tag-definitions-table
+  tbody
+  tr
+  td:nth-of-type(4)
+  .false {
+  padding: 0.125rem 0.5rem;
+  border-radius: 62.4375rem;
+  background-color: #fef3f2;
+  border: 0.0625rem solid #fee4e2;
+  color: #b42318;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+}
+
+.kaui-tag-definitions-index
+  .tag-definitions-table
+  tbody
+  tr
+  td:nth-of-type(6)
+  a {
+  color: #d92d20;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-decoration: none;
+}
+
+/* app/views/kaui/tag_definitions/new.html.erb */
+
+.add-new-tag-definition-details .add-new-tag-definition-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  color: #1b1c1e;
+  padding: 1.5rem 0;
+}
+
+.add-new-tag-definition-details .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #d5d7da;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.add-new-tag-definition-details .icon-container img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.add-new-tag-definition-details .control-label {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  color: #414651 !important;
+}
+
+.add-new-tag-definition-details select.form-control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.625rem center;
+  background-size: 1rem 1rem;
+}
+
+.add-new-tag-definition-details select:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #1570ef;
+}
+
+.add-new-tag-definition-details .form-group .form-control {
+  margin-right: 0.25rem;
+  height: 2.5rem;
+  border-radius: 0.375rem;
+}
+
+.add-new-tag-definition-details .border-button {
+  background: transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #d5d7da;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.625rem;
+}
+
+.add-new-tag-definition-details .border-button:hover {
+  background: transparent;
+}
+
+.add-new-tag-definition-details .button {
+  background: transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.625rem;
+}
+
+.add-new-tag-definition-details .button:hover {
+  background: transparent;
+}
+
+/* app/views/kaui/account_timelines/_multi_functions_bar.html.erb */
+
+.kaui-account-timelines-show .download-button-right {
+  float: right;
+  margin-left: 0.625rem;
+  background-color: white;
+  color: black;
+  text-transform: none;
+  border: 0.0625rem solid #ccc;
+  padding: 0.5rem 0.9375rem;
+}
+
+.kaui-account-timelines-show .functions-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.kaui-account-timelines-show .dropdown-menu#column-visibility {
+  max-height: 18.75rem;
+  width: 13.75rem;
+  overflow-y: auto;
+}
+
+.kaui-account-timelines-show .dropdown-menu {
+  padding: 0.3125rem;
+}
+
+.kaui-account-timelines-show .toggle-button-right {
+  float: right;
+  margin-bottom: 0.625rem;
+  margin-left: 0.625rem;
+  background-color: white;
+  color: black;
+  text-transform: none;
+  border: 0.0625rem solid #ccc;
+  padding: 0.5rem 0.9375rem;
+}
+
+.kaui-account-timelines-show .download-button-right {
+  float: right;
+  margin-bottom: 0.625rem;
+  margin-left: 0.625rem;
+  background-color: white;
+  color: black;
+  text-transform: none;
+  border: 0.0625rem solid #ccc;
+  padding: 0.5rem 0.9375rem;
+}
+
+.kaui-account-timelines-show .icon-drag {
+  float: right;
+  padding: 0.3125rem;
+}
+
+.kaui-account-timelines-show .dropdown-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.kaui-account-timelines-show .label-group-item-manual {
+  margin: 0.3125rem;
+  width: -webkit-fill-available;
+  cursor: grab;
+}
+
+.kaui-account-timelines-show .label-group-item-manual:active {
+  cursor: grabbing;
+}
+
+.kaui-account-timelines-show .modal-content {
+  border-radius: 1rem;
+  min-width: 40.5rem;
+}
+
+.kaui-account-timelines-show .modal-body {
+  padding-bottom: 0.375rem !important;
+  padding-top: 1.25rem !important;
+}
+
+.kaui-account-timelines-show .modal-header {
+  padding: 1.5rem 1.5rem 1rem 1.5rem !important;
+}
+
+.kaui-account-timelines-show .modal-footer {
+  padding: 1rem 1.5rem 1.5rem 1.5rem !important;
+}
+
+.kaui-account-timelines-show .modal-title {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #181d27;
+}
+
+.kaui-account-timelines-show .close-button {
+  background: transparent;
+  padding: 0;
+  margin-top: -1.25rem;
+}
+
+.kaui-account-timelines-show .close-button:hover {
+  background: transparent;
+  padding: 0;
+}
+
+.kaui-account-timelines-show .border-button {
+  background: transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #d5d7da;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.625rem;
+}
+
+.kaui-account-timelines-show .border-button:hover {
+  background: transparent;
+}
+
+.kaui-account-timelines-show .button {
+  background: transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.625rem;
+}
+
+.kaui-account-timelines-show .button:hover {
+  background: transparent;
+}
+
+.kaui-account-timelines-show .field-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+  margin-top: -1.25rem;
+  min-width: 9.59375rem;
+}
+
+.kaui-account-timelines-show .search-field-label {
+  margin-top: -1.25rem;
+}
+
+.kaui-account-timelines-show .form-group.row.align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+.kaui-account-timelines-show .form-group.row.align-items-center label {
+  margin-bottom: 0;
+}
+
+.kaui-account-timelines-show .form-group.row.align-items-center .form-control {
+  margin-right: 0.25rem;
+  height: 2.5rem;
+  border-radius: 0.375rem;
+}
+
+.kaui-account-timelines-show .form-group.row.align-items-center.search-field div {
+  padding: 0;
+  margin-right: 0.25rem;
+}
+
+.kaui-account-timelines-show .form-group.row.align-items-center .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.kaui-account-timelines-show .form-group.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.kaui-account-timelines-show .form-group.d-flex label {
+  margin-bottom: 0;
+}
+
+.kaui-account-timelines-show .form-group.d-flex .form-control {
+  margin-right: 0.25rem;
+  height: 2.5rem;
+  border-radius: 0.375rem;
+}
+
+.kaui-account-timelines-show .form-group.d-flex .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.kaui-account-timelines-show #search-labels-container .label {
+  margin-left: 0.3125rem;
+  margin-bottom: 0.3125rem;
+  color: white;
+}
+
+.kaui-account-timelines-show .col-form-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+  padding: 0;
+}
+
+.kaui-account-timelines-show #search-fields-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0.75rem;
+}
+
+.kaui-account-timelines-show .filter-bar-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.kaui-account-timelines-show .filter-bar {
+  display: flex;
+  align-items: center;
+}
+
+.kaui-account-timelines-show .filter-bar label {
+  margin: 0.625rem;
+}
+
+.kaui-account-timelines-show .modal-header .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #d5d7da;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.kaui-account-timelines-show .modal-header .icon-container img {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.kaui-account-timelines-show .form-group select.form-control {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url('data:image/svg+xml;utf8,<svg width="1rem" height="1rem" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.625rem center;
+  background-size: 1rem 1rem;
+
+  padding-right: 1.875rem;
+}
+
+.kaui-account-timelines-show select.form-control:focus {
+  box-shadow: none;
+  outline: none;
+}

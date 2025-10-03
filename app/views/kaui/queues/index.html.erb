@@ -1,117 +1,272 @@
-<p class="text-center">
-  <%= link_to 'Current or future entries', kaui_engine.queues_path(params.to_h.merge(:with_history => false, :max_date => @now + 1.week)) %> /
-  <% unless params[:account_id].present? -%>
-    <%= link_to 'Historical entries (last week)', kaui_engine.queues_path(params.to_h.merge(:with_history => true, :min_date => @now - 1.week, :max_date => @now + 1.week)) %> /
-    <%= link_to 'Historical entries (last month)', kaui_engine.queues_path(params.to_h.merge(:with_history => true, :min_date => @now - 1.month, :max_date => @now + 1.week)) %> /
-  <% end -%>
-  <%= link_to 'All historical entries', kaui_engine.queues_path(params.to_h.merge(:with_history => true)) %>
-</p>
+<div class="kaui-container kaui-queues-index">
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <div class="d-flex w-100" style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+    <div class="queues w-100">
+      <div class="d-flex flex-column ">
+        <div class="queues-header mb-4">
+          <div class="d-flex align-items-center">
+            <h2>Queues</h2>
+          </div>
+        </div>
+        <div class="text-center filter-tabs">
+          <%= link_to 'Current or future entries',
+              kaui_engine.queues_path(
+                params.to_unsafe_h.except(:min_date, :max_date, :tab, :with_history)
+                      .merge(with_history: 'false',
+                            tab: 'future',
+                            max_date: (@now + 1.week).utc.iso8601)
+              ),
+              class: (params[:tab] == 'future' ? 'activelink' : '') %>
 
-<div class="search">
+          <% unless params[:account_id].present? -%>
+            <%= link_to 'Historical entries (last week)',
+                kaui_engine.queues_path(
+                  params.to_unsafe_h.except(:min_date, :max_date, :tab, :with_history)
+                        .merge(with_history: 'true',
+                              tab: 'week',
+                              min_date: (@now - 1.week).utc.iso8601,
+                              max_date: (@now + 1.week).utc.iso8601)
+                ),
+                class: (params[:tab] == 'week' ? 'activelink' : '') %>
 
-  <% unless (@queues_entries['busEvents'] || []).empty? %>
-      <div class="column-block">
+            <%= link_to 'Historical entries (last month)',
+                kaui_engine.queues_path(
+                  params.to_unsafe_h.except(:min_date, :max_date, :tab, :with_history)
+                        .merge(with_history: 'true',
+                              tab: 'month',
+                              min_date: (@now - 1.month).utc.iso8601,
+                              max_date: (@now + 1.week).utc.iso8601)
+                ),
+                class: (params[:tab] == 'month' ? 'activelink' : '') %>
+          <% end -%>
 
-        <h1>Bus events</h1>
-
-        <div style="overflow-x: auto;">
-          <table id="bus-table" class="table table-condensed mobile-data table-small-padding">
-            <thead>
-            <tr>
-              <th>Created date</th>
-              <th>Class name</th>
-              <th>Event</th>
-              <th>User token</th>
-              <% if @account_id.blank? %>
-                  <th>Account record id</th>
-              <% end %>
-              <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <% @queues_entries['busEvents'].each do |bus_event| %>
-                <% if bus_event['createdDate'].to_datetime < @now %>
-                    <tr class="disabled">
-                <% else %>
-                    <tr>
-                <% end %>
-                  <td><%= truncate_millis(bus_event['createdDate']) %></td>
-                  <td><%= truncate_class_name(bus_event['className'], false) %></td>
-                  <td><%= "<pre>#{JSON.pretty_generate(bus_event['event'])}</pre>".html_safe %></td>
-                  <td><%= object_id_popover(bus_event['userToken'], 'left') %></td>
-                  <% if @account_id.blank? %>
-                      <td><%= bus_event['searchKey1'] %></td>
-                  <% end %>
-                  <td><%= bus_event['userToken'] %></td>
-                </tr>
-            <% end %>
-            </tbody>
-          </table>
+          <%= link_to 'All historical entries',
+              kaui_engine.queues_path(
+                params.to_unsafe_h.except(:min_date, :max_date, :tab, :with_history)
+                      .merge(with_history: 'true',
+                            tab: 'all')
+              ),
+              class: (params[:tab] == 'all' ? 'activelink' : '') %>
         </div>
 
-      </div>
-  <% end %>
-  <% unless (@queues_entries['notifications'] || []).empty? %>
-      <div class="column-block">
+        <div class="search">
 
-        <h1>Notifications</h1>
+          <% unless (@queues_entries['busEvents'] || []).empty? %>
+            <div class="d-flex flex-column ">
+              <div class="queues-header mb-4">
+                <div class="d-flex align-items-center">
+                  <h2>Bus events</h2>
+                </div>
+              </div>
 
-        <div style="overflow-x: auto;">
-          <table id="notifications-table" class="table table-condensed mobile-data table-small-padding">
-            <thead>
-            <tr>
-              <th>Effective date</th>
-              <th>Queue name</th>
-              <th>Event</th>
-              <th>User token</th>
-              <% if @account_id.blank? %>
-                  <th>Account record id</th>
-              <% end %>
-              <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <% @queues_entries['notifications'].each do |notification| %>
-                <% if notification['effectiveDate'].to_datetime < @now %>
-                    <tr class="disabled">
-                <% else %>
-                    <tr>
-                <% end %>
-                  <td><%= truncate_millis(notification['effectiveDate']) %></td>
-                  <td>
-                    <%= notification['queueName'] %>
-                  </td>
-                  <td><%= "<pre>#{JSON.pretty_generate(notification['event'])}</pre>".html_safe %></td>
-                  <td><%= object_id_popover(notification['userToken'], 'left') %></td>
-                  <% if @account_id.blank? %>
-                      <td><%= notification['searchKey1'] %></td>
+              <div class="<%= params[:account_id].present? ? 'max-width-67' : 'max-width-80' %>">
+                <table id="bus-table" class="bus-table">
+                  <thead>
+                  <tr>
+                    <th></th>
+                    <th class="sortable-header" data-column="1">
+                      <div class="header-content">
+                        <span class="header-text">Created date</span>
+                        <div class="sort-icons">
+                          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="sortable-header" data-column="2">
+                      <div class="header-content">
+                        <span class="header-text">Class name</span>
+                        <div class="sort-icons">
+                          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="sortable-header" data-column="3">
+                      <div class="header-content">
+                        <span class="header-text">Event</span>
+                        <div class="sort-icons">
+                          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="sortable-header" data-column="4">
+                      <div class="header-content">
+                        <span class="header-text">User token</span>
+                        <div class="sort-icons">
+                          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <% if @account_id.blank? %>
+                        <th class="sortable-header" data-column="5">
+                          <div class="header-content">
+                            <span class="header-text">Account record id</span>
+                            <div class="sort-icons">
+                              <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                              <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                            </div>
+                          </div>
+                        </th>
+                    <% end %>
+                    <% if @account_id.present? %>
+                      <th class="sortable-header" data-column="5">
+                        <div class="header-content">
+                          <span class="header-text">User token</span>
+                          <div class="sort-icons">
+                            <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                            <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                          </div>
+                        </div>
+                      </th>
+                    <% end %>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% @queues_entries['busEvents'].each do |bus_event| %>
+                      <tr>
+                        <td class="timeline">
+                          <span class="dot"></span>
+                        </td>
+                        <td><span><%= truncate_millis(bus_event['createdDate']) %></span></td>
+                        <td><%= truncate_class_name(bus_event['className'], false) %></td>
+                        <td><%= "<pre>#{JSON.pretty_generate(bus_event['event'])}</pre>".html_safe %></td>
+                        <td><%= bus_event['userToken'] %></td>
+                        <% if @account_id.blank? %>
+                          <td><%= bus_event['searchKey1'] %></td>
+                        <% end %>
+                        <% if @account_id.present? %>
+                            <td><%= bus_event['userToken'] %></td>
+                        <% end %>
+                      </tr>
                   <% end %>
-                  <td><%= notification['userToken'] %></td>
-                </tr>
-            <% end %>
-            </tbody>
-          </table>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+          <% unless (@queues_entries['notifications'] || []).empty? %>
+            <div class="d-flex flex-column ">
+              <div class="queues-header mb-4">
+                <div class="d-flex align-items-center">
+                  <h2>Notifications</h2>
+                </div>
+              </div>
+
+              <div class="<%= params[:account_id].present? ? 'max-width-67' : 'max-width-80' %>">
+                <table id="notifications-table" class="notifications-table">
+                  <thead>
+                  <tr>
+                    <th></th>
+                    <th class="sortable-header" data-column="1">
+                      <div class="header-content">
+                        <span class="header-text">Effective date</span>
+                        <div class="sort-icons">
+                          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="sortable-header" data-column="2">
+                      <div class="header-content">
+                        <span class="header-text">Queue name</span>
+                        <div class="sort-icons">
+                          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="sortable-header" data-column="3">
+                      <div class="header-content">
+                        <span class="header-text">Event</span>
+                        <div class="sort-icons">
+                          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="sortable-header" data-column="4">
+                      <div class="header-content">
+                        <span class="header-text">User token</span>
+                        <div class="sort-icons">
+                          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <% if @account_id.blank? %>
+                        <th class="sortable-header" data-column="5">
+                          <div class="header-content">
+                            <span class="header-text">Account record id</span>
+                            <div class="sort-icons">
+                              <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                              <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                            </div>
+                          </div>
+                        </th>
+                    <% end %>
+                    <% if @account_id.present? %>
+                        <th class="sortable-header" data-column="5">
+                          <div class="header-content">
+                            <span class="header-text">User token</span>
+                            <div class="sort-icons">
+                              <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                              <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                            </div>
+                          </div>
+                        </th>
+                    <% end %>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% @queues_entries['notifications'].each do |notification| %>
+                      <% if notification['effectiveDate'].to_datetime < @now %>
+                          <tr class="">
+                      <% else %>
+                          <tr>
+                      <% end %>
+                        <td class="timeline">
+                          <div class="dot"></div>
+                        </td>
+                        <td><span><%= truncate_millis(notification['effectiveDate']) %></span></td>
+                        <td>
+                          <%= notification['queueName'] %>
+                        </td>
+                        <td><%= "<pre>#{JSON.pretty_generate(notification['event'])}</pre>".html_safe %></td>
+                        <td><%= notification['userToken'] %></td>
+                        <% if @account_id.blank? %>
+                            <td><%= notification['searchKey1'] %></td>
+                        <% end %>
+                        <% if @account_id.present? %>
+                            <td><%= notification['userToken'] %></td>
+                        <% end %>
+                      </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          <% end %>
+
         </div>
-
       </div>
-  <% end %>
-
+    </div>
+  </div>
 </div>
 
 <% nb_bus_entries = (@queues_entries['busEvents'] || []).size %>
 <% nb_notifications_entries = (@queues_entries['notifications'] || []).size %>
 <%= javascript_tag do %>
   $(document).ready(function() {
-    $('#bus-table').dataTable({
-    <% if nb_bus_entries <= 50 %>
-        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t",
-        "paging": "false",
-    <% else %>
-        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-        "pagingType": "full_numbers",
-        "displayStart": <%= [0, nb_bus_entries - 50].max %>,
-    <% end %>
-      "pageLength": 50,
+    var busTable = $('#bus-table').DataTable({
+      "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+      "paging": true,
+      "pagingType": "full_numbers",
+      "pageLength": 25,
+      "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
       "order": [],
       "columnDefs": [
         {
@@ -119,18 +274,28 @@
           "visible": false,
           "searchable": true
         }
-      ]
+      ],
+      "language": {
+        "paginate": {
+          "first": "First",
+          "last": "Last",
+          "next": "Next",
+          "previous": "Previous"
+        },
+        "lengthMenu": "Show _MENU_ entries",
+        "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+        "infoEmpty": "Showing 0 to 0 of 0 entries",
+        "infoFiltered": "(filtered from _MAX_ total entries)",
+        "search": "Search:",
+        "zeroRecords": "No matching records found"
+      }
     });
-    $('#notifications-table').dataTable({
-    <% if nb_notifications_entries <= 50 %>
-        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t",
-        "paging": "false",
-    <% else %>
-        "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-        "pagingType": "full_numbers",
-        "displayStart": 0,
-    <% end %>
-      "pageLength": 50,
+    var notificationsTable = $('#notifications-table').DataTable({
+      "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+      "paging": true,
+      "pagingType": "full_numbers",
+      "pageLength": 25,
+      "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
       "order": [],
       "columnDefs": [
         {
@@ -138,7 +303,60 @@
           "visible": false,
           "searchable": true
         }
-      ]
+      ],
+      "language": {
+        "paginate": {
+          "first": "First",
+          "last": "Last",
+          "next": "Next",
+          "previous": "Previous"
+        },
+        "lengthMenu": "Show _MENU_ entries",
+        "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+        "infoEmpty": "Showing 0 to 0 of 0 entries",
+        "infoFiltered": "(filtered from _MAX_ total entries)",
+        "search": "Search:",
+        "zeroRecords": "No matching records found"
+      }
     });
-});
+
+    // Custom sorting for Bus table
+    (function() {
+      var currentSortColumn = -1;
+      var currentSortDirection = 'asc';
+      $('#bus-table thead .sortable-header').on('click', function() {
+        var columnIndex = parseInt($(this).data('column'));
+        var newDirection = (currentSortColumn === columnIndex && currentSortDirection === 'asc') ? 'desc' : 'asc';
+        currentSortColumn = columnIndex;
+        currentSortDirection = newDirection;
+        updateSortIndicators($('#bus-table'), columnIndex, newDirection);
+        busTable.order([columnIndex, newDirection]).draw();
+      });
+    })();
+
+    // Custom sorting for Notifications table
+    (function() {
+      var currentSortColumn = -1;
+      var currentSortDirection = 'asc';
+      $('#notifications-table thead .sortable-header').on('click', function() {
+        var columnIndex = parseInt($(this).data('column'));
+        var newDirection = (currentSortColumn === columnIndex && currentSortDirection === 'asc') ? 'desc' : 'asc';
+        currentSortColumn = columnIndex;
+        currentSortDirection = newDirection;
+        updateSortIndicators($('#notifications-table'), columnIndex, newDirection);
+        notificationsTable.order([columnIndex, newDirection]).draw();
+      });
+    })();
+
+    function updateSortIndicators($table, columnIndex, direction) {
+      $table.find('.sortable-header').removeClass('sort-asc-active sort-desc-active');
+      $table.find('.sort-icon').removeClass('active');
+      var $header = $table.find('.sortable-header[data-column="' + columnIndex + '"]');
+      $header.addClass(direction + '-active');
+      $header.find('.sort-' + direction).addClass('active');
+    }
+
+    $('#bus-table').wrap('<div class="table-wrapper"></div>');
+    $('#notifications-table').wrap('<div class="table-wrapper"></div>');
+  });
 <% end %>

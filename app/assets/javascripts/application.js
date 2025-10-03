@@ -4,9 +4,9 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
 //
+//= require popper
 //= require assets/common
 //= require js-routes
 //= require jquery-ui/widgets/autocomplete
 //= require mustache
-//= require popper
 //= require kaui/kaui

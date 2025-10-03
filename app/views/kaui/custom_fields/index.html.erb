@@ -1,31 +1,82 @@
-<div class="search">
+<div class="kaui-container kaui-custom-fields-index">
+  <%= render partial: 'kaui/components/breadcrumb/breadcrumb', locals: {
+    breadcrumbs: [
+      { label: 'Settings', href: '/' },
+      { label: "Custom Fields", href: '#' }
+    ]
+  } %>
 
-  <div class="column-block">
+  <div class="d-flex" style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_setting_sidebar' %>
 
-    <h1>Custom Fields
-      <% if can? :add, Kaui::CustomField %>
-          <%= link_to '&nbsp;<i class="fa fa-plus-square"></i>'.html_safe, new_custom_field_path %>
-      <% end %>
-    </h1>
+    <div class="custom-fields-details w-100">
+      <div class="d-flex flex-column">
+        <div class="custom-fields-details-header">
+          <h2>Custom Fields</h2>
+          <span>
+            <% if can? :add, Kaui::CustomField %>
+              <%= link_to new_custom_field_path do %>
+                <%= render "kaui/components/button/button", {
+                  label: "Create Field",
+                  icon: "kaui/plus.svg",
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-dropdown custom-hover",
+                } %>
+                <% end %>
+            <% end %>
+          </span>
+        </div>
 
-    <table id="custom_fields-table" class="table table-condensed mobile-data">
-      <thead>
-      <tr>
-        <th>Object ID</th>
-        <th>Object type</th>
-        <th>Name</th>
-        <th>Value</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td colspan="1" class="dataTables_empty">Loading data from server</td>
-      </tr>
-      </tbody>
-    </table>
-
+        <div class="mt-4">
+          <table id="custom_fields-table" class="table table-condensed mobile-data">
+            <thead>
+            <tr>
+              <th class="sortable-header" data-column="0">
+                <div class="header-content">
+                  <span class="header-text">Object ID</span>
+                  <div class="sort-icons">
+                    <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
+              <th class="sortable-header" data-column="1">
+                <div class="header-content">
+                  <span class="header-text">Object type</span>
+                  <div class="sort-icons">
+                    <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
+              <th class="sortable-header" data-column="2">
+                <div class="header-content">
+                  <span class="header-text">Name</span>
+                  <div class="sort-icons">
+                    <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
+              <th class="sortable-header" data-column="3">
+                <div class="header-content">
+                  <span class="header-text">Value</span>
+                  <div class="sort-icons">
+                    <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
-
 </div>
 
 <%= javascript_tag do %>
@@ -44,8 +95,51 @@ $(document).ready(function() {
     <% end %>
     "processing": true,
     "serverSide": true,
-    "ajax": "<%= custom_fields_pagination_path(:ordering => @ordering, :format => :json) %>"
+    "ajax": "<%= custom_fields_pagination_path(:ordering => @ordering, :format => :json, :advance_search_query => @advance_search_query) %>"
   });
+
+  // Custom sorting functionality
+  var currentSortColumn = -1;
+  var currentSortDirection = 'asc';
+
+  // Handle custom header clicks
+  $('.sortable-header').on('click', function() {
+    var columnIndex = parseInt($(this).data('column'));
+    var newDirection = 'asc';
+    
+    // If clicking the same column, toggle direction
+    if (currentSortColumn === columnIndex) {
+      newDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
+    }
+    
+    currentSortColumn = columnIndex;
+    currentSortDirection = newDirection;
+    
+    // Update visual indicators
+    updateSortIndicators(columnIndex, newDirection);
+    
+    // Apply DataTable sorting
+    table.order([columnIndex, newDirection]).draw();
+  });
+
+  // Function to update sort indicators
+  function updateSortIndicators(columnIndex, direction) {
+    // Reset all headers
+    $('.sortable-header').removeClass('sort-asc-active sort-desc-active');
+    $('.sort-icon').removeClass('active');
+    
+    // Set active state for current column
+    var $header = $('.sortable-header[data-column="' + columnIndex + '"]');
+    $header.addClass(direction + '-active');
+    $header.find('.sort-' + direction).addClass('active');
+  }
+
+  // Initialize sort indicators based on current ordering
+  <% unless @ordering.blank? %>
+    currentSortColumn = 0;
+    currentSortDirection = '<%= @ordering %>';
+    updateSortIndicators(0, '<%= @ordering %>');
+  <% end %>
 
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->
   <% if @max_nb_records.nil? %>

@@ -1,0 +1,67 @@
+<div class="personal-details">
+
+  <div class="personal-details-header">
+    <h2>Personal Information</h2>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-4">
+      <div class="info-item">
+        <b>Name</b>
+        <p><%= @account.name %></p>
+      </div>
+      <div class="info-item">
+        <b>Address1</b>
+        <p><%= @account.address1 %></p>
+      </div>
+      <div class="info-item">
+        <b>Address2</b>
+        <p><%= @account.address2 %></p>
+      </div>
+      <div class="info-item">
+        <b>City</b>
+        <p><%= @account.city %></p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="info-item">
+        <b>State</b>
+        <p><%= @account.state %></p>
+      </div>
+      <div class="info-item">
+        <b>Country</b>
+        <p><%= @account.country %></p>
+      </div>
+      <div class="info-item">
+        <b>Postal Code</b>
+        <p><%= @account.postal_code %></p>
+      </div>
+      <div class="info-item">
+        <b>Phone</b>
+        <p><%= @account.phone %></p>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="info-item">
+        <b>Company</b>
+        <p><%= @account.company %></p>
+      </div>
+      <div class="info-item">
+        <b>Primary email</b>
+        <p><%= @account.email %></p>
+      </div>
+      <div class="info-item contact_email_tags">
+        <b>Contact emails</b>
+        <div class="email-tags">
+          <%= render :partial => 'kaui/account_emails/account_emails_table',
+                             :locals => {:account_emails => @account_emails} %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,196 @@
+<div class="billing-details">
+  <div class="d-flex flex-column">
+    <div class="billing-details-header">
+      <h2>Billing Information</h2>
+      <span>
+        <% if can?(:trigger, Kaui::Payment) || can?(:credit, Kaui::Account) || can?(:charge, Kaui::Account) %>
+          <div class="tag-bar tag-bar-breathe">
+            <div class="toggler">
+              <div class="toggle">
+                <div class="actions">
+                  <!-- Payment, Credit then Charge. Same ordering as in the billing timeline -->
+
+                  <% if can?(:trigger, Kaui::Payment) && @account.account_balance.present? && @account.account_balance > 0 %>
+                    <%= link_to kaui_engine.pay_all_invoices_account_path(@account.account_id),
+                                :method => :post do %>
+                      <%= render "kaui/components/button/button", {
+                            label: "Pay All Invoices",
+                            icon: "kaui/account/pay-all.svg",
+                            variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                            type: "button",
+                            html_class: "kaui-button custom-hover",
+                          } %>
+                    <% end %>
+                  <% end %>
+
+                  <% if can? :charge, Kaui::Account %>
+                    <%= link_to kaui_engine.new_account_charge_path(@account.account_id, :currency => @account.currency) do %>
+                      <%= render "kaui/components/button/button", {
+                            label: "Create Charge",
+                            icon: "kaui/account/plus.svg",
+                            variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                            type: "button",
+                            html_class: "kaui-button custom-hover",
+                          } %>
+                    <% end %>
+                  <% end %>
+
+                  <% if can? :credit, Kaui::Account %>
+                    <%= link_to kaui_engine.new_account_credit_path(@account.account_id, :currency => @account.currency) do %>
+                      <%= render "kaui/components/button/button", {
+                            label: "Add Credit",
+                            icon: "kaui/plus.svg",
+                            variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                            type: "button",
+                            html_class: "kaui-dropdown custom-hover",
+                          } %>
+                    <% end %>
+                  <% end %>
+
+                  <% if deposit_plugin_available? %>
+                    <%= link_to deposit_engine.collection_index_path(:account_id => @account.account_id, :currency => @account.currency) do %>
+                      <%= render "kaui/components/button/button", {
+                            label: "Create Deposit",
+                            icon: "kaui/plus.svg",
+                            variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                            type: "button",
+                            html_class: "kaui-dropdown custom-hover",
+                          } %>
+                    <% end %>
+                  <% end %>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </span>
+    </div>
+    <div class="account-summary">
+
+      <div class="row">
+
+        <!-- Left Column -->
+        <div class="col-md-4">
+          <div class="info-item">
+            <b>Account balance</b>
+            <% if @account.account_balance.nil? %>
+              <p class="badge neutral">N/A</p>
+            <% elsif @account.account_balance <= 0 %>
+              <p class="badge success"><%= humanized_money_with_symbol @account.balance_to_money %></p>
+            <% else %>
+              <p class="badge danger"><%= humanized_money_with_symbol @account.balance_to_money %></p>
+            <% end %>
+          </div>
+
+          <div class="info-item">
+            <b>Account credit</b>
+            <% if @account.account_cba.nil? %>
+              <p class="badge neutral">N/A</p>
+            <% elsif @account.account_cba >= 0 %>
+              <p class="badge success"><%= humanized_money_with_symbol @account.cba_to_money %></p>
+            <% else %>
+              <p class="badge danger"><%= humanized_money_with_symbol @account.cba_to_money %></p>
+            <% end %>
+          </div>
+
+          <div class="info-item">
+            <b>Overdue status</b>
+            <% if @overdue_state.nil? %>
+              <p class="badge neutral">N/A</p>
+            <% elsif @overdue_state.is_clear_state %>
+              <p class="badge success">Good</p>
+            <% else %>
+              <p class="badge danger"><%= @overdue_state.name %></p>
+            <% end %>
+          </div>
+        </div>
+
+        <!-- Middle Column -->
+        <div class="col-md-4">
+          <div class="info-item">
+            <b>Bill cycle day</b>
+            <% if @account.bill_cycle_day_local > 0  %>
+              <p><%= @account.bill_cycle_day_local %> (user timezone)</p>
+            <% else %>
+              <p>N/A</p>
+            <% end %>
+          </div>
+
+          <% if can? :trigger, Kaui::Invoice %>
+            <div class="info-item">
+              <b>Next invoice date</b>
+              <p id='next-invoice-date'>N/A</p>
+            </div>
+          <% end %>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-md-4">
+          <% if (can? :trigger, Kaui::Invoice) || (can? :dry_run, Kaui::Invoice) %>
+            <div class="trigger-invoice-box">
+              <b>Trigger invoice generation</b>
+              <%= form_tag kaui_engine.trigger_invoice_path(params.to_h), :method => :post do %>
+                <div class="d-flex align-items-center mb-2">
+                  <div class="custom-date-input-wrapper kaui-button custom-hover">
+                    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M14.9167 12.5V18.3333M17.8333 15.4167H12" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M14.0833 1.66675V5.00008M6.58325 1.66675V5.00008" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M17.8333 10.8333V4.99992C17.8333 4.07944 17.0871 3.33325 16.1666 3.33325H4.49992C3.57944 3.33325 2.83325 4.07944 2.83325 4.99992V16.6666C2.83325 17.5871 3.57944 18.3333 4.49992 18.3333H10.3333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M2.83325 8.33325H17.8333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+
+
+                    <input
+                      class="form-control"
+                      id="target_date"
+                      name="target_date"
+                      type="text"
+                      placeholder="Select date"
+                      data-provide="datepicker"
+                      data-date-format="yyyy-mm-dd"
+                    />
+                  </div>
+
+                  <%= render "kaui/components/button/button", {
+                    label: "Generate",
+                    icon: "kaui/generate.svg", 
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "submit",
+                    html_class: "btn btn-xs kaui-dropdown custom-hover py-2 px-3",
+                  } %>
+                </div>
+                <div class="form-check">
+                  <%= check_box_tag :dry_run, '1', true, class: 'form-check-input', id: 'dry_run_checkbox', disabled: !can?(:trigger, Kaui::Invoice) %>
+                  <%= label_tag :dry_run, 'Dry-run', class: 'form-check-label' %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+    $(document).ready(function() {
+      if ($("#next-invoice-date").length) {
+        var next_invoice_date_path = Routes.kaui_engine_next_invoice_date_path('<%= @account.account_id %>', {format: "json"});
+        var populateNextInvoiceDate = function (next_invoice_date) {
+          if (next_invoice_date === null) {
+            return;
+          }
+
+          $("#next-invoice-date").text(next_invoice_date);
+        };
+
+        $.ajax({
+          type: 'GET',
+          contentType: 'application/json',
+          dataType: 'json',
+          url: next_invoice_date_path
+        }).done(populateNextInvoiceDate);
+      }
+    });
+<% end %>

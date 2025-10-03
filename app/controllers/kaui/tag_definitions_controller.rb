@@ -34,6 +34,7 @@ module Kaui
         redirect_to kaui_engine.tag_definitions_path, notice: 'Tag definition successfully deleted'
       rescue StandardError => e
         flash.now[:error] = "Error while deleting tag definition: #{as_string(e)}"
+        @tag_definitions = Kaui::TagDefinition.all('NONE', options_for_klient)
         render action: :index
       end
     end

@@ -1,6 +1,8 @@
-<div id="plugin_properties" class="row">
-  <a class='btn btn-xs' href="javascript:void(0);" onclick="payment_new_property();" id="new_property"><%= '<i class="fa fa-plus-square"></i>'.html_safe + " add property" %></a>
-  <table id="plugin_properties_table" class="table table-condensed">
+<div id="plugin_properties" class="">
+  <a class='dots-menu kaui-button' href="javascript:void(0);" onclick="payment_new_property();" id="new_property"><%= '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.99992 3.3335V16.6668M16.6666 10.0002H3.33325" stroke="#1570EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>'.html_safe + " Add Property" %></a>
+  <table id="plugin_properties_table" class="">
     <thead>
     <tr>
       <th>Name</th>
@@ -16,7 +18,17 @@
             <td><%= key_value.text_field :key, class: 'form-control' %></td>
             <td><%= key_value.text_field :value, class: 'form-control' %></td>
             <td>
-              <a class='btn btn-xs' href="javascript:void(0);" onclick="delete_property(this);" id="delete_plugin_property_<%= index %>"><%= '<i class="fa fa-times"></i>'.html_safe %></a>
+              <a href="javascript:void(0);" onclick="delete_property(this);" id="delete_plugin_property_<%= index %>"><%= '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_394_21877)">
+                <path d="M12.6671 3.3335L3.33374 12.6668M3.33374 3.3335L12.6671 12.6668" stroke="#D92D20" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_394_21877">
+                <rect width="16" height="16" fill="white"/>
+                </clipPath>
+                </defs>
+                </svg>'.html_safe %>
+              </a>
             </td>
           </tr>
         <% end %>
@@ -61,15 +73,13 @@
 
     function delete_property(obj) {
       var idx = obj.id.split("delete_plugin_property_")[1];
-      var rowCount = $('#plugin_properties_table tr').size();
+      var rowCount = $('#plugin_properties_table tbody tr').length;
 
-      if ( rowCount > 2 ){
+      if (rowCount > 1) {
         $("#plugin_property_" + idx).remove();
       } else {
         $("#plugin_property_" + idx).find('td').each(function(){
-          $(this).contents().each(function(){
-            $(this).val('');
-          });
+          $(this).find('input').val('');
         });
       }
     }

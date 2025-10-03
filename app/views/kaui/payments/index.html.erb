@@ -1,29 +1,43 @@
-<div class="search">
-  <div class="column-block">
-    <h1><%= I18n.translate('payments') %></h1>
-    <%= render :partial => 'multi_functions_bar' %>
-    <table id="payments-table" class="table table-condensed mobile-data" style="width:100%">
-      <thead>
-        <tr>
-          <% Kaui.account_payments_columns.call()[0].each do |title| %>
-            <th><%= title %></th>
-          <% end %>
-        </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td colspan="1" class="dataTables_empty"><%= I18n.translate('loading_data_from_server') %></td>
-      </tr>
-      </tbody>
-    </table>
+<div class="kaui-container payments-index">
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <div class="d-flex " style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+    <div class="payments" style="max-width: <%= request.path.include?('/accounts/') ? '67.5rem' : '80rem' %>;">
+      <div class="d-flex flex-column ">
+        <div class="payments-header mb-4">
+          <div class="d-flex align-items-center">
+          <h2><%= I18n.translate('payments') %></h2>
+          </div>
+          <span>
+            <%= render :partial => 'multi_functions_bar' %>
+          </span>
+        </div>
+        <div id="search-labels-container" class="ml-2">
+          <!-- Dynamic search labels will be added here -->
+        </div>
+        <table id="payments-table" class="payments-table">
+          <thead class="table-header">
+            <tr>
+              <% Kaui.account_payments_columns.call()[0].each_with_index do |title, index| %>
+                <th class="sortable-header" data-column="<%= index %>">
+                  <div class="header-content">
+                    <span class="header-text"><%= title %></span>
+                    <div class="sort-icons">
+                      <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                      <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                    </div>
+                  </div>
+                </th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody class="table-body">
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
-
-<style>
-  #payments-table td, #payments-table tr {
-    white-space: nowrap;
-  }
-</style>
 
 <%= javascript_tag do %>
 $(document).ready(function() {
@@ -52,7 +66,8 @@ $(document).ready(function() {
       "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
       "language": {
         <!-- See DefaultPaginationSqlDaoHelper.java -->
-        "info": <% if @max_nb_records.nil? -%>"Showing _START_ to _END_ of <%= number_with_delimiter(Kaui::EngineControllerUtil::SIMPLE_PAGINATION_THRESHOLD) -%>+ entries"<% else -%>"Showing _START_ to _END_ of _TOTAL_ entries"<% end -%>
+        "info": <% if @max_nb_records.nil? -%>"Showing _START_ to _END_ of <%= number_with_delimiter(Kaui::EngineControllerUtil::SIMPLE_PAGINATION_THRESHOLD) -%>+ entries"<% else -%>"Showing _START_ to _END_ of _TOTAL_ entries"<% end -%>,
+        "infoFiltered": ""
       },
       "pageLength": <%= @limit %>,
       "displayStart": <%= @offset %>,
@@ -93,7 +108,7 @@ $(document).ready(function() {
       },
     <% end %>
     <% if @search_query.blank? %>
-      "ordering": false,
+      "ordering": true,
     <% elsif !@ordering.blank? %>
       "order": [[ 0, "<%= @ordering %>" ]],
     <% end %>
@@ -102,8 +117,57 @@ $(document).ready(function() {
     "search": {"search": "<%= @search_query %>"},
   });
 
+  // Custom sorting functionality
+  var currentSortColumn = -1;
+  var currentSortDirection = 'asc';
+
+  // Handle custom header clicks
+  $('.sortable-header').on('click', function() {
+    var columnIndex = parseInt($(this).data('column'));
+    var newDirection = 'asc';
+    
+    // If clicking the same column, toggle direction
+    if (currentSortColumn === columnIndex) {
+      newDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
+    }
+    
+    currentSortColumn = columnIndex;
+    currentSortDirection = newDirection;
+    
+    // Update visual indicators
+    updateSortIndicators(columnIndex, newDirection);
+    
+    // Apply DataTable sorting
+    table.order([columnIndex, newDirection]).draw();
+  });
+
+  // Function to update sort indicators
+  function updateSortIndicators(columnIndex, direction) {
+    // Reset all headers
+    $('.sortable-header').removeClass('sort-asc-active sort-desc-active');
+    $('.sort-icon').removeClass('active');
+    
+    // Set active state for current column
+    var $header = $('.sortable-header[data-column="' + columnIndex + '"]');
+    $header.addClass(direction + '-active');
+    $header.find('.sort-' + direction).addClass('active');
+  }
+
+  // Initialize sort indicators based on current state
+  <% if !@ordering.blank? %>
+    var initialColumn = 0;
+    var initialDirection = "<%= @ordering %>";
+    updateSortIndicators(initialColumn, initialDirection);
+  <% end %>
+
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->
   $('#payments-table').on('draw.dt', function() {
+
+    $("td.dataTables_empty").each(function() {
+      var text = $(this).text().trim();
+      $(this).html('<p class="max-text-container">' + text + '</p>');
+    });
+
     <% if @max_nb_records.nil? %>
       var noMoreData = table.column(0)
                             .data()

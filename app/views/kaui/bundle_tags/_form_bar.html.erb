@@ -5,14 +5,21 @@
     <% end %>
 
     <% available_tags.each do |tag| %>
-        <%= check_box_tag "tag_#{tag.id}", tag.name, tag_names.include?(tag.name), :disabled => !can_change_tags, :readonly => !can_change_tags %>
-        <label class='tag-description' rel='tooltip' title='<%= tag.description %>'><%= tag.name %></label>
+        <div class="label-group-item-manual">
+            <%= check_box_tag "tag_#{tag.id}", tag.name, tag_names.include?(tag.name), :disabled => !can_change_tags, :readonly => !can_change_tags %>
+            <label class='tag-description text-start' rel='tooltip' title='<%= tag.description %>'><%= tag.name %></label>
+        </div>
     <% end %>
 
     <% if can_change_tags %>
-        <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label' %>
+        <%= label_tag :comment, 'Comment', :class => 'col-sm-2 control-label text-start' %>
         <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
-        <%= submit_tag 'Update', :class => 'btn btn-default' %>
+        <%= render "kaui/components/button/button", {
+            label: "Update",
+            variant: "outline-secondary gap-1",
+            type: "submit",
+            html_class: "kaui-dropdown custom-hover",
+        } %>
     <% end %>
 <% end %>
 

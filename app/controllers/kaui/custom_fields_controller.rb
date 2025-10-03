@@ -4,7 +4,7 @@ module Kaui
   class CustomFieldsController < Kaui::EngineController
     def index
       @search_query = params[:q]
-
+      @advance_search_query = params[:q] || request.query_string
       @ordering = params[:ordering] || (@search_query.blank? ? 'desc' : 'asc')
       @offset = params[:offset] || 0
       @limit = params[:limit] || 50

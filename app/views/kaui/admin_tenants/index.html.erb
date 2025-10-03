@@ -1,16 +1,40 @@
-<div class="search">
+<div class="kaui-container admin-tenant-details">
+  <%= render partial: 'kaui/components/breadcrumb/breadcrumb', locals: {
+    breadcrumbs: [
+      { label: 'Settings', href: '/' },
+      { label: "Tenants", href: '#' }
+    ]
+  } %>
 
-  <div class="column-block">
+  <div class="d-flex" style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_setting_sidebar' %>
+    
+    <div class="w-100">
+      <div class="d-flex flex-column">
+        <div class="admin-tenant-details-header">
+          <h2>Tenants</h2>
+          <span>
+            <% if can? :create, Kaui::AdminTenant %>
+              <%= link_to new_admin_tenant_path do %>
+                <%= render "kaui/components/button/button", {
+                  label: "Create Tenant",
+                  icon: "kaui/plus.svg",
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-dropdown custom-hover",
+                } %>
+                <% end %>
+            <% end %>
+          </span>
+        </div>
 
-    <h1>Kaui tenants
-      <% if can? :create, Kaui::AdminTenant %>
-          <%= link_to '&nbsp;<i class="fa fa-plus-square"></i>'.html_safe, new_admin_tenant_path %>
-      <% end %></h1>
+        <div class="mt-4">
+          <% unless @tenants.empty? %>
+            <%= render :partial => 'kaui/admin_tenants/tenants_table', :locals => {:tenants => @tenants} %>
+          <% end %>
 
-    <% unless @tenants.empty? %>
-        <%= render :partial => 'kaui/admin_tenants/tenants_table', :locals => {:tenants => @tenants} %>
-    <% end %>
-
+        </div>
+      </div>
+    </div>
   </div>
-
 </div>

@@ -1,54 +1,132 @@
-<% payment_methods.each do |payment_method| %>
-    <div class="toggler">
+<% payment_methods.each_with_index do |payment_method, index| %>
+  <div class="payment-method">
+    <input type="checkbox" id="toggle-<%= index %>" class="toggle-checkbox" hidden>
 
-      <div class="first-line">
-        <% if payment_method.is_default %>
-            <a href="#" class="default-payment-method"><i class="fa fa-star"></i></a>
-        <% else %>
-            <% if can? :create, Kaui::PaymentMethod %>
-                <%= link_to '<i class="fa fa-star-o"></i>'.html_safe, kaui_engine.set_default_payment_method_account_path(payment_method.account_id, :params => {:payment_method_id => payment_method.payment_method_id}),
-                            :method => :put,
-                            :class => 'non-default-payment-method' %>
-            <% else %>
-                <a href="#" class="non-default-payment-method"><i class="fa fa-star-o"></i></a>
-            <% end %>
-        <% end %>
-
-        <%= payment_method.plugin_name %>
-
-        <% if can? :delete, Kaui::PaymentMethod %>
-            <% if payment_method.is_default %>
-                <%= link_to '<i class="fa fa-times"></i>'.html_safe, kaui_engine.payment_method_path(payment_method.payment_method_id, :params => {:set_auto_pay_off => 'true'}), :method => :delete %>
-            <% else %>
-                <%= link_to '<i class="fa fa-times"></i>'.html_safe, kaui_engine.payment_method_path(payment_method.payment_method_id), :method => :delete %>
-            <% end %>
-        <% end %>
-
-        <i class="fa fa-caret-down"></i>
-        <i class="fa fa-caret-up"></i>
-        <% unless last_transaction_by_payment_method_id[payment_method.payment_method_id].nil? %>
-            <span class="expires">Last used: <%= format_date(last_transaction_by_payment_method_id[payment_method.payment_method_id].effective_date, account.time_zone) %></span>
-        <% end %>
+    <!-- Summary row -->
+    <label for="toggle-<%= index %>" class="payment-summary">
+      <div class="column name">
+        <strong>Name</strong>
+        <div><%= payment_method.plugin_name %></div>
       </div>
 
-      <div class="toggle">
+      <div class="column last-used">
+        <strong>Last used</strong>
+        <div>
+          <% if last_transaction_by_payment_method_id[payment_method.payment_method_id] %>
+            <%= format_date(last_transaction_by_payment_method_id[payment_method.payment_method_id].effective_date, account.time_zone) %>
+          <% else %>
+            N/A
+          <% end %>
+        </div>
+      </div>
+
+      <div class="column method-id">
+        <strong>Payment Method ID</strong>
+        <div class="d-flex align-items-center">
+          <span class="payment-method-id"><%= payment_method.payment_method_id %></span>
+          <%= render "kaui/components/button/button", {
+            label: '',
+            icon: "kaui/copy.svg",
+            variant: "outline-secondary d-inline-flex align-items-center gap-1",
+            type: "button",
+            html_class: "dots-menu kaui-button",
+            html_options: {
+              onclick: "navigator.clipboard.writeText('#{payment_method.payment_method_id}')"
+            }
+          } %>
+        </div>
+      </div>
+
+      <div class="column actions">
+        <% if can? :delete, Kaui::PaymentMethod %>
+          <%= link_to 'Delete', kaui_engine.payment_method_path(payment_method.payment_method_id, params: { set_auto_pay_off: 'true' }), method: :delete, class: 'delete-link' %>
+        <% end %>
+
+        <% if payment_method.is_default %>
+          <span class="primary">Primary</span>
+        <% else %>
+          <% if can? :create, Kaui::PaymentMethod %>
+            <%= link_to 'Make Primary', kaui_engine.set_default_payment_method_account_path(payment_method.account_id, :params => {:payment_method_id => payment_method.payment_method_id}),
+                        :method => :put,
+                        :class => 'make-primary' %>
+          <% else %>
+            <span class="make-primary">Make Primary</span>
+          <% end %>
+        <% end %>
+
+        
+
+        <!-- Three dot dropdown -->
+        <%
+=begin%>
+ <div class="action-menu-wrapper">
+          <input type="checkbox" id="menu-toggle-<%= index %>" class="menu-toggle" hidden>
+
+          <label for="menu-toggle-<%= index %>" class="menu-trigger">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.0001 10.8335C10.4603 10.8335 10.8334 10.4604 10.8334 10.0002C10.8334 9.53993 10.4603 9.16683 10.0001 9.16683C9.53984 9.16683 9.16675 9.53993 9.16675 10.0002C9.16675 10.4604 9.53984 10.8335 10.0001 10.8335Z" stroke="#A4A7AE" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10.0001 5.00016C10.4603 5.00016 10.8334 4.62707 10.8334 4.16683C10.8334 3.70659 10.4603 3.3335 10.0001 3.3335C9.53984 3.3335 9.16675 3.70659 9.16675 4.16683C9.16675 4.62707 9.53984 5.00016 10.0001 5.00016Z" stroke="#A4A7AE" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10.0001 16.6668C10.4603 16.6668 10.8334 16.2937 10.8334 15.8335C10.8334 15.3733 10.4603 15.0002 10.0001 15.0002C9.53984 15.0002 9.16675 15.3733 9.16675 15.8335C9.16675 16.2937 9.53984 16.6668 10.0001 16.6668Z" stroke="#A4A7AE" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </label>
+
+          <!-- Overlay that "cancels" the dropdown when clicked -->
+          <label for="menu-toggle-<%= index %>" class="dropdown-overlay"></label>
+
+          <div class="action-dropdown">
+            <ul>
+              <% [["Authorize", "fa-clipboard-check"], ["Purchase", "fa-basket-shopping"], ["Credit", "fa-credit-card"]].each do |label, icon| %>
+                <li>
+                  <a href="#">
+                    <i class="fa <%= icon %>"></i>
+                    <span><%= label %></span>
+                  </a>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div> 
+<%
+=end%>
 
         <% if can? :trigger, Kaui::Payment %>
-            <div class="actions">
-              <% %w(AUTHORIZE PURCHASE CREDIT).each do |transaction_type| %>
-                  <%= link_to "<i class='fa fa-plus-square'></i>&nbsp;#{transaction_type.downcase.camelize}".html_safe, kaui_engine.new_account_transaction_path(payment_method.account_id,
-                                                                                                                                                                 :currency => account.currency,
-                                                                                                                                                                 :payment_method_id => payment_method.payment_method_id,
-                                                                                                                                                                 :transaction_type => transaction_type) %>
-              <% end %>
-            </div>
+          <% menu_items = %w(AUTHORIZE PURCHASE CREDIT).map do |transaction_type| 
+            {
+              label: transaction_type.downcase.camelize,
+              path: kaui_engine.new_account_transaction_path(
+                      payment_method.account_id,
+                      currency: account.currency,
+                      payment_method_id: payment_method.payment_method_id,
+                      transaction_type: transaction_type
+                    ),
+              icon: case transaction_type
+                    when "AUTHORIZE" then "kaui/account/authorize.svg"
+                    when "PURCHASE" then "kaui/account/purchase.svg"
+                    when "CREDIT" then "kaui/account/credit.svg"
+                    end
+            }
+          end %>
+
+          <%= render partial: "kaui/components/menu_dropdown/menu_dropdown", locals: {
+              variant: "btn-light",
+              label: "",
+              icon: "kaui/dots.svg",
+              dropdown_id: "actionDropdown",
+              html_class: "dots-menu",
+              menu_items: menu_items
+            } %>
         <% end %>
 
-        <div class="payment-method-details">
-          <%= render :partial => 'kaui/payment_methods/payment_methods_details_table', :locals => {:payment_method => payment_method} %>
-        </div>
-
       </div>
+    </label>
 
+    <!-- Toggle details -->
+    <div class="payment-detail">
+      <div class="details-content">
+        <%= render partial: 'kaui/payment_methods/payment_methods_details_table', locals: { payment_method: payment_method } %>
+      </div>
     </div>
+  </div>
 <% end %>
+
+

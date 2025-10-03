@@ -2,8 +2,29 @@
 
 module Kaui
   module PluginHelper
+    PLUGIN_PATHS = {
+      'analytics-plugin' => '/analytics',
+      'avatax-plugin' => '/avatax',
+      'email-notification-plugin' => '/kenui',
+      'deposit-plugin' => '/deposit',
+      'payment-test-plugin' => '/payment_test',
+      'aviate-plugin' => '/aviate'
+    }.freeze
+
     def plugin_repository
       installed_plugins
+    end
+
+    def installed_plugin_names
+      plugins = []
+      nodes_info = KillBillClient::Model::NodesInfo.nodes_info(Kaui.current_tenant_user_options(current_user, session)) || []
+      plugins_info = nodes_info.empty? ? [] : (nodes_info.first.plugins_info || [])
+      plugins_info.each do |plugin|
+        next unless plugin.state == 'RUNNING'
+
+        plugins << { name: plugin.plugin_name.to_s.gsub('-plugin', ''), path: PLUGIN_PATHS[plugin.plugin_name] } if PLUGIN_PATHS[plugin.plugin_name]
+      end
+      plugins
     end
 
     private

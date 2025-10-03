@@ -1,34 +1,48 @@
-<div id="catalog_simple">
-
-  <div>
-    <h1>Catalog (Add Plan Currency)
-    </h1>
+<div class="catalog-simple-new-plan-currency">
+  <div class="">
+    <div class="mx-auto" style="max-width: 37.5rem;">
+      <h5 class="add-account-title pb-3 mb-3 border-bottom">
+        <span class="icon-container">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.9166 10.0007C12.9166 11.6115 11.6108 12.9173 9.99998 12.9173C8.38915 12.9173 7.08331 11.6115 7.08331 10.0007C7.08331 8.38982 8.38915 7.08398 9.99998 7.08398C11.6108 7.08398 12.9166 8.38982 12.9166 10.0007Z" stroke="#414651" stroke-width="1.5"/>
+            <path d="M8.14341 2.23582L7.50001 4.16602L6.20014 4.98815L4.07331 4.4619C3.71675 4.37368 3.34448 4.52931 3.15681 4.84505L2.01998 6.75762C1.81512 7.10229 1.88473 7.54398 2.18568 7.80891L3.67746 9.12218V10.8765L2.18615 12.1898C1.88527 12.4547 1.81569 12.8963 2.02053 13.2409L3.15741 15.1536C3.34508 15.4694 3.71736 15.625 4.07391 15.5368L6.20075 15.0105L7.43216 15.7011L8.01996 17.7311C8.12313 18.0874 8.44943 18.3327 8.82043 18.3327H11.1803C11.5512 18.3327 11.8775 18.0874 11.9807 17.7311L12.5685 15.7011L13.7993 15.0105L15.9261 15.5368C16.2827 15.625 16.6549 15.4694 16.8426 15.1536L18.0009 13.2048C18.196 12.8767 18.1431 12.4578 17.8726 12.1885L16.3674 10.6899L16.368 9.30877L17.8732 7.81017C18.1438 7.5408 18.1967 7.12202 18.0016 6.79384L16.8432 4.84505C16.6555 4.52931 16.2833 4.37368 15.9267 4.4619L13.7998 4.98815L12.5 4.16602L11.8566 2.23582C11.7432 1.89554 11.4248 1.66602 11.066 1.66602H8.93401C8.57526 1.66602 8.25683 1.89554 8.14341 2.23582Z" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        Catalog (Add Plan Currency)
+      </h5>
+      <%= form_for @simple_plan, :url => {:action => :create_simple_plan}, :html => {:class => 'form-horizontal'} do |f| %>
+        <%= hidden_field_tag(:id, @tenant.id) %>
+        <div class="form-group d-flex pb-3">
+          <%= f.label :plan_id, 'Plan ID', :class => 'col-sm-3 control-label' %>
+          <div class="col-sm-9">
+            <%= f.text_field :plan_id, :class => 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group d-flex pb-3">
+          <%= f.label :amount, 'Amount', :class => 'col-sm-3 control-label' %>
+          <div class="col-sm-9 d-flex currency-select">
+            <%= f.text_field :amount, :class => 'form-control w-100 amount-input' %>
+            <%= f.select :currency, currencies, {:selected => 'USD'}, :class => 'form-control' %>
+          </div>
+        </div>
+        <div class="form-group d-flex justify-content-end pt-3 border-top">
+          <%= render "kaui/components/button/button", {
+            label: 'Close',
+            variant: "outline-secondary d-inline-flex align-items-center gap-1",
+            type: "button",
+            html_class: "kaui-button custom-hover mx-2",
+            html_options: {
+              onclick: "window.history.back();"
+            }
+          } %>
+          <%= render "kaui/components/button/button", {
+            label: 'Save',
+            variant: "outline-secondary d-inline-flex align-items-center gap-1",
+            type: "submit",
+            html_class: "kaui-dropdown custom-hover"
+          } %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <%= form_for @simple_plan, :url => {:action => :create_simple_plan}, :html => {:class => 'form-horizontal'} do |f| %>
-
-      <%= hidden_field_tag(:id, @tenant.id) %>
-      <div class="form-group">
-        <%= f.label :plan_id, 'Plan ID', :class => 'col-sm-3 control-label' %>
-        <div class="col-sm-4">
-          <%= f.text_field :plan_id, :class => 'form-control' %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :amount, 'Amount', :class => 'col-sm-3 control-label' %>
-        <div class="col-sm-4">
-          <%= f.text_field :amount, :class => 'form-control' %>
-        </div>
-      </div>
-      <div class="form-group">
-        <%= f.label :currency, 'Currency', :class => 'col-sm-3 control-label' %>
-        <div class="col-sm-4">
-          <%= f.select :currency, currencies, {:selected => 'USD'}, :class => 'form-control' %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-9">
-          <%= submit_tag 'Save', :class => 'btn btn-default' %>
-        </div>
-      </div>
-  <% end %>
 </div>

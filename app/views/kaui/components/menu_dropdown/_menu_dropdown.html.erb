@@ -1,0 +1,59 @@
+<% variant ||= "btn-primary" %>
+<% type ||= "button" %>
+<% label ||= "Submit" %>
+<% icon ||= nil %>
+<% html_class ||= "" %>
+<% html_options ||= {} %>
+<% dropdown_id ||= "menuDropdown" %>
+
+<% icon_html = icon.present? ? image_tag(icon, class: "me-1", size: "16x16") : "" %>
+
+<div class="dropdown dropdown-menu-end position-relative" id="<%= dropdown_id %>_wrapper">
+  <%= tag.button raw("#{icon_html}#{label}"),
+      type: type,
+      class: "btn kaui-dropdown custom-hover #{variant} #{html_class}",
+      id: "#{dropdown_id}_button",
+      aria: { expanded: "false" } %>
+
+  <ul class="dropdown-menu header-menu shadow border-0 rounded-3"
+      id="<%= dropdown_id %>_menu"
+      style="min-width: 6.25rem; display: none;">
+    <% menu_items&.each do |item| %>
+      <li>
+        <%= link_to item[:path], class: "dropdown-item d-flex align-items-center gap-2" do %>
+          <%= image_tag(item[:icon], alt: "#{item[:label]} Icon", size: "16x16") if item[:icon].present? %>
+          <span class="text-black-700 fs-6 text-normal" style="font-weight: 500; font-size: 0.875rem !important; line-height: 1.25rem;"><%= item[:label] %></span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<%= javascript_tag do %>
+  document.addEventListener('DOMContentLoaded', function () {
+    const button = document.getElementById('<%= dropdown_id %>_button');
+    const menu = document.getElementById('<%= dropdown_id %>_menu');
+    const wrapper = document.getElementById('<%= dropdown_id %>_wrapper');
+
+    button.addEventListener('click', function (e) {
+      e.stopPropagation();
+      const isShown = menu.style.display === 'block';
+
+      // Close all other open dropdowns first (including other dots menus)
+      document.querySelectorAll('.dropdown-menu').forEach(function (m) {
+        if (m !== menu) {
+          m.style.display = 'none';
+        }
+      });
+
+      // Toggle this one
+      menu.style.display = isShown ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!wrapper.contains(e.target)) {
+        menu.style.display = 'none';
+      }
+    });
+  });
+<% end %>

@@ -1,0 +1,260 @@
+.kaui-users-index .users-details-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 0.0625rem solid #E9EAEB;
+}
+
+.kaui-users-index .users-details-header h2 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #414651;
+  margin-bottom: 1.25rem;
+}
+
+.kaui-users-index table {
+  overflow-x: auto;
+  min-width: 100%;
+}
+
+.kaui-users-index table th {
+  padding: 0.375rem 0.75rem !important;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  letter-spacing: 0;
+  color: #717680;
+  text-transform: capitalize;
+}
+
+.kaui-users-index table td {
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  padding: 1rem 0.5rem !important;
+  line-height: 1.125rem !important;
+  text-align: start;
+  color: #535862 !important;
+}
+
+.kaui-users-index .delete-button {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  text-decoration: none !important;
+  color: #D92D20 !important;
+  font-weight: 500;
+  padding-right: 0.3125rem !important;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin: 0 0.625rem;
+}
+
+.kaui-users-index .edit-button {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  text-decoration: none !important;
+  color: #535862 !important;
+  font-weight: 500;
+  padding-right: 0.3125rem !important;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin: 0 0.625rem;
+}
+
+/* app/views/kaui/admin_allowed_users/new.html.erb */
+/* app/views/kaui/admin_allowed_users/edit.html.erb */
+
+
+.kaui-new-admin-allowed-users .new-user-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  color: #1B1C1E;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+}
+
+.kaui-new-admin-allowed-users .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #D5D7DA;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.kaui-new-admin-allowed-users .icon-container img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.kaui-new-admin-allowed-users .control-label {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  color: #414651 !important;
+}
+
+.kaui-new-admin-allowed-users .form-control {
+  border-radius: 0.375rem !important;
+  height: 2.5rem !important;
+}
+
+.kaui-new-admin-allowed-users .border-button {
+  background: transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #D5D7DA;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.625rem;
+}
+
+.kaui-new-admin-allowed-users .border-button:hover {
+  background: transparent;
+}
+
+.kaui-new-admin-allowed-users .chip-input-container {
+  min-height: 2.5rem;
+  cursor: text;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 0.5rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.kaui-new-admin-allowed-users .chip-input-container::-webkit-scrollbar {
+  display: none;
+}
+
+.kaui-new-admin-allowed-users .chip {
+  background: #FAFAFA;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  border: 0.0625rem solid #F5F5F5;
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  font-weight: 500;
+  line-height: 1.125rem;
+  text-align: center;
+}
+
+.kaui-new-admin-allowed-users .chip .remove-chip {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.kaui-new-admin-allowed-users .chip-text-input.disabled > .chip-input-container {
+  background-color: #e9ecef !important;
+  pointer-events: none !important;
+  color: #6c757d !important;
+}
+
+.kaui-new-admin-allowed-users .chip-input-container.disabled-container {
+  background-color: #e9ecef !important;
+  pointer-events: none !important;
+  color: #6c757d !important;
+}
+
+.kaui-new-admin-allowed-users .chip-text-input {
+  min-width: 6.25rem;
+  outline: none;
+}
+
+.kaui-new-admin-allowed-users .notice-worning {
+  display: flex;
+  gap: 0.3125rem;
+  padding: 0.3125rem;
+  background-color: #FAFAFA;
+  border-radius: 0.46875rem;
+  border: 0.0625rem solid #E9EAEB;
+}
+
+.kaui-new-admin-allowed-users .notice-worning p {
+  padding: 0.3125rem 0;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #535862 !important;
+  margin: 0;
+}
+
+.kaui-new-admin-allowed-users .notice-worning strong {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+  margin-bottom: 0.15625rem;
+}
+
+/* app/views/kaui/admin_allowed_users/show.html.erb */
+
+.user-details-container {
+  max-width: 80rem;
+  width: 100%;
+}
+
+.user-details-container .user-details-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 0.0625rem solid #E9EAEB;
+}
+
+.user-details-container .user-details-header h2 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #414651;
+  margin: 0;
+  margin-bottom: 1.25rem;
+}
+
+.user-details-container span {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #717680;
+  margin: 0;
+}
+
+.user-details-container b {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #414651 !important;
+  font-weight: 600;
+  font-size: 0.875rem !important;
+  line-height: 1.25rem;
+  text-align: left;
+}
+
+.user-details-container .delete-button {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  text-decoration: none !important;
+  color: #D92D20 !important;
+  font-weight: 500;
+  padding-right: 0.3125rem !important;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  margin: 0 0.625rem;
+}

@@ -1,9 +1,33 @@
-<table id="tenants-table" class="table table-condensed table-striped mobile-data">
+<table id="tenants-table" class="tenants-table">
   <thead>
   <tr>
-    <th>Name</th>
-    <th>Tenant Id</th>
-    <th>Api Key</th>
+    <th class="sortable-header" data-column="0">
+      <div class="header-content">
+        <span class="header-text">Name</span>
+        <div class="sort-icons">
+          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+        </div>
+      </div>
+    </th>
+    <th class="sortable-header" data-column="1">
+      <div class="header-content">
+        <span class="header-text">Tenant Id</span>
+        <div class="sort-icons">
+          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+        </div>
+      </div>
+    </th>
+    <th class="sortable-header" data-column="2">
+      <div class="header-content">
+        <span class="header-text">Api Key</span>
+        <div class="sort-icons">
+          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+        </div>
+      </div>
+    </th>
   </tr>
   </thead>
   <tbody>
@@ -19,9 +43,46 @@
 
 <%= javascript_tag do %>
   $(document).ready(function() {
-    $('#tenants-table').dataTable({
+    var table = $('#tenants-table').DataTable({
       "dom": "t",
-      "paging": false
+      "paging": false,
+      "ordering": true
     });
+
+    // Custom sorting functionality
+    var currentSortColumn = -1;
+    var currentSortDirection = 'asc';
+
+    // Handle custom header clicks
+    $('.sortable-header').on('click', function() {
+      var columnIndex = parseInt($(this).data('column'));
+      var newDirection = 'asc';
+      
+      // If clicking the same column, toggle direction
+      if (currentSortColumn === columnIndex) {
+        newDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
+      }
+      
+      currentSortColumn = columnIndex;
+      currentSortDirection = newDirection;
+      
+      // Update visual indicators
+      updateSortIndicators(columnIndex, newDirection);
+      
+      // Apply DataTable sorting
+      table.order([columnIndex, newDirection]).draw();
+    });
+
+    // Function to update sort indicators
+    function updateSortIndicators(columnIndex, direction) {
+      // Reset all headers
+      $('.sortable-header').removeClass('sort-asc-active sort-desc-active');
+      $('.sort-icon').removeClass('active');
+      
+      // Set active state for current column
+      var $header = $('.sortable-header[data-column="' + columnIndex + '"]');
+      $header.addClass(direction + '-active');
+      $header.find('.sort-' + direction).addClass('active');
+    }
   });
 <% end %>

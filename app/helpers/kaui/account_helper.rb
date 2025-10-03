@@ -26,6 +26,19 @@ module Kaui
       false
     end
 
+    def kpm_plugin_installed
+      nodes_info = KillBillClient::Model::NodesInfo.nodes_info(Kaui.current_tenant_user_options(current_user, session)) || []
+      return false if nodes_info.empty?
+
+      nodes_info.each do |node_info|
+        next if (node_info.plugins_info || []).empty?
+
+        node_info.plugins_info.each do |plugin_info|
+          return true if plugin_info.plugin_name == 'org.kill-bill.billing.killbill-platform-osgi-bundles-kpm'
+        end
+      end
+    end
+
     def account_closed?
       return false if @account.nil?
 

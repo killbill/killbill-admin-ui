@@ -69,13 +69,11 @@ module Kaui
       ordering_column = (ordering[:column] || 0).to_i
       ordering_column = params[:colum_order][ordering_column].to_i if params[:colum_order].present?
       ordering_dir = ordering[:dir] || 'asc'
-      unless search_key.nil?
-        pages.sort! do |a, b|
-          a = data_extractor.call(a, ordering_column)
-          b = data_extractor.call(b, ordering_column)
-          sort = a <=> b
-          sort.nil? ? -1 : sort
-        end
+      pages.sort! do |a, b|
+        a = data_extractor.call(a, ordering_column)
+        b = data_extractor.call(b, ordering_column)
+        sort = a <=> b
+        sort.nil? ? -1 : sort
       end
       pages.reverse! if (ordering_dir == 'desc' && limit >= 0) || (ordering_dir == 'asc' && limit.negative?)
 

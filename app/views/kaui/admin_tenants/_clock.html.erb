@@ -1,0 +1,72 @@
+<div class="kaui-container mb-3">
+  <div class="clock-container">
+    <div class="d-flex flex-column">
+      <div class="clock-header mb-3">
+        <div class="d-flex align-items-center justify-content-between w-100">
+          <h2>Clock</h2>
+          <p>Current date/time: 
+            <span id="kb_clock"><%= @clock&.[]('currentUtcTime') || 'N/A' %></span>
+          </p>
+        </div>
+        <span></span>
+      </div>
+
+      <div>
+        <%= form_tag admin_tenant_set_clock_path(@tenant.id), method: :put, class: 'form-horizontal' do %>
+          <div class="trigger-invoice-box form-group">
+            <b>Set new date</b>
+            <div class="d-flex align-items-center">
+              <div class="custom-date-input-wrapper kaui-button custom-hover">
+                <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.9167 12.5V18.3333M17.8333 15.4167H12" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M14.0833 1.66675V5.00008M6.58325 1.66675V5.00008" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M17.8333 10.8333V4.99992C17.8333 4.07944 17.0871 3.33325 16.1666 3.33325H4.49992C3.57944 3.33325 2.83325 4.07944 2.83325 4.99992V16.6666C2.83325 17.5871 3.57944 18.3333 4.49992 18.3333H10.3333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M2.83325 8.33325H17.8333" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+
+                <input class="form-control" name="new_date" type="text" 
+                       data-provide="datepicker" 
+                       data-date-format="yyyy-mm-dd" 
+                       data-date-today-highlight="true" 
+                       value="<%= @clock&.[]('localDate') || '' %>">
+              </div>
+
+              <%= render "kaui/components/button/button", {
+                label: "Submit",
+                variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                type: "submit",
+                html_class: "btn btn-xs kaui-dropdown custom-hover py-2 px-3",
+                html_options: {
+                  name: "commit",
+                  value: "Submit"
+                }
+              } %>
+            </div>
+
+            <%= button_tag type: 'submit', name: 'commit', value: 'Reset', class: 'kaui-button dots-menu custom-hover' do %>
+              <%= image_tag('kaui/setting/reset.svg', alt: 'Reset Icon', class: 'me-2', size: '16x16') %>
+              Reset
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+  $(document).ready(function() {
+    scheduleRefresh();
+  });
+
+  function scheduleRefresh() {
+    setTimeout(refreshClock, 1000);
+  }
+
+  function refreshClock() {
+    $.ajax({url: "<%= admin_tenant_path(@tenant.id, :format => :js) %>"});
+  }
+<% end %>
+
+
+

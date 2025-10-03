@@ -1,0 +1,26 @@
+<tr>
+  <td>
+    <% if account_parent.present? %>
+        <%= link_to account_parent.account_id, kaui_engine.account_path(@account.parent_account_id) %>
+        <% if can? :update, Kaui::Account %>
+            <%= link_to '
+              <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;">
+                <path d="M9.8335 2.5L2.8335 9.50001M2.8335 2.5L9.8335 9.50001" stroke="#A4A7AE" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            '.html_safe, kaui_engine.unlink_to_parent_path(@account.account_id), method: :delete 
+          %>
+
+        <% end %>&nbsp;
+    <% end %>
+    <% unless account_parent.present? %>
+      <% if can? :update, Kaui::Account %>
+          <button type="button" class="naked" data-bs-toggle="modal" data-bs-target="#link_account">
+            <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.33333 2.66675V13.3334M13.6667 8.00008H3" stroke="#1570EF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Add
+          </button>
+      <% end %>
+    <% end %>
+  </td>
+</tr>
