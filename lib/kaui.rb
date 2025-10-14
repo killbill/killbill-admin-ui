@@ -297,7 +297,6 @@ module Kaui
       password: user.password,
       session_id: user.kb_session_id
     }
-    result[:jwt_token] = session[:jwt_token] if session[:jwt_token]
     if user_tenant
       result[:api_key] = user_tenant.api_key
       result[:api_secret] = user_tenant.api_secret

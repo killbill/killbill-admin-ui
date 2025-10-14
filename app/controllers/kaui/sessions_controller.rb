@@ -28,6 +28,7 @@ module Kaui
     end
 
     def after_sign_out_path_for(_resource)
+      cookies.delete(:jwt_token)
       kaui_path
     end
 
