@@ -2,7 +2,7 @@
 
 module Kaui
   module PluginHelper
-    CONFIGABLE_PLUGINS = ['analytics', 'avatax', 'email-notifications', 'deposit', 'payment_test', 'aviate'].freeze
+    CONFIGABLE_PLUGINS = %w[analytics avatax email-notifications deposit payment-test aviate].freeze
 
     def plugin_repository
       installed_plugins
@@ -13,20 +13,22 @@ module Kaui
       nodes_info = KillBillClient::Model::NodesInfo.nodes_info(Kaui.current_tenant_user_options(current_user, session)) || []
       plugins_info = nodes_info.empty? ? [] : (nodes_info.first.plugins_info || [])
       plugins_info.each do |plugin|
-        next unless (plugin.state == 'RUNNING' && plugin.plugin_key.present?)
+        next unless plugin.state == 'RUNNING' && plugin.plugin_key.present?
+
         plugin_key = plugin.plugin_key
-        puts plugin.plugin_key
         plugin_name = "killbill-#{plugin_key}"
 
         # Handle special cases
         plugin_path = case plugin_key
-        when 'email-notifications'
-          '/kenui'
-        else
-          "/#{plugin_key}"
-        end
-        plugin_path = nil unless CONFIGABLE_PLUGINS.include? plugin_key
-        plugins << { name: plugin_name, path: plugin_path }
+                      when 'email-notifications'
+                        '/kenui'
+                      when 'payment-test'
+                        '/payment_test'
+                      else
+                        "/#{plugin_key}"
+                      end
+        plugin_path = nil unless CONFIGABLE_PLUGINS.include?(plugin_key)
+        plugins << { name: plugin_name, path: plugin_path } if plugin_path
       end
       plugins
     end
