@@ -7,7 +7,6 @@
 <%= javascript_tag do %>
 
 function switchBasicConfig() {
-    console.log('Switching to Basic Config');
     $('#catalog_xml').removeClass('active').hide();
     if (typeof initBasicConfig === 'function') {
         initBasicConfig();
@@ -16,13 +15,11 @@ function switchBasicConfig() {
 }
 
 function switchXMLConfig() {
-    console.log('Switching to XML Config');
     $('#catalog_simple').removeClass('active').hide();
     $('#catalog_xml').addClass('active').show();
 }
 
 $(document).ready(function() {
-    console.log('Document ready - initializing catalog view');
     // Ensure both sections exist before switching
     if ($('#catalog_simple').length && $('#catalog_xml').length) {
         switchBasicConfig();

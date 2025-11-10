@@ -239,8 +239,6 @@
           $header.find('.sort-' + direction).addClass('active');
         }
         
-      } catch (error) {
-        console.log('DataTable initialization error:', error);
       }
     }, 100);
 
@@ -250,7 +248,7 @@
         url: "<%= remove_allowed_user_path :format => :json %>",
         data: { allowed_user: { id: this['id'].split('-')[3] }, id: <%= @tenant.id %>},
         success: function(data) {  allowedUser.parent().parent().hide(); return false; },
-        error: function(request, textStatus, errorThrown) { console.log("AJAX FAILED!!!! request.status " + request.status + ", textStatus = " + textStatus); return false; }
+        error: function(request, textStatus, errorThrown) { return false; }
       });
     });
 
