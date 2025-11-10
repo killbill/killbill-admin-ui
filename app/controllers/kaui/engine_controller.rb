@@ -16,11 +16,6 @@ class Kaui::EngineController < ApplicationController
     # Pass the X-Request-Id seen by Rails to Kill Bill
     # Note that this means that subsequent requests issued by a single action will share the same X-Request-Id in Kill Bill
     user_tenant_options[:request_id] ||= request.request_id
-    # Retrieve JWT using small reference token stored in session
-    if session[:aviate_token_ref].present?
-      jwt_cache_key = "aviate_jwt_#{session[:aviate_token_ref]}"
-      user_tenant_options[:jwt_token] = Rails.cache.read(jwt_cache_key)
-    end
     user_tenant_options
   end
 
