@@ -30,10 +30,11 @@
                 variant: "outline-secondary d-inline-flex align-items-center gap-1",
                 type: "submit",
                 html_class: "btn btn-xs kaui-dropdown custom-hover py-2 px-3",
+                html_options: { name: "commit", value: "Submit" }
               } %>
             </div>
 
-            <%= button_tag type: 'submit', class: 'kaui-button dots-menu custom-hover' do %>
+            <%= button_tag type: 'submit', name: 'commit', value: 'Reset', class: 'kaui-button dots-menu custom-hover' do %>
               <%= image_tag('kaui/setting/reset.svg', alt: 'Reset Icon', class: 'me-2', size: '16x16') %>
               Reset
             <% end %>
