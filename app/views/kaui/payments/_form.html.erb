@@ -2,44 +2,61 @@
     <%= f.hidden_field :account_id %>
     <%= f.hidden_field :target_invoice_id %>
 
-    <div class='form-group'>
-      <div class="col-sm-offset-3 col-sm-9">
+    <div class='form-group d-flex pb-3'>
+     <%= f.label '', :class => 'col-sm-3 control-label' %>
+      <div class="col-sm-9">
         <div class="checkbox">
           <%= label_tag :external do %>
-              <%= check_box_tag :external %>External?
+              <%= check_box_tag :external %>External
           <% end %>
         </div>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group d-flex pb-3">
       <%= f.label :purchased_amount, 'Amount', :class => 'col-sm-3 control-label' %>
-      <div class="col-sm-9">
+      <div class="col-sm-9 d-flex currency-group">
         <%= f.number_field :purchased_amount, :step => :any, :id => 'payment_amount', :class => 'form-control' %>
-        <p class="help-block">Currency: <%= @invoice.present? ? @invoice.currency : @account.currency %></p>
+        <div class="currency"><%= @invoice.present? ? @invoice.currency : @account.currency %></div>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group d-flex pb-3">
       <%= f.label :payment_method_id, 'Payment Method', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
         <%= f.collection_select :payment_method_id, @payment_methods, :payment_method_id, Proc.new { |pm| "#{pm.plugin_name} (#{pm.payment_method_id})" }, {:include_blank => true}, :class => 'form-control' %>
         <p class="help-block">Leave blank to use account's default</p>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group d-flex pb-3">
       <%= label_tag :reason, 'Reason', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
         <%= select_tag :reason, options_for_select(Kaui.payment_reason_codes), :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group d-flex pb-3 border-bottom mb-3">
       <%= label_tag :comment, 'Comment', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9">
         <%= text_area_tag :comment, nil, :rows => 3, :class => 'form-control' %>
       </div>
     </div>
-    <div class="form-group">
-      <div class="col-sm-offset-3 col-sm-9">
-        <%= submit_tag 'Save', :class => 'btn btn-default' %>
-      </div>
+    <div class="form-group d-flex justify-content-end pb-3">
+      <%= render "kaui/components/button/button", {
+        label: 'Close',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "button",
+        html_class: "kaui-button custom-hover mx-2",
+        html_options: {
+          id: "closeButton",
+          onclick: "window.history.back();"
+        }
+      } %>
+      <%= render "kaui/components/button/button", {
+        label: 'Save Payment',
+        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+        type: "submit",
+        html_class: "kaui-dropdown custom-hover",
+        html_options: {
+          id: "saveButton"
+        }
+      } %>
     </div>
 <% end %>

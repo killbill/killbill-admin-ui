@@ -1,0 +1,43 @@
+<div class="payment-methods">
+
+  <div class="d-flex flex-column">
+
+    <div class="payment-methods-header">
+      <h2>Payment Methods</h2>
+      <span>
+        <% if can? :create, Kaui::PaymentMethod %>
+          <%= form_tag kaui_engine.refresh_payment_methods_path(params.to_h), :method => :post, :class => 'form-force-inline form-right' do %>
+              <%= render "kaui/components/button/button", {
+                    label: "Update",
+                    icon: "kaui/account/refresh.svg",
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "submit",
+                    html_class: "kaui-button custom-hover",
+                  } %>
+          <%= link_to kaui_engine.new_payment_method_path(:account_id => @account.account_id) do %>
+            <%= render "kaui/components/button/button", {
+                  label: "Add Method",
+                  icon: "kaui/plus.svg",
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-dropdown custom-hover",
+                } %>
+          <% end %>
+        <% end %>
+        <% end %>
+      </span>
+    </div>
+
+
+    <% unless @payment_methods.empty? %>
+        <div class="info-wrapper">
+
+          <%= render :partial => 'kaui/payment_methods/payment_methods_table', :locals => {:account => @account,
+                                                                                           :payment_methods => @payment_methods,
+                                                                                           :last_transaction_by_payment_method_id => @last_transaction_by_payment_method_id} %>
+        </div>
+    <% end %>
+
+  </div>
+
+</div>

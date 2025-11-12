@@ -1,10 +1,21 @@
-<div class="register">
-  <div class="col-md-8 col-md-offset-2">
-
-    <div class="column-block">
-      <h1>Add new custom field</h1>
-      <%= render 'form' %>
+<div class="register add-new-custom-field-details">
+  <div class="">
+        <div class="mx-auto" style="max-width:  37.5rem;">
+          <% if can? :create, Kaui::AdminTenant %>
+            <h5 class="add-new-custom-field-title border-bottom pb-3 mb-3">
+                <span class="icon-container">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1.66699 5.83366C1.66699 4.91318 2.41318 4.16699 3.33366 4.16699H16.667C17.5875 4.16699 18.3337 4.91318 18.3337 5.83366V14.167C18.3337 15.0875 17.5875 15.8337 16.667 15.8337H3.33366C2.41318 15.8337 1.66699 15.0875 1.66699 14.167V5.83366Z" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M11.667 8.74967L13.3337 7.08301L15.0003 8.74967M11.667 11.2497L13.3337 12.9163L15.0003 11.2497" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M5 10H8.33333" stroke="#414651" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                Add New Custom Field
+            </h5>
+            <%= render 'form' %>
+          <% else %>
+                  <p>You are not allowed to create tenants, please contact your administrator.</p>
+          <% end %> 
+        </div>
     </div>
-
-  </div>
 </div>

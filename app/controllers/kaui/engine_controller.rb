@@ -12,11 +12,10 @@ class Kaui::EngineController < ApplicationController
   # Common options for the Kill Bill client
   def options_for_klient(options = {})
     user_tenant_options = Kaui.current_tenant_user_options(current_user, session)
-    user_tenant_options.merge(options)
+    user_tenant_options.merge!(options)
     # Pass the X-Request-Id seen by Rails to Kill Bill
     # Note that this means that subsequent requests issued by a single action will share the same X-Request-Id in Kill Bill
     user_tenant_options[:request_id] ||= request.request_id
-    user_tenant_options[:jwt_token] ||= session[:jwt_token]
     user_tenant_options
   end
 

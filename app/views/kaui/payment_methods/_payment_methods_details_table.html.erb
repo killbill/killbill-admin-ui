@@ -1,34 +1,32 @@
-<table class="transparent">
-
-  <tr>
-    <th><%= I18n.translate('name_with_colon') %></th>
-    <td><%= payment_method.plugin_name %></td>
-  </tr>
-
+<div class="payment-method-details row">
   <% if payment_method.external_key.present? %>
-  <tr>
-    <th><%= I18n.translate('external_key_with_colon') %></th>
-    <td><%= payment_method.external_key %></td>
-  </tr>
+    <div class="detail-item col-4">
+      <b><%= I18n.translate('external_key_with_colon') %></b>
+      <span><%= payment_method.external_key %></span>
+    </div>
   <% end %>
 
-  <tr>
-    <th><%= I18n.translate('payment_method_id') %></th>
-    <td><%= payment_method.payment_method_id %></td>
-  </tr>
   <% unless payment_method.plugin_info.blank? %>
-      <% unless payment_method.plugin_info.external_payment_method_id.blank? %>
-          <tr>
-            <th><%= I18n.translate('external_id_with_colon') %></th>
-            <td><%= payment_method.plugin_info.external_payment_method_id %></td>
-          </tr>
-      <% end %>
-      <% (payment_method.plugin_info.properties || []).sort_by { |p| [p.key, p.value] }.each do |property| %>
-          <% next if property.value.blank? %>
-          <tr>
-            <th><%= property.key %></th>
-            <td><%= json?(property.value) ? "<pre>#{JSON.pretty_generate(JSON.parse(property.value))}</pre>".html_safe : property.value %></td>
-          </tr>
-      <% end %>
+    <% unless payment_method.plugin_info.external_payment_method_id.blank? %>
+      <div class="detail-item col-4">
+        <b><%= I18n.translate('external_id_with_colon') %></b>
+        <span><%= payment_method.plugin_info.external_payment_method_id %></span>
+      </div>
+    <% end %>
+
+    <% (payment_method.plugin_info.properties || []).sort_by { |p| [p.key, p.value] }.each do |property| %>
+      <% next if property.value.blank? %>
+      <div class="detail-item col-4">
+        <b><%= property.key %></b>
+        <span>
+          <% if json?(property.value) %>
+            <pre><%= JSON.pretty_generate(JSON.parse(property.value)) %></pre>
+          <% else %>
+            <%= property.value %>
+          <% end %>
+        </span>
+      </div>
+    <% end %>
   <% end %>
-</table>
+
+</div>

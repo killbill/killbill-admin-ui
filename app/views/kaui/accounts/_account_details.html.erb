@@ -1,0 +1,165 @@
+<div class="account-details">
+
+  <div class="d-flex flex-column ">
+
+    <div class="account-details-header">
+      <div class="d-flex align-items-center">
+      <h2>Account Information</h2>
+      <% unless @account.parent_account_id.nil? %>
+        <span class="label label-info account-child-label">Child</span>
+      <% end %>
+      <% if @children.size > 0 %>
+        <span class="label label-info account-child-label">Parent</span>
+      <% end %>
+      </div>
+      <span class="link-view">
+        <% if can_close_account? && !account_closed? %>
+          <%= render "kaui/components/button/button", {
+            label: "Close Account",
+            variant: "outline-secondary d-inline-flex align-items-center gap-1",
+            type: "button",
+            html_class: "kaui-button dots-menu custom-hover",
+            html_options: { 
+              data: { 
+                bs_toggle: 'modal', 
+                bs_target: '#closeAccountModal', 
+                name: @account.name || '(not set)', 
+                account_id: @account.account_id 
+              } 
+            }
+          } %>
+        <% end %>
+        <% if @children.size > 0 %>
+          <% if @children.size > 0 %>
+            <%= link_to kaui_engine.account_children_path(@account.account_id),
+                        class: "btn btn-xs",
+                        title: "View Children" do %>
+              <%= render "kaui/components/button/button", {
+                    label: "Children (#{@children.size})",
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "button",
+                    html_class: "kaui-button custom-hover"
+                  } %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <span class="tag-bar tag-bar-breathe">
+          <% unless @available_tags.blank? %>
+            <div class="tag-select" onclick="void(0)">
+              <%= render "kaui/components/button/button", {
+                label: "Tag As",
+                trailing_icon: "kaui/account/down-arrow.svg", 
+                variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                type: "button",
+                html_class: "kaui-button custom-hover",
+              } %>
+              <div class="tag-select-box tag-as-select-box">
+                <strong>Tag As:</strong>
+                <%= render :partial => 'kaui/account_tags/form_bar',
+                          :locals => {:account_id => @account.account_id,
+                                      :tag_names => @tags.map { |tag| tag.tag_definition_name },
+                                      :available_tags => @available_tags} %>
+              </div>
+            </div>
+          <% end %>
+        </span>
+
+        <% if can? :export, Kaui::AdminTenant %>
+          <%= link_to kaui_engine.export_account_path(@account.account_id), 
+                      :class => 'btn btn-xs', 
+                      :id => 'download_link', 
+                      :title => 'Export Account Data' do %>
+            <%= render "kaui/components/button/button", {
+                  label: "Export",
+                  icon: "kaui/download.svg", 
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-button custom-hover",
+                } %>
+          <% end %>
+        <% end %>
+
+        <% if can? :update, Kaui::Account %>
+          <%= link_to kaui_engine.edit_account_path(@account.account_id), 
+                      :class => 'btn btn-xs' do %>
+            <%= render "kaui/components/button/button", {
+                  label: "Edit",
+                  icon: "kaui/account/edit.svg", 
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-dropdown custom-hover",
+                } %>
+          <% end %>
+        <% end %>
+
+      </span>
+    </div>
+
+    <% unless @tags.find { |tag| tag.tag_definition_name == '__PARK__' }.nil? %>
+        <div class="alert alert-danger">
+          This account is parked, meaning the system detected inconsistent state which could lead to mis-billing. For safety, no more invoices will be generated.
+          <% if can? :trigger, Kaui::Invoice %>
+              Once the data is fixed, you can unpark it by manually <%= link_to 'triggering an invoice run', kaui_engine.trigger_invoice_path(params.to_h), :method => :post %>.
+          <% end %>
+        </div>
+    <% end %>
+
+    <div class="account-details-body">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h2 class="fw-semibold">ID</h2>
+        <p class="text-muted small mb-3 d-flex align-items-center">
+          <%= @account.account_id %>
+          <svg 
+            class="mx-2" 
+            width="16" 
+            height="16" 
+            viewBox="0 0 16 16" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+            style="cursor: pointer;"
+            onclick="navigator.clipboard.writeText('<%= @account.account_id %>')"
+          >
+            <path d="M11.3332 5.94864V2.66659C11.3332 1.93021 10.7363 1.33325 9.99989 1.33325H2.66659C1.93021 1.33325 1.33325 1.93021 1.33325 2.66659V9.99992C1.33325 10.7363 1.93021 11.3333 2.66659 11.3333H5.94864" stroke="#717680" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.3333 6C14.0697 6 14.6666 6.59695 14.6666 7.33333M7.33331 6C6.59695 6 6 6.59695 6 7.33333M13.3333 14.6667C14.0697 14.6667 14.6666 14.0697 14.6666 13.3333M7.33331 14.6667C6.59695 14.6667 6 14.0697 6 13.3333M9.33331 6H11.3333M9.33331 14.6667H11.3333M14.6666 9.33333V11.3333M6 9.33333V11.3333" stroke="#717680" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </p>
+
+
+          <h2 class="fw-semibold">External Key</h2>
+          <p class="text-muted small mb-3"><%= @account.external_key %></p>
+
+          <h2 class="fw-semibold">Currency</h2>
+          <p class="text-muted small mb-3"><%= @account.currency %></p>
+
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <h2 class="fw-semibold">Timezone</h2>
+          <p class="text-muted small mb-3"><%= @account.time_zone %></p>
+
+          <h2 class="fw-semibold">Locale</h2>
+          <p class="text-muted small mb-3"><%= @account.locale %></p>
+
+          <h2 class="fw-semibold">Notes</h2>
+          <% if @account.notes.present? %>
+            <p class="text-muted small mb-3"><%= @account.notes %></p>
+          <% else %>
+            <p class="text-muted small mb-3">N/A</p>
+          <% end %>
+        </div>
+
+        <div class="col-md-4 mb-3 add_parent">
+          <%= render partial: 'kaui/custom_fields/list_bar', locals: {
+            custom_fields: @custom_fields,
+            container_class: 'mb-4',
+          } %>
+          <h2 class="fw-semibold">Parent</h2>
+          <%= render partial: 'add_parent', locals: { account_parent: @account_parent } %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

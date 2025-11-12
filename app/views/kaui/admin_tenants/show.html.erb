@@ -1,87 +1,162 @@
-<%= render :partial => 'tenant_details' %>
+<div class="kaui-container admin-tenant-show">
+  <%= render partial: 'kaui/components/breadcrumb/breadcrumb', locals: {
+    breadcrumbs: [
+      { label: 'Settings', href: '/' },
+      { label: @tenant.name, href: '#' }
+    ]
+  } %>
 
-<%= render :partial => 'useful_links' %>
+  <div class="d-flex" style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_setting_sidebar' %>
 
-<% unless @allowed_users.empty? %>
-  <div class="col-md-12">
+    <div class="w-100">
+      <div class="row gap-4 m-0 gap-container pb-2">
+        <%
+=begin%>
+ <div class="p-4 card w-100 col">
+          <%= render :partial => 'clock' %>      
+        </div> 
+<%
+=end%>
 
-    <div class="search">
-
-      <div class="column-block">
-
-        <h1>Allowed Users
-        <%= link_to '<i class="fa fa-plus-square"></i>'.html_safe,
-                                          '#addAllowedUserModal',
-                                          :class => 'btn btn-xs', data: {toggle: 'modal'} %></h1>
-        <table id="allowed-users-for-tenant-table" class="table table-condensed">
-          <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th></th>
-          </tr>
-          </thead>
-          <tbody>
-          <% @allowed_users.each do |u| %>
-              <tr>
-                <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
-                <td><%= u.description %></td>
-                <td>
-                  <% if current_user.root? %>
-                      <button type="button" class="btn btn-default btn-sm" id="<%= "allowed-user-remove-#{u.id}" %>">
-                        <span class="fa fa-times"></span>
-                      </button>
-                  <% end %>
-                </td>
-              </tr>
-          <% end %>
-          </tbody>
-        </table>
-
+        <div class="p-4 card w-100 col">
+          <%= render :partial => 'useful_links' %>
+        </div>
       </div>
 
+      <%= render :partial => 'tenant_details' %>
+
+      <%= render :partial => 'add_allowed_user_modal' %>
+
+      <% unless @allowed_users.empty? %>
+        <div class="kaui-container gap-container">
+          <div class="allowed-users-container">
+            <div class="d-flex flex-column">
+              <div class="allowed-users-header mb-3">
+                <div class="d-flex align-items-start flex-column">
+                  <h2>Allowed Users</h2>
+                </div>
+                <span>
+                  <%= render "kaui/components/button/button", {
+                    label: "Create User",
+                    icon: "kaui/plus.svg",
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "button",
+                    html_class: "kaui-dropdown custom-hover",
+                    html_options: {
+                      id: "addAllowedUserModal",
+                      data: { 
+                        bs_toggle: "modal",
+                        bs_target: "#addAllowedUserModal"
+                      }
+                    }
+                  } %>
+                </span>
+              </div>
+              <div class="">
+                <table id="allowed-users-for-tenant-table" class="table table-condensed">
+                  <thead>
+                  <tr>
+                    <th class="sortable-header" data-column="0">
+                      <div class="header-content">
+                        <span class="header-text">Name</span>
+                        <div class="sort-icons">
+                          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <th class="sortable-header" data-column="1">
+                      <div class="header-content">
+                        <span class="header-text">Description</span>
+                        <div class="sort-icons">
+                          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                        </div>
+                      </div>
+                    </th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <% @allowed_users.each do |u| %>
+                      <tr>
+                        <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
+                        <td><%= u.description %></td>
+                        <td class="text-end">
+                          <% if current_user.root? %>
+                            <%= render "kaui/components/button/button", {
+                              label: "Remove",
+                              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                              type: "button",
+                              html_class: "kaui-button dots-menu custom-hover",
+                              html_options: {
+                                id: "allowed-user-remove-#{u.id}"
+                              }
+                            } %>
+                          <% end %>
+
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%= javascript_tag do %>
+          $(document).ready(function() {
+            $('#allowed-users-for-tenant-table').dataTable({
+              "dom": "t",
+              "paging": false,
+              "order": [[ 0, "asc" ]],
+              "columns": [
+                null,
+                null,
+                { "orderable": false }
+              ]
+            });
+          });
+        <% end %>
+      <% end %>
+
+
+      <div class="kaui-container nav-tabs-details">
+        <ul class="nav nav-tabs" id="tenant_tabs" active_tab="<%= @active_tab %>">
+          <li class="nav-item">
+            <a class="nav-link" href="#CatalogShow" data-bs-toggle="tab">Catalog Show</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#OverdueShow" data-bs-toggle="tab">Overdue Show</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#InvoiceTemplate" data-bs-toggle="tab">Invoice Template</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#InvoiceTranslation" data-bs-toggle="tab">Invoice Translation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#CatalogTranslation" data-bs-toggle="tab">Catalog Translation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#PluginConfig" data-bs-toggle="tab">Plugin Config</a>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+          <%= render :partial => 'show_catalog' %>
+          <%= render :partial => 'show_overdue' %>
+          <%= render :partial => 'form_invoice_template' %>
+          <%= render :partial => 'form_invoice_translation' %>
+          <%= render :partial => 'form_catalog_translation' %>
+          <%= render :partial => 'form_plugin_config' %>
+        </div>
+      </div>
     </div>
-
-  </div>
-
-    <%= javascript_tag do %>
-      $(document).ready(function() {
-        $('#allowed-users-for-tenant-table').dataTable({
-          "dom": "t",
-          "paging": false,
-          "order": [[ 0, "asc" ]],
-          "columns": [
-            null,
-            null,
-            { "orderable": false }
-          ]
-        });
-      });
-    <% end %>
-<% end %>
-
-<div class="container">
-  <ul class="nav nav-tabs" id="tenant_tabs" active_tab="<%= @active_tab %>">
-    <li class="nav active"><a href="#CatalogShow" data-toggle="tab">Catalog Show</a></li>
-    <li class="nav"><a href="#OverdueShow" data-toggle="tab">Overdue Show</a></li>
-    <li class="nav"><a href="#InvoiceTemplate" data-toggle="tab">Invoice Template</a></li>
-    <li class="nav"><a href="#InvoiceTranslation" data-toggle="tab">Invoice Translation</a></li>
-    <li class="nav"><a href="#CatalogTranslation" data-toggle="tab">Catalog Translation</a></li>
-    <li class="nav"><a href="#PluginConfig" data-toggle="tab">Plugin Config</a></li>
-  </ul>
-
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <%= render :partial => 'show_catalog' %>
-    <%= render :partial => 'show_overdue' %>
-    <%= render :partial => 'form_invoice_template' %>
-    <%= render :partial => 'form_invoice_translation' %>
-    <%= render :partial => 'form_catalog_translation' %>
-    <%= render :partial => 'form_plugin_config' %>
   </div>
 </div>
 
-<%= render :partial => 'add_allowed_user_modal' %>
 
 <%= javascript_tag do %>
 
@@ -109,13 +184,71 @@
 
 
   $(document).ready(function() {
+    // Initialize DataTable for allowed users table
+    var allowedUsersTable;
+    
+    // Wait for the table to be available
+    setTimeout(function() {
+      try {
+        // Check if table is already initialized as DataTable
+        if ($.fn.DataTable.isDataTable('#allowed-users-for-tenant-table')) {
+          allowedUsersTable = $('#allowed-users-for-tenant-table').DataTable();
+        } else {
+          allowedUsersTable = $('#allowed-users-for-tenant-table').DataTable({
+            "dom": "t",
+            "paging": false,
+            "ordering": true
+          });
+        }
+        
+        // Custom sorting functionality for allowed users table
+        var currentSortColumn = -1;
+        var currentSortDirection = 'asc';
+
+        // Handle custom header clicks
+        $('.sortable-header').on('click', function() {
+          var columnIndex = parseInt($(this).data('column'));
+          var newDirection = 'asc';
+          
+          // If clicking the same column, toggle direction
+          if (currentSortColumn === columnIndex) {
+            newDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
+          }
+          
+          currentSortColumn = columnIndex;
+          currentSortDirection = newDirection;
+          
+          // Update visual indicators
+          updateSortIndicators(columnIndex, newDirection);
+          
+          // Apply DataTable sorting
+          if (allowedUsersTable && allowedUsersTable.order) {
+            allowedUsersTable.order([columnIndex, newDirection]).draw();
+          }
+        });
+
+        // Function to update sort indicators
+        function updateSortIndicators(columnIndex, direction) {
+          // Reset all headers
+          $('.sortable-header').removeClass('sort-asc-active sort-desc-active');
+          $('.sort-icon').removeClass('active');
+          
+          // Set active state for current column
+          var $header = $('.sortable-header[data-column="' + columnIndex + '"]');
+          $header.addClass(direction + '-active');
+          $header.find('.sort-' + direction).addClass('active');
+        }
+        
+      }
+    }, 100);
+
     $('[id^=allowed-user-remove-]').click(function() {
       var allowedUser = $(this);
       $.ajax({ type: "DELETE",
         url: "<%= remove_allowed_user_path :format => :json %>",
         data: { allowed_user: { id: this['id'].split('-')[3] }, id: <%= @tenant.id %>},
         success: function(data) {  allowedUser.parent().parent().hide(); return false; },
-        error: function(request, textStatus, errorThrown) { console.log("AJAX FAILED!!!! request.status " + request.status + ", textStatus = " + textStatus); return false; }
+        error: function(request, textStatus, errorThrown) { return false; }
       });
     });
 
@@ -129,4 +262,4 @@
       $('#tenant_tabs a[href="#' + $('#tenant_tabs').attr('active_tab') + '"]').tab('show');
     }
   });
-<% end %>
+<% end %> 

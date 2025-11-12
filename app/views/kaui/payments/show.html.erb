@@ -1,46 +1,240 @@
-<div class="search">
 
-  <div class="column-block">
 
-    <h1>Payment <%= @payment.payment_number %></h1>
+<div class="kaui-container payments-show">
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <div class="payments">
+    <div class="d-flex flex-column ">
+      <div class="payments-header mb-4">
+        <div class="d-flex align-items-center">
+          <h2>Payment <%= @payment.payment_number %></h2>
+        </div>
+        <span>
+        <% if @payment.capturable? || @payment.voidable? || (@payment.refundable? && (can?(:refund, Kaui::Payment) || can?(:chargeback, Kaui::Payment))) %>
+
+
+                <div class="tag-select-box">
+
+                  <% if @payment.refundable? %>
+                    <% if @payment.refundable? %>
+                      <% if can? :chargeback, Kaui::Payment %>
+                        <% if @payment.target_invoice_id.present? %>
+                          <%= link_to kaui_engine.new_account_chargeback_path(@payment.account_id, {
+                                payment_id: @payment.payment_id,
+                                invoice_id: @payment.target_invoice_id
+                              }) do %>
+                            <%= render "kaui/components/button/button", {
+                              label: "Chargeback",
+                              icon: "kaui/account/refresh.svg",
+                              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                              type: "button",
+                              html_class: "kaui-button custom-hover",
+                            } %>
+                          <% end %>
+                        <% else %>
+                          <%= link_to kaui_engine.new_account_transaction_path(@payment.account_id, {
+                                payment_id: @payment.payment_id,
+                                payment_method_id: @payment.payment_method_id,
+                                amount: @payment.amount_refundable,
+                                currency: @payment.currency,
+                                transaction_type: "CHARGEBACK"
+                              }) do %>
+                            <%= render "kaui/components/button/button", {
+                              label: "Chargeback",
+                              icon: "kaui/account/refresh.svg",
+                              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                              type: "button",
+                              html_class: "kaui-button custom-hover",
+                            } %>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+
+                  <% end %>
+
+                  <% if @payment.capturable? %>
+                    <%= link_to kaui_engine.new_account_transaction_path(@payment.account_id, {
+                          payment_id: @payment.payment_id,
+                          payment_method_id: @payment.payment_method_id,
+                          amount: @payment.amount_capturable,
+                          currency: @payment.currency,
+                          transaction_type: "CAPTURE"
+                        }) do %>
+                      <%= render "kaui/components/button/button", {
+                        label: "Capture",
+                        icon: "kaui/card.svg",
+                        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                        type: "button",
+                        html_class: "kaui-button custom-hover",
+                      } %>
+                    <% end %>
+                  <% end %>
+
+
+                  <% if @payment.voidable? %>
+                    <%= link_to kaui_engine.new_account_transaction_path(@payment.account_id, {
+                          payment_id: @payment.payment_id,
+                          payment_method_id: @payment.payment_method_id,
+                          transaction_type: "VOID"
+                        }) do %>
+                      <%= render "kaui/components/button/button", {
+                        label: "Void",
+                        icon: "kaui/delete.svg",
+                        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                        type: "button",
+                        html_class: "kaui-button custom-hover",
+                      } %>
+                    <% end %>
+                  <% end %>
+
+
+                  <% if can? :refund, Kaui::Payment %>
+                        <% if @payment.target_invoice_id.present? %>
+                          <%= link_to kaui_engine.new_account_refund_path(@payment.account_id, params: {
+                                payment_id: @payment.payment_id,
+                                invoice_id: @payment.target_invoice_id
+                              }) do %>
+                            <%= render "kaui/components/button/button", {
+                              label: "Refund",
+                              icon: "kaui/payment/refund.svg",
+                              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                              type: "button",
+                              html_class: "kaui-dropdown custom-hover",
+                            } %>
+                          <% end %>
+                        <% else %>
+                          <%= link_to kaui_engine.new_account_transaction_path(@payment.account_id,
+                                payment_id: @payment.payment_id,
+                                payment_method_id: @payment.payment_method_id,
+                                amount: @payment.amount_refundable,
+                                currency: @payment.currency,
+                                transaction_type: 'REFUND') do %>
+                            <%= render "kaui/components/button/button", {
+                              label: "Refund",
+                              icon: "kaui/payment/refund.svg",
+                              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                              type: "button",
+                              html_class: "kaui-dropdown custom-hover",
+                            } %>
+                          <% end %>
+                        <% end %>
+
+                    <% end %>
+
+                </div>
+
+            <% end %>
+        </span>
+      </div>
+      
 
     <% if @payment.target_invoice_id.present? %>
-        <div class="row">
-          <div class="col-md-5">
-            <table class="transparent subtitle">
-              <tr>
-                <th>Invoice ID</th>
-                <td><%= link_to @payment.target_invoice_id, account_invoice_path(@account.account_id, @payment.target_invoice_id) %></td>
-              </tr>
-              <tr>
-                <th>External key</th>
-                <td><%= @payment.payment_external_key %></td>
-              </tr>
-            </table>
+        
+      <div class="row payments-detail">
+        <div class="col-sm-6">
+          <div>
+            <b>Payment</b>
+            <p class="payment-link"><%= link_to @payment.payment_number, account_payment_path(@account.account_id, @payment.payment_id) %></p>
+          </div>
+          <div>
+            <b>External key</b>
+            <p>
+              <%= @payment.payment_external_key %>
+              <%= render "kaui/components/button/button", {
+                label: '',
+                icon: "kaui/copy.svg",
+                variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                type: "button",
+                html_class: "dots-menu kaui-button",
+                html_options: {
+                  onclick: "navigator.clipboard.writeText('#{@payment.payment_external_key}')"
+                }
+              } %>
+            </p>
+          </div>
+          <div>
+            <b>Invoice ID</b>
+            <p><%= link_to @payment.target_invoice_id, account_invoice_path(@account.account_id, @payment.target_invoice_id) %>
+              <%= render "kaui/components/button/button", {
+                label: '',
+                icon: "kaui/copy.svg",
+                variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                type: "button",
+                html_class: "dots-menu kaui-button",
+                html_options: {
+                  onclick: "navigator.clipboard.writeText('#{@payment.target_invoice_id}')"
+                }
+              } %></p>
           </div>
         </div>
+        <div class="col-sm-6">
+          <div>
+            <b>Account Id</b>
+            <p>
+              <%= @payment.account_id %>
+              <%= render "kaui/components/button/button", {
+                label: '',
+                icon: "kaui/copy.svg",
+                variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                type: "button",
+                html_class: "dots-menu kaui-button",
+                html_options: {
+                  onclick: "navigator.clipboard.writeText('#{@payment.account_id}')",
+                  title: "copy to"
+                }
+              } %>
+            </p>
+          </div>
+          <div>
+            <b>Payment method Id</b>
+            <p>
+              <%= @payment.payment_method_id %>
+              <%= render "kaui/components/button/button", {
+                label: '',
+                icon: "kaui/copy.svg",
+                variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                type: "button",
+                html_class: "dots-menu kaui-button",
+                html_options: {
+                  onclick: "navigator.clipboard.writeText('#{@payment.payment_method_id}')"
+                }
+              } %>
+            </p>
+          </div>
+          <%= render :partial => 'kaui/custom_fields/list_bar',
+               :locals => {:custom_fields => @custom_fields} %>
+        </div>
+      </div>
     <% end %>
 
-    <%= render :partial => 'kaui/payments/payment_table',
+      <%= render :partial => 'kaui/payments/payment_table',
                :locals => {:payment_method => @payment_method,
                            :payment => @payment,
                            :account => @account,
                            :custom_fields => @custom_fields} %>
-
+    
+    </div>
   </div>
-
 </div>
 
-<div class="column-block">
 
-  <h1>Payment Method Details</h1>
-
-  <div class="payment-details">
-    <% if @payment_method.nil? %>
-        The Payment method has been deleted.
-    <% else %>
-        <%= render :partial => 'kaui/payment_methods/payment_methods_details_table', :locals => {:payment_method => @payment_method} %>
-    <% end %>
+<div class="kaui-container py-5 payments-show">
+  <div class="d-flex " style="gap: 4rem;">
+    <div class="payments">
+      <div class="d-flex flex-column ">
+        <div class="payments-header mb-4">
+          <div class="d-flex align-items-center">
+            <h2>Payment Method Details</h2>
+          </div>
+        </div>
+        <div class="payment-details">
+          <% if @payment_method.nil? %>
+              The Payment method has been deleted.
+          <% else %>
+              <%= render :partial => 'kaui/payment_methods/payment_methods_details_table', :locals => {:payment_method => @payment_method} %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-
 </div>

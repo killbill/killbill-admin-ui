@@ -1,35 +1,101 @@
-<div class="search">
-
-  <div class="column-block">
-
-    <h1>Custom Fields</h1>
-    <input type="hidden" id="custom-fields" value="<%= @custom_fields_json %>">
-    <table id="custom_fields-table" class="table table-condensed mobile-data">
-      <thead>
-      <tr>
-        <th>Object ID</th>
-        <th>Object type</th>
-        <th>Name</th>
-        <th>Value</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td colspan="1" class="dataTables_empty">Loading data from server</td>
-      </tr>
-      </tbody>
-    </table>
-
+<div class="kaui-container kaui-account-custom-fields-index">
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <div class="d-flex " style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+    <div class="custom-fields">
+      <div class="d-flex flex-column ">
+        <div class="custom-fields-header mb-4">
+          <div class="d-flex align-items-center">
+            <h2>Custom Fields</h2>
+          </div>
+          <input type="hidden" id="custom-fields" value="<%= @custom_fields_json %>">
+        </div>
+        <table id="custom_fields-table" class="custom-fields-table">
+          <thead>
+            <tr>
+              <th class="sortable-header" data-column="0">
+                <div class="header-content">
+                  <span class="header-text">Object ID</span>
+                  <div class="sort-icons">
+                    <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
+              <th class="sortable-header" data-column="1">
+                <div class="header-content">
+                  <span class="header-text">Object type</span>
+                  <div class="sort-icons">
+                    <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
+              <th class="sortable-header" data-column="2">
+                <div class="header-content">
+                  <span class="header-text">Name</span>
+                  <div class="sort-icons">
+                    <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
+              <th class="sortable-header" data-column="3">
+                <div class="header-content">
+                  <span class="header-text">Value</span>
+                  <div class="sort-icons">
+                    <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                    <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                  </div>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-
 </div>
 
+
 <%= javascript_tag do %>
-    $(document).ready(function() {
-        var customFields = JSON.parse($("#custom-fields").val());
-        $('#custom_fields-table').DataTable({
-            "dom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-            data: customFields
-        });
+  $(document).ready(function() {
+    var customFields = JSON.parse($("#custom-fields").val());
+    var table = $('#custom_fields-table').DataTable({
+      "dom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+      data: customFields
     });
+
+    setTimeout(() => {
+      $('#custom_fields-table tbody tr').each(function () {
+        const $td = $(this).find('td:nth-of-type(2)');
+        const content = $td.text().trim();
+        $td.html(`<span>${content}</span>`);
+      });
+    }, 50);
+
+    // Custom sorting functionality
+    (function() {
+      var currentSortColumn = -1;
+      var currentSortDirection = 'asc';
+      $('#custom_fields-table thead .sortable-header').on('click', function() {
+        var columnIndex = parseInt($(this).data('column'));
+        var newDirection = (currentSortColumn === columnIndex && currentSortDirection === 'asc') ? 'desc' : 'asc';
+        currentSortColumn = columnIndex;
+        currentSortDirection = newDirection;
+        updateSortIndicators($('#custom_fields-table'), columnIndex, newDirection);
+        table.order([columnIndex, newDirection]).draw();
+      });
+    })();
+
+    function updateSortIndicators($table, columnIndex, direction) {
+      $table.find('.sortable-header').removeClass('sort-asc-active sort-desc-active');
+      $table.find('.sort-icon').removeClass('active');
+      var $header = $table.find('.sortable-header[data-column="' + columnIndex + '"]');
+      $header.addClass(direction + '-active');
+      $header.find('.sort-' + direction).addClass('active');
+    }
+  });
 <% end %>

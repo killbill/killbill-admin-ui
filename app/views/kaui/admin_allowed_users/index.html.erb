@@ -1,40 +1,160 @@
-<div class="search">
+<div class="kaui-container kaui-users-index">
+  <%= render partial: 'kaui/components/breadcrumb/breadcrumb', locals: {
+    breadcrumbs: [
+      { label: 'Settings', href: '/' },
+      { label: "Users", href: '#' }
+    ]
+  } %>
 
-  <div class="column-block">
+  <div class="d-flex" style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_setting_sidebar' %>
 
-    <h1>Kaui users
-      <% if can? :create, Kaui::AdminTenant %>
-          <%= link_to '&nbsp;<i class="fa fa-plus-square"></i>'.html_safe, new_admin_allowed_user_path %>
-      <% end %></h1>
+    <div class="users-details w-100">
+      <div class="d-flex flex-column">
+        <div class="users-details-header">
+          <h2>Users</h2>
+          <span>
+            <% if can? :create, Kaui::AdminTenant %>
+              <%= link_to new_admin_allowed_user_path do %>
+                <%= render "kaui/components/button/button", {
+                  label: "Create User",
+                  icon: "kaui/plus.svg",
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-dropdown custom-hover",
+                } %>
+                <% end %>
+            <% end %>
+          </span>
+        </div>
 
-    <% unless @allowed_users.empty? %>
-        <table id="allowed-users-table" class="table table-condensed table-striped mobile-data">
-          <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-          </tr>
-          </thead>
-          <tbody>
-          <% @allowed_users.each do |u| %>
+        <div class="mt-4">
+         <% unless @allowed_users.empty? %>
+            <table id="allowed-users-table" class="allowed-users-table">
+              <thead>
               <tr>
-                <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
-                <td><%= u.description %></td>
+                <th class="sortable-header" data-column="0">
+                  <div class="header-content">
+                    <span class="header-text">Name</span>
+                    <div class="sort-icons">
+                      <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                      <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                    </div>
+                  </div>
+                </th>
+                <th class="sortable-header" data-column="1">
+                  <div class="header-content">
+                    <span class="header-text">Description</span>
+                    <div class="sort-icons">
+                      <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                      <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                    </div>
+                  </div>
+                </th>
+                <th></th>
               </tr>
-          <% end %>
-          </tbody>
-        </table>
-    <% end %>
+              </thead>
+              <tbody>
+              <% @allowed_users.each do |u| %>
+                  <tr>
+                    <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
+                    <td><%= u.description %></td>
+                    <td class="text-end">
 
+                        
+                      <%= render "kaui/components/button/button", {
+                        label: 'Delete',
+                        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                        type: "button",
+                        html_class: "kaui-button delete-button custom-hover",
+                        html_options: { 
+                          data: { 
+                            confirm: "Are you sure?",
+                            method: "delete",
+                            turbo: false,
+                            "url": kaui_engine.admin_allowed_user_path(u.id)
+                          }
+                        }
+                      } %>
+                      <%= link_to kaui_engine.edit_admin_allowed_user_path(u.id), :class => '' do %>
+                        <%= render "kaui/components/button/button", {
+                          label: "Edit",
+                          variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                          type: "button",
+                          html_class: "kaui-button edit-button custom-hover",
+                        } %>
+                      <% end %>
+                    </td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+        <% end %>
+
+        </div>
+      </div>
+    </div>
   </div>
-
 </div>
 
 <%= javascript_tag do %>
   $(document).ready(function() {
-      $('#allowed-users-table').dataTable({
-      "dom": "t",
-      "paging": false
-    });
+    // Initialize DataTable for allowed users table
+    var allowedUsersTable;
+    
+    // Wait for the table to be available
+    setTimeout(function() {
+      try {
+        // Check if table is already initialized as DataTable
+        if ($.fn.DataTable.isDataTable('#allowed-users-table')) {
+          allowedUsersTable = $('#allowed-users-table').DataTable();
+        } else {
+          allowedUsersTable = $('#allowed-users-table').DataTable({
+            "dom": "t",
+            "paging": false,
+            "ordering": true
+          });
+        }
+        
+        // Custom sorting functionality for allowed users table
+        var currentSortColumn = -1;
+        var currentSortDirection = 'asc';
+
+        // Handle custom header clicks
+        $('.sortable-header').on('click', function() {
+          var columnIndex = parseInt($(this).data('column'));
+          var newDirection = 'asc';
+          
+          // If clicking the same column, toggle direction
+          if (currentSortColumn === columnIndex) {
+            newDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
+          }
+          
+          currentSortColumn = columnIndex;
+          currentSortDirection = newDirection;
+          
+          // Update visual indicators
+          updateSortIndicators(columnIndex, newDirection);
+          
+          // Apply DataTable sorting
+          if (allowedUsersTable && allowedUsersTable.order) {
+            allowedUsersTable.order([columnIndex, newDirection]).draw();
+          }
+        });
+
+        // Function to update sort indicators
+        function updateSortIndicators(columnIndex, direction) {
+          // Reset all headers
+          $('.sortable-header').removeClass('sort-asc-active sort-desc-active');
+          $('.sort-icon').removeClass('active');
+          
+          // Set active state for current column
+          var $header = $('.sortable-header[data-column="' + columnIndex + '"]');
+          $header.addClass(direction + '-active');
+          $header.find('.sort-' + direction).addClass('active');
+        }
+        
+      }
+    }, 100);
   });
 <% end %>

@@ -1,48 +1,110 @@
-<div class="search">
-
-  <div class="column-block">
-
-    <h1>Audit logs</h1>
-    <%= render :partial => 'multi_functions_bar' %>
-    <input type="hidden" id="audit-logs" value="<%= @audit_logs_json %>">
-    <table id="audit-logs-table" class="table table-condensed table-colored-rows mobile-data">
-      <thead>
-      <tr>
-        <th>Created date</th>
-        <th>Object id</th>
-        <th>Object type</th>
-        <th>Change type</th>
-        <th>Username</th>
-        <th>Reason</th>
-        <th>Comment</th>
-        <th>User token</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td colspan="1" class="dataTables_empty">Loading data from server</td>
-      </tr>
-      </tbody>
-    </table>
-
+<div class="kaui-container kaui-audit-logs-index">
+  <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <div class="d-flex " style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+    <div class="audit-logs">
+      <div class="d-flex flex-column ">
+        <div class="audit-logs-header mb-4">
+          <div class="d-flex align-items-center">
+            <h2>Audit logs</h2>
+          </div>
+          <span>
+            <%= render :partial => 'multi_functions_bar' %>
+            <input type="hidden" id="audit-logs" value="<%= @audit_logs_json %>">
+          </span>
+        </div>
+        <table id="audit-logs-table" class="audit-logs-table">
+          <thead>
+          <tr>
+            <th class="sortable-header" data-column="0">
+              <div class="header-content">
+                <span class="header-text">Created date</span>
+                <div class="sort-icons">
+                  <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                  <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                </div>
+              </div>
+            </th>
+            <th class="sortable-header" data-column="1">
+              <div class="header-content">
+                <span class="header-text">Object id</span>
+                <div class="sort-icons">
+                  <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                  <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                </div>
+              </div>
+            </th>
+            <th class="sortable-header" data-column="2">
+              <div class="header-content">
+                <span class="header-text">Object type</span>
+                <div class="sort-icons">
+                  <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                  <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                </div>
+              </div>
+            </th>
+            <th class="sortable-header" data-column="3">
+              <div class="header-content">
+                <span class="header-text">Change type</span>
+                <div class="sort-icons">
+                  <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                  <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                </div>
+              </div>
+            </th>
+            <th class="sortable-header" data-column="4">
+              <div class="header-content">
+                <span class="header-text">Username</span>
+                <div class="sort-icons">
+                  <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                  <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                </div>
+              </div>
+            </th>
+            <th class="sortable-header" data-column="5">
+              <div class="header-content">
+                <span class="header-text">Reason</span>
+                <div class="sort-icons">
+                  <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                  <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                </div>
+              </div>
+            </th>
+            <th class="sortable-header" data-column="6">
+              <div class="header-content">
+                <span class="header-text">Comment</span>
+                <div class="sort-icons">
+                  <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                  <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                </div>
+              </div>
+            </th>
+            <th class="sortable-header" data-column="7">
+              <div class="header-content">
+                <span class="header-text">User token</span>
+                <div class="sort-icons">
+                  <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+                  <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+                </div>
+              </div>
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      <%= render :partial => 'show_history_modal' %>
+    </div>
   </div>
-
-  <%= render :partial => 'show_history_modal' %>
-
 </div>
-
-<style>
-  #audit-logs-table td, #audit-logs-table tr {
-    white-space: nowrap;
-  }
-</style>
-
 
 <%= javascript_tag do %>
     $(document).ready(function() {
         var auditLogs = JSON.parse($("#audit-logs").val());
-        $('#audit-logs-table').DataTable({
+        var table = $('#audit-logs-table').DataTable({
             dom: "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+            pagingType: "full_numbers",
             data: auditLogs,
             "scrollX": true,
             order: [[ 0, 'desc' ]],
@@ -54,11 +116,48 @@
                 } else if ( data[3] == "DELETE" ) {
                     $(row).addClass( 'delete' );
                 }
+                if (data[4] || data[3]) {
+                  $(row).each(function () {
+                    $(this).find('td').each(function () {
+                      const content = $(this).text().trim();
+                      $(this).html(`<span>${content}</span>`);
+                    });
+                  });
+                }
             },
             drawCallback: function() {
                 setObjectIdPopover();
             }
         });
+
+        // Custom sorting functionality and indicators
+        (function() {
+          var currentSortColumn = 0;
+          var currentSortDirection = 'desc';
+
+          updateSortIndicators(currentSortColumn, currentSortDirection);
+
+          $('#audit-logs-table thead .sortable-header').on('click', function() {
+            var columnIndex = parseInt($(this).data('column'));
+            var newDirection = (currentSortColumn === columnIndex && currentSortDirection === 'asc') ? 'desc' : 'asc';
+            currentSortColumn = columnIndex;
+            currentSortDirection = newDirection;
+            updateSortIndicators(columnIndex, newDirection);
+            table.order([columnIndex, newDirection]).draw();
+          });
+
+          function updateSortIndicators(columnIndex, direction) {
+            var $table = $('#audit-logs-table');
+            $table.find('.sortable-header').removeClass('sort-asc-active sort-desc-active');
+            $table.find('.sort-icon').removeClass('active');
+            var $header = $table.find('.sortable-header[data-column="' + columnIndex + '"]');
+            $header.addClass(direction + '-active');
+            $header.find('.sort-' + direction).addClass('active');
+          }
+        })();
     });
 
+    setTimeout(() => {
+
+    }, 50);
 <% end %>

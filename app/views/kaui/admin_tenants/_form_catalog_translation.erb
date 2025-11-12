@@ -3,21 +3,34 @@
       <%= form_tag({:action => :upload_catalog_translation}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
           <%= hidden_field_tag(:id, @tenant.id) %>
 
-          <div class="form-group">
-            <div class="col-sm-10">
-              <%= file_field_tag 'catalog_translation', :class => 'form-control', :required => true %>
+          <div class="upload-box form-group" data-file="">
+            <div class="upload-content">
+              <%= image_tag 'kaui/file-upload.svg', alt: 'Upload Icon' %>
+              <p>
+                <span class="highlight">Click to upload</span> or drag and drop
+              </p>
             </div>
+
+            <%= file_field_tag 'catalog_translation', 
+              class: 'form-control', 
+              required: true,
+              data: { file: '' },
+              onchange: "this.parentNode.setAttribute('data-file', this.files[0]?.name || '')" 
+            %>
           </div>
-          <div class="form-group">
+          <div class="form-group d-flex pb-3 border-bottom mb-3">
             <%= label_tag :translation_locale, 'Locale', :class => 'col-sm-2 control-label' %>
             <div class="col-sm-10">
               <%= text_field_tag :translation_locale, nil, :class => 'form-control' %>
             </div>
           </div>
-          <div class="form-group">
-            <div class="col-sm-10">
-              <%= submit_tag 'Upload', :class => 'btn btn-default' %>
-            </div>
+          <div class="d-flex justify-content-end">
+            <%= render "kaui/components/button/button", {
+              label: 'Upload',
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "submit",
+              html_class: "kaui-dropdown custom-hover m-0"
+            } %>
           </div>
       <% end %>
     </div>

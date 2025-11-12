@@ -1,28 +1,31 @@
 <%- # :alert used by devise -%>
 <% [:error, :alert].each do |key| %>
-    <% if flash[key] %>
-        <div class="row server-alert">
-          <div class="col-md-12">
-            <div class="alert alert-danger"><%= flash[key] %></div>
-          </div>
+  <% if flash[key] %>
+    <div id="flash-<%= key %>" class="server-alert kaui-container centered-absolute">
+      <div class="custom-alert custom-alert-danger">
+        <div class="d-flex justify-content-between align-items-start w-100">
+          <span><%= flash[key] %></span>
+          <button type="button" class="close-btn" aria-label="Close" onclick="closeFlashMessage('<%= key %>')">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-    <% end %>
-<% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %> 
 
 
 <% if defined?(@account)  %>
 <% if @account.errors.any? %>
-  <h3>The following errors prevented the account from being created:</h3>
-
-  <div class="row server-alert">
-    <div class="col-md-12">
-      <div class="alert alert-danger">
+  <div class="server-alert kaui-container centered-absolute">
+    <h3 class="error-title">The following errors prevented the account from being created:</h3>
+    <div class="custom-alert custom-alert-danger">
+      <i class="bi bi-exclamation-triangle-fill"></i>
+      <ul>
         <% @account.errors.values.flatten.each do |msg| %>
-
           <li><%= msg %></li>
-
         <% end %>
-      </div>
+      </ul>
     </div>
   </div>
 <% end %>
@@ -33,38 +36,86 @@
 
 
 <% if flash[:warning] %>
-  <div class="row server-alert">
-    <div class="col-md-12">
-      <div class="alert alert-warning"><%= flash[:warning] %></div>
+  <div id="flash-warning" class="server-alert kaui-container centered-absolute">
+    <div class="custom-alert custom-alert-warning">
+      <div class="d-flex justify-content-between align-items-start w-100">
+        <span><%= flash[:warning] %></span>
+        <button type="button" class="close-btn" aria-label="Close" onclick="closeFlashMessage('warning')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
     </div>
   </div>
 <% end %>
 <% if flash[:notice] %>
-    <div class="row server-alert">
-      <div class="col-md-12">
-        <div class="alert alert-info"><%= flash[:notice] %></div>
+  <div id="flash-notice" class="server-alert kaui-container centered-absolute">
+    <div class="custom-alert custom-alert-info">
+      <div class="d-flex justify-content-between align-items-start w-100">
+        <span><%= flash[:notice] %></span>
+        <button type="button" class="close-btn" aria-label="Close" onclick="closeFlashMessage('notice')">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
     </div>
+  </div>
 <% end %>
 <!--This is for ajax calls that need to notify for error, to trigger this alert use ajaxAlert(message, timeout)-->
-<div id="ajaxErrorAlert" class="row ajaxAlert" style="display: none">
-  <div class="col-md-12">
-    <div class="alert alert-danger">
-      <button type="button" class="close" aria-label="Close">
+<div id="ajaxErrorAlert" class="ajaxAlert kaui-container centered-absolute" style="display: none">
+  <div class="custom-alert custom-alert-danger">
+    <div class="d-flex justify-content-between align-items-start w-100">
+      <span id="ajaxErrorAlertMessage" class="ajaxAlertMessage"></span>
+      <button type="button" class="close-btn" aria-label="Close" onclick="closeAjaxAlert('error')">
         <span aria-hidden="true">&times;</span>
       </button>
-      <span id="ajaxErrorAlertMessage" class="ajaxAlertMessage"></span>
     </div>
   </div>
 </div>
 <!--This is for ajax calls that need to notify information, to trigger this alert use ajaxInfo(message, timeout)-->
-<div id="ajaxInfoAlert" class="row ajaxAlert" style="display: none">
-  <div class="col-md-12">
-    <div class="alert alert-info">
-      <button type="button" class="close" aria-label="Close">
+<div id="ajaxInfoAlert" class="ajaxAlert kaui-container centered-absolute" style="display: none">
+  <div class="custom-alert custom-alert-info">
+    <div class="d-flex justify-content-between align-items-start w-100">
+      <span id="ajaxInfoAlertMessage" class="ajaxAlertMessage"></span>
+      <button type="button" class="close-btn" aria-label="Close" onclick="closeAjaxAlert('info')">
         <span aria-hidden="true">&times;</span>
       </button>
-      <span id="ajaxInfoAlertMessage" class="ajaxAlertMessage"></span>
     </div>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    // Auto-hide success message after 3 seconds
+    setTimeout(function() {
+      $('#flash-notice').fadeOut(500);
+    }, 3000);
+  });
+  
+  // Function to close flash messages
+  function closeFlashMessage(type) {
+    $('#flash-' + type).fadeOut(500);
+  }
+  
+  // Function to show ajax info alert with auto-hide
+  function ajaxInfo(message, timeout) {
+    if (typeof timeout === 'undefined') {
+      timeout = 3000; // Default to 3 seconds
+    }
+    
+    $('#ajaxInfoAlertMessage').text(message);
+    $('#ajaxInfoAlert').fadeIn(300);
+    
+    // Auto-hide after specified timeout
+    setTimeout(function() {
+      $('#ajaxInfoAlert').fadeOut(500);
+    }, timeout);
+  }
+
+  // Function to close ajax alerts
+  function closeAjaxAlert(type) {
+    if (type === 'error') {
+      $('#ajaxErrorAlert').fadeOut(500);
+    } else if (type === 'info') {
+      $('#ajaxInfoAlert').fadeOut(500);
+    }
+  }
+</script>

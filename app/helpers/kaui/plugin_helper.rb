@@ -2,8 +2,35 @@
 
 module Kaui
   module PluginHelper
+    CONFIGABLE_PLUGINS = %w[analytics avatax email-notifications deposit payment-test aviate].freeze
+
     def plugin_repository
       installed_plugins
+    end
+
+    def installed_plugin_names
+      plugins = []
+      nodes_info = KillBillClient::Model::NodesInfo.nodes_info(Kaui.current_tenant_user_options(current_user, session)) || []
+      plugins_info = nodes_info.empty? ? [] : (nodes_info.first.plugins_info || [])
+      plugins_info.each do |plugin|
+        next unless plugin.state == 'RUNNING'
+
+        plugin_name = plugin.plugin_name
+        plugin_key = plugin_name.gsub('-plugin', '')
+
+        # Handle special cases
+        plugin_path = case plugin_name
+                      when /email-notifications/
+                        '/kenui'
+                      when /payment-test/
+                        '/payment_test'
+                      else
+                        "/#{plugin_key}"
+                      end
+        plugin_path = nil unless CONFIGABLE_PLUGINS.include?(plugin_key)
+        plugins << { name: plugin_name, path: plugin_path } if plugin_path
+      end
+      plugins
     end
 
     private

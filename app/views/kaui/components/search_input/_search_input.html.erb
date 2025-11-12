@@ -1,0 +1,81 @@
+<div class="position-relative mx-auto search-container">
+    <%= form_tag kaui_engine.search_path, method: :get, id: "searchform", role: "search", class: "d-flex align-items-center m-0" do %>
+    <div class="input-group border overflow-hidden search-box">
+        <span class="input-group-text bg-white border-0 ps-3">
+            <%= link_to image_tag('kaui/header/search_icon.svg', :alt => 'Search Icon'), kaui_engine.home_path %>
+        </span>
+
+        <%= text_field_tag :q, params[:q], class: "form-control border-0", placeholder: "What are you looking for?", autocomplete: "off", id: "search-box" %>
+
+        <span class="input-group-text bg-white border-0 pe-3 text-muted">⌘K</span>
+    </div>
+    <% end %>
+
+    <!-- Autocomplete dropdown -->
+    <div id="search-suggestions" class="autocomplete-box position-absolute bg-white rounded-4 shadow mt-1 p-3 w-100 d-none border">
+        <div class="mb-2 fw-semibold text-muted">Jump to…</div>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+
+            <div class="d-flex header-tag custom-hover align-items-center gap-2 border-secondary px-2 border-2 rounded-4 ">
+                <%= link_to image_tag('kaui/header/account.svg', :alt => 'Account Icon'), kaui_engine.home_path %>
+                <%= link_to "All Accounts", kaui_engine.accounts_path, class: "text-decoration-none text-black-700" %>
+            </div>
+            <div class="d-flex header-tag custom-hover align-items-center gap-2 border-secondary px-2 border-2 rounded-4 ">
+                <%= link_to image_tag('kaui/header/invoice.svg', :alt => 'Account Icon'), kaui_engine.home_path %>
+                <%= link_to "All Invoices", kaui_engine.invoices_path, class: "text-decoration-none text-black-700" %>
+            </div>
+            <div class="d-flex header-tag custom-hover align-items-center gap-2 border-secondary px-2 border-2 rounded-4 ">
+                <%= link_to image_tag('kaui/header/payment.svg', :alt => 'Account Icon'), kaui_engine.home_path %>
+                <%= link_to "All Payments", kaui_engine.payments_path, class: "text-decoration-none text-black-700" %>
+            </div>
+        </div>
+
+        <div class="mb-1 fw-semibold text-muted mb-2">Suggested search queries</div>
+        <div class="mb-3">
+            <div class="inline-block me-2 my-4">
+                <span class="me-2 header-tag custom-hover text-black-900 fw-500 align-items-center gap-2 border-secondary px-2 py-2 border-2 rounded-4 ">account:</span>
+                <span>account: Flavio Ruggiero</span>
+            </div>
+            <div class="inline-block me-2 my-4">
+                <span class="me-2 header-tag custom-hover text-black-900 fw-500 align-items-center gap-2 border-secondary px-2 py-2 border-2 rounded-4 ">invoice:</span>
+                <span>invoice: af58a92c-bdc4-...</span>
+            </div>
+            <div class="inline-block me-2 my-4">
+                <span class="me-2 header-tag custom-hover text-black-900 fw-500 align-items-center gap-2 border-secondary px-2 py-2 border-2 rounded-4 ">payment:</span>
+                <span>payment: 3c4c0263-b06f-...</span>
+            </div>
+        </div>
+
+        <div class="fw-semibold text-muted mb-2">Other search queries</div>
+        <div class="d-flex flex-wrap gap-2">
+            <% %w[custom\ field: subscription: tag:].each do |term| %>
+            <span class="badge text-dark border border-secondary rounded-3 px-3 py-2 custom-hover"><%= term %></span>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const input = document.getElementById("search-box");
+        const dropdown = document.getElementById("search-suggestions");
+
+        input.addEventListener("input", () => {
+            dropdown.classList.remove("d-none");
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!dropdown.contains(e.target) && e.target !== input) {
+                dropdown.classList.add("d-none");
+            }
+        });
+
+        // Optional: shortcut CMD+K
+        document.addEventListener("keydown", (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+                e.preventDefault();
+                input.focus();
+            }
+        });
+    });
+</script>

@@ -1,0 +1,121 @@
+.wallets-index .wallets {
+  max-width: 80rem;
+  width: 100%;
+}
+
+.wallets-index .wallets .wallets-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  padding: 0;
+  border-bottom: 0.0625rem solid #e9eaeb;
+}
+
+.wallets-index .wallets-table th,
+.wallets-index .wallets-table td {
+  white-space: nowrap;
+  text-align: left;
+}
+
+.wallets-index .wallets .wallets-header h2 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: #414651;
+  margin-bottom: 1.25rem;
+}
+
+.wallets-index .wallets .wallets-table {
+  overflow-x: auto;
+  min-width: 100%;
+}
+
+.wallets-index .wallets .wallets-table th {
+  padding: 0.375rem 0.75rem !important;
+  font-weight: 500 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.125rem !important;
+  letter-spacing: 0 !important;
+  color: #717680 !important;
+  text-transform: capitalize !important;
+  position: relative !important;
+}
+
+.wallets-index .wallets .wallets-table .header-content {
+  display: flex;
+  align-items: center;
+}
+
+.wallets-index .wallets .wallets-table td {
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  line-height: 1.125rem !important;
+  text-align: start;
+  color: #535862 !important;
+}
+
+.wallets-index .wallets .wallets-table table.dataTable {
+  overflow: auto !important;
+}
+
+#wallets-table_wrapper .dataTables_empty {
+  text-align: center;
+}
+
+.add-new-wallet-details .add-new-wallet-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  letter-spacing: 0;
+  color: #1b1c1e;
+  padding: 1.5rem 0;
+}
+
+.add-new-wallet-details .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625rem solid #d5d7da;
+  border-radius: 0.375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+}
+
+.add-new-wallet-details .icon-container img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.add-new-wallet-details .control-label {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  line-height: 1.25rem !important;
+  color: #414651 !important;
+}
+
+.add-new-wallet-details .form-group select.form-control {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0.625rem center;
+  background-size: 1rem 1rem;
+  padding-right: 1.875rem;
+}
+
+.add-new-wallet-details select.form-control:focus {
+  box-shadow: none;
+  outline: none;
+  border-color: #1570ef;
+}
+
+.add-new-wallet-details .form-group .form-control {
+  margin-right: 0.25rem;
+  height: 2.5rem;
+  border-radius: 0.375rem;
+}

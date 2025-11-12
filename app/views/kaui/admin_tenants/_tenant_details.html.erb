@@ -1,21 +1,110 @@
-<div class="col-md-6">
+<div class="kaui-container gap-container">
+  <div class="tenant-details-container">
+    <div class="d-flex flex-column">
+      <div class="tenant-details-header mb-3">
+        <div class="d-flex align-items-start flex-column">
+          <h2>Tenant details</h2>
+        </div>
+        <span>
+        </span>
+      </div>
+      <div class="row tenant-details">
+        <div class="col-sm-3">
+          <b>Name:</b> 
+          <p><%= @tenant.name %>&nbsp; 
+            <% if session[:kb_tenant_name] == @tenant.name %>
+              <i class="fa fa-toggle-on switch-tenant-active" title="Currently selected"></i>
+            <% else %>
+              <%= link_to("<i class=\"fa fa-toggle-off\" aria-hidden=\"true\"></i>".html_safe, switch_tenant_path(:kb_tenant_id => @tenant.kb_tenant_id), title: 'Click the toggle to switch tenant') %>
+            <% end %>
+          </p>
+        </div>
+        <div class="col-sm-3">
+          <b>Tenant ID:</b> 
+          <p>
+            <%= @tenant.kb_tenant_id %>
+            <%= render "kaui/components/button/button", {
+              label: '',
+              icon: "kaui/copy.svg",
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "button",
+              html_class: "dots-menu kaui-button",
+              html_options: {
+                onclick: "navigator.clipboard.writeText('#{@tenant.kb_tenant_id}')"
+              }
+            } %>
+          </p>
+        </div>
+        <div class="col-sm-3">
+          <b>API Key:</b> 
+          <p class="d-flex align-items-center gap-2 flex-nowrap">
+            <%= @tenant.api_key %>
+            <%= render "kaui/components/button/button", {
+              label: '',
+              icon: "kaui/copy.svg",
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "button",
+              html_class: "dots-menu kaui-button flex-shrink-0",
+              html_options: {
+                onclick: "navigator.clipboard.writeText('#{@tenant.api_key}')"
+              }
+            } %>
+          </p>
+        </div>
+        <div class="col-sm-3">
+          <b>API Secret:</b>
+          <p class="d-flex align-items-center gap-2 flex-nowrap">
+            <span class="mx-0" id="api-secret">
+              <%= @tenant.api_secret %>
+            </span>
 
-  <div class="column-block">
-
-    <h1>Tenant details</h1>
-
-    <b>Name:</b> <%= @tenant.name %>&nbsp;
-      <% if session[:kb_tenant_name] == @tenant.name %>
-        <i class="fa fa-toggle-on switch-tenant-active" title="Currently selected"></i>
-      <% else %>
-        <%= link_to("<i class=\"fa fa-toggle-off\" aria-hidden=\"true\"></i>".html_safe,
-                  switch_tenant_path(:kb_tenant_id => @tenant.kb_tenant_id), title: 'Click the toggle to switch tenant') %>
-      <% end %>
-    <br/>
-    <b>Tenant ID:</b> <%= @tenant.kb_tenant_id %>
-    <br/>
-    <b>API Key:</b> <%= @tenant.api_key %>
-
+            <%= render "kaui/components/button/button", {
+              label: '',
+              icon: "kaui/eye.svg",
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "button",
+              html_class: "dots-menu kaui-button flex-shrink-0",
+              html_options: {
+                id: "toggle-eye-btn",
+                onclick: "toggleSecret()"
+              }
+            } %>
+            <%= render "kaui/components/button/button", {
+              label: '',
+              icon: "kaui/copy.svg",
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "button",
+              html_class: "dots-menu kaui-button flex-shrink-0",
+              html_options: {
+                onclick: "navigator.clipboard.writeText('#{@tenant.api_secret}')"
+              }
+            } %>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
-
 </div>
+
+<script>
+  function toggleSecret() {
+    const secretSpan = document.getElementById("api-secret");
+    const eyeBtn = document.getElementById("toggle-eye-btn").querySelector("img");
+
+    if (secretSpan.dataset.visible === "true") {
+      secretSpan.textContent = "✴✴✴✴✴";
+      secretSpan.dataset.visible = "false";
+      eyeBtn.src = "/assets/kaui/eye.svg"; // eye closed
+    } else {
+      secretSpan.textContent = "<%= j @tenant.api_secret %>";
+      secretSpan.dataset.visible = "true";
+      eyeBtn.src = "/assets/kaui/eye-off.svg"; // eye open
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const secretSpan = document.getElementById("api-secret");
+    secretSpan.dataset.visible = "false";
+    secretSpan.textContent = "✴✴✴✴✴";
+  });
+</script>

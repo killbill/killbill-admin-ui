@@ -78,6 +78,13 @@ module Kaui
 
       configure_tenant_if_nil(@tenant)
 
+      # Fetch clock data for the clock component
+      begin
+        @clock = Kaui::Admin.get_clock(nil, options_for_klient)
+      rescue KillBillClient::API::NotFound
+        flash[:error] = 'Failed to get current KB clock: Kill Bill server must be started with system property org.killbill.server.test.mode=true'
+      end
+
       options = tenant_options_for_client
       options[:api_key] = @tenant.api_key
       options[:api_secret] = @tenant.api_secret
@@ -122,6 +129,11 @@ module Kaui
 
       # When reloading page from the view, it sends the last tab that was active
       @active_tab = params[:active_tab] || 'CatalogShow'
+
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
 
     def upload_catalog
@@ -470,6 +482,27 @@ module Kaui
 
         { catalog: }
       end
+    end
+
+    def set_clock
+      @tenant = safely_find_tenant_by_id(params[:id])
+
+      if params[:commit] == 'Submit'
+        date = Date.parse(params[:new_date]).strftime('%Y-%m-%d')
+        msg = I18n.translate('flashes.notices.clock_updated_successfully', new_date: date)
+      else
+        date = nil
+        msg = I18n.translate('flashes.notices.clock_reset_successfully')
+      end
+
+      begin
+        Kaui::Admin.set_clock(date, nil, options_for_klient)
+      rescue KillBillClient::API::NotFound
+        flash[:error] = 'Failed to set current KB clock: Kill Bill server must be started with system property org.killbill.server.test.mode=true'
+        redirect_to admin_tenant_path(@tenant.id) and return
+      end
+
+      redirect_to admin_tenant_path(@tenant.id), notice: msg
     end
 
     def switch_tenant

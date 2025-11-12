@@ -1,49 +1,89 @@
-<div id="catalog_simple">
-  <hr/>
-
-    <h1>Existing Plans
-        <% if can? :config_upload, Kaui::AdminTenant %>
-            <%= link_to '<i class="fa fa-plus-square"></i>'.html_safe,
-                        admin_tenant_new_catalog_path(:id => @tenant.id),
-                        :class => 'btn btn-xs' %>
+<div class="kaui-container show-catalog-simple" id="catalog_simple">
+<div class="existing-plans-container mt-4">
+    <div class="d-flex flex-column">
+    <div class="existing-plans-header mb-3">
+        <div class="d-flex align-items-start flex-column">
+        <h2>Existing Plans</h2>
+        </div>
+        <span>
+        <% if @catalog_versions.present? %>
+            <div class="select-catalog-version d-inline-flex align-items-center gap-1">
+                <b>Catalog Versions:</b>
+                <select id="select_catalog" class="selectpicker show-menu-arrow">
+                    <% @catalog_versions.reverse_each do |catalog, i| %>
+                        <option idx="<%= catalog[:version] %>">
+                            <%= catalog[:version_date] %>
+                        </option>
+                    <% end %>
+                </select>
+            </div>
         <% end %>
-        <%= link_to '<i class="fa fa-arrow-down" aria-hidden="true"></i>'.html_safe,
-                    download_catalog_xml_path(:id => @tenant.id, :effective_date => @latest_version),
-                    :class => 'btn btn-xs', :id => 'download_link' %>
+
+
         <% if can?(:delete, Kaui::AdminTenant) %>
-            <%= link_to '<i class="fa fa-times"></i>'.html_safe,
-                        admin_tenant_delete_catalog_path(:id => @tenant.id), :method => :delete, :class => 'btn btn-xs' %>
+            <%= link_to admin_tenant_delete_catalog_path(id: @tenant.id), :method => :delete, class: "text-decoration-none" do %>
+                <%= render "kaui/components/button/button", {
+                    label: "Delete Catalog",
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "button",
+                    html_class: "kaui-button dots-menu custom-hover",
+                } %>
+            <% end %>
         <% end %>
-        <a class='btn btn-xs' href="javascript:void(0);" onclick="switchXMLConfig();">Enable XML View</a>
-    </h1>
+        <%= link_to download_catalog_xml_path(id: @tenant.id, effective_date: @latest_version), id: "download_link", class: "text-decoration-none" do %>
+            <%= render "kaui/components/button/button", {
+                label: "Download XML",
+                icon: "kaui/download.svg",
+                variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                type: "button",
+                html_class: "kaui-button custom-hover"
+            } %>
+        <% end %>
+        
+        <%= link_to "javascript:void(0);", onclick: "switchXMLConfig();", class:"text-decoration-none" do %>
+            <%= render "kaui/components/button/button", {
+                label: "XML View",
+                icon: "kaui/view-doc.svg",
+                variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                type: "button",
+                html_class: "kaui-button custom-hover"
+            } %>
+        <% end %>
 
-  <table id="existing-plans-for-tenants" class="table table-condensed">
+        <% if can? :config_upload, Kaui::AdminTenant %>
+            <%= link_to admin_tenant_new_catalog_path(:id => @tenant.id) do %>
+                <%= render "kaui/components/button/button", {
+                    label: "Add Catalog",
+                    icon: "kaui/plus.svg",
+                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                    type: "button",
+                    html_class: "kaui-dropdown custom-hover"
+                } %>
+            <% end %>
+        <% end %>
+        </span>
+    </div>
+    <div class="">
+        <table id="existing-plans-for-tenants" class="existing-plans-table">
+            <thead>
+            <tr>
+            <th><%= I18n.translate('views.catalogs.show.plan_table.plan_id') %></th>
+            <th><%= I18n.translate('views.catalogs.show.plan_table.product') %></th>
+            <th><%= I18n.translate('views.catalogs.show.plan_table.category') %></th>
+            <th><%= I18n.translate('views.catalogs.show.plan_table.billing_period') %></th>
+            <th id="currency_select"></th>
+            <th><%= I18n.translate('views.catalogs.show.plan_table.trial') %></th>
+            <th><%= I18n.translate('views.catalogs.show.plan_table.final_phase_duration') %></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody id="catalog_detail">
 
-    <span class='label'>
-        <b>Catalog Versions:</b>
-    </span>
-    <select id="select_catalog" class="selectpicker show-menu-arrow">
-      <% @catalog_versions.reverse_each do |catalog, i| %>
-          <option idx="<%= catalog[:version] %>"><%= catalog[:version_date] %></option>
-      <% end %>
-    </select>
-
-    <thead>
-    <tr>
-      <th><%= I18n.translate('views.catalogs.show.plan_table.plan_id') %></th>
-      <th><%= I18n.translate('views.catalogs.show.plan_table.product') %></th>
-      <th><%= I18n.translate('views.catalogs.show.plan_table.category') %></th>
-      <th><%= I18n.translate('views.catalogs.show.plan_table.billing_period') %></th>
-      <th id="currency_select"></th>
-      <th><%= I18n.translate('views.catalogs.show.plan_table.trial') %></th>
-      <th><%= I18n.translate('views.catalogs.show.plan_table.final_phase_duration') %></th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody id="catalog_detail">
-
-    </tbody>
-  </table>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
 </div>
 
 <script id="currencies_template" type="text/template">
@@ -62,7 +102,7 @@
         <tr class="selected_catalog">
           <td>{{plan_id}}</td>
           <td>{{#humanized_product_name}}{{product_name}}{{/humanized_product_name}}</td>
-          <td>{{#humanized_product_category}}{{product_category}}{{/humanized_product_category}}</td>
+          <td> <span class="category">{{#humanized_product_category}}{{product_category}}{{/humanized_product_category}}</span></td>
           <td>{{#humanized_billing_period}}{{billing_period}}{{/humanized_billing_period}}</td>
           <td>
             {{#currenciesWithPrices}}
@@ -75,11 +115,20 @@
           </td>
 
           <td>
-            {{final_phase_duration}}
+            <span class="phase-duration">{{final_phase_duration}}</span>
           </td>
 
-          <td><a class="btn btn-xs"
-                 href="{{new_plan_currency_path}}"><i class="fa fa-plus-square"></i> currency</a></td>
+          <td>
+            <%= link_to "{{new_plan_currency_path}}", class:"text-decoration-none" do %>
+                <%= render "kaui/components/button/button", {
+                    label: "Currency",
+                    icon: "kaui/setting/plus.svg",
+                    variant: "outline-secondary d-inline-flex align-items-center",
+                    type: "button",
+                    html_class: "currency-button kaui-button",
+                } %>
+            <% end %>
+          </td>
         </tr>
       {{/plans}}
     {{/catalog}}

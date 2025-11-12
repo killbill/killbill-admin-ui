@@ -1,33 +1,68 @@
-<div class="search">
+<div class="kaui-container kaui-accounts-index">
+  <div class="search">
+    <div>
+      
+      <%= render "kaui/components/breadcrumb/breadcrumb" %>
+      <%= render :partial => 'account_filterbar' %>   
 
-  <div class="column-block">
-    <%= render :partial => 'multi_functions_bar' %>
+      <%= render partial: 'functions_bar', locals: {
+        title: "Accounts",
+        actions: [
+          {
+            label: "Advanced Search",
+            icon: 'kaui/search.svg',
+            html_class: "kaui-button custom-hover",
+            path: "#",
+            variant: "outline-secondary",
+            data: {
+              bs_toggle: "modal",
+              bs_target: "#advanceSearchModal"
+            }
+          },
+          {
+            label: "Download CSV",
+            icon: 'kaui/download.svg',
+            html_class: "kaui-button custom-hover",
+            path: "#",
+            variant: "outline-secondary",
+            id: "modalDownloadButton"
+          },
+          {
+            label: "Edit Columns",
+            icon: 'kaui/setting.svg',
+            html_class: "kaui-button custom-hover",
+            path: "#",
+            variant: "outline-secondary",
+            id: "dropdownMenu1"
+          },
+          {
+            label: "Create Account",
+            icon: 'kaui/plus.svg',
+            path: kaui_engine.new_account_path,
+            html_class: "kaui-dropdown custom-hover",
+            variant: "outline-secondary"
+          }
+        ]
+      } %>
 
-    <table id="accounts-table" class="table table-condensed mobile-data" style="width:100%">
-      <thead>
-      <tr>
-        <% Kaui.account_search_columns.call[0].each do |title| %>
-          <th><%= title %></th>
-        <% end %>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td colspan="1" class="dataTables_empty">Loading data from server</td>
-      </tr>
-      </tbody>
-    </table>
+      <div id="search-labels-container" class="ml-2">
+        <!-- Dynamic search labels will be added here -->
+      </div>
+
+      <table id="accounts-table" class="table table-condensed mobile-data" style="width:100%">
+        <thead>
+          <tr>
+            <% Kaui.account_search_columns.call[0].each do |title| %>
+              <th><%= title %></th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table> 
+    </div>
   </div>
 </div>
-
-<style>
-  #accounts-table td, #accounts-table tr {
-    white-space: nowrap;
-  }
-  .custom-checkbox {
-    pointer-events: none;
-  }
-</style>
 
 <%= javascript_tag do %>
 $(document).ready(function() {
@@ -36,6 +71,12 @@ $(document).ready(function() {
       "enable": false
     },
     "stateSave": true,
+    "stateSaveCallback": function(settings, data) {
+      localStorage.setItem('DataTables_accounts-table_' + window.location.pathname, JSON.stringify(data));
+    },
+    "stateLoadCallback": function(settings) {
+      return JSON.parse(localStorage.getItem('DataTables_accounts-table_' + window.location.pathname));
+    },
     "scrollX": true,
     "dom": "<'row'r>t<'row'<'col-md-6'i><'col-md-6'p>>",
     "pagingType": <% if @max_nb_records.nil? -%>"simple"<% else -%>"full_numbers"<% end -%>,
@@ -67,7 +108,10 @@ $(document).ready(function() {
         return reorderedData;
       }
     },
-    "columns": <%= raw @visible_columns.to_json %>
+    "columns": <%= raw @visible_columns.to_json %>,
+    "stateSaveParams": function(settings, data) {
+      data.start = 0; // always first page when restoring state
+    }
   });
 
   <!-- When we don't know the total number of pages, we need to hide the legend and next button manually -->
@@ -79,6 +123,12 @@ $(document).ready(function() {
       $(".next.paginate_button").toggleClass("disabled", noMoreData);
       $(".dataTables_info").toggle(!noMoreData);
     <% end %>
+
+    $("td.dataTables_empty").each(function() {
+      var text = $(this).text().trim();
+      $(this).html('<p class="max-text-container">' + text + '</p>');
+    });
+
     populateSearchLabelsFromUrl();
   });
 });

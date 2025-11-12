@@ -95,10 +95,37 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="allFields" name="allFields">
-                <label class="form-check-label" for="allFields">All fields</label>
+            <div class="d-flex align-items-center">
+              <label for="searchFieldSelect" class="field-label col-sm-3">Include fields</label>
+              <div class="col-md-9">
+                <div class="chip-select">
+                  <input type="checkbox" id="dropdown-toggle" hidden />
+
+                  <label for="dropdown-toggle" class="chip-input-box position-relative" style="position: relative; overflow: hidden;">
+                    <div class="chip-list" id="selected-fields-chips">
+                      <%# This will be dynamically populated with chips for selected fields %>
+                      <span class="chip" style="color: #999;">No fields selected</span>
+                      <svg width="16" height="16" class="position-absolute" style="top: 0.625rem; right: 0.625rem;" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 6L8 10L12 6" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <div id="" class="position-absolute" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;"></div>
+                  </label>
+                  <div class="chip-dropdown">
+                    <label class="chip-option">
+                      <input type="checkbox" id="allFields" />
+                      All fields
+                    </label>
+                    <div class="mt-2" id="field-selection">
+                      <% Kaui.account_search_columns.call[0].each_with_index do |title, index| %>
+                        <label class="chip-option d-flex align-items-center gap-2">
+                          <input type="checkbox" class="field-toggle" data-field-index="<%= index %>" checked />
+                          <span><%= title %></span>
+                        </label>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -114,49 +141,49 @@
 
 <style>
   .dropdown-menu#column-visibility {
-    max-height: 300px;
-    width: 200px;
+    max-height: 18.75rem;
+    width: 12.5rem;
     overflow-y: auto;
   }
 
   .dropdown-menu#column-visibility::before {
     content: 'Drag to reorder columns';
     display: block;
-    height: 30px;
+    height: 1.875rem;
     text-align: center;
     color: darkgrey;
-    padding-top: 5px;
+    padding-top: 0.3125rem;
   }
-  
+
   .dropdown-menu {
-    padding: 5px;
+    padding: 0.3125rem;
   }
 
   .toggle-button-right {
     float: right;
-    margin-bottom: 10px;
-    margin-left: 10px;
+    margin-bottom: 0.625rem;
+    margin-left: 0.625rem;
     background-color: white;
     color: black;
     text-transform: none;
-    border: 1px solid #ccc;
-    padding: 8px 15px;
+    border: 0.0625rem solid #ccc;
+    padding: 0.5rem 0.9375rem;
   }
 
   .download-button-right {
     float: right;
-    margin-bottom: 10px;
-    margin-left: 10px;
+    margin-bottom: 0.625rem;
+    margin-left: 0.625rem;
     background-color: white;
     color: black;
     text-transform: none;
-    border: 1px solid #ccc;
-    padding: 8px 15px;
+    border: 0.0625rem solid #ccc;
+    padding: 0.5rem 0.9375rem;
   }
 
   .icon-drag {
     float: right;
-    padding: 5px;
+    padding: 0.3125rem;
   }
 
   .dropdown-container {
@@ -165,12 +192,13 @@
   }
 
   .label-group-item-manual {
-    margin: 5px;
+    margin: 0.3125rem;
     width: -webkit-fill-available;
     cursor: grab;
   }
+
   .label-group-item-manual:active {
-      cursor: grabbing;
+    cursor: grabbing;
   }
 </style>
 
@@ -231,18 +259,29 @@ $(document).ready(function() {
     downloadButton.addEventListener('click', function() {
       event.preventDefault();
 
-      var allFieldsChecked = document.getElementById('allFields').checked;
+      var allFieldsChecked = $('#allFields').is(':checked');
       var startDate = $('#startDate').val();
       var endDate = $('#endDate').val();
       var downloadAll = $('#allData').is(':checked');
-      var thElements = document.querySelectorAll('#accounts-table th');
-      var columnTitles = Array.from(thElements).map(function(th) {
-        return th.textContent.trim();
-      });
-      var columnsString = columnTitles.join(',')
+      
+      // Get selected fields
+      var selectedFields = [];
+      if (!allFieldsChecked) {
+        $('#field-selection input.field-toggle:checked').each(function() {
+          var labelText = $(this).closest('label').find('span').text().trim();
+          selectedFields.push(labelText);
+        });
+      } else {
+        // If all fields checked, get all column titles from the table
+        var thElements = document.querySelectorAll('#accounts-table th');
+        selectedFields = Array.from(thElements).map(function(th) {
+          return th.textContent.trim();
+        });
+      }
+
       var url = new URL("<%= download_accounts_path %>", window.location.origin);
       var params = new URLSearchParams();
-      params.append('columnsString', columnsString);
+      params.append('columnsString', selectedFields.join(','));
       if (!downloadAll) {
         params.append('startDate', startDate);
         params.append('endDate', endDate);
