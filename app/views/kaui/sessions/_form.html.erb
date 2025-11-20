@@ -1,7 +1,7 @@
 <%= form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "" } do |f| %>
 
-<%= render "kaui/components/form_input/form_input", f: f, field: :kb_username, label: "Admin Username", placeholder: "Enter your admin username" %>
-<%= render "kaui/components/form_password/form_password", f: f, field: :password, label: "Admin Password", placeholder: "*****" %>
+<%= render "kaui/components/form_input/form_input", f: f, field: :kb_username, label: t("devise.sessions.new.username"), placeholder: t("devise.sessions.new.enter_username"), value: "" %>
+<%= render "kaui/components/form_password/form_password", f: f, field: :password, label: t("devise.sessions.new.password"), placeholder: "*****", value: "" %>
 
 <div class="d-grid mt-4">
     <%= render "kaui/components/button/button", label: "Sign in", variant: "btn-primary custom-hover", type: "submit", html_class: "w-100" %>
