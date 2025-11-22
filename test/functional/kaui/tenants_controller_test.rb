@@ -30,7 +30,7 @@ module Kaui
       get :index, params: { use_route: 'kaui' }
       assert_response 302
       assert_redirected_to Kaui::IntegrationTestHelper::HOME_PATH
-      assert_equal 'Signed in successfully.', flash[:notice]
+      assert_equal I18n.t('devise.sessions.signed_in'), flash[:notice]
     end
 
     #
@@ -40,7 +40,7 @@ module Kaui
       setup_functional_test(1, true)
       get :index, params: { use_route: 'kaui' }
       assert_includes (200..399), response.code.to_i
-      assert_equal 'Signed in successfully.', flash[:notice]
+      assert_equal I18n.t('devise.sessions.signed_in'), flash[:notice]
     end
 
     #
@@ -51,7 +51,7 @@ module Kaui
       setup_functional_test(2, true)
       get :index, params: { use_route: 'kaui' }
       assert_response :success
-      assert_equal 'Signed in successfully.', flash[:notice]
+      assert_equal I18n.t('devise.sessions.signed_in'), flash[:notice]
     end
 
     test 'should select a tenant' do
