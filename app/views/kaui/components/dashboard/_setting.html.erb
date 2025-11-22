@@ -3,7 +3,7 @@
 
 <div class="col mb-3">
     <% if disabled %>
-        <div class="text-decoration-none text-reset disabled-setting-card" style="cursor: not-allowed; opacity: 0.6; position: relative;">
+        <div class="text-decoration-none text-reset disabled-setting-card">
             <div class="d-flex gap-3">
                 <div class="flex-shrink-0">
                     <div class="flex items-center justify-content-center setting-card-icon border rounded-3">
@@ -16,15 +16,9 @@
                 </div>
             </div>
             <% if tooltip_message.present? %>
-                <span style="visibility: hidden; position: absolute; background-color: #333; color: white; text-align: center; padding: 5px 10px; border-radius: 4px; bottom: 100%; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 12px; z-index: 1000; margin-bottom: 5px; opacity: 0; transition: opacity 0.2s, visibility 0.2s;"><%= tooltip_message %></span>
+                <span class="tooltip-text"><%= tooltip_message %></span>
             <% end %>
         </div>
-        <style>
-          .disabled-setting-card:hover span {
-            visibility: visible !important;
-            opacity: 1 !important;
-          }
-        </style>
     <% else %>
         <%= link_to path, class: "text-decoration-none text-reset custom-hover" do %>
             <div class="d-flex gap-3">
