@@ -38,48 +38,4 @@
             </div>
         </div>
     </div>
-
-
-    <%
-=begin%>
-    <div class="home">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3 text-center">
-
-                <%= form_tag search_path, :id => 'home_searchform', :method => 'get' do %>
-                <%= text_field_tag :q, @search_query, :id => 'search', :placeholder => 'What are you looking for?' %>
-                <%= submit_tag 'Search' %>
-
-                <div id="advanced">
-                    <%= link_to('Advanced search','#advancedSearchModal', data: { toggle: 'modal', target: '#advancedSearchModal' }) %>
-                </div>
-                <% end %>
-
-            </div>
-            <div class="col-md-6 col-md-offset-3 legend">
-                <p class="text-center">
-                    <%= link_to 'Latest accounts', kaui_engine.accounts_path %> /
-                    <%= link_to 'Latest invoices', kaui_engine.invoices_path %> /
-                    <%= link_to 'Latest payments', kaui_engine.payments_path %>
-                </p>
-            </div>
-        </div>
-        <span class="duck_help">Accounts are searched by default. For complex searches, use <b>Advanced Search</b>.</span>
-
-    </div>
-
-    <%= render :partial => 'advanced_search_modal' %>
-
-    <script language="javascript">
-        $(document).ready(function() {
-            function alignToSearch() {
-                var leftPosition = $('#search').position().left + 25;
-                $('#advanced').css('padding-left', leftPosition);
-            }
-
-            alignToSearch();
-        });
-    </script>
-    <%
-=end%>
 </div>
