@@ -1,15 +1,37 @@
+<% disabled ||= false %>
+<% tooltip_message ||= nil %>
+
 <div class="col mb-3">
-    <%= link_to path, class: "text-decoration-none text-reset custom-hover" do %>
-        <div class="d-flex gap-3">
-            <div class="flex-shrink-0">
-                <div class="flex items-center justify-content-center setting-card-icon border rounded-3">
-                    <%= image_tag "#{icon}", height: 20 %>
+    <% if disabled %>
+        <div class="text-decoration-none text-reset disabled-setting-card">
+            <div class="d-flex gap-3">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-content-center setting-card-icon border rounded-3">
+                        <%= image_tag "#{icon}", height: 20 %>
+                    </div>
+                </div>
+                <div>
+                    <h6 class="mb-0 fw-600 text-black-900"><%= title %></h6>
+                    <p class="text-muted fw-normal text-tertiary small mb-0 mt-1"><%= desc %></p>
                 </div>
             </div>
-            <div>
-                <h6 class="mb-0 fw-600 text-black-900"><%= title %></h6>
-                <p class="text-muted fw-normal text-tertiary small mb-0 mt-1"><%= desc %></p>
-            </div>
+            <% if tooltip_message.present? %>
+                <span class="tooltip-text"><%= tooltip_message %></span>
+            <% end %>
         </div>
+    <% else %>
+        <%= link_to path, class: "text-decoration-none text-reset custom-hover" do %>
+            <div class="d-flex gap-3">
+                <div class="flex-shrink-0">
+                    <div class="flex items-center justify-content-center setting-card-icon border rounded-3">
+                        <%= image_tag "#{icon}", height: 20 %>
+                    </div>
+                </div>
+                <div>
+                    <h6 class="mb-0 fw-600 text-black-900"><%= title %></h6>
+                    <p class="text-muted fw-normal text-tertiary small mb-0 mt-1"><%= desc %></p>
+                </div>
+            </div>
+        <% end %>
     <% end %>
 </div>
