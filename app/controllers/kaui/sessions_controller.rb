@@ -11,6 +11,11 @@ module Kaui
 
     # The sign-in flow eventually calls authenticate! from config/initializers/killbill_authenticatable.rb
 
+    def new
+      flash.delete(:alert) if flash[:alert] == I18n.t('devise.failure.unauthenticated') && (stored_location_for(:user).nil? || flash[:notice].present?)
+      super
+    end
+
     rescue_from(StandardError) do |exception|
       Rails.logger.error(exception.message)
       Rails.logger.error(exception.backtrace.join("\n")) if exception.backtrace
@@ -29,7 +34,7 @@ module Kaui
 
     def after_sign_out_path_for(_resource)
       cookies.delete(:jwt_token)
-      kaui_path
+      new_user_session_path
     end
 
     def require_no_authentication
