@@ -161,8 +161,9 @@
                   } %>
                 </div>
                 <div class="form-check">
-                  <%= check_box_tag :dry_run, '1', true, class: 'form-check-input', id: 'dry_run_checkbox', disabled: !can?(:trigger, Kaui::Invoice) %>
-                  <%= label_tag :dry_run, 'Dry-run', class: 'form-check-label' %>
+                  <%= hidden_field_tag :dry_run, '1' %>
+                  <%= check_box_tag :dry_run_checkbox, '1', true, :disabled => !can?(:trigger, Kaui::Invoice), class: 'form-check-input', id: 'dry_run_checkbox', onchange: "document.getElementById('dry_run').value = this.checked ? '1' : '0';" %>
+                  <%= label_tag :dry_run_checkbox, 'Dry-run', class: 'form-check-label' %>
                 </div>
               <% end %>
             </div>
