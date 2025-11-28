@@ -35,14 +35,14 @@
             variant: "outline-secondary",
             id: "dropdownMenu1"
           },
-          {
+          (can?(:create, Kaui::Account) ? {
             label: "Create Account",
             icon: 'kaui/plus.svg',
             path: kaui_engine.new_account_path,
             html_class: "kaui-dropdown custom-hover",
             variant: "outline-secondary"
-          }
-        ]
+          } : nil)
+        ].compact
       } %>
 
       <div id="search-labels-container" class="ml-2">
