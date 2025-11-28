@@ -2,13 +2,18 @@
 
 <div class="kaui-container payments-show">
   <%= render "kaui/components/breadcrumb/breadcrumb" %>
-  <div class="payments">
-    <div class="d-flex flex-column ">
-      <div class="payments-header mb-4">
-        <div class="d-flex align-items-center">
-          <h2>Payment <%= @payment.payment_number %></h2>
-        </div>
-        <span>
+  
+  <div class="d-flex" style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+
+    <div class="w-100">
+      <div class="payments">
+        <div class="d-flex flex-column ">
+          <div class="payments-header mb-4">
+            <div class="d-flex align-items-center">
+              <h2>Payment <%= @payment.payment_number %></h2>
+            </div>
+            <span>
         <% if @payment.capturable? || @payment.voidable? || (@payment.refundable? && (can?(:refund, Kaui::Payment) || can?(:chargeback, Kaui::Payment))) %>
 
 
@@ -212,29 +217,27 @@
                            :payment => @payment,
                            :account => @account,
                            :custom_fields => @custom_fields} %>
+      
+      <div class="mt-4">
+        <div class="d-flex flex-column ">
+          <div class="payments-header mb-4">
+            <div class="d-flex align-items-center">
+              <h2>Payment Method Details</h2>
+            </div>
+          </div>
+          <div class="payment-details">
+            <% if @payment_method.nil? %>
+                The Payment method has been deleted.
+            <% else %>
+                <%= render :partial => 'kaui/payment_methods/payment_methods_details_table', :locals => {:payment_method => @payment_method} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     
     </div>
   </div>
 </div>
-
-
-<div class="kaui-container py-5 payments-show">
-  <div class="d-flex " style="gap: 4rem;">
-    <div class="payments">
-      <div class="d-flex flex-column ">
-        <div class="payments-header mb-4">
-          <div class="d-flex align-items-center">
-            <h2>Payment Method Details</h2>
-          </div>
-        </div>
-        <div class="payment-details">
-          <% if @payment_method.nil? %>
-              The Payment method has been deleted.
-          <% else %>
-              <%= render :partial => 'kaui/payment_methods/payment_methods_details_table', :locals => {:payment_method => @payment_method} %>
-          <% end %>
-        </div>
-      </div>
     </div>
   </div>
 </div>

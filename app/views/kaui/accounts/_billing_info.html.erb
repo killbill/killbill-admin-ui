@@ -120,7 +120,10 @@
                         </div>
                           <div style="width: 14.5%; float: left; padding: 0;">
                             <%= label_tag :dry_run do %>
-                                <%= check_box_tag :dry_run, '1', true, :disabled => !can?(:trigger, Kaui::Invoice) %>&nbsp;<small>Dry-run</small>
+                                <% dry_run_checked = true %>
+                                <% dry_run_disabled = !can?(:trigger, Kaui::Invoice) %>
+                                <%= hidden_field_tag :dry_run, '1' %>
+                                <%= check_box_tag :dry_run_checkbox, '1', dry_run_checked, :disabled => dry_run_disabled, :onchange => "document.getElementById('dry_run').value = this.checked ? '1' : '0';" %>&nbsp;<small>Dry-run</small>
                             <% end %>
                           </div>
                         <div class="col-xs-1" style="padding: 0;">
