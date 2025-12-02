@@ -239,6 +239,8 @@
           $header.find('.sort-' + direction).addClass('active');
         }
         
+      } catch (e) {
+        console.error('Error initializing DataTable:', e);
       }
     }, 100);
 

@@ -1,16 +1,21 @@
 <div class="kaui-container invoice-show">
 
   <%= render "kaui/components/breadcrumb/breadcrumb" %>
-  <div class="invoice">
-    <div class="d-flex flex-column ">
-      <div class="invoice-header mb-4">
-        <div class="d-flex align-items-center">
-          <h2>
-            Invoice 
-            <%= @invoice.invoice_number %>
-          
-          </h2>
-        </div>
+  
+  <div class="d-flex" style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
+
+    <div class="w-100">
+      <div class="invoice">
+        <div class="d-flex flex-column ">
+          <div class="invoice-header mb-4">
+            <div class="d-flex align-items-center">
+              <h2>
+                Invoice 
+                <%= @invoice.invoice_number %>
+              
+              </h2>
+            </div>
         <% dry_run = @invoice.invoice_number.blank? %>
         <% if dry_run %>
             <div class="alert alert-warning">
@@ -176,21 +181,17 @@
       </div>
 
       <%= render :partial => 'kaui/invoices/invoice_table', :locals => {:dry_run => dry_run} %>
-    </div>
-  </div>
-</div>
-
-<% unless @payments.empty? %>
-  <div class="kaui-container">
-  <% @payments.each_with_index do |payment, idx| %>
-    <div class="invoice">
-      <div class="d-flex flex-column ">
-        <div class="invoice-header mb-4">
-          <div class="d-flex align-items-center">
-            <h2>Payment Details</h2>
-          </div>
-          <span>
-            <% if payment.capturable? || payment.voidable? || (payment.refundable? && (can?(:refund, Kaui::Payment) || can?(:chargeback, Kaui::Payment))) %>
+      
+      <% unless @payments.empty? %>
+        <% @payments.each_with_index do |payment, idx| %>
+          <div class="mt-4">
+            <div class="d-flex flex-column ">
+              <div class="invoice-header mb-4">
+                <div class="d-flex align-items-center">
+                  <h2>Payment Details</h2>
+                </div>
+                <span>
+                  <% if payment.capturable? || payment.voidable? || (payment.refundable? && (can?(:refund, Kaui::Payment) || can?(:chargeback, Kaui::Payment))) %>
 
 
                 <div class="tag-select-box">
@@ -383,11 +384,13 @@
             <hr class="breathe"/>
         <% end %>
        
-      </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-     <% end %>
   </div>
-<% end %>
+</div>
 
 <%= javascript_tag do %>
   function disableLinks() {
