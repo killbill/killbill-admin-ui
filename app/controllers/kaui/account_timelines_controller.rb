@@ -72,7 +72,7 @@ module Kaui
       @selected_bundle = params.key?(:external_key) ? @bundle_names[params[:external_key]] : nil
 
       csv_string = CSV.generate(headers: true) do |csv|
-        csv << ['Effective Date', 'Bundles', 'Even Type', 'Details', 'Reason Code/ Comments']
+        csv << ['Effective Date', 'Bundles', 'Event Type', 'Details', 'Reason Code/ Comments']
         if %w[INVOICE ALL].include?(event_type)
           @invoices.each do |invoice_stub|
             invoice = invoice_stub.invoice_id.present? && @invoices_by_id.key?(invoice_stub.invoice_id) ? @invoices_by_id[invoice_stub.invoice_id] : invoice_stub
@@ -97,7 +97,7 @@ module Kaui
                       end
 
             payment.transactions.each do |transaction|
-              effective_date = transaction.effective_date.present? ? transaction.effective_date : '[unknown]'
+              effective_date = transaction.effective_date.present? ? Date.parse(transaction.effective_date).to_s : '[unknown]'
               bundle_keys = @bundle_keys_by_invoice_id[payment.target_invoice_id].present? ? @bundle_keys_by_invoice_id[payment.target_invoice_id].map { |bundle_key| @bundle_names[bundle_key] }.join(', ') : ''
               transaction_type = transaction.transaction_type
               details = []
@@ -120,7 +120,7 @@ module Kaui
                 # Skip SERVICE_STATE_CHANGE events
                 next if event.event_type == 'SERVICE_STATE_CHANGE'
 
-                effective_date = event.effective_date.present? ? event.effective_date : '[unknown]'
+                effective_date = event.effective_date.present? ? Date.parse(event.effective_date).to_s : '[unknown]'
                 bundle_keys = @bundle_names[bundle.external_key]
                 event_type = event.event_type
                 phase = event.phase
