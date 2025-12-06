@@ -179,7 +179,6 @@ Kaui::Engine.routes.draw do
   end
 
   scope '/admin' do
-    match '/' => 'admin#index', :via => :get, :as => 'admin'
     match '/clock' => 'admin#set_clock', :via => :put, :as => 'admin_set_clock'
   end
 
