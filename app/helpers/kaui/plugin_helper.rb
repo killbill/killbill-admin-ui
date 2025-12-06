@@ -27,7 +27,7 @@ module Kaui
                       else
                         "/#{plugin_key}"
                       end
-        plugin_path = nil unless CONFIGABLE_PLUGINS.include?(plugin_key)
+        plugin_path = nil unless CONFIGABLE_PLUGINS.map {|key| plugin_key.include?(key) }.any?
         plugins << { name: plugin_name, path: plugin_path } if plugin_path
       end
       plugins
