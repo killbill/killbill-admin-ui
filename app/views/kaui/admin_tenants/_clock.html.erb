@@ -15,7 +15,7 @@
         <%= form_tag admin_tenant_set_clock_path(@tenant.id), method: :put, class: 'form-horizontal' do %>
           <div class="trigger-invoice-box form-group">
             <b>Set new date</b>
-            <p id="clock_warning" class="text-danger mb-2" style="display: none;">This clock is a server side change. It will affect all the tenants.</p>
+            <p id="clock_warning" class="text-danger mb-2" style="display: none;"><%= t('admin_tenants.clock_warning') %></p>
             <div class="d-flex align-items-center">
               <div class="custom-date-input-wrapper kaui-button custom-hover">
                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
