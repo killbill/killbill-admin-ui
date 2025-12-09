@@ -81,3 +81,6 @@ en:
           billing_period: "Billing Period"
           trial: "Trial"
           final_phase_duration: "Final Phase Duration"
+
+  admin_tenants:
+    clock_warning: "This action will affect all tenants across the system. Proceed with caution."

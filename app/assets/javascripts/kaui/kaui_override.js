@@ -556,7 +556,7 @@ function showCustomTooltip(element, objectId) {
   // Set 5-second auto-hide timer
   window.tooltipAutoHideTimeout = setTimeout(function () {
     hideCustomTooltip();
-  }, 5000); // 5 seconds
+  }, 3000); // 3 seconds
 }
 
 function showObjectIdTooltip(element, objectId) {

@@ -15,6 +15,7 @@
         <%= form_tag admin_tenant_set_clock_path(@tenant.id), method: :put, class: 'form-horizontal' do %>
           <div class="trigger-invoice-box form-group">
             <b>Set new date</b>
+            <p id="clock_warning" class="text-danger mb-2" style="display: none;"><%= t('admin_tenants.clock_warning') %></p>
             <div class="d-flex align-items-center">
               <div class="custom-date-input-wrapper kaui-button custom-hover">
                 <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,9 +26,11 @@
                 </svg>
 
                 <input class="form-control" name="new_date" type="text" 
+                       id="clock_datepicker"
                        data-provide="datepicker" 
                        data-date-format="yyyy-mm-dd" 
-                       data-date-today-highlight="true" 
+                       data-date-today-highlight="true"
+                       data-date-autoclose="true"
                        value="<%= @clock&.[]('localDate') || '' %>">
               </div>
 
@@ -56,17 +59,21 @@
 
 <%= javascript_tag do %>
   $(document).ready(function() {
-    scheduleRefresh();
+    var clockElement = $('#kb_clock');
+    var initialTime = clockElement.text();
+    
+    // Parse the initial time
+    var currentTime = new Date(initialTime);
+    
+    // Update clock every second
+    setInterval(function() {
+      currentTime.setSeconds(currentTime.getSeconds() + 1);
+      clockElement.text(currentTime.toISOString());
+    }, 1000);
+
+    // Show warning when date is selected
+    $('#clock_datepicker').on('changeDate', function() {
+      $('#clock_warning').show();
+    });
   });
-
-  function scheduleRefresh() {
-    setTimeout(refreshClock, 1000);
-  }
-
-  function refreshClock() {
-    $.ajax({url: "<%= admin_tenant_path(@tenant.id, :format => :js) %>"});
-  }
 <% end %>
-
-
-

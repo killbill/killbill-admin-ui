@@ -82,7 +82,7 @@ module Kaui
       when 'account_id'
         view_context.link_to(account.account_id, view_context.url_for(action: :show, account_id: account.account_id))
       when 'parent_account_id'
-        account.parent_account_id.nil? ? nil : view_context.link_to(account.account_id, view_context.url_for(action: :show, account_id: account.parent_account_id))
+        account.parent_account_id.nil? ? nil : view_context.link_to(account.parent_account_id, view_context.url_for(action: :show, account_id: account.parent_account_id))
       when 'account_balance'
         view_context.humanized_money_with_symbol(account.balance_to_money)
       else
