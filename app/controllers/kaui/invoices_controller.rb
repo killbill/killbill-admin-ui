@@ -35,6 +35,15 @@ module Kaui
                  else
                    Kaui::Invoice.list_or_search(query_string, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
                  end
+      
+        if start_date && end_date
+          invoices = invoices.select do |invoice|
+            start_date_parsed = Date.parse(start_date)
+            end_date_parsed = Date.parse(end_date)
+            invoice_date = Date.parse(invoice.invoice_date)
+            invoice_date >= start_date_parsed && invoice_date <= end_date_parsed
+          end
+        end
 
       csv_string = CSV.generate(headers: true) do |csv|
         csv << columns
