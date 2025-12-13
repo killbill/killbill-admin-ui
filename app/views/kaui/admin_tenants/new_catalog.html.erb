@@ -246,6 +246,8 @@ function switch_basic_config() {
 $(document).ready(function() {
     switch_basic_config();
 
+    // jQuery UI autocomplete interferes with HTML5 validation
+    // So we keep the custom JS validation
     $('#simple_plan_product_name').autocomplete({
         source: function(query, process) {
             process(known_products());
@@ -261,7 +263,71 @@ $(document).ready(function() {
     $('#simple_plan_product_name').on('mouseleave', function() {
         recompute_available_base_products_for_ao();
     });
+
+    // Custom validation since HTML5 validation is not working
+    // (possibly due to jQuery autocomplete or other JavaScript interference)
+    $('#catalog_simple form').on('submit', function(e) {
+        var isValid = true;
+        var pattern = /^[a-zA-Z_][\w\.-]*$/;
+        
+        // Validate Product Name
+        var productName = $('#simple_plan_product_name').val().trim();
+        var productNameField = $('#simple_plan_product_name');
+        
+        if (productName === '') {
+            showError(productNameField, 'Product Name is required');
+            isValid = false;
+        } else if (!pattern.test(productName)) {
+            showError(productNameField, 'Product Name must start with a letter or underscore, and can only contain letters, digits, underscores, hyphens, and periods');
+            isValid = false;
+        } else {
+            clearError(productNameField);
+        }
+        
+        // Validate Plan Name
+        var planName = $('#simple_plan_plan_id').val().trim();
+        var planNameField = $('#simple_plan_plan_id');
+        
+        if (planName === '') {
+            showError(planNameField, 'Plan Name is required');
+            isValid = false;
+        } else if (!pattern.test(planName)) {
+            showError(planNameField, 'Plan Name must start with a letter or underscore, and can only contain letters, digits, underscores, hyphens, and periods');
+            isValid = false;
+        } else {
+            clearError(planNameField);
+        }
+        
+        if (!isValid) {
+            e.preventDefault();
+            e.stopPropagation();
+            // Scroll to first error
+            $('.error-message:first').get(0)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return false;
+        }
+        
+        return true;
+    });
+    
+    // Clear errors on input
+    $('#simple_plan_product_name, #simple_plan_plan_id').on('input', function() {
+        clearError($(this));
+    });
 });
+
+function showError(field, message) {
+    clearError(field);
+    field.addClass('error-field');
+    field.css('border-color', '#dc3545');
+    var errorDiv = $('<div class="error-message" style="color: #dc3545; font-size: 0.875rem; margin-top: 0.25rem;"></div>').text(message);
+    field.parent().append(errorDiv);
+}
+
+function clearError(field) {
+    field.removeClass('error-field');
+    field.css('border-color', '');
+    field.parent().find('.error-message').remove();
+}
 
 document.querySelectorAll('.toggle-option').forEach(el => {
   el.addEventListener('click', () => {
