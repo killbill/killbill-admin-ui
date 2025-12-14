@@ -24,6 +24,8 @@ module Kaui
                         '/kenui'
                       when /payment-test/
                         '/payment_test'
+                      when /aviate/
+                        '/aviate'
                       else
                         "/#{plugin_key}"
                       end
