@@ -1,3 +1,4 @@
+<% count_text = count.nil? ? "20k+" : count.to_i %>
 <div class="col-md-4">
     <div class="dashboard-card border rounded-4 d-flex flex-column justify-content-between h-100">
         <div class="d-flex px-4 py-3 align-items-center gap-3">
@@ -6,7 +7,7 @@
             </div>
             <div>
                 <h6 class="mb-0 fw-600 text-black-900"><%= title %></h6>
-                <p class="text-muted fw-normal text-tertiary small mb-0"><%= count %></p>
+                <p class="text-muted fw-normal text-tertiary small mb-0"><%= count_text %></p>
             </div>
         </div>
         <div class="w-full dashboard-card-divider"></div>
