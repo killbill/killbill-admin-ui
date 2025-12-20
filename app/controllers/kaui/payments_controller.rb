@@ -24,6 +24,7 @@ module Kaui
 
       if all_fields_checked
         columns = KillBillClient::Model::PaymentAttributes.instance_variable_get('@json_attributes') - %w[transactions audit_logs]
+        columns += %w[payment_date status] # additional fields not part of the model
         csv_headers = columns.dup
         Kaui::Payment::REMAPPING_FIELDS.each do |k, v|
           index = csv_headers.index(k)
