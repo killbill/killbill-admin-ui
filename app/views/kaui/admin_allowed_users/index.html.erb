@@ -60,11 +60,18 @@
                     <td><%= link_to u.kb_username, admin_allowed_user_path(u.id) %></td>
                     <td><%= u.description %></td>
                     <td class="text-end">
-                      <%= form_tag kaui_engine.admin_allowed_user_path(u.id), method: :delete, class: 'd-inline', onsubmit: "return confirm('Are you sure?');" do %>
-                        <%= button_tag type: 'submit', class: 'btn btn-outline-secondary d-inline-flex align-items-center gap-1 kaui-button delete-button custom-hover' do %>
-                          Delete
+                      <% user_roles = @roles_by_user[u.kb_username] || [] %>
+                      <% is_admin = user_roles.include?('admin') %>
+                      <% is_current_user = u.kb_username == current_user.kb_username %>
+                      
+                      <% unless is_admin || is_current_user %>
+                        <%= form_tag kaui_engine.admin_allowed_user_path(u.id), method: :delete, class: 'd-inline', onsubmit: "return confirm('Are you sure?');" do %>
+                          <%= button_tag type: 'submit', class: 'btn btn-outline-secondary d-inline-flex align-items-center gap-1 kaui-button delete-button custom-hover' do %>
+                            Delete
+                          <% end %>
                         <% end %>
                       <% end %>
+                      
                       <%= link_to kaui_engine.edit_admin_allowed_user_path(u.id), class: 'text-decoration-none' do %>
                         <%= render "kaui/components/button/button", {
                           label: "Edit",

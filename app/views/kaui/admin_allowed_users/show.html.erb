@@ -6,21 +6,26 @@
           <h2>User details</h2>
         </div>
         <span>
-          <%= render "kaui/components/button/button", {
-            label: 'Delete',
-            variant: "outline-secondary d-inline-flex align-items-center gap-1",
-            type: "button",
-            html_class: "kaui-button delete-button custom-hover",
-            html_options: { 
-              data: { 
-                confirm: "Are you sure?",
-                method: "delete",
-                turbo: false, # Optional: disable Turbo if using Rails Turbo
-                "url": kaui_engine.admin_allowed_user_path(@allowed_user.id)
-              },
-              onclick: "if (confirm(this.dataset.confirm)) { Rails.ajax({ url: this.dataset.url, type: this.dataset.method }); }"
-            }
-          } %>
+          <% is_admin = @roles.include?('admin') %>
+          <% is_current_user = @allowed_user.kb_username == current_user.kb_username %>
+          
+          <% unless is_admin || is_current_user %>
+            <%= render "kaui/components/button/button", {
+              label: 'Delete',
+              variant: "outline-secondary d-inline-flex align-items-center gap-1",
+              type: "button",
+              html_class: "kaui-button delete-button custom-hover",
+              html_options: { 
+                data: { 
+                  confirm: "Are you sure?",
+                  method: "delete",
+                  turbo: false, # Optional: disable Turbo if using Rails Turbo
+                  "url": kaui_engine.admin_allowed_user_path(@allowed_user.id)
+                },
+                onclick: "if (confirm(this.dataset.confirm)) { Rails.ajax({ url: this.dataset.url, type: this.dataset.method }); }"
+              }
+            } %>
+          <% end %>
 
           <%= link_to kaui_engine.edit_admin_allowed_user_path(@allowed_user.id), 
                       :class => '' do %>
