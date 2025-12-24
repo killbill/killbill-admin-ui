@@ -6,10 +6,7 @@
           <h2>User details</h2>
         </div>
         <span>
-          <% is_admin = @roles.include?('admin') %>
-          <% is_current_user = @allowed_user.kb_username == current_user.kb_username %>
-          
-          <% unless is_admin || is_current_user %>
+          <% if can_delete_user?(@allowed_user, @roles) %>
             <%= render "kaui/components/button/button", {
               label: 'Delete',
               variant: "outline-secondary d-inline-flex align-items-center gap-1",
