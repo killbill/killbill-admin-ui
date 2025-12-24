@@ -439,7 +439,7 @@ function setObjectIdPopover(){
 // Custom tooltip function for object IDs
 // attributes:
 //      data-id = content of the tooltip, object id; required
-//      title = title of the tooltip; not required
+//      data-title = title of the tooltip; not required
 function setObjectIdTooltip() {
   // Remove any existing tooltips
   $(".custom-tooltip").remove();
@@ -476,6 +476,9 @@ function showCustomTooltip(element, objectId) {
   var position = $element.offset();
   var elementHeight = $element.outerHeight();
   var elementWidth = $element.outerWidth();
+  
+  // Get custom title from data-title attribute or default to "Subscription ID"
+  var tooltipTitle = $element.data("title") || "Subscription ID";
 
   // Create tooltip content with header and custom SVG icon
   var svgIcon =
@@ -485,7 +488,7 @@ function showCustomTooltip(element, objectId) {
     "</svg>";
 
   var tooltipContent =
-    '<div class="tooltip-header">Subscription ID</div>' +
+    '<div class="tooltip-header">' + tooltipTitle + '</div>' +
     '<div class="tooltip-content">' +
     '<span class="tooltip-id">' +
     objectId +

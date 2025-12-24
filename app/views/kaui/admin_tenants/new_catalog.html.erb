@@ -264,55 +264,58 @@ $(document).ready(function() {
         recompute_available_base_products_for_ao();
     });
 
-    // Custom validation since HTML5 validation is not working
-    // (possibly due to jQuery autocomplete or other JavaScript interference)
-    $('#catalog_simple form').on('submit', function(e) {
-        var isValid = true;
-        var pattern = /^[a-zA-Z_][\w\.-]*$/;
-        
-        // Validate Product Name
-        var productName = $('#simple_plan_product_name').val().trim();
-        var productNameField = $('#simple_plan_product_name');
-        
-        if (productName === '') {
-            showError(productNameField, 'Product Name is required');
-            isValid = false;
-        } else if (!pattern.test(productName)) {
-            showError(productNameField, 'Product Name must start with a letter or underscore, and can only contain letters, digits, underscores, hyphens, and periods');
-            isValid = false;
-        } else {
-            clearError(productNameField);
-        }
-        
-        // Validate Plan Name
-        var planName = $('#simple_plan_plan_id').val().trim();
-        var planNameField = $('#simple_plan_plan_id');
-        
-        if (planName === '') {
-            showError(planNameField, 'Plan Name is required');
-            isValid = false;
-        } else if (!pattern.test(planName)) {
-            showError(planNameField, 'Plan Name must start with a letter or underscore, and can only contain letters, digits, underscores, hyphens, and periods');
-            isValid = false;
-        } else {
-            clearError(planNameField);
-        }
-        
-        if (!isValid) {
-            e.preventDefault();
-            e.stopPropagation();
-            // Scroll to first error
-            $('.error-message:first').get(0)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            return false;
-        }
-        
-        return true;
-    });
+  // Realtime validation function
+  function validateField(field) {
+    var pattern = /^[a-zA-Z_][\w\.-]*$/;
+    var value = field.val().trim();
+    var fieldName = field.attr('id') === 'simple_plan_product_name' ? 'Product Name' : 'Plan Name';
+
+    if (value === '') {
+      showError(field, fieldName + ' is required');
+      return false;
+    } else if (!pattern.test(value)) {
+      showError(field, fieldName + ' must start with a letter or underscore, and can only contain letters, digits, underscores, hyphens, and periods');
+      return false;
+    } else {
+      clearError(field);
+      return true;
+    }
+  }
+
+  // Realtime validation on input
+  $('#simple_plan_product_name, #simple_plan_plan_id').on('input', function() {
+    validateField($(this));
+  });
+
+  // Validation on blur (when user leaves the field)
+  $('#simple_plan_product_name, #simple_plan_plan_id').on('blur', function() {
+    validateField($(this));
+  });
+
+  // Custom validation on form submit
+  $('#catalog_simple form').on('submit', function(e) {
+    var isValid = true;
+
+    // Validate Product Name
+    if (!validateField($('#simple_plan_product_name'))) {
+      isValid = false;
+    }
     
-    // Clear errors on input
-    $('#simple_plan_product_name, #simple_plan_plan_id').on('input', function() {
-        clearError($(this));
-    });
+    // Validate Plan Name
+    if (!validateField($('#simple_plan_plan_id'))) {
+      isValid = false;
+    }
+
+    if (!isValid) {
+      e.preventDefault();
+      e.stopPropagation();
+      // Scroll to first error
+      $('.error-message:first').get(0)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return false;
+    }
+
+    return true;
+  });
 });
 
 function showError(field, message) {

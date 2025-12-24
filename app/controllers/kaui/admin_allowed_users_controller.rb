@@ -6,6 +6,10 @@ module Kaui
 
     def index
       @allowed_users = retrieve_allowed_users_for_current_user
+      @roles_by_user = {}
+      @allowed_users.each do |user|
+        @roles_by_user[user.kb_username] = roles_for_user(user)
+      end
     end
 
     def new

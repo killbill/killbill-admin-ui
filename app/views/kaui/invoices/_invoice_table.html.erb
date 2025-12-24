@@ -91,7 +91,11 @@
 
               </td>
           <% end %>
-          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.pretty_plan_name.blank? || !item.item_type.in?(%w{USAGE RECURRING}) ? item.description : item.pretty_plan_name %></td>
+          <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;">
+            <span id="<%= item.invoice_item_id %>-popover" class="object-id-popover" data-id="<%= item.invoice_item_id %>" data-title="Invoice Item ID">
+              <%= item.pretty_plan_name.blank? || !item.item_type.in?(%w{USAGE RECURRING}) ? item.description : item.pretty_plan_name %>
+            </span>
+          </td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.start_date.html_safe if item.start_date %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.end_date.html_safe if item.end_date %></td>
           <td onClick="hightlightLinkedItems('<%= item.invoice_item_id %>', '<%= item.linked_invoice_item_id %>'); return false;"><%= item.subscription_id %></td>
@@ -149,4 +153,11 @@
             }
         });
     }
+    
+    $(document).ready(function() {
+        // Initialize tooltips for invoice item IDs
+        if (typeof setObjectIdTooltip === 'function') {
+            setObjectIdTooltip();
+        }
+    });
 </script>
