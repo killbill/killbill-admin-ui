@@ -199,6 +199,7 @@ module Kaui
 
       is_plan_id_found = false
       plan_id = params[:plan_id]
+      product = nil
 
       options = tenant_options_for_client
       options[:api_key] = @tenant.api_key
@@ -209,7 +210,10 @@ module Kaui
       # seek if plan id exists
       catalog.products.each do |product|
         product.plans.each { |plan| is_plan_id_found |= plan.name == plan_id }
-        break if is_plan_id_found
+        if is_plan_id_found
+          product = product
+          break
+        end
       end
 
       unless is_plan_id_found
@@ -219,6 +223,7 @@ module Kaui
 
       @simple_plan = Kaui::SimplePlan.new
       @simple_plan.plan_id = params[:plan_id]
+      @simple_plan.product_name = product.name if product
     end
 
     def create_simple_plan
@@ -247,8 +252,8 @@ module Kaui
         flash.now[:error] = "Error while creating plan: invalid product name (#{@simple_plan.product_name} is a plan name already)"
         valid = false
       elsif @all_plans.include?(@simple_plan.plan_id)
-        flash.now[:error] = "Error while creating plan: plan #{@simple_plan.plan_id} already exists"
-        valid = false
+        # flash.now[:error] = "Error while creating plan: plan #{@simple_plan.plan_id} already exists"
+        # valid = false
       elsif @available_base_products.include?(@simple_plan.product_name) && @simple_plan.product_category != 'BASE'
         flash.now[:error] = "Error while creating plan: product #{@simple_plan.product_name} is a BASE product"
         valid = false
