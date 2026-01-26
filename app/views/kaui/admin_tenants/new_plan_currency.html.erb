@@ -21,7 +21,7 @@
         <div class="form-group d-flex pb-3">
           <%= f.label :amount, 'Amount', :class => 'col-sm-3 control-label' %>
           <div class="col-sm-9 d-flex currency-select">
-            <%= f.text_field :amount, :class => 'form-control w-100 amount-input' %>
+            <%= f.text_field :amount, :class => 'form-control w-100 amount-input', :required => true %>
             <%= f.select :currency, currencies, {:selected => 'USD'}, :class => 'form-control' %>
           </div>
         </div>
