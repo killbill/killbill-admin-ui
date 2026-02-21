@@ -6,6 +6,8 @@
   # Try to determine root path dynamically
   if request.path.start_with?('/kaui')
     dynamic_root = '/kaui'
+  elsif request.path.start_with?('/aviate')
+    dynamic_root = '/aviate'
   else
     dynamic_root = '/'
   end
@@ -90,11 +92,12 @@
       <% end %>
     <% end %>
 
-    <%# Process remaining segments (excluding root "kaui" segment) %>
+    <%# Process remaining segments (excluding root segments like "kaui" or "aviate") %>
     <% sanitized_segments = segments.map { |segment| CGI.escapeHTML(segment) } %>
     <% 
-      # Skip the first segment if it's "kaui" since we already handled home
-      display_segments = sanitized_segments.first == "kaui" ? sanitized_segments[1..-1] : sanitized_segments
+      # Skip the first segment if it's a root mount point since we already handled home
+      root_segments = %w[kaui aviate]
+      display_segments = root_segments.include?(sanitized_segments.first) ? sanitized_segments[1..-1] : sanitized_segments
     %>
     
     <% display_segments.each_with_index do |segment, index| %>
