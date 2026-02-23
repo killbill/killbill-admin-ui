@@ -114,7 +114,7 @@ module Kaui
       end
 
       @latest_version = begin
-        @catalog_versions[@catalog_versions.length - 1][:version_date]
+        @catalog_versions[-1][:version_date]
       rescue StandardError
         nil
       end
@@ -208,10 +208,10 @@ module Kaui
       catalog = Kaui::Catalog.get_catalog_json(true, nil, nil, options)
 
       # seek if plan id exists
-      catalog.products.each do |product|
-        product.plans.each { |plan| is_plan_id_found |= plan.name == plan_id }
+      catalog.products.each do |p|
+        p.plans.each { |plan| is_plan_id_found |= plan.name == plan_id }
         if is_plan_id_found
-          product = product
+          product = p
           break
         end
       end

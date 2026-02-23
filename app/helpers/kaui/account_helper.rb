@@ -83,7 +83,7 @@ module Kaui
             # Skip cancelled subscriptions
             next if subscription.state == 'CANCELLED'
             # If subscription has a BCD set, return it (subscription BCD takes precedence)
-            return subscription.bill_cycle_day_local if subscription.bill_cycle_day_local.present? && subscription.bill_cycle_day_local > 0
+            return subscription.bill_cycle_day_local if subscription.bill_cycle_day_local.present? && subscription.bill_cycle_day_local.positive?
           end
         end
       end
