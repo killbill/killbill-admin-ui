@@ -69,5 +69,27 @@ module Kaui
       style = "style='#{style}'" unless style.empty?
       style
     end
+
+    # Get the effective BCD for an account
+    # If there's an active subscription with its own BCD, return that
+    # Otherwise return the account-level BCD
+    def effective_bcd(account, bundles = nil)
+      # If bundles are provided, check for subscription BCD
+      if bundles.present?
+        bundles.each do |bundle|
+          next unless bundle.subscriptions.present?
+
+          bundle.subscriptions.each do |subscription|
+            # Skip cancelled subscriptions
+            next if subscription.state == 'CANCELLED'
+            # If subscription has a BCD set, return it (subscription BCD takes precedence)
+            return subscription.bill_cycle_day_local if subscription.bill_cycle_day_local.present? && subscription.bill_cycle_day_local > 0
+          end
+        end
+      end
+
+      # Fall back to account BCD
+      account.bill_cycle_day_local
+    end
   end
 end

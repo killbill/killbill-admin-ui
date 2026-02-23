@@ -173,6 +173,7 @@ module Kaui
         ops
       end
       fetch_available_tags = promise { Kaui::TagDefinition.all_for_account(cached_options_for_klient) }
+      fetch_bundles = promise { @account.bundles(cached_options_for_klient) }
 
       @overdue_state = wait(fetch_overdue_state)
       @tags = wait(fetch_account_tags)
@@ -184,6 +185,7 @@ module Kaui
       @children = wait(fetch_children)
       @account_parent = @account.parent_account_id.nil? ? nil : wait(fetch_parent)
       @email_notification_configuration = is_email_notifications_plugin_available ? wait(fetch_email_notification_configuration) : []
+      @bundles = wait(fetch_bundles)
 
       @last_transaction_by_payment_method_id = {}
       wait(fetch_payments).each do |payment|

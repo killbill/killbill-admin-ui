@@ -110,8 +110,9 @@
         <div class="col-md-4">
           <div class="info-item">
             <b>Bill cycle day</b>
-            <% if @account.bill_cycle_day_local > 0  %>
-              <p><%= @account.bill_cycle_day_local %> (user timezone)</p>
+            <% effective_bcd_value = effective_bcd(@account, @bundles) %>
+            <% if effective_bcd_value.present? && effective_bcd_value > 0  %>
+              <p><%= effective_bcd_value %> (user timezone)</p>
             <% else %>
               <p>N/A</p>
             <% end %>
