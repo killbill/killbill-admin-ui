@@ -66,6 +66,19 @@ module Kaui
       assert_equal 30, effective_bcd(account, [bundle])
     end
 
+    test 'effective_bcd returns subscription BCD for blocked (paused) subscriptions' do
+      account = Kaui::Account.new(bill_cycle_day_local: 30)
+
+      subscription = Kaui::Subscription.new
+      subscription.bill_cycle_day_local = 5
+      subscription.state = 'BLOCKED'
+
+      bundle = Kaui::Bundle.new
+      bundle.subscriptions = [subscription]
+
+      assert_equal 5, effective_bcd(account, [bundle])
+    end
+
     test 'effective_bcd returns first active subscription BCD' do
       account = Kaui::Account.new(bill_cycle_day_local: 30)
 

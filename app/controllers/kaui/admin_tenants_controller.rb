@@ -252,8 +252,8 @@ module Kaui
         flash.now[:error] = "Error while creating plan: invalid product name (#{@simple_plan.product_name} is a plan name already)"
         valid = false
       elsif @all_plans.include?(@simple_plan.plan_id)
-        # flash.now[:error] = "Error while creating plan: plan #{@simple_plan.plan_id} already exists"
-        # valid = false
+        flash.now[:error] = "Error while creating plan: plan #{@simple_plan.plan_id} already exists"
+        valid = false
       elsif @available_base_products.include?(@simple_plan.product_name) && @simple_plan.product_category != 'BASE'
         flash.now[:error] = "Error while creating plan: product #{@simple_plan.product_name} is a BASE product"
         valid = false
