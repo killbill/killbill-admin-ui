@@ -237,7 +237,7 @@ module Kaui
       return [] if catalog.blank?
 
       plans = []
-      catalog[catalog.size - 1].products.each do |product|
+      catalog[-1].products.each do |product|
         next if product.type == 'ADD_ON' || (!product_category.nil? && product.type != product_category)
 
         product.plans.each do |plan|

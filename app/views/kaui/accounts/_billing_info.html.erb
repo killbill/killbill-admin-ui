@@ -78,8 +78,9 @@
               <tr>
                 <th>Bill cycle day</th>
                 <td>
-                  <% if @account.bill_cycle_day_local > 0  %>
-                      <span class='label'><%= @account.bill_cycle_day_local %> (user timezone)</span>
+                  <% effective_bcd_value = effective_bcd(@account, @bundles) %>
+                  <% if effective_bcd_value.present? && effective_bcd_value > 0  %>
+                      <span class='label'><%= effective_bcd_value %> (user timezone)</span>
                   <% else %>
                       <span class='label'>N/A</span>
                   <% end %>

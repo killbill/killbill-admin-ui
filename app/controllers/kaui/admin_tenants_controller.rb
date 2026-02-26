@@ -114,7 +114,7 @@ module Kaui
       end
 
       @latest_version = begin
-        @catalog_versions[@catalog_versions.length - 1][:version_date]
+        @catalog_versions[-1][:version_date]
       rescue StandardError
         nil
       end
@@ -199,6 +199,7 @@ module Kaui
 
       is_plan_id_found = false
       plan_id = params[:plan_id]
+      product = nil
 
       options = tenant_options_for_client
       options[:api_key] = @tenant.api_key
@@ -207,9 +208,12 @@ module Kaui
       catalog = Kaui::Catalog.get_catalog_json(true, nil, nil, options)
 
       # seek if plan id exists
-      catalog.products.each do |product|
-        product.plans.each { |plan| is_plan_id_found |= plan.name == plan_id }
-        break if is_plan_id_found
+      catalog.products.each do |p|
+        p.plans.each { |plan| is_plan_id_found |= plan.name == plan_id }
+        if is_plan_id_found
+          product = p
+          break
+        end
       end
 
       unless is_plan_id_found
@@ -219,6 +223,7 @@ module Kaui
 
       @simple_plan = Kaui::SimplePlan.new
       @simple_plan.plan_id = params[:plan_id]
+      @simple_plan.product_name = product.name if product
     end
 
     def create_simple_plan

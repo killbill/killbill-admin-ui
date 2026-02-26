@@ -142,7 +142,7 @@
                   } %>
                 <% end %>
 
-                <% if can?(:create, Kaui::Subscription) && @subscription[bundle.bundle_id].present? %>
+                <% if can?(:create, Kaui::Subscription) && @subscription[bundle.bundle_id].present? && sub.product_category != 'ADD_ON' %>
                   <% menu_items << {
                     label: @subscription[bundle.bundle_id].product_category == 'BASE' ? 'Add add-on' : 'Add standalone subscription',
                     path: kaui_engine.new_subscription_path(
