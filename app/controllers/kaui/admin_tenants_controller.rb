@@ -477,7 +477,7 @@ module Kaui
         # convert result to a full hash since dynamic attributes of a class are ignored when converting to json
         result.each do |data|
           plans = data[:plans].map do |plan|
-            plan.instance_variables.each_with_object({}) { |var, hash_plan| hash_plan[var.to_s.delete('@')] = plan.instance_variable_get(var) }
+            plan.instance_variables.to_h { |var| [var.to_s.delete('@'), plan.instance_variable_get(var)] }
           end
 
           catalog << { version_date: data[:version_date],

@@ -157,8 +157,8 @@ module Kaui
       return {} if all_invoices.nil? || all_invoices.empty?
 
       # Convert into Kaui::Invoice to benefit from additional methods xxx_to_money
-      @invoices_by_id = all_invoices.each_with_object({}) do |invoice, hsh|
-        hsh[invoice.invoice_id] = Kaui::Invoice.build_from_raw_invoice(invoice)
+      @invoices_by_id = all_invoices.to_h do |invoice|
+        [invoice.invoice_id, Kaui::Invoice.build_from_raw_invoice(invoice)]
       end
     end
   end

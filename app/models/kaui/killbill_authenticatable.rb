@@ -3,6 +3,7 @@
 require 'killbill_client'
 
 # Hack for Zeitwerk
+# rubocop:disable Style/OneClassPerFile
 module Kaui
   module KillbillAuthenticatable; end
 end
@@ -41,3 +42,4 @@ module Devise
     end
   end
 end
+# rubocop:enable Style/OneClassPerFile
