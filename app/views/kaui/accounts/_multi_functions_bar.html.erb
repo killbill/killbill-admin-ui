@@ -29,7 +29,7 @@
       <% Kaui.account_search_columns.call[0].each_with_index do |title, index| %>
           <li class="list-group-item-manual" data-id="<%= index %>">
             <label class="label-group-item-manual">
-              <input type="checkbox" class="column-toggle" draggable="true" data-column="<%= index %>" <%= 'checked' if @dropdown_default[index] && @dropdown_default[index][:visible] %> > <%= title %>
+              <input type="checkbox" class="column-toggle" draggable="true" data-column="<%= index %>" <%= 'checked' if @dropdown_default[index][:visible] %> > <%= title %>
               <span class="glyphicon glyphicon-option-vertical icon-drag" aria-hidden="true"></span>
             </label>
           </li>
@@ -316,6 +316,8 @@ $(document).ready(function() {
     return searchLabelString;
   };
 
+  updateDropdownOrder();
+
   function updateDropdownOrder() {
     var state = JSON.parse(localStorage.getItem('DataTables_accounts-table_' + window.location.pathname));
     if (state === null) {
@@ -323,37 +325,33 @@ $(document).ready(function() {
     }
     var columnOrder = state.ColReorder;
     var $list = $('#column-visibility');
-    // Wait for DataTable to be initialized and table headers to be populated
-    var table = $('#accounts-table').DataTable();
-    if (!table || table.columns().count() === 0) {
-      return;
-    }
+    var thElements = document.querySelectorAll('#accounts-table th');
+    var $columnTitles = Array.from(thElements).map(function(th) {
+      return th.textContent.trim();
+    });
 
     if (columnOrder !== undefined) {
       $list.empty();
-      var columnCount = table.columns()[0].length;
-
-      for (var i = 0; i < columnCount; i++) {
-        var colIdx = columnOrder[i] !== undefined ? columnOrder[i] : i;
-
-        var column = table.column(colIdx);
-        var colHeader = table.column(colIdx).header();
-        var col_name = $(colHeader).text().trim();
-        if (!col_name) {
-          continue;
+      var state = JSON.parse(localStorage.getItem('DataTables_accounts-table_' + window.location.pathname));
+      if (state !== null) {
+        var colsOrder = state.ColReorder;
+      }
+      columnOrder.forEach(function(colIdx, index) {
+        if (colsOrder) {
+          var data_id = colsOrder[index];
+        } else {
+          var data_id = index;
         }
-
-        var isVisible = column.visible();
-        var data_id = i;
         var $item = $('<li>', { class: "list-group-item-manual", "data-id": data_id });
-
+        var column = state.columns[colIdx];
+        var col_name = $columnTitles[colIdx];
         var $label = $('<label>', {
           class: "label-group-item-manual",
           });
         var $checkbox = $("<input>", {
           type: "checkbox",
           value: colIdx,
-          checked: isVisible,
+          checked: column.visible,
           "data-column": colIdx,
           class: "column-toggle"
         });
@@ -362,7 +360,7 @@ $(document).ready(function() {
         $label.append($icon);
         $item.append($label);
         $list.append($item);
-      }
+      });
     }
     resetDataColumn();
     resetDataId();
@@ -382,7 +380,6 @@ $(document).ready(function() {
     var table = $('#accounts-table').DataTable();
     var columnIndexes = order.map(Number);
     table.colReorder.order(columnIndexes);
-    table.state.save();  // Explicitly save state to localStorage
     resetDataColumn();
     resetDataId();
   }
@@ -401,38 +398,10 @@ $(document).ready(function() {
     });
   }
 
-  $(document).on('change', '.column-toggle', function() {
+  $('.column-toggle').on('change', function() {
     var table = $('#accounts-table').DataTable();
     var column = table.column($(this).attr('data-column'));
     column.visible(!column.visible());
-    table.state.save();  // Explicitly save state to localStorage
   });
-
-  $(document).on('init.dt', '#accounts-table', function() {
-    updateDropdownOrder();
-  });
-
-  // Also update dropdown whenever DataTable state is saved
-  $(document).on('draw.dt', '#accounts-table', function() {
-    syncDropdownWithTable();
-  });
-
-  function syncDropdownWithTable() {
-    var table = $('#accounts-table').DataTable();
-    if (!table || table.columns().count() === 0) {
-      return;
-    }
-
-    var columnCount = table.columns().count();
-    $('.column-toggle').each(function() {
-      var columnIndex = parseInt($(this).attr('data-column'));
-      // Skip if column index is invalid or out of bounds
-      if (isNaN(columnIndex) || columnIndex >= columnCount) {
-        return;
-      }
-      var column = table.column(columnIndex);
-      $(this).prop('checked', column.visible());
-    });
-  }
 });
 <% end %>
