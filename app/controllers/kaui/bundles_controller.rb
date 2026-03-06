@@ -46,9 +46,8 @@ module Kaui
       @available_tags = wait(fetch_available_tags)
       @available_subscription_tags = wait(fetch_available_subscription_tags)
 
-      # TODO: This doesn't take into account catalog versions
-      catalogs = Kaui::Catalog.get_account_catalog_json(@account.account_id, nil, cached_options_for_klient) || []
-      @catalog = catalogs[-1]
+      # Don't load the full catalog to avoid memory issues
+      @catalog = nil
 
       @subscription = {}
       @bundles.each do |bundle|

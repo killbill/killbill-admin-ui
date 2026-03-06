@@ -106,8 +106,8 @@ module Kaui
           class << simple_plan
             attr_accessor :prices, :final_phase_duration
           end
-          simple_plan.prices = plan.phases[-1].prices.each_with_object({}) do |e, r|
-            r[e.currency] = e.value
+          simple_plan.prices = plan.phases[-1].prices.to_h do |e|
+            [e.currency, e.value]
           end
 
           simple_plan.plan_id = plan.name

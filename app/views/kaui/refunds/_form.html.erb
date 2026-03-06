@@ -59,7 +59,7 @@
     <div class="form-group d-flex pb-3">
       <%= label_tag :amount, 'Amount', :class => 'col-sm-3 control-label' %>
       <div class="col-sm-9  d-flex currency-group">
-        <%= number_field_tag :amount, @payment.purchased_amount, :id => 'refund_amount', :class => 'form-control' %>
+        <%= number_field_tag :amount, @payment.purchased_amount, :id => 'refund_amount', :class => 'form-control', :step => 'any' %>
         <div class="currency"><%= @invoice.currency %></div>
       </div>
     </div>
