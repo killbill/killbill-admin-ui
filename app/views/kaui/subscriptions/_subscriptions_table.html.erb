@@ -131,7 +131,7 @@
                 </div>
               <% end %>
 
-              <% if can?(:create, Kaui::Subscription) || can?(:pause_resume, Kaui::Subscription) || can?(:change_plan, Kaui::Subscription) %>
+              <% if can?(:create, Kaui::Subscription) || can?(:pause_resume, Kaui::Subscription) || can?(:change_plan, Kaui::Subscription) || can?(:transfer, Kaui::Bundle) %>
                 <% menu_items = [] %>
 
                 <% if can?(:change_plan, Kaui::Subscription) %>
@@ -170,6 +170,14 @@
                     label: "Update BCD",
                     path: kaui_engine.edit_bcd_path(id: sub.subscription_id),
                     icon: "kaui/subscription/date.svg"
+                  } %>
+                <% end %>
+
+                <% if can?(:transfer, Kaui::Bundle) && sub.product_category != 'ADD_ON' %>
+                  <% menu_items << {
+                    label: I18n.translate('transfer'),
+                    path: kaui_engine.transfer_bundle_path(bundle.bundle_id),
+                    icon: "kaui/subscription/transfer.svg"
                   } %>
                 <% end %>
 

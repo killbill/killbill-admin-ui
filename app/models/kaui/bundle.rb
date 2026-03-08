@@ -48,14 +48,14 @@ module Kaui
 
     def self.list_transfer_policy_params
       @policy_params = [
-        [I18n.translate('start_of_term'), 'START_OF_TERM'],
+        # [I18n.translate('start_of_term'), 'START_OF_TERM'], Temporarily removed as it is not supported by Kill Bill
         [I18n.translate('end_of_term'), 'END_OF_TERM'],
         [I18n.translate('immediate'), 'IMMEDIATE']
       ]
     end
 
     def self.list_transfer_policy_params_keys
-      @policy_params = %w[START_OF_TERM END_OF_TERM IMMEDIATE]
+      @policy_params = %w[END_OF_TERM IMMEDIATE]
     end
   end
 end
