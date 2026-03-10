@@ -33,15 +33,15 @@
         <div class="mb-1 fw-semibold text-muted mb-2">Suggested search queries</div>
         <div class="mb-3">
             <div class="inline-block me-2 my-4">
-                <span class="me-2 header-tag custom-hover text-black-900 fw-500 align-items-center gap-2 border-secondary px-2 py-2 border-2 rounded-4 ">account:</span>
+                <span class="me-2 header-tag custom-hover text-black-900 fw-500 align-items-center gap-2 border-secondary px-2 py-2 border-2 rounded-4 search-suggestion-term" data-term="account:" style="cursor: pointer;">account:</span>
                 <span>account: Flavio Ruggiero</span>
             </div>
             <div class="inline-block me-2 my-4">
-                <span class="me-2 header-tag custom-hover text-black-900 fw-500 align-items-center gap-2 border-secondary px-2 py-2 border-2 rounded-4 ">invoice:</span>
+                <span class="me-2 header-tag custom-hover text-black-900 fw-500 align-items-center gap-2 border-secondary px-2 py-2 border-2 rounded-4 search-suggestion-term" data-term="invoice:" style="cursor: pointer;">invoice:</span>
                 <span>invoice: af58a92c-bdc4-...</span>
             </div>
             <div class="inline-block me-2 my-4">
-                <span class="me-2 header-tag custom-hover text-black-900 fw-500 align-items-center gap-2 border-secondary px-2 py-2 border-2 rounded-4 ">payment:</span>
+                <span class="me-2 header-tag custom-hover text-black-900 fw-500 align-items-center gap-2 border-secondary px-2 py-2 border-2 rounded-4 search-suggestion-term" data-term="payment:" style="cursor: pointer;">payment:</span>
                 <span>payment: 3c4c0263-b06f-...</span>
             </div>
         </div>
@@ -49,7 +49,7 @@
         <div class="fw-semibold text-muted mb-2">Other search queries</div>
         <div class="d-flex flex-wrap gap-2">
             <% %w[bundle: custom\ field: subscription: tag:].each do |term| %>
-            <span class="badge text-dark border border-secondary rounded-3 px-3 py-2 custom-hover"><%= term %></span>
+            <span class="badge text-dark border border-secondary rounded-3 px-3 py-2 custom-hover search-suggestion-term" data-term="<%= term %>" style="cursor: pointer;"><%= term %></span>
             <% end %>
         </div>
     </div>
@@ -64,10 +64,25 @@
             dropdown.classList.remove("d-none");
         });
 
+        input.addEventListener("focus", () => {
+            dropdown.classList.remove("d-none");
+        });
+
         document.addEventListener("click", (e) => {
             if (!dropdown.contains(e.target) && e.target !== input) {
                 dropdown.classList.add("d-none");
             }
+        });
+
+        // Handle clicks on search suggestion terms
+        document.querySelectorAll(".search-suggestion-term").forEach((element) => {
+            element.addEventListener("click", (e) => {
+                e.preventDefault();
+                const term = element.getAttribute("data-term");
+                input.value = term;
+                input.focus();
+                // Keep dropdown open so user can continue typing
+            });
         });
 
         // Optional: shortcut CMD+K

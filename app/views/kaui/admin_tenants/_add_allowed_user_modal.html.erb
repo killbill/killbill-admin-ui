@@ -16,10 +16,10 @@
       </div>
       <div class="modal-body">
         <%= form_for :allowed_user, :url =>  add_allowed_user_path, :method => :put, :html => {:class => 'form-horizontal', :id => 'tenantAllowedUserForm'} do |f| %>
-            <div class='form-group d-flex align-items-center p-3'>
-              <%= f.label :kb_username, 'User Name', :class => 'col-sm-3 control-label' %>
+            <div class='form-group row align-items-center p-3'>
+              <%= f.label :kb_username, 'User Name', :class => 'col-sm-3 col-form-label text-center' %>
               <div class="col-sm-9">
-                <%= f.text_field :kb_username, :class => 'form-control', :required => true %>
+                <%= f.select :kb_username, options_for_select(@available_users.map { |u| [u.kb_username, u.kb_username] }), { prompt: 'Select a user' }, { class: 'form-control', required: true } %>
               </div>
             </div>
             <input type="hidden" name="tenant_id" value="<%= @tenant.id %>" />
@@ -54,38 +54,9 @@
 
 <%= javascript_tag do %>
     $(document).ready(function() {
-        function loadAllowedUser() {
-            $.ajax(
-            {
-                url: Routes.kaui_engine_admin_tenant_allowed_users_path(),
-                type: "GET",
-                dataType: "json",
-                data: {tenant_id: <%= @tenant.id %>},
-                success: function(data) {
-                    var availableAllowedUser = [];
-                    for (var i=0; i < data.length ; i++) {
-                        availableAllowedUser.push(data[i].kb_username);
-                    }
-
-                    $( "#allowed_user_kb_username" ).autocomplete({
-                        source: availableAllowedUser,
-                        appendTo: "#tenantAllowedUserForm",
-                        classes: {
-                            "ui-autocomplete": "autocomplete-allowed-user"
-                        },
-                    });
-
-                }
-            });
-        }
-
         $('#addAllowedUserModal').on('show.bs.modal', function (e) {
             // reset field
-            $( "#allowed_user_kb_username" ).val('');
-
+            $('#allowed_user_kb_username').prop('selectedIndex', 0);
         });
-
-        loadAllowedUser();
-
     });
 <% end %>

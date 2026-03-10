@@ -11,11 +11,20 @@
       <div class="row tenant-details">
         <div class="col-sm-3">
           <b>Name:</b> 
-          <p><%= @tenant.name %>&nbsp; 
+          <p class="d-flex align-items-center gap-2">
+            <%= @tenant.name %> 
             <% if session[:kb_tenant_name] == @tenant.name %>
-              <i class="fa fa-toggle-on switch-tenant-active" title="Currently selected"></i>
+              <label class="toggle-switch">
+                <input type="checkbox" checked disabled>
+                <span class="toggle-slider"></span>
+              </label>
             <% else %>
-              <%= link_to("<i class=\"fa fa-toggle-off\" aria-hidden=\"true\"></i>".html_safe, switch_tenant_path(:kb_tenant_id => @tenant.kb_tenant_id), title: 'Click the toggle to switch tenant') %>
+              <%= link_to switch_tenant_path(:kb_tenant_id => @tenant.kb_tenant_id), method: :get, title: "Click to switch to this tenant", style: "text-decoration: none;" do %>
+                <label class="toggle-switch" style="cursor: pointer;">
+                  <input type="checkbox">
+                  <span class="toggle-slider"></span>
+                </label>
+              <% end %>
             <% end %>
           </p>
         </div>

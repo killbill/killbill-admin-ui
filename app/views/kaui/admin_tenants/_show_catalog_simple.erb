@@ -74,7 +74,6 @@
             <th id="currency_select"></th>
             <th><%= I18n.translate('views.catalogs.show.plan_table.trial') %></th>
             <th><%= I18n.translate('views.catalogs.show.plan_table.final_phase_duration') %></th>
-            <th></th>
             </tr>
             </thead>
             <tbody id="catalog_detail">
@@ -116,18 +115,6 @@
 
           <td>
             <span class="phase-duration">{{final_phase_duration}}</span>
-          </td>
-
-          <td>
-            <%= link_to "{{new_plan_currency_path}}", class:"text-decoration-none" do %>
-                <%= render "kaui/components/button/button", {
-                    label: "Currency",
-                    icon: "kaui/setting/plus.svg",
-                    variant: "outline-secondary d-inline-flex align-items-center",
-                    type: "button",
-                    html_class: "currency-button kaui-button",
-                } %>
-            <% end %>
           </td>
         </tr>
       {{/plans}}
