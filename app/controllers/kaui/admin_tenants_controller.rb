@@ -75,7 +75,7 @@ module Kaui
     def show
       @tenant = safely_find_tenant_by_id(params[:id])
       @allowed_users = @tenant.kaui_allowed_users & retrieve_allowed_users_for_current_user
-      
+
       # Get available users that can be added to this tenant
       actual_allowed_users_ids = (@tenant.kaui_allowed_users || []).map(&:id)
       @available_users = retrieve_allowed_users_for_current_user.reject { |au| actual_allowed_users_ids.include? au.id }
