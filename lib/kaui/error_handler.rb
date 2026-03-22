@@ -27,10 +27,16 @@ module Kaui
 
     def perform_redirect_after_error(redirect: true)
       account_id = nested_hash_value(params.permit!.to_h, :account_id)
-      if redirect && account_id.present?
-        redirect_to kaui_engine.account_path(account_id)
+      redirect_path = if redirect && account_id.present?
+                        kaui_engine.account_path(account_id)
+                      else
+                        kaui_engine.home_path
+                      end
+
+      if request.path == redirect_path
+        render plain: flash[:error].presence || 'Unexpected error', status: :internal_server_error
       else
-        redirect_to kaui_engine.home_path
+        redirect_to redirect_path
       end
     end
   end

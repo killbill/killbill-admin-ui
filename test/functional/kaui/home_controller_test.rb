@@ -9,6 +9,15 @@ module Kaui
       assert_response :success
     end
 
+    test 'should not redirect in loop when home fails' do
+      Kaui::Account.stub :list_or_search, ->(*_args) { raise StandardError, 'boom' } do
+        get :index
+      end
+
+      assert_response :internal_server_error
+      assert_match 'Error: boom', response.body
+    end
+
     test 'should understand account search queries' do
       dummy_uuid = SecureRandom.uuid.to_s
       # search defaults using a UUID
