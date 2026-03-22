@@ -6,15 +6,15 @@ module Kaui
       @role_definition = Kaui::RoleDefinition.new
 
       # Store user form context if coming from user creation/edit
-      if params[:return_to_user].present?
-        session[:role_return_context] = {
-          kb_username: params[:kb_username],
-          description: params[:description],
-          roles: params[:roles],
-          external: params[:external],
-          allowed_user_id: params[:allowed_user_id]
-        }
-      end
+      return unless params[:return_to_user].present?
+
+      session[:role_return_context] = {
+        kb_username: params[:kb_username],
+        description: params[:description],
+        roles: params[:roles],
+        external: params[:external],
+        allowed_user_id: params[:allowed_user_id]
+      }
     end
 
     def create

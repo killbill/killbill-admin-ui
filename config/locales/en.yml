@@ -18,9 +18,9 @@ en:
   custom_field_uuid_exist_in_invoice_payment_db: "UUID do exist in INVOICE PAYMENT object database."
   custom_field_uuid_do_not_exist_in_db: "UUID do not exist in object database."
   custom_field_uuid_exist_in_invoice_item_db: "UUID do exist in INVOICE ITEMS object database."
-  immediate: "IMMEDIATE
+  immediate: "IMMEDIATE"
   start_of_term: "START_OF_TERM"
-  end_of_term: "END_OF_TERM
+  end_of_term: "END_OF_TERM"
   billing_policy: "Billing Policy"
   new_account_id_or_external_key: "New account id or external key"
   object_invalid_dont_exist: "Object type INVALID or object id do not exist."

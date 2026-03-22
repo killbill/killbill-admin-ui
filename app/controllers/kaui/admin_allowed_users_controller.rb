@@ -18,13 +18,13 @@ module Kaui
       @roles = []
 
       # Restore form state if returning from role creation
-      if params[:user_context].present?
-        context = params[:user_context]
-        @allowed_user.kb_username = context[:kb_username]
-        @allowed_user.description = context[:description]
-        @roles = context[:roles].to_s.split(',').reject(&:blank?)
-        @external_checked = context[:external] == '1'
-      end
+      return unless params[:user_context].present?
+
+      context = params[:user_context]
+      @allowed_user.kb_username = context[:kb_username]
+      @allowed_user.description = context[:description]
+      @roles = context[:roles].to_s.split(',').reject(&:blank?)
+      @external_checked = context[:external] == '1'
     end
 
     def create
