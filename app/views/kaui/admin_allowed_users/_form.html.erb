@@ -5,7 +5,7 @@
       <div class="col-sm-9">
         <div class="checkbox">
           <label for="external" class="d-flex align-items-center gap-2 control-label">
-            <%= check_box_tag :external, '1', false, disabled: !@allowed_user.id.blank?, id: 'external', class: "pt-2" %>
+            <%= check_box_tag :external, '1', @external_checked || false, disabled: !@allowed_user.id.blank?, id: 'external', class: "pt-2" %>
             Managed externally (LDAP, Okta, etc.)?
           </label>
         </div>
@@ -38,7 +38,7 @@
         </div>
         <%= hidden_field_tag :roles, @roles.join(','), id: 'roles-hidden' %>
 
-        <%= link_to new_role_definition_path, class: "border-button custom-hover add-role-button" do %>
+        <%= link_to '#', class: "border-button custom-hover add-role-button", id: "add-role-link", data: { base_url: new_role_definition_path } do %>
           <%= image_tag("kaui/modal/plus.svg", width: 16, height: 16) %>
         <% end %>
       </div>
@@ -77,6 +77,22 @@
 
 <%= javascript_tag do %>
     $(document).ready(function() {
+
+        // Handle add role button click - pass current form state
+        $('#add-role-link').click(function(e) {
+            e.preventDefault();
+            var baseUrl = $(this).data('base-url');
+            var params = {
+                return_to_user: '1',
+                kb_username: $('#allowed_user_kb_username').val(),
+                description: $('#allowed_user_description').val(),
+                roles: $('#roles-hidden').val(),
+                external: $('#external').is(':checked') ? '1' : '0',
+                allowed_user_id: '<%= @allowed_user.id %>'
+            };
+            var queryString = $.param(params);
+            window.location.href = baseUrl + '?' + queryString;
+        });
 
         $('#external').change(function() {
             is_killbill_managed();

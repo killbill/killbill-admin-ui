@@ -15,8 +15,16 @@ module Kaui
     def new
       @allowed_user = Kaui::AllowedUser.new
       @is_killbill_managed = true
-
       @roles = []
+
+      # Restore form state if returning from role creation
+      return unless params[:user_context].present?
+
+      context = params[:user_context]
+      @allowed_user.kb_username = context[:kb_username]
+      @allowed_user.description = context[:description]
+      @roles = context[:roles].to_s.split(',').reject(&:blank?)
+      @external_checked = context[:external] == '1'
     end
 
     def create
@@ -59,7 +67,14 @@ module Kaui
       @allowed_user = Kaui::AllowedUser.find(params.require(:id))
       @is_killbill_managed = killbill_managed?(@allowed_user, options_for_klient)
 
-      @roles = roles_for_user(@allowed_user)
+      # Use roles from context if returning from role creation, otherwise fetch from KB
+      if params[:user_context].present?
+        context = params[:user_context]
+        @roles = context[:roles].to_s.split(',').reject(&:blank?)
+        @allowed_user.description = context[:description] if context[:description].present?
+      else
+        @roles = roles_for_user(@allowed_user)
+      end
     end
 
     def update

@@ -47,7 +47,7 @@
                     <div class="col-sm-9 checkbox-label">
                         <label for="<%= "cb_adj_#{ii.invoice_item_id}" %>" class="d-flex align-items-center gap-2 mb-1">
                             <input type="checkbox" id="<%= "cb_adj_#{ii.invoice_item_id}" %>">
-                            <%= Kaui.refund_invoice_description.call(index, ii, bundle_result) %>
+                            <%= text_field_tag "descriptions[#{ii.invoice_item_id}]", Kaui.refund_invoice_description.call(index, ii, bundle_result), id: "desc_#{ii.invoice_item_id}", class: 'form-control' %>
                         </label>
                         <%= text_field_tag "adjustments[#{ii.invoice_item_id}]", index, id: "tf_adj_#{ii.invoice_item_id}", value: ii.amount, class: 'form-control checkbox-label' %>
                     </div>

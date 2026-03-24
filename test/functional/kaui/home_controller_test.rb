@@ -9,6 +9,37 @@ module Kaui
       assert_response :success
     end
 
+    test 'should not redirect in loop when home fails' do
+      account_singleton = Kaui::Account.singleton_class
+      original_list_or_search = Kaui::Account.method(:list_or_search)
+
+      account_singleton.send(:define_method, :list_or_search) do |*_args|
+        raise StandardError, 'boom'
+      end
+
+      begin
+        error = assert_raises(StandardError) { get :index }
+        assert_equal 'boom', error.message
+      ensure
+        account_singleton.send(:define_method, :list_or_search, original_list_or_search)
+      end
+    end
+
+    test 'should not redirect in loop when home raises parameter missing' do
+      original_index = Kaui::HomeController.instance_method(:index)
+
+      Kaui::HomeController.send(:define_method, :index) do
+        raise ActionController::ParameterMissing, :account_id
+      end
+
+      begin
+        error = assert_raises(ActionController::ParameterMissing) { get :index }
+        assert_equal :account_id, error.param
+      ensure
+        Kaui::HomeController.send(:define_method, :index, original_index)
+      end
+    end
+
     test 'should understand account search queries' do
       dummy_uuid = SecureRandom.uuid.to_s
       # search defaults using a UUID
