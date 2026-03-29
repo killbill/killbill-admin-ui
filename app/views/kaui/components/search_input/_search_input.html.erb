@@ -59,13 +59,50 @@
     document.addEventListener("DOMContentLoaded", () => {
         const input = document.getElementById("search-box");
         const dropdown = document.getElementById("search-suggestions");
+        const validPrefixes = ['account:', 'invoice:', 'payment:', 'bundle:', 'custom field:', 'subscription:', 'tag:', 'transaction:', 'credit:', 'invoice payment:', 'tag definition:'];
+
+        // Get current prefix and search term from input value
+        function parseInput(value) {
+            const colonIndex = value.indexOf(':');
+            if (colonIndex === -1) {
+                return { prefix: '', searchTerm: value };
+            }
+            return {
+                prefix: value.substring(0, colonIndex + 1).toLowerCase(),
+                searchTerm: value.substring(colonIndex + 1)
+            };
+        }
+
+        // Ensure input always has a valid prefix
+        function ensurePrefix() {
+            const { prefix, searchTerm } = parseInput(input.value);
+            const hasValidPrefix = validPrefixes.some(p => prefix === p.toLowerCase());
+            if (!hasValidPrefix) {
+                input.value = 'account: ' + input.value.replace(/^[^:]*:?\s*/, '');
+            }
+        }
 
         input.addEventListener("input", () => {
             dropdown.classList.remove("d-none");
+            ensurePrefix();
         });
 
         input.addEventListener("focus", () => {
             dropdown.classList.remove("d-none");
+            // Add default prefix when focusing on empty input
+            if (input.value.trim() === '') {
+                input.value = 'account: ';
+            }
+        });
+
+        input.addEventListener("blur", () => {
+            // Clear back to empty if only prefix remains
+            const trimmed = input.value.trim();
+            if (validPrefixes.some(p => trimmed.toLowerCase() === p.trim().toLowerCase())) {
+                input.value = '';
+            } else {
+                ensurePrefix();
+            }
         });
 
         document.addEventListener("click", (e) => {
@@ -79,7 +116,8 @@
             element.addEventListener("click", (e) => {
                 e.preventDefault();
                 const term = element.getAttribute("data-term");
-                input.value = term;
+                const { searchTerm } = parseInput(input.value);
+                input.value = term + searchTerm;
                 input.focus();
                 // Keep dropdown open so user can continue typing
             });

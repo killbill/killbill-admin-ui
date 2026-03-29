@@ -20,6 +20,10 @@ module Kaui
 
     def search
       object_type, search_query = splitting_new_search(params[:q])
+      if search_query.nil?
+        search_error('Please specify a search type (e.g., "Account: search_term")')
+        return
+      end
       object_type = object_type.tr(' ', '_').downcase
       cached_options_for_klient = options_for_klient
       send("#{object_type}_search", search_query, nil, 0, cached_options_for_klient)
