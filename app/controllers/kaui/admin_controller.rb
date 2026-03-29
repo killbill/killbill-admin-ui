@@ -23,10 +23,10 @@ module Kaui
     def set_clock
       if params[:commit] == 'Submit'
         date = Date.parse(params[:new_date]).strftime('%Y-%m-%d')
-        msg = I18n.translate('flashes.notices.clock_updated_successfully', new_date: date)
+        msg = I18n.t('flashes.notices.clock_updated_successfully', new_date: date)
       else
         date = nil
-        msg = I18n.translate('flashes.notices.clock_reset_successfully')
+        msg = I18n.t('flashes.notices.clock_reset_successfully')
       end
       begin
         Kaui::Admin.set_clock(date, nil, options_for_klient)

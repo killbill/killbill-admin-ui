@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 # Hack for Zeitwerk
-# rubocop:disable Style/OneClassPerFile
 module Kaui
   module KillbillRegisterable; end
 end
@@ -13,4 +12,3 @@ module Devise
     end
   end
 end
-# rubocop:enable Style/OneClassPerFile

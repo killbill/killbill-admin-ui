@@ -19,7 +19,7 @@ module Kaui
 
     def self.build_from_raw_payment(raw_payment)
       result = Kaui::Payment.new
-      KillBillClient::Model::PaymentAttributes.instance_variable_get('@json_attributes').each do |attr|
+      KillBillClient::Model::PaymentAttributes.instance_variable_get(:@json_attributes).each do |attr|
         result.send("#{attr}=", raw_payment.send(attr))
       end
       result

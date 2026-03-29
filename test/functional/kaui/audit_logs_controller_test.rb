@@ -65,7 +65,7 @@ module Kaui
       get :download, params: { account_id: @account.account_id }
       assert_response :success
       assert_equal 'text/csv', @response.header['Content-Type']
-      assert_includes @response.header['Content-Disposition'], "filename=\"audit-logs-#{Date.today}.csv\""
+      assert_includes @response.header['Content-Disposition'], "filename=\"audit-logs-#{Time.zone.today}.csv\""
       assert_includes @response.body, @payment.payment_id
       assert_includes @response.body, @account.account_id
     end

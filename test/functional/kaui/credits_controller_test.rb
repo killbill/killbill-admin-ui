@@ -13,12 +13,12 @@ module Kaui
 
     test 'should get new for new invoice' do
       get :new, params: { account_id: @account.account_id }
-      assert_response 200
+      assert_response :ok
     end
 
     test 'should get new for existing invoice' do
       get :new, params: { account_id: @account.account_id, invoice_id: @invoice_item.invoice_id }
-      assert_response 200
+      assert_response :ok
     end
 
     test 'should handle Kill Bill errors during creation' do

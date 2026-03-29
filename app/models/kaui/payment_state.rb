@@ -2,9 +2,11 @@
 
 module Kaui
   module PaymentState
+    REFUNDABLE_TRANSACTION_TYPES = %w[CAPTURE PURCHASE].freeze
+
     def refundable?
       transactions.each do |transaction|
-        return true if transaction.status == 'SUCCESS' && %w[CAPTURE PURCHASE].include?(transaction.transaction_type)
+        return true if transaction.status == 'SUCCESS' && REFUNDABLE_TRANSACTION_TYPES.include?(transaction.transaction_type)
       end
       false
     end

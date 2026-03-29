@@ -11,7 +11,7 @@ module Kaui
 
       assert_response :redirect
       assert_redirected_to admin_path
-      assert_equal I18n.translate('flashes.notices.clock_updated_successfully', new_date: new_date), flash[:notice]
+      assert_equal I18n.t('flashes.notices.clock_updated_successfully', new_date: new_date), flash[:notice]
     end
 
     test 'should reset clock' do
@@ -19,7 +19,7 @@ module Kaui
 
       assert_response :redirect
       assert_redirected_to admin_path
-      assert_equal I18n.translate('flashes.notices.clock_reset_successfully'), flash[:notice]
+      assert_equal I18n.t('flashes.notices.clock_reset_successfully'), flash[:notice]
     end
   end
 end

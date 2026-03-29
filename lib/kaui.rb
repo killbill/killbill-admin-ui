@@ -62,7 +62,7 @@ module Kaui
   self.creditcard_plugin_name =  -> { '__EXTERNAL_PAYMENT__' }
 
   self.account_search_columns = lambda do |account = nil, view_context = nil|
-    original_fields = KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
+    original_fields = KillBillClient::Model::AccountAttributes.instance_variable_get(:@json_attributes)
     # Add additional fields if needed
     fields = original_fields.dup
     fields -= %w[audit_logs first_name_length]
@@ -112,7 +112,7 @@ module Kaui
   end
 
   self.account_invoices_columns = lambda do |invoice = nil, view_context = nil|
-    fields = KillBillClient::Model::InvoiceAttributes.instance_variable_get('@json_attributes')
+    fields = KillBillClient::Model::InvoiceAttributes.instance_variable_get(:@json_attributes)
     # Change the order if needed
     fields -= Kaui::Invoice::TABLE_IGNORE_COLUMNS
     fields.delete('invoice_id')
@@ -150,7 +150,7 @@ module Kaui
   end
 
   self.account_payments_columns = lambda do |account = nil, payment = nil, view_context = nil|
-    fields = KillBillClient::Model::PaymentAttributes.instance_variable_get('@json_attributes')
+    fields = KillBillClient::Model::PaymentAttributes.instance_variable_get(:@json_attributes)
     # Change the order if needed
     fields = %w[payment_date] + fields
     fields -= %w[payment_number transactions audit_logs]
@@ -202,7 +202,7 @@ module Kaui
     "Item #{index + 1} : #{ii.description} #{"(bundle #{bundle_result.external_key})" unless bundle_result.nil?}"
   }
 
-  self.customer_invoice_link = ->(invoice, ctx) { ctx.link_to 'View customer invoice html', ctx.kaui_engine.show_html_invoice_path(invoice.invoice_id), class: 'btn', target: '_blank' }
+  self.customer_invoice_link = ->(invoice, ctx) { ctx.link_to 'View customer invoice html', ctx.kaui_engine.show_html_invoice_path(invoice.invoice_id), class: 'btn', target: '_blank', rel: 'noopener' }
 
   self.additional_invoice_links = ->(invoice, ctx) {}
 
@@ -283,15 +283,15 @@ module Kaui
     return false if user.nil?
 
     # If there is a kb_tenant_id in the session then we check if the user is allowed to access it
-    au = Kaui::AllowedUser.find_by_kb_username(user.kb_username)
+    au = Kaui::AllowedUser.find_by(kb_username: user.kb_username)
     return false if au.nil?
 
-    au.kaui_tenants.select { |t| t.kb_tenant_id == session[:kb_tenant_id] }.first
+    au.kaui_tenants.find { |t| t.kb_tenant_id == session[:kb_tenant_id] }
   end
 
   def self.current_tenant_user_options(user, session)
     kb_tenant_id = session[:kb_tenant_id]
-    user_tenant = Kaui::Tenant.find_by_kb_tenant_id(kb_tenant_id) if kb_tenant_id
+    user_tenant = Kaui::Tenant.find_by(kb_tenant_id: kb_tenant_id) if kb_tenant_id
     result = {
       username: user.kb_username,
       password: user.password,

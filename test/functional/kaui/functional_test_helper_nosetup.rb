@@ -33,7 +33,7 @@ module Kaui
     end
 
     def verify_pagination_results!(min = 0)
-      assert_response 200
+      assert_response :ok
 
       body = MultiJson.decode(@response.body)
       # We could probably do better checks here since each test runs in its own tenant

@@ -37,7 +37,7 @@ module Kaui
 
     test 'should add and destroy email' do
       get :new, params: { account_id: @account.account_id }
-      assert_response 200
+      assert_response :ok
       assert_not_nil assigns(:account_email)
 
       email = "#{SecureRandom.uuid}@example.com"

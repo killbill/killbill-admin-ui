@@ -24,7 +24,6 @@ group :development do
   gem 'puma'
   gem 'rails-controller-testing'
   gem 'rake'
-  gem 'rubocop'
   gem 'simplecov'
 
   if defined?(JRUBY_VERSION)
@@ -41,6 +40,14 @@ group :development do
     gem 'rack-mini-profiler'
     gem 'stackprof'
   end
+end
+
+group :development, :test do
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'rubocop-thread_safety', require: false
 end
 
 # gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'main'

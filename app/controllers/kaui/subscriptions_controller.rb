@@ -2,6 +2,10 @@
 
 module Kaui
   class SubscriptionsController < Kaui::EngineController
+    def show
+      restful_show
+    end
+
     def new
       @base_product_name = params[:base_product_name]
       @subscription = Kaui::Subscription.new(bundle_id: params[:bundle_id],
@@ -21,10 +25,17 @@ module Kaui
       redirect_to kaui_engine.account_bundles_path(@subscription.account_id), error: 'No available plan'
     end
 
+    def edit
+      @subscription = Kaui::Subscription.find_by_id(params.require(:id), 'NONE', options_for_klient)
+      _, plans_details = lookup_bundle_and_plan_details(@subscription)
+      # Use a Set to deal with multiple pricelists
+      @plans = Set.new.merge(plans_details.map(&:plan))
+    end
+
     def create
       plan_name = params.require(:plan_name)
       @base_product_name = params[:base_product_name]
-      @subscription = Kaui::Subscription.new(params.require(:subscription).delete_if { |_key, value| value.blank? })
+      @subscription = Kaui::Subscription.new(params.require(:subscription).compact_blank!)
 
       begin
         @bundle, plans_details = lookup_bundle_and_plan_details(@subscription, @base_product_name)
@@ -44,7 +55,7 @@ module Kaui
         override_recurring_price = !override_fixed_price
         phase_type = @bundle.nil? ? plan_details.phases.first.type : @bundle.subscriptions.first.phase_type
         overrides = price_overrides(phase_type, override_fixed_price, override_recurring_price)
-        @subscription.price_overrides = overrides unless overrides.blank?
+        @subscription.price_overrides = overrides if overrides.present?
 
         # un-set product_category since is not needed if plan name exist
         @subscription.product_category = nil
@@ -71,13 +82,6 @@ module Kaui
       end
     end
 
-    def edit
-      @subscription = Kaui::Subscription.find_by_id(params.require(:id), 'NONE', options_for_klient)
-      _, plans_details = lookup_bundle_and_plan_details(@subscription)
-      # Use a Set to deal with multiple pricelists
-      @plans = Set.new.merge(plans_details.map(&:plan))
-    end
-
     def update
       plan_name = params.require(:plan_name)
 
@@ -95,7 +99,7 @@ module Kaui
       override_fixed_price = current_plan.last['recurringPrice'].nil?
       override_recurring_price = !override_fixed_price
       overrides = price_overrides(subscription.phase_type, override_fixed_price, override_recurring_price)
-      input[:priceOverrides] = overrides unless overrides.blank?
+      input[:priceOverrides] = overrides if overrides.present?
 
       subscription.change_plan(input,
                                current_user.kb_username,
@@ -151,10 +155,6 @@ module Kaui
 
       subscription.update_bcd(current_user.kb_username, params[:reason], params[:comment], effective_from_date, nil, options_for_klient)
       redirect_to kaui_engine.account_bundles_path(input_subscription['account_id']), notice: 'Subscription BCD was successfully changed'
-    end
-
-    def show
-      restful_show
     end
 
     def restful_show

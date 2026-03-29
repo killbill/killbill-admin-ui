@@ -19,7 +19,7 @@ module Kaui
     end
 
     def create
-      charge = Kaui::InvoiceItem.new(params.require(:invoice_item).delete_if { |_key, value| value.blank? })
+      charge = Kaui::InvoiceItem.new(params.require(:invoice_item).compact_blank!)
       charge.account_id ||= params.require(:account_id)
 
       auto_commit = params[:auto_commit] == '1'

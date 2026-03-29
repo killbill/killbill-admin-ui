@@ -6,12 +6,12 @@ module Kaui
   class TagDefinitionsControllerTest < Kaui::FunctionalTestHelper
     test 'should list tag definitions' do
       get :index
-      assert_response 200
+      assert_response :ok
     end
 
     test 'should add and destroy tag definition' do
       get :new
-      assert_response 200
+      assert_response :ok
       assert_not_nil assigns(:tag_definition)
 
       tag_definition = SecureRandom.uuid[0..5]

@@ -8,7 +8,7 @@ module Kaui
 
     def self.build_from_raw_invoice(raw_invoice)
       result = Kaui::Invoice.new
-      KillBillClient::Model::InvoiceAttributes.instance_variable_get('@json_attributes').each do |attr|
+      KillBillClient::Model::InvoiceAttributes.instance_variable_get(:@json_attributes).each do |attr|
         result.send("#{attr}=", raw_invoice.send(attr))
       end
       result

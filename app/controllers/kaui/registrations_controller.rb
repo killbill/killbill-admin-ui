@@ -16,7 +16,7 @@ module Kaui
 
       @user = Kaui::AllowedUser.new(kb_username: sign_up_params.require(:kb_username))
 
-      if Kaui::AllowedUser.find_by_kb_username(@user.kb_username).present?
+      if Kaui::AllowedUser.find_by(kb_username: @user.kb_username).present?
         flash.now[:error] = "User with name #{@user.kb_username} already exists!"
         render :new and return
       end

@@ -24,10 +24,10 @@ module Kaui
     end
 
     def create
-      transaction = Kaui::Transaction.new(params[:transaction].delete_if { |_key, value| value.blank? })
+      transaction = Kaui::Transaction.new(params[:transaction].compact_blank!)
 
-      plugin_properties = params[:plugin_properties].values.reject { |item| item['value'].blank? || item['key'].blank? } unless params[:plugin_properties].blank?
-      unless plugin_properties.blank?
+      plugin_properties = params[:plugin_properties].values.reject { |item| item['value'].blank? || item['key'].blank? } if params[:plugin_properties].present?
+      if plugin_properties.present?
         plugin_properties.map! do |property|
           KillBillClient::Model::PluginPropertyAttributes.new(property)
         end
@@ -35,15 +35,15 @@ module Kaui
 
       options = plugin_properties.blank? ? options_for_klient : { pluginProperty: plugin_properties }.merge(options_for_klient)
 
-      control_plugin_names = params[:control_plugin_names].reject(&:blank?) unless params[:control_plugin_names].blank?
-      options.merge!({ controlPluginNames: control_plugin_names }) unless control_plugin_names.blank?
+      control_plugin_names = params[:control_plugin_names].compact_blank if params[:control_plugin_names].present?
+      options[:controlPluginNames] = control_plugin_names if control_plugin_names.present?
 
       payment = transaction.create(params.require(:account_id), params[:payment_method_id], current_user.kb_username, params[:reason], params[:comment], options)
       redirect_to kaui_engine.account_payment_path(payment.account_id, payment.payment_id), notice: 'Transaction successfully created'
     end
 
     def fix_transaction_state
-      transaction = Kaui::Transaction.new(params[:transaction].delete_if { |_key, value| value.blank? })
+      transaction = Kaui::Transaction.new(params[:transaction].compact_blank!)
       payment_id = transaction.payment_id
       transaction_id = transaction.transaction_id
       transaction_status = transaction.status

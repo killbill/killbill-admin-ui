@@ -3,7 +3,7 @@
 module Kaui
   class AuditLog
     def self.description(log)
-      return unless log.changed_by.present?
+      return if log.changed_by.blank?
 
       changed_str = "#{log.change_type} by #{log.changed_by.strip}"
       if log.reason_code.blank? && log.comments.blank?

@@ -10,68 +10,6 @@ module Kaui
       @tenants = Kaui::Tenant.all.select { |tenant| tenants_for_current_user.include?(tenant.kb_tenant_id) }
     end
 
-    def new
-      @tenant = Kaui::Tenant.new
-    end
-
-    def create
-      param_tenant = params[:tenant]
-
-      old_tenant = Kaui::Tenant.find_by_name(param_tenant[:name]) || Kaui::Tenant.find_by_api_key(param_tenant[:api_key])
-      if old_tenant
-        old_tenant.kaui_allowed_users << Kaui::AllowedUser.where(kb_username: current_user.kb_username).first_or_create
-        redirect_to admin_tenant_path(old_tenant[:id]), notice: 'Tenant was successfully configured' and return
-      end
-
-      begin
-        options = tenant_options_for_client
-        new_tenant = nil
-
-        begin
-          options[:api_key] = param_tenant[:api_key]
-          options[:api_secret] = param_tenant[:api_secret]
-          new_tenant = Kaui::AdminTenant.find_by_api_key(param_tenant[:api_key], options)
-        rescue KillBillClient::API::Unauthorized, KillBillClient::API::NotFound, KillBillClient::API::InternalServerError => e
-          # Create the tenant in Kill Bill
-          if e.instance_of?(KillBillClient::API::InternalServerError) && !e.message&.include?('TenantCacheLoader cannot find value')
-            flash[:error] = "Internal server error while retrieving tenant: #{as_string(e)}"
-            redirect_to admin_tenants_path and return
-          end
-          new_tenant = Kaui::AdminTenant.new
-          new_tenant.external_key = param_tenant[:name]
-          new_tenant.api_key = param_tenant[:api_key]
-          new_tenant.api_secret = param_tenant[:api_secret]
-          new_tenant = new_tenant.create(false, options[:username], nil, comment, options)
-        end
-
-        # Transform object to Kaui model
-        tenant_model = Kaui::Tenant.new
-        tenant_model.name = param_tenant[:name]
-        tenant_model.api_key = param_tenant[:api_key]
-        tenant_model.api_secret = param_tenant[:api_secret]
-        tenant_model.kb_tenant_id = new_tenant.tenant_id
-
-        # Save in KAUI tables
-        tenant_model.save!
-        # Make sure at least the current user can access the tenant
-        tenant_model.kaui_allowed_users << Kaui::AllowedUser.where(kb_username: current_user.kb_username).first_or_create
-      rescue KillBillClient::API::Conflict => _e
-        # tenant api_key was found but has a wrong api_secret
-        flash[:error] = "Submitted credentials for #{param_tenant[:api_key]} did not match the expected credentials."
-        redirect_to admin_tenants_path and return
-      rescue StandardError => e
-        flash[:error] = "Failed to create the tenant: #{as_string(e)}"
-        redirect_to admin_tenants_path and return
-      end
-
-      # Select the tenant, see TenantsController
-      session[:kb_tenant_id] = tenant_model.kb_tenant_id
-      session[:kb_tenant_name] = tenant_model.name
-      session[:tenant_id] = tenant_model.id
-
-      redirect_to admin_tenant_path(tenant_model[:id]), notice: 'Tenant was successfully configured'
-    end
-
     def show
       @tenant = safely_find_tenant_by_id(params[:id])
       @allowed_users = @tenant.kaui_allowed_users & retrieve_allowed_users_for_current_user
@@ -140,6 +78,68 @@ module Kaui
       end
     end
 
+    def new
+      @tenant = Kaui::Tenant.new
+    end
+
+    def create
+      param_tenant = params[:tenant]
+
+      old_tenant = Kaui::Tenant.find_by(name: param_tenant[:name]) || Kaui::Tenant.find_by(api_key: param_tenant[:api_key])
+      if old_tenant
+        old_tenant.kaui_allowed_users << Kaui::AllowedUser.where(kb_username: current_user.kb_username).first_or_create
+        redirect_to admin_tenant_path(old_tenant[:id]), notice: 'Tenant was successfully configured' and return
+      end
+
+      begin
+        options = tenant_options_for_client
+        new_tenant = nil
+
+        begin
+          options[:api_key] = param_tenant[:api_key]
+          options[:api_secret] = param_tenant[:api_secret]
+          new_tenant = Kaui::AdminTenant.find_by_api_key(param_tenant[:api_key], options)
+        rescue KillBillClient::API::Unauthorized, KillBillClient::API::NotFound, KillBillClient::API::InternalServerError => e
+          # Create the tenant in Kill Bill
+          if e.instance_of?(KillBillClient::API::InternalServerError) && !e.message&.include?('TenantCacheLoader cannot find value')
+            flash[:error] = "Internal server error while retrieving tenant: #{as_string(e)}"
+            redirect_to admin_tenants_path and return
+          end
+          new_tenant = Kaui::AdminTenant.new
+          new_tenant.external_key = param_tenant[:name]
+          new_tenant.api_key = param_tenant[:api_key]
+          new_tenant.api_secret = param_tenant[:api_secret]
+          new_tenant = new_tenant.create(false, options[:username], nil, comment, options)
+        end
+
+        # Transform object to Kaui model
+        tenant_model = Kaui::Tenant.new
+        tenant_model.name = param_tenant[:name]
+        tenant_model.api_key = param_tenant[:api_key]
+        tenant_model.api_secret = param_tenant[:api_secret]
+        tenant_model.kb_tenant_id = new_tenant.tenant_id
+
+        # Save in KAUI tables
+        tenant_model.save!
+        # Make sure at least the current user can access the tenant
+        tenant_model.kaui_allowed_users << Kaui::AllowedUser.where(kb_username: current_user.kb_username).first_or_create
+      rescue KillBillClient::API::Conflict => _e
+        # tenant api_key was found but has a wrong api_secret
+        flash[:error] = "Submitted credentials for #{param_tenant[:api_key]} did not match the expected credentials."
+        redirect_to admin_tenants_path and return
+      rescue StandardError => e
+        flash[:error] = "Failed to create the tenant: #{as_string(e)}"
+        redirect_to admin_tenants_path and return
+      end
+
+      # Select the tenant, see TenantsController
+      session[:kb_tenant_id] = tenant_model.kb_tenant_id
+      session[:kb_tenant_name] = tenant_model.name
+      session[:tenant_id] = tenant_model.id
+
+      redirect_to admin_tenant_path(tenant_model[:id]), notice: 'Tenant was successfully configured'
+    end
+
     def upload_catalog
       current_tenant = safely_find_tenant_by_id(params[:id])
 
@@ -158,7 +158,7 @@ module Kaui
       end
       if catalog_validation_errors.blank?
         Kaui::AdminTenant.upload_catalog(catalog_xml, options[:username], nil, comment, options)
-        redirect_to admin_tenant_path(current_tenant.id), notice: I18n.translate('flashes.notices.catalog_uploaded_successfully')
+        redirect_to admin_tenant_path(current_tenant.id), notice: I18n.t('flashes.notices.catalog_uploaded_successfully')
       else
         errors = ''
         catalog_validation_errors.each do |validation_error|
@@ -234,7 +234,7 @@ module Kaui
       options = tenant_options_for_client
       fetch_state_for_new_catalog_screen(options)
 
-      simple_plan = params.require(:simple_plan).delete_if { |_e, value| value.blank? }
+      simple_plan = params.require(:simple_plan).compact_blank!
       # Fix issue in Rails where first entry in the multi-select array is an empty string
       simple_plan['available_base_products']&.reject!(&:blank?)
 
@@ -298,12 +298,12 @@ module Kaui
       options[:api_key] = current_tenant.api_key
       options[:api_secret] = current_tenant.api_secret
 
-      view_form_model = params.require(:kill_bill_client_model_overdue).delete_if { |_e, value| value.blank? }
-      view_form_model['states'] = view_form_model['states'].values unless view_form_model['states'].blank?
+      view_form_model = params.require(:kill_bill_client_model_overdue).compact_blank!
+      view_form_model['states'] = view_form_model['states'].values if view_form_model['states'].present?
 
       overdue = Kaui::Overdue.from_overdue_form_model(view_form_model)
       Kaui::Overdue.upload_tenant_overdue_config_json(overdue.to_json, options[:username], nil, comment, options)
-      redirect_to admin_tenant_path(current_tenant.id, active_tab: 'OverdueShow'), notice: I18n.translate('flashes.notices.overdue_added_successfully')
+      redirect_to admin_tenant_path(current_tenant.id, active_tab: 'OverdueShow'), notice: I18n.t('flashes.notices.overdue_added_successfully')
     end
 
     def upload_overdue_config
@@ -319,13 +319,13 @@ module Kaui
       begin
         Nokogiri::XML(overdue_config_xml, &:strict)
       rescue Nokogiri::XML::SyntaxError => e
-        flash[:error] = I18n.translate('errors.messages.invalid_xml', error: e)
+        flash[:error] = I18n.t('errors.messages.invalid_xml', error: e)
         redirect_to admin_tenant_path(current_tenant.id) and return
       end
 
       Kaui::AdminTenant.upload_overdue_config(overdue_config_xml, options[:username], nil, comment, options)
 
-      redirect_to admin_tenant_path(current_tenant.id, active_tab: 'OverdueShow'), notice: I18n.translate('flashes.notices.overdue_uploaded_successfully')
+      redirect_to admin_tenant_path(current_tenant.id, active_tab: 'OverdueShow'), notice: I18n.t('flashes.notices.overdue_uploaded_successfully')
     end
 
     def upload_invoice_template
@@ -341,7 +341,7 @@ module Kaui
 
       Kaui::AdminTenant.upload_invoice_template(invoice_template, is_manual_pay, true, options[:username], nil, comment, options)
 
-      redirect_to admin_tenant_path(current_tenant.id), notice: I18n.translate('flashes.notices.invoice_template_uploaded_successfully')
+      redirect_to admin_tenant_path(current_tenant.id), notice: I18n.t('flashes.notices.invoice_template_uploaded_successfully')
     end
 
     def upload_invoice_translation
@@ -357,7 +357,7 @@ module Kaui
 
       Kaui::AdminTenant.upload_invoice_translation(invoice_translation, locale, true, options[:username], nil, comment, options)
 
-      redirect_to admin_tenant_path(current_tenant.id), notice: I18n.translate('flashes.notices.invoice_translation_uploaded_successfully')
+      redirect_to admin_tenant_path(current_tenant.id), notice: I18n.t('flashes.notices.invoice_translation_uploaded_successfully')
     end
 
     def upload_catalog_translation
@@ -373,7 +373,7 @@ module Kaui
 
       Kaui::AdminTenant.upload_catalog_translation(catalog_translation, locale, true, options[:username], nil, comment, options)
 
-      redirect_to admin_tenant_path(current_tenant.id), notice: I18n.translate('flashes.notices.catalog_translation_uploaded_successfully')
+      redirect_to admin_tenant_path(current_tenant.id), notice: I18n.t('flashes.notices.catalog_translation_uploaded_successfully')
     end
 
     def upload_plugin_config
@@ -407,18 +407,18 @@ module Kaui
       au = Kaui::AllowedUser.find(params.require(:allowed_user).require(:id))
 
       unless current_user.root?
-        render json: { alert: 'Only the root user can remove users from tenants' }.to_json, status: 401
+        render json: { alert: 'Only the root user can remove users from tenants' }.to_json, status: :unauthorized
         return
       end
 
       # remove the association
       au.kaui_tenants.delete current_tenant
-      render json: '{}', status: 200
+      render json: '{}', status: :ok
     end
 
     def add_allowed_user
       current_tenant = safely_find_tenant_by_id(params[:tenant_id])
-      allowed_user = Kaui::AllowedUser.find_by_kb_username(params.require(:allowed_user).require(:kb_username))
+      allowed_user = Kaui::AllowedUser.find_by(kb_username: params.require(:allowed_user).require(:kb_username))
 
       unless current_user.root?
         flash[:error] = 'Only the root user can add users from tenants'
@@ -498,10 +498,10 @@ module Kaui
 
       if params[:commit] == 'Submit'
         date = Date.parse(params[:new_date]).strftime('%Y-%m-%d')
-        msg = I18n.translate('flashes.notices.clock_updated_successfully', new_date: date)
+        msg = I18n.t('flashes.notices.clock_updated_successfully', new_date: date)
       else
         date = nil
-        msg = I18n.translate('flashes.notices.clock_reset_successfully')
+        msg = I18n.t('flashes.notices.clock_reset_successfully')
       end
 
       begin
@@ -515,7 +515,7 @@ module Kaui
     end
 
     def switch_tenant
-      tenant = Kaui::Tenant.find_by_kb_tenant_id(params.require(:kb_tenant_id))
+      tenant = Kaui::Tenant.find_by(kb_tenant_id: params.require(:kb_tenant_id))
 
       # Select the tenant, see TenantsController
       session[:kb_tenant_id] = tenant.kb_tenant_id
@@ -560,7 +560,7 @@ module Kaui
     end
 
     def safely_find_tenant_by_id(tenant_id)
-      tenant = Kaui::Tenant.find_by_id(tenant_id)
+      tenant = Kaui::Tenant.find_by(id: tenant_id)
       raise ActiveRecord::RecordNotFound, "Could not find tenant #{tenant_id}" unless retrieve_tenants_for_current_user.include?(tenant.kb_tenant_id)
 
       tenant
@@ -606,7 +606,7 @@ module Kaui
       end
 
       catalog_xml = {}
-      catalog_xml = response[0][:xml] unless response.blank?
+      catalog_xml = response[0][:xml] if response.present?
 
       catalog_xml
     end

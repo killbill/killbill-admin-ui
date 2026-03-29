@@ -12,26 +12,50 @@ module Kaui
       end
     end
 
+    def show
+      @allowed_user = Kaui::AllowedUser.find(params.require(:id))
+      raise ActiveRecord::RecordNotFound, "Could not find user #{@allowed_user.id}" unless current_user.root? || @allowed_user.kb_username == current_user.kb_username
+
+      @roles = roles_for_user(@allowed_user)
+
+      tenants_for_current_user = retrieve_tenants_for_current_user
+      @tenants = Kaui::Tenant.all.select { |tenant| tenants_for_current_user.include?(tenant.kb_tenant_id) }
+    end
+
     def new
       @allowed_user = Kaui::AllowedUser.new
       @is_killbill_managed = true
       @roles = []
 
       # Restore form state if returning from role creation
-      return unless params[:user_context].present?
+      return if params[:user_context].blank?
 
       context = params[:user_context]
       @allowed_user.kb_username = context[:kb_username]
       @allowed_user.description = context[:description]
-      @roles = context[:roles].to_s.split(',').reject(&:blank?)
+      @roles = context[:roles].to_s.split(',').compact_blank
       @external_checked = context[:external] == '1'
+    end
+
+    def edit
+      @allowed_user = Kaui::AllowedUser.find(params.require(:id))
+      @is_killbill_managed = killbill_managed?(@allowed_user, options_for_klient)
+
+      # Use roles from context if returning from role creation, otherwise fetch from KB
+      if params[:user_context].present?
+        context = params[:user_context]
+        @roles = context[:roles].to_s.split(',').compact_blank
+        @allowed_user.description = context[:description] if context[:description].present?
+      else
+        @roles = roles_for_user(@allowed_user)
+      end
     end
 
     def create
       @is_killbill_managed = nil
       @allowed_user = Kaui::AllowedUser.new(allowed_user_params)
 
-      existing_user = Kaui::AllowedUser.find_by_kb_username(@allowed_user.kb_username)
+      existing_user = Kaui::AllowedUser.find_by(kb_username: @allowed_user.kb_username)
       if existing_user.blank?
         if params[:external] == '1'
           # Create locally only
@@ -53,37 +77,13 @@ module Kaui
       end
     end
 
-    def show
-      @allowed_user = Kaui::AllowedUser.find(params.require(:id))
-      raise ActiveRecord::RecordNotFound, "Could not find user #{@allowed_user.id}" unless current_user.root? || @allowed_user.kb_username == current_user.kb_username
-
-      @roles = roles_for_user(@allowed_user)
-
-      tenants_for_current_user = retrieve_tenants_for_current_user
-      @tenants = Kaui::Tenant.all.select { |tenant| tenants_for_current_user.include?(tenant.kb_tenant_id) }
-    end
-
-    def edit
-      @allowed_user = Kaui::AllowedUser.find(params.require(:id))
-      @is_killbill_managed = killbill_managed?(@allowed_user, options_for_klient)
-
-      # Use roles from context if returning from role creation, otherwise fetch from KB
-      if params[:user_context].present?
-        context = params[:user_context]
-        @roles = context[:roles].to_s.split(',').reject(&:blank?)
-        @allowed_user.description = context[:description] if context[:description].present?
-      else
-        @roles = roles_for_user(@allowed_user)
-      end
-    end
-
     def update
       @allowed_user = Kaui::AllowedUser.find(params.require(:id))
 
       @allowed_user.description = params[:allowed_user][:description].presence
 
       @allowed_user.update_in_kb!(params[:password].presence,
-                                  params[:roles].blank? ? nil : params[:roles].split(','),
+                                  params[:roles].presence&.split(','),
                                   current_user.kb_username,
                                   params[:reason],
                                   params[:comment],
@@ -149,7 +149,7 @@ module Kaui
     end
 
     def roles_for_user(allowed_user)
-      Kaui::UserRole.find_roles_by_username(allowed_user.kb_username, options_for_klient).map(&:presence).compact
+      Kaui::UserRole.find_roles_by_username(allowed_user.kb_username, options_for_klient).filter_map(&:presence)
     rescue StandardError
       []
     end

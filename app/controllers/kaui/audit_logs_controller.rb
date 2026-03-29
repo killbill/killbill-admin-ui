@@ -76,7 +76,7 @@ module Kaui
         end
       end
 
-      send_data csv_file, type: 'text/csv', filename: "audit-logs-#{Date.today}.csv"
+      send_data csv_file, type: 'text/csv', filename: "audit-logs-#{Time.zone.today}.csv"
     end
 
     def history

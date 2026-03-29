@@ -23,7 +23,7 @@ module Kaui
       query_string = params[:search]
 
       if all_fields_checked
-        columns = KillBillClient::Model::PaymentAttributes.instance_variable_get('@json_attributes') - %w[transactions audit_logs]
+        columns = KillBillClient::Model::PaymentAttributes.instance_variable_get(:@json_attributes) - %w[transactions audit_logs]
         columns += %w[payment_date status] # additional fields not part of the model
         csv_headers = columns.dup
         Kaui::Payment::REMAPPING_FIELDS.each do |k, v|
@@ -86,7 +86,7 @@ module Kaui
           csv << data
         end
       end
-      send_data csv_string, filename: "payments-#{Date.today}.csv", type: 'text/csv'
+      send_data csv_string, filename: "payments-#{Time.zone.today}.csv", type: 'text/csv'
     end
 
     def pagination
@@ -140,6 +140,23 @@ module Kaui
       paginate searcher, data_extractor, formatter
     end
 
+    def show
+      cached_options_for_klient = options_for_klient
+
+      invoice_payment = Kaui::InvoicePayment.find_safely_by_id(params.require(:id), cached_options_for_klient)
+      @payment = Kaui::InvoicePayment.build_from_raw_payment(invoice_payment)
+
+      fetch_payment_fields = promise do
+        direct_payment = Kaui::Payment.new(payment_id: @payment.payment_id)
+        direct_payment.custom_fields('NONE', cached_options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase }
+      end
+      # The payment method may have been deleted
+      fetch_payment_method = promise { Kaui::PaymentMethod.find_safely_by_id(@payment.payment_method_id, cached_options_for_klient) }
+
+      @custom_fields = wait(fetch_payment_fields)
+      @payment_method = wait(fetch_payment_method)
+    end
+
     def new
       cached_options_for_klient = options_for_klient
       fetch_invoice = promise { Kaui::Invoice.find_by_id(params.require(:invoice_id), false, 'NONE', cached_options_for_klient) }
@@ -157,23 +174,6 @@ module Kaui
       payment.payment_method_id = nil if external_payment || payment.payment_method_id.blank?
       payment.create(external_payment, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       redirect_to kaui_engine.account_invoice_path(payment.account_id, payment.target_invoice_id), notice: 'Payment triggered'
-    end
-
-    def show
-      cached_options_for_klient = options_for_klient
-
-      invoice_payment = Kaui::InvoicePayment.find_safely_by_id(params.require(:id), cached_options_for_klient)
-      @payment = Kaui::InvoicePayment.build_from_raw_payment(invoice_payment)
-
-      fetch_payment_fields = promise do
-        direct_payment = Kaui::Payment.new(payment_id: @payment.payment_id)
-        direct_payment.custom_fields('NONE', cached_options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase }
-      end
-      # The payment method may have been deleted
-      fetch_payment_method = promise { Kaui::PaymentMethod.find_safely_by_id(@payment.payment_method_id, cached_options_for_klient) }
-
-      @custom_fields = wait(fetch_payment_fields)
-      @payment_method = wait(fetch_payment_method)
     end
 
     def restful_show

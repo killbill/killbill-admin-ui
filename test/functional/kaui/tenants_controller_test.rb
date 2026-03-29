@@ -28,7 +28,7 @@ module Kaui
     test 'should get index with 0 tenant with KillBillClient.api_key set' do
       setup_functional_test(0, true)
       get :index, params: { use_route: 'kaui' }
-      assert_response 302
+      assert_response :found
       assert_redirected_to Kaui::IntegrationTestHelper::HOME_PATH
       assert_equal I18n.t('devise.sessions.signed_in'), flash[:notice]
     end

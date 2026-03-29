@@ -6,7 +6,7 @@ module Kaui
       @role_definition = Kaui::RoleDefinition.new
 
       # Store user form context if coming from user creation/edit
-      return unless params[:return_to_user].present?
+      return if params[:return_to_user].blank?
 
       session[:role_return_context] = {
         kb_username: params[:kb_username],
@@ -29,7 +29,7 @@ module Kaui
         return_context = session.delete(:role_return_context)
         if return_context.present?
           # Add the new role to the existing roles
-          existing_roles = return_context[:roles].to_s.split(',').reject(&:blank?)
+          existing_roles = return_context[:roles].to_s.split(',').compact_blank
           existing_roles << @role_definition.role unless existing_roles.include?(@role_definition.role)
           return_context[:roles] = existing_roles.join(',')
 

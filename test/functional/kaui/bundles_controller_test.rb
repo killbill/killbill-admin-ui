@@ -21,7 +21,7 @@ module Kaui
 
       add_tags(@bundle, tag_definition_ids, @tenant)
       get :index, params: { account_id: @bundle.account_id }
-      assert_response 200
+      assert_response :ok
       assert_not_nil assigns(:account)
       assert_not_nil assigns(:bundles)
       assert_not_nil assigns(:tags_per_bundle)
@@ -46,7 +46,7 @@ module Kaui
 
     test 'should get transfer' do
       get :transfer, params: { id: @bundle.bundle_id }
-      assert_response 200
+      assert_response :ok
       assert_not_nil assigns(:bundle_id)
     end
 

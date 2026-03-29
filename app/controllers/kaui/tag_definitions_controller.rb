@@ -14,7 +14,7 @@ module Kaui
     end
 
     def create
-      params[:tag_definition][:applicable_object_types] = params[:tag_definition][:applicable_object_types].values unless params[:tag_definition][:applicable_object_types].blank?
+      params[:tag_definition][:applicable_object_types] = params[:tag_definition][:applicable_object_types].values if params[:tag_definition][:applicable_object_types].present?
       @tag_definition = Kaui::TagDefinition.new(params[:tag_definition])
 
       begin

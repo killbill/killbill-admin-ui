@@ -21,7 +21,7 @@ module Kaui
             currency: 'USD',
             transaction_type: 'CAPTURE'
           }
-      assert_response 200
+      assert_response :ok
       assert_equal extract_value_from_input_field('account_id'), @account.account_id
       assert_equal extract_value_from_input_field('payment_method_id'), @payment_method.payment_method_id
       assert input_field?('transaction_transaction_id')

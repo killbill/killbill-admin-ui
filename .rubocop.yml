@@ -1,3 +1,9 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-thread_safety
+
 inherit_mode:
   merge:
     - Exclude
@@ -52,3 +58,43 @@ Style/Documentation:
 
 Style/EmptyElse:
   EnforcedStyle: empty
+
+# Rails cops
+Rails:
+  Enabled: true
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+# RSpec cops
+RSpec:
+  Enabled: true
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+# Performance cops
+Performance:
+  Enabled: true
+
+# Thread Safety cops
+ThreadSafety:
+  Enabled: true
+
+ThreadSafety/ClassAndModuleAttributes:
+  Enabled: false
+
+ThreadSafety/DirChdir:
+  Exclude:
+    - 'script/sandbox'
+
+# Exclude CLI scripts from Rails-specific cops
+Rails/Exit:
+  Exclude:
+    - 'lib/kaui/installer/installer.rb'

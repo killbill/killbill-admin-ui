@@ -17,7 +17,7 @@ module Kaui
 
     test 'should get edit' do
       get :edit, params: { account_id: @account.account_id, bundle_id: @bundle.bundle_id }
-      assert_response 200
+      assert_response :ok
       assert_not_nil assigns(:bundle_id)
       assert_not_nil assigns(:tag_names)
       assert_not_nil assigns(:available_tags)

@@ -6,7 +6,7 @@ module Kaui
 
     def index
       # Retrieve current user and extract allowed list of tenants
-      allowed_user = Kaui::AllowedUser.find_by_kb_username(current_user.kb_username)
+      allowed_user = Kaui::AllowedUser.find_by(kb_username: current_user.kb_username)
       @tenants = allowed_user&.kaui_tenants || []
 
       #
@@ -30,7 +30,7 @@ module Kaui
     end
 
     def select_tenant
-      tenant = Kaui::Tenant.find_by_kb_tenant_id(params.require(:kb_tenant_id))
+      tenant = Kaui::Tenant.find_by(kb_tenant_id: params.require(:kb_tenant_id))
       select_tenant_for_tenant_id(tenant.kb_tenant_id, tenant.name, tenant.id)
     end
 

@@ -76,7 +76,7 @@ module Kaui
         if %w[INVOICE ALL].include?(event_type)
           @invoices.each do |invoice_stub|
             invoice = invoice_stub.invoice_id.present? && @invoices_by_id.key?(invoice_stub.invoice_id) ? @invoices_by_id[invoice_stub.invoice_id] : invoice_stub
-            target_date = invoice.target_date.present? ? invoice.target_date : '[unknown]'
+            target_date = invoice.target_date.presence || '[unknown]'
             bundle_keys = invoice_stub.bundle_keys.present? ? invoice_stub.bundle_keys.split(',').map { |bundle_key| @bundle_names[bundle_key] }.join(', ') : ''
             invoice_details = []
             invoice_details << "Amount: #{invoice.amount_to_money} (#{@account.currency})"
@@ -133,7 +133,7 @@ module Kaui
         end
       end
 
-      send_data csv_string, filename: "account-timelines-#{Date.today}.csv", type: 'text/csv'
+      send_data csv_string, filename: "account-timelines-#{Time.zone.today}.csv", type: 'text/csv'
     end
 
     private
@@ -154,7 +154,7 @@ module Kaui
     end
 
     def extract_invoices_by_id(all_invoices)
-      return {} if all_invoices.nil? || all_invoices.empty?
+      return {} if all_invoices.blank?
 
       # Convert into Kaui::Invoice to benefit from additional methods xxx_to_money
       @invoices_by_id = all_invoices.to_h do |invoice|

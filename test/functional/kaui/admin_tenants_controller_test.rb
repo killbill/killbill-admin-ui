@@ -12,9 +12,9 @@ module Kaui
     end
 
     test 'should get create' do
-      now = Time.now.to_s
+      now = Time.zone.now.to_s
       post :create, params: { tenant: { name: "Goldorak_#{now}", api_key: "12345_#{now}", api_secret: 'ItH@st0beComplic@ted' }, create_tenant: true }
-      assert_response 302
+      assert_response :found
     end
 
     test 'should get index' do
@@ -31,7 +31,7 @@ module Kaui
       tenant.save!
 
       # Add an allowed user that will verify that we can only
-      au = Kaui::AllowedUser.find_by_kb_username('admin')
+      au = Kaui::AllowedUser.find_by(kb_username: 'admin')
       au.kaui_tenants << tenant
 
       get :show, params: { id: tenant.id }
@@ -47,7 +47,7 @@ module Kaui
       tenant.save!
 
       get :show, params: { id: tenant.id }
-      assert_response 200
+      assert_response :ok
     end
 
     test 'should validate catalog' do
@@ -63,7 +63,7 @@ module Kaui
       post :upload_catalog, params: { id: tenant.id, catalog: fixture_file_upload("#{FIXTURES_PATH}/catalog-v1.xml") }
 
       assert_redirected_to admin_tenant_path(tenant.id)
-      assert_equal I18n.translate('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
+      assert_equal I18n.t('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
     end
 
     test 'should upload overdue config' do
@@ -71,7 +71,7 @@ module Kaui
       post :upload_overdue_config, params: { id: tenant.id, overdue: fixture_file_upload("#{FIXTURES_PATH}/overdue-v1.xml") }
 
       assert_redirected_to admin_tenant_path(tenant.id, active_tab: 'OverdueShow')
-      assert_equal I18n.translate('flashes.notices.overdue_uploaded_successfully'), flash[:notice]
+      assert_equal I18n.t('flashes.notices.overdue_uploaded_successfully'), flash[:notice]
     end
 
     test 'should raise missing param when upload an empty file' do
@@ -97,7 +97,7 @@ module Kaui
       post :upload_invoice_template, params: { id: tenant.id, invoice_template: fixture_file_upload("#{FIXTURES_PATH}/invoice_template-v1.html") }
 
       assert_redirected_to admin_tenant_path(tenant.id)
-      assert_equal I18n.translate('flashes.notices.invoice_template_uploaded_successfully'), flash[:notice]
+      assert_equal I18n.t('flashes.notices.invoice_template_uploaded_successfully'), flash[:notice]
     end
 
     test 'should upload invoice translation' do
@@ -105,7 +105,7 @@ module Kaui
       post :upload_invoice_translation, params: { id: tenant.id, invoice_translation: fixture_file_upload("#{FIXTURES_PATH}/invoice_translation_fr-v1.properties"), translation_locale: 'fr_FR' }
 
       assert_redirected_to admin_tenant_path(tenant.id)
-      assert_equal I18n.translate('flashes.notices.invoice_translation_uploaded_successfully'), flash[:notice]
+      assert_equal I18n.t('flashes.notices.invoice_translation_uploaded_successfully'), flash[:notice]
     end
 
     test 'should upload catalog translation' do
@@ -113,7 +113,7 @@ module Kaui
       post :upload_catalog_translation, params: { id: tenant.id, catalog_translation: fixture_file_upload("#{FIXTURES_PATH}/catalog_translation_fr-v1.properties"), translation_locale: 'fr_FR' }
 
       assert_redirected_to admin_tenant_path(tenant.id)
-      assert_equal I18n.translate('flashes.notices.catalog_translation_uploaded_successfully'), flash[:notice]
+      assert_equal I18n.t('flashes.notices.catalog_translation_uploaded_successfully'), flash[:notice]
     end
 
     test 'should upload plugin config' do
@@ -147,7 +147,7 @@ module Kaui
       # upload catalog first
       post :upload_catalog, params: { id: tenant.id, catalog: fixture_file_upload("#{FIXTURES_PATH}/catalog-v1.xml") }
       assert_redirected_to admin_tenant_path(tenant.id)
-      assert_equal I18n.translate('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
+      assert_equal I18n.t('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
 
       get :new_plan_currency, params: { id: tenant.id, plan_id: }
       assert_response :success
@@ -235,7 +235,7 @@ module Kaui
       post :modify_overdue_config, params: parameters
       assert_response :redirect
       assert_redirected_to admin_tenant_path(tenant.id, active_tab: 'OverdueShow')
-      assert_equal I18n.translate('flashes.notices.overdue_added_successfully'), flash[:notice].to_s.strip
+      assert_equal I18n.t('flashes.notices.overdue_added_successfully'), flash[:notice].to_s.strip
     end
 
     test 'should display catalog xml' do
@@ -244,7 +244,7 @@ module Kaui
       post :upload_catalog, params: { id: tenant.id, catalog: fixture_file_upload("#{FIXTURES_PATH}/catalog-v1.xml") }
 
       assert_redirected_to admin_tenant_path(tenant.id)
-      assert_equal I18n.translate('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
+      assert_equal I18n.t('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
 
       post :display_catalog_xml, params: { effective_date:, id: tenant.id }
 
@@ -312,14 +312,14 @@ module Kaui
 
     test 'should switch tenant' do
       other_tenant = setup_and_create_test_tenant(1)
-      other_tenant_kaui = Kaui::Tenant.find_by_kb_tenant_id(other_tenant.tenant_id)
+      other_tenant_kaui = Kaui::Tenant.find_by(kb_tenant_id: other_tenant.tenant_id)
 
       get :switch_tenant, params: { kb_tenant_id: other_tenant.tenant_id }
       assert_redirected_to admin_tenant_path(other_tenant_kaui.id)
       assert_equal flash[:notice], "Tenant was switched to #{other_tenant_kaui.name}"
 
       # switch back
-      tenant_kaui = Kaui::Tenant.find_by_kb_tenant_id(@tenant.tenant_id)
+      tenant_kaui = Kaui::Tenant.find_by(kb_tenant_id: @tenant.tenant_id)
       get :switch_tenant, params: { kb_tenant_id: @tenant.tenant_id }
       assert_redirected_to admin_tenant_path(tenant_kaui.id)
       assert_equal flash[:notice], "Tenant was switched to #{tenant_kaui.name}"
@@ -331,7 +331,7 @@ module Kaui
       post :upload_catalog, params: { id: tenant.id, catalog: fixture_file_upload("#{FIXTURES_PATH}/catalog-v1.xml") }
 
       assert_redirected_to admin_tenant_path(tenant.id)
-      assert_equal I18n.translate('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
+      assert_equal I18n.t('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
 
       get :download_catalog_xml, params: { effective_date:, id: tenant.id }
       assert_response :success
