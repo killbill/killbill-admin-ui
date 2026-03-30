@@ -56,6 +56,7 @@ module Kaui
         phase_type = @bundle.nil? ? plan_details.phases.first.type : @bundle.subscriptions.first.phase_type
         overrides = price_overrides(phase_type, override_fixed_price, override_recurring_price)
         @subscription.price_overrides = overrides if overrides.present?
+        @subscription.quantity = params[:quantity].to_i if params[:quantity].present? && params[:quantity].to_i.positive?
 
         # un-set product_category since is not needed if plan name exist
         @subscription.product_category = nil
