@@ -20,7 +20,9 @@ module Kaui
       when ->(e) { e.class.name.start_with?('KillBillClient::API') }
         I18n.t('errors.messages.error_communicating_killbill')
       else
-        nil
+        # Show detailed error in development/test, or when KAUI_SHOW_ERROR_DETAILS is set (for Docker)
+        show_details = Rails.env.development? || Rails.env.test? || ENV['KAUI_SHOW_ERROR_DETAILS'].present?
+        show_details ? exception.message : nil
       end
     end
   end
