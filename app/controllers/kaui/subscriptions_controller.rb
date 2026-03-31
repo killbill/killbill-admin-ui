@@ -35,7 +35,7 @@ module Kaui
     def create
       plan_name = params.require(:plan_name)
       @base_product_name = params[:base_product_name]
-      @subscription = Kaui::Subscription.new(params.require(:subscription).to_h.compact_blank)
+      @subscription = Kaui::Subscription.new(params.require(:subscription).permit!.to_h.compact_blank)
 
       begin
         @bundle, plans_details = lookup_bundle_and_plan_details(@subscription, @base_product_name)

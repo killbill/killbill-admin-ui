@@ -48,6 +48,8 @@ module Kaui
         get :new
         post :create, params: { user: { kb_username: USERNAME, password: PASSWORD } }
       end
+      # Clear Devise's "Signed in successfully." flash to avoid polluting subsequent assertions
+      flash.clear
     end
 
     def logout

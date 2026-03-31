@@ -24,7 +24,7 @@ module Kaui
     end
 
     def create
-      transaction = Kaui::Transaction.new(params[:transaction].to_h.compact_blank)
+      transaction = Kaui::Transaction.new(params[:transaction].permit!.to_h.compact_blank)
 
       plugin_properties = params[:plugin_properties].values.reject { |item| item['value'].blank? || item['key'].blank? } if params[:plugin_properties].present?
       if plugin_properties.present?
@@ -43,7 +43,7 @@ module Kaui
     end
 
     def fix_transaction_state
-      transaction = Kaui::Transaction.new(params[:transaction].to_h.compact_blank)
+      transaction = Kaui::Transaction.new(params[:transaction].permit!.to_h.compact_blank)
       payment_id = transaction.payment_id
       transaction_id = transaction.transaction_id
       transaction_status = transaction.status
