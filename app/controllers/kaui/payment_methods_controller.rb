@@ -12,7 +12,7 @@ module Kaui
     end
 
     def create
-      @payment_method             = Kaui::PaymentMethod.new(params[:payment_method].compact_blank!)
+      @payment_method             = Kaui::PaymentMethod.new(params[:payment_method].to_h.compact_blank)
       # Transform "1" into boolean
       @payment_method.is_default  = @payment_method.is_default == '1'
       # Sensible default

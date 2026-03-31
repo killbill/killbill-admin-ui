@@ -234,7 +234,7 @@ module Kaui
       options = tenant_options_for_client
       fetch_state_for_new_catalog_screen(options)
 
-      simple_plan = params.require(:simple_plan).compact_blank!
+      simple_plan = params.require(:simple_plan).to_h.compact_blank
       # Fix issue in Rails where first entry in the multi-select array is an empty string
       simple_plan['available_base_products']&.reject!(&:blank?)
 
@@ -298,7 +298,7 @@ module Kaui
       options[:api_key] = current_tenant.api_key
       options[:api_secret] = current_tenant.api_secret
 
-      view_form_model = params.require(:kill_bill_client_model_overdue).compact_blank!
+      view_form_model = params.require(:kill_bill_client_model_overdue).to_h.compact_blank
       view_form_model['states'] = view_form_model['states'].values if view_form_model['states'].present?
 
       overdue = Kaui::Overdue.from_overdue_form_model(view_form_model)

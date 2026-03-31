@@ -94,7 +94,12 @@ ThreadSafety/DirChdir:
   Exclude:
     - 'script/sandbox'
 
-# Exclude CLI scripts from Rails-specific cops
+# CLI tool uses exit() for control flow
 Rails/Exit:
   Exclude:
     - 'lib/kaui/installer/installer.rb'
+
+# Legacy tests - migration to IntegrationTest is non-trivial
+Rails/ActionControllerTestCase:
+  Exclude:
+    - 'test/functional/**/*'

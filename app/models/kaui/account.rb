@@ -17,6 +17,7 @@ module Kaui
     ADVANCED_SEARCH_NAME_CHANGES = [%w[pay_via_parent is_payment_delegated_to_parent]].freeze
 
     def check_account_details_phone?
+      return false if phone.blank?
       return true if /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/i.match?(phone)
 
       false

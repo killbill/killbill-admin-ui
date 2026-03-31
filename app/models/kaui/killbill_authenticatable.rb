@@ -2,7 +2,9 @@
 
 require 'killbill_client'
 
-# Hack for Zeitwerk
+# rubocop:disable Style/ClassAndModuleChildren, Style/OneClassPerFile
+
+# Hack for Zeitwerk - must define Kaui::KillbillAuthenticatable before Devise::Models::KillbillAuthenticatable
 module Kaui
   module KillbillAuthenticatable; end
 end

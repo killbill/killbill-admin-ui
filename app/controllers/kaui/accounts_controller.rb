@@ -177,7 +177,7 @@ module Kaui
     def edit; end
 
     def create
-      @account = Kaui::Account.new(params.require(:account).compact_blank!)
+      @account = Kaui::Account.new(params.require(:account).to_h.compact_blank)
 
       @account.errors.add(:phone, :invalid_phone) if !@account.phone.nil? && !@account.check_account_details_phone?
 
@@ -202,7 +202,7 @@ module Kaui
     end
 
     def update
-      @account = Kaui::Account.new(params.require(:account).compact_blank!)
+      @account = Kaui::Account.new(params.require(:account).to_h.compact_blank)
       @account.account_id = params.require(:account_id)
 
       # Transform "1" into boolean
@@ -309,7 +309,7 @@ module Kaui
     end
 
     def link_to_parent
-      @account = Kaui::Account.new(params.require(:account).compact_blank!)
+      @account = Kaui::Account.new(params.require(:account).to_h.compact_blank)
       @account.account_id = params.require(:account_id)
       @account.is_payment_delegated_to_parent = @account.is_payment_delegated_to_parent == '1'
 

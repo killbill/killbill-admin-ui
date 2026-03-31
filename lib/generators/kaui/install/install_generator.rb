@@ -62,10 +62,7 @@ module Kaui
     def complete
       return if options[:quiet]
 
-      Rails.logger.debug '*' * 50
-      Rails.logger.debug "Kaui has been installed successfully. You're all ready to go!"
-      Rails.logger.debug ' '
-      Rails.logger.debug 'Enjoy!'
+      say "Kaui #{Kaui::VERSION} has been installed successfully! Please review the generated files and update them as needed."
     end
   end
 end

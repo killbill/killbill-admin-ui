@@ -19,7 +19,7 @@ module Kaui
     end
 
     def create
-      credit = Kaui::Credit.new(params[:credit].compact_blank!)
+      credit = Kaui::Credit.new(params[:credit].to_h.compact_blank)
       credit.account_id ||= params.require(:account_id)
 
       # No need to show the newly created invoice for account level credits
