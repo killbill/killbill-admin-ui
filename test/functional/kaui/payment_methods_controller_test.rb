@@ -36,13 +36,13 @@ module Kaui
              state: SecureRandom.uuid.to_s,
              country: SecureRandom.uuid.to_s
            }
-      assert_response 302
+      assert_response :found
       assert_equal 'Payment method was successfully created', flash[:notice]
     end
 
     test 'should delete payment methods' do
       delete :destroy, params: { id: @payment_method.payment_method_id, set_auto_pay_off: true }
-      assert_response 302
+      assert_response :found
       assert_equal "Payment method #{@payment_method.payment_method_id} successfully deleted", flash[:notice]
     end
 
@@ -82,7 +82,7 @@ module Kaui
              country: SecureRandom.uuid.to_s
            }
 
-      assert_response 302
+      assert_response :found
       assert_equal 'Payment method was successfully created', flash[:notice]
 
       post :create,
@@ -107,7 +107,7 @@ module Kaui
              country: SecureRandom.uuid.to_s
            }
 
-      assert_response 200
+      assert_response :ok
       assert_equal "Error while creating payment method: External payment method already exists for account #{new_acc}", flash[:error]
     end
   end

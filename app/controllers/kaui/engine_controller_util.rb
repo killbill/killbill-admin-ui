@@ -111,9 +111,9 @@ module Kaui
     def promise_as_string(promise)
       return 'nil' if promise.nil?
 
-      executor = promise.instance_variable_get('@executor')
+      executor = promise.instance_variable_get(:@executor)
       executor_as_string = "queue_length=#{executor.queue_length}, pool_size=#{executor.length}"
-      "#{promise.instance_variable_get('@promise_body')}[state=#{promise.state}, parent=#{promise_as_string(promise.instance_variable_get('@parent'))}, executor=[#{executor_as_string}]]"
+      "#{promise.instance_variable_get(:@promise_body)}[state=#{promise.state}, parent=#{promise_as_string(promise.instance_variable_get(:@parent))}, executor=[#{executor_as_string}]]"
     end
 
     # Used to format flash error messages
@@ -147,7 +147,7 @@ module Kaui
       if error_message.respond_to?(:[]) && error_message['message'].present?
         # Likely BillingExceptionJson
         error_message = error_message['message']
-        error_message += " (code=#{error_message['code']})" unless error_message['code'].blank?
+        error_message += " (code=#{error_message['code']})" if error_message['code'].present?
       end
       # Limit the error size to avoid ActionDispatch::Cookies::CookieOverflow
       error_message[0..1000]

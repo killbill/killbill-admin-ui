@@ -41,7 +41,7 @@ module Kaui
       end
 
       def format_plugin_config(plugin_key, plugin_type, props)
-        return nil unless props.present?
+        return nil if props.blank?
         return props['raw_config'].gsub(/\r\n?/, "\n") if props['raw_config']
 
         if plugin_type == 'ruby'
@@ -66,7 +66,7 @@ module Kaui
       end
 
       def reformat_plugin_config(_plugin_type, props)
-        unless props['raw_config'].blank?
+        if props['raw_config'].present?
           new_props = {}
           props['raw_config'].split("\n").each do |p|
             line = p.split('=')

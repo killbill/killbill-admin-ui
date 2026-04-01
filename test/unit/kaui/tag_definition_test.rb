@@ -10,7 +10,7 @@ module Kaui
       1.upto(9).each do |i|
         assert Kaui::TagDefinition.new(id: "00000000-0000-0000-0000-00000000000#{i}").system_tag?
       end
-      assert !Kaui::TagDefinition.new(id: SecureRandom.uuid).system_tag?
+      assert_not Kaui::TagDefinition.new(id: SecureRandom.uuid).system_tag?
     end
 
     test 'can create awesome_customer tag and should return it for object_types=[ACCOUNT] tags ' do

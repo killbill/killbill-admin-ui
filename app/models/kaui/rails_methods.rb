@@ -32,7 +32,7 @@ module Kaui
           send(attr)
         end
 
-        # rubocop:disable Naming/PredicateMethod
+        # rubocop:disable Naming/PredicateMethod, ThreadSafety/ClassInstanceVariable
         def save
           @errors.add(:save, 'Saving this object is not yet supported')
           false
@@ -47,7 +47,7 @@ module Kaui
           @errors.add(:destroy, 'Destroying this object is not yet supported')
           false
         end
-        # rubocop:enable Naming/PredicateMethod
+        # rubocop:enable Naming/PredicateMethod, ThreadSafety/ClassInstanceVariable
       end
 
       base_class.instance_eval do

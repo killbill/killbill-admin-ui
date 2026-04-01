@@ -17,7 +17,8 @@ module Kaui
     ADVANCED_SEARCH_NAME_CHANGES = [%w[pay_via_parent is_payment_delegated_to_parent]].freeze
 
     def check_account_details_phone?
-      return true if phone =~ /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/i
+      return false if phone.blank?
+      return true if /\A(?:\+?\d{1,3}\s*-?)?\(?(?:\d{3})?\)?[- ]?\d{3}[- ]?\d{4}\z/i.match?(phone)
 
       false
     end
@@ -29,7 +30,7 @@ module Kaui
     end
 
     def self.find_by_id_or_key(account_id_or_key, with_balance, with_balance_and_cba, options = {})
-      if account_id_or_key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
+      if /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/.match?(account_id_or_key)
         begin
           find_by_id(account_id_or_key, with_balance, with_balance_and_cba, options)
         rescue StandardError => e
@@ -63,7 +64,7 @@ module Kaui
     end
 
     def persisted?
-      !account_id.blank?
+      account_id.present?
     end
   end
 end

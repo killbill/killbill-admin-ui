@@ -1,16 +1,8 @@
 # frozen_string_literal: true
 
-# Hack for Zeitwerk
-# rubocop:disable Style/OneClassPerFile
+require 'devise/models/killbill_registerable'
+
+# Placeholder for Zeitwerk - must define Kaui::KillbillRegisterable before Devise::Models::KillbillRegisterable
 module Kaui
   module KillbillRegisterable; end
 end
-
-module Devise
-  module Models
-    module KillbillRegisterable
-      include Registerable
-    end
-  end
-end
-# rubocop:enable Style/OneClassPerFile

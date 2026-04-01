@@ -33,7 +33,7 @@ module Kaui
     end
 
     def verify_pagination_results!(min = 0)
-      assert_response 200
+      assert_response :ok
 
       body = MultiJson.decode(@response.body)
       # We could probably do better checks here since each test runs in its own tenant
@@ -48,6 +48,8 @@ module Kaui
         get :new
         post :create, params: { user: { kb_username: USERNAME, password: PASSWORD } }
       end
+      # Clear Devise's "Signed in successfully." flash to avoid polluting subsequent assertions
+      flash.clear
     end
 
     def logout

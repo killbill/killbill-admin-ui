@@ -68,7 +68,7 @@ module Kaui
              },
              plan_name: 'standard-monthly'
            }
-      assert_response 302
+      assert_response :found
     end
 
     test 'should support create subscription with bundle external key and subscription external key' do
@@ -83,7 +83,7 @@ module Kaui
              },
              plan_name: 'standard-monthly'
            }
-      assert_response 302
+      assert_response :found
       assert_equal 'Subscription was successfully created', flash[:notice]
       subsciption = @account.bundles(build_options(@tenant)).last.subscriptions.first
       assert_equal subsciption.external_key, external_key
@@ -100,7 +100,7 @@ module Kaui
              },
              plan_name: 'standard-monthly'
            }
-      assert_response 302
+      assert_response :found
       assert_equal 'Subscription was successfully created', flash[:notice]
       subsciption = @account.bundles(build_options(@tenant)).last.subscriptions.first
       assert_equal subsciption.bundle_external_key, bundle_external_key
@@ -116,7 +116,7 @@ module Kaui
              },
              plan_name: 'standard-monthly'
            }
-      assert_response 302
+      assert_response :found
       assert_equal 'Subscription was successfully created', flash[:notice]
       subsciption = @account.bundles(build_options(@tenant)).last.subscriptions.first
       assert_equal subsciption.external_key, external_key
@@ -130,7 +130,7 @@ module Kaui
              },
              plan_name: 'standard-monthly'
            }
-      assert_response 302
+      assert_response :found
       assert_equal 'Subscription was successfully created', flash[:notice]
     end
 
@@ -157,7 +157,7 @@ module Kaui
 
     test 'should get edit page' do
       get :edit, params: { id: @bundle.subscriptions.first.subscription_id }
-      assert_response 200
+      assert_response :ok
       assert_not_nil assigns(:subscription)
       assert_not_nil assigns(:plans)
     end
@@ -183,7 +183,7 @@ module Kaui
              id: @bundle.subscriptions.first.subscription_id,
              plan_name: 'super-monthly'
            }
-      assert_response 302
+      assert_response :found
     end
 
     test 'should handle errors during destroy' do
@@ -204,13 +204,13 @@ module Kaui
       delete :destroy,
              params: {
                id: @bundle.subscriptions.first.subscription_id,
-               requested_date: (Date.today >> 1).to_time.utc.iso8601,
+               requested_date: (Time.zone.today >> 1).to_time.utc.iso8601,
                use_requested_date_for_billing: '1'
              }
-      assert_response 302
+      assert_response :found
 
       put :reinstate, params: { id: @bundle.subscriptions.first.subscription_id }
-      assert_response 302
+      assert_response :found
     end
 
     test 'should cancel by default' do
@@ -219,10 +219,10 @@ module Kaui
              params: {
                id: @bundle.subscriptions.first.subscription_id
              }
-      assert_response 302
+      assert_response :found
       subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, 'NONE', build_options(@tenant))
-      assert_equal Date.parse(subscription.cancelled_date), Date.today
-      assert_equal Date.parse(subscription.billing_end_date), Date.today + 1.month
+      assert_equal Date.parse(subscription.cancelled_date), Time.zone.today
+      assert_equal Date.parse(subscription.billing_end_date), Time.zone.today + 1.month
     end
 
     test 'should cancel start of term' do
@@ -232,10 +232,10 @@ module Kaui
                id: @bundle.subscriptions.first.subscription_id,
                policy: 'START_OF_TERM'
              }
-      assert_response 302
+      assert_response :found
       subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, 'NONE', build_options(@tenant))
-      assert_equal Date.parse(subscription.cancelled_date), Date.today
-      assert_equal Date.parse(subscription.billing_end_date), Date.today
+      assert_equal Date.parse(subscription.cancelled_date), Time.zone.today
+      assert_equal Date.parse(subscription.billing_end_date), Time.zone.today
     end
 
     test 'should cancel immediate' do
@@ -245,10 +245,10 @@ module Kaui
                id: @bundle.subscriptions.first.subscription_id,
                policy: 'IMMEDIATE'
              }
-      assert_response 302
+      assert_response :found
       subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, 'NONE', build_options(@tenant))
-      assert_equal Date.parse(subscription.cancelled_date), Date.today
-      assert_equal Date.parse(subscription.billing_end_date), Date.today
+      assert_equal Date.parse(subscription.cancelled_date), Time.zone.today
+      assert_equal Date.parse(subscription.billing_end_date), Time.zone.today
     end
 
     test 'should cancel end of term' do
@@ -258,7 +258,7 @@ module Kaui
                id: @bundle.subscriptions.first.subscription_id,
                policy: 'END_OF_TERM'
              }
-      assert_response 302
+      assert_response :found
       subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, 'NONE', build_options(@tenant))
       assert_equal Date.parse(subscription.cancelled_date), Date.parse(subscription.billing_start_date) + 1.month
       assert_equal Date.parse(subscription.billing_end_date), Date.parse(subscription.billing_start_date) + 1.month
@@ -273,7 +273,7 @@ module Kaui
                requested_date: requested_date.strftime('%Y-%m-%d'),
                use_requested_date_for_billing: '0'
              }
-      assert_response 302
+      assert_response :found
 
       subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, 'NONE', build_options(@tenant))
       assert_equal Date.parse(subscription.cancelled_date), requested_date.to_date
@@ -289,7 +289,7 @@ module Kaui
                requested_date: requested_date.strftime('%Y-%m-%d'),
                use_requested_date_for_billing: '1'
              }
-      assert_response 302
+      assert_response :found
 
       subscription = Kaui::Subscription.find_by_id(@bundle.subscriptions.first.subscription_id, 'NONE', build_options(@tenant))
       assert_equal Date.parse(subscription.cancelled_date), requested_date.to_date
@@ -306,7 +306,7 @@ module Kaui
       assert_response :success
       assert_equal extract_value_from_input_field('subscription_account_id'), @bundle.subscriptions.first.account_id
       assert_equal extract_value_from_input_field('subscription_bill_cycle_day_local'), @bundle.subscriptions.first.bill_cycle_day_local.to_s
-      assert_equal extract_value_from_input_field('effective_from_date'), Date.parse(Time.now.to_s).to_s
+      assert_equal extract_value_from_input_field('effective_from_date'), Date.parse(Time.zone.now.to_s).to_s
     end
 
     test 'should update bcd' do
@@ -315,7 +315,7 @@ module Kaui
         id: bundle.subscriptions.first.subscription_id,
         subscription: { account_id: bundle.subscriptions.first.account_id,
                         bill_cycle_day_local: bundle.subscriptions.first.bill_cycle_day_local },
-        effective_from_date: (Date.today >> 1).to_s
+        effective_from_date: (Time.zone.today >> 1).to_s
       }
 
       put :update_bcd, params: parameters
@@ -377,7 +377,7 @@ module Kaui
         commit: 'Update'
       }
       post(:update_tags, params:)
-      assert_response 302
+      assert_response :found
     end
   end
 end

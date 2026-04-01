@@ -20,7 +20,7 @@ module Kaui
       Rails.logger.error(exception.message)
       Rails.logger.error(exception.backtrace.join("\n")) if exception.backtrace
       @error = standardize_exception(exception)
-      render 'kaui/errors/500', status: 500, layout: false
+      render 'kaui/errors/500', status: :internal_server_error, layout: false
     end
 
     protected

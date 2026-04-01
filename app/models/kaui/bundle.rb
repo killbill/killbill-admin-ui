@@ -3,7 +3,7 @@
 module Kaui
   class Bundle < KillBillClient::Model::Bundle
     def self.find_by_id_or_key(bundle_id_or_key, options = {})
-      if bundle_id_or_key =~ /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/
+      if /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/.match?(bundle_id_or_key)
         bundle = begin
           find_by_id(bundle_id_or_key, options)
         rescue StandardError
@@ -47,15 +47,15 @@ module Kaui
     end
 
     def self.list_transfer_policy_params
-      @policy_params = [
+      [
         # [I18n.translate('start_of_term'), 'START_OF_TERM'], Temporarily removed as it is not supported by Kill Bill
-        [I18n.translate('end_of_term'), 'END_OF_TERM'],
-        [I18n.translate('immediate'), 'IMMEDIATE']
+        [I18n.t('end_of_term'), 'END_OF_TERM'],
+        [I18n.t('immediate'), 'IMMEDIATE']
       ]
     end
 
     def self.list_transfer_policy_params_keys
-      @policy_params = %w[END_OF_TERM IMMEDIATE]
+      %w[END_OF_TERM IMMEDIATE]
     end
   end
 end

@@ -8,7 +8,7 @@ module Kaui
       au = AllowedUser.new(kb_username: 'Jean', description: 'Cool guy')
       au.save
 
-      result = AllowedUser.find_by_kb_username('Jean')
+      result = AllowedUser.find_by(kb_username: 'Jean')
       assert_not_nil result
       assert_equal au, result
     end
@@ -25,7 +25,7 @@ module Kaui
       t2.save
       au.kaui_tenants << t2
 
-      result = AllowedUser.find_by_kb_username('Girish')
+      result = AllowedUser.find_by(kb_username: 'Girish')
       assert_not_nil result
       assert_equal 2, au.kaui_tenants.size
     end

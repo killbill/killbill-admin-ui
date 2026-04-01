@@ -17,7 +17,7 @@ module Kaui
         return nil if raw_payment.nil?
 
         result = Kaui::InvoicePayment.new
-        KillBillClient::Model::InvoicePaymentAttributes.instance_variable_get('@json_attributes').each do |attr|
+        KillBillClient::Model::InvoicePaymentAttributes.instance_variable_get(:@json_attributes).each do |attr|
           result.send("#{attr}=", raw_payment.send(attr))
         end
         # Use  Kaui::Transaction to benefit from additional fields (e.g next_retry_date)
@@ -25,7 +25,7 @@ module Kaui
         result.transactions = []
         original_transactions.each do |transaction|
           new_transaction = Kaui::Transaction.new
-          KillBillClient::Model::PaymentTransactionAttributes.instance_variable_get('@json_attributes').each do |attr|
+          KillBillClient::Model::PaymentTransactionAttributes.instance_variable_get(:@json_attributes).each do |attr|
             new_transaction.send("#{attr}=", transaction.send(attr))
           end
           result.transactions << new_transaction

@@ -25,12 +25,12 @@ module Kaui
 
     ALL_OBJECT_TYPES.each do |object_type|
       define_singleton_method "all_for_#{object_type.downcase}" do |options_for_klient|
-        all('NONE', options_for_klient).delete_if { |tag_definition| !tag_definition.applicable_object_types.include?(object_type) }.sort
+        all('NONE', options_for_klient).delete_if { |tag_definition| tag_definition.applicable_object_types.exclude?(object_type) }.sort
       end
     end
 
     def system_tag?
-      return false unless id.present?
+      return false if id.blank?
 
       last_group = id.split('-')[4]
 

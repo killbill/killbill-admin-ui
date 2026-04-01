@@ -6,7 +6,7 @@ module Kaui
   class AccountTimelinesControllerTest < Kaui::FunctionalTestHelper
     test 'should show the timeline page' do
       get :show, params: { account_id: @account.account_id }
-      assert_response 200
+      assert_response :ok
 
       assert_not_nil assigns(:account)
       assert_not_nil assigns(:bundles)

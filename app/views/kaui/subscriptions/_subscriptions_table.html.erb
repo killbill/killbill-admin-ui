@@ -58,6 +58,15 @@
         </div>
       </div>
     </th>
+    <th class="sortable-header" data-column="<%= (@available_subscription_tags.blank? && @custom_fields_per_subscription.blank?) ? 6 : 7 %>">
+      <div class="header-content">
+        <span class="header-text">Quantity</span>
+        <div class="sort-icons">
+          <%= image_tag "kaui/sort-up.svg", class: "sort-icon sort-asc" %>
+          <%= image_tag "kaui/sort-down.svg", class: "sort-icon sort-desc" %>
+        </div>
+      </div>
+    </th>
     <th></th>
   </tr>
   </thead>
@@ -105,6 +114,7 @@
         <td><%= humanized_subscription_start_date(sub, account) %></td>
         <td><%= humanized_subscription_cancelled_information(sub, account) %></td>
         <td><%= humanized_subscription_charged_through_date(sub, account) %></td>
+        <td><%= sub.quantity || 1 %></td>
         <td class="text-center">
           <% if subscription_future_cancelled?(sub, account) %>
             <%= link_to 'Reinstate', kaui_engine.reinstate_path(:id => sub.subscription_id), :method => :put, :class => 'btn btn-xs' %>
@@ -211,6 +221,7 @@
       "order": [[ <%= @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? ? 3 : 4 %>, "asc" ]],
       "columns": [
         <%= "{ orderable: false }," unless @available_subscription_tags.blank? && @custom_fields_per_subscription.blank? %>
+        null,
         null,
         null,
         null,

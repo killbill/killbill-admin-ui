@@ -19,13 +19,16 @@ module Kaui
     end
 
     def create
-      charge = Kaui::InvoiceItem.new(params.require(:invoice_item).delete_if { |_key, value| value.blank? })
+      charge = Kaui::InvoiceItem.new(params.require(:invoice_item).permit!.to_h.compact_blank)
       charge.account_id ||= params.require(:account_id)
+
+      # Preserve the original invoice_id since the API may not return it
+      original_invoice_id = charge.invoice_id
 
       auto_commit = params[:auto_commit] == '1'
 
       charge = charge.create(auto_commit, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
-      redirect_to kaui_engine.account_invoice_path(charge.account_id, charge.invoice_id), notice: 'Charge was successfully created'
+      redirect_to kaui_engine.account_invoice_path(charge.account_id, charge.invoice_id || original_invoice_id), notice: 'Charge was successfully created'
     end
   end
 end

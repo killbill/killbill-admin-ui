@@ -6,7 +6,7 @@ module Kaui
   class TagsControllerTest < Kaui::FunctionalTestHelper
     test 'should get index' do
       get :index
-      assert_response 200
+      assert_response :ok
     end
 
     test 'should list tags' do

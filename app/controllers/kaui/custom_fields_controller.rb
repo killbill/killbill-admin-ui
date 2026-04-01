@@ -101,7 +101,7 @@ module Kaui
       end
 
       if test_uuid.blank?
-        flash[:error] = I18n.translate('object_invalid_dont_exist')
+        flash[:error] = I18n.t('object_invalid_dont_exist')
         redirect_to custom_fields_path
         return
       end
@@ -120,12 +120,12 @@ module Kaui
               when :INVOICE_ITEM
                 Kaui::InvoiceItem.new(invoice_item_id: @custom_field.object_id)
               else
-                flash.now[:error] = I18n.translate('invalid_object_type', error: @custom_field.object_type)
+                flash.now[:error] = I18n.t('invalid_object_type', error: @custom_field.object_type)
                 render :new and return
               end
       model.add_custom_field(@custom_field, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
 
-      redirect_to custom_fields_path, notice: I18n.translate('custom_field_created_success')
+      redirect_to custom_fields_path, notice: I18n.t('custom_field_created_success')
     end
 
     private
@@ -143,7 +143,7 @@ module Kaui
         rescue StandardError
           # Ignore
         ensure
-          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_invoice_item_db') } unless test_uuid.blank?
+          msg = { status: '200', message: I18n.t('custom_field_uuid_exist_in_invoice_item_db') } if test_uuid.present?
         end
       when  'ACCOUNT'
         begin
@@ -151,7 +151,7 @@ module Kaui
         rescue StandardError
           # Ignore
         ensure
-          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_account_db') } if !test_uuid.blank? && (test_uuid.account_id == param_uuid)
+          msg = { status: '200', message: I18n.t('custom_field_uuid_exist_in_account_db') } if test_uuid.present? && (test_uuid.account_id == param_uuid)
         end
       when  'BUNDLE'
         begin
@@ -159,7 +159,7 @@ module Kaui
         rescue StandardError
           # Ignore
         ensure
-          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_bundle_db') } if !test_uuid.blank? && (test_uuid.bundle_id == param_uuid)
+          msg = { status: '200', message: I18n.t('custom_field_uuid_exist_in_bundle_db') } if test_uuid.present? && (test_uuid.bundle_id == param_uuid)
         end
       when  'SUBSCRIPTION'
         begin
@@ -167,7 +167,7 @@ module Kaui
         rescue StandardError
           # Ignore
         ensure
-          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_subscription_db') } if !test_uuid.blank? && (test_uuid.subscription_id == param_uuid)
+          msg = { status: '200', message: I18n.t('custom_field_uuid_exist_in_subscription_db') } if test_uuid.present? && (test_uuid.subscription_id == param_uuid)
         end
       when  'INVOICE'
         begin
@@ -176,7 +176,7 @@ module Kaui
         rescue StandardError
           # Ignore
         ensure
-          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_invoice_db') } if !test_uuid.blank? && (test_uuid.invoice_id == param_uuid)
+          msg = { status: '200', message: I18n.t('custom_field_uuid_exist_in_invoice_db') } if test_uuid.present? && (test_uuid.invoice_id == param_uuid)
         end
       when  'PAYMENT'
         begin
@@ -184,18 +184,18 @@ module Kaui
         rescue StandardError
           # Ignore
         ensure
-          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_invoice_payment_db') } if !test_uuid.blank? && (test_uuid.payment_id == param_uuid)
+          msg = { status: '200', message: I18n.t('custom_field_uuid_exist_in_invoice_payment_db') } if test_uuid.present? && (test_uuid.payment_id == param_uuid)
         end
         begin
           test_uuid = Kaui::Payment.find_by_external_key(param_uuid, false, true, options_for_klient)
         rescue StandardError
           # Ignore
         ensure
-          msg = { status: '200', message: I18n.translate('custom_field_uuid_exist_in_payment_db') } if !test_uuid.blank? && (test_uuid.payment_id == param_uuid)
+          msg = { status: '200', message: I18n.t('custom_field_uuid_exist_in_payment_db') } if test_uuid.present? && (test_uuid.payment_id == param_uuid)
         end
       end
 
-      msg ||= { status: '431', message: I18n.translate('custom_field_uuid_do_not_exist_in_db') }
+      msg ||= { status: '431', message: I18n.t('custom_field_uuid_do_not_exist_in_db') }
       render json: msg
     end
   end

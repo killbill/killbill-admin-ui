@@ -2,10 +2,11 @@
 
 module Kaui
   module AccountHelper
-    def pretty_account_identifier
-      return nil if @account.nil?
+    def pretty_account_identifier(account = nil)
+      account ||= @account # rubocop:disable Rails/HelperInstanceVariable
+      return nil if account.nil?
 
-      Kaui.pretty_account_identifier.call(@account)
+      Kaui.pretty_account_identifier.call(account)
     end
 
     def email_notifications_plugin_available?
@@ -39,13 +40,14 @@ module Kaui
       end
     end
 
-    def account_closed?
-      return false if @account.nil?
+    def account_closed?(account = nil)
+      account ||= @account # rubocop:disable Rails/HelperInstanceVariable
+      return false if account.nil?
 
       # NOTE: we ignore errors here, so that the call doesn't prevent the screen to load. While the error isn't surfaced, if there is an error with the catalog for instance,
       # the AJAX call to compute the next invoice date should hopefully trigger a flash error.
       blocking_states = begin
-        @account.blocking_states('ACCOUNT', 'account-service', 'NONE', Kaui.current_tenant_user_options(current_user, session))
+        account.blocking_states('ACCOUNT', 'account-service', 'NONE', Kaui.current_tenant_user_options(current_user, session))
       rescue StandardError
         []
       end
@@ -77,7 +79,7 @@ module Kaui
       # If bundles are provided, check for subscription BCD
       if bundles.present?
         bundles.each do |bundle|
-          next unless bundle.subscriptions.present?
+          next if bundle.subscriptions.blank?
 
           bundle.subscriptions.each do |subscription|
             # Skip cancelled subscriptions

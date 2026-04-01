@@ -3,7 +3,7 @@
 module Dependencies
   module Kenui
     class EmailNotification
-      ERROR_MESSAGE = I18n.translate('errors.messages.email_notification_plugin_not_available')
+      ERROR_MESSAGE = I18n.t('errors.messages.email_notification_plugin_not_available')
       class << self
         def email_notification_plugin_available?(options_for_klient)
           is_available = ::Kenui::EmailNotificationService.email_notification_plugin_available?(options_for_klient)

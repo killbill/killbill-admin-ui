@@ -6,7 +6,7 @@ module Kaui
   class PaymentsControllerTest < Kaui::FunctionalTestHelper
     test 'should get index' do
       get :index, params: { account_id: @invoice_item.account_id }
-      assert_response 200
+      assert_response :ok
     end
 
     test 'should list payments' do
@@ -24,12 +24,12 @@ module Kaui
     test 'should create payments' do
       # Verify we can pre-populate the payment
       get :new, params: { account_id: @invoice_item.account_id, invoice_id: @invoice_item.invoice_id }
-      assert_response 200
+      assert_response :ok
       assert_not_nil assigns(:payment)
 
       # Create the payment
       post :create, params: { account_id: @invoice_item.account_id, invoice_payment: { account_id: @invoice_item.account_id, target_invoice_id: @invoice_item.invoice_id, purchased_amount: 10 }, external: 1 }
-      assert_response 302
+      assert_response :found
 
       # Test pagination
       get :pagination, params: { format: :json }
@@ -62,14 +62,14 @@ module Kaui
     end
 
     test 'should download payments data' do
-      start_date = Date.today.strftime('%Y-%m-%d')
-      end_date = Date.today.strftime('%Y-%m-%d')
+      start_date = Time.zone.today.strftime('%Y-%m-%d')
+      end_date = Time.zone.today.strftime('%Y-%m-%d')
       columns = %w[payment_id auth currency capture purchase refund credit]
 
       get :download, params: { startDate: start_date, endDate: end_date, allFieldsChecked: 'false', columnsString: columns.join(',') }
       assert_response :success
       assert_equal 'text/csv', @response.header['Content-Type']
-      assert_includes @response.header['Content-Disposition'], "filename=\"payments-#{Date.today}.csv\""
+      assert_includes @response.header['Content-Disposition'], "filename=\"payments-#{Time.zone.today}.csv\""
       assert_includes @response.body, @payment.payment_id
 
       csv = CSV.parse(@response.body, headers: true)

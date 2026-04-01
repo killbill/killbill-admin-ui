@@ -21,7 +21,7 @@ module Kaui
       all_fields_checked = params[:allFieldsChecked] == 'true'
       query_string = handle_balance_search(params[:search])
       columns = if all_fields_checked
-                  KillBillClient::Model::InvoiceAttributes.instance_variable_get('@json_attributes') - Kaui::Invoice::TABLE_IGNORE_COLUMNS
+                  KillBillClient::Model::InvoiceAttributes.instance_variable_get(:@json_attributes) - Kaui::Invoice::TABLE_IGNORE_COLUMNS
                 else
                   params.require(:columnsString).split(',').map { |attr| attr.split.join('_').downcase }
                 end
@@ -52,7 +52,7 @@ module Kaui
           csv << columns.map { |attr| invoice&.send(attr.downcase) }
         end
       end
-      send_data csv_string, filename: "invoices-#{Date.today}.csv", type: 'text/csv'
+      send_data csv_string, filename: "invoices-#{Time.zone.today}.csv", type: 'text/csv'
     end
 
     def pagination
@@ -134,7 +134,7 @@ module Kaui
         end
       end
 
-      fetch_invoice_tags = promise { @invoice.tags(false, 'NONE', cached_options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b } }
+      fetch_invoice_tags = promise { @invoice.tags(false, 'NONE', cached_options_for_klient).sort }
       fetch_available_invoice_tags = promise { Kaui::TagDefinition.all_for_invoice(cached_options_for_klient) }
 
       @payments = wait(fetch_payments)
@@ -173,7 +173,9 @@ module Kaui
     end
 
     def show_html
+      # rubocop:disable Rails/OutputSafety -- Invoice HTML from Kill Bill backend is trusted
       render html: Kaui::Invoice.as_html(params.require(:id), options_for_klient).html_safe
+      # rubocop:enable Rails/OutputSafety
     end
 
     def commit_invoice

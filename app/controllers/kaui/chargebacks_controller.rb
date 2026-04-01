@@ -29,7 +29,7 @@ module Kaui
           account.bundles(cached_options_for_klient).each do |bundle|
             bundle.subscriptions.each do |subscription|
               # Already cancelled?
-              next unless subscription.billing_end_date.blank?
+              next if subscription.billing_end_date.present?
 
               # Cancel the entitlement immediately but use the default billing policy
               entitlement = Kaui::Subscription.new(subscription_id: subscription.subscription_id)

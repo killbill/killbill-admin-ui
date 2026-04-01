@@ -4,7 +4,9 @@ module Kaui
   class AllowedUser < ApplicationRecord
     has_many :kaui_allowed_user_tenants,
              class_name: 'Kaui::AllowedUserTenant',
-             foreign_key: 'kaui_allowed_user_id'
+             foreign_key: 'kaui_allowed_user_id',
+             dependent: :destroy,
+             inverse_of: :kaui_allowed_user
 
     has_many :kaui_tenants, -> { distinct },
              through: :kaui_allowed_user_tenants,

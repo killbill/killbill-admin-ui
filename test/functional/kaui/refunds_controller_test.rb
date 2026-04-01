@@ -18,7 +18,7 @@ module Kaui
 
     test 'should get new' do
       get :new, params: { account_id: @account.account_id, invoice_id: @paid_invoice_item.invoice_id, payment_id: @payment.payment_id }
-      assert_response 200
+      assert_response :ok
       assert_not_nil assigns(:invoice)
       assert_not_nil assigns(:payment)
       assert_not_nil assigns(:refund)

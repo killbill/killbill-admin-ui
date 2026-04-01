@@ -36,10 +36,10 @@ module Kaui
 
     test 'can check for full refunds' do
       assert Kaui::Payment.new(purchased_amount: 10.2, refunded_amount: 10.20, currency: 'USD').fully_refunded?
-      assert !Kaui::Payment.new(purchased_amount: 10.2, refunded_amount: 9, currency: 'USD').fully_refunded?
+      assert_not Kaui::Payment.new(purchased_amount: 10.2, refunded_amount: 9, currency: 'USD').fully_refunded?
 
       assert Kaui::Payment.new(captured_amount: 10.2, refunded_amount: 10.20, currency: 'USD').fully_refunded?
-      assert !Kaui::Payment.new(captured_amount: 10.2, refunded_amount: 9, currency: 'USD').fully_refunded?
+      assert_not Kaui::Payment.new(captured_amount: 10.2, refunded_amount: 9, currency: 'USD').fully_refunded?
     end
   end
 end

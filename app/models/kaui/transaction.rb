@@ -6,7 +6,7 @@ module Kaui
 
     def self.build_from_raw_transaction(raw_transaction)
       result = Kaui::Transaction.new
-      KillBillClient::Model::PaymentTransactionAttributes.instance_variable_get('@json_attributes').each do |attr|
+      KillBillClient::Model::PaymentTransactionAttributes.instance_variable_get(:@json_attributes).each do |attr|
         result.send("#{attr}=", raw_transaction.send(attr))
       end
       result

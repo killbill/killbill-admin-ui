@@ -6,7 +6,7 @@ module Kaui
   class AccountsControllerTest < Kaui::FunctionalTestHelper
     test 'should get index' do
       get :index
-      assert_response 200
+      assert_response :ok
     end
 
     test 'should get index one account' do
@@ -50,7 +50,7 @@ module Kaui
 
     test 'should find account by id' do
       get :show, params: { account_id: @account.account_id }
-      assert_response 200
+      assert_response :ok
       assert_not_nil assigns(:tags)
       assert_not_nil assigns(:account_emails)
       assert_not_nil assigns(:overdue_state)
@@ -59,7 +59,7 @@ module Kaui
 
     test 'should check that overdue state is Good' do
       get :show, params: { account_id: @account.account_id }
-      assert_response 200
+      assert_response :ok
 
       # Simple check: ensure the overdue status text appears in the response
       assert_includes @response.body, 'Overdue status'
@@ -85,7 +85,7 @@ module Kaui
 
     test 'should create account' do
       get :new
-      assert_response 200
+      assert_response :ok
       assert_not_nil assigns(:account)
 
       post :create,
@@ -109,7 +109,7 @@ module Kaui
 
     test 'should update account' do
       get :edit, params: { account_id: @account.account_id }
-      assert_response 200
+      assert_response :ok
       assert_not_nil assigns(:account)
 
       latest_account_attributes = assigns(:account).to_hash
@@ -140,7 +140,7 @@ module Kaui
 
     test 'should set default payment method' do
       put :set_default_payment_method, params: { account_id: @account.account_id, payment_method_id: @payment_method.payment_method_id }
-      assert_response 302
+      assert_response :found
     end
 
     test 'should handle Kill Bill errors when paying all invoices' do
@@ -152,7 +152,7 @@ module Kaui
 
     test 'should pay all invoices' do
       post :pay_all_invoices, params: { account_id: @account.account_id, is_external_payment: true }
-      assert_response 302
+      assert_response :found
     end
 
     test 'should trigger invoice' do
@@ -250,7 +250,7 @@ module Kaui
       }
 
       post :set_email_notifications_configuration, params: parameters
-      assert_equal(I18n.translate('errors.messages.email_notification_plugin_not_available'), flash[:error]) unless flash[:error].blank?
+      assert_equal(I18n.t('errors.messages.email_notification_plugin_not_available'), flash[:error]) if flash[:error].present?
       assert_equal("Email notifications for account #{@account.account_id} was successfully updated", flash[:notice]) if flash[:error].blank?
       assert_redirected_to account_path(@account.account_id)
     end
@@ -272,15 +272,15 @@ module Kaui
     end
 
     test 'should download accounts data' do
-      start_date = Date.today.strftime('%Y-%m-%d')
-      end_date = Date.today.strftime('%Y-%m-%d')
+      start_date = Time.zone.today.strftime('%Y-%m-%d')
+      end_date = Time.zone.today.strftime('%Y-%m-%d')
       columns = %w[account_id name email bcd cba]
       account = create_account(@tenant)
 
       get :download, params: { startDate: start_date, endDate: end_date, allFieldsChecked: 'false', columnsString: columns.join(','), search: account.account_id }
       assert_response :success
       assert_equal 'text/csv', @response.header['Content-Type']
-      assert_includes @response.header['Content-Disposition'], "filename=\"accounts-#{Date.today}.csv\""
+      assert_includes @response.header['Content-Disposition'], "filename=\"accounts-#{Time.zone.today}.csv\""
       assert_includes @response.body, account.account_id
 
       csv = CSV.parse(@response.body, headers: true)

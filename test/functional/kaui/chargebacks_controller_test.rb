@@ -13,7 +13,7 @@ module Kaui
 
     test 'should get new' do
       get :new, params: { account_id: @account.account_id, payment_id: @payment.payment_id }
-      assert_response 200
+      assert_response :ok
     end
 
     test 'should handle Kill Bill errors during create' do

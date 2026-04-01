@@ -22,7 +22,7 @@ module Kaui
 
     test 'should get edit' do
       get :edit, params: { account_id: @account.account_id, invoice_id: @invoice_item.invoice_id, id: @invoice_item.invoice_item_id }
-      assert_response 200
+      assert_response :ok
       assert_equal @invoice_item.invoice_item_id, assigns(:invoice_item).invoice_item_id
     end
 

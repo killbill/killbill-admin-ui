@@ -20,14 +20,14 @@ module Kaui
       get :index, params: { account_id: @account.account_id, with_history: true, min_date: 'char date' }
 
       assert_equal 'Invalid min date format', flash[:error]
-      assert_response 302
+      assert_response :found
     end
 
     test 'should get max_date error' do
       get :index, params: { account_id: @account.account_id, with_history: true, max_date: 'char date' }
 
       assert_equal 'Invalid max date format', flash[:error]
-      assert_response 302
+      assert_response :found
     end
   end
 end

@@ -3,7 +3,7 @@
 module Kaui
   module SubscriptionHelper
     def humanized_subscription_product_category(sub)
-      if !sub.present? || !sub.product_category.present?
+      if sub.blank? || sub.product_category.blank?
         nil
       else
         humanized_product_category(sub.product_category)
@@ -21,16 +21,16 @@ module Kaui
     end
 
     def humanized_subscription_product_name(sub, catalog = nil)
-      if !sub.present? || !sub.product_name.present?
+      if sub.blank? || sub.product_name.blank?
         nil
       else
         product = catalog&.products&.find { |p| p.name == sub.product_name }
-        humanized_product_name(!product.nil? && !product.pretty_name.blank? ? product.pretty_name : sub.product_name)
+        humanized_product_name(!product.nil? && product.pretty_name.present? ? product.pretty_name : sub.product_name)
       end
     end
 
     def humanized_subscription_pretty_plan_name(sub, catalog = nil)
-      if !sub.present? || !sub.product_name.present?
+      if sub.blank? || sub.product_name.blank?
         nil
       else
         product = catalog&.products&.find { |p| p.name == sub.product_name }
@@ -47,7 +47,7 @@ module Kaui
     end
 
     def humanized_subscription_billing_period(sub)
-      if !sub.present? || !sub.billing_period.present?
+      if sub.blank? || sub.billing_period.blank?
         nil
       else
         humanized_billing_period(sub.billing_period)
@@ -63,7 +63,7 @@ module Kaui
     end
 
     def humanized_subscription_price_list(sub, show_default)
-      if !sub.present? || !sub.price_list.present? || (!show_default && (sub.price_list.upcase == 'DEFAULT'))
+      if sub.blank? || sub.price_list.blank? || (!show_default && (sub.price_list.upcase == 'DEFAULT'))
         nil
       else
         sub.price_list.downcase.capitalize
@@ -78,19 +78,17 @@ module Kaui
       humanized_billing_period = humanized_subscription_billing_period(sub)
       humanized_price_list     = humanized_subscription_price_list(sub, false)
 
-      humanized_product_name = if humanized_billing_period.nil?
-                                 if humanized_price_list.nil?
-                                   humanized_product_name + humanized_price_override(sub, '', '(', ')')
-                                 else
-                                   "#{humanized_product_name} (#{humanized_price_list.downcase}#{humanized_price_override(sub)})"
-                                 end
-                               elsif humanized_price_list.nil?
-                                 "#{humanized_product_name} (#{humanized_billing_period.downcase}#{humanized_price_override(sub)})"
-                               else
-                                 "#{humanized_product_name} (#{humanized_billing_period.downcase}, #{humanized_price_list.downcase}#{humanized_price_override(sub)})"
-                               end
-
-      humanized_product_name.html_safe
+      if humanized_billing_period.nil?
+        if humanized_price_list.nil?
+          humanized_product_name + humanized_price_override(sub, '', '(', ')')
+        else
+          "#{humanized_product_name} (#{humanized_price_list.downcase}#{humanized_price_override(sub)})"
+        end
+      elsif humanized_price_list.nil?
+        "#{humanized_product_name} (#{humanized_billing_period.downcase}#{humanized_price_override(sub)})"
+      else
+        "#{humanized_product_name} (#{humanized_billing_period.downcase}, #{humanized_price_list.downcase}#{humanized_price_override(sub)})"
+      end
     end
 
     def humanized_price_override(sub, separation = ', ', open_bracket = '', close_bracket = '')
@@ -114,23 +112,23 @@ module Kaui
     end
 
     def humanized_subscription_start_date(sub, account)
-      if !sub.present? || !sub.start_date.present? || !account.present? || !account.time_zone.present?
+      if sub.blank? || sub.start_date.blank? || account.blank? || account.time_zone.blank?
         nil
       else
-        format_date(sub.start_date, account.time_zone).html_safe
+        format_date(sub.start_date, account.time_zone)
       end
     end
 
     def humanized_subscription_charged_through_date(sub, account)
-      if !sub.present? || !sub.charged_through_date.present? || !account.present? || !account.time_zone.present?
+      if sub.blank? || sub.charged_through_date.blank? || account.blank? || account.time_zone.blank?
         nil
       else
-        format_date(sub.charged_through_date, account.time_zone).html_safe
+        format_date(sub.charged_through_date, account.time_zone)
       end
     end
 
     def humanized_subscription_cancelled_date(sub, account)
-      if !sub.present? || !sub.cancelled_date.present? || !account.present? || !account.time_zone.present?
+      if sub.blank? || sub.cancelled_date.blank? || account.blank? || account.time_zone.blank?
         nil
       else
         "Entitlement date: #{format_date(sub.cancelled_date, account.time_zone)}"
@@ -138,15 +136,15 @@ module Kaui
     end
 
     def humanized_subscription_billing_start_date(sub, account)
-      if !sub.present? || !sub.billing_start_date.present? || !account.present? || !account.time_zone.present?
+      if sub.blank? || sub.billing_start_date.blank? || account.blank? || account.time_zone.blank?
         nil
       else
-        format_date(sub.billing_start_date, account.time_zone).html_safe
+        format_date(sub.billing_start_date, account.time_zone)
       end
     end
 
     def humanized_subscription_billing_end_date(sub, account)
-      if !sub.present? || !sub.billing_end_date.present? || !account.present? || !account.time_zone.present?
+      if sub.blank? || sub.billing_end_date.blank? || account.blank? || account.time_zone.blank?
         nil
       else
         "Billing date: #{format_date(sub.billing_end_date, account.time_zone)}"
@@ -154,10 +152,10 @@ module Kaui
     end
 
     def humanized_subscription_cancelled_information(sub, account)
-      if !sub.present? || !sub.cancelled_date.present? || !account.present? || !account.time_zone.present?
+      if sub.blank? || sub.cancelled_date.blank? || account.blank? || account.time_zone.blank?
         nil
       else
-        "#{humanized_subscription_cancelled_date(sub, account)}<br/>#{humanized_subscription_billing_end_date(sub, account)}".html_safe
+        safe_join([humanized_subscription_cancelled_date(sub, account), humanized_subscription_billing_end_date(sub, account)], tag.br)
       end
     end
 
@@ -166,7 +164,7 @@ module Kaui
     end
 
     def subscription_future_cancelled?(sub, account)
-      sub.present? && sub.state != 'CANCELLED' && sub.billing_end_date.present? && Time.parse(sub.billing_end_date) > current_time(account.time_zone)
+      sub.present? && sub.state != 'CANCELLED' && sub.billing_end_date.present? && Time.zone.parse(sub.billing_end_date) > current_time(account.time_zone)
     end
 
     def subscription_cancelled?(sub)

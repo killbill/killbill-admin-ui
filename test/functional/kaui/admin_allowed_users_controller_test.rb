@@ -18,7 +18,7 @@ module Kaui
       }
       post :create, params: parameters
       assert_equal 'User was successfully configured', flash[:notice]
-      assert_response 302
+      assert_response :found
 
       # validate redirect path
       id = extract_allowed_id(@response.body)
@@ -33,7 +33,7 @@ module Kaui
       }
       post :create, params: parameters
       assert_equal 'User was successfully configured', flash[:notice]
-      assert_response 302
+      assert_response :found
 
       # validate redirect path
       id = extract_allowed_id(@response.body)
@@ -47,7 +47,7 @@ module Kaui
 
     test 'should get index' do
       get :index
-      assert_response 200
+      assert_response :ok
     end
 
     test 'should get show' do
@@ -182,7 +182,7 @@ module Kaui
       }
       post :create, params: parameters
       assert_equal 'User was successfully configured', flash[:notice]
-      assert_response 302
+      assert_response :found
       added_au_id = response_path.gsub('/kaui/admin_allowed_users/', '')
 
       # edit the added user and validate that the checkbox of managed externally is disabled
@@ -201,7 +201,7 @@ module Kaui
       }
       post :create, params: parameters
       assert_equal 'User was successfully configured', flash[:notice]
-      assert_response 302
+      assert_response :found
       added_au_id = response_path.gsub('/kaui/admin_allowed_users/', '')
 
       # edit the added user and validate that the password is not disabled

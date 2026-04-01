@@ -6,7 +6,7 @@ module Kaui
   class InvoicesControllerTest < Kaui::FunctionalTestHelper
     test 'should get index' do
       get :index, params: { account_id: @invoice_item.account_id }
-      assert_response 200
+      assert_response :ok
     end
 
     test 'should list invoices' do
@@ -30,7 +30,7 @@ module Kaui
 
     test 'should find unpaid invoice by id' do
       get :show, params: { account_id: @invoice_item.account_id, id: @invoice_item.invoice_id }
-      assert_response 200
+      assert_response :ok
 
       assert_not_nil assigns(:account)
       assert_not_nil assigns(:invoice)
@@ -42,7 +42,7 @@ module Kaui
     # Test bundles and subscriptions retrieval
     test 'should find invoice by id' do
       get :show, params: { account_id: @bundle_invoice.account_id, id: @bundle_invoice.invoice_id }
-      assert_response 200
+      assert_response :ok
 
       assert_not_nil assigns(:account)
       assert_not_nil assigns(:invoice)
@@ -54,7 +54,7 @@ module Kaui
     # Test the rendering of the partials
     test 'should find paid invoice by id' do
       get :show, params: { account_id: @paid_invoice_item.account_id, id: @paid_invoice_item.invoice_id }
-      assert_response 200
+      assert_response :ok
 
       assert_not_nil assigns(:account)
       assert_not_nil assigns(:invoice)
@@ -82,7 +82,7 @@ module Kaui
 
     test 'should render HTML invoice' do
       get :show_html, params: { id: @invoice_item.invoice_id }
-      assert_response 200
+      assert_response :ok
     end
 
     test 'should commit invoice' do
@@ -94,15 +94,15 @@ module Kaui
     end
 
     test 'should download invoices data' do
-      start_date = Date.today.strftime('%Y-%m-%d')
-      end_date = Date.today.strftime('%Y-%m-%d')
+      start_date = Time.zone.today.strftime('%Y-%m-%d')
+      end_date = Time.zone.today.strftime('%Y-%m-%d')
       columns = %w[invoice_id currency status]
       invoice = create_charge(@account, @tenant)
 
       get :download, params: { startDate: start_date, endDate: end_date, allFieldsChecked: 'false', columnsString: columns.join(',') }
       assert_response :success
       assert_equal 'text/csv', @response.header['Content-Type']
-      assert_includes @response.header['Content-Disposition'], "filename=\"invoices-#{Date.today}.csv\""
+      assert_includes @response.header['Content-Disposition'], "filename=\"invoices-#{Time.zone.today}.csv\""
       assert_includes @response.body, invoice.invoice_id
 
       csv = CSV.parse(@response.body, headers: true)

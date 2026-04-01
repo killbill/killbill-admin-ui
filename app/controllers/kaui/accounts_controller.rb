@@ -57,7 +57,7 @@ module Kaui
       query_string = params[:search]
 
       if all_fields_checked
-        columns = KillBillClient::Model::AccountAttributes.instance_variable_get('@json_attributes')
+        columns = KillBillClient::Model::AccountAttributes.instance_variable_get(:@json_attributes)
         csv_headers = columns.dup
         Kaui::Account::REMAPPING_FIELDS.each do |k, v|
           index = csv_headers.index(k)
@@ -97,36 +97,7 @@ module Kaui
           csv << data
         end
       end
-      send_data csv_string, filename: "accounts-#{Date.today}.csv", type: 'text/csv'
-    end
-
-    def new
-      @account = Kaui::Account.new
-    end
-
-    def create
-      @account = Kaui::Account.new(params.require(:account).delete_if { |_key, value| value.blank? })
-
-      @account.errors.add(:phone, :invalid_phone) if !@account.phone.nil? && !@account.check_account_details_phone?
-
-      @account.errors.add(:check_account_details_bill_cycle_day_local, :invalid_bill_cycle_day_local) if !@account.bill_cycle_day_local.nil? && !@account.check_account_details_bill_cycle_day_local?
-
-      unless @account.errors.empty?
-        flash.now[:errors] = @account.errors.messages.values.flatten
-        render action: :new and return
-      end
-
-      # Transform "1" into boolean
-      @account.is_migrated = @account.is_migrated == '1'
-
-      begin
-        @account = @account.create(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
-
-        redirect_to account_path(@account.account_id), notice: 'Account was successfully created'
-      rescue StandardError => e
-        flash.now[:error] = "Error while creating account: #{as_string(e)}"
-        render action: :new
-      end
+      send_data csv_string, filename: "accounts-#{Time.zone.today}.csv", type: 'text/csv'
     end
 
     # rubocop:disable Style/MultilineBlockChain
@@ -140,7 +111,7 @@ module Kaui
       fetch_children = promise { @account.children(false, false, 'NONE', cached_options_for_klient) }
       fetch_parent = @account.parent_account_id.nil? ? nil : promise { Kaui::Account.find_by_id(@account.parent_account_id, false, false, cached_options_for_klient) }
       fetch_overdue_state = promise { @account.overdue(cached_options_for_klient) }
-      fetch_account_tags = promise { @account.tags(false, 'NONE', cached_options_for_klient).sort { |tag_a, tag_b| tag_a <=> tag_b } }
+      fetch_account_tags = promise { @account.tags(false, 'NONE', cached_options_for_klient).sort }
       fetch_account_fields = promise { @account.custom_fields('NONE', cached_options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase } }
       fetch_account_emails = promise { Kaui::AccountEmail.find_all_sorted_by_account_id(@account.account_id, 'NONE', cached_options_for_klient) }
       fetch_payments = promise { @account.payments(cached_options_for_klient).map! { |payment| Kaui::Payment.build_from_raw_payment(payment) } }
@@ -180,7 +151,7 @@ module Kaui
       @custom_fields = wait(fetch_account_fields)
       @account_emails = wait(fetch_account_emails)
       wait(fetch_payment_methods)
-      @payment_methods = wait(fetch_payment_methods_with_details).map { |pm_f| wait(pm_f) }.compact
+      @payment_methods = wait(fetch_payment_methods_with_details).filter_map { |pm_f| wait(pm_f) }
       @available_tags = wait(fetch_available_tags)
       @children = wait(fetch_children)
       @account_parent = @account.parent_account_id.nil? ? nil : wait(fetch_parent)
@@ -197,6 +168,52 @@ module Kaui
       end
 
       params.permit!
+    end
+
+    def new
+      @account = Kaui::Account.new
+    end
+
+    def edit; end
+
+    def create
+      @account = Kaui::Account.new(params.require(:account).permit!.to_h.compact_blank)
+
+      @account.errors.add(:phone, :invalid_phone) if !@account.phone.nil? && !@account.check_account_details_phone?
+
+      @account.errors.add(:check_account_details_bill_cycle_day_local, :invalid_bill_cycle_day_local) if !@account.bill_cycle_day_local.nil? && !@account.check_account_details_bill_cycle_day_local?
+
+      unless @account.errors.empty?
+        flash.now[:errors] = @account.errors.messages.values.flatten
+        render action: :new and return
+      end
+
+      # Transform "1" into boolean
+      @account.is_migrated = @account.is_migrated == '1'
+
+      begin
+        @account = @account.create(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+
+        redirect_to account_path(@account.account_id), notice: 'Account was successfully created'
+      rescue StandardError => e
+        flash.now[:error] = "Error while creating account: #{as_string(e)}"
+        render action: :new
+      end
+    end
+
+    def update
+      @account = Kaui::Account.new(params.require(:account).permit!.to_h.compact_blank)
+      @account.account_id = params.require(:account_id)
+
+      # Transform "1" into boolean
+      @account.is_migrated = @account.is_migrated == '1'
+
+      @account.update(true, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+
+      redirect_to account_path(@account.account_id), notice: 'Account successfully updated'
+    rescue StandardError => e
+      flash.now[:error] = "Error while updating account: #{as_string(e)}"
+      render action: :edit
     end
     # rubocop:enable Style/MultilineBlockChain
 
@@ -261,23 +278,6 @@ module Kaui
       end
     end
 
-    def edit; end
-
-    def update
-      @account = Kaui::Account.new(params.require(:account).delete_if { |_key, value| value.blank? })
-      @account.account_id = params.require(:account_id)
-
-      # Transform "1" into boolean
-      @account.is_migrated = @account.is_migrated == '1'
-
-      @account.update(true, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
-
-      redirect_to account_path(@account.account_id), notice: 'Account successfully updated'
-    rescue StandardError => e
-      flash.now[:error] = "Error while updating account: #{as_string(e)}"
-      render action: :edit
-    end
-
     def set_default_payment_method
       account_id = params.require(:account_id)
       payment_method_id = params.require(:payment_method_id)
@@ -309,7 +309,7 @@ module Kaui
     end
 
     def link_to_parent
-      @account = Kaui::Account.new(params.require(:account).delete_if { |_key, value| value.blank? })
+      @account = Kaui::Account.new(params.require(:account).permit!.to_h.compact_blank)
       @account.account_id = params.require(:account_id)
       @account.is_payment_delegated_to_parent = @account.is_payment_delegated_to_parent == '1'
 

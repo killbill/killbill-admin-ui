@@ -6,7 +6,7 @@ module Kaui
   class CustomFieldsControllerTest < Kaui::FunctionalTestHelper
     test 'should get index' do
       get :index
-      assert_response 200
+      assert_response :ok
     end
 
     test 'should list custom fields' do
@@ -23,7 +23,7 @@ module Kaui
 
     test 'should create custom fields' do
       get :new
-      assert_response 200
+      assert_response :ok
       assert_not_nil assigns(:custom_field)
 
       # TODO: https://github.com/killbill/killbill-client-ruby/issues/17
@@ -55,7 +55,7 @@ module Kaui
 
     test 'should create custom field account and check if this object exist' do
       get :new
-      assert_response 200
+      assert_response :ok
       assert_not_nil assigns(:custom_field)
 
       post :create,
@@ -74,7 +74,7 @@ module Kaui
 
     test 'should get error duriing creation of custom field without params supplied' do
       get :check_object_exist, params: { as: :json }
-      assert_response 200
+      assert_response :ok
 
       json_response = JSON.parse(response.body)
 

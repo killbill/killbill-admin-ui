@@ -2,13 +2,17 @@
 
 module Kaui
   class PaymentMethodsController < Kaui::EngineController
+    def show
+      restful_show
+    end
+
     def new
       @payment_method = Kaui::PaymentMethod.new(account_id: params[:account_id],
                                                 plugin_name: params[:plugin_name] || Kaui.creditcard_plugin_name.call)
     end
 
     def create
-      @payment_method             = Kaui::PaymentMethod.new(params[:payment_method].delete_if { |_key, value| value.blank? })
+      @payment_method             = Kaui::PaymentMethod.new(params[:payment_method].permit!.to_h.compact_blank)
       # Transform "1" into boolean
       @payment_method.is_default  = @payment_method.is_default == '1'
       # Sensible default
@@ -82,10 +86,6 @@ module Kaui
         flash[:error] = "Error while deleting payment method #{payment_method_id}: #{as_string(e)}"
         redirect_to kaui_engine.account_path(payment_method.account_id)
       end
-    end
-
-    def show
-      restful_show
     end
 
     def restful_show

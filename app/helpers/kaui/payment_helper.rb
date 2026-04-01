@@ -7,15 +7,8 @@ module Kaui
     end
 
     def colored_transaction_status(transaction_status)
-      data = "<span class='alert-"
-      data += if transaction_status == 'SUCCESS'
-                "success'>"
-              else
-                "danger'>"
-              end
-      data += transaction_status
-      data += '</span>'
-      data.html_safe
+      alert_class = transaction_status == 'SUCCESS' ? 'alert-success' : 'alert-danger'
+      tag.span(transaction_status, class: alert_class)
     end
 
     def gateway_url(payment_method, payment)
