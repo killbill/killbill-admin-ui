@@ -365,7 +365,7 @@ module Kaui
     def installed_plugins
       installed_plugins = []
       nodes_info = KillBillClient::Model::NodesInfo.nodes_info(build_options(@tenant, USERNAME, PASSWORD)) || []
-      plugins_info = nodes_info.first.plugins_info || []
+      plugins_info = nodes_info.flat_map { |node| node.plugins_info || [] }
       plugins_info.each do |plugin|
         next if plugin.plugin_key.nil? || plugin.version.nil?
         next if installed_plugins.any? { |p| p[:plugin_name].eql?(plugin.plugin_name) }
