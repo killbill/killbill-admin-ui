@@ -126,8 +126,7 @@
     };
 
     var validateRefundAmount = function() {
-        if (Number($("#refund_amount").attr('value')) > <%= @payment.purchased_amount %> ||
-          Number($("#refund_amount").attr('value')) <= 0) {
+        if (Number($("#refund_amount").val()) <= 0) {
           setClassForElement("#div_refund_amount", "form-group d-flex pb-3 error");
           $('#new_kill_bill_client_model_invoice_item :submit').prop('disabled', true);
         } else {
@@ -151,11 +150,6 @@
         });
     };
 
-    /*
-     * Recompute refund amount based on adjustment type:
-     * - For Invoice Item Adjustment, recompute price based on selection and invalidate text area to make it match exact selection
-     * _ For Invoice adjustment or no adjustment, default to payment amount
-     */
     var recomputeRefundAmountAndValidateAmount = function() {
         var computedRefundAmount = <%= @payment.purchased_amount %>;
         if ($("#adjustment_type_invoiceItemAdjustment").is(':checked')) {
@@ -166,11 +160,9 @@
                 }
             });
             computedRefundAmount = x.toFixed(2);
-            $("#refund_amount").attr('value', computedRefundAmount);
-            $("#refund_amount").prop('readonly', true);
+            $("#refund_amount").val(computedRefundAmount);
         } else {
-            $("#refund_amount").attr('value', computedRefundAmount);
-            $("#refund_amount").prop('readonly', false);
+            $("#refund_amount").val(computedRefundAmount);
         }
         validateRefundAmount();
     };
