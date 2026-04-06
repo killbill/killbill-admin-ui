@@ -7,14 +7,15 @@ module Kaui
       @search_query = params[:q]
       @advance_search_query = @search_query || request.query_string
       if @search_query.present?
-        account = Kaui::Account.list_or_search(@search_query, -1, 1, options_for_klient).first
-        if account.nil?
+        accounts = Kaui::Account.list_or_search(@search_query, 0, 1, options_for_klient)
+        if accounts.first.nil?
           flash[:error] = "No account matches \"#{@search_query}\""
           redirect_to kaui_engine.home_path
-        else
-          redirect_to kaui_engine.account_path(account.account_id)
+          return
+        elsif accounts.pagination_max_nb_records == 1
+          redirect_to kaui_engine.account_path(accounts.first.account_id)
+          return
         end
-        return
       end
       @search_fields = Kaui::Account::ADVANCED_SEARCH_COLUMNS.map { |attr| [attr, attr.split('_').join(' ').capitalize] }
       @dropdown_default = default_columns(Kaui.account_search_columns.call[2], Kaui::Account::SENSIVITE_DATA_FIELDS)
