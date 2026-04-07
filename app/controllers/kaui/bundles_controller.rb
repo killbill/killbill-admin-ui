@@ -35,7 +35,9 @@ module Kaui
       end
       fetch_available_tags = promise { Kaui::TagDefinition.all_for_bundle(cached_options_for_klient) }
       fetch_available_subscription_tags = promise { Kaui::TagDefinition.all_for_subscription(cached_options_for_klient) }
-
+      # Load only the current effective catalog version (single snapshot) to resolve pretty names
+      # without loading all historical versions into memory
+      fetch_catalog = promise { Kaui::Catalog.get_account_catalog_json(@account.account_id, nil, cached_options_for_klient)&.last }
       @bundles = wait(fetch_bundles)
       @total_pages = (@bundles.pagination_max_nb_records.to_f / @per_page).ceil
 
@@ -45,9 +47,7 @@ module Kaui
       @custom_fields_per_subscription = wait(fetch_subscription_fields)
       @available_tags = wait(fetch_available_tags)
       @available_subscription_tags = wait(fetch_available_subscription_tags)
-
-      # Don't load the full catalog to avoid memory issues
-      @catalog = nil
+      @catalog = wait(fetch_catalog)
 
       @subscription = {}
       @bundles.each do |bundle|
