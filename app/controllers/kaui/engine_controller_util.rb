@@ -127,7 +127,7 @@ module Kaui
         as_string(exception.cause)
       else
         log_rescue_error(exception)
-        exception.message
+        exception.message.to_s[0..200]
       end
     end
 
@@ -150,7 +150,7 @@ module Kaui
         error_message += " (code=#{error_message['code']})" if error_message['code'].present?
       end
       # Limit the error size to avoid ActionDispatch::Cookies::CookieOverflow
-      error_message[0..1000]
+      error_message.to_s[0..200]
     end
 
     def nested_hash_value(obj, key)
