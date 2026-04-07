@@ -49,7 +49,7 @@ module Kaui
       # Collect the distinct start dates from subscriptions on this page, then fetch
       # only the catalog versions needed — one per unique date — to avoid loading all
       # historical versions into memory.
-      start_dates = @bundles.flat_map(&:subscriptions).map(&:start_date).compact.uniq
+      start_dates = @bundles.flat_map(&:subscriptions).filter_map(&:start_date).uniq
       @catalogs = start_dates.filter_map do |date|
         Kaui::Catalog.get_account_catalog_json(@account.account_id, date, cached_options_for_klient)&.last
       rescue StandardError

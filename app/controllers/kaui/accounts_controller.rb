@@ -7,12 +7,14 @@ module Kaui
       @search_query = params[:q]
       @advance_search_query = @search_query || request.query_string
       if @search_query.present?
-        accounts = Kaui::Account.list_or_search(@search_query, 0, 1, options_for_klient)
-        if accounts.first.nil?
+        # Fetch 2 to determine if there's exactly 1 match without relying on
+        # pagination_max_nb_records which can be unreliable for small result sets
+        accounts = Kaui::Account.list_or_search(@search_query, 0, 2, options_for_klient)
+        if accounts.empty?
           flash[:error] = "No account matches \"#{@search_query}\""
           redirect_to kaui_engine.home_path
           return
-        elsif accounts.pagination_max_nb_records == 1
+        elsif accounts.length == 1
           redirect_to kaui_engine.account_path(accounts.first.account_id)
           return
         end

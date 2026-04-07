@@ -10,8 +10,8 @@ module Kaui
     end
 
     test 'should get index one account' do
+      # When searching by exact account_id, only one result exists → redirect directly to account detail
       parameters = {
-        fast: '1',
         q: @account.account_id
       }
 
@@ -20,7 +20,6 @@ module Kaui
       assert_redirected_to account_path(@account.account_id)
 
       parameters = {
-        fast: '1',
         q: 'THIS_IS_NOT_FOUND_REDIRECT'
       }
 
