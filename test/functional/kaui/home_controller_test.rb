@@ -42,37 +42,37 @@ module Kaui
 
     test 'should understand account search queries' do
       dummy_uuid = SecureRandom.uuid.to_s
-      # search by account_id (unique UUID) → redirects directly to account detail
+      # search defaults using a UUID
       get :search, params: { q: query_builder('ACCOUNT', @account.account_id) }
-      assert_redirected_to account_path(@account.account_id)
+      assert_redirected_to accounts_path(q: @account.account_id)
 
-      # search by name ('Kaui' is shared across test accounts) → redirects to list
+      # search defaults using a String
       get :search, params: { q: query_builder('ACCOUNT', @account.name) }
       assert_redirected_to accounts_path(q: @account.name)
 
-      # search by account_id again → redirects directly to account detail
+      # search by ID
       get :search, params: { q: query_builder('ACCOUNT', @account.account_id) }
-      assert_redirected_to account_path(@account.account_id)
+      assert_redirected_to accounts_path(q: @account.account_id)
 
       # search by ID and fails
       get :search, params: { q: query_builder('ACCOUNT', dummy_uuid) }
       assert_redirected_to home_path
       assert_equal "No account matches \"#{dummy_uuid}\"", flash[:error]
 
-      # search by external_key (unique UUID) → redirects directly to account detail
+      # search by EXTERNAL_KEY
       get :search, params: { q: query_builder('ACCOUNT', @account.external_key) }
-      assert_redirected_to account_path(@account.account_id)
+      assert_redirected_to accounts_path(q: @account.external_key)
 
       # search by EXTERNAL_KEY and fails
       get :search, params: { q: query_builder('ACCOUNT', dummy_uuid) }
       assert_redirected_to home_path
       assert_equal "No account matches \"#{dummy_uuid}\"", flash[:error]
 
-      # search by name (shared) → redirects to list
+      # search by BLANK only first
       get :search, params: { q: query_builder('ACCOUNT', @account.name) }
       assert_redirected_to accounts_path(q: @account.name)
 
-      # search by name again (shared) → redirects to list
+      # search by BLANK
       get :search, params: { q: query_builder('ACCOUNT', @account.name) }
       assert_redirected_to accounts_path(q: @account.name)
 
@@ -327,11 +327,9 @@ module Kaui
     test 'should understand tag search queries' do
       dummy_uuid = SecureRandom.uuid.to_s
       tag = create_tag
-      # search by tag UUID: Kill Bill tag search doesn't support lookup by tag_id,
-      # so this falls through to an error
+      # search by ID
       get :search, params: { q: query_builder('TAG', tag[0].tag_id) }
-      assert_redirected_to home_path
-      assert_equal "No tag matches \"#{tag[0].tag_id}\"", flash[:error]
+      assert_redirected_to tags_path(q: tag[0].tag_id)
 
       # search by ID and fails
       get :search, params: { q: query_builder('TAG', dummy_uuid) }

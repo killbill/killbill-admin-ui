@@ -35,7 +35,7 @@ module Kaui
       (search_query || '').split(':').map(&:strip)
     end
 
-    def account_search(search_query, search_by = nil, _fast = 0, options = {})
+    def account_search(search_query, search_by = nil, fast = 0, options = {})
       if search_by == 'ID'
         begin
           account = Kaui::Account.find_by_id(search_query, false, false, options)
@@ -51,11 +51,10 @@ module Kaui
           search_error("No account matches \"#{search_query}\"")
         end
       else
-        accounts = Kaui::Account.list_or_search(search_query, 0, 2, options)
-        account = accounts.first
-        if accounts.empty?
+        account = Kaui::Account.list_or_search(search_query, 0, 1, options).first
+        if account.blank?
           search_error("No account matches \"#{search_query}\"")
-        elsif accounts.length == 1
+        elsif true?(fast)
           redirect_to account_path(account.account_id) and return
         else
           redirect_to accounts_path(q: search_query) and return
