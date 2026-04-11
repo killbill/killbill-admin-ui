@@ -37,8 +37,11 @@ module Kaui
 
           result.overdue_states << state
         end
-        # We reversed them to display on the form , so we have to reverse them back before uploading new config
-        result.overdue_states.reverse!
+        # Sort by days descending (most severe first) so Kill Bill receives them in the correct order
+        # regardless of the order the user added rows in the form.
+        result.overdue_states.sort_by! do |s|
+          -(s.condition&.time_since_earliest_unpaid_invoice_equals_or_exceeds&.number.to_i)
+        end
 
         result
       end

@@ -58,15 +58,18 @@
 .tag-bar .tag-select .tag-select-box {
   position: absolute;
   top: 100%;
-  left: -0.0625rem;
+  left: 0;
+  right: auto;
   max-height: 0;
   background-color: #fff;
   z-index: 100;
   padding: 0 0.9375rem;
   font-size: 0.75rem;
   color: #999999;
-  overflow: auto;
-  width: auto;
+  overflow: hidden;
+  min-width: 15rem;
+  width: max-content;
+  max-width: min(25rem, 95vw);
   border-bottom: 0;
   display: inline-block;
 }

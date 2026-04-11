@@ -45,7 +45,7 @@
         <% end %>
         <span class="tag-bar tag-bar-breathe">
           <% unless @available_tags.blank? %>
-            <div class="tag-select" onclick="void(0)">
+            <div class="tag-select position-relative" onclick="void(0)">
               <%= render "kaui/components/button/button", {
                 label: "Tag As",
                 trailing_icon: "kaui/account/down-arrow.svg", 

@@ -302,6 +302,27 @@ jQuery(document).ready(function ($) {
 
     setObjectIdPopover();
     setObjectIdTooltip();
+
+    /*
+     * Tag dropdown overflow prevention
+     * Flips each .tag-select-box to open leftward when it would overflow the right edge of the viewport.
+     */
+    function repositionTagDropdowns() {
+      $('.tag-select').each(function() {
+        var $box = $(this).find('.tag-select-box');
+        var triggerRight = $(this).offset().left + $(this).outerWidth();
+        var boxWidth = Math.max($box[0].scrollWidth, 240);
+        var viewportWidth = $(window).width();
+        if (triggerRight + boxWidth > viewportWidth) {
+          $box.css({ left: 'auto', right: '0' });
+        } else {
+          $box.css({ left: '0', right: 'auto' });
+        }
+      });
+    }
+
+    repositionTagDropdowns();
+    $(window).on('resize', repositionTagDropdowns);
 });
 
 
