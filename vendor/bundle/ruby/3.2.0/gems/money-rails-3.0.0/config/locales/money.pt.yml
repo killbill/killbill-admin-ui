@@ -1,4 +1,0 @@
-pt:
-  errors:
-    messages:
-      invalid_currency: tem um formato inválido (deve ser '100', '5%{decimal}24', ou '123%{thousands}456%{decimal}78'). Recebido %{currency}
