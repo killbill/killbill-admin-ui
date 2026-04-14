@@ -12,7 +12,7 @@ end
 
 class DeviseKillbillAuthenticatableTest < Minitest::Test
   SessionResponse = Struct.new(:session_id)
-  ErrorRequest = Struct.new(:unused)
+  ErrorRequest = Struct.new(:request)
   ErrorResponse = Struct.new(:body)
 
   DummyUser = Class.new do

@@ -46,7 +46,7 @@ module Devise
           Kaui::User.find_permissions(creds)
         rescue KillBillClient::API::NotFound => e
           retries += 1
-          raise e if retries > AUTHENTICATION_NOT_FOUND_RETRIES
+          raise e if retries >= AUTHENTICATION_NOT_FOUND_RETRIES
 
           sleep(AUTHENTICATION_NOT_FOUND_RETRY_DELAY)
           retry
