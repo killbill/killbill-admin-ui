@@ -40,7 +40,7 @@ module Kaui
         # Sort by days descending (most severe first) so Kill Bill receives them in the correct order
         # regardless of the order the user added rows in the form.
         result.overdue_states.sort_by! do |s|
-          -(s.condition&.time_since_earliest_unpaid_invoice_equals_or_exceeds&.number.to_i)
+          -s.condition&.time_since_earliest_unpaid_invoice_equals_or_exceeds&.number.to_i
         end
 
         result

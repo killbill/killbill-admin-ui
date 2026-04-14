@@ -2,6 +2,12 @@
 
 module Kaui
   class Bundle < KillBillClient::Model::Bundle
+    SEARCH_FIELDS = [
+      ['bundle_id', 'Bundle ID'],
+      ['bundle_external_key', 'Bundle External Key'],
+      ['subscription_id', 'Subscription ID'],
+      ['subscription_external_key', 'Subscription External Key']
+    ].freeze
     def self.find_by_id_or_key(bundle_id_or_key, options = {})
       if /[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}/.match?(bundle_id_or_key)
         bundle = begin
