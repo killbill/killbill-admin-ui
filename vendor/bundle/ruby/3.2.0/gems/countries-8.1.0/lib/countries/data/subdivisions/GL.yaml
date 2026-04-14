@@ -1,0 +1,232 @@
+---
+AV:
+  name: Avannaata Kommunia
+  code: AV
+  translations:
+    en: Avannaata Kommunia
+    ar: أفناتا
+    ca: Avannaata
+    cs: Avannaata
+    da: Avannaata Kommune
+    de: Avannaata Kommunia
+    es: Avannaata
+    et: Avannaata
+    fa: آواناتا
+    fi: Avannaata
+    fr: Avannaata
+    he: אוואנאאטה
+    hy: Ավանաատա
+    id: Avannaata
+    it: Avannaata
+    ja: アヴァンナータ
+    ko: 아반나타
+    mk: Аваната
+    nl: Avannaata
+    ru: Аванаата
+    sr: Северни Гренланд
+    sr_Latn: Severni Grenland
+    sv: Avannaata
+    tr: Avannaata
+    uk: Аваната
+    ur: آوانآتا
+    vi: Avannaata
+    zh: 阿万纳塔
+  type: municipality
+KU:
+  name: Kujalleq
+  code: KU
+  translations:
+    ar: كوياليك
+    be: Куялек
+    bn: কুজালিক
+    ca: Kujalleq
+    cs: Kujalleq
+    da: Kujalleq Kommune
+    de: Kommune Kujalleq
+    el: Κουτζάλεκ
+    en: Kujalleq
+    es: Kujalleq
+    et: Kujalleq
+    eu: Kujalleq
+    fi: Kujalleq
+    fr: Kujalleq
+    gu: કુજલેક
+    hi: कुजलेक
+    hy: Կույալեք
+    id: Kujalleq
+    is: Kujalleq
+    it: Kujalleq
+    ja: クヤレック
+    kn: ಕುಜಾಲೆಕ್
+    ko: 쿠얄레크
+    mr: कुजलेक
+    ms: Kujalleq
+    nb: Kujalleq
+    nl: Kujalleq
+    pl: Kujalleq
+    pt: Kujalleq
+    ro: Kujalleq
+    ru: Куяллек
+    si: කුජලෙක්
+    sr: Кујалек
+    sv: Kujalleq
+    ta: குஜலக்
+    te: కుజాలెక్
+    th: คูยาลเลก
+    tr: Kujalleq
+    uk: Куяллек
+    ur: کوجالیق
+    vi: Kujalleq
+    zh: 库雅雷哥
+    lv: Kujaleka
+    ceb: Kujalleq (munisipyo)
+    sr_Latn: Kujalek
+    lt: Kujalekas
+    ccp: "𑄇𑄪𑄎𑄣𑄬𑄇𑄴"
+    mk: Кујалек
+    'no': Kujalleq
+    fa: کوجالق
+    he: מחוז כויאשק
+  type: municipality
+QE:
+  name: Qeqqata
+  code: QE
+  translations:
+    ar: كيكاتا
+    bn: কুয়েকাটা
+    ca: Qeqqata
+    cs: Qeqqata
+    da: Qeqqata Kommune
+    de: Qeqqata Kommunia
+    el: Κεκάτα
+    en: Qeqqata
+    es: Qeqqata
+    et: Qeqqata
+    eu: Qeqqata
+    fi: Qeqqata
+    fr: Qeqqata
+    gu: કિકતા
+    hi: केकाटा
+    hy: Քեքատա
+    id: Qeqqata
+    is: Qeqqata
+    it: Qeqqata
+    ja: ケカッタ
+    kn: ಕ್ಯೂಕ್ವಾಟಾ
+    ko: 케카타
+    mr: किकता
+    ms: Qeqqata
+    nb: Qeqqata
+    nl: Qeqqata
+    pl: Qeqqata
+    pt: Qeqqata
+    ro: Qeqqata
+    ru: Кекката
+    si: කෙකට්ටා
+    sr: Кеката
+    sv: Qeqqata
+    ta: கிஎகித்தார்
+    te: కెఖాటా
+    th: แควควาตา
+    tr: Qeqqata
+    uk: Кекката
+    ur: قیقاتا
+    vi: Qeqqata
+    lv: Kekata
+    ceb: Qeqqata
+    sr_Latn: Kekata
+    lt: Kekata
+    zh: 凯克卡塔
+    ccp: "𑄇𑄬𑄇𑄑"
+    mk: Кеката
+    'no': Qeqqata
+    be: Кеката
+    fa: ققاتا
+    he: מחוז קקאטה
+  type: municipality
+QT:
+  name: Kommune Qeqertalik
+  code: QT
+  translations:
+    en: Kommune Qeqertalik
+    ar: ككرتليك
+    ca: Qeqertalik
+    cs: Qeqertalik
+    da: Qeqertalik Kommune
+    de: Kommune Qeqertalik
+    es: Qeqertalik
+    et: Qeqertalik
+    fi: Qeqertalik
+    fr: Qeqertalik
+    id: Qeqertalik
+    is: Qeqertalik
+    it: Qeqertalik
+    ja: ケケタリク
+    ko: 케케르탈리크
+    mk: Кекерталик
+    nl: Qeqertalik
+    ru: Кекерталик
+    sr: Кекерталик
+    sr_Latn: Kekertalik
+    sv: Qeqertalik
+    tr: Qeqertalik
+    uk: Кекерталік
+    ur: قیقیرتالیک
+  type: municipality
+SM:
+  name: Sermersooq
+  code: SM
+  translations:
+    ar: سيرمرسوك
+    bn: সার্মারসুক
+    ca: Sermersooq
+    cs: Sermersooq
+    da: Sermersooq Kommune
+    de: Kommuneqarfik Sermersooq
+    el: Σερμερσόοκ
+    en: Sermersooq
+    es: Sermersooq
+    et: Sermersooq
+    eu: Sermersooq
+    fi: Sermersooq
+    fr: Sermersooq
+    gl: Sermersooq
+    gu: સર્મર્સૂક
+    hi: सरमर्सूक
+    hy: Սերմերսոոք
+    id: Sermersooq
+    is: Sermersooq
+    it: Sermersooq
+    ja: セルメルソーク
+    kn: ಸೆರ್ಮೆರ್ಸುಕ್
+    ko: 세르메르소크
+    mr: सेमर्सूक
+    ms: Sermersooq
+    nb: Sermersooq
+    nl: Sermersooq
+    pl: Sermersooq
+    pt: Sermersooq
+    ro: Sermersooq
+    ru: Сермерсоок
+    si: සමසුක්
+    sr: Сермерсок
+    sv: Sermersooq
+    ta: சேர்மேர்சூக்
+    te: సెర్మర్సూఖ్
+    th: เซอร์เมอร์ซูก
+    tr: Sermersooq
+    uk: Сермерсоок
+    ur: سیرمیرسوق
+    vi: Sermersooq
+    lv: Sermersooka
+    ceb: Sermersooq (munisipyo)
+    sr_Latn: Sermersok
+    lt: Semersukas
+    zh: 瑟莫蘇克
+    ccp: "𑄥𑄢𑄴𑄟𑄢𑄴𑄥𑄪𑄇𑄴"
+    mk: Сермерсок
+    'no': Sermersooq
+    be: Сермерсок
+    fa: سرمرسوک
+    he: מחוז סרמרסוק
+  type: municipality

@@ -1,0 +1,2921 @@
+---
+'01':
+  name: Bandarban zila
+  code: '01'
+  unofficial_names:
+  - Bandarban
+  geo:
+    latitude: 21.7444268
+    longitude: 92.38136209999999
+    min_latitude: 21.1972562
+    min_longitude: 92.06628789999999
+    max_latitude: 22.3738885
+    max_longitude: 92.6736258
+  translations:
+    en: Bandarban
+    bn: বান্দরবান জেলা
+    ca: Districte de Bandarban
+    de: Bandarban
+    es: Bandarban (zila)
+    fa: شهرستان بندربان
+    fr: Bandarban
+    hi: बंदरबन जिला
+    it: Distretto di Bandarban
+    ja: バンドルボン県
+    ml: ബന്ദർബൻ
+    nl: Bandarban
+    pt: Bandarban (distrito)
+    ro: Bandarban
+    ru: Бандарбан (округ)
+    sv: Bandarban (distrikt i Bangladesh)
+    ta: பந்தர்பன் மாவட்டம்
+    tk: Bandarban
+    uk: Бандарбан
+    ur: بندربان ضلع
+    vi: Huyện Bandarban
+    zh: 班多爾班縣
+    ceb: Bandarban
+    te: బండార్బన్ జిల్లా
+    ccp: "𑄝𑄚𑄴𑄘𑄧𑄢𑄴𑄝𑄚𑄴"
+  type: district
+'02':
+  name: Barguna zila
+  code: '02'
+  unofficial_names:
+  - Barguna zila
+  geo:
+    latitude: 22.0952915
+    longitude: 90.11206960000001
+    min_latitude: 21.8602242
+    min_longitude: 89.9018097
+    max_latitude: 22.4833355
+    max_longitude: 90.3753377
+  translations:
+    en: Barguna
+    bn: বরগুনা জেলা
+    de: Barguna (Distrikt)
+    es: Barguna (zila)
+    fa: شهرستان برگونه
+    fr: Barguna
+    hi: बरगुना जिला
+    it: Distretto di Barguna
+    ja: ボルグナ県
+    nl: Barguna District
+    pl: Barguna (dystrykt)
+    pt: Barguna (distrito)
+    ro: Barguna
+    ru: Баргуна (округ)
+    sv: Barguna
+    ta: பர்குனா மாவட்டம்
+    tk: Barguna
+    ur: برگونا ضلع
+    vi: Huyện Barguna
+    ceb: Barguna
+    te: బార్గున జిల్లా
+    zh: 博爾古納縣
+    ccp: "𑄝𑄧𑄢𑄴𑄉𑄪𑄚"
+    ml: ബർഗുണ ജില്ല
+    az: Barquna (dairə, Banqladeş)
+    ko: 바르구나구
+    ne: बरगुना जिल्ला
+  type: district
+'03':
+  name: Bogra zila
+  code: '03'
+  unofficial_names:
+  - Bogora
+  - Bogra
+  - Borga Thana
+  geo:
+    latitude: 24.8473899
+    longitude: 89.37714079999999
+    min_latitude: 24.8471496
+    min_longitude: 89.37668409999999
+    max_latitude: 24.8477604
+    max_longitude: 89.3775746
+  translations:
+    en: Bogra
+    bn: বগুড়া জেলা
+    ca: Districte de Bogra
+    es: Bogra
+    fa: ناحیه بوگرا
+    fr: Bogra
+    hi: बोगरा जिला
+    id: Distrik Bogra
+    it: Distretto di Bogra
+    ja: ボグラ県
+    nl: Bogra
+    ru: Богра
+    ta: போக்ரா மாவட்டம்
+    ur: بوگرا ضلع
+    vi: Huyện Bogra
+    ceb: Bogra (distrito)
+    te: బోగ్రా జిల్లా
+    tk: Bogra
+    zh: 博格拉县
+    ccp: "𑄝𑄧𑄉𑄪𑄢"
+    ml: ബോഗ്ര ജില്ല
+    az: Boqra (dairə, Banqladeş)
+    ne: बगुडा जिल्ला
+    de: Bogura
+    fi: Bogra
+  type: district
+'04':
+  name: Brahmanbaria zila
+  code: '04'
+  unofficial_names:
+  - Brahman Bariya
+  - Brahmanbaria
+  geo:
+    latitude: 24.0446149
+    longitude: 91.13530200000001
+    min_latitude: 23.6473547
+    min_longitude: 90.7208058
+    max_latitude: 24.2700489
+    max_longitude: 91.329775
+  translations:
+    en: Brahmanbaria
+    bn: ব্রাহ্মণবাড়ীয়া জেলা
+    de: Brahmanbaria (Distrikt)
+    es: Brahmanbaria (zila)
+    fa: ناحیه برهمن‌بریه
+    fr: Brahmanbaria
+    hi: ब्राह्मनबरिआ जिला
+    it: Distretto di Brahmanbaria
+    ja: ブラモンバリア県
+    nl: Brahmanbaria
+    pt: Brahmanbaria (distrito)
+    ru: Брахманбария (округ)
+    uk: Брахманбарія
+    ur: برہمنباریا ضلع
+    vi: Huyện Brahmanbaria
+    ar: مديرية برهمن‌ بريه
+    te: బ్రాహ్మంబరియా జిల్లా
+    ta: பிரம்மன்பரியா மாவட்டம்
+    tk: Brahmanbariýa
+    zh: 婆羅門巴里亞縣
+    ccp: "𑄝𑄳𑄢𑄦𑄴𑄟𑄧𑄚𑄴𑄝𑄢𑄨𑄠"
+    ml: ബ്രഹ്മാൻബറിയ ജില്ല
+    as: ব্ৰাহ্মণবাৰিয়া জিলা
+    ne: ब्राह्मणबाडिया उपजिल्ला
+  type: district
+'05':
+  name: Bagerhat zila
+  code: '05'
+  unofficial_names:
+  - Bagarhat
+  - Bagerhat
+  - Bagherhat
+  - Basabari
+  - Bāsābāri
+  geo:
+    latitude: 22.3336224
+    longitude: 89.77553379999999
+    min_latitude: 21.7142542
+    min_longitude: 89.5296264
+    max_latitude: 22.9821798
+    max_longitude: 89.9644057
+  translations:
+    en: Bagerhat
+    bn: বাগেরহাট জেলা
+    es: Bagerhat
+    fa: ناحیه باگرهات
+    fr: Bagerhat
+    hi: बगेरहाट जिला
+    it: Distretto di Bagerhat
+    ja: バゲルハット県
+    nl: Bagerhat
+    pt: Bagerhat
+    ro: Bagerhat
+    ru: Багерхат
+    sv: Bagerhat
+    ta: பேகர்காட் மாவட்டம்
+    ur: باگرہٹ ضلع
+    vi: Huyện Bagerhat
+    ceb: Bagerhat
+    te: బగర్హాట్ జిల్లా
+    tk: Bagerhat
+    zh: 巴盖尔哈德县
+    ccp: "𑄝𑄉𑄬𑄢𑄴𑄦𑄖𑄴"
+    ml: ബഗെർഹറ്റ് ജില്ല
+    ne: बागेरहाट जिल्ला
+    de: Bagerhat
+    ko: 바게르하트구
+  type: district
+'06':
+  name: Barisal zila
+  code: '06'
+  unofficial_names:
+  - Barisal
+  geo:
+    latitude: 22.8578618
+    longitude: 90.3371889
+    min_latitude: 22.4542665
+    min_longitude: 90.01811029999999
+    max_latitude: 23.0715591
+    max_longitude: 90.6517982
+  translations:
+    en: Barisal Division
+    ar: مقاطعة باريسال
+    bg: Барисал (окръг)
+    bn: বরিশাল জেলা
+    ca: Districte de Barisal
+    da: Barisal District
+    de: Barishal
+    el: Μπάρισαλ
+    es: Barisal (zila)
+    fa: ناحیه باریسال
+    fi: Barisalin kaupunginosa
+    fr: Barisal
+    gu: બારીસાલ જિલ્લો
+    hi: बारीसाल जिला
+    id: Distrik Barisal
+    it: Distretto di Barisal
+    ja: バリサル県
+    kn: ಬ್ಯಾರಿಸಲ್ ಜಿಲ್ಲೆ
+    ko: 바리살 지구
+    mr: बरीसल जिल्हा
+    ms: Daerah Barisal
+    nb: Barisal distrikt
+    nl: district Barisal
+    pl: Dystrykt Barisal
+    pt: Barisal
+    ru: Барисал
+    si: බරිසාල් දිස්ත්‍රික්කය
+    sv: Barisal distriktet
+    ta: பரிசல் மாவட்டம்
+    te: బారిసాల్ జిల్లా
+    th: เขตบาริซาล
+    tk: Barisal
+    tr: Barisal District
+    uk: Барісал (округ)
+    ur: باریسال ضلع
+    vi: Huyện Barisal
+    lv: Barisālas apgabals
+    ceb: Barisal
+    lt: Barisalio apskritis
+    zh: 巴里薩爾縣
+    ccp: "𑄝𑄧𑄢𑄨𑄥𑄣𑄴 𑄓𑄨𑄞𑄨𑄥𑄧𑄚𑄴"
+    ml: ബാരിസൽ ജില്ല
+    'no': Barisal distrikt
+    ne: बरिशाल जिल्ला
+  type: district
+'07':
+  name: Bhola zila
+  code: '07'
+  unofficial_names:
+  - Bhola
+  geo:
+    latitude: 22.6851314
+    longitude: 90.6471553
+    min_latitude: 22.6847416
+    min_longitude: 90.64671279999999
+    max_latitude: 22.6855212
+    max_longitude: 90.64759780000001
+  translations:
+    en: Bhola
+    bn: ভোলা জেলা
+    de: Bhola (Distrikt)
+    es: Bhola (zila)
+    fa: ناحیه بولا
+    fr: Bhola
+    hi: भोला जिला
+    it: Distretto di Bhola
+    ja: ボラ県
+    nl: Bhola
+    pl: Bhola
+    pt: Bhola (distrito)
+    ro: Bhola
+    ru: Бхола (округ)
+    sv: Bhola (distrikt)
+    ta: போலா மாவட்டம்
+    tk: Bhola
+    ur: بھولا ضلع
+    vi: Huyện Bhola
+    ceb: Bhola
+    te: భోలా జిల్లా
+    zh: 波拉縣
+    ccp: "𑄞𑄮𑄣"
+    ml: ബോള ജില്ല
+    ne: भोला उपजिल्ला
+    uk: Бхола (округ)
+  type: district
+'08':
+  name: Comilla zila
+  code: '08'
+  unofficial_names:
+  - Comilla
+  - Komilla
+  geo:
+    latitude: 23.4628949
+    longitude: 91.1817394
+    min_latitude: 23.4615535
+    min_longitude: 91.1800995
+    max_latitude: 23.4636252
+    max_longitude: 91.18206289999999
+  translations:
+    en: Comilla
+    bn: কুমিল্লা জেলা
+    ca: Districte de Comilla
+    de: Kumilla
+    es: Comilla
+    fa: ناحیه کومیلا
+    fr: Comilla
+    hi: कोमिला जिला
+    it: Distretto di Comilla
+    ja: コミラ県
+    nl: Comilla
+    pt: Comilla
+    ru: Комилла
+    sv: Comilla
+    ta: கொமில்லா மாவட்டம்
+    tk: Komilla
+    uk: Комілла
+    ur: کومیلا ضلع
+    vi: Huyện Comilla
+    ceb: Comilla
+    te: కొమిల్ల జిల్లా
+    zh: 庫米拉縣
+    ccp: "𑄇𑄪𑄟𑄨𑄣𑄳𑄦𑄴"
+    ml: കോമില ജില്ല
+    ar: ناحية كوميلا
+  type: district
+'09':
+  name: Chandpur zila
+  code: '09'
+  unofficial_names:
+  - Chandipur
+  - Chandpur
+  geo:
+    latitude: 23.2246765
+    longitude: 90.6562431
+  translations:
+    en: Chandpur
+    bn: চাঁদপুর জেলা
+    de: Chandpur
+    es: Chandpur
+    fa: ناحیه چاندپور
+    fr: Chandpur
+    hi: चाँदपुर जिला
+    it: Distretto di Chandpur
+    ja: チャンドプール県
+    nl: Chanpur
+    pt: Chandpur
+    ru: Чандпур
+    sv: Chandpur
+    tk: Çandpur
+    uk: Чандпур
+    ur: چاندپور ضلع
+    vi: Huyện Chandpur
+    ceb: Chandpur
+    ta: சந்திரபூர் மாவட்டம், வங்காளதேசம்
+    zh: 堅德布爾縣
+    ccp: "𑄌𑄖𑄴𑄛𑄪𑄢𑄴"
+    ml: ചാന്ദ്പുർ ജില്ല
+    ar: ناحية جانديفور
+    fi: Chāndpur
+  type: district
+'10':
+  name: Chittagong zila
+  code: '10'
+  unofficial_names:
+  - Chattagam
+  - Chittagong
+  geo:
+    latitude: 22.3417825
+    longitude: 91.8368089
+    min_latitude: 22.3378577
+    min_longitude: 91.8367609
+    max_latitude: 22.3421259
+    max_longitude: 91.8377062
+  translations:
+    en: Chittagong
+    bn: চট্টগ্রাম জেলা
+    ca: Districte de Chittagong
+    de: Chittagong (Distrikt)
+    es: Chittagong (zila)
+    fa: شهرستان چیتاگونگ
+    fi: Chittagongin piirikunta
+    fr: Chittagong
+    hi: चटगाँव जिला
+    it: Distretto di Chittagong
+    ja: チッタゴン県
+    nl: Chittagong
+    pt: Chittagong (distrito)
+    ru: Читтагонг (округ)
+    sv: Chittagong
+    uk: Читтагонг
+    ur: چٹاگانگ ضلع
+    vi: Huyện Chittagong
+    ceb: Chittagong
+    te: చిట్టగాంగ్ జిల్లా
+    ta: சிட்டகாங் மாவட்டம்
+    tk: Çittagong
+    zh: 吉大港縣
+    ccp: "𑄌𑄘𑄨𑄉𑄋𑄴"
+    id: Distrik Chattagram
+    ro: Chittagong
+    ml: ചിറ്റഗോങ് ജില്ല
+    ar: مديرية شيتاغونغ
+    ko: 치타공구
+    pa: ਚਿਟਾਗਾਂਗ ਜ਼ਿਲ੍ਹਾ
+  type: district
+'11':
+  name: Cox's Bazar zila
+  code: '11'
+  unofficial_names:
+  - Coxʿs Bazar
+  - Koks Bazar
+  geo:
+    latitude: 21.4404015
+    longitude: 91.9743392
+  translations:
+    en: Cox’s Bazar
+    bn: কক্সবাজার জেলা
+    de: Cox’s Bazar
+    es: Cox’s Bazar
+    fa: ناحیه کاکس‌بازار
+    fr: Cox’s Bazar
+    hi: कौक्स बाजार जिला
+    it: Distretto di Cox’s Bazar
+    ja: コックスバザール県
+    nl: Cox’s Bazar
+    pt: Cox’s Bazar
+    ru: Кокс-Базар
+    sv: Cox’s Bazar
+    ta: காக்ஸ் பஜார் மாவட்டம்
+    tk: Koks-Bazar
+    uk: Коксс-Базар
+    ur: کاکس بازار ضلع
+    vi: Huyện Cox’s Bazar
+    ceb: Cox’s Bazar
+    te: కాక్స్ బజార్ డిస్ట్రిక్ట్
+    zh: 科克斯巴扎爾縣
+    ccp: "𑄇𑄧𑄇𑄴𑄥𑄧 𑄝𑄎𑄢𑄴"
+    ml: കോസ്സ് ബസാർ ജില്ല
+    ar: ناحية كوكس بازار
+    ne: कक्सबाजार जिल्ला
+  type: district
+'12':
+  name: Chuadanga zila
+  code: '12'
+  unofficial_names:
+  - Chuadanga
+  geo:
+    latitude: 23.6160512
+    longitude: 88.8263006
+    min_latitude: 23.3713321
+    min_longitude: 88.62422
+    max_latitude: 23.839448
+    max_longitude: 89.0196419
+  translations:
+    en: Chuadanga
+    bn: চুয়াডাঙ্গা জেলা
+    es: Chuadanga
+    fa: ناحیه چوادنگه
+    fr: Chuadanga
+    hi: चौडांगा जिला
+    it: Distretto di Chuadanga
+    ja: チュアダンガ県
+    nl: Chuadanga
+    pt: Chuadanga
+    ro: Chuadanga
+    ru: Чуаданга
+    ta: சௌதங்கா மாவட்டம்
+    tk: Çuandanga
+    ur: چوادانگا ضلع
+    vi: Huyện Chuadanga
+    te: చుడంగా జిల్లా
+    zh: 朱瓦当加县
+    ccp: "𑄌𑄪𑄠𑄓𑄋𑄴𑄉"
+    ml: ചുണ്ടങ്ങ ജില്ല
+    de: Chuadanga (Distrikt)
+    ne: चुयाडाङ्गा जिल्ला
+  type: district
+'13':
+  name: Dhaka zila
+  code: '13'
+  unofficial_names:
+  - Dacca
+  - Dakka
+  - Dhaka
+  geo:
+    latitude: 24.5239682
+    longitude: 90.2995785
+    min_latitude: 22.844598
+    min_longitude: 89.312214
+    max_latitude: 25.409475
+    max_longitude: 91.276907
+  translations:
+    en: Dhaka
+    bn: ঢাকা জেলা
+    ca: Districte de Dacca
+    es: Daca
+    fa: ناحیه داکا
+    fr: Dhaka
+    hi: ढाका जिला
+    id: Distrik Dhaka
+    it: Distretto di Dacca
+    ja: ダッカ県
+    nl: Dhaka
+    pt: Dhaka
+    ru: Дакка
+    sv: Dhaka
+    ur: ڈھاکہ ضلع
+    vi: Huyện Dhaka
+    ceb: Dhaka
+    te: ఢాకా జిల్లా
+    ta: டாக்கா மாவட்டம்
+    tk: Dakka
+    zh: 达卡县
+    ccp: "𑄔𑄇"
+    de: Distrikt Dhaka
+    ml: ധാക്ക ജില്ല
+    be: Дака
+    ar: ناحية دكا
+    ko: 다카구
+    ne: ढाका जिल्ला
+    ro: Districtul Dacca
+  type: district
+'14':
+  name: Dinajpur zila
+  code: '14'
+  unofficial_names:
+  - Dinajpur
+  geo:
+    latitude: 25.6220932
+    longitude: 88.63703009999999
+  translations:
+    en: Dinajpur
+    bn: দিনাজপুর জেলা
+    ca: Districte de Dinajpur
+    es: Dinajpur
+    fa: ناحیه دیناج‌پور
+    fr: Dinajpur
+    hi: दीनाजपुर जिला
+    it: Distretto di Dinajpur
+    ja: ディナジプール県
+    lt: Dinadžpuras
+    nl: Dinajpur
+    pl: Dinadźpur (dystrykt)
+    pt: Dinajpur
+    ru: Динаджпур
+    sv: Dinajpur
+    uk: Дінаджпур
+    ur: دیناج پور ضلع، بنگلہ دیش
+    ceb: Dinājpur
+    te: దినాజ్పూర్ జిల్లా
+    ta: தினஜ்பூர் மாவட்டம், வங்காளதேசம்
+    tk: Dinajpur
+    zh: 迪纳杰布尔县
+    el: Επαρχία Ντινατζπούρ
+    ccp: "𑄘𑄨𑄚𑄌𑄴𑄛𑄪𑄢𑄴"
+    ml: ദിനാജ്പുർ ജില്ല
+    az: Dinacpur (dairə, Banqladeş)
+    ne: दिनाजपुर जिल्ला
+    de: Dinajpur
+  type: district
+'15':
+  name: Faridpur zila
+  code: '15'
+  unofficial_names:
+  - Faridpur
+  geo:
+    latitude: 23.6085755
+    longitude: 89.84325969999999
+    min_latitude: 23.608268
+    min_longitude: 89.84295929999999
+    max_latitude: 23.6090422
+    max_longitude: 89.84357089999999
+  translations:
+    en: Faridpur
+    bn: ফরিদপুর জেলা
+    ca: Districte de Faridpur
+    es: Faridpur (zila)
+    fa: ناحیه فریدپور
+    fr: Faridpur
+    hi: फरीदपुर जिला
+    it: Distretto di Faridpur
+    ja: ファリドプル県
+    nl: Faridpur
+    ru: Фаридпур
+    sv: Faridpur
+    ta: பரித்பூர் மாவட்டம்
+    tk: Faridpur
+    ur: فرید پور ضلع
+    vi: Huyện Faridpur
+    ceb: Faridpur
+    te: ఫరీద్పూర్ జిల్లా
+    zh: 福里德布尔县
+    ccp: "𑄜𑄧𑄢𑄨𑄖𑄴𑄛𑄪𑄢𑄴"
+    ml: ഫരീദ്പൂർ ജില്ല
+    ar: ناحية فريدبور
+    de: Faridpur
+    he: מחוז פרידפור
+    ne: फरिदपुर जिल्ला
+  type: district
+'16':
+  name: Feni zila
+  code: '16'
+  unofficial_names:
+  - Feni
+  geo:
+    latitude: 22.9473563
+    longitude: 91.4048249
+    min_latitude: 22.7720662
+    min_longitude: 91.2493516
+    max_latitude: 23.2796693
+    max_longitude: 91.5834905
+  translations:
+    en: Feni
+    bn: ফেনী জেলা
+    de: Feni (Distrikt)
+    es: Feni (zila)
+    fa: ناحیه فنی
+    fr: Feni
+    hi: फेनी जिली
+    it: Distretto di Feni
+    ja: フェニー県
+    nl: Feni
+    pl: Feni (dystrykt)
+    pt: Feni
+    ru: Фени
+    ta: பெனி மாவட்டம்
+    tk: Feni
+    uk: Фені
+    ur: فینی ضلع
+    vi: Huyện Feni
+    ceb: Feni
+    te: ఫెని జిల్లా
+    zh: 費尼縣
+    ccp: "𑄜𑄬𑄚𑄨"
+    ml: ഫെനി ജില്ല
+  type: district
+'17':
+  name: Gopalganj zila
+  code: '17'
+  unofficial_names:
+  - Gopalganj
+  translations:
+    en: Gopalganj
+    bn: গোপালগঞ্জ জেলা
+    de: Gopalganj (Distrikt, Bangladesch)
+    es: Gopalganj
+    fa: ناحیه گوپال‌گنج
+    fr: Gopalganj
+    hi: गोपालगंज जिला (बांग्लादेश)
+    ja: ゴパルガンジュ県
+    nl: Gopalganj
+    ru: Гопалгандж (округ, Бангладеш)
+    sv: Gopalganj (distrikt i Bangladesh)
+    ur: گوپال گنج ضلع، بنگلہ دیش
+    ceb: Gopalganj (distrito sa Bangladesh)
+    te: గోపల్గంజ్ జిల్లా
+    ta: கோபால்கஞ்ச் மாவட்டம், வங்காளதேசம்
+    tk: Gopalganj
+    zh: 戈巴尔甘尼县
+    ccp: "𑄉𑄮𑄛𑄣𑄴𑄉𑄧𑄚𑄴𑄎𑄧"
+    it: distretto di Gopalganj
+    ml: ഗോപാൽഗഞ്ച് ജില്ല
+    be: Гапалгандж
+    vi: Gopalganj
+  type: district
+'18':
+  name: Gazipur zila
+  code: '18'
+  unofficial_names:
+  - Gajipur
+  geo:
+    latitude: 24.0958171
+    longitude: 90.4125181
+    min_latitude: 23.882777
+    min_longitude: 90.15131939999999
+    max_latitude: 24.3391985
+    max_longitude: 90.7003785
+  translations:
+    en: Gazipur
+    bn: গাজীপুর জেলা
+    es: Gazipur
+    fa: ناحیه قاضی‌پور
+    fr: Gazipur
+    gu: ગાજીપુર જિલ્લો
+    hi: गाजीपुर जिला (बांग्लादेश)
+    it: Distretto di Gazipur
+    ja: ガジプル県
+    ne: गाजीपुर जिल्ला
+    nl: Gazipur
+    ru: Газипур
+    ur: غازی پور ضلع
+    vi: Huyện Gazipur
+    ceb: Gazipur
+    te: గజిపూర్ జిల్లా
+    ta: காஜிபூர் மாவட்டம்
+    tk: Gazipur
+    zh: 加济布尔县
+    sv: Gazipur
+    ccp: "𑄉𑄎𑄨𑄛𑄪𑄢𑄴"
+    ml: ഗസിപ്പൂർ ജില്ല
+    de: Gazipur
+  type: district
+'19':
+  name: Gaibandha zila
+  code: '19'
+  unofficial_names:
+  - Gaibanda
+  - Gaibandah
+  - Gaibandha
+  - Gaybanda
+  - Gaybandah
+  geo:
+    latitude: 25.1879868
+    longitude: 89.4742177
+    min_latitude: 25.0351387
+    min_longitude: 89.18460850000001
+    max_latitude: 25.6440024
+    max_longitude: 89.7584724
+  translations:
+    en: Gaibandha
+    bn: গাইবান্ধা জেলা
+    es: Gaibandha
+    fa: ناحیه گایبنده
+    fr: Gaibandha
+    hi: गाईबांधा जिला
+    it: Distretto di Gaibandha
+    ja: ガイバンダ県
+    nl: Gaibandha
+    ro: Gaibandha
+    ru: Гайбандха
+    sv: Gaibandha
+    ta: காய்பாந்தா மாவட்டம்
+    ur: گائے بندھا ضلع
+    vi: Huyện Gaibandha
+    ceb: Gaibandha
+    te: గైబంధ జిల్లా
+    tk: Gaýbanja
+    zh: 戈伊班达县
+    el: Επαρχία Γκαϊμπάντα
+    ccp: "𑄉𑄭𑄝𑄚𑄴𑄙"
+    ml: ഗൈബന്ധ ജില്ല
+    ne: गाईबान्धा जिल्ला
+    de: Gaibandha
+  type: district
+'20':
+  name: Habiganj zila
+  code: '20'
+  unofficial_names:
+  - Habiganj
+  - Hobiganj
+  - Hobigonj
+  geo:
+    latitude: 24.372963
+    longitude: 91.4165201
+    min_latitude: 24.3727258
+    min_longitude: 91.41626819999999
+    max_latitude: 24.3734684
+    max_longitude: 91.41687689999999
+  translations:
+    en: Habiganj
+    bn: হবিগঞ্জ জেলা
+    de: Habiganj
+    es: Habiganj
+    fa: ناحیه هبی‌گنج
+    fi: Habiganjin piirikunta
+    fr: Habiganj
+    hi: हबीबगंज जिला
+    it: Distretto di Habiganj
+    ja: ハビガンジ県
+    nl: Habiganj
+    pl: Habigandź (dystrykt)
+    pt: Habiganj
+    ru: Хабигандж
+    ta: ஹபிகஞ்ச் மாவட்டம்
+    tk: Habiganj
+    uk: Хабігандж
+    ur: حبی گنج ضلع
+    vi: Huyện Habiganj
+    ceb: Habiganj
+    te: హబీగావ్ జిల్లా
+    zh: 霍比甘傑縣
+    ccp: "𑄦𑄧𑄝𑄨𑄉𑄧𑄚𑄴𑄎𑄧"
+    ml: ഹബീബ്ഗഞ്ച് ജില്ല
+    ko: 하비간지구
+    ne: हबिगञ्ज जिल्ला
+  type: district
+'21':
+  name: Jamalpur zila
+  code: '21'
+  unofficial_names:
+  - Jamalpur
+  geo:
+    latitude: 24.9377671
+    longitude: 89.93422799999999
+    min_latitude: 24.9371815
+    min_longitude: 89.93349189999999
+    max_latitude: 24.9386408
+    max_longitude: 89.9348223
+  translations:
+    en: Jamalpur
+    bn: জামালপুর জেলা
+    es: Jamalpur
+    fa: ناحیه جمال‌پور
+    fr: Jamalpur
+    hi: जमालपुर जिला
+    it: Distretto di Jamalpur
+    ja: ジャマルプル県
+    nb: Jamalpur
+    nl: Jamalpur
+    ro: Jamalpur
+    ru: Джамалпур
+    sv: Jamalpur (distrikt)
+    ta: ஜமால்பூர் மாவட்டம்
+    tk: Jamalpur
+    ur: جمالپور ضلع
+    vi: Huyện Jamalpur
+    ceb: Jamalpur
+    te: జమల్పూర్ జిల్లా
+    zh: 杰马勒布尔县
+    el: Επαρχία Τζαμαλπούρ
+    ccp: "𑄎𑄟𑄣𑄴𑄛𑄪𑄢𑄴"
+    de: Jamalpur (Distrikt)
+    ml: ജമൽപുർ ജില്ല
+    'no': Jamalpur
+    ne: जामालपुर जिल्ला
+  type: district
+'22':
+  name: Jessore zila
+  code: '22'
+  unofficial_names:
+  - Jessore
+  - Jessur
+  geo:
+    latitude: 23.0943403
+    longitude: 89.1705998
+    min_latitude: 22.7923247
+    min_longitude: 88.8516283
+    max_latitude: 23.3734594
+    max_longitude: 89.5698166
+  translations:
+    en: Jessore
+    bn: যশোর জেলা
+    ca: Districte de Jessore
+    de: Jessore
+    es: Jessore (zila)
+    fa: ناحیه جسور
+    fr: Jessore
+    hi: जैसोर
+    it: Distretto di Jessore
+    ja: ジョソール県
+    nl: Jessore
+    pt: Jessore
+    ru: Джессор
+    ta: ஜெஸ்சூர் மாவட்டம்
+    tk: Jessor
+    ur: جیسور ضلع
+    vi: Huyện Jessore
+    ceb: Jessore
+    te: జెస్సోర్ జిల్లా
+    zh: 杰索尔县
+    sv: Jessore
+    ccp: "𑄎𑄧𑄥𑄮𑄢𑄴"
+    ml: ജെസ്സോർ ജില്ല
+    az: Cessur
+    ne: जशोर जिल्ला
+    kn: ಜೆಸ್ಸೋರ್
+  type: district
+'23':
+  name: Jhenaidah zila
+  code: '23'
+  unofficial_names:
+  - Jhanaydah
+  - Jhanidah
+  - Jhanīdāh
+  - Jhenaida
+  - Jhenida
+  geo:
+    latitude: 23.4754162
+    longitude: 89.1705998
+    min_latitude: 23.2157123
+    min_longitude: 88.6967468
+    max_latitude: 23.7696749
+    max_longitude: 89.3786287
+  translations:
+    en: Jhenaidah
+    bn: ঝিনাইদহ জেলা
+    es: Jhenaidah
+    fa: ناحیه جنایده
+    fr: Jhenaidah
+    hi: झेनईदह जिला
+    it: Distretto di Jhenaidah
+    ja: ジェナイダ県
+    nl: Jhenaidah
+    pt: Jhenaidah
+    ro: Jhenaidaha
+    ru: Дженайда
+    ta: ஜெனிதக் மாவட்டம்
+    tk: Jenaýda
+    ur: جھینایداہ ضلع
+    vi: Huyện Jhenaidah
+    ceb: Jhenaidah
+    te: జెనీడా జిల్లా
+    zh: 切尼达县
+    ccp: "𑄏𑄨𑄣𑄭𑄓𑄦𑄴"
+    ml: ജെനൈദഹ് ജില്ല
+    ne: झिनाइदह जिल्ला
+    de: Jhinaidah
+  type: district
+'24':
+  name: Jaipurhat zila
+  code: '24'
+  unofficial_names:
+  - Jaipur Hat
+  - Jaipurhat
+  - Joypurhat
+  geo:
+    latitude: 25.138494
+    longitude: 89.0561532
+    min_latitude: 24.8552882
+    min_longitude: 88.9223099
+    max_latitude: 25.2799365
+    max_longitude: 89.2781638
+  translations:
+    en: Joypurhat
+    bn: জয়পুরহাট জেলা
+    es: Jaipurhat
+    fa: ناحیه جایپورهات
+    fr: Jaipurhat
+    hi: जयपुरहट जिला
+    it: Distretto di Joypurhat
+    ja: ジョイプールハット県
+    ro: Joypurhat
+    ru: Джайпурхат
+    sv: Joypurhat
+    ta: ஜெய்பூர்ஹட் மாவட்டம்
+    tk: Jaýpurhat
+    ur: جیپرحت ضلع
+    vi: Huyện Jaipurhat
+    ceb: Joypurhat
+    te: జోయ్ పూర్ జిల్లా
+    zh: 焦伊布尔哈德县
+    el: Επαρχία Τζαϊπουρχάτ
+    ccp: "𑄎𑄧𑄠𑄴𑄛𑄪𑄢𑄴𑄦𑄖𑄴"
+    ml: ജയ്യ്പർഹത് ജില്ല
+    de: Jaipurhat
+    ne: जयपुरहाट जिल्ला
+  type: district
+'25':
+  name: Jhalakati zila
+  code: '25'
+  unofficial_names:
+  - Jhalakati
+  - Jhalokati
+  geo:
+    latitude: 22.57208
+    longitude: 90.1869644
+    min_latitude: 22.3446776
+    min_longitude: 90.0208569
+    max_latitude: 22.7844511
+    max_longitude: 90.39070129999999
+  translations:
+    en: Jhalokati
+    bn: ঝালকাঠি জেলা
+    es: Jhalokati
+    fa: ناحیه جلوکاتی
+    fr: Jhalakati
+    hi: झालोकटी जिला
+    it: Distretto di Jhalakati
+    ja: ジョルコタ県
+    pt: Jhalkathi
+    ro: Jhalokati
+    ru: Джалокати
+    sv: Jhalokati
+    ur: جھالوکاٹی ضلع
+    vi: Huyện Jhalakati
+    ceb: Jhalokati
+    te: ఝలాకటి జిల్లా
+    tk: Jalokati
+    zh: 恰洛加蒂縣
+    ccp: "𑄏𑄣𑄧𑄇𑄑𑄨"
+    id: Distrik Jhalakathi
+    ml: ജലലോക്കതി ജില്ല
+    de: Jhalokathi
+  type: district
+'26':
+  name: Kishoreganj zila
+  code: '26'
+  unofficial_names:
+  - Kishoreganj
+  geo:
+    latitude: 24.4260457
+    longitude: 90.9820668
+    min_latitude: 24.0383905
+    min_longitude: 90.57661069999999
+    max_latitude: 24.6345348
+    max_longitude: 91.2555313
+  translations:
+    en: Kishoreganj
+    bn: কিশোরগঞ্জ জেলা
+    es: Kishoreganj
+    fa: ناحیه کیشورگنج
+    fr: Kishoreganj
+    hi: किशोरगंज जिला
+    it: Distretto di Kishoreganj
+    ja: キショレガンジュ県
+    nl: Kishoreganj
+    ro: Kishoreganj
+    ru: Кишоргандж
+    ta: கிசோர்கஞ்ச் மாவட்டம்
+    tk: Kişorganj
+    uk: Кішоргандж
+    ur: کشور گنج ضلع
+    vi: Huyện Kishoreganj
+    te: కిషోర్గేంజ్ జిల్లా
+    zh: 吉绍尔甘杰县
+    ccp: "𑄇𑄨𑄥𑄮𑄢𑄴𑄉𑄧𑄚𑄴𑄎𑄧"
+    ml: കിഷോർഗഞ്ച് ജില്ല
+    ceb: Kishoregonj
+    de: Kishoreganj
+    ne: किशोरगञ्ज जिल्ला
+    sv: Kishoregonj
+  type: district
+'27':
+  name: Khulna zila
+  code: '27'
+  unofficial_names:
+  - Khulna
+  geo:
+    latitude: 22.8146371
+    longitude: 89.5705569
+  translations:
+    en: Khulna
+    bn: খুলনা জেলা
+    ca: Districte de Khulna
+    es: Khulna
+    fa: ناحیه کولنا
+    fr: Khulna
+    hi: खुलना जिला
+    it: Distretto di Khulna
+    ja: クルナ県
+    nl: Khulna
+    pt: Khulna
+    ru: Кхулна
+    sv: Khulna
+    ta: குல்னா மாவட்டம்
+    tk: Khulna
+    ur: ضلع کھلنا
+    vi: Huyện Khulna
+    ceb: Khulna
+    te: ఖుల్నా జిల్లా
+    zh: 庫爾納縣
+    ccp: "𑄈𑄪𑄣𑄴𑄚"
+    ml: ഖുൽന ജില്ല
+    ne: खुलना जिल्ला
+    de: Khulna²
+    ko: 쿨나구
+  type: district
+'28':
+  name: Kurigram zila
+  code: '28'
+  unofficial_names:
+  - Kurigram
+  geo:
+    latitude: 25.7570397
+    longitude: 89.62516459999999
+    min_latitude: 25.3801294
+    min_longitude: 89.458022
+    max_latitude: 26.2355339
+    max_longitude: 89.8903942
+  translations:
+    en: Kurigram
+    bn: কুড়িগ্রাম জেলা
+    es: Kurigram
+    fa: ناحیه کوریگرام
+    fr: Kurigram
+    hi: कुरीग्राम जिला
+    it: Distretto di Kurigram
+    ja: クリグラム県
+    nl: Kurigram
+    ro: Kurigram
+    ru: Куриграм
+    sv: Kurigram
+    ta: குரிகிராம் மாவட்டம்
+    tk: Kurigram
+    ur: کوریگرام ضلع
+    vi: Huyện Kurigram
+    ceb: Kurigram
+    te: కురిగ్రామ్ జిల్లా
+    zh: 古里格拉姆县
+    el: Επαρχία Κουριγκράμ
+    ccp: "𑄇𑄪𑄢𑄨𑄉𑄳𑄢𑄟𑄴"
+    ml: കുറിഗ്രം ജില്ല
+    ne: कुडिग्राम जिल्ला
+    de: Kurigram
+  type: district
+'29':
+  name: Khagrachari zila
+  code: '29'
+  unofficial_names:
+  - Khagrachari zila
+  geo:
+    latitude: 23.1321751
+    longitude: 91.949021
+    min_latitude: 22.693101
+    min_longitude: 91.7165709
+    max_latitude: 23.7311798
+    max_longitude: 92.17374799999999
+  translations:
+    en: Khagrachari
+    bn: খাগড়াছড়ি জেলা
+    ca: Districte de Khagrachari
+    de: Khagrachhari
+    es: Khagrachari
+    fa: ناحیه کاگراچاری
+    fr: Khagrachari
+    hi: खग्रचारी जिला
+    ja: カグラチュリ県
+    nl: Khagrachari
+    pl: Khagraczari (dystrykt)
+    pt: Khagrachari
+    ro: Khagrachhari
+    ru: Кхаграчхари
+    sv: Khagrachhari
+    ta: கக்ராச்சாரி மாவட்டம்
+    tk: Khagraçhari
+    uk: Кхаграчхарі
+    ur: کھاگراچاری ضلع
+    vi: Huyện Khagrachari
+    ceb: Khagrachhari
+    te: ఖగ్రచారీ జిల్లా
+    zh: 科格拉焦里縣
+    ccp: "𑄈𑄇𑄴𑄢𑄍𑄧𑄢𑄨"
+    it: distretto di Khagrachhari
+    ml: ഖഘ്രചാരി ജില്ല
+  type: district
+'30':
+  name: Kushtia zila
+  code: '30'
+  unofficial_names:
+  - Kushtia
+  - Kushtiya
+  geo:
+    latitude: 23.9031823
+    longitude: 89.0561532
+    min_latitude: 23.6899617
+    min_longitude: 88.6941719
+    max_latitude: 24.2097079
+    max_longitude: 89.3705176
+  translations:
+    en: Kushtia
+    bn: কুষ্টিয়া জেলা
+    es: Kushtia
+    fa: ناحیه کوشتیه
+    fr: Kushtia
+    hi: कुश्तिया जिला
+    it: Distretto di Kushtia
+    ja: クスティア県
+    lt: Kuštija
+    ml: കുഷ്തിയ ജില്ല
+    nl: Kushtia
+    pt: Kushtia
+    ro: Kushtia
+    ru: Куштия
+    sv: Kushtia (distrikt)
+    ta: குஸ்தியா மாவட்டம்
+    tk: Kuştiýa
+    uk: Куштія
+    ur: کوشتیا ضلع
+    vi: Huyện Kushtia
+    ceb: Kushtia
+    te: కుష్టియా జిల్లా
+    zh: 库什蒂亚县
+    ccp: "𑄇𑄪𑄌𑄴𑄒𑄨𑄠"
+    pa: ਕੂਸ਼ਟੀਆ ਜ਼ਿਲ੍ਹਾ
+    ne: कुष्टिया जिल्ला
+    de: Kushtia
+    ko: 쿠슈티아구
+  type: district
+'31':
+  name: Lakshmipur zila
+  code: '31'
+  unofficial_names:
+  - Lakshmipur
+  - Laksmipur
+  geo:
+    latitude: 22.9339332
+    longitude: 90.83216879999999
+  translations:
+    en: Lakshmipur
+    bn: লক্ষ্মীপুর জেলা
+    de: Lakshmipur
+    es: Lakshmipur
+    fa: ناحیه لاکشیم‌پور
+    fr: Lakshmipur
+    hi: लक्ष्मीपुर जिला
+    it: Distretto di Lakshmipur
+    ja: ラクシュミプール県
+    nl: Lakshmipur
+    pt: Lakshmipur
+    ro: Lakshmipur
+    ru: Лакшмипур
+    sv: Lakshmipur
+    ta: லெட்சுமிபூர் மாவட்டம்
+    tk: Lakşmipur
+    uk: Лакшміпур
+    ur: لکشمی پور ضلع
+    vi: Huyện Lakshmipur
+    ceb: Lakshmipur
+    te: లక్ష్మీపూర్ జిల్లా
+    zh: 羅基布爾縣
+    el: Επαρχία Λακσμιπούρ
+    ccp: "𑄣𑄧𑄇𑄴𑄈𑄨𑄛𑄪𑄢𑄴"
+    ml: ലക്ഷ്മിപൂർ ജില്ല
+  type: district
+'32':
+  name: Lalmonirhat zila
+  code: '32'
+  unofficial_names:
+  - Lalmanir Hat
+  - Lalmonirhat
+  geo:
+    latitude: 25.9923398
+    longitude: 89.28472510000002
+    min_latitude: 25.7903088
+    min_longitude: 88.9110662
+    max_latitude: 26.4629664
+    max_longitude: 89.56303609999999
+  translations:
+    en: Lalmonirhat
+    bn: লালমনিরহাট জেলা
+    es: Lalmonirhat
+    fa: ناحیه لال‌منیرهات
+    fr: Lalmonirhat
+    hi: लालमुनीरहाट जिला
+    it: Distretto di Lalmonirhat
+    ja: ラルモニールハット県
+    nl: Lalmonirhat
+    ro: Lalmonirhat
+    ru: Лалмонирхат
+    sv: Lalmonirhat (distrikt i Bangladesh)
+    ta: லால்முனிர்காட் மாவட்டம்
+    tk: Lalmonirhat
+    ur: لال مینار ہٹ ضلع
+    vi: Huyện Lalmonirhat
+    ceb: Lalmonirhat (distrito sa Bangladesh)
+    te: లల్మోనిరాట్ జిల్లా
+    zh: 拉尔莫尼哈德县
+    el: Επαρχία Λαλμονιρχάτ
+    ccp: "𑄣𑄣𑄴𑄟𑄧𑄚𑄨𑄢𑄴𑄦𑄖𑄴"
+    ml: ലാൽമൊനിർഹറ്റ് ജില്ല
+    ne: लालमनिरहाट जिल्ला
+    de: Lalmonirhat
+  type: district
+'33':
+  name: Manikganj zila
+  code: '33'
+  unofficial_names:
+  - Manikganj
+  geo:
+    latitude: 23.8584557
+    longitude: 89.9253233
+    min_latitude: 23.6303708
+    min_longitude: 89.6924686
+    max_latitude: 24.0301595
+    max_longitude: 90.25637619999999
+  translations:
+    en: Manikganj
+    bn: মানিকগঞ্জ জেলা
+    es: Manikganj
+    fa: ناحیه منیک‌گنج
+    fr: Manikganj
+    hi: मानिकगंज जिला
+    it: Distretto di Manikganj
+    ja: マニクガンジュ県
+    ko: 마니가니 지구
+    nl: Manikganj
+    ru: Маникгандж
+    sv: Manikganj
+    ta: மணிகஞ்ச் மாவட்டம்
+    tk: Manikganj
+    ur: مانک گنج ضلع
+    vi: Huyện Manikganj
+    ceb: Manikganj
+    te: బహదియ
+    zh: 马尼格甘杰县
+    ccp: "𑄟𑄚𑄨𑄇𑄴𑄉𑄧𑄚𑄴𑄎𑄧"
+    da: Manikganj
+    ml: ബഹദിയ ജില്ല
+    de: Manikganj
+    ne: मानिकगञ्ज जिल्ला
+  type: district
+'34':
+  name: Mymensingh zila
+  code: '34'
+  unofficial_names:
+  - Mymensingh
+  - Nasirabad
+  - Nasirābād
+  geo:
+    latitude: 24.6188256
+    longitude: 90.37483540000001
+    min_latitude: 24.2478058
+    min_longitude: 90.08703229999999
+    max_latitude: 25.1973305
+    max_longitude: 90.81951149999999
+  translations:
+    en: Mymensingh
+    bn: ময়মনসিংহ জেলা
+    ca: Districte de Mymensingh
+    de: Maimansingh
+    es: Mymensingh
+    fa: ناحیه میمن‌سینگ
+    fr: Mymensingh
+    hi: मैमनसिंह जिला
+    it: Distretto di Mymensingh
+    ja: ミメンシング県
+    nl: Mymensingh
+    ru: Мименсингх
+    ta: மைமன்சிங் மாவட்டம்
+    tk: Mimensingh
+    uk: Міменсінгх
+    ur: میمن سنگھ ضلع
+    vi: Huyện Mymensingh
+    ceb: Mymensingh (distrito)
+    te: మైమెన్సింగ్ జిల్లా
+    zh: 迈门辛县
+    el: Επαρχία Μίμενσινγκ
+    ccp: "𑄟𑄧𑄠𑄴𑄟𑄧𑄚𑄴𑄥𑄨𑄁𑄦𑄴"
+    ml: മൈസെന്സിങ് ജില്ല
+    ko: 마이멘싱구
+    ne: मयमनसिङ्ह जिल्ला
+    pa: ਮੈਮਨਸਿੰਘ ਜ਼ਿਲ੍ਹਾ
+  type: district
+'35':
+  name: Munshiganj zila
+  code: '35'
+  unofficial_names:
+  - Munshiganj zila
+  geo:
+    latitude: 23.5248687
+    longitude: 90.3371889
+    min_latitude: 23.3773986
+    min_longitude: 90.1798152
+    max_latitude: 23.6743985
+    max_longitude: 90.71299549999999
+  translations:
+    en: Munshiganj
+    bn: মুন্সিগঞ্জ জেলা
+    es: Munshiganj
+    fa: ناحیه منشی‌گنج
+    fr: Munshiganj
+    hi: मुंशीगंज जिला
+    ja: ムンシガンジュ県
+    lt: Munšigandžas
+    nl: Munshiganj
+    pl: Munszigandź
+    ro: Munshiganj
+    ru: Муншигандж
+    sv: Munshiganj
+    ta: முன்சிகஞ்ச் மாவட்டம்
+    tk: Munşiganj
+    uk: Муншигандж
+    ur: منشی گنج ضلع
+    vi: Huyện Munshiganj
+    ceb: Munshiganj
+    te: మున్షియంగజ్ జిల్లా
+    zh: 蒙希甘杰县
+    el: Επαρχία Μουνσιγκάντζ
+    ccp: "𑄟𑄪𑄚𑄴𑄥𑄨𑄉𑄧𑄚𑄴𑄎𑄧"
+    it: distretto di Munshiganj
+    ml: മുന്ഷിഗഞ്ച് ജില്ല
+    ar: مونشيجاني
+    de: Munsiganj
+    fi: Munshiganj piirikunta
+    ne: मुन्सिगञ्ज जिल्ला
+  type: district
+'36':
+  name: Madaripur zila
+  code: '36'
+  unofficial_names:
+  - Madaripur
+  geo:
+    latitude: 23.1666835
+    longitude: 90.20494169999999
+    min_latitude: 23.1665025
+    min_longitude: 90.2048202
+    max_latitude: 23.1668738
+    max_longitude: 90.20507769999999
+  translations:
+    en: Madaripur
+    bn: মাদারীপুর জেলা
+    es: Madaripur
+    fa: ناحیه مداری‌پور
+    fr: Madaripur
+    hi: मदारीपुर जिला
+    it: Distretto di Madaripur
+    ja: マダリプル県
+    nl: Madaripur
+    ro: Maradipur
+    ru: Мадарипур
+    sv: Madaripur (distrikt i Bangladesh)
+    ta: மதாரிபூர் மாவட்டம்
+    tk: Madaripur
+    ur: مداری پور ضلع
+    vi: Huyện Madaripur
+    ceb: Madaripur (distrito sa Bangladesh)
+    te: మదరిపుర్ జిల్లా
+    zh: 马达里布尔县
+    ccp: "𑄟𑄘𑄢𑄨𑄛𑄪𑄢𑄴"
+    kk: Мадарипур
+    ml: മദാരിപൂർ ജില്ല
+    ar: ناحية مداربور
+    de: Madaripur (Distrikt)
+    ne: मादारिपुर जिल्ला
+  type: district
+'37':
+  name: Magura zila
+  code: '37'
+  unofficial_names:
+  - Magura
+  translations:
+    en: Magura
+    bn: মাগুরা জেলা
+    es: Magura
+    fa: ناحیه ماگورا
+    fr: Magura
+    hi: मगुरा जिला
+    it: Distretto di Magura
+    ja: マグラ県
+    nl: Magura
+    pl: Magura
+    pt: Magura
+    ro: Districtul Magura
+    ru: Магура
+    sv: Magura
+    ta: மகுரா மாவட்டம்
+    tk: Maruga
+    ur: ماگورا ضلع
+    vi: Huyện Magura
+    ceb: Magura
+    te: మగుర జిల్లా
+    zh: 马古拉县
+    ccp: "𑄟𑄉𑄪𑄢"
+    ml: മഗുര ജില്ല
+    ne: मागुरा जिल्ला
+    de: Magura
+  type: district
+'38':
+  name: Moulvibazar zila
+  code: '38'
+  unofficial_names:
+  - Maulvi Bazar
+  - Moulvi Bazar
+  geo:
+    latitude: 24.4191069
+    longitude: 91.7538817
+    min_latitude: 24.1370805
+    min_longitude: 91.59713760000001
+    max_latitude: 24.8346482
+    max_longitude: 92.29768759999999
+  translations:
+    en: Maulvi Bazar
+    bn: মৌলভীবাজার জেলা
+    de: Moulvibazar
+    es: Maulvibazar
+    fa: ناحیه مولوی‌بازار
+    fi: Moulvibazarin piirikunta
+    fr: Maulvi Bazar
+    hi: मौलवी बजार जिला
+    it: Distretto di Maulvi Bazar
+    ja: マウルビバザール県
+    nl: Maulvi Bazar
+    pt: Maulvi Bazar
+    ro: Maulvi Bazar
+    ru: Маулвибазар
+    sv: Maulvibazar
+    ta: மௌலிபஜார் மாவட்டம்
+    tk: Maulwibazar
+    uk: Маулвібазар
+    ur: مولوی بازار ضلع
+    vi: Huyện Moulvibazar
+    ceb: Maulvibazar
+    te: మౌల్విబాజర్ జిల్లా
+    zh: 毛爾維巴扎爾縣
+    ccp: "𑄟𑄯𑄣𑄧𑄞𑄩 𑄝𑄎𑄢𑄴"
+    pa: ਮੌਲਵੀ ਬਾਜ਼ਾਰ ਜ਼ਿਲਾ
+    ml: മൗൽവിബാസർ ജില്ല
+    ne: मौलभीबाजार जिल्ला
+  type: district
+'39':
+  name: Meherpur zila
+  code: '39'
+  unofficial_names:
+  - Meherpur zila
+  geo:
+    latitude: 23.8051991
+    longitude: 88.6723578
+    min_latitude: 23.5995035
+    min_longitude: 88.5595894
+    max_latitude: 23.978685
+    max_longitude: 88.8895656
+  translations:
+    en: Meherpur
+    bn: মেহেরপুর জেলা
+    de: Meherpur
+    es: Meherpur
+    fa: ناحیه مهرپور
+    fr: Meherpur
+    hi: मेहरपुर जिला
+    it: Distretto di Meherpur
+    ja: メヘルプル県
+    nl: Meherpur
+    pt: Meherpur
+    ro: Meherpur
+    ru: Мехерпур
+    sv: Meherpur
+    ta: மெகர்பூர் மாவட்டம்
+    tk: Meherpur
+    ur: مہر پور ضلع
+    vi: Huyện Meherpur
+    ceb: Meherpur
+    te: మెహర్పూర్ జిల్లా
+    zh: 梅黑尔布尔县
+    ccp: "𑄟𑄬𑄦𑄬𑄢𑄴𑄛𑄪𑄢𑄴"
+    ml: മേഹർപൂർ ജില്ല
+    ne: मेहेरपुर जिल्ला
+    ar: مهربور
+  type: district
+'40':
+  name: Narayanganj zila
+  code: '40'
+  unofficial_names:
+  - Narayanganj
+  geo:
+    latitude: 23.7146601
+    longitude: 90.563609
+    min_latitude: 23.5425862
+    min_longitude: 90.4319429
+    max_latitude: 23.9584895
+    max_longitude: 90.757885
+  translations:
+    en: Narayanganj
+    bn: নারায়ণগঞ্জ জেলা
+    es: Narayanganj
+    fa: ناحیه ناراین‌گنج
+    fr: Narayanganj
+    hi: नारायनगंज जिला
+    it: Distretto di Narayanganj
+    ja: ナラヤンガンジュ県
+    nl: Narayanganj
+    ru: Нараянгандж
+    sv: Narayanganj (distrikt)
+    ur: نارائن گنج ضلع
+    vi: Huyện Narayanganj
+    ceb: Narayanganj (distrito sa Bangladesh)
+    te: నారాయణాంజ్ జిల్లా
+    ta: நாராயண்கஞ்ச் மாவட்டம்
+    tk: Naraýanganj
+    zh: 纳拉扬甘杰县
+    ccp: "𑄚𑄢𑄠𑄧𑄚𑄴𑄉𑄧𑄚𑄴𑄎𑄧"
+    ml: നാരായൺഗഞ്ച് ജില്ല
+    de: Narayanganj
+    ne: नारायणगञ्ज जिल्ला
+    ro: Districtul Narayanganj
+  type: district
+'41':
+  name: Netrakona zila
+  code: '41'
+  unofficial_names:
+  - Netrakona
+  - Netrokana
+  geo:
+    latitude: 24.8834972
+    longitude: 90.7312453
+  translations:
+    en: Netrokona
+    bn: নেত্রকোনা জেলা
+    es: Netrokona
+    fa: ناحیه نتروکونه
+    fr: Netrokona
+    hi: नेत्रोकोना जिला
+    it: Distretto di Netrokona
+    ja: ネトラコタ県
+    nl: Netrakona
+    ro: Netrokona
+    ru: Нетрокона
+    sv: Netrakona
+    ta: நேத்ரோகோனா மாவட்டம்
+    tk: Netrokona
+    ur: نیتورکونا ضلع
+    vi: Huyện Netrakona
+    ceb: Netrakona (distrito)
+    te: నెట్కోనో జిల్లా
+    zh: 内德罗戈纳县
+    pl: dystrykt Netrokona
+    el: Επαρχία Νετροκόνα
+    ccp: "𑄚𑄬𑄖𑄳𑄢𑄧𑄇𑄧𑄚"
+    ml: നെറ്റ്രൊകൊന ജില്ല
+    de: Netrakona
+    ne: नेत्रकोना जिल्ला
+  type: district
+'42':
+  name: Narsingdi zila
+  code: '42'
+  unofficial_names:
+  - Narsinghdi
+  geo:
+    latitude: 23.9991955
+    longitude: 90.7913227
+    min_latitude: 23.7841667
+    min_longitude: 90.56034559999999
+    max_latitude: 24.2503296
+    max_longitude: 90.9857498
+  translations:
+    en: Narsingdi
+    bn: নরসিংদী জেলা
+    es: Narsingdi
+    fa: ناحیه نارسینگدی
+    fr: Narsingdi
+    hi: नरसिंगडी जिला
+    it: Distretto di Narshingdi
+    ja: ナルシングディ県
+    nl: Narsingdi
+    pl: Narsingdi
+    ro: Narsingdi
+    ru: Нарсингди
+    ta: நரசிங்கடி மாவட்டம்
+    tk: Narsingdi
+    ur: نارسینگدی ضلع
+    vi: Huyện Narsingdi
+    te: నర్సింగి జిల్లా
+    zh: 诺尔辛迪县
+    ccp: "𑄚𑄧𑄢𑄴𑄥𑄨𑄁𑄘𑄨"
+    ml: നരസിംഗഡി ജില്ല
+    ceb: Narsingdi
+    de: Narsingdi
+    ne: नरसिङ्दी जिल्ला
+    sv: Narsingdi
+  type: district
+'43':
+  name: Narail zila
+  code: '43'
+  unofficial_names:
+  - Narail
+  - Naral
+  geo:
+    latitude: 23.1436191
+    longitude: 89.5874819
+    min_latitude: 22.9538884
+    min_longitude: 89.37712669999999
+    max_latitude: 23.3145922
+    max_longitude: 89.7925473
+  translations:
+    en: Narail
+    bn: নড়াইল জেলা
+    de: Narail
+    es: Narail
+    fa: ناحیه ناریل
+    fr: Narail
+    hi: नराइल जिला
+    it: Distretto di Narail
+    ja: ナライル県
+    nl: Narail
+    pt: Narail
+    ro: Narail
+    ru: Нарайл
+    sv: Narail (distrikt)
+    ta: நராய்ல் மாவட்டம்
+    tk: Naraýl
+    ur: نارائل ضلع
+    vi: Huyện Narail
+    ceb: Narail (distrito)
+    te: నారాయిల్ డిస్ట్రిక్ట్
+    zh: 诺拉尔县
+    ccp: "𑄚𑄢𑄭𑄣𑄴"
+    ml: നാറെയിൽ ജില്ല
+    ne: नडाइल जिल्ला
+  type: district
+'44':
+  name: Natore zila
+  code: '44'
+  unofficial_names:
+  - Nator
+  - Natore
+  geo:
+    latitude: 24.4260457
+    longitude: 89.0179332
+    min_latitude: 24.105237
+    min_longitude: 88.84579169999999
+    max_latitude: 24.6554422
+    max_longitude: 89.3405628
+  translations:
+    en: Natore
+    bn: নাটোর জেলা
+    es: Natore
+    fa: ناحیه ناتوره
+    fr: Natore
+    hi: नटोरे जिला
+    it: Distretto di Natore
+    ja: ナトール県
+    pl: Nator
+    pt: Natore
+    ro: Natore
+    ru: Натор
+    sv: Natore (distrikt i Bangladesh)
+    ta: நத்தோர் மாவட்டம்
+    tk: Nator
+    ur: نتور ضلع
+    vi: Huyện Natore
+    ceb: Natore
+    te: నాటోర్ జిల్లా
+    zh: 诺多尔县
+    ccp: "𑄚𑄑𑄮𑄢𑄴"
+    ml: നാറ്റോർ ജില്ല
+    ne: नाटोर जिल्ला
+    de: Natore
+  type: district
+'45':
+  name: Nawabganj zila
+  code: '45'
+  unofficial_names:
+  - Nawabganj
+  - Nawabgonj
+  geo:
+    latitude: 29.9688
+    longitude: 77.5495
+  translations:
+    en: Nawabganj
+    bn: চাঁপাইনবাবগঞ্জ জেলা
+    ca: Districte de Chapai Nawabganj
+    de: Nawabganj (Distrikt)
+    es: Nawabganj
+    fa: ناحیه نواب‌گنج
+    fr: Nawabganj
+    hi: नवाबगंज जिला
+    it: Distretto di Chapai Nawabganj
+    ja: ナワバンジ県
+    lt: Navabgandžas
+    pl: Nawabgandź
+    ru: Навабгандж
+    sv: Chapai Nababganj
+    ta: சபாய் நவாப்கஞ்ச் மாவட்டம்
+    tk: Nawabganj
+    ur: چپائی نواب گنج ضلع
+    vi: Huyện Nawabganj
+    ceb: Chapai Nababganj
+    te: చపాయ్ నవాబ్గంజ్ జిల్లా
+    zh: 诺瓦布甘杰县
+    ccp: "𑄚𑄧𑄃𑄮𑄠𑄛𑄴𑄉𑄧𑄚𑄴𑄎𑄧"
+    ml: ചാപായ് നവാബ്ഗഞ്ച് ജില്ല
+    ne: चाँपाइनबाबगञ्ज जिल्ला
+    pa: ਨਵਾਬਗੰਜ ਜ਼ਿਲ੍ਹਾ
+  type: district
+'46':
+  name: Nilphamari zila
+  code: '46'
+  unofficial_names:
+  - Nilphamari
+  geo:
+    latitude: 25.989962
+    longitude: 88.90306
+    min_latitude: 25.7392149
+    min_longitude: 88.7379457
+    max_latitude: 26.3130356
+    max_longitude: 89.1966248
+  translations:
+    en: Nilphamari
+    bn: নীলফামারী জেলা
+    es: Nilphamari
+    fa: ناحیه نیل‌پاماری
+    fr: Nilphamari
+    hi: नीलफमरी जिला
+    it: Distretto di Nilphamari
+    ja: ニルファマリ県
+    nl: Nilphamari
+    ro: Nilphamari
+    ru: Нилпхамари
+    sv: Nilphamari Zila
+    ta: நீல்பமரி மாவட்டம்
+    ur: نیلپھاماری ضلع
+    vi: Huyện Nilphamari
+    ceb: Nilphamari Zila
+    te: నిల్ఫామారి జిల్లా
+    tk: Nilphamari
+    as: নীলফামাৰী জিলা
+    zh: 尼尔帕马里县
+    el: Επαρχία Νιλφαμάρι
+    ccp: "𑄚𑄩𑄣𑄴𑄜𑄟𑄢𑄨"
+    ml: നിൽഫമാറി ജില്ല
+    ne: नीलफामारी जिल्ला
+    de: Nilphamari
+  type: district
+'47':
+  name: Noakhali zila
+  code: '47'
+  unofficial_names:
+  - Noakhali
+  geo:
+    latitude: 22.5205292
+    longitude: 91.13530200000001
+    min_latitude: 22.0278874
+    min_longitude: 90.8422743
+    max_latitude: 23.1329408
+    max_longitude: 91.4192964
+  translations:
+    en: Noakhali
+    bn: নোয়াখালী জেলা
+    ca: Districte de Noakhali
+    de: Noakhali
+    es: Noakhali
+    fa: ناحیه نواکهلی
+    fr: Noakhali
+    hi: नोवाखाली
+    it: Distretto di Noakhali
+    ja: ノアカリ県
+    lt: Noakhalis
+    ml: നവഖാലി
+    nl: Noakhali
+    pl: Noakhali
+    pt: Noakhali
+    ro: Noakhali
+    ru: Ноакхали
+    ta: நவகாளி மாவட்டம்
+    tk: Noakhali
+    uk: Ноакхалі
+    ur: نواکھالی ضلع
+    vi: Huyện Noakhali
+    te: నోహాళీ జిల్లా
+    zh: 諾阿卡利縣
+    ccp: "𑄚𑄱𑄈𑄣𑄨"
+    ceb: Noakhali
+    pa: ਨੌਖਾਲੀ
+    sv: Noakhali
+  type: district
+'48':
+  name: Naogaon zila
+  code: '48'
+  unofficial_names:
+  - Naogaon
+  - Naugaon
+  geo:
+    latitude: 24.8127781
+    longitude: 88.9415362
+    min_latitude: 24.8123151
+    min_longitude: 88.94079579999999
+    max_latitude: 24.8134302
+    max_longitude: 88.94238349999999
+  translations:
+    en: Naogaon
+    bn: নওগাঁ জেলা
+    es: Naogaon
+    fa: ناحیه نوگان
+    fr: Naogaon
+    it: Distretto di Naogaon
+    ja: ナオガオン県
+    pl: Naogaon
+    pt: Naogaon
+    ro: Naogaon
+    ru: Наогаон
+    ta: நவகோன் மாவட்டம்
+    tk: Naogaon
+    ur: ناو گاؤں ضلع
+    vi: Huyện Naogaon
+    ceb: Naogaon
+    te: నాగాన్ జిల్లా
+    zh: 瑙冈县
+    sv: Naogaon District
+    hi: नौगाँव जिला
+    ccp: "𑄚𑄧𑄃𑄮𑄉"
+    ml: നഒഗോൺ ജില്ല
+    ne: नउगाँ जिल्ला
+    de: Naogaon
+  type: district
+'49':
+  name: Pabna zila
+  code: '49'
+  unofficial_names:
+  - Pabna
+  geo:
+    latitude: 24.0021069
+    longitude: 89.2332005
+    min_latitude: 24.0016952
+    min_longitude: 89.23269499999999
+    max_latitude: 24.0029743
+    max_longitude: 89.2340201
+  translations:
+    en: Pabna
+    bn: পাবনা জেলা
+    ca: Districte de Pabna
+    es: Pabna
+    fa: ناحیه پابنا
+    fr: Pabna
+    hi: पबना जिला
+    it: Distretto di Pabna
+    ja: パブナ県
+    nl: Pabna District
+    ru: Пабна
+    ta: பப்னா மாவட்டம்
+    tk: Pabna
+    uk: Пабна
+    ur: پبنا ضلع
+    vi: Huyện Pabna
+    ceb: Pabna (distrito sa Bangladesh)
+    te: పాబ్నా జిల్లా
+    zh: 巴布纳县
+    ccp: "𑄛𑄛𑄴𑄚"
+    ml: പബ്നാ ജില്ല
+    ne: पाबना जिल्ला
+    ar: مقاطعة بابنا
+    de: Pabna
+  type: district
+'50':
+  name: Pirojpur zila
+  code: '50'
+  unofficial_names:
+  - Perojpur
+  - Pirojpur
+  geo:
+    latitude: 25.6657924
+    longitude: 88.1364591
+    min_latitude: 25.6537201
+    min_longitude: 88.1259999
+    max_latitude: 25.6812
+    max_longitude: 88.1489501
+  translations:
+    en: Pirojpur
+    bn: পিরোজপুর জেলা
+    de: Pirojpur
+    es: Pirojpur
+    fa: ناحیه پیروج‌پور
+    fr: Pirojpur
+    it: Distretto di Pirojpur
+    ja: ピロジプール県
+    nl: Pirojpur
+    pt: Pirojpur
+    ro: Pirojpur
+    ru: Пироджпур
+    sv: Pirojpur
+    ta: பிரோஜ்பூர் மாவட்டம்
+    tk: Pirojpur
+    ur: پیروجپور ضلع
+    vi: Huyện Pirojpur
+    ceb: Pirojpur
+    te: పిరోజ్పూర్ జిల్లా
+    zh: 比羅傑布爾縣
+    hi: पीरोजपुर जिला
+    ccp: "𑄛𑄨𑄢𑄮𑄌𑄴𑄛𑄪𑄢𑄴"
+    ml: പിരോജ്പൂർ ജില്ല
+  type: district
+'51':
+  name: Patuakhali zila
+  code: '51'
+  unofficial_names:
+  - Patukhali
+  geo:
+    latitude: 21.951824
+    longitude: 90.37483540000001
+    min_latitude: 21.8004674
+    min_longitude: 90.0830841
+    max_latitude: 22.6105247
+    max_longitude: 90.66673279999999
+  translations:
+    en: Patuakhali
+    bn: পটুয়াখালী জেলা
+    de: Patuakhali
+    es: Patuakhali
+    fa: ناحیه پتوکالی
+    fr: Patuakhali
+    hi: पतुआखाली जिला
+    it: Distretto di Patuakhali
+    ja: パトゥアカリ県
+    pt: Patuakhali
+    ro: Patuakhali
+    ru: Патуакхали
+    sv: Patuakhali
+    ta: பதுவாகாளி மாவட்டம்
+    tk: Patuakhali
+    ur: پاتواکھاکی ضلع
+    vi: Huyện Patuakhali
+    ceb: Patuakhali
+    te: పతువాలి జిల్లా
+    zh: 博杜阿卡利縣
+    ccp: "𑄛𑄧𑄑𑄪𑄠𑄈𑄣𑄨"
+    ml: പറ്റുഖലി ജില്ല
+  type: district
+'52':
+  name: Panchagarh zila
+  code: '52'
+  unofficial_names:
+  - Panchagarh zila
+  geo:
+    latitude: 26.335376
+    longitude: 88.551698
+    min_latitude: 26.3172288
+    min_longitude: 88.5441398
+    max_latitude: 26.3444988
+    max_longitude: 88.5685159
+  translations:
+    en: Panchagarh
+    bn: পঞ্চগড় জেলা
+    es: Panchagarh
+    fa: ناحیه پنچ‌گر
+    fr: Panchagarh
+    hi: पंचगढ़ जिला
+    it: Distretto di Panchagarh
+    ja: ポンテョゴル県
+    nl: Panchagarh
+    ro: Panchagarh
+    ru: Панчагарх
+    sv: Panchagarh (distrikt)
+    ta: பஞ்சகர் மாவட்டம்
+    tk: Pançagarh
+    ur: پنچھاگڑھ ضلع
+    vi: Huyện Panchagarh
+    ceb: Panchagarh (distrito)
+    te: పంచగర్ జిల్లా
+    zh: 班乔戈尔县
+    el: Επαρχία Παντσαγκάρ
+    ccp: "𑄛𑄧𑄚𑄴𑄌𑄧𑄉𑄧𑄢𑄴"
+    ml: പഞ്ചഗർഹ് ജില്ല
+    ne: पञ्चगढ जिल्ला
+    de: Panchagarh
+  type: district
+'53':
+  name: Rajbari zila
+  code: '53'
+  unofficial_names:
+  - Rajbari
+  geo:
+    latitude: 23.715134
+    longitude: 89.5874819
+    min_latitude: 23.567016
+    min_longitude: 89.2988491
+    max_latitude: 23.908124
+    max_longitude: 89.8695803
+  translations:
+    en: Rajbari
+    bn: রাজবাড়ী জেলা
+    de: Rajbari
+    es: Rajbari
+    fa: ناحیه راج‌باری
+    fr: Rajbari
+    hi: राजबाड़ी जिला
+    it: Distretto di Rajbari
+    ja: ラジバリ県
+    nl: Rajbari
+    ro: Rajbari
+    ru: Раджбари
+    sv: Rajbari
+    ta: ராஜ்பாரி மாவட்டம்
+    tk: Rajbari
+    ur: راج باڑی ضلع
+    vi: Huyện Rajbari
+    ceb: Rajbari
+    te: రాజ్బరి జిల్లా
+    zh: 拉杰巴里县
+    el: Επαρχία Ρατζμπάρι
+    ccp: "𑄢𑄌𑄴𑄝𑄢𑄨"
+    ml: രാജ്ബാഡി ജില്ല
+    ne: राजबाडी जिल्ला
+  type: district
+'54':
+  name: Rajshahi zila
+  code: '54'
+  unofficial_names:
+  - Rajshahi
+  - Rampur Boalia
+  geo:
+    latitude: 24.4130584
+    longitude: 88.9822586
+    min_latitude: 24.4116991
+    min_longitude: 88.9815109
+    max_latitude: 24.4145705
+    max_longitude: 88.9830614
+  translations:
+    en: Rajshahi
+    ar: مقاطعة رايشاهي
+    bn: রাজশাহী জেলা
+    ca: Districte de Rajshahi
+    da: Rajshahi District
+    de: Rajshahi-Distrikt
+    el: Ρατζσάχι
+    es: Rajshahi
+    fa: ناحیه راج‌شاهی
+    fi: Rajshahin kaupunginosa
+    fr: Rajshahi
+    gu: રાજશાહી જિલ્લો
+    hi: राजशाही जिला
+    id: Distrik Rajshahi
+    it: Distretto di Rajshahi
+    ja: ラジシャヒ県
+    kn: ರಾಜ್ಶಾಹಿ ಜಿಲ್ಲೆ
+    ko: 라지샤히 지구
+    mr: राजशाही जिल्हा
+    ms: Rajshahi District
+    nb: Rajshahi distrikt
+    nl: Rajshahi
+    pl: Dystrykt Rajshahi
+    pt: Rajshahi
+    ru: Раджшахи
+    si: රජ්ශාහි දිස්ත්‍රික්කය
+    sv: Rajshahi (distrikt)
+    ta: ராஜேஷாஹி மாவட்டம்
+    te: రాజ్‌షాహి జిల్లా
+    th: เมืองกรานาดา
+    tk: Rajşahi
+    tr: Rajshahi District
+    ur: راجشاہی ضلع
+    vi: Huyện Rajshahi
+    lv: Rādžšāhī apgabals
+    ceb: Rajshahi
+    lt: Radžšachio apskritis
+    zh: 拉傑沙希縣
+    ccp: "𑄢𑄌𑄴𑄥𑄦𑄨"
+    ml: രാജ്ഷാഹി ജില്ല
+    uk: Район Раджшагі
+    or: ରାଜସାହୀ ଜିଲ୍ଲା
+    'no': Rajshahi distrikt
+    ne: राजशाही जिल्ला
+  type: district
+'55':
+  name: Rangpur zila
+  code: '55'
+  unofficial_names:
+  - Rangpur
+  geo:
+    latitude: 25.7588
+    longitude: 89.24337700000001
+    min_latitude: 25.7585418
+    min_longitude: 89.2431368
+    max_latitude: 25.758965
+    max_longitude: 89.2436118
+  translations:
+    en: Rangpur
+    ar: مقاطعة رانجبور
+    be: Рангпур
+    bn: রংপুর জেলা
+    ca: Districte de Rangpur
+    da: Rangpur
+    de: Rangpur-Distrikt
+    el: Ρανγκπούρ
+    es: Rangpur
+    fa: ناحیه رنگ‌پور
+    fi: Rangpur District
+    fr: Rangpur
+    gu: રંગપુર ડિસ્ટ્રીકટ
+    hi: रनपुरा जिला
+    id: Rangpur District
+    it: Distretto di Rangpur
+    ja: ロンプール県
+    kn: ರಂಗ್ಪುರ್ ಜಿಲ್ಲೆ
+    ko: 랑푸르 디스트릭트
+    mr: रंगपूर जिल्हा
+    ms: Rangpur District
+    nb: Ramgpur Distrikt
+    nl: Rangpur
+    pl: Dystrykt Rangpur
+    pt: Distrito de Rangpur
+    ru: Рангпур
+    si: රාන්පුර් දිස්ත්‍රික්කය
+    sv: Rangpur
+    ta: ரங்ப்பூர் மாவட்டம்
+    te: రాంగ్పూర్ జిల్లా
+    th: เขตรังปูร์
+    tk: Rangpur
+    tr: Rangpur
+    uk: Рангпур
+    ur: رنگ پور ضلع
+    vi: Huyện Rangpur
+    lv: Rangpura
+    ceb: Rangpur
+    lt: Rangpuro apskritis
+    zh: 朗布尔县
+    ccp: "𑄢𑄧𑄁𑄛𑄪𑄢𑄴"
+    ml: രംഗ്പൂർ ജില്ല
+    'no': Ramgpur Distrikt
+    gl: distrito de Rangpur
+    ne: रङ्पुर जिल्ला
+    ro: Districtul Rangpur
+  type: district
+'56':
+  name: Rangamati zila
+  code: '56'
+  unofficial_names:
+  - Rangamati
+  geo:
+    latitude: 25.158978
+    longitude: 91.685097
+  translations:
+    en: Rangamati Hill
+    bn: রাঙামাটি জেলা
+    de: Rangamati
+    es: Rangamati
+    fa: ناحیه رنگماتی هیل
+    fr: Rangamati
+    hi: रंगमती जिला
+    it: Distretto di Rangamati
+    ja: ランガマティ県
+    nl: Rangamati
+    pt: Rangamati
+    ru: Рангамати
+    sv: Rangamati
+    ta: ரங்கமதி மாவட்டம்
+    tk: Rangamati
+    uk: Рангаматі
+    ur: رنگامتی ضلع
+    ceb: Rangamati
+    te: రంగమతి హిల్ డిస్ట్రిక్ట్
+    vi: Huyện Rangamati
+    zh: 蘭加馬蒂縣
+    pl: dystrykt Rangamati
+    ccp: "𑄢𑄋𑄟𑄖𑄳𑄠𑄬 𑄦𑄨𑄣𑄴"
+    ml: രംഗമതി ഹിൽ ജില്ല
+  type: district
+'57':
+  name: Sherpur zila
+  code: '57'
+  unofficial_names:
+  - Sherpur
+  geo:
+    latitude: 25.0465571
+    longitude: 90.11206960000001
+    min_latitude: 24.8837113
+    min_longitude: 89.8807812
+    max_latitude: 25.3026742
+    max_longitude: 90.3096772
+  translations:
+    en: Sherpur
+    bn: শেরপুর জেলা
+    es: Sherpur
+    fa: ناحیه شیرپور
+    fr: Sherpur
+    hi: शेरपुर जिला
+    ja: シェルプル県
+    lt: Šerpuras
+    nl: Sherpur
+    pl: Sherpur
+    ro: Sherpur
+    ru: Шерпур
+    sv: Sherpur
+    ta: செர்பூர் மாவட்டம்
+    tk: Şerpur
+    ur: شیر پور ضلع
+    vi: Huyện Sherpur
+    ceb: Sherpur
+    te: షేర్పూర్ జిల్లా
+    zh: 谢尔布尔县
+    el: Επαρχία Σερπούρ
+    ccp: "𑄥𑄬𑄢𑄴𑄛𑄪𑄢𑄴"
+    it: distretto di Sherpur
+    ml: ഷേർപ്പൂർ ജില്ല
+    de: Sherpur
+    ne: शेरपुर जिल्ला
+  type: district
+'58':
+  name: Satkhira zila
+  code: '58'
+  unofficial_names:
+  - Satkhira
+  geo:
+    latitude: 21.9501677
+    longitude: 89.1705998
+    min_latitude: 21.6379626
+    min_longitude: 88.90323389999999
+    max_latitude: 22.9491463
+    max_longitude: 89.3596172
+  translations:
+    en: Satkhira
+    bn: সাতক্ষীরা জেলা
+    de: Satkhira
+    es: Shatkhira
+    fa: ناحیه ساتکیرا
+    fr: Satkhira
+    hi: सतखीरा जिला
+    it: Distretto di Satkhira
+    ja: シャスキラ県
+    lt: Satkhira
+    nl: Satkhira
+    pt: Satkhira
+    ro: Shatkhira
+    ru: Саткхира
+    sv: Satkhira
+    ta: சத்கீரா மாவட்டம்
+    tk: Satkhira
+    ur: ساتخیرا ضلع
+    vi: Huyện Satkhira
+    ceb: Satkhira
+    te: సత్ఖిర జిల్లా
+    zh: 萨德基拉县
+    ccp: "𑄥𑄖𑄴𑄈𑄨𑄢"
+    ml: സത്ഖിറ ജില്ല
+    ne: सातखीरा जिल्ला
+    ar: شات خيرا
+  type: district
+'59':
+  name: Sirajganj zila
+  code: '59'
+  unofficial_names:
+  - Serajgonj
+  - Sirajganj
+  translations:
+    en: Sirajganj
+    bn: সিরাজগঞ্জ জেলা
+    es: Sirajganj
+    fa: ناحیه سراج‌گنج
+    fr: Sirajganj
+    hi: सिराजगंज जिला
+    it: Distretto di Sirajganj
+    ja: シラジガンジ県
+    ru: Сираджгандж
+    sv: Sirajganj (distrikt)
+    ta: சிராஜ்கஞ்ச் மாவட்டம்
+    tk: Sirajganj
+    ur: سراج گنج ضلع
+    vi: Huyện Sirajganj
+    ceb: Sirajganj (distrito sa Bangladesh)
+    te: సిరాజ్గంజ్ జిల్లా
+    zh: 锡拉杰甘杰县
+    ccp: "𑄥𑄨𑄢𑄌𑄴𑄉𑄧𑄚𑄴𑄎𑄧"
+    ml: സിറാജ്ഗഞ്ച് ജില്ല
+    de: Sirajganj
+    ko: 시라지간지구
+    ne: सिराजगञ्ज जिल्ला
+  type: district
+'60':
+  name: Sylhet zila
+  code: '60'
+  unofficial_names:
+  - Silhat
+  - Sylhet
+  geo:
+    latitude: 24.8902772
+    longitude: 91.86371419999999
+    min_latitude: 24.8900448
+    min_longitude: 91.8633924
+    max_latitude: 24.8905095
+    max_longitude: 91.864036
+  translations:
+    en: Sylhet
+    ar: مقاطعة سيلهيت
+    bn: সিলেট জেলা
+    ca: Districte de Sylhet
+    da: Sylhet District
+    de: Sylhet
+    el: Σιλχέτ
+    es: Sylhet
+    fa: ناحیه سیلهت
+    fi: Sylhetin kaupunginosa
+    fr: Sylhet
+    gu: સિલ્હેટ જિલ્લો
+    hi: सिलहट जिला
+    id: Distrik Sylhet
+    it: Sylhet District
+    ja: シレット県
+    kn: ಸಿಲ್ಹೆತ್ ಜಿಲ್ಲೆ
+    ko: 실렛 지구
+    mr: सिलेहट जिल्हा
+    ms: Sylhet District
+    nb: Sylhet distrikt
+    nl: Sylhet
+    pl: Dystrykt Sylhet
+    pt: Sylhet
+    ru: Силхет
+    si: සයිල්හෙට් දිස්ත්‍රික්කය
+    sv: Sylhet
+    ta: சில்ஹெட் மாவட்டம்
+    te: సిల్హెట్ జిల్లా
+    th: เขตซิลเฮต
+    tk: Silhet
+    tr: Sylhet District
+    uk: Сілхет
+    ur: سلہٹ ضلع
+    vi: Huyện Sylhet
+    lv: Siletas apgabals
+    ceb: Sylhet
+    lt: Sileto apskritis
+    zh: 錫爾赫特縣
+    ccp: "𑄥𑄨𑄣𑄬𑄖𑄴"
+    ml: സിൽഹെഡ് ജില്ല
+    'no': Sylhet distrikt
+    ne: सिलेट जिल्ला
+  type: district
+'61':
+  name: Sunamganj zila
+  code: '61'
+  unofficial_names:
+  - Shunamganj
+  - Sunamganj
+  geo:
+    latitude: 24.993592
+    longitude: 91.28910359999999
+    min_latitude: 24.5661716
+    min_longitude: 90.93542579999999
+    max_latitude: 25.2041646
+    max_longitude: 91.739831
+  translations:
+    en: Sunamganj
+    bn: সুনামগঞ্জ জেলা
+    es: Sunamganj
+    fa: ناحیه سونام‌گنج
+    fr: Sunamganj
+    hi: सुनामगंज जिला
+    it: Distretto di Sunamganj
+    ja: スナマンジ県
+    nl: Sunamganj
+    pt: Sunamganj
+    ro: Sunamganj
+    ru: Сунамгандж
+    sv: Sunamganj
+    ta: சுனாம்கஞ்ச் மாவட்டம்
+    tk: Sunamganj
+    uk: Сунамгандж
+    ur: سونم گنج ضلع
+    vi: Huyện Sunamganj
+    te: సునంగంజ్ జిల్లా
+    zh: 蘇納姆甘傑縣
+    ccp: "𑄥𑄪𑄚𑄟𑄴𑄉𑄧𑄚𑄴𑄎𑄧"
+    ml: സുനാമ്ഗഞ്ച് ജില്ല
+    ceb: Sunamganj
+    de: Sunamganj
+    ne: सुनामगञ्ज जिल्ला
+  type: district
+'62':
+  name: Shariatpur zila
+  code: '62'
+  unofficial_names:
+  - Shariatpur
+  geo:
+    latitude: 23.2866398
+    longitude: 90.37483540000001
+    min_latitude: 23.0103863
+    min_longitude: 90.2019596
+    max_latitude: 23.4635612
+    max_longitude: 90.6138611
+  translations:
+    en: Shariatpur
+    bn: শরিয়তপুর জেলা
+    es: Shariatpur
+    fa: ناحیه شریعت‌پور
+    fr: Shariatpur
+    hi: शरियतपुर जिला
+    ja: シャリアトプル県
+    nl: Shariatpur
+    ro: Shariatpur
+    ru: Шариатпур
+    ta: சரியத்பூர் மாவட்டம்
+    tk: Şariatpur
+    ur: شریعت پور ضلع
+    vi: Huyện Shariatpur
+    ceb: Shariatpur
+    te: షరియత్పూర్ జిల్లా
+    zh: 沙里亚德布尔县
+    sv: Shariatpur
+    ccp: "𑄥𑄧𑄢𑄨𑄠𑄧𑄖𑄴𑄛𑄪𑄢𑄴"
+    it: distretto di Shariatpur
+    ml: ശരിയത്പൂർ ജില്ല
+    de: Shariatpur
+    ne: शरियतपुर जिल्ला
+  type: district
+'63':
+  name: Tangail zila
+  code: '63'
+  unofficial_names:
+  - Tangail
+  - Tangayal
+  geo:
+    latitude: 24.2574606
+    longitude: 89.9172914
+    min_latitude: 24.2489937
+    min_longitude: 89.9137585
+    max_latitude: 24.2642256
+    max_longitude: 89.9231774
+  translations:
+    en: Tangail
+    ar: منطقة تانغيل
+    bn: টাঙ্গাইল জেলা
+    es: Tangail
+    fa: ناحیه تانگیل
+    fr: Tangail
+    hi: टंगाइल जिला
+    ja: タンガイル県
+    nl: Tangail
+    pt: Tangail
+    ru: Тангайл
+    sv: Tangail (distrikt)
+    ta: தங்காயில் மாவட்டம்
+    tk: Tangaýl
+    uk: Тангайл
+    ur: تنگیل ضلع
+    vi: Huyện Tangail
+    ceb: Tangail
+    te: తంగైల్ జిల్లా
+    zh: 坦盖尔县
+    yue_Hans: 坦盖尔县
+    ccp: "𑄑𑄋𑄴𑄉𑄭𑄣𑄴"
+    it: distretto di Tangail
+    ml: ടംഗൈൽ ജില്ല
+    yue: 坦蓋爾縣
+    de: Tangail
+    ne: टाङ्गाइल जिल्ला
+  type: district
+'64':
+  name: Thakurgaon zila
+  code: '64'
+  unofficial_names:
+  - Thakurgaon
+  geo:
+    latitude: 25.9848836
+    longitude: 88.362785
+    min_latitude: 25.6658205
+    min_longitude: 88.0882072
+    max_latitude: 26.2147449
+    max_longitude: 88.64207259999999
+  translations:
+    en: Thakurgaon
+    bn: ঠাকুরগাঁও জেলা
+    es: Thakurgaon
+    fa: ناحیه تاکورگان
+    fr: Thakurgaon
+    hi: ठाकुरगाँव जिला
+    it: Distretto di Thakurgaon
+    ja: タクルガオン県
+    nl: Thakurgaon
+    ro: Thakurgaon
+    ru: Тхакургаон
+    sv: Thakurgaon (distrikt i Bangladesh)
+    ur: ٹھاکر گاؤں ضلع
+    vi: Huyện Thakurgaon
+    ceb: Thakurgaon (distrito sa Bangladesh)
+    te: థాకుర్గావ్ జిల్లా
+    ta: தாகுர்காவ்ன் மாவட்டம்
+    tk: Thakurgaon
+    zh: 塔古尔冈县
+    el: Επαρχία Θακουργκαόν
+    ccp: "𑄒𑄇𑄪𑄢𑄴𑄉𑄀𑄃𑄮"
+    ml: തകുർഗോൺ ജില്ല
+    ne: ठाकुरगाँउ जिल्ला
+    de: Thakurgaon
+    ko: 타쿠르가온구
+  type: district
+A:
+  name: বরিশাল বিভাগ
+  code: A
+  translations:
+    ar: محافظة باريسال
+    bg: Барисал
+    bn: বরিশাল বিভাগ
+    ca: Divisió de Barisal
+    de: Barishal²
+    en: Barisal
+    es: Barisal
+    fa: استان باریسال
+    fi: Barisalin alue
+    fr: Division de Barisal
+    hi: बारीसाल उपक्षेत्र
+    id: Divisi Barisāl
+    it: divisione di Barisal
+    ja: バリサル管区
+    ko: 바리살 구
+    lt: Barisalo sritis
+    mn: Барисал муж
+    nb: Barisal
+    nl: Barisal
+    pl: Barisal
+    ps: باريسال ډويژن
+    pt: Barisal²
+    ru: Барисал²
+    sv: Barisal
+    ta: பரிசால் கோட்டம்
+    tk: Barisal
+    tr: Barisal Bölümü
+    uk: Барісал
+    ur: باریسال ڈویژن
+    vi: Barisal
+    ceb: Barisal Division
+    zh: 巴里薩爾專區
+    el: Διαίρεση Μπαρισάλ
+    ccp: "𑄝𑄧𑄢𑄨𑄥𑄣𑄴"
+    eu: Barisal dibisioa
+    az: Barisal (əyalət, Banqladeş)
+    'no': Barisal
+    et: Barisāli jaotis
+    he: בורישל
+    mr: बारिसाल विभाग
+    ne: बरिशाल विभाग
+  type: division
+B:
+  name: চট্টগ্রাম বিভাগ
+  code: B
+  translations:
+    ar: محافظة تشيتاغونغ
+    bg: Читагонг
+    bn: চট্টগ্রাম বিভাগ
+    ca: Divisió de Chittagong
+    de: Chittagong
+    en: Chittagong Division
+    es: Chittagong
+    et: Chittagongi jaotis
+    fa: استان چیتاگونگ
+    fi: Chittagongin alue
+    fr: Chittagong²
+    hi: चटगाँव उपक्षेत्र
+    id: Divisi Chittagong
+    it: divisione di Chittagong
+    ja: チッタゴン管区
+    ko: 치타공 구
+    lt: Čitagongo sritis
+    mn: Читтагонг муж
+    ms: Daerah Chittagong
+    nb: Chittagong
+    nl: Chittagong²
+    pl: Ćottogram
+    ps: چټاگانگ ډويژن
+    pt: Chittagong
+    ru: Читтагонг
+    sv: Chittagong²
+    ta: சிட்டகாங் கோட்டம்
+    tk: Çittagong
+    uk: Чіттаґонґ
+    ur: چٹاگانگ ڈویژن
+    vi: Chittagong
+    ceb: Chittagong²
+    tr: Chittagong İli
+    zh: 吉大港專區
+    el: Διαίρεση Τσιταγκόνγκ
+    ccp: "𑄌𑄘𑄨𑄉𑄋𑄴 𑄓𑄨𑄞𑄨𑄥𑄧𑄚𑄴"
+    ro: Chittagong²
+    eu: Chittagong dibisioa
+    'no': Chittagong
+    mr: चट्टग्राम विभाग
+    ne: चट्टग्राम विभाग
+    pa: ਚਿਟਾਗਾਂਗ ਡਿਵੀਜਨ
+    yue: 吉大港專區
+    yue_Hans: 吉大港专区
+  type: division
+C:
+  name: ঢাকা বিভাগ
+  code: C
+  translations:
+    ar: محافظة داكا
+    bg: Дака
+    bn: ঢাকা বিভাগ
+    ca: Divisió de Dacca
+    da: Dhaka Division
+    de: Dhaka
+    el: Ντχάκα
+    en: Dhaka Division
+    es: Daca²
+    fa: استان داکا
+    fi: Dhakan alue
+    fr: Dhaka²
+    gu: ઢાકા ડિવિઝન
+    hi: ढाका उपक्षेत्र
+    id: Divisi Dhaka
+    it: divisione di Dacca
+    ja: ダッカ管区
+    kn: ಢಾಕಾ ವಿಭಾಗ
+    ko: 다카 구
+    lt: Dakos sritis
+    mn: Дакка муж
+    mr: ढाका विभाग
+    ms: Dhaka Division
+    nb: Dhaka
+    nl: Dhaka²
+    pl: Dhaka
+    ps: ډھاکه ډويژن
+    pt: Dhaka²
+    ru: Дакка²
+    si: ඩකා අංශය
+    sv: Dhaka²
+    ta: தகா டிவிசன்
+    te: ఢాకా డివిజన్
+    th: เมืองธากา
+    tk: Dakka
+    tr: Dhaka Division
+    uk: Дака
+    ur: ڈھاکہ ڈویژن
+    vi: Dhaka
+    lv: Dakas apgabals
+    ceb: Dhaka Division
+    zh: 達卡專區
+    yue_Hans: 达卡专区
+    ccp: "𑄔𑄇 𑄓𑄨𑄞𑄨𑄥𑄧𑄚𑄴"
+    eu: Dhaka dibisioa
+    yue: 達卡專區
+    be: Дака²
+    'no': Dhaka
+    cy: Rhanbarth Dhaka
+    ml: ധാക്ക ഡിവിഷൻ
+    ne: ढाका विभाग
+    ro: Divizia Dacca
+  type: division
+D:
+  name: খুলনা বিভাগ
+  code: D
+  translations:
+    ar: قسم خولنا
+    bg: Кхулна
+    bn: খুলনা বিভাগ
+    ca: Divisió de Khulna
+    da: Khulna Division
+    de: Khulna
+    el: Κούλνα
+    en: Khulna Division
+    es: Khulna²
+    fa: استان کولنا
+    fi: Khulnan alue
+    fr: Khulna²
+    gu: ખુલ્ના ડીપાર્ટમેન્ટ
+    hi: खुलना उपक्षेत्र
+    id: Divisi Khulna
+    it: divisione di Khulna
+    ja: クルナ管区
+    kn: ಖುಲ್ನಾ ವಿಭಾಗ
+    ko: 쿨나 구
+    lt: Khulnos sritis
+    mn: Кхулна муж
+    mr: खुल्ना डिवीजन
+    ms: Khulna Division
+    nb: Khulna
+    nl: Khulna²
+    pl: Khulna
+    ps: کلنا ډويژن
+    pt: Khulna²
+    ru: Кхулна²
+    si: ඛුල්නා කලාපය
+    sv: Khulna²
+    ta: க்ஹுல்ன்னா டிவிசன்
+    te: ఖుల్నా డివిజన్
+    th: เขตคุลนา
+    tk: Khulna
+    tr: Khulna Division
+    uk: Кхулна
+    ur: کھلنا ڈویژن
+    vi: Khulna
+    lv: Khulnas apgabals
+    ceb: Khulna Division
+    zh: 庫爾納專區
+    ccp: "𑄈𑄪𑄣𑄴𑄚 𑄓𑄨𑄞𑄨𑄥𑄧𑄚𑄴"
+    eu: Khulna dibisioa
+    'no': Khulna
+    et: Khulna jaotis
+    ne: खुलना विभाग
+  type: division
+E:
+  name: রাজশাহী বিভাগ
+  code: E
+  translations:
+    bg: Раджшахи
+    bn: রাজশাহী বিভাগ
+    ca: Divisió de Rajshahi
+    de: Rajshahi
+    en: Rajshahi Division
+    es: Rajshahi²
+    fa: استان راج‌شاهی
+    fi: Rajshahin alue
+    fr: Rajshahi²
+    hi: राजशाही उपक्षेत्र
+    id: Divisi Rajshahi
+    it: divisione di Rajshahi
+    ja: ラジシャヒ管区
+    ko: 라지샤히 구
+    lt: Radžšahio sritis
+    nb: Rajshahi
+    nl: Rajshahi²
+    pl: Rajshahi
+    ps: راجشاهي ډويژن
+    pt: Rajshahi²
+    ru: Раджшахи²
+    sv: Rajshahi
+    ta: ராஜசாகி கோட்டம்
+    tk: Rajşahi
+    uk: Раджшахі
+    ur: راجشاہی ڈویژن
+    vi: Rajshahi
+    ceb: Rājshāhi Division
+    zh: 拉傑沙希專區
+    el: Διαίρεση Ρατζσάχι
+    ccp: "𑄢𑄌𑄴𑄥𑄦𑄨 𑄓𑄨𑄞𑄨𑄥𑄧𑄚𑄴"
+    eu: Rajshahi dibisioa
+    'no': Rajshahi
+    ar: إقليم راجشاهي
+    et: Rājshāhi jaotis
+    mr: राजशाही विभाग
+    ne: राजशाही विभाग
+  type: division
+F:
+  name: রংপুর বিভাগ
+  code: F
+  translations:
+    be: Рангпур²
+    bg: Рангпур
+    bn: রংপুর বিভাগ
+    de: Rangpur
+    en: Rangpur Division
+    es: Rangpur²
+    fa: استان رنگ‌پور
+    fi: Rangpurin alue
+    fr: Rangpur²
+    hi: रंगपुर विभाजन
+    id: Divisi Rangpur
+    it: divisione di Rangpur
+    ja: ロンプール管区
+    kn: ರಂಗ್ ಪುರ್ ವಿಭಜನ
+    ko: 랑푸르 구
+    lt: Rangpuro sritis
+    nb: Rangpur
+    nl: Rangpur²
+    pl: Rangpur (prowincja)
+    ps: رنگپور ډويژن
+    ru: Рангпур²
+    sv: Rangpur Division
+    ta: ரங்க்பூர் கோட்டம்
+    tk: Rangpur
+    uk: Рангпур²
+    ur: رنگپور ڈویژن
+    vi: Rangpur
+    ceb: Rangpur Division
+    zh: 朗布尔专区
+    el: Διαίρεση Ρανγκπούρ
+    ccp: "𑄢𑄧𑄁𑄛𑄪𑄢𑄴 𑄓𑄨𑄞𑄨𑄥𑄧𑄚𑄴"
+    eu: Rangpur dibisioa
+    ca: Divisió de Rangpur
+    'no': Rangpur
+    ar: إقليم رنكبور
+    et: Rangpuri jaotis
+    mr: रंगपूर विभाग
+    ne: रङ्पुर विभाग
+    ro: Divizia Rangpur
+  type: division
+G:
+  name: সিলেট বিভাগ
+  code: G
+  translations:
+    bg: Силхет
+    bn: সিলেট বিভাগ
+    ca: Divisió de Sylhet
+    de: Sylhet²
+    en: Sylhet Division
+    es: Sylhet²
+    et: Sylheti jaotis
+    fa: استان سیلهت
+    fi: Sylhetin alue
+    fr: Sylhet²
+    hi: सिलहट उपक्षेत्र
+    id: Divisi Sylhet
+    it: divisione di Sylhet
+    ja: シレット管区
+    ko: 실렛 구
+    lt: Silhato sritis
+    nb: Sylhet
+    nl: Sylhet²
+    pl: Srihotto
+    ps: سلهټ ډويژن
+    pt: Sylhet²
+    ru: Силхет²
+    sv: Sylhet²
+    ta: சில்ஹெட் கோட்டம்
+    tk: Silhet
+    uk: Сілет
+    ur: سلہٹ ڈویژن
+    vi: Sylhet
+    ceb: Sylhet Division
+    zh: 錫爾赫特專區
+    ccp: "𑄥𑄨𑄣𑄬𑄖𑄴 𑄓𑄨𑄞𑄨𑄥𑄧𑄚𑄴"
+    eu: Sylhet dibisioa
+    'no': Sylhet
+    ar: إقليم سيلهيت
+    el: Σιλέτ
+    mr: सिलहट विभाग
+    ne: सिलेट विभाग
+  type: division
+H:
+  name: ময়মনসিংহ বিভাগ
+  code: H
+  translations:
+    bn: ময়মনসিংহ বিভাগ
+    de: Maimansingh²
+    en: Mymensingh Division
+    fa: استان میمن‌سینگ
+    fr: Mymensingh²
+    hi: मय़मनसिंह विभाग
+    it: Divisione di Mymensingh
+    ja: マイメンシン管区
+    ko: 마이멘싱 구
+    ru: Маймансингх
+    ta: மைமன்சிங் கோட்டம்
+    tk: Maýmansingh
+    ur: میمن سنگھ ڈویژن
+    vi: Mymensingh
+    zh: 迈门辛专区
+    el: Διαίρεση Μίμενσινγκ
+    ccp: "𑄟𑄧𑄠𑄴𑄟𑄧𑄚𑄴𑄥𑄨𑄁𑄦𑄴 𑄓𑄨𑄞𑄨𑄥𑄧𑄚𑄴"
+    es: Mymensingh²
+    eu: Mymensingh dibisioa
+    uk: Майменсінгх
+    ca: Divisió de Mymensingh
+    mk: Мајмансинг
+    ar: إقليم ميمينسينغ
+    et: Mymensinghi jaotis
+    fi: Mymensinghin alue
+    mr: मयमनसिंह विभाग
+    nl: Mymensingh (divisie)
+  type: division

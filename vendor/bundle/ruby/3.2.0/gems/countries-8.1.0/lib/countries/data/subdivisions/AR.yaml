@@ -1,0 +1,1805 @@
+---
+A:
+  name: Salta
+  code: A
+  unofficial_names:
+  - Salta
+  geo:
+    latitude: -24.7829323
+    longitude: -65.4121552
+    min_latitude: -24.8724718
+    min_longitude: -65.4991155
+    max_latitude: -24.7101875
+    max_longitude: -65.35461169999999
+  translations:
+    en: Salta
+    ar: سالتا
+    be: Правінцыя Сальта
+    bg: Салта
+    bn: সালতা প্রদেশ
+    ca: Província de Salta
+    cs: Salta
+    da: Provincia de Salta
+    de: Provinz Salta
+    el: Σάλτα
+    es: Provincia de Salta
+    et: Salta provints
+    eu: Saltako probintzia
+    fa: ایالت سالتا
+    fi: Saltan maakunta
+    fr: province de Salta
+    gl: Provincia de Salta
+    gu: સાલ્ટા પ્રાંત
+    he: סלטה
+    hi: साल्टा
+    hy: Սալտա
+    id: Provinsi Salta
+    it: provincia di Salta
+    ja: サルタ州
+    ka: სალტის პროვინცია
+    kn: ಸಾಲ್ಟಾ ಪ್ರಾಂತ್ಯ
+    ko: 살타 주
+    lt: Saltos provincija
+    lv: Saltas province
+    mr: साल्ता
+    ms: Wilayah Salta
+    nb: Salta
+    nl: Salta
+    pl: Salta
+    pt: Salta
+    ro: Provincia Salta
+    ru: Сальта
+    si: සැල්ටා පළාත
+    sk: Salta
+    sr: Салта
+    sv: Salta
+    sw: Mkoa wa Salta
+    ta: சால்ட்டா மாகாணம்
+    te: సాల్జ్‌టా ప్రావిన్స్
+    th: รัฐซัลตา
+    tk: Salta
+    tr: Salta eyaleti
+    uk: Сальта
+    ur: صوبہ سالتا
+    vi: Salta
+    zh: 萨尔塔省
+    ceb: Provincia de Salta
+    sr_Latn: Salta
+    ccp: "𑄥𑄣𑄴𑄑"
+    mk: Салта
+    'no': Salta
+    cy: Talaith Salta
+    yue: 薩他省
+    yue_Hans: 萨他省
+  type: province
+B:
+  name: Buenos Aires
+  code: B
+  unofficial_names:
+  - Buenos Aires
+  geo:
+    latitude: -34.6037232
+    longitude: -58.3815931
+    min_latitude: -34.7051589
+    min_longitude: -58.5314522
+    max_latitude: -34.5265464
+    max_longitude: -58.33518840000001
+  translations:
+    en: Buenos Aires Province
+    af: Buenos Aires
+    ar: بوينس آيرس
+    be: правінцыя Буэнас-Айрэс
+    bg: Буенос Айрес
+    bn: বুয়েনোস আয়ারস প্রদেশ
+    ca: Província de Buenos Aires
+    cs: Buenos Aires
+    da: Provincia de Buenos Aires
+    de: Provinz Buenos Aires
+    el: Μπουένος Άιρες
+    es: provincia de Buenos Aires
+    et: Buenos Airese provints
+    eu: Buenos Airesko probintzia
+    fa: ایالت بوئنوس آیرس
+    fi: Buenos Airesin maakunta
+    fr: province de Buenos Aires
+    gl: Provincia de Bos Aires
+    gu: બ્યુનોસ એરેસ પ્રાંત
+    he: בואנוס איירס
+    hi: ब्यूनर्स आयर्स (प्रान्त)
+    hr: Buenos Aires
+    hu: Buenos Aires tartomány
+    hy: Բուենոս Այրես
+    id: Provinsi Buenos Aires
+    it: provincia di Buenos Aires
+    ja: ブエノスアイレス州
+    ka: ბუენოს-აირესის პროვინცია
+    kn: ಬ್ಯೂನಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 부에노스아이레스 주
+    lt: Buenos Airės
+    lv: Buenosairesas province
+    mn: Буэнос-Айрес муж
+    mr: बुएनोस आइरेस प्रांत
+    ms: Provinsi Buenos Aires
+    nb: Buenos Aires
+    nl: Buenos Aires
+    pl: Buenos Aires
+    pt: Buenos Aires
+    ro: Provincia Buenos Aires
+    ru: Буэнос-Айрес
+    si: බුවනෝස් අයර්ස් පළාත
+    sk: Buenos Aires
+    sr: Буенос Ајрес
+    sv: Buenos Aires
+    sw: Mkoa wa Buenos Aires
+    ta: பஏனோஸ் ஐரிஸ் மாகாணம்
+    te: బుయెనోస్ ఎయిర్స్ ప్రావిన్స్
+    th: รัฐบัวโนสไอเรส
+    tk: Buenos Aýres welaýaty
+    tr: Buenos Aires eyaleti
+    uk: Буенос-Айрес
+    ur: صوبہ بیونس آئرس
+    vi: Buenos Aires
+    cy: Talaith Buenos Aires
+    ceb: Provincia de Buenos Aires
+    sr_Latn: Buenos Ajres
+    zh: 布宜诺斯艾利斯省
+    yue_Hans: 布宜诺斯艾利斯省
+    ccp: "𑄝𑄨𑄅𑄪𑄚𑄧𑄌𑄴 𑄃𑄬𑄠𑄢𑄴𑄥𑄴 𑄛𑄳𑄢𑄧𑄮𑄞𑄨𑄚𑄴𑄥𑄴"
+    yue: 布宜諾斯艾利斯省
+    mk: Буенос Аирес
+    'no': Buenos Aires
+    az: Buenos-Ayres əyaləti
+  type: province
+C:
+  name: Capital federal
+  code: C
+  unofficial_names:
+  - Capital federal
+  geo:
+    latitude: -34.6037232
+    longitude: -58.3815931
+    min_latitude: -34.7051589
+    min_longitude: -58.5314522
+    max_latitude: -34.5265464
+    max_longitude: -58.33518840000001
+  translations:
+    en: Buenos Aires
+    af: Buenos Aires²
+    am: ብዌኖስ አይሬስ
+    ar: بوينس آيرس²
+    az: Buenos Ayres
+    be: Буэнас-Айрэс
+    bg: Буенос Айрес²
+    bn: বুয়েনোস আইরেস
+    ca: Buenos Aires
+    cs: Buenos Aires²
+    da: Buenos Aires
+    de: Buenos Aires
+    el: Μπουένος Άιρες²
+    es: Buenos Aires
+    et: Buenos Aires
+    eu: Buenos Aires
+    fa: بوئنوس آیرس
+    fi: Buenos Aires
+    fr: Buenos Aires
+    gl: Buenos Aires
+    gu: બ્યુનોસ એરેસ
+    he: בואנוס איירס²
+    hi: ब्यूनस आयर्स
+    hr: Buenos Aires²
+    hu: Buenos Aires
+    hy: Բուենոս Այրես²
+    id: Buenos Aires
+    is: Búenos Aíres
+    it: Buenos Aires
+    ja: ブエノスアイレス
+    ka: ბუენოს-აირესი
+    kn: ಬ್ಯೂನಸ್ ಐರಿಸ್
+    ko: 부에노스아이레스
+    lt: Buenos Airės²
+    lv: Buenosairesa
+    ml: ബ്യൂണസ് അയേഴ്സ്
+    mn: Буэнос-Айрес
+    mr: बुएनोस आइरेस
+    ms: Buenos Aires
+    nb: Buenos Aires²
+    ne: ब्यूनस आयर्स
+    nl: Buenos Aires²
+    or: ବୁଏନ୍ସ ଏଆରସ
+    pl: Buenos Aires²
+    pt: Buenos Aires²
+    ro: Buenos Aires
+    ru: Буэнос-Айрес²
+    si: බුවනොස් අයිරීස්
+    sk: Buenos Aires²
+    sl: Buenos Aires
+    sr: Буенос Ајрес²
+    sv: Buenos Aires²
+    sw: Buenos Aires
+    ta: புவெனஸ் ஐரிஸ்
+    te: బ్యూనస్ ఏరీస్
+    th: บัวโนสไอเรส
+    tk: Buenos-Aýres
+    tr: Buenos Aires
+    uk: Буенос-Айрес²
+    ur: بیونس آئرس
+    vi: Buenos Aires²
+    cy: Buenos Aires
+    ceb: Buenos Aires
+    sr_Latn: Buenos Ajres²
+    zh: 布宜諾斯艾利斯
+    yue_Hans: 布宜诺斯艾利斯
+    jv: Buenos Aires
+    sq: Buenos Aires
+    ccp: "𑄝𑄨𑄅𑄪𑄚𑄧𑄌𑄴 𑄃𑄬𑄠𑄢𑄴𑄥𑄴"
+    ga: Buenos Aires
+    ps: بوئنوس آيرز
+    ky: Буэнос-Айрес
+    ha: Buenos Aires
+    so: Buenos Aires
+    pa: ਬੁਏਨਸ ਆਇਰਸ
+    kk: Буэнос-Айрес
+    yue: 布宜諾斯艾利斯
+    my: ဗျူနိုအေးရိစ်မြို့
+    yo: Buenos Aires
+    zu: Buenos Aires
+    uz: Buenos Ayres
+    bs: Buenos Aires
+    mk: Буенос Аирес²
+    ha_NE: Buenos Aires
+    'no': Buenos Aires²
+    yo_BJ: Buenos Aires
+  type: city
+D:
+  name: San Luis
+  code: D
+  unofficial_names:
+  - San Luis
+  geo:
+    latitude: -33.3022202
+    longitude: -66.3367976
+    min_latitude: -33.3412384
+    min_longitude: -66.38436519999999
+    max_latitude: -33.2583568
+    max_longitude: -66.2345254
+  translations:
+    en: San Luis
+    ar: سان لويس
+    be: Правінцыя Сан-Луіс
+    bg: Сан Луис
+    bn: স্কোযান লুই প্রদেশ
+    ca: Província de San Luis
+    cs: San Luis
+    da: San Luis Province
+    de: Provinz San Luis
+    el: Σαν Λουίς
+    es: Provincia de San Luis
+    eu: San Luisko probintzia
+    fa: ایالت سان لوئیز
+    fi: San Luisin maakunta
+    fr: province de San Luis
+    gl: Provincia de San Luis
+    gu: સાન લુઈસ પ્રાંત
+    he: סן לואיס
+    hi: सैन लुई प्रान्त
+    id: Provinsi San Luis
+    it: provincia di San Luis
+    ja: サンルイス州
+    ka: სან-ლუისის პროვინცია
+    kn: ಸ್ಯಾನ್ ಲೂಯಿಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 산루이스 주
+    lt: San Luiso provincija
+    lv: Sanluisas province
+    mr: सान लुईस
+    ms: San Luis
+    nb: San Luis
+    nl: San Luis
+    pl: San Luis
+    pt: San Luis
+    ro: Provincia San Luis
+    ru: Сан-Луис
+    si: සැන් ලුවිස් පළාත
+    sk: San Luis
+    sr: Сан Луис
+    sv: San Luis
+    sw: Mkoa wa San Luis
+    ta: சான் லுயிஸ் மாகாணம்
+    te: సాన్ లూయీ ప్రావిన్స్
+    th: รัฐซานลุยส์
+    tk: San Luis
+    tr: San Luis eyaleti
+    uk: Сан-Луїс
+    ur: صوبہ سان لوئیس
+    vi: San Luis
+    ceb: Provincia de San Luis
+    sr_Latn: San Luis
+    zh: 圣路易省
+    jv: Provinsi San Luis
+    ccp: "𑄥𑄚𑄴 𑄣𑄪𑄃𑄨𑄌𑄴"
+    hy: Սան Լուիս
+    mk: Сан Луис
+    'no': San Luis
+    cy: Talaith San Luis
+    et: San Luisi provints
+    yue: 聖路易斯省
+    yue_Hans: 圣路易斯省
+  type: province
+E:
+  name: Entre Ríos
+  code: E
+  unofficial_names:
+  - Entre Ríos
+  geo:
+    latitude: -32.5175643
+    longitude: -59.1041758
+    min_latitude: -34.0391276
+    min_longitude: -60.7680611
+    max_latitude: -30.1576867
+    max_longitude: -57.80086299999999
+  translations:
+    en: Entre Ríos
+    ar: إنتري ريوس
+    be: правінцыя Энтрэ-Рыас
+    bg: Ентре Риос
+    bn: এন্ত্রে রিও প্রদেশ
+    ca: Entre Ríos
+    cs: Entre Ríos
+    da: Entre Ríos
+    de: Entre Ríos
+    el: Έντρε Ρίος
+    es: Provincia de Entre Ríos
+    eu: Entre Ríosko probintzia
+    fa: ایالت انتره ریوز
+    fi: Entre Ríosin maakunta
+    fr: province d’Entre Ríos
+    gl: Provincia de Entre Ríos
+    gu: એન્ટ્રે રિયોસ પ્રાંત
+    he: אנטרה ריוס
+    hi: एन्ट्रे रियोस
+    hu: Entre Ríos tartomány
+    id: Provinsi Entre Ríos
+    it: provincia di Entre Ríos
+    ja: エントレ・リオス州
+    ka: ენტრე-რიოსის პროვინცია
+    kn: ಎಂಟ್ರೆ ರೈಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 엔트레리오스 주
+    lt: Entre Rioso provincija
+    lv: Entreriosas province
+    mr: एंत्रे रियोस
+    ms: Wilayah Entre Ríos
+    nb: Entre Ríos
+    nl: Entre Ríos
+    pl: Entre Ríos
+    pt: Entre Ríos
+    ro: Provincia Entre Ríos
+    ru: Энтре-Риос
+    si: එන්ට්‍රි රයොස් පළාත
+    sk: Entre Ríos
+    sl: Entre Rios
+    sr: Ентре Риос
+    sv: Entre Ríos
+    sw: Mkoa wa Entre Ríos
+    ta: இன்றே ரியோஸ் மாகாணம்
+    te: ఎంట్రి రియోస్ ప్రావిన్స్
+    th: รัฐเอนเตรรีโอส
+    tk: Entre Rios
+    tr: Entre Ríos eyaleti
+    uk: Ентре-Ріос
+    ur: صوبہ انترے ریوس
+    vi: Entre Ríos
+    cy: Entre Ríos
+    ceb: Provincia de Entre Ríos
+    sr_Latn: Entre Rios
+    zh: 恩特雷里奥斯省
+    ccp: "𑄃𑄬𑄚𑄴𑄑𑄳𑄢𑄨 𑄢𑄨𑄠𑄮𑄌𑄴"
+    hy: Էնտրե Ռիոս
+    az: Entre-Rios
+    mk: Ентре Риос
+    'no': Entre Ríos
+    yue: 恩特里利奧斯省
+    yue_Hans: 恩特里利奥斯省
+  type: province
+F:
+  name: La Rioja
+  code: F
+  unofficial_names:
+  - La Rioja
+  geo:
+    latitude: -29.4128001
+    longitude: -66.8559803
+    min_latitude: -29.4568857
+    min_longitude: -66.9253657
+    max_latitude: -29.3799026
+    max_longitude: -66.7890698
+  translations:
+    en: La Rioja
+    ar: لا ريوخا
+    be: Правінцыя Ла-Рыёха, Аргенціна
+    bg: Ла Риоха
+    bn: লা রিওজা প্রদেশ
+    ca: Província de La Rioja
+    cs: La Rioja
+    da: Provincia de La Rioja
+    de: Provinz La Rioja
+    el: Λα Ριότζα
+    es: Provincia de La Rioja
+    eu: La Riojako probintzia
+    fa: ایالت لاریوخا، آرژانتین
+    fi: La Riojan maakunta
+    fr: province de La Rioja
+    gl: Provincia de La Rioja
+    gu: લા રિયોજા પ્રાંત
+    he: לה ריוחה
+    hi: ला रियोजा
+    hr: La Rioja
+    hy: Լա Ռիոխա
+    id: Provinsi La Rioja
+    it: provincia di La Rioja
+    ja: ラ・リオハ州
+    ka: ლა-რიოხის პროვინცია
+    kn: ಲಾ ರಿಜಜ ಪ್ರಾಂತ್ಯ
+    ko: 라리오하 주
+    lt: La Riochos provincija
+    lv: Larjohas province
+    mr: ला रियोजा प्रांत
+    ms: La Rioja Province
+    nb: La Rioja
+    nl: La Rioja
+    pl: La Rioja
+    pt: Rioja
+    ro: Provincia La Rioja
+    ru: Ла-Риоха
+    si: ලා රියෝජා පළාත
+    sk: La Rioja
+    sr: Риоха
+    sv: La Rioja
+    sw: Mkoa wa La Rioja
+    ta: லா ரியோஜ மாகாணம்
+    te: లా రియోజా ప్రావిన్స్
+    th: รัฐลารีโอคา
+    tk: La Rioha
+    tr: La Rioja Eyaleti
+    uk: Ла-Ріоха
+    ur: لا ریوجا صوبہ، ارجنٹین
+    vi: La Rioja
+    ceb: Provincia de La Rioja (lalawigan)
+    sr_Latn: Rioha
+    zh: 拉里奥哈省
+    ccp: "𑄣 𑄢𑄨𑄃𑄮𑄎"
+    mk: Ла Риоха
+    'no': La Rioja
+    cy: Talaith La Rioja
+    yue: 拉里奧哈省
+    yue_Hans: 拉里奥哈省
+  type: province
+G:
+  name: Santiago del Estero
+  code: G
+  unofficial_names:
+  - Santiago del Estero
+  geo:
+    latitude: -27.78442
+    longitude: -64.26728059999999
+    min_latitude: -27.8551652
+    min_longitude: -64.3114394
+    max_latitude: -27.7426275
+    max_longitude: -64.2216859
+  translations:
+    en: Santiago del Estero
+    ar: محافظة سانتياغو ديل استيرو
+    bg: Сантяго дел Естеро
+    bn: স্যান্টিয়াগো ডেল এস্তেরো প্রদেশ
+    ca: Província de Santiago del Estero
+    cs: Santiago del Estero
+    da: Provincia de Santiago del Estero
+    de: Santiago del Estero (Provinz)
+    el: Σαντιάγκο ντελ Εστέρο
+    es: Provincia de Santiago del Estero
+    eu: Santiago del Esteroko probintzia
+    fa: ایالت سانتیاگو دل استرو
+    fi: Santiago del Esteron maakunta
+    fr: Santiago del Estero
+    gl: Provincia de Santiago del Estero
+    gu: સૅંટિયાગો ડેલ ઍસ્ટરો પ્રાંત
+    he: סנטיאגו דל אסטרו
+    hi: सैन्टियागो डेल एस्त्रो प्रान्त
+    id: Provinsi Santiago del Estero
+    it: provincia di Santiago del Estero
+    ja: サンティアゴ・デル・エステロ州
+    ka: სანტიაგო-დელ-ესტეროს პროვინცია
+    kn: ಸ್ಯಾಂಟಿಯಾಗೊ ಡೆಲ್ ಎಸ್ಟರೋ ಪ್ರಾಂತ್ಯ
+    ko: 산티아고델에스테로 주
+    lt: Santjago del Estero provincija
+    lv: Santjado del Estero province
+    mn: Сантьяго-дель-Эстеро муж
+    mr: सांतियागो देल एस्तेरो
+    ms: Wilayah Santiago del Estero
+    nb: Santiago del Estero
+    nl: Santiago del Estero
+    pl: Santiago del Estero
+    pt: Santiago del Estero
+    ro: Provincia Santiago del Estero
+    ru: Сантьяго-дель-Эстеро
+    si: සැන්ටියාගෝ ඩෙල් එස්ටෙරෝ පළාත
+    sk: Santiago del Estero
+    sr: Сантијаго дел Естеро
+    sv: Santiago del Estero
+    sw: Mkoa wa Santiago del Estero
+    ta: சாண்டியாகோ டேல் எஸ்டெரோ மாகாணம்
+    te: సాంటియాగో డెల్ ఎస్టెరో ప్రావిన్స్
+    th: รัฐซานเตียโกเดลเอสเตโร
+    tk: Santýago del Estero
+    tr: Santiago del Estero eyaleti
+    uk: Сантьяго-дель-Естеро
+    ur: صوبہ سانتیاگو دل استرو
+    vi: Santiago del Estero
+    cy: Talaith Santiago del Estero
+    ceb: Provincia de Santiago del Estero
+    sr_Latn: Santijago del Estero
+    zh: 圣地亚哥－德尔埃斯特罗省
+    ccp: "𑄥𑄚𑄴𑄑𑄨𑄠𑄉𑄮 𑄓𑄬𑄣𑄴 𑄃𑄬𑄌𑄴𑄑𑄢𑄮"
+    mk: Сантјаго дел Естеро
+    'no': Santiago del Estero
+    yue: 聖地牙哥－德艾斯特羅省
+    yue_Hans: 圣地牙哥－德艾斯特罗省
+  type: province
+H:
+  name: Chaco
+  code: H
+  unofficial_names:
+  - Chaco
+  geo:
+    latitude: -26.5857656
+    longitude: -60.9540073
+    min_latitude: -27.9955354
+    min_longitude: -63.42735869999999
+    max_latitude: -24.087868
+    max_longitude: -58.36362680000001
+  translations:
+    en: Chaco
+    ar: شاكو
+    be: Правінцыя Чака
+    bg: Чако
+    bn: ক্যাকো প্রদেশ
+    ca: Província del Chaco
+    cs: Chaco
+    da: Chaco
+    de: Provinz Chaco
+    el: Τσάκο
+    es: Provincia del Chaco
+    et: Chaco provints
+    eu: Chacoko probintzia
+    fa: ایالت چاکو
+    fi: Chacon maakunta
+    fr: province du Chaco
+    gl: Provincia do Chaco
+    gu: ચાકો પ્રાંત
+    he: צ׳אקו
+    hi: चाको
+    hu: Chaco tartomány
+    hy: Չակո
+    id: Provinsi Chaco
+    it: provincia del Chaco
+    ja: チャコ州
+    ka: ჩაკოს პროვინცია
+    kn: ಚಾಕೋ ಪ್ರಾಂತ್ಯ
+    ko: 차코 주
+    lt: Čiako provincija
+    lv: Čako province
+    mr: चाको
+    ms: Wilayah Chaco
+    nb: Chaco
+    ne: चाको क्षेत्र
+    nl: Chaco
+    pl: Chaco
+    pt: Chaco
+    ro: Provincia Chaco
+    ru: Чако
+    si: චකෝ පළාත
+    sk: Chaco
+    sl: Chaco
+    sr: Чако
+    sv: Chaco
+    sw: Mkoa wa Chaco
+    ta: சாகோ மாகாணம்
+    te: చాకో ప్రావిన్స్
+    th: รัฐชาโก
+    tk: Çako
+    tr: Chaco eyaleti
+    uk: Чако
+    ur: صوبہ چاکو
+    vi: Chaco
+    cy: Talaith Chaco
+    ceb: Provincia del Chaco
+    sr_Latn: Čako
+    zh: 查科省
+    yue_Hans: 查哥省
+    ccp: "𑄍𑄇𑄮"
+    yue: 查哥省
+    mk: Чако
+    'no': Chaco
+  type: province
+J:
+  name: San Juan
+  code: J
+  unofficial_names:
+  - San Juan
+  geo:
+    latitude: -31.5272732
+    longitude: -68.5214081
+    min_latitude: -31.6017076
+    min_longitude: -68.644147
+    max_latitude: -31.4894698
+    max_longitude: -68.4631344
+  translations:
+    en: San Juan
+    ar: سان خوان
+    be: Правінцыя Сан-Хуан
+    bg: Сан Хуан
+    bn: সান জুয়ান প্রদেশ
+    ca: Província de San Juan
+    cs: San Juan
+    da: San Juan Province
+    de: Provinz San Juan
+    el: Σαν Χουάν
+    es: Provincia de San Juan
+    eu: San Juango probintzia
+    fa: ایالت سن خوآن
+    fi: San Juanin maakunta
+    fr: province de San Juan
+    gl: Provincia de San Juan
+    gu: સેન જુઆન પ્રાંત
+    he: סן חואן
+    hi: सैन जुआन प्रान्त
+    id: Provinsi San Juan, Argentina
+    it: provincia di San Juan
+    ja: サンフアン州
+    ka: სან-ხუანის პროვინცია
+    kn: ಸ್ಯಾನ್ ಜುವಾನ್ ಪ್ರಾಂತ್ಯ
+    ko: 산후안 주
+    lt: San Chuano provincija
+    lv: Sanhuanas province
+    mr: सान हुआन प्रांत
+    ms: Wilayah San Juan
+    nb: San Juan
+    nl: San Juan
+    pl: San Juan
+    pt: San Juan
+    ro: Provincia San Juan
+    ru: Сан-Хуан
+    si: සැන් ජුවාන් පළාත
+    sk: San Juan
+    sr: Сан Хуан
+    sv: San Juan
+    sw: Mkoa wa San Juan
+    ta: சான் ஜுவான் மாகாணம்
+    te: సాన్ జువాన్ ప్రావిన్స్
+    th: รัฐซานควน
+    tk: San Huan
+    tr: San Juan eyaleti
+    uk: Сан-Хуан
+    ur: صوبہ سان خوآن، ارجنٹائن
+    vi: San Juan
+    cy: Talaith San Juan
+    ceb: Provincia de San Juan
+    sr_Latn: San Huan
+    zh: 圣胡安省
+    ccp: "𑄥𑄚𑄴 𑄎𑄪𑄠𑄚𑄴"
+    hu: San Juan tartomány
+    mk: Сан Хуан
+    'no': San Juan
+    hy: Սան Խուան
+    yue: 聖環省 (阿根廷)
+    yue_Hans: 圣环省 (阿根廷)
+  type: province
+K:
+  name: Catamarca
+  code: K
+  unofficial_names:
+  - Catamarca
+  geo:
+    latitude: -28.4689906
+    longitude: -65.77897159999999
+    min_latitude: -28.5101532
+    min_longitude: -65.8248732
+    max_latitude: -28.4203217
+    max_longitude: -65.7289342
+  translations:
+    en: Catamarca
+    ar: كاتاماركا
+    be: Правінцыя Катамарка
+    bg: Катамарка
+    bn: কাতামারকা প্রদেশ
+    ca: Catamarca
+    cs: Catamarca
+    da: Catamarca
+    de: Provinz Catamarca
+    el: Καταμάρκα
+    es: Catamarca
+    et: Catamarca provints
+    eu: Catamarcako probintzia
+    fa: ایالت کاتامارکا
+    fi: Catamarcan maakunta
+    fr: province de Catamarca
+    gl: Provincia de Catamarca
+    gu: કાટામાર્કા પ્રાંત
+    he: קטמרקה
+    hi: कैटमार्का
+    hu: Catamarca tartomány
+    id: Provinsi Catamarca
+    it: provincia di Catamarca
+    ja: カタマルカ州
+    ka: კატამარკის პროვინცია
+    kn: ಕ್ಯಾಟಮಾರ್ಕಾ ಪ್ರಾಂತ್ಯ
+    ko: 카타마르카 주
+    lt: Katamarkos provincija
+    lv: Katamarkas province
+    mr: कातामार्का
+    ms: Wilayah Catamarca
+    nb: Catamarca
+    nl: Catamarca
+    pl: Catamarca
+    pt: Catamarca
+    ro: Provincia Catamarca
+    ru: Катамарка
+    si: කටමර්සා පළාත
+    sk: Catamarca
+    sr: Катамарка
+    sv: Catamarca
+    sw: Mkoa wa Catamarca
+    ta: காட்மார்க்கா மாகாணம்
+    te: కాటమార్సా ప్రావిన్స్
+    th: รัฐกาตามาร์กา
+    tk: Katamarka
+    tr: Catamarca eyaleti
+    uk: Катамарка
+    ur: صوبہ کاتامارکا
+    vi: Catamarca
+    cy: Talaith Catamarca
+    ceb: Provincia de Catamarca
+    sr_Latn: Katamarka
+    zh: 卡塔马卡省
+    yue_Hans: 卡塔马卡省
+    ccp: "𑄇𑄳𑄠𑄑𑄟𑄢𑄴𑄇"
+    hy: Կատամարկա
+    yue: 卡塔馬卡省
+    bs: Catamarca
+    mk: Катамарка
+    'no': Catamarca
+  type: province
+L:
+  name: La Pampa
+  code: L
+  unofficial_names:
+  - Pampa
+  geo:
+    latitude: -37.8956594
+    longitude: -65.0957792
+    min_latitude: -39.3161456
+    min_longitude: -68.29545
+    max_latitude: -34.9923158
+    max_longitude: -63.38682430000001
+  translations:
+    en: La Pampa
+    ar: لا بامبا
+    be: Правінцыя Ла-Пампа
+    bg: Ла Пампа
+    bn: লা পাম্পা প্রদেশ
+    ca: La Pampa
+    cs: La Pampa
+    da: La Pampa
+    de: Provinz La Pampa
+    el: Λα Πάμπα
+    es: Provincia de La Pampa
+    eu: La Pampako probintzia
+    fa: ایالت لا پامپا
+    fi: La Pampan maakunta
+    fr: province de La Pampa
+    gl: Provincia de La Pampa
+    gu: લા પામ્પા પ્રાંત
+    he: לה פמפה
+    hi: ला पम्पा
+    id: Provinsi La Pampa
+    it: provincia di La Pampa
+    ja: ラ・パンパ州
+    ka: ლა-პამპის პროვინცია
+    kn: ಲಾ ಪಂಪ ಪ್ರಾಂತ್ಯ
+    ko: 라팜파 주
+    lt: La Pampos provincija
+    lv: Lapampas province
+    mr: ला पांपा
+    ms: Wilayah La Pampa
+    nb: La Pampa
+    nl: La Pampa
+    pl: La Pampa
+    pt: La Pampa
+    ro: Provincia La Pampa
+    ru: Ла-Пампа
+    si: ලා පම්පා පළාත
+    sk: La Pampa
+    sr: Пампа
+    sv: La Pampa
+    sw: Mkoa wa La Pampa
+    ta: லா பம்பா மாகாணம்
+    te: లా పాంపా ప్రావిన్స్
+    th: รัฐลาปัมปา
+    tk: La Pampa
+    tr: La Pampa eyaleti
+    uk: Ла-Пампа
+    ur: لا پامپا صوبہ
+    vi: La Pampa
+    cy: La Pampa
+    ceb: Provincia de La Pampa
+    sr_Latn: Pampa
+    zh: 拉潘帕省
+    ccp: "𑄣 𑄛𑄟𑄴𑄛"
+    mk: Ла Пампа
+    'no': La Pampa
+    yue: 拉班帕省
+    yue_Hans: 拉班帕省
+  type: province
+M:
+  name: Mendoza
+  code: M
+  unofficial_names:
+  - Mendoza
+  geo:
+    latitude: -32.890183
+    longitude: -68.8440498
+    min_latitude: -33.0437567
+    min_longitude: -68.900637
+    max_latitude: -32.8091398
+    max_longitude: -68.7269211
+  translations:
+    en: Mendoza
+    ar: مندوسا
+    be: правінцыя Мендоса
+    bg: Мендоса
+    bn: মেন্ডোজা প্রদেশ
+    ca: Província de Mendoza
+    cs: Mendoza
+    da: Mendoza
+    de: Provinz Mendoza
+    el: Μεντόζα
+    es: Provincia de Mendoza
+    eu: Mendozako probintzia
+    fa: ایالت مندوزا
+    fi: Mendozan maakunta
+    fr: province de Mendoza
+    gl: Provincia de Mendoza
+    gu: મેન્ડોઝા પ્રાંત
+    he: מנדוסה
+    hi: मेन्दोज़ा प्रान्त
+    hr: Mendoza
+    hu: Mendoza tartomány
+    id: Provinsi Mendoza
+    it: provincia di Mendoza
+    ja: メンドーサ州
+    ka: მენდოსის პროვინცია
+    kn: ಮೆಂಡೋಜ ಪ್ರಾಂತ್ಯ
+    ko: 멘도사 주
+    lt: Mendosos provincija
+    lv: Mendosas province
+    mr: मेन्दोसा
+    ms: Wilayah Mendoza
+    nb: Mendoza
+    nl: Mendoza
+    pl: Mendoza
+    pt: Mendoza (província)
+    ro: Provincia Mendoza
+    ru: Мендоса
+    si: මෙන්ඩෝසා පලාත
+    sk: Mendoza
+    sl: Mendoza
+    sr: Мендоза
+    sv: Mendoza
+    sw: Mkoa wa Mendoza
+    ta: மென்டோஜா மாகாணம்
+    te: మెండోజా ప్రావిన్స్
+    th: รัฐเมนโดซา
+    tk: Mendoza
+    tr: Mendoza eyaleti
+    uk: Мендоса
+    ur: صوبہ مندوسا
+    vi: Mendoza
+    cy: Talaith Mendoza
+    ceb: Provincia de Mendoza
+    sr_Latn: Mendoza
+    zh: 门多萨省
+    yue_Hans: 曼度莎省
+    jv: Provinsi Mendoza
+    ccp: "𑄟𑄬𑄚𑄴𑄘𑄮𑄎"
+    yue: 曼度莎省
+    mk: Мендоза
+    'no': Mendoza
+    hy: Մենդոսա
+  type: province
+N:
+  name: Misiones
+  code: N
+  unofficial_names:
+  - Misiones
+  geo:
+    latitude: -26.9377146
+    longitude: -54.4342138
+    min_latitude: -28.1633594
+    min_longitude: -56.0595043
+    max_latitude: -25.4954899
+    max_longitude: -53.6385579
+  translations:
+    en: Misiones
+    ar: ميسيونس
+    be: правінцыя Місьёнес
+    bg: Мисионес
+    bn: মিশনেস প্রদেশ
+    ca: Província de Misiones
+    cs: Misiones
+    da: Provincia de Misiones
+    de: Misiones
+    el: Μισιόνες
+    es: Provincia de Misiones
+    eu: Misionesko probintzia
+    fa: ایالت میسیونز
+    fi: Misionesin maakunta
+    fr: province de Misiones
+    gl: Misiones, Arxentina
+    gu: મિસીયોનેસ પ્રાંત
+    he: מיסיונס
+    hi: मिसियोनेस
+    id: Provinsi Misiones
+    it: provincia di Misiones
+    ja: ミシオネス州
+    ka: მისიონესის პროვინცია
+    kn: ಮಿಷೆನ್ಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 미시오네스 주
+    lt: Misioneso provincija
+    lv: Misjonesas province
+    mr: मिस्योनेस
+    ms: Wilayah Misiones
+    nb: Misiones
+    nl: Misiones
+    pl: Misiones
+    pt: Misiones
+    ro: Provincia Misiones
+    ru: Мисьонес
+    si: මිසියෝන්ස් පළාත
+    sk: Misiones
+    sr: Мисионес
+    sv: Misiones
+    sw: Mkoa wa Misiones
+    ta: மிசியோன்ஸ் மாகாணம்
+    te: మిసియోనెస్ ప్రావిన్స్
+    th: รัฐมีซีโอเนส
+    tk: Misiones
+    tr: Misiones eyaleti
+    uk: Місьйонес
+    ur: صوبہ میسیونس
+    vi: Misiones
+    cy: Talaith Misiones
+    ceb: Provincia de Misiones
+    sr_Latn: Misiones
+    zh: 米西奧內斯省
+    ccp: "𑄟𑄭𑄥𑄨𑄠𑄮𑄚𑄨𑄌𑄴"
+    hy: Միսիոնես
+    hu: Misiones tartomány
+    mk: Мисионес
+    'no': Misiones
+    yue: 美斯奧尼斯省 (阿根廷)
+    yue_Hans: 美斯奥尼斯省 (阿根廷)
+  type: province
+P:
+  name: Formosa
+  code: P
+  unofficial_names:
+  - Formosa
+  geo:
+    latitude: -26.185201
+    longitude: -58.1753697
+    min_latitude: -26.2202789
+    min_longitude: -58.24794379999999
+    max_latitude: -26.124033
+    max_longitude: -58.1419959
+  translations:
+    en: Formosa
+    ar: فورموسا
+    be: Правінцыя Фармоса
+    bg: Формоса
+    bn: ফারমোসা প্রদেশ
+    ca: Província de Formosa
+    cs: Formosa
+    da: Provincia de Formosa
+    de: Provinz Formosa
+    el: Φορμόσα
+    es: Provincia de Formosa
+    eu: Formosako probintzia
+    fa: ایالت فرموزا
+    fi: Formosan maakunta
+    fr: province de Formosa
+    gl: Provincia de Formosa
+    gu: ફોર્મોસા પ્રાંત
+    he: פורמוסה
+    hi: फ़ॉरमोसा प्रान्त
+    hu: Formosa tartomány
+    id: Provinsi Formosa
+    it: provincia di Formosa
+    ja: フォルモサ州
+    ka: ფორმოსის პროვინცია
+    kn: ಫಾರ್ಮಾಸಾ ಪ್ರಾಂತ್ಯ
+    ko: 포르모사 주
+    lt: Formosos provincija
+    lv: Formosas province
+    mr: फोर्मोसा
+    ms: Wilayah Formosa
+    nb: Formosa
+    nl: Formosa
+    pl: Formosa
+    pt: Formosa
+    ro: Provincia Formosa
+    ru: Формоса
+    si: ෆෝමෝසා පළාත
+    sk: Formosa
+    sr: Формоса
+    sv: Formosa
+    sw: Mkoa wa Formosa
+    ta: போர்மொஸா மாகாணம்
+    te: ఫోర్మోసా ప్రావిన్స్
+    th: รัฐฟอร์โมซา
+    tk: Formosa
+    tr: Formosa eyaleti
+    uk: Формоса
+    ur: صوبہ فورموسا
+    vi: Formosa
+    cy: Talaith Formosa
+    ceb: Provincia de Formosa
+    sr_Latn: Formosa
+    zh: 福爾摩沙省
+    ccp: "𑄜𑄧𑄢𑄴𑄟𑄧𑄥"
+    mk: Формоза
+    'no': Formosa
+    yue: 福爾摩沙省
+    yue_Hans: 福尔摩沙省
+  type: province
+Q:
+  name: Neuquén
+  code: Q
+  unofficial_names:
+  - Neuquén
+  geo:
+    latitude: -38.9524444
+    longitude: -68.0641389
+    min_latitude: -38.986537
+    min_longitude: -68.1929919
+    max_latitude: -38.893459
+    max_longitude: -68.0147382
+  translations:
+    en: Neuquén
+    ar: نيوكوين
+    be: Правінцыя Неўкен
+    bg: Неукен
+    bn: নিউকুয়েন প্রদেশ
+    ca: Província del Neuquén
+    cs: Neuquén
+    da: Provincia de Neuquén
+    de: Provinz Neuquén
+    el: Επαρχία του Νεουκέν
+    es: Provincia de Neuquén
+    eu: Neuquengo probintzia
+    fa: ایالت نئوکن
+    fi: Neuquénin maakunta
+    fr: province de Neuquén
+    gl: Provincia de Neuquén
+    gu: નેઉક્વેન પ્રાંત
+    he: נאוקן
+    hi: न्यूक्वीन प्रान्त
+    hr: Neuquén
+    hu: Neuquén tartomány
+    hy: Նեուկեն
+    id: Provinsi Neuquén
+    it: provincia di Neuquén
+    ja: ネウケン州
+    ka: ნეუკენის პროვინცია
+    kn: ನ್ಯೂಕ್ವೆನ್ ಪ್ರಾಂತ್ಯ
+    ko: 네우켄 주
+    lt: Neukeno provincija
+    lv: Neukenas province
+    mr: नेउकेन
+    ms: Wilayah Neuquén
+    nb: Neuquén
+    nl: Neuquén
+    pl: Neuquén
+    pt: Neuquén
+    ro: Provincia Neuquén
+    ru: Неукен
+    si: නියුකුඑන් පළාත
+    sk: Neuquén
+    sr: Неукен
+    sv: Neuquén
+    sw: Mkoa wa Neuquén
+    ta: னேஉயூன் மாகாணம்
+    te: న్యూక్వెన్ ప్రావిన్స్
+    th: รัฐเนวเกน
+    tk: Neuken
+    tr: Neuquén eyaleti
+    uk: Неукен
+    ur: صوبہ نیوکوین
+    vi: Neuquén
+    cy: Talaith Neuquén
+    ceb: Provincia del Neuquén
+    sr_Latn: Neuken
+    zh: 内乌肯省
+    yue_Hans: 纽昆省
+    ccp: "𑄚𑄨𑄅𑄪𑄇𑄪𑄠𑄬𑄚𑄴"
+    yue: 紐昆省
+    mk: Неуквен
+    'no': Neuquén
+  type: province
+R:
+  name: Río Negro
+  code: R
+  unofficial_names:
+  - Río Negro
+  geo:
+    latitude: -40.7344343
+    longitude: -66.6176455
+    min_latitude: -42.0024984
+    min_longitude: -71.902908
+    max_latitude: -37.5729141
+    max_longitude: -62.79108240000001
+  translations:
+    en: Río Negro
+    ar: ريو نيغرو
+    be: Правінцыя Рыа-Негра
+    bg: Рио Негро
+    bn: রিও নিগ্রো প্রদেশ
+    ca: Província de Río Negro
+    cs: Río Negro
+    da: Río Negro
+    de: Provinz Río Negro
+    el: Επαρχία Ρίο Νέγκρο
+    es: Provincia de Río Negro
+    eu: Río Negroko probintzia
+    fa: ایالت ریو نگرو
+    fi: Río Negron maakunta
+    fr: province de Río Negro
+    gl: Provincia de Río Negro
+    gu: રીયો નેગ્રો પ્રાંત
+    he: ריו נגרו
+    hi: रियो नेग्रो
+    hu: Río Negro tartomány
+    id: Provinsi Río Negro
+    it: provincia di Río Negro
+    ja: リオネグロ州
+    ka: რიო-ნეგროს პროვინცია
+    kn: ರಿಯೊ ನೆಗ್ರೋ ಪ್ರಾಂತ್ಯ
+    ko: 리오네그로 주
+    lt: Rio Negro provincija
+    lv: Rionegro province
+    mr: रियो नेग्रो
+    ms: Wilayah Río Negro
+    nb: Río Negro
+    nl: Río Negro
+    pl: Río Negro
+    pt: Río Negro
+    ro: Provincia Río Negro
+    ru: Рио-Негро
+    si: රියෝ නෙග්රෝ පළාත
+    sk: Río Negro
+    sr: Рио Негро
+    sv: Río Negro
+    sw: Mkoa wa Río Negro
+    ta: ரியோ நெகிறோ மாகாணம்
+    te: రియో నెగ్రో ప్రావిన్స్
+    th: รัฐรีโอเนโกร
+    tk: Rio Negro
+    tr: Río Negro eyaleti
+    uk: Ріо-Неґро
+    ur: صوبہ ریو نیگرو
+    vi: Río Negro
+    cy: Río Negro
+    ceb: Provincia de Río Negro
+    sr_Latn: Rio Negro
+    zh: 内格罗河省
+    ccp: "𑄢𑄨𑄃𑄮 𑄚𑄬𑄉𑄳𑄢𑄧𑄮"
+    hy: Ռիո Նեգրո պրովինցիա
+    mk: Рио Негро
+    'no': Río Negro
+    yue: 尼格路河省 (阿根廷)
+    yue_Hans: 尼格路河省 (阿根廷)
+  type: province
+S:
+  name: Santa Fe
+  code: S
+  unofficial_names:
+  - Santa Fe
+  geo:
+    latitude: -31.6323891
+    longitude: -60.6994591
+    min_latitude: -31.6730042
+    min_longitude: -60.73878
+    max_latitude: -31.5685461
+    max_longitude: -60.66380530000001
+  translations:
+    en: Santa Fe
+    ar: سانتا في
+    be: правінцыя Санта-Фэ
+    bg: Санта Фе
+    bn: সয়া স্যান্টা ফে প্রদেশ
+    ca: Província de Santa Fe
+    cs: Santa Fé
+    da: Santa Fe
+    de: Provinz Santa Fe
+    el: Σάντα Φε (επαρχία)
+    es: Provincia de Santa Fe
+    eu: Santa Feko probintzia
+    fa: ایالت سانتا فه
+    fi: Santa Fen maakunta
+    fr: province de Santa Fe
+    gl: Provincia de Santa Fe
+    gu: સાંતા ફે પ્રાંત
+    he: סנטה פה
+    hi: सैन्टा फै प्रान्त
+    id: Provinsi Santa Fe
+    it: provincia di Santa Fe
+    ja: サンタフェ州
+    ka: სანტა-ფეს პროვინცია
+    kn: ಸಾಂತಾ ಫೆ ಪ್ರಾಂತ್ಯ
+    ko: 산타페 주
+    lt: Santa Fė provincija
+    lv: Santafē province
+    mr: सांता फे
+    ms: Wilayah Santa Fe
+    nb: Santa Fe
+    nl: Santa Fe
+    pl: Santa Fe
+    pt: Santa Fé
+    ro: Provincia Santa Fe
+    ru: Санта-Фе
+    si: සැන්ටා ෆෙ පළාත
+    sk: Santa Fe
+    sr: Санта Фе
+    sv: Santa Fe
+    sw: Mkoa wa Santa Fe
+    ta: சாண்டா பி மாகாணம்
+    te: సాంటా ఫె ప్రావిన్స్
+    th: รัฐซานตาเฟ
+    tk: Santa Fe
+    tr: Santa Fe eyaleti
+    uk: Санта-Фе
+    ur: صوبہ سانتا فے
+    vi: Santa Fe
+    cy: Talaith Santa Fe
+    ceb: Provincia de Santa Fe
+    sr_Latn: Santa Fe
+    zh: 聖大非省
+    ccp: "𑄥𑄚𑄴𑄑 𑄜𑄬"
+    hy: Սանտա Ֆե նահանգ
+    bs: Santa Fe
+    mk: Санта Фе
+    'no': Santa Fe
+    az: Sante Fe əyaləti
+    yue: 聖大非省
+    yue_Hans: 圣大非省
+  type: province
+T:
+  name: Tucumán
+  code: T
+  unofficial_names:
+  - Tucumán
+  geo:
+    latitude: -26.8082848
+    longitude: -65.2175903
+    min_latitude: -26.8935681
+    min_longitude: -65.3363281
+    max_latitude: -26.7636021
+    max_longitude: -65.16676939999999
+  translations:
+    en: Tucumán
+    ar: توكومان
+    be: правінцыя Тукуман
+    bg: Тукуман
+    bn: তুকুম্যান প্রদেশ
+    ca: Tucumán
+    cs: Tucumán
+    da: Provincia de Tucumán
+    de: Provinz Tucumán
+    el: Τουκουμάν
+    es: Provincia de Tucumán
+    eu: Tucumángo probintzia
+    fa: ایالت توکومان
+    fi: Tucumánin maakunta
+    fr: province de Tucumán
+    gl: Provincia de Tucumán
+    gu: તુકુમાન પ્રાંત
+    he: טוקומאן
+    hi: टुकुमेन
+    id: Provinsi Tucumán
+    it: provincia di Tucumán
+    ja: トゥクマン州
+    ka: ტუკუმანის პროვინცია
+    kn: ಟುಕುಮಾನ್ ಪ್ರಾಂತ್ಯ
+    ko: 투쿠만 주
+    lt: Tukumano provincija
+    lv: Tukumanas province
+    mr: तुकुमान
+    ms: Wilayah Tucumán
+    nb: Tucumán
+    nl: Tucumán
+    pl: Tucumán
+    pt: Tucumán
+    ro: Provincia Tucumán
+    ru: Тукуман
+    si: ටුකුමාන් පළාත
+    sk: Tucumán
+    sl: Provinca Tucumán
+    sr: Тукуман
+    sv: Tucumán
+    sw: Mkoa wa Tucumán
+    ta: டுக்குமன் மாகாணம்
+    te: టూకుమన్ ప్రావిన్స్
+    th: รัฐตูกูมัน
+    tk: Tukuman
+    tr: Tucumán eyaleti
+    uk: Тукуман
+    ur: صوبہ توکومان
+    vi: Tucumán
+    ceb: Provincia de Tucumán
+    sr_Latn: Tukuman
+    zh: 图库曼省
+    ccp: "𑄑𑄇𑄨𑄅𑄪𑄟𑄳𑄠𑄚𑄴"
+    mk: Тукуман
+    'no': Tucumán
+    cy: Talaith Tucumán
+    hy: Տուկուման
+    yue: 圖古曼省
+    yue_Hans: 图古曼省
+  type: province
+U:
+  name: Chubut
+  code: U
+  unofficial_names:
+  - Chubut
+  geo:
+    latitude: -43.6846192
+    longitude: -69.2745537
+    min_latitude: -46.0022302
+    min_longitude: -72.1973387
+    max_latitude: -32.9517763
+    max_longitude: -58.0880073
+  translations:
+    en: Chubut
+    af: Chubut
+    ar: تشوبوت
+    be: Правінцыя Чубут
+    bg: Чубут
+    bn: চুবুট প্রদেশ
+    ca: Chubut
+    cs: Chubut
+    da: Chubut
+    de: Provinz Chubut
+    el: Επαρχία του Τσουμπούτ
+    es: Provincia del Chubut
+    eu: Chubuteko probintzia
+    fa: ایالت چوبوت
+    fi: Chubutin maakunta
+    fr: province de Chubut
+    gl: Provincia de Chubut
+    gu: ચુબુટ પ્રાંત
+    he: צ׳ובוט
+    hi: चुबुट
+    hu: Chubut tartomány
+    hy: Չուբուտ
+    id: Provinsi Chubut
+    is: Chubut-fylki
+    it: provincia di Chubut
+    ja: チュブ州
+    ka: ჩუბუტის პროვინცია
+    kn: ಚುಬುಟ್ ಪ್ರಾಂತ್ಯ
+    ko: 추부트 주
+    lt: Čiubuto provincija
+    lv: Čubutas province
+    mr: चुबुत
+    ms: Wilayah Chubut
+    nb: Chubut
+    nl: Chubut
+    pl: Chubut
+    pt: Chubut
+    ro: Provincia Chubut
+    ru: Чубут
+    si: චුබුට් පළාත
+    sk: Chubut
+    sl: Chubut
+    sr: Чубут
+    sv: Chubut
+    sw: Mkoa wa Chubut
+    ta: சுபுட் மாகாணம்
+    te: ఛుబుట్ ప్రావిన్స్
+    th: รัฐชูบุต
+    tk: Çubut
+    tr: Chubut eyaleti
+    uk: Чубут
+    ur: صوبہ چوبوت
+    vi: Chubut
+    cy: Talaith Chubut
+    ceb: Provincia del Chubut
+    sr_Latn: Čubut
+    zh: 丘布特省
+    yue_Hans: 朱拔省
+    ccp: "𑄌𑄪𑄝𑄖𑄴"
+    yue: 朱拔省
+    mk: Чубут
+    'no': Chubut
+    et: Chubuti provints
+  type: province
+V:
+  name: Tierra del Fuego
+  code: V
+  unofficial_names:
+  - Tierra del Fuego
+  geo:
+    latitude: -54.3083548
+    longitude: -67.7451565
+    min_latitude: -55.05719070000001
+    min_longitude: -68.611864
+    max_latitude: -52.658766
+    max_longitude: -64.11057989999999
+  translations:
+    en: Tierra del Fuego
+    ar: محافظة تييرا ديل فويغو
+    be: Вогненная Зямля, Антарктыда і астравы Паўднёвай Атлантыкі
+    bg: Огнена земя
+    bn: টিয়েরা দেল ফুয়েগোঁ
+    ca: Terra del Foc, Antàrtida i Illes de l’Atlàntic Sud
+    cs: Tierra del Fuego
+    da: Tierra del Fuego Province
+    de: Provinz Tierra del Fuego
+    el: Τιέρα ντελ Φουέγκο
+    es: Provincia de Tierra del Fuego, Antártida e islas del Atlántico Sur
+    et: Tulemaa provints
+    eu: Suaren Lurraldea, Antartika eta Hego Atlantikoko Uharteak
+    fa: ایالت تیرا دل فوئگو
+    fi: Tulimaan, Etelämantereen ja Etelä-Atlantin saarten provinssi
+    fr: Terre de Feu, Antarctique et Îles de l’Atlantique Sud
+    gl: Terra do Fogo
+    gu: ટિએરા ડેલ ફુએગો પ્રાંત
+    he: טיירה דל פואגו
+    hi: टिएरा डेल फ़ुएगो
+    hy: Հրո Երկիր, Անտարկտիդա և Հարավային Ատլանտիկայի կղզիներ
+    id: Provinsi Tierra del Fuego
+    it: provincia di Terra del Fuoco, Antartide e Isole dell’Atlantico del Sud
+    ja: ティエラ・デル・フエゴ州
+    ka: ცეცხლოვანი მიწის პროვინცია
+    kn: ಟಿಯೆರಾ ಡೆಲ್ ಫ್ಯೂಗೊ ಪ್ರಾಂತ್ಯ
+    ko: 티에라델푸에고 주
+    lt: Ugnies Žemės, Antarktidos ir Pietų Atlanto salų provincija
+    lv: Tjerra del Fuego province
+    mr: तिएरा देल फ्वेगो
+    ms: Wilayah Tierra del Fuego
+    nb: Tierra del Fuego, Antártida e Islas del Atlántico Sur
+    nl: Vuurland, Antarctica en Zuid-Atlantische eilanden
+    pl: Ziemia Ognista
+    pt: Terra do Fogo, Antártica e Ilhas do Atlântico Sul
+    ro: Provincia Tierra del Fuego
+    ru: Огненная Земля, Антарктида и острова Южной Атлантики
+    si: ටියෙරා ඩෙල් ෆුඑගෝ පළාත
+    sk: Tierra del Fuego, Antártida e Islas del Atlántico Sur
+    sl: Tierra del Fuego, Antártida e Islas del Atlántico Sur
+    sr: Огњена Земља
+    sv: Eldslandet
+    sw: Tierra del Fuego, Antaktiki na Visiwa vya Atlantiki Kusini
+    ta: டியெர்ரா டெல் பியூயகோ மாகாணம்
+    te: టియెరా డెల్ పుయెగో ప్రావిన్స్
+    th: รัฐเตียร์ราเดลฟวยโก
+    tk: Tierra del Fuego, Antarktida we Günorta Atlantika adalary
+    tr: Tierra del Fuego
+    uk: Вогняна Земля, Антарктида та острови Південної Атлантики
+    ur: صوبہ تیئرا دل فوئگو، ارجنٹائن
+    vi: Tierra del Fuego
+    cy: Tierra del Fuego, Antarctica ac Ynysoedd De’r Iwerydd
+    ceb: Provincia de Tierra del Fuego (lalawigan)
+    sr_Latn: Ognjena Zemlja
+    zh: 火地岛省
+    ccp: "𑄑𑄭𑄢 𑄓𑄬𑄣𑄴 𑄜𑄨𑄅𑄪𑄉𑄮"
+    mk: Огнена Земја, Антарктика и Јужни Атлантски Острови
+    'no': Tierra del Fuego, Antártida e Islas del Atlántico Sur
+    yue: 火地省 (阿根廷)
+    yue_Hans: 火地省 (阿根廷)
+  type: province
+W:
+  name: Corrientes
+  code: W
+  unofficial_names:
+  - Corrientes
+  geo:
+    latitude: -27.4712257
+    longitude: -58.83958440000001
+    min_latitude: -27.5327967
+    min_longitude: -58.8572739
+    max_latitude: -27.4386008
+    max_longitude: -58.74749370000001
+  translations:
+    en: Corrientes
+    ar: كوريينتس
+    be: Правінцыя Карыентэс
+    bg: Кориентес
+    bn: কারিয়েন্তেস
+    ca: Província de Corrientes
+    cs: Corrientes
+    da: Provincia de Corrientes
+    de: Provinz Corrientes
+    el: Κορριέντες
+    es: Provincia de Corrientes
+    eu: Corrientesko probintzia
+    fa: ایالت کورینتس
+    fi: Corrientesin maakunta
+    fr: province de Corrientes
+    gl: Provincia de Corrientes
+    gu: કોરિએન્ટેસ
+    he: קוריינטס
+    hi: कोरियेन्टेस प्रान्त
+    hu: Corrientes tartomány
+    id: Provinsi Corrientes
+    it: provincia di Corrientes
+    ja: コリエンテス州
+    ka: კორიენტესის პროვინცია
+    kn: ಕೊರಿಯೆಂಟಸ್
+    ko: 코리엔테스 주
+    lt: Korienteso provincija
+    lv: Korrjentesas province
+    mr: कोरियेन्तेस
+    ms: Wilayah Corrientes
+    nb: Corrientes
+    nl: Corrientes
+    pl: Corrientes
+    pt: Corrientes
+    ro: Provincia Corrientes
+    ru: Корриентес
+    si: කොරියෙන්ටිස්
+    sk: Corrientes
+    sr: Коријентес
+    sv: Corrientes
+    sw: Mkoa wa Corrientes
+    ta: கரிஎண்ட்ஸ்
+    te: కోరియెంటెస్
+    th: รัฐกอร์เรียนเตส
+    tk: Koriýentes
+    tr: Corrientes eyaleti
+    uk: Коррієнтес
+    ur: صوبہ کورینتس
+    vi: Corrientes
+    cy: Talaith Corrientes
+    ceb: Provincia de Corrientes
+    sr_Latn: Korijentes
+    zh: 科连特斯省
+    ccp: "𑄇𑄧𑄢𑄨𑄠𑄬𑄚𑄴𑄑𑄌𑄴"
+    mk: Кориентес
+    'no': Corrientes
+    yue: 高連特斯省
+    yue_Hans: 高连特斯省
+  type: province
+X:
+  name: Córdoba
+  code: X
+  unofficial_names:
+  - Córdoba
+  geo:
+    latitude: -31.3989296
+    longitude: -64.1821289
+    min_latitude: -31.4912166
+    min_longitude: -64.31158649999999
+    max_latitude: -31.3062938
+    max_longitude: -64.0621309
+  translations:
+    en: Córdoba
+    ar: كوردوبا
+    be: правінцыя Кордава
+    bg: Кордоба
+    bn: কর্ডোবা প্রদেশ
+    ca: Província de Córdoba
+    cs: Córdoba
+    da: Provincia de Córdoba
+    de: Córdoba
+    el: Κόρντομπα
+    es: Provincia de Córdoba
+    et: Córdoba provints
+    eu: Córdobako probintzia
+    fa: ایالت کوردوبا
+    fi: Córdoban maakunta
+    fr: province de Córdoba
+    gl: Provincia de Córdoba, Arxentina
+    gu: કોર્ડોબા પ્રાંત
+    he: קורדובה
+    hi: कोर्डोबा
+    hu: Córdoba tartomány
+    id: Provinsi Córdoba
+    it: provincia di Córdoba
+    ja: コルドバ州
+    ka: კორდოვის პროვინცია
+    kn: ಕೊರ್ಡೊಬಾ ಪ್ರಾಂತ್ಯ
+    ko: 코르도바 주
+    lt: Kordobos provincija
+    lv: Kordovas province
+    mr: कोर्दोबा प्रांत
+    ms: Wilayah Córdoba
+    nb: Córdoba
+    nl: Córdoba
+    pl: Córdoba
+    pt: Córdova (província da Argentina)
+    ro: Provincia Córdoba
+    ru: Кордова
+    si: කොර්ඩොබා පළාත
+    sk: Córdoba
+    sr: Кордоба
+    sv: Córdoba
+    sw: Mkoa wa Córdoba
+    ta: கோர்டோபா மாகாணம்
+    te: కార్డోబా ప్రావిన్స్
+    th: รัฐกอร์โดบา
+    tk: Kordoba
+    tr: Córdoba eyaleti
+    uk: Кордова
+    ur: صوبہ کوردوبا، ارجنٹائن
+    vi: Córdoba
+    cy: Talaith Córdoba
+    ceb: Provincia de Córdoba
+    sr_Latn: Kordoba
+    zh: 科尔多瓦省
+    yue_Hans: 哥多华省
+    ccp: "𑄇𑄧𑄢𑄴𑄓𑄮𑄝"
+    hy: Կորդովա
+    yue: 哥多華省
+    mk: Кордоба
+    'no': Córdoba
+    az: Kordoba
+    sl: Córdoba
+  type: province
+Y:
+  name: Jujuy
+  code: Y
+  unofficial_names:
+  - Jujuy
+  geo:
+    latitude: -24.1857864
+    longitude: -65.2994767
+    min_latitude: -24.2557641
+    min_longitude: -65.37630039999999
+    max_latitude: -24.1502348
+    max_longitude: -65.2336132
+  translations:
+    en: Jujuy
+    ar: خوخوي
+    be: правінцыя Жужуй
+    bg: Хухуй
+    bn: জুজুয় প্রদেশ
+    ca: Jujuy
+    cs: Jujuy
+    da: Jujuy
+    de: Provinz Jujuy
+    el: Τζουτζούι
+    es: Provincia de Jujuy
+    et: Jujuy
+    eu: Jujuyko probintzia
+    fa: ایالت خوخوی
+    fi: Jujuyn maakunta
+    fr: province de Jujuy
+    gl: Provincia de Jujuy
+    gu: જુજુય પ્રાંત
+    he: חוחוי
+    hi: ज्यूजुई
+    hu: Jujuy tartomány
+    hy: Խուխույ
+    id: Jujuy
+    it: provincia di Jujuy
+    ja: フフイ州
+    ka: ხუხუის პროვინცია
+    kn: ಜುಜುಯಿ ಪ್ರಾಂತ್ಯ
+    ko: 후후이 주
+    lt: Chuchujaus provincija
+    lv: Huhujas province
+    mr: जुजुय
+    ms: Wilayah Jujuy
+    nb: Jujuy
+    nl: Jujuy
+    pl: Jujuy
+    pt: Jujuy
+    ro: Provincia Jujuy
+    ru: Жужуй
+    si: ජුජුයි පළාත
+    sk: Jujuy
+    sr: Хухуј
+    sv: Jujuy
+    sw: Mkoa wa Jujuy
+    ta: ஜூஜூய் மாகாணம்
+    te: జుజూయ్ ప్రావిన్స్
+    th: รัฐคูคุย
+    tk: Žužuý
+    tr: Jujuy eyaleti
+    uk: Жужуй
+    ur: صوبہ خوخوئی
+    vi: Jujuy
+    ceb: Provincia de Jujuy
+    sr_Latn: Huhuj
+    zh: 胡胡伊省
+    ccp: "𑄎𑄪𑄎𑄧𑄠𑄴"
+    mk: Хухуј
+    'no': Jujuy
+    cy: Talaith Jujuy
+    ps: خوخوی
+    sl: Jujuy
+    yue: 胡胡伊省
+    yue_Hans: 胡胡伊省
+  type: province
+Z:
+  name: Santa Cruz
+  code: Z
+  unofficial_names:
+  - Santa Cruz
+  geo:
+    latitude: -48.7736825
+    longitude: -69.1917167
+    min_latitude: -52.3975018
+    min_longitude: -73.5948315
+    max_latitude: -45.9915403
+    max_longitude: -65.7171603
+  translations:
+    en: Santa Cruz
+    ar: سانتا كروز
+    be: Правінцыя Санта-Крус
+    bg: Санта Крус
+    bn: স্যান্টা ক্রুয প্রদেশ
+    ca: Província de Santa Cruz
+    cs: Santa Cruz
+    da: Santa Cruz
+    de: Provinz Santa Cruz
+    el: Επαρχία Σάντα Κρους
+    es: Provincia de Santa Cruz
+    et: Santa Cruzi provints
+    eu: Santa Cruzko probintzia
+    fa: ایالت سانتا کروس، آرژانتین
+    fi: Santa Cruzin maakunta
+    fr: province de Santa Cruz
+    gl: Provincia de Santa Cruz
+    gu: સાન્તા ક્રૂઝ પ્રાંત
+    he: סנטה קרוס
+    hi: सैन्ता क्रुज प्रान्त
+    hu: Santa Cruz tartomány
+    hy: Սանտա Կրուս
+    id: Provinsi Santa Cruz
+    it: provincia di Santa Cruz
+    ja: サンタクルス州
+    ka: სანტა-კრუსის პროვინცია
+    kn: ಸಾಂಟಾ ಕ್ರೂಜ್ ಪ್ರಾಂತ್ಯ
+    ko: 산타크루스 주
+    lt: Santa Kruso provincija
+    lv: Santakrusas province
+    mr: सांता क्रुझ
+    ms: Wilayah Santa Cruz
+    nb: Santa Cruz
+    nl: Santa Cruz
+    pl: Santa Cruz
+    pt: Santa Cruz
+    ro: Provincia Santa Cruz
+    ru: Санта-Крус
+    si: සැන්ටා කෘස් පළාත
+    sk: Santa Cruz
+    sl: Santa Cruz
+    sr: Санта Круз
+    sv: Santa Cruz
+    sw: Mkoa wa Santa Cruz, Argentina
+    ta: சாண்டா கிருஸ் மாகாணம்
+    te: శాంటా క్రజ్ ప్రావిన్స్
+    th: รัฐซานตากรุซ
+    tk: Santa Kruz
+    tr: Santa Cruz
+    uk: Санта-Крус
+    ur: صوبہ سانتا کروز، ارجنٹائن
+    vi: Santa Cruz
+    cy: Talaith Santa Cruz
+    ceb: Provincia de Santa Cruz
+    sr_Latn: Santa Kruz
+    zh: 圣克鲁斯省
+    yue_Hans: 圣古丝省
+    ccp: "𑄥𑄚𑄴𑄑 𑄇𑄳𑄢𑄪𑄌𑄴"
+    yue: 聖古絲省
+    mk: Санта Круз
+    'no': Santa Cruz
+  type: province

@@ -1,0 +1,2122 @@
+---
+C:
+  name: Connacht
+  code: C
+  unofficial_names:
+  - Connaught
+  geo:
+    latitude: 51.8968917
+    longitude: -8.4863157
+    min_latitude: 51.8561501
+    min_longitude: -8.54552
+    max_latitude: 51.93586
+    max_longitude: -8.380579899999999
+  translations:
+    ar: كوناكت
+    be: Конахт
+    bg: Конахт
+    ca: Connacht
+    cs: Connacht
+    da: Connacht
+    de: Connacht
+    el: Κόναχτ
+    en: Connacht
+    es: Connacht
+    et: Connachti provints
+    eu: Connacht
+    fa: کوناکت
+    fi: Connacht
+    fr: Connacht
+    gl: Connacht - Cúige Connachta
+    he: קונכט
+    hr: Cúige Chonnacht
+    hu: Connacht
+    id: Connacht
+    it: Connacht
+    ja: コノート
+    ka: კონაქტი
+    ko: 코노트
+    lt: Konachtas
+    nb: Connacht
+    nl: Connacht
+    pl: Connacht
+    pt: Connacht
+    ru: Коннахт
+    sk: Connacht
+    sr: Конот
+    sv: Connacht
+    uk: Коннахт
+    ur: کوناکٹ
+    zh: 康諾特省
+    cy: Connacht
+    ceb: Connaught
+    tr: Connacht
+    sr_Latn: Konot
+    vi: Connacht
+    yue_Hans: 干诺省
+    ccp: "𑄇𑄮𑄚𑄌𑄴𑄑𑄴"
+    ga: Cúige Chonnacht
+    hy: Կոննախտ
+    yue: 干諾省
+    mk: Конахт
+    'no': Connacht
+    ps: کناخت
+    ro: Connacht
+  type: province
+CE:
+  name: Clare
+  code: CE
+  unofficial_names:
+  - An Clár
+  geo:
+    latitude: 52.86245280000001
+    longitude: -9.0471645
+    min_latitude: 52.5545323
+    min_longitude: -9.9386938
+    max_latitude: 53.1686759
+    max_longitude: -8.2839238
+  translations:
+    ar: مقاطعة كلير
+    bg: Клеър
+    bn: কাউন্টি ক্লেয়ার
+    ca: Comtat de Clare
+    cs: Hrabství Clare
+    da: County Clare
+    de: County Clare
+    el: Κομητεία Κλέιρ
+    en: Clare
+    es: Condado de Clare
+    et: Clare’i krahvkond
+    eu: Clareko konderria
+    fa: شهرستان کلر
+    fi: Claren kreivikunta
+    fr: Comté de Clare
+    gl: Condado de Clare
+    gu: કાઉન્ટી ક્લેર
+    he: מחוז קלייר
+    hi: काउंटी क्लेयर
+    hu: Clare megye
+    id: County Clare
+    is: County Clare
+    it: Clare
+    ja: クレア州
+    ka: კლერის საგრაფო
+    kn: ಕೌಂಟಿ ಕ್ಲೇರ್
+    ko: 클래어 주
+    lt: Klero grafystė
+    mr: काउंटी क्लेअर
+    ms: County Clare
+    nb: Clare
+    nl: County Clare
+    pl: Clare (hrabstwo)
+    pt: Condado de Clare
+    ro: Comitatul Clare
+    ru: Клэр
+    si: ක්ලෙයාර් ප්‍රාන්තය
+    sk: Clare
+    sr: Клер
+    sv: Clare
+    sw: Wilaya ya Clare
+    ta: கவுண்டி கலர்
+    te: కౌంటీ క్లేర్
+    th: แคลร์
+    tr: Clare County
+    uk: Клер
+    ur: کاؤنٹی کلیئر
+    vi: Hạt Clare
+    lv: Klēras grāfiste
+    cy: Swydd Clare
+    ceb: An Clár
+    sr_Latn: Kler
+    zh: 克莱尔郡
+    ccp: "𑄇𑄳𑄣𑄢𑄬"
+    ga: Contae an Chláir
+    be: графства Клэр
+    mk: Клер
+    'no': Clare
+    hr: Clare (okrug)
+    hy: Քլեր
+  type: county
+CN:
+  name: Cavan
+  code: CN
+  unofficial_names:
+  - An Cabhán
+  geo:
+    latitude: 53.9897186
+    longitude: -7.3633319
+    min_latitude: 53.9700812
+    min_longitude: -7.394294299999999
+    max_latitude: 54.00315670000001
+    max_longitude: -7.3168015
+  translations:
+    ar: مقاطعة كافان
+    bg: Каван
+    bn: কাউন্টি কভেন
+    ca: Comtat de Cavan
+    cs: Hrabství Cavan
+    da: County Cavan
+    de: County Cavan
+    el: Κομητεία Κάβαν
+    en: Cavan
+    es: Condado de Cavan
+    et: Cavani krahvkond
+    eu: Cavan konderria
+    fi: Cavanin kreivikunta
+    fr: comté de Cavan
+    gl: Condado de Cavan
+    gu: કાઉન્ટી કાવાન
+    hi: काउंटी कैवन
+    hu: Cavan megye
+    id: County Cavan
+    it: Cavan
+    ja: キャバン州
+    ka: კავანის საგრაფო
+    kn: ಕೌಂಟಿ ಕ್ಯಾವನ್
+    ko: 캐번 주
+    lt: Kavano grafystė
+    mr: काउंटी कावन
+    ms: County Cavan
+    nb: Cavan
+    nl: County Cavan
+    pl: Cavan
+    pt: Condado de Cavan
+    ro: Comitatul Cavan
+    ru: Каван
+    si: කැවන් ප්‍රාන්තය
+    sk: Cavan
+    sl: okrožje Cavan, Irska
+    sr: Каван
+    sv: Cavan
+    sw: Wilaya ya Cavan
+    ta: கவுண்டி காவல்
+    te: కౌంటీ కేవాన్
+    th: เมืองหลวงคาวาน
+    tr: Cavan County
+    uk: Каван
+    ur: کاؤنٹی کاوان
+    vi: Hạt Cavan
+    lv: Kevanas grāfiste
+    cy: Swydd Cavan
+    ceb: An Cabhán
+    sr_Latn: Kavan
+    zh: 卡文郡
+    fa: شهرستان کاوان
+    ccp: "𑄇𑄳𑄠𑄞𑄧𑄚𑄴"
+    ga: Contae an Chabháin
+    he: מחוז קאוואן
+    be: графства Каван
+    mk: Каван
+    'no': Cavan
+  type: county
+CO:
+  name: Cork
+  code: CO
+  unofficial_names:
+  - Corcaigh
+  - County Cork
+  geo:
+    latitude: 51.8985
+    longitude: 8.4756
+  translations:
+    'no': Cork
+    ar: مقاطعة كورك
+    be: Графства Корк
+    bg: Корк
+    bn: কাউন্টি কর্ক
+    ca: Comtat de Cork
+    ccp: "𑄇𑄧𑄢𑄴𑄇𑄴"
+    ceb: County Cork
+    cs: Hrabství Cork
+    cy: Swydd Corc
+    da: County Cork
+    de: County Cork
+    el: Κομητεία Κορκ
+    en: Cork
+    es: Condado de Cork
+    et: Corki krahvkond
+    eu: Corkeko konderria
+    fa: شهرستان کورک
+    fi: Corkin kreivikunta
+    fr: comté de Cork
+    ga: Contae Chorcaí
+    gl: Condado de Cork - Chorcaí
+    gu: કાઉન્ટી કૉર્ક
+    he: מחוז קורק
+    hi: काउंटी कॉर्क
+    hu: Cork megye
+    hy: Կորկ
+    id: County Cork
+    is: County Cork
+    it: Cork
+    ja: コーク州
+    ka: კორკის საგრაფო
+    kn: ಕೌಂಟಿ ಕಾರ್ಕ್
+    ko: 코크 주
+    lt: Korko grafystė
+    lv: Korkas grāfiste
+    mk: Корк
+    mr: काउंटी कॉर्क
+    ms: County Cork
+    nb: Cork
+    nl: County Cork
+    pl: Cork (hrabstwo)
+    pt: Condado de Cork
+    ro: Comitatul Cork
+    ru: Корк
+    si: කොර්ක් ප්‍රාන්තය
+    sk: Contae Chorcaí
+    sl: County Cork
+    sq: Qarku Cork
+    sr_Latn: Kork
+    sr: Корк
+    sv: Cork
+    sw: Wilaya ya Cork
+    ta: கவுண்டி கார்க்
+    te: కౌంటీ కార్క్
+    th: เมืองหลวงคอร์ก
+    tr: Cork Kontluğu
+    uk: Корк
+    ur: کاؤنٹی کورک
+    vi: Hạt Cork
+    zh: 科克郡
+    az: Kork
+    hr: Cork (okrug)
+  type: county
+CW:
+  name: Carlow
+  code: CW
+  unofficial_names:
+  - Ceatharlach
+  geo:
+    latitude: 52.7189747
+    longitude: -6.8503703
+    min_latitude: 52.4638685
+    min_longitude: -7.107934699999999
+    max_latitude: 52.9179628
+    max_longitude: -6.5049107
+  translations:
+    'no': Carlow
+    ar: مقاطعة كارلو
+    be: графства Карлау
+    bg: Карлоу
+    bn: কাউন্টি কারলো
+    ca: Comtat de Carlow
+    ccp: "𑄇𑄢𑄴𑄣𑄮"
+    ceb: County Carlow
+    cs: Hrabství Carlow
+    cy: Swydd Carlow
+    da: County Carlow
+    de: County Carlow
+    el: Κομητεία Κάρλοου
+    en: Carlow
+    es: Condado de Carlow
+    et: Carlow’ krahvkond
+    eu: Carlowko konderria
+    fa: کارلو ( ایرلند)
+    fi: Carlow’n kreivikunta
+    fr: Comté de Carlow
+    ga: Contae Cheatharlach
+    gl: Condado de Carlow
+    gu: કાઉન્ટી કાર્લો
+    he: מחוז קרלו
+    hi: कार्लो काउंटी
+    hu: Carlow megye
+    id: County Carlow
+    it: Carlow
+    ja: カーロウ州
+    ka: კარლოუს საგრაფო
+    kn: ಕೌಂಟಿ ಕಾರ್ಲೊ
+    ko: 칼로 주
+    lt: Karlou grafystė
+    lv: Kārlovas grāfiste
+    mk: Карлоу
+    mr: काउंटी कार्लो
+    ms: County Carlow
+    nb: Carlow
+    nl: County Carlow
+    pl: Carlow (hrabstwo)
+    pt: Condado de Carlow
+    ro: Comitatul Carlow
+    ru: Карлоу
+    si: කාර්ලෝ ප්‍රාන්තය
+    sk: Contae Cheatharlach
+    sl: grofija Carlow
+    sq: Carlow
+    sr_Latn: Karlou
+    sr: Карлоу
+    sv: Carlow
+    sw: Wilaya ya Carlow
+    ta: கவுண்டி கர்லோவ்
+    te: కార్లోవ్ కౌంటీ
+    th: โคโซวสกา คาเมนิซา
+    tr: Carlow County
+    uk: Карлоу
+    ur: کاؤنٹی کارلو
+    vi: Hạt Carlow
+    zh: 卡洛郡
+    az: Karlou qraflığı
+    kk: Карлоу (графтық)
+  type: county
+D:
+  name: Dublin
+  code: D
+  unofficial_names:
+  - Átha Cliath
+  - Baile Átha Cliath
+  geo:
+    latitude: 53.3498053
+    longitude: -6.2603097
+    min_latitude: 53.22343009999999
+    min_longitude: -6.450839999999999
+    max_latitude: 53.42521010000001
+    max_longitude: -6.05255
+  translations:
+    'no': Dublin
+    ar: مقاطعة دبلن
+    be: Дублін
+    bg: Дъблин
+    ca: Comtat de Dublín
+    ccp: "𑄓𑄪𑄛𑄴𑄣𑄨𑄚𑄴"
+    cs: Hrabství Dublin
+    cy: Swydd Dulyn
+    da: County Dublin
+    de: County Dublin
+    el: Κομητεία Δουβλίνου
+    en: Dublin
+    es: Condado de Dublín
+    et: Dublini krahvkond
+    eu: Dublingo konderria
+    fa: شهرستان دوبلین
+    fi: Dublinin kreivikunta
+    fr: Comté de Dublin
+    ga: Contae Bhaile Átha Cliath
+    gl: Condado de Dublín - Bhaile Átha Cliath
+    he: מחוז דבלין
+    hy: Դուբլին
+    id: County Dublin
+    is: County Dublin
+    it: Dublino
+    ja: ダブリン州
+    ka: დუბლინის საგრაფო
+    ko: 더블린 주
+    lt: Dublino grafystė
+    mk: Даблин
+    nb: Dublin
+    nl: County Dublin
+    pl: Dublin (hrabstwo)
+    pt: Condado de Dublin
+    ro: Comitatul Dublin
+    ru: Дублин
+    sk: Dublin
+    sr_Latn: Dablin
+    sr: Даблин
+    sv: Dublin
+    tr: Dublin ili
+    uk: Дублін
+    ur: کاؤنٹی ڈبلن
+    zh: 都柏林地區
+    az: Dublin qraflığı
+    kk: Дублин (графтық)
+    sw: Wilaya ya Dublin
+  type: county
+DL:
+  name: Donegal
+  code: DL
+  unofficial_names:
+  - Dún na nGall
+  geo:
+    latitude: 54.6541972
+    longitude: -8.110546
+  translations:
+    'no': Donegal
+    ar: مقاطعة دونيجال
+    be: графства Донегал
+    bg: Донигал
+    bn: কাউন্টি ডোনেগাল
+    ca: Comtat de Donegal
+    ccp: "𑄓𑄧𑄚𑄴𑄉𑄳𑄠𑄣𑄴"
+    ceb: County Donegal
+    cs: Hrabství Donegal
+    cy: Swydd Donegal
+    da: County Donegal
+    de: County Donegal
+    el: Κομητεία Ντονεγκάλ
+    en: Donegal
+    es: Condado de Donegal
+    et: Donegali krahvkond
+    eu: Donegalgo konderria
+    fa: شهرستان دانیگول
+    fi: Donegalin kreivikunta
+    fr: Comté de Donegal
+    ga: Contae Dhún na nGall
+    gl: Condado de Donegal
+    gu: કાઉન્ટી ડોનેગલ
+    he: מחוז דונגל
+    hi: काउंटी डोनेगल
+    hr: Dhún na nGall
+    hu: Donegal megye
+    id: County Donegal
+    it: Donegal
+    ja: ドニゴール州
+    ka: დონეგალის საგრაფო
+    kn: ಕೌಂಟಿ ಡೊನೆಗಲ್
+    ko: 도니골 주
+    lt: Donegolo grafystė
+    lv: Donegolas grāfiste
+    mk: Донегол
+    mr: काउंटी डोनेगल
+    ms: County Donegal
+    nb: Donegal
+    nl: County Donegal
+    pl: Donegal (hrabstwo)
+    pt: Condado de Donegal
+    ro: Comitatul Donegal
+    ru: Донегол
+    si: ඩොනේගල් ප්‍රාන්තය
+    sk: Donegal
+    sl: okrožje Donegal, Irska
+    sr_Latn: Donegol
+    sr: Донегол
+    sv: Donegal
+    sw: Wilaya ya Donegal
+    ta: கவுண்டி டோனெகல்
+    te: డొనెగల్ కౌంటీ
+    th: ดอนิกอล
+    tr: Donegal Kontluğu
+    uk: Донегол
+    ur: کاؤنٹی ڈانیگول
+    vi: Hạt Donegal
+    zh: 多尼戈爾郡
+    is: County Donegal
+    sq: Qarku i Donegal
+  type: county
+G:
+  name: Galway
+  code: G
+  unofficial_names:
+  - Gaillimh
+  geo:
+    latitude: 53.270668
+    longitude: -9.0567905
+    min_latitude: 53.2485394
+    min_longitude: -9.1426873
+    max_latitude: 53.31947049999999
+    max_longitude: -8.954820699999999
+  translations:
+    'no': Galway
+    ar: مقاطعة جلوي
+    be: графства Голуэй
+    bg: Голуей
+    bn: কাউন্টি গলওয়ে
+    ca: Comtat de Galway
+    ccp: "𑄉𑄧𑄣𑄴𑄃𑄮𑄠𑄬"
+    ceb: County Galway
+    cs: Hrabství Galway
+    cy: Swydd Galway
+    da: County Galway
+    de: County Galway
+    el: Κομητεία Γκόλγουεϊ
+    en: Galway
+    es: Condado de Galway
+    eu: Galwayko konderria
+    fa: شهرستان گالوی
+    fi: Galwayn kreivikunta
+    fr: Comté de Galway
+    ga: Contae na Gaillimhe
+    gl: Condado de Galway
+    gu: કાઉન્ટી ગેલવે
+    he: מחוז גולוויי
+    hi: काउंटी गॉलवे
+    hu: Galway megye
+    id: County Galway
+    is: County Galway
+    it: Contea di Galway
+    ja: ゴールウェイ州
+    ka: გოლუეის საგრაფო
+    kn: ಕೌಂಟಿ ಗಾಲ್ವೇ
+    ko: 골웨이 주
+    lt: Golvėjaus grafystė
+    lv: Golvejas grāfiste
+    mk: Голвеј
+    mr: काउंटी गॅलवे
+    ms: County Galway
+    nb: Galway
+    nl: County Galway
+    pl: Galway
+    pt: Condado de Galway
+    ro: Comitatul Galway
+    ru: Голуэй
+    si: ගල්වේ ප්‍රාන්තය
+    sk: Galway
+    sl: Grofija Galway
+    sr_Latn: Golvej
+    sr: Голвеј
+    sv: Galway
+    sw: Wilaya ya Galway
+    ta: கவுண்டி கால்வே
+    te: కౌంటీ గాల్వే
+    th: เมืองหลวงกัลเวย์
+    tr: Galway County
+    uk: Голвей
+    ur: کاؤنٹی گالوے
+    vi: Hạt Galway
+    zh: 戈尔韦郡
+    et: Galway krahvkond
+    hy: Գոլուեյ
+  type: county
+KE:
+  name: Kildare
+  code: KE
+  unofficial_names:
+  - Cill Dara
+  geo:
+    latitude: 53.1589342
+    longitude: -6.9095683
+    min_latitude: 53.15196
+    min_longitude: -6.92259
+    max_latitude: 53.1828601
+    max_longitude: -6.8829899
+  translations:
+    'no': Kildare
+    af: Graafskap Kildare
+    ar: مقاطعة كيلدير
+    be: Графства Кілдэр
+    bg: Килдеър
+    bn: কাউন্টি কিল্ডার
+    ca: Comtat de Kildare
+    ccp: "𑄇𑄨𑄣𑄴𑄓𑄢𑄬"
+    ceb: Kildare (kondado)
+    cs: Hrabství Kildare
+    cy: Swydd Kildare
+    da: County Kildare
+    de: County Kildare
+    el: Κομητεία Κιλντέιρ
+    en: Kildare
+    es: Condado de Kildare
+    et: Kildare’i krahvkond
+    eu: Kildareko konderria
+    fa: شهراستان کیلدر
+    fi: Kildaren kreivikunta
+    fr: Comté de Kildare
+    ga: Contae Chill Dara
+    gl: Condado de Kildare
+    gu: કાઉન્ટી કિલ્ડર
+    he: מחוז קילדייר
+    hi: काउंटी किल्डेरे
+    hu: Kildare megye
+    id: County Kildare
+    it: Kildare
+    ja: キルデア州
+    ka: კილდერის საგრაფო
+    kk: Килдэйр
+    kn: ಕೌಂಟಿ ಕಿಲ್ಡೇರ್
+    ko: 킬데어 주
+    lt: Kildero grafystė
+    lv: Kildēras grāfiste
+    mk: Килдер
+    mr: काउंटी केल्ल्डर
+    ms: County Kildare
+    nb: Kildare
+    nl: County Kildare
+    pl: Kildare (hrabstwo)
+    pt: Condado de Kildare
+    ro: Comitatul Kildare
+    ru: Килдэр
+    si: කිල්දරේ ප්‍රාන්තය
+    sk: Kildare
+    sr_Latn: Kilder
+    sr: Килдер
+    sv: Kildare
+    sw: Wilaya ya Kildare
+    ta: கவுண்டி கில்டர்
+    te: కిల్డార్ కౌంటీ
+    th: เมืองคิลแดร์
+    tr: County Kildare
+    uk: Кілдер
+    ur: کاؤنٹی کلڈیئر
+    vi: Hạt Kildare
+    zh: 基尔代尔郡
+    az: Kilder qraflığı
+    hy: Քիլդեր կոմսություն
+  type: county
+KK:
+  name: Kilkenny
+  code: KK
+  unofficial_names:
+  - Cill Chainnigh
+  geo:
+    latitude: 52.6541454
+    longitude: -7.2447879
+    min_latitude: 52.63111
+    min_longitude: -7.2731599
+    max_latitude: 52.67698000000001
+    max_longitude: -7.20547
+  translations:
+    'no': Kilkenny
+    ar: مقاطعة كيكني
+    be: Кілкені
+    bg: Килкени
+    bn: কাউন্টি কিলকেনি
+    ca: Comtat de Kilkenny
+    ccp: "𑄇𑄨𑄣𑄴𑄇𑄬𑄚𑄨"
+    cs: Hrabství Kilkenny
+    cy: Swydd Kilkenny
+    da: County Kilkenny
+    de: County Kilkenny
+    el: Κομητεία Κίλκενι
+    en: Kilkenny
+    es: Condado de Kilkenny
+    et: Kilkenny krahvkond
+    eu: Kilkennyko konderria
+    fa: شهرستان کیلکنی
+    fi: Kilkennyn kreivikunta
+    fr: comté de Kilkenny
+    ga: Contae Chill Chainnigh
+    gl: Condado de Kilkenny
+    gu: કાઉન્ટી કિલકેની
+    he: מחוז קילקני
+    hi: काउंटी किल्केनी
+    hu: Kilkenny megye
+    hy: Կիլկենի
+    id: County Kilkenny
+    it: Kilkenny
+    ja: キルケニー州
+    ka: კილკენის საგრაფო
+    kk: Килкенни
+    kn: ಕೌಂಟಿ ಕಿಲ್ಕೆನಿ
+    ko: 킬케니 주
+    lt: Kilkenio grafystė
+    lv: Kilkeni grāfiste
+    mk: Килкени
+    mr: काउंटी किलकेनी
+    ms: County Kilkenny
+    nb: Kilkenny
+    nl: County Kilkenny
+    pl: Kilkenny (hrabstwo)
+    pt: Condado de Kilkenny
+    ro: Comitatul Kilkenny
+    ru: Килкенни
+    si: කිල්කෙනි ප්‍රාන්තය
+    sk: Kilkenny
+    sl: okrožje Kilkenny
+    sr_Latn: Kilkeni
+    sr: Килкени
+    sv: Kilkenny
+    sw: Wilaya ya Kilkenny
+    ta: கவுண்டி கில்கென்னி
+    te: కిల్కెనీ కౌంటీ
+    th: เมืองหลวงคิลเค็นนี
+    tr: Kilkenny County
+    uk: Кілкенні
+    ur: کاؤنٹی کلکینی
+    vi: Hạt Kilkenny
+    zh: 基爾肯尼郡
+    az: Kilkenni qraflığı
+  type: county
+KY:
+  name: Kerry
+  code: KY
+  unofficial_names:
+  - Ciarraighe
+  - Ciarraí
+  geo:
+    latitude: 52.15446069999999
+    longitude: -9.5668632
+    min_latitude: 51.6883223
+    min_longitude: -10.6183626
+    max_latitude: 52.59184
+    max_longitude: -9.118786
+  translations:
+    'no': Kerry
+    ar: مقاطعة كري
+    bg: Кери
+    bn: কাউন্টি কেরি
+    ca: Comtat de Kerry
+    ccp: "𑄇𑄬𑄢𑄨"
+    ceb: Ciarraí
+    cs: Hrabství Kerry
+    cy: Swydd Kerry
+    da: County Kerry
+    de: Kerry
+    el: Κομητεία Κέρι
+    en: Kerry
+    es: Condado de Kerry
+    et: Kerry krahvkond
+    eu: Kerryko konderria
+    fa: شهرستان کری
+    fi: Kerryn kreivikunta
+    fr: comté de Kerry
+    ga: Contae Chiarraí
+    gl: Condado de Kerry
+    gu: કાઉન્ટી કેરી
+    he: מחוז קרי
+    hi: काउंटी केरी
+    hu: Kerry megye
+    id: County Kerry
+    it: Kerry
+    ja: ケリー州
+    ka: კერის საგრაფო
+    kn: ಕೌಂಟಿ ಕೆರ್ರಿ
+    ko: 케리 주
+    lt: Kerio grafystė
+    lv: Kerri grāfiste
+    mk: Кери
+    mr: काउंटी केरी
+    ms: County Kerry
+    nb: Kerry
+    nl: County Kerry
+    pl: Kerry
+    pt: Condado de Kerry
+    ro: Comitatul Kerry
+    ru: Керри
+    si: කෙරී ප්‍රාන්තය
+    sk: Contae Chiarraí
+    sl: Okrožje Kerry
+    sr_Latn: Keri
+    sr: Кери
+    sv: Kerry
+    sw: Wilaya ya Kerry
+    ta: கவுண்டி கெர்ரி
+    te: కెర్రీ కౌంటీ
+    th: เคาตี เคอร์รี
+    tr: Kerry County
+    uk: Керрі
+    ur: کاؤنٹی کیری
+    vi: Hạt Kerry
+    zh: 凱里郡
+    az: Kerri
+    hy: Քերի կոմսություն
+  type: county
+L:
+  name: Leinster
+  code: L
+  translations:
+    'no': Leinster
+    ar: لاينستر
+    be: Ленстэр
+    bg: Ленстър
+    ca: Leinster
+    ccp: "𑄣𑄬𑄭𑄚𑄴𑄌𑄳𑄑𑄢𑄴"
+    ceb: Leinster
+    cs: Leinster
+    cy: Laighin
+    da: Leinster
+    de: Leinster
+    el: Λένστερ
+    en: Leinster
+    es: Leinster
+    et: Leinsteri provints
+    eu: Leinster
+    fa: لینستر
+    fi: Leinster
+    fr: Leinster
+    ga: Cúige Laighean
+    gl: Leinster - Cúige Laighean
+    he: לנסטר
+    hr: Cúige Laighean
+    hy: Լենստեր
+    id: Leinster
+    it: Leinster
+    ja: レンスター
+    ka: ლენსტერი
+    ko: 렌스터
+    lt: Lensteris
+    lv: Lenstera
+    mk: Ленстер
+    nb: Leinster
+    nl: Leinster
+    pl: Leinster
+    pt: Leinster
+    ru: Ленстер
+    sk: Leinster
+    sq: Leinsteri
+    sr_Latn: Lenster
+    sr: Ленстер
+    sv: Leinster
+    tr: Leinster
+    uk: Ленстер
+    ur: لینسٹر
+    vi: Leinster
+    yue_Hans: 利扬省
+    yue: 利揚省
+    zh: 倫斯特省
+    az: Lenster
+    ps: لینستر
+    ro: Leinster
+  type: province
+LD:
+  name: Longford
+  code: LD
+  unofficial_names:
+  - Longphort
+  - Longphuirt
+  geo:
+    latitude: 53.7275564
+    longitude: -7.793108999999999
+    min_latitude: 53.5269053
+    min_longitude: -8.0358602
+    max_latitude: 53.9420806
+    max_longitude: -7.374903300000001
+  translations:
+    'no': Longford
+    ar: مقاطعة لونجفورد
+    be: графства Лонгфард
+    bg: Лонгфорд
+    bn: কাউন্টি লংফোর্ড
+    ca: Comtat de Longford
+    ccp: "𑄣𑄧𑄁𑄜𑄮𑄢𑄴𑄓𑄴"
+    ceb: An Longfort (kondado sa Ireland)
+    cs: Hrabství Longford
+    cy: Swydd Longfoirt
+    da: County Longford
+    de: County Longford
+    el: Κομητεία Λόνγκφορντ
+    en: Longford
+    es: Condado de Longford
+    eu: Longfordeko konderria
+    fa: شهرستان لانگفورد
+    fi: Longfordin kreivikunta
+    fr: Comté de Longford
+    ga: Contae an Longfoirt
+    gl: Condado de Longford
+    gu: કાઉન્ટી લોંગફોર્ડ
+    he: מחוז לונגפורד
+    hi: लोंग्फोर्ड काउंटी
+    hu: Longford megye
+    id: County Longford
+    it: Longford
+    ja: ロングフォード州
+    ka: ლონგფორდის საგრაფო
+    kn: ಕೌಂಟಿ ಲಾಂಗ್ಫೋರ್ಡ್
+    ko: 롱퍼드 주
+    lt: Longfordo grafystė
+    lv: Longfordas grāfiste
+    mk: Лонгфорд
+    mr: काउंटी लॉंगफोर्ड
+    ms: County Longford
+    nb: Longford
+    nl: County Longford
+    pl: Longford (hrabstwo)
+    pt: Condado de Longford
+    ro: Comitatul Longford
+    ru: Лонгфорд
+    si: ලෝන්ග්ෆර්ඩ් ප්‍රාන්තය
+    sk: Longford (grófstvo)
+    sl: Okrožje Longford
+    sr_Latn: Longford
+    sr: Лонгфорд
+    sv: Longford
+    sw: Wilaya ya Longford
+    ta: கவுண்டி லோங்போர்ட
+    te: లాంగ్‌ఫోర్డ్ కౌంటీ
+    th: ลองฟอร์ด
+    tr: Longford County
+    uk: Лонгфорд
+    ur: کاؤنٹی لونگفرڈ
+    vi: Hạt Longford
+    zh: 朗福德郡
+  type: county
+LH:
+  name: Louth
+  code: LH
+  unofficial_names:
+  - Lughbhadh
+  - Lú
+  geo:
+    latitude: 53.8969758
+    longitude: -6.467097099999999
+    min_latitude: 53.6984916
+    min_longitude: -6.695343200000001
+    max_latitude: 54.1139513
+    max_longitude: -6.1030107
+  translations:
+    'no': Louth
+    ar: مقاطعة لاوث
+    az: Laut
+    be: графства Лаўт
+    bg: Лаут
+    bn: কাউন্টি লৌথ
+    ca: Comtat de Louth
+    ccp: "𑄣𑄮𑄖𑄴"
+    ceb: Lú
+    cs: Hrabství Louth
+    cy: Swydd Louth
+    da: County Louth
+    de: County Louth
+    el: Κομητεία Λάουθ
+    en: Louth
+    es: Condado de Louth
+    et: Louthi krahvkond
+    eu: Loutheko konderria
+    fa: شهرستان لوث
+    fi: Louth
+    fr: comté de Louth
+    ga: Contae Lú
+    gl: Condado de Louth
+    gu: કાઉન્ટી લાઉથ
+    he: מחוז לאות׳
+    hi: काउंटी लाउथ
+    hu: Louth megye
+    id: County Louth
+    it: Louth
+    ja: ラウス州
+    ka: ლაუტის საგრაფო
+    kn: ಕೌಂಟಿ ಲೌತ್
+    ko: 라우스 주
+    lt: Lauto grafystė
+    lv: Lautas grāfiste
+    mk: Лаут
+    mr: काउंटी लोऊथ
+    ms: County Louth
+    nb: Louth
+    nl: County Louth
+    pl: Louth (hrabstwo)
+    pt: Condado de Louth
+    ro: Comitatul Louth
+    ru: Лаут
+    si: ලවුත් ප්‍රාන්තය
+    sk: Grófstvo Louth
+    sr_Latn: Laud
+    sr: Лауд
+    sv: Louth
+    sw: Wilaya ya Louth
+    ta: கவுண்டி லூத்
+    te: లౌత్ కౌంటీ
+    th: ลูธ
+    tr: County Louth
+    uk: Лаут
+    ur: کاؤنٹی لاوتھ
+    vi: Hạt Louth
+    zh: 劳斯郡
+  type: county
+LK:
+  name: Limerick
+  code: LK
+  unofficial_names:
+  - Luimneach
+  geo:
+    latitude: 52.6680204
+    longitude: -8.630497499999999
+    min_latitude: 52.6143899
+    min_longitude: -8.68994
+    max_latitude: 52.6886401
+    max_longitude: -8.5703399
+  translations:
+    'no': Limerick
+    ar: مقاطعة لمريك
+    be: графства Лімерык
+    bg: Лимерик
+    bn: কাউন্টি লিমেরিক
+    ca: Comtat de Limerick
+    ccp: "𑄣𑄨𑄟𑄬𑄢𑄨𑄇𑄴"
+    ceb: County Limerick
+    cs: Hrabství Limerick
+    cy: Swydd Limerick
+    da: County Limerick
+    de: County Limerick
+    el: Κομητεία Λίμερικ
+    en: Limerick
+    es: Condado de Limerick
+    et: Limericki krahvkond
+    eu: Limerickeko konderria
+    fa: شهرستان لیمریک
+    fi: Limerickin kreivikunta
+    fr: comté de Limerick
+    ga: Contae Luimnigh
+    gl: Condado de Limerick
+    gu: કાઉન્ટી લિમરિક
+    he: מחוז לימריק
+    hi: काउंटी लिमरिक
+    hu: Limerick megye
+    hy: Լիմերիկ
+    id: County Limerick
+    it: Limerick
+    ja: リムリック州
+    ka: ლიმერიკის საგრაფო
+    kn: ಕೌಂಟಿ ಲಿಮರಿಕ್
+    ko: 리머릭 주
+    lt: Limeriko grafystė
+    lv: Limerikas grāfiste
+    mk: Лимерик
+    mr: काउंटी लिमरिक
+    ms: County Limerick
+    nb: Limerick
+    nl: County Limerick
+    pl: Limerick (hrabstwo)
+    pt: Condado de Limerick
+    ro: Comitatul Limerick
+    ru: Лимерик
+    si: ලිමිරෙක් ප්‍රාන්තය
+    sk: Limerick
+    sr_Latn: Limerik
+    sr: Лимерик
+    sv: Limerick
+    sw: Wilaya ya Limerick
+    ta: கவுண்டி லிமரிக்
+    te: కౌంటీ లిమరిక్
+    th: เทศมณฑลลิเมริค
+    tr: County Limerick
+    uk: Лімерик
+    ur: کاؤنٹی لیمرک
+    vi: Hạt Limerick
+    zh: 利默里克郡
+  type: county
+LM:
+  name: Leitrim
+  code: LM
+  unofficial_names:
+  - Liathdroim
+  geo:
+    latitude: 53.9926007
+    longitude: -8.0655852
+  translations:
+    'no': Leitrim
+    ar: مقاطعة ليتريم
+    be: графства Літрым
+    bg: Лийтрим
+    bn: কাউন্টি লিত্রম
+    ca: Comtat de Leitrim
+    ccp: "𑄣𑄬𑄭𑄑𑄳𑄢𑄨𑄟𑄴"
+    ceb: County Leitrim
+    cs: Hrabství Leitrim
+    cy: Swydd Leitrim
+    da: County Leitrim
+    de: Leitrim
+    el: Κομητεία Λέιτριμ
+    en: Leitrim
+    es: Condado de Leitrim
+    eu: Leitrimeko konderria
+    fa: شهرستان لیتریم
+    fi: Leitrimin kreivikunta
+    fr: Comté de Leitrim
+    ga: Contae Liatroma
+    gl: Condado de Leitrim
+    gu: કાઉન્ટી લેટ્રીમ
+    he: מחוז ליטרים
+    hi: काउंटी लीट्रिम
+    id: County Leitrim
+    is: County Leitrim
+    it: Leitrim
+    ja: リートリム州
+    ka: ლიტრიმის საგრაფო
+    kn: ಕೌಂಟಿ ಲೀಟ್ರಿಮ್
+    ko: 리트림 주
+    lt: Leitrimo grafystė
+    lv: Litrimas grāfiste
+    mk: Литрим
+    mr: काउंटी लीट्रिम
+    ms: County Leitrim
+    nb: Leitrim
+    nl: County Leitrim
+    pl: Leitrim (hrabstwo)
+    pt: Condado de Leitrim
+    ro: Comitatul Leitrim
+    ru: Литрим
+    si: ලේයිට්‍රීම් ප්‍රාන්තය
+    sk: Leitrim
+    sr_Latn: Litrim
+    sr: Литрим
+    sv: Leitrim
+    sw: Wilaya ya Leitrim
+    ta: கவுண்டி லேய்த்ரிம்
+    te: లీట్రిమ్ కౌంటీ
+    th: คาสก้า
+    tr: Leitrim County
+    uk: Літрім
+    ur: کاؤنٹی لیٹریم
+    vi: Hạt Leitrim
+    zh: 利特里姆郡
+    et: Leitrimi krahvkond
+  type: county
+LS:
+  name: Laois
+  code: LS
+  unofficial_names:
+  - Laoighis
+  - Queenʿs
+  geo:
+    latitude: 52.994295
+    longitude: -7.332300699999999
+    min_latitude: 52.7812693
+    min_longitude: -7.7346495
+    max_latitude: 53.2156522
+    max_longitude: -6.9321155
+  translations:
+    'no': Laois
+    ar: مقاطعة ليش
+    be: графтсва Лііш
+    bg: Лийш
+    bn: কাউন্টি লাওইস
+    ca: Comtat de Laois
+    ccp: "𑄣𑄭𑄠𑄮𑄌𑄴"
+    ceb: Laois
+    cs: Hrabství Laois
+    cy: Swydd Laois
+    da: County Laois
+    de: County Laois
+    el: Κομητεία Λέιοαϊς
+    en: Laois
+    es: Condado de Laois
+    eu: Laoiseko konderria
+    fa: شهرستان لیش
+    fi: Laois
+    fr: comté de Laois
+    ga: Contae Laoise
+    gl: Condado de Laois
+    gu: કાઉન્ટી લાઓઇસ
+    he: מחוז לייש
+    hi: काउंटी लाओइस
+    hu: Laois megye
+    id: County Laois
+    it: Laois
+    ja: ラオース州
+    ka: ლიშის საგრაფო
+    kn: ಕೌಂಟಿ ಲಾವೋಯಿಸ್
+    ko: 레이시 주
+    lt: Lišo grafystė
+    lv: Lišas grāfiste
+    mk: Лиш
+    mr: काउंटी लॉईस
+    ms: County Laois
+    nb: Laois
+    nl: County Laois
+    pl: Laois (hrabstwo)
+    pt: Condado de Laois
+    ro: Comitatul Laois
+    ru: Лиишь
+    si: ලාඕයිස් ප්‍රාන්තය
+    sk: Grófstvo Laois
+    sr_Latn: Liš
+    sr: Лиш
+    sv: Laois
+    sw: Wilaya ya Laois
+    ta: கவுண்டி லவ்ய்ஸ்
+    te: కౌంటీ లావోయిస్
+    th: ลาวอิส คันทรี่
+    tr: County Laois
+    uk: Ліїш
+    ur: کاؤنٹی لیش
+    vi: Hạt Laois
+    zh: 萊伊什郡
+  type: county
+M:
+  name: Munster
+  code: M
+  geo:
+    latitude: 52.2218
+    longitude: 8.5567
+  translations:
+    'no': Munster
+    ar: مونستر
+    be: Манстэр
+    bg: Мънстър
+    ca: Munster
+    ccp: "𑄟𑄪𑄚𑄴𑄌𑄳𑄑𑄢𑄴"
+    ceb: Munster (lalawigan)
+    cs: Munster
+    cy: Munster
+    da: Munster
+    de: Munster
+    el: Μάνστερ
+    en: Munster
+    es: Munster
+    et: Munsteri provints
+    eu: Munster
+    fa: مونستر (ایرلند)
+    fi: Munster
+    fr: Munster
+    ga: Cúige Mumhan
+    gl: Munster - Cúige Mumhan
+    he: מנסטר
+    hr: Cúige Mumhan
+    hy: Մանսթեր
+    id: Munster
+    it: Munster
+    ja: マンスター
+    ka: მანსტერი
+    kk: Мунстер
+    ko: 먼스터
+    lt: Mansteris
+    lv: Manstera
+    mk: Манстер
+    nb: Munster
+    nl: Munster
+    pl: Munster
+    pt: Munster
+    ru: Манстер
+    sk: Munster
+    sq: Munsteri
+    sr_Latn: Manster
+    sr: Манстер
+    sv: Munster
+    tr: Munster
+    uk: Манстер
+    ur: مونسٹر
+    vi: Munster
+    yue_Hans: 莫云省
+    yue: 莫雲省
+    zh: 芒斯特省
+    az: Munster
+    ps: مونسټر (آیرلنډ)
+  type: province
+MH:
+  name: Meath
+  code: MH
+  unofficial_names:
+  - An Mhí
+  - An Mhídhe
+  geo:
+    latitude: 53.60554800000001
+    longitude: -6.6564169
+    min_latitude: 53.38186640000001
+    min_longitude: -7.33552
+    max_latitude: 53.9176662
+    max_longitude: -6.212610499999999
+  translations:
+    'no': Meath
+    ar: مقاطعة ميث
+    be: графства Міт
+    bg: Мийт
+    bn: কাউন্টি মিথ
+    ca: Comtat de Meath
+    ccp: "𑄟𑄬𑄖𑄴"
+    ceb: An Mhí
+    cs: Hrabství Meath
+    cy: Swydd Meath
+    da: County Meath
+    de: County Meath
+    el: Κομητεία Μιθ
+    en: Meath
+    es: Condado de Meath
+    eu: Meatheko konderria
+    fa: شهرستان میث
+    fi: Meath
+    fr: comté de Meath
+    ga: Contae na Mí
+    gl: Condado de Meath
+    gu: કાઉન્ટી મીથ
+    he: מחוז מית׳
+    hi: काउंटी मीथ
+    id: County Meath
+    it: Meath
+    ja: ミース州
+    ka: მითის საგრაფო
+    kk: Мит (графтық)
+    kn: ಕೌಂಟಿ ಮೀಥ್
+    ko: 미스 주
+    lt: Mido grafystė
+    lv: Mītas grāfiste
+    mk: Мит
+    mr: काउंटी मिथ
+    ms: County Meath
+    nb: Meath
+    nl: County Meath
+    pl: Meath (hrabstwo)
+    pt: Condado de Meath
+    ro: Comitatul Meath
+    ru: Мит
+    si: මිත්‍ ප්‍රාන්තය
+    sk: Meath
+    sr_Latn: Mid
+    sr: Мид
+    sv: Meath
+    sw: Wilaya ya Meath
+    ta: கவுண்டி மெத்
+    te: కౌంటీ మియాత్
+    th: คันทรี่ มีทฮ์
+    tr: County Meath
+    uk: Міт
+    ur: کاؤنٹی میدھ
+    vi: Hạt Meath
+    yue_Hans: 中土郡
+    yue: 中土郡
+    zh: 米斯郡
+  type: county
+MN:
+  name: Monaghan
+  code: MN
+  unofficial_names:
+  - Muineachán
+  geo:
+    latitude: 54.2492046
+    longitude: -6.9683132
+    min_latitude: 53.9006798
+    min_longitude: -7.339505999999999
+    max_latitude: 54.4213907
+    max_longitude: -6.5497282
+  translations:
+    'no': Monaghan
+    ar: مقاطعة موناغان
+    bg: Монахан
+    bn: কাউন্টি মোনাঘান
+    ca: Comtat de Monaghan
+    ccp: "𑄟𑄧𑄚𑄊𑄚𑄴"
+    ceb: County Monaghan
+    cs: Hrabství Monaghan
+    cy: Swydd Monaghan
+    da: County Monaghan
+    de: Monaghan
+    el: Κομητεία Μόναχαν
+    en: Monaghan
+    es: Condado de Monaghan
+    et: Monaghani krahvkond
+    eu: Monaghaneko konderria
+    fa: مانهن
+    fi: Monaghanin kreivikunta
+    fr: Comté de Monaghan
+    ga: Contae Mhuineacháin
+    gl: Condado de Monaghan
+    gu: કાઉન્ટી મોનાઘન
+    he: מחוז מונאהן
+    hi: काउंटी मोनाघन
+    hu: Monaghan megye
+    id: County Monaghan
+    it: Monaghan
+    ja: モナハン州
+    ka: მონაჰანის საგრაფო
+    kn: ಕೌಂಟಿ ಮೊನಾಘನ್
+    ko: 모나한 주
+    lt: Monachano grafystė
+    lv: Monahanas grāfiste
+    mk: Монахан
+    mr: काउंटी मोनाघन
+    ms: County Monaghan
+    nb: Monaghan
+    nl: County Monaghan
+    pl: Monaghan (hrabstwo)
+    pt: Condado de Monaghan
+    ro: Comitatul Monaghan
+    ru: Монахан
+    si: මොනගන් ප්‍රාන්තය
+    sk: Monaghan
+    sr_Latn: Monahan
+    sr: Монахан
+    sv: Monaghan
+    sw: Wilaya ya Monaghan
+    ta: கவுண்டி மோனகாண்
+    te: మోనాగన్ కౌంటీ
+    th: เมืองโมนักฮาน
+    tr: Monaghan County
+    uk: Монахан
+    ur: کاؤنٹی مونیہین
+    vi: Hạt Monaghan
+    zh: 莫纳亨郡
+  type: county
+MO:
+  name: Mayo
+  code: MO
+  unofficial_names:
+  - Maigh Eo
+  geo:
+    latitude: 53.93458099999999
+    longitude: -9.351645600000001
+    min_latitude: 53.4719262
+    min_longitude: -10.2510017
+    max_latitude: 54.3454008
+    max_longitude: -8.5828617
+  translations:
+    'no': Mayo
+    ar: مقاطعة مايو
+    be: Мэё
+    bg: Мейо
+    bn: কাউন্টি মায়ো
+    ca: Comtat de Mayo
+    ccp: "𑄟𑄬𑄠𑄮"
+    ceb: Maigh Eo
+    cs: Hrabství Mayo
+    cy: Swydd Mayo
+    da: County Mayo
+    de: County Mayo
+    el: Κομητεία Μέιο
+    en: Mayo
+    es: Condado de Mayo
+    eu: Mayoko konderria
+    fa: شهرستان مایو
+    fi: Mayon kreivikunta
+    fr: Comté de Mayo
+    ga: Contae Mhaigh Eo
+    gl: Condado de Mayo
+    gu: કાઉન્ટી મેયો
+    he: מחוז מאיו
+    hi: मेयो काउंटी
+    hu: Mayo megye
+    hy: Մեյո
+    id: County Mayo
+    is: County Mayo
+    it: Mayo
+    ja: メイヨー州
+    ka: მეიოს საგრაფო
+    kn: ಕೌಂಟಿ ಮೇಯೊ
+    ko: 메이요 주
+    lt: Mėjo grafystė
+    lv: Mejo grāfiste
+    mk: Мејо
+    mr: काउंटी मेयो
+    ms: County Mayo
+    nb: Mayo
+    nl: County Mayo
+    pl: Mayo (hrabstwo)
+    pt: Condado de Mayo
+    ro: Comitatul Mayo
+    ru: Мейо
+    si: මායෝ ප්‍රාන්තය
+    sk: Mayo
+    sr_Latn: Mejo
+    sr: Мејо
+    sv: Mayo
+    sw: Wilaya ya Mayo
+    ta: கவுண்டி மாயோ
+    te: మాయో కౌంటీ
+    th: เทศมณฑลเมโย
+    tr: Mayo COunty
+    uk: Мейо
+    ur: کاؤنٹی میو
+    vi: Hạt Mayo
+    zh: 梅奧郡
+    et: Mayo krahvkond
+    sl: Grofija Mayo
+  type: county
+OY:
+  name: Offaly
+  code: OY
+  unofficial_names:
+  - Kingʿs
+  - Kingʿs County
+  - Ua Uíbh Fhailí
+  - Uí Fáilghe
+  geo:
+    latitude: 53.2356871
+    longitude: -7.7122229
+    min_latitude: 52.8481718
+    min_longitude: -8.0838722
+    max_latitude: 53.424279
+    max_longitude: -6.9777077
+  translations:
+    'no': Offaly
+    ar: مقاطعة أوفالي
+    be: графства Офалі
+    bg: Офали
+    bn: কাউন্টি ওফ্যালি
+    ca: Comtat d’Offaly
+    ccp: "𑄃𑄧𑄜𑄣𑄨"
+    ceb: Uíbh Fhailí
+    cs: Hrabství Offaly
+    cy: Swydd Offaly
+    da: County Offaly
+    de: County Offaly
+    el: Κομητεία Όφαλι
+    en: Offaly
+    es: Condado de Offaly
+    eu: Offalyko konderria
+    fa: افلی
+    fi: Offalyn kreivikunta
+    fr: Comté d’Offaly
+    ga: Contae Uíbh Fhailí
+    gl: Condado de Offaly
+    gu: કાઉન્ટી ઓફેલી
+    he: מחוז אופאלי
+    hi: काउंटी ऑफेली
+    id: County Offaly
+    it: Offaly
+    ja: オファリー州
+    ka: ოფალის საგრაფო
+    kk: Оффали (графтық)
+    kn: ಕೌಂಟಿ ಆಫಲಿ
+    ko: 오펄리 주
+    lt: Ofalio grafystė
+    lv: Ofali grāfiste
+    mk: Офали
+    mr: काउंटी ऑफली
+    ms: County Offaly
+    nb: Offaly
+    nl: County Offaly
+    pl: Offaly
+    pt: Condado de Offaly
+    ro: Comitatul Offaly
+    ru: Оффали
+    si: ඔෆලේ ප්‍රාන්තය
+    sk: Offaly
+    sl: okrožje Offaly, Irska
+    sr_Latn: Ofali
+    sr: Офали
+    sv: Offaly
+    sw: Wilaya ya Offaly
+    ta: கவுண்டி ஆஃப்லய்
+    te: ఓఫాలీ కౌంటీ
+    th: มณฑลออฟฟาลี
+    tr: Offaly County
+    uk: Оффалі
+    ur: کاؤنٹی اوفلی
+    vi: Hạt Offaly
+    zh: 奧法利郡
+    az: Offali
+  type: county
+RN:
+  name: Roscommon
+  code: RN
+  unofficial_names:
+  - Ros Comáin
+  geo:
+    latitude: 53.6275906
+    longitude: -8.189095499999999
+    min_latitude: 53.6117699
+    min_longitude: -8.20713
+    max_latitude: 53.63941999999999
+    max_longitude: -8.16418
+  translations:
+    'no': Roscommon
+    ar: مقاطعة روسكومون
+    be: графства Раскоман
+    bg: Роскомън
+    bn: কাউন্টি রসকমন
+    ca: Comtat de Roscommon
+    ccp: "𑄢𑄮𑄌𑄴𑄇𑄮𑄟𑄧𑄚𑄴"
+    ceb: Roscommon
+    cs: Hrabství Roscommon
+    cy: Swydd Roscommon
+    da: County Roscommon
+    de: County Roscommon
+    el: Κομητεία Ροσκόμον
+    en: Roscommon
+    es: Condado de Roscommon
+    eu: Roscommoneko konderria
+    fa: شهرستان رسکومون
+    fi: Roscommonin kreivikunta
+    fr: Comté de Roscommon
+    ga: Contae Ros Comáin
+    gl: Condado de Roscommon
+    gu: કાઉન્ટી રોસકોમન
+    he: מחוז רוסקומון
+    hi: रौसकॉमन काउंटी
+    hy: Ռոսքոմոն
+    id: County Roscommon
+    is: County Roscommon
+    it: Roscommon
+    ja: ロスコモン州
+    ka: როსკომონის საგრაფო
+    kn: ಕೌಂಟಿ ರಾಸ್ಕಾಮನ್
+    ko: 로스커먼 주
+    lt: Roskomono grafystė
+    lv: Roskomono grāfiste
+    mk: Роскомон
+    mr: काउंटी रॉसकॉमन
+    ms: County Roscommon
+    nb: Roscommon
+    nl: County Roscommon
+    pl: Roscommon (hrabstwo)
+    pt: Condado de Roscommon
+    ro: Comitatul Roscommon
+    ru: Роскоммон
+    si: රොස්කොමන් ප්‍රාන්තය
+    sk: Contae Ros Comáin
+    sr_Latn: Roskomon
+    sr: Роскомон
+    sv: Roscommon
+    sw: Wilaya ya Roscommon
+    ta: கவுண்டி ரோஸ்கோம்மோன்
+    te: రాసోకామన్ కౌంటీ
+    th: รอสส์คอมมัน
+    tr: County Roscommon
+    uk: Роскоммон
+    ur: کاؤنٹی راسکومن
+    vi: Hạt Roscommon
+    zh: 羅斯康芒郡
+    et: Roscommoni krahvkond
+    hu: Roscommon megye
+  type: county
+SO:
+  name: Sligo
+  code: SO
+  unofficial_names:
+  - Sligeach
+  geo:
+    latitude: 54.27661029999999
+    longitude: -8.4760888
+    min_latitude: 54.24951
+    min_longitude: -8.5193301
+    max_latitude: 54.2872399
+    max_longitude: -8.44213
+  translations:
+    'no': Sligo
+    ar: مقاطعة سليجو
+    be: графства Слайга
+    bg: Слайгоу
+    bn: কাউন্টি স্লিগো
+    ca: Comtat de Sligo
+    ccp: "𑄥𑄳𑄣𑄨𑄉𑄮"
+    ceb: Sligo (kondado)
+    cs: Hrabství Sligo
+    cy: Swydd Sligo
+    da: County Sligo
+    de: County Sligo
+    el: Κομητεία Σλάιγκο
+    en: Sligo
+    es: Condado de Sligo
+    eu: Sligoko konderria
+    fa: شهرستان اسلایگو
+    fi: Sligon kreivikunta
+    fr: Comté de Sligo
+    ga: Contae Shligigh
+    gl: Condado de Sligo
+    gu: કાઉન્ટી સ્લાઇગો
+    he: מחוז סלייגו
+    hi: काउंटी स्लीगो
+    hu: Sligo megye
+    hy: Սլայգո
+    id: County Sligo
+    is: County Sligo
+    it: Sligo
+    ja: スライゴ州
+    ka: სლაიგოს საგრაფო
+    kn: ಕೌಂಟಿ ಸ್ಲಿಗೊ
+    ko: 슬라이고 주
+    lt: Slaigo grafystė
+    lv: Slaigo grāfiste
+    mk: Слајго
+    mr: काउंटी स्लिगो
+    ms: County Sligo
+    nb: Sligo
+    nl: County Sligo
+    pl: Sligo (hrabstwo)
+    pt: Condado de Sligo
+    ro: Comitatul Sligo
+    ru: Слайго
+    si: ස්ලිගෝ ප්‍රාන්තය
+    sk: Sligo
+    sl: grofija Sligo, Irska
+    sr_Latn: Slajgo
+    sr: Слајго
+    sv: Sligo
+    sw: Wilaya ya Sligo
+    ta: கவுண்டி ஸ்லிகொ
+    te: కౌంటీ స్లిగో
+    th: เทศมณฑลสลิโก
+    tr: County Sligo
+    uk: Слайго
+    ur: کاؤنٹی سلایگوہ
+    vi: Hạt Sligo
+    zh: 斯萊戈郡
+    et: Sligo krahvkond
+  type: county
+TA:
+  name: Tipperary
+  code: TA
+  unofficial_names:
+  - Tiobraid Árann
+  geo:
+    latitude: 52.47378940000001
+    longitude: -8.1618514
+    min_latitude: 52.2020144
+    min_longitude: -8.4800793
+    max_latitude: 53.1675822
+    max_longitude: -7.372055800000001
+  translations:
+    'no': Tipperary
+    ar: مقاطعة تيبيراري
+    be: графства Тыперэры
+    bg: Типърари
+    bn: কাউন্টি টিপেরারি
+    ca: Comtat de Tipperary
+    ccp: "𑄑𑄨𑄛𑄢𑄴𑄢𑄨"
+    cs: Hrabství Tipperary
+    cy: Swydd Tipperary
+    da: County Tipperary
+    de: County Tipperary
+    el: Κομητεία Τιπερέρι
+    en: Tipperary
+    es: Condado de Tipperary
+    et: Tipperary krahvkond
+    eu: Tipperaryko konderria
+    fa: شهرستان تیپراری
+    fi: Tipperaryn kreivikunta
+    fr: comté de Tipperary
+    ga: Contae Thiobraid Árann
+    gl: Condado de Tipperary
+    gu: કાઉન્ટી ટિપરેરી
+    he: מחוז טיפררי
+    hi: टिपरेरी काउंटी
+    id: County Tipperary
+    it: Tipperary
+    ja: ティペラリー州
+    ka: ტიპერარის საგრაფო
+    kn: ಕೌಂಟಿ ಟಿಪೆರರಿ
+    ko: 티퍼레리 주
+    lt: Tipererio grafystė
+    lv: Tiperēri grāfiste
+    mk: Типерери
+    mr: काउंटी टिपरेरी
+    ms: County Tipperary
+    nb: Tipperary
+    nl: County Tipperary
+    pl: Tipperary (hrabstwo)
+    pt: Condado de Tipperary
+    ro: Comitatul Tipperary
+    ru: Типперэри
+    si: ටිපෙරේරි ප්‍රාන්තය
+    sk: Tipperary
+    sr_Latn: Tiperari
+    sr: Типерари
+    sv: Tipperary
+    sw: Wilaya ya Tipperary
+    ta: கவுண்டி டிப்பெயரி
+    te: టిప్పరరీ కౌంటీ
+    th: ทิปเปอร์แรรี
+    tr: County Tipperary
+    uk: Тіпперері
+    ur: کاؤنٹی ٹپاریری
+    vi: Hạt Tipperary
+    zh: 蒂珀雷里郡
+    hu: Tipperary megye
+  type: county
+U:
+  name: Ulster
+  code: U
+  geo:
+    latitude: 54.7617
+    longitude: 6.9612
+  translations:
+    'no': Ulster
+    af: Ulster
+    ar: أولستر
+    az: Olster
+    be: Ольстэр
+    bg: Ълстър
+    bs: Ulster
+    ca: Ulster
+    ccp: "𑄃𑄣𑄴𑄌𑄳𑄑𑄢𑄴"
+    ceb: Ulster
+    cs: Ulster
+    cy: Ulster
+    da: Ulster
+    de: Provinz Ulster
+    el: Άλστερ
+    en: Ulster
+    es: Úlster
+    et: Ulster
+    eu: Ulster
+    fa: اولستر
+    fi: Ulster
+    fr: Ulster
+    ga: Cúige Uladh
+    gl: Úlster - Cúige Uladh
+    he: אלסטר
+    hr: Cúige Uladh
+    hy: Օլսթեր
+    id: Ulster
+    is: Ulster
+    it: Ulster
+    ja: アルスター
+    ka: ოლსტერი
+    ko: 얼스터
+    lt: Alsteris
+    lv: Olstera
+    mk: Алстер
+    nb: Ulster
+    nl: Ulster
+    pl: Ulster
+    pt: Ulster
+    ro: Ulster
+    ru: Ольстер
+    sk: Ulster
+    sr_Latn: Alster
+    sr: Алстер
+    sv: Ulster
+    th: อัลสเตอร์
+    tr: Ulster
+    uk: Ольстер
+    ur: السٹر
+    vi: Ulster
+    yue_Hans: 乌勒省
+    yue: 烏勒省
+    zh: 阿爾斯特省
+    kk: Олстер
+    ps: اولسټر
+    sd: اولسٽر
+  type: province
+WD:
+  name: Waterford
+  code: WD
+  unofficial_names:
+  - Port Láirge
+  geo:
+    latitude: 52.256667
+    longitude: -7.129167
+    min_latitude: 52.22481
+    min_longitude: -7.171189999999999
+    max_latitude: 52.27019989999999
+    max_longitude: -7.0548699
+  translations:
+    'no': Waterford
+    ar: مقاطعة وترفورد
+    be: графства Уотэрфард
+    bg: Уотърфорд
+    bn: কাউন্টি ওয়াটারফোর্ড
+    ca: Comtat de Waterford
+    ccp: "𑄃𑄮𑄠𑄑𑄢𑄴𑄜𑄮𑄢𑄴𑄓𑄴"
+    ceb: Waterford (kondado)
+    cs: Hrabství Waterford
+    cy: Swydd Waterford
+    da: County Waterford
+    de: County Waterford
+    el: Κομητεία Ουότερφορντ
+    en: Waterford
+    es: Waterford
+    et: Waterfordi krahvkond
+    eu: Waterfordeko konderria
+    fa: شهرستان واترفورد
+    fi: Waterfordin kreivikunta
+    fr: comté de Waterford
+    ga: Contae Phort Láirge
+    gl: Condado de Waterford
+    gu: કાઉન્ટી વૉટરફોર્ડ
+    he: מחוז ווטרפורד
+    hi: काउंटी वॉटरफोर्ड
+    hu: Waterford megye
+    id: County Waterford
+    it: Waterford
+    ja: ウォーターフォード州
+    ka: უოტერფორდის საგრაფო
+    kn: ಕೌಂಟಿ ವಾಟರ್ಫೋರ್ಡ್
+    ko: 워터퍼드 주
+    lt: Voterfordo grafystė
+    lv: Voterfordas grāfiste
+    mk: Вотерфорд
+    mr: काउंटी वॉटरफोर्ड
+    ms: County Waterford
+    nb: Waterford
+    nl: County Waterford
+    pl: Waterford (hrabstwo)
+    pt: Condado de Waterford
+    ro: Comitatul Waterford
+    ru: Уотерфорд
+    si: වොටර්ෆොර්ඩ් ප්‍රාන්තය
+    sk: Waterford
+    sr_Latn: Voterford
+    sr: Вотерфорд
+    sv: Waterford
+    sw: Wilaya ya Waterford
+    ta: கவுண்டி வாட்டரிபோர்ட
+    te: వాటర్ఫోర్డ్ కౌంటీ
+    th: วอเตอร์ฟอร์ด
+    tr: Waterford County
+    uk: Вотерфорд
+    ur: کاؤنٹی واٹرفرڈ
+    vi: Hạt Waterford
+    zh: 沃特福德郡
+  type: county
+WH:
+  name: Westmeath
+  code: WH
+  unofficial_names:
+  - An Iarmhidhe
+  geo:
+    latitude: 53.5345308
+    longitude: -7.4653217
+    min_latitude: 53.31796259999999
+    min_longitude: -7.9729531
+    max_latitude: 53.7879599
+    max_longitude: -6.9547842
+  translations:
+    'no': Westmeath
+    ar: مقاطعة وستميث
+    be: графства Уэстміт
+    bg: Уестмийт
+    bn: কাউন্টি ওয়েস্টমিদ
+    ca: Comtat de Westmeath
+    ccp: "𑄃𑄧𑄠𑄬𑄌𑄴𑄟𑄬𑄖𑄴"
+    ceb: An Iarmhí
+    cs: Hrabství Westmeath
+    cy: Swydd Westmeath
+    da: County Westmeath
+    de: County Westmeath
+    el: Κομητεία Ουέστμιθ
+    en: Westmeath
+    es: Condado de Westmeath
+    eu: Westmeatheko konderria
+    fa: وست میث
+    fi: Westmeath
+    fr: Comté de Westmeath
+    ga: Contae na hIarmhí
+    gl: Condado de Westmeath
+    gu: કાઉન્ટી વેસ્ટમેથ
+    he: מחוז וסטמית׳
+    hi: काउंटी वेस्टमेथ
+    id: County Westmeath
+    it: Westmeath
+    ja: ウェストミース州
+    ka: უესტმითის საგრაფო
+    kn: ಕೌಂಟಿ ವೆಸ್ಟ್ಮೀಥ್
+    ko: 웨스트미스 주
+    lt: Vestmido grafystė
+    lv: Vestmītas grāfiste
+    mk: Вестмит
+    mr: काउंटी वेस्टमेथ
+    ms: County Westmeath
+    nb: Westmeath
+    nl: County Westmeath
+    pl: Westmeath
+    pt: Condado de Westmeath
+    ro: Comitatul Westmeath
+    ru: Уэстмит
+    si: වෙස්ට්මිත් ප්‍රාන්තය
+    sk: Westmeath
+    sr_Latn: Vestmid
+    sr: Вестмид
+    sv: Westmeath
+    sw: Wilaya ya Westmeath
+    ta: கவுண்டி வெஸ்டமேத்
+    te: వెస్ట్‌మీత్ కౌంటీ
+    th: รัฐโอไฮโอ
+    tr: County Westmeath
+    uk: Західний Міт
+    ur: کاؤنٹی ویسٹمیدھ
+    vi: Hạt Westmeath
+    zh: 韋斯特米斯郡
+    kk: Уэстмит
+  type: county
+WW:
+  name: Wicklow
+  code: WW
+  unofficial_names:
+  - Cill Maintain
+  - Cill Mhanntáin
+  geo:
+    latitude: 52.9808207
+    longitude: -6.044588999999999
+    min_latitude: 52.9661001
+    min_longitude: -6.07004
+    max_latitude: 52.99892
+    max_longitude: -6.0154599
+  translations:
+    'no': Wicklow
+    ar: مقاطعة ويكلاو
+    be: графства Уіклау
+    bg: Уиклоу
+    bn: কাউন্টি উইকলো
+    ca: Comtat de Wicklow
+    ccp: "𑄅𑄪𑄃𑄨𑄇𑄴𑄣𑄮"
+    ceb: Wicklow (kondado)
+    cs: Hrabství Wicklow
+    cy: Swydd Wicklow
+    da: County Wicklow
+    de: County Wicklow
+    el: Κομητεία Ουΐκλοου
+    en: Wicklow
+    es: Condado de Wicklow
+    eu: Wicklowko konderria
+    fa: شهرستان ویکلو
+    fi: Wicklow’n kreivikunta
+    fr: Comté de Wicklow
+    ga: Contae Chill Mhantáin
+    gl: Condado de Wicklow
+    gu: કાઉન્ટી વિકલો
+    he: מחוז ויקלו
+    hi: काउंटी विकलो
+    hu: Wicklow megye
+    hy: Ուիկլոու
+    id: County Wicklow
+    it: Wicklow
+    ja: ウィックロー州
+    ka: უიკლოუს საგრაფო
+    kn: ಕೌಂಟಿ ವಿಕ್ಲೊ
+    ko: 위클로 주
+    lt: Viklou grafystė
+    lv: Viklovas grāfiste
+    mk: Виклоу
+    mr: काउंटी विस्कॉ
+    ms: County Wicklow
+    nb: Wicklow
+    nl: County Wicklow
+    pl: Wicklow (hrabstwo)
+    pt: Condado de Wicklow
+    ro: Comitatul Wicklow
+    ru: Уиклоу
+    si: වික්ලෝ ප්‍රාන්තය
+    sk: Wicklow
+    sl: Okrožje Wicklow
+    sr_Latn: Viklou
+    sr: Виклоу
+    sv: Wicklow
+    sw: Wilaya ya Wicklow
+    ta: கவுண்டி விக்ளா
+    te: విక్లో కౌంటీ
+    th: คันทรี่วิคโลว
+    tr: County Wicklow
+    uk: Віклоу
+    ur: کاؤنٹی ویکلو
+    vi: Hạt Wicklow
+    zh: 威克洛郡
+  type: county
+WX:
+  name: Wexford
+  code: WX
+  unofficial_names:
+  - Loch Garman
+  geo:
+    latitude: 52.336916
+    longitude: -6.4633381
+    min_latitude: 52.32044
+    min_longitude: -6.49995
+    max_latitude: 52.3470099
+    max_longitude: -6.4464301
+  translations:
+    'no': Wexford
+    ar: مقاطعة وكسفورد
+    be: графства Уэксфард
+    bg: Уексфорд
+    bn: কাউন্টি ওয়েক্সফোর্ড
+    ca: Comtat de Wexford
+    ccp: "𑄃𑄮𑄠𑄬𑄇𑄴𑄜𑄮𑄢𑄴𑄓𑄴"
+    ceb: Loch Garman (kondado)
+    cs: Hrabství Wexford
+    cy: Swydd Wexford
+    da: County Wexford
+    de: County Wexford
+    el: Κομητεία Ουέξφορντ
+    en: Wexford
+    es: Condado de Wexford
+    eu: Wexfordeko konderria
+    fa: شهرستان وکسفورد
+    fi: Wexfordin kreivikunta
+    fr: Comté de Wexford
+    ga: Contae Loch Garman
+    gl: Condado de Wexford
+    gu: કાઉન્ટી વેક્સફોર્ડ
+    he: מחוז ווקספורד
+    hi: वेक्सफोर्ड काउंटी
+    hu: Wexford megye
+    id: County Wexford
+    it: Wexford
+    ja: ウェックスフォード州
+    ka: უექსფორდის საგრაფო
+    kn: ಕೌಂಟಿ ವೆಕ್ಸ್ಫರ್ಡ್
+    ko: 웩스퍼드 주
+    lt: Veksfordo grafystė
+    lv: Veksfordas grāfiste
+    mk: Вексфорд
+    mr: काउंटी वेक्सफोर्ड
+    ms: County Wexford
+    nb: Wexford
+    nl: County Wexford
+    pl: Wexford (hrabstwo)
+    pt: Condado de Wexford
+    ro: Comitatul Wexford
+    ru: Уэксфорд
+    si: වෙක්ස්ෆොර්ඩ් ප්‍රාන්තය
+    sk: Wexford
+    sr_Latn: Veksford
+    sr: Вексфорд
+    sv: Wexford
+    sw: Wilaya ya Wexford
+    ta: கவுண்டி வெஸ்போர்ட
+    te: వెక్స్ ఫోర్డ్ కౌంటీ
+    th: เมือกแวกฟอร์ด
+    tr: Wexford Countt
+    uk: Вексфорд
+    ur: کاؤنٹی ویکسفرڈ
+    vi: Wexford
+    zh: 韦克斯福德郡
+    et: Wexfordi krahvkond
+    hy: Ուեքսֆորդ
+  type: county

@@ -1,0 +1,249 @@
+---
+E:
+  name: Eastern
+  code: E
+  unofficial_names:
+  - Eastern
+  geo:
+    latitude: 8.247377499999999
+    longitude: -10.8903099
+    min_latitude: 7.341372000000001
+    min_longitude: -11.5805801
+    max_latitude: 9.069968
+    max_longitude: -10.2842381
+  translations:
+    en: Eastern
+    ar: المحافظة الشرقية
+    be: Усходняя правінцыя, Сьера-Леонэ
+    bg: Източна провинция
+    bn: ইস্টার্ন প্রদেশ
+    da: Eastern Province
+    de: Eastern
+    el: Ανατολική Περιφέρεια
+    es: Provincia del Este
+    fa: استان شرقی، سیرالئون
+    fi: Itäinen maakunta
+    fr: Province de l’Est
+    gu: પૂર્વીય પ્રાંત
+    hi: पूर्वी प्रांत
+    id: Provinsi Timur, Sierra Leone
+    it: provincia dell’Est
+    ja: 東部州
+    kn: ಪೂರ್ವ ಪ್ರಾಂತ್ಯ
+    ko: 동부 주
+    lt: Rytų provincija
+    mr: पूर्व प्रांत
+    ms: Eastern Province
+    nb: Eastern
+    nl: Eastern
+    pl: Prowincja Wschodnia
+    pt: Eastern
+    ro: Provincia Eastern, Sierra Leone
+    ru: Восточная провинция
+    si: නැගෙනහිර පළාත
+    sv: Östra provinsen
+    ta: கிழக்கு மாகாணம்
+    te: తూర్పు ప్రావిన్స్
+    th: อิสเทิน โพวิ้น
+    tr: Eastern Province
+    ur: مشرقی صوبہ، سیرالیون
+    vi: Tỉnh Phía Đông
+    zh: 東方省
+    lv: Austrumu province
+    ceb: Eastern Province (lalawigan sa Sierra Leone)
+    ccp: "𑄛𑄪𑄇𑄴𑄟𑄬𑄇𑄴𑄈𑄬"
+    hr: Istočna provincija
+    uk: Східна провінція
+    'no': Eastern
+    ca: Província Oriental (Sierra Leone)
+  type: province
+N:
+  name: Northern
+  code: N
+  unofficial_names:
+  - Northern
+  geo:
+    latitude: 9.3500888
+    longitude: -11.7068294
+    min_latitude: 8.241974899999999
+    min_longitude: -13.3032624
+    max_latitude: 10.0004329
+    max_longitude: -10.5848049
+  translations:
+    en: Northern
+    ar: المحافظة الشمالية
+    bg: Северна провинция
+    bn: নর্দান প্রদেশ
+    da: Northern Province
+    de: Northern
+    el: Βόρεια Περιφέρεια
+    es: Provincia del Norte
+    fa: استان شمالی، سیرالئون
+    fi: Pohjoinen maakunta
+    fr: Province du Nord
+    gu: ઉત્તરીય પ્રાંત
+    hi: उत्तरी प्रांत
+    hy: Հյուսիսային նահանգ
+    id: Provinsi Utara, Sierra Leone
+    it: provincia del Nord
+    ja: 北部州
+    kn: ಉತ್ತರ ಪ್ರಾಂತ್ಯ
+    ko: 북부 주
+    lt: Šiaurės provincija
+    mr: उत्तर प्रांत
+    ms: Northern Province
+    nb: Northern
+    nl: Northern
+    pl: Prowincja Północna
+    pt: Northern
+    ro: Provincia de Nord, Sierra Leone
+    ru: Северная провинция
+    si: උතුරු පළාත
+    sv: Nord (provins)
+    ta: வடக்கு மாகாணம்
+    te: ఉత్తర ప్రావిన్స్
+    th: นอร์ทเทิร์นโพวิ้น
+    tr: Northern Province
+    uk: Північна провінція (Сьєрра-Леоне)
+    ur: شمالی صوبہ، سیرالیون
+    vi: Tỉnh Phía Bắc
+    lv: Ziemeļu province
+    ceb: Northern Province (lalawigan sa Sierra Leone)
+    zh: 北方省
+    ccp: "𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄴𑄟𑄬𑄇𑄴𑄈𑄬"
+    hr: Sjeverna provincija
+    'no': Northern
+  type: province
+NW:
+  name: North Western
+  code: NW
+  geo:
+    latitude: 8.460555
+    longitude: -11.779889
+    min_latitude: 6.8446
+    min_longitude: -13.4032999
+    max_latitude: 9.9999737
+    max_longitude: -10.2716829
+  translations:
+    en: North Western
+    de: North West
+    fr: Province du Nord-Ouest
+    ja: 北西部州
+    pt: Província do Noroeste (Serra Leoa)
+  type: province
+S:
+  name: Southern
+  code: S
+  unofficial_names:
+  - Southern
+  geo:
+    latitude: 7.790662499999999
+    longitude: -11.8891721
+    min_latitude: 6.9296111
+    min_longitude: -13.0692559
+    max_latitude: 8.507107
+    max_longitude: -11.1348019
+  translations:
+    en: Southern
+    ar: المحافظة الجنوبية
+    bg: Южна провинция
+    bn: দক্ষিণ প্রদেশ
+    da: Southern Province
+    de: Southern
+    el: Νότια Περιφέρεια
+    es: Provincia del Sur
+    fa: استان جنوبی، سیرالئون
+    fi: Eteläinen maakunta
+    fr: Province du Sud
+    gl: Provincia do Sur, Serra Leoa
+    gu: દક્ષિણ પ્રાંત
+    hi: दक्षिणी प्रांत
+    id: Provinsi Selatan, Sierra Leone
+    it: provincia del Sud
+    ja: 南部州
+    kn: ದಕ್ಷಿಣ ಪ್ರಾಂತ್ಯ
+    ko: 남부 주
+    lt: Pietų provincija
+    mr: दक्षिण प्रांत
+    ms: Southern Province
+    nb: Southern
+    nl: Southern
+    pl: Prowincja Południowa
+    pt: Província do Sul
+    ro: Provincia Southern, Sierra Leone
+    ru: Южная провинция
+    si: දකුණු පළාත
+    sv: Södra provinsen
+    ta: தெற்கு மாகாணம்
+    te: దక్షిణ ప్రావిన్స్
+    th: เซาเทิร์น โพรวิ้น
+    tr: Southern Province
+    ur: جنوبی صوبہ، سیرالیون
+    vi: Tỉnh Phía Nam
+    lv: Dienvidu province
+    ceb: Southern Province
+    zh: 南方省
+    ccp: "𑄘𑄧𑄊𑄨𑄚𑄴𑄟𑄬𑄇𑄴𑄈𑄬"
+    hr: Južna provincija
+    uk: Південна провінція
+    'no': Southern
+  type: province
+W:
+  name: Western Area (Freetown)
+  code: W
+  unofficial_names:
+  - Western Area (Freetown)
+  geo:
+    latitude: 8.484444
+    longitude: -13.234444
+    min_latitude: 8.4091211
+    min_longitude: -13.2985468
+    max_latitude: 8.4996723
+    max_longitude: -13.1487465
+  translations:
+    en: Western Area
+    ar: المقاطعة الغربية
+    be: Заходняя вобласць, Сьера-Леонэ
+    bg: Западна област
+    bn: পশ্চিমাঞ্চল, সিয়েরা লিওন
+    da: Western Area
+    de: Western
+    el: Δυτική Περιφέρεια
+    es: Área Occidental
+    et: Läänepiirkond
+    fi: Läntinen alue
+    fr: Zone de l’Ouest
+    gu: વેસ્ટર્ન એરિયા
+    hi: पश्चिमी क्षेत्र
+    id: Wilayah Barat
+    it: Area occidentale della Sierra Leone
+    ja: 西部地域
+    kn: ಪಾಶ್ಚಾತ್ಯ ಪ್ರದೇಶ
+    ko: 서부 구
+    lt: Vakarų sritis
+    mr: वेस्टर्न रिजन
+    ms: Western Area
+    nb: Western
+    nl: Western
+    pl: Obszar Zachodni
+    pt: Western Area
+    ro: Zona de Vest, Sierra Leone
+    ru: Западная область
+    si: බටහිර ප්‍රදේශය
+    sv: Freetown Peninsula
+    ta: மேற்கு ஏரியா
+    te: పశ్చిమ ప్రాంతం
+    th: เวสเทิร์น เอเรีย
+    tr: Western Area
+    ur: مغربی علاقہ
+    vi: Khu vực Phía Tây
+    lv: Rietumu apgabals
+    ceb: Western Area
+    zh: 西部區
+    ccp: "𑄛𑄧𑄏𑄨𑄟𑄴𑄟𑄬𑄇𑄴𑄈𑄬 𑄎𑄉"
+    hr: Zapadna zona
+    uk: Західний регіон
+    'no': Western
+    ca: Western Area
+    fa: ناحیه غربی
+  type: area

@@ -1,0 +1,330 @@
+---
+BZ:
+  name: Belize
+  code: BZ
+  unofficial_names:
+  - Belize
+  geo:
+    latitude: 17.5045661
+    longitude: -88.1962133
+    min_latitude: 17.4757965
+    min_longitude: -88.2457925
+    max_latitude: 17.5353682
+    max_longitude: -88.18077389999999
+  translations:
+    en: Belize
+    be: акруга Беліз
+    bg: Белиз
+    ca: Districte de Belize
+    da: Belize
+    de: Belize District
+    es: Distrito de Belice
+    fi: Belize
+    fr: District de Belize
+    gl: Distrito de Belice
+    hr: Belize
+    it: distretto di Belize
+    ja: ベリーズ州
+    ko: 벨리즈 구
+    lt: Belizo rajonas
+    lv: Belizas distrikts
+    nb: Belize
+    nl: Belize
+    pl: Dystrykt Belize
+    pt: Belize
+    ru: Белиз
+    sv: Belize
+    ur: بیلیز ضلع
+    zh: 伯利兹区
+    mr: बेलीझ जिल्हा
+    ceb: Belize District
+    fa: ناحیه بلیز
+    ccp: "𑄝𑄬𑄣𑄨𑄌𑄴"
+    id: Distrik Belize
+    uk: Беліз
+    'no': Belize
+    ar: مقاطعة بليز
+  type: district
+CY:
+  name: Cayo
+  code: CY
+  unofficial_names:
+  - Cayo
+  geo:
+    latitude: 17.0984445
+    longitude: -88.94138650000001
+    min_latitude: 16.4052541
+    min_longitude: -89.189365
+    max_latitude: 17.5050549
+    max_longitude: -88.55081790000001
+  translations:
+    en: Cayo
+    ar: مقاطعة كايو
+    bg: Кайо
+    bn: কায়ো জেলা
+    ca: Districte de Cayo
+    da: Cayo
+    de: Cayo District
+    el: Κάγιο
+    es: Distrito de Cayo
+    fi: Cayon kaupunginosa
+    fr: District de Cayo
+    gu: કેયો જિલ્લો
+    hi: कायो जिला
+    hr: Cayo (okrug)
+    id: Distrik Cayo
+    it: distretto di Cayo
+    ja: カヨ州
+    kn: ಕಯೋ ಜಿಲ್ಲೆ
+    ko: 카요 구
+    lt: Kajo rajonas
+    lv: Kajo distrikts
+    mr: काओ जिल्हा
+    ms: Cayo District
+    nb: Cayo
+    nl: Cayo
+    pl: Dystrykt Cayo
+    pt: Cayo
+    ru: Кайо
+    si: කායෝ දිස්ත්‍රික්කය
+    sv: Cayo
+    ta: காயோ மாவட்டம்
+    te: కాయో జిల్లా
+    th: คาโย
+    tr: Cayo District
+    ur: کایو ضلع
+    vi: Quận Cayo
+    ceb: Cayo District
+    zh: 卡約區
+    jv: Distrik Cayo
+    ccp: "𑄇𑄳𑄠𑄬𑄃𑄮"
+    uk: Район Кайо
+    'no': Cayo
+    fa: ناحیه کایو
+  type: district
+CZL:
+  name: Corozal
+  code: CZL
+  unofficial_names:
+  - Corozal
+  geo:
+    latitude: 18.1349238
+    longitude: -88.24611829999999
+    min_latitude: 17.8932279
+    min_longitude: -88.59995289999999
+    max_latitude: 18.496557
+    max_longitude: -87.849937
+  translations:
+    en: Corozal
+    ar: مقاطعة كوروزال
+    bg: Коросал
+    bn: কোরুজাল জেলা
+    ca: Districte de Corozal
+    da: Corozal
+    de: Corozal District
+    el: Κορόζαλ
+    es: Distrito de Corozal
+    fi: Corozalin kaupunginosa
+    fr: District de Corozal
+    gu: કોરોજલ જિલ્લો
+    hi: कोरोज़ल जिला
+    hr: Corozal (okrug)
+    id: Distrik Corozal
+    it: distretto di Corozal
+    ja: コロザル州
+    kn: ಕೊರೊಜಲ್ ಜಿಲ್ಲೆ
+    ko: 코로살 구
+    lt: Korosalio rajonas
+    lv: Korosalas distrikts
+    mr: कोरोजल जिल्हा
+    ms: Corozal District
+    nb: Corozal
+    nl: Corozal
+    pl: Dystrykt Corozal
+    pt: Corozal
+    ru: Коросаль
+    si: කොරෝසල් දිස්ත්‍රික්කය
+    sv: Corozal
+    ta: கோரோசல் மாவட்டம்
+    te: కోరోజాల్ జిల్లా
+    th: โคโรซาล
+    tr: Corozal District
+    ur: کوروزال ضلع
+    vi: Quận Corozal
+    ceb: Corozal District
+    zh: 科羅薩爾區
+    fa: ناحیه کوروزال
+    ccp: "𑄇𑄧𑄢𑄮𑄎𑄣𑄴"
+    uk: Район Коросаль
+    'no': Corozal
+    cs: Distrikt Corozal
+  type: district
+OW:
+  name: Orange Walk
+  code: OW
+  unofficial_names:
+  - Orange Walk
+  geo:
+    latitude: 17.760353
+    longitude: -88.86469799999999
+    min_latitude: 17.3420751
+    min_longitude: -89.146957
+    max_latitude: 18.2496241
+    max_longitude: -88.28445599999999
+  translations:
+    en: Orange Walk
+    ar: مقاطعة اورانج ووك
+    bg: Ориндж Уолк
+    bn: ওরেঞ্জ ওয়াক জেলা
+    ca: Districte d’Orange Walk
+    da: Orange Walk
+    de: Orange Walk District
+    el: Όραντζ Γουόλκ
+    es: Distrito de Orange Walk
+    fi: Orange Walkin kaupunginosa
+    fr: District d’Orange Walk
+    gu: ઓરેન્જ વોક જિલ્લો
+    hi: ऑरेंज वाक जिला
+    hr: Orange Walk (okrug)
+    id: Distrik Orange Walk
+    it: distretto di Orange Walk
+    ja: オレンジウォーク州
+    kn: ಆರೆಂಜ್ ವಾಕ್ ಜಿಲ್ಲೆ
+    ko: 오렌지워크 구
+    lt: Orendž Volko rajonas
+    lv: Orindžvokas distrikts
+    mr: ऑरेंज वॉल्क जिल्हा
+    ms: Orange Walk District
+    nb: Orange Walk
+    nl: Orange Walk
+    pl: Dystrykt Orange Walk
+    pt: Orange Walk
+    ru: Ориндж-Уолк
+    si: ඔරේන්ජ් වෝක් දිස්ත්‍රික්කය
+    sv: Orange Walk
+    ta: ஆரஞ்சு வாக் மாவட்டம்
+    te: ఆరెంజ్ వాక్ జిల్లా
+    th: เมืองออเรนจ์ วอล์ค
+    tr: Orange Walk District
+    ur: اورنج واک ضلع
+    vi: Quận Orange Walk
+    ceb: Orange Walk District
+    zh: 橘園區
+    fa: ناحیه آرنج واک
+    ccp: "𑄃𑄧𑄢𑄬𑄚𑄳𑄎𑄴 𑄃𑄮𑄠𑄇𑄴"
+    uk: Район Ориндж-Волк
+    'no': Orange Walk
+  type: district
+SC:
+  name: Stann Creek
+  code: SC
+  unofficial_names:
+  - Stann Creek
+  geo:
+    latitude: 16.8116631
+    longitude: -88.4016041
+    min_latitude: 16.5113349
+    min_longitude: -88.774852
+    max_latitude: 17.1271911
+    max_longitude: -88.0971759
+  translations:
+    en: Stann Creek
+    ar: مقاطعة ستان كريك
+    bg: Стан Крийк
+    bn: স্টান জেলা
+    ca: Districte de Stann Creek
+    da: Stann Creek
+    de: Stann Creek District
+    el: Σταν Κρικ
+    es: Distrito de Stann Creek
+    fi: Stann Creekin kaupunginosa
+    fr: District de Stann Creek
+    gu: સ્ટેન ક્રીક જિલ્લો
+    hi: स्टेन क्रीक जिला
+    hr: Stann Creek (okrug)
+    id: Distrik Stann Creek
+    it: distretto di Stann Creek
+    ja: スタンクリーク州
+    kn: ಸ್ಟ್ಯಾನ್ಕ್ರೀಕ್ ಜಿಲ್ಲೆ
+    ko: 스탠크리크 구
+    lt: Stan Kryko rajonas
+    lv: Stankrīkas distrikts
+    mr: स्टॅनन क्रीक जिल्हा
+    ms: Stann Creek District
+    nb: Stann Creek
+    nl: Stann Creek
+    pl: Dystrykt Stann Creek
+    pt: Stann Creek
+    ru: Станн-Крик
+    si: ස්ටාන් ක්‍රීක් දිස්ත්‍රික්කය
+    sv: Stann Creek
+    ta: ஸ்டாண் க்ரீக் மாவட்டம்
+    te: స్టాన్ క్రీక్ జిల్లా
+    th: สตันน์ครีก
+    tr: Stann Creek District
+    uk: Стан-Крик
+    ur: ستان کریک ضلع
+    vi: Quận Stann Creek
+    ceb: Stann Creek District
+    zh: 斯坦克里克區
+    fa: ناحیه استان کریک
+    ccp: "𑄌𑄳𑄑𑄚𑄴 𑄇𑄳𑄢𑄨𑄇𑄴"
+    'no': Stann Creek
+  type: district
+TOL:
+  name: Toledo
+  code: TOL
+  unofficial_names:
+  - Toledo
+  geo:
+    latitude: 16.2491923
+    longitude: -88.86469799999999
+    min_latitude: 15.889429
+    min_longitude: -89.2248151
+    max_latitude: 16.7002059
+    max_longitude: -88.14487510000001
+  translations:
+    en: Toledo
+    ar: مقاطعة توليدو
+    bg: Толедо
+    bn: তলেডু জেলা
+    ca: Districte de Toledo
+    da: Toledo
+    de: Toledo
+    el: Τολέδο
+    es: Distrito de Toledo
+    fi: Toledonin kaupunginosa
+    fr: District de Toledo
+    gl: Distrito de Toledo
+    gu: ટોલેડો જિલ્લો
+    hi: टोलिडो जिला
+    hr: Toledo (okrug)
+    id: Distrik Toledo
+    it: distretto di Toledo
+    ja: トレド州
+    kn: ಟೋಲೆಡೊ ಜಿಲ್ಲೆ
+    ko: 털리도 구
+    lt: Toledo rajonas
+    lv: Toledo distrikts
+    mr: टोलेडो जिल्हा
+    ms: Toledo District
+    nb: Toledo
+    nl: Toledo
+    pl: Dystrykt Toledo
+    pt: Toledo
+    ru: Толедо
+    si: ටොලේඩෝ දිස්ත්‍රික්කය
+    sv: Toledo
+    ta: டோலிடோ மாவட்டம்
+    te: టోలెడో జిల్లా
+    th: อำเภอโตเลโด
+    tr: Toledo District
+    ur: ٹولڈو ضلع
+    vi: Quận Toledo
+    ceb: Toledo District
+    zh: 托萊多區
+    fa: ناحیه تولیدو
+    ccp: "𑄑𑄧𑄣𑄬𑄓𑄮"
+    uk: Толедо
+    'no': Toledo
+  type: district

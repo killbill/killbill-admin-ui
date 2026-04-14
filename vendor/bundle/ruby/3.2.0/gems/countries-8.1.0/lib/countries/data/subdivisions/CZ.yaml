@@ -1,0 +1,4160 @@
+---
+'10':
+  unofficial_names:
+  - Hlavní město Praha
+  - Praha
+  - Prag
+  - Prague
+  translations:
+    en: Prague, Hlavní mešto
+    af: Praag
+    am: ፕራግ
+    ar: براغ
+    az: Praqa
+    be: Прага
+    bg: Прага
+    bn: প্রাগ
+    ca: Praga
+    cs: Praha
+    da: Prag
+    de: Prag
+    el: Πράγα
+    es: Praga
+    et: Praha
+    eu: Praga
+    fa: پراگ
+    fi: Praha
+    fr: Prague
+    gl: Praga
+    gu: પ્રાગ
+    he: פראג
+    hi: प्राग
+    hr: Prag
+    hu: Prága
+    hy: Պրահա
+    id: Praha
+    is: Prag
+    it: Praga
+    ja: プラハ
+    ka: პრაღა
+    km: ទីក្រុងប្រាក
+    kn: ಪ್ರಾಗ್
+    ko: 프라하
+    lt: Praha
+    lv: Prāga
+    ml: പ്രാഗ്
+    mn: Прага
+    mr: प्राग
+    ms: Praha
+    nb: Praha
+    ne: प्राग
+    nl: Praag
+    or: ପ୍ରାଗ
+    pl: Praga
+    ps: پراګ
+    pt: Praga
+    ro: Praga
+    ru: Прага
+    sd: پراگ
+    si: ප්‍රාග්
+    sk: Praha
+    sl: Praga
+    sr: Праг
+    sv: Prag
+    sw: Praha
+    ta: பிராகா
+    te: ప్రాహా
+    th: ปราก
+    tk: Praga
+    tr: Prag
+    uk: Прага
+    ur: پراگ
+    vi: Praha
+    zh: 布拉格
+    zu: IPraha
+    bs: Prag
+    ccp: "𑄛𑄳𑄢𑄧𑄉𑄪 𑄦𑄳𑄣𑄞𑄚𑄭 𑄟𑄬𑄌𑄴𑄑𑄮"
+    ceb: Praga
+    cy: Prag
+    ga: Prág
+    ha: Prag
+    ha_NE: Prag
+    jv: Praha
+    kk: Прага
+    ky: Прага
+    lo: ປຣາກ
+    mk: Прага
+    my: ပရက်ဂ်မြို့
+    'no': Praha
+    pa: ਪ੍ਰਾਗ
+    sq: Praga
+    sr_Latn: Prag
+    uz: Praga
+    yo: Prague
+    yo_BJ: Prague
+    yue: 布拉格
+    yue_Hans: 布拉格
+  geo:
+    latitude: 50.0755381
+    longitude: 14.4378005
+    min_latitude: 49.94193629999999
+    min_longitude: 14.2244533
+    max_latitude: 50.177403
+    max_longitude: 14.7067945
+  name: Praha, Hlavní město
+  code: '10'
+  type: capital_city
+'20':
+  unofficial_names:
+  - Central Bohemia
+  - Mittelböhmen
+  - Středočeský
+  translations:
+    en: Středočeský
+    ar: إقليم بوهيميا الوسطى
+    az: Orta Çex diyarı
+    be: Сярэднячэшскі край
+    bg: Среднобохемски край
+    bn: সেন্ট্রাল বুহেমিয়ান অঞ্চল
+    ca: Regió de Bohèmia Central
+    cs: Středočeský kraj
+    da: Centralbøhmen
+    de: Středočeský kraj
+    el: Περιφέρεια Κεντρικής Βοημίας
+    es: Bohemia Central
+    et: Kesk-Tšehhi maakond
+    eu: Erdialdeko Bohemiako eskualdea
+    fa: منطقه بوهمی مرکزی
+    fi: Keski-Böömin lääni
+    fr: Bohême centrale
+    gl: Bohemia Central
+    gu: સેન્ટ્રલ બોહેમિયન પ્રદેશ
+    he: מחוז מרכז בוהמיה
+    hi: केंद्रीय बोहेमियन क्षेत्र
+    hr: Središnja Češka
+    hu: Közép-csehországi kerület
+    id: Daerah Bohemia Tengah
+    it: Boemia centrale
+    ja: 中央ボヘミア州
+    ka: ცენტრალური ბოჰემიის მხარე
+    kn: ಸೆಂಟ್ರಲ್ ಬೋಹೀಮಿಯನ್ ಪ್ರದೇಶ
+    ko: 중앙보헤미아 주
+    lt: Vidurio Čekijos kraštas
+    lv: Centrālčehijas apgabals
+    mr: सेंट्रल बोहेमियन प्रदेश
+    ms: Daerah Bohemia Tengah
+    nb: Sentralbøhmen region
+    nl: Midden-Bohemen
+    pl: Kraj środkowoczeski
+    pt: Boêmia Central
+    ro: Regiunea Boemia Centrală
+    ru: Среднечешский край
+    si: මධ්‍යම බොහිමියන් කලාපය
+    sk: Stredočeský kraj
+    sr: Средњочешки крај
+    sv: Mellersta Böhmen
+    ta: சென்ட்ரல் பொஹீமியான் பகுதி
+    te: మధ్య బొహీమియా ప్రాంతము
+    th: เขตปกครองโบฮีเมียนกลาง
+    tr: Orta Bohemia
+    uk: Центральночеський край
+    ur: مرکزی بوہیمیائی علاقہ
+    vi: Trung Bohemia
+    zh: 中波希米亚州
+    bs: Srednjočeški kraj
+    ccp: "𑄃𑄬𑄌𑄴𑄑𑄳𑄢𑄬𑄓𑄮𑄥𑄬𑄌𑄴𑄇𑄨"
+    ceb: Středočeský kraj
+    hy: Կենտրոնաչեխական շրջան
+    mk: Средночешки крај
+    'no': Sentralbøhmen region
+    sr_Latn: Srednjočeški kraj
+    sl: Osrednječeški okraj
+  geo:
+    latitude: 49.8782223
+    longitude: 14.9362955
+    min_latitude: 49.50133659999999
+    min_longitude: 13.3973366
+    max_latitude: 50.6190994
+    max_longitude: 15.5345257
+  name: Středočeský kraj
+  code: '20'
+  type: region
+'201':
+  translations:
+    ar: مقاطعة بينيشوف
+    be: раён Бенешаў
+    bg: Бенешов (окръг)
+    ca: Districte de Benešov
+    cs: okres Benešov
+    de: Okres Benešov
+    en: Benešov
+    fr: District de Benešov
+    he: מחוז משנה בנשוב
+    hu: Benešovi járás
+    hy: Խեբի շրջան
+    it: Distretto di Benešov
+    ja: ベネショフ郡
+    ka: ბენეშოვის რაიონი
+    ms: Daerah Benešov
+    nl: Okres Benešov
+    pl: Powiat Benešov
+    pt: Benešov (distrito)
+    ro: Benešov
+    ru: Бенешов
+    sk: Okres Benešov
+    sr: Округ Бенешов
+    sv: Benešov (distrikt)
+    uk: Бенешов
+    ur: بینیشوف ضلع
+    vi: Benešov
+    ccp: "𑄝𑄬𑄚𑄬𑄥𑄮𑄛𑄴"
+    ceb: Okres Benešov
+    es: Distrito de Benešov
+    eu: Benešoveko barrutia
+    fa: شهرستان بنشوف
+    lt: Benešovo rajonas
+    lv: Benešovas apriņķis
+    sr_Latn: Okrug Benešov
+    tr: Benešov ilçesi
+    zh: 貝內紹夫縣
+    ko: 베네쇼프구
+  name: Benešov
+  code: '201'
+  type: district
+'202':
+  translations:
+    ar: مقاطعة بيرون
+    bg: Бероун
+    ca: Districte de Beroun
+    cs: okres Beroun
+    de: Okres Beroun
+    en: Beroun
+    fr: District de Beroun
+    he: מחוז משנה ברואון
+    hu: Berouni járás
+    hy: Կարլովի Վարիի շրջան
+    it: distretto di Beroun
+    ka: ბეროუნის რაიონი
+    ms: Daerah Beroun
+    nl: Okres Beroun
+    pl: Powiat Beroun
+    pt: Beroun
+    ru: Бероун
+    sk: Okres Beroun
+    sr: Округ Бероун
+    sv: Beroun
+    ur: بیرون ضلع
+    vi: Beroun
+    be: Бераўн
+    ccp: "𑄝𑄬𑄢𑄯𑄚𑄴"
+    ceb: Okres Beroun
+    es: Distrito de Beroun
+    eu: Beroungo barrutia
+    fa: شهرستان برون
+    lt: Berouno rajonas
+    lv: Berounas apriņķis
+    mk: Бероун
+    sr_Latn: Okrug Beroun
+    tr: Beroun ilçesi
+    uk: Бероун (округ)
+    zh: 貝龍縣
+    ja: ベロウン郡
+    ko: 베로운구
+  name: Beroun
+  code: '202'
+  type: district
+'203':
+  translations:
+    ar: مقاطعة كلادنو
+    be: Кладна
+    bg: Кладно
+    ca: Districte de Kladno
+    cs: okres Kladno
+    de: Okres Kladno
+    en: Kladno
+    es: Distrito de Kladno
+    fa: شهرستان کلادنو
+    fr: District de Kladno
+    he: מחוז משנה קלדנו
+    hu: Kladnói járás
+    hy: Սոկոլովի շրջան
+    it: Distretto di Kladno
+    ja: クラドノ郡
+    ka: კლადნოს რაიონი
+    ms: Daerah Kladno
+    nl: Okres Kladno
+    pl: Powiat Kladno
+    pt: Kladno
+    ro: Districtul Kladno
+    ru: Кладно
+    sk: Okres Kladno
+    sr: Округ Кладно
+    sv: Kladno
+    ur: کلاندو ضلع
+    vi: Kladno
+    ccp: "𑄇𑄳𑄣𑄖𑄴𑄚𑄮"
+    ceb: Okres Kladno
+    lt: Kladno rajonas
+    lv: Kladno apriņķis
+    sr_Latn: Okrug Kladno
+    tr: Kladno ilçesi
+    uk: Кладно
+    zh: 克拉德諾縣
+    ko: 클라드노구
+  name: Kladno
+  code: '203'
+  type: district
+'204':
+  translations:
+    ar: مقاطعة كولين
+    bg: Колин
+    ca: Districte de Kolín
+    cs: okres Kolín
+    de: Okres Kolín
+    en: Kolín
+    es: Distrito de Kolín
+    fr: District de Kolín
+    he: מחוז משנה קולין
+    hu: Kolíni járás
+    hy: Բենեշովի շրջան
+    it: Distretto di Kolín
+    ja: コリーン群
+    ka: კოლინის რაიონი
+    ms: Daerah Kolín
+    nl: Okres Kolín
+    pl: Powiat Kolín
+    pt: Kolín
+    ru: Колин
+    sk: Okres Kolín
+    sr: Округ Колин
+    sv: Kolín
+    ur: کولین ضلع
+    vi: Kolín
+    ccp: "𑄇𑄧𑄣𑄨𑄚𑄴"
+    ceb: Okres Kolín
+    eu: Kolíngo barrutia
+    fa: شهرستان کولین
+    lt: Kolyno rajonas
+    lv: Kolīnas apriņķis
+    sr_Latn: Okrug Kolin
+    tr: Kolín ilçesi
+    uk: Колін
+    zh: 科林縣
+    be: Колінская акруга
+    ko: 콜린구
+  name: Kolín
+  code: '204'
+  type: district
+'205':
+  translations:
+    ar: مقاطعة كوتنا هورا
+    bg: Кутна Хора
+    ca: Districte de Kutná Hora
+    cs: okres Kutná Hora
+    de: Okres Kutná Hora
+    en: Kutná Hora
+    fr: District de Kutná Hora
+    he: מחוז משנה קוטנה הורה
+    hu: Kutná Hora-i járás
+    hy: Բերոունի շրջան
+    it: Distretto di Kutná Hora
+    ja: クトナー・ホラ群
+    ka: კუტნა-ჰორის რაიონი
+    ms: Daerah Kutná Hora
+    nl: Okres Kutná Hora
+    pl: Powiat Kutná Hora
+    pt: Kutná Hora
+    ru: Кутна-Гора
+    sk: Okres Kutná Hora
+    sr: Округ Кутна Хора
+    sv: Kutná Hora
+    uk: Кутна Гора (округ)
+    ur: کوتنا ہورا ضلع
+    vi: Kutná Hora
+    be: раён Кутна-Гора
+    ccp: "𑄇𑄪𑄖𑄴𑄚 𑄦𑄮𑄢"
+    ceb: Okres Kutná Hora
+    es: Distrito de Kutná Hora
+    eu: Kutná Horako barrutia
+    fa: شهرستان کوتنا هورا
+    lt: Kutna Horos rajonas
+    lv: Kutna Horas apriņķis
+    mk: Кутна Хора
+    sr_Latn: Okrug Kutna Hora
+    tr: Kutná Hora ilçesi
+    zh: 庫特納霍拉縣
+    ko: 쿠트나호라구
+  name: Kutná Hora
+  code: '205'
+  type: district
+'206':
+  translations:
+    ar: مقاطعة منيلنيك
+    be: Мельнік
+    bg: Мелник
+    ca: Districte de Mělník
+    cs: okres Mělník
+    de: Okres Mělník
+    en: Mělník
+    fr: District de Mělník
+    he: מחוז משנה מלניק
+    hu: Mělníki járás
+    hy: Կլադնոյի շրջան
+    it: Distretto di Mělník
+    ka: მელნიკის რაიონი
+    ms: Daerah Mělník
+    nl: Okres Mělník
+    pl: Powiat Mielnik
+    pt: Mělník
+    ru: Мельник
+    sk: Okres Mělník
+    sr: Округ Мјелњик
+    sv: Mělník
+    uk: Мельник
+    ur: میلنک ضلع
+    vi: Mělník
+    ccp: "𑄟𑄬𑄣𑄴𑄚𑄨𑄇𑄴"
+    ceb: Okres Mělník
+    es: Distrito de Mělník
+    fa: شهرستان میلنیک
+    ja: ムニェルニーク地区
+    lt: Melnyko rajonas
+    lv: Melnīkas apriņķis
+    sr_Latn: Okrug Mjelnjik
+    tr: Mělník ilçesi
+    zh: 梅爾尼克縣
+    ko: 멜니크구
+  name: Mělník
+  code: '206'
+  type: district
+'207':
+  translations:
+    ar: مقاطعة ملادا بوليسلاف
+    bg: Млада Болеслав
+    ca: Districte de Mladá Boleslav
+    cs: okres Mladá Boleslav
+    de: Okres Mladá Boleslav
+    en: Mladá Boleslav
+    es: Distrito de Mladá Boleslav
+    fr: District de Mladá Boleslav
+    he: מחוז משנה מלאדה בולסלאב
+    hu: Mladá Boleslav-i járás
+    hy: Կոլինի շրջան
+    it: Distretto di Mladá Boleslav
+    ja: ムラダー・ボレスラフ群
+    ka: მლადა-ბოლესლავის რაიონი
+    ms: Daerah Mladá Boleslav
+    nl: Okres Mladá Boleslav
+    pl: Powiat Mladá Boleslav
+    pt: Mladá Boleslav
+    ru: Млада-Болеслав
+    sk: Okres Mladá Boleslav
+    sr: Округ Млада Болеслав
+    sv: Mladá Boleslav
+    ur: ملادا بولسلاو ضلع
+    vi: Mladá Boleslav
+    be: Млада Болеслаў
+    ccp: "𑄟𑄳𑄣𑄓 𑄝𑄮𑄣𑄬𑄌𑄴𑄣𑄛𑄴"
+    ceb: Okres Mladá Boleslav
+    eu: Mladá Boleslaveko barrutia
+    fa: شهرستان ملادا بولسلاو
+    lt: Mlada Boleslavo rajonas
+    lv: Mlada Boleslavas apriņķis
+    sr_Latn: Okrug Mlada Boleslav
+    tr: Mladá Boleslav ilçesi
+    uk: Млада-Болеслав
+    zh: 姆拉達-博萊斯拉夫縣
+    ko: 믈라다볼레슬라프구
+  name: Mladá Boleslav
+  code: '207'
+  type: district
+'208':
+  translations:
+    ar: مقاطعة نيمبورك
+    be: раён Німбурк
+    bg: Нимбурк
+    ca: Districte de Nymburk
+    cs: okres Nymburk
+    de: Okres Nymburk
+    en: Nymburk
+    fr: District de Nymburk
+    he: מחוז משנה נימבורק
+    hu: Nymburki járás
+    hy: Կուտնա Հորայի շրջան
+    it: Distretto di Nymburk
+    ja: ニンブルク郡
+    ka: ნიმბურკის რაიონი
+    ms: Daerah Nymburk
+    nl: Okres Nymburk
+    pl: Powiat Nymburk
+    pt: Nymburk
+    ru: Нимбурк
+    sk: Okres Nymburk
+    sr: Округ Нимбурк
+    sv: Nymburk
+    uk: Нимбурк (округ)
+    ur: نمبورک ضلع
+    vi: Nymburk
+    ccp: "𑄚𑄨𑄠𑄟𑄴𑄝𑄢𑄳𑄇𑄴"
+    ceb: Okres Nymburk
+    es: Distrito de Nymburk
+    fa: شهرستان نیمبورک
+    lt: Nimburko rajonas
+    lv: Nimburkas apriņķis
+    sr_Latn: Okrug Nimburk
+    zh: 寧布爾克縣
+    ko: 님부르크구
+    tr: Nymburk ilçesi
+  name: Nymburk
+  code: '208'
+  type: district
+'209':
+  translations:
+    ar: مقاطعة براغ-شرق
+    bg: Прага-изток
+    ca: Districte de Praga-Est
+    cs: okres Praha-východ
+    de: Okres Praha-východ
+    en: Prague-East
+    fr: District de Prague-est
+    he: מחוז משנה פראג-מזרח
+    hu: Kelet-prágai járás
+    it: Distretto di Praha-východ
+    ja: 東プラハ群
+    ka: პრაღა-ვიხოდის რაიონი
+    ms: Daerah Prague-Timur
+    nl: Okres Praha-východ
+    pl: Powiat Praga Wschód
+    ru: Прага-восток
+    sk: Okres Praha-východ
+    sr: Округ Праг-исток
+    sv: Praha-východ
+    uk: Прага-схід
+    ur: پراگ-شرقی ضلع
+    vi: Praha Đông
+    be: Прага-ўсход
+    ccp: "𑄛𑄳𑄢𑄉𑄪𑄠𑄬-𑄛𑄪𑄇𑄴"
+    ceb: Okres Praha-Východ
+    es: Distrito de Praga-Este
+    eu: Praga-Ekialdeko barrutia
+    fa: شهرستان پراگ-شرق
+    hy: Պրահայի արևելք
+    lt: Prahos rytinis rajonas
+    lv: Prāgas Austrumu apriņķis
+    sr_Latn: Okrug Prag-istok
+    zh: 東布拉格縣
+    ko: 동프라하구
+  name: Praha-východ
+  code: '209'
+  type: district
+20A:
+  translations:
+    ar: مقاطعة براغ-غرب
+    bg: Прага-запад
+    ca: Districte de Praga-Oest
+    cs: okres Praha-západ
+    de: Okres Praha-západ
+    en: Prague-West
+    fr: District de Prague-ouest
+    he: מחוז משנה פראג-מערב
+    hu: Nyugat-prágai járás
+    it: Distretto di Praha-západ
+    ja: 西プラハ群
+    ka: პრაღა-ზაპადის რაიონი
+    ms: Daerah Prague-Barat
+    nl: Okres Praha-západ
+    pl: Powiat Praga Zachód
+    ru: Прага-запад
+    sk: Okres Praha-západ
+    sr: Округ Праг-запад
+    sv: Praha-západ
+    uk: Прага-захід
+    ur: پراگ-غربی ضلع
+    vi: Praha Tây
+    ccp: "𑄛𑄳𑄢𑄉𑄪𑄠𑄬-𑄛𑄧𑄏𑄨𑄟𑄴"
+    ceb: Okres Praha-Západ
+    es: Distrito de Praga-Oeste
+    fa: شهرستان پراگ-غرب
+    lt: Prahos vakarinis rajonas
+    sr_Latn: Okrug Prag-zapad
+    zh: 西布拉格縣
+    be: Прага-захад
+    hy: Արևմտապրահյան շրջան²
+    ko: 서프라하구
+    ro: Praga-Vest
+  name: Praha-západ
+  code: 20A
+  type: district
+20B:
+  translations:
+    ar: مقاطعة بشيبرام
+    bg: Пршибрам
+    ca: Districte de Příbram
+    cs: okres Příbram
+    de: Okres Příbram
+    en: Příbram
+    fr: District de Příbram
+    he: מחוז משנה פריברם
+    hu: Příbrami járás
+    hy: Նիմբուրկի շրջան
+    it: Distretto di Příbram
+    ja: プシーブラム郡
+    ka: პრშიბრამის რაიონი
+    ms: Daerah Příbram
+    nl: Okres Příbram
+    pl: powiat Przybram
+    pt: Příbram
+    ru: Пршибрам
+    sk: Okres Příbram
+    sr: Округ Прибрам
+    sv: Příbram
+    uk: Пржибрам
+    ur: پشیبرام ضلع
+    vi: Příbram
+    ccp: "𑄛𑄳𑄢𑄭𑄝𑄳𑄢𑄟𑄴"
+    ceb: Okres Příbram
+    es: Distrito de Příbram
+    eu: Příbramgo barrutia
+    fa: شهرستان پرژیبرام
+    lt: Pršybramo rajonas
+    mk: Пшибрам
+    sr_Latn: Okrug Pribram
+    tr: Příbram ilçesi
+    zh: 普日布拉姆縣
+    az: Prşibram
+    be: раён Пршыбрам
+    ko: 프르지브람구
+  name: Příbram
+  code: 20B
+  type: district
+20C:
+  translations:
+    ar: مقاطعة راكوفنيك
+    bg: Раковник
+    ca: Districte de Rakovník
+    cs: okres Rakovník
+    de: Okres Rakovník
+    en: Rakovník
+    fr: District de Rakovník
+    he: מחוז משנה ראקובניק
+    hu: Rakovníki járás
+    hy: Արևելապրահյան շրջան
+    it: Distretto di Rakovník
+    ja: ラコヴニーク郡
+    ka: რაკოვნიკის რაიონი
+    ms: Daerah Rakovník
+    nl: Okres Rakovník
+    pl: Powiat Rakovník
+    pt: Rakovník
+    ru: Раковник
+    sk: Okres Rakovník
+    sr: Округ Раковњик
+    sv: Rakovník
+    ur: راکوونیک ضلع
+    vi: Rakovník
+    ccp: "𑄢𑄧𑄇𑄮𑄛𑄴𑄚𑄨𑄇𑄴"
+    ceb: Okres Rakovník
+    es: Distrito de Rakovník
+    eu: Rakovníkeko barrutia
+    fa: شهرستان راکوونیک
+    lt: Rakovnyko rajonas
+    sr_Latn: Okrug Rakovnjik
+    tr: Rakovník ilçesi
+    uk: Раковнік
+    zh: 拉科夫尼克縣
+    ko: 라코브니크구
+  name: Rakovník
+  code: 20C
+  type: district
+'31':
+  unofficial_names:
+  - Budějovický
+  - Českobudějovický
+  translations:
+    en: Jihočeský
+    ar: إقليم جنوب بوهيميا
+    az: Cənubi Çex diyarı
+    be: Паўднёвачэшскі край
+    bg: Южнобохемски край
+    bn: সাউথ বুহেমিয়া অঞ্চল
+    ca: Regió de Bohèmia Meridional
+    cs: Jihočeský kraj
+    da: Sydbøhmen
+    de: Jihočeský kraj
+    el: Περιφέρεια Νότιας Βοημίας
+    es: Región de Bohemia Meridional
+    et: Lõuna-Tšehhi maakond
+    eu: Hegoaldeko Bohemiako eskualdea
+    fa: منطقه بوهمی جنوبی
+    fi: Etelä-Böömin lääni
+    fr: Bohême-du-Sud
+    gu: દક્ષિણ બોહેમિયા પ્રદેશ
+    he: דרום בוהמיה
+    hi: दक्षिण बोहेमियाई क्षेत्र
+    hr: Južna Češka
+    hu: Dél-csehországi kerület
+    id: Daerah Bohemia Selatan
+    it: Boemia meridionale
+    ja: 南ボヘミア州
+    ka: სამხრეთ ბოჰემიის მხარე
+    kn: ದಕ್ಷಿಣ ಬೊಹೆಮಿಯಾ ಪ್ರದೇಶ
+    ko: 남보헤미아 주
+    lt: Pietų Čekijos kraštas
+    lv: Dienvidčehijas apgabals
+    mr: दक्षिण बोहेमिया प्रदेश
+    ms: Daerah Bohemia Selatan
+    nb: Sydbøhmen region
+    nl: Zuid-Bohemen
+    pl: Kraj południowoczeski
+    pt: Boêmia do Sul
+    ro: Regiunea Boemia de Sud
+    ru: Южночешский край
+    si: දකුණු බොහිමියා කලාපය
+    sk: Juhočeský kraj
+    sr: Јужночешки крај
+    sv: Södra Böhmen
+    ta: தெற்கு பொஹீமியா பகுதி
+    te: దక్షిణ బొహెమియా ప్రాంతం
+    th: เขตโบฮีเมียนตอนใต้
+    tr: Güney Bohemya ili
+    uk: Південночеський край
+    ur: جنوبی بوہیمیائی علاقہ
+    vi: Nam Bohemia
+    zh: 南波希米亚州
+    bs: Južnočeški kraj
+    ccp: "𑄎𑄨𑄦𑄮𑄥𑄬𑄌𑄴𑄇𑄨"
+    ceb: Jihočeský kraj
+    mk: Јужночешки крај
+    'no': Sydbøhmen region
+    sr_Latn: Južnočeški kraj
+    gl: Rexión de Bohemia Meridional
+    hy: Հարավչեխական երկրամաս
+    sl: Južnočeški okraj
+  geo:
+    latitude: 48.9457789
+    longitude: 14.4416055
+    min_latitude: 48.5518081
+    min_longitude: 13.5363203
+    max_latitude: 49.6212548
+    max_longitude: 15.6041293
+  name: Jihočeský kraj
+  code: '31'
+  type: region
+'311':
+  translations:
+    ar: مقاطعة تشيسكي بوديوفيتسه
+    be: Раён Чэске-Будзеёвіцы
+    bg: Ческе Будейовице
+    ca: Districte de České Budějovice
+    cs: okres České Budějovice
+    de: Okres České Budějovice
+    en: České Budějovice
+    fa: شهرستان چسکه بودیوویتسه
+    fr: District de České Budějovice
+    he: מחוז משנה צ׳סקה בודייוביצה
+    hu: České Budějovice-i járás
+    hy: Չեսկե Բուդեյովիցեի շրջան
+    it: Distretto di České Budějovice
+    ja: チェスケー・ブジェヨヴィツェ郡
+    ka: ჩესკე-ბუდეიოვიცეს რაიონი
+    ms: Daerah České Budějovice
+    nb: České Budějovice
+    nl: Okres České Budějovice
+    pl: Powiat Czeskie Budziejowice
+    pt: České Budějovice
+    ro: Okres České Budějovice
+    ru: Ческе-Будеёвице
+    sk: Okres České Budějovice
+    sr: Округ Чешке Будјејовице
+    sv: České Budějovice
+    ur: چسکے بودجیووسکے ضلع
+    vi: České Budějovice
+    ccp: "𑄇𑄬𑄌𑄴𑄇𑄬 𑄝𑄓𑄬𑄎𑄮𑄞𑄭𑄌𑄴"
+    ceb: Okres České Budějovice
+    es: Distrito de České Budějovice
+    eu: České Budějoviceko barrutia
+    lt: Česke Budejovicų rajonas
+    'no': České Budějovice
+    sr_Latn: Okrug Češke Budjejovice
+    tr: České Budějovice ilçesi
+    uk: Чеське Будейовіце (округ)
+    zh: 捷克布傑約維采縣
+    az: Çeske-Budeyovitse rayonu
+    ko: 체스케부데요비체구
+  name: České Budějovice
+  code: '311'
+  type: district
+'312':
+  translations:
+    ar: مقاطعة تشيسكي كروملوف
+    bg: Чески Крумлов (окръг)
+    ca: Districte de Český Krumlov
+    cs: okres Český Krumlov
+    de: Okres Český Krumlov
+    en: Český Krumlov
+    fr: District de Český Krumlov
+    he: מחוז משנה צ׳סקי קרומלוב
+    hu: Český Krumlov-i járás
+    hy: Չեսկե Կրումլովի շրջան
+    it: Distretto di Český Krumlov
+    ja: チェスキー・クルムロフ郡
+    ka: ჩესკი-კრუმლოვის რაიონი
+    ms: Daerah Český Krumlov
+    nb: Český Krumlov
+    nl: Okres Český Krumlov
+    pl: Powiat Český Krumlov
+    pt: Český Krumlov
+    ro: Okres Český Krumlov
+    ru: Чески-Крумлов
+    sk: Okres Český Krumlov
+    sr: Округ Чешки Крумлов
+    sv: Český Krumlov
+    ur: چیسکی کروملوف ضلع
+    vi: Český Krumlov
+    be: раён Чэскі-Крумлаў
+    ccp: "𑄇𑄬𑄌𑄴𑄇𑄨 𑄇𑄳𑄢𑄪𑄟𑄣𑄧𑄛𑄴"
+    ceb: Okres Český Krumlov
+    es: Distrito de Český Krumlov
+    eu: Český Krumloveko barrutia
+    fa: شهرستان چسکی کروملوف
+    lt: Česky Krumlovo rajonas
+    'no': Český Krumlov
+    sr_Latn: Okrug Češki Krumlov
+    tr: Český Krumlov ilçesi
+    uk: Чеський Крумлов
+    zh: 捷克克魯姆洛夫縣
+    ko: 체스키크룸로프구
+  name: Český Krumlov
+  code: '312'
+  type: district
+'313':
+  translations:
+    ar: مقاطعة يندريخوف هرادتس
+    bg: Индржихув Храдец (окръг)
+    ca: Districte de Jindřichův Hradec
+    cs: okres Jindřichův Hradec
+    de: Okres Jindřichův Hradec
+    en: Jindřichův Hradec
+    fr: District de Jindřichův Hradec
+    he: מחוז משנה יינדריחוב הרדץ
+    hu: Jindřichův Hradec-i járás
+    hy: Յինդրիխուվ Հրադեցի շրջան
+    it: Distretto di Jindřichův Hradec
+    ja: インジフーフ・フラデツ郡
+    ka: იინდრჟიხუვ-ჰრადეცის რაიონი
+    ms: Daerah Jindřichův Hradec
+    nb: Jindřichův Hradec
+    nl: Okres Jindřichův Hradec
+    pl: Powiat Jindřichův Hradec
+    pt: Jindřichův Hradec
+    ro: Okres Jindřichův Hradec
+    ru: Йиндржихув-Градец
+    sk: Okres Jindřichův Hradec
+    sr: Округ Јиндрихув Храдец
+    sv: Jindřichův Hradec
+    ur: جندرشیخوو ہاردک ضلع
+    vi: Jindřichův Hradec
+    ccp: "𑄎𑄨𑄚𑄴𑄘𑄳𑄢𑄭𑄇𑄪𑄛𑄴 𑄢𑄓𑄬𑄇𑄴"
+    ceb: Okres Jindřichův Hradec
+    es: Distrito de Jindřichův Hradec
+    eu: Jindřichův Hradeceko barrutia
+    fa: شهرستان ییندرژیخوف هرادتس
+    lt: Jindržichūv Hradeco rajonas
+    'no': Jindřichův Hradec
+    sr_Latn: Okrug Jindrihuv Hradec
+    tr: Jindřichův Hradec ilçesi
+    uk: Їндржіхув Градець
+    zh: 因德日赫城堡縣
+    ko: 인드르지후프흐라데츠구
+  name: Jindřichův Hradec
+  code: '313'
+  type: district
+'314':
+  translations:
+    ar: مقاطعة بيسك
+    bg: Писек
+    ca: Districte de Písek
+    cs: okres Písek
+    de: Okres Písek
+    en: Písek
+    fr: District de Písek
+    he: מחוז משנה פיסק
+    hu: Píseki járás
+    hy: Պիսեկի շրջան
+    it: Distretto di Písek
+    ja: ピーセク群
+    ka: პისეკის რაიონი
+    ms: Daerah Písek
+    nb: Písek
+    nl: Okres Písek
+    pl: Powiat Písek
+    pt: Písek
+    ru: Писек
+    sk: Okres Písek
+    sr: Округ Писек
+    sv: Písek
+    ur: پیسک ضلع
+    vi: Písek
+    be: Пісек
+    ccp: "𑄛𑄭𑄥𑄬𑄇𑄴"
+    ceb: Okres Písek
+    es: Distrito de Písek
+    eu: Písekeko barrutia
+    fa: شهرستان پیسک
+    lt: Piseko rajonas
+    'no': Písek
+    sr_Latn: Okrug Pisek
+    tr: Písek ilçesi
+    uk: Пісек
+    zh: 皮塞克縣
+    gl: Distrito de Písek
+    ko: 피세크구
+  name: Písek
+  code: '314'
+  type: district
+'315':
+  translations:
+    ar: مقاطعة براخاتيتسه
+    bg: Прахатице
+    ca: Districte de Prachatice
+    cs: okres Prachatice
+    de: Okres Prachatice
+    el: Επαρχία Πρατσάτιτσε
+    en: Prachatice
+    fr: District de Prachatice
+    hu: Prachaticei járás
+    hy: Պրախատիցեի շրջան
+    it: Distretto di Prachatice
+    ja: プラハチツェ郡
+    ka: პრახატიცეს რაიონი
+    ms: Daerah Prachatice
+    nb: Prachatice
+    nl: Okres Prachatice
+    pl: Powiat Prachatice
+    pt: Prachatice
+    ru: Прахатице
+    sk: Okres Prachatice
+    sr: Округ Прахатице
+    sv: Okres Prachatice
+    ur: پراخاتسے ضلع
+    vi: Prachatice
+    be: Прахаціцы
+    ccp: "𑄛𑄳𑄢𑄌𑄑𑄭𑄌𑄴"
+    ceb: Okres Prachatice
+    es: Distrito de Prachatic
+    eu: Prachaticeko barrutia
+    fa: شهرستان پراخاتیتسه
+    lt: Prachaticių rajonas
+    'no': Prachatice
+    sr_Latn: Okrug Prahatice
+    tr: Prachatice İlçesi
+    uk: Прахатіце
+    zh: 普拉哈季采縣
+    ko: 프라하티체구
+  name: Prachatice
+  code: '315'
+  type: district
+'316':
+  translations:
+    ar: مقاطعة ستراكونيتسه
+    bg: Страконице
+    ca: Districte de Strakonice
+    cs: okres Strakonice
+    de: Okres Strakonice
+    en: Strakonice
+    fr: District de Strakonice
+    he: מחוז משנה סטרוקניצה
+    hu: Strakonicei járás
+    hy: Ստրակոնիցեի շրջան
+    it: Distretto di Strakonice
+    ja: ストラコニツェ郡
+    ka: სტრაკონიცეს რაიონი
+    ms: Daerah Strakonice
+    nb: Strakonice
+    nl: Okres Strakonice
+    pl: Powiat Strakonice
+    pt: Strakonice
+    ro: Okres Strakonice
+    ru: Страконице
+    sk: Okres Strakonice
+    sr: Округ Стракоњице
+    sv: Okres Strakonice
+    ur: ستراکونیسے ضلع
+    vi: Strakonice
+    ccp: "𑄌𑄳𑄑𑄳𑄢𑄳𑄢𑄳𑄢𑄇𑄮𑄚𑄭𑄌𑄴"
+    ceb: Okres Strakonice
+    es: Distrito de Strakonice
+    eu: Strakoniceko barrutia
+    fa: شهرستان استراکونیتسه
+    lt: Strakonicių rajonas
+    'no': Strakonice
+    sr_Latn: Okrug Strakonjice
+    tr: Strakonice ilçesi
+    uk: Страконіце
+    zh: 斯特拉科尼采縣
+    ko: 스트라코니체구
+  name: Strakonice
+  code: '316'
+  type: district
+'317':
+  translations:
+    ar: مقاطعة تابور
+    be: Табар
+    bg: Табор
+    ca: Districte de Tábor
+    cs: okres Tábor
+    de: Okres Tábor
+    en: Tábor
+    fa: منطقه تابور
+    fr: District de Tábor
+    he: מחוז משנה טאבור
+    hu: Tábori járás
+    hy: Տաբորի շրջան
+    it: Distretto di Tábor
+    ja: ターボル群
+    ka: ტაბორის რაიონი
+    ms: Daerah Tábor
+    nb: Tábor
+    nl: Okres Tábor
+    pl: Powiat Tabor
+    ru: Табор
+    sk: Okres Tábor
+    sr: Округ Табор
+    sv: Okres Tábor
+    ur: تابور ضلع
+    vi: Tábor
+    ccp: "𑄑𑄝𑄧𑄢𑄴"
+    ceb: Okres Tábor
+    es: Distrito de Tábor
+    eu: Táborko barrutia
+    lt: Taboro rajonas
+    'no': Tábor
+    sr_Latn: Okrug Tabor
+    tr: Tábor ilçesi
+    uk: Табор
+    zh: 塔博爾縣
+    id: Distrik Tábor
+    ko: 타보르구
+    pt: Tábor (distrito)
+    ro: Tábor
+  name: Tábor
+  code: '317'
+  type: district
+'32':
+  unofficial_names:
+  - Plzeňský kraj
+  translations:
+    en: Plzeňský
+    ar: إقليم بلزن
+    az: Plzen diyarı
+    be: Пльзенскі край
+    bg: Пилзенски край
+    bn: পাজেন অঞ্চল
+    ca: Regió de Plzeň
+    cs: Plzeňský kraj
+    da: Plzeň
+    de: Plzeňský kraj
+    el: Περιφέρεια Πίλσεν
+    es: Región de Pilsen
+    et: Plzeňi maakond
+    eu: Pilsen eskualdea
+    fa: منطقه پلزن
+    fi: Plzeňin lääni
+    fr: Région de Plzeň
+    gu: પીલ્ઝેન પ્રદેશ
+    he: פלזן (מחוז)
+    hi: प्लेजेन प्रदेश
+    hr: Plzeňski kraj
+    hu: Plzeňi kerület
+    id: Daerah Plzeň
+    it: regione di Plzeň
+    ja: プルゼニ州
+    ka: პლზენის მხარე
+    kn: ಪ್ಲೆಝ್ ಪ್ರದೇಶ
+    ko: 플젠 주
+    lt: Pilzeno kraštas
+    mr: प्लॅज़ेन प्रदेश
+    ms: Daerah Plzeň
+    nb: Plzeň region
+    nl: Pilsen
+    pl: Kraj pilzneński
+    pt: Plzeň
+    ro: Regiunea Plzeň
+    ru: Пльзенский край
+    si: ප්ල්සෙන් කලාපය
+    sk: Plzenský kraj
+    sr: Плзењски крај
+    sv: Plzeň
+    ta: பில்ஜென் பகுதி
+    te: ప్లిజెన్ ప్రాంతం
+    th: ภูมิภาคพลีเซน
+    tr: Plzen Region
+    uk: Пльзенський край
+    ur: پلزین علاقہ
+    vi: Plzeň
+    zh: 比爾森州
+    bs: Plzenjski kraj
+    ccp: "𑄛𑄳𑄣𑄬𑄚𑄴𑄥𑄴𑄇𑄩"
+    ceb: Plzeňský kraj
+    lv: Plzeņas apgabals
+    'no': Plzeň region
+    sr_Latn: Plzenjski kraj
+    hy: Պլզենի երկրամաս
+    sl: Plzenski okraj
+  geo:
+    latitude: 49.4134812
+    longitude: 13.3157246
+    min_latitude: 48.9412671
+    min_longitude: 12.400522
+    max_latitude: 50.1033335
+    max_longitude: 13.835103
+  name: Plzeňský kraj
+  code: '32'
+  type: region
+'321':
+  translations:
+    ar: مقاطعة دوماجليتسه
+    bg: Домажлице
+    ca: Districte de Domažlice
+    cs: okres Domažlice
+    de: Okres Domažlice
+    en: Domažlice
+    fr: District de Domažlice
+    he: מחוז משנה דומזליצה
+    hu: Domažlicei járás
+    hy: Դոմաժլիցեի շրջան
+    it: Distretto di Domažlice
+    ja: ドマジュリツェ郡
+    ka: დომაჟლიცეს რაიონი
+    ms: Daerah Domažlice
+    nl: Okres Domažlice
+    pl: Powiat Domažlice
+    ru: Домажлице
+    sk: Okres Domažlice
+    sr: Округ Домажлице
+    sv: Okres Domažlice
+    ur: دوماشزلیسے ضلع
+    vi: Domažlice
+    ccp: "𑄓𑄮𑄟𑄬𑄌𑄴𑄣𑄭𑄌𑄴"
+    ceb: Okres Domažlice
+    es: Distrito de Domažlice
+    eu: Domažliceko barrutia
+    fa: شهرستان دوماژلیتسه
+    lt: Domažlicių rajonas
+    pt: Domažlice (distrito)
+    sr_Latn: Okrug Domažlice
+    tr: Domažlice ilçesi
+    uk: Домажліце
+    zh: 多馬日利采縣
+    az: Domajlitse rayonu
+    ko: 도마줄리체구
+  name: Domažlice
+  code: '321'
+  type: district
+'322':
+  translations:
+    ar: مقاطعة كلاتوفي
+    be: раён Клатаві
+    bg: Клатови
+    ca: Districte de Klatovy
+    cs: okres Klatovy
+    de: Okres Klatovy
+    en: Klatovy
+    es: Distrito de Klatovy
+    fr: District de Klatovy
+    he: מחוז משנה קלאטובי
+    hu: Klatovy-i járás
+    hy: Կլատովի շրջան
+    it: Distretto di Klatovy
+    ja: クラトヴィ郡
+    ka: კლატოვის რაიონი
+    ms: Daerah Klatovy
+    nl: Okres Klatovy
+    pl: Powiat Klatovy
+    pt: Klatovy
+    ru: Клатови
+    sk: Okres Klatovy
+    sr: Округ Клатови
+    sv: Okres Klatovy
+    ur: کلاتووی ضلع
+    vi: Klatovy
+    ccp: "𑄇𑄳𑄣𑄑𑄮𑄞𑄨"
+    ceb: Okres Klatovy
+    eu: Klatovyko barrutia
+    fa: شهرستان کلاتووی
+    lt: Klatovų rajonas
+    sr_Latn: Okrug Klatovi
+    tr: Klatovy ilçesi
+    uk: Клатови
+    zh: 克拉托維縣
+    ko: 클라토비구
+  name: Klatovy
+  code: '322'
+  type: district
+'323':
+  translations:
+    ar: مقاطعة بلزن-المدينة
+    be: акруга Пльзень-горад
+    bg: Пилзен-град
+    ca: Districte de Plzeň-město
+    cs: okres Plzeň-město
+    de: Okres Plzeň-město
+    en: Plzeň
+    fr: District de Plzeň-město
+    he: מחוז משנה פלזן מסטו
+    hu: Plzeň városi járás
+    it: Distretto di Plzeň-město
+    ja: プルゼニ都市群
+    ms: Daerah Bandaraya Plzeň
+    nl: Okres Plzeň-město
+    pt: Distrito de Plzeň-Ciudad
+    ro: districtul orașului Plzeň
+    ru: Пльзень-город
+    sk: Okres Plzeň-mesto
+    sr: Округ Плзењ-град
+    sv: Okres Plzeň-Město
+    ur: پلزین-شہر ضلع
+    ccp: "𑄛𑄳𑄣𑄎𑄬𑄚𑄴"
+    ceb: Okres Plzeň-Město
+    es: Distrito de Ciudad de Pilsen
+    fa: شهرستان پلزن-میستو
+    lt: Pilzeno miesto rajonas
+    sr_Latn: Okrug Plzenj-grad
+    uk: Пльзень-місто
+    zh: 比爾森城縣
+    hy: Պլզենի շրջան
+    ko: 플젠 도시구
+  name: Plzeň-město
+  code: '323'
+  type: district
+'324':
+  translations:
+    ar: مقاطعة بلزن-جنوب
+    bg: Пилзен-юг
+    ca: Districte de Plzeň-jih
+    cs: okres Plzeň-jih
+    de: Okres Plzeň-jih
+    en: Plzeň-South
+    fa: ناحیه پلزن-جنوبی
+    fr: District de Plzeň-jih
+    hu: Dél-plzeňi járás
+    it: Distretto di Plzeň-jih
+    ja: 南プルゼニ郡
+    ka: პლზენ-იიჰის რაიონი
+    ms: Daerah Plzeň-Selatan
+    nl: Okres Plzeň-jih
+    pl: Powiat Pilzno Południe
+    pt: Distrito de Plzeň-Sul
+    ru: Пльзень-юг
+    sk: Okres Plzeň-juh
+    sr: Округ Плзењ-југ
+    sv: Okres Plzeň-Jih
+    ur: پلزین-جنوبی ضلع
+    vi: Plzeň-Nam
+    ccp: "𑄛𑄳𑄣𑄎𑄬𑄚𑄴-𑄘𑄧𑄊𑄨𑄚𑄴"
+    ceb: Okres Plzeň-Jih
+    es: Distrito de Pilsen Sur
+    eu: Plzeň-Hegoaldea barrutia
+    lt: Pilzeno pietinis rajonas
+    sr_Latn: Okrug Plzenj-jug
+    uk: Пльзень-південь
+    zh: 南比爾森縣
+    hy: Հարավպլզենյան շրջան
+    ko: 남플젠구
+    ro: Plzeň-Sud
+  name: Plzeň-jih
+  code: '324'
+  type: district
+'325':
+  translations:
+    ar: مقاطعة بلزن-شمال
+    bg: Пилзен-север
+    ca: Districte de Plzeň-sever
+    cs: okres Plzeň-sever
+    de: Okres Plzeň-sever
+    en: Plzeň-North
+    fr: District de Plzeň-sever
+    hu: Észak-plzeňi járás
+    it: Distretto di Plzeň-sever
+    ja: 北プルゼニ郡
+    ka: პლზენ-სევერის რაიონი
+    ms: Daerah Plzeň-Utara
+    nl: Okres Plzeň-sever
+    pl: Powiat Pilzno Północ
+    ru: Пльзень-север
+    sk: Okres Plzeň-sever
+    sr: Округ Плзењ-север
+    sv: Okres Plzeň-Sever
+    ur: پلزین-شمالی ضلع
+    vi: Plzeň-Bắc
+    ccp: "𑄛𑄳𑄣𑄎𑄬𑄚𑄴-𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄴"
+    ceb: Okres Plzeň-Sever
+    es: Distrito de Pilsen Norte
+    eu: Plzeň-Iparraldeko barrutia
+    fa: ناحیه پلزن-شمالی
+    lt: Pilzeno šiaurinis rajonas
+    sr_Latn: Okrug Plzenj-sever
+    uk: Пльзень-північ
+    zh: 北比爾森縣
+    hy: Պլզեն հյուսիս
+    ko: 북플젠구
+    pt: Distrito de Plzeň-Norte
+    ro: Plzeň-Nord
+  name: Plzeň-sever
+  code: '325'
+  type: district
+'326':
+  translations:
+    ar: مقاطعة روكيتساني
+    bg: Рокицани
+    ca: Districte de Rokycany
+    cs: okres Rokycany
+    de: Okres Rokycany
+    en: Rokycany
+    fr: District de Rokycany
+    he: מחוז משנה רוקיצאני
+    hu: Rokycany-i járás
+    hy: Ռոկիցանկի շրջան
+    it: Distretto di Rokycany
+    ja: ロキツァニ郡
+    ka: როკიცანის რაიონი
+    ms: Daerah Rokycany
+    nl: Okres Rokycany
+    pl: Powiat Rokycany
+    pt: Rokycany
+    ru: Рокицани
+    sk: Okres Rokycany
+    sr: Округ Рокицани
+    sv: Okres Rokycany
+    ur: روکیسانی ضلع
+    vi: Rokycany
+    ccp: "𑄢𑄧𑄇𑄨𑄇𑄳𑄠𑄚𑄨"
+    ceb: Okres Rokycany
+    es: Distrito de Rokycany
+    eu: Rokycanyko barrutia
+    fa: شهرستان روکیتسانی
+    lt: Rokicanų rajonas
+    sr_Latn: Okrug Rokicani
+    tr: Rokycany ilçesi
+    uk: Рокицани
+    zh: 羅基察尼縣
+    ko: 로키차니구
+  name: Rokycany
+  code: '326'
+  type: district
+'327':
+  translations:
+    ar: مقاطعة تاخوف
+    bg: Тахов
+    ca: Districte de Tachov
+    cs: okres Tachov
+    de: Okres Tachov
+    en: Tachov
+    fr: District de Tachov
+    he: מחוז משנה טכוב
+    hu: Tachovi járás
+    hy: Տախովի շրջան
+    it: Distretto di Tachov
+    ja: タホフ郡
+    ka: ტახოვის რაიონი
+    ms: Daerah Tachov
+    nl: Okres Tachov
+    pl: Powiat Tachov
+    pt: Tachov
+    ru: Тахов
+    sk: Okres Tachov
+    sr: Округ Тахов
+    sv: Okres Tachov
+    ur: تاخوف ضلع
+    vi: Tachov
+    ccp: "𑄑𑄝𑄮𑄛𑄴"
+    ceb: Okres Tachov
+    es: Distrito de Tachov
+    eu: Tachoveko barrutia
+    fa: شهرستان تاخوف
+    lt: Tachovo rajonas
+    sr_Latn: Okrug Tahov
+    tr: Tachov ilçesi
+    uk: Тахов
+    zh: 塔霍夫縣
+    ko: 타호프구
+    ro: Tachov
+  name: Tachov
+  code: '327'
+  type: district
+'41':
+  unofficial_names:
+  - Karlovarský kraj
+  translations:
+    en: Karlovarský
+    ar: إقليم كارلوفي فاري
+    az: Karlovı Varı diyarı
+    be: Карлаварскі край
+    bg: Карловарски край
+    bn: কার্লোভি ভেরি অঞ্চল
+    ca: Regió de Karlovy Vary
+    cs: Karlovarský kraj
+    da: Karlovy Vary
+    de: Karlovarský kraj
+    el: Περιφέρεια Κάρλοβυ Βάρυ
+    es: Región de Karlovy Vary
+    et: Karlovy Vary maakond
+    eu: Karlovy Vary eskualdea
+    fa: منطقه کارلووی واری
+    fi: Karlovy Varyn lääni
+    fr: Région de Karlovy Vary
+    gu: કાર્લોવી વેરી પ્રદેશ
+    he: קרלובי וארי
+    hi: कार्लोवी वेरी प्रदेश
+    hr: Karlovarski kraj
+    hu: Karlovy Vary-i kerület
+    id: Daerah Karlovy Vary
+    it: regione di Karlovy Vary
+    ja: カルロヴィ・ヴァリ州
+    ka: კარლოვი-ვარის მხარე
+    kn: ಕಾರ್ಲೋವಿ ವೇರಿ ಪ್ರದೇಶ
+    ko: 카를로비바리 주
+    lt: Karlovi Varų kraštas
+    mr: कार्लोव्ही वेरे प्रदेश
+    ms: Daerah Karlovy Vary
+    nb: Karlovy Vary region
+    nl: Karlsbad (regio)
+    pl: Kraj karlowarski
+    pt: Karlovy Vary
+    ro: Regiunea Karlovy Vary
+    ru: Карловарский край
+    si: කර්ලොවී වෙරි කලාපය
+    sk: Karlovarský kraj
+    sr: Карловарски крај
+    sv: Karlovy Vary
+    ta: கார்லோவ்ய் வாரி பகுதி
+    te: కార్లోవీ వేరీ ప్రాంతం
+    th: คาร์โลวี่ เวรี่ รีเจี้ยน
+    tr: Karlovy Vary ili
+    uk: Карловарський край
+    ur: کارلووی واری علاقہ
+    vi: Karlovy Vary
+    zh: 卡羅維發利州
+    bs: Karlovarski kraj
+    ccp: "𑄇𑄢𑄴𑄣𑄮𑄞𑄢𑄴𑄇𑄩"
+    ceb: Karlovarský kraj
+    lv: Karlovi Varu reģions
+    mk: Карловарски крај
+    'no': Karlovy Vary region
+    sr_Latn: Karlovarski kraj
+    hy: Կառլովի Վարիի երկրամաս
+    sl: Karlovarski okraj
+  geo:
+    latitude: 50.1435
+    longitude: 12.7501899
+    min_latitude: 49.891137
+    min_longitude: 12.0906263
+    max_latitude: 50.4602991
+    max_longitude: 13.3011974
+  name: Karlovarský kraj
+  code: '41'
+  type: region
+'411':
+  translations:
+    ar: مقاطعة خب
+    be: Хеб
+    bg: Хеб
+    ca: Districte de Cheb
+    cs: okres Cheb
+    de: Okres Cheb
+    en: Cheb
+    fr: District de Cheb
+    he: מחוז משנה חב
+    hu: Chebi járás
+    hy: Նախոդի շրջան
+    it: Distretto di Cheb
+    ja: ヘプ郡
+    ka: ხების რაიონი
+    lt: Chebo rajonas
+    ms: Daerah Cheb
+    nl: Okres Cheb
+    pl: Powiat Cheb
+    pt: Cheb
+    ro: Okres Cheb
+    ru: Хеб
+    sk: Okres Cheb
+    sr: Округ Хеб
+    sv: Cheb
+    ur: خیب ضلع
+    vi: Cheb
+    ccp: "𑄌𑄬𑄛𑄴"
+    ceb: Okres Cheb
+    es: Distrito de Cheb
+    eu: Chebeko barrutia
+    fa: شهرستان خب
+    mk: Хеб
+    sr_Latn: Okrug Heb
+    tr: Cheb ilçesi
+    uk: округ Хеб
+    zh: 海布縣
+    ko: 헤프구
+  name: Cheb
+  code: '411'
+  type: district
+'412':
+  translations:
+    ar: مقاطعة كارلوفي فاري
+    be: Раён Карлавы Вары
+    bg: Карлови Вари
+    ca: Districte de Karlovy Vary
+    cs: okres Karlovy Vary
+    de: Okres Karlovy Vary
+    en: Karlovy Vary
+    fr: District de Karlovy Vary
+    he: מחוז משנה קרלובי וארי
+    hu: Karlovy Vary-i járás
+    hy: Ռիխնով-նադ-Կնեժնոուի շրջան
+    it: Distretto di Karlovy Vary
+    ja: カルロヴィ・ヴァリ郡
+    ka: კარლოვი-ვარის რაიონი
+    lt: Karlovi Varų rajonas
+    ms: Daerah Karlovy Vary²
+    nl: Okres Karlsbad
+    pl: Powiat Karlowe Wary
+    pt: Karlovy Vary²
+    ru: Карловы Вары
+    sk: Okres Karlove Vary
+    sr: Округ Карлове Вари
+    sv: Karlovy Vary²
+    ur: کارلووی واری ضلع
+    vi: Karlovy Vary²
+    ccp: "𑄇𑄢𑄴𑄣𑄧𑄞𑄨 𑄞𑄢𑄩"
+    ceb: Okres Karlovy Vary
+    es: Distrito de Karlovy Vary
+    eu: Karlovy Varyko barrutia
+    fa: ناحیه کارلووی واری
+    sr_Latn: Okrug Karlove Vari
+    tr: Karlovy Vary ilçesi
+    uk: Округ Карлові Вари
+    zh: 卡羅維發利縣
+    ko: 카를로비바리구
+  name: Karlovy Vary
+  code: '412'
+  type: district
+'413':
+  translations:
+    ar: مقاطعة سوكولوف
+    bg: Соколов
+    ca: Districte de Sokolov
+    cs: okres Sokolov
+    de: Okres Sokolov
+    en: Sokolov
+    fr: District de Sokolov
+    he: מחוז משנה סוקולוב
+    hu: Sokolovi járás
+    hy: Տրուտնովի շրջան
+    it: Distretto di Sokolov
+    ja: ソコロフ郡
+    ka: სოკოლოვის რაიონი
+    lt: Sokolovo rajonas
+    ms: Daerah Sokolov
+    nl: Okres Sokolov
+    pl: Powiat Sokolov
+    pt: Sokolov
+    ru: Соколов
+    sk: Okres Sokolov
+    sr: Округ Соколов
+    sv: Sokolov
+    ur: سوکولوف ضلع
+    vi: Sokolov
+    ccp: "𑄥𑄧𑄇𑄮𑄣𑄧𑄛𑄴"
+    ceb: Okres Sokolov
+    es: Distrito de Sokolov
+    eu: Sokoloveko barrutia
+    fa: شهرستان سوکولوف
+    sr_Latn: Okrug Sokolov
+    tr: Sokolov ilçesi
+    uk: Соколов
+    zh: 索洛洛夫縣
+    ko: 소콜로프구
+    ro: Sokolov
+  name: Sokolov
+  code: '413'
+  type: district
+'42':
+  unofficial_names:
+  - Ústecký kraj
+  translations:
+    en: Ústecký
+    ar: إقليم أوستي ناد لابم
+    az: Ustetskiy diyarı
+    be: Усцецкі край
+    bg: Устецки край
+    bn: উস্টি নাড লাবেম অঞ্চল
+    ca: Regió d’Ústí nad Labem
+    cs: Ústecký kraj
+    da: Ústí nad Labem
+    de: Ústecký kraj
+    el: Περιφέρεια Ούστι ναντ Λάμπεμ
+    es: Región de Ústí nad Labem
+    et: Ústí maakond
+    eu: Ústí nad Labem eskualdea
+    fa: منطقه اوستی ناد لابم
+    fi: Ústín lääni
+    fr: Région d’Aussig-sur-Elbe
+    gu: ઉસ્તી નાદ લાબેમ પ્રદેશ
+    he: אוסטי נד לבם (מחוז)
+    hi: उस्ती नाड लाबेम क्षेत्र
+    hr: Ústečki kraj
+    hu: Ústí nad Labem-i kerület
+    id: Daerah Ústí nad Labem
+    it: regione di Ústí nad Labem
+    ja: ウースチー州
+    ka: უსტეცის მხარე
+    kn: ಯುಸ್ಟಿ ನಾಡ್ ಲ್ಯಾಬೆಮ್ ಪ್ರದೇಶ
+    ko: 우스티 주
+    lt: Ūsčio kraštas
+    mr: उस्ति नाद लाबेम प्रदेश
+    ms: Daerah Ústí nad Labem
+    nb: Ústí nad Labem region
+    nl: Ústí nad Labem
+    pl: Kraj ustecki
+    pt: Ústí nad Labem
+    ro: Regiunea Ústí nad Labem
+    ru: Устецкий край
+    si: උස්ටි නඩ් ලබෙම් කලාපය
+    sk: Úsťanský kraj
+    sr: Устечки крај
+    sv: Ústí nad Labem
+    ta: ஸ்டி நாட் லாபென் பகுதி
+    te: ఉస్టి నాడ్ లాబెమ్ ప్రాంతం
+    th: แถบอัสติ นาดลาเบม
+    tr: Ústí nad Labem
+    uk: Устецький край
+    ur: اوستی ناد لاہم علاقہ
+    vi: Ústí nad Labem
+    zh: 烏斯季州
+    bs: Ustečki kraj
+    ccp: "𑄅𑄪𑄌𑄴𑄑𑄬𑄇𑄩"
+    ceb: Ústecký kraj
+    lv: Ūstu pie Labas apriņķis
+    mk: Устечки крај
+    'no': Ústí nad Labem region
+    sr_Latn: Ustečki kraj
+    gl: Rexión de Ústí nad Labem
+    hy: Ուստեցկի տարածաշրջան
+    sl: Usteški okraj
+  geo:
+    latitude: 50.6119037
+    longitude: 13.7870086
+    min_latitude: 50.0774318
+    min_longitude: 12.940246
+    max_latitude: 51.0557757
+    max_longitude: 14.6528592
+  name: Ústecký kraj
+  code: '42'
+  type: region
+'421':
+  translations:
+    ar: مقاطعة ديتشين
+    bg: Дечин
+    ca: Districte de Děčín
+    cs: okres Děčín
+    de: Okres Děčín
+    en: Děčín
+    fr: District de Děčín
+    he: מחוז משנה דצ׳ין
+    hu: Děčíni járás
+    hy: Դեչինի շրջան
+    it: Distretto di Děčín
+    ja: ジェチーン郡
+    ka: დეჩინის რაიონი
+    ms: Daerah Děčín
+    nl: Okres Děčín
+    pl: Powiat Děčín
+    pt: Děčín
+    ru: Дечин
+    sk: okres Děčín
+    sr: Округ Дјечин
+    sv: Okres Děčín
+    ur: دیچین ضلع
+    vi: Děčín
+    be: Дзечын
+    ccp: "𑄓𑄬𑄥𑄨𑄚𑄴"
+    ceb: Okres Děčín
+    es: Distrito de Děčín
+    eu: Děčíngo barrutia
+    fa: شهرستان دیه‌چین
+    lt: Dečyno rajonas
+    sr_Latn: Okrug Dječin
+    tr: Děčín ilçesi
+    uk: Дечин
+    zh: 傑欽縣
+    ko: 데친구
+  name: Děčín
+  code: '421'
+  type: district
+'422':
+  translations:
+    ar: مقاطعة خوموتوف
+    bg: Хомутов
+    ca: Districte de Chomutov
+    cs: okres Chomutov
+    de: Okres Chomutov
+    en: Chomutov
+    fr: District de Chomutov
+    he: מחוז משנה חומוטוב
+    hu: Chomutovi járás
+    hy: Խոմուտովի շրջան
+    it: Distretto di Chomutov
+    ja: ホムトフ郡
+    ka: ხომუტოვის რაიონი
+    ms: Daerah Chomutov
+    nl: Okres Chomutov
+    pl: Powiat Chomutov
+    pt: Chomutov
+    ru: Хомутов
+    sk: Okres Chomutov
+    sr: Округ Хомутов
+    sv: Okres Chomutov
+    uk: Хомутов (округ)
+    ur: خومتو ضلع
+    vi: Chomutov
+    ccp: "𑄇𑄮𑄟𑄪𑄑𑄧𑄛𑄴"
+    ceb: Okres Chomutov
+    es: Distrito de Chomutov
+    eu: Chomutoveko barrutia
+    fa: شهرستان خوموتوف
+    lt: Chomutovo rajonas
+    sr_Latn: Okrug Homutov
+    tr: Chomutov ilçesi
+    zh: 霍穆托夫縣
+    be: раён Хомутаў
+    ko: 호무토프구
+  name: Chomutov
+  code: '422'
+  type: district
+'423':
+  translations:
+    ar: مقاطعة ليتوميريتسه
+    be: Літамержыцэ
+    bg: Литомержице
+    ca: Districte de Litoměřice
+    cs: okres Litoměřice
+    de: Okres Litoměřice
+    en: Litoměřice
+    fr: District de Litoměřice
+    he: מחוז משנה ליטומריצה
+    hu: Litoměřicei járás
+    hy: Լիտոմերիցեի շրջան
+    it: Distretto di Litoměřice
+    ja: リトムニェジツェ郡
+    ka: ლიტომერჟიცეს რაიონი
+    ms: Daerah Litoměřice
+    nl: Okres Litoměřice
+    pl: Powiat Litomierzyce
+    pt: Litoměřice
+    ru: Литомержице
+    sk: Okres Litoměřice
+    sr: Округ Литомјержице
+    sv: Okres Litoměřice
+    ur: لیتومیرشسے ضلع
+    vi: Litoměřice
+    ccp: "𑄣𑄨𑄑𑄮𑄟𑄢𑄨𑄌𑄴"
+    ceb: Okres Litoměřice
+    es: Distrito de Litoměřice
+    eu: Litoměřiceko barrutia
+    fa: شهرستان لیتومیه‌رژیتسه
+    lt: Litomeržicių rajonas
+    sr_Latn: Okrug Litomjeržice
+    tr: Litoměřice ilçesi
+    uk: Літомержице
+    zh: 利托梅日采縣
+    az: Litomerjitse
+    ko: 리토메르지체구
+  name: Litoměřice
+  code: '423'
+  type: district
+'424':
+  translations:
+    ar: مقاطعة لوني
+    be: раён Лоўні
+    bg: Лоуни
+    ca: Districte de Louny
+    cs: okres Louny
+    de: Okres Louny
+    en: Louny
+    es: Distrito de Louny
+    fr: District de Louny
+    he: מחוז משנה לואוני
+    hu: Louny-i járás
+    hy: Լոունի շրջան
+    it: Distretto di Louny
+    ja: ロウニ郡
+    ka: ლოუნის რაიონი
+    ms: Daerah Louny
+    nl: Okres Louny
+    pl: Powiat Louny
+    pt: Louny
+    ru: Лоуни
+    sk: Okres Louny
+    sr: Округ Лоуни
+    sv: Okres Louny
+    ur: لونی ضلع
+    vi: Louny
+    ccp: "𑄣𑄅𑄪𑄚𑄨"
+    ceb: Okres Louny
+    eu: Lounyko barrutia
+    fa: شهرستان لوونی
+    lt: Lounų rajonas
+    sr_Latn: Okrug Louni
+    tr: Louny ilçesi
+    uk: Лоуни
+    zh: 洛烏尼縣
+    ko: 로우니구
+  name: Louny
+  code: '424'
+  type: district
+'425':
+  translations:
+    ar: مقاطعة موست
+    bg: Мост
+    ca: Districte de Most
+    cs: okres Most
+    de: Okres Most
+    en: Most
+    fr: District de Most
+    he: מחוז משנה מוסט
+    hu: Mosti járás
+    hy: Մոստի շրջան
+    it: Distretto di Most
+    ja: モスト郡
+    ka: მოსტის რაიონი
+    ms: Daerah Most
+    nl: Okres Most
+    pl: Powiat Most
+    pt: Most
+    ru: Мост
+    sk: Okres Most
+    sr: Округ Мост
+    sv: Okres Most
+    ur: موست ضلع
+    vi: Most
+    ccp: "𑄟𑄮𑄥𑄳𑄑𑄴"
+    ceb: Okres Most
+    es: Distrito de Most
+    fa: شهرستان موست
+    lt: Mosto rajonas
+    sr_Latn: Okrug Most
+    uk: Мост
+    zh: 莫斯特縣
+    be: раён Мост
+    ko: 모스트구
+    tr: Most ilçesi
+  name: Most
+  code: '425'
+  type: district
+'426':
+  translations:
+    ar: مقاطعة تبليتسه
+    be: Цепліцы
+    bg: Теплице
+    ca: Districte de Teplice
+    cs: okres Teplice
+    de: Okres Teplice
+    en: Teplice
+    fr: District de Teplice
+    he: מחוז משנה טפליצה
+    hu: Teplicei járás
+    hy: Տեպլիցեի շրջան
+    it: Distretto di Teplice
+    ja: テプリツェ郡
+    ka: ტეპლიცეს რაიონი
+    ms: Daerah Teplice
+    nl: Okres Teplice
+    pl: Powiat Cieplice
+    pt: Teplice
+    ru: Теплице
+    sk: Okres Teplice
+    sr: Округ Теплице
+    sv: Okres Teplice
+    ur: تپلیتسے ضلع
+    vi: Teplice
+    ccp: "𑄑𑄬𑄛𑄴𑄣𑄭𑄌𑄴"
+    ceb: Okres Teplice
+    es: Distrito de Teplice
+    fa: شهرستان تپلیتسه
+    lt: Teplicės rajonas
+    sr_Latn: Okrug Teplice
+    tr: Teplice ilçesi
+    uk: Тепліце
+    zh: 特普利采縣
+    ko: 테플리체구
+    ro: Teplice
+  name: Teplice
+  code: '426'
+  type: district
+'427':
+  translations:
+    ar: مقاطعة أوستي ناد لابم
+    bg: Усти над Лабе
+    ca: Districte d’Ústí nad Labem
+    cs: okres Ústí nad Labem
+    de: Okres Ústí nad Labem
+    en: Ústí nad Labem
+    fr: District d’Ústí nad Labem
+    he: מחוז משנה אוסטי נד לבם
+    hu: Ústí nad Labem-i járás
+    hy: Ուստի-նադ-Լաբեմի շրջան
+    it: Distretto di Ústí nad Labem
+    ja: ウースチー・ナド・ラベム郡
+    ka: უსტი-ნად-ლაბემის რაიონი
+    ms: Daerah Ústí nad Labem²
+    nl: Okres Ústí nad Labem
+    pl: Powiat Uście nad Łabą
+    pt: Ústí nad Labem²
+    ru: Усти-над-Лабем
+    sk: Okres Ústí nad Labem
+    sr: Округ Усти на Лаби
+    sv: Ústí nad Labem²
+    uk: Усті-над-Лабем
+    ur: اوستی ناد لاہم ضلع
+    vi: Ústí nad Labem²
+    be: Усці-над-Лабем
+    ccp: "𑄅𑄪𑄌𑄴𑄑𑄨 𑄚𑄖𑄴 𑄣𑄝𑄬𑄟𑄴"
+    ceb: Okres Ústí nad Labem
+    es: Distrito de Ústí nad Labem
+    lt: Ūsčio prie Labės rajonas
+    sr_Latn: Okrug Usti na Labi
+    zh: 拉貝河畔烏斯季縣
+    ko: 우스티나트라벰구
+    ro: Ústí nad Labem
+    tr: Ústí nad Labem ilçesi
+  name: Ústí nad Labem
+  code: '427'
+  type: district
+'51':
+  unofficial_names:
+  - Liberecký kraj
+  translations:
+    en: Liberecký
+    ar: إقليم ليبيريتس
+    az: Liberets diyarı
+    bg: Либерецки край
+    bn: লাইবেরেক অঞ্চল
+    ca: Regió de Liberec
+    cs: Liberecký kraj
+    da: Liberec
+    de: Liberecký kraj
+    el: Περιφέρεια Λίμπερετς
+    es: Región de Liberec
+    et: Libereci maakond
+    eu: Liberec eskualdea
+    fa: منطقه لیبرتس
+    fi: Liberecin lääni
+    fr: Région de Liberec
+    gu: લિબ્રેક પ્રદેશ
+    he: ליברץ (מחוז)
+    hi: लिबेरेक प्रदेश
+    hr: Liberečki kraj
+    hu: Libereci kerület
+    id: Daerah Liberec
+    it: regione di Liberec
+    ja: リベレツ州
+    ka: ლიბერეცის მხარე
+    kn: ಲಿಬರೆಕ್ ಪ್ರದೇಶ
+    ko: 리베레츠 주
+    lt: Libereco kraštas
+    mr: लिबरेक प्रदेश
+    ms: Daerah Liberec
+    nb: Liberec
+    nl: Liberec
+    pl: Kraj liberecki
+    pt: Liberec
+    ro: Regiunea Liberec
+    ru: Либерецкий край
+    si: ලිබෙරෙක් කලාපය
+    sk: Liberecký kraj
+    sr: Либеречки крај
+    sv: Liberec
+    ta: லிபெர்க் பகுதி
+    te: లిబరెక్ ప్రాంతం
+    th: ลิเบเรช
+    tr: Liberec Bölgesi
+    uk: Ліберецький край
+    ur: لیبرتس علاقہ
+    vi: Liberec
+    zh: 利贝雷茨州
+    be: Ліберацкі край
+    bs: Liberecki kraj
+    ccp: "𑄣𑄭𑄝𑄬𑄢𑄬𑄇𑄨"
+    ceb: Liberecký kraj
+    lv: Liberecas apriņķis
+    mk: Либеречки крај
+    'no': Liberec
+    sr_Latn: Liberečki kraj
+    sl: Libereški okraj
+  geo:
+    latitude: 50.65942399999999
+    longitude: 14.7632424
+    min_latitude: 50.4720971
+    min_longitude: 14.3435357
+    max_latitude: 51.0231974
+    max_longitude: 15.6330293
+  name: Liberecký kraj
+  code: '51'
+  type: region
+'511':
+  translations:
+    ar: مقاطعة تشيسكا ليبا
+    bg: Ческа Липа
+    ca: Districte de Česká Lípa
+    cs: okres Česká Lípa
+    de: Okres Česká Lípa
+    en: Česká Lípa
+    fr: District de Česká Lípa
+    he: מחוז משנה צסקה ליפה
+    hu: Česká Lípa-i járás
+    hy: Չեսկա Լիպայի շրջան
+    it: Distretto di Česká Lípa
+    ja: チェスカー・リーパ郡
+    ka: ჩესკა-ლიპის რაიონი
+    lt: Česka Lypos rajonas
+    ms: Daerah Česká Lípa
+    nl: Okres Česká Lípa
+    pl: Powiat Czeska Lipa
+    ro: districtul Česká Lípa
+    ru: Ческа-Липа
+    sk: Okres Česká Lípa
+    sr: Округ Чешка Липа
+    sv: Česká Lípa
+    ur: چیسکا لیپا ضلع
+    vi: Česká Lípa
+    ccp: "𑄇𑄬𑄌𑄴𑄇 𑄣𑄨𑄛"
+    ceb: Okres Česká Lípa
+    es: Distrito de Česká Lípa
+    fa: شهرستان چسکا لیپا
+    sr_Latn: Okrug Češka Lipa
+    tr: Česká Lípa ilçesi
+    uk: Чеська Липа
+    zh: 捷克利帕縣
+    ko: 체스카리파구
+    pt: Česká Lípa (distrito)
+  name: Česká Lípa
+  code: '511'
+  type: district
+'512':
+  translations:
+    ar: مقاطعة يابلونتس ناد نيسو
+    bg: Яблонец над Ниса
+    ca: Districte de Jablonec nad Nisou
+    cs: okres Jablonec nad Nisou
+    de: Okres Jablonec nad Nisou
+    en: Jablonec nad Nisou
+    fr: District de Jablonec nad Nisou
+    he: מחוז משנה יבלונץ נד ניסו
+    hu: Jablonec nad Nisou-i járás
+    hy: Յաբլոնեց-նադ-Նիսոուի շրջան
+    it: Distretto di Jablonec nad Nisou
+    ja: ヤブロネツ・ナド・ニソウ郡
+    ka: იაბლონეც-ნად-ნისოუს რაიონი
+    lt: Jabloneco prie Nisos rajonas
+    ms: Daerah Jablonec nad Nisou
+    nl: Okres Jablonec nad Nisou
+    pl: Powiat Jablonec nad Nysą
+    pt: Jablonec nad Nisou
+    ru: Яблонец-над-Нисоу
+    sk: Okres Jablonec nad Nisou
+    sr: Округ Јаблонец на Ниси
+    sv: Jablonec nad Nisou
+    ur: جبلونیک ناد نسو ضلع
+    vi: Jablonec nad Nisou
+    ccp: "𑄎𑄛𑄴𑄣𑄮𑄚𑄬𑄇𑄴 𑄚𑄖𑄴 𑄚𑄨𑄥𑄅𑄪"
+    ceb: Okres Jablonec nad Nisou
+    es: Distrito de Jablonec nad Nisou
+    eu: Jablonec nad Nisouko barrutia
+    fa: شهرستان یابلونتس ناد نیسوو
+    sr_Latn: Okrug Jablonec na Nisi
+    tr: Jablonec nad Nisou ilçesi
+    uk: Яблонець-над-Нисою
+    zh: 尼斯河畔亞布洛內茨縣
+    ko: 야블로네츠나트니소우구
+    ro: Jablonec nad Nisou
+  name: Jablonec nad Nisou
+  code: '512'
+  type: district
+'513':
+  translations:
+    ar: مقاطعة ليبيريتس
+    bg: Либерец
+    ca: Districte de Liberec
+    cs: okres Liberec
+    de: Okres Liberec
+    en: Liberec
+    fr: District de Liberec
+    he: מחוז משנה ליברץ
+    hu: Libereci járás
+    hy: Լիբերեցի շրջան
+    it: Distretto di Liberec
+    ja: リベレツ郡
+    ka: ლიბერეცის რაიონი
+    lt: Libereco rajonas
+    ms: Daerah Liberec²
+    nl: Okres Liberec
+    pl: Powiat Liberec
+    pt: Liberec²
+    ro: Liberec
+    ru: Либерец
+    sk: Okres Liberec
+    sr: Округ Либерец
+    sv: Liberec²
+    ur: لیبرتس ضلع
+    vi: Liberec²
+    ccp: "𑄣𑄨𑄝𑄢𑄬𑄇𑄴"
+    ceb: Okres Liberec
+    es: Distrito de Liberec
+    fa: شهرستان لیبرتس
+    sr_Latn: Okrug Liberec
+    tr: Liberec ilçesi
+    uk: округ Ліберець
+    zh: 利貝雷茨縣
+    ko: 리베레츠구
+  name: Liberec
+  code: '513'
+  type: district
+'514':
+  translations:
+    ar: مقاطعة سيميلي
+    bg: Семили
+    ca: Districte de Semily
+    cs: okres Semily
+    de: Okres Semily
+    en: Semily
+    fr: District de Semily
+    he: מחוז משנה סמילי
+    hu: Semily-i járás
+    hy: Սեմիլիի շրջան
+    it: Distretto di Semily
+    ja: セミリ郡
+    ka: სემილის რაიონი
+    lt: Semilų rajonas
+    ms: Daerah Semily
+    nb: Semily
+    nl: Okres Semily
+    pl: Powiat Semily
+    pt: Semily
+    ru: Семили
+    sk: Okres Semily
+    sr: Округ Семили
+    sv: Semily
+    vi: Semily
+    be: раён Семілі
+    ccp: "𑄥𑄬𑄟𑄨𑄣𑄨"
+    ceb: Okres Semily
+    es: Distrito de Semily
+    eu: Semilyko barrutia
+    fa: شهرستان سمیلی
+    'no': Semily
+    sr_Latn: Okrug Semili
+    tr: Semily ilçesi
+    uk: Семіли
+    zh: 塞米利縣
+    ko: 세밀리구
+    ro: Semily
+  name: Semily
+  code: '514'
+  type: district
+'52':
+  unofficial_names:
+  - Královéhradecký kraj
+  translations:
+    en: Královéhradecký
+    ar: إقليم هرادتس كرالوفه
+    az: Kraloveqradetskiy diyarı
+    be: Кралавеградзецкі край
+    bg: Краловохрадецки край
+    bn: হারডেক ক্রালোভ অঞ্চল
+    ca: Regió de Hradec Králové
+    cs: Královéhradecký kraj
+    da: Hradec Králové
+    de: Královéhradecký kraj
+    el: Περιφέρεια Χράντετς Κράλοβε
+    es: Región de Hradec Králové
+    et: Hradec Králové maakond
+    eu: Hradec Králové eskualdea
+    fa: منطقه هرادتس کرالووه
+    fi: Hradec Královén lääni
+    fr: Région de Hradec Králové
+    gu: હ્રાડેક ક્રેલોવે પ્રદેશ
+    he: הראדץ קראלובה (מחוז)
+    hi: ह्रदेक क्रालोव प्रदेश
+    hr: Královéhradečki kraj
+    hu: Hradec Králové-i kerület
+    id: Daerah Hradec Kralove
+    it: regione di Hradec Králové
+    ja: フラデツ・クラーロヴェー州
+    ka: ჰრადეც-კრალოვეს მხარე
+    kn: ಹಾರ್ಡೆಕ್ ಕ್ರಾಲೋವ್ ಪ್ರದೇಶ
+    ko: 흐라데츠크랄로베 주
+    lt: Hradec Kralovės kraštas
+    mr: ह्राडेक क्रॉलेव्ह प्रदेश
+    ms: Daerah Hradec Kralove
+    nb: Plzeň region
+    nl: Hradec Králové
+    pl: Kraj hradecki
+    pt: Hradec Králové
+    ro: Regiunea Hradec Králové
+    ru: Краловеградецкий край
+    si: හ්රඩෙක් ක්රාලොවේ කලාපය
+    sk: Královohradecký kraj
+    sr: Краловехрадечки крај
+    sv: Hradec Králové
+    ta: ஹராடெக் க்ரலோவே பகுதி
+    te: రాడెక్ క్రాలోవ్ ప్రాంతం
+    th: เขตฮราเด็ค คราลอเว
+    tr: Hradec Králové ili
+    uk: Краловоградецький край
+    ur: ہاردک کارلوف علاقہ
+    vi: Hradec Králové
+    zh: 赫拉德茨-克拉洛韋州
+    bs: Kralovehradecki kraj
+    ccp: "𑄇𑄳𑄢𑄣𑄮𑄞𑄬𑄦𑄴𑄢𑄓𑄬𑄇𑄨"
+    ceb: Královéhradecký kraj
+    lv: Hradeckrāloves apgabals
+    mk: Краловохрадечки крај
+    'no': Hradec Králové
+    sr_Latn: Kralovehradečki kraj
+    hy: Կրալովեգրադեցկի երկրամաս
+    sl: Kralovehraški okraj
+  geo:
+    latitude: 50.3512484
+    longitude: 15.7976459
+    min_latitude: 50.0388059
+    min_longitude: 15.1051615
+    max_latitude: 50.7804396
+    max_longitude: 16.5855247
+  name: Královéhradecký kraj
+  code: '52'
+  type: region
+'521':
+  translations:
+    ar: مقاطعة هرادتس كرالوفه
+    be: раён Градзец-Кралавэ
+    bg: Храдец Кралове
+    ca: Districte de Hradec Králové
+    cs: okres Hradec Králové
+    de: Okres Hradec Králové
+    en: Hradec Králové
+    fr: District de Hradec Králové
+    he: מחוז משנה הראדץ קראלובה
+    hu: Hradec Králové-i járás
+    hy: Արևմտապրահյան շրջան
+    it: Distretto di Hradec Králové
+    ka: ჰრადეც-კრალოვეს რაიონი
+    lt: Hradec Kralovės rajonas
+    ms: Daerah Hradec Králové
+    nl: Okres Hradec Králové
+    pl: Powiat Hradec Králové
+    pt: Hradec Králové²
+    ru: Градец-Кралове
+    sk: Okres Hradec Králové
+    sr: Округ Храдец Кралове
+    sv: Hradec Králové²
+    ur: ہاردک کارلوف ضلع
+    vi: Hradec Králové²
+    ccp: "𑄦𑄳𑄢𑄓𑄬𑄇𑄴 𑄇𑄳𑄢𑄣𑄮𑄛𑄴"
+    ceb: Okres Hradec Králové
+    es: Distrito de Hradec Králové
+    eu: Hradec Královéko barrutia
+    fa: شهرستان هرادتس کرالووه
+    ja: フラデツ・クラーロヴェー郡
+    sr_Latn: Okrug Hradec Kralove
+    tr: Hradec Králové ilçesi
+    uk: Градець-Кралове
+    zh: 赫拉德茨克拉洛韋縣
+    ko: 흐라데츠크랄로베구
+    ro: Hradec Králové
+  name: Hradec Králové
+  code: '521'
+  type: district
+'522':
+  translations:
+    ar: مقاطعة يتشين
+    bg: Ичин
+    ca: Districte de Jičín
+    cs: okres Jičín
+    de: Okres Jičín
+    en: Jičín
+    fr: District de Jičín
+    he: מחוז משנה ייצין
+    hu: Jičíni járás
+    hy: Պրիբրամի շրջան
+    it: Distretto di Jičín
+    ja: イチーン郡
+    ka: იიჩინის რაიონი
+    lt: Jičyno rajonas
+    ms: Daerah Jičín
+    nl: Okres Jičín
+    pl: Powiat Jiczyn
+    pt: Jičín
+    ru: Йичин
+    sk: Okres Jičín
+    sr: Округ Јичин
+    sv: Jičín
+    ur: جیچن ضلع
+    vi: Jičín
+    ccp: "𑄎𑄨𑄌𑄨𑄚𑄴"
+    ceb: Okres Jičín
+    es: Distrito de Jičín
+    eu: Jičíngo barrutia
+    fa: شهرستان ییچین
+    sr_Latn: Okrug Jičin
+    tr: Jičín ilçesi
+    uk: Їчін
+    zh: 伊欽縣
+    ko: 이친구
+  name: Jičín
+  code: '522'
+  type: district
+'523':
+  translations:
+    ar: مقاطعة ناخود
+    bg: Наход
+    ca: Districte de Náchod
+    cs: okres Náchod
+    de: Okres Náchod
+    en: Náchod
+    fr: District de Náchod
+    he: מחוז משנה נאחוד
+    hu: Náchodi járás
+    hy: Ռակովնիկի շրջան
+    it: Distretto di Náchod
+    ja: ナーホト郡
+    ka: ნახოდის რაიონი
+    lt: Nachodo rajonas
+    ms: Daerah Náchod
+    nl: Okres Náchod
+    pl: Powiat Náchod
+    pt: Náchod
+    ru: Наход
+    sk: Okres Náchod
+    sr: Округ Наход
+    sv: Náchod
+    ur: ناخود ضلع
+    vi: Náchod
+    ccp: "𑄚𑄌𑄮𑄖𑄴"
+    ceb: Okres Náchod
+    da: Náchod
+    es: Distrito de Náchod
+    eu: Náchodeko barrutia
+    fa: شهرستان ناخود
+    sr_Latn: Okrug Nahod
+    tr: Náchod ilçesi
+    uk: Наход
+    zh: 納霍德縣
+    be: раён Нахад
+    ko: 나호트구
+  name: Náchod
+  code: '523'
+  type: district
+'524':
+  translations:
+    ar: مقاطعة ريخنوف ناد كنيجنو
+    be: раён Рыхнаў над Кнежнау
+    bg: Рихнов над Кнежноу
+    ca: Districte de Rychnov nad Kněžnou
+    cs: okres Rychnov nad Kněžnou
+    de: Okres Rychnov nad Kněžnou
+    en: Rychnov nad Kněžnou
+    fr: District de Rychnov nad Kněžnou
+    he: מחוז משנה ריחנוב נד קניז׳נואו
+    hu: Rychnov nad Kněžnou-i járás
+    hy: Հրադեց Կրալովեի շրջան
+    it: Distretto di Rychnov nad Kněžnou
+    ja: リフノフ・ナド・クニェジュノウ郡
+    ka: რიხნოვი-ნად-კნეჟნოუს რაიონი
+    lt: Richnovo prie Knežnos rajonas
+    ms: Daerah Rychnov nad Kněžnou
+    nl: Okres Rychnov nad Kněžnou
+    pl: Powiat Rychnov nad Kněžnou
+    ru: Рихнов-над-Кнежноу
+    sk: Okres Rychnov nad Kněžnou
+    sr: Округ Рихнов на Књежној
+    sv: Rychnov nad Kněžnou
+    ur: ریخنوف ناد کنیزشنو ضلع
+    vi: Rychnov nad Kněžnou
+    ccp: "𑄢𑄭𑄇𑄳𑄚𑄧𑄛𑄴 𑄚𑄖𑄴 𑄇𑄳𑄚𑄬𑄌𑄴𑄚𑄅𑄪"
+    ceb: Okres Rychnov nad Kněžnou
+    es: Distrito de Rychnov nad Kněžnou
+    eu: Rychnov nad Kněžnouko barrutia
+    fa: شهرستان ریخنوف ناد کنیژنوو
+    sr_Latn: Okrug Rihnov na Knježnoj
+    tr: Rychnov nad Kněžnou ilçesi
+    uk: Рихнов-над-Кнєжной
+    zh: 科內日諾河畔里赫諾夫縣
+    ko: 리흐노프나트크네주노우구
+    pt: Rychnov nad Kněžnou (distrito)
+    ro: Rychnov nad Kněžnou
+  name: Rychnov nad Kněžnou
+  code: '524'
+  type: district
+'525':
+  translations:
+    ar: مقاطعة ترتنوف
+    bg: Трутнов
+    ca: Districte de Trutnov
+    cs: okres Trutnov
+    de: Okres Trutnov
+    en: Trutnov
+    fa: منطقه تروتنوف
+    fr: District de Trutnov
+    he: מחוז משנה טרונטוב
+    hu: Trutnovi járás
+    hy: Յիչինի շրջան
+    it: Distretto di Trutnov
+    ja: トルトノフ郡
+    ka: ტრუტნოვის რაიონი
+    lt: Trutnovo rajonas
+    ms: Daerah Trutnov
+    nb: Trutnov
+    nl: Okres Trutnov
+    pl: Powiat Trutnov
+    pt: Trutnov
+    ro: Okres Trutnov
+    ru: Трутнов
+    sk: Okres Trutnov
+    sr: Округ Трутнов
+    sv: Trutnov
+    ur: ترنتوو ضلع
+    vi: Trutnov
+    be: раён Трутнаў
+    ccp: "𑄑𑄳𑄢𑄪𑄑𑄚𑄮𑄛𑄴"
+    ceb: Okres Trutnov
+    es: Distrito de Trutnov
+    eu: Trutnoveko barrutia
+    'no': Trutnov
+    sr_Latn: Okrug Trutnov
+    tr: Trutnov İlçesi
+    uk: Трутнов
+    zh: 特魯特諾夫縣
+    ko: 트루트노프구
+  name: Trutnov
+  code: '525'
+  type: district
+'53':
+  unofficial_names:
+  - Pardubický kraj
+  translations:
+    en: Pardubický
+    ar: إقليم باردوبيتسه
+    az: Pardubitskiy diyarı
+    be: Пардубіцкі край
+    bg: Пардубицки край
+    bn: পারডোবিচে অঞ্চল
+    ca: Regió de Pardubice
+    cs: Pardubický kraj
+    da: Pardubice
+    de: Pardubický kraj
+    el: Περιφέρεια Παρντούμπιτσε
+    es: Región de Pardubice
+    et: Pardubice maakond
+    eu: Pardubice eskualdea
+    fa: منطقه پاردوبیتسه
+    fi: Pardubicen lääni
+    fr: Région de Pardubice
+    gu: પરડુબિસ પ્રદેશ
+    he: מחוז פרדוביצה
+    hi: पार्दुबिस प्रदेश
+    hr: Pardubički kraj
+    hu: Pardubicei kerület
+    id: Daerah Pardubice
+    it: regione di Pardubice
+    ja: パルドゥビツェ州
+    ka: პარდუბიცეს მხარე
+    kn: ಪಾರ್ಡೂಬಿಸ್ ಪ್ರದೇಶ
+    ko: 파르두비체 주
+    lt: Pardubicių kraštas
+    lv: Pardubices apgabals
+    mr: परदुबीस प्रदेश
+    ms: Daerah Pardubice
+    nb: Pardubice region
+    nl: Pardubice
+    pl: Kraj pardubicki
+    pt: Pardubice
+    ro: Regiunea Pardubice
+    ru: Пардубицкий край
+    si: පඩුබයිස් කලාපය
+    sk: Pardubický kraj
+    sr: Пардубички крај
+    sv: Pardubice
+    ta: படுபீஸ் பகுதி
+    te: పార్డుబైస్ ప్రాంతం
+    th: เขตปาดูบิซ
+    tr: Pardubice Bölgesi
+    uk: Пардубицький край
+    ur: پاردوبیتسے علاقہ
+    vi: Pardubice
+    zh: 帕爾杜比采州
+    bs: Pardubički kraj
+    ccp: "𑄛𑄢𑄴𑄓𑄪𑄝𑄭𑄇𑄨"
+    ceb: Pardubický kraj
+    mk: Пардубички крај
+    'no': Pardubice region
+    sr_Latn: Pardubički kraj
+    hy: Պարդուբիցեի երկրամաս
+    sl: Pardubiški okraj
+  geo:
+    latitude: 49.9444479
+    longitude: 16.2856916
+    min_latitude: 49.5720141
+    min_longitude: 15.3630765
+    max_latitude: 50.20763729999999
+    max_longitude: 16.8665452
+  name: Pardubický kraj
+  code: '53'
+  type: region
+'531':
+  translations:
+    ar: مقاطعة خروديم
+    be: Хрудзім
+    bg: Хрудим
+    ca: Districte de Chrudim
+    cs: okres Chrudim
+    de: Okres Chrudim
+    en: Chrudim
+    fr: District de Chrudim
+    he: מחוז משנה חרודים
+    hu: Chrudimi járás
+    hy: Խրուդիմի շրջան
+    it: Distretto di Chrudim
+    ja: フルジム郡
+    ka: ხრუდიმის რაიონი
+    lt: Chrudimo rajonas
+    lv: Hrudimas apriņķis
+    ms: Daerah Chrudim
+    nl: Okres Chrudim
+    pl: Powiat Chrudim
+    pt: Chrudim
+    ru: Хрудим
+    sk: Okres Chrudim
+    sr: Округ Хрудим
+    sv: Chrudim
+    ur: خودیم ضلع
+    vi: Chrudim
+    ccp: "𑄇𑄳𑄢𑄪𑄓𑄨𑄟𑄴"
+    ceb: Okres Chrudim
+    es: Distrito de Chrudim
+    fa: شهرستان خرودیم
+    sr_Latn: Okrug Hrudim
+    tr: Chrudim ilçesi
+    uk: Хрудім
+    zh: 赫魯迪姆縣
+    az: Xrudim
+    ko: 흐루딤구
+  name: Chrudim
+  code: '531'
+  type: district
+'532':
+  translations:
+    ar: مقاطعة باردوبيتسه
+    be: раён Пардубіцы
+    bg: Пардубице
+    ca: Districte de Pardubice
+    cs: okres Pardubice
+    de: Okres Pardubice
+    en: Pardubice
+    fr: District de Pardubice
+    he: מחוז משנה פרדוביצה
+    hu: Pardubicei járás
+    hy: Պարուբիցեի շրջան
+    it: Distretto di Pardubice
+    ja: パルドゥビツェ郡
+    ka: პარდუბიცეს რაიონი
+    lt: Pardubicių rajonas
+    lv: Pardubices apriņķis
+    ms: Daerah Pardubice²
+    nl: Okres Pardubice
+    pl: Powiat Pardubice
+    pt: Pardubice²
+    ru: Пардубице
+    sk: Okres Pardubice
+    sr: Округ Пардубице
+    sv: Pardubice²
+    ur: پاردوبیتسے ضلع
+    vi: Pardubice²
+    ccp: "𑄛𑄢𑄴𑄓𑄪𑄝𑄭𑄌𑄴"
+    ceb: Okres Pardubice
+    es: Distrito de Pardubice
+    eu: Pardubiceko barrutia
+    fa: ناحیه پاردوبیتسه
+    sr_Latn: Okrug Pardubice
+    tr: Pardubice ilçesi
+    uk: Пардубице
+    zh: 帕爾杜比采縣
+    ko: 파르두비체구
+  name: Pardubice
+  code: '532'
+  type: district
+'533':
+  translations:
+    ar: مقاطعة سفيتافي
+    be: раён Світаві
+    bg: Свитави
+    ca: Districte de Svitavy
+    cs: okres Svitavy
+    de: Okres Svitavy
+    en: Svitavy
+    fr: District de Svitavy
+    he: מחוז משנה סביטאבי
+    hu: Svitavy-i járás
+    hy: Սվիտավիի շրջան
+    it: Distretto di Svitavy
+    ja: スヴィタヴィ郡
+    ka: სვიტავის რაიონი
+    lt: Svitavų rajonas
+    lv: Svitavu apriņķis
+    ms: Daerah Svitavy
+    nl: Okres Svitavy
+    pl: Powiat Svitavy
+    pt: Svitavy
+    ru: Свитави
+    sk: Okres Svitavy
+    sr: Округ Свитави
+    sv: Okres Svitavy
+    ur: سویتاوی ضلع
+    vi: Svitavy
+    ccp: "𑄞𑄨𑄑𑄞𑄨"
+    ceb: Okres Svitavy
+    es: Distrito de Svitavy
+    eu: Svitavyko barrutia
+    fa: شهرستان سویتاوی
+    sr_Latn: Okrug Svitavi
+    tr: Svitavy ilçesi
+    uk: Світави
+    zh: 斯維塔維縣
+    az: Svitavi rayonu
+    ko: 스비타비구
+    ro: Svitavy
+  name: Svitavy
+  code: '533'
+  type: district
+'534':
+  translations:
+    ar: مقاطعة أوستي ناد أورليتسي
+    bg: Усти над Орлици
+    ca: Districte d’Ústí nad Orlicí
+    cs: okres Ústí nad Orlicí
+    de: Okres Ústí nad Orlicí
+    en: Ústí nad Orlicí
+    fr: District d’Ústí nad Orlicí
+    he: מחוז משנה אוסטי נד אורליצי
+    hu: Ústí nad Orlicí-i járás
+    hy: Ուստի-նադ-Օրլիցի շրջան
+    it: Distretto di Ústí nad Orlicí
+    ja: ウスティ・ナドゥ・オーリシ
+    ka: უსტი-ნად-ორლიცის რაიონი
+    lv: Ūstu pie Orlices apriņķis
+    ms: Daerah Ústí nad Orlicí
+    nb: Ústí nad Orlicí
+    nl: Okres Ústí nad Orlicí
+    pl: Powiat Uście nad Orlicą
+    ru: Усти-над-Орлици
+    sk: Okres Ústí nad Orlicí
+    sr: Округ Усти на Орлици
+    sv: Okres Ústí nad Orlicí
+    ur: اوستی ناد اورلیسی ضلع
+    vi: Ústí nad Orlicí
+    be: Усці-над-Орліцай
+    ccp: "𑄅𑄪𑄌𑄴𑄑𑄨 𑄚𑄖𑄴 𑄃𑄧𑄢𑄴𑄣𑄨𑄌𑄨"
+    ceb: Okres Ústí nad Orlicí
+    es: Distrito de Ústí nad Orlicí
+    eu: Ústí nad Orlicíko barrutia
+    fa: شهرستان اوستی ناد اورلیتسی
+    lt: Ūsčio prie Orlicės rajonas
+    'no': Ústí nad Orlicí
+    sr_Latn: Okrug Usti na Orlici
+    tr: Ústí nad Orlicí ilçesi
+    uk: Усті-над-Орлиццю
+    zh: 奧爾利采河畔烏斯季縣
+    ko: 우스티나트오를리치구
+    pt: Ústí nad Orlicí (distrito)
+    ro: Ústí nad Orlicí
+  name: Ústí nad Orlicí
+  code: '534'
+  type: district
+'63':
+  unofficial_names:
+  - Jihlavský
+  translations:
+    en: Vysočina
+    ar: إقليم فيسوتشنا
+    az: Vısoçina diyarı
+    be: Край Высачына
+    bg: Височински край
+    bn: ভাইসোচিনা অঞ্চল
+    ca: Regió de Vysočina
+    cs: Kraj Vysočina
+    da: Vysočina
+    de: Kraj Vysočina
+    el: Περιφέρεια Βίσοτσινα
+    es: Región de Vysočina
+    et: Vysočina
+    eu: Vysocina
+    fa: استان ویسوچینا
+    fi: Vysočinan lääni
+    fr: Région de Vysočina
+    gu: વિસોસિના પ્રદેશ
+    he: מחוז ויסוצ׳ינה
+    hi: विसोकिना क्षेत्र
+    hr: Vysočina
+    hu: Vysočina kerület
+    hy: Վիսոչինի ծայրամաս
+    id: Daerah Vysočina
+    it: regione di Vysočina
+    ja: ヴィソチナ州
+    ka: ვისოჩინის მხარე
+    kn: ವೈಸೋಸಿನಾ ಪ್ರದೇಶ
+    ko: 비소치나 주
+    lt: Vysočinos kraštas
+    lv: Visočinas apgabals
+    mr: व्हिस्चेना प्रदेश
+    ms: Daerah Vysočina
+    nb: Vysočina region
+    nl: Vysočina
+    pl: Kraj Vysočina
+    pt: Vysočina
+    ro: Regiunea Vysočina
+    ru: Край Высочина
+    si: වයිසොකිනා කලාපය
+    sk: Kraj Vysočina
+    sr: Крај Височина
+    sv: Vysočina
+    ta: வயசோஸினா பகுதி
+    te: వైసోసినా ప్రాంతం
+    th: วิโซซิน่า
+    tr: Vysocina Bölgesi
+    uk: Край Височіна
+    ur: ویسوچیانا علاقہ
+    vi: Vysočina
+    zh: 維索基納州
+    bs: Visočinski kraj
+    ccp: "𑄞𑄨𑄥𑄮𑄥𑄨𑄚"
+    ceb: Kraj Vysočina
+    mk: Височински крај
+    'no': Vysočina region
+    sr_Latn: Kraj Visočina
+    sl: Visočinski okraj
+  geo:
+    latitude: 49.44900519999999
+    longitude: 15.6405934
+    min_latitude: 48.9375446
+    min_longitude: 14.8887667
+    max_latitude: 49.8611195
+    max_longitude: 16.4184401
+  name: Kraj Vysočina
+  code: '63'
+  type: region
+'631':
+  translations:
+    ar: مقاطعة هافليتشكوف برود
+    be: раён Гаўлічкаў Брод
+    bg: Хавличкув Брод
+    ca: Districte de Havlíčkův Brod
+    cs: okres Havlíčkův Brod
+    de: Okres Havlíčkův Brod
+    en: Havlíčkův Brod
+    fr: District de Havlíčkův Brod
+    he: מחוז משנה הבליצקוב ברוד
+    hu: Havlíčkův Brod-i járás
+    hy: Հավլիչկուվ Բրոդի շրջան
+    it: Distretto di Havlíčkův Brod
+    ja: ハヴリーチュクーフ・ブロト郡
+    ka: ჰავლიცკუვ-ბროდის რაიონი
+    lv: Havlīčkūvbrodas apriņķis
+    ms: Daerah Havlíčkův Brod
+    nb: Havlíčkův Brod
+    nl: Okres Havlíčkův Brod
+    pl: Powiat Havlíčkův Brod
+    ru: Гавличкув-Брод
+    sk: Okres Havlíčkův Brod
+    sr: Округ Хавличкув Брод
+    sv: Okres Havlíčkův Brod
+    ur: ہاولیچکورف برود ضلع
+    vi: Havlíčkův Brod
+    ccp: "𑄦𑄛𑄴𑄣𑄨𑄇𑄪𑄛𑄴 𑄝𑄳𑄢𑄧𑄖𑄴"
+    ceb: Okres Havlíčkův Brod
+    es: Distrito de Havlíčkův Brod
+    eu: Havlíčkův Brodeko barrutia
+    fa: ناحیه هاولیچکوف برود
+    lt: Havličkūv Brodo rajonas
+    'no': Havlíčkův Brod
+    sr_Latn: Okrug Havličkuv Brod
+    tr: Havlíčkův Brod ilçesi
+    uk: Гавличкув-Брод
+    zh: 哈夫利奇庫夫布羅德縣
+    hr: Okrug Havlíčkův Brod
+    ko: 하블리치쿠프브로트구
+    pt: Havlíčkův Brod (distrito)
+  name: Havlíčkův Brod
+  code: '631'
+  type: district
+'632':
+  translations:
+    ar: مقاطعة يهلافا
+    be: Раён Йіглава
+    bg: Ихлава
+    ca: Districte de Jihlava
+    cs: okres Jihlava
+    de: Okres Jihlava
+    el: κομητεία Γίσλαβα
+    en: Jihlava
+    fr: District de Jihlava
+    he: מחוז משנה ייהלבה
+    hu: Jihlavai járás
+    hy: Յիհլավայի շրջան
+    it: Distretto di Jihlava
+    ja: イフラヴァ郡
+    ka: იიჰლავის რაიონი
+    lv: Jihlavas apriņķis
+    ms: Daerah Jihlava
+    nb: Jihlava
+    nl: Okres Jihlava
+    pl: Powiat Igława
+    pt: Jihlava
+    ru: Йиглава
+    sk: Okres Jihlava
+    sr: Округ Јихлава
+    sv: Okres Jihlava
+    ur: ایہاوا ضلع
+    vi: Jihlava
+    ccp: "𑄎𑄨𑄦𑄴𑄣𑄛𑄴"
+    ceb: Okres Jihlava
+    es: Distrito de Jihlava
+    eu: Jihlavako barrutia
+    fa: شهرستان ییهلاوا
+    lt: Jihlavos rajonas
+    'no': Jihlava
+    sr_Latn: Okrug Jihlava
+    tr: Jihlava ilçesi
+    uk: Їглава
+    zh: 伊赫拉瓦縣
+    hr: Okrug Jihlava
+    ko: 이흘라바구
+    mk: Јихлава
+  name: Jihlava
+  code: '632'
+  type: district
+'633':
+  translations:
+    ar: مقاطعة بلهريموف
+    be: Пельгржымаў
+    bg: Пелхржимов
+    ca: Districte de Pelhřimov
+    cs: okres Pelhřimov
+    de: Okres Pelhřimov
+    en: Pelhřimov
+    es: Distrito de Pelhřimov
+    fr: District de Pelhřimov
+    he: מחוז משנה פלהרימוב
+    hu: Pelhřimovi járás
+    hy: Պելհրիմովի շրջան
+    it: Distretto di Pelhřimov
+    ja: ペルフジモフ郡
+    ka: პელჰრჟიმოვის რაიონი
+    lv: Pelhržimovas apriņķis
+    ms: Daerah Pelhřimov
+    nb: Pelhřimov
+    nl: Okres Pelhřimov
+    pl: Powiat Pelhřimov
+    pt: Pelhřimov
+    ru: Пельгржимов
+    sk: Okres Pelhřimov
+    sr: Округ Пелхримов
+    sv: Okres Pelhřimov
+    ur: پیلہریموف ضلع
+    vi: Pelhřimov
+    ccp: "𑄛𑄬𑄣𑄴𑄦𑄳𑄢𑄨𑄟𑄮𑄛𑄴"
+    ceb: Okres Pelhřimov
+    eu: Pelhřimoveko barrutia
+    fa: شهرستان پلهرژیموف
+    lt: Pelhržimovo rajonas
+    'no': Pelhřimov
+    sr_Latn: Okrug Pelhrimov
+    tr: Pelhřimov ilçesi
+    uk: Пельгржимов
+    zh: 佩爾赫日莫夫縣
+    hr: Okrug Pelhřimov
+    ko: 펠흐르지모프구
+  name: Pelhřimov
+  code: '633'
+  type: district
+'634':
+  translations:
+    ar: مقاطعة تربيتش
+    bg: Тршебич
+    ca: Districte de Třebíč
+    cs: okres Třebíč
+    de: Okres Třebíč
+    en: Třebíč
+    fa: منطقه تربیچ
+    fr: District de Třebíč
+    he: מחוז משנה טשביץ׳
+    hu: Třebíči járás
+    hy: Տրեբիչի շրջան
+    it: Distretto di Třebíč
+    ja: トシェビーチ郡
+    ka: ტრჟებიცის რაიონი
+    lv: Tršebīčas apriņķis
+    ms: Daerah Třebíč
+    nb: Třebíč
+    nl: Okres Třebíč
+    pl: Powiat Třebíč
+    pt: Třebíč (distrito)
+    ru: Тршебич
+    sk: Okres Třebíč
+    sr: Округ Требич
+    sv: Okres Třebíč
+    ur: تشربیچ ضلع
+    vi: Třebíč
+    be: раён Тршэбіч
+    ccp: "𑄑𑄳𑄢𑄬𑄝𑄨𑄇𑄴"
+    ceb: Okres Třebíč
+    es: Distrito de Třebíč
+    eu: Třebíčeko barrutia
+    lt: Tršebyčo rajonas
+    'no': Třebíč
+    ro: Třebíč
+    sr_Latn: Okrug Trebič
+    tr: Třebíč ilçesi
+    uk: Тршебич
+    zh: 特熱比奇縣
+    hr: Okrug Třebíč
+    ko: 트르제비치구
+  name: Třebíč
+  code: '634'
+  type: district
+'635':
+  translations:
+    ar: مقاطعة جديار ناد سازافو
+    bg: Ждяр над Сазавоу
+    ca: Districte de Žďár nad Sázavou
+    cs: okres Žďár nad Sázavou
+    de: Okres Žďár nad Sázavou
+    en: Žďár nad Sázavou
+    fr: District de Žďár nad Sázavou
+    he: מחוז משנה ז׳דאר נד סאזאבואו
+    hu: Žďár nad Sázavou-i járás
+    hy: Զդար-նադ-Սազավոուի շրջան
+    it: Distretto di Žďár nad Sázavou
+    ja: ジュジャール・ナド・サーザヴォウ郡
+    ka: ჟდიარ-ნად-საზავოის რაიონი
+    lv: Ždjāras pie Sāzavas apriņķis
+    ms: Daerah Žďár nad Sázavou
+    nb: Žďár nad Sázavou
+    nl: Okres Žďár nad Sázavou
+    pl: Powiat Zdziar nad Sazawą
+    ru: Ждяр-над-Сазавоу
+    sk: Okres Žďár nad Sázavou
+    sr: Округ Ждјар на Сазави
+    sv: Okres Žďár nad Sázavou
+    ur: زشدار ناد سازوو ضلع
+    vi: Žďár nad Sázavou
+    ccp: "𑄓𑄢𑄴 𑄚𑄖𑄴 𑄥𑄎𑄞𑄮𑄅𑄪"
+    ceb: Okres Žďár nad Sázavou
+    es: Distrito de Žďár nad Sázavou
+    eu: Žďár nad Sázavouko barrutia
+    fa: ناحیه ژدار ناد سازاوو
+    lt: Ždiaro prie Sazavos rajonas
+    'no': Žďár nad Sázavou
+    pt: Žďár nad Sázavou (distrito)
+    sr_Latn: Okrug Ždjar na Sazavi
+    tr: Žďár nad Sázavou ilçesi
+    uk: Ждяр-над-Сазавою
+    zh: 薩扎瓦河畔日賈爾縣
+    be: раён Ждзяр-над-Сазаваў
+    hr: Okrug Žďár nad Sázavou
+    ko: 주댜르나트사자보우구
+    ro: Žďár nad Sázavou
+  name: Žďár nad Sázavou
+  code: '635'
+  type: district
+'64':
+  unofficial_names:
+  - Brněnský
+  translations:
+    en: Jihomoravský
+    ar: محافظة مورافيا الجنوبية
+    az: Cənubi Moraviya diyarı
+    be: Паўднёвамараўскі край
+    bg: Южноморавски край
+    bn: সাউথ মুরাভিয়ান অঞ্চল
+    ca: Regió de Moràvia Meridional
+    cs: Jihomoravský kraj
+    da: Sydmähren
+    de: Jihomoravský kraj
+    el: Περιφέρεια Νότιας Μοραβίας
+    es: Región de Moravia Meridional
+    et: Lõuna-Morava maakond
+    eu: Hego Moravia
+    fa: منطقه موراویای جنوبی
+    fi: Etelä-Määrin lääni
+    fr: Moravie du Sud
+    gl: Rexión de Moravia Meridional
+    gu: દક્ષિણ મોરાવિયન પ્રદેશ
+    he: מורביה הדרומית
+    hi: दक्षिण मोरावियन क्षेत्र
+    hr: Južna Moravska
+    hu: Dél-morvaországi kerület
+    id: Wilayah Moravia Selatan
+    it: Moravia meridionale
+    ja: 南モラヴィア州
+    ka: სამხრეთ მორავიის მხარე
+    kn: ದಕ್ಷಿಣ ಮೊರವಿಯನ್ ಪ್ರದೇಶ
+    ko: 남모라바 주
+    lt: Pietų Moravijos kraštas
+    lv: Dienvidmorāvijas apgabals
+    mr: दक्षिण मोरावियन प्रांत
+    ms: Wilayah Moravia Selatan
+    nb: Sydmähriske region
+    nl: Zuid-Moravië
+    pl: Kraj południowomorawski
+    pt: Morávia do Sul
+    ro: Regiunea Moravia de Sud
+    ru: Южноморавский край
+    si: දකුණු මොරවියන් කලාපය
+    sk: Juhomoravský kraj
+    sr: Јужноморавски крај
+    sv: Södra Mähren
+    ta: தெற்கு மொராவின் பகுதி
+    te: దక్షిణ మొరావియన్ ప్రాంతం
+    th: เซาท์ โมราเวียน
+    tr: Güney Moravya ili
+    uk: Південноморавський край
+    ur: جنوبی موراویائی علاقہ
+    vi: Nam Moravia
+    zh: 南摩拉維亞州
+    bs: Južnomoravski kraj
+    ccp: "𑄎𑄨𑄦𑄮𑄟𑄧𑄢𑄛𑄴𑄇𑄨"
+    ceb: Jihomoravský kraj
+    hy: Հարավային Մորավիայի շրջան
+    mk: Јужноморавски крај
+    'no': Sydmähriske region
+    sr_Latn: Južnomoravski kraj
+    sl: Južnomoravski okraj
+  geo:
+    latitude: 48.9544528
+    longitude: 16.7676899
+    min_latitude: 48.61653769999999
+    min_longitude: 15.5424287
+    max_latitude: 49.63325469999999
+    max_longitude: 17.6458148
+  name: Jihomoravský kraj
+  code: '64'
+  type: region
+'641':
+  translations:
+    ar: مقاطعة بلانسكو
+    be: Раён Бланска
+    bg: Бланско
+    ca: Districte de Blansko
+    cs: okres Blansko
+    de: Okres Blansko
+    en: Blansko
+    fr: District de Blansko
+    he: מחוז משנה בלנסקו
+    hr: Okrug Blansko
+    hu: Blanskói járás
+    hy: Բլանսկոյի շրջան
+    it: Distretto di Blansko
+    ka: ბლანსკოს რაიონი
+    lv: Blansko apriņķis
+    ms: Daerah Blansko
+    nl: Okres Blansko
+    pl: Powiat Blansko
+    pt: Blansko (distrito)
+    ru: Бланско
+    sk: Okres Blansko
+    sr: Округ Бланско
+    sv: Okres Blansko
+    ur: بلانسکو ضلع
+    vi: Blansko
+    ccp: "𑄇𑄳𑄣𑄚𑄴𑄇𑄮"
+    ceb: Okres Blansko
+    es: Distrito de Blansko
+    eu: Blanskoko barrutia
+    fa: شهرستان بلانسکو
+    lt: Blansko rajonas
+    sr_Latn: Okrug Blansko
+    tr: Blansko ilçesi
+    uk: Бланско
+    zh: 布蘭斯科縣
+    ja: ブランスコ地区
+    ko: 블란스코구
+  name: Blansko
+  code: '641'
+  type: district
+'642':
+  translations:
+    ar: مقاطعة برنو-المدينة
+    be: Брно-горад
+    bg: Бърно-град
+    ca: Districte de Brno-město
+    cs: okres Brno-město
+    de: Okres Brno-město
+    en: Brno-město
+    fr: District de Brno-město
+    hu: Brno városi járás
+    it: Distretto di Brno-město
+    ja: ブルノ都市郡
+    ms: Daerah Bandaraya Brno
+    nl: Okres Brno-město
+    pt: Brno (distrito)
+    ru: Брно-город
+    sk: Okres Brno-mesto
+    sr: Округ Брно-град
+    sv: Město Brno
+    ur: برنو-شہر ضلع
+    vi: Brno
+    ccp: "𑄝𑄳𑄢𑄚𑄮-𑄟𑄬𑄌𑄴𑄑𑄮"
+    ceb: Město Brno
+    fa: شهرستان برنو-میستو
+    lt: Brno miesto rajonas
+    mk: Брно-град
+    sr_Latn: Okrug Brno-grad
+    uk: Брно-місто
+    zh: 布爾諾城縣
+    es: Distrito de Brno-ciudad
+    hy: Բռնո-քաղաք շրջան
+    ko: 브르노 도시구
+    ro: Brno-Oraș
+  name: Brno-město
+  code: '642'
+  type: district
+'643':
+  translations:
+    ar: مقاطعة برنو-الريف
+    be: Брно-прыгарад
+    bg: Бърно-район
+    ca: Districte de Brno-venkov
+    cs: okres Brno-venkov
+    de: Okres Brno-venkov
+    el: Επαρχία Μπρνο
+    en: Brno-venkov
+    fr: District de Brno-venkov
+    hu: Brno-vidéki járás
+    hy: Բրնո-վենկովի շրջան
+    it: Distretto di Brno-venkov
+    ja: ブルノ郊外郡
+    ka: ბრნო-ვენკოვის რაიონი
+    lv: Brno lauku apriņķis
+    ms: Daerah Brno-Country
+    nl: Okres Brno-venkov
+    pl: Powiat Brno
+    pt: Brno-Venkov
+    ru: Брно-пригород
+    sk: Okres Brno-venkov
+    sr: Округ Брно-околина
+    sv: Brno-venkov
+    ur: برنو-کنٹری ضلع
+    vi: Brno-venkov
+    ccp: "𑄝𑄳𑄢𑄚𑄮-𑄞𑄬𑄚𑄴𑄇𑄮𑄛𑄴"
+    ceb: Okres Brno-Venkov
+    es: Distrito de Brno
+    eu: Brno-Landako barrutia
+    fa: شهرستان برنو-ونکوو
+    lt: Brno savivaldybės rajonas
+    mk: Брно-предградие
+    sr_Latn: Okrug Brno-okolina
+    uk: Брно-околиця
+    zh: 布爾諾郊縣
+    ko: 브르노 교외구
+    ro: Brno-Rural
+  name: Brno-venkov
+  code: '643'
+  type: district
+'644':
+  translations:
+    ar: مقاطعة بريتسلاف
+    be: Раён Бржэцлаў
+    bg: Бржецлав
+    ca: Districte de Břeclav
+    cs: okres Břeclav
+    de: Okres Břeclav
+    en: Břeclav
+    fr: District de Břeclav
+    he: מחוז משנה ברצלב
+    hu: Břeclavi járás
+    hy: Բրեցլավի շրջան
+    it: Distretto di Břeclav
+    ja: ブジェツラフ郡
+    ka: ბრჟეცლავის რაიონი
+    lv: Bržeclavas apriņķis
+    ms: Daerah Břeclav
+    nl: Okres Břeclav
+    pl: Powiat Brzecław
+    pt: Břeclav
+    ru: Бржецлав
+    sk: Okres Břeclav
+    sr: Округ Брецлав
+    sv: Okres Břeclav
+    ur: بشرسلاف ضلع
+    vi: Břeclav
+    ccp: "𑄝𑄳𑄢𑄬𑄇𑄳𑄣𑄳𑄠𑄛𑄴"
+    ceb: Okres Břeclav
+    es: Distrito de Břeclav
+    eu: Břeclaveko barrutia
+    fa: شهرستان برژتسلاو
+    lt: Bržeclavo rajonas
+    sr_Latn: Okrug Breclav
+    tr: Břeclav ilçesi
+    uk: Бржецлав
+    zh: 布熱茨拉夫縣
+    id: Distrik Břeclav
+    ko: 브르제츨라프구
+  name: Břeclav
+  code: '644'
+  type: district
+'645':
+  translations:
+    ar: مقاطعة هودونين
+    bg: Ходонин
+    ca: Districte de Hodonín
+    cs: okres Hodonín
+    de: Okres Hodonín
+    en: Hodonín
+    fa: ناحیه هودونین
+    fr: District de Hodonín
+    he: מחוז משנה הודונין
+    hu: Hodoníni járás
+    hy: Հոդոնինի շրջան
+    it: Distretto di Hodonín
+    ja: ホドニーン郡
+    ka: ჰოდონინის რაიონი
+    lv: Hodonīnas apriņķis
+    ms: Daerah Hodonín
+    nl: Okres Hodonín
+    pl: Powiat Hodonín
+    pt: Hodonín (distrito)
+    ru: Годонин
+    sk: Okres Hodonín
+    sr: Округ Ходоњин
+    sv: Okres Hodonín
+    ur: ہودونین ضلع
+    vi: Hodonín
+    ccp: "𑄦𑄧𑄓𑄧𑄚𑄨𑄚𑄴"
+    ceb: Okres Hodonín
+    es: Distrito de Hodonín
+    eu: Hodoníngo barrutia
+    lt: Hodonyno rajonas
+    sr_Latn: Okrug Hodonjin
+    tr: Hodonín ilçesi
+    uk: Годонін
+    zh: 霍多寧縣
+    id: Distrik Hodonín
+    ko: 호도닌구
+  name: Hodonín
+  code: '645'
+  type: district
+'646':
+  translations:
+    ar: مقاطعة فيشكوف
+    be: Раён Вішкаў
+    bg: Вишков
+    ca: Districte de Vyškov
+    cs: okres Vyškov
+    de: Okres Vyškov
+    en: Vyškov
+    fr: District de Vyškov
+    he: מחוז משנה ויסקוב
+    hu: Vyškovi járás
+    hy: Վիշկովի շրջան
+    it: Distretto di Vyškov
+    ja: ヴィシュコフ郡
+    ka: ვისკოვის რაიონი
+    lv: Viškovas apriņķis
+    ms: Daerah Vyškov
+    nl: Okres Vyškov
+    pl: Powiat Vyškov
+    ru: Вишков
+    sk: Okres Vyškov
+    sr: Округ Вишков
+    sv: Okres Vyškov
+    ur: ویشکوف ضلع
+    vi: Vyškov
+    ccp: "𑄞𑄨𑄌𑄴𑄇𑄧𑄛𑄴"
+    ceb: Okres Vyškov
+    es: Distrito de Vyškov
+    fa: شهرستان ویشکوف
+    lt: Viškovo rajonas
+    sr_Latn: Okrug Viškov
+    tr: Vyškov ilçesi
+    uk: Вишков
+    zh: 維什科夫縣
+    ko: 비슈코프구
+    ro: Vyškov
+  name: Vyškov
+  code: '646'
+  type: district
+'647':
+  translations:
+    ar: مقاطعة زنويمو
+    be: Раён Знойма
+    bg: Зноймо
+    ca: Districte de Znojmo
+    cs: okres Znojmo
+    de: Okres Znojmo
+    en: Znojmo
+    fr: District de Znojmo
+    hu: Znojmói járás
+    hy: Զնոյմոյի շրջան
+    it: Distretto di Znojmo
+    ja: ズノイモ郡
+    ka: ზნოიმოს რაიონი
+    lv: Znojmo apriņķis
+    ms: Daerah Znojmo
+    nl: Okres Znojmo
+    pl: Powiat Znojmo
+    ru: Зноймо
+    sk: Okres Znojmo
+    sr: Округ Знојмо
+    sv: Okres Znojmo
+    ur: زنویمو ضلع
+    vi: Znojmo
+    ccp: "𑄚𑄧𑄌𑄴𑄟𑄮"
+    ceb: Okres Znojmo
+    es: Distrito de Znojmo
+    eu: Znojmoko barrutia
+    fa: شهرستان زنویمو
+    lt: Znoimo rajonas
+    sr_Latn: Okrug Znojmo
+    tr: Znojmo ilçesi
+    uk: Зноймо
+    zh: 茲諾伊莫縣
+    ko: 즈노이모구
+    ro: Znojmo
+  name: Znojmo
+  code: '647'
+  type: district
+'71':
+  unofficial_names:
+  - Olomoucký kraj
+  translations:
+    en: Olomoucký
+    ar: إقليم أولوموتس
+    az: Olomoutskiy diyarı
+    be: Оламаўцкі край
+    bg: Оломоуцки край
+    bn: ওলোমুক অঞ্চল
+    ca: Regió d’Olomouc
+    cs: Olomoucký kraj
+    da: Olomouc
+    de: Olomoucký kraj
+    el: Περιφέρεια Όλομουτς
+    es: Región de Olomouc
+    et: Olomouci maakond
+    eu: Olomouc eskualdea
+    fa: منطقه اولوموتس
+    fi: Olomoucin lääni
+    fr: Région d’Olomouc
+    gu: ઓલોમૌક પ્રદેશ
+    he: אולומואוץ (מחוז)
+    hi: ओलोमौक क्षेत्र
+    hr: Olomoučki kraj
+    hu: Olomouci kerület
+    id: Daerah Olomouc
+    it: regione di Olomouc
+    ja: オロモウツ州
+    ka: ოლომოუცის მხარე
+    kn: ಓಲೋಮೌಕ್ ಪ್ರದೇಶ
+    ko: 올로모우츠 주
+    lt: Olomouco kraštas
+    lv: Olomoucas apgabals
+    mr: ऑलोकिक प्रदेश
+    ms: Daerah Olomouc
+    nb: Olomouc region
+    nl: Olomouc
+    pl: Kraj ołomuniecki
+    pt: Olomouc
+    ro: Regiunea Olomouc
+    ru: Оломоуцкий край
+    si: ඔලොමොඋක් කලාපය
+    sk: Olomoucký kraj
+    sr: Оломоуцки крај
+    sv: Olomouc
+    ta: ஒலோமெக் பகுதி
+    te: ఓలోమాక్ ప్రాంతం
+    th: โอลมุก โบเกซี
+    tr: Olomuc Bölgesi
+    uk: Оломоуцький край
+    ur: اولوموک علاقہ
+    vi: Olomouc
+    zh: 奧洛穆克州
+    bs: Olomoucki kraj
+    ccp: "𑄃𑄮𑄣𑄮𑄟𑄯𑄇𑄨"
+    ceb: Olomoucký kraj
+    mk: Оломоучки крај
+    'no': Olomouc region
+    sr_Latn: Olomoucki kraj
+    sl: Olomuški okraj
+  geo:
+    latitude: 49.65865489999999
+    longitude: 17.0811406
+    min_latitude: 49.2669759
+    min_longitude: 16.7115968
+    max_latitude: 50.4494346
+    max_longitude: 17.9172214
+  name: Olomoucký kraj
+  code: '71'
+  type: region
+'711':
+  translations:
+    ar: مقاطعة يسينيك
+    bg: Есеник
+    ca: Districte de Jeseník
+    cs: okres Jeseník
+    de: Okres Jeseník
+    en: Jeseník
+    fr: District de Jeseník
+    he: מחוז משנה יסניק
+    hu: Jeseníki járás
+    hy: Յեսենիկի շրջան
+    it: Distretto di Jeseník
+    ka: ესენიკის რაიონი
+    lt: Jesenyko rajonas
+    lv: Jesenīkas apriņķis
+    ms: Daerah Jeseník
+    nl: Okres Jeseník
+    pl: Powiat Jesionik
+    pt: Jeseník
+    ru: Есеник
+    sk: Okres Jeseník
+    sr: Округ Јесењик
+    sv: Jeseník
+    ur: یسنک ضلع
+    vi: Jeseník
+    ccp: "𑄎𑄬𑄥𑄬𑄚𑄨𑄇𑄴"
+    ceb: Okres Jeseník
+    es: Distrito de Jeseník
+    eu: Jeseníkeko barrutia
+    fa: شهرستان یسنیک
+    sr_Latn: Okrug Jesenjik
+    tr: Jeseník ilçesi
+    uk: Єсенік
+    zh: 耶塞尼克縣
+    ja: イェセニーク郡
+    ko: 예세니크구
+  name: Jeseník
+  code: '711'
+  type: district
+'712':
+  translations:
+    ar: مقاطعة أولوموتس
+    bg: Оломоуц
+    ca: Districte d’Olomouc
+    cs: okres Olomouc
+    de: Okres Olomouc
+    en: Olomouc
+    fr: District d’Olomouc
+    he: מחוז משנה אולומואוץ
+    hu: Olomouci járás
+    hy: Օլոմոուցի շրջան
+    it: Distretto di Olomouc
+    ja: オロモウツ郡
+    ka: ოლომოუცის რაიონი
+    lt: Olomouco rajonas
+    lv: Olomoucas apriņķis
+    ms: Daerah Olomouc²
+    nl: Okres Olomouc
+    pl: Powiat Ołomuniec
+    pt: Olomouc²
+    ru: Оломоуц
+    sk: Okres Olomouc
+    sr: Округ Оломоуц
+    sv: Olomouc²
+    ur: اولوموک ضلع
+    vi: Olomouc²
+    be: Оламаўц
+    ccp: "𑄃𑄧𑄣𑄮𑄟𑄅𑄪𑄇𑄴"
+    ceb: Okres Olomouc
+    es: Distrito de Olomouc
+    eu: Olomouceko barrutia
+    fa: شهرستان اولوموتس
+    sr_Latn: Okrug Olomouc
+    tr: Olomouc ilçesi
+    uk: Оломоуц
+    zh: 奧洛莫烏茨縣
+    id: Distrik Olomouc
+    ko: 올로모우츠구
+  name: Olomouc
+  code: '712'
+  type: district
+'713':
+  translations:
+    ar: مقاطعة بروستيوف
+    bg: Простейов
+    ca: Districte de Prostějov
+    cs: okres Prostějov
+    de: Okres Prostějov
+    en: Prostějov
+    es: Distrito de Prostějov
+    fr: district de Prostějov
+    he: מחוז משנה פרוסטיוב
+    hu: Prostějovi járás
+    hy: Պրոստեյովի շրջան
+    it: Distretto di Prostějov
+    ka: პროსტეჟოვის რაიონი
+    lt: Prostejovo rajonas
+    lv: Prostejovas apriņķis
+    ms: Daerah Prostějov
+    nl: Okres Prostějov
+    pl: Powiat Prościejów
+    pt: Prostějov
+    ru: Простеёв
+    sk: Okres Prostějov
+    sr: Округ Простјејов
+    sv: Prostějov
+    ur: پروستیو ضلع
+    vi: Prostějov
+    be: Просцеёў
+    ccp: "𑄛𑄳𑄢𑄮𑄌𑄴𑄑𑄬𑄎𑄮𑄛𑄴"
+    ceb: Okres Prostějov
+    eu: Prostějoveko barrutia
+    fa: شهرستان پروستییوف
+    ja: プロスチェヨフ郡
+    sr_Latn: Okrug Prostjejov
+    tr: Prostějov ilçesi
+    uk: Простейов
+    zh: 普羅斯捷約夫縣
+    id: Distrik Prostějov
+    ko: 프로스테요프구
+  name: Prostějov
+  code: '713'
+  type: district
+'714':
+  translations:
+    ar: مقاطعة برشيروف
+    be: раён Пршэраў
+    bg: Пршеров
+    ca: Districte de Přerov
+    cs: okres Přerov
+    de: Okres Přerov
+    en: Přerov
+    fr: District de Přerov
+    he: מחוז משנה פררוב
+    hu: Přerovi járás
+    hy: Պշերովի շրջան
+    it: Distretto di Přerov
+    ja: プルジェロフ郡
+    ka: პრშეროვის რაიონი
+    lt: Pršerovo rajonas
+    lv: Pršerovas apriņķis
+    ms: Daerah Přerov
+    nl: Okres Přerov
+    pl: Powiat Przerów
+    pt: Přerov
+    ru: Пршеров
+    sk: Okres Přerov
+    sr: Округ Преров
+    sv: Přerov
+    ur: پژیرو ضلع
+    vi: Přerov
+    ccp: "𑄛𑄳𑄢𑄬𑄢𑄧𑄛𑄴"
+    ceb: Okres Přerov
+    es: Distrito de Přerov
+    fa: شهرستان پرژروف
+    sr_Latn: Okrug Prerov
+    tr: Přerov ilçesi
+    uk: Пршеров
+    zh: 普熱羅夫縣
+    ko: 프르제로프구
+    ro: Přerov
+  name: Přerov
+  code: '714'
+  type: district
+'715':
+  translations:
+    ar: مقاطعة شومبيرك
+    bg: Шумперк
+    ca: Districte de Šumperk
+    cs: okres Šumperk
+    de: Okres Šumperk
+    en: Šumperk
+    fr: District de Šumperk
+    he: מחוז משנה סומפרק
+    hu: Šumperki járás
+    hy: Շումպերկի շրջան
+    it: Distretto di Šumperk
+    ja: シュンペルク郡
+    ka: შუმპერკის რაიონი
+    lt: Šumperko rajonas
+    lv: Šumperkas apriņķis
+    ms: Daerah Šumperk
+    nl: Okres Šumperk
+    pl: Powiat Šumperk
+    ru: Шумперк
+    sk: Okres Šumperk
+    sr: Шумперски округ
+    sv: Šumperk
+    ur: شومپرک ضلع
+    vi: Šumperk
+    ccp: "𑄥𑄟𑄴𑄛𑄢𑄳𑄇𑄴"
+    ceb: Okres Šumperk
+    es: Distrito de Šumperk
+    fa: شهرستان شومپرک
+    pt: Šumperk (distrito)
+    sr_Latn: Šumperski okrug
+    tr: Šumperk İlçesi
+    uk: Шумперк
+    zh: 順佩爾克縣
+    ko: 슘페르크구
+    ro: Šumperk
+  name: Šumperk
+  code: '715'
+  type: district
+'72':
+  unofficial_names:
+  - Zlínský kraj
+  translations:
+    en: Zlínský
+    ar: إقليم زلين
+    az: Zlin diyarı
+    be: Злінскі край
+    bg: Злински край
+    bn: জিন অঞ্চল
+    ca: Regió de Zlín
+    cs: Zlínský kraj
+    da: Zlín
+    de: Zlínský kraj
+    el: Περιφέρεια Ζλιν
+    es: Región de Zlín
+    et: Zlíni maakond
+    eu: Zlín eskualdea
+    fa: منطقه زلین
+    fi: Zlínin lääni
+    fr: Région de Zlín
+    gu: ઝ્લીન પ્રદેશ
+    he: זלין (מחוז)
+    hi: ज़लिन प्रदेश
+    hr: Zlínski kraj
+    hu: Zlíni kerület
+    id: Daerah Zlín
+    it: regione di Zlín
+    ja: ズリーン州
+    ka: ზლინის მხარე
+    kn: ಝ್ಲಿನ್ ಪ್ರದೇಶ
+    ko: 즐린 주
+    lt: Zlyno kraštas
+    lv: Zlīnas apgabals
+    mr: झ्लिन प्रदेश
+    ms: Daerah Zlín
+    nb: Zlín
+    nl: Zlín
+    pl: Kraj zliński
+    pt: Zlín
+    ro: Regiunea Zlín
+    ru: Злинский край
+    si: ස්ලින් කලාපය
+    sk: Zlínsky kraj
+    sr: Злински крај
+    sv: Zlín
+    ta: ஜில்ன் பகுதி
+    te: జ్లిన్ ప్రాంతం
+    th: ซลิน
+    tr: Zlin Bölgesi
+    uk: Злінський край
+    ur: زلین علاقہ
+    vi: Zlín
+    zh: 兹林州
+    bs: Zlinski kraj
+    ccp: "𑄎𑄳𑄣𑄨𑄚𑄴𑄇𑄨"
+    ceb: Zlínský kraj
+    hy: Զլինի երկրամաս
+    mk: Злински крај
+    'no': Zlín
+    sr_Latn: Zlinski kraj
+    sl: Zlinski okraj
+  geo:
+    latitude: 49.2162296
+    longitude: 17.7720353
+    min_latitude: 48.8542302
+    min_longitude: 17.1108595
+    max_latitude: 49.5399786
+    max_longitude: 18.4155308
+  name: Zlínský kraj
+  code: '72'
+  type: region
+'721':
+  translations:
+    ar: مقاطعة كروميشريش
+    bg: Кромержиж (окръг)
+    ca: Districte de Kroměříž
+    cs: okres Kroměříž
+    de: Okres Kroměříž
+    en: Kroměříž
+    fr: District de Kroměříž
+    he: מחוז משנה קרומניירי
+    hu: Kroměříži járás
+    hy: Կրոմերիժի շրջան
+    it: Distretto di Kroměříž
+    ja: クロミェジージュ郡
+    ka: კრომერჟიჟის რაიონი
+    lv: Kromeržīžas apriņķis
+    ms: Daerah Kroměříž
+    nl: Okres Kroměříž
+    pl: Powiat Kromieryż
+    pt: Kroměříž (distrito)
+    ru: Кромержиж
+    sk: Okres Kroměříž
+    sr: Округ Кромјержиж
+    sv: Okres Kroměříž
+    uk: Кромержиж (округ)
+    ur: کرومیرشیزش ضلع
+    vi: Kroměříž
+    be: Кромержыж
+    ccp: "𑄇𑄳𑄢𑄮𑄟𑄢𑄨𑄌𑄴"
+    ceb: Okres Kroměříž
+    es: Distrito de Kroměříž
+    eu: Kroměřížko barrutia
+    fa: شهرستان کرومیه‌رژیژ
+    lt: Kromeržyžo rajonas
+    sr_Latn: Okrug Kromjeržiž
+    tr: Kroměříž ilçesi
+    zh: 克羅梅日什縣
+    ko: 크로메르지시구
+  name: Kroměříž
+  code: '721'
+  type: district
+'722':
+  translations:
+    ar: مقاطعة أوهرسكه هراديشتيه
+    bg: Ухерске Храдище
+    ca: Districte d’Uherské Hradiště
+    cs: okres Uherské Hradiště
+    de: Okres Uherské Hradiště
+    en: Uherské Hradiště
+    fr: District d’Uherské Hradiště
+    he: מחוז משנה אוהרסקי הראדיץ׳
+    hu: Uherské Hradiště-i járás
+    hy: Ուհարսյե Հրադանիշտեի շրջան
+    it: Distretto di Uherské Hradiště
+    ja: ウヘルスケー・フラジシチェ郡
+    ka: უჰერსკე-ჰრადიშტეს რაიონი
+    lv: Uherske Hradištes apriņķis
+    ms: Daerah Uherské Hradiště
+    nl: Okres Uherské Hradiště
+    pl: Powiat Uherské Hradiště
+    pt: Uherské Hradiště (distrito)
+    ru: Угерске-Градиште
+    sk: Okres Uherské Hradiště
+    sr: Округ Ухерско Храдиште
+    sv: Okres Uherské Hradiště
+    ur: اوہیرسکے ہاردیشتے ضلع
+    vi: Uherské Hradiště
+    ccp: "𑄅𑄪𑄦𑄬𑄢𑄴𑄇𑄬 𑄦𑄳𑄢𑄓𑄨𑄌𑄴𑄑𑄬"
+    ceb: Okres Uherské Hradiště
+    es: Distrito de Uherské Hradiště
+    eu: Uherské Hradištěko barrutia
+    fa: ناحیه اوهرسکه هرادیشتی
+    lt: Uherske Hradištės rajonas
+    sr_Latn: Okrug Uhersko Hradište
+    tr: Uherské Hradiště ilçesi
+    uk: Угерске Градіште
+    zh: 烏赫爾堡縣
+    ko: 우헤르스케흐라디슈테구
+    ro: Uherské Hradiště
+  name: Uherské Hradiště
+  code: '722'
+  type: district
+'723':
+  translations:
+    ar: مقاطعة فسيتين
+    be: раён Усецін
+    bg: Всетин
+    ca: Districte de Vsetín
+    cs: okres Vsetín
+    de: Okres Vsetín
+    en: Vsetín
+    fr: District de Vsetín
+    he: מחוז משנה וסטין
+    hu: Vsetíni járás
+    hy: Վսետինի շրջան
+    it: Distretto di Vsetín
+    ja: フセチーン郡
+    ka: ვსეტინის რაიონი
+    lv: Vsetīnas apriņķis
+    ms: Daerah Vsetín
+    nl: Okres Vsetín
+    pl: Powiat Vsetín
+    ru: Всетин
+    sk: Okres Vsetín
+    sr: Округ Всетин
+    sv: Okres Vsetín
+    uk: Всетін
+    ur: وسیتین ضلع
+    vi: Vsetín
+    ccp: "𑄞𑄨𑄥𑄬𑄑𑄨𑄚𑄴"
+    ceb: Okres Vsetín
+    es: Distrito de Vsetín
+    fa: شهرستان وستین
+    lt: Vsetyno rajonas
+    sr_Latn: Okrug Vsetin
+    tr: Vsetín ilçesi
+    zh: 弗塞廷縣
+    ko: 브세틴구
+    pt: Vsetín (distrito)
+    ro: Vsetín
+  name: Vsetín
+  code: '723'
+  type: district
+'724':
+  translations:
+    ar: مقاطعة زلين
+    be: Злін
+    bg: Злин
+    ca: Districte de Zlín
+    cs: okres Zlín
+    de: Okres Zlín
+    en: Zlín
+    fr: District de Zlín
+    he: מחוז משנה זלין
+    hu: Zlíni járás
+    hy: Զլինիի շրջան
+    it: Distretto di Zlín
+    ka: ზლინის რაიონი
+    lv: Zlīnas apriņķis
+    ms: Daerah Zlín²
+    nl: Okres Zlín
+    pl: Powiat Zlin
+    pt: Zlín (distrito)
+    ru: Злин
+    sk: Okres Zlín
+    sr: Округ Злин
+    sv: Okres Zlín
+    ur: زلین ضلع
+    vi: Zlín²
+    ccp: "𑄎𑄳𑄣𑄨𑄚𑄴"
+    ceb: Okres Zlín
+    es: Distrito de Zlín
+    fa: شهرستان زلین
+    ja: ズリン
+    lt: Zlyno rajonas
+    ro: Districtul Zlín
+    sr_Latn: Okrug Zlin
+    tr: Zlín ilçesi
+    uk: Злін
+    zh: 茲林縣
+    ko: 즐린구
+  name: Zlín
+  code: '724'
+  type: district
+'80':
+  unofficial_names:
+  - Ostravský
+  translations:
+    en: Moravskoslezský
+    ar: إقليم مورافيا-سيليزيا
+    az: Moraviya-Sileziya diyarı
+    be: Мараўскасілезскі край
+    bg: Моравско-силезки край
+    bn: মুরাভিয়ান অঞ্চল
+    ca: Regió de Moràvia i Silèsia
+    cs: Moravskoslezský kraj
+    da: Mähren-Schlesien
+    de: Moravskoslezský kraj
+    el: Περιφέρεια Μοραβίας Σιλεσίας
+    es: Región de Moravia-Silesia
+    et: Morava-Sileesia maakond
+    eu: Moravia-Silesia eskualdea
+    fa: منطقه موراوی-سیلزی
+    fi: Määrin-Sleesian lääni
+    fr: Région de Moravie-Silésie
+    gl: Rexión de Moravia-Silesia
+    gu: મોરાવિયન-સિલેસિઅન પ્રદેશ
+    he: מורביה-שלזיה (מחוז)
+    hi: मोरावियन-सिलेसियन क्षेत्र
+    hr: Moravsko-šleski kraj
+    hu: Morva-sziléziai kerület
+    id: Daerah Moravia-Silesia
+    it: regione di Moravia-Slesia
+    ja: モラヴィア・スレスコ州
+    ka: მორავია-სილეზიის მხარე
+    kn: ಮೊರಾವಿಯನ್-ಸಿಲೇಶಿಯನ್ ಪ್ರದೇಶ
+    ko: 모라바슬레스코 주
+    lt: Moravijos-Silezijos kraštas
+    lv: Morāvijas-Silēzijas apgabals
+    mr: मोरावियन-सिलेसियन प्रदेश
+    ms: Daerah Moravia-Silesia
+    nb: Mähren-Schlesien region
+    nl: Moravië-Silezië
+    pl: Kraj morawsko-śląski
+    pt: Morávia-Silésia
+    ro: Regiunea Moravia-Silezia
+    ru: Моравскосилезский край
+    si: මොරවියන්-සිලෙසියන් කලාපය
+    sk: Moravsko-sliezsky kraj
+    sr: Моравско-Шлески крај
+    sv: Mähren-Schlesien
+    ta: மொராவின் -சிலேசியான் பகுதி
+    te: మోరావియన్-సిలేసియన్ ప్రాంతం
+    th: โมราเวียน ซีเลเซียน
+    tr: Moravya-Silezya Bölgesi
+    uk: Мораво-Сілезький край
+    ur: موراویائی سیلیسیائی علاقہ
+    vi: Moravia–Silesia
+    zh: 摩拉維亞-西里西亞州
+    bs: Moravskošleski kraj
+    ccp: "𑄟𑄧𑄢𑄧𑄛𑄴𑄇𑄮𑄌𑄴𑄣𑄬𑄌𑄴𑄇𑄨"
+    ceb: Moravskoslezský kraj
+    mk: Моравскошлески крај
+    'no': Mähren-Schlesien region
+    sr_Latn: Moravsko-Šleski kraj
+    sl: Moravsko-šlezijski okraj
+  geo:
+    latitude: 49.7305327
+    longitude: 18.2332637
+    min_latitude: 49.392608
+    min_longitude: 17.1462629
+    max_latitude: 50.3279579
+    max_longitude: 18.8592548
+  name: Moravskoslezský kraj
+  code: '80'
+  type: region
+'801':
+  translations:
+    ar: مقاطعة برونتال
+    bg: Брунтал
+    ca: Districte de Bruntál
+    cs: okres Bruntál
+    de: Okres Bruntál
+    en: Bruntál
+    fr: District de Bruntál
+    he: מחוז משנה ברונטל
+    hu: Bruntáli járás
+    hy: Բրունտալի շրջան
+    it: Distretto di Bruntál
+    ja: ブルンタール郡
+    ka: ბრუნტალის რაიონი
+    lt: Bruntalo rajonas
+    lv: Bruntālas apriņķis
+    ms: Daerah Bruntál
+    nl: Okres Bruntál
+    pl: Powiat Bruntál
+    ru: Брунталь (район)
+    sk: Okres Bruntál
+    sr: Округ Брунтал
+    sv: Bruntál (distrikt)
+    ur: بروتال ضلع
+    vi: Bruntál
+    ccp: "𑄝𑄳𑄢𑄪𑄚𑄴𑄑𑄣𑄴"
+    ceb: Okres Bruntál
+    es: Distrito de Bruntál
+    eu: Bruntálgo barrutia
+    fa: شهرستان برونتال
+    sr_Latn: Okrug Bruntal
+    uk: Округ Брунталь
+    zh: 布倫塔爾縣
+    ko: 브룬탈구
+    pt: Bruntál
+    tr: Bruntál ilçesi
+  name: Bruntál
+  code: '801'
+  type: district
+'802':
+  translations:
+    ar: مقاطعة فريدك-ميستك
+    bg: Фридек-Мистек
+    ca: Districte de Frýdek-Místek
+    cs: okres Frýdek-Místek
+    de: Okres Frýdek-Místek
+    en: Frýdek-Místek
+    es: Distrito de Frýdek-Místek
+    fr: District de Frýdek-Místek
+    he: מחוז משנה פרידק-מיסטק
+    hu: Frýdek-místeki járás
+    hy: Ֆրիդեկ-Միստեկի շրջան
+    it: Distretto di Frýdek-Místek
+    ja: フリーデク＝ミーステク郡
+    ka: ფრიდეკ-მისტეკის რაიონი
+    lt: Frydek Mysteko rajonas
+    lv: Frīdekmīstekas apriņķis
+    ms: Daerah Frýdek-Místek
+    nl: Okres Frýdek-Místek
+    pl: Powiat Frydek-Mistek
+    pt: Frýdek-Místek
+    ru: Фридек-Мистек
+    sk: Okres Frýdek-Místek
+    sr: Округ Фридек-Мистек
+    sv: Frýdek-Místek
+    ur: فریدک-میستک ضلع
+    vi: Frýdek-Místek
+    ccp: "𑄜𑄳𑄢𑄭𑄓𑄬𑄇𑄴-𑄟𑄨𑄌𑄴𑄑𑄬𑄇𑄴"
+    ceb: Okres Frýdek-Místek
+    eu: Frýdek-Místekeko barrutia
+    fa: شهرستان فریدک-میستک
+    ro: Okresul Frýdek-Místek
+    sr_Latn: Okrug Fridek-Mistek
+    tr: Frýdek-Místek ilçesi
+    uk: Фридек-Містек
+    zh: 弗里代克-米斯泰克縣
+    be: раён Фрыдак-Містак
+    ko: 프리데크미스테크구
+  name: Frýdek-Místek
+  code: '802'
+  type: district
+'803':
+  translations:
+    ar: مقاطعة كارفينا
+    be: раён Карвіна
+    bg: Карвина
+    ca: Districte de Karviná
+    cs: okres Karviná
+    de: Okres Karviná
+    en: Karviná
+    fr: District de Karviná
+    he: מחוז משנה קרבינה
+    hu: Karvinái járás
+    hy: Կարվինայի շրջան
+    it: Distretto di Karviná
+    ja: カルヴィナー郡
+    ka: კარვინის რაიონი
+    lt: Karvinos rajonas
+    lv: Karvinas apriņķis
+    ms: Daerah Karviná
+    nl: Okres Karviná
+    pl: Powiat Karwina
+    ru: Карвина
+    sk: Okres Karviná
+    sr: Округ Карвина
+    sv: Karviná
+    ur: کاروینا ضلع
+    vi: Karviná
+    ccp: "𑄇𑄢𑄴𑄞𑄨𑄚"
+    ceb: Okres Karviná
+    es: Distrito de Karviná
+    eu: Karvináko barrutia
+    fa: شهرستان کاروینا
+    sr_Latn: Okrug Karvina
+    tr: Karviná ilçesi
+    uk: Карвіна
+    zh: 卡爾維納縣
+    ko: 카르비나구
+    pt: Karviná (distrito)
+  name: Karviná
+  code: '803'
+  type: district
+'804':
+  translations:
+    ar: مقاطعة نوفي يتشين
+    be: Новы-Йічын
+    bg: Нови Ичин
+    ca: Districte de Nový Jičín
+    cs: okres Nový Jičín
+    de: Okres Nový Jičín
+    en: Nový Jičín
+    fr: District de Nový Jičín
+    he: מחוז משנה נובי ייצין
+    hu: Nový Jičín-i járás
+    hy: Նովի Յիչինի շրջան
+    it: Distretto di Nový Jičín
+    ja: ノヴィー・イチーン郡
+    ka: ნოვი-იიჩინის რაიონი
+    lt: Novy Jičyno rajonas
+    lv: Novi Jičīnas apriņķis
+    ms: Daerah Nový Jičín
+    nl: Okres Nový Jičín
+    pl: Powiat Nowy Jiczyn
+    ro: Okres Nový Jičín
+    ru: Нови-Йичин
+    sk: Okres Nový Jičín
+    sr: Округ Нови Јичин
+    sv: Nový Jičín
+    ur: نووی جیچن ضلع
+    vi: Nový Jičín
+    ccp: "𑄚𑄮𑄞𑄨 𑄎𑄨𑄌𑄨𑄚𑄴"
+    ceb: Okres Nový Jičín
+    es: Distrito de Nový Jičín
+    eu: Nový Jičíngo barrutia
+    fa: شهرستان نووی ییچین
+    sr_Latn: Okrug Novi Jičin
+    tr: Nový Jičín ilçesi
+    uk: Новий Їчин
+    zh: 新伊欽縣
+    ko: 노비이친구
+    pt: Nový Jičín (distrito)
+  name: Nový Jičín
+  code: '804'
+  type: district
+'805':
+  translations:
+    ar: مقاطعة أوبافا
+    bg: Опава
+    ca: Districte d’Opava
+    cs: okres Opava
+    de: Okres Opava
+    en: Opava
+    fr: District d’Opava
+    he: מחוז משנה אופאבה
+    hu: Opavai járás
+    hy: Օպավայի շրջան
+    it: Distretto di Opava
+    ja: オパヴァ郡
+    ka: ოპავის რაიონი
+    lt: Opavos rajonas
+    lv: Opavas apriņķis
+    ms: Daerah Opava
+    nl: Okres Opava
+    pl: Powiat Opawa
+    pt: Opava
+    ro: Districtul Opava
+    ru: Опава
+    sk: Okres Opava
+    sr: Округ Опава
+    sv: Opava
+    ur: اوپاوا ضلع
+    vi: Opava
+    be: раён Опава
+    ccp: "𑄃𑄧𑄛𑄞"
+    ceb: Okres Opava
+    es: Distrito de Opava
+    fa: شهرستان اوپاوا
+    sr_Latn: Okrug Opava
+    tr: Opava ilçesi
+    uk: Опава
+    zh: 奧帕瓦縣
+    ko: 오파바구
+  name: Opava
+  code: '805'
+  type: district
+'806':
+  translations:
+    ar: مقاطعة أوسترافا-المدينة
+    bg: Острава-град
+    ca: Districte d’Ostrava-město
+    cs: okres Ostrava-město
+    de: Okres Ostrava-město
+    en: Ostrava
+    fr: District d’Ostrava-město
+    hu: Ostrava városi járás
+    hy: Օստրավայի շրջան
+    it: Distretto di Ostrava
+    ja: オストラヴァ都市郡
+    lt: Ostravos miesto rajonas
+    lv: Ostravas-pilsētas apriņķis
+    ms: Daerah Bandaraya Ostrava
+    nl: Okres Ostrava-město
+    pl: Powiat Ostrawa
+    pt: Ostrava
+    ru: Острава-город
+    sk: Okres Ostrava-mesto
+    sr: Округ Острава-град
+    sv: Ostravas stadsdistrikt
+    ur: اوستراوا-شہر ضلع
+    vi: Ostrava
+    be: Острава-горад
+    ccp: "𑄃𑄧𑄌𑄴𑄑𑄳𑄢𑄞"
+    ceb: Okres Ostrava-Město
+    es: Distrito de Ostrava
+    fa: شهرستان استراوا-میستو
+    sr_Latn: Okrug Ostrava-grad
+    uk: Острава-місто
+    zh: 俄斯特拉發城縣
+    ko: 오스트라바 도시구
+    ro: Ostrava-Oraș
+  name: Ostrava-město
+  code: '806'
+  type: district

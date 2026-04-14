@@ -1,0 +1,1013 @@
+---
+BRU:
+  name: Brussels
+  code: BRU
+  unofficial_names:
+  - Brussels Hoofdstedelijk Gewest
+  - Région de Bruxelles-Capitale
+  - Brussel
+  - Brüssel
+  - Bruxelles
+  geo:
+    latitude: 50.8503396
+    longitude: 4.3517103
+    min_latitude: 50.7962401
+    min_longitude: 4.3138
+    max_latitude: 50.91370999999999
+    max_longitude: 4.4369799
+  translations:
+    en: Brussels
+    af: Brusselse Hoofstedelike Gewes
+    am: ብሩክሴል
+    ar: إقليم بروكسل العاصمة
+    be: Брусельскі сталічны рэгіён
+    bg: Столичен регион Брюксел
+    bn: ব্রাসেল্‌স
+    ca: Regió de Brussel·les-Capital
+    cs: Bruselský region
+    da: Region Bruxelles
+    de: Brüssel
+    el: Περιοχή των Βρυξελλών
+    es: Región de Bruselas-Capital
+    et: Pealinna Brüsseli piirkond
+    eu: Brusela-Hiriburua eskualdea
+    fa: بروکسل
+    fi: Brysselin pääkaupunkialue
+    fr: Région de Bruxelles-Capitale
+    gl: Bruxelas-Capital
+    gu: બ્રસેલ્સ-કેપિટલ પ્રદેશ
+    he: בריסל
+    hi: ब्रुसेल्स
+    hr: Regija glavnoga grada Bruxellesa
+    hu: Brüsszel fővárosi régió
+    hy: Բրյուսել
+    id: Daerah Ibu Kota Brussel
+    is: Brussel
+    it: Regione di Bruxelles-Capitale
+    ja: ブリュッセル首都圏地域
+    ka: ბრიუსელის რეგიონი
+    kn: ಬ್ರಸೆಲ್ಸ್
+    ko: 브뤼셀
+    lt: Briuselio-sostinės regionas
+    lv: Briseles galvaspilsētas reģions
+    ml: ബ്രസൽസ്
+    mn: Брюссель
+    mr: ब्रसेल्स
+    ms: Brussels
+    nb: Brussel
+    ne: ब्रसेल्स राजधानी क्षेत्र
+    nl: Brussels Hoofdstedelijk Gewest
+    or: ବୃସେଲ
+    pl: Region Stołeczny Brukseli
+    ps: بروکسل
+    pt: Região de Bruxelas-Capital
+    ro: Regiunea Capitalei Bruxelles
+    ru: Брюссельский столичный регион
+    si: බ්‍රසල්ස්-කැපිටල් කලාපය
+    sk: Región Brusel-hlavné mesto
+    sl: Regija Bruselj-glavno mesto
+    sr: Регион главног града Брисела
+    sv: Bryssel
+    sw: Brussels
+    ta: பிரஸ்செல்ஸ்
+    te: బ్రసెల్స్-రాజధాని ప్రాంతం
+    th: บรัสเซลส์
+    tr: Brüksel Başkent Bölgesi
+    uk: Брюссельський столичний регіон
+    ur: برسلز
+    vi: Bruxelles
+    zh: 布魯塞爾首都大區市鎮
+    cy: Rhanbarth Brwsel-Prifddinas
+    ceb: Bruxelles-Capitale
+    sr_Latn: Region glavnog grada Brisela
+    yue_Hans: 布鲁塞尔首都区
+    sq: Brukseli
+    ccp: "𑄝𑄳𑄢𑄥𑄬𑄣𑄴𑄥𑄴"
+    ga: An Bhruiséil
+    pa: ਬਰੂਸਲ
+    kk: Брюссель
+    yue: 布魯塞爾首都區
+    my: ဘရပ်ဆဲလ်မြို့
+    yo: Brussels
+    uz: Brussel Poytaxt Regioni
+    bs: Regija glavnog grada Bruxellesa
+    mk: Брисел
+    'no': Brussel
+    yo_BJ: Brussels
+  type: region
+VAN:
+  name: Antwerpen (nl)
+  code: VAN
+  unofficial_names:
+  - Antwerpen
+  - Anvers
+  geo:
+    latitude: 51.2194475
+    longitude: 4.4024643
+    min_latitude: 51.14333999999999
+    min_longitude: 4.217600099999999
+    max_latitude: 51.3774301
+    max_longitude: 4.49784
+  translations:
+    en: Antwerp
+    af: Antwerpen
+    ar: أنتفيرب
+    be: правінцыя Антверпен
+    bg: Антверпен
+    bn: এন্টওয়ার্প
+    ca: Província d’Anvers
+    cs: Antverpy
+    da: Antwerpen
+    de: Antwerpen
+    el: Αμβέρσα
+    es: Provincia de Amberes
+    et: Antwerpeni provints
+    eu: Anberesko probintzia
+    fa: استان آنتورپ
+    fi: Antwerpenin lääni
+    fr: Anvers
+    gl: Provincia de Antwerp
+    gu: એન્ટવર્પ
+    hi: एंटवर्प (प्रांत )
+    hr: Antwerpen
+    hu: Antwerpen
+    hy: Անտվերպեն
+    id: Antwerpen
+    is: Antwerpen-hérað
+    it: provincia d’Anversa
+    ja: アントウェルペン州
+    ka: ანტვერპენის პროვინცია
+    kn: ಆಂಟ್ವರ್ಪ್
+    ko: 안트베르펜 주
+    lt: Antverpeno provincija
+    lv: Antverpene
+    mr: अँटवर्प
+    ms: Wilayah Antwerpen
+    nb: Antwerpen
+    nl: Provincie Antwerpen
+    pl: Prowincja Antwerpia
+    pt: Antuérpia
+    ro: Anvers
+    ru: Антверпен
+    si: අන්ට්වර්ප්
+    sk: Antverpy
+    sr: Провинција Антверпен
+    sv: Antwerpen
+    ta: அன்ட்வெர்ப்
+    te: ఆంట్వర్ప్
+    th: มณฑลแอนต์เวิร์ป
+    tr: Anvers
+    uk: Антверпен
+    ur: اینٹورپ
+    vi: Antwerp
+    cy: Antwerp
+    ceb: Provincie Antwerpen
+    sr_Latn: Provincija Antverpen
+    zh: 安特衛普省
+    ccp: "𑄃𑄚𑄳𑄑𑄴𑄃𑄮𑄠𑄬𑄢𑄴𑄛𑄴"
+    bs: Antwerpen
+    mk: Антверпен
+    'no': Antwerpen
+    az: Antverpen
+    ga: Cúige Antuairp
+    he: פרובינציית אנטוורפן
+    sq: Provinca Antwerp
+  type: province
+VBR:
+  name: Vlaams Brabant (nl)
+  code: VBR
+  unofficial_names:
+  - Brabant-Vlanderen
+  - Vlaams-Brabant
+  - Flämisch Brabant
+  - Brabant-Flamand
+  geo:
+    latitude: 51.3663862
+    longitude: 5.615708800000001
+    min_latitude: 51.3563098
+    min_longitude: 5.6001346
+    max_latitude: 51.378742
+    max_longitude: 5.625843
+  translations:
+    en: Flemish Brabant
+    af: Vlaams-Brabant
+    ar: برابانت فلاماند
+    be: Фламандскі Брабант
+    bg: Фламандски Брабант
+    bn: ফ্লেমিশ ব্র্যাবেন্ট
+    ca: Brabant Flamenc
+    cs: Vlámský Brabant
+    da: Vlaams-Brabant
+    de: Flämisch-Brabant
+    el: Φλαμανδική Μπραμπάντ
+    es: Brabante Flamenco
+    et: Flaami Brabant
+    eu: Flandriako Brabante
+    fa: برابانت فلاندر
+    fi: Flanderin Brabant
+    fr: Brabant flamand
+    gl: Provincia do Brabante flamengo
+    gu: ફ્લેમિશ બ્રાબેંટ
+    hi: फ्लेमिश ब्रबेंट
+    hr: Flamanski Brabant
+    hu: Flamand-Brabant
+    hy: Ֆլամանդական Բրաբանտ
+    id: Flemish Brabant
+    is: Flæmska Brabant
+    it: provincia del Brabante Fiammingo
+    ja: フラームス＝ブラバント州
+    ka: ფლამანდიის ბრაბანტი
+    kn: ಫ್ಲೆಮಿಶ್ ಬ್ರಬಂಟ್
+    ko: 플람스브라반트 주
+    lt: Flamandų Brabanto provincija
+    lv: Flāmu Brabante
+    mr: फ्लाम्स ब्राबांत
+    ms: Brabant Flanders
+    nb: Flamsk Brabant
+    nl: Vlaams-Brabant
+    pl: Prowincja Brabancja Flamandzka
+    pt: Brabante Flamengo
+    ro: Brabantul Flamand
+    ru: Фламандский Брабант
+    si: ෆ්ලෙමිෂ් බ්‍රබන්ට්
+    sk: Flámsky Brabant
+    sr: Фламански Брабант
+    sv: Flamländska Brabant
+    ta: பிலெமிஷ் பிரபான்ட்
+    te: ఫ్లెమిష్ బ్రాబంట్
+    th: มณฑลเฟลมิชบราบันต์
+    tr: Flaman Brabant
+    uk: Фламандський Брабант
+    ur: فلیمش برابنٹ
+    vi: Vlaams-Brabant
+    cy: Brabant Fflandrysaidd
+    ceb: Provincie Vlaams-Brabant
+    sr_Latn: Flamanski Brabant
+    zh: 弗拉芒-布拉班特省
+    ccp: "𑄜𑄳𑄣𑄬𑄟𑄨𑄌𑄴 𑄝𑄳𑄢𑄝𑄚𑄳𑄑𑄴"
+    he: ברבנט הפלמית
+    bs: Flamanski Brabant
+    mk: Фламански Брабант
+    'no': Flamsk Brabant
+    ga: Brabant Fhlóndras
+    sq: Brabanti Flamand
+  type: province
+VLG:
+  name: Vlaams Gewest
+  code: VLG
+  translations:
+    ar: الإقليم الفلامندي
+    be: Фламандскі рэгіён
+    bg: Фламандски регион
+    ca: regió Flamenca
+    cs: Vlámský region
+    de: Flandern
+    el: Φλαμανδική Περιοχή
+    en: Flanders
+    es: Región Flamenca
+    et: Flandria
+    fr: Région flamande
+    hi: फ्लेमिश क्षेत्र
+    hy: Ֆլանդրիա
+    it: Fiandre
+    ja: フランデレン地域
+    ka: ფლანდრია
+    ko: 플라망 지역
+    lt: Flandrija
+    nl: Vlaams Gewest
+    pl: Region Flamandzki
+    ru: Фламандский регион
+    sk: Flámsky región
+    th: เขตฟลามส์
+    tr: Flaman Bölgesi
+    uk: Фламандській регіон
+    ur: فلیمش علاقہ
+    vi: Vùng Flemish
+    lv: Flandrija
+    mr: फ्लांडर्स
+    cy: Fflandrys
+    af: Vlaandere
+    ceb: Flanders
+    ms: Flanders
+    sr_Latn: Flandrija
+    ta: பிலான்டர்ஸ்
+    zh: 弗拉芒大區
+    fa: منطقه فلمیش
+    sw: Flandria
+    yue_Hans: 法兰德斯
+    sv: Flandern
+    ccp: "𑄜𑄳𑄣𑄚𑄴𑄓𑄢𑄴𑄥𑄴"
+    sr: Фландрија
+    ga: Flóndras
+    gl: Flandres - Vlaanderen
+    da: Flandern
+    fi: Flanderi
+    hu: Flandria
+    is: Flæmingjaland
+    id: Flandria
+    ro: Flandra
+    he: פלנדריה
+    hr: Flandrija
+    eu: Flandria
+    pt: Flandres
+    sl: Flanders
+    kk: Фландрия
+    yue: 法蘭德斯
+    az: Flandriya
+    nb: Flandern
+    bs: Flandrija
+    mk: Фламански регион
+    ne: फ्लेमिस क्षेत्र
+    'no': Flandern
+    ky: Фламанд аймагы
+    sq: Flandria
+    uz: Flamand regioni
+  type: region
+VLI:
+  name: Limburg (nl)
+  code: VLI
+  unofficial_names:
+  - Limbourg
+  geo:
+    latitude: 51.4427238
+    longitude: 6.0608726
+    min_latitude: 50.75038379999999
+    min_longitude: 5.5660666
+    max_latitude: 51.778577
+    max_longitude: 6.226801399999999
+  translations:
+    en: Limburg
+    af: Limburg, België
+    ar: ليمبورغ
+    be: Правінцыя Лімбург
+    bg: Лимбург
+    bn: লিমবার্গ
+    ca: Limburg
+    cs: Limburk
+    da: Limburg
+    de: Limburg
+    el: Λιμβουργία
+    es: Limburgo
+    et: Limburgi provints
+    eu: Linburgo
+    fa: استان لمبورگ
+    fi: Limburgin lääni
+    fr: Limbourg
+    gl: Provincia de Limburg
+    gu: લિમ્બર્ગ
+    hi: लिम्बर्ग (नीदरलैंड्स)
+    hr: Limburg
+    hu: Limburg
+    hy: Լիմբուրգ
+    id: Limburg
+    is: Limburg
+    it: Limburgo
+    ja: リンブルフ州
+    ka: ლიმბურგის პროვინცია
+    kn: ಲಿಂಬರ್ಗ್
+    ko: 림뷔르흐 주
+    lt: Limburgo provincija
+    lv: Limburga
+    mr: लिमबर्ग
+    ms: Limburg
+    nb: Limburg
+    nl: Limburg
+    pl: Prowincja Limburgia
+    pt: Limburgo
+    ro: Limburg
+    ru: Лимбург
+    si: ලිම්බර්ග්
+    sk: Limbursko
+    sr: Провинција Лимбург
+    sv: Limburg
+    ta: லிம்பெர்க்
+    te: లింబర్గ్
+    th: มณฑลลิมเบิร์ก
+    tr: Limburg
+    uk: Лімбург
+    ur: لمبرگ
+    vi: Limburg
+    cy: Limburg
+    ceb: Provincie Limburg (lalawigan)
+    sr_Latn: Provincija Limburg
+    zh: 林堡省
+    jv: Limburg
+    ccp: "𑄣𑄨𑄟𑄴𑄝𑄢𑄴𑄉𑄴"
+    he: לימבורג (בלגיה)
+    mk: Лимбург
+    'no': Limburg
+    ga: Limburg
+    sq: Limburg (Belgjikë)
+  type: province
+VOV:
+  name: Oost-Vlaanderen (nl)
+  code: VOV
+  unofficial_names:
+  - Oos-Vlanderen
+  - Oost-Vlaanderen
+  - Ost-Flandern
+  - Flandre-Orientale
+  geo:
+    latitude: 51.0362101
+    longitude: 3.7373124
+    min_latitude: 50.72094999999999
+    min_longitude: 3.3312501
+    max_latitude: 51.35284
+    max_longitude: 4.3301
+  translations:
+    en: East Flanders
+    af: Oos-Vlaandere
+    ar: فلاندر الشرقية
+    be: Усходняя Фландрыя
+    bg: Източна Фландрия
+    bn: ইস্ট ফ্লান্ডার্স
+    ca: Flandes Oriental
+    cs: Východní Flandry
+    da: Østflandern
+    de: Ostflandern
+    el: Ανατολική Φλάνδρα
+    es: Provincia de Flandes Oriental
+    et: Ida-Flandria
+    eu: Ekialdeko Flandria
+    fa: استان فلاندری شرقی
+    fi: Itä-Flanderi
+    fr: Flandre-Orientale
+    gl: Provincia de Flandres oriental
+    gu: ઇસ્ટ ફ્લેન્ડર્સ
+    he: פלנדריה המזרחית
+    hi: पूर्वी फ्लैंडर्स
+    hr: Istočna Flandrija
+    hu: Kelet-Flandria
+    hy: Արևելյան Ֆլանդրիա
+    id: Flandria Timur
+    is: Austur-Flæmingjaland
+    it: provincia delle Fiandre Orientali
+    ja: オースト＝フランデレン州
+    ka: აღმოსავლეთი ფლანდრია
+    kn: ಈಸ್ಟ್ ಫ್ಲಾಂಡರ್ಸ್
+    ko: 오스트플란데런 주
+    lt: Rytų Flandrijos provincija
+    lv: Austrumflandrija
+    mr: पूर्व फ्लांडर्स
+    ms: Flanders Timur
+    nb: Øst-Flandern
+    nl: Oost-Vlaanderen
+    pl: Prowincja Flandria Wschodnia
+    pt: Flandres Oriental
+    ro: Flandra de Est
+    ru: Восточная Фландрия
+    si: නැගෙනහිර ෆ්ලන්ඩර්ස්
+    sk: Východné Flámsko
+    sr: Источна Фландрија
+    sv: Östflandern
+    ta: கிழக்கு பிலான்டெர்ஸ்
+    te: ఈస్ట్ ఫ్లాండర్స్
+    th: จังหวัดฟลานเดอร์ตะวันออก
+    tr: Doğu Flandre
+    uk: Східна Фландрія
+    ur: مشرقی فلانڈرز
+    vi: Oost-Vlaanderen
+    cy: Dwyrain Fflandrys
+    ceb: Provincie Oost-Vlaanderen
+    sr_Latn: Istočna Flandrija
+    zh: 东弗兰德省
+    ccp: "𑄛𑄪𑄇𑄴 𑄜𑄳𑄣𑄚𑄴𑄓𑄢𑄴𑄥𑄴"
+    az: Şərqi Flandiriya
+    mk: Источна Фландрија
+    'no': Øst-Flandern
+    ga: Flóndras Thoir
+    sq: Flandria Lindore
+  type: province
+VWV:
+  name: West-Vlaanderen (nl)
+  code: VWV
+  unofficial_names:
+  - Wes-Vlanderen
+  - West-Vlaanderen
+  - West-Flandern
+  - Flandre-Occidentale
+  geo:
+    latitude: 51.0536024
+    longitude: 3.1457942
+    min_latitude: 50.7081601
+    min_longitude: 2.5449401
+    max_latitude: 51.3685479
+    max_longitude: 3.5232999
+  translations:
+    en: West Flanders
+    af: Wes-Vlaandere
+    ar: فلاندرز الغربية
+    be: Заходняя Фландрыя
+    bg: Западна Фландрия
+    bn: ওয়েস্ট ফ্লান্ডারস
+    ca: Flandes Occidental
+    cs: Západní Flandry
+    da: Vestflandern
+    de: Westflandern
+    el: Δυτική Φλάνδρα
+    es: Provincia de Flandes Occidental
+    et: Lääne-Flandria provints
+    eu: Mendebaldeko Flandria
+    fa: استان فلاندری غربی
+    fi: Länsi-Flanderi
+    fr: Flandre-Occidentale
+    gl: Flandres Occidental
+    gu: વેસ્ટ ફ્લેન્ડર્સ
+    he: מערב פלנדריה
+    hi: वेस्ट फ्लैंडर्स
+    hr: Zapadna Flandrija
+    hu: Nyugat-Flandria
+    hy: Արևմտյան Ֆլանդրիա
+    id: Flandria Barat
+    is: Vestur-Flæmingjaland
+    it: provincia delle Fiandre Occidentali
+    ja: ウェスト＝フランデレン州
+    ka: დასავლეთი ფლანდრია
+    kn: ವೆಸ್ಟ್ ಫ್ಲಾಂಡರ್ಸ್
+    ko: 베스트플란데런 주
+    lt: Vakarų Flandrijos provincija
+    lv: Rietumflandrija
+    mr: पश्चिम फ्लांडर्स
+    ms: Flanders Barat
+    nb: Vest-Flandern
+    nl: West-Vlaanderen
+    pl: Prowincja Flandria Zachodnia
+    pt: Flandres Ocidental
+    ro: Flandra de Vest
+    ru: Западная Фландрия
+    si: බටහිර ෆ්ලන්ඩර්ස්
+    sk: Západné Flámsko
+    sl: Zahodna Flamska
+    sr: Западна Фландрија
+    sv: Västflandern
+    ta: மேற்கு பிலான்டெர்ஸ்
+    te: వెస్ట్ ఫ్లాండర్స్
+    th: มณฑลฟลานเดอร์ตะวันตก
+    tr: Batı Flandre
+    uk: Західна Фландрія
+    ur: مغربی فلانڈرز
+    vi: West-Vlaanderen
+    cy: Gorllewin Fflandrys
+    ceb: Provincie West-Vlaanderen
+    sr_Latn: Zapadna Flandrija
+    zh: 西弗兰德省
+    ccp: "𑄛𑄧𑄏𑄨𑄟𑄴 𑄜𑄳𑄣𑄚𑄴𑄓𑄢𑄴𑄥𑄴"
+    az: Qərbi Flandiriya
+    mk: Западна Фландрија
+    'no': Vest-Flandern
+    ga: Flóndras Thiar
+    sq: Flandria Perëndimore
+  type: province
+WAL:
+  name: Wallonië
+  code: WAL
+  translations:
+    af: Wallonië
+    ar: والونيا
+    be: Валонія
+    bg: Валония
+    ca: Valònia
+    cs: Valonsko
+    da: Vallonien
+    de: Wallonien
+    el: Βαλλωνία
+    en: Wallonia
+    es: Valonia
+    et: Valloonia
+    eu: Valonia
+    fa: والونیا
+    fi: Vallonia
+    fr: Wallonie
+    gl: Valonia
+    he: ולוניה
+    hr: Valonija
+    hu: Vallónia
+    hy: Վալոնիա
+    id: Walonia
+    is: Vallónía
+    it: Vallonia
+    ja: ワロン地域
+    ka: ვალონია
+    ko: 왈롱
+    lt: Valonija
+    lv: Valonija
+    mr: वालोनी
+    ms: Walonia
+    nb: Vallonia
+    ne: वालुन क्षेत्र
+    nl: Wallonië
+    pl: Walonia
+    pt: Valônia
+    ro: Valonia
+    ru: Валлония
+    sk: Valónsko
+    sl: Valonija
+    sr: Валонија
+    sv: Vallonien
+    sw: Wallonia
+    ta: வால்லொனியா
+    th: เขตวัลลูน
+    tr: Valonya
+    uk: Валлонія
+    ur: والونیا
+    vi: Wallonie
+    cy: Walonia
+    ceb: Wallonia
+    sr_Latn: Valonija
+    zh: 瓦隆
+    yue_Hans: 华隆
+    hi: वालोनिया
+    ccp: "𑄃𑄮𑄠𑄣𑄮𑄚𑄨𑄠"
+    ga: An Vallóin
+    yue: 華隆
+    bs: Valonija
+    mk: Валонија
+    'no': Vallonia
+    az: Valloniya
+    ky: Валлониа
+    sq: Valonia
+  type: region
+WBR:
+  name: Brabant Wallon (fr)
+  code: WBR
+  unofficial_names:
+  - Waals-Brabant
+  - Wallonisch Brabant
+  - Walloon Brabant
+  geo:
+    latitude: 50.633241
+    longitude: 4.524315
+    min_latitude: 50.52542
+    min_longitude: 4.0911501
+    max_latitude: 50.80735
+    max_longitude: 5.02037
+  translations:
+    en: Walloon Brabant
+    af: Waals-Brabant
+    ar: برابانت والون
+    be: Валонскі Брабант
+    bg: Валонски Брабант
+    bn: ওয়াল্লুন ব্রাবান্ট
+    ca: Brabant Való
+    cs: Valonský Brabant
+    da: Brabant Wallon
+    de: Wallonisch-Brabant
+    el: Βαλλωνική Βραβάντη
+    es: Provincia del Brabante Valón
+    et: Vallooni Brabant
+    eu: Valoniako Brabante
+    fa: استان اوئلون بربان
+    fi: Vallonian Brabant
+    fr: Brabant wallon
+    gl: Brabante Valón
+    gu: વાલૂન બ્રાબેંત
+    hi: वालून ब्रबैंट
+    hr: Valonski Brabant
+    hu: Vallon-Brabant
+    hy: Վալոնյան Բրաբանտ
+    id: Brabant Walonia
+    is: Vallónska Brabant
+    it: provincia del Brabante Vallone
+    ja: ブラバン・ワロン州
+    ka: ვალონიის ბრაბანტი
+    kn: ವಾಲೂನ್ ಬ್ರಬಂಟ್
+    ko: 브라방왈롱 주
+    lt: Valonų Brabanto provincija
+    lv: Valoņu Brabante
+    mr: ब्राबांत वालों
+    ms: Brabant Walonia
+    nb: Vallonsk Brabant
+    nl: Waals-Brabant
+    pl: Prowincja Brabancja Walońska
+    pt: Brabante Valão
+    ro: Brabantul Valon
+    ru: Валлонский Брабант
+    si: වලුන් බ්‍රබන්ට්
+    sk: Valónsky Brabant
+    sl: Provinca Walloon Brabant
+    sr: Валонски Брабант
+    sv: Vallonska Brabant
+    ta: வலூன் பிரபான்ட்
+    te: వాలూన్ బ్రాబంట్
+    th: มณฑลวัลลูนบราบันต์
+    tr: Valon Brabant
+    uk: Валлонський Брабант
+    ur: والون برابنٹ
+    vi: Walloon Brabant
+    cy: Brabant Walonaidd
+    ceb: Province du Brabant Wallon
+    sr_Latn: Valonski Brabant
+    zh: 瓦隆-布拉班特省
+    ccp: "𑄃𑄮𑄠𑄣𑄪𑄚𑄴 𑄝𑄳𑄢𑄝𑄚𑄳𑄑𑄴"
+    he: ברבנט הוולונית
+    az: Vallonskiy Brabant
+    'no': Vallonsk Brabant
+    ga: Brabant Vallúnach
+    mk: Валонски Брабант
+    sq: Brabanti Valonas
+  type: province
+WHT:
+  name: Hainaut (fr)
+  code: WHT
+  unofficial_names:
+  - Henegouwen
+  - Hennegau
+  geo:
+    latitude: 50.5257076
+    longitude: 4.062101699999999
+    min_latitude: 49.94183
+    min_longitude: 2.8421299
+    max_latitude: 50.81077
+    max_longitude: 4.6171299
+  translations:
+    en: Hainaut
+    af: Hainaut
+    ar: هينو
+    be: Правінцыя Эно
+    bg: Ено
+    bn: হাইনট
+    ca: Hainaut
+    cs: Henegavsko
+    da: Hainaut
+    de: Hennegau
+    el: Αινώ
+    es: Provincia de Henao
+    et: Hainaut
+    eu: Hainauteko probintzia
+    fa: استان انو
+    fi: Hainaut’n lääni
+    fr: Hainaut
+    gl: Provincia de Hainaut
+    gu: હૈનૌટ
+    he: אנו
+    hi: हैनौत (प्रांत)
+    hr: Hainaut
+    hu: Hainaut
+    hy: Էնո
+    id: Hainaut
+    is: Hainaut
+    it: provincia dell’Hainaut
+    ja: エノー州
+    ka: ენოს პროვინცია
+    kn: ಹೈನಾಟ್
+    ko: 에노 주
+    lt: Heno provincija
+    lv: Eno
+    mr: एनो
+    ms: Hainaut
+    nb: Hainaut
+    nl: Henegouwen
+    pl: Prowincja Hainaut
+    pt: Hainaut
+    ro: Hainaut
+    ru: Эно
+    si: හයිනෞට්
+    sk: Hennegavsko
+    sr: Провинција Ено
+    sv: Hainaut
+    ta: ஹெயினாட்
+    te: హాయినాట్
+    th: มณฑลแอโน
+    tr: Hainaut
+    uk: Ено
+    ur: ہائنو
+    vi: Hainaut
+    cy: Hainaut
+    ceb: Province du Hainaut
+    sr_Latn: Provincija Eno
+    zh: 埃諾省
+    ccp: "𑄦𑄭𑄚𑄅𑄪𑄖𑄴"
+    az: Eno
+    mk: Ено
+    'no': Hainaut
+    ga: Hainaut
+    sq: Provinca Hainaut
+  type: province
+WLG:
+  name: Liège (fr)
+  code: WLG
+  unofficial_names:
+  - Luik
+  - Lüttich
+  geo:
+    latitude: 50.6325574
+    longitude: 5.5796662
+    min_latitude: 50.56109010000001
+    min_longitude: 5.5230701
+    max_latitude: 50.68819
+    max_longitude: 5.675110099999999
+  translations:
+    en: Liège
+    af: Luik
+    ar: لياج
+    be: правінцыя Льеж
+    bg: Лиеж
+    bn: লিয়েজ
+    ca: Província de Lieja
+    cs: Lutych
+    da: Liège
+    de: Lüttich
+    el: Λιέγη
+    es: Provincia de Lieja
+    et: Liège’i provints
+    eu: Liejako probintzia
+    fa: استان لیژ
+    fi: Liègen pronssi
+    fr: Liège
+    gl: Provincia de Liexa
+    gu: લીજ
+    hi: लीज
+    hr: Liège
+    hu: Liège
+    hy: Լիեժ
+    id: Liège
+    is: Liege
+    it: provincia di Liegi
+    ja: リエージュ州
+    ka: ლიეჟის პროვინცია
+    kn: ಲೀಜ್
+    ko: 리에주 주
+    lt: Lježo provincija
+    lv: Ljēža
+    mr: लीज
+    ms: Liege
+    nb: Liège
+    nl: provincie Luik
+    pl: Prowincja Liège
+    pt: Liège
+    ro: Liège
+    ru: Льеж
+    si: ලයිගේ
+    sk: Lutyšsko
+    sl: provinca Liège
+    sr: Провинција Лијеж
+    sv: Liège
+    ta: லீஜ்
+    te: లియేజ్
+    th: มณฑลลีแยฌ
+    tr: Liège
+    uk: Льєж
+    ur: لییج
+    vi: Liège
+    cy: Liège
+    ceb: Province de Liège
+    sr_Latn: Provincija Lijež
+    zh: 列日省
+    ccp: "𑄣𑄭𑄎𑄬"
+    az: Lej
+    mk: Лиеж
+    'no': Liège
+    ga: Cúige Liege
+    he: לייז׳
+    sq: Provinca Liège
+  type: province
+WLX:
+  name: Luxembourg (fr)
+  code: WLX
+  unofficial_names:
+  - Luxembourg
+  - Luxemburg
+  geo:
+    latitude: 50.0546886
+    longitude: 5.467698299999999
+    min_latitude: 49.49701
+    min_longitude: 4.9683901
+    max_latitude: 50.4306101
+    max_longitude: 6.034400000000001
+  translations:
+    en: Luxembourg
+    af: Luxemburg
+    ar: لوكسمبورغ
+    be: правінцыя Люксембург
+    bg: Люксембург
+    bn: লাক্সেমবার্গ
+    ca: Província de Luxemburg
+    cs: Lucemburk
+    da: Luxembourg
+    de: Luxemburg
+    el: Λουξεμβούργο
+    es: Provincia de Luxemburgo
+    et: Luxembourg’i provints
+    eu: Luxenburgo
+    fa: کانتون لوکزامبورگ
+    fi: Luxembourgin lääni
+    fr: Luxembourg
+    gl: Provincia de Luxemburgo
+    gu: લક્ઝમબર્ગ
+    he: לוקסמבורג
+    hi: लक्ज़मबर्ग
+    hr: Luxembourg
+    hu: Luxembourg
+    hy: Լյուքսեմբուրգ
+    id: Luksemburg
+    is: Lúxemborg
+    it: provincia del Lussemburgo
+    ja: リュクサンブール州
+    ka: ლუქსემბურგის პროვინცია (ბელგია)
+    kn: ಲಕ್ಸೆಂಬರ್ಗ್
+    ko: 뤽상부르 주
+    lt: Liuksemburgo provincija
+    lv: Luksemburga
+    mr: लक्झेंबर्ग
+    ms: Luxembourg
+    nb: Luxembourg
+    nl: Provincie Luxemburg
+    pl: Prowincja Luksemburg
+    pt: Luxemburgo
+    ro: Luxemburg
+    ru: Люксембург
+    si: ලක්සම්බර්ග්
+    sk: Luxembourg (provincia)
+    sr: Провинција Луксембург
+    sv: Luxemburg
+    ta: லக்செம்பெர்க்
+    te: లక్సెమ్‌బర్గ్
+    th: มณฑลลักเซมเบิร์ก
+    tr: Lüksemburg, Belçika
+    uk: Люксембург
+    ur: لکسمبرگ
+    vi: Luxembourg
+    cy: Luxembourg
+    ceb: Province du Luxembourg
+    sr_Latn: Provincija Luksemburg
+    zh: 盧森堡省
+    ccp: "𑄣𑄪𑄇𑄴𑄥𑄬𑄟𑄴𑄝𑄢𑄴𑄉𑄴"
+    mk: Луксембург
+    'no': Luxembourg
+    ga: Lucsamburg
+    sq: Luksemburg (Belgjikë)
+  type: province
+WNA:
+  name: Namur (fr)
+  code: WNA
+  unofficial_names:
+  - Namen
+  geo:
+    latitude: 50.4673883
+    longitude: 4.8719854
+    min_latitude: 50.38738
+    min_longitude: 4.7229
+    max_latitude: 50.5312201
+    max_longitude: 4.98398
+  translations:
+    en: Namur
+    af: Namur
+    ar: نامور
+    be: Правінцыя Намюр
+    bg: Намюр
+    bn: নামুর
+    ca: Província de Namur
+    cs: Namur
+    da: Namur
+    de: Namur
+    el: Ναμύρ
+    es: Provincia de Namur
+    et: Namuri provints
+    eu: Namurreko probintzia
+    fa: استان نمور
+    fi: Namurin lääni
+    fr: Namur
+    gl: Provincia de Namur
+    gu: નામુર
+    hi: नामुर
+    hr: Namur
+    hu: Namur
+    hy: Նամյուր
+    id: Namur
+    it: provincia di Namur
+    ja: ナミュール州
+    ka: ნამიურის პროვინცია
+    kn: ನಾಮುರ್
+    ko: 나무르 주
+    lt: Namiūro provincija
+    lv: Namīra
+    mr: नामुर
+    ms: Namur
+    nb: Namur
+    nl: Provincie Namen
+    pl: Prowincja Namur
+    pt: Namur
+    ro: Namur
+    ru: Намюр
+    si: නමුර්
+    sk: Namursko
+    sr: Провинција Намир
+    sv: Namur
+    ta: நமுர்
+    te: నాముర్
+    th: มณฑลนามูร์
+    tr: Namur
+    uk: Намюр
+    ur: نامور
+    vi: Namur
+    cy: Namur
+    ceb: Province de Namur
+    sr_Latn: Provincija Namir
+    zh: 那慕爾省
+    ccp: "𑄚𑄟𑄪𑄢𑄴"
+    az: Namyur
+    'no': Namur
+    ga: Namur
+    mk: Намир (покраина)
+    sq: Provinca Namur
+  type: province

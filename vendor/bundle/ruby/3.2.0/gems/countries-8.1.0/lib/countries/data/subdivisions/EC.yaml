@@ -1,0 +1,1484 @@
+---
+A:
+  name: Azuay
+  code: A
+  unofficial_names:
+  - Azuay
+  geo:
+    latitude: -2.9633245
+    longitude: -79.1096901
+    min_latitude: -3.620066
+    min_longitude: -79.76039899999999
+    max_latitude: -2.55303
+    max_longitude: -78.43984999999999
+  translations:
+    en: Azuay
+    ar: مقاطعة أزواي
+    be: Правінцыя Асуай
+    bg: Асуай
+    bn: আজুয়ায় প্রদেশ
+    ca: Província d’Azuay
+    da: Azuay
+    de: Provinz Azuay
+    el: Ασουάι
+    es: Provincia de Azuay
+    fa: آزوای
+    fi: Azuay
+    fr: Azuay
+    gu: એઝ્યુએ પ્રાંત
+    he: אסואי
+    hi: अज़ुये प्रांत
+    hu: Azuay tartomány
+    id: Provinsi Azuay
+    it: provincia di Azuay
+    ja: アスアイ県
+    ka: ასუაის პროვინცია
+    kn: ಅಝೂ ಪ್ರಾಂತ್ಯ
+    ko: 아수아이 주
+    lt: Asuajaus provincija
+    mr: अझूय प्रांत
+    ms: Pentadbiran Azuay
+    nb: Azuay
+    nl: Azuay
+    pl: Prowincja Azuay
+    pt: Azuay
+    ru: Асуай
+    si: අසුවේ පළාත
+    sv: Azuay
+    ta: அஸுயாய் மாகாணம்
+    te: అజువే ప్రావిన్స్
+    th: จังหวัดอาซวย
+    tr: Azuay Province
+    uk: Асуай
+    ur: آسوای صوبہ
+    vi: Azuay
+    zh: 阿苏艾省
+    lv: Asvajas province
+    ceb: Provincia del Azuay
+    ccp: "𑄃𑄎𑄪𑄠𑄬"
+    hy: Ասուայ
+    mk: Азуај
+    'no': Azuay
+    cy: Talaith Azuay
+    eu: Azuay probintzia
+    gl: Azuay
+    ps: ازوای ولایت
+  type: province
+B:
+  name: Bolívar
+  code: B
+  unofficial_names:
+  - Bolívar
+  geo:
+    latitude: -1.5696244
+    longitude: -79.1096901
+    min_latitude: -2.2034861
+    min_longitude: -79.4053569
+    max_latitude: -1.148095
+    max_longitude: -78.85047899999999
+  translations:
+    en: Bolívar
+    ar: مقاطعة بوليفار
+    be: Правінцыя Балівар
+    bg: Боливар
+    bn: বলিভার প্রদেশ
+    ca: Província de Bolívar
+    da: Bolívar
+    de: Provinz Bolívar
+    el: Επαρχία Μπολίβαρ
+    es: Provincia de Bolívar
+    fa: استان بلیوار
+    fi: Bolívar
+    fr: Bolívar
+    gu: બોલિવર પ્રાંત
+    hi: बोलीवार प्रांत
+    hu: Bolívar tartomány
+    id: Provinsi Bolívar
+    it: provincia di Bolívar
+    ja: ボリーバル県
+    ka: ბოლივარის პროვინცია
+    kn: ಬೊಲಿವಾರ್ ಪ್ರಾಂತ್ಯ
+    ko: 볼리바르 주
+    lt: Bolivaro provincija
+    mr: बोलिवर प्रांत
+    ms: Pentadbiran Bolívar
+    nb: Bolívar
+    nl: Bolívar
+    pl: Prowincja Bolívar
+    pt: Bolívar
+    ru: Боливар
+    si: බොලිවර් පළාත
+    sv: Bolívar
+    ta: பொலிவார் மாகாணம்
+    te: బోలివర్ ప్రావిన్స్
+    th: ิดเดิ้ล เชลเบลลี
+    tr: Bolivar Province
+    uk: Болівар
+    ur: بولیوار صوبہ
+    vi: Tỉnh Bolívar
+    lv: Bolivara province
+    ceb: Provincia de Bolívar (lalawigan)
+    zh: 玻利瓦尔省
+    ccp: "𑄝𑄧𑄣𑄨𑄞𑄢𑄴"
+    hy: Բոլիվար
+    'no': Bolívar
+    cs: provincie Bolívar
+    cy: Talaith Bolívar
+    eu: Bolívar probintzia
+  type: province
+C:
+  name: Carchi
+  code: C
+  unofficial_names:
+  - Carchi
+  geo:
+    latitude: 0.6625532
+    longitude: -78.0195387
+    min_latitude: 0.360788
+    min_longitude: -78.55054489999999
+    max_latitude: 1.1878679
+    max_longitude: -77.5582881
+  translations:
+    en: Carchi
+    ar: مقاطعة كارتشي
+    be: Правінцыя Карчы
+    bg: Карчи
+    bn: কারচি প্রদেশ
+    ca: Província de Carchi
+    da: Carchi
+    de: Provinz Carchi
+    el: Κάρτσι
+    es: Provincia de Carchi
+    fa: کارچی
+    fi: Carchi
+    fr: Carchi
+    gl: Carchi
+    gu: કાર્ચી પ્રાંત
+    hi: कारची प्रांत
+    hu: Carchi tartomány
+    id: Provinsi Carchi
+    it: provincia del Carchi
+    ja: カルチ県
+    ka: კარჩის პროვინცია
+    kn: ಕಾರ್ಚಿ ಪ್ರಾಂತ್ಯ
+    ko: 카르치 주
+    lt: Karčio provincija
+    mr: कारची प्रांत
+    ms: Pentadbiran Carchi
+    nb: Carchi
+    nl: Carchi
+    pl: Prowincja Carchi
+    pt: Carchi
+    ru: Карчи
+    si: කර්චි පළාත
+    sv: Carchi
+    ta: சர்ச்சை மாகாணம்
+    te: కార్చి ప్రావిన్స్
+    th: จังหวัดคาร์ชิ
+    tr: Carchi Province
+    uk: Карчі
+    ur: کارچی صوبہ
+    vi: Tỉnh Carchi
+    lv: Karči province
+    ceb: Provincia del Carchi
+    zh: 卡尔奇省
+    ccp: "𑄇𑄢𑄴𑄌𑄨"
+    hy: Կարչի
+    he: מחוז קארצ׳י
+    'no': Carchi
+    cy: Talaith Carchi
+    eu: Carchi probintzia
+  type: province
+D:
+  name: Orellana
+  code: D
+  unofficial_names:
+  - Orellana
+  geo:
+    latitude: -0.7112664999999999
+    longitude: -77.15426839999999
+    min_latitude: -0.7265373
+    min_longitude: -77.181015
+    max_latitude: -0.6898046
+    max_longitude: -77.13389389999999
+  translations:
+    en: Orellana
+    ar: مقاطعة أوريينا
+    be: Правінцыя Арэльяна
+    bg: Ореляна
+    bn: ওরেল্লানা প্রদেশ
+    ca: Província d’Orellana
+    da: Orellana Province
+    de: Provinz Orellana
+    el: Ορεγιάνα
+    es: Provincia de Orellana
+    fi: Orellana
+    fr: Orellana
+    gu: ઓરેલના પ્રાંત
+    hi: ओरेल्लाना प्रांत
+    hu: Orellana tartomány
+    id: Provinsi Orellana
+    it: provincia di Orellana
+    ja: オレリャーナ県
+    ka: ორელიანას პროვინცია
+    kn: ಓರೆಲ್ಲಾನಾ ಪ್ರಾಂತ್ಯ
+    ko: 오레야나 주
+    lt: Oreljanos provincija
+    mr: ओरेल्याना प्रांत
+    ms: Pentadbiran Orellana
+    nb: Orellana
+    nl: Orellana
+    pl: Prowincja Orellana
+    pt: Orellana
+    ru: Орельяна
+    si: ඔරෙල්ලනා පළාත
+    sv: Orellana
+    ta: ஒரெல்லனா மாகாணம்
+    te: ఓరెల్లానా ప్రావిన్స్
+    th: จังหวัดโอเรลลาน่า
+    tr: Orellana Province
+    uk: Орельяна
+    ur: اوریانا صوبہ
+    vi: Tỉnh Orellana
+    lv: Oreljanas province
+    ceb: Provincia de Francisco de Orellana
+    zh: 奥雷亚纳省
+    fa: استان اوریانا
+    ccp: "𑄃𑄧𑄢𑄬𑄣𑄚"
+    hy: Օրելյանա
+    'no': Orellana
+    cy: Talaith Orellana
+    eu: Orellana probintzia
+  type: province
+E:
+  name: Esmeraldas
+  code: E
+  unofficial_names:
+  - Esmeraldas
+  geo:
+    latitude: 0.9681789
+    longitude: -79.6517202
+    min_latitude: 0.9292910000000001
+    min_longitude: -79.672122
+    max_latitude: 0.9975799
+    max_longitude: -79.6095084
+  translations:
+    en: Esmeraldas
+    ar: مقاطعة إسمرالداس
+    be: Правінцыя Эсмеральдас
+    bg: Есмералдас
+    bn: এস্মারেল্ডাস
+    ca: Província d’Esmeraldas
+    da: Esmeraldas
+    de: Provinz Esmeraldas
+    el: Εσμεράλντας
+    es: Provincia de Esmeraldas
+    fa: استان اسمرالداس
+    fi: Esmeraldas
+    fr: Esmeraldas
+    gu: એસ્મેરલ્ડસ
+    hi: एस्मराल्डा प्रांत
+    hu: Esmeraldas tartomány
+    id: Provinsi Esmeraldas
+    it: provincia di Esmeraldas
+    ja: エスメラルダス県
+    ka: ესმერალდასის პროვინცია
+    kn: ಎಸ್ಮೆರಾಲ್ಡಾಸ್
+    ko: 에스메랄다스 주
+    lt: Esmeraldaso provincija
+    mr: एस्मेरल्डस
+    ms: Pentadbiran Esmeraldas
+    nb: Esmeraldas
+    nl: Esmeraldas
+    pl: Prowincja Esmeraldas
+    pt: Esmeraldas
+    ru: Эсмеральдас
+    si: එස්මෙරල්ඩාස්
+    sv: Esmeraldas
+    ta: எஸ்மெரால்டஸ்
+    te: ఎస్మరాల్డాస్
+    th: จังหวัดเอสเมอรัลเดส
+    tr: Esmeraldas
+    uk: Есмеральдас
+    ur: ایزمیراداس صوبہ
+    vi: Esmeraldas
+    lv: Esmeraldasas province
+    ceb: Provincia de Esmeraldas
+    zh: 埃斯梅拉达斯省
+    ccp: "𑄃𑄬𑄌𑄴𑄟𑄢𑄣𑄴𑄓𑄌𑄴"
+    hy: Էսմերալդաս
+    he: מחוז אסמרלדס
+    'no': Esmeraldas
+    eu: Esmeraldas probintzia
+  type: province
+F:
+  name: Cañar
+  code: F
+  unofficial_names:
+  - Cañar
+  geo:
+    latitude: -2.555695
+    longitude: -78.9344814
+    min_latitude: -2.5782558
+    min_longitude: -78.9535904
+    max_latitude: -2.5385129
+    max_longitude: -78.9242364
+  translations:
+    en: Cañar
+    ar: مقاطعة كانار
+    be: Правінцыя Каньяр
+    bg: Каняр
+    ca: Província de Cañar
+    da: Cañar
+    de: Provinz Cañar
+    el: Κανιάρ
+    es: Provincia de Cañar
+    fa: استان کانیار
+    fi: Cañar
+    fr: Cañar
+    gu: કાનર પ્રાંત
+    hi: कनार प्रांत
+    hu: Cañar tartomány
+    id: Provinsi Cañar
+    it: provincia di Cañar
+    ja: カニャール県
+    ka: კანიარის პროვინცია
+    kn: ಕ್ಯಾನಾರ್ ಪ್ರಾಂತ್ಯ
+    ko: 카냐르 주
+    lt: Kanjaro provincija
+    mr: कॅनर प्रांत
+    ms: Pentadbiran Cañar
+    nb: Cañar
+    nl: Cañar
+    pl: Prowincja Cañar
+    pt: Cañar
+    ru: Каньяр
+    si: කනාර් පළාත
+    sv: Cañar
+    ta: காணார் மாகாணம்
+    te: కానార్ ప్రావిన్స్
+    th: บูลามบูลร
+    tr: Canar Province
+    uk: Каньяр
+    ur: کانیار صوبہ
+    vi: Tỉnh Canar
+    lv: Kanjaras province
+    ceb: Provincia del Cañar
+    zh: 卡尼亞爾省
+    bn: কানার প্রদেশ’
+    ccp: "𑄇𑄬𑄚𑄢𑄴"
+    'no': Cañar
+    cy: Talaith Cañar
+    eu: Cañar probintzia
+    hy: Կանյար
+  type: province
+G:
+  name: Guayas
+  code: G
+  unofficial_names:
+  - Guayas
+  geo:
+    latitude: -1.9574839
+    longitude: -79.9192702
+    min_latitude: -3.062438
+    min_longitude: -80.561928
+    max_latitude: -0.839573
+    max_longitude: -79.09728199999999
+  translations:
+    en: Guayas
+    ar: مقاطعة غاياس
+    be: Правінцыя Гуаяс
+    bg: Гуаяс
+    bn: জামবী প্রোগায়াস প্রদেশ
+    ca: província del Guayas
+    da: Guayas Province
+    de: Provinz Guayas
+    el: Γουάγιας
+    es: Provincia de Guayas
+    fa: استان گوایاس
+    fi: Guayas
+    fr: province du Guayas
+    gl: Guayas
+    gu: ગુઆયસ પ્રાંત
+    hi: गुआयास प्रांत
+    hu: Guayas tartomány
+    id: Provinsi Guayas
+    it: provincia del Guayas
+    ja: グアヤス県
+    ka: გუაიასის პროვინცია
+    kn: ಗುಯಯಾಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 과야스 주
+    lt: Guajaso provincija
+    mr: गुआस प्रांत
+    ms: Pentadbiran Guayas
+    nb: Guayas
+    nl: Guayas
+    pl: Prowincja Guayas
+    pt: Guayas
+    ru: Гуаяс
+    si: ගයාස් පළාත
+    sl: Provinca Guayas
+    sv: Guayas
+    ta: குயஸ் மாகாணம்
+    te: గుయాయస్ ప్రావిన్స్
+    th: เมืองกีเช
+    tr: Guayas
+    uk: Гуаяс
+    ur: گوایاس صوبہ
+    vi: Tỉnh Guayas
+    lv: Gvajasas province
+    ceb: Provincia del Guayas
+    zh: 瓜亚斯省
+    ccp: "𑄉𑄪𑄠𑄠𑄬𑄌𑄴"
+    'no': Guayas
+    az: Quayas
+    cy: Talaith Guayas
+    eu: Guayas probintzia
+    he: מחוז גואייס
+    hy: Գուայաս
+  type: province
+H:
+  name: Chimborazo
+  code: H
+  unofficial_names:
+  - Chimborazo
+  geo:
+    latitude: -1.4693018
+    longitude: -78.8169396
+  translations:
+    en: Chimborazo
+    ar: مقاطعة تشيمبورازو
+    be: Правінцыя Чымбараса
+    bg: Чимборасо
+    bn: চিম্বোরাজো প্রদেশ
+    ca: Província de Chimborazo
+    da: Chimborazo Province
+    de: Provinz Chimborazo
+    el: Τσιμποράσο
+    es: Provincia de Chimborazo
+    fa: استان چیمبورازو
+    fi: Chimborazo
+    fr: Chimborazo
+    gl: Provincia de Chimborazo
+    gu: ચિમ્બોરાઝો પ્રાંત
+    hi: चिंबोराजो प्रांत
+    hu: Chimborazo tartomány
+    id: Provinsi Chimborazo
+    it: provincia del Chimborazo
+    ja: チンボラソ県
+    ka: ჩიმბორასოს პროვინცია
+    kn: ಚಿಂಬೊರೊಜೋ ಪ್ರಾಂತ್ಯ
+    ko: 침보라소 주
+    lt: Čimboraso provincija
+    mr: चिंबोराझो प्रांत
+    ms: Pentadbiran Chimborazo
+    nb: Chimborazo
+    nl: Chimborazo
+    pl: Prowincja Chimborazo
+    pt: Chimborazo
+    ru: Чимборасо
+    si: චිම්බෝරාසෝ පළාත
+    sv: Chimborazo
+    ta: சிம்பொற்சோ மாகாணம்
+    te: చింబోరాజో ప్రావిన్స్
+    th: ชิมโบราโซ
+    tr: Chimborazo
+    uk: Чімборасо
+    ur: چیمبوراسو صوبہ
+    vi: Chimborazo
+    lv: Čimbaraso province
+    ceb: Provincia del Chimborazo
+    zh: 钦博拉索省
+    ccp: "𑄌𑄨𑄟𑄴𑄝𑄧𑄢𑄎𑄮"
+    kk: Чимборасо
+    mk: Чимборасо
+    'no': Chimborazo
+    cy: Talaith Chimborazo
+    eu: Chimborazo probintzia
+    he: מחוז צ׳ימבורסו
+  type: province
+I:
+  name: Imbabura
+  code: I
+  unofficial_names:
+  - Imbabura
+  geo:
+    latitude: 0.367159
+    longitude: -78.3842227
+    min_latitude: 0.125442
+    min_longitude: -79.230362
+    max_latitude: 0.8569121
+    max_longitude: -77.828034
+  translations:
+    en: Imbabura
+    ar: مقاطعة إمبابورا
+    be: Правінцыя Імбабура
+    bg: Имбабура
+    bn: ইম্বাবুরা প্রদেশ
+    ca: Província d’Imbabura
+    da: Imbabura Province
+    de: Provinz Imbabura
+    el: Ιμπαμπούρα
+    es: Provincia de Imbabura
+    fa: ایمبابورا
+    fi: Imbabura
+    fr: Imbabura
+    gu: ઇમ્બાબુરા પ્રાંત
+    hi: इम्बाबुरा प्रांत
+    hu: Imbabura tartomány
+    id: Provinsi Imbabura
+    it: provincia dell’Imbabura
+    ja: インバブーラ県
+    ka: იმბაბურის პროვინცია
+    kn: ಇಂಬಾಬಾರಾ ಪ್ರಾಂತ್ಯ
+    ko: 임바부라 주
+    lt: Imbaburos provincija
+    mr: इम्बाबुरा प्रांत
+    ms: Pentadbiran Imbabura
+    nb: Imbabura
+    nl: Imbabura
+    pl: Prowincja Imbabura
+    pt: Imbabura
+    ru: Имбабура
+    si: ඉම්බබුරා පළාත
+    sv: Imbabura
+    ta: இம்பபுரா மாகாணம்
+    te: ఇంబాబురా ప్రావిన్స్
+    th: อิมบาบูรา
+    tr: Imbabura Province
+    uk: Імбабура
+    ur: امبابورا صوبہ
+    vi: Imbabura
+    lv: Imbaburas province
+    ceb: Provincia de Imbabura
+    zh: 因巴布拉省
+    ccp: "𑄃𑄨𑄟𑄴𑄝𑄝𑄪𑄢"
+    hy: Իմբաբուրա
+    he: מחוז אימבאבורה
+    'no': Imbabura
+    cy: Talaith Imbabura
+    eu: Imbabura probintzia
+    sd: امبابورا صوبو
+  type: province
+L:
+  name: Loja
+  code: L
+  unofficial_names:
+  - Loja
+  geo:
+    latitude: -3.983333
+    longitude: -79.2
+    min_latitude: -4.0516043
+    min_longitude: -79.23554419999999
+    max_latitude: -3.9635861
+    max_longitude: -79.1812133
+  translations:
+    en: Loja
+    ar: مقاطعة لوخا
+    be: Правінцыя Лоха
+    bg: Лоха
+    bn: লোজা প্রদেশ
+    ca: Província de Loja
+    da: Loja Province
+    de: Provinz Loja
+    el: Επαρχία Λόχα
+    es: Provincia de Loja
+    fi: Loja
+    fr: province de Loja
+    gu: લોજા પ્રાંત
+    hi: लोजा प्रांत
+    hu: Loja tartomány
+    id: Provinsi Loja
+    it: provincia di Loja
+    ja: ロハ県
+    ka: ლოხის პროვინცია
+    kn: ಲೋಜಾ ಪ್ರಾಂತ್ಯ
+    ko: 로하 주
+    lt: Lochos provincija
+    mr: लोजा प्रांत
+    ms: Pentadbiran Loja
+    nb: Loja
+    nl: Loja
+    pl: Prowincja Loja
+    pt: Loja
+    ru: Лоха
+    si: ලොජා පළාත
+    sv: Loja
+    ta: லோஜா மாகாணம்
+    te: లోజా ప్రావిన్స్
+    th: จังหวัดโลคา
+    tr: Loja province
+    uk: Лоха
+    ur: لوخا صوبہ
+    vi: Tỉnh Loja
+    lv: Lohas province
+    af: Loja
+    ceb: Provincia de Loja
+    zh: 洛哈省
+    ccp: "𑄣𑄮𑄎"
+    'no': Loja
+    cy: Talaith Loja
+    eu: Loja probintzia
+    fa: استان لوخا
+    he: מחוז לוחה
+    hy: Լոխա
+  type: province
+M:
+  name: Manabí
+  code: M
+  unofficial_names:
+  - Manabí
+  geo:
+    latitude: -0.7416532
+    longitude: -79.9192702
+    min_latitude: -1.92619
+    min_longitude: -81.0774715
+    max_latitude: 0.394737
+    max_longitude: -79.3954009
+  translations:
+    en: Manabí
+    ar: مقاطعة مانابي
+    be: Правінцыя Манабі
+    bg: Манаби
+    bn: মানাবি প্রদেশ
+    ca: Província de Manabí
+    da: Manabí Province
+    de: Provinz Manabí
+    el: Μανάμπι
+    es: Provincia de Manabí
+    fi: Manabí
+    fr: Manabí
+    gu: મનાબી પ્રાંત
+    hi: मनाबी प्रांत
+    hu: Manabí tartomány
+    id: Provinsi Manabí
+    it: provincia di Manabí
+    ja: マナビ県
+    ka: მანაბის პროვინცია
+    kn: ಮನಬಿ ಪ್ರಾಂತ್ಯ
+    ko: 마나비 주
+    lt: Manabi provincija
+    mr: माणबी प्रांत
+    ms: Pentadbiran Manabí
+    nb: Manabí
+    nl: Manabí
+    pl: Prowincja Manabí
+    pt: Manabí
+    ru: Манаби
+    si: මනබි පළාත
+    sk: Manabí
+    sv: Manabí
+    ta: மாநபி மாகாணம்
+    te: మనాబి ప్రావిన్స్
+    th: จังหวัดมานาบี
+    tr: Manabi Province
+    uk: Манабі
+    ur: مانابی صوبہ
+    vi: Tỉnh Manabí
+    lv: Manabi province
+    ceb: Provincia de Manabí
+    zh: 马纳比省
+    fa: استان مانابی
+    ccp: "𑄟𑄚𑄝𑄨"
+    he: מחוז מנבי
+    cs: Manabí
+    'no': Manabí
+    cy: Talaith Manabí
+    eu: Manabí probintzia
+  type: province
+N:
+  name: Napo
+  code: N
+  unofficial_names:
+  - Napo
+  geo:
+    latitude: -0.7371233
+    longitude: -78.11082789999999
+    min_latitude: -1.273843
+    min_longitude: -78.410088
+    max_latitude: 0.036432
+    max_longitude: -77.049857
+  translations:
+    en: Napo
+    ar: مقاطعة نابو
+    be: Правінцыя Напа
+    bg: Напо
+    bn: ন্যাপো প্রদেশ
+    ca: Província de Napo
+    da: Napo Province
+    de: Provinz Napo
+    el: Νάπο
+    es: Provincia de Napo
+    fa: استان ناپو
+    fi: Napo
+    fr: Napo
+    gu: નેપો પ્રાંત
+    hi: नापो प्रांत
+    hu: Napo tartomány
+    id: Provinsi Napo
+    it: provincia del Napo
+    ja: ナポ県
+    ka: ნაპოს პროვინცია
+    kn: ನೇಪೋ ಪ್ರಾಂತ್ಯ
+    ko: 나포 주
+    lt: Napo provincija
+    mr: नापो प्रांत
+    ms: Pentadbiran Napo
+    nb: Napo
+    nl: Napo
+    pl: Prowincja Napo
+    pt: Napo
+    ro: Provincia Napo
+    ru: Напо
+    si: නාපෝ පළාත
+    sv: Napo
+    ta: நாபா மாகாணம்
+    te: నాపో ప్రావిన్స్
+    th: จังหวัดนาโป
+    tr: Napo Province
+    uk: Напо
+    ur: ناپو صوبہ
+    vi: Tỉnh Napo
+    lv: Napo province
+    ceb: Provincia de Napo
+    zh: 纳波省
+    ccp: "𑄚𑄛𑄮"
+    he: מחוז נפו
+    'no': Napo
+    cy: Talaith Napo
+    eu: Napo probintzia
+    gl: Provincia de Napo
+    hy: Նապո
+  type: province
+O:
+  name: El Oro
+  code: O
+  unofficial_names:
+  - El Oro
+  geo:
+    latitude: -3.4454787
+    longitude: -79.8296743
+    min_latitude: -3.90139
+    min_longitude: -80.30034599999999
+    max_latitude: -3.0484269
+    max_longitude: -79.358108
+  translations:
+    en: El Oro
+    ar: مقاطعة إل أورو
+    be: Правінцыя Эль-Ора
+    bg: Ел Оро
+    bn: এল ওরো প্রদেশ
+    ca: Província d’El Oro
+    da: El Oro Province
+    de: Provinz El Oro
+    el: Ελ Όρο
+    es: Provincia de El Oro
+    fa: استان ال اورو
+    fi: El Oro
+    fr: El Oro
+    gu: અલ ઓરો પ્રાંત
+    hi: एल ओरो प्रांत
+    hu: El Oro tartomány
+    id: Provinsi El Oro
+    it: provincia di El Oro
+    ja: エル・オロ県
+    ka: ელ-ოროს პროვინცია
+    kn: ಎಲ್ ಓರೊ ಪ್ರಾಂತ್ಯ
+    ko: 엘오로 주
+    lt: El Oro provincija
+    mr: एल ओरो प्रांत
+    ms: Pentadbiran El Oro
+    nb: El Oro
+    nl: El Oro
+    pl: Prowincja El Oro
+    pt: El Oro
+    ru: Эль-Оро
+    si: එල් ඔරෝ පළාත
+    sv: El Oro
+    ta: எல் ஒரு மாகாணம்
+    te: ఎల్ ఓరో ప్రావిన్స్
+    th: จังหวัดเอลโอโร
+    tr: El Oro Province
+    uk: Ель-Оро
+    ur: ایل اورو صوبہ
+    vi: Tỉnh El Oro
+    lv: Eloro province
+    ceb: Provincia de El Oro
+    zh: 埃爾奧羅省
+    ccp: "𑄃𑄬𑄣𑄴 𑄃𑄧𑄢𑄮"
+    hy: Էլ Օրո
+    'no': El Oro
+    cy: Talaith El Oro
+    eu: El Oro probintzia
+    he: מחוז אל אורו
+  type: province
+P:
+  name: Pichincha
+  code: P
+  unofficial_names:
+  - Pichincha
+  geo:
+    latitude: -0.1464847
+    longitude: -78.4751945
+    min_latitude: -0.714463
+    min_longitude: -79.368635
+    max_latitude: 0.344864
+    max_longitude: -77.83552499999999
+  translations:
+    en: Pichincha
+    ar: مقاطعة بيتشينتشا
+    be: Правінцыя Пічынча
+    bg: Пичинча
+    bn: পিচিঞ্চা প্রদেশ
+    ca: Província de Pichincha
+    da: Pichincha Province
+    de: Provinz Pichincha
+    el: Πιτσίντσα
+    es: Provincia de Pichincha
+    fi: Pichincha
+    fr: province de Pichincha
+    gl: Provincia de Pichincha
+    gu: પિચિન્ચા પ્રાંત
+    hi: पिचिंचा प्रांत
+    hu: Pichincha tartomány
+    id: Provinsi Pichincha
+    it: provincia del Pichincha
+    ja: ピチンチャ県
+    ka: პიჩინჩის პროვინცია
+    kn: ಪಿಚಿಂಚಾ ಪ್ರಾಂತ್ಯ
+    ko: 피친차 주
+    lt: Pičinčos provincija
+    mr: पिचिनचा प्रांत
+    ms: Pichincha Province
+    nb: Pichincha
+    nl: Pichincha
+    pl: Prowincja Pichincha
+    pt: Pichincha
+    ru: Пичинча
+    si: පිචින්චා පළාත
+    sv: Pichincha
+    ta: பிசைஞ்சா மாகாணம்
+    te: పిచించా ప్రావిన్స్
+    th: จังหวัดปีชินชา
+    tr: Pichincha ili
+    uk: Пічінча
+    ur: پیچینچا صوبہ
+    vi: Tỉnh Pichincha
+    lv: Pičinčas province
+    ceb: Provincia de Pichincha
+    zh: 皮欽查省
+    fa: استان پیچینچا
+    ccp: "𑄛𑄨𑄌𑄨𑄚𑄴𑄌"
+    hy: Պիչինչա
+    'no': Pichincha
+    cy: Talaith Pichincha
+    eu: Pichincha probintzia
+  type: province
+R:
+  name: Los Ríos
+  code: R
+  unofficial_names:
+  - Los Ríos
+  geo:
+    latitude: -1.4191719
+    longitude: -79.4703885
+    min_latitude: -2.1302071
+    min_longitude: -79.8767999
+    max_latitude: -0.5303
+    max_longitude: -79.080353
+  translations:
+    en: Los Ríos
+    ar: مقاطعة لوس ريوس
+    be: Правінцыя Лос-Рыяс
+    bg: Лос Риос
+    bn: লস রিওস প্রদেশ
+    ca: Província de Los Ríos
+    da: Los Ríos Province
+    de: Provinz Los Ríos
+    el: Επαρχία Λος Ρίος
+    es: Los Ríos
+    fa: استان لوس ریوس
+    fi: Los Ríos
+    fr: Los Ríos
+    gu: લોસ રિયોસ પ્રાંત
+    hi: लॉस रिओस प्रांत
+    hu: Los Ríos tartomány
+    id: Provinsi Los Ríos
+    it: provincia di Los Ríos
+    ja: ロス・リオス県
+    ka: ლოს-რიოსის პროვინცია
+    kn: ಲಾಸ್ ರೈಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 로스리오스 주
+    lt: Los Rioso provincija
+    mr: लॉस रिओस प्रांत
+    ms: Pentadbiran Los Ríos
+    nb: Los Ríos
+    nl: Los Ríos
+    pl: Prowincja Los Ríos
+    pt: Los Ríos
+    ru: Лос-Риос
+    si: ලොස් රයොස් පළාත
+    sv: Los Ríos
+    ta: லாஸ் ரியோஸ் மாகாணம்
+    te: లాస్ రియోస్ ప్రావిన్స్
+    th: จังหวัดกาเซียนเตป
+    tr: Los Rios Province
+    uk: Лос-Ріос
+    ur: لاس ریوس صوبہ
+    vi: Los Ríos
+    lv: Losriosas province
+    ceb: Provincia de Los Ríos
+    zh: 洛斯里奧斯省
+    ccp: "𑄣𑄧𑄌𑄴 𑄢𑄨𑄠𑄮𑄌𑄴"
+    hy: Լոս Ռիո
+    'no': Los Ríos
+    cy: Talaith Los Ríos
+    eu: Los Ríos probintzia
+  type: province
+S:
+  name: Morona-Santiago
+  code: S
+  unofficial_names:
+  - Morona-Santiago
+  geo:
+    latitude: -2.5628216
+    longitude: -78.11082789999999
+    min_latitude: -3.823733
+    min_longitude: -78.969154
+    max_latitude: -1.443362
+    max_longitude: -76.73908999999999
+  translations:
+    en: Morona-Santiago
+    ar: مقاطعة مورونا سانتياغو
+    bg: Морона Сантяго
+    bn: মোরোনা-সান্টিয়াগো প্রদেশ
+    ca: Província de Morona-Santiago
+    da: Morona-Santiago Province
+    de: Provinz Morona Santiago
+    el: Μορόνα-Σαντιάγκο
+    es: Provincia de Morona Santiago
+    fa: مورونا-سانتیاگو
+    fi: Morona-Santiago
+    fr: Morona-Santiago
+    gu: મોરોના-સાન્તિયાગો પ્રાંત
+    hi: मोरोना-सैंटियागो प्रांत
+    hu: Morona Santiago tartomány
+    id: Provinsi Morona-Santiago
+    it: provincia di Morona-Santiago
+    ja: モロナ・サンティアゴ県
+    ka: მორონა-სანტიაგოს პროვინცია
+    kn: ಮೊರೊನಾ-ಸ್ಯಾಂಟಿಯಾಗೊ ಪ್ರಾಂತ್ಯ
+    ko: 모로나산티아고 주
+    lt: Morona Santjago provincija
+    mr: मोरोना-सांतियागो प्रांत
+    ms: Morona-Santiago Province
+    nb: Morona Santiago
+    nl: Morona-Santiago
+    pl: Prowincja Morona-Santiago
+    pt: Morona-Santiago
+    ru: Морона-Сантьяго
+    si: මොරෝනා-සන්තියාගෝ පළාත
+    sv: Morona Santiago
+    ta: மோரோனா -சாண்டியாகோ மாகாணம்
+    te: మోరోనా-సాంటియాగో ప్రావిన్స్
+    th: โมโรนา-ซานติเอโก
+    tr: Morona-Santiago
+    uk: Морона-Сантьяго
+    ur: مورونا-سانتیاگو صوبہ
+    vi: Tỉnh Morona-Santiago
+    lv: Moronas Santjago province
+    ceb: Provincia de Morona-Santiago
+    zh: 莫罗纳-圣地亚哥省
+    ccp: "𑄟𑄧𑄢𑄮𑄚-𑄥𑄚𑄴𑄑𑄨𑄠𑄉𑄮"
+    hy: Մորոնա Սանտյագո
+    'no': Morona Santiago
+    cy: Talaith Morona-Santiago
+    eu: Morona Santiago probintzia
+    he: מחוז מורונה-סנטיאגו
+  type: province
+SD:
+  name: Santo Domingo de los Tsachilas
+  code: SD
+  unofficial_names:
+  - Santo Domingo de los Tsachilas
+  geo:
+    latitude: -0.2205563
+    longitude: -79.29021329999999
+    min_latitude: -0.6861889999999999
+    min_longitude: -79.623871
+    max_latitude: 0.123351
+    max_longitude: -78.73494099999999
+  translations:
+    ar: سانتو دومينغو دا لوس تساتشيلاس
+    be: Правінцыя Санта-Дамінга-дэ-лос-Тсачылас
+    bg: Санто Доминго де лос Цачилас
+    bn: স্যান্তো ডোমিঙ্গ দে লস সাচিলাস প্রদেশ
+    da: Santo Domingo de los Tsáchilas Province
+    de: Provinz Santo Domingo de los Tsáchilas
+    el: Σάντο Δομίγκο δε λος Τσατσίλας
+    en: Santo Domingo de los Tsáchilas
+    es: Provincia de Santo Domingo de los Tsáchilas
+    fi: Santo Domingo de los Tsáchilas
+    fr: Santo Domingo de los Tsáchilas
+    gu: સાન્ટો ડોમિંગો દે લોસ સાચિલાસ પ્રાંત
+    hi: सैंटो डोमिंगो डी लोस सैकिलास प्रांत
+    id: Provinsi Santo Domingo de los Tsáchilas
+    it: provincia di Santo Domingo de los Tsáchilas
+    ja: サント・ドミンゴ・デ・ロス・ツァチラス県
+    ka: სანტო-დომინგო-დე-ლოს-ტსაჩილასის პროვინცია
+    kn: ಸ್ಯಾಂಟೋ ಡೊಮಿಂಗೊ ಡಿ ಲಾಸ್ ತ್ಸಾಚಿಲಾಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 산토도밍고데로스차칠라스 주
+    lt: Santo Domingo de los Cačilaso provincija
+    mr: सँटो डोमिंगो डी लॉस त्साचिलास प्रांत
+    ms: Daerah Santo Domingo de los Tsáchilas
+    nb: Santo Domingo de las Tsachilas provins
+    nl: Santo Domingo de los Tsáchilas
+    pl: Prowincja Santo Domingo de los Tsáchilas
+    pt: Santo Domingo de los Tsáchilas
+    ru: Санто-Доминго-де-лос-Тсачилас
+    si: සැන්ටෝ ඩොමින්ගෝ ඩි ලොස් ට්සාචිලාස් පළාත
+    sv: Santo Domingo de los Tsáchilas
+    ta: சந்தோ டொமிங்கோ டி லாஸ் டச்சிலஸ் மாகாணம்
+    te: సాంటో డామింగో ద లాస్ సాచిలాస్ ప్రావిన్స్
+    th: จังหวัดซานโตโดมิงโกเดลาคัลซาดา
+    tr: Santo Domingo de los Tsachilas Province
+    uk: Санто-Домінго-де-лос-Тсачилас
+    ur: سانتو دومنگو دے لاس تسآچیلاس صوبہ
+    vi: Tỉnh Santo Domingo de los Tsáchilas
+    lv: Santodomingo de los Cačilasas province
+    ceb: Provincia de Santo Domingo de los Tsáchilas
+    zh: 聖多明各-德洛斯查奇拉斯省
+    ccp: "𑄥𑄚𑄴𑄑𑄮 𑄓𑄮𑄟𑄨𑄚𑄴𑄉𑄮 𑄓𑄬 𑄣𑄧𑄌𑄴 𑄥𑄌𑄨𑄣𑄌𑄴"
+    hy: Սանտա Դոմինգո դե լոս Տսաչիլաս
+    'no': Santo Domingo de las Tsachilas provins
+    ca: Província de Santo Domingo de los Tsáchilas
+    cy: Talaith Santo Domingo de los Tsáchilas
+    eu: Santo Domingo de los Tsáchilas probintzia
+    fa: استان سانتو دومینگو د لوس تساچیلاس
+  type: province
+SE:
+  name: Santa Elena
+  code: SE
+  unofficial_names:
+  - Santa Elena
+  geo:
+    latitude: -2.1934804
+    longitude: -80.54384499999999
+    min_latitude: -2.508378
+    min_longitude: -81.0067736
+    max_latitude: -1.647962
+    max_longitude: -80.2266889
+  translations:
+    ar: مقاطعة سانتا إيلينا
+    be: Правінцыя Санта-Элена
+    bg: Света Елена
+    bn: স্যান্টা এলেনা প্রদেশ
+    da: Santa Elena Province
+    de: Santa Elena
+    el: Επαρχία Σάντα Έλενα
+    en: Santa Elena
+    es: Provincia de Santa Elena
+    fa: استان سانتا النا
+    fi: Santa Elena
+    fr: Santa Elena
+    gu: સાંતા એલેના પ્રાંત
+    hi: सैंटा एलेना प्रांत
+    id: Provinsi Santa Elena
+    it: provincia di Santa Elena
+    ja: サンタ・エレーナ県
+    ka: სანტა-ელენას პროვინცია
+    kn: ಸಾಂಟಾ ಎಲೆನಾ ಪ್ರಾಂತ್ಯ
+    ko: 산타엘레나 주
+    lt: Santa Elenos provincija
+    mr: सांता एलेना प्रांत
+    ms: Santa Elena Province
+    nb: Santa Elena provins
+    nl: Santa Elena
+    pl: Prowincja Santa Elena
+    pt: Santa Elena (província)
+    ru: Санта-Элена
+    si: සැන්ටා එලේනා පළාත
+    sv: Santa Elena
+    ta: சாண்டா எலெனா மாகாணம்
+    te: సాంటా ఎలీనా ప్రావిన్స్
+    th: จังหวัดซานตา เอเลนา
+    tr: Santa Elena Province
+    uk: Санта-Елена
+    ur: سانتا الینا صوبہ
+    vi: Tỉnh Santa Elena
+    lv: Santaelenas province
+    ceb: Provincia de Santa Elena
+    zh: 聖埃倫娜省
+    ccp: "𑄥𑄚𑄴𑄑 𑄃𑄬𑄣𑄬𑄚"
+    mk: Санта Елена
+    'no': Santa Elena provins
+    ca: Província de Santa Elena
+    cy: Talaith Santa Elena
+    eu: Santa Elena probintzia
+  type: province
+T:
+  name: Tungurahua
+  code: T
+  unofficial_names:
+  - Tungurahua
+  geo:
+    latitude: -1.2635284
+    longitude: -78.5660852
+    min_latitude: -1.507969
+    min_longitude: -78.93395199999999
+    max_latitude: -0.9803009999999999
+    max_longitude: -78.144211
+  translations:
+    en: Tungurahua
+    ar: مقاطعة تونغوراهوا
+    be: Правінцыя Тунгурауа
+    bg: Тунгурауа
+    bn: তাঙ্গুরাহুয়া প্রদেশ
+    ca: Província de Tungurahua
+    da: Tungurahua Province
+    de: Provinz Tungurahua
+    el: Τουνγκουράουα
+    es: Provincia de Tungurahua
+    fa: استان تونگوراهوا
+    fi: Tungurahua
+    fr: Tungurahua
+    gu: તુંગુરાહુઆ પ્રાંત
+    hi: तुंगुराहुआ प्रांत
+    id: Provinsi Tungurahua
+    it: provincia del Tungurahua
+    ja: トゥングラワ県
+    ka: ტუნგურაუის პროვინცია
+    kn: ತುಂಗೂರಾಹು ಪ್ರಾಂತ್ಯ
+    ko: 퉁구라우아 주
+    lt: Tungurahvos provincija
+    mr: तुंगुराहुआ प्रांत
+    ms: Pentadbiran Tungurahua
+    nb: Tungurahua
+    nl: Tungurahua
+    pl: Prowincja Tungurahua
+    pt: Tungurahua
+    ru: Тунгурауа
+    si: ටුන්ගුරහුආ පළාත
+    sv: Tungurahua
+    ta: தங்குறகுஆ மாகாணம்
+    te: తుంగురాహువా ప్రావిన్స్
+    th: ตันกูราฮัว
+    tr: Tungurahua Province
+    uk: Тунґурауа
+    ur: تونگوراہوا صوبہ
+    vi: Tungurahua
+    lv: Tunguravas province
+    ceb: Provincia del Tungurahua
+    zh: 通古拉瓦省
+    ccp: "𑄑𑄪𑄋𑄴𑄉𑄪𑄢𑄦𑄪𑄠"
+    hy: Տունգուրահուա
+    'no': Tungurahua
+    cy: Talaith Tungurahua
+    eu: Tungurahua probintzia
+    he: מחוז טונגוראווה
+    jv: Tungurahua
+  type: province
+U:
+  name: Sucumbíos
+  code: U
+  unofficial_names:
+  - Sucumbíos
+  geo:
+    latitude: -0.1452276
+    longitude: -76.2710833
+    min_latitude: -0.648883
+    min_longitude: -77.9738229
+    max_latitude: 0.651662
+    max_longitude: -75.2348859
+  translations:
+    en: Sucumbíos
+    ar: مقاطعة سوكومبيوس
+    be: Правінцыя Сукумбіас
+    bg: Сукумбиос
+    bn: সুকুম্বিওস প্রদেশ
+    ca: Província de Sucumbíos
+    da: Sucumbíos Province
+    de: Provinz Sucumbíos
+    el: Σουκούμπιος
+    es: Provincia de Sucumbíos
+    fa: ساکومبیوس
+    fi: Sucumbíos
+    fr: Sucumbíos
+    gu: સુકુમબિઓસ પ્રાંત
+    hi: सुकुम्बियोस प्रांत
+    id: Provinsi Sucumbíos
+    it: provincia di Sucumbíos
+    ja: スクンビオス県
+    ka: სუკუმბიოსის პროვინცია
+    kn: ಸುಕುಂಬಿಯಾಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 수쿰비오스 주
+    lt: Sukumbijoso provincija
+    mr: सुकम्बाइओस प्रांत
+    ms: Wilayah Sucumbíos
+    nb: Sucumbíos
+    nl: Sucumbíos
+    pl: Prowincja Sucumbíos
+    pt: Sucumbíos
+    ru: Сукумбиос
+    si: සුකුම්බියෝස් පළාත
+    sv: Sucumbíos
+    ta: சுசும்பியஸ் மாகாணம்
+    te: సుకుంబియోస్ ప్రావిన్స్
+    th: จังหวัดซูคัมบิออส
+    tr: Sucumbios Province
+    uk: Сукумбіос
+    ur: سوکومبیوس صوبہ
+    vi: Tỉnh Sucumbíos
+    lv: Sukumbiosas province
+    ceb: Provincia de Sucumbíos
+    zh: 苏昆比奥斯省
+    ccp: "𑄥𑄇𑄪𑄟𑄴𑄝𑄠𑄮𑄌𑄴"
+    he: מחוז סוקומביוס
+    'no': Sucumbíos
+    cy: Talaith Sucumbíos
+    eu: Sucumbíos probintzia
+    gl: Provincia de Sucumbíos
+    hy: Սուկումբիոս
+  type: province
+W:
+  name: Galápagos
+  code: W
+  unofficial_names:
+  - Galápagos
+  geo:
+    latitude: -0.8292784
+    longitude: -90.9820668
+    min_latitude: -1.4115146
+    min_longitude: -92.0084893
+    max_latitude: 1.6815752
+    max_longitude: -89.24079549999999
+  translations:
+    en: Galápagos
+    ar: مقاطعة غالاباغوس
+    be: Правінцыя Галапагос
+    bn: গালাপাগোস প্রদেশ
+    ca: Província de Galápagos
+    da: Galápagos Province
+    de: Provinz Galápagos
+    el: Γκαλαπάγκος
+    es: Provincia de Galápagos
+    fa: استان گالاپاگوس
+    fi: Galápagosin lääni
+    fr: province de Galápagos
+    gu: ગાલાપાગોસ પ્રાંત
+    hi: गैलापागोस प्रांत
+    id: Provinsi Galápagos
+    it: provincia delle Galápagos
+    ja: ガラパゴス県
+    ka: გალაპაგოსის პროვინცია
+    kn: ಗ್ಯಾಲಪಗೋಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 갈라파고스 주
+    lt: Galapagų provincija
+    mr: गॅलापागोस प्रांत
+    ms: Pentadbiran Galápagos
+    nb: Galapagos provins
+    nl: Galápagos
+    pl: Prowincja Galápagos
+    pt: Galápagos
+    ro: Provincia Galápagos
+    ru: Галапагос
+    si: ගලපගාස් පළාත
+    sv: Galápagos
+    ta: கலப்பகோஸ் மாகாணம்
+    te: గాలాపాగోస్ ప్రావిన్స్
+    th: จังหวัดกาลาปาโกส
+    tr: Galapagos Province
+    uk: Галапагос
+    ur: گالاپاگوس صوبہ
+    vi: Tỉnh Galápagos
+    lv: Galapagu province
+    ceb: Provincia de Galápagos
+    zh: 加拉帕戈斯省
+    ccp: "𑄉𑄳𑄠𑄣𑄛𑄴𑄛𑄉𑄮𑄌𑄴"
+    'no': Galapagos provins
+    cy: Talaith Galápagos
+    eu: Galapagoak probintzia
+    he: מחוז גלאפגוס
+  type: province
+X:
+  name: Cotopaxi
+  code: X
+  unofficial_names:
+  - Cotopaxi
+  geo:
+    latitude: -0.8139666999999999
+    longitude: -78.9288242
+    min_latitude: -1.2108109
+    min_longitude: -79.329689
+    max_latitude: -0.324243
+    max_longitude: -78.370667
+  translations:
+    en: Cotopaxi
+    ar: مقاطعة كوتوباكسي
+    be: Правінцыя Катапаксі
+    bg: Котопакси
+    bn: কটোপাক্সি প্রদেশ
+    ca: Província de Cotopaxi
+    da: Cotopaxi Province
+    de: Provinz Cotopaxi
+    el: Επαρχία Κοτοπάξι
+    es: Provincia de Cotopaxi
+    fa: استان کوتوپاکسی
+    fi: Cotopaxi
+    fr: Cotopaxi
+    gu: કોટોપેક્સિ પ્રાંત
+    hi: कोटोपैक्सी प्रांत
+    hu: Cotopaxi tartomány
+    id: Provinsi Cotopaxi
+    it: provincia del Cotopaxi
+    ja: コトパクシ県
+    ka: კოტოპახის პროვინცია
+    kn: ಕೊಟೊಪಾಕ್ಸಿ ಪ್ರಾಂತ್ಯ
+    ko: 코토팍시 주
+    lt: Kotopaksio provincija
+    mr: कोत्पॅक्सिको प्रांत
+    ms: Pentadbiran Cotopaxi
+    nb: Cotopaxi
+    nl: Cotopaxi
+    pl: Prowincja Cotopaxi
+    pt: Cotopaxi
+    ru: Котопахи
+    si: කොටොපක්සි පළාත
+    sv: Cotopaxi
+    ta: கோடோபாக்சி மாகாணம்
+    te: కోటోపాక్సి ప్రావిన్స్
+    th: จังหวัดโคโตพอกซี่
+    tr: Cotopaxi Province
+    uk: Котопахі
+    ur: کوتوپازی صوبہ
+    vi: Cotopaxi
+    lv: Kotopaksi province
+    ceb: Provincia de Cotopaxi
+    zh: 科托帕希省
+    ccp: "𑄇𑄧𑄑𑄮𑄛𑄇𑄴𑄥𑄨"
+    hy: Կոտոպախի
+    'no': Cotopaxi
+    cy: Talaith Cotopaxi
+    eu: Cotopaxi probintzia
+  type: province
+Y:
+  name: Pastaza
+  code: Y
+  unofficial_names:
+  - Pastaza
+  geo:
+    latitude: -1.6332034
+    longitude: -77.010385
+    min_latitude: -2.6300901
+    min_longitude: -78.30367509999999
+    max_latitude: -1.083427
+    max_longitude: -75.576691
+  translations:
+    en: Pastaza
+    ar: مقاطعة باستازا
+    be: Правінцыя Пастаса
+    bg: Пастаса
+    bn: পাস্তাজা প্রদেশ
+    ca: Província de Pastaza
+    da: Pastaza Province
+    de: Provinz Pastaza
+    el: Παστάσα
+    es: Provincia de Pastaza
+    fi: Pastaza
+    fr: Pastaza
+    gu: પાસ્ટાઝા પ્રાંત
+    hi: पासताज़ा प्रांत
+    id: Provinsi Pastaza
+    it: provincia del Pastaza
+    ja: パスタサ県
+    ka: პასტასის პროვინცია
+    kn: ಪಾಸ್ಜಾಜಾ ಪ್ರಾಂತ್ಯ
+    ko: 파스타사 주
+    lt: Pastasos provincija
+    mr: पेटाटा प्रांत
+    ms: Pentadbiran Pastaza
+    nb: Pastaza
+    nl: Pastaza
+    pl: Prowincja Pastaza
+    pt: Pastaza
+    ro: Provincia Pastaza
+    ru: Пастаса
+    si: පස්ටසා කලාපය
+    sv: Pastaza
+    ta: பஸ்டஜா மாகாணம்
+    te: పాస్టాజా ప్రావిన్స్
+    th: จังหวัดปัสตาซา
+    tr: Pastaza Province
+    uk: Пастаса
+    ur: پاستاسا صوبہ
+    vi: Tỉnh Pastaza
+    lv: Pastasas province
+    ceb: Provincia del Pastaza
+    zh: 帕斯塔薩省
+    fa: استان پاستاسا
+    ccp: "𑄛𑄌𑄴𑄑𑄎"
+    hy: Պաստասա
+    'no': Pastaza
+    cy: Talaith Pastaza
+    eu: Pastaza probintzia
+  type: province
+Z:
+  name: Zamora-Chinchipe
+  code: Z
+  unofficial_names:
+  - Zamora-Chinchipe
+  geo:
+    latitude: -4.1535434
+    longitude: -78.8382644
+    min_latitude: -4.998823
+    min_longitude: -79.427795
+    max_latitude: -3.3357891
+    max_longitude: -78.3993
+  translations:
+    en: Zamora-Chinchipe
+    ar: مقاطعة زامورا تشينتشيبه
+    be: Правінцыя Самора-Чынчыпэ
+    bg: Самора Чинчипе
+    bn: জামোরা-চিঞ্চিপে প্রদেশ
+    ca: Província de Zamora-Chinchipe
+    da: Zamora-Chinchipe Province
+    de: Provinz Zamora Chinchipe
+    el: Επαρχία Σαμόρα Τσιντσίπε
+    es: Provincia de Zamora Chinchipe
+    fa: زامورا-چینچیپ
+    fi: Zamora-Chinchipe
+    fr: Zamora-Chinchipe
+    gu: ઝામોરા-ચિંનચિપી પ્રાંત
+    hi: ज़मोरा-चिंचिपे प्रांत
+    id: Provinsi Zamora-Chinchipe
+    it: provincia di Zamora-Chinchipe
+    ja: サモラ・チンチペ県
+    ka: სამორა-ჩინჩიპეს პროვინცია
+    kn: ಝಮೊರಾ-ಚಿಂಚೈಪ್ ಪ್ರಾಂತ್ಯ
+    ko: 사모라친치페 주
+    lt: Samoros-Činčipės provincija
+    mr: ज़मोरा-चिंचिपी प्रांत
+    ms: Zamora-Chinchipe Province
+    nb: Zamora Chinchipe
+    nl: Zamora-Chinchipe
+    pl: Prowincja Zamora-Chinchipe
+    pt: Zamora-Chinchipe
+    ru: Самора-Чинчипе
+    si: සමෝරා-චින්චිපේ පළාත
+    sv: Zamora Chinchipe
+    ta: சமோரா -சிஞ்சிப்பெ மாகாணம்
+    te: జమోరా-చించిపె ప్రావిన్స్
+    th: ซาโมรา-ชินชีปี้
+    tr: Zamora-Chinchip Province
+    uk: Самора-Чинчипе
+    ur: سامورا-چینچیپے صوبہ
+    vi: Tỉnh Zamora-Chinchipe
+    lv: Samoras Činčipes province
+    ceb: Provincia de Zamora-Chinchipe
+    zh: 萨莫拉-钦奇佩省
+    ccp: "𑄎𑄟𑄮𑄢-𑄌𑄨𑄚𑄴𑄌𑄨𑄛𑄬"
+    'no': Zamora Chinchipe
+    cy: Talaith Zamora-Chinchipe
+    eu: Zamora Chinchipe probintzia
+    hy: Սամորա Չինչիպե
+  type: province

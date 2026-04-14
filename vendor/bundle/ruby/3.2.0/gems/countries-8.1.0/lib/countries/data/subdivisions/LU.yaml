@@ -1,0 +1,467 @@
+---
+CA:
+  name: Kapellen
+  code: CA
+  geo:
+    latitude: 49.633333
+    longitude: 6
+  translations:
+    ca: Cantó de Capellen
+    cs: Kanton Capellen
+    da: Capellen
+    de: Capellen
+    en: Capellen
+    es: Cantón de Capellen
+    fr: canton de Capellen
+    id: Kanton Capellen
+    it: Cantone di Capellen
+    ko: 카펠렌 주
+    lt: Kapeleno kantonas
+    nb: Capellen
+    nl: Kanton Capellen
+    pl: Kanton Capellen
+    pt: Capellen
+    ro: Capellen
+    ru: Капеллен
+    sk: Capellen
+    sv: Capellen
+    tr: Capellen kantonu
+    uk: Капеллен
+    vi: Capellen
+    ceb: Canton de Capellen
+    ccp: "𑄇𑄛𑄬𑄣𑄬𑄚𑄴"
+    'no': Capellen
+    be: Капелен
+    fa: کاپلن (کانتون)
+    ja: カペレン郡
+    th: อำเภอคาแพ็ลเลิน
+    zh: 卡佩伦县
+  type: canton
+CL:
+  name: Klierf
+  code: CL
+  geo:
+    latitude: 50.066667
+    longitude: 6.033333
+  translations:
+    ca: Cantó de Clervaux
+    cs: Kanton Clerf
+    da: Clervaux
+    de: Clerf
+    en: Clervaux
+    es: Cantón de Clervaux
+    fr: canton de Clervaux
+    id: Kanton Clervaux
+    it: Cantone di Clervaux
+    ja: クレルヴォー郡
+    ko: 클레르보 주
+    lt: Klervo kantonas
+    nb: Clervaux
+    nl: Kanton Clervaux
+    pl: Kanton Clervaux
+    pt: Clervaux
+    ro: Clervaux
+    ru: Клерво
+    sk: Clervaux
+    sv: Clervaux
+    tr: Clervaux kantonu
+    uk: Клерво
+    vi: Clervaux
+    zh: 克莱沃县
+    ceb: Clervaux
+    ccp: "𑄇𑄳𑄣𑄢𑄴𑄞𑄯𑄇𑄴"
+    az: Klervo
+    be: Клерво
+    'no': Clervaux
+    fa: کلروو (کانتون)
+    th: อำเภอเคลียร์ฟ
+  type: canton
+DI:
+  name: Diekrech
+  code: DI
+  geo:
+    latitude: 49.8671784
+    longitude: 6.159563299999999
+    min_latitude: 49.83493
+    min_longitude: 6.1175201
+    max_latitude: 49.8987
+    max_longitude: 6.180689999999999
+  translations:
+    ca: Cantó de Diekirch
+    cs: Kanton Diekirch
+    da: Diekirch
+    de: Diekirch
+    en: Diekirch
+    es: Cantón de Diekirch
+    fa: دیکیرش (ایالت)
+    fi: Diekirch
+    fr: canton de Diekirch
+    id: Kanton Diekirch
+    it: Cantone di Diekirch
+    ko: 디키르히 주
+    lt: Dykircho kantonas
+    nb: Diekirch
+    nl: Kanton Diekirch
+    pl: Kanton Diekirch
+    pt: Diekirch
+    ro: Diekirch
+    ru: Дикирх
+    sk: Diekirch
+    sv: Diekirch
+    tr: Diekirch kantonu
+    uk: Дікірх
+    ur: دیکیرش (صوبہ)
+    vi: Diekirch
+    ceb: Canton de Diekirch
+    zh: 迪基希县
+    ccp: "𑄓𑄭𑄇𑄨𑄢𑄴𑄌𑄴"
+    'no': Diekirch
+    ja: ディーキルヒ郡
+    th: อำเภอดิกเคริช
+  type: canton
+EC:
+  name: Iechternach
+  code: EC
+  geo:
+    latitude: 49.8
+    longitude: 6.4
+  translations:
+    ca: Cantó d’Echternach
+    cs: Kanton Echternach
+    da: Echternach
+    de: Echternach
+    en: Echternach
+    es: Cantón de Echternach
+    fa: اشترناخ (ایالت)
+    fr: canton d’Echternach
+    id: Kanton Echternach
+    it: Cantone di Echternach
+    ja: エヒタナハ郡
+    ko: 에히터나흐 주
+    lt: Echternacho kantonas
+    nb: Echternach
+    nl: Kanton Echternach
+    pl: Kanton Echternach
+    pt: Echternach
+    ro: Echternach
+    ru: Эхтернах
+    sk: Echternach
+    sv: Echternach
+    tr: Echternach kantonu
+    uk: Ехтернах
+    ur: اشترناخ (صوبہ)
+    vi: Echternach
+    ceb: Canton d’Echternach
+    ccp: "𑄃𑄨𑄌𑄴𑄑𑄢𑄴𑄚𑄌𑄴"
+    'no': Echternach
+    fi: Mullerthal
+    th: อำเภอเอียชเทอร์นัค
+  type: canton
+ES:
+  name: Esch-Uelzecht
+  code: ES
+  geo:
+    latitude: 49.5
+    longitude: 6
+  translations:
+    ca: Cantó d’Esch-sur-Alzette
+    cs: Kanton Esch an der Alzette
+    da: Esch-sur-Alzette
+    de: Esch an der Alzette
+    el: Καντόνιο της Ες-συρ-Αλζέτ
+    en: Esch-sur-Alzette
+    es: Cantón de Esch-sur-Alzette
+    fa: اش-سور-آلزت (ایالت)
+    fr: canton d’Esch-sur-Alzette
+    id: Kanton Esch-sur-Alzette
+    it: Cantone di Esch-sur-Alzette
+    ja: エシュ＝シュル＝アルゼット郡
+    ko: 에슈쉬르알제트 주
+    lt: Ešo kantonas
+    nb: Esch-sur-Alzette
+    nl: Kanton Esch-sur-Alzette
+    pl: Kanton Esch-sur-Alzette
+    pt: Esch-sur-Alzette
+    ro: Esch-sur-Alzette
+    ru: Эш-сюр-Альзетт
+    sk: Esch-sur-Alzette
+    sv: Esch-sur-Alzette
+    tr: Esch-sur-Alzette kantonu
+    uk: Еш-сюр-Альзетт
+    ur: اش-سور-الزیت (صوبہ)
+    vi: Esch-sur-Alzette
+    ceb: Canton d’Esch-sur-Alzette
+    ccp: "𑄃𑄨𑄌𑄴-𑄥𑄢𑄴-𑄃𑄣𑄴𑄎𑄬𑄑𑄨"
+    'no': Esch-sur-Alzette
+    th: อำเภอแอฌวลต์เซิชท์
+  type: canton
+GR:
+  name: Gréivemaacher
+  code: GR
+  geo:
+    latitude: 49.680841
+    longitude: 6.440759300000001
+    min_latitude: 49.6540799
+    min_longitude: 6.3601101
+    max_latitude: 49.6997
+    max_longitude: 6.4610601
+  translations:
+    ca: Cantó de Grevenmacher
+    cs: Kanton Grevenmacher
+    da: Grevenmacher
+    de: Grevenmacher
+    en: Grevenmacher
+    es: Cantón de Grevenmacher
+    fa: گرونماخر (ایالت)
+    fi: Grevenmacher
+    fr: canton de Grevenmacher
+    id: Kanton Grevenmacher
+    it: Cantone di Grevenmacher
+    ko: 그레벤마허 주
+    lt: Grėvenmacherio kantonas
+    nb: Grevenmacher
+    nl: Kanton Grevenmacher
+    pl: Kanton Grevenmacher
+    pt: Grevenmacher
+    ro: Grevenmacher
+    ru: Гревенмахер
+    sk: Grevenmacher
+    sv: Grevenmacher
+    tr: Grevenmacher kantonu
+    uk: Гревенмахер
+    ur: گرونماخر (صوبہ)
+    vi: Grevenmacher
+    ceb: Grevenmacher (munisipyo)
+    ccp: "𑄉𑄳𑄢𑄬𑄞𑄬𑄚𑄴𑄟𑄌𑄬𑄢𑄴"
+    az: Qrevenmaxer
+    th: อำเภอเกรเวินมัคเคอร์
+    'no': Grevenmacher
+    ja: グレーヴェンマハ郡
+  type: canton
+LU:
+  name: Lëtzebuerg
+  code: LU
+  translations:
+    be: Люксембург
+    ca: Cantó de Luxemburg
+    cs: Kanton Lucemburk
+    da: Luxembourg
+    de: Luxemburg
+    el: Καντόνιο του Λουξεμβούργου
+    en: Luxembourg
+    es: Cantón de Luxemburgo
+    fa: لوکزامبورگ (ایالت)
+    fi: Luxemburg
+    fr: canton de Luxembourg
+    id: Kanton Luksemburg
+    it: Cantone di Lussemburgo
+    ja: ルクセンブルク (カントン)
+    ko: 룩셈부르크 주
+    lt: Liuksemburgo kantonas
+    nb: Luxembourg
+    nl: Kanton Luxemburg
+    pl: Kanton Luksemburg
+    pt: Luxemburgo
+    ro: Luxemburg
+    ru: Люксембург
+    sk: Luxemburg
+    sv: Luxemburg
+    tr: Lüksemburg kantonu
+    ur: لگزمبرگ (صوبہ)
+    vi: Luxembourg
+    ceb: Canton de Luxembourg
+    ccp: "𑄣𑄪𑄇𑄴𑄥𑄬𑄟𑄴𑄝𑄢𑄴𑄇𑄴"
+    'no': Luxembourg
+    cy: Canton Lwcsembwrg
+    hy: Լյուքսեմբուրգ
+    th: อำเภอลักเซมเบิร์ก
+    uk: Люксембург (кантон)
+  type: canton
+ME:
+  name: Miersch
+  code: ME
+  geo:
+    latitude: 49.6
+    longitude: 6.1
+  translations:
+    be: Мерш
+    ca: Cantó de Mersch
+    cs: Kanton Mersch
+    da: Mersch
+    de: Mersch
+    en: Mersch
+    es: Cantón de Mersch
+    fr: canton de Mersch
+    id: Kanton Mersch
+    it: Cantone di Mersch
+    ko: 메르슈 주
+    lt: Meršo kantonas
+    nb: Mersch
+    nl: Kanton Mersch
+    pl: Kanton Mersch
+    pt: Mersch
+    ro: Mersch
+    ru: Мерш
+    sk: Mersch
+    sv: Mersch
+    tr: Mersch kantonu
+    uk: Люксембург
+    vi: Mersch
+    ceb: Canton de Mersch (kanton sa Luksemburgo)
+    ccp: "𑄟𑄢𑄴𑄥𑄴𑄌𑄴"
+    az: Merş
+    'no': Mersch
+    fa: مرش (کانتون)
+    ja: メルシュ郡
+    th: อำเภอเมียร์ช
+  type: canton
+RD:
+  name: Réiden-Atert
+  code: RD
+  geo:
+    latitude: 49.8
+    longitude: 5.8
+  translations:
+    be: кантон Рэданж
+    ca: Cantó de Redange
+    cs: Kanton Redingen
+    da: Redange
+    de: Redingen
+    en: Redange
+    es: Cantón de Redange
+    fr: canton de Redange
+    id: Kanton Redange
+    it: Cantone di Redange
+    ko: 레당주 주
+    lt: Redanžo kantonas
+    nb: Redingen
+    nl: Kanton Redange
+    pl: Kanton Redange
+    pt: Redange
+    ro: Redange
+    ru: Реданж
+    sk: Redange
+    sv: Canton de Redange
+    tr: Redange kantonu
+    uk: Реданж
+    vi: Redange
+    ceb: Canton de Redange
+    ccp: "𑄢𑄬𑄓𑄋𑄴𑄉𑄬"
+    'no': Redingen
+    fa: ردانژ (کانتون)
+    ja: ルダンジュ郡
+    th: อำเภอเร็ยเดิน
+  type: canton
+RM:
+  name: Réimech
+  code: RM
+  geo:
+    latitude: 49.5
+    longitude: 6.3
+  translations:
+    be: Кантон Рэміх
+    ca: Cantó de Remich
+    cs: Kanton Remich
+    da: Remich
+    de: Remich
+    en: Remich
+    es: Cantón de Remich
+    fa: رمیش (ایالت)
+    fr: canton de Remich
+    id: Kanton Remich
+    it: Cantone di Remich
+    ko: 레미히 주
+    lt: Rėmicho kantonas
+    nb: Remich
+    nl: Kanton Remich
+    pl: Kanton Remich
+    pt: Remich
+    ro: Remich
+    ru: Ремих
+    sk: Remich
+    sv: Remich
+    tr: Remich kantonu
+    uk: Реміх
+    ur: ریمیش (صوبہ)
+    vi: Remich
+    ceb: Canton de Remich
+    ccp: "𑄢𑄬𑄟𑄨𑄌𑄴"
+    'no': Remich
+    he: רמיש
+    ja: レーミッヒ郡
+    th: อำเภอเร็ยเมิช
+  type: canton
+VD:
+  name: Veianen
+  code: VD
+  geo:
+    latitude: 49.933333
+    longitude: 6.166667
+  translations:
+    ca: Cantó de Vianden
+    cs: Kanton Vianden
+    da: Vianden
+    de: Vianden
+    en: Vianden
+    es: Cantón de Vianden
+    fa: ویاندن (ایالت)
+    fr: canton de Vianden
+    id: Kanton Vianden
+    it: Cantone di Vianden
+    ko: 비앙덴 주
+    lt: Viandeno kantonas
+    nb: Vianden
+    nl: Kanton Vianden
+    pl: Kanton Vianden
+    pt: Vianden
+    ro: Vianden
+    ru: Вианден
+    sk: Vianden
+    sv: Canton de Vianden
+    tr: Vianden kantonu
+    uk: Віанден
+    ur: ویاندن (صوبہ)
+    vi: Vianden
+    ceb: Canton de Vianden
+    ccp: "𑄞𑄭𑄚𑄴𑄓𑄬𑄚𑄴"
+    'no': Vianden
+    ja: ヴィアンデン郡
+    th: อำเภอไฟอาเนิน
+  type: canton
+WI:
+  name: Wolz
+  code: WI
+  geo:
+    latitude: 49.95
+    longitude: 5.933333
+  translations:
+    ca: Cantó de Wiltz
+    cs: Kanton Wiltz
+    da: Wiltz
+    de: Wiltz
+    en: Wiltz
+    es: Cantón de Wiltz
+    fa: ویلتز (ایالت)
+    fr: canton de Wiltz
+    id: Kanton Wiltz
+    it: Cantone di Wiltz
+    ko: 빌츠 주
+    lt: Vilco kantonas
+    nb: Wiltz
+    nl: Kanton Wiltz
+    pl: Kanton Wiltz
+    pt: Wiltz
+    ro: Wiltz
+    ru: Вильц
+    sk: Wiltz
+    sv: Canton de Wiltz
+    tr: Wiltz kantonu
+    uk: Вільц
+    ur: ولتز (صوبہ)
+    vi: Wiltz
+    ceb: Canton de Wiltz
+    ccp: "𑄅𑄪𑄃𑄨𑄣𑄴𑄑𑄴𑄎𑄴"
+    'no': Wiltz
+    ja: ヴィルツ郡
+    th: อำเภอโวลตส์
+  type: canton

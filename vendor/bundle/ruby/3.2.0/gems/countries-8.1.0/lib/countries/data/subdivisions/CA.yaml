@@ -1,0 +1,1165 @@
+---
+AB:
+  name: Alberta
+  code: AB
+  unofficial_names:
+  - Alberta
+  geo:
+    latitude: 53.9332706
+    longitude: -116.5765035
+    min_latitude: 48.9966671
+    min_longitude: -120.0005219
+    max_latitude: 60.00006209999999
+    max_longitude: -109.9998551
+  translations:
+    en: Alberta
+    af: Alberta
+    ar: ألبرتا
+    az: Alberta
+    be: Правінцыя Альберта
+    bg: Албърта
+    bn: এ্যালবার্টা
+    ca: Alberta
+    cs: Alberta
+    da: Alberta
+    de: Alberta
+    el: Αλμπέρτα
+    es: Alberta
+    et: Alberta
+    eu: Alberta
+    fa: آلبرتا
+    fi: Alberta
+    fr: Alberta
+    gl: Alberta
+    gu: એલ્બર્ટા
+    he: אלברטה
+    hi: अल्बर्टा
+    hr: Alberta
+    hu: Alberta
+    hy: Ալբերտա
+    id: Alberta
+    is: Alberta
+    it: Alberta
+    ja: アルバータ州
+    ka: ალბერტა
+    kn: ಆಲ್ಬರ್ಟಾ
+    ko: 앨버타 주
+    lt: Alberta
+    lv: Alberta
+    mn: Альберта
+    mr: आल्बर्टा
+    ms: Alberta
+    nb: Alberta
+    nl: Alberta
+    pl: Alberta
+    pt: Alberta
+    ro: Alberta
+    ru: Альберта
+    si: අල්බෙර්ටා
+    sk: Alberta
+    sl: Alberta
+    sr: Алберта
+    sv: Alberta
+    sw: Alberta
+    ta: ஆல்பர்ட்டா
+    te: అల్బర్టా
+    th: รัฐแอลเบอร์ตา
+    tr: Alberta
+    uk: Альберта
+    ur: البرٹا
+    vi: Alberta
+    zh: 艾伯塔
+    cy: Alberta
+    ceb: Alberta
+    sr_Latn: Alberta
+    yue_Hans: 亚伯达
+    jv: Alberta
+    sq: Alberta
+    ccp: "𑄃𑄣𑄴𑄝𑄬𑄢𑄴𑄑"
+    ga: Alberta
+    so: Alberta
+    pa: ਐਲਬਰਟਾ
+    kk: Альберта
+    ml: ആൽബർട്ട
+    yue: 亞伯達
+    am: አልቤርታ
+    my: အယ်လဗားတားပြည်နယ်
+    uz: Alberta
+    bs: Alberta
+    mk: Алберта
+    'no': Alberta
+    ky: Альберта
+    ps: آلبرتا
+  type: province
+BC:
+  name: British Columbia
+  code: BC
+  unofficial_names:
+  - Colombie-Britannique
+  geo:
+    latitude: 53.7266683
+    longitude: -127.6476206
+    min_latitude: 48.3089123
+    min_longitude: -139.0570702
+    max_latitude: 60.0001489
+    max_longitude: -114.0542211
+  translations:
+    en: British Columbia
+    af: Brits-Columbië
+    ar: كولومبيا البريطانية
+    az: Britaniya Kolumbiyası
+    be: Правінцыя Брытанская Калумбія
+    bg: Британска Колумбия
+    bn: ব্রিটিশ কলাম্বিয়া
+    ca: Colúmbia Britànica
+    cs: Britská Kolumbie
+    da: Britisk Columbia
+    de: British Columbia
+    el: Βρετανική Κολομβία
+    es: Columbia Británica
+    et: Briti Columbia
+    eu: Columbia Britainiarra
+    fa: بریتیش کلمبیا
+    fi: Brittiläinen Kolumbia
+    fr: Colombie-Britannique
+    gl: Columbia Británica - British Columbia
+    gu: બ્રિટિશ કોલમ્બિયા
+    he: קולומביה הבריטית
+    hi: ब्रिटिश कोलम्बिया
+    hr: Britanska Kolumbija
+    hu: Brit Columbia
+    hy: Բրիտանական Կոլումբիա
+    id: British Columbia
+    is: Breska Kólumbía
+    it: Columbia Britannica
+    ja: ブリティッシュコロンビア州
+    ka: ბრიტანეთის კოლუმბია
+    kn: ಬ್ರಿಟಿಷ್‌‌ ಕೊಲಂಬಿಯಾ
+    ko: 브리티시컬럼비아 주
+    lt: Britų Kolumbija
+    lv: Britu Kolumbija
+    mn: Бритиш Коламбиа
+    mr: ब्रिटिश कोलंबिया
+    ms: British Columbia
+    nb: Britisk Columbia
+    nl: Brits-Columbia
+    pl: Kolumbia Brytyjska
+    pt: Colúmbia Britânica
+    ro: Columbia Britanică
+    ru: Британская Колумбия
+    si: බ්‍රිටිෂ් කොලොම්බියා
+    sk: Britská Kolumbia
+    sl: Britanska Kolumbija
+    sr: Британска Колумбија
+    sv: British Columbia
+    sw: British Kolumbia
+    ta: பிரிட்டிசு கொலம்பியா
+    te: బ్రిటిష్ కొలంబియా
+    th: รัฐบริติชโคลัมเบีย
+    tr: Britanya Kolumbiyası
+    uk: Британська Колумбія
+    ur: برٹش کولمبیا
+    vi: British Columbia
+    cy: British Columbia
+    ceb: British Columbia
+    sr_Latn: Britanska Kolumbija
+    zh: 不列颠哥伦比亚
+    yue_Hans: 卑诗省
+    jv: British Columbia
+    sq: Kolumbia Britanike
+    ccp: "𑄝𑄳𑄢𑄨𑄑𑄨𑄌𑄴 𑄇𑄧𑄣𑄧𑄟𑄴𑄝𑄨𑄠"
+    ga: An Cholóim Bhriotanach
+    pa: ਬਰੀਟੀਸ਼ ਕੋਲੰਬਿਆ
+    ml: ബ്രിട്ടീഷ് കൊളമ്പിയ
+    yue: 卑詩省
+    am: ብሪቲሽ ኮለምቢያ
+    my: ဗြိတိသျှ ကိုလံဘီယာ ပြည်နယ်
+    uz: Britaniya Kolumbiyasi
+    bs: Britanska Kolumbija
+    mk: Британска Колумбија
+    'no': Britisk Columbia
+    kk: Британдық Колумбия
+    ps: برتانوي کولمبيا
+  type: province
+MB:
+  name: Manitoba
+  code: MB
+  unofficial_names:
+  - Manitoba
+  geo:
+    latitude: 53.7608608
+    longitude: -98.81387629999999
+    min_latitude: 48.998861
+    min_longitude: -102.0000041
+    max_latitude: 60.0001031
+    max_longitude: -88.9852265
+  translations:
+    en: Manitoba
+    af: Manitoba
+    ar: مانيتوبا
+    az: Manitoba
+    be: Правінцыя Манітоба
+    bg: Манитоба
+    bn: ম্যানিটোবা
+    ca: Manitoba
+    cs: Manitoba
+    da: Manitoba
+    de: Manitoba
+    el: Μανιτόμπα
+    es: Manitoba
+    et: Manitoba provints
+    eu: Manitoba
+    fa: مانیتوبا
+    fi: Manitoba
+    fr: Manitoba
+    gl: Manitoba
+    gu: મેનિટોબા
+    he: מניטובה
+    hi: मानिटोबा
+    hr: Manitoba
+    hu: Manitoba
+    hy: Մանիթոբա
+    id: Manitoba
+    is: Manitoba
+    it: Manitoba
+    ja: マニトバ州
+    ka: მანიტობა
+    kn: ಮ್ಯಾನಿಟೋಬ
+    ko: 매니토바 주
+    lt: Manitoba
+    lv: Manitoba
+    mn: Манитоба
+    mr: मॅनिटोबा
+    ms: Manitoba
+    nb: Manitoba
+    nl: Manitoba
+    pl: Manitoba
+    pt: Manitoba
+    ro: Manitoba
+    ru: Манитоба
+    si: මනිටොබා
+    sk: Manitoba
+    sl: Manitoba
+    sr: Манитоба
+    sv: Manitoba
+    sw: Manitoba
+    ta: மானிட்டோபா
+    te: మనిటోబా
+    th: รัฐแมนิโทบา
+    tr: Manitoba
+    uk: Манітоба
+    ur: مانیٹوبا
+    vi: Manitoba
+    cy: Manitoba
+    ceb: Manitoba
+    sr_Latn: Manitoba
+    zh: 曼尼托巴
+    yue_Hans: 缅尼吐巴
+    sq: Manitoba
+    ccp: "𑄟𑄚𑄨𑄑𑄧𑄝"
+    ga: Manitoba
+    pa: ਮਾਨੀਟੋਬਾ
+    kk: Манитоба
+    ml: മനിറ്റോബ
+    yue: 緬尼吐巴
+    am: ማኒቶባ
+    my: မနီတိုးဗားပြည်နယ်
+    uz: Manitoba (Kanada)
+    bs: Manitoba
+    mk: Манитоба
+    'no': Manitoba
+    so: Manitoba
+  type: province
+NB:
+  name: New Brunswick
+  code: NB
+  unofficial_names:
+  - Nouveau-Brunswick
+  geo:
+    latitude: 46.5653163
+    longitude: -66.46191639999999
+    min_latitude: 44.499574
+    min_longitude: -69.05339289999999
+    max_latitude: 48.1735157
+    max_longitude: -63.7706403
+  translations:
+    en: New Brunswick
+    af: Nieu-Brunswyk
+    ar: نيو برونزويك
+    az: Nyu-Brunsvik
+    be: Правінцыя Нью-Брансуік
+    bg: Ню Брънзуик
+    bn: নিউ ব্রান্সউইক
+    ca: Nova Brunsvic
+    cs: Nový Brunšvik
+    da: New Brunswick
+    de: New Brunswick
+    el: Νιου Μπράνσγουικ
+    es: Nuevo Brunswick
+    et: New Brunswick
+    eu: Brunswick Berria
+    fa: نیوبرانزویک
+    fi: New Brunswick
+    fr: Nouveau-Brunswick
+    gl: Nova Brunswick
+    gu: ન્યૂ બ્રુન્સવિક
+    he: ניו ברנזוויק
+    hi: न्यू ब्रंसविक
+    hr: Novi Brunswick
+    hu: Új-Brunswick
+    hy: Նյու Բրանսուիկ
+    id: New Brunswick
+    is: Nýja-Brúnsvík
+    it: Nuovo Brunswick
+    ja: ニューブランズウィック州
+    ka: ნიუ-ბრანსუიკი
+    kn: ನ್ಯೂ ಬ್ರನ್ಸ್ವಿಕ್
+    ko: 뉴브런즈윅 주
+    lt: Naujasis Bransvikas
+    lv: Ņūbransvika
+    mn: Нью-Брансвик
+    mr: न्यू ब्रुन्सविक
+    ms: New Brunswick
+    nb: New Brunswick
+    nl: New Brunswick
+    pl: Nowy Brunszwik
+    pt: Nova Brunswick
+    ro: Noul Brunswick
+    ru: Нью-Брансуик
+    si: නව බ්‍රනස්වික්
+    sk: New Brunswick
+    sl: Novi Brunswick
+    sr: Њу Брансвик
+    sv: New Brunswick
+    sw: New Brunswick
+    ta: நியூ பிரன்சுவிக்
+    te: న్యూ బ్రున్స్‌విక్
+    th: รัฐนิวบรันสวิก
+    tr: New Brunswick
+    uk: Нью-Брансвік
+    ur: نیو برنزویک
+    vi: New Brunswick
+    cy: Brunswick Newydd
+    ceb: New Brunswick (lalawigan)
+    sr_Latn: Nju Bransvik
+    zh: 新不倫瑞克
+    yue_Hans: 纽宾士域省
+    sq: New Brunswick
+    ccp: "𑄚𑄨𑄅𑄪 𑄝𑄳𑄢𑄚𑄴𑄥𑄪𑄃𑄨𑄇𑄴"
+    ga: New Brunswick
+    pa: ਨਿਊ ਬਰੰਸਵਿਕ
+    yue: 紐賓士域省
+    am: ኒው ብረንዝውክ
+    uz: Nyu-bransuyk
+    bs: Novi Brunswick
+    mk: Њу Бранзвик
+    'no': New Brunswick
+    kk: Нью-Брансуик
+    ml: ന്യൂ ബ്രൺസ്വിക്ക്
+  type: province
+NL:
+  name: Newfoundland and Labrador
+  code: NL
+  unofficial_names:
+  - Terre-Neuve-et-Labrador
+  - Newfoundland
+  - Terre-Neuve
+  geo:
+    latitude: 53.1355091
+    longitude: -57.6604364
+    min_latitude: 46.6114571
+    min_longitude: -67.8216849
+    max_latitude: 60.37627010000001
+    max_longitude: -52.6194086
+  translations:
+    en: Newfoundland and Labrador
+    af: Newfoundland en Labrador
+    ar: نيوفاوندلاند واللابرادور
+    az: Nyufaundlend və Labrador
+    be: Правінцыя Ньюфаўндленд і Лабрадор
+    bg: Нюфаундленд и Лабрадор
+    bn: নিউফাউন্ডল্যান্ড এবং ল্যাব্রাডর
+    ca: Terranova i Labrador
+    cs: Newfoundland a Labrador
+    da: Newfoundland og Labrador
+    de: Neufundland und Labrador
+    el: Νέα Γη και Λαμπραντόρ
+    es: Terranova y Labrador
+    et: Newfoundland ja Labrador
+    eu: Ternua eta Labrador
+    fa: نیوفاندلند و لابرادور
+    fi: Newfoundland ja Labrador
+    fr: Terre-Neuve-et-Labrador
+    gl: Terra Nova e Labrador
+    gu: ન્યુફાઉન્ડલેન્ડ એન્ડ લેબ્રાડોર
+    he: ניופאונדלנד ולברדור
+    hi: न्यूफाउंडलैंड और लैब्राडोर
+    hr: Newfoundland i Labrador
+    hu: Új-Fundland és Labrador
+    hy: Նյուֆաունդլենդ և Լաբրադոր
+    id: Newfoundland dan Labrador
+    is: Nýfundnaland og Labrador
+    it: Terranova e Labrador
+    ja: ニューファンドランド・ラブラドール州
+    ka: ნიუფაუნდლენდი და ლაბრადორი
+    kn: ನ್ಯೂಫೌಂಡ್ಲ್ಯಾಂಡ್ ಮತ್ತು ಲ್ಯಾಬ್ರಡಾರ್
+    ko: 뉴펀들랜드 래브라도 주
+    lt: Niufaundlandas ir Labradoras
+    lv: Ņūfaundlenda un Labradora
+    mn: Ньюфаундленд ба Лабрадор
+    mr: न्यू फाउंडलंड आणि लाब्राडोर
+    ms: Newfoundland dan Labrador
+    nb: Newfoundland og Labrador
+    nl: Newfoundland en Labrador
+    pl: Nowa Fundlandia i Labrador
+    pt: Terra Nova e Labrador
+    ro: Newfoundland și Labrador
+    ru: Ньюфаундленд и Лабрадор
+    si: නිව් ෆවුන්ඩ්ලන්ඩ් සහ ලබ්‍රඩොර්
+    sk: Newfoundland a Labrador
+    sl: Nova Fundlandija in Labrador
+    sr: Њуфаундленд и Лабрадор
+    sv: Newfoundland och Labrador
+    sw: Newfoundland and Labrador
+    ta: நியூஃபவுன்லாந்து மற்றும் லாப்ரடோர்
+    te: న్యూఫౌండ్ ల్యాండ్ మరియు లాబ్రాడార్
+    th: รัฐนิวฟันด์แลนด์และแลบราดอร์
+    tr: Newfoundland ve Labrador
+    uk: Ньюфаундленд і Лабрадор
+    ur: نیو فاؤنڈ لینڈ اور لیبراڈور
+    vi: Newfoundland và Labrador
+    cy: Newfoundland a Labrador
+    ceb: Newfoundland and Labrador
+    sr_Latn: Njufaundlend i Labrador
+    zh: 紐芬蘭與拉布拉多
+    yue_Hans: 纽芬兰与拉布拉多
+    sq: Toka e Re dhe Labradori
+    ccp: "𑄚𑄨𑄅𑄪𑄜𑄅𑄪𑄚𑄴𑄣𑄳𑄠𑄚𑄳𑄓𑄴 𑄃𑄳𑄃 𑄣𑄝𑄳𑄢𑄓𑄮𑄢𑄴"
+    ga: Talamh an Éisc agus Labradar
+    pa: ਨਿਊਫ਼ੰਡਲੈਂਡ ਅਤੇ ਲਾਬਰਾਡੋਰ
+    yue: 紐芬蘭與拉布拉多
+    am: ኑፈንላንድና ላብረዶር
+    my: နယူးဖောင်လန် နှင့် လာဘရာဒေါ ပြည်နယ်
+    yo: Newfoundland àti Labrador
+    uz: Nyufaundlend va Labrador
+    bs: Newfoundland i Labrador
+    mk: Њуфаундленд и Лабрадор
+    'no': Newfoundland og Labrador
+    yo_BJ: Newfoundland àti Labrador
+    kk: Ньюфаундленд және Лабрадор
+    ml: ന്യൂഫൗണ്ടൻലാൻഡ് ആന്റ് ലാബ്രഡോർ
+  type: province
+NS:
+  name: Nova Scotia
+  code: NS
+  unofficial_names:
+  - Nouvelle-Écosse
+  geo:
+    latitude: 44.68198659999999
+    longitude: -63.744311
+    min_latitude: 43.3918805
+    min_longitude: -66.3948186
+    max_latitude: 47.2277438
+    max_longitude: -59.676914
+  translations:
+    en: Nova Scotia
+    af: Nova Scotia
+    ar: نوفا سكوشا
+    az: Yeni Şotlandiya
+    be: Правінцыя Новая Шатландыя
+    bg: Нова Скотия
+    bn: নভা স্কশিয়া
+    ca: Nova Escòcia
+    cs: Nové Skotsko
+    da: Nova Scotia
+    de: Nova Scotia
+    el: Νέα Σκωτία
+    es: Nueva Escocia
+    et: Nova Scotia
+    eu: Eskozia Berria
+    fa: نوا اسکوشیا
+    fi: Nova Scotia
+    fr: Nouvelle-Écosse
+    gl: Nova Escocia - Nova Scotia
+    gu: નોવા સ્કોટીઆ
+    he: נובה סקוטיה
+    hi: नोवा स्कॉटिया
+    hr: Nova Škotska
+    hu: Új-Skócia
+    hy: Նոր Շոտլանդիա
+    id: Nova Scotia
+    is: Nýja-Skotland
+    it: Nuova Scozia
+    ja: ノバスコシア州
+    ka: ახალი შოტლანდია
+    kn: ನೋವಾ ಸ್ಕಾಟಿಯಾ
+    ko: 노바스코샤 주
+    lt: Naujoji Škotija
+    lv: Jaunskotija
+    mn: Нова Скоша
+    mr: नोव्हा स्कॉशिया
+    ms: Nova Scotia
+    nb: Nova Scotia
+    nl: Nova Scotia
+    pl: Nowa Szkocja
+    pt: Nova Escócia
+    ro: Noua Scoție
+    ru: Новая Шотландия
+    si: නොවා ස්කොටියා
+    sk: Nové Škótsko
+    sl: Nova Škotska
+    sr: Нова Шкотска
+    sv: Nova Scotia
+    sw: Nova Scotia
+    ta: நோவா ஸ்கோசியா
+    te: నోవా స్కోటియా
+    th: รัฐโนวาสโกเชีย
+    tr: Yeni İskoçya
+    uk: Нова Шотландія
+    ur: نووا سکوشیا
+    vi: Nova Scotia
+    cy: Nova Scotia
+    ceb: Nova Scotia
+    sr_Latn: Nova Škotska
+    zh: 新斯科舍
+    yue_Hans: 诺华斯高沙
+    sq: Skocia e Re
+    ccp: "𑄚𑄮𑄞 𑄌𑄳𑄇𑄧𑄑𑄨𑄠"
+    ga: Albain Nua
+    pa: ਨੋਵਾ ਸਕੋਸ਼ਾ
+    ml: നോവ സ്കോട്ടിയ
+    yue: 諾華斯高沙
+    am: ኖቫ ስኮሻ
+    my: နိုဗာစကိုးရှားပြည်နယ်
+    uz: Yangi Shotlandiya
+    bs: Nova Scotia
+    mk: Нова Шкотска
+    'no': Nova Scotia
+    kk: Жаңа Шотландия
+  type: province
+NT:
+  name: Northwest Territories
+  code: NT
+  unofficial_names:
+  - Territoires du Nord-Ouest
+  geo:
+    latitude: 64.8255441
+    longitude: -124.8457334
+    min_latitude: 59.99995399999999
+    min_longitude: -136.4687053
+    max_latitude: 78.7613421
+    max_longitude: -101.999999
+  translations:
+    en: Northwest Territories
+    af: Noordwestelike gebiede
+    ar: الأقاليم الشمالية الغربية
+    az: Şimal-Qərb Əraziləri
+    be: Паўночна-Заходнія тэрыторыі
+    bg: Северозападни територии
+    bn: উত্তর পশ্চিম অঞ্চল
+    ca: Territoris del Nord-oest
+    cs: Severozápadní teritoria
+    da: Northwest Territories
+    de: Nordwest-Territorien
+    el: Βορειοδυτικά Εδάφη
+    es: Territorios del Noroeste
+    et: Loodealad
+    eu: Ipar-mendebaldeko lurraldeak
+    fa: نواحی شمال غرب
+    fi: Luoteisterritoriot
+    fr: Territoires du Nord-Ouest
+    gl: Territorios do Noroeste
+    gu: નોર્થવેસ્ટ ટેરિટરીઝ
+    he: הטריטוריות הצפון-מערביות
+    hi: नॉर्थवेस्ट टेरीटरीज़
+    hr: Sjeverozapadni teritoriji
+    hu: Északnyugati területek
+    hy: Հյուսիսարևմտյան տարածքներ
+    id: Wilayah Barat Laut
+    is: Norðvesturhéruðin
+    it: Territori del Nord-Ovest
+    ja: ノースウエスト準州
+    ka: ჩრდილო-დასავლეთი ტერიტორიები
+    kn: ವಾಯುವ್ಯ ಪ್ರಾಂತ್ಯಗಳು
+    ko: 노스웨스트 준주
+    lt: Šiaurės Vakarai
+    lv: Ziemeļrietumu Teritorijas
+    mn: Баруун Хойд Нутаг Дэвсгэр
+    mr: नॉर्थवेस्ट टेरिटोरीज
+    ms: Wilayah Barat Laut
+    nb: Nordvestterritoriene
+    nl: Northwest Territories
+    pl: Terytoria Północno-Zachodnie
+    pt: Territórios do Noroeste
+    ro: Teritoriile de Nordvest
+    ru: Северо-Западные территории
+    si: උතුරු බටහිර භුමිය
+    sk: Severozápadné teritóriá
+    sl: Severozahodni teritoriji
+    sr: Северозападне територије
+    sv: Northwest Territories
+    sw: Northwest Territories
+    ta: வடமேற்கு நிலப்பகுதிகள்
+    te: నార్త్‌వెస్ట్ టెరిటరీస్
+    th: นอร์ทเวสต์เทร์ริทอรีส์
+    tr: Kuzeybatı Toprakları
+    uk: Північно-Західні території
+    ur: شمال مغربی علاقہ جات، کینیڈا
+    vi: Các Lãnh thổ Tây Bắc
+    cy: Tiriogaethau’r Gogledd-orllewin
+    ceb: Northwest Territories
+    sr_Latn: Severozapadne teritorije
+    zh: 西北地区
+    yue_Hans: 西北地区
+    sq: Territoret Veri-Perëndimore
+    ccp: "𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄬𑄘𑄨 𑄢𑄬𑄎𑄳𑄠𑄧𑄠𑄚𑄨"
+    ga: Críocha an Iarthuaiscirt
+    pa: ਉੱਤਰ-ਪੱਛਮੀ ਰਾਜਖੇਤਰ
+    yue: 西北地區
+    am: ስሜን-ምዕራብ ግዛቶች
+    uz: Shimoli-Gʻarbiy hududlar
+    bs: Sjeverozapadne teritorije
+    mk: Северозападни Територии
+    'no': Nordvestterritoriene
+    kk: Солтүстік-Батыс территориялары
+    ml: നോർത്ത്വെസ്റ്റ് ടെറിറ്ററീസ്
+  type: territory
+NU:
+  name: Nunavut
+  code: NU
+  unofficial_names:
+  - Nunavut
+  geo:
+    latitude: 70.2997711
+    longitude: -83.1075769
+    min_latitude: 51.6406985
+    min_longitude: -121.0492491
+    max_latitude: 83.0956638
+    max_longitude: -61.1794384
+  translations:
+    en: Nunavut
+    af: Nunavut
+    ar: نونافوت
+    az: Nunavut
+    be: Нунавут
+    bg: Нунавут
+    bn: নুনাভুত
+    ca: Nunavut
+    cs: Nunavut
+    da: Nunavut
+    de: Nunavut
+    el: Νούναβουτ
+    es: Nunavut
+    et: Nunavut
+    eu: Nunavut
+    fa: نوناووت
+    fi: Nunavut
+    fr: Nunavut
+    gl: Nunavut
+    gu: નુનાવત
+    he: נונאווט
+    hi: नुनावुत
+    hr: Nunavut
+    hu: Nunavut
+    hy: Նունավութ
+    id: Nunavut
+    is: Nunavut
+    it: Nunavut
+    ja: ヌナブト準州
+    ka: ნუნავუტი
+    kn: ನುನಾವುಟ್
+    ko: 누나부트 준주
+    lt: Nunavutas
+    lv: Nunavuta
+    mn: Нунавут
+    mr: नुनाव्हुत
+    ms: Nunavut
+    nb: Nunavut
+    nl: Nunavut
+    pl: Nunavut
+    pt: Nunavut
+    ro: Nunavut
+    ru: Нунавут
+    si: නනවුට්
+    sk: Nunavut
+    sl: Nunavut
+    sr: Нунавут
+    sv: Nunavut
+    sw: Nunavut
+    ta: நுனாவுட்
+    te: నునావుట్
+    th: นูนาวุต
+    tr: Nunavut
+    uk: Нунавут
+    ur: نناوت
+    vi: Nunavut
+    cy: Nunavut
+    ceb: Nunavut
+    sr_Latn: Nunavut
+    zh: 努納武特
+    yue_Hans: 努那乌
+    sq: Nunavut
+    ccp: "𑄚𑄪𑄚𑄞𑄖𑄴"
+    ga: Nunavut
+    pa: ਨੂਨਾਵੁਤ
+    kk: Нунавут
+    ml: നുനാവട്
+    yue: 努那烏
+    am: ኑናቩት
+    uz: Nunavut
+    bs: Nunavut
+    mk: Нунавут
+    'no': Nunavut
+    ky: Нунавуут
+  type: territory
+'ON':
+  name: Ontario
+  code: 'ON'
+  unofficial_names:
+  - Ontario
+  geo:
+    latitude: 51.253775
+    longitude: -85.3232139
+    min_latitude: 41.68134879999999
+    min_longitude: -95.1562271
+    max_latitude: 56.8565279
+    max_longitude: -74.34388229999999
+  translations:
+    en: Ontario
+    af: Ontario
+    ar: أونتاريو
+    az: Ontario
+    be: Правінцыя Антарыа
+    bg: Онтарио
+    bn: অন্টারিও
+    ca: Ontàrio
+    cs: Ontario
+    da: Ontario
+    de: Ontario
+    el: Οντάριο
+    es: Ontario
+    et: Ontario
+    eu: Ontario
+    fa: انتاریو
+    fi: Ontario
+    fr: Ontario
+    gl: Ontario
+    gu: ઑન્ટેરિઓ
+    he: אונטריו
+    hi: ओण्टारियो
+    hr: Ontario
+    hu: Ontario
+    hy: Օնտարիո
+    id: Ontario
+    is: Ontario
+    it: Ontario
+    ja: オンタリオ州
+    ka: ონტარიო
+    kn: ಒಂಟಾರಿಯೊ
+    ko: 온타리오 주
+    lt: Ontarijas
+    lv: Ontārio
+    ml: ഒണ്ടാറിയോ
+    mn: Онтарио
+    mr: ऑन्टारियो
+    ms: Ontario
+    nb: Ontario
+    nl: Ontario
+    pl: Ontario
+    pt: Ontário
+    ro: Ontario
+    ru: Онтарио
+    si: ඔන්ටාරියෝ
+    sk: Ontário
+    sl: Ontario
+    sr: Онтарио
+    sv: Ontario
+    sw: Ontario
+    ta: ஒன்ராறியோ
+    te: అంటారియో
+    th: รัฐออนแทรีโอ
+    tr: Ontario
+    uk: Онтаріо
+    ur: انٹاریو
+    vi: Ontario
+    cy: Ontario
+    ceb: Ontario
+    sr_Latn: Ontario
+    zh: 安大略
+    yue_Hans: 安大略
+    sq: Ontario
+    ccp: "𑄃𑄧𑄚𑄴𑄑𑄢𑄨𑄃𑄮"
+    ga: Ontario
+    so: Ontario
+    pa: ਓਂਟਾਰਿਓ
+    yue: 安大略
+    am: ኦንቴሪዮ
+    my: အွန်တေးရီးယိုးပြည်နယ်
+    uz: Ontario
+    bs: Ontario
+    mk: Онтарио
+    ne: ओन्टारियो
+    'no': Ontario
+    kk: Онтарио
+    ps: آنټاریو
+  type: province
+PE:
+  name: Prince Edward Island
+  code: PE
+  unofficial_names:
+  - Île-du-Prince-Édouard
+  geo:
+    latitude: 46.510712
+    longitude: -63.41681359999999
+    min_latitude: 45.9481845
+    min_longitude: -64.5661238
+    max_latitude: 47.4416628
+    max_longitude: -61.97075460000001
+  translations:
+    en: Prince Edward Island
+    af: Prins-Edward-Eiland
+    ar: جزيرة الأمير إدوارد
+    az: Şahzadə Eduard Adası
+    be: Востраў Прынца Эдуарда
+    bg: Остров Принц Едуард
+    bn: প্রিন্স এডওয়ার্ড দ্বীপ
+    ca: Illa del Príncep Eduard
+    cs: Ostrov prince Edvarda
+    da: Prince Edward Island
+    de: Prince Edward Island
+    el: Νήσος του Πρίγκηπα Εδουάρδου
+    es: Isla del Príncipe Eduardo
+    et: Prints Edwardi saar
+    eu: Eduardo Printzearen uhartea
+    fa: جزیره پرنس ادوارد
+    fi: Prinssi Edwardin saari
+    fr: Île-du-Prince-Édouard
+    gl: Illa do Príncipe Eduardo
+    gu: પ્રિન્સ એડવર્ડ આઇલેન્ડ
+    he: אי הנסיך אדוארד
+    hi: प्रिंस एडवर्ड द्वीप
+    hr: Otok Princa Edwarda
+    hu: Prince Edward-sziget
+    hy: Էդուարդ արքայազնի կղզի
+    id: Pulau Pangeran Edward
+    is: Eyja Játvarðs prins
+    it: Isola del Principe Edoardo
+    ja: プリンスエドワードアイランド州
+    ka: პრინს-ედუარდის კუნძული
+    kn: ಪ್ರಿನ್ಸ್ ಎಡ್ವರ್ಡ್ ಐಲೆಂಡ್
+    ko: 프린스에드워드아일랜드 주
+    lt: Princo Edvardo sala
+    lv: Prinča Edvarda Sala
+    mn: Принс Эдвардын Арал
+    mr: प्रिन्स एडवर्ड आयलंड
+    ms: Pulau Prince Edward
+    nb: Prince Edward Island
+    nl: Prins Edwardeiland
+    pl: Wyspa Księcia Edwarda
+    pt: Ilha do Príncipe Eduardo
+    ro: Insula Prințului Edward
+    ru: Остров Принца Эдуарда
+    si: ප්‍රින්ස් එඩ්වඩ් දූපත
+    sk: Ostrov princa Eduarda
+    sl: Otok princa Edvarda
+    sr: Острво Принца Едварда
+    sv: Prince Edward Island
+    sw: Prince Edward Island
+    ta: இளவரசர் எட்வர்ட் தீவு
+    te: ప్రిన్స్ ఎడ్వర్డ్ దీవి
+    th: รัฐพรินซ์เอ็ดเวิร์ดไอแลนด์
+    tr: Prens Edward Adası
+    uk: Острів Принца Едварда
+    ur: پرنس ایڈورڈ آئی لینڈ
+    vi: Đảo Hoàng tử Edward
+    cy: Prince Edward Island
+    ceb: Prince Edward Island (lalawigan)
+    sr_Latn: Ostrvo Princa Edvarda
+    zh: 愛德華王子島
+    yue_Hans: 爱德华太子岛
+    sq: Ishulli i Princit Eduard
+    ccp: "𑄛𑄳𑄢𑄨𑄚𑄴𑄥𑄴 𑄃𑄬𑄖𑄴𑄃𑄮𑄠𑄢𑄴𑄓𑄴 𑄃𑄨𑄌𑄴𑄣𑄳𑄠𑄚𑄳𑄓𑄴"
+    ga: Oileán Phrionsa Éadbhard
+    pa: ਪ੍ਰਿੰਸ ਐਡਵਰਡ ਟਾਪੂ
+    yue: 愛德華太子島
+    am: ፕርንስ ኤድወርድ አይለንድ
+    uz: Shahzoda Eduard oroli
+    bs: Ostrvo Princa Edwarda
+    mk: Остров Принц Едвард
+    'no': Prince Edward Island
+    kk: Ханзада Эдуард Аралы
+    ml: പ്രിൻസ് എഡ്വേർഡ് ദ്വീപ്
+    so: Prince Edward Island
+  type: province
+QC:
+  name: Quebec
+  code: QC
+  unofficial_names:
+  - Québec
+  geo:
+    latitude: 52.9399159
+    longitude: -73.5491361
+    min_latitude: 44.9913581
+    min_longitude: -79.7623371
+    max_latitude: 62.5830552
+    max_longitude: -57.1054859
+  translations:
+    en: Quebec
+    af: Quebec
+    am: ኬበክ
+    ar: كيبك
+    az: Kvebek
+    be: Правінцыя Квебек
+    bg: Квебек
+    bn: কুইবেক
+    ca: Quebec
+    cs: Quebec
+    da: Québec
+    de: Québec
+    el: Κεμπέκ
+    es: Quebec
+    et: Québec
+    eu: Quebec
+    fa: استان کبک
+    fi: Quebec
+    fr: Québec
+    gl: Quebec
+    gu: ક્વિબેક
+    he: קוויבק
+    hi: क्यूबेक
+    hr: Québec
+    hu: Québec
+    hy: Քվեբեք
+    id: Quebec
+    is: Québec
+    it: Québec
+    ja: ケベック州
+    ka: კვებეკი
+    kn: ಕ್ವಿಬೆಕ್
+    ko: 퀘벡 주
+    lo: ແຂວງເກແບັກ
+    lt: Kvebekas
+    lv: Kvebeka
+    ml: ക്യൂബെക്
+    mn: Кэбэк
+    mr: क्वेबेक
+    ms: Quebec
+    nb: Québec
+    ne: क्युबेक
+    nl: Québec
+    pl: Quebec
+    pt: Quebec
+    ro: Provincia Québec
+    ru: Квебек
+    si: කියුබෙක්
+    sk: Quebec
+    sl: Québec
+    sr: Квебек
+    sv: Québec
+    sw: Quebec
+    ta: கியூபெக்
+    te: క్యూబెక్
+    th: รัฐควิเบก
+    tr: Québec
+    uk: Квебек
+    ur: کیوبیک
+    vi: Québec
+    cy: Québec
+    ceb: Québec (lalawigan)
+    sr_Latn: Kvebek
+    zh: 魁北克
+    yue_Hans: 魁北克
+    jv: Quebec
+    sq: Quebec
+    ccp: "𑄇𑄭𑄪𑄝𑄬𑄇𑄴"
+    ga: Québec
+    ha: Kebek
+    so: Quebec
+    pa: ਕੇਬੈਕ
+    kk: Квебек
+    yue: 魁北克
+    my: ကွီဗက်ပြည်နယ်
+    uz: Kvebek
+    bs: Quebec
+    mk: Квебек
+    ha_NE: Kebek
+    'no': Québec
+    ky: Квебек (Аймак)
+  type: province
+SK:
+  name: Saskatchewan
+  code: SK
+  unofficial_names:
+  - Saskatchewan
+  geo:
+    latitude: 52.9399159
+    longitude: -106.4508639
+    min_latitude: 48.9988059
+    min_longitude: -110.0077549
+    max_latitude: 60.000063
+    max_longitude: -101.362305
+  translations:
+    en: Saskatchewan
+    af: Saskatchewan
+    ar: ساسكاتشوان
+    az: Saskaçevan
+    be: Правінцыя Саскачэван
+    bg: Саскачеван
+    bn: সাস্কাচুয়ান
+    ca: Saskatchewan
+    cs: Saskatchewan
+    da: Saskatchewan
+    de: Saskatchewan
+    el: Σασκάτσουαν
+    es: Saskatchewan
+    et: Saskatchewani provints
+    eu: Saskatchewan
+    fa: سسکچوان
+    fi: Saskatchewan
+    fr: Saskatchewan
+    gl: Saskatchewan
+    gu: સાસ્કાટચેવન
+    he: ססקצ׳ואן
+    hi: सैस्कैचेवेन
+    hr: Saskatchewan
+    hu: Saskatchewan
+    hy: Սասկաչևան
+    id: Saskatchewan
+    is: Saskatchewan
+    it: Saskatchewan
+    ja: サスカチュワン州
+    ka: სასკაჩევანი
+    kn: ಸಾಸ್ಕಾಚೆವನ್
+    ko: 서스캐처원 주
+    lt: Saskačevanas
+    lv: Saskačevana
+    mn: Саскачеван
+    mr: सास्काचेवान
+    ms: Saskatchewan
+    nb: Saskatchewan
+    nl: Saskatchewan
+    pl: Saskatchewan
+    pt: Saskatchewan
+    ro: Saskatchewan
+    ru: Саскачеван
+    si: සස්කචෙවාන්
+    sk: Saskatchewan
+    sl: Saskatchewan
+    sr: Саскачеван
+    sv: Saskatchewan
+    sw: Saskatchewan
+    ta: சஸ்காச்சுவான்
+    te: సా్స్కాచివాన్
+    th: รัฐซัสแคตเชวัน
+    tr: Saskatchewan
+    uk: Саскачеван
+    ur: ساسکچیوان
+    vi: Saskatchewan
+    cy: Saskatchewan
+    ceb: Saskatchewan
+    sr_Latn: Saskačevan
+    zh: 薩斯喀徹溫
+    yue_Hans: 沙士加芝湾
+    sq: Saskatchewan
+    ccp: "𑄥𑄌𑄴𑄇𑄖𑄴𑄥𑄬𑄠𑄚𑄴"
+    ga: Saskatchewan
+    pa: ਸਸਕਾਚਵਾਨ
+    yue: 沙士加芝灣
+    am: ሰስካቸወን
+    my: ဆက်စကက်ချီဝမ်နယ်
+    uz: Saskachevan
+    bs: Saskatchewan
+    mk: Саскачеван
+    'no': Saskatchewan
+    kk: Саскачеван
+    ml: സസ്ക്കാറ്റ്ച്ചെവാൻ
+    so: Saskatchewan
+  type: province
+YT:
+  name: Yukon
+  code: YT
+  unofficial_names:
+  - Yukon Territory
+  geo:
+    latitude: 64.2823274
+    longitude: -135
+    min_latitude: 59.996889
+    min_longitude: -141.00187
+    max_latitude: 69.646498
+    max_longitude: -123.8009179
+  translations:
+    en: Yukon
+    af: Yukon
+    ar: يوكون
+    az: Yukon
+    be: Тэрыторыя Юкан
+    bg: Юкон
+    bn: ইউকোন
+    ca: Yukon
+    cs: Yukon
+    da: Yukon
+    de: Yukon
+    el: Γιούκον
+    es: Yukón
+    et: Yukon
+    eu: Yukon
+    fa: یوکان
+    fi: Yukon
+    fr: Yukon
+    gl: Yukón
+    gu: યુકોન
+    he: יוקון
+    hi: युकॉन प्रांत
+    hr: Yukon
+    hu: Yukon
+    hy: Յուկոն
+    id: Yukon
+    is: Yukon
+    it: Yukon
+    ja: ユーコン準州
+    ka: იუკონი
+    kn: ಯುಕಾನ್
+    ko: 유콘 준주
+    lt: Jukonas
+    lv: Jukona
+    mn: Юкон
+    mr: युकॉन
+    ms: Yukon
+    nb: Yukon
+    nl: Yukon
+    pl: Jukon
+    pt: Yukon
+    ro: Yukon
+    ru: Юкон
+    si: යුන්කොන්
+    sk: Yukon
+    sl: Jukon
+    sr: Јукон
+    sv: Yukon
+    sw: Yukon
+    ta: யூக்கான்
+    te: యుకాన్
+    th: ยูคอน
+    tr: Yukon
+    uk: Юкон
+    ur: يوکون
+    vi: Yukon
+    cy: Yukon
+    ceb: Yukon (lalawigan)
+    sr_Latn: Jukon
+    zh: 育空
+    yue_Hans: 育空地区
+    sq: Yukon
+    ccp: "𑄃𑄨𑄠𑄇𑄧𑄚𑄴"
+    ga: Yukon
+    pa: ਯੂਕੋਨ
+    yue: 育空地區
+    am: ዩካን
+    my: ယူးကွန်းနယ်
+    uz: Yukon
+    bs: Yukon
+    mk: Јукон
+    'no': Yukon
+    kk: Юкон
+    ml: യൂക്കോൺ
+  type: territory

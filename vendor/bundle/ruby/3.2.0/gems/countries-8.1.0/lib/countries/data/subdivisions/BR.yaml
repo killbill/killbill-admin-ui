@@ -1,0 +1,2242 @@
+---
+AC:
+  name: Acre
+  code: AC
+  unofficial_names:
+  - Acre
+  geo:
+    latitude: -9.0237964
+    longitude: -70.81199529999999
+    min_latitude: -11.1452221
+    min_longitude: -73.9915154
+    max_latitude: -7.111826799999999
+    max_longitude: -66.62407089999999
+  translations:
+    en: Acre
+    af: Acre
+    ar: أكري
+    az: Akri
+    be: Штат Акры
+    bg: Акри
+    bn: একর
+    ca: Estat d’Acre
+    cs: Acre
+    da: Acre
+    de: Acre
+    el: Άκρε
+    es: Estado de Acre
+    et: Acre osariik
+    eu: Acre
+    fa: اکری
+    fi: Acre
+    fr: Acre
+    gl: Acre
+    gu: એકર
+    he: אקרי
+    hi: आक्री
+    hr: Acre
+    hu: Acre
+    id: Acre
+    is: Acre
+    it: Acre
+    ja: アクレ州
+    ka: აკრი
+    kn: ಎಕರೆ
+    ko: 아크리 주
+    lt: Akrė
+    lv: Akri
+    ml: അക്രേ
+    mr: आक्रे
+    ms: Acre
+    nb: Acre
+    nl: Acre
+    pl: Acre
+    pt: Acre
+    ro: Acre
+    ru: Акри
+    si: අක්රේ
+    sk: Acre
+    sr: Акре
+    sv: Acre
+    sw: Acre
+    ta: ஆக்ரி
+    te: ఏకర్
+    th: รัฐอากรี
+    tr: Acre
+    uk: Акрі
+    ur: اکری
+    vi: Acre
+    zh: 阿克里州
+    cy: Acre
+    ceb: Acre
+    sr_Latn: Akre
+    yue_Hans: 阿克里州
+    sq: Acre
+    ccp: "𑄃𑄬𑄇𑄧𑄢𑄴"
+    ga: Acre
+    yue: 阿克里州
+    yo: Acre
+    uz: Akri
+    bs: Acre
+    mk: Акре
+    'no': Acre
+    yo_BJ: Acre
+    hy: Ակրի
+  type: state
+AL:
+  name: Alagoas
+  code: AL
+  unofficial_names:
+  - Alagoas
+  geo:
+    latitude: -9.5713058
+    longitude: -36.7819505
+    min_latitude: -10.5037567
+    min_longitude: -38.2273267
+    max_latitude: -8.8131293
+    max_longitude: -35.1522142
+  translations:
+    en: Alagoas
+    af: Alagoas
+    ar: ألاغواس
+    az: Alaqoas
+    be: штат Алагоас
+    bg: Алагоас
+    bn: আলাগোয়াস
+    ca: Alagoas
+    cs: Alagoas
+    da: Alagoas
+    de: Alagoas
+    el: Αλαγκόας
+    es: Alagoas
+    et: Alagoase osariik
+    eu: Alagoas
+    fa: آلاگواس
+    fi: Alagoas
+    fr: Alagoas
+    gl: Alagoas
+    gu: આલાગોઆસ
+    he: אלגואס
+    hi: अलागोआस
+    hr: Alagoas
+    hu: Alagoas
+    hy: Ալագոաս
+    id: Alagoas
+    is: Alagoas
+    it: Alagoas
+    ja: アラゴアス州
+    ka: ალაგოასი
+    kn: ಅಲಾಗೊಸ್
+    ko: 알라고아스 주
+    lt: Alagoasas
+    lv: Alagoasa
+    mr: आलागोआस
+    ms: Alagoas
+    nb: Alagoas
+    ne: अलागोआस
+    nl: Alagoas
+    pl: Alagoas
+    pt: Alagoas
+    ro: Alagoas
+    ru: Алагоас
+    si: අලගොආස්
+    sk: Alagoas
+    sr: Алагоас
+    sv: Alagoas
+    sw: Alagoas
+    ta: அலகொலாஸ்
+    te: ఆలాగోవాస్
+    th: รัฐอาลาโกอัส
+    tr: Alagoas
+    uk: Алагоас
+    ur: الاگواس
+    vi: Alagoas
+    cy: Alagoas
+    ceb: Alagoas
+    sr_Latn: Alagoas
+    zh: 阿拉戈斯州
+    yue_Hans: 阿拉瓜斯州
+    sq: Alagoas
+    ccp: "𑄃𑄣𑄉𑄃𑄮𑄌𑄴"
+    ga: Alagoas
+    kk: Алагоас
+    yue: 阿拉瓜斯州
+    yo: Alagoas
+    uz: Alagoas
+    bs: Alagoas
+    mk: Алагоас
+    'no': Alagoas
+    yo_BJ: Alagoas
+  type: state
+AM:
+  name: Amazonas
+  code: AM
+  unofficial_names:
+  - Amazonas
+  geo:
+    latitude: -3.4168427
+    longitude: -65.8560646
+    min_latitude: -9.8180491
+    min_longitude: -73.8015533
+    max_latitude: 2.246628
+    max_longitude: -56.0975519
+  translations:
+    en: Amazonas
+    af: Amazonas
+    ar: الأمازون
+    az: Amazonas
+    be: Штат Амазонас
+    bg: Амазонас
+    bn: আমাজোনাস
+    ca: Estat de l’Amazones
+    cs: Amazonas
+    da: Amazonas
+    de: Amazonas
+    el: Αμαζόνας
+    es: Estado de Amazonas
+    et: Amazonase osariik
+    eu: Amazonas
+    fa: آمازوناس
+    fi: Amazonas
+    fr: Amazonas
+    gl: Estado do Amazonas
+    gu: એમેઝોનાઝ
+    he: אמזונאס
+    hi: आमेज़ोनास
+    hr: Amazonas
+    hu: Amazonas
+    hy: Ամազոնաս
+    id: Amazonas
+    is: Amazonas
+    it: Amazonas
+    ja: アマゾナス州
+    ka: ამაზონასი
+    kn: ಅಮೆಜೋನಾಸ್
+    ko: 아마조나스 주
+    lt: Amazonė
+    lv: Amazonasa
+    mr: अमेझोनास
+    ms: Amazonas
+    nb: Amazonas
+    nl: Amazonas
+    pl: Amazonas
+    pt: Amazonas
+    ro: Amazonas
+    ru: Амазонас
+    si: ඇමසෝනාස්
+    sk: Amazonas
+    sr: Амазонас
+    sv: Amazonas
+    sw: Amazonas
+    ta: அமேசோனாசு
+    te: అమెజోనాస్
+    th: รัฐอามาโซนัส
+    tr: Amazonas
+    uk: Амазонас
+    ur: ایمازوناس
+    vi: Amazonas
+    cy: Amazonas
+    ceb: Amazonas
+    sr_Latn: Amazonas
+    zh: 亚马孙州
+    yue_Hans: 亚马逊州
+    sq: Amazonas
+    ccp: "𑄃𑄟𑄎𑄧𑄚𑄌𑄴"
+    ga: Amazonas
+    yue: 亞馬遜州
+    yo: Amazonas
+    uz: Amazonas
+    bs: Amazonas
+    mk: Амазон
+    'no': Amazonas
+    yo_BJ: Amazonas
+  type: state
+AP:
+  name: Amapá
+  code: AP
+  unofficial_names:
+  - Amapá
+  geo:
+    latitude: 2.0447397
+    longitude: -50.78742219999999
+  translations:
+    en: Amapá
+    af: Amapá
+    ar: أمابا
+    az: Amapa
+    be: Штат Амапа
+    bg: Амапа
+    bn: আমাপা
+    ca: Estat d’Amapá
+    cs: Amapá
+    da: Amapá
+    de: Amapá
+    el: Αμαπά
+    es: Amapá
+    et: Amapá osariik
+    eu: Amapá
+    fa: آماپا
+    fi: Amapá
+    fr: Amapá
+    gl: Amapá
+    gu: અમાપા
+    he: אמאפה
+    hi: अमापा
+    hr: Amapá
+    hu: Amapá
+    hy: Ամապա
+    id: Amapá
+    it: Amapá
+    ja: アマパー州
+    ka: ამაპა
+    kn: ಅಮಪಾ
+    ko: 아마파 주
+    lt: Amapa
+    lv: Amapa
+    mr: अमापा
+    ms: Amapá
+    nb: Amapá
+    nl: Amapá
+    pl: Amapá
+    pt: Amapá
+    ro: Amapá
+    ru: Амапа
+    si: අමපා
+    sk: Amapá
+    sr: Амапа
+    sv: Amapá
+    sw: Amapá
+    ta: ஆமப்பா
+    te: అమాపా
+    th: รัฐอามาปา
+    tr: Amapá
+    uk: Амапа
+    ur: اماپا
+    vi: Amapá
+    cy: Amapá
+    ceb: Amapá (estado)
+    sr_Latn: Amapa
+    zh: 阿马帕
+    yue_Hans: 阿马帕州
+    sq: Amapá
+    ccp: "𑄃𑄟𑄴𑄛"
+    ga: Amapá
+    kk: Амапа
+    yue: 阿馬帕州
+    yo: Amapá
+    bs: Amapá
+    mk: Амапа
+    'no': Amapá
+    yo_BJ: Amapá
+    ml: അമാപാ
+    uz: Amapá
+  type: state
+BA:
+  name: Bahia
+  code: BA
+  unofficial_names:
+  - Bahia
+  geo:
+    latitude: -12.579738
+    longitude: -41.7007272
+    min_latitude: -18.3359162
+    min_longitude: -46.6170906
+    max_latitude: -8.5328229
+    max_longitude: -37.3484113
+  translations:
+    en: Bahia
+    af: Bahia
+    ar: باهيا
+    az: Baiya
+    be: штат Баія
+    bg: Баия
+    bn: বাহিয়া
+    ca: Estat de Bahia
+    cs: Bahia
+    da: Bahia
+    de: Bahia
+    el: Μπαΐα
+    es: Estado de Bahía
+    et: Bahia osariik
+    eu: Bahiako estatua
+    fa: باهیا
+    fi: Bahia
+    fr: Bahia
+    gl: Bahia
+    gu: બહિઆ
+    he: באהיה
+    hi: बाहिया
+    hr: Bahia
+    hu: Bahia
+    hy: Իտամարաժու
+    id: Bahia
+    is: Bahia
+    it: Bahia
+    ja: バイーア州
+    ka: ბაია
+    kn: ಬಹಿಯ
+    ko: 바이아 주
+    lt: Bahija
+    lv: Baija
+    mr: बाईया
+    ms: Bahia
+    nb: Bahia
+    nl: Bahia
+    pl: Bahia
+    pt: Bahia
+    ro: Bahia
+    ru: Баия
+    si: බහියා
+    sk: Bahia
+    sr: Баија
+    sv: Bahia
+    sw: Bahia
+    ta: பாகையா
+    te: బాహియా
+    th: รัฐบาเอีย
+    tr: Bahia
+    uk: Баїя
+    ur: باہیا
+    vi: Bahia
+    cy: Bahia
+    ceb: Bahia (estado)
+    sr_Latn: Baija
+    zh: 巴伊亚
+    yue_Hans: 巴伊亚州
+    sq: Bahia
+    ccp: "𑄝𑄦𑄨𑄠"
+    ga: Bahia
+    pa: ਬਾਹੀਆ
+    kk: Баия
+    yue: 巴伊亞州
+    yo: Bahia
+    uz: Baiya
+    bs: Bahia
+    mk: Баија
+    'no': Bahia
+    yo_BJ: Bahia
+    ml: ബാഹിയ
+    ps: باهيا
+  type: state
+CE:
+  name: Ceará
+  code: CE
+  unofficial_names:
+  - Ceará
+  geo:
+    latitude: -5.4983977
+    longitude: -39.3206241
+    min_latitude: -7.858185100000001
+    min_longitude: -41.4235126
+    max_latitude: -2.7844329
+    max_longitude: -37.2530223
+  translations:
+    en: Ceará
+    af: Ceará
+    ar: سيارا
+    az: Seara
+    be: Штат Сеара
+    bg: Сеара
+    bn: সিয়ারা
+    ca: Ceará
+    cs: Ceará
+    da: Ceará
+    de: Ceará
+    el: Σεαρά
+    es: Ceará
+    et: Ceará osariik
+    eu: Ceará
+    fa: سئارا
+    fi: Ceará
+    fr: Ceará
+    gl: Ceará
+    gu: સિયારા
+    he: סיארה
+    hi: सियारा
+    hr: Ceará
+    hu: Ceará
+    id: Ceará
+    is: Ceará
+    it: Ceará
+    ja: セアラー州
+    ka: სეარა
+    kn: ಸೀರಾ
+    ko: 세아라 주
+    lt: Seara
+    lv: Seara
+    mr: सियारा
+    ms: Ceará
+    nb: Ceará
+    nl: Ceará
+    pl: Ceará
+    pt: Ceará
+    ro: Ceará
+    ru: Сеара
+    si: කෙයාරා
+    sk: Ceará
+    sr: Сеара
+    sv: Ceará
+    sw: Ceará
+    ta: சியாரா
+    te: సియారా
+    th: รัฐเซอารา
+    tr: Ceará
+    uk: Сеара
+    ur: سئیرا
+    vi: Ceará
+    cy: Ceará
+    ceb: Ceará (estado sa Brasil)
+    sr_Latn: Seara
+    zh: 塞阿腊
+    yue_Hans: 塞阿拉州
+    ccp: "𑄥𑄨𑄠𑄬𑄢"
+    ga: Ceará
+    kk: Сеара
+    yue: 塞阿拉州
+    yo: Ceará
+    uz: Seara
+    bs: Ceará
+    mk: Сеара
+    'no': Ceará
+    yo_BJ: Ceará
+    hy: Սեարա
+  type: state
+DF:
+  name: Distrito Federal
+  code: DF
+  unofficial_names:
+  - Distrito Federal
+  geo:
+    latitude: -15.826691
+    longitude: -47.92182039999999
+    min_latitude: -16.0517624
+    min_longitude: -48.2870947
+    max_latitude: -15.5001712
+    max_longitude: -47.3081926
+  translations:
+    en: Federal District
+    af: Federale Distrik
+    ar: القطاع الفدرالي البرازيلي
+    az: Federal dairə
+    be: Федэральная акруга Бразілія
+    bg: Федерален окръг
+    bn: ফেডারেল জেলা
+    ca: Districte Federal del Brasil
+    cs: Distrito Federal do Brasil
+    da: Distrito Federal
+    de: Bundesdistrikt von Brasilien
+    el: Φεντεράλ
+    es: Distrito Federal
+    et: Liiduringkond
+    eu: Barruti Federala
+    fa: ناحیه فدرال (برزیل)
+    fi: Distrito Federal
+    fr: District Fédéral
+    gl: Distrito Federal
+    gu: ફેડરલ જિલ્લો
+    he: המחוז הפדרלי של ברזיל
+    hi: फेडरल डिस्ट्रिक्ट (ब्राज़ील)
+    hr: Brazilski federalni distrikt
+    hu: Szövetségi kerület
+    id: Distrik Federal Brasil
+    it: Distretto Federale
+    ja: ブラジリア連邦直轄区
+    ka: ფედერალური ოლქი
+    kn: ಫೆಡರಲ್ ಡಿಸ್ಟ್ರಿಕ್ಟ್
+    ko: 연방구
+    lv: Federālais distrikts
+    mr: शासकीय जिल्हा
+    ms: Wilayah Persekutuan Brazil
+    nb: Distrito Federal
+    nl: Federaal District
+    pl: Dystrykt Federalny
+    pt: Distrito Federal
+    ro: Districtul Federal
+    ru: Федеральный округ
+    si: ෆෙඩරල් දිස්ත්‍රික්කය
+    sk: Distrito Federal do Brasil
+    sr: Савезни дистрикт Бразила
+    sv: Brasiliens federala distrikt
+    ta: கூட்டரசு மாநிலம்
+    te: ఫెడరల్ జిల్లా
+    th: เขตเฟอเดอรัล
+    tr: Federal Bölge
+    uk: Федеральний округ у Бразилії
+    ur: وفاقی ضلع
+    vi: Quận liên bang Brasil
+    cy: Distrito Federal
+    ceb: Federal District
+    sr_Latn: Savezni distrikt Brazila
+    lt: Federalinė sritis
+    zh: 聯邦區
+    yue_Hans: 联邦区
+    sq: Distrikti Federal i Brazilit
+    ccp: "𑄜𑄬𑄓𑄬𑄢𑄣𑄴 𑄎𑄬𑄣"
+    yue: 聯邦區
+    yo: Brazilian Federal District
+    uz: Federal okrug
+    mk: Федерален округ
+    'no': Distrito Federal
+    yo_BJ: Brazilian Federal District
+    is: Distrito Federal
+    sw: Distrito Federal (Brazil)
+  type: federal_district
+ES:
+  name: Espírito Santo
+  code: ES
+  unofficial_names:
+  - Espírito Santo
+  geo:
+    latitude: -19.1834229
+    longitude: -40.3088626
+    min_latitude: -21.3017845
+    min_longitude: -41.8797894
+    max_latitude: -17.891947
+    max_longitude: -28.8359374
+  translations:
+    en: Espírito Santo
+    af: Espírito Santo
+    ar: إسبيريتو سانتو
+    az: Espiritu-Santu
+    be: Штат Эспірыту-Санту
+    bg: Еспирито Санто
+    bn: এস্পিরিতো স্যান্টো
+    ca: Estat d’Espírito Santo
+    cs: Espírito Santo
+    da: Espírito Santo
+    de: Espírito Santo
+    el: Εσπιρίτο Σάντο
+    es: Estado de Espírito Santo
+    et: Espírito Santo osariik
+    eu: Espírito Santo
+    fa: اسپیریتو سانتو
+    fi: Espírito Santo
+    fr: Espírito Santo
+    gl: Espírito Santo
+    gu: એસપીરિટો સાન્ટો
+    he: אספיריטו סאנטו
+    hi: एस्पिरितो सान्तो
+    hr: Espírito Santo
+    hu: Espírito Santo
+    id: Espírito Santo
+    it: Espírito Santo
+    ja: エスピリトサント州
+    ka: ესპირიტუ-სანტუ
+    kn: ಎಸ್ಪಿರಿಟೋ ಸ್ಯಾಂಟೋ
+    ko: 이스피리투산투 주
+    lt: Espirito Santas
+    lv: Espiritu Santu
+    mr: एस्पिरितो सांतो
+    ms: Espírito Santo
+    nb: Espírito Santo
+    nl: Espírito Santo
+    pl: Espírito Santo
+    pt: Espírito Santo
+    ro: Espírito Santo
+    ru: Эспириту-Санту
+    si: එස්පිරිටෝ සැන්ටෝ
+    sk: Espírito Santo
+    sr: Еспирито Санто
+    sv: Espírito Santo
+    sw: Espírito Santo
+    ta: ஏசுபிரிட்டோ சந்தோ
+    te: ఎస్పిరిటో సాంటో
+    th: รัฐเอสปีรีตูซานตู
+    tr: Espírito Santo
+    uk: Еспіріту-Санту
+    ur: اسپیریتو سانتو
+    vi: Espírito Santo
+    cy: Espírito Santo
+    ceb: Espírito Santo (estado)
+    sr_Latn: Espirito Santo
+    zh: 圣埃斯皮里图州
+    yue_Hans: 圣埃斯皮里图州
+    ccp: "𑄃𑄬𑄌𑄴𑄛𑄨𑄢𑄨𑄑𑄮 𑄥𑄚𑄴𑄑𑄮"
+    ga: Espírito Santo
+    hy: Էսպիրիտո Սանտո
+    yue: 聖埃斯皮里圖州
+    yo: Espírito Santo
+    uz: Espiritu-Santu
+    bs: Espírito Santo
+    mk: Еспирито Санто
+    'no': Espírito Santo
+    yo_BJ: Espírito Santo
+  type: state
+GO:
+  name: Goiás
+  code: GO
+  unofficial_names:
+  - Goiás
+  geo:
+    latitude: -15.93397
+    longitude: -50.1403832
+    min_latitude: -15.9523406
+    min_longitude: -50.1606536
+    max_latitude: -15.9224628
+    max_longitude: -50.1251296
+  translations:
+    en: Goiás
+    af: Goiás
+    ar: غوياس
+    az: Qoyas
+    be: Штат Гаяс
+    bg: Гояс
+    bn: গৌয়াস
+    ca: Estat de Goiás
+    cs: Goiás
+    da: Goiás
+    de: Goiás
+    el: Γκοϊάς
+    es: Estado de Goiás
+    et: Goiási osariik
+    eu: Goiás
+    fa: گوییاس
+    fi: Goiás
+    fr: Goiás
+    gl: Goiás
+    gu: ગોયાસ
+    he: גויאס
+    hi: गोइयास
+    hr: Goiás
+    hu: Goiás
+    hy: Գոյաս
+    id: Goiás
+    it: Goiás
+    ja: ゴイアス州
+    ka: გოიასი
+    kn: ಗೋಯಾಸ್
+    ko: 고이아스 주
+    lt: Gojasas
+    lv: Gojasa
+    mr: गोयाएस
+    ms: Goiás
+    nb: Goiás
+    nl: Goiás
+    pl: Goiás
+    pt: Goiás
+    ro: Goiás
+    ru: Гояс
+    si: ගොයාස්
+    sk: Goiás
+    sr: Гојас
+    sv: Goiás
+    sw: Goiás
+    ta: கோய்அஸ்
+    te: గోయాస్
+    th: รัฐโกยาส
+    tr: Goiás
+    uk: Гояс
+    ur: گوئیاس
+    vi: Goiás
+    cy: Goiás
+    ceb: Goiás (estado)
+    sr_Latn: Gojas
+    zh: 戈亚斯
+    yue_Hans: 戈亚斯州
+    ccp: "𑄉𑄮𑄠𑄌𑄴"
+    ga: Goiás
+    yue: 戈亞斯州
+    yo: Goiás
+    uz: Goyas
+    bs: Goiás
+    mk: Гојас
+    'no': Goiás
+    yo_BJ: Goiás
+  type: state
+MA:
+  name: Maranhão
+  code: MA
+  unofficial_names:
+  - Maranhão
+  geo:
+    latitude: -4.9609498
+    longitude: -45.2744159
+    min_latitude: -10.2617676
+    min_longitude: -48.7551446
+    max_latitude: -1.049999
+    max_longitude: -41.7958785
+  translations:
+    en: Maranhão
+    af: Maranhão
+    ar: مارانهاو
+    az: Maranyan
+    be: Штат Мараньян
+    bg: Мараняо
+    bn: মহানহো
+    ca: Estat de Maranhão
+    cs: Maranhão
+    da: Maranhão
+    de: Maranhão
+    el: Μαρανιάο
+    es: Maranhão
+    et: Maranhão osariik
+    eu: Maranhão
+    fa: مارانیائو
+    fi: Maranhão
+    fr: Maranhão
+    gl: Marañón - Maranhão
+    gu: મારાનહાઓ
+    he: מרניאו
+    hi: मरान्हाओ
+    hr: Maranhão
+    hu: Maranhão
+    hy: Մարանյան
+    id: Maranhão
+    it: Maranhão
+    ja: マラニョン州
+    ka: მარანიანი
+    kn: ಮಾರನ್ಹಾವೊ
+    ko: 마라냥 주
+    lt: Maranjanas
+    lv: Maraņauna
+    mr: मरान्याव
+    ms: Maranhão
+    nb: Maranhão
+    nl: Maranhão
+    pl: Maranhão
+    pt: Maranhão
+    ro: Maranhão
+    ru: Мараньян
+    si: මරන්හාඕ
+    sk: Maranhão
+    sr: Марањао
+    sv: Maranhão
+    sw: Maranhão
+    ta: மாரஞ்ஞோ
+    te: మరాన్హో
+    th: รัฐมารันเยา
+    tr: Maranhão
+    uk: Мараньян
+    ur: مارانہاؤ
+    vi: Maranhão
+    cy: Maranhão
+    ceb: Maranhão (estado)
+    sr_Latn: Maranjao
+    zh: 马拉尼昂州
+    yue_Hans: 马拉尼昂州
+    ccp: "𑄟𑄢𑄚𑄴𑄦𑄃𑄮"
+    ga: Maranhão
+    kk: Мараньян
+    yue: 馬拉尼昂州
+    yo: Maranhão
+    uz: Maranyan
+    bs: Maranhão
+    mk: Марањао
+    'no': Maranhão
+    yo_BJ: Maranhão
+  type: state
+MG:
+  name: Minas Gerais
+  code: MG
+  unofficial_names:
+  - Minas Gerais
+  geo:
+    latitude: -18.512178
+    longitude: -44.5550308
+    min_latitude: -22.9227576
+    min_longitude: -51.0460748
+    max_latitude: -14.233183
+    max_longitude: -39.8568263
+  translations:
+    en: Minas Gerais
+    af: Minas Gerais
+    ar: ميناس جيرايس
+    az: Minas-Jerays
+    be: штат Мінас-Жэрайс
+    bg: Минас Жерайс
+    bn: মিনাস জেরাসিয়া
+    ca: Minas Gerais
+    cs: Minas Gerais
+    da: Minas Gerais
+    de: Minas Gerais
+    el: Μίνας Ζεράις
+    es: Estado de Minas Gerais
+    et: Minas Geraisi osariik
+    eu: Minas Gerais
+    fa: میناس گرایس
+    fi: Minas Gerais
+    fr: Minas Gerais
+    gl: Minas Xerais - Minas Gerais
+    gu: મિનાસ ગેરઈસ
+    he: מינאס ז׳ראיס
+    hi: मिनास जेरायज़
+    hr: Minas Gerais
+    hu: Minas Gerais
+    hy: Մինաս Ժերաիս
+    id: Minas Gerais
+    is: Minas Gerais
+    it: Minas Gerais
+    ja: ミナスジェライス州
+    ka: მინას-ჟერაისი
+    kn: ಮಿನಾಸ್ ಗೆರೈಸ್
+    ko: 미나스제라이스 주
+    lt: Minas Žeraisas
+    lv: Minasžeraisa
+    mr: मिनास जेराईस
+    ms: Minas Gerais
+    nb: Minas Gerais
+    nl: Minas Gerais
+    pl: Minas Gerais
+    pt: Minas Gerais
+    ro: Minas Gerais
+    ru: Минас-Жерайс
+    si: මිනාස් ගෙරායිස්
+    sk: Minas Gerais
+    sr: Минас Жераис
+    sv: Minas Gerais
+    sw: Minas Gerais
+    ta: மினாஸ் ஜெரைசு
+    te: మినాస్ జెరాయిస్
+    th: รัฐมีนัสเชไรส์
+    tr: Minas Gerais
+    uk: Мінас-Жерайс
+    ur: میناس گیرائس
+    vi: Minas Gerais
+    cy: Minas Gerais
+    ceb: Minas Gerais
+    sr_Latn: Minas Žerais
+    zh: 米纳斯吉拉斯
+    yue_Hans: 米纳吉拉斯州
+    sq: Minas Gerais
+    ccp: "𑄟𑄭𑄚𑄌𑄴 𑄎𑄬𑄢𑄭𑄌𑄴"
+    ga: Minas Gerais
+    kk: Минас-Жерайс
+    yue: 米納吉拉斯州
+    yo: Minas Gerais
+    uz: Minas-jerais
+    bs: Minas Gerais
+    mk: Минас Жераис
+    'no': Minas Gerais
+    yo_BJ: Minas Gerais
+  type: state
+MS:
+  name: Mato Grosso do Sul
+  code: MS
+  unofficial_names:
+  - Mato Grosso do Sul
+  geo:
+    latitude: -20.7722295
+    longitude: -54.7851531
+    min_latitude: -24.0561184
+    min_longitude: -58.16705729999999
+    max_latitude: -17.1666336
+    max_longitude: -50.9229023
+  translations:
+    en: Mato Grosso do Sul
+    af: Mato Grosso do Sul
+    ar: ماتو غروسو دو سول
+    az: Matu-Qrosu-du-Sul
+    be: штат Мату-Гросу-ду-Сул
+    bg: Мато Гросо до Сул
+    bn: মাতো গ্রোস দো সৌল
+    ca: Mato Grosso do Sul
+    cs: Mato Grosso do Sul
+    da: Mato Grosso do Sul
+    de: Mato Grosso do Sul
+    el: Μάτο Γκρόσσο ντο Σούλ
+    es: Mato Grosso del Sur
+    et: Mato Grosso do Suli osariik
+    eu: Mato Grosso do Sul
+    fa: ماتوگروسو جنوبی
+    fi: Mato Grosso do Sul
+    fr: Mato Grosso do Sul
+    gl: Mato Groso do Sur - Mato Grosso do Sul
+    gu: માટો ગ્રોસો દો સુલ
+    he: מאטו גרוסו דו סול
+    hi: मातो ग्रोसो दो सुल
+    hr: Mato Grosso do Sul
+    hu: Mato Grosso do Sul
+    hy: Մատու Գրոսու դու Սուլ
+    id: Mato Grosso do Sul
+    it: Mato Grosso do Sul
+    ja: マットグロッソ・ド・スル州
+    ka: მატუ-გროსუ-დუ-სული
+    kn: ಮ್ಯಾಟೊ ಗ್ರೊಸೊ ಡೊ ಸುಲ್
+    ko: 마투그로수두술 주
+    lt: Pietų Mato Grosas
+    lv: Matugrosu du Sula
+    mr: मातो ग्रोसो दो सुल
+    ms: Mato Grosso do Sul
+    nb: Mato Grosso do Sul
+    nl: Mato Grosso do Sul
+    pl: Mato Grosso do Sul
+    pt: Mato Grosso do Sul
+    ro: Mato Grosso do Sul
+    ru: Мату-Гросу-ду-Сул
+    si: මටෝ ග්රෝසෝ ඩො සල්
+    sk: Mato Grosso do Sul
+    sr: Мато Гросо до Сул
+    sv: Mato Grosso do Sul
+    sw: Mato Grosso do Sul
+    ta: மாடோ கிரோஸோ டூ சூல்
+    te: మాటో గ్రాసో డో సూల్
+    th: รัฐมาตูโกรสซูดูซูล
+    tr: Mato Grosso do Sul
+    uk: Мату-Гросу-ду-Сул
+    ur: جنوبی ماتو گروسو
+    vi: Mato Grosso do Sul
+    cy: Mato Grosso do Sul
+    ceb: Mato Grosso do Sul
+    sr_Latn: Mato Groso do Sul
+    zh: 南马托格罗索州
+    yue_Hans: 南马托格罗索州
+    sq: Mato Grosso do Sul
+    ccp: "𑄟𑄑𑄮 𑄉𑄳𑄢𑄥𑄮 𑄓𑄮 𑄥𑄪𑄣𑄴"
+    ga: Mato Grosso do Sul
+    yue: 南馬托格羅索州
+    yo: Mato Grosso do Sul
+    uz: Matu-Grosu-du-Sul
+    bs: Mato Grosso do Sul
+    mk: Јужно Мато Гросо
+    'no': Mato Grosso do Sul
+    yo_BJ: Mato Grosso do Sul
+  type: state
+MT:
+  name: Mato Grosso
+  code: MT
+  unofficial_names:
+  - Mato Grosso
+  geo:
+    latitude: -12.6818712
+    longitude: -56.921099
+    min_latitude: -18.0420517
+    min_longitude: -61.63319459999999
+    max_latitude: -7.349037199999999
+    max_longitude: -50.2247999
+  translations:
+    en: Mato Grosso
+    af: Mato Grosso
+    ar: ماتو غروسو
+    az: Matu-Qrosu
+    be: Штат Мату-Гросу
+    bg: Мато Гросо
+    bn: মাতো গ্রসো
+    ca: Mato Grosso
+    cs: Mato Grosso
+    da: Mato Grosso
+    de: Mato Grosso
+    el: Μάτου Γκρόσου
+    es: Mato Grosso
+    et: Mato Grosso osariik
+    eu: Mato Grosso
+    fa: ماتو گروسو
+    fi: Mato Grosso
+    fr: Mato Grosso
+    gl: Mato Groso - Mato Grosso
+    gu: મેટો ગ્રોસો
+    he: מאטו גרוסו
+    hi: मातो ग्रोसो
+    hr: Mato Grosso
+    hu: Mato Grosso
+    hy: Մատու Գրոսու
+    id: Mato Grosso
+    it: Mato Grosso
+    ja: マットグロッソ州
+    ka: მატუ-გროსუ
+    kn: ಮ್ಯಾಟೊ ಗ್ರೊಸೊ
+    ko: 마투그로수 주
+    lt: Mato Grosas
+    lv: Matugrosu
+    mr: मातो ग्रोसो
+    ms: Mato Grosso
+    nb: Mato Grosso
+    nl: Mato Grosso
+    pl: Mato Grosso
+    pt: Mato Grosso
+    ro: Mato Grosso
+    ru: Мату-Гросу
+    si: මටෝ ග්රෝසෝ
+    sk: Mato Grosso
+    sr: Мато Гросо
+    sv: Mato Grosso
+    sw: Mato Grosso
+    ta: மடோ குரோசோ
+    te: మాటో గ్రోసో
+    th: รัฐมาตูโกรสซู
+    tr: Mato Grosso
+    uk: Мату-Гросу
+    ur: ماتو گروسو
+    vi: Mato Grosso
+    cy: Mato Grosso
+    ceb: Mato Grosso
+    sr_Latn: Mato Groso
+    zh: 马托格罗索州
+    yue_Hans: 马托格罗索州
+    ccp: "𑄟𑄑𑄮 𑄉𑄳𑄢𑄥𑄮"
+    ga: Mato Grosso
+    kk: Мату-Гроссу
+    yue: 馬托格羅索州
+    yo: Mato Grosso
+    uz: Matu-Grosu
+    bs: Mato Grosso
+    mk: Мато Гросо
+    'no': Mato Grosso
+    yo_BJ: Mato Grosso
+  type: state
+PA:
+  name: Pará
+  code: PA
+  unofficial_names:
+  - Pará
+  geo:
+    latitude: -1.9981271
+    longitude: -54.9306152
+    min_latitude: -9.8411565
+    min_longitude: -58.89827700000001
+    max_latitude: 2.5910246
+    max_longitude: -46.0643195
+  translations:
+    en: Pará
+    af: Pará
+    ar: بارا
+    az: Para
+    be: Пара
+    bg: Пара
+    bn: প্যাারা
+    ca: Pará
+    cs: Pará
+    da: Pará
+    de: Pará
+    el: Παρά
+    es: Pará
+    et: Pará osariik
+    eu: Pará
+    fa: پارا
+    fi: Pará
+    fr: Pará
+    gl: Pará
+    gu: પારા
+    he: פארה
+    hi: पारा
+    hr: Pará
+    hu: Pará
+    hy: Պարա
+    id: Pará
+    it: Pará
+    ja: パラー州
+    ka: პარა
+    kn: ಪ್ಯಾರಾ
+    ko: 파라 주
+    lt: Para
+    lv: Para
+    mr: पारा
+    ms: Pará
+    nb: Pará
+    nl: Pará
+    pl: Pará
+    pt: Pará
+    ro: Pará
+    ru: Пара
+    si: පරා
+    sk: Pará
+    sr: Пара
+    sv: Pará
+    sw: Pará
+    ta: பாரா
+    te: పరా
+    th: รัฐปารา
+    tr: Pará
+    uk: Пара
+    ur: پارا
+    vi: Pará
+    cy: Pará
+    ceb: Pará (estado)
+    sr_Latn: Para
+    zh: 帕拉
+    yue_Hans: 帕拉州
+    sq: Pará
+    ccp: "𑄛𑄢"
+    ga: Pará
+    pa: ਪਾਰਾ
+    yue: 帕拉州
+    yo: Pará
+    uz: Para
+    bs: Pará
+    mk: Пара
+    'no': Pará
+    yo_BJ: Pará
+    ml: പാര (ബ്രസീൽ)
+  type: state
+PB:
+  name: Paraíba
+  code: PB
+  unofficial_names:
+  - Paraíba
+  geo:
+    latitude: -7.239960900000001
+    longitude: -36.7819505
+    min_latitude: -8.3029572
+    min_longitude: -38.7656069
+    max_latitude: -6.0259143
+    max_longitude: -34.7931433
+  translations:
+    en: Paraíba
+    af: Paraíba
+    ar: بارايبا
+    az: Paraiba
+    be: Штат Параіба
+    bg: Параиба
+    bn: পারায়বা
+    ca: Paraíba
+    cs: Paraíba
+    da: Paraíba
+    de: Paraíba
+    el: Παραΐμπα
+    es: Paraíba
+    et: Paraíba osariik
+    eu: Paraíba
+    fa: پارائیبا
+    fi: Paraíba
+    fr: Paraíba
+    gl: Paraíba
+    gu: પેરિબા
+    he: פאראיבה
+    hi: परेबा
+    hr: Paraíba
+    hu: Paraíba
+    hy: Պարաիբա
+    id: Paraíba
+    is: Paraíba
+    it: Paraíba
+    ja: パライバ州
+    ka: პარაიბა
+    kn: ಪ್ಯಾರಿಬಾ
+    ko: 파라이바 주
+    lt: Paraiba
+    lv: Paraiba
+    mr: परैबा
+    ms: Paraiba
+    nb: Paraíba
+    nl: Paraíba
+    pl: Paraíba
+    pt: Paraíba
+    ro: Paraíba
+    ru: Параиба
+    si: පරයිබා
+    sk: Paraíba
+    sr: Параиба
+    sv: Paraíba
+    sw: Paraíba
+    ta: பறைபா
+    te: పారాయిబా
+    th: รัฐปาราอีบา
+    tr: Paraíba
+    uk: Параїба
+    ur: پارائیبا
+    vi: Paraíba
+    cy: Paraíba
+    ceb: Paraíba
+    sr_Latn: Paraiba
+    zh: 帕拉伊巴
+    yue_Hans: 帕拉巴州
+    ccp: "𑄛𑄧𑄢𑄭𑄝"
+    ga: Paraíba
+    kk: Параиба
+    yue: 帕拉巴州
+    yo: Paraíba
+    uz: Paraiba
+    bs: Paraíba
+    mk: Параиба
+    'no': Paraíba
+    yo_BJ: Paraíba
+  type: state
+PE:
+  name: Pernambuco
+  code: PE
+  unofficial_names:
+  - Pernambuco
+  geo:
+    latitude: -8.8137173
+    longitude: -36.954107
+    min_latitude: -9.482900599999999
+    min_longitude: -41.3583307
+    max_latitude: -3.830501599999999
+    max_longitude: -32.3918587
+  translations:
+    en: Pernambuco
+    af: Pernambuco
+    ar: بيرنامبوكو
+    az: Pernambuku
+    be: штат Пернамбуку
+    bg: Пернамбуко
+    bn: পেরনাবুকু
+    ca: Pernambuco
+    cs: Pernambuco
+    da: Pernambuco
+    de: Pernambuco
+    el: Περναμπούκο
+    es: Pernambuco
+    et: Pernambuco osariik
+    eu: Pernambuco
+    fa: پرنامبوکو
+    fi: Pernambuco
+    fr: Pernambouc
+    gl: Pernambuco
+    gu: પરનામ્બુકો
+    he: פרנמבוקו
+    hi: पेरनाम्बुको
+    hr: Pernambuco
+    hu: Pernambuco
+    hy: Պերնամբուկու
+    id: Pernambuco
+    is: Pernambuco
+    it: Pernambuco
+    ja: ペルナンブーコ州
+    ka: პერნამბუკუ
+    kn: ಪೆರ್ನಂಬುಕೊ
+    ko: 페르남부쿠 주
+    lt: Pernambukas
+    lv: Pernambuku
+    mr: पर्नांबुको
+    ms: Pernambuco
+    nb: Pernambuco
+    nl: Pernambuco
+    pl: Pernambuco
+    pt: Pernambuco
+    ro: Pernambuco
+    ru: Пернамбуку
+    si: පර්නම්බුකෝ
+    sk: Pernambuco
+    sl: Pernambuco, Brazilija
+    sr: Пернамбуко
+    sv: Pernambuco
+    sw: Pernambuco
+    ta: பெர்னம்புகோ
+    te: పెర్నాంబుకో
+    th: รัฐเปร์นัมบูกู
+    tr: Pernambuco
+    uk: Пернамбуку
+    ur: پرنامبوکو
+    vi: Pernambuco
+    cy: Pernambuco
+    ceb: Pernambuco
+    sr_Latn: Pernambuko
+    zh: 伯南布哥
+    yue_Hans: 帕南布哥州
+    sq: Pernambuco
+    ccp: "𑄛𑄢𑄴𑄚𑄟𑄴𑄝𑄪𑄇𑄮"
+    ga: Pernambuco
+    kk: Пернамбуку
+    yue: 帕南布哥州
+    yo: Pernambuco
+    uz: Pernambuku
+    bs: Pernambuco
+    mk: Пернамбуко
+    'no': Pernambuco
+    yo_BJ: Pernambuco
+  type: state
+PI:
+  name: Piauí
+  code: PI
+  unofficial_names:
+  - Piauí
+  geo:
+    latitude: -7.718340100000001
+    longitude: -42.72892359999999
+    min_latitude: -10.9287593
+    min_longitude: -45.9942887
+    max_latitude: -2.7473161
+    max_longitude: -40.3705066
+  translations:
+    en: Piauí
+    af: Piauí
+    ar: بياوي
+    az: Piaui
+    be: Штат Піауі
+    bg: Пиауи
+    bn: পিয়াউই
+    ca: Piauí
+    cs: Piauí
+    da: Piauí
+    de: Piauí
+    el: Πιοΐ
+    es: Piauí
+    et: Piauí osariik
+    eu: Piauí
+    fa: پیاوی
+    fi: Piauí
+    fr: Piauí
+    gl: Piauí
+    gu: પિઆઉઈ
+    he: פיאאוי
+    hi: पियाउई
+    hr: Piauí
+    hu: Piauí
+    hy: Պիաուի
+    id: Piauí
+    is: Piauí
+    it: Piauí
+    ja: ピアウイ州
+    ka: პიაუი
+    kn: ಪಿಯಾಯಿ
+    ko: 피아우이 주
+    lt: Piaujis
+    lv: Pjaui
+    mr: पिआवी
+    ms: Piauí
+    nb: Piauí
+    nl: Piauí
+    pl: Piauí
+    pt: Piauí
+    ro: Piauí
+    ru: Пиауи
+    si: පියෞයි
+    sk: Piauí
+    sr: Пјауи
+    sv: Piauí
+    sw: Piauí
+    ta: பிஒய்
+    te: పియావా
+    th: รัฐปีเอาอี
+    tr: Piauí
+    uk: Піауї
+    ur: پیاوی
+    vi: Piauí
+    cy: Piauí
+    ceb: Piauí
+    sr_Latn: Pjaui
+    zh: 皮奧伊州
+    yue_Hans: 皮奥伊州
+    ccp: "𑄛𑄭𑄅𑄪𑄃𑄨"
+    ga: Piauí
+    kk: Пиауи
+    yue: 皮奧伊州
+    yo: Piauí
+    uz: Piaui
+    bs: Piauí
+    mk: Пјауи
+    'no': Piauí
+    yo_BJ: Piauí
+  type: state
+PR:
+  name: Paraná
+  code: PR
+  unofficial_names:
+  - Paraná
+  geo:
+    latitude: -25.2520888
+    longitude: -52.0215415
+    min_latitude: -26.7172983
+    min_longitude: -54.6192979
+    max_latitude: -22.5166644
+    max_longitude: -48.0235303
+  translations:
+    en: Paraná
+    af: Paraná
+    ar: بارانا
+    az: Parana
+    be: штат Парана
+    bg: Парана
+    bn: পারানা
+    ca: Estat de Paranà
+    cs: Paraná
+    da: Paraná
+    de: Paraná
+    el: Παρανά
+    es: Paraná
+    et: Paraná osariik
+    eu: Paraná
+    fa: پارانا، برزیل
+    fi: Paraná
+    fr: Paraná
+    gl: Estado do Paraná
+    gu: પરાના
+    he: פרנה
+    hi: पाराना
+    hr: Paraná
+    hu: Paraná
+    hy: Պարանա
+    id: Paraná
+    is: Paraná
+    it: Paraná
+    ja: パラナ州
+    ka: პარანა
+    kn: ಪರನಾ
+    ko: 파라나 주
+    lt: Parana
+    lv: Parana
+    mr: पाराना
+    ms: Paraná
+    nb: Paraná
+    nl: Paraná
+    pl: Parana
+    pt: Paraná
+    ro: Paraná
+    ru: Парана
+    si: පරනා
+    sk: Paraná
+    sr: Парана
+    sv: Paraná
+    sw: Paraná
+    ta: பரானா
+    te: పరానా
+    th: รัฐปารานา
+    tr: Paraná
+    uk: Парана
+    ur: پارانا
+    vi: Paraná
+    cy: Paraná
+    ceb: Paraná (estado)
+    sr_Latn: Parana
+    zh: 巴拉那州
+    yue_Hans: 巴拉那州
+    ccp: "𑄛𑄧𑄢𑄚𑄳𑄦"
+    ga: Paraná
+    yue: 巴拉那州
+    yo: Paraná
+    uz: Parana
+    bs: Paraná
+    mk: Парана
+    'no': Paraná
+    yo_BJ: Paraná
+    ml: പരാന
+  type: state
+RJ:
+  name: Rio de Janeiro
+  code: RJ
+  unofficial_names:
+  - Rio de Janeiro
+  geo:
+    latitude: -22.9068467
+    longitude: -43.1728965
+    min_latitude: -23.0763469
+    min_longitude: -43.7950599
+    max_latitude: -22.7461987
+    max_longitude: -43.1018358
+  translations:
+    en: Rio de Janeiro
+    af: Rio de Janeiro
+    ar: ريو دي جانيرو
+    az: Rio-de-Janeyro
+    be: штат Рыа-дэ-Жанэйра
+    bg: Рио де Жанейро
+    ca: Estat de Rio de Janeiro
+    cs: Rio de Janeiro
+    da: Rio de Janeiro
+    de: Rio de Janeiro
+    el: Ρίο ντε Τζανέιρο
+    es: Estado de Río de Janeiro
+    et: Rio de Janeiro osariik
+    eu: Rio de Janeiroko estatua
+    fa: ایالت ریو د ژانیرو
+    fi: Rio de Janeiro
+    fr: État de Rio de Janeiro
+    gl: Estado de Río de Xaneiro
+    he: ריו דה ז׳ניירו
+    hr: Rio de Janeiro
+    hu: Rio de Janeiro
+    hy: Ռիո դե Ժանեյրո
+    id: Rio de Janeiro
+    it: Rio de Janeiro
+    ja: リオデジャネイロ州
+    ka: რიო-დე-ჟანეიროს შტატი
+    ko: 리우데자네이루 주
+    lt: Rio de Žaneiras
+    lv: Riodežaneiro
+    mr: रियो दि जानेरो
+    ms: Rio de Janeiro
+    nb: Rio de Janeiro
+    nl: Rio de Janeiro
+    pl: Rio de Janeiro
+    pt: Rio de Janeiro
+    ro: Rio de Janeiro
+    ru: Рио-де-Жанейро
+    sk: Rio de Janeiro
+    sr: Рио де Жанеиро
+    sv: Rio de Janeiro
+    sw: Rio de Janeiro
+    ta: இரியோ டி செனீரோ
+    th: รัฐรีโอเดจาเนโร
+    tr: Rio de Janeiro
+    uk: Ріо-де-Жанейро
+    ur: ریو دے جینیرو
+    vi: Rio de Janeiro
+    cy: Rio de Janeiro
+    ceb: Rio de Janeiro (estado)
+    yo_BJ: Ìpínlɛ̀ Rio de Janeiro
+    sr_Latn: Rio de Žaneiro
+    zh: 里約熱內盧州
+    yue_Hans: 里约热内卢州
+    hi: रियो डि जेनेरो, प्रांत
+    ccp: "𑄢𑄃𑄮 𑄓𑄨 𑄎𑄬𑄚𑄬𑄭𑄢𑄮"
+    ga: Rio de Janeiro
+    yue: 里約熱內盧州
+    yo: Ìpínlẹ̀ Rio de Janeiro
+    uz: Rio-de-Janeyro
+    bs: Rio de Janeiro
+    mk: Рио де Жанеиро
+    'no': Rio de Janeiro
+  type: state
+RN:
+  name: Rio Grande do Norte
+  code: RN
+  unofficial_names:
+  - Rio Grande do Norte
+  geo:
+    latitude: -5.402580299999999
+    longitude: -36.954107
+    min_latitude: -6.9827372
+    min_longitude: -38.5821039
+    max_latitude: -4.8317963
+    max_longitude: -34.9687549
+  translations:
+    en: Rio Grande do Norte
+    af: Rio Grande do Norte
+    ar: ريو غراندي دو نورتي
+    az: Riu-Qrandi-du-Norti
+    be: Штат Рыу-Гранды-ду-Норты
+    bg: Рио Гранди до Норти
+    bn: রিও গ্রান্ডে ডু নর্টে
+    ca: Rio Grande do Norte
+    cs: Rio Grande do Norte
+    da: Rio Grande do Norte
+    de: Rio Grande do Norte
+    el: Ρίο Γκράντε ντο Νόρτε
+    es: Río Grande del Norte
+    et: Rio Grande do Norte osariik
+    eu: Rio Grande do Norte
+    fa: ریوگرانده دو نورتی
+    fi: Rio Grande do Norte
+    fr: Rio Grande do Norte
+    gl: Río Grande do Norte - Rio Grande do Norte
+    gu: રિયો ગ્રાન્ડે ડો નોર્ટ
+    he: ריו גראנדה דו נורטה
+    hi: रियो ग्रांडे दो नोर्टे
+    hr: Rio Grande do Norte
+    hu: Rio Grande do Norte
+    hy: Ռիու Գրանդի դու Նորտի
+    id: Rio Grande do Norte
+    is: Rio Grande do Norte
+    it: Rio Grande do Norte
+    ja: リオグランデ・ド・ノルテ州
+    ka: რიუ-გრანდი-დუ-ნორტი
+    kn: ರಿಯೊ ಗ್ರಾಂಡೆ ಡು ನಾರ್ಟೆ
+    ko: 히우그란지두노르치 주
+    lt: Šiaurės Rio Grandė
+    lv: Riugrandi du Norti
+    mr: रियो ग्रांदे दो नॉर्ते
+    ms: Rio Grande do Norte
+    nb: Rio Grande do Norte
+    nl: Rio Grande do Norte
+    pl: Rio Grande do Norte
+    pt: Rio Grande do Norte
+    ro: Rio Grande do Norte
+    ru: Риу-Гранди-ду-Норти
+    si: රියෝ ග්‍රන්ඩේ ඩො මොර්ටෙ
+    sk: Rio Grande do Norte
+    sr: Рио Гранде до Норте
+    sv: Rio Grande do Norte
+    sw: Rio Grande do Norte
+    ta: இரியோ கிராண்டு டோ நார்த்
+    te: రియో గ్రాండ్ డు నార్టే
+    th: รัฐรีอูกรันดีดูนอร์ตี
+    tr: Rio Grande do Norte
+    uk: Ріу-Гранді-ду-Норті
+    ur: شمالی ریو گرانڈی
+    vi: Rio Grande do Norte
+    cy: Rio Grande do Norte
+    ceb: Rio Grande do Norte
+    sr_Latn: Rio Grande do Norte
+    zh: 北里约格朗德
+    yue_Hans: 北大河州
+    sq: Rio Grande do Norte
+    ccp: "𑄢𑄃𑄮 𑄉𑄳𑄢𑄚𑄴𑄓𑄬 𑄓𑄮 𑄚𑄧𑄢𑄴𑄑𑄬"
+    ga: Rio Grande do Norte
+    yue: 北大河州
+    yo: Rio Grande do Norte
+    uz: Riu Grandi du Norti
+    bs: Rio Grande do Norte
+    mk: Северно Рио Гранде
+    'no': Rio Grande do Norte
+    yo_BJ: Rio Grande do Norte
+    kk: Риу-Гранди-ду-Норти
+  type: state
+RO:
+  name: Rondônia
+  code: RO
+  unofficial_names:
+  - Rondônia
+  geo:
+    latitude: -11.5057341
+    longitude: -63.580611
+    min_latitude: -13.6937038
+    min_longitude: -66.8102456
+    max_latitude: -7.9692976
+    max_longitude: -59.77434709999999
+  translations:
+    en: Rondônia
+    af: Rondônia
+    ar: روندونيا
+    az: Rondoniya
+    be: Штат Рандонія
+    bg: Рондония
+    bn: রন্ডোনিয়া
+    ca: Rondônia
+    cs: Rondônia
+    da: Rondônia
+    de: Rondônia
+    el: Ροντόνια
+    es: Rondonia
+    et: Rondônia osariik
+    eu: Rondônia
+    fa: روندونیا
+    fi: Rondônia
+    fr: Rondônia
+    gl: Rondonia - Rondônia
+    gu: રોન્ડોનિયા
+    he: רונדוניה
+    hi: रोन्डोनिया
+    hr: Rondônia
+    hu: Rondônia
+    id: Rondônia
+    it: Rondônia
+    ja: ロンドニア州
+    ka: რონდონია
+    kn: ರೊಂಡೊನಿಯಾ
+    ko: 혼도니아 주
+    lt: Rondonija
+    lv: Rondonija
+    mr: रोन्द्योनिया
+    ms: Rondônia
+    nb: Rondônia
+    nl: Rondônia
+    pl: Rondônia
+    pt: Rondônia
+    ro: Rondônia
+    ru: Рондония
+    si: රැන්ඩෝනියා
+    sk: Rondônia
+    sr: Рондонија
+    sv: Rondônia
+    sw: Rondônia
+    ta: ரொண்டோனியா
+    te: రాండోనియా
+    th: รัฐรอนโดเนีย
+    tr: Rondônia
+    uk: Рондонія
+    ur: روندونیا
+    vi: Rondônia
+    cy: Rondônia
+    ceb: Rondônia
+    sr_Latn: Rondonija
+    zh: 朗多尼亚州
+    yue_Hans: 朗多尼亚州
+    ccp: "𑄢𑄧𑄚𑄳𑄓𑄴𑄓𑄮𑄚𑄨𑄠"
+    ga: Rondônia
+    hy: Ռոնդոնիա
+    yue: 朗多尼亞州
+    yo: Rondônia
+    uz: Rondoniya
+    bs: Rondônia
+    mk: Рондонија
+    'no': Rondônia
+    yo_BJ: Rondônia
+  type: state
+RR:
+  name: Roraima
+  code: RR
+  unofficial_names:
+  - Roraima
+  geo:
+    latitude: 2.7375971
+    longitude: -62.0750998
+    min_latitude: -1.5806358
+    min_longitude: -64.8252444
+    max_latitude: 5.2718389
+    max_longitude: -58.88687820000001
+  translations:
+    en: Roraima
+    af: Roraima
+    ar: رورايما
+    az: Rorayma
+    be: Штат Рарайма
+    bg: Рорайма
+    bn: রোরাইমা প্রদেশ
+    ca: Roraima
+    cs: Roraima
+    da: Roraima
+    de: Roraima
+    el: Ροράιμα
+    es: Roraima
+    et: Roraima osariik
+    eu: Roraima
+    fa: رورایما
+    fi: Roraima
+    fr: Roraima
+    gl: Roraima
+    gu: રોરેમા
+    he: רוריימה
+    hi: रोरैमा
+    hr: Roraima
+    hu: Roraima
+    id: Roraima
+    is: Roraima
+    it: Roraima
+    ja: ロライマ州
+    ka: რორაიმა
+    kn: ರೋರೈಮಾ
+    ko: 호라이마 주
+    lt: Roraima
+    lv: Roraima
+    mr: रोराईमा
+    ms: Roraima
+    nb: Roraima
+    nl: Roraima
+    pl: Roraima
+    pt: Roraima
+    ro: Roraima
+    ru: Рорайма
+    si: රෝරයිමා
+    sk: Roraima
+    sr: Рораима
+    sv: Roraima
+    sw: Roraima
+    ta: றோரைமா
+    te: రోరేమా
+    th: รัฐโรไรมา
+    tr: Roraima
+    uk: Рорайма
+    ur: رورائیما
+    vi: Roraima
+    cy: Roraima
+    ceb: Roraima (estado sa Brasil)
+    sr_Latn: Roraima
+    zh: 羅賴馬州
+    yue_Hans: 罗赖马州
+    sq: Roraima
+    ccp: "𑄢𑄧𑄢𑄭𑄟"
+    ga: Roraima
+    ml: റൊറൈമ പർവ്വതം
+    yue: 羅賴馬州
+    yo: Roraima
+    uz: Rorayma
+    bs: Roraima
+    mk: Рораима
+    'no': Roraima
+    yo_BJ: Roraima
+    hy: Ռորայմա
+  type: state
+RS:
+  name: Rio Grande do Sul
+  code: RS
+  unofficial_names:
+  - Rio Grande do Sul
+  geo:
+    latitude: -30.0346316
+    longitude: -51.2176986
+    min_latitude: -33.752084
+    min_longitude: -57.64928399999999
+    max_latitude: -27.0805987
+    max_longitude: -49.6916345
+  translations:
+    en: Rio Grande do Sul
+    af: Rio Grande do Sul
+    ar: ريو غراندي دو سول
+    az: Riu-Qrandi-du-Sul
+    be: штат Рыу-Гранды-ду-Сул
+    bg: Рио Гранди до Сул
+    bn: রিও গ্রান্ডে দু সোল
+    ca: Rio Grande do Sul
+    cs: Rio Grande do Sul
+    da: Rio Grande do Sul
+    de: Rio Grande do Sul
+    el: Ρίο Γκράντε ντο Σουρ
+    es: Río Grande del Sur
+    et: Rio Grande do Suli osariik
+    eu: Rio Grande do Sul
+    fa: ریو گرانده دو سول
+    fi: Rio Grande do Sul
+    fr: Rio Grande do Sul
+    gl: Río Grande do Sur - Rio Grande do Sul
+    gu: રિયો ગ્રાન્દે દો સુલ
+    he: ריו גראנדה דו סול
+    hi: रियो ग्रांडे दो सुल
+    hr: Rio Grande do Sul
+    hu: Río Grande del Sur
+    hy: Ռիու Գրանդի դու Սուլ
+    id: Rio Grande do Sul
+    is: Rio Grande do Sul
+    it: Rio Grande do Sul
+    ja: リオグランデ・ド・スル州
+    ka: რიუ-გრანდი-დუ-სული
+    kn: ರಿಯೊ ಗ್ರಾಂಡೆ ಡು ಸುಲ್
+    ko: 히우그란지두술 주
+    lt: Pietų Rio Grandė
+    lv: Riugrandi du Sula
+    mr: रियो ग्रांदे दो सुल
+    ms: Rio Grande do Sul
+    nb: Rio Grande do Sul
+    nl: Rio Grande do Sul
+    pl: Rio Grande do Sul
+    pt: Rio Grande do Sul
+    ro: Rio Grande do Sul
+    ru: Риу-Гранди-ду-Сул
+    si: රියෝ ග්‍රන්ඩේ ඩු සල්
+    sk: Rio Grande do Sul
+    sr: Рио Гранде до Сул
+    sv: Rio Grande do Sul
+    sw: Rio Grande do Sul
+    ta: இரியோ கிராண்டு டொ சுல்
+    te: రియో గ్రాండ్ డు సల్
+    th: รัฐรีอูกรันดีดูซูล
+    tr: Rio Grande do Sul
+    uk: Ріу-Гранді-ду-Сул
+    ur: جنوبی ریو گرانڈی
+    vi: Rio Grande do Sul
+    cy: Rio Grande do Sul
+    ceb: Rio Grande do Sul (estado sa Brasil)
+    sr_Latn: Rio Grande do Sul
+    zh: 南里奥格兰德州
+    yue_Hans: 南大河州
+    jv: BR-RS
+    sq: BR-RS
+    ccp: "𑄢𑄨𑄃𑄮 𑄉𑄳𑄢𑄚𑄴𑄓𑄬 𑄓𑄮 𑄥𑄪𑄣𑄴"
+    ga: Rio Grande do Sul
+    ig: BR-RS
+    so: BR-RS
+    sl: BR-RS
+    kk: Риу-Гранди-ду-Сул
+    yue: 南大河州
+    yo: Rio Grande do Sul
+    zu: BR-RS
+    uz: Riu Grandi du Sul
+    bs: Rio Grande do Sul
+    mk: Јужно Рио Гранде
+    'no': Rio Grande do Sul
+    yo_BJ: Rio Grande do Sul
+  type: state
+SC:
+  name: Santa Catarina
+  code: SC
+  unofficial_names:
+  - Santa Catarina
+  geo:
+    latitude: -27.2423392
+    longitude: -50.2188556
+    min_latitude: -29.351441
+    min_longitude: -53.83635870000001
+    max_latitude: -25.9559588
+    max_longitude: -48.35680809999999
+  translations:
+    en: Santa Catarina
+    af: Santa Catarina
+    ar: سانتا كاتارينا
+    az: Santa-Katarina
+    be: штат Санта-Катарына
+    bg: Санта Катарина
+    bn: স্যান্টা ক্যাটারিনা
+    ca: Estat de Santa Catarina
+    cs: Santa Catarina
+    da: Santa Catarina
+    de: Santa Catarina
+    el: Σάντα Καταρίνα
+    es: Santa Catarina
+    et: Santa Catarina osariik
+    eu: Santa Catarina
+    fa: سانتا کاتارینا
+    fi: Santa Catarina
+    fr: Santa Catarina
+    gl: Santa Catarina
+    gu: સાંતા કેટરિના
+    he: סנטה קטרינה
+    hi: सांता कातारीना
+    hr: Santa Catarina
+    hu: Santa Catarina
+    hy: Սանտա Կատարինա
+    id: Santa Catarina
+    is: Santa Catarina
+    it: Santa Catarina
+    ja: サンタカタリーナ州
+    ka: სანტა-კატარინა
+    kn: ಸಾಂಟಾ ಕ್ಯಾಟರಿನಾ
+    ko: 산타카타리나 주
+    lt: Santa Katarina
+    lv: Santakatarina
+    mr: सांता कातारिना
+    ms: Santa Catarina
+    nb: Santa Catarina
+    nl: Santa Catarina
+    pl: Santa Catarina
+    pt: Santa Catarina
+    ro: Santa Catarina
+    ru: Санта-Катарина
+    si: සැන්ටා කැතරිනා
+    sk: Santa Catarina
+    sr: Санта Катарина
+    sv: Santa Catarina
+    sw: Santa Catarina
+    ta: சாண்டா கதறினா
+    te: సాంటా కాటరీనా
+    th: รัฐซานตากาตารีนา
+    tr: Santa Catarina
+    uk: Санта-Катаріна
+    ur: سانتا کاتارینا
+    vi: Santa Catarina
+    cy: Santa Catarina
+    ceb: Santa Catarina
+    sr_Latn: Santa Katarina
+    zh: 圣卡塔琳娜州
+    yue_Hans: 圣卡塔莲娜州
+    ccp: "𑄥𑄚𑄴𑄑 𑄇𑄳𑄠𑄑𑄢𑄨𑄚"
+    ga: Santa Catarina
+    kk: Санта Катарина
+    yue: 聖卡塔蓮娜州
+    yo: Santa Catarina
+    uz: Santa-Katarina
+    bs: Santa Catarina
+    mk: Санта Катарина
+    'no': Santa Catarina
+    yo_BJ: Santa Catarina
+  type: state
+SE:
+  name: Sergipe
+  code: SE
+  unofficial_names:
+  - Sergipe
+  geo:
+    latitude: -10.5740934
+    longitude: -37.3856581
+    min_latitude: -11.5685288
+    min_longitude: -38.2456472
+    max_latitude: -9.5150294
+    max_longitude: -36.3998681
+  translations:
+    en: Sergipe
+    af: Sergipe
+    ar: سيرجيبي
+    az: Serjipi
+    be: штат Сержыпі
+    bg: Сержипи
+    bn: সারজিপে
+    ca: Sergipe
+    cs: Sergipe
+    da: Sergipe
+    de: Sergipe
+    el: Σερζίπε
+    es: Sergipe
+    et: Sergipe osariik
+    eu: Sergipe
+    fa: سرژیپه
+    fi: Sergipe
+    fr: Sergipe
+    gl: Sergipe
+    gu: સર્ગીપે
+    he: סרז׳יפה
+    hi: सर्जिपे
+    hr: Sergipe
+    hu: Sergipe
+    hy: Սերժիպի
+    id: Sergipe
+    is: Sergipe
+    it: Sergipe
+    ja: セルジッペ州
+    ka: სერჟიპი
+    kn: ಸೆರ್ಗಿಪೆ
+    ko: 세르지피 주
+    lt: Seržipė
+    lv: Seržipi
+    mr: सर्जिपे
+    ms: Sergipe
+    nb: Sergipe
+    nl: Sergipe
+    pl: Sergipe
+    pt: Sergipe
+    ro: Sergipe
+    ru: Сержипи
+    si: සර්ගිපේ
+    sk: Sergipe
+    sr: Сержипе
+    sv: Sergipe
+    sw: Sergipe
+    ta: சேர்க்கபே
+    te: సెర్జయిప్
+    th: รัฐเซร์ชีปี
+    tr: Sergipe
+    uk: Сержипі
+    ur: سرژیپی
+    vi: Sergipe
+    cy: Sergipe
+    ceb: Sergipe
+    sr_Latn: Seržipe
+    zh: 塞尔希培州
+    yue_Hans: 沙治比州
+    ccp: "𑄥𑄬𑄢𑄴𑄉𑄭𑄛𑄴"
+    ga: Sergipe
+    kk: Сержипи
+    yue: 沙治比州
+    yo: Sergipe
+    uz: Serjipi
+    bs: Sergipe
+    mk: Сержипе
+    'no': Sergipe
+    yo_BJ: Sergipe
+  type: state
+SP:
+  name: São Paulo
+  code: SP
+  unofficial_names:
+  - São Paulo
+  geo:
+    latitude: -23.5505199
+    longitude: -46.63330939999999
+    min_latitude: -24.0082209
+    min_longitude: -46.825514
+    max_latitude: -23.3566039
+    max_longitude: -46.3650844
+  translations:
+    en: São Paulo
+    af: São Paulo
+    ar: ساو باولو
+    az: San-Paulo
+    be: штат Сан-Паўлу
+    bg: Сао Пауло
+    bn: সাঁও পাওলো
+    ca: Estat de São Paulo
+    cs: São Paulo
+    da: São Paulo
+    de: São Paulo
+    el: Σάο Πάολο
+    es: São Paulo
+    et: São Paulo osariik
+    eu: São Pauloko estatua
+    fa: ایالت سائوپائولو
+    fi: São Paulo
+    fr: État de São Paulo
+    gl: Estado de San Paulo - São Paulo
+    gu: સાઓ પાઉલો
+    he: סאו פאולו
+    hi: साओ पाउलो
+    hr: São Paulo
+    hu: São Paulo
+    hy: Սան Պաուլու
+    id: São Paulo
+    is: São Paulo
+    it: San Paolo
+    ja: サンパウロ州
+    ka: სან-პაულუ
+    kn: ಸಾವೊ ಪಾಲೊ
+    ko: 상파울루 주
+    lt: San Paulas
+    lv: Sanpaulu
+    mn: Сан-Паулу муж
+    mr: साओ पाउलो
+    ms: São Paulo
+    nb: São Paulo
+    ne: साँओ पाउलो
+    nl: São Paulo
+    pl: São Paulo
+    pt: São Paulo
+    ro: São Paulo
+    ru: Сан-Паулу
+    si: සාඕ පවුලෝ
+    sk: São Paulo
+    sr: Сао Пауло
+    sv: São Paulo
+    sw: São Paulo
+    ta: சாவோ பாலோ
+    te: సావో పాలో
+    th: รัฐเซาเปาลู
+    tr: São Paulo
+    uk: Сан-Паулу
+    ur: ساؤ پاؤلو
+    vi: São Paulo
+    cy: São Paulo
+    ceb: São Paulo (estado)
+    sr_Latn: Sao Paulo
+    zh: 圣保罗州
+    yue_Hans: 圣保罗州
+    sq: Sao Paulo
+    ccp: "𑄥𑄃𑄮 𑄛𑄅𑄪𑄣𑄮"
+    ga: São Paulo
+    so: São Paulo
+    yue: 聖保羅州
+    yo: Sao Paulo
+    uz: San Paulu
+    bs: São Paulo (država)
+    mk: Сао Паоло
+    'no': São Paulo
+    yo_BJ: Sao Paulo
+    my: ဆောပိုလိုမြို့
+  type: state
+TO:
+  name: Tocantins
+  code: TO
+  unofficial_names:
+  - Tocantins
+  geo:
+    latitude: -10.17528
+    longitude: -48.2982474
+    min_latitude: -13.4677157
+    min_longitude: -50.74205809999999
+    max_latitude: -5.1683828
+    max_longitude: -45.6960778
+  translations:
+    en: Tocantins
+    af: Tocantins
+    ar: توكانتينس
+    az: Tokantins
+    be: Штат Такантынс
+    bg: Токантинс
+    bn: টোক্যান্টিন
+    ca: Estat de Tocantins
+    cs: Tocantins
+    da: Tocantins
+    de: Tocantins
+    el: Τοκάντινς
+    es: Tocantins
+    et: Tocantinsi osariik
+    eu: Tocantins
+    fa: توکانتینس
+    fi: Tocantins
+    fr: Tocantins
+    gl: Tocantins
+    gu: ટોકેન્ટિન્સ
+    he: טוקנטינס
+    hi: टोकाचिस
+    hr: Tocantins
+    hu: Tocatins
+    id: Tocantins
+    it: Tocantins
+    ja: トカンティンス州
+    ka: ტოკანტინსი
+    kn: ಟೊಕಂಟಿನ್ಸ್
+    ko: 토칸칭스 주
+    lt: Tokantinsas
+    lv: Tokantinsa
+    mr: तोकांतिन्स
+    ms: Tocantins
+    nb: Tocantins
+    nl: Tocantins
+    pl: Tocantins
+    pt: Tocantins
+    ro: Tocantins
+    ru: Токантинс
+    si: ටෝකන්ටින්ස්
+    sk: Tocantins
+    sr: Токантинс
+    sv: Tocantins
+    sw: Tocantins
+    ta: டோகாண்டின்ஸ்
+    te: టొకాంటిన్స్
+    th: รัฐโตกันชีนส์
+    tr: Tocantins
+    uk: Токантінс
+    ur: توکانتینس
+    vi: Tocantins
+    cy: Tocantins
+    ceb: Tocantins (estado)
+    sr_Latn: Tokantins
+    zh: 托坎廷斯
+    yue_Hans: 托坎廷斯州
+    ccp: "𑄑𑄧𑄇𑄳𑄠𑄚𑄴𑄑𑄨𑄚𑄴"
+    ga: Tocantins
+    kk: Токантинс
+    yue: 托坎廷斯州
+    yo: Tocantins
+    uz: Tokantins
+    bs: Tocantins
+    mk: Токантинс
+    'no': Tocantins
+    yo_BJ: Tocantins
+    hy: Տոկանտինս
+  type: state

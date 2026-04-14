@@ -1,0 +1,1282 @@
+---
+BA:
+  name: Batha
+  code: BA
+  unofficial_names:
+  - Batha
+  geo:
+    latitude: 13.9371775
+    longitude: 18.4276047
+    min_latitude: 12.1039549
+    min_longitude: 16.9447559
+    max_latitude: 16.076306
+    max_longitude: 20.3562929
+  translations:
+    en: Batha
+    ar: منطقة البطحة
+    bg: Бата
+    bn: বাথা অঞ্চল
+    cs: Batha
+    da: Batha
+    de: Region Batha
+    el: Μπάθα
+    es: Región de Batha
+    et: Batha
+    eu: Batha
+    fi: Batha
+    fr: Batha
+    gu: બાથા પ્રદેશ
+    hi: बाथा प्रदेश
+    id: Region Batha
+    it: regione di Batha
+    ja: バタ州
+    kn: ಬಾತ ಪ್ರದೇಶ
+    ko: 바타 주
+    lt: Batos regionas
+    mr: बाठा प्रदेश
+    ms: Batha Region
+    nb: Batha
+    nl: Batha
+    pl: Region Batha
+    pt: Batha
+    ro: Regiunea Batha
+    ru: Батха
+    si: බාතා කලාපය
+    sv: Batha (region)
+    ta: பாத்தா பகுதி
+    te: బాతా ప్రాంతం
+    th: บาธา
+    tr: Batha Bölgesi
+    uk: Батха
+    ur: باثا علاقہ
+    vi: Khu vực Batha
+    zh: 巴塔区
+    lv: Batas reģions
+    ceb: Batha Region
+    ccp: "𑄝𑄗"
+    ka: ბათის რეგიონი
+    'no': Batha
+    ca: Regió de Batha
+    fa: استان بطحه
+  type: province
+BG:
+  name: بحر الغزال
+  code: BG
+  translations:
+    ar: بحر الغزال
+    bg: Бар ел Газел
+    bn: বার এল গাজেল অঞ্চল
+    cs: Barh El Gazel
+    da: Barh El Gazel
+    de: Region Barh El Gazel
+    el: Μπαχρ ελ Γκαζέλ
+    en: Bahr el Gazel
+    es: Región de Barh El Gazel
+    eu: Barh El Gazel
+    fi: Barh el Gazel
+    fr: Barh El Gazel
+    gu: બાહર અલ ગેઝલ પ્રદેશ
+    hi: बहल एल गेज़ेल क्षेत्र
+    id: Wilayah Bahr el Gazel
+    it: regione di Barh El Gazel
+    ja: バル・エル＝ガゼル州
+    kn: ಬಹರ್ ಎಲ್ ಗಸೆಲ್ ಪ್ರದೇಶ
+    ko: 바르엘가젤 주
+    lt: Bahr El Gazelio regionas
+    mr: बहल एल गाझेल प्रदेश
+    ms: Bahr el Gazel Region
+    nb: Bahr el Gazel region
+    nl: Bahr el Gazel Region
+    pl: Region Bahr El Gazel
+    pt: Barh El Gazel
+    ro: Regiunea Barh el Ghazel
+    ru: Бахр-эль-Газаль
+    si: බහර් එල් ගසෙල් කලාපය
+    sv: Bahr el Gazel (region)
+    ta: பார் எல் கஸில் பகுதி
+    te: బహర్ ఎల్ గాజెల్ ప్రాంతం
+    th: บาฮ์ เอล กาเซล
+    tr: Bahr el Gazel Bölgesi
+    uk: Бахр-ель-Газаль
+    ur: بحر الغزال علاقہ
+    vi: Khu vực Bahr el Gazel
+    lv: Bahrelgazalas reģions
+    ceb: Barh el Gazel
+    zh: 加扎勒河區
+    ccp: "𑄝𑄦𑄴𑄢𑄴 𑄃𑄬𑄣𑄴 𑄉𑄎𑄬𑄣𑄴"
+    ka: ბაჰრ-ელ-გაზელის რეგიონი
+    'no': Bahr el Gazel region
+    ca: Bahr el Gazel
+    fa: بخش بحر غزل
+  type: province
+BO:
+  name: منطقة بوركو
+  code: BO
+  translations:
+    ar: منطقة بوركو
+    bn: বুরকু অঞ্চল
+    ca: Borku
+    cs: Borkou
+    da: Borkou
+    de: Region Borkou
+    el: Μπόρκου
+    en: Borkou
+    es: Región de Borkou
+    eu: Borkou
+    fi: Borkou
+    fr: Borkou
+    gu: બૉર્કાઉ પ્રદેશ
+    hi: बोर्कू प्रदेश
+    hy: Բորկու
+    id: Wilayah Borkou
+    it: regione di Borkou
+    ja: ボルク州
+    kn: ಬೊರ್ಕೊ ಪ್ರದೇಶ
+    ko: 보르쿠 주
+    lt: Borku regionas
+    mr: बोरोकू प्रांत
+    ms: Borkou Region
+    nb: Borkou Region
+    nl: Borkou Region
+    pl: Region Borku
+    pt: Região Borkou
+    ro: Regiunea Borkou
+    ru: Борку
+    si: බොර්කොවූ කලාපය
+    sv: Borkou (region)
+    ta: போர்கோவு பகுதி
+    te: బోర్కోవ్ ప్రాంతం
+    th: แถบบอคูย์
+    tr: Borkou Bölgesi
+    uk: Борку
+    ur: بورکؤ علاقہ
+    vi: Khu vực Borkou
+    lv: Borku reģions
+    ceb: Borkou Region
+    zh: 博爾庫區
+    ccp: "𑄝𑄮𑄢𑄴𑄇𑄯"
+    ka: ბორკუს რეგიონი
+    'no': Borkou Region
+    fa: استان بورکو
+    he: בורקו
+  type: province
+CB:
+  name: Chari-Baguirmi
+  code: CB
+  unofficial_names:
+  - Chari-Baguirmi
+  geo:
+    latitude: 11.2564207
+    longitude: 16.1580937
+    min_latitude: 9.802192
+    min_longitude: 14.8912919
+    max_latitude: 12.379939
+    max_longitude: 17.506004
+  translations:
+    en: Chari-Baguirmi
+    ar: منطقة كانم
+    bg: Шари-Багирми
+    bn: চারি-বাগুরমি অঞ্চল
+    ca: Regió de Chari-Baguirmi
+    cs: Chari-Baguirmi
+    da: Chari-Baguirmi
+    de: Region Chari-Baguirmi
+    el: Τσάρι-Μπαγκουίρμι
+    es: Región de Chari-Baguirmi
+    et: Chari-Baguirmi
+    eu: Chari-Baguirmi
+    fi: Chari-Baguirmi
+    fr: Chari-Baguirmi
+    gu: ચારી-બાગુરમી પ્રદેશ
+    hi: चारी-बगुरनी क्षेत्र
+    id: Region Chari-Baguirmi
+    it: regione di Chari-Baguirmi
+    ja: シャリ＝バギルミ州
+    kn: ಚರಿ-ಬಗ್ಯುರಿಮಿ ಪ್ರದೇಶ
+    ko: 샤리바기르미 주
+    lt: Šario–Bagirmio regionas
+    mr: चारी-बागुइरी प्रदेश
+    ms: Chari-Baguirmi Region
+    nb: Chari-Baguirmi
+    nl: Chari-Baguirmi
+    pl: Region Szari-Bagirmi
+    pt: Região de Chari-Baguirmi
+    ro: Regiunea Chari-Baguirmi
+    ru: Шари-Багирми
+    si: චරි-බගුඉර්මි කලාපය
+    sv: Chari-Baguirmi (region)
+    ta: சாறி -பகுருமி பகுதி
+    te: చారి-బాగ్విర్మి ప్రాంతం
+    th: ชาริ บากุยอ์มิ
+    tr: Chari-Baguirmi Bölgesi
+    ur: شاری-باگیرمی علاقہ
+    vi: Khu vực Chari-Baguirmi
+    lv: Šari-Bagirmi reģions
+    ceb: Chari-Baguirmi Region
+    zh: 沙里-巴吉尔米区
+    ccp: "𑄌𑄢𑄨-Chari-Baguirmi"
+    ka: შარი-ბაგირმის რეგიონი
+    he: צ׳ארי-בגוירמי
+    uk: Регіон Шарі-Багірмі
+    'no': Chari-Baguirmi
+  type: province
+EE:
+  name: إنيدي الشرقية
+  code: EE
+  translations:
+    en: Ennedi-Est
+    fr: Ennedi Est
+    it: Regione di Ennedi Est
+    ja: 東エネディ州
+    ur: انیدی-مشرقی علاقہ
+    ar: إنيدي الشرقية
+    ru: Восточный Эннеди
+    ccp: "𑄃𑄨𑄚𑄬𑄓𑄨-𑄃𑄨𑄌𑄴𑄑𑄴"
+    ka: აღმოსავლეთი ენედის რეგიონი
+    es: Ennedi Est
+    ceb: Ennedi-Est
+    de: Ennedi Est
+    et: Ida-Ennedi piirkond
+    he: אנדי-מזרח
+    hi: एन्नेदी पूर्व (प्रदेश)
+  type: province
+EO:
+  name: إنيدي الغربية
+  code: EO
+  translations:
+    en: Ennedi-Ouest
+    es: Ennedi Ouest
+    fr: Ennedi Ouest
+    it: Regione di Ennedi Ovest
+    ja: 西エネディ州
+    ur: انیدی-مغربی علاقہ
+    ar: إنيدي الغربية
+    zh: 西恩內迪區
+    ru: Западный Эннеди
+    ccp: "𑄃𑄨𑄚𑄬𑄓𑄨-𑄃𑄮𑄠𑄬𑄌𑄴𑄑𑄴"
+    ka: დასავლეთი ენედის რეგიონი
+    ceb: Ennedi-Ouest
+    de: Ennedi Ouest
+    he: אנדי-מערב
+    hi: एन्नेदी पश्चिम (प्रदेश)
+  type: province
+GR:
+  name: Guéra
+  code: GR
+  unofficial_names:
+  - Guéra
+  geo:
+    latitude: 11.1219015
+    longitude: 18.4276047
+    min_latitude: 9.8482861
+    min_longitude: 17.2903469
+    max_latitude: 12.990278
+    max_longitude: 20.192167
+  translations:
+    en: Guéra
+    ar: منطقة قيرا
+    bg: Гера
+    bn: গোয়েরা অঞ্চল
+    cs: Guéra
+    da: Guéra
+    de: Region Guéra
+    el: Γκουέρα
+    es: Región de Guéra
+    et: Guéra
+    eu: Guéra
+    fi: Guéra
+    fr: Guéra
+    gu: ગુએરા પ્રદેશ
+    hi: गुएरा प्रदेश
+    id: Wilayah Guéra
+    it: regione di Guéra
+    ja: ゲラ州
+    kn: ಗುರಿಯಾ ಪ್ರದೇಶ
+    ko: 게라 주
+    lt: Geros regionas
+    mr: गिरे प्रदेश
+    ms: Negeri Guéra
+    nb: Guéra
+    nl: Guéra
+    pl: Region Guéra
+    pt: Região de Guera
+    ro: Regiunea Guéra
+    ru: Гера
+    si: ගුඑරා පළාත
+    sv: Guéra (region)
+    ta: குயிரா பகுதி
+    te: గువెరా ప్రాంతం
+    th: เขตกุเอรา
+    tr: Guéra Bölgesi
+    ur: گویرا علاقہ
+    vi: Khu vực Guera
+    lv: Geras reģions
+    ceb: Guera Region
+    zh: 蓋拉區
+    ccp: "𑄉𑄪𑄠𑄬𑄢"
+    ka: გერის რეგიონი
+    uk: Регіон Мбарара
+    'no': Guéra
+    ca: Regió de Guéra
+  type: province
+HL:
+  name: Hadjer Lamis
+  code: HL
+  unofficial_names:
+  - Hadjer Lamis
+  geo:
+    latitude: 12.4577273
+    longitude: 16.7234639
+    min_latitude: 11.4313499
+    min_longitude: 14.550512
+    max_latitude: 13.3501059
+    max_longitude: 17.6553859
+  translations:
+    en: Hadjer-Lamis
+    ar: منطقة حجر لميس
+    bg: Хаджер-Ламис
+    bn: হাজের লামিস অঞ্চল
+    da: Hadjer-Lamis
+    de: Region Hadjer-Lamis
+    el: Χάτζερ-Λάμις
+    es: Región de Hadjer-Lamis
+    et: Hadjer-Lamis
+    eu: Hadjer-Lamis
+    fi: Hadjer-Lamis
+    fr: Hadjer-Lamis
+    gl: Hadjer-Lamis
+    gu: હૅજર-લામિસ પ્રદેશ
+    hi: हद्जर-लामिस क्षेत्र
+    id: Region Hadjer-Lamis
+    it: regione di Hadjer-Lamis
+    ja: ハジェル＝ラミ州
+    kn: ಹಡ್ಜೆರ್-ಲಾಮಿಸ್ ಪ್ರದೇಶ
+    ko: 하제르라미 주
+    lt: Hadžero–Lamiso regionas
+    mr: हदजर-लामीस प्रांत
+    ms: Hadjer-Lamis Region
+    nb: Hadjer-Lamis
+    nl: Hadjer-Lamis
+    pl: Region Hadjer-Lamis
+    pt: Hadjer-Lamis
+    ro: Regiunea Hadjer-Lamis
+    ru: Хаджер-Ламис
+    si: හජෙර්-ලමිස් කලාපය
+    sv: Hadjer-Lamis (region)
+    ta: ஹட்ஜர் -லாமிஸ் பகுதி
+    te: హద్జర్-లామిస్ ప్రాంతం
+    th: เฮดเจอ ลามิส
+    tr: Hadjer-Lamis Bölgesi
+    ur: حجر-لامیس علاقہ
+    vi: Khu vực Hadjer-Lamis
+    lv: Hadžēras-Lami reģions
+    ceb: Hadjer-Lamis
+    zh: 哈傑爾-拉密區
+    ccp: "𑄦𑄖𑄴𑄎𑄬𑄢𑄴-𑄣𑄟𑄨𑄌𑄴"
+    ka: ჰაჯერ-ლამისის რეგიონი
+    uk: Регіон Гаджер-Ламіс
+    'no': Hadjer-Lamis
+    ca: Regió d’Hadjer-Lamis
+    fa: بخش حجر لمیس
+  type: province
+KA:
+  name: Kanem
+  code: KA
+  unofficial_names:
+  - Kanem
+  geo:
+    latitude: 14.8781262
+    longitude: 15.4068079
+    min_latitude: 13.117372
+    min_longitude: 13.633162
+    max_latitude: 16.8978711
+    max_longitude: 16.7248479
+  translations:
+    en: Kanem
+    ar: منطقة كانم²
+    bg: Канем
+    bn: কানেম অঞ্চল
+    ca: Regió de Kanem
+    da: Kanem
+    de: Region Kanem
+    el: Κανέμ
+    es: Región de Kanem
+    et: Kanem
+    eu: Kanem
+    fi: Kanem
+    fr: Kanem
+    gu: કાનેમ પ્રદેશ
+    hi: कानेम प्रदेश
+    id: Region Kanem
+    it: regione di Kanem
+    ja: カネム州
+    kn: ಕಾನೆಮ್ ಪ್ರದೇಶ
+    ko: 카넴 주
+    lt: Kanemo regionas
+    mr: कानेम प्रदेश
+    ms: Kanem Region
+    nb: Kanem
+    nl: Kanem
+    pl: Region Kanem
+    pt: Kanem
+    ro: Regiunea Kanem
+    ru: Канем
+    si: කනෙම් පළාත
+    sv: Kanem
+    ta: காணேம் பகுதி
+    te: కానెమ్ ప్రాంతం
+    th: คาเนม
+    tr: Kanem Bölgesi
+    ur: کانیم علاقہ
+    vi: Khu vực Kanem
+    lv: Kanemas reģions
+    ceb: Kanem Region
+    zh: 加奈姆區
+    ccp: "𑄇𑄚𑄬𑄟𑄴"
+    ka: კანემის რეგიონი
+    uk: Регіон Канем
+    'no': Kanem
+    be: Канем (рэгіён)
+  type: province
+LC:
+  name: Lac
+  code: LC
+  unofficial_names:
+  - Lac
+  geo:
+    latitude: 13.6915377
+    longitude: 14.1001326
+    min_latitude: 12.9456311
+    min_longitude: 13.4734749
+    max_latitude: 14.5104809
+    max_longitude: 15.5492499
+  translations:
+    en: Lac
+    ar: منطقة البحيرة
+    bg: Лак
+    bn: লাক অঞ্চল
+    da: Lac
+    de: Region Lac
+    el: Λακ
+    es: Región de Lac
+    et: Lac
+    eu: Lac
+    fi: Lac
+    fr: Lac
+    gu: લાખ પ્રાંત
+    hi: लैक क्षेत्र
+    id: Region Lac
+    it: regione del Lago
+    ja: ラク州
+    kn: ಲ್ಯಾಕ್ ಪ್ರದೇಶ
+    ko: 라크 주
+    lt: Ežero regionas
+    mr: लॅक प्रदेश
+    ms: Lac Region
+    nb: Lac
+    nl: Lac
+    pl: Region Lac
+    pt: Região Lac
+    ro: Regiunea Lac
+    ru: Лак
+    si: ලැක් කලාපය
+    sv: Lac (region)
+    ta: லேக் பகுதி
+    te: లాక్ ప్రాంతం
+    th: เขตแรค
+    tr: Lac Bölgesi
+    ur: لاک ریجن
+    vi: Khu vực Lac
+    lv: Lakas reģions
+    ceb: Lac Region
+    zh: 湖區
+    ccp: "𑄣𑄬𑄇𑄴"
+    ka: ლაკის რეგიონი
+    uk: Регіон Лак
+    'no': Lac
+    ca: Regió de Lac
+    fa: بخش بحیره
+  type: province
+LO:
+  name: Logone-Occidental
+  code: LO
+  unofficial_names:
+  - Logone-Occidental
+  geo:
+    latitude: 8.759675999999999
+    longitude: 15.876004
+    min_latitude: 8.244755
+    min_longitude: 15.2746969
+    max_latitude: 9.208981999999999
+    max_longitude: 16.5759211
+  translations:
+    en: Logone Occidental
+    ar: منطقة لوقون الغربي
+    bg: Западен Логон (регион)
+    bn: লুুগোনে অক্সিডেন্টাল অঞ্চল
+    da: Logone Occidental
+    de: Region Logone Occidental
+    el: Λογκόνε Οξιντένταλ
+    es: Región de Logone Occidental
+    et: Lääne-Logone
+    eu: Mendebaldeko Logone
+    fi: Logone Occidental
+    fr: Logone Occidental
+    gu: લોગોન ઓક્સિડેન્ટલ પ્રદેશ
+    hi: लोगोन ऑक्सीडोंटल प्रदेश
+    id: Region Logone Occidental
+    it: regione del Logone Occidentale
+    ja: ロゴン・オクシデンタル州
+    kn: ಲೊಗೊನ್ ಆಕೇಶನಲ್ ಪ್ರದೇಶ
+    ko: 로곤옥시당탈 주
+    lt: Vakarų Logonės regionas
+    mr: लॉगऑन ओकॅसिडेंटल प्रदेश
+    ms: Logone Occidental Region
+    nb: Logone Occidental
+    nl: Logone Occidental
+    pl: Region Logon Zachodni
+    pt: Região Ocidental de Logone
+    ro: Regiunea Logone Occidental
+    ru: Западный Логон
+    si: ලොගොනේ ඔක්සිඩෙන්ටල් කලාපය
+    sv: Logone Occidental
+    te: లోగోన్ ఆక్సిడెంటల్ ప్రాంతం
+    th: โลโกเน ออคซิเดนทอล
+    tr: Logone Occidental Bölgesi
+    uk: Західний Логон
+    ur: لوگونے مغربی علاقہ
+    vi: Khu vực Logone Occidental
+    lv: Rietumlogones reģions
+    ceb: Logone Occidental Region
+    zh: 西洛貢區
+    ccp: "𑄣𑄧𑄉𑄮𑄚𑄴 𑄃𑄧𑄇𑄴𑄥𑄨𑄓𑄬𑄚𑄴𑄑𑄣𑄴"
+    ka: დასავლეთი ლოგონის რეგიონი
+    'no': Logone Occidental
+    ca: Regió de Logone Occidental
+    he: לוגון מערב
+  type: province
+LR:
+  name: Logone-Oriental
+  code: LR
+  unofficial_names:
+  - Logone-Oriental
+  geo:
+    latitude: 8.3149949
+    longitude: 16.3463791
+    min_latitude: 7.4410681
+    min_longitude: 15.230739
+    max_latitude: 9.115038
+    max_longitude: 17.2695311
+  translations:
+    en: Logone Oriental
+    ar: منطقة لوقون الشرقي
+    bg: Източен Логон
+    bn: লুগোনে ওরিয়েন্টাল অঞ্চল
+    da: Logone Oriental
+    de: Region Logone Oriental
+    el: Λογκόνε Οριένταλ
+    es: Región de Logone Oriental
+    et: Ida-Logone
+    eu: Ekialdeko Logone
+    fi: Logone Oriental
+    fr: Logone Oriental
+    gu: લોગોન ઓરિએન્ટલ પ્રદેશ
+    hi: लॉगोन ओरिएंटल क्षेत्र
+    id: Region Logone Oriental
+    it: regione del Logone Orientale
+    ja: ロゴン・オリエンタル州
+    kn: ಲೊಗೊನ್ ಓರಿಯಂಟಲ್ ಪ್ರದೇಶ
+    ko: 로곤오리앙탈 주
+    lt: Rytų Logonės regionas
+    mr: लॉगोन ओरिएन्टल प्रदेश
+    ms: Logone Oriental Region
+    nb: Logone Oriental
+    nl: Logone Oriental
+    pl: Region Logone Oriental
+    pt: Região de Logone Oriental
+    ro: Regiunea Logone Oriental
+    ru: Восточный Логон
+    si: ලොගොනේ ඔරියන්ටල් කලාපය
+    sv: Logone Oriental
+    ta: லோகோனே ஒரிஎண்டல் பகுதி
+    te: లోగోన్ ఓరియంటల్ ప్రాంతం
+    th: โลโกน โอเรียลทอล
+    tr: Logone Oriental Bölgesi
+    uk: Східний Логон (префектура)
+    ur: لوگونے مشرقی علاقہ
+    vi: Khu vực Logone Oriental
+    lv: Austrumlogones reģions
+    zh: 東洛貢區
+    ccp: "𑄣𑄧𑄉𑄮𑄚𑄴 𑄃𑄧𑄢𑄨𑄠𑄬𑄚𑄴𑄑𑄣𑄴"
+    ka: აღმოსავლეთი ლოგონის რეგიონი
+    'no': Logone Oriental
+    ca: Regió de Logone Oriental
+  type: province
+MA:
+  name: Mandoul
+  code: MA
+  unofficial_names:
+  - Mandoul
+  geo:
+    latitude: 8.603091
+    longitude: 17.4795173
+    min_latitude: 7.785258
+    min_longitude: 17.0344641
+    max_latitude: 9.598262
+    max_longitude: 18.164068
+  translations:
+    en: Mandoul
+    ar: منطقة ماندول
+    bg: Мандул
+    bn: মান্ডোল অঞ্চল
+    da: Mandoul
+    de: Region Mandoul
+    el: Μαντούλ
+    es: Región de Mandoul
+    et: Mandoul
+    eu: Mandoul
+    fi: Mandoul
+    fr: Mandoul
+    gu: મેંડોલ પ્રદેશ
+    hi: मंडोल क्षेत्र
+    id: Region Mandoul
+    it: regione di Mandoul
+    ja: マンドゥル州
+    kn: ಮ್ಯಾಂಡ್ಯುಲ್ ಪ್ರದೇಶ
+    ko: 망둘 주
+    lt: Mandulo regionas
+    mr: मॅन्डॉल प्रदेश
+    ms: Mandoul Region
+    nb: Mandoul
+    nl: Mandoul
+    pl: Region Mandoul
+    pt: Mandoul
+    ro: Regiunea Mandoul
+    ru: Мандуль
+    si: මන්ඩොල් කලාපය
+    sv: Mandoul
+    ta: மண்டோயுள் பகுதி
+    te: మాండోల్ ప్రాంతం
+    th: แมนดูลว์
+    tr: Mandoul Bölgesi
+    ur: ماندؤل علاقہ
+    vi: Khu vực Mandoul
+    lv: Mandūlas reģions
+    ceb: Mandoul
+    zh: 芒杜爾區
+    ccp: "𑄟𑄚𑄴𑄓𑄯𑄣𑄴"
+    ka: მანდულის რეგიონი
+    uk: Регіон Мандуль
+    'no': Mandoul
+    ca: Regió de Mandoul
+    fa: ناحیه ماندول
+  type: province
+MC:
+  name: Moyen-Chari
+  code: MC
+  unofficial_names:
+  - Moyen-Chari
+  geo:
+    latitude: 9.0639998
+    longitude: 18.4276047
+    min_latitude: 8.0147168
+    min_longitude: 17.3586501
+    max_latitude: 10.5414589
+    max_longitude: 19.927143
+  translations:
+    en: Moyen-Chari
+    ar: منطقة شاري الأوسط
+    bg: Моаян-Шари
+    bn: মোয়েন চারি অঞ্চল
+    da: Moyen-Chari
+    de: Region Moyen-Chari
+    el: Μογιέν-Τσαρί
+    es: Región de Moyen-Chari
+    et: Kesk-Chari
+    eu: Moyen-Chari
+    fi: Moyen-Chari
+    fr: Moyen-Chari
+    gu: મોયેન-ચારી પ્રદેશ
+    hi: मोयेन-चारी क्षेत्र
+    id: Region Moyen-Chari
+    it: regione di Moyen-Chari
+    ja: モワイヤン・シャリ州
+    kn: ಮೊಯೆನ್-ಚರಿ ಪ್ರದೇಶ
+    ko: 무아얭샤리 주
+    lt: Vidurio Šario regionas
+    mr: मोयेन-चारी प्रदेश
+    ms: Moyen-Chari Region
+    nb: Moyen-Chari
+    nl: Moyen-Chari
+    pl: Region Szari Środkowe
+    pt: Moyen-Chari
+    ro: Regiunea Moyen-Chari
+    ru: Среднее Шари
+    si: මොයෙන්-චරි කලාපය
+    sv: Moyen-Chari (region)
+    ta: மோயின்-சாறி பகுதி
+    te: మోయెన్-చారీ ప్రాంతం
+    th: เมืองบูลาคัน
+    tr: Moyen-Chari Bölgesi
+    uk: Середнє Шарі
+    ur: موین-شاری علاقہ
+    vi: Khu vực Moyen-Chari
+    lv: Vidusšari reģions
+    ceb: Moyen-Chari Region
+    zh: 中沙里區
+    ccp: "𑄟𑄧𑄠𑄬𑄚𑄴-𑄌𑄢𑄨"
+    ka: შუა შარის რეგიონი
+    'no': Moyen-Chari
+    ca: Regió de Moyen-Chari
+    fa: بخش میانی شاری
+    ha: Moyen-Chari (yanki)
+    ha_NE: Moyen-Chari (yanki)
+  type: province
+ME:
+  name: Mayo-Kébbi-Est
+  code: ME
+  unofficial_names:
+  - Mayo-Kébbi-Est
+  geo:
+    latitude: 9.4046039
+    longitude: 14.8454619
+    min_latitude: 8.5243641
+    min_longitude: 14.0194639
+    max_latitude: 10.0102089
+    max_longitude: 15.44772
+  translations:
+    en: Mayo-Kebbi Est
+    ar: منطقة مايو كيبي الشرقي
+    bg: Източен Майо-Кеби
+    bn: মায়ো কেবি ইস্ট অঞ্চল
+    da: Mayo-Kebbi Est
+    de: Region Mayo-Kebbi Est
+    el: Μάγιο-Κέμπι Εστ
+    es: Región de Mayo-Kebbi Este
+    et: Ida-Mayo-Kébbi
+    eu: Ekialdeko Mayo-Kebbi
+    fi: Mayo-Kebbi Est
+    fr: Mayo-Kebbi Est
+    gu: મેયો-કેબી પૂર્વ પ્રદેશ
+    hi: मेयो-केबी एस्ट प्रदेश
+    id: Region Mayo-Kebbi Est
+    it: regione di Mayo-Kebbi Est
+    ja: 東マヨ・ケッビ州
+    kn: ಮಾಯೋ-ಕೆಬ್ಬಿ ಎಸ್ಟ್ ಪ್ರದೇಶ
+    ko: 마요케비에스트 주
+    lt: Rytų Majo Kebio regionas
+    mr: मेयो-केब्बी इस्ट प्रदेश
+    ms: Mayo-Kebbi Est Region
+    nb: Mayo-Kebbi Est
+    nl: Mayo-Kebbi Est
+    pl: Region Mayo-Kebbi Est
+    pt: Mayo-Kebbi Est
+    ro: Regiunea Mayo-Kebbi Est
+    ru: Восточное Майо-Кеби
+    si: මායෝ-කෙබ්බි එස්ට් කලාපය
+    sv: Mayo-Kebbi Est
+    ta: மாயோ -கெப்பி கிழக்கு பகுதி
+    te: మాయో-కెబ్బీ ఈస్ట్ ప్రాంతం
+    th: มาโย-เคปบี เอส
+    tr: Mayo-Kebbi Est Bölgesi
+    ur: مایو-کیبی مشرقی علاقہ
+    vi: Khu vực Mayo-Kebbi Est
+    lv: Austrumu Majo Kebi reģions
+    ceb: Mayo-Kebbi East Region
+    zh: 東凱比河區
+    ccp: "𑄟𑄧𑄠-𑄇𑄬𑄝𑄳𑄦𑄨 𑄃𑄨𑄌𑄴𑄑𑄴"
+    ka: აღმოსავლეთი მაიო-კების რეგიონი
+    uk: Регіон Східний Майо-Кебі
+    'no': Mayo-Kebbi Est
+    fa: مایو کیبی شرقی
+  type: province
+MO:
+  name: Mayo-Kébbi-Ouest
+  code: MO
+  unofficial_names:
+  - Mayo-Kébbi-Ouest
+  geo:
+    latitude: 10.4113014
+    longitude: 15.5943388
+    min_latitude: 9.188032
+    min_longitude: 14.949498
+    max_latitude: 11.181067
+    max_longitude: 16.2150691
+  translations:
+    en: Mayo-Kebbi Ouest
+    ar: منطقة مايو كيبي الغربي
+    bg: Западен Майо-Кеби
+    bn: মায়ো কেব্বি ওয়েস্ট অঞ্চল
+    da: Mayo-Kebbi Ouest
+    de: Region Mayo-Kebbi Ouest
+    el: Μάγιο-Κέμπι Ουέστ
+    es: Región de Mayo-Kebbi Oeste
+    et: Lääne-Mayo-Kébbi
+    eu: Mendebaldeko Mayo-Kebbi
+    fi: Mayo-Kebbi Ouest
+    fr: Mayo-Kebbi Ouest
+    gu: મેયો-કેબી ઔએસ્ટ પ્રદેશ
+    hi: मेयो-केबी आउस्ट क्षेत्र
+    id: Region Mayo-Kebbi Ouest
+    it: regione di Mayo-Kebbi Ovest
+    ja: 西マヨ・ケッビ州
+    kn: ಮೇಯೊ-ಕೆಬ್ಬಿ ಔಯೆಸ್ಟ್ ಪ್ರದೇಶ
+    ko: 마요케비우에스트 주
+    lt: Vakarų Majo Kebio regionas
+    mr: मेयो-केबबी आउस्ट प्रदेश
+    ms: Mayo-Kebbi Ouest Region
+    nb: Mayo-Kebbi Ouest
+    nl: Mayo-Kebbi Ouest
+    pl: Region Mayo-Kebbi Ouest
+    pt: Mayo-Kebbi Ouest
+    ro: Regiunea Mayo-Kebbi Ouest
+    ru: Западное Майо-Кеби
+    si: මයෝ-කෙබ්බි ඔඑස්ට් කලාපය
+    sv: Mayo-Kebbi Ouest
+    ta: மாயோ -கேப்பி ஆயுஸ்ட் பகுதி
+    te: మాయో-కెబ్బి ఓయెస్ట్ ప్రాంతం
+    th: มาโย เคบบิ เอส
+    tr: Mayo-Kebbi Ouest Bölgesi
+    ur: مایو-کیبی مغربی علاقہ
+    vi: Khu vực Mayo-Kebbi Ouest
+    lv: Rietumu Majo Kebi reģions
+    ceb: Mayo-Kebbi West Region
+    zh: 西凱比河區
+    ccp: "𑄟𑄧𑄠-𑄇𑄬𑄝𑄳𑄦𑄨 𑄃𑄮𑄠𑄬𑄌𑄴𑄑𑄴"
+    ka: დასავლეთი მაიო-კების რეგიონი
+    uk: Регіон Західний Майо-Кебі
+    'no': Mayo-Kebbi Ouest
+    ca: Regió de Mayo-Kebbi Oest
+    fa: ناحیه مایو-کبی اوست
+  type: province
+ND:
+  name: Ndjamena
+  code: ND
+  unofficial_names:
+  - Ndjamena
+  geo:
+    latitude: 12.113056
+    longitude: 15.049167
+    min_latitude: 12.0603346
+    min_longitude: 14.9664874
+    max_latitude: 12.1801019
+    max_longitude: 15.1484305
+  translations:
+    en: N’Djamena
+    af: N’Djamena
+    am: ንጃመና
+    ar: انجمينا
+    az: Ncamena
+    be: Горад Нджамена
+    bg: Нджамена
+    ca: N’Djamena
+    cs: N’Djamena
+    da: N’Djamena
+    de: N’Djamena
+    el: Ντζαμένα
+    es: Yamena
+    et: N’Djamena
+    eu: N’Djamena
+    fa: انجامنا
+    fi: N’Djamena
+    fr: N’Djamena
+    gl: Xamena
+    gu: એન્ડજામેના
+    he: נג׳מנה
+    hi: एन जेमीना
+    hr: N’Djamena
+    hu: N’Djamena
+    hy: Նջամենա
+    id: N’Djamena
+    is: N’Djamena
+    it: N’Djamena
+    ja: ンジャメナ
+    ka: ნჯამენა
+    kn: ಎ‍ನ್‌ಝಮೀನಾ
+    ko: 은자메나
+    lt: Ndžamena
+    lv: Ndžamena
+    mn: Нжамена
+    mr: इंजामिना
+    ms: N’Djamena
+    nb: N’Djamena
+    nl: Ndjamena
+    pl: Ndżamena
+    pt: N’Djamena
+    ro: N’Djamena
+    ru: Нджамена
+    si: නිව්මෙනා
+    sk: N’Djamena
+    sl: N’Djamena
+    sr: Нџамена
+    sv: N’Djamena
+    sw: N’Djamena
+    ta: நிஜாமீனா
+    te: ఎన్ జమీనా
+    th: อึนจาเมนา
+    tk: Njamena
+    tr: N’Djamena
+    uk: Нджамена
+    ur: اینجامینا
+    vi: N’Djamena
+    cy: N’Djamena
+    ceb: N’Djamena
+    sr_Latn: Ndžamena
+    zh: 恩賈梅納
+    bn: ন’জামিনা
+    yue_Hans: 恩贾梅纳
+    jv: N’Djamena
+    sq: Nxhamena
+    ccp: "𑄚‘ 𑄎𑄟𑄬𑄚"
+    ga: N’Djamena
+    ky: Нжамена
+    ha: Ndjamena
+    so: Nijamiina
+    pa: ਨਿਜਾਮੀਨਾ
+    kk: Нджамена
+    ml: ൻഡ്ജാമെന
+    yue: 恩賈梅納
+    yo: N’Djamena
+    uz: Njamena
+    bs: N’Djamena
+    mk: Нџамена
+    ha_NE: Ndjamena
+    'no': N’Djamena
+    yo_BJ: N’Djamena
+    ps: انجامنا
+  type: province
+OD:
+  name: Ouaddaï
+  code: OD
+  unofficial_names:
+  - Ouaddaï
+  geo:
+    latitude: 13.748476
+    longitude: 20.7122465
+    min_latitude: 12.636083
+    min_longitude: 20.0267009
+    max_latitude: 14.3643509
+    max_longitude: 22.284214
+  translations:
+    en: Ouaddaï
+    ar: منطقة وداي
+    bg: Уадаи
+    bn: উয়াডায় অঞ্চল
+    ca: Regió d’Ouaddaï
+    da: Ouaddaï
+    de: Region Wadai
+    el: Ουαντάι
+    es: Región de Ouaddaï
+    et: Ouaddaï
+    eu: Ouaddaï
+    fi: Ouaddaï
+    fr: Ouaddaï
+    gu: ઔડાઇ પ્રદેશ
+    hi: उडाई क्षेत्र
+    id: Region Ouaddaï
+    it: regione di Ouaddaï
+    ja: ワダイ州
+    kn: ಒವಾಡ್ಡೈ ಪ್ರದೇಶ
+    ko: 와다이 주
+    lt: Vadajaus regionas
+    mr: उडडाई प्रदेश
+    ms: Ouaddai Region
+    nb: Ouaddaï
+    nl: Ouaddaï
+    pl: Region Wadaj
+    pt: Ouaddaï
+    ro: Regiunea Ouaddaï
+    ru: Ваддай
+    si: ඔඋදදායි කලාපය
+    sv: Ouaddaï (region)
+    ta: ஓயடை பகுதி
+    te: ఓవడాయి ప్రాంతం
+    th: คัวได
+    tr: Ouaddaï Bölgesi
+    ur: اوادای علاقہ
+    vi: Khu vực Ouaddai
+    lv: Vadaji reģions
+    ceb: Ouaddai Region
+    zh: 瓦達伊區
+    ccp: "𑄃𑄯𑄠𑄓𑄳𑄦𑄭"
+    ka: უადაის რეგიონი
+    uk: Ваддай
+    'no': Ouaddaï
+    ha: Yankin Ouaddai
+    ha_NE: Yankin Ouaddai
+  type: province
+SA:
+  name: Salamat
+  code: SA
+  unofficial_names:
+  - Salamat
+  geo:
+    latitude: 10.9691601
+    longitude: 20.7122465
+    min_latitude: 9.060796
+    min_longitude: 18.8384811
+    max_latitude: 12.088373
+    max_longitude: 22.362142
+  translations:
+    en: Salamat
+    ar: منطقة سلامات
+    bg: Саламат
+    bn: সালামাত অঞ্চল
+    da: Salamat
+    de: Region Salamat
+    el: Σαλαμάτ
+    es: Región de Salamat
+    et: Salamat
+    eu: Salamat
+    fi: Salamat
+    fr: Salamat
+    gu: સલમાટ પ્રદેશ
+    hi: सलामत प्रदेश
+    id: Region Salamat
+    it: regione del Salamat
+    ja: サラマト州
+    kn: ಸಲಾಮಾಟ್ ಪ್ರದೇಶ
+    ko: 살라마트 주
+    lt: Salamato regionas
+    mr: सलमाट प्रदेश
+    ms: Salamat Region
+    nb: Salamat
+    nl: Salamat
+    pl: Region Salamat
+    pt: Região de Salamat
+    ro: Regiunea Salamat
+    ru: Саламат
+    si: සලමට් පළාත
+    sv: Salamat (region)
+    ta: சலாமைட் பகுதி
+    te: సలామత్ ప్రాంతం
+    th: ซาลามัท
+    tr: Salamat Bölgesi
+    ur: سلامات علاقہ
+    vi: Khu vực Salamat
+    lv: Salamatas reģions
+    ceb: Salamat Region
+    zh: 萨拉马特区
+    ccp: "𑄥𑄣𑄟𑄧𑄖𑄴"
+    ka: სალამატის რეგიონი
+    uk: Регіон Саламат
+    cs: Salamat
+    'no': Salamat
+    ca: Regió de Salamat
+    fa: استان سلامات
+  type: province
+SI:
+  name: منطقة سيلا
+  code: SI
+  translations:
+    ar: منطقة سيلا
+    bg: Сила
+    bn: সিলা অঞ্চল
+    da: Sila
+    de: Region Sila
+    el: Σίλα
+    en: Sila
+    es: Región de Sila
+    eu: Sila
+    fi: Sila
+    fr: Sila
+    gu: સિલા પ્રદેશ
+    hi: सिला क्षेत्र
+    id: Wilayah Sila
+    it: regione del Sila
+    ja: シラ州
+    kn: ಸಿಲಾ ಪ್ರದೇಶ
+    ko: 실라 주
+    lt: Silos regionas
+    mr: शिला प्रदेश
+    ms: Sila Region
+    nb: Sila region
+    nl: Sila Region
+    pl: Region Sila
+    pt: Região Sila
+    ro: Regiunea Sila
+    ru: Сила
+    si: සිලා කලාපය
+    sv: Sila (region)
+    ta: சிலா பகுதி
+    te: సిలా ప్రాంతం
+    th: ซิลา
+    tr: Sila Bölgesi
+    ur: سیلا علاقہ
+    vi: Khu vực Sila
+    lv: Silas reģions
+    zh: 西拉區
+    ccp: "𑄥𑄨𑄣"
+    ka: სილის რეგიონი
+    uk: Регіон Сіла
+    'no': Sila region
+    ceb: Sila (rehiyon)
+    fa: ناحیه سیلا
+    he: סילה
+  type: province
+TA:
+  name: Tandjilé
+  code: TA
+  unofficial_names:
+  - Tandjilé
+  geo:
+    latitude: 9.6625729
+    longitude: 16.7234639
+    min_latitude: 9.006821
+    min_longitude: 15.438418
+    max_latitude: 10.222793
+    max_longitude: 17.552968
+  translations:
+    en: Tandjilé
+    ar: منطقة تانجلي
+    bg: Танджиле
+    bn: তাঞ্জিলে অঞ্চল
+    da: Tandjilé
+    de: Region Tandjilé
+    el: Ταντζιλέ
+    es: Región de Tandjilé
+    et: Tandjilé
+    eu: Tandjilé
+    fi: Tandjilé
+    fr: Tandjilé
+    gu: ટંડજિલે પ્રદેશ
+    hi: तंदीले क्षेत्र
+    id: Region Tandjilé
+    it: regione di Tandjilé
+    ja: タンジレ州
+    kn: ಟಾಂಡ್ಜಿಲೆ ಪ್ರದೇಶ
+    ko: 탕질레 주
+    lt: Tandžilės regionas
+    mr: तांडजील प्रदेश
+    ms: Tandjile Region
+    nb: Tandjilé
+    nl: Tandjilé
+    pl: Region Tandjilé
+    pt: Tandjilé
+    ro: Regiunea Tandjilé
+    ru: Танджиле
+    si: ටන්ඩ්ජිලේ කලාපය
+    sv: Tandjilé (region)
+    ta: டண்ட்ஜிலே பகுதி
+    te: టాండ్జిలే ప్రాంతం
+    th: แทนจิลเล่
+    tr: Tandjilé Bölgesi
+    ur: تانجیلے علاقہ
+    vi: Khu vực Tandjilé
+    lv: Tandžiles reģions
+    zh: 坦吉萊區
+    ccp: "𑄑𑄚𑄴𑄎𑄭𑄣𑄴"
+    ka: ტანჯილეს რეგიონი
+    uk: Регіон Танджиле
+    'no': Tandjilé
+    ca: Regió de Tandjilé
+  type: province
+TI:
+  name: منطقة تبستي
+  code: TI
+  translations:
+    ar: منطقة تبستي
+    bg: Тибести
+    bn: তিবেস্টি অঞ্চল
+    da: Tibesti
+    de: Region Tibesti
+    el: Τιμπέστι
+    en: Tibesti
+    es: Región de Tibesti
+    fi: Tibesti
+    fr: Tibesti
+    gu: તિબેસ્ટી પ્રદેશ
+    hi: तिबेस्टी क्षेत्र
+    id: Wilayah Tibesti
+    it: regione di Tibesti
+    ja: ティベスティ州
+    kn: ಟಿಬೆಸ್ತಿ ಪ್ರದೇಶ
+    ko: 티베스티 주
+    lt: Tibesčio regionas
+    mr: तिबेस्टी प्रदेश
+    ms: Tibesti Region
+    nb: Tibesti Region
+    nl: Tibesti Region
+    pl: Region Tibesti
+    pt: Região de Tibesti
+    ro: Regiunea Tibesti
+    ru: Тибести
+    si: ඉට්බෙස්ටි ප්‍රාන්තය
+    sv: Tibesti (region)
+    ta: டிபேஸ்டி பகுதி
+    te: టిబెస్టి ప్రాంతం
+    th: เขตทิเบสตี
+    tr: Tibesti Bölgesi
+    ur: تیبستی علاقہ
+    vi: Khu vựcTibesti
+    lv: Tībestī reģions
+    ceb: Tibesti Region
+    zh: 提貝斯提區
+    ccp: "𑄑𑄨𑄝𑄬𑄌𑄴𑄑𑄨"
+    ka: ტიბესტის რეგიონი
+    eu: Tibesti
+    uk: Регіон Тібесті
+    'no': Tibesti Region
+    ca: Regió de Tibesti
+    fa: تیبستی
+    gl: Rexión de Tibesti
+  type: province
+WF:
+  name: Wadi Fira
+  code: WF
+  unofficial_names:
+  - Wadi Fira
+  geo:
+    latitude: 15.0892416
+    longitude: 21.4752851
+    min_latitude: 13.85626
+    min_longitude: 20.035872
+    max_latitude: 15.9035701
+    max_longitude: 23.0038449
+  translations:
+    en: Wadi Fira
+    ar: منطقة وادي فيرا
+    bg: Уади Фира
+    bn: ওয়াডি ফিরা অঞ্চল
+    da: Wadi Fira
+    de: Region Wadi Fira
+    el: Γουάντι Φίρα
+    es: Región de Wadi Fira
+    et: Wadi Fira
+    eu: Wadi Fira
+    fi: Wadi Fira
+    fr: Wadi Fira
+    gu: વાડી ફિરા પ્રદેશ
+    hi: वादी फिरा क्षेत्र
+    id: Region Wadi Fira
+    it: regione di Wadi Fira
+    ja: ワジ・フィラ州
+    kn: ವಾಡಿ ಫಿರಾ ಪ್ರದೇಶ
+    ko: 와디피라 주
+    lt: Vadi Firos regionas
+    mr: वाडी फिरा प्रदेश
+    ms: Wadi Fira Region
+    nb: Wadi Fira
+    nl: Wadi Fira
+    pl: Region Wadi Fira
+    pt: Wadi Fira
+    ro: Regiunea Wadi Fira
+    ru: Вади-Фера
+    si: වඩි ෆිරා කලාපය
+    sv: Wadi Fira (region)
+    ta: வாடி பிறா பகுதி
+    te: వాడి ఫిరా ప్రాంతం
+    th: วาดีฟีรา
+    tr: Wadi Fira Bölgesi
+    uk: Ваді-Фіра
+    ur: وادی فیرا علاقہ
+    vi: Khu vực Wadi Fira
+    lv: Vādī Firas reģions
+    zh: 瓦迪菲拉區
+    ccp: "𑄤𑄓𑄨 𑄜𑄨𑄢"
+    ka: უადი-ფირის რეგიონი
+    'no': Wadi Fira
+    ca: Wadi Fira
+    cs: Wadi Fira
+    fa: بخش وادی فیرا
+  type: province

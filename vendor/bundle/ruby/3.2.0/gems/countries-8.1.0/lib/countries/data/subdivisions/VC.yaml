@@ -1,0 +1,310 @@
+---
+'01':
+  name: Charlotte
+  code: '01'
+  unofficial_names:
+  - Charlotte
+  geo:
+    latitude: 13.2175451
+    longitude: -61.1636244
+    min_latitude: 13.1704095
+    min_longitude: -61.2052961
+    max_latitude: 13.3830995
+    max_longitude: -61.1154812
+  translations:
+    en: Charlotte
+    ar: أبرشية شارلوت
+    bn: চার্লট প্যারিশ
+    da: Charlotte sogn
+    de: Charlotte Parish
+    el: Καρλόττα
+    es: Carlota
+    fa: شارلوت پریش، سنت وینسنت و گرنادین‌ها
+    fi: Charlotten kunta
+    fr: Charlotte
+    gu: ચાર્લોટ પૅરિશ
+    hi: शेर्लोट पैरिश
+    id: Paroki Charlotte
+    it: parrocchia di Charlotte
+    ja: シャーロット教区
+    kn: ಷಾರ್ಲೆಟ್ ಪ್ಯಾರಿಷ್
+    ko: 샬럿 교구
+    lt: Šarlotės parapija
+    mr: शार्लट पॅरीश
+    ms: Charlotte Parish
+    nb: Charlotte prestegjeld
+    nl: Charlotte
+    pl: Charlotte
+    pt: Charlottr
+    ru: Шарлотта
+    si: චාලට් ප්‍රාන්තය
+    sv: Charlotte Parish
+    ta: சார்லோட்டே பரிஷ்
+    te: చార్లోట్ పారిష్
+    th: ชาร์ลอตต์ เซนต์วินเซนต์และเกรนาดีนส์
+    tr: Charlotte Parish
+    ur: شارلٹ پیرش، سینٹ وینسینٹ و گریناڈائنز
+    vi: Charlotte, Saint Vincent và Grenadines
+    zh: 夏洛特区
+    lv: Šarlotes pagasts
+    ceb: Parish of Charlotte
+    ccp: "𑄌𑄢𑄴𑄣𑄮𑄖𑄳𑄦𑄨"
+    uk: Парафія Шарлотта
+    mk: Шарлот
+    'no': Charlotte prestegjeld
+    eu: Charlotte parrokia
+  type: parish
+'02':
+  name: Saint Andrew
+  code: '02'
+  unofficial_names:
+  - Saint Andrew
+  geo:
+    latitude: 13.2008061
+    longitude: -61.2393885
+    min_latitude: 13.1545565
+    min_longitude: -61.27861309999999
+    max_latitude: 13.237138
+    max_longitude: -61.19889689999999
+  translations:
+    en: Saint Andrew
+    ar: أبرشية سانت أندرو
+    bn: সেন্ট অ্যান্ড্রু প্যারিশ
+    da: Saint Andrew sogn
+    de: Saint Andrew Parish
+    el: Άγιος Ανδρέας
+    es: San Andrés
+    eu: Saint Andrew parrokia
+    fa: سنت اندرو پریش، سنت وینسنت و گرنادین‌ها
+    fi: Saint Andrewin pitäjä
+    fr: Saint-Andrew
+    gu: સેન્ટ એન્ડ્રુ પૅરિશ
+    hi: सेंट एंड्रू पैरिश, जमाइका
+    id: Paroki Saint Andrew
+    it: parrocchia di Saint Andrew
+    ja: セント・アンドリューズ
+    kn: ಸೇಂಟ್ ಆಂಡ್ರ್ಯೂ ಪ್ಯಾರಿಷ್
+    ko: 세인트앤드루 교구
+    lt: Šv. Andriaus parapija
+    mr: सेंट अँड्रू परश
+    ms: Saint Andrew Parish
+    nb: Saint Andrew prestegjeld
+    nl: Saint Andrew
+    pl: Saint Andrew
+    pt: Santo André
+    ru: Сент-Андру
+    si: ශාන්ත ඇන්ඩ්රූ ප්‍රාන්තය
+    sv: Saint Andrew Parish
+    ta: செயின்ட் அன்று பரிஷ்
+    te: సెయింట్ ఆండ్ర్యూ పారిష్
+    th: เซนท์ แอนดริว พาลิซ
+    tr: Saint Andrew Parish
+    ur: سینٹ اینڈریو پریش، سینٹ ونکنٹ و تھے گریندنس
+    vi: Saint Andrew, Saint Vincent và Grenadines
+    lv: Sentendrū pagasts
+    ceb: Parish of Saint Andrew
+    zh: 聖安德魯區
+    ccp: "𑄥𑄬𑄚𑄴𑄑𑄴 𑄃𑄬𑄚𑄴𑄓𑄳𑄢𑄪"
+    uk: Парафія Сент-Андру
+    mk: Сент Ендру
+    'no': Saint Andrew prestegjeld
+  type: parish
+'03':
+  name: Saint David
+  code: '03'
+  unofficial_names:
+  - Saint David
+  geo:
+    latitude: 13.3154926
+    longitude: -61.1985879
+    min_latitude: 13.258588
+    min_longitude: -61.262369
+    max_latitude: 13.3817949
+    max_longitude: -61.16586400000001
+  translations:
+    en: Saint David
+    ar: أبرشية القديس ديفيد
+    bn: সেন্ট ডেভিড প্যারিশ
+    da: Saint David sogn
+    de: Saint David Parish
+    el: Άγιος Δαβίδ
+    es: San David
+    fa: سنت دیوید پریش، سنت وینسنت و گرنادین‌ها
+    fi: Saint Davidin pitäjä
+    fr: Saint-David
+    gu: સેન્ટ ડેવિડ પૅરિશ
+    hi: सेंट डेविड पैरिश
+    id: Paroki Saint David
+    it: parrocchia di Saint David
+    ja: セント・デイヴィッド郡 (ドミニカ国)
+    kn: ಸೇಂಟ್ ಡೇವಿಡ್ ಪ್ಯಾರಿಷ್
+    ko: 세인트데이비드 교구
+    lt: Šv. Dovydo parapija
+    mr: सेंट डेव्हिड पॅरीश
+    ms: Saint David Parish
+    nb: Saint David prestegjeld
+    nl: Saint David
+    pl: Saint David
+    pt: São David
+    ru: Сент-Дэвид
+    si: ශාන්ත ඩේවිඩ් ප්‍රාන්තය
+    sv: Saint David Parish
+    ta: செயின்ட் டேவிட் பரிஷ்
+    te: సెయింట్ డేవిడ్ పారిష్
+    th: เซนต์เดวิด
+    tr: Saint David Parish
+    ur: سینٹ ڈیوڈ پریش، سینٹ ونکنٹ و تھے گریندنس
+    vi: Saint David, Saint Vincent và Grenadines
+    lv: Sentdeivida pagasts
+    ceb: Parish of Saint David
+    zh: 聖大衛區
+    ccp: "𑄥𑄬𑄚𑄴𑄑𑄴 𑄓𑄬𑄞𑄨𑄖𑄴"
+    uk: Парафія Сент-Девід
+    mk: Сент Дејвид
+    'no': Saint David prestegjeld
+    eu: Saint David parrokia (Saint Vincent eta Grenadinak)
+  type: parish
+'04':
+  name: Saint George
+  code: '04'
+  unofficial_names:
+  - Saint George
+  geo:
+    latitude: 13.1698266
+    longitude: -61.1985879
+    min_latitude: 13.122844
+    min_longitude: -61.23668790000001
+    max_latitude: 13.213651
+    max_longitude: -61.14351
+  translations:
+    en: Saint George
+    ar: أبرشية سانت جورج
+    bn: সেন্ট জর্জ প্যারিশ
+    da: Saint George sogn
+    de: Parish of Saint George
+    el: Άγιος Γεώργιος
+    es: San Jorge
+    fa: سنت جورج پریش، سنت وینسنت و گرنادین‌ها
+    fi: Saint Georgen kunta
+    fr: Saint-George
+    gu: સેન્ટ જ્યોર્જ પૅરિશ
+    hi: सेंट जॉर्ज पैरिश
+    id: Paroki Saint George
+    it: parrocchia di Saint George
+    ja: セントジョージ
+    kn: ಸೇಂಟ್ ಜಾರ್ಜ್ ಪ್ಯಾರಿಷ್
+    ko: 세인트조지 교구
+    lt: Šv. Jurgio parapija
+    mr: सेंट जॉर्ज पॅरीश
+    ms: Saint George Parish
+    nb: Saint George prestegjeld
+    nl: Saint George
+    pl: Saint George
+    pt: São Jorge Parish
+    ru: Сент-Джордж
+    si: ශාන්ත ජෝජ් ප්‍රාන්තය
+    sv: Saint George Parish
+    te: సెయింట్ జార్జి పారిష్
+    th: เซนท์ จีออจี พาลิซ
+    tr: Saint George Parish
+    ur: سینٹ جارج پریش، سینٹ ونکنٹ و تھے گریندنس
+    vi: Saint George, Saint Vincent và Grenadines
+    lv: Sentdžordža pagasts
+    ceb: Parish of Saint George (parokya sa Saint Vincent ug ang Grenadines)
+    zh: 聖喬治區
+    ccp: "𑄥𑄬𑄚𑄴𑄑𑄴 𑄎𑄧𑄢𑄴𑄌𑄴"
+    uk: Парафія Сент-Джордж
+    mk: Сент Џорџ
+    'no': Saint George prestegjeld
+    eu: Saint George parrokia (Saint Vincent eta Grenadinak)
+  type: parish
+'05':
+  name: Saint Patrick
+  code: '05'
+  unofficial_names:
+  - Saint Patrick
+  geo:
+    latitude: 13.2379389
+    longitude: -61.24521799999999
+    min_latitude: 13.2022794
+    min_longitude: -61.2790731
+    max_latitude: 13.2749832
+    max_longitude: -61.1890409
+  translations:
+    en: Saint Patrick
+    ar: أبرشية القديس باتريك
+    bn: সেন্ট প্যাট্রিক প্যারিশ
+    da: Saint Patrick sogn
+    de: Saint Patrick Parish
+    el: Άγιος Πατρίκιος, Άγιος Βικέντιος
+    es: San Patricio
+    fa: سنت پاتریک پریش، سنت وینسنت و گرنادین‌ها
+    fi: Saint Patrickin pitäjä
+    fr: Saint-Patrick
+    gu: સેન્ટ પેટ્રિક પૅરિશ
+    hi: सेंट पैट्रिक पैरिश
+    id: Paroki Saint Patrick
+    it: parrocchia di Saint Patrick
+    ja: セント・パトリック教区
+    kn: ಸೇಂಟ್ ಪ್ಯಾಟ್ರಿಕ್ ಪ್ಯಾರಿಷ್
+    ko: 세인트패트릭 교구
+    lt: Šv. Patriko parapija
+    mr: सेंट पॅट्रिक पॅरीश
+    ms: Saint Patrick Parish
+    nb: Saint Patrick prestegjeld
+    nl: Saint Patrick
+    pl: Saint Patrick
+    pt: São Patrício
+    ru: Сент-Патрик
+    si: ශාන්ත පැට්‍රික් ප්‍රාන්තය
+    sv: Saint Patrick Parish
+    ta: செயின்ட் பேட்ரிக் பாரிஸ்
+    te: సెయింట్ పాట్రిక్ పారిష్
+    th: เซนต์ เพทริค แพริช
+    tr: Saint Patrick Parish
+    ur: سینٹ پیٹرک پریش، سینٹ ونکنٹ و تھے گریندنس
+    vi: Saint Patrick, Saint Vincent và Grenadines
+    lv: Sentpatrika pagasts
+    ceb: Parish of Saint Patrick
+    zh: 聖派屈克區
+    ccp: "𑄥𑄬𑄚𑄴𑄑𑄴 𑄛𑄳𑄠𑄑𑄳𑄢𑄨𑄇𑄴"
+    uk: Парафія Сент-Патрік
+    mk: Сент Патрик
+    'no': Saint Patrick prestegjeld
+    eu: Saint Patrick parrokia (Saint Vincent eta Grenadinak)
+  type: parish
+'06':
+  name: Grenadines
+  code: '06'
+  unofficial_names:
+  - Grenadines
+  geo:
+    latitude: 12.6666667
+    longitude: -61.25000000000001
+  translations:
+    en: Grenadines
+    be: Акруга Грэнадзіны
+    da: Grenadines sogn
+    fa: گرنادین‌ها پریش
+    fr: Grenadines
+    it: parrocchia delle Grenadine
+    ja: グレナディーンズ郡
+    ko: 그레나딘 교구
+    lt: Grenadinų parapija
+    nb: Grenadines prestegjeld
+    nl: Grenadines Parish
+    pl: Grenadyny
+    pt: Granadinas
+    ru: Гренадины
+    ur: گریناڈائنز پیرش
+    vi: Grenadines
+    ceb: Grenadines (parokya)
+    zh: 格瑞那丁區
+    ccp: "𑄉𑄳𑄢𑄬𑄚𑄓𑄭𑄚𑄴𑄌𑄴"
+    es: Granadinas (San Vicente y las Granadinas)
+    de: Grenadines
+    uk: Ґренадіни
+    'no': Grenadines prestegjeld
+    eu: Grenadinak parrokia
+    mk: Гренадини (парохија)
+  type: parish

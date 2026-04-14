@@ -1,0 +1,3758 @@
+---
+'01':
+  name: Hokkaido
+  code: '01'
+  unofficial_names:
+  - Hokkaidô
+  - Hokkaido
+  geo:
+    latitude: 44
+    longitude: 143
+  translations:
+    en: Hokkaidō
+    ja: 北海道
+    af: Hokkaido
+    ar: هوكايدو
+    az: Hokkaydo (prefektura)
+    be: Губернатарства Хакайда
+    bg: Хокайдо
+    bn: হোক্কাইদো
+    ca: Prefectura d’Hokkaidō
+    cs: Hokkaidó
+    da: Hokkaido
+    de: Präfektur Hokkaido
+    el: Χοκκάιντο
+    es: Hokkaidō
+    et: Hokkaidō prefektuur
+    eu: Hokkaido
+    fa: هوکایدو
+    fi: Hokkaidō
+    fr: préfecture de Hokkaidō
+    gl: Hokkaido
+    gu: હોકૈડો
+    he: הוקאידו
+    hi: होक्काइदो
+    hr: Hokkaido, prefektura
+    hu: Hokkaidó prefektúra
+    hy: Հոկայդո
+    id: Prefektur Hokkaido
+    is: Hokkaidō
+    it: Prefettura di Hokkaidō
+    ka: ჰოკაიდო
+    km: តំបន់ហុកកៃដូ
+    kn: ಹೊಕೈಡೋ
+    ko: 홋카이도
+    lt: Hokaidas
+    lv: Hokaido
+    ml: ഹൊക്കൈഡൊ
+    mn: Хоккайдо
+    mr: होक्काइदो
+    ms: Hokkaidō
+    nb: Hokkaido
+    nl: Prefectuur Hokkaidō
+    pl: Hokkaido
+    pt: Hokkaido
+    ro: Prefectura Hokkaidō
+    ru: Хоккайдо
+    si: හොක්කයිඩෝ
+    sk: Hokkaido
+    sl: Hokaido
+    sr: Хокаидо
+    sv: Hokkaido prefektur
+    sw: Mkoa wa Hokkaidō
+    ta: ஹொக்கைடோ
+    te: హొక్కాయిడో
+    th: เกาะฮอกไกโด
+    tr: Hokkaidō
+    uk: Префектура Хоккайдо
+    ur: ہوکائیدو
+    vi: Hokkaidō
+    zh: 北海道
+    ceb: Hokkaidō (prepektura sa Hapon)
+    sr_Latn: Hokaido
+    yue_Hans: 北海道
+    jv: Hokkaido
+    ccp: "𑄦𑄧𑄇𑄴𑄇𑄭𑄓𑄮"
+    yue: 北海道
+    'no': Hokkaido
+    ga: Maoracht Hokkaido
+  type: prefecture
+'02':
+  name: Aomori
+  code: '02'
+  unofficial_names:
+  - Aomori
+  geo:
+    latitude: 40.822072
+    longitude: 140.7473647
+    min_latitude: 40.6059389
+    min_longitude: 140.5202819
+    max_latitude: 40.9702795
+    max_longitude: 140.9808429
+  translations:
+    en: Aomori
+    ja: 青森県
+    af: Aomori Prefektuur
+    ar: آوموري
+    az: Aomori
+    bg: Аомори
+    bn: আওমোরি প্রশাসনিক অঞ্চল
+    ca: Prefectura d’Aomori
+    cs: Prefektura Aomori
+    da: Aomori-præfekturet
+    de: Präfektur Aomori
+    el: Αομόρι
+    es: Prefectura de Aomori
+    et: Aomori prefektuur
+    eu: Aomori
+    fa: استان آئوموری
+    fi: Aomorin prefektuuri
+    fr: préfecture d’Aomori
+    gl: Prefectura de Aomori
+    gu: ઓમોરી પ્રીફેકચર
+    he: אאומורי
+    hi: आओमोरी प्रीफ़ेक्चर
+    hr: Aomori
+    hu: Aomori prefektúra
+    hy: Աոմորի
+    id: Prefektur Aomori
+    it: prefettura di Aomori
+    ka: აომორის პრეფექტურა
+    kn: ಅಮೊರಿ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 아오모리 현
+    lt: Aomorio prefektūra
+    lv: Aomori prefektūra
+    mn: Аомори
+    mr: ओमोरी
+    ms: Wilayah Aomori
+    nb: Aomori
+    nl: Aomori
+    pl: Prefektura Aomori
+    pt: Aomori
+    ro: Prefectura Aomori
+    ru: Аомори
+    si: අඔමොරි ප්‍රාන්තය
+    sk: Aomori
+    sl: prefektura Aomori
+    sr: Аомори
+    sv: Aomori prefektur
+    sw: Mkoa wa Aomori
+    ta: அமரீ ப்ரீபெக்ட்டுர்
+    te: ఔమోరి ప్రిఫిక్చర్
+    th: จังหวัดอะโอะโมะริ
+    tr: Aomori
+    uk: Префектура Аоморі
+    ur: اوموری پریفیکچر
+    vi: Aomori
+    zh: 青森縣
+    cy: Aomori
+    ceb: Aomori-ken
+    sr_Latn: Aomori
+    yue_Hans: 青森县
+    jv: Prefektur Aomori
+    ccp: "𑄃𑄟𑄮𑄢𑄨"
+    ga: Maoracht Aomori
+    yue: 青森縣
+    my: အအိုမိုရိခရိုင်
+    be: прэфекрута Аомары
+    mk: Аомори
+    'no': Aomori
+    km: ខេត្តអាអូម៉ូរី
+  type: prefecture
+'03':
+  name: Iwate
+  code: '03'
+  unofficial_names:
+  - Iwate
+  geo:
+    latitude: 39.7036194
+    longitude: 141.1526839
+    min_latitude: 38.74752
+    min_longitude: 140.6530098
+    max_latitude: 40.4504511
+    max_longitude: 142.0725079
+  translations:
+    en: Iwate
+    ja: 岩手県
+    af: Iwate Prefektuur
+    ar: إيواته
+    az: İvate
+    be: Прэфектура Іватэ
+    bg: Ивате
+    bn: ইওয়াতে প্রশাসনিক অঞ্চল
+    ca: Prefectura d’Iwate
+    cs: Prefektura Iwate
+    da: Iwate-præfekturet
+    de: Präfektur Iwate
+    el: Ιβάτε
+    es: Prefectura de Iwate
+    et: Iwate prefektuur
+    eu: Iwate
+    fa: استان ایواته
+    fi: Iwaten prefektuuri
+    fr: préfecture d’Iwate
+    gl: Prefectura de Iwate
+    gu: ઇવેટ પ્રીફેક્ચર
+    he: איווטה
+    hi: इवाते प्रीफ़ेक्चर
+    hr: Iwate
+    hu: Ivate prefektúra
+    hy: Իվատե
+    id: Prefektur Iwate
+    it: prefettura di Iwate
+    ka: ივატეს პრეფექტურა
+    km: ខេត្តអ៊ីវ៉ាតិ
+    kn: ಐವೇಟ್ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 이와테 현
+    lt: Ivatės prefektūra
+    lv: Ivates prefektūra
+    mn: Иватэ
+    mr: इवाते
+    ms: Wilayah Iwate
+    nb: Iwate
+    nl: Iwate
+    pl: Prefektura Iwate
+    pt: Iwate
+    ro: Prefectura Iwate
+    ru: Иватэ
+    si: අයිවටේ ප්‍රාන්තය
+    sk: Iwate
+    sr: Ивате
+    sv: Iwate
+    sw: Mkoa wa Iwate
+    ta: இவாட்டே ப்ரீபெக்ட்டுர்
+    te: ఇవాటె ప్రిఫెక్చర్
+    th: จังหวัดอิวะเตะ
+    tr: Iwate
+    uk: Префектура Івате
+    ur: ایواتے پریفیکچر
+    vi: Iwate
+    zh: 岩手县
+    cy: Iwate
+    ceb: Iwate-ken
+    sr_Latn: Ivate
+    yue_Hans: 岩手县
+    jv: Prefektur Iwate
+    ccp: "𑄃𑄭𑄃𑄮𑄠𑄖𑄴"
+    ga: Maoracht Iwate
+    yue: 岩手縣
+    mk: Ивате
+    'no': Iwate
+  type: prefecture
+'04':
+  name: Miyagi
+  code: '04'
+  unofficial_names:
+  - Miyagi
+  geo:
+    latitude: 38.2688373
+    longitude: 140.8721
+    min_latitude: 37.7738621
+    min_longitude: 140.2746668
+    max_latitude: 39.0028588
+    max_longitude: 141.6754538
+  translations:
+    en: Miyagi
+    ja: 宮城県
+    af: Miyagi Prefektuur
+    ar: مياغي
+    az: Miyaqi
+    bg: Мияги
+    bn: মিয়াগি প্রশাসনিক অঞ্চল
+    ca: Prefectura de Miyagi
+    cs: Prefektura Mijagi
+    da: Miyagi-præfekturet
+    de: Präfektur Miyagi
+    el: Μιγιάγκι
+    es: Miyagi
+    et: Miyagi prefektuur
+    eu: Miyagi prefektura
+    fa: استان میاگی
+    fi: Miyagin prefektuuri
+    fr: préfecture de Miyagi
+    gl: Prefectura de Miyagi
+    gu: મિયાગી પ્રીફેકચર
+    he: מיאגי
+    hi: मियागी प्रीफेक्चर
+    hr: Miyagi
+    hu: Mijagi prefektúra
+    hy: Միյագի
+    id: Prefektur Miyagi
+    it: prefettura di Miyagi
+    ka: მიაგის პრეფექტურა
+    kn: ಮಿಯಾಗಿ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 미야기 현
+    lt: Mijagio prefektūra
+    lv: Mijagi prefektūra
+    mn: Мияги
+    mr: मियागी
+    ms: Wilayah Miyagi
+    nb: Miyagi
+    nl: Miyagi
+    pl: Prefektura Miyagi
+    pt: Miyagi
+    ro: Prefectura Miyagi
+    ru: Мияги
+    si: මියාගී ප්‍රාන්තය
+    sk: Mijagi
+    sl: prefektura Miyagi
+    sr: Мијаги
+    sv: Miyagi prefektur
+    sw: Mkoa wa Miyagi
+    ta: மியாகி ப்ரீபெக்ட்டுர்
+    te: మియాగీ ప్రిఫెక్చర్
+    th: จังหวัดมิยะงิ
+    tr: Miyagi
+    uk: Префектура Міяґі
+    ur: میاگی پریفیکچر
+    vi: Miyagi
+    zh: 宮城縣
+    cy: Miyagi
+    ceb: Miyagi-ken
+    sr_Latn: Mijagi
+    yue_Hans: 宫城县
+    ccp: "𑄟𑄨𑄠𑄉𑄨"
+    ga: Maoracht Miyagi
+    yue: 宮城縣
+    be: прэфектура Міягі
+    mk: Мијаги
+    'no': Miyagi
+    km: ខេត្តមីយ៉ាហ្គិ
+    uz: Miyagi prefekturasi
+  type: prefecture
+'05':
+  name: Akita
+  code: '05'
+  unofficial_names:
+  - Akita
+  geo:
+    latitude: 39.7200079
+    longitude: 140.1025642
+    min_latitude: 39.4487449
+    min_longitude: 140.0205635
+    max_latitude: 39.86527460000001
+    max_longitude: 140.5154197
+  translations:
+    en: Akita
+    ja: 秋田県
+    af: Akita Prefektuur
+    ar: أكيتا
+    az: Akita
+    bg: Акита
+    bn: আকিতা প্রশাসনিক অঞ্চল
+    ca: prefectura d’Akita
+    cs: Prefektura Akita
+    da: Akita-præfekturet
+    de: Präfektur Akita
+    el: Επαρχία Ακίτα
+    es: Akita
+    et: Akita prefektuur
+    eu: Akita
+    fa: استان آکیتا
+    fi: Akitan prefektuuri
+    fr: préfecture d’Akita
+    gl: Prefectura de Akita
+    gu: અકિટા પ્રીફેકચર
+    he: אקיטה
+    hi: अकिता प्रीफ़ेक्चर
+    hr: Akita
+    hu: Akita prefektúra
+    hy: Ակիտա
+    id: Prefektur Akita
+    it: prefettura di Akita
+    ka: აკიტის პრეფექტურა
+    km: ខេត្តអាគីតា
+    kn: ಅಕಿಟಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 아키타 현
+    lt: Akitos prefektūra
+    lv: Akitas prefektūra
+    mn: Акита
+    mr: अकिता
+    ms: Wilayah Akita
+    nb: Akita
+    nl: Akita
+    pl: Prefektura Akita
+    pt: Akita
+    ro: Prefectura Akita
+    ru: Акита
+    si: අකිටා ප්‍රාන්තය
+    sk: Akita
+    sl: prefektura Akita
+    sr: Акита
+    sv: Akita prefektur
+    sw: Mkoa wa Akita
+    ta: ஆகிட்டா ப்ரீபெக்ட்டுறே
+    te: అకితా ప్రిఫెక్చర్
+    th: จังหวัดอะกิตะ
+    tr: Akita
+    uk: Префектура Акіта
+    ur: اکیتا پریفیکچر
+    vi: Akita
+    zh: 秋田县
+    cy: Akita
+    ceb: Akita-ken
+    sr_Latn: Akita
+    yue_Hans: 秋田县
+    jv: Prefektur Akita
+    ccp: "𑄃𑄇𑄨𑄑"
+    ga: Maoracht Akita
+    pa: ਅਕਿਤਾ ਪ੍ਰੀਫੇਕਚਰ
+    yue: 秋田縣
+    be: Акіта
+    mk: Акита
+    'no': Akita
+  type: prefecture
+'06':
+  name: Yamagata
+  code: '06'
+  unofficial_names:
+  - Yamagata
+  geo:
+    latitude: 38.2554388
+    longitude: 140.3396017
+    min_latitude: 38.1435715
+    min_longitude: 140.1793339
+    max_latitude: 38.3521169
+    max_longitude: 140.5307099
+  translations:
+    en: Yamagata
+    ja: 山形県
+    af: Yamagata Prefektuur
+    ar: ياماغاتا
+    az: Yamaqata
+    be: Прэфектура Ямагата
+    bg: Ямагата
+    bn: য়ামাগাতা প্রশাসনিক অঞ্চল
+    ca: Prefectura de Yamagata
+    cs: Prefektura Jamagata
+    da: Yamagata-præfekturet
+    de: Präfektur Yamagata
+    el: Γιαμαγκάτα
+    es: Prefectura de Yamagata
+    et: Yamagata prefektuur
+    eu: Yamagata
+    fa: استان یاماگاتا
+    fi: Yamagatan prefektuuri
+    fr: préfecture de Yamagata
+    gl: Prefectura de Yamagata
+    gu: યમાગાતા પ્રીફેકચર
+    he: יאמאגטה
+    hi: यामागाटा प्रीफेक्चर
+    hr: Yamagata
+    hu: Jamagata prefektúra
+    id: Prefektur Yamagata
+    it: prefettura di Yamagata
+    ka: იამაგატის პრეფექტურა
+    km: ខេត្តយ៉ាម៉ាកាតា
+    kn: ಯಮಗಾಟಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 야마가타 현
+    lt: Jamagatos prefektūra
+    lv: Jamagatas prefektūra
+    mn: Ямагата-кэн
+    mr: यामागाता
+    ms: Wilayah Yamagata
+    nb: Yamagata
+    nl: Yamagata
+    pl: Prefektura Yamagata
+    pt: Yamagata
+    ro: Prefectura Yamagata
+    ru: Ямагата
+    si: යමගාටා ප්‍රාන්තය
+    sk: Jamagata
+    sr: Јамагата
+    sv: Yamagata prefektur
+    sw: Mkoa wa Yamagata
+    ta: யமாட்டா ப்ரீபெக்ட்டுறே
+    te: యమగాతా ప్రిఫెక్చర్
+    th: จังหวัดยะมะงะตะ
+    tr: Yamagata
+    uk: Префектура Ямаґата
+    ur: یاماگاتا پرفکترے
+    vi: Yamagata
+    zh: 山形县
+    cy: Yamagata
+    ceb: Yamagata-ken
+    sr_Latn: Jamagata
+    yue_Hans: 山形县
+    ccp: "𑄃𑄨𑄠𑄟𑄉𑄑"
+    ga: Maoracht Yamagata
+    yue: 山形縣
+    mk: Јамагата
+    'no': Yamagata
+    sl: Jamagata
+  type: prefecture
+'07':
+  name: Fukushima
+  code: '07'
+  unofficial_names:
+  - Hukusima
+  - Fukushima
+  geo:
+    latitude: 37.7608337
+    longitude: 140.4747282
+    min_latitude: 37.6243521
+    min_longitude: 140.2299783
+    max_latitude: 37.9766402
+    max_longitude: 140.570933
+  translations:
+    en: Fukushima
+    ja: 福島県
+    af: Fukushima Prefektuur
+    ar: فوكوشيما
+    az: Fukusima
+    be: прэфектура Фукусіма
+    bg: Фукушима
+    bn: ফুকুশিমা প্রশাসনিক অঞ্চল
+    ca: Prefectura de Fukushima
+    cs: Prefektura Fukušima
+    da: Fukushima-præfekturet
+    de: Präfektur Fukushima
+    el: Φουκουσίμα
+    es: Prefectura de Fukushima
+    et: Fukushima prefektuur
+    eu: Fukushima
+    fa: استان فوکوشیما
+    fi: Fukushiman prefektuuri
+    fr: préfecture de Fukushima
+    gl: Prefectura de Fukushima
+    gu: ફૂકુશીમા પ્રીફેકચર
+    he: פוקושימה
+    hi: फ़ूकूशिमा प्रीफ़ेक्चर
+    hr: Fukushima
+    hu: Fukusima prefektúra
+    hy: Ֆուկուսիմա
+    id: Prefektur Fukushima
+    it: prefettura di Fukushima
+    ka: ფუკუსიმის პრეფექტურა
+    kn: ಫುಕುಶಿಮಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 후쿠시마 현
+    lt: Fukušimos prefektūra
+    lv: Fukušima
+    mn: Фүкүшима
+    mr: फुकुशिमा
+    ms: Wilayah Fukushima
+    nb: Fukushima
+    nl: Fukushima
+    pl: Prefektura Fukushima
+    pt: Fukushima
+    ro: Prefectura Fukushima
+    ru: Фукусима
+    si: ෆුකුෂිමා ප්‍රාන්තය
+    sk: Fukušima
+    sl: prefektura Fukušima
+    sr: Фукушима
+    sv: Fukushima prefektur
+    sw: Mkoa wa Fukushima
+    ta: பிக்குஷிமா ப்ரீபெக்ட்டுறே
+    te: ఫుకుషిమా ప్రిఫెక్చర్
+    th: จังหวัดฟุกุชิมะ
+    tr: Fukuşima Prefektörlüğü
+    uk: Префектура Фукушіма
+    ur: فوکوشیما پریفیکچر
+    vi: Fukushima
+    zh: 福岛县
+    cy: Fukushima
+    ceb: Fukushima-ken
+    sr_Latn: Fukušima
+    yue_Hans: 福岛县
+    jv: Prefektur Fukushima
+    ccp: "𑄜𑄪𑄇𑄪𑄥𑄨𑄟"
+    ga: Maoracht Fukushima
+    yue: 福島縣
+    mk: Фукушима
+    'no': Fukushima
+    km: ខេត្តហ្វូគូស៊ីម៉ា
+  type: prefecture
+'08':
+  name: Ibaraki
+  code: '08'
+  unofficial_names:
+  - Ibaraki
+  geo:
+    latitude: 36.3418112
+    longitude: 140.4467935
+    min_latitude: 35.7401721
+    min_longitude: 139.6874576
+    max_latitude: 36.9439966
+    max_longitude: 140.8495266
+  translations:
+    en: Ibaraki
+    ja: 茨城県
+    af: Ibaraki Prefektuur
+    ar: إيباراكي
+    az: İbaraki
+    be: прэфектура Ібаракі
+    bg: Ибараки
+    bn: ইবারাকি প্রশাসনিক অঞ্চল
+    ca: Prefectura d’Ibaraki
+    cs: Prefektura Ibaraki
+    da: Ibaraki-præfekturet
+    de: Präfektur Ibaraki
+    el: Επαρχία Ιμπαράκι
+    es: Prefectura de Ibaraki
+    et: Ibaraki prefektuur
+    eu: Ibaraki
+    fa: استان ایباراکی
+    fi: Ibarakin prefektuuri
+    fr: préfecture d’Ibaraki
+    gl: Prefectura de Ibaraki
+    gu: ઇબારાકી પ્રીફેકચર
+    he: איבראקי
+    hi: आईबराकी प्रीफेक्चर
+    hr: Ibaraki
+    hu: Ibaraki prefektúra
+    id: Prefektur Ibaraki
+    it: prefettura di Ibaraki
+    ka: იბარაკის პრეფექტურა
+    km: ខេត្តអ៊ីបារ៉ាគិ
+    kn: ಐಬರಾಕಿ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 이바라키 현
+    lt: Ibarakio prefektūra
+    lv: Ibaraki prefektūra
+    mn: Ибараки
+    mr: इबाराकी
+    ms: Wilayah Ibaraki
+    nb: Ibaraki
+    nl: Ibaraki
+    pl: Prefektura Ibaraki
+    pt: Ibaraki
+    ro: Prefectura Ibaraki
+    ru: Ибараки
+    si: ඉබරකි ප්‍රාන්තය
+    sk: Ibaraki
+    sl: prefektura Ibaraki
+    sr: Ибараки
+    sv: Ibaraki prefektur
+    sw: Mkoa wa Ibaraki
+    ta: இபராக்கி பிரேபிக்டூர்
+    te: ఇబరాకి ప్రిఫెక్చర్
+    th: จังหวัดอิบะระกิ
+    tr: Ibaraki
+    uk: Префектура Ібаракі
+    ur: ایباراکی پریفیکچر
+    vi: Ibaraki
+    zh: 茨城縣
+    cy: Ibaraki
+    ceb: Ibaraki-ken
+    sr_Latn: Ibaraki
+    yue_Hans: 茨城县
+    jv: Prefektur Ibaraki
+    ccp: "𑄃𑄭𑄝𑄢𑄇𑄨"
+    ga: Maoracht Ibaraki
+    yue: 茨城縣
+    mk: Ибараки
+    'no': Ibaraki
+  type: prefecture
+'09':
+  name: Tochigi
+  code: '09'
+  unofficial_names:
+  - Totigi
+  - Tochigi
+  geo:
+    latitude: 36.565725
+    longitude: 139.8835651
+    min_latitude: 36.1979495
+    min_longitude: 139.3265571
+    max_latitude: 37.15508320000001
+    max_longitude: 140.2924768
+  translations:
+    en: Tochigi
+    ja: 栃木県
+    af: Tochigi Prefektuur
+    ar: توتشيغي
+    az: Totiqi
+    be: прэфектура Татыгі
+    bg: Точиги
+    bn: তোচিগি প্রশাসনিক অঞ্চল
+    ca: Prefectura de Tochigi
+    cs: Prefektura Točigi
+    da: Tochigi-præfekturet
+    de: Präfektur Tochigi
+    el: Τοτσίγκι
+    es: Prefectura de Tochigi
+    et: Tochigi prefektuur
+    eu: Tochigi
+    fa: استان توچیگی
+    fi: Tochigin prefektuuri
+    fr: préfecture de Tochigi
+    gl: Prefectura de Tochigi
+    gu: ટોચીગી પ્રીફેકચર
+    he: טוצ׳יגי
+    hi: तोशीगी प्रीफेक्चर
+    hr: Tochigi
+    hu: Tocsigi prefektúra
+    id: Prefektur Tochigi
+    it: prefettura di Tochigi
+    kn: ತೋಚಿಗಿ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 도치기 현
+    lt: Točigio prefektūra
+    lv: Točigi prefektūra
+    mr: तोचिगी
+    ms: Wilayah Tochigi
+    nb: Tochigi
+    nl: Tochigi
+    pl: Prefektura Tochigi
+    pt: Tochigi
+    ro: Prefectura Tochigi
+    ru: Тотиги
+    si: ටොචිගි ප්‍රාන්තය
+    sk: Točigi
+    sl: prefektura Tochigi
+    sr: Точиги
+    sv: Tochigi prefektur
+    sw: Mkoa wa Tochigi
+    ta: டோச்சிகி ப்ரீபெக்ட்டுறே
+    te: టోచిగి ప్రిఫెక్చర్
+    th: จังหวัดโทะชิงิ
+    tr: Tochigi
+    uk: Префектура Точіґі
+    ur: توچیگی پریفیکچر
+    vi: Tochigi
+    zh: 栃木縣
+    cy: Tochigi
+    ceb: Tochigi-ken
+    sr_Latn: Točigi
+    yue_Hans: 栃木县
+    ccp: "𑄑𑄮𑄌𑄨𑄉𑄨"
+    ga: Maoracht Tochigi
+    yue: 栃木縣
+    mk: Точиги
+    'no': Tochigi
+    ka: ტოტიგის პრეფექტურა
+  type: prefecture
+'10':
+  name: Gunma
+  code: '10'
+  unofficial_names:
+  - Gunma
+  geo:
+    latitude: 36.3906675
+    longitude: 139.0604061
+    min_latitude: 35.9848313
+    min_longitude: 138.3968196
+    max_latitude: 37.0586062
+    max_longitude: 139.6670785
+  translations:
+    en: Gunma
+    ja: 群馬県
+    af: Gunma Prefektuur
+    ar: غونما
+    az: Qumma
+    be: прэфектура Гуму
+    bg: Гунма
+    bn: গুন্‌মা প্রশাসনিক অঞ্চল
+    ca: Prefectura de Gunma
+    cs: Prefektura Gunma
+    da: Gunma-præfekturet
+    de: Präfektur Gunma
+    el: Γκούνμα
+    es: Prefectura de Gunma
+    et: Gumma prefektuur
+    eu: Gunma
+    fa: استان گونما
+    fi: Gunman prefektuuri
+    fr: préfecture de Gunma
+    gl: Prefectura de Gunma
+    gu: ગુંમા પ્રીફેક્ચર
+    he: גונמה
+    hi: गुनमा प्रान्त
+    hr: Gunma
+    hu: Gunma prefektúra
+    hy: Գումմա
+    id: Prefektur Gunma
+    it: prefettura di Gunma
+    km: ខេត្តហ្គឺនម៉ា
+    kn: ಗುನ್ಮಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 군마 현
+    lt: Gunmos prefektūra
+    lv: Gummas prefektūra
+    mr: गुन्मा
+    ms: Wilayah Gunma
+    nb: Gunma
+    nl: Gunma
+    pl: Prefektura Gunma
+    pt: Gunma
+    ro: Prefectura Gunma
+    ru: Гумма
+    si: ගුන්මා ප්‍රාන්තය
+    sk: Gunma
+    sl: prefektura Gunma
+    sr: Гунма
+    sv: Gunma prefektur
+    sw: Mkoa wa Gunma
+    ta: குணமா ப்ரீபெக்ட்டுறே
+    te: గన్మా ప్రిఫెక్చర్
+    th: จังหวัดกุมมะ
+    tr: Gunma
+    uk: Префектура Ґумма
+    ur: گونما پریفیکچر
+    vi: Gunma
+    zh: 群馬縣
+    cy: Gunma
+    ceb: Gunma-ken
+    sr_Latn: Gunma
+    yue_Hans: 群马县
+    jv: Prefektur Gunma
+    ccp: "𑄉𑄪𑄚𑄴𑄟"
+    ga: Maoracht Gunma
+    yue: 群馬縣
+    mk: Гунма
+    'no': Gunma
+  type: prefecture
+'11':
+  name: Saitama
+  code: '11'
+  unofficial_names:
+  - Saitama
+  geo:
+    latitude: 35.8617292
+    longitude: 139.6454822
+    min_latitude: 35.8286783
+    min_longitude: 139.5401082
+    max_latitude: 36.0025176
+    max_longitude: 139.7574035
+  translations:
+    en: Saitama
+    ja: 埼玉県
+    af: Saitama Prefektuur
+    ar: سايتاما
+    az: Saytama
+    be: Прэфектура Сайтама
+    bg: Сайтама
+    bn: সাইতামা প্রশাসনিক অঞ্চল
+    ca: Prefectura de Saitama
+    cs: Prefektura Saitama
+    da: Saitama-præfekturet
+    de: Präfektur Saitama
+    el: Σαϊτάμα
+    es: Prefectura de Saitama
+    et: Saitama prefektuur
+    eu: Saitama
+    fa: استان سایتاما
+    fi: Saitaman prefektuuri
+    fr: préfecture de Saitama
+    gl: Prefectura de Saitama
+    gu: સૈતામા પ્રીફેકચર
+    he: סאיטאמה
+    hi: सैतामा प्रीफेक्चर
+    hr: Saitama
+    hu: Szaitama prefektúra
+    hy: Սայտամա
+    id: Prefektur Saitama
+    it: prefettura di Saitama
+    km: ខេត្តសៃតាម៉ា
+    kn: ಸೈತಮಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 사이타마 현
+    lt: Saitamos prefektūra
+    lv: Saitamas prefektūra
+    mn: Сайтама аймаг
+    mr: सैतामा
+    ms: Wilayah Saitama
+    nb: Saitama
+    nl: Saitama
+    pl: Prefektura Saitama
+    pt: Saitama
+    ro: Prefectura Saitama
+    ru: Сайтама
+    si: සයිටාමා ප්‍රාන්තය
+    sk: Saitama
+    sl: prefektura Saitama
+    sr: Саитама
+    sv: Saitama prefektur
+    sw: Mkoa wa Saitama
+    ta: சைடமா ப்ரீபெக்ட்டுறே
+    te: సాయిటామా ప్రిఫెక్చర్
+    th: จังหวัดไซตะมะ
+    tr: Saitama ili
+    uk: Префектура Сайтама
+    ur: سایتاما
+    vi: Saitama
+    zh: 埼玉縣
+    cy: Saitama
+    ceb: Saitama-ken
+    sr_Latn: Saitama
+    yue_Hans: 埼玉县
+    ccp: "𑄥𑄭𑄑𑄧𑄟"
+    ga: Maoracht Saitama
+    yue: 埼玉縣
+    uz: Saitama
+    mk: Сајтама
+    'no': Saitama
+    ka: საიტამის პრეფექტურა
+  type: prefecture
+'12':
+  name: Chiba
+  code: '12'
+  unofficial_names:
+  - Tiba
+  - Chiba
+  geo:
+    latitude: 35.6072668
+    longitude: 140.1062907
+    min_latitude: 35.4936015
+    min_longitude: 140.0182802
+    max_latitude: 35.7148402
+    max_longitude: 140.3008405
+  translations:
+    en: Chiba
+    ja: 千葉県
+    af: Chiba Prefektuur
+    ar: تشيبا
+    az: Tiba
+    be: Прэфектура Тыба
+    bg: Чиба
+    bn: চিবা প্রশাসনিক অঞ্চল
+    ca: Prefectura de Chiba
+    cs: Prefektura Čiba
+    da: Chiba-præfekturet
+    de: Präfektur Chiba
+    el: Τσίμπα
+    es: Chiba
+    et: Chiba prefektuur
+    eu: Chiba
+    fa: استان چیبا
+    fi: Chiban prefektuuri
+    fr: préfecture de Chiba
+    gl: Prefectura de Chiba
+    gu: ચિબા પ્રીફેકચર
+    he: צ׳יבה
+    hi: शिबा प्रीफेक्चर
+    hr: Chiba
+    hu: Csiba prefektúra
+    id: Prefektur Chiba
+    it: prefettura di Chiba
+    ka: ტიბის პრეფექტურა
+    km: ខេត្តឈីបា
+    kn: ಚಿಬಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 지바 현
+    lt: Čibos prefektūra
+    lv: Čibas prefektūra
+    mn: Чиба-кэн
+    mr: चिबा
+    ms: Wilayah Chiba
+    nb: Chiba
+    nl: Chiba
+    pl: Prefektura Chiba
+    pt: Chiba
+    ro: Prefectura Chiba
+    ru: Тиба
+    si: චිබා ප්‍රාන්තය
+    sk: Čiba
+    sl: Prefektura Čiba
+    sr: Чиба
+    sv: Chiba prefektur
+    sw: Mkoa wa Chiba
+    ta: சீபா ப்ரீபெக்ட்டுர்
+    te: చిబా ప్రిఫెక్చర్
+    th: จังหวัดชิบะ
+    tr: Chiba ili
+    uk: Префектура Тіба
+    ur: چیبا پریفیکچر
+    vi: Chiba
+    zh: 千葉縣
+    cy: Chiba
+    ceb: Chiba-ken
+    sr_Latn: Čiba
+    yue_Hans: 千叶县
+    jv: Prefektur Chiba
+    ccp: "𑄌𑄨𑄝"
+    ga: Maoracht Chiba
+    yue: 千葉縣
+    mk: Чиба
+    'no': Chiba
+  type: prefecture
+'13':
+  name: Tokyo
+  code: '13'
+  unofficial_names:
+  - Tokyo
+  - Tokio
+  geo:
+    latitude: 35.7090259
+    longitude: 139.7319925
+    min_latitude: 35.5208632
+    min_longitude: 139.5629047
+    max_latitude: 35.8175168
+    max_longitude: 139.9198562
+  translations:
+    en: Tokyo
+    ja: 東京都
+    af: Tokio
+    am: ቶክዮ
+    ar: طوكيو
+    az: Tokio
+    be: Токіа
+    bg: Токио
+    bn: টোকিও
+    ca: Tòquio
+    cs: prefektura Tokio
+    da: Tokyo
+    de: Präfektur Tokio
+    el: Τόκιο
+    es: Tokio
+    et: Tōkyō prefektuur
+    eu: Tokio
+    fa: توکیو
+    fi: Tokio
+    fr: Tokyo
+    gl: Toquio
+    gu: ટોક્યો
+    he: טוקיו
+    hi: टोक्यो
+    hr: Tokio
+    hu: Tokió
+    hy: Տոկիո
+    id: Tokyo
+    is: Tókýó
+    it: Tokyo
+    ka: ტოკიო
+    km: តូក្យូ
+    kn: ಟೋಕ್ಯೊ
+    ko: 도쿄 도
+    lo: ໂຕກຽວ
+    lt: Tokijas
+    lv: Tokija
+    ml: ടോക്കിയോ
+    mn: Токио
+    mr: तोक्यो
+    ms: Tokyo
+    nb: Tokyo
+    ne: टोकियो
+    nl: Tokio
+    or: ଟୋକିଓ
+    pl: Tokio
+    ps: توکيو
+    pt: Tóquio
+    ro: Tokio
+    ru: Токио
+    si: ටෝකියෝ
+    sk: Tokio
+    sl: Tokio
+    sr: Токио
+    sv: Tokyo prefektur
+    sw: Tokyo
+    ta: தோக்கியோ
+    te: టోక్యో
+    th: โตเกียว
+    tk: Tokio
+    tr: Tokyo
+    uk: префектура Токіо
+    ur: توکیو
+    vi: Tokyo
+    zh: 東京都
+    zu: ITokyo
+    cy: Tokyo
+    ceb: Tokyo
+    as: টকিঅ’
+    sr_Latn: Tokio
+    yue_Hans: 东京都
+    jv: Tokyo
+    sq: Tokjo
+    ccp: "𑄑𑄮𑄇𑄨𑄃𑄮"
+    ga: Tóiceo
+    ky: Токио
+    ha: Tokyo
+    so: Tokyo
+    pa: ਟੋਕੀਓ
+    kk: Токио
+    yue: 東京都
+    my: တိုကျိုမြို့
+    yo: Tokyo
+    uz: Tokio
+    bs: Tokio
+    mk: Токио
+    ha_NE: Tokyo
+    'no': Tokyo
+    yo_BJ: Tokyo
+    sd: ٽوڪيو
+  type: prefecture
+'14':
+  name: Kanagawa
+  code: '14'
+  unofficial_names:
+  - Kanagawa
+  geo:
+    latitude: 35.4769011
+    longitude: 139.6294307
+    min_latitude: 35.4635704
+    min_longitude: 139.5677915
+    max_latitude: 35.5063336
+    max_longitude: 139.6691916
+  translations:
+    en: Kanagawa
+    ja: 神奈川県
+    af: Kanagawa Prefektuur
+    ar: كاناغاوا
+    az: Kanaqava
+    be: прэфектура Канагава
+    bg: Канагава
+    bn: কানাগাওয়া প্রশাসনিক অঞ্চল
+    ca: Prefectura de Kanagawa
+    cs: Prefektura Kanagawa
+    da: Kanagawa-præfekturet
+    de: Präfektur Kanagawa
+    el: Καναγκάβα
+    es: Prefectura de Kanagawa
+    et: Kanagawa prefektuur
+    eu: Kanagawa
+    fa: استان کاناگاوا
+    fi: Kanagawan prefektuuri
+    fr: préfecture de Kanagawa
+    gl: Prefectura de Kanagawa
+    gu: કનાગાવા પ્રીફેકચર
+    he: קנאגווה
+    hi: कानागावा प्रीफेक्चर
+    hr: Kanagawa
+    hu: Kanagava prefektúra
+    hy: Կանագավա
+    id: Prefektur Kanagawa
+    it: prefettura di Kanagawa
+    ka: კანაგავის პრეფექტურა
+    km: ខេត្តខាន់ណាហ្គាវ៉ា
+    kn: ಕನಗಾವಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 가나가와 현
+    lt: Kanagavos prefektūra
+    lv: Kanagavas prefektūra
+    mn: Канагава
+    mr: कनागावा
+    ms: Wilayah Kanagawa
+    nb: Kanagawa
+    nl: Kanagawa
+    pl: Prefektura Kanagawa
+    pt: Kanagawa
+    ro: Prefectura Kanagawa
+    ru: Канагава
+    si: කනගාවා ප්‍රාන්තය
+    sk: Kanagawa
+    sl: prefektura Kanagawa
+    sr: Канагава
+    sv: Kanagawa prefektur
+    sw: Mkoa wa Kanagawa
+    ta: கனகவா ப்ரீபெக்ட்டுர்
+    te: కనగావా ప్రిఫెక్చర్
+    th: จังหวัดคะนะงะวะ
+    tr: Kanagawa ili
+    uk: Префектура Канаґава
+    ur: کاناگاوا پریفیکچر
+    vi: Kanagawa
+    zh: 神奈川縣
+    cy: Kanagawa
+    ceb: Kanagawa-ken
+    sr_Latn: Kanagava
+    yue_Hans: 神奈川县
+    sq: Kanagawa
+    ccp: "𑄇𑄚𑄴𑄉𑄃𑄮𑄠"
+    ga: Maoracht Kanagawa
+    yue: 神奈川縣
+    mk: Канагава
+    'no': Kanagawa
+  type: prefecture
+'15':
+  name: Niigata
+  code: '15'
+  unofficial_names:
+  - Niigata
+  geo:
+    latitude: 37.9161924
+    longitude: 139.0364126
+    min_latitude: 37.678484
+    min_longitude: 138.7842984
+    max_latitude: 38.0196372
+    max_longitude: 139.2668815
+  translations:
+    en: Niigata
+    ja: 新潟県
+    af: Niigata Prefektuur
+    ar: نييغاتا
+    az: Niiqata
+    be: Прэфектура Ніігата
+    bg: Ниигата
+    bn: নিইগাতা প্রশাসনিক অঞ্চল
+    ca: Prefectura de Niigata
+    cs: Prefektura Niigata
+    da: Niigata-præfekturet
+    de: Präfektur Niigata
+    el: Νιιγκάτα
+    es: Prefectura de Niigata
+    et: Niigata prefektuur
+    eu: Niigata
+    fa: استان نیگاتا
+    fi: Niigatan prefektuuri
+    fr: préfecture de Niigata
+    gl: Prefectura de Niigata
+    gu: નીગાટા પ્રીફેકચર
+    he: ניאיגטה
+    hi: निगाता प्रीफेक्चर
+    hr: Niigata
+    hu: Niigata prefektúra
+    hy: Նիիգատա
+    id: Prefektur Niigata
+    it: prefettura di Niigata
+    km: ខេត្តនីហ្គាតាក់
+    kn: ನಿಗಾಟಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 니가타 현
+    lt: Nijigatos prefektūra
+    lv: Niigatas prefektūra
+    mr: निगाता
+    ms: Wilayah Niigata
+    nb: Niigata
+    nl: Niigata
+    pl: Prefektura Niigata
+    pt: Niigata
+    ro: Prefectura Niigata
+    ru: Ниигата
+    si: නිගටා ප්‍රාන්තය
+    sk: Niigata
+    sr: Ниигата
+    sv: Niigata prefektur
+    sw: Mkoa wa Niigata
+    ta: நீகட்ட ப்ரீபெக்ட்டுறே
+    te: నీగాటా ప్రిఫెక్చర్
+    th: จังหวัดนีงะตะ
+    tr: Niigata
+    uk: Префектура Ніїґата
+    ur: نیگاتا پریفیکچر
+    vi: Niigata
+    zh: 新潟县
+    cy: Niigata
+    ceb: Niigata-ken
+    sr_Latn: Niigata
+    yue_Hans: 新潟县
+    jv: Prefektur Niigata
+    ccp: "𑄚𑄩𑄉𑄖"
+    ga: Maoracht Niigata
+    yue: 新潟縣
+    mk: Ниигата
+    'no': Niigata
+    ka: ნიიგატის პრეფექტურა
+    sl: prefektura Nigata
+  type: prefecture
+'16':
+  name: Toyama
+  code: '16'
+  unofficial_names:
+  - Toyama
+  geo:
+    latitude: 36.6959518
+    longitude: 137.2136768
+    min_latitude: 36.3698396
+    min_longitude: 137.0281635
+    max_latitude: 36.7667013
+    max_longitude: 137.7055334
+  translations:
+    en: Toyama
+    ja: 富山県
+    af: Toyama Prefektuur
+    ar: توياما
+    az: Toyama
+    bg: Тояма
+    bn: তোয়্যামা প্রশাসনিক অঞ্চল
+    ca: Prefectura de Toyama
+    cs: Prefektura Tojama
+    da: Toyama-præfekturet
+    de: Präfektur Toyama
+    el: Τογιάμα
+    es: Prefectura de Toyama
+    et: Toyama prefektuur
+    eu: Toyama
+    fa: استان تویاما
+    fi: Toyaman prefektuuri
+    fr: préfecture de Toyama
+    gl: Prefectura de Toyama
+    gu: ટોયમા પ્રીફેકચર
+    he: טויאמה
+    hi: तोयामा प्रभाग
+    hr: Toyama
+    hu: Tojama prefektúra
+    hy: Տոյամա
+    id: Prefektur Toyama
+    it: prefettura di Toyama
+    km: ខេត្តតុយ៉ាម៉ា
+    kn: ಟೊಯಾಮಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 도야마 현
+    lt: Tojamos prefektūra
+    lv: Tojamas prefektūra
+    mr: तोयामा
+    ms: Wilayah Toyama
+    nb: Toyama
+    nl: Toyama
+    pl: Prefektura Toyama
+    pt: Toyama
+    ro: Prefectura Toyama
+    ru: Тояма
+    si: ටෝයාමා ප්‍රාන්තය
+    sk: Tojama
+    sl: prefektura Toyama
+    sr: Тојама
+    sv: Toyama prefektur
+    sw: Mkoa wa Toyama
+    ta: டோயமா ப்ரீபெக்ட்டுறே
+    te: టోయామా ప్రిఫెక్చర్
+    th: จังหวัดโทะยะมะ
+    tr: Toyama
+    uk: Префектура Тояма
+    ur: تویاما پریفیکچر
+    vi: Toyama
+    zh: 富山縣
+    cy: Toyama
+    ceb: Toyama-ken
+    sr_Latn: Tojama
+    yue_Hans: 富山县
+    ccp: "𑄑𑄮𑄠𑄟"
+    ga: Maoracht Toyama
+    yue: 富山縣
+    be: прэфектура Таяма
+    mk: Тојама
+    'no': Toyama
+  type: prefecture
+'17':
+  name: Ishikawa
+  code: '17'
+  unofficial_names:
+  - Isikawa
+  - Ishikawa
+  geo:
+    latitude: 36.5946816
+    longitude: 136.6255726
+    min_latitude: 36.0672759
+    min_longitude: 136.2429979
+    max_latitude: 37.8553273
+    max_longitude: 137.3608272
+  translations:
+    en: Ishikawa
+    ja: 石川県
+    af: Ishikawa Prefektuur
+    ar: إيشيكاوا
+    az: İşikava
+    be: прэфектура Ісікава
+    bg: Ишикава
+    bn: ইশিকাওয়া প্রশাসনিক অঞ্চল
+    ca: Prefectura d’Ishikawa
+    cs: Prefektura Išikawa
+    da: Ishikawa-præfekturet
+    de: Präfektur Ishikawa
+    el: Ισικάβα
+    es: Prefectura de Ishikawa
+    et: Ishikawa prefektuur
+    eu: Ishikawa
+    fa: استان ایشیکاوا
+    fi: Ishikawan prefektuuri
+    fr: préfecture d’Ishikawa
+    gl: Prefectura de Ishikawa
+    gu: ઇશિકાવા પ્રીફેકચર
+    he: אישיקווה
+    hi: इशिकावा प्रीफेक्चर
+    hr: Ishikawa
+    hu: Isikava prefektúra
+    id: Prefektur Ishikawa
+    it: prefettura di Ishikawa
+    ka: ისიკავის პრეფექტურა
+    kn: ಇಶಿಕಾವಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 이시카와 현
+    lt: Išikavos prefektūra
+    lv: Isikavas prefektūra
+    mr: इशिकावा
+    ms: Wilayah Ishikawa
+    nb: Ishikawa
+    nl: Ishikawa
+    pl: Prefektura Ishikawa
+    pt: Ishikawa
+    ro: Prefectura Ishikawa
+    ru: Исикава
+    si: ඉෂිකාවා ප්‍රාන්තය
+    sk: Išikawa
+    sl: prefektura Išikava
+    sr: Ишикава
+    sv: Ishikawa prefektur
+    sw: Mkoa wa Ishikawa
+    ta: இஷிகாவா ப்ரீபெக்ட்டுறே
+    te: ఇషికావా ప్రిఫెక్చర్
+    th: จังหวัดอิชิกะวะ
+    tr: Ishikawa
+    uk: Префектура Ісікава
+    ur: اشیکاوا پریفیکچر
+    vi: Ishikawa
+    zh: 石川縣
+    cy: Ishikawa
+    ceb: Ishikawa-ken
+    sr_Latn: Išikava
+    yue_Hans: 石川县
+    ccp: "𑄃𑄨𑄥𑄨𑄇𑄤"
+    ga: Maoracht Ishikawa
+    yue: 石川縣
+    mk: Ишикава
+    'no': Ishikawa
+  type: prefecture
+'18':
+  name: Fukui
+  code: '18'
+  unofficial_names:
+  - Hukui
+  - Fukui
+  geo:
+    latitude: 36.0640669
+    longitude: 136.2194938
+    min_latitude: 35.9205083
+    min_longitude: 135.9650378
+    max_latitude: 36.1729691
+    max_longitude: 136.4702452
+  translations:
+    en: Fukui
+    ja: 福井県
+    af: Fukui Prefektuur
+    ar: فوكوي
+    az: Fukui
+    bg: Фукуи
+    bn: ফুকুই প্রশাসনিক অঞ্চল
+    ca: Prefectura de Fukui
+    cs: Prefektura Fukui
+    da: Fukui-præfekturet
+    de: Präfektur Fukui
+    el: Φουκούι
+    es: Prefectura de Fukui
+    et: Fukui prefektuur
+    eu: Fukui
+    fa: استان فوکوئی
+    fi: Fukuin prefektuuri
+    fr: préfecture de Fukui
+    gl: Prefectura de Fukui
+    gu: ફુકુઇ પ્રીફેકચર
+    he: פוקואי
+    hi: फुकुई प्रीफेक्चर
+    hr: Fukui
+    hu: Fukui prefektúra
+    id: Prefektur Fukui
+    it: prefettura di Fukui
+    kn: ಫುಕುಯಿ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 후쿠이 현
+    lt: Fukujaus prefektūra
+    lv: Fukuji prefektūra
+    mr: फुकुई
+    ms: Wilayah Fukui
+    nb: Fukui
+    nl: Fukui
+    pl: Prefektura Fukui
+    pt: Fukui
+    ro: Prefectura Fukui
+    ru: Фукуи
+    si: ෆුකුයි ප්‍රාන්තය
+    sk: Fukui
+    sr: Фукуј
+    sv: Fukui prefektur
+    sw: Mkoa wa Fukui
+    ta: பிக்குய் ப்ரீபெக்ட்டுர்
+    te: ఫుకూయి ప్రిఫెక్చర్
+    th: จังหวัดฟุกุอิ
+    tr: Fukui
+    uk: Префектура Фукуй
+    ur: فوکوئی پریفیکچر
+    vi: Fukui
+    zh: 福井縣
+    cy: Fukui
+    ceb: Fukui-ken
+    sr_Latn: Fukuj
+    yue_Hans: 福井县
+    jv: Prefektur Fukui
+    ccp: "𑄜𑄪𑄇𑄭"
+    ga: Maoracht Fukui
+    yue: 福井縣
+    mk: Фукуи
+    'no': Fukui
+    be: Фукуі (прэфектура)
+    ka: ფუკუის პრეფექტურა
+    sl: prefektura Fukui
+  type: prefecture
+'19':
+  name: Yamanashi
+  code: '19'
+  unofficial_names:
+  - Yamanasi
+  - Yamanashi
+  geo:
+    latitude: 35.6641575
+    longitude: 138.5684486
+    min_latitude: 35.1683022
+    min_longitude: 138.1801079
+    max_latitude: 35.971911
+    max_longitude: 139.13455
+  translations:
+    en: Yamanashi
+    ja: 山梨県
+    af: Yamanashi Prefektuur
+    ar: ياماناشي
+    az: Yamanaşi
+    bg: Яманаши
+    bn: য়ামানাশি প্রশাসনিক অঞ্চল
+    ca: Prefectura de Yamanashi
+    cs: Prefektura Jamanaši
+    da: Yamanashi-præfekturet
+    de: Präfektur Yamanashi
+    el: Γιαμανάσι
+    es: Prefectura de Yamanashi
+    et: Yamanashi prefektuur
+    eu: Yamanashi
+    fa: استان یاماناشی
+    fi: Yamanashin prefektuuri
+    fr: préfecture de Yamanashi
+    gl: Prefectura de Yamanashi
+    gu: યમાનાશી પ્રીફેકચર
+    he: יאמאנאשי
+    hi: यामानाशी प्रीफेक्चर
+    hr: Yamanashi
+    hu: Jamanasi prefektúra
+    id: Prefektur Yamanashi
+    it: prefettura di Yamanashi
+    ka: იამანასის პრეფექტურა
+    km: ខេត្តយ៉ាម៉ាណាស៊ី
+    kn: ಯಮನಶಿ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 야마나시 현
+    lt: Jamanašio prefektūra
+    lv: Jamanasi prefektūra
+    mr: यामानाशी
+    ms: Wilayah Yamanashi
+    nb: Yamanashi
+    nl: Yamanashi
+    pl: Prefektura Yamanashi
+    pt: Yamanashi
+    ro: Prefectura Yamanashi
+    ru: Яманаси
+    si: යමනාශි ප්‍රාන්තය
+    sk: Jamanaši
+    sl: prefektura Yamanaši
+    sr: Јаманаши
+    sv: Yamanashi prefektur
+    sw: Mkoa wa Yamanashi
+    ta: யமானஷி ப்ரீபெக்ட்டுறே
+    te: యమనాషి ప్రిఫెక్చర్
+    th: จังหวัดยะมะนะชิ
+    tr: Yamanashi
+    uk: Префектура Яманаші
+    ur: یماناشی پرفکترے
+    vi: Yamanashi
+    zh: 山梨县
+    cy: Yamanashi
+    ceb: Yamanashi-ken
+    sr_Latn: Jamanaši
+    yue_Hans: 山梨县
+    ccp: "𑄃𑄨𑄠𑄟𑄚𑄴𑄥𑄨"
+    ga: Maoracht Yamanashi
+    yue: 山梨縣
+    be: прэфектура Яманасі
+    mk: Јаманаши
+    'no': Yamanashi
+  type: prefecture
+'20':
+  name: Nagano
+  code: '20'
+  unofficial_names:
+  - Nagano
+  geo:
+    latitude: 36.6485496
+    longitude: 138.1942432
+    min_latitude: 36.4604537
+    min_longitude: 137.9100075
+    max_latitude: 36.835842
+    max_longitude: 138.3190719
+  translations:
+    en: Nagano
+    ja: 長野県
+    af: Nagano Prefektuur
+    ar: ناغانو
+    az: Naqano
+    bg: Нагано
+    bn: নাগানো প্রশাসনিক অঞ্চল
+    ca: Prefectura de Nagano
+    cs: Prefektura Nagano
+    da: Nagano-præfekturet
+    de: Präfektur Nagano
+    el: Νομός Ναγκάνο
+    es: Prefectura de Nagano
+    et: Nagano prefektuur
+    eu: Nagano
+    fa: استان ناگانو
+    fi: Naganon prefektuuri
+    fr: préfecture de Nagano
+    gl: Prefectura de Nagano
+    gu: નાગાનો પ્રીફેકચર
+    he: נאגנו
+    hi: नागानो प्रीफेक्चर
+    hr: Nagano
+    hu: Nagano prefektúra
+    id: Prefektur Nagano
+    it: prefettura di Nagano
+    ka: ნაგანო
+    km: ខេត្តណាហ្គាណុ
+    kn: ನ್ಯಾಗೊನೋ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 나가노 현
+    lt: Nagano prefektūra
+    lv: Nagano prefektūra
+    mr: नागानो
+    ms: Wilayah Nagano
+    nb: Nagano
+    nl: Nagano
+    pl: Prefektura Nagano
+    pt: Nagano
+    ro: Prefectura Nagano
+    ru: Нагано
+    si: නගනෝ ප්‍රාන්තය
+    sk: Nagano
+    sl: Prefektura Nagano
+    sr: Нагано
+    sv: Nagano prefektur
+    sw: Mkoa wa Nagano
+    ta: மகனோ ப்ரீபெக்ட்டுர்
+    te: నాగానో ప్రిఫెక్చర్
+    th: จังหวัดนะงะโนะ
+    tr: Nagano
+    uk: Префектура Наґано
+    ur: ناگانو پریفیکچر
+    vi: Nagano
+    zh: 长野县
+    cy: Nagano
+    ceb: Nagano-ken
+    sr_Latn: Nagano
+    yue_Hans: 长野县
+    ccp: "𑄚𑄉𑄚𑄮"
+    ga: Maoracht Nagano
+    yue: 長野縣
+    be: прэфектура Нагана
+    mk: Нагано
+    'no': Nagano
+  type: prefecture
+'21':
+  name: Gifu
+  code: '21'
+  unofficial_names:
+  - Gihu
+  - Gifu
+  geo:
+    latitude: 35.4232984
+    longitude: 136.7606537
+    min_latitude: 35.3513892
+    min_longitude: 136.6783857
+    max_latitude: 35.543131
+    max_longitude: 136.8861855
+  translations:
+    en: Gifu
+    ja: 岐阜県
+    af: Gifu Prefektuur
+    ar: غيفو
+    az: Qifu
+    be: Прэфектура Гіфу
+    bg: Гифу
+    bn: গিফু প্রশাসনিক অঞ্চল
+    ca: Prefectura de Gifu
+    cs: Prefektura Gifu
+    da: Gifu-præfekturet
+    de: Präfektur Gifu
+    el: Γκίφου
+    es: Prefectura de Gifu
+    et: Gifu prefektuur
+    eu: Gifu
+    fa: استان گیفو
+    fi: Gifun prefektuuri
+    fr: préfecture de Gifu
+    gl: Prefectura de Gifu
+    gu: ગીફુ પ્રીફેકચર
+    he: גיפו
+    hi: जिफू प्रीफेक्चर
+    hr: Gifu
+    hu: Gifu prefektúra
+    id: Prefektur Gifu
+    it: prefettura di Gifu
+    kn: ಜಿಫು ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 기후 현
+    lt: Gifu prefektūra
+    lv: Gifu prefektūra
+    mr: गिफू
+    ms: Wilayah Gifu
+    nb: Gifu
+    nl: Gifu
+    pl: Prefektura Gifu
+    pt: Gifu
+    ro: Prefectura Gifu
+    ru: Гифу
+    si: ගීෆු පළාත
+    sk: Gifu
+    sr: Гифу
+    sv: Gifu prefektur
+    sw: Mkoa wa Gifu
+    ta: கிபியூ ப்ரீபெக்ட்டுறே
+    te: గిఫు ప్రిఫెక్చర్
+    th: จังหวัดกิฟุ
+    tr: Gifu
+    uk: Префектура Ґіфу
+    ur: گیفو پریفیکچر
+    vi: Gifu
+    zh: 岐阜县
+    cy: Gifu
+    ceb: Gifu-ken
+    sr_Latn: Gifu
+    yue_Hans: 岐阜县
+    jv: Prefektur Gifu
+    ccp: "𑄎𑄨𑄜𑄪"
+    ga: Maoracht Gifu
+    yue: 岐阜縣
+    mk: Гифу
+    'no': Gifu
+    ka: გიფუს პრეფექტურა
+    sl: prefektura Gifu
+  type: prefecture
+'22':
+  name: Shizuoka
+  code: '22'
+  unofficial_names:
+  - Sizuoka
+  - Shizuoka
+  geo:
+    latitude: 34.975562
+    longitude: 138.3827596
+    min_latitude: 34.8980251
+    min_longitude: 138.0829207
+    max_latitude: 35.6459882
+    max_longitude: 138.635826
+  translations:
+    en: Shizuoka
+    ja: 静岡県
+    af: Shizuoka Prefektuur
+    ar: شيزوكا
+    az: Sidzuoka
+    be: прэфектура Сідзуока
+    bg: Шидзуока
+    bn: শিযুওকা প্রশাসনিক অঞ্চল
+    ca: Prefectura de Shizuoka
+    cs: Prefektura Šizuoka
+    da: Shizuoka-præfekturet
+    de: Präfektur Shizuoka
+    el: Σιζουόκα
+    es: Prefectura de Shizuoka
+    et: Shizuoka prefektuur
+    eu: Shizuoka
+    fa: استان شیزوئوکا
+    fi: Shizuokan prefektuuri
+    fr: préfecture de Shizuoka
+    gl: Prefectura de Shizuoka
+    gu: શિઝુઓકા પ્રીફેકચર
+    he: שיזואוקה
+    hi: शिज़ुका प्रीफेक्चर
+    hr: Shizuoka
+    hu: Sizuoka prefektúra
+    id: Prefektur Shizuoka
+    is: Shizuoka-umdæmi
+    it: prefettura di Shizuoka
+    kn: ಶಿಝುವೊಕಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 시즈오카 현
+    lt: Šidzuokos prefektūra
+    lv: Sidzuokas prefektūra
+    mr: शिझुओका
+    ms: Wilayah Shizuoka
+    nb: Shizuoka
+    nl: Shizuoka
+    pl: Prefektura Shizuoka
+    pt: Shizuoka
+    ro: Prefectura Shizuoka
+    ru: Сидзуока
+    si: ශිසොකා ප්‍රාන්තය
+    sk: Šizuoka
+    sl: Prefektura Šizuoka
+    sr: Шизуока
+    sv: Shizuoka prefektur
+    sw: Mkoa wa Shizuoka
+    ta: ஷிஸுஒக்கா ப்ரீபெக்ட்டுர்
+    te: షిజువోకా ప్రిఫెక్చర్
+    th: จังหวัดชิซุโอะกะ
+    tr: Shizuoka
+    uk: Префектура Шідзуока
+    ur: شیزوکا پریفیکچر
+    vi: Shizuoka
+    zh: 靜岡縣
+    cy: Shizuoka
+    ceb: Shizuoka-ken
+    sr_Latn: Šizuoka
+    yue_Hans: 静冈县
+    jv: Prefektur Shizuoka
+    ccp: "𑄥𑄨𑄎𑄪𑄤𑄇"
+    ga: Maoracht Shizuoka
+    yue: 靜岡縣
+    mk: Шизуока
+    'no': Shizuoka
+    ka: სიძუოკის პრეფექტურა
+  type: prefecture
+'23':
+  name: Aichi
+  code: '23'
+  unofficial_names:
+  - Aiti
+  - Aichi
+  geo:
+    latitude: 35.1801883
+    longitude: 136.9065647
+    min_latitude: 34.5780876
+    min_longitude: 136.6710227
+    max_latitude: 35.424822
+    max_longitude: 137.8378675
+  translations:
+    en: Aichi
+    ja: 愛知県
+    af: Aichi Prefektuur
+    ar: آيتشي
+    az: Ayti
+    be: прэфектура Айты
+    bg: Айчи
+    bn: আইচি প্রশাসনিক অঞ্চল
+    ca: Prefectura d’Aichi
+    cs: Prefektura Aiči
+    da: Aichi-præfekturet
+    de: Präfektur Aichi
+    el: Άιτσι
+    es: Prefectura de Aichi
+    et: Aichi prefektuur
+    eu: Aichi
+    fa: استان آیچی
+    fi: Aichin prefektuuri
+    fr: préfecture d’Aichi
+    gl: Prefectura de Aichi
+    gu: એચી પ્રીફેકચર
+    he: אאיצ׳י
+    hi: आइची प्रीफ़ेक्चर
+    hr: Aichi
+    hu: Aicsi prefektúra
+    hy: Այչի
+    id: Prefektur Aichi
+    it: prefettura di Aichi
+    ka: აიტის პრეფექტურა
+    km: ខេត្តអៃឈិ
+    kn: ಐಚಿ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 아이치 현
+    lt: Aičio prefektūra
+    lv: Aiči
+    mn: Айчи
+    mr: ऐची
+    ms: Wilayah Aichi
+    nb: Aichi
+    nl: Aichi
+    pl: Prefektura Aichi
+    pt: Aichi
+    ro: Prefectura Aichi
+    ru: Айти
+    si: අයිචි ප්‍රාන්තය
+    sk: Aiči
+    sl: prefektura Aiči
+    sr: Аичи
+    sv: Aichi prefektur
+    sw: Mkoa wa Aichi
+    ta: ஆட்சி பிரேபிக்ச்சர்
+    te: అయిచి ప్రిఫెక్చర్
+    th: จังหวัดไอชิ
+    tr: Aichi
+    uk: Префектура Айчі
+    ur: ایچی پریفیکچر
+    vi: Aichi
+    zh: 愛知縣
+    cy: Aichi
+    ceb: Aichi-ken
+    sr_Latn: Aiči
+    yue_Hans: 爱知县
+    jv: Prefektur Aichi
+    ccp: "𑄃𑄭𑄥𑄨"
+    ga: Maoracht Aichi
+    pa: ਆਇਚੀ ਪ੍ਰੀਫ਼ੈਕਚਰ
+    yue: 愛知縣
+    mk: Ајчи
+    'no': Aichi
+    or: ଆଇଚି ରାଜ୍ଯ
+  type: prefecture
+'24':
+  name: Mie
+  code: '24'
+  unofficial_names:
+  - Mie
+  geo:
+    latitude: 34.7302829
+    longitude: 136.5085883
+    min_latitude: 33.7226406
+    min_longitude: 135.8528648
+    max_latitude: 35.2576841
+    max_longitude: 136.9877503
+  translations:
+    en: Mie
+    ja: 三重県
+    af: Mie Prefektuur
+    ar: ميه
+    az: Mie
+    be: Прэфектура Міэ
+    bg: Мие
+    bn: মিয়ে প্রশাসনিক অঞ্চল
+    ca: Prefectura de Mie
+    cs: Prefektura Mie
+    da: Mie-præfekturet
+    de: Präfektur Mie
+    el: Μίε
+    es: Prefectura de Mie
+    et: Mie prefektuur
+    eu: Mie
+    fa: استان میه
+    fi: Mien prefektuuri
+    fr: préfecture de Mie
+    gl: Prefectura de Mie
+    he: מיאה
+    hi: मी प्रीफेक्चर
+    hr: Mie
+    hu: Mie prefektúra
+    id: Prefektur Mie
+    it: prefettura di Mie
+    km: ខេត្តមីអិ
+    kn: ಮೀ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 미에 현
+    lt: Mijės prefektūra
+    lv: Mie prefektūra
+    mr: मिई
+    ms: Wilayah Mie
+    nb: Mie
+    nl: Mie
+    pl: Prefektura Mie
+    pt: Mie
+    ro: Prefectura Mie
+    ru: Миэ
+    si: මයි ප්‍රාන්තය
+    sk: Mie
+    sl: prefektura Mie
+    sr: Мије
+    sv: Mie prefektur
+    sw: Mkoa wa Mie
+    ta: மீ ப்ரீபெக்ட்டுறே
+    te: మియె ప్రిఫెక్చర్
+    th: จังหวัดมิเอะ
+    tr: Mie ili
+    uk: Префектура Міє
+    ur: میہ پریفیکچر
+    vi: Mie
+    zh: 三重县
+    cy: Mie
+    ceb: Mie-ken
+    sr_Latn: Mije
+    yue_Hans: 三重县
+    ccp: "𑄟𑄭𑄠𑄬"
+    ga: Maoracht Mie
+    hy: Միե
+    yue: 三重縣
+    mn: Миэ
+    mk: Мие
+    'no': Mie
+    gu: મિએ પ્રીફેકચર
+    ka: მიეს პრეფექტურა
+  type: prefecture
+'25':
+  name: Shiga
+  code: '25'
+  unofficial_names:
+  - Siga
+  - Shiga
+  geo:
+    latitude: 35.0045306
+    longitude: 135.8685899
+    min_latitude: 34.7906231
+    min_longitude: 135.7637715
+    max_latitude: 35.7035792
+    max_longitude: 136.4549543
+  translations:
+    en: Shiga
+    ja: 滋賀県
+    af: Shiga Prefektuur
+    ar: شيغا
+    az: Şiqa
+    be: прэфектура Сіга
+    bg: Шига
+    bn: শিগা প্রশাসনিক অঞ্চল
+    ca: Prefectura de Shiga
+    cs: Prefektura Šiga
+    da: Shiga-præfekturet
+    de: Präfektur Shiga
+    el: Σίγκα
+    es: Prefectura de Shiga
+    et: Shiga prefektuur
+    eu: Shiga
+    fa: استان شیگا
+    fi: Shigan prefektuuri
+    fr: préfecture de Shiga
+    gl: Prefectura de Shiga
+    gu: શિગા પ્રીફેકચર
+    he: שיגה
+    hi: शिगा प्रीफेक्चर
+    hr: Shiga
+    hu: Siga prefektúra
+    id: Prefektur Shiga
+    it: prefettura di Shiga
+    kn: ಶಿಗಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 시가 현
+    lt: Šigos prefektūra
+    lv: Sigas prefektūra
+    mn: Шига
+    mr: शिगा
+    ms: Wilayah Shiga
+    nb: Shiga
+    nl: Shiga
+    pl: Prefektura Shiga
+    pt: Shiga
+    ro: Prefectura Shiga
+    ru: Сига
+    si: ශිගා ප්‍රාන්තය
+    sk: Šiga
+    sl: prefektura Šiga
+    sr: Шига
+    sv: Shiga prefektur
+    sw: Mkoa wa Shiga
+    ta: ஷிகா ப்ரீபெக்ட்டுறே
+    te: షిగా ప్రిఫెక్చర్
+    th: จังหวัดชิงะ
+    tr: Shiga
+    uk: Префектура Сіґа
+    ur: شیگا پریفیکچر
+    vi: Shiga
+    zh: 滋贺县
+    cy: Shiga
+    ceb: Shiga-ken
+    sr_Latn: Šiga
+    yue_Hans: 滋贺县
+    jv: Prefektur Shiga
+    ccp: "𑄥𑄨𑄉"
+    ga: Maoracht Shiga
+    yue: 滋賀縣
+    mk: Шига
+    'no': Shiga
+    ka: სიგის პრეფექტურა
+    my: ရှိဂါ့စီရင်စု
+  type: prefecture
+'26':
+  name: Kyoto
+  code: '26'
+  unofficial_names:
+  - Kyoto
+  geo:
+    latitude: 35.0116363
+    longitude: 135.7680294
+    min_latitude: 34.8748597
+    min_longitude: 135.5589842
+    max_latitude: 35.321192
+    max_longitude: 135.8787786
+  translations:
+    en: Kyōto
+    ja: 京都府
+    af: Kioto Prefektuur
+    ar: كيوتو
+    az: Kyoto
+    be: прэфектура Кіёта
+    bg: Киото
+    bn: কিয়োতো প্রশাসনিক অঞ্চল
+    ca: Prefectura de Kyoto
+    cs: Prefektura Kjóto
+    da: Kyoto-præfekturet
+    de: Präfektur Kyōto
+    el: Νομός Κιότο
+    es: Prefectura de Kioto
+    et: Kyōto prefektuur
+    eu: Kyoto
+    fa: استان کیوتو
+    fi: Kioton prefektuuri
+    fr: préfecture de Kyoto
+    gl: Prefectura de Kyōto
+    gu: ક્યોટો પ્રિફેક્ચર
+    he: קיוטו
+    hi: क्योटो प्रीफेक्चर
+    hr: Kyōto
+    hu: Kiotó prefektúra
+    id: Prefektur Kyoto
+    it: prefettura di Kyoto
+    km: ខេត្តក្យូតុ
+    kn: ಕ್ಯೋಟೋ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 교토 부
+    lt: Kioto prefektūra
+    lv: Kioto prefektūra
+    mr: क्योतो
+    ms: Wilayah Kyoto
+    nb: Kyoto
+    nl: Kioto
+    pl: Prefektura Kioto
+    pt: Quioto
+    ro: Prefectura Kyoto
+    ru: Киото
+    si: ක්යෝටෝ ප්‍රාන්තය
+    sk: Kjóto
+    sl: prefektura Kyōto
+    sr: Кјото
+    sv: Kyoto prefektur
+    sw: Mkoa wa Kyoto
+    ta: கியோத்தோ நகரிய மாநிலம்
+    te: క్యోటో ప్రిఫెక్చర్
+    th: จังหวัดเคียวโตะ
+    tr: Kyoto
+    uk: Префектура Кіото
+    ur: کیوٹو پریفیکچر
+    vi: Kyōto
+    zh: 京都府
+    cy: Kyoto
+    ceb: Kyōto-fu
+    sr_Latn: Kjoto
+    yue_Hans: 京都府
+    ccp: "𑄇𑄭𑄠𑄨𑄑𑄮"
+    ga: Maoracht Kyoto
+    yue: 京都府
+    mk: Кјото
+    'no': Kyoto
+    ka: კიოტოს პრეფექტურა
+  type: prefecture
+'27':
+  name: Osaka
+  code: '27'
+  unofficial_names:
+  - Osaka
+  geo:
+    latitude: 34.6937378
+    longitude: 135.5021651
+    min_latitude: 34.5861473
+    min_longitude: 135.3728875
+    max_latitude: 34.7687542
+    max_longitude: 135.599171
+  translations:
+    en: Ōsaka
+    ja: 大阪府
+    af: Osaka Prefektuur
+    ar: أوساكا
+    az: Osaka
+    be: прэфектура Осака
+    bg: Осака
+    bn: ওসাকা প্রশাসনিক অঞ্চল
+    ca: Prefectura d’Osaka
+    cs: Prefektura Ósaka
+    da: Osaka-præfekturet
+    de: Präfektur Osaka
+    el: Οσάκα
+    es: Prefectura de Osaka
+    et: Ōsaka prefektuur
+    eu: Osakako prefetura
+    fa: استان اوساکا
+    fi: Osakan prefektuuri
+    fr: préfecture d’Osaka
+    gl: Prefectura de Ōsaka
+    gu: ઓસાકા પ્રીફેકચર
+    he: אוסקה
+    hi: ओसाका प्रीफेक्चर
+    hr: Ōsaka
+    hu: Oszaka prefektúra
+    id: Prefektur Osaka
+    it: prefettura di Osaka
+    km: អាណាខេត្តអូសាកា
+    kn: ಒಸಾಕಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 오사카 부
+    lt: Osakos prefektūra
+    lv: Osakas prefektūra
+    mr: ओसाका
+    ms: Wilayah Osaka
+    nb: Osaka
+    nl: Osaka
+    pl: Prefektura Osaka
+    pt: Osaka
+    ro: Prefectura Osaka
+    ru: Осака
+    si: ඔසාකා ප්‍රාන්තය
+    sk: Osaka
+    sl: Prefektura Osaka
+    sr: Осака
+    sv: Osaka prefektur
+    sw: Mkoa wa Osaka
+    ta: ஒசாகா ப்ரீபெக்ட்டுர்
+    te: ఓసాకా ప్రిఫెక్చర్
+    th: จังหวัดโอซะกะ
+    tr: Osaka ili
+    uk: Префектура Осака
+    ur: اوساکا پریفیکچر
+    vi: Ōsaka
+    zh: 大阪府
+    cy: Osaka
+    ceb: Ōsaka-fu
+    sr_Latn: Osaka
+    yue_Hans: 大坂府
+    jv: Prefektur Osaka
+    ccp: "𑄃𑄮𑄥𑄇"
+    ga: Maoracht Osaka
+    hy: Օսակայի պրեֆեկտուրա
+    yue: 大阪府
+    mk: Осака
+    'no': Osaka
+    ka: ოსაკის პრეფექტურა
+  type: prefecture
+'28':
+  name: Hyogo
+  code: '28'
+  unofficial_names:
+  - Hyogo
+  geo:
+    latitude: 34.6912688
+    longitude: 135.1830706
+    min_latitude: 34.1556703
+    min_longitude: 134.2527119
+    max_latitude: 35.674731
+    max_longitude: 135.4685529
+  translations:
+    en: Hyōgo
+    ja: 兵庫県
+    af: Hyogo Prefektuur
+    ar: هيوغو
+    az: Hyöqo
+    be: Прэфектура Хіёга
+    bg: Хього
+    bn: হিয়োগো প্রশাসনিক অঞ্চল
+    ca: Prefectura de Hyōgo
+    cs: Prefektura Hjógo
+    da: Hyougo-præfekturet
+    de: Hyōgo
+    el: Χιγκόρο
+    es: Prefectura de Hyōgo
+    et: Hyōgo prefektuur
+    eu: Hyōgo
+    fa: استان هیوگو
+    fi: Hyōgon prefektuuri
+    fr: préfecture de Hyōgo
+    gl: Prefectura de Hyōgo
+    gu: હ્યોગો પ્રીફેકચર
+    he: היוגו
+    hi: ह्योगो प्रीफेक्चर
+    hr: Hyōgo
+    hu: Hjógo prefektúra
+    id: Prefektur Hyogo
+    is: Hyogo-hérað
+    it: prefettura di Hyōgo
+    kn: ಹೈಗೊ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 효고 현
+    lt: Hiogo prefektūra
+    lv: Hjogo prefektūra
+    mr: ह्योगो
+    ms: Wilayah Hyōgo
+    nb: Hyōgo
+    nl: Hyogo
+    pl: Prefektura Hyōgo
+    pt: Hyōgo
+    ro: Prefectura Hyōgo
+    ru: Хёго
+    si: හයෝගෝ ප්‍රාන්තය
+    sk: Hjógo
+    sl: prefektura Hyōgo
+    sr: Хјого
+    sv: Hyogo prefektur
+    sw: Mkoa wa Hyogo
+    ta: ஹயோகோ ப்ரீபெக்ட்டுர்
+    te: హయోగో ప్రిఫెక్చర్
+    th: จังหวัดเฮียวโงะ
+    tr: Hyōgo ili
+    uk: Префектура Хьоґо
+    ur: ہیوگو پریفیکچر
+    vi: Hyōgo
+    zh: 兵库县
+    cy: Hyōgo
+    ceb: Hyōgo-ken
+    sr_Latn: Hjogo
+    yue_Hans: 兵库县
+    jv: Prefektur Hyogo
+    ccp: "𑄦𑄭𑄃𑄮𑄉𑄮"
+    ga: Maoracht Hyōgo
+    yue: 兵庫縣
+    mk: Хјого
+    'no': Hyōgo
+    ka: ჰიოგოს პრეფექტურა
+  type: prefecture
+'29':
+  name: Nara
+  code: '29'
+  unofficial_names:
+  - Nara
+  geo:
+    latitude: 34.6850869
+    longitude: 135.8050002
+    min_latitude: 34.558156
+    min_longitude: 135.713102
+    max_latitude: 34.7577714
+    max_longitude: 136.0710847
+  translations:
+    en: Nara
+    ja: 奈良県
+    af: Nara Prefektuur
+    ar: نارا
+    az: Nara
+    bg: Нара
+    bn: নারা প্রশাসনিক অঞ্চল
+    ca: Prefectura de Nara
+    cs: Prefektura Nara
+    da: Nara-præfekturet
+    de: Präfektur Nara
+    el: Νάρα
+    es: Prefectura de Nara
+    et: Nara prefektuur
+    eu: Nara
+    fa: استان نارا
+    fi: Naran prefektuuri
+    fr: préfecture de Nara
+    gl: Prefectura de Nara
+    gu: નારા પ્રીફેક્ચર
+    he: נארה
+    hi: नारा प्रीफेक्चर
+    hr: Nara
+    hu: Nara prefektúra
+    id: Prefektur Nara
+    it: prefettura di Nara
+    ka: ნარის პრეფექტურა
+    km: អាណាខេត្តណារ៉ា
+    kn: ನಾರಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 나라 현
+    lt: Naros prefektūra
+    lv: Naras prefektūra
+    mr: नारा
+    ms: Wilayah Nara
+    nb: Nara
+    nl: Nara
+    pl: Prefektura Nara
+    pt: Nara
+    ro: Prefectura Nara
+    ru: Нара
+    si: නාරා ප්‍රාන්තය
+    sk: Nara
+    sl: prefektura Nara
+    sr: Нара
+    sv: Nara prefektur
+    sw: Mkoa wa Nara
+    ta: நாரா ப்ரீபெக்ட்டுறே
+    te: నారా ప్రిఫెక్చర్
+    th: จังหวัดนะระ
+    tr: Nara
+    uk: Префектура Нара
+    ur: نارا پریفیکچر
+    vi: Nara
+    zh: 奈良县
+    cy: Nara
+    ceb: Nara-ken
+    sr_Latn: Nara
+    yue_Hans: 奈良县
+    jv: Prefektur Nara
+    ccp: "𑄚𑄢"
+    ga: Maoracht Nara
+    yue: 奈良縣
+    be: Нара
+    mk: Нара
+    'no': Nara
+    hy: Նարա պրեֆեկտուրա
+  type: prefecture
+'30':
+  name: Wakayama
+  code: '30'
+  unofficial_names:
+  - Wakayama
+  geo:
+    latitude: 34.2305113
+    longitude: 135.1708083
+    min_latitude: 34.1504333
+    min_longitude: 134.9990825
+    max_latitude: 34.3157299
+    max_longitude: 135.3148304
+  translations:
+    en: Wakayama
+    ja: 和歌山県
+    af: Wakayama Prefektuur
+    ar: واكاياما
+    az: Vakayama
+    bg: Вакаяма
+    bn: ওয়াকায়ামা প্রশাসনিক অঞ্চল
+    ca: Prefectura de Wakayama
+    cs: Prefektura Wakajama
+    da: Wakayama-præfekturet
+    de: Präfektur Wakayama
+    el: Γουακαγιάμα
+    es: Prefectura de Wakayama
+    et: Wakayama prefektuur
+    eu: Wakayama
+    fa: استان واکایاما
+    fi: Wakayaman prefektuuri
+    fr: préfecture de Wakayama
+    gl: Prefectura de Wakayama
+    gu: વાકાયામા પ્રીફેકચર
+    he: וקאיאמה
+    hi: वकायामा प्रान्त
+    hr: Wakayama
+    hu: Vakajama prefektúra
+    hy: Վակայամա
+    id: Prefektur Wakayama
+    it: prefettura di Wakayama
+    kn: ವಕಾಯಾಮಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 와카야마 현
+    lt: Vakajamos prefektūra
+    lv: Vakajamas prefektūra
+    mn: Вакаяма
+    mr: वाकायामा
+    ms: Wilayah Wakayama
+    nb: Wakayama
+    nl: Wakayama
+    pl: Prefektura Wakayama
+    pt: Wakayama
+    ro: Prefectura Wakayama
+    ru: Вакаяма
+    si: වකයාමා ප්‍රාන්තය
+    sk: Wakajama
+    sr: Вакајама
+    sv: Wakayama prefektur
+    sw: Mkoa wa Wakayama
+    ta: வாக்கயமா ப்ரீபெக்ட்டுறே
+    te: వకాయామా ప్రిఫెక్చర్
+    th: จังหวัดวะกะยะมะ
+    tk: Vakaýama
+    tr: Wakayama
+    uk: Префектура Вакаяма
+    ur: واکایاما پریفیکچر
+    vi: Wakayama
+    zh: 和歌山县
+    cy: Wakayama
+    ceb: Wakayama-ken
+    sr_Latn: Vakajama
+    yue_Hans: 和歌山县
+    jv: Prefektur Wakayama
+    ccp: "𑄤𑄇𑄬𑄠𑄟"
+    ga: Maoracht Wakayama
+    yue: 和歌山縣
+    be: прэфектура Вакаяма
+    mk: Вакајама
+    'no': Wakayama
+    ka: ვაკაიამის პრეფექტურა
+  type: prefecture
+'31':
+  name: Tottori
+  code: '31'
+  unofficial_names:
+  - Tottori
+  geo:
+    latitude: 35.5011326
+    longitude: 134.2350914
+    min_latitude: 35.2716921
+    min_longitude: 133.9459135
+    max_latitude: 35.5728697
+    max_longitude: 134.4408042
+  translations:
+    en: Tottori
+    ja: 鳥取県
+    af: Tottori Prefektuur
+    ar: توتوري
+    az: Tottori
+    bg: Тотори
+    bn: তোত্তোরি প্রশাসনিক অঞ্চল
+    ca: Prefectura de Tottori
+    cs: Prefektura Tottori
+    da: Tottori-præfekturet
+    de: Präfektur Tottori
+    el: Τόττορι
+    es: Prefectura de Tottori
+    et: Tottori prefektuur
+    eu: Tottori
+    fa: استان توتوری
+    fi: Tottorin prefektuuri
+    fr: préfecture de Tottori
+    gl: Prefectura de Tottori
+    gu: ટોટ્ટોરી પ્રીફેકચર
+    he: טוטורי
+    hi: तोतोरी प्रान्त
+    hr: Tottori
+    hu: Tottori prefektúra
+    id: Prefektur Tottori
+    it: prefettura di Tottori
+    kn: ಟೊಟ್ಟೊರಿ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 돗토리 현
+    lt: Totorio prefektūra
+    lv: Totori prefektūra
+    mr: तोतोरी
+    ms: Wilayah Tottori
+    nb: Tottori
+    nl: Tottori
+    pl: Prefektura Tottori
+    pt: Tottori
+    ro: Prefectura Tottori
+    ru: Тоттори
+    si: ටෝට්ටෝරි ප්‍රාන්තය
+    sk: Tottori
+    sr: Тотори
+    sv: Tottori prefektur
+    sw: Mkoa wa Tottori
+    ta: டோட்டோரி ப்ரீபெக்ட்டுறே
+    te: టాటోరి ప్రిఫెక్చర్
+    th: จังหวัดทตโตะริ
+    tr: Tottori
+    uk: Префектура Тотторі
+    ur: توتوری پریفیکچر
+    vi: Tottori
+    zh: 鳥取縣
+    cy: Tottori
+    ceb: Tottori-ken
+    sr_Latn: Totori
+    yue_Hans: 鸟取县
+    jv: Prefektur Tottori
+    ccp: "𑄑𑄮𑄖𑄴𑄖𑄮𑄢𑄨"
+    ga: Maoracht Tottori
+    yue: 鳥取縣
+    be: прэфектура Таторы
+    mk: Тотори
+    'no': Tottori
+    hy: Տոթթորի
+    ka: ტოტორის პრეფექტურა
+  type: prefecture
+'32':
+  name: Shimane
+  code: '32'
+  unofficial_names:
+  - Simane
+  - Shimane
+  geo:
+    latitude: 35.4722952
+    longitude: 133.0504997
+    min_latitude: 34.302454
+    min_longitude: 131.6679648
+    max_latitude: 36.3562202
+    max_longitude: 133.386651
+  translations:
+    en: Shimane
+    ja: 島根県
+    af: Shimane Prefektuur
+    ar: شيمانه
+    az: Simane
+    bg: Шимане
+    bn: শিমানে প্রশাসনিক অঞ্চল
+    ca: Prefectura de Shimane
+    cs: Prefektura Šimane
+    da: Shimane-præfekturet
+    de: Präfektur Shimane
+    el: Σιμάνε
+    es: Prefectura de Shimane
+    et: Shimane prefektuur
+    eu: Shimane
+    fa: استان شیمانه
+    fi: Shimanen prefektuuri
+    fr: préfecture de Shimane
+    gl: Prefectura de Shimane
+    gu: શિમૅન પ્રીફેકચર
+    he: שימאנה
+    hi: शिमाने प्रीफेक्चर
+    hr: Shimane
+    hu: Simane prefektúra
+    id: Prefektur Shimane
+    it: prefettura di Shimane
+    km: ខេត្តស៊ីម៉ាណិ
+    kn: ಶಿಮಾನ್ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 시마네 현
+    lt: Šimanės prefektūra
+    lv: Simanes prefektūra
+    mr: शिमाने
+    ms: Wilayah Shimane
+    nb: Shimane
+    nl: Shimane
+    pl: Prefektura Shimane
+    pt: Shimane
+    ro: Prefectura Shimane
+    ru: Симане
+    si: ශිමානේ ප්‍රාන්තය
+    sk: Šimane
+    sl: prefektura Šimane
+    sr: Шимане
+    sv: Shimane prefektur
+    sw: Mkoa wa Shimane
+    ta: ஷிம்மனே ப்ரீபெக்ட்டுறே
+    te: షిమేన్ ప్రిఫెక్చర్
+    th: จังหวัดชิมะเนะ
+    tr: Shimane
+    uk: Префектура Шімане
+    ur: شیمانے پریفیکچر
+    vi: Shimane
+    zh: 岛根县
+    cy: Shimane
+    ceb: Shimane-ken
+    sr_Latn: Šimane
+    yue_Hans: 岛根县
+    ccp: "𑄥𑄨𑄟𑄚𑄬"
+    ga: Maoracht Shimane
+    yue: 島根縣
+    be: прэфектура Сіманэ
+    mk: Шимане
+    'no': Shimane
+    ka: სიმანეს პრეფექტურა
+  type: prefecture
+'33':
+  name: Okayama
+  code: '33'
+  unofficial_names:
+  - Okayama
+  geo:
+    latitude: 34.6551456
+    longitude: 133.9195019
+    min_latitude: 34.5183404
+    min_longitude: 133.739373
+    max_latitude: 34.9489127
+    max_longitude: 134.1230012
+  translations:
+    en: Okayama
+    ja: 岡山県
+    af: Okayama Prefektuur
+    ar: أوكاياما
+    az: Okayama
+    bg: Окаяма
+    bn: ওকায়ামা প্রশাসনিক অঞ্চল
+    ca: Prefectura d’Okayama
+    cs: Prefektura Okajama
+    da: Okayama-præfekturet
+    de: Präfektur Okayama
+    el: Οκαγιάμα
+    es: Prefectura de Okayama
+    et: Okayama prefektuur
+    eu: Okayama
+    fa: استان اوکایاما
+    fi: Okayaman prefektuuri
+    fr: préfecture d’Okayama
+    gl: Prefectura de Okayama
+    gu: ઓકાયામા પ્રીફેકચર
+    he: אוקיאמה
+    hi: ओकायामा प्रान्त
+    hr: Okayama
+    hu: Okajama prefektúra
+    id: Prefektur Okayama
+    it: prefettura di Okayama
+    km: ខេត្តអូកាយ៉ាម៉ា
+    kn: ಒಕಯಮಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 오카야마 현
+    lt: Okajamos prefektūra
+    lv: Okajamas prefektūra
+    mr: ओकायामा
+    ms: Wilayah Okayama
+    nb: Okayama
+    nl: Okayama
+    pl: Prefektura Okayama
+    pt: Okayama
+    ro: Prefectura Okayama
+    ru: Окаяма
+    si: ඔකයාමා ප්‍රාන්තය
+    sk: Okajama
+    sr: Окајама
+    sv: Okayama prefektur
+    sw: Mkoa wa Okayama
+    ta: ஆகாயமா ப்ரீபெக்ட்டுர்
+    te: ఓకయామా ప్రిఫెక్చర్
+    th: จังหวัดโอะกะยะมะ
+    tr: Okayama
+    uk: Префектура Окаяма
+    ur: اوکایاما پریفیکچر
+    vi: Okayama
+    zh: 岡山縣
+    cy: Okayama
+    ceb: Okayama-ken
+    sr_Latn: Okajama
+    yue_Hans: 冈山县
+    jv: Prefektur Okayama
+    ccp: "𑄃𑄮𑄇𑄬𑄠𑄟"
+    ga: Maoracht Okayama
+    yue: 岡山縣
+    be: прэфектура Акаяма
+    mk: Окајама
+    'no': Okayama
+    ka: ოკაიამის პრეფექტურა
+    sl: Okajama
+  type: prefecture
+'34':
+  name: Hiroshima
+  code: '34'
+  unofficial_names:
+  - Hirosima
+  - Hiroshima
+  geo:
+    latitude: 34.3852029
+    longitude: 132.4552927
+    min_latitude: 34.2966826
+    min_longitude: 132.1788743
+    max_latitude: 34.6156543
+    max_longitude: 132.6960795
+  translations:
+    en: Hiroshima
+    ja: 広島県
+    af: Hiroshima Prefektuur
+    ar: هيروشيما
+    az: Xirosima
+    be: Хірасіма
+    bg: Хирошима
+    bn: হিরোশিমা প্রশাসনিক অঞ্চল
+    ca: Prefectura de Hiroshima
+    cs: Prefektura Hirošima
+    da: Hiroshima-præfekturet
+    de: Präfektur Hiroshima
+    el: Χιροσίμα (νομός)
+    es: Prefectura de Hiroshima
+    et: Hiroshima prefektuur
+    eu: Hiroshima
+    fa: استان هیروشیما
+    fi: Hiroshiman prefektuuri
+    fr: préfecture de Hiroshima
+    gl: Prefectura de Hiroshima
+    gu: હિરોશિમા પ્રીફેકચર
+    he: הירושימה
+    hi: हिरोशिमा प्रीफेक्चर
+    hr: Hiroshima, prefektura
+    hu: Hirosima prefektúra
+    id: Prefektur Hiroshima
+    it: prefettura di Hiroshima
+    ka: ჰიროსიმის პრეფექტურა
+    km: ខេត្តហ៊ីរ៉ូស៊ីម៉ា
+    kn: ಹಿರೋಷಿಮಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 히로시마 현
+    lt: Hirosimos prefektūra
+    lv: Hirosimas prefektūra
+    mr: हिरोशिमा
+    ms: Wilayah Hiroshima
+    nb: Hiroshima
+    nl: Hiroshima
+    pl: Prefektura Hiroszima
+    pt: Província de Hiroshima
+    ro: Prefectura Hiroshima
+    ru: Хиросима
+    si: හිරෝෂිමා ප්‍රාන්තය
+    sk: Hirošima
+    sl: prefektura Hirošima
+    sr: Хирошима
+    sv: Hiroshima prefektur
+    sw: Mkoa wa Hiroshima
+    ta: ஹிரோஷிமா ப்ரீபெக்ட்டுறே
+    te: హిరోషిమా ప్రిఫెక్చర్
+    th: จังหวัดฮิโระชิมะ
+    tr: Hiroşima
+    uk: Префектура Хіросіма
+    ur: ہیروشیما پریفیکچر
+    vi: Hiroshima
+    zh: 广岛县
+    cy: Hiroshima
+    ceb: Hiroshima-ken
+    sr_Latn: Hirošima
+    yue_Hans: 广岛县
+    ccp: "𑄦𑄨𑄢𑄮𑄥𑄨𑄟"
+    ga: Maoracht Hiroshima
+    yue: 廣島縣
+    mk: Хирошима
+    'no': Hiroshima
+  type: prefecture
+'35':
+  name: Yamaguchi
+  code: '35'
+  unofficial_names:
+  - Yamaguti
+  - Yamaguchi
+  geo:
+    latitude: 34.178496
+    longitude: 131.4737269
+    min_latitude: 33.9677054
+    min_longitude: 131.2919663
+    max_latitude: 34.5045323
+    max_longitude: 131.7956151
+  translations:
+    en: Yamaguchi
+    ja: 山口県
+    af: Yamaguchi Prefektuur
+    ar: ياماغوتشي
+    az: Yamaquti
+    be: Прэфектура Ямагуты
+    bg: Ямагучи
+    bn: য়ামাগুচি প্রশাসনিক অঞ্চল
+    ca: Prefectura de Yamaguchi
+    cs: Prefektura Jamaguči
+    da: Yamaguchi-præfekturet
+    de: Präfektur Yamaguchi
+    el: Γιαμαγκούτσι
+    es: Prefectura de Yamaguchi
+    et: Yamaguchi prefektuur
+    eu: Yamaguchi
+    fa: استان یاماگوچی
+    fi: Yamaguchin prefektuuri
+    fr: préfecture de Yamaguchi
+    gl: Prefectura de Yamaguchi
+    gu: યામાગુચી પ્રીફેકચર
+    he: יאמגוצ׳י
+    hi: यामागुची प्रीफेक्चर
+    hr: Yamaguchi
+    hu: Jamagucsi prefektúra
+    hy: Յամագուտի
+    id: Prefektur Yamaguchi
+    it: prefettura di Yamaguchi
+    ka: იამაგუტის პრეფექტურა
+    km: ខេត្តយ៉ាម៉ាហ្គឹឈិ
+    kn: ಯಮಗುಚಿ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 야마구치 현
+    lt: Jamagučio prefektūra
+    lv: Jamaguči prefektūra
+    mr: यामागुची
+    ms: Wilayah Yamaguchi
+    nb: Yamaguchi
+    nl: Yamaguchi
+    pl: Prefektura Yamaguchi
+    pt: Yamaguchi
+    ro: Prefectura Yamaguchi
+    ru: Ямагути
+    si: යමගුචි ප්‍රාන්තය
+    sk: Jamaguči
+    sl: prefektura Jamaguči
+    sr: Јамагучи
+    sv: Yamaguchi prefektur
+    sw: Mkoa wa Yamaguchi
+    ta: யாமாகுசி ப்ரீபெக்ட்டுறே
+    te: యమగూచి ప్రిఫెక్చర్
+    th: จังหวัดยะมะงุชิ
+    tr: Yamaguchi Prefecture
+    uk: Префектура Ямаґучі
+    ur: یاماگوچی پرفکترے
+    vi: Yamaguchi
+    zh: 山口县
+    cy: Yamaguchi
+    ceb: Yamaguchi-ken
+    sr_Latn: Jamaguči
+    yue_Hans: 山口县
+    ccp: "𑄃𑄨𑄠𑄟𑄉𑄪𑄥𑄨"
+    ga: Maoracht Yamaguchi
+    yue: 山口縣
+    mk: Јамагучи
+    'no': Yamaguchi
+  type: prefecture
+'36':
+  name: Tokushima
+  code: '36'
+  unofficial_names:
+  - Tokusima
+  - Tokushima
+  geo:
+    latitude: 34.0702703
+    longitude: 134.5548438
+    min_latitude: 33.9552976
+    min_longitude: 134.4221647
+    max_latitude: 34.1303314
+    max_longitude: 134.6069776
+  translations:
+    en: Tokushima
+    ja: 徳島県
+    af: Tokushima Prefektuur
+    ar: توكوشيما
+    az: Tokusima
+    be: прэфектура Такусіма
+    bg: Токушима
+    bn: তোকুশিমা প্রশাসনিক অঞ্চল
+    ca: Prefectura de Tokushima
+    cs: Prefektura Tokušima
+    da: Tokushima-præfekturet
+    de: Präfektur Tokushima
+    el: Τοκουσίμα
+    es: Prefectura de Tokushima
+    et: Tokushima prefektuur
+    eu: Tokushima
+    fa: استان توکوشیما
+    fi: Tokushiman prefektuuri
+    fr: préfecture de Tokushima
+    gl: Prefectura de Tokushima
+    gu: ટોકુશિમા પ્રીફેકચર
+    he: טוקושימה
+    hi: तोकुशीमा प्रीफेक्चर
+    hr: Tokushima
+    hu: Tokusima prefektúra
+    id: Prefektur Tokushima
+    it: prefettura di Tokushima
+    kn: ಟೋಕುಶಿಮಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 도쿠시마 현
+    lt: Tokušimos prefektūra
+    lv: Tokusimas prefektūra
+    mr: तोकुशिमा
+    ms: Wilayah Tokushima
+    nb: Tokushima
+    nl: Tokushima
+    pl: Prefektura Tokushima
+    pt: Tokushima
+    ro: Prefectura Tokushima
+    ru: Токусима
+    si: ටෝකුශිමා ප්‍රාන්තය
+    sk: Tokušima (prefektúra)
+    sr: Токушима
+    sv: Tokushima prefektur
+    sw: Mkoa wa Tokushima
+    ta: டொகுஷிமா ப்ரீபெக்ட்டுர்
+    te: టొకూషిమా ప్రిఫెక్చర్
+    th: จังหวัดโทะกุชิมะ
+    tr: Tokushima
+    uk: Префектура Токушіма
+    ur: توکوشیما پریفیکچر
+    vi: Tokushima
+    zh: 德岛县
+    cy: Tokushima
+    ceb: Tokushima-ken
+    sr_Latn: Tokušima
+    yue_Hans: 德岛县
+    jv: Prefektur Tokushima
+    ccp: "𑄑𑄮𑄇𑄪𑄥𑄨𑄟"
+    ga: Maoracht Tokushima
+    yue: 德島縣
+    mk: Токушима
+    'no': Tokushima
+    sq: Prefektura Tokushima
+  type: prefecture
+'37':
+  name: Kagawa
+  code: '37'
+  unofficial_names:
+  - Kagawa
+  geo:
+    latitude: 34.3401491
+    longitude: 134.0434436
+    min_latitude: 34.0123825
+    min_longitude: 133.4466123
+    max_latitude: 34.5648484
+    max_longitude: 134.4407083
+  translations:
+    en: Kagawa
+    ja: 香川県
+    af: Kagawa Prefektuur
+    ar: كاغاوا
+    az: Kaqava
+    be: прэфектура Кагава
+    bg: Кагава
+    bn: কাগাওয়া প্রশাসনিক অঞ্চল
+    ca: Prefectura de Kagawa
+    cs: Prefektura Kagawa
+    da: Kagawa-præfekturet
+    de: Präfektur Kagawa
+    el: Καγκάβα
+    es: Prefectura de Kagawa
+    et: Kagawa prefektuur
+    eu: Kagawa
+    fa: استان کاگاوا
+    fi: Kagawan prefektuuri
+    fr: préfecture de Kagawa
+    gl: Prefectura de Kagawa
+    gu: કાગાવા પ્રીફેકચર
+    he: קאגווה
+    hi: कगावा प्रीफेक्चर
+    hr: Kagawa
+    hu: Kagava prefektúra
+    id: Prefektur Kagawa
+    it: prefettura di Kagawa
+    ka: კაგავის პრეფექტურა
+    kn: ಕಾಗಾವಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 가가와 현
+    lt: Kagavos prefektūra
+    lv: Kagavas prefektūra
+    mr: कागावा
+    ms: Wilayah Kagawa
+    nb: Kagawa
+    nl: Kagawa
+    pl: Prefektura Kagawa
+    pt: Kagawa
+    ro: Prefectura Kagawa
+    ru: Кагава
+    si: කගවා ප්‍රාන්තය
+    sk: Kagawa
+    sr: Кагава
+    sv: Kagawa prefektur
+    sw: Mkoa wa Kagawa
+    ta: ககவா ப்ரீபெக்ட்டுர்
+    te: కగావా ప్రిఫెక్చర్
+    th: จังหวัดคะงะวะ
+    tr: Kagawa
+    uk: Префектура Каґава
+    ur: کاگاوا پریفیکچر
+    vi: Kagawa
+    zh: 香川县
+    cy: Kagawa
+    ceb: Kagawa-ken
+    sr_Latn: Kagava
+    yue_Hans: 香川县
+    ccp: "𑄇𑄧𑄉𑄤"
+    ga: Maoracht Kagawa
+    yue: 香川縣
+    mk: Кагава
+    'no': Kagawa
+    km: ខេត្តកាហ្គាវ៉ា
+  type: prefecture
+'38':
+  name: Ehime
+  code: '38'
+  unofficial_names:
+  - Ehime
+  geo:
+    latitude: 33.8416238
+    longitude: 132.7656808
+    min_latitude: 32.8977566
+    min_longitude: 132.0126449
+    max_latitude: 34.3017113
+    max_longitude: 133.6928992
+  translations:
+    en: Ehime
+    ja: 愛媛県
+    af: Ehime Prefektuur
+    ar: إهيمه
+    az: Ehime
+    bg: Ехиме
+    bn: এহিমে প্রশাসনিক অঞ্চল
+    ca: Prefectura d’Ehime
+    cs: Prefektura Ehime
+    da: Ehime-præfekturet
+    de: Präfektur Ehime
+    el: Εχιμέ
+    es: Prefectura de Ehime
+    et: Ehime prefektuur
+    eu: Ehime
+    fa: استان اهیمه
+    fi: Ehimen prefektuuri
+    fr: préfecture d’Ehime
+    gl: Prefectura de Ehime
+    gu: એહિમે પ્રીફેક્ચર
+    he: אהימה
+    hi: एहिम प्रीफेक्चर
+    hr: Ehime
+    hu: Ehime prefektúra
+    id: Prefektur Ehime
+    it: prefettura di Ehime
+    ka: ეჰიმეს პრეფექტურა
+    km: ខេត្តអិហ៊ីមិ
+    kn: ಎಹಿಮ್ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 에히메 현
+    lt: Ehimės prefektūra
+    lv: Ehimes prefektūra
+    mr: एहिमे
+    ms: Wilayah Ehime
+    nb: Ehime
+    nl: Ehime
+    pl: Prefektura Ehime
+    pt: Ehime
+    ro: Prefectura Ehime
+    ru: Эхиме
+    si: එහිමේ ප්‍රාන්තය
+    sk: Ehime
+    sr: Ехиме
+    sv: Ehime prefektur
+    sw: Mkoa wa Ehime
+    ta: தேஹிமே ப்ரீபெக்ட்டுர்
+    te: ఇహైమ్ ప్రిఫెక్చర్
+    th: จังหวัดเอะฮิเมะ
+    tr: Ehime
+    uk: Префектура Ехіме
+    ur: اہیمے پریفیکچر
+    vi: Ehime
+    zh: 爱媛县
+    cy: Ehime
+    ceb: Ehime-ken
+    sr_Latn: Ehime
+    yue_Hans: 爱媛县
+    jv: Prefektur Ehime
+    ccp: "𑄃𑄨𑄦𑄭𑄟𑄴"
+    ga: Maoracht Ehime
+    yue: 愛媛縣
+    be: прэфектура Эхімэ
+    mk: Ехиме
+    'no': Ehime
+  type: prefecture
+'39':
+  name: Kochi
+  code: '39'
+  unofficial_names:
+  - Kochi
+  geo:
+    latitude: 33.5588035
+    longitude: 133.5311675
+    min_latitude: 33.4595414
+    min_longitude: 133.3942252
+    max_latitude: 33.6813748
+    max_longitude: 133.6254958
+  translations:
+    en: Kōchi
+    ja: 高知県
+    af: Kochi Prefektuur
+    ar: كوتشي
+    az: Koçi
+    be: Прэфектура Коты
+    bg: Кочи
+    bn: কোওচি প্রশাসনিক অঞ্চল
+    ca: Prefectura de Kōchi
+    cs: Prefektura Kóči
+    da: Kouchi-præfekturet
+    de: Präfektur Kōchi
+    el: Κότσι
+    es: Prefectura de Kōchi
+    et: Kōchi prefektuur
+    eu: Kōchi
+    fa: استان کوچی
+    fi: Kōchin prefektuuri
+    fr: préfecture de Kōchi
+    gl: Prefectura de Kōchi
+    gu: કોચી પ્રીફેકચર
+    he: קוצ׳י
+    hi: कोच्ची प्रीफेक्चर
+    hr: Kōchi
+    hu: Kócsi prefektúra
+    id: Prefektur Kochi
+    it: prefettura di Kōchi
+    km: ខេត្តខូឈិ
+    kn: ಕೊಚಿ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 고치 현
+    lt: Kočio prefektūra
+    lv: Koči prefektūra
+    mn: Кочи-кэн
+    mr: कोची
+    ms: Wilayah Kōchi
+    nb: Kōchi
+    nl: Kochi
+    pl: Prefektura Kōchi
+    pt: Kochi
+    ro: Prefectura Kōchi
+    ru: Коти
+    si: කොචි ප්‍රාන්තය
+    sk: Kóči
+    sr: Кочи
+    sv: Kochi prefektur
+    sw: Mkoa wa Kochi
+    ta: கொச்சி ப்ரெபெக்டர்
+    te: కోచి ప్రిఫెక్చర్
+    th: จังหวัดโคชิ
+    tr: Kōchi
+    uk: Префектура Кочі
+    ur: کوچی پریفیکچر
+    vi: Kōchi
+    zh: 高知县
+    cy: Kōchi
+    ceb: Kōchi-ken
+    sr_Latn: Koči
+    yue_Hans: 高知县
+    ccp: "𑄇𑄮𑄌𑄨"
+    ga: Maoracht Kōchi
+    yue: 高知縣
+    mk: Кочи
+    'no': Kōchi
+  type: prefecture
+'40':
+  name: Fukuoka
+  code: '40'
+  unofficial_names:
+  - Hukuoka
+  - Fukuoka
+  geo:
+    latitude: 33.5903547
+    longitude: 130.4017155
+    min_latitude: 33.4251209
+    min_longitude: 130.0327988
+    max_latitude: 33.8741146
+    max_longitude: 130.4952854
+  translations:
+    en: Fukuoka
+    ja: 福岡県
+    af: Fukuoka Prefektuur
+    ar: فوكوكا
+    az: Fukuoka
+    be: прэфектура Фукуока
+    bg: Фукуока
+    bn: ফুকুওকা প্রশাসনিক অঞ্চল
+    ca: Prefectura de Fukuoka
+    cs: Prefektura Fukuoka
+    da: Fukuoka-præfekturet
+    de: Präfektur Fukuoka
+    el: Φουκουόκα
+    es: Prefectura de Fukuoka
+    et: Fukuoka prefektuur
+    eu: Fukuoka
+    fa: استان فوکوئوکا
+    fi: Fukuokan prefektuuri
+    fr: préfecture de Fukuoka
+    gl: Prefectura de Fukuoka
+    gu: ફુકુઓકા પ્રીફેકચર
+    he: פוקואוקה
+    hi: फुकुओका प्रान्त
+    hr: Fukuoka
+    hu: Fukuoka prefektúra
+    hy: Ֆուկուոկա
+    id: Prefektur Fukuoka
+    it: prefettura di Fukuoka
+    kn: ಫುಕುಕಾಕಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 후쿠오카 현
+    lt: Fukuokos prefektūra
+    lv: Fukuokas prefektūra
+    mr: फुकुओका
+    ms: Wilayah Fukuoka
+    nb: Fukuoka
+    nl: Fukuoka
+    pl: Prefektura Fukuoka
+    pt: Fukuoka
+    ro: Prefectura Fukuoka
+    ru: Фукуока
+    si: ෆුකෝකා ප්‍රාන්තය
+    sk: Fukuoka
+    sl: Prefektura Fukuoka
+    sr: Фукуока
+    sv: Fukuoka prefektur
+    sw: Mkoa wa Fukuoka
+    ta: பிக்குஒக்கா ப்ரீபெக்ட்டுர்
+    te: ఫుకువోకా ప్రిఫెక్చర్
+    th: จังหวัดฟุกุโอะกะ
+    tr: Fukuoka
+    uk: Префектура Фукуока
+    ur: فوکوکا پریفیکچر
+    vi: Fukuoka
+    zh: 福冈县
+    cy: Fukuoka
+    ceb: Fukuoka-ken
+    sr_Latn: Fukuoka
+    yue_Hans: 福冈县
+    jv: Prefektur Fukuoka
+    ccp: "𑄜𑄪𑄇𑄪𑄃𑄮𑄇"
+    ga: Maoracht Fukuoka
+    yue: 福岡縣
+    mk: Фукуока
+    'no': Fukuoka
+  type: prefecture
+'41':
+  name: Saga
+  code: '41'
+  unofficial_names:
+  - Saga
+  geo:
+    latitude: 33.2494416
+    longitude: 130.2997942
+    min_latitude: 32.9505422
+    min_longitude: 129.7395896
+    max_latitude: 33.6188957
+    max_longitude: 130.5422784
+  translations:
+    en: Saga
+    ja: 佐賀県
+    af: Saga Prefektuur
+    ar: ساغا
+    az: Saqa
+    bg: Сага
+    bn: সাগা প্রশাসনিক অঞ্চল
+    ca: Prefectura de Saga
+    cs: Prefektura Saga
+    da: Saga Prefecture
+    de: Präfektur Saga
+    el: Σάγκα
+    es: Prefectura de Saga
+    et: Saga prefektuur
+    eu: Saga
+    fa: استان ساگا
+    fi: Sagan prefektuuri
+    fr: préfecture de Saga
+    gl: Prefectura de Saga
+    gu: સાગા પ્રીફેક્ચર
+    he: סאגה
+    hi: सागा प्रान्त
+    hr: Saga
+    hu: Szaga prefektúra
+    id: Prefektur Saga
+    it: Prefettura di Saga
+    kn: ಸಾಗಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 사가 현
+    lt: Sagos prefektūra
+    lv: Sagas prefektūra
+    mr: सागा
+    ms: Wilayah Saga
+    nb: Saga
+    nl: Saga
+    pl: Prefektura Saga
+    pt: Saga
+    ro: Prefectura Saga
+    ru: Сага
+    si: සගා ප්‍රාන්තය
+    sk: Saga
+    sl: prefektura Saga, Japonska
+    sr: Сага
+    sv: Saga prefektur
+    sw: Mkoa wa Saga
+    ta: சகா ப்ரீபெக்ட்டுறே
+    te: సాగా ప్రిఫెక్చర్
+    th: จังหวัดซะงะ
+    tr: Saga
+    uk: Префектура Саґа
+    ur: سگا پریفیکچر
+    vi: Saga
+    zh: 佐贺县
+    cy: Saga
+    ceb: Saga-ken
+    sr_Latn: Saga
+    yue_Hans: 佐贺县
+    ccp: "𑄥𑄉"
+    ga: Maoracht Saga
+    yue: 佐賀縣
+    be: прэфектура Сага
+    mk: Сага
+    'no': Saga
+    ka: საგის პრეფექტურა
+  type: prefecture
+'42':
+  name: Nagasaki
+  code: '42'
+  unofficial_names:
+  - Nagasaki
+  geo:
+    latitude: 32.7502856
+    longitude: 129.877667
+    min_latitude: 32.5491748
+    min_longitude: 129.5528394
+    max_latitude: 32.9686468
+    max_longitude: 129.993817
+  translations:
+    en: Nagasaki
+    ja: 長崎県
+    af: Nagasaki Prefektuur
+    ar: ناغاساكي
+    az: Naqasaki
+    be: Прэфектура Нагасакі
+    bg: Нагасаки
+    bn: নাগাসাকি প্রশাসনিক অঞ্চল
+    ca: Prefectura de Nagasaki
+    cs: Prefektura Nagasaki
+    da: Nagasaki-præfekturet
+    de: Präfektur Nagasaki
+    el: Νομαρχία Ναγκασάκι
+    es: Prefectura de Nagasaki
+    et: Nagasaki prefektuur
+    eu: Nagasaki
+    fa: استان ناگاساکی
+    fi: Nagasakin prefektuuri
+    fr: préfecture de Nagasaki
+    gl: Prefectura de Nagasaki
+    gu: નાગાસાકી પ્રીફેકચર
+    he: נגסאקי
+    hi: नागासाकी प्रीफेक्चर
+    hr: Nagasaki
+    hu: Nagaszaki prefektúra
+    hy: Նագասակի
+    id: Prefektur Nagasaki
+    it: prefettura di Nagasaki
+    km: ខេត្តណាហ្គាសាគី
+    kn: ನಾಗಸಾಕಿ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 나가사키 현
+    lt: Nagasakio prefektūra
+    lv: Nagasaki prefektūra
+    mr: नागासाकी
+    ms: Wilayah Nagasaki
+    nb: Nagasaki
+    nl: Nagasaki
+    pl: Prefektura Nagasaki
+    pt: Nagasaki
+    ro: Prefectura Nagasaki
+    ru: Нагасаки
+    si: නාගසාකි ප්‍රාන්තය
+    sk: Nagasaki
+    sl: prefektura Nagasaki
+    sr: Нагасаки
+    sv: Nagasaki prefektur
+    sw: Mkoa wa Nagasaki
+    ta: நாகசாகி ப்ரீபெக்ட்டுறே
+    te: నాగాసాకి ప్రిఫెక్చర్
+    th: จังหวัดนะงะซะกิ
+    tr: Nagasaki
+    uk: Префектура Наґасакі
+    ur: ناگاساکی پریفیکچر
+    vi: Nagasaki
+    zh: 长崎县
+    cy: Nagasaki
+    ceb: Nagasaki (prepektura sa Hapon)
+    sr_Latn: Nagasaki
+    yue_Hans: 长崎县
+    ccp: "𑄚𑄉𑄥𑄇𑄨"
+    ga: Maoracht Nagasaki
+    yue: 長崎縣
+    mk: Нагасаки
+    'no': Nagasaki
+    ka: ნაგასაკის პრეფექტურა
+  type: prefecture
+'43':
+  name: Kumamoto
+  code: '43'
+  unofficial_names:
+  - Kumamoto
+  geo:
+    latitude: 32.8031004
+    longitude: 130.7078911
+    min_latitude: 32.6602942
+    min_longitude: 130.57147
+    max_latitude: 32.9799778
+    max_longitude: 130.828973
+  translations:
+    en: Kumamoto
+    ja: 熊本県
+    af: Kumamoto Prefektuur
+    ar: كوماموتو
+    az: Kumamoto
+    be: Прэфектура Кумамота
+    bg: Кумамото
+    bn: কুমামোতো প্রশাসনিক অঞ্চল
+    ca: Prefectura de Kumamoto
+    cs: Prefektura Kumamoto
+    da: Kumamoto-præfekturet
+    de: Präfektur Kumamoto
+    el: Κουμαμότο
+    es: Prefectura de Kumamoto
+    et: Kumamoto prefektuur
+    eu: Kumamoto
+    fa: استان کوماموتو
+    fi: Kumamoton prefektuuri
+    fr: préfecture de Kumamoto
+    gl: Prefectura de Kumamoto
+    gu: કુમામોટો પ્રીફેકચર
+    he: קוממוטו
+    hi: कुमामोटो प्रान्त
+    hr: Kumamoto
+    hu: Kumamoto prefektúra
+    id: Prefektur Kumamoto
+    it: prefettura di Kumamoto
+    km: ខេត្តឃឹម៉ាម៉ុតុ
+    kn: ಕುಮಾಮೊಟೊ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 구마모토 현
+    lt: Kumamoto prefektūra
+    lv: Kumamoto prefektūra
+    mr: कुमामोतो
+    ms: Wilayah Kumamoto
+    nb: Kumamoto
+    nl: Kumamoto
+    pl: Prefektura Kumamoto
+    pt: Kumamoto
+    ro: Prefectura Kumamoto
+    ru: Кумамото
+    si: කුමමොටෝ ප්‍රාන්තය
+    sk: Kumamoto
+    sl: prefektura Kumamoto
+    sr: Кумамото
+    sv: Kumamoto prefektur
+    sw: Mkoa wa Kumamoto
+    ta: குமமோடோ ப்ரீபெக்ட்டுர்
+    te: కుమామోటో ప్రిఫెక్చర్
+    th: จังหวัดคุมะโมะโตะ
+    tr: Kumamoto
+    uk: Префектура Кумамото
+    ur: کوماموتو پریفیکچر
+    vi: Kumamoto
+    zh: 熊本縣
+    cy: Kumamoto
+    ceb: Kumamoto-ken
+    sr_Latn: Kumamoto
+    yue_Hans: 熊本县
+    ccp: "𑄇𑄪𑄟𑄟𑄮𑄑𑄮"
+    ga: Maoracht Kumamoto
+    yue: 熊本縣
+    mk: Кумамото
+    'no': Kumamoto
+    ka: კუმამოტოს პრეფექტურა
+  type: prefecture
+'44':
+  name: Oita
+  code: '44'
+  unofficial_names:
+  - Oita
+  geo:
+    latitude: 33.2395578
+    longitude: 131.609272
+    min_latitude: 33.0697618
+    min_longitude: 131.418656
+    max_latitude: 33.2805132
+    max_longitude: 131.9568311
+  translations:
+    en: Ōita
+    ja: 大分県
+    af: Oita Prefektuur
+    ar: أويتا
+    az: Oita
+    be: прэфектура Оіта
+    bg: Оита
+    bn: ওওইতা প্রশাসনিক অঞ্চল
+    ca: Prefectura d’Ōita
+    cs: Prefektura Óita
+    da: Ooita-præfekturet
+    de: Präfektur Ōita
+    el: Οοϊτά
+    es: Prefectura de Ōita
+    et: Ōita prefektuur
+    eu: Ōita
+    fa: استان اوئیتا
+    fi: Ōitan prefektuuri
+    fr: préfecture d’Ōita
+    gl: Prefectura de Ōita
+    gu: ઓઈટા પ્રીફેકચર
+    he: אויטה
+    hi: ओइटा प्रीफेक्चर
+    hr: Ōita
+    hu: Óita prefektúra
+    id: Prefektur Oita
+    it: prefettura di Ōita
+    km: ខេត្តអយតាក់
+    kn: ಒಐಟಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 오이타 현
+    lt: Oitos prefektūra
+    lv: Oitas prefektūra
+    mr: ओइता
+    ms: Wilayah Ōita
+    nb: Ōita
+    nl: Oita
+    pl: Prefektura Ōita
+    pt: Oita
+    ro: Prefectura Ōita
+    ru: Оита
+    si: ඕයිටා ප්‍රාන්තය
+    sk: Óita
+    sl: prefektura Ōita
+    sr: Оита
+    sv: Oita prefektur
+    sw: Mkoa wa Ōita
+    ta: ஓட்ட ப்ரீபெக்ட்டுறே
+    te: ఓయిటా ప్రిఫెక్చర్
+    th: จังหวัดโออิตะ
+    tr: Ōita
+    uk: Префектура Ойта
+    ur: اوئیتا پریفیکچر
+    vi: Ōita
+    zh: 大分县
+    cy: Ōita
+    ceb: Ōita Prefecture
+    sr_Latn: Oita
+    yue_Hans: 大分县
+    ccp: "𑄃𑄰𑄑"
+    ga: Maoracht Ōita
+    yue: 大分縣
+    mk: Оита
+    'no': Ōita
+    ka: ოიტის პრეფექტურა
+  type: prefecture
+'45':
+  name: Miyazaki
+  code: '45'
+  unofficial_names:
+  - Miyazaki
+  geo:
+    latitude: 31.9076736
+    longitude: 131.4202411
+    min_latitude: 31.7210322
+    min_longitude: 131.1889657
+    max_latitude: 32.0659325
+    max_longitude: 131.5057758
+  translations:
+    en: Miyazaki
+    ja: 宮崎県
+    af: Miyazaki Prefektuur
+    ar: ميازاكي
+    az: Miyazaki
+    be: прэфектура Міядзакі
+    bg: Миядзаки
+    bn: মিয়াযাকি প্রশাসনিক অঞ্চল
+    ca: Prefectura de Miyazaki
+    cs: Prefektura Mijazaki
+    da: Miyazaki-præfekturet
+    de: Präfektur Miyazaki
+    el: Μιγιαζάκι
+    es: Prefectura de Miyazaki
+    et: Miyazaki prefektuur
+    eu: Miyazaki
+    fa: استان میازاکی
+    fi: Miyazakin prefektuuri
+    fr: préfecture de Miyazaki
+    gl: Prefectura de Miyazaki
+    gu: મિયાઝાકી પ્રીફેકચર
+    he: מיאזקי
+    hi: मियाज़ाकि प्रीफेक्चर
+    hr: Miyazaki
+    hu: Mijazaki prefektúra
+    hy: Միյաձակի
+    id: Prefektur Miyazaki
+    it: prefettura di Miyazaki
+    km: ខេត្តមីយ៉ាសាគី
+    kn: ಮಿಯಾಜಾಕಿ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 미야자키 현
+    lt: Mijadzakio prefektūra
+    lv: Mijadzaki prefektūra
+    mr: मियाझाकी
+    ms: Wilayah Miyazaki
+    nb: Miyazaki
+    nl: Miyazaki
+    pl: Prefektura Miyazaki
+    pt: Miyazaki
+    ro: Prefectura Miyazaki
+    ru: Миядзаки
+    si: මියසාකි ප්‍රාන්තය
+    sk: Mijazaki
+    sr: Мијазаки
+    sv: Miyazaki prefektur
+    sw: Mkoa wa Miyazaki
+    ta: மியாசாக்கி மாகாணம்
+    te: మియాజాకి ప్రిఫెక్చర్
+    th: จังหวัดมิยะซะกิ
+    tr: Miyazaki
+    uk: Префектура Міядзакі
+    ur: میازاکی پریفیکچر
+    vi: Miyazaki
+    zh: 宮崎縣
+    cy: Miyazaki
+    ceb: Miyazaki-ken
+    sr_Latn: Mijazaki
+    yue_Hans: 宫崎县
+    ccp: "𑄟𑄨𑄠𑄎𑄇𑄨"
+    ga: Maoracht Miyazaki
+    yue: 宮崎縣
+    mk: Мијазаки
+    'no': Miyazaki
+    ka: მიაძაკის პრეფექტურა
+  type: prefecture
+'46':
+  name: Kagoshima
+  code: '46'
+  unofficial_names:
+  - Kagosima
+  - Kagoshima
+  geo:
+    latitude: 31.5965535
+    longitude: 130.5571158
+    min_latitude: 31.2933182
+    min_longitude: 130.3867022
+    max_latitude: 31.7527317
+    max_longitude: 130.7248899
+  translations:
+    en: Kagoshima
+    ja: 鹿児島県
+    af: Kagoshima Prefektuur
+    ar: كاغوشيما
+    az: Kaqoşima
+    be: прэфектура Кагосіма
+    bg: Кагошима
+    bn: কাগোশিমা প্রশাসনিক অঞ্চল
+    ca: Prefectura de Kagoshima
+    cs: Prefektura Kagošima
+    da: Kagoshima-præfekturet
+    de: Präfektur Kagoshima
+    el: Περιφέρεια Καγκοσίμα
+    es: Kagoshima
+    et: Kagoshima prefektuur
+    eu: Kagoshima
+    fa: استان کاگوشیما
+    fi: Kagoshiman prefektuuri
+    fr: préfecture de Kagoshima
+    gl: Prefectura de Kagoshima
+    gu: કાગોશીમા પ્રીફેકચર
+    he: קגושימה
+    hi: कागोशिमा प्रीफेक्चर
+    hr: Kagoshima
+    hu: Kagosima prefektúra
+    hy: Կոգոշիմա
+    id: Prefektur Kagoshima
+    it: prefettura di Kagoshima
+    km: ខេត្តខាហ្គុស៊ីម៉ា
+    kn: ಕಾಗೊಶಿಮಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 가고시마 현
+    lt: Kagošimos prefektūra
+    lv: Kagosimas prefektūra
+    mr: कागोशिमा
+    ms: Wilayah Kagoshima
+    nb: Kagoshima
+    nl: Kagoshima
+    pl: Prefektura Kagoshima
+    pt: Kagoshima
+    ro: Prefectura Kagoshima
+    ru: Кагосима
+    si: කගොශිමා ප්‍රාන්තය
+    sk: Kagošima
+    sl: Prefektura Kagošima
+    sr: Кагошима
+    sv: Kagoshima prefektur
+    sw: Mkoa wa Kagoshima
+    ta: ககோஷிமா ப்ரீபெக்ட்டுறே
+    te: కాగోషిమా ప్రిఫెక్చర్
+    th: จังหวัดคะโงะชิมะ
+    tr: Kagoşima ili
+    uk: Префектура Каґошіма
+    ur: کاگوشیما پریفیکچر
+    vi: Kagoshima
+    zh: 鹿儿岛县
+    cy: Kagoshima
+    ceb: Kagoshima-ken
+    sr_Latn: Kagošima
+    yue_Hans: 鹿儿岛县
+    jv: Prefektur Kagoshima
+    ccp: "𑄇𑄉𑄮𑄥𑄨𑄟"
+    ga: Maoracht Kagoshima
+    yue: 鹿兒島縣
+    mk: Кагошима
+    'no': Kagoshima
+    ka: კაგოსიმის პრეფექტურა
+    ky: Кагошима
+  type: prefecture
+'47':
+  name: Okinawa
+  code: '47'
+  unofficial_names:
+  - Okinawa
+  geo:
+    latitude: 26.2124013
+    longitude: 127.6809317
+    min_latitude: 24.0458042
+    min_longitude: 122.933796
+    max_latitude: 27.8854933
+    max_longitude: 131.3320097
+  translations:
+    en: Okinawa
+    ja: 沖縄県
+    af: Okinawa Prefektuur
+    ar: أوكيناوا
+    az: Okinava
+    be: Прэфектура Акінава
+    bg: Окинава
+    bn: ওকিনাওয়া প্রশাসনিক অঞ্চল
+    ca: Prefectura d’Okinawa
+    cs: Prefektura Okinawa
+    da: Okinawa-præfekturet
+    de: Okinawa
+    el: Οκινάβα
+    es: Prefectura de Okinawa
+    et: Okinawa prefektuur
+    eu: Okinawa
+    fa: استان اوکیناوا
+    fi: Okinawan prefektuuri
+    fr: préfecture d’Okinawa
+    gu: ઓકિનાવા પ્રીફેક્ચર
+    he: אוקינאווה
+    hi: ओकीनावा प्रीफेक्चर
+    hr: Okinawa, prefektura
+    hu: Okinava prefektúra
+    hy: Օկինավա
+    id: Prefektur Okinawa
+    it: prefettura di Okinawa
+    km: ខេត្តអូគីណាវ៉ា
+    kn: ಒಕಿನಾವಾ ಪ್ರಿಫೆಕ್ಚರ್
+    ko: 오키나와 현
+    lt: Okinavos prefektūra
+    lv: Okinavas prefektūra
+    mr: ओकिनावा
+    ms: Wilayah Okinawa
+    nb: Okinawa
+    nl: Okinawa
+    pl: Prefektura Okinawa
+    pt: Okinawa
+    ro: Prefectura Okinawa
+    ru: Окинава
+    si: ඔකිනාවා ප්‍රාන්තය
+    sk: Okinawa
+    sl: prefektura Okinava
+    sr: Окинава
+    sv: Okinawa prefektur
+    sw: Mkoa wa Okinawa
+    ta: ஓக்கினாவா மாகாணம்
+    te: ఓకినావా ప్రిఫెక్చర్
+    th: จังหวัดโอะกินะวะ
+    tr: Okinawa
+    uk: Префектура Окінава
+    ur: اوکیناوا پریفیکچر
+    vi: Okinawa
+    zh: 沖繩縣
+    cy: Okinawa
+    ceb: Okinawa-ken
+    sr_Latn: Okinava
+    yue_Hans: 冲绳县
+    jv: Prefektur Okinawa
+    ccp: "𑄃𑄮𑄇𑄨𑄚𑄤"
+    ga: Maoracht Okinawa
+    yue: 沖繩縣
+    mk: Окинава
+    'no': Okinawa
+    mn: Окинава
+  type: prefecture

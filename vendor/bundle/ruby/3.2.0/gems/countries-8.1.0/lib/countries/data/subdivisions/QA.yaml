@@ -1,0 +1,466 @@
+---
+DA:
+  name: Ad Dawhah
+  code: DA
+  unofficial_names:
+  - Dawhah
+  - Doha
+  - ad-Dawhah
+  - ad-Dawh̨ah
+  - Doha
+  - Doha
+  - Doha
+  geo:
+    latitude: 25.2916097
+    longitude: 51.5304368
+    min_latitude: 25.1954283
+    min_longitude: 51.4307964
+    max_latitude: 25.4125783
+    max_longitude: 51.6281212
+  translations:
+    en: Doha
+    af: Doha
+    am: ዶሃ
+    ar: الدوحة
+    az: Doha
+    be: Горад Доха
+    bg: Доха
+    bn: দোহা
+    ca: Doha
+    cs: Dauhá
+    da: Doha
+    de: Doha
+    el: Ντόχα
+    es: Doha
+    et: Doha
+    eu: Doha
+    fa: دوحه
+    fi: Doha
+    fr: Doha
+    gl: Doha
+    gu: દોહા
+    he: דוחה
+    hi: दोहा
+    hr: Doha
+    hu: Doha
+    hy: Դոհա
+    id: Doha
+    is: Doha
+    it: Doha
+    ja: ドーハ
+    ka: დოჰა
+    kn: ದೊಹಾ
+    ko: 도하
+    lt: Doha
+    lv: Doha
+    ml: ദോഹ
+    mn: Доха
+    mr: दोहा
+    ms: Doha
+    nb: Doha
+    ne: दोहा
+    nl: Doha
+    or: ଦୋହା
+    pl: Doha
+    ps: دوها
+    pt: Doha
+    ro: Doha
+    ru: Доха
+    si: "‍දෝහා"
+    sk: Dauha
+    sl: Doha
+    sr: Доха
+    sv: Doha
+    sw: Doha
+    ta: தோகா
+    te: దోహా
+    th: โดฮา
+    tk: Doha
+    tr: Doha
+    uk: Доха
+    ur: دوحہ
+    vi: Doha
+    zh: 多哈
+    cy: Doha
+    ceb: Doha
+    sr_Latn: Doha
+    yue_Hans: 多哈
+    jv: Doha
+    sq: Doha
+    ccp: "𑄘𑄮𑄦"
+    ga: Doha
+    ky: Доха
+    ha: Doha
+    so: Dooxa
+    pa: ਦੋਹਾ
+    kk: Доха
+    yue: 多哈
+    my: ဒိုဟာမြို့
+    yo: Doha
+    uz: Doha
+    bs: Doha
+    mk: Доха
+    ha_NE: Doha
+    'no': Doha
+    yo_BJ: Doha
+    km: ដូហា
+    sd: دوحہ
+  type: municipality
+KH:
+  name: Al Khawr
+  code: KH
+  unofficial_names:
+  - H̱ūr
+  - al-Khawr
+  - al-Khour
+  - al-H̱awr
+  geo:
+    latitude: 25.6804078
+    longitude: 51.4968502
+    min_latitude: 25.6203229
+    min_longitude: 51.4761828
+    max_latitude: 25.6959881
+    max_longitude: 51.5287971
+  translations:
+    en: Al Khor
+    ar: الخور والدخيرة
+    bn: আল খোর
+    da: Al Khor
+    de: Al-Khor
+    el: Αλ Κορ
+    es: Jor
+    fa: الخور والدخیرة
+    fi: Al-Khawr
+    fr: Al Khawr
+    gu: અલ ખોર
+    he: אל-ח׳ור
+    hi: अल खोर
+    id: Al Khor
+    it: Al Khawr
+    ja: アル＝ハウル
+    kn: ಅಲ್ ಖೋರ್
+    ko: 알코르
+    lt: Chauras
+    mr: अल खुर
+    ms: Al Khor
+    nb: Al Khor
+    nl: Al Khawr
+    pl: Al-Chaur
+    pt: Al Khor
+    ru: Эль-Хаур
+    si: අල් ඛොර්
+    sv: Al Khor
+    ta: அல் க்ஹோர்
+    te: అల్ ఖోర్
+    th: อัล คอร์
+    tr: Al Khor
+    uk: Аль-Хор
+    ur: الخور و الدخیرہ
+    vi: Al Khor
+    lv: Haura
+    ceb: Baladīyat al Khawr wa adh Dhakhīrah
+    zh: 艾科爾
+    ccp: "𑄃𑄣𑄴 𑄈𑄮𑄢𑄴"
+    mk: Хор
+    'no': Al Khor
+    ro: Al Khor
+  type: municipality
+MS:
+  name: Madinat ash Shamal
+  code: MS
+  unofficial_names:
+  - ash-Shamal
+  geo:
+    latitude: 26.1156079
+    longitude: 51.2218451
+    min_latitude: 26.1038857
+    min_longitude: 51.2056447
+    max_latitude: 26.123153
+    max_longitude: 51.23826039999999
+  translations:
+    en: Madinat ash Shamal
+    ar: بلدية الشمال
+    bn: মাদিনাত আস শামাল
+    da: Madinat ash Shamal
+    de: Asch-Schamal
+    el: Μαντινάτ ας-Σαμάλ
+    es: Madinat ash Shamal
+    fa: الشمال
+    fi: Al-Šamal
+    fr: Ash Shamal
+    gu: મદીનાત એશ શમલ
+    he: בלדית א-שמאל
+    hi: मदिनत ऐश शमल
+    id: Madinat ash-Shamal
+    it: Madinat ash Shamal
+    ja: アッ＝シャマール
+    kn: ಮಡಿನಾತ್ ಆಶ್ ಶಾಮಲ್
+    ko: 아시샤말
+    lt: Šamalas
+    mr: मदिनत आश शामल
+    ms: Madinat ash Shamal
+    nb: Ash Shamal
+    nl: Ash Shamal
+    pl: Asz-Szamal
+    pt: Madinat ash Shamal
+    ru: Аш-Шамаль
+    si: මඩිනාට් ඇශ් ශමල්
+    sv: Madinat ash Shamal
+    ta: மாடினட் ஆஷ் ஷாமல்
+    te: మాడినాట్ ఆష్ షామాల్
+    th: มาดิเนท แอช ชาร์มาล
+    tr: Medinet eş Şemal
+    uk: Аш-Шамаль
+    ur: بلدیہ شمال
+    vi: Madinat ash Shamal
+    lv: Medīnat Eš Šamāla
+    zh: 北部区
+    ccp: "𑄟𑄓𑄨𑄚𑄖𑄴 𑄃𑄌𑄴 𑄥𑄳𑄠𑄟𑄧𑄣𑄴"
+    mk: Шамал
+    'no': Ash Shamal
+    ca: Madinat ash Shamal
+    ro: Madinat ash Shamal
+  type: municipality
+RA:
+  name: Ar Rayyan
+  code: RA
+  unofficial_names:
+  - Rayyan
+  - ar-Rayyan
+  geo:
+    latitude: 25.2089787
+    longitude: 51.095836
+    min_latitude: 24.471186
+    min_longitude: 50.7500553
+    max_latitude: 25.8087775
+    max_longitude: 51.53700079999999
+  translations:
+    en: Al Rayyan
+    ar: بلدية الريان
+    bg: Ар Райян
+    bn: আল রায়য়ান পৌরসভা
+    ca: Ar Rayyan
+    da: Al-Rayyan
+    de: Ar-Rayyan
+    el: Αλ Ραγιάν
+    es: Rayán
+    fa: ریان
+    fi: Al-Rayyan
+    fr: Al Rayyan
+    gu: અલ રેયાન મ્યુનિસિપાલિટી
+    he: מחוז א-ריאן
+    hi: अल रय्यान
+    id: Ar-Rayyan
+    it: Ar Rayyan
+    ja: ライヤーン
+    kn: ಅಲ್ ರೇಯಾನ್ ಪುರಸಭೆ
+    ko: 알라이얀
+    lt: Rajanas
+    mr: अल रेयान म्युन्सिपाल्टी
+    ms: Ar Rayyan
+    nb: Al Rayyan kommune
+    nl: Ar Rayyan
+    pl: Ar-Rajjan
+    pt: Al Rayyan
+    ru: Ар-Райян
+    si: අල් රය්යාන් මුනිසිපලිටි
+    sv: Al Rayyan
+    ta: ஆள் ரேயான் நகராட்சி
+    te: అల్ రయాన్ మున్సిపాలిటీ
+    th: อัล ระห์ยัน
+    tr: Er Reyyan
+    uk: Ар-Раян
+    ur: ریان، قطر
+    vi: Al Rayyan
+    lv: Rajana
+    ceb: Baladīyat ar Rayyān
+    zh: 阿爾拉揚體育會
+    ccp: "𑄃𑄣𑄴 𑄢𑄬𑄠𑄚𑄴"
+    ga: Al Rayyan
+    gl: Ar Rayyan
+    mk: Рајан
+    'no': Al Rayyan kommune
+    cs: Al Raján
+    cy: Bwrdeistref Al Rayyan
+    ro: Al Rayyan
+  type: municipality
+SH:
+  name: الشحانية
+  code: SH
+  translations:
+    ar: الشحانية
+    fa: شحانیه
+    ja: シャハーニーヤ
+    en: Ash Shīḩānīyah
+    gl: Al Shahaniya
+    de: Asch-Schahaniyya
+    es: Municipio de Al Shahaniya
+    fr: Al-Shahaniya
+    pt: Al-Shahaniya
+    ro: Al-Shahaniya
+    ru: Эш-Шахания
+    so: Al-Shahaniya
+    tr: El Şahaniye
+  type: municipality
+US:
+  name: Umm Salal
+  code: US
+  unofficial_names:
+  - Umm Shalal
+  geo:
+    latitude: 25.3981114
+    longitude: 51.42508489999999
+    min_latitude: 25.3710324
+    min_longitude: 51.3913962
+    max_latitude: 25.4387563
+    max_longitude: 51.4667945
+  translations:
+    en: Umm Salal
+    ar: بلدية أم صلال
+    bn: উম্ম সালাল পৌরসভা
+    da: Umm Salal
+    de: Umm Salal
+    el: Ουμ Σαλάλ
+    es: Umm Salal
+    fa: ام صلال
+    fi: Umm Salal
+    fr: Umm Salal
+    gu: ઉમ સલાલ મ્યુનિસિપાલિટી
+    hi: उम्म सलाल नगरपालिका
+    id: Kotamadya Umm Salal
+    it: Umm Salal
+    ja: ウンム・サラール
+    kn: ಉಮ್ ಸಲಾಲ್ ಪುರಸಭೆ
+    ko: 움살랄
+    lt: Um Salalas
+    mr: उम्म सलाल म्युन्सिपाल्टी
+    ms: Umm Salal Municipality
+    nb: Umm Salal Kommune
+    nl: Umm Salal
+    pl: Umm Salal
+    pt: Umm Salal
+    ru: Умм-Салаль
+    si: උම් සලල් නගර සභාව
+    sv: Umm Salal Kommun
+    ta: உள்ளம் சலால் நகராட்சி
+    te: ఉమ్ సలాయి మున్సిపాలిటీ
+    th: อัม สาลาล มูนิพิซิพัลลิตี้
+    tr: Umm Selal
+    uk: Умм-Салаль
+    ur: ام صلال
+    vi: Đô thị tự trị Umm Salal
+    lv: Umm-Salālas pašvaldība
+    zh: 烏姆錫拉勒
+    ccp: "𑄅𑄪𑄟𑄴 𑄥𑄣𑄣𑄴"
+    mk: Ум Салал
+    'no': Umm Salal Kommune
+    cy: Bwrdeistref Umm Salal
+    ro: Umm Salal
+    so: Umm Salal
+  type: municipality
+WA:
+  name: Al Wakrah
+  code: WA
+  unofficial_names:
+  - Wakra
+  - Wakrah
+  geo:
+    latitude: 25.1768157
+    longitude: 51.6048431
+    min_latitude: 24.473726
+    min_longitude: 51.1108249
+    max_latitude: 25.233427
+    max_longitude: 51.6284578
+  translations:
+    en: Al Wakrah
+    ar: الوكرة
+    bg: Ал-Уакра
+    bn: আল ওয়াকরাহ
+    ca: Al Wakrah
+    da: Al Wakrah
+    de: Al-Wakra
+    el: Αλ Γουάκρα
+    es: Al Wakrah
+    fa: الوکره
+    fi: Al-Wakra
+    fr: Al Wakrah
+    gu: અલ વક્ર્રાહ
+    he: אל-וכרה
+    hi: अल वकरा
+    id: Al-Wakrah
+    it: Al Wakrah
+    ja: アル＝ワクラ
+    kn: ಅಲ್ ವಕ್ರಾ
+    ko: 알와크라
+    lt: Vakra
+    mr: अल वक्र्राह
+    ms: Al Wakrah
+    nb: Al Wakrah
+    nl: Al Wakrah
+    pl: Al-Wakra
+    pt: Al-Wakrah
+    ru: Аль-Вакра
+    si: අල් වක්‍රා
+    sv: Al Wakrah
+    ta: அல் வக்ரஹ
+    te: అల్ వాక్రాహ్
+    th: อัล วาครา
+    tr: El Vakra
+    uk: Аль-Вакра
+    ur: الوکرہ
+    vi: Al Wakrah
+    lv: Vakra
+    ceb: Al Wakrah
+    zh: 沃克拉
+    ccp: "𑄃𑄣𑄴 𑄤𑄇𑄴𑄢𑄦𑄴"
+    ga: Al Wakrah
+    mk: Вакра
+    'no': Al Wakrah
+    cs: Al Wakrah
+    hu: Al-Vakra
+  type: municipality
+ZA:
+  name: بلدية الضعاين
+  code: ZA
+  translations:
+    ar: بلدية الضعاين
+    bn: আল দায়েন
+    da: Al Daayen
+    el: Αλ Ντααγιέν
+    en: Al Daayen
+    es: Al Daayen
+    fa: بلدیة الضعاین
+    fi: Al-Dayyan
+    fr: Al Daayen
+    gu: અલ દાયેન
+    he: א-דעאין
+    hi: अल डायेन
+    id: Al Daayen
+    it: Al Daayen
+    ja: アッ＝ザアーイン
+    kn: ಅಲ್ ಡಾಯೆನ್
+    ko: 알다옌
+    mr: अल दायेन
+    ms: Al Daayen
+    nb: Al Daayen
+    nl: Al Daayen
+    pl: Ad-Da’ajin
+    pt: Al Daayen
+    ru: Аль-Дайиан
+    si: අල් ඩායෙන්
+    sv: Al Dayeen
+    ta: அல் டாயென்
+    te: అల్ డాయెన్
+    th: ออล์ไดอเยน
+    tr: Ed Daayin
+    uk: Аль-Даїян
+    ur: بلدیہ الضعاین
+    vi: Al Daayen
+    lv: Zaājīna
+    lt: Al Daajenas
+    zh: 戴揚
+    ccp: "𑄃𑄣𑄴 𑄘𑄬𑄠𑄚𑄴"
+    mk: Дајен
+    'no': Al Daayen
+    ro: Al Daayen
+  type: municipality

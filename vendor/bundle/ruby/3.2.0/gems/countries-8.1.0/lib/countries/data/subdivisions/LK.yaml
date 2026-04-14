@@ -1,0 +1,1625 @@
+---
+'1':
+  name: බස්නාහිර පළාත, ශ් රී ලංකාව
+  code: '1'
+  translations:
+    bg: Западна провинция
+    de: Westprovinz
+    el: Δυτική επαρχία
+    en: Western
+    es: Provincia Oeste
+    fa: استان غربی، سری‌لانکا
+    fi: Sri Lankan läntinen provinssi
+    fr: Province de l’Ouest
+    hi: पश्चिमी प्रान्त
+    id: Provinsi Barat, Sri Lanka
+    it: provincia Occidentale
+    ja: 西部州
+    ka: დასავლეთი პროვინცია
+    ko: 서부 주
+    mr: पश्चिम प्रांत
+    nl: Westelijke Provincie
+    pl: Prowincja Zachodnia
+    ru: Западная провинция
+    si: බස්නාහිර පළාත, ශ් රී ලංකාව
+    sv: Västprovinsen, Sri Lanka
+    ta: மேல் மாகாணம்
+    uk: Західна провінція
+    ur: مغربی صوبہ، سری لنکا
+    zh: 西部省
+    ceb: Western Province
+    ar: المقاطعة الغربية (سريلانكا)
+    ccp: "𑄃𑄮𑄠𑄬𑄌𑄴𑄑𑄢𑄴𑄚𑄴"
+    be: Заходняя правінцыя
+    bn: পশ্চিমাঞ্চল প্রদেশ
+    ca: província de l’Oest
+    cy: Talaith y Gorllewin
+    hy: Արևմտյան նահանգ
+    pt: Província Ocidental
+    tr: Batı Eyaleti
+  type: province
+'11':
+  name: Colombo
+  code: '11'
+  unofficial_names:
+  - Kolamba
+  - Colombo
+  - Colombo
+  geo:
+    latitude: 6.9270786
+    longitude: 79.861243
+    min_latitude: 6.8625113
+    min_longitude: 79.8225192
+    max_latitude: 6.980584400000001
+    max_longitude: 79.8900852
+  translations:
+    en: Colombo
+    ca: Districte de Colombo
+    de: Colombo
+    es: Distrito de Colombo
+    fa: ناحیه کلمبو
+    fi: Colombon piirikunta
+    fr: Colombo
+    hi: कोलम्बो
+    it: Distretto di Colombo
+    ja: コロンボ県
+    ka: კოლომბოს ოლქი
+    ko: 콜롬보 구
+    mr: कोलंबो जिल्हा
+    nb: Colombo
+    nl: Colombo
+    ru: Коломбо
+    si: කොළඹ දිස්ත් රික්කය
+    sv: Colombo
+    ta: கொழும்பு மாவட்டம்
+    uk: Коломбо
+    ur: کولمبو ضلع
+    ceb: Colombo District
+    ar: مديرية كولومبو
+    zh: 可倫坡區
+    el: Διαμέρισμα του Κολόμπο
+    ccp: "𑄇𑄧𑄣𑄧𑄟𑄴𑄝𑄮"
+    id: Distrik Kolombo
+    be: Каломба
+    mk: Коломбо
+    'no': Colombo
+    bn: কলম্বো জেলা
+    cy: Ardal Colombo
+    ml: കൊളംബോ ജില്ല
+    pl: Kolombo (dystrykt)
+  type: district
+'12':
+  name: Gampaha
+  code: '12'
+  unofficial_names:
+  - Gampaha
+  geo:
+    latitude: 7.0873101
+    longitude: 80.01436559999999
+    min_latitude: 7.056004499999999
+    min_longitude: 79.9738622
+    max_latitude: 7.1068408
+    max_longitude: 80.0507641
+  translations:
+    en: Gampaha
+    ar: مقاطعة جامباها
+    bn: গাম্পাহা জেলা
+    da: Gampaha District
+    de: Gampaha
+    el: Γκαμπάχα
+    es: Distrito de Gampaha
+    fa: ناحیه گامپاها
+    fi: Gampahan piirikunta
+    fr: Gampaha
+    gu: ગમ્પાહા જિલ્લો
+    hi: गम्पाह जिला
+    id: Distrik Gampaha
+    it: Distretto di Gampaha
+    ja: ガンパハ県
+    ka: გამპაჰის ოლქი
+    kn: ಗಾಂಪಹ ಜಿಲ್ಲೆ
+    ko: 감파하 구
+    mr: गम्पहा जिल्हा
+    ms: Gampaha District
+    nb: Gampaha distrikt
+    nl: Gampaha
+    pl: Dystrykt Gampaha
+    pt: Distrito de Gampaha
+    ru: округ Гампаха
+    si: ගම්පහ පරිපාලන දිස්ත්‍රික්කය
+    sv: Gampaha
+    ta: கம்பகா மாவட்டம்
+    te: గంపాహా జిల్లా
+    th: เขตคัมปาฮา
+    tr: Gampaha District
+    uk: Гампаха
+    ur: گامپاہا ضلع
+    vi: Quận Gampaha
+    lv: Gampahas distrikts
+    ceb: Gampaha District
+    lt: Gampachos sritis
+    zh: 加姆珀哈區
+    ccp: "𑄉𑄟𑄴𑄛𑄦"
+    'no': Gampaha distrikt
+    ml: ഗമ്പഹ ജില്ല
+  type: district
+'13':
+  name: Kalutara
+  code: '13'
+  unofficial_names:
+  - Kalutara
+  geo:
+    latitude: 6.5894162
+    longitude: 79.98081429999999
+    min_latitude: 6.5570948
+    min_longitude: 79.9578743
+    max_latitude: 6.617802699999999
+    max_longitude: 79.9956179
+  translations:
+    en: Kalutara
+    ar: مقاطعة كالوتارا
+    bn: কুলোটারা জেলা
+    da: Kalutara District
+    de: Kalutara
+    el: Καλουτάρα
+    es: Distrito de Kalutara
+    fa: ناحیه کالوتارا
+    fi: Kalutaran piirikunta
+    fr: Kalutara
+    gu: કાલુતરા જિલ્લો
+    hi: कलुतारा जिला
+    id: Distrik Kalutara
+    it: Distretto di Kalutara
+    ja: カルタラ県
+    ka: კალუტარის ოლქი
+    kn: ಕರುತಾರ ಜಿಲ್ಲೆ
+    ko: 칼루타라 구
+    mr: कालुतारा जिल्हा
+    ms: Kalutara District
+    nb: Kalutara
+    nl: Kalutara
+    pl: Kalutara District
+    pt: Kulatra
+    ru: Калутара
+    si: කළුතර පරිපාලන දිස්ත්‍රික්කය
+    sv: Kalutara District
+    ta: களுத்துறை மாவட்டம்
+    te: కాలుటారా జిల్లా
+    th: กาลุตารา
+    tr: Kalutara District
+    uk: Калутара
+    ur: کالوتارا ضلع
+    vi: Quận Kalutara
+    lv: Kalutaras distrikts
+    ceb: Kalutara District
+    lt: Kalutaros apskritis
+    zh: 卡盧特勒區
+    ccp: "𑄇𑄣𑄪𑄑𑄢"
+    'no': Kalutara
+    ml: കലുതാര ജില്ല
+  type: district
+'2':
+  name: මධ්‍යම පළාත, ශ්‍රී ලංකාව
+  code: '2'
+  translations:
+    bg: Централна провинция (Шри Ланка)
+    ca: Província Central
+    de: Zentralprovinz
+    el: Κεντρική επαρχία
+    en: Central
+    es: Provincia Central
+    fa: استان مرکزی (سری‌لانکا)
+    fi: Sri Lankan keskinen provinssi
+    fr: Province du Centre
+    gl: Provincia Central
+    hi: मध्य प्रान्त
+    it: provincia Centrale
+    ja: 中部州
+    ka: ცენტრალური პროვინცია
+    ko: 중부 주 (스리랑카)
+    mr: मध्य प्रांत, श्रीलंका
+    nl: Centrale Provincie
+    pl: Prowincja Centralna (Sri Lanka)
+    pt: Província Central
+    ru: Центральная провинция (Шри-Ланка)
+    si: මධ්‍යම පළාත, ශ්‍රී ලංකාව
+    sv: Centralprovinsen, Sri Lanka
+    ta: மத்திய மாகாணம்
+    uk: Центральна провінція
+    ur: وسطی صوبہ، سری لنکا
+    vi: Tỉnh Trung Tâm, Sri Lanka
+    ceb: Central Province
+    ar: المقاطعة الوسطى (سريلانكا)
+    zh: 中央省 (斯里蘭卡)
+    ccp: "𑄥𑄬𑄚𑄴𑄑𑄳𑄢𑄣𑄴"
+    id: Provinsi Tengah, Sri Lanka
+    bn: মধ্যাঞ্চল প্রদেশ
+  type: province
+'21':
+  name: Kandy
+  code: '21'
+  unofficial_names:
+  - Mahe Nuwara
+  - Maha Nuwara
+  geo:
+    latitude: 7.2905715
+    longitude: 80.6337262
+    min_latitude: 7.258503500000001
+    min_longitude: 80.5918944
+    max_latitude: 7.330587100000001
+    max_longitude: 80.6596685
+  translations:
+    en: Kandy
+    de: Kandy
+    es: Distrito de Kandy
+    fa: ناحیه کندی
+    fi: Kandyn piirikunta
+    fr: Kandy
+    it: Distretto di Kandy
+    ja: キャンディ県
+    ka: კანდის ოლქი
+    ko: 캔디 구
+    mr: कँडी जिल्हा
+    nl: Kandy
+    pl: Kandy
+    ru: Канди
+    si: මහනුවර දිස්ත් රික්කය
+    sv: Kandy
+    ta: கண்டி மாவட்டம்
+    uk: Канді
+    ur: کینڈی ضلع
+    ceb: Kandy District
+    ar: مديرية كاندي
+    zh: 康提區
+    hi: कैंडी जिला
+    ccp: "𑄇𑄚𑄴𑄓𑄨"
+    id: Distrik Kandy
+    ca: Kandy
+    ml: കൗണ്ടി ജില്ല
+  type: district
+'22':
+  name: Matale
+  code: '22'
+  unofficial_names:
+  - Matale
+  geo:
+    latitude: 7.467465
+    longitude: 80.6234161
+    min_latitude: 7.4352836
+    min_longitude: 80.6057453
+    max_latitude: 7.481389
+    max_longitude: 80.65166459999999
+  translations:
+    en: Matale
+    ar: مقاطعة ماتال
+    bn: মাতালে জেলা
+    da: Matale District
+    de: Matale
+    el: Ματάλε
+    es: Distrito de Matale
+    fa: ناحیه متاله
+    fi: Matalen piirikunta
+    fr: Matale
+    gu: માતલે જિલ્લો
+    hi: मातले जिला
+    id: Distrik Matale
+    it: Distretto di Matale
+    ja: マータレー県
+    ka: მატალეს ოლქი
+    kn: ಮಟಲೆ ಜಿಲ್ಲೆ
+    ko: 마탈레 구
+    mr: मातले जिल्हा
+    ms: Matale District
+    nb: Matale distrikt
+    nl: Matale
+    pl: Matale
+    pt: Distrito Matale
+    ru: Матале
+    si: මාතලේ පරිපාලන දිස්ත් රික්කය
+    sv: Matale
+    ta: மாத்தளை மாவட்டம்
+    te: మటాలె జిల్లా
+    th: มะตะเล
+    tr: Matale District
+    uk: Матале
+    ur: ماتالے ضلع
+    vi: Quận Matale
+    lv: Matale distrikts
+    ceb: Matale District
+    lt: Matalės apskritis
+    zh: 馬特萊區
+    ccp: "𑄟𑄖𑄣𑄬"
+    'no': Matale distrikt
+    ca: Matale
+    ml: മാതലെ ജില്ല
+    sl: Okrožje Matale
+  type: district
+'23':
+  name: Nuwara Eliya
+  code: '23'
+  unofficial_names:
+  - Nuwara Eliya
+  geo:
+    latitude: 6.9543992
+    longitude: 80.7824012
+    min_latitude: 6.912879200000001
+    min_longitude: 80.7401987
+    max_latitude: 6.9898532
+    max_longitude: 80.8216953
+  translations:
+    en: Nuwara Eliya
+    ar: مقاطعة نوارا إليا
+    bn: নৌয়ারা এলিয়া জেলা
+    da: Nuwara Eliya District
+    de: Nuwara Eliya
+    el: Νουβάρα Ελίγια
+    es: Distrito de Nuwara Eliya
+    fa: ناحیه نووارا الییا
+    fi: Nuwara Eliyan piirikunta
+    fr: Nuwara Eliya
+    gu: નુવારા એલિયા જિલ્લો
+    hi: नुवारा एलीया जिला
+    id: Distrik Nuwara Eliya
+    it: Distretto di Nuwara Eliya
+    ja: ヌワラ・エリヤ県
+    ka: ნუვარა-ელიას ოლქი
+    kn: ನುವಾರಾ ಎಲಿಯಾ ಜಿಲ್ಲೆ
+    ko: 누와라엘리야 구
+    mr: नूवरा एलिया जिल्हा
+    ms: Nuwara Eliya District
+    nb: Nuware Eliya Distrikt
+    nl: Nuwara Eliya
+    pl: Nuwara Elija
+    pt: Nuwara Eliya
+    ru: Нувара-Элия
+    si: නුවරඑළිය පරිපාලන දිස්ත්‍රික්කය
+    sv: Nuwara Eliya
+    ta: நுவரெலியா மாவட்டம்
+    te: నువారా ఎలియా జిల్లా
+    th: นุวาราเอลิยา
+    tr: Nuwaya Eliya District
+    uk: Нувара-Елія
+    ur: نووارا الییا ضلع
+    vi: Quận Nuwara Eliya
+    lv: Nuvaras Elijas distrikts
+    ceb: Nuwara Eliya District
+    lt: Nuvara Elijos apskritis
+    zh: 努沃勒埃利耶區
+    ccp: "𑄚𑄧𑄤𑄢 𑄃𑄨𑄣𑄨𑄠"
+    'no': Nuware Eliya Distrikt
+    ca: Nuwara Eliya
+    ml: നുവാര ഏലിയ ജില്ല
+  type: district
+'3':
+  name: දකුණු පළාත
+  code: '3'
+  translations:
+    bg: Южна провинция
+    de: Südprovinz
+    el: Νότια επαρχία
+    en: Southern
+    es: Provincia Sur
+    fa: استان جنوبی (سری‌لانکا)
+    fi: Sri Lankan eteläinen provinssi
+    fr: Province du Sud
+    hi: दक्षिणी प्रान्त
+    it: provincia Meridionale
+    ja: 南部州
+    ka: სამხრეთი პროვინცია
+    ko: 남부 주
+    ml: തെക്കൻ പ്രവിശ്യ
+    mr: दक्षिण प्रांत
+    nl: Zuidelijke Provincie
+    pl: Prowincja Południowa
+    pt: Província do Sul (Sri Lanka)
+    ru: Южная провинция
+    si: දකුණු පළාත
+    sv: Sydprovinsen, Sri Lanka
+    ta: தென் மாகாணம்
+    uk: Південна провінція
+    ur: جنوبی صوبہ، سری لنکا
+    ceb: Southern Province
+    ar: المقاطعة الجنوبية (سريلانكا)
+    zh: 南部省
+    ccp: "𑄘𑄧𑄊𑄨𑄚𑄴𑄟𑄬𑄇𑄴𑄈𑄬"
+    id: Provinsi Selatan, Sri Lanka
+    bn: দক্ষিণাঞ্চল প্রদেশ
+  type: province
+'31':
+  name: Galle
+  code: '31'
+  unofficial_names:
+  - Gālla
+  geo:
+    latitude: 6.0535185
+    longitude: 80.2209773
+    min_latitude: 6.0236819
+    min_longitude: 80.1721287
+    max_latitude: 6.0881332
+    max_longitude: 80.2518654
+  translations:
+    en: Galle
+    ar: مقاطعة جالي
+    bn: গালে জেলা
+    da: Galle District
+    de: Galle
+    el: Γκάλε
+    es: Distrito de Galle
+    fa: ناحیه گاله
+    fi: Gallen piirikunta
+    fr: Galle
+    gu: ગેલ જિલ્લો
+    hi: गाले जिला
+    id: Distrik Galle
+    it: Distretto di Galle
+    ja: ゴール県
+    ka: გალეს ოლქი
+    kn: ಗಾಲ್ಲೆ ಜಿಲ್ಲೆ
+    ko: 갈 구
+    mr: गाल्ल जिल्हा
+    ms: Galle District
+    nb: Galle
+    nl: Galle
+    pl: Dystrykt Galle
+    pt: Galle
+    ru: Галле
+    si: ගාල්ල පරිපාලන දිස්ත්‍රික්කය
+    sv: Galle
+    ta: காலி மாவட்டம்
+    te: గల్లె జిల్లా
+    th: โมเย็น ชารี
+    tr: Galle District
+    uk: Ґалле
+    ur: گال ضلع
+    vi: Quận Galle
+    lv: Galles distrikts
+    ceb: Galle District
+    lt: Galės apskritis
+    zh: 加勒區
+    ccp: "𑄉𑄣𑄬"
+    'no': Galle
+    ca: Galle
+    ml: ഗാലി ജില്ല
+  type: district
+'32':
+  name: Matara
+  code: '32'
+  unofficial_names:
+  - Matara
+  geo:
+    latitude: 5.95492
+    longitude: 80.5549561
+    min_latitude: 5.9346603
+    min_longitude: 80.50425059999999
+    max_latitude: 5.9693241
+    max_longitude: 80.59724539999999
+  translations:
+    en: Matara
+    ar: مقاطعة ماتارا
+    bn: মাতারা জেলা
+    da: Matara District
+    de: Matara (Distrikt)
+    el: Μάταρα
+    es: Distrito de Matara (Sri Lanka)
+    fa: ناحیه ماتارا
+    fi: Mataran piirikunta
+    fr: Matara (district)
+    gu: માતારા જિલ્લો
+    hi: मटारा ज़िला
+    id: Matara, Sri Lanka
+    it: Distretto di Matara
+    ja: マータラ県
+    ka: მატარის ოლქი
+    kn: ಮಟರಾ ಜಿಲ್ಲೆ
+    ko: 마타라 구
+    mr: मातरा जिल्हा
+    ms: Matara District
+    nb: Matara
+    nl: Matara (district)
+    pl: Matara
+    pt: Matara
+    ru: Матара
+    si: මාතර දිස්ත්‍රික්කය
+    sv: Matara (distrikt)
+    ta: மாத்தறை மாவட்டம்
+    te: మటారా జిల్లా
+    th: มาทาร่า
+    tr: Matara District
+    uk: Матара
+    ur: ماتارا ضلع
+    vi: Quận Matara
+    lv: Mataras distrikts
+    ceb: Matara District
+    lt: Mataros apskritis
+    zh: 馬特勒區
+    ccp: "𑄟𑄖𑄢"
+    'no': Matara
+    ml: മാത്താര ജില്ല
+  type: district
+'33':
+  name: Hambantota
+  code: '33'
+  unofficial_names:
+  - Hambantota
+  geo:
+    latitude: 6.131742099999999
+    longitude: 81.1085744
+    min_latitude: 6.1097056
+    min_longitude: 81.0677156
+    max_latitude: 6.172768899999999
+    max_longitude: 81.1655759
+  translations:
+    en: Hambantota
+    ar: مقاطعة هامبانتوتا
+    bn: হাম্বানটুটা জেলা
+    da: Hambantota District
+    de: Hambantota
+    el: Χαμπαντότα
+    es: Distrito de Hambantota
+    fa: ناحیه هامبانتوتا
+    fi: Hambantotan piirikunta
+    fr: district d’Hambantota
+    gu: હમ્બાન્ટોટા જિલ્લો
+    hi: हम्बन्तोट’ जिला
+    id: Distrik Hambantota
+    it: Distretto di Hambantota
+    ja: ハンバントタ県
+    ka: ჰამბანტოტის ოლქი
+    kn: ಹಂಬಂತೋಟ ಜಿಲ್ಲೆ
+    ko: 함반토타 구
+    mr: हम्बन्टोट जिल्हा
+    ms: Hambantota District
+    nb: Hambantota
+    nl: Hambantota
+    pl: Dystrykt Hambantota
+    pt: Hambantota
+    ru: Хамбантота
+    si: හම්බන්තොට පරිපාලන දිස්ත්‍රික්කය
+    sv: Hambantota distriktet
+    ta: அம்பாந்தோட்டை மாவட்டம்
+    te: హాంబాంటోటా జిల్లా
+    th: เขตแฮมบันโตตา
+    tr: Hambantota District
+    uk: Хамбантота
+    ur: ہامبانتوتا ضلع
+    vi: Quận Hambantota
+    lv: Hambantotas distrikts
+    ceb: Hambantota District
+    lt: Hambantotos apskritis
+    zh: 漢班托特區
+    ccp: "𑄦𑄟𑄴𑄝𑄚𑄴𑄑𑄮𑄑"
+    'no': Hambantota
+    ca: Hambantota
+    ml: ഹംമ്പൻതോട്ട ജില്ല
+  type: district
+'4':
+  name: උතුරු පළාත
+  code: '4'
+  translations:
+    bg: Северна провинция
+    de: Nordprovinz
+    el: Βόρεια επαρχία
+    en: Northern
+    es: Provincia Norte
+    fa: استان شمالی (سری‌لانکا)
+    fi: Sri Lankan pohjoinen provinssi
+    fr: Province du Nord
+    hi: उत्तरी प्रान्त, श्रीलंका
+    it: provincia Settentrionale
+    ja: 北部州
+    ka: ჩრდილოეთი პროვინცია
+    ko: 북부 주
+    ml: വടക്കൻ പ്രവിശ്യ, ശ്രീലങ്ക
+    mr: उत्तर प्रांत, श्रीलंका
+    nl: Noordelijke Provincie
+    pl: Prowincja Północna
+    pt: Província do Norte
+    ru: Северная провинция
+    si: උතුරු පළාත
+    sv: Nordprovinsen, Sri Lanka
+    ta: வட மாகாணம், இலங்கை
+    uk: Північна провінція
+    ur: شمالی صوبہ، سری لنکا
+    vi: Tỉnh Phía Bắc, Sri Lanka
+    ceb: Northern Province (lalawigan sa Sri Lanka)
+    ar: المقاطعة الشمالية (سريلانكا)
+    zh: 北部省
+    ccp: "𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄴𑄟𑄬𑄇𑄴𑄈𑄬"
+    id: Provinsi Utara, Sri Lanka
+    bn: উত্তরাঞ্চল প্রদেশ
+    ca: Província del Nord
+    he: מחוז הצפון
+  type: province
+'41':
+  name: Jaffna
+  code: '41'
+  unofficial_names:
+  - Yapnaya
+  - Yāpanaya
+  geo:
+    latitude: 9.6614981
+    longitude: 80.02554649999999
+    min_latitude: 9.6461028
+    min_longitude: 79.9990243
+    max_latitude: 9.6938708
+    max_longitude: 80.0578452
+  translations:
+    en: Jaffna
+    de: Jaffna
+    es: Distrito de Jaffna
+    fa: ناحیه جفنا
+    fi: Jaffnan piirikunta
+    fr: Jaffna
+    hi: जफ़ना जिला
+    it: Distretto di Jaffna
+    ja: ジャフナ県
+    ka: ჯაფნის ოლქი
+    ko: 자프나 구
+    mr: जाफना जिल्हा
+    nb: Jaffna
+    nl: Jaffna
+    pl: Dżafna
+    ru: округ Джафна
+    si: යාපනය පරිපාලන දිස්ත්‍රික්කය
+    sv: Jaffna
+    ta: யாழ்ப்பாண மாவட்டம்
+    uk: Джафна
+    ur: جففناضلع
+    ceb: Jaffna District
+    ar: مديرية جافنا
+    zh: 賈夫納區
+    ccp: "𑄎𑄛𑄴𑄚"
+    pt: Distrito de Jaffna
+    'no': Jaffna
+    ca: Districte de Jaffna
+    ml: ജാഫ്ന ജില്ല
+  type: district
+'42':
+  name: Kilinochchi
+  code: '42'
+  unofficial_names:
+  - Kilinochchi
+  geo:
+    latitude: 9.3802886
+    longitude: 80.3769999
+    min_latitude: 9.3365197
+    min_longitude: 80.3180948
+    max_latitude: 9.4173529
+    max_longitude: 80.435114
+  translations:
+    en: Kilinochchi
+    ar: مقاطعة كيلينوتشي
+    bn: ক্লিনোকাচি জেলা
+    da: Kilinochchi
+    de: Kilinochchi
+    el: Κιλινότσι
+    es: Distrito de Kilinochchi
+    fa: ناحیه کیلینوچی
+    fi: Kilinochchin piirikunta
+    fr: Kilinochchi
+    gu: કિલિનોચ્ચી જિલ્લો
+    hi: किलिनोच्चि जिला
+    id: Distrik Kilinochchi
+    it: Distretto di Kilinochchi
+    ja: キリノッチ県
+    ka: კილინოჩის ოლქი
+    kn: ಕಿಲಿನೊಚ್ಚಿ ಜಿಲ್ಲೆ
+    ko: 킬리노치치 구
+    mr: किलिनोच्ची जिल्हा
+    ms: Kilinochchi District
+    nb: Kilinochchi
+    nl: Kilinochchi
+    pl: Kilinoćći
+    pt: Kilinochchi
+    ru: Килиноччи
+    si: කිලිනොච්චි දිස්ත්‍රික්කය
+    sv: Kilinochchi
+    ta: கிளிநொச்சி மாவட்டம்
+    te: కిలినోచ్చి జిల్లా
+    th: เขตคิลิโนชชี
+    tr: Kilinochchi District
+    uk: Кіліноччі
+    ur: کیلینوچچی ضلع
+    vi: Quận Kilinochchi
+    lv: Kilinoči distrikts
+    ceb: Kilinochchi District
+    lt: Kilinočio apskritis
+    zh: 基利諾奇區
+    ccp: "𑄇𑄨𑄣𑄨𑄚𑄮𑄌𑄴𑄌𑄨"
+    'no': Kilinochchi
+    ml: കില്ലിനോച്ചി ജില്ല
+  type: district
+'43':
+  name: Mannar
+  code: '43'
+  unofficial_names:
+  - Manar
+  - Mannar
+  - Mannerama
+  geo:
+    latitude: 8.9893222
+    longitude: 79.8800832
+    min_latitude: 8.9625776
+    min_longitude: 79.8438262
+    max_latitude: 9.0290349
+    max_longitude: 79.92742539999999
+  translations:
+    en: Mannar
+    ar: مقاطعة منار
+    bn: মানার জেলা
+    da: Mannar District
+    de: Mannar
+    el: Μάνναρ
+    es: Distrito de Mannar
+    fa: ناحیه منار
+    fi: Mannarin piirikunta
+    fr: Mannar
+    gu: મન્નાર જિલ્લો
+    hi: मन्नार जिला
+    id: Distrik Mannar
+    it: Distretto di Mannar
+    ja: マンナール県
+    ka: მანარის ოლქი
+    kn: ಮನ್ನಾರ್ ಜಿಲ್ಲೆ
+    ko: 만나르 구
+    mr: मन्नार जिल्हा
+    ms: Mannar District
+    nb: Mannar distrikt
+    nl: Mannar
+    pl: Mannar
+    pt: Distrito de Mannar
+    ru: Маннар
+    si: මන්නාරම් දිස්ත්‍රික්කය
+    sv: Mannar
+    ta: மன்னார் மாவட்டம்
+    te: మన్నార్ జిల్లా
+    th: เขตมันนาร์
+    tr: Mannar District
+    uk: Маннар
+    ur: مانار ضلع
+    vi: Quận Mannar
+    lv: Mannaras distrikts
+    ceb: Mannar District
+    lt: Manaro apskritis
+    zh: 馬納爾區
+    ccp: "𑄟𑄚𑄢𑄴"
+    'no': Mannar distrikt
+    ml: മന്നാർ ജില്ല
+  type: district
+'44':
+  name: Vavuniya
+  code: '44'
+  unofficial_names:
+  - Vavuniyāwa
+  geo:
+    latitude: 8.7381572
+    longitude: 80.47714719999999
+    min_latitude: 8.6835302
+    min_longitude: 80.42717449999999
+    max_latitude: 8.8204055
+    max_longitude: 80.5478097
+  translations:
+    en: Vavuniya
+    de: Vavuniya
+    es: Distrito de Vavuniya
+    fa: منطقهٔ واوونیا
+    fi: Vavuniyan piirikunta
+    fr: Vavuniya
+    hi: वावुनिया जिला
+    it: Distretto di Vavuniya
+    ja: バブニヤ県
+    ka: ვავუნიიის ოლქი
+    ko: 바부니야 구
+    mr: वावुनीया जिल्हा
+    nl: Vavuniya
+    pl: Wawunija
+    ru: Вавуния
+    si: වවුනියා පරිපාලන දිස්ත්‍රික්කය
+    sv: Vavuniya
+    ta: வவுனியா மாவட்டம்
+    uk: Вавунія
+    ur: واوونییا ضلع
+    ceb: Vavuniya District
+    ar: مديرية فافونيا
+    zh: 瓦武尼亞區
+    el: Επαρχία Βαβουνίγια
+    ccp: "𑄞𑄞𑄪𑄚𑄨𑄠"
+    id: Distrik Vavuniya
+    ml: വാവുനിയ ജില്ല
+  type: district
+'45':
+  name: Mullaittivu
+  code: '45'
+  unofficial_names:
+  - Mulativu
+  geo:
+    latitude: 9.2670911
+    longitude: 80.81424799999999
+    min_latitude: 9.2588919
+    min_longitude: 80.8070613
+    max_latitude: 9.2764461
+    max_longitude: 80.8227488
+  translations:
+    en: Mullaitivu
+    ar: مقاطعة مولايتيفو
+    bn: মোলাইতিবো জেলা
+    da: Mullaitivu District
+    de: Mullaitivu
+    el: Μουλαϊτιβούν
+    es: Distrito de Mullaitivu
+    fa: ناحیه مولایتیوو
+    fi: Mullaitivun piirikunta
+    fr: Mullaitivu
+    gu: મુલ્લતિવુ જિલ્લો
+    hi: मुलैतिवु जिला
+    id: Distrik Mullaitivu
+    it: Distretto di Mullaitivu
+    ja: ムッライッティーヴー県
+    ka: მულაიტივუს ოლქი
+    kn: ಮುಲ್ಲತಿವು ಜಿಲ್ಲೆ
+    ko: 물라이티부 구
+    mr: मुलैतीवू जिल्हा
+    ms: Mullaitivu District
+    nb: Mullaittivu
+    nl: Mullaitivu
+    pl: Mullajttiwu
+    pt: Mullaittivu
+    ru: Муллайтиву
+    si: මුලතිව් පරිපාලන දිස්ත්‍රික්කය
+    sv: Mullaitivu
+    ta: முல்லைத்தீவு மாவட்டம்
+    te: ములాయిటివు జిల్లా
+    th: มูลไลทิวู
+    tr: Mullaitivu District
+    uk: Муллайтіву
+    ur: مولایتیوو ضلع
+    vi: Quận Mullaitivu
+    lv: Mullaitivu distrikts
+    ceb: Mullaitivu District
+    lt: Mulaitivo apskritis
+    zh: 穆萊蒂武區
+    ccp: "𑄟𑄪𑄣𑄭𑄑𑄨𑄞𑄪"
+    'no': Mullaittivu
+    ca: Mullaitivu
+    ml: മുല്ലൈടിവ് ജില്ല
+  type: district
+'5':
+  name: නැගෙනහිර පළාත, ශ් රී ලංකාව
+  code: '5'
+  translations:
+    bg: Източна провинция
+    de: Ostprovinz
+    el: Ανατολική επαρχία
+    en: Eastern
+    es: Provincia del Este
+    fa: استان شرقی (سری‌لانکا)
+    fi: Sri Lankan itäinen provinssi
+    fr: Province de l’Est
+    hi: पूर्वी प्रान्त
+    it: provincia Orientale
+    ja: 東部州
+    ka: აღმოსავლეთი პროვინცია
+    ko: 동부 주
+    mr: पूर्व प्रांत
+    nl: Oostelijke Provincie
+    pl: Prowincja Wschodnia
+    pt: Este
+    ru: Восточная провинция
+    si: නැගෙනහිර පළාත, ශ් රී ලංකාව
+    sv: Östprovinsen, Sri Lanka
+    ta: கிழக்கு மாகாணம்
+    uk: Східна провінція
+    ur: مشرقی صوبہ، سری لنکا
+    vi: Tỉnh Phía Đông
+    ceb: Eastern Province (lalawigan sa Sri Lanka)
+    ar: المقاطعة الشرقية (سريلانكا)
+    zh: 東部省
+    ccp: "𑄛𑄪𑄇𑄴𑄟𑄬𑄇𑄴𑄈𑄬"
+    id: Provinsi Timur, Sri Lanka
+    bn: পূর্বাঞ্চল প্রদেশ
+    he: מחוז המזרח
+    ro: Provincia de Est
+  type: province
+'51':
+  name: Batticaloa
+  code: '51'
+  unofficial_names:
+  - Mad̨akalpūwa
+  geo:
+    latitude: 7.730997100000001
+    longitude: 81.6747295
+    min_latitude: 7.6971701
+    min_longitude: 81.65085909999999
+    max_latitude: 7.770829999999999
+    max_longitude: 81.706103
+  translations:
+    en: Batticaloa
+    de: Batticaloa (Distrikt)
+    es: Distrito de Batticaloa
+    fa: ناحیه باتیکالوا
+    fi: Batticaloan piirikunta
+    fr: Batticaloa (district)
+    hi: बट्टिकलोआ जिला
+    it: Distretto di Batticaloa
+    ja: バッティカロア県
+    ka: ბატიკალოის ოლქი
+    ko: 바티칼로아 구
+    ml: മട്ടക്കളപ്പ് ജില്ല
+    mr: बट्टिकलोआ जिल्हा
+    nb: Batticaloa (distrikt)
+    nl: Batticaloa
+    pl: Madakalapuwa
+    ru: Баттикалоа
+    si: මඩකලපුව පරිපාලන දිස්ත්‍රික්කය
+    sv: Batticaloa District (distrikt i Sri Lanka)
+    ta: மட்டக்களப்பு மாவட்டம்
+    uk: Баттікалоа
+    ur: باٹیکالوا ضلع
+    ceb: Batticaloa District
+    ar: مديرية باتيكالوا
+    zh: 拜蒂克洛區
+    ccp: "𑄝𑄖𑄳𑄦𑄨𑄇𑄣𑄱"
+    id: Distrik Batticaloa
+    'no': Batticaloa (distrikt)
+    ca: Batticaloa
+  type: district
+'52':
+  name: Ampara
+  code: '52'
+  unofficial_names:
+  - Ampara
+  geo:
+    latitude: 7.301756300000001
+    longitude: 81.6747295
+    min_latitude: 7.2753244
+    min_longitude: 81.6450047
+    max_latitude: 7.3171365
+    max_longitude: 81.70905599999999
+  translations:
+    en: Ampara
+    ar: مقاطعة أمبارا
+    bn: আমপারা জেলা
+    da: Ampara District
+    de: Ampara (Distrikt)
+    el: Αμπάρα
+    es: Distrito de Ampara
+    fa: بخش امپرا
+    fi: Amparan piirikunta
+    fr: Ampara (district)
+    gu: એમ્પારા જિલ્લો
+    hi: अम्पार’ जिला
+    id: Distrik Ampara
+    it: Distretto di Ampara
+    ja: アンパーラ県
+    ka: ამპარის ოლქი
+    kn: ಅಂಪಾರ ಜಿಲ್ಲೆ
+    ko: 암파라 구
+    mr: अंपारा जिल्हा
+    ms: Ampara District
+    nb: Ampara
+    nl: Ampara
+    pl: Ampara
+    pt: Ampara
+    ru: округ Ампара
+    si: අම්පාර පරිපාලන දිස්ත්‍රික්කය
+    sv: Ampara District (distrikt i Sri Lanka)
+    ta: அம்பாறை மாவட்டம்
+    te: అంపారా జిల్లా
+    th: เขตอัมปารา
+    tr: Ampara District
+    uk: Ампара
+    ur: امپارا ضلع
+    vi: Quận Ampara
+    lv: Amparas distrikts
+    ceb: Ampara District
+    lt: Amparos apskritis
+    zh: 安帕賴區
+    ccp: "𑄃𑄟𑄴𑄛𑄢"
+    'no': Ampara
+    ca: Amparai
+    ml: അമ്പാറ ജില്ല
+  type: district
+'53':
+  name: Trincomalee
+  code: '53'
+  unofficial_names:
+  - Trinkomali
+  - Tirikunāmalaya
+  geo:
+    latitude: 8.5922
+    longitude: 81.19679579999999
+    min_latitude: 8.5433042
+    min_longitude: 81.18032149999999
+    max_latitude: 8.6231144
+    max_longitude: 81.2461119
+  translations:
+    en: Trincomalee
+    de: Trincomalee
+    es: Distrito de Trincomalee
+    fa: ناحیه ترینکومالی
+    fi: Trincomaleen piirikunta
+    fr: Trinquemalay
+    hi: त्रिंकोन्माली जिला
+    it: Distretto di Trincomalee
+    ja: トリンコマリー県
+    ka: ტრინკომალეეს ოლქი
+    ko: 트링코말리 구
+    mr: त्रिंकोमली जिल्हा
+    nb: Trincomalee
+    nl: Trincomalee
+    pl: Trikunamalaja
+    ru: Тринкомали округ
+    si: ත්‍රිකුණාමල දිස්ත්‍රික්කය
+    sv: Trincomalee District (distrikt i Sri Lanka)
+    ta: திருகோணமலை மாவட்டம்
+    uk: Трінкомалі
+    ur: ترینکومالی ضلع
+    ceb: Trincomalee District
+    ar: مديرية ترينكومالي
+    zh: 亭可馬里區
+    ccp: "𑄑𑄳𑄢𑄨𑄚𑄴𑄇𑄮𑄟𑄣𑄨"
+    'no': Trincomalee
+    ca: Trincomalee
+    ml: ട്രിങ്കോമാലി ജില്ല
+  type: district
+'6':
+  name: වයඹ පළාත, ශ්‍රී ලංකාව
+  code: '6'
+  translations:
+    bg: Северозападна провинция
+    de: Nordwestprovinz
+    el: Βορειοδυτική επαρχία
+    en: North Western
+    es: Provincia Noroeste
+    fa: استان شمال غربی، سری‌لانکا
+    fi: Sri Lankan luoteisprovinssi
+    fr: Province du Nord-Ouest
+    hi: उत्तर पश्चिमी प्रान्त
+    it: provincia Nord-Occidentale
+    ja: 北西部州
+    ka: ჩრდილო-დასავლეთი პროვინცია
+    ko: 북서부 주
+    mr: वायव्य प्रांत
+    nl: Noordwestelijke Provincie
+    pl: Prowincja Północno-Zachodnia
+    pt: Noroeste
+    ru: Северо-Западная провинция
+    si: වයඹ පළාත, ශ්‍රී ලංකාව
+    sv: Nordvästprovinsen, Sri Lanka
+    ta: வடமேல் மாகாணம்
+    uk: Північно-Західна провінція
+    ur: شمال مغربی صوبہ، سری لنکا
+    ceb: North Western Province
+    ar: المقاطعة الشمالية الغربية (سريلانكا)
+    zh: 西北省
+    ccp: "𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄴 𑄛𑄧𑄏𑄨𑄟𑄴𑄟𑄬𑄇𑄴𑄈𑄬"
+    id: Provinsi Barat Laut, Sri Lanka
+    bn: উত্তর পশ্চিমাঞ্চল প্রদেশ
+  type: province
+'61':
+  name: Kurunegala
+  code: '61'
+  unofficial_names:
+  - Kurunegala
+  geo:
+    latitude: 7.472981299999999
+    longitude: 80.3547286
+    min_latitude: 7.432091900000001
+    min_longitude: 80.29915799999999
+    max_latitude: 7.529148800000001
+    max_longitude: 80.4164028
+  translations:
+    en: Kurunegala
+    ar: مقاطعة كورونيغالا
+    bn: কুরোনগেলা জেলা
+    da: Kurunegala District
+    de: Kurunegala
+    el: Κουρουνεγκάλα
+    es: Distrito de Kurunegala
+    fa: ناحیه کورونیگالا
+    fi: Kurunegalan kaupunginosa
+    fr: Kurunegala
+    gu: કુરુનેગલા જિલ્લો
+    hi: कुरुनेगल’ जिला
+    id: Distrik Kurunegala
+    it: Distretto di Kurunegala
+    ja: クルネーガラ県
+    ka: კურუნეგალის ოლქი
+    kn: ಕುಲ್ಲೂರು ಜಿಲ್ಲೆ
+    ko: 쿠루네갈라 구
+    mr: कुरुनेगला जिल्हा
+    ms: Kurunegala District
+    nb: Kurunegala distrikt
+    nl: Kurunegala
+    pl: Dystrykt Kurunegala
+    pt: Distrito de Kurunegala
+    ru: Курунегала
+    si: කුරුණෑගල දිස්ත් රික්කය
+    sv: Kurunegala
+    ta: குருநாகல் மாவட்டம்
+    te: కురునెగేలా జిల్లా
+    th: เขตคุรุนกาลา
+    tr: Kurunegala District
+    uk: Курунегала
+    ur: کرنیگالا ضلع
+    vi: Quận Kurunegala
+    lv: Kurunegalas distrikts
+    ceb: Kurunegala District
+    lt: Kurunegalos apskritis
+    zh: 庫魯內格勒區
+    ccp: "𑄇𑄪𑄢𑄪𑄚𑄬𑄉𑄣"
+    'no': Kurunegala distrikt
+    ml: കുറുനേഗല ജില്ല
+  type: district
+'62':
+  name: Puttalam
+  code: '62'
+  unofficial_names:
+  - Puttalam
+  geo:
+    latitude: 8.0402828
+    longitude: 79.84087869999999
+    min_latitude: 7.9910674
+    min_longitude: 79.8081207
+    max_latitude: 8.069724899999999
+    max_longitude: 79.8573579
+  translations:
+    en: Puttalam
+    ar: مقاطعة بوتالام
+    bn: পোতালাম জেলা
+    da: Puttalam District
+    de: Puttalam
+    el: Πουτταλάμ
+    es: Distrito de Puttalam
+    fa: ناحیه پوتالام
+    fi: Puttalamin piirikunta
+    fr: Puttalam
+    gu: પુટ્ટલમ જિલ્લો
+    hi: पुत्तलम जिला
+    id: Distrik Puttalam
+    it: Distretto di Puttalam
+    ja: プッタラム県
+    ka: პუტალამის ოლქი
+    kn: ಪುಟ್ಟಲಮ್ ಜಿಲ್ಲೆ
+    ko: 푸탈람 구
+    mr: पत्तलम जिल्हा
+    ms: Puttalam District
+    nb: Puttalam distrikt
+    nl: Puttalam
+    pl: Dystrykt Puttalam
+    pt: Distrito de Puttalam
+    ru: Путталам
+    si: පුත්තලම දිස්ත්‍රික්කය
+    sv: Puttalam District (distrikt i Sri Lanka)
+    ta: புத்தளம்
+    te: పుట్టాలం జిల్లా
+    th: เขตปุตตาลัม
+    tr: Puttalam District
+    uk: Путталам
+    ur: پوٹالام ضلع
+    vi: Quận Puttalam
+    lv: Puttalamas distrikts
+    ceb: Puttalam District
+    lt: Putalamo apskritis
+    zh: 普塔勒姆區
+    ccp: "𑄛𑄪𑄑𑄣𑄟𑄴"
+    'no': Puttalam distrikt
+    ml: പുത്തലം ജില്ല
+  type: district
+'7':
+  name: උතුරු මැද පළාත
+  code: '7'
+  translations:
+    bg: Северна централна провинция
+    de: Nördliche Zentralprovinz
+    en: North Central
+    es: Provincia Central del Norte
+    fa: استان شمال مرکزی، سری‌لانکا
+    fi: Sri Lankan keskipohjoinen provinssi
+    fr: Province du Centre-Nord
+    hi: उत्तरी मध्य प्रान्त
+    it: provincia Centro-Settentrionale
+    ja: 北中部州
+    ka: ჩრდილო-ცენტრალური პროვინცია
+    ko: 중북부 주
+    mr: उत्तर मध्य प्रांत
+    nl: Noordelijke Centrale Provincie
+    pl: Prowincja Północno-Środkowa
+    pt: Centro-Norte
+    ru: Северо-Центральная провинция
+    si: උතුරු මැද පළාත
+    sv: Norra centralprovinsen
+    ta: வடமத்திய மாகாணம்
+    uk: Північно-Центральна провінція
+    ur: شمال وسطی صوبہ، سری لنکا
+    vi: Tỉnh Trung Bắc
+    ceb: North Central Province
+    ar: المقاطعة الشمالية الوسطى (سريلانكا)
+    zh: 北中省
+    el: Βορειοκεντρική επαρχία
+    ccp: "𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄴 𑄥𑄬𑄚𑄴𑄑𑄳𑄢𑄣𑄴"
+    bn: উত্তর মধ্যাঞ্চল প্রদেশ
+    id: Provinsi Tengah Utara, Sri Lanka
+  type: province
+'71':
+  name: Anuradhapura
+  code: '71'
+  unofficial_names:
+  - Anuradhapur
+  - Anurādhapūraya
+  geo:
+    latitude: 8.3451852
+    longitude: 80.38813329999999
+    min_latitude: 8.2595695
+    min_longitude: 80.33786769999999
+    max_latitude: 8.4107342
+    max_longitude: 80.46818379999999
+  translations:
+    en: Anuradhapura
+    de: Anuradhapura (Distrikt)
+    es: Distrito de Anuradhapura
+    fa: ناحیه انورادهاپورا
+    fi: Anuradhapuran piirikunta
+    fr: Anuradhapura (district)
+    hi: अनुराधपुर’
+    it: Distretto di Anuradhapura
+    ja: アヌラーダプラ県
+    ka: ანურადჰაპურის ოლქი
+    ko: 아누라다푸라 구
+    ml: അനുരാധപുരം
+    mr: अनुराधपूरा जिल्हा
+    nl: Anuradhapura
+    pl: Anuradhapura
+    ru: Анурадхапура
+    si: අනුරාධපුර පරිපාලන දිස්ත්‍රික්කය
+    sv: Anuradhapura (distrikt)
+    ta: அனுராதபுரம் மாவட்டம்
+    uk: Анурадхапура
+    ur: انورادھاپورہ ضلع
+    ceb: Anuradhapura District
+    ar: مديرية انورادهابورا
+    zh: 阿努拉德普勒區
+    ccp: "𑄃𑄚𑄪𑄢𑄙𑄛𑄪𑄢𑄴"
+    ca: Anuradhapura
+  type: district
+'72':
+  name: Polonnaruwa
+  code: '72'
+  unofficial_names:
+  - Polonaruwa
+  - Polunnaruwa
+  geo:
+    latitude: 7.932635799999999
+    longitude: 81.00368209999999
+    min_latitude: 7.892033799999999
+    min_longitude: 80.9670067
+    max_latitude: 7.9761928
+    max_longitude: 81.0447693
+  translations:
+    en: Polonnaruwa
+    ar: مقاطعة بولوناروا
+    bn: পোলোনারোয়া জেলা
+    da: Polonnaruwa District
+    de: Polonnaruwa
+    el: Πολοναρούβα
+    es: Distrito de Polonnaruwa
+    fa: ناحیه پولونارووا
+    fi: Polonnaruwan piirikunta
+    fr: Polonnaruwa
+    gu: પોલોનારુવા જિલ્લો
+    hi: पोलोनारुवा जिला
+    id: Distrik Polonnaruwa
+    it: Distretto di Polonnaruwa
+    ja: ポロンナルワ県
+    ka: პოლონარუვის ოლქი
+    kn: ಪೊಲೊನರುವಾ ಜಿಲ್ಲೆ
+    ko: 폴론나루와 구
+    mr: पोलोन्नारुवा जिल्हा
+    ms: Polonnaruwa District
+    nb: Polinnaruwa distrikt
+    nl: Polonnaruwa
+    pl: Polonnaruwa
+    pt: Distrito de Polonnaruwa
+    ru: округ Полоннарува
+    si: පොළොන්නරුව දිස්ත්‍රික්කය
+    sv: Polonnaruwa
+    ta: பொலன்னறுவை மாவட்டம்
+    te: పోలోనారువా జిల్లా
+    th: เขตโปลอนนารูนว์
+    tr: Polonnaruwa District
+    uk: Полоннарува
+    ur: پولونارووا ضلع
+    vi: Quận Polonnaruwa
+    lv: Polonnaruvas distrikts
+    ceb: Polonnaruwa District
+    lt: Plonaruvos apskritis
+    zh: 波隆納魯沃區
+    ccp: "𑄛𑄧𑄣𑄧𑄚𑄢𑄪𑄤"
+    'no': Polinnaruwa distrikt
+    ca: Polonnaruwa
+    he: נפת פולונארווה
+    ml: പോളൊന്നാരുവ ജില്ല
+  type: district
+'8':
+  name: ඌව පළාත
+  code: '8'
+  translations:
+    bg: Ува
+    ca: Província de Uva
+    de: Uva
+    el: Επαρχία της Ούβα
+    en: Uva
+    es: Provincia de Uva
+    fa: استان یووا
+    fi: Uva
+    fr: Province d’Uva
+    hi: उवा प्रान्त
+    it: Uva
+    ja: ウバ州
+    ka: უვის პროვინცია
+    ko: 우바 주
+    mr: उवा प्रांत
+    nl: Uva
+    pl: Prowincja Uwa
+    pt: Uva
+    ru: Ува
+    si: ඌව පළාත
+    sv: Uvaprovinsen
+    ta: ஊவா மாகாணம்
+    uk: Ува
+    ur: اووا صوبہ
+    ceb: Province of Uva
+    ar: مقاطعة يوفا
+    zh: 烏沃省
+    ccp: "𑄅𑄪𑄞"
+    id: Provinsi Uva
+    bn: উভা প্রদেশ
+    cy: Talaith Uva
+    he: מחוז אובה
+  type: province
+'81':
+  name: Badulla
+  code: '81'
+  unofficial_names:
+  - Badulla
+  geo:
+    latitude: 6.993400899999999
+    longitude: 81.0549815
+    min_latitude: 6.9629781
+    min_longitude: 81.0384179
+    max_latitude: 7.014605
+    max_longitude: 81.0796166
+  translations:
+    en: Badulla
+    ar: حي بادولا
+    bn: বাদুলা জেলা
+    da: Badulla District
+    de: Badulla (Distrikt)
+    el: Μπαντούλα
+    es: Distrito de Badulla
+    fa: ناحیه بادولا
+    fi: Badullan piirikunta
+    fr: Badulla (district)
+    gu: બડુલા જિલ્લો
+    hi: बडुला जिला
+    id: Distrik Badulla
+    it: Distretto di Badulla
+    ja: バドゥッラ県
+    ka: ბადულის ოლქი
+    kn: ಬದುಲ್ಲಾ ಜಿಲ್ಲೆ
+    ko: 바둘라 구
+    mr: बदुल्ला जिल्हा
+    ms: Badulla District
+    nb: Badulla distrikt
+    nl: Badulla
+    pl: Dystrykt Badulla
+    pt: Distrito de Badulla
+    ru: Бадулла
+    si: බදුල්ල පරිපාලන දිස්ත්‍රික්කය
+    sv: Badulla (distrikt)
+    ta: பதுளை மாவட்டம்
+    te: బదుల్లా జిల్లా
+    th: เขตบาดุลลา
+    tr: Badulla District
+    uk: Бадулла
+    ur: بادولا ضلع
+    vi: Quận Badulla
+    lv: Badullas distrikts
+    ceb: Badulla District
+    lt: Badulos apskritis
+    zh: 巴杜勒區
+    ccp: "𑄝𑄓𑄪𑄣𑄳𑄦"
+    'no': Badulla distrikt
+    ca: Badulla
+    ml: ബഡുല്ല ജില്ല
+  type: district
+'82':
+  name: Monaragala
+  code: '82'
+  unofficial_names:
+  - Monaragalla
+  - Moneragala
+  geo:
+    latitude: 6.890645399999999
+    longitude: 81.34544170000001
+    min_latitude: 6.858940199999999
+    min_longitude: 81.3208008
+    max_latitude: 6.9151796
+    max_longitude: 81.3671493
+  translations:
+    en: Moneragala
+    de: Moneragala
+    es: Distrito de Moneragala
+    fa: ناحیه موناراگالا
+    fi: Moneragalan piirikunta
+    fr: Moneragala
+    hi: मोनरागल’ जिला
+    it: Distretto di Moneragala
+    ja: モナラーガラ県
+    ka: მონერაგალის ოლქი
+    ko: 모나라갈라 구
+    mr: मोनरागला जिल्हा
+    nl: Moneragala
+    ru: Монерагала
+    si: මොණරාගල දිස්ත්‍රික්කය
+    sv: Moneragala
+    ta: மொனராகலை மாவட்டம்
+    uk: Монерагала
+    ur: مونیراگالا ضلع
+    ceb: Moneragala District
+    ar: مديرية موناراغالا
+    zh: 莫訥勒格勒區
+    ccp: "𑄟𑄧𑄚𑄢𑄉𑄣"
+    id: Distrik Monaragala
+    ca: Districte de Monaragala
+    ml: മോണരാഗല ജില്ല
+    pl: Monaragala (dystrykt)
+  type: district
+'9':
+  name: සබරගමුව පළාත
+  code: '9'
+  translations:
+    bg: Сабарагамува
+    ca: Província de Sabaragamuwa
+    de: Sabaragamuwa
+    el: Σαμπαραγκαμούβα
+    en: Sabaragamuwa
+    es: Sabaragamuwa
+    fa: استان ساباراگامووا
+    fi: Sabaragamuwa
+    fr: Province de Sabaragamuwa
+    hi: सबरगमुवा प्रान्त
+    it: Sabaragamuwa
+    ja: サバラガムワ州
+    ka: საბარაგამუვის პროვინცია
+    ko: 사바라가무와 주
+    mr: सबरगमुवा प्रांत
+    nl: Sabaragamuwa
+    pl: Prowincja Sabaragamuwa
+    pt: Sabaragamuwa
+    ru: Сабарагамува
+    si: සබරගමුව පළාත
+    sv: Sabaragamuwa
+    ta: சப்பிரகமுவா மாகாணம்
+    uk: Сабарагамува
+    ur: سبراگموا علاقہ
+    ceb: Province of Sabaragamuwa
+    ar: مقاطعة ساباراغاموا (سريلانكا)
+    zh: 薩伯勒格穆沃省
+    ccp: "𑄥𑄝𑄢𑄇𑄴𑄟𑄪𑄤"
+    id: Provinsi Sabaragamuwa
+    bn: সাবরাগমুওয়া প্রদেশ
+    cy: Talaith Sabaragamuwa
+    he: מחוז סבראגמובה
+  type: province
+'91':
+  name: Ratnapura
+  code: '91'
+  unofficial_names:
+  - Ratnapūraya
+  geo:
+    latitude: 6.7081032
+    longitude: 80.3769999
+    min_latitude: 6.666312599999999
+    min_longitude: 80.3114319
+    max_latitude: 6.7672387
+    max_longitude: 80.4288483
+  translations:
+    en: Ratnapura
+    ar: مقاطعة راتنابورا
+    bn: রাতনাপুরা জেলা
+    da: Ratnapura district
+    de: Ratnapura (Distrikt)
+    el: Ρατναπούρα
+    es: Distrito de Ratnapura
+    fa: ناحیه راتناپورا
+    fi: Ratnapuran piirikunta
+    fr: Ratnapura
+    gu: રત્નાપુરા જિલ્લો
+    hi: रत्नपुर जिला
+    id: Distrik Ratnapura
+    it: Distretto di Ratnapura
+    ja: ラトゥナプラ県
+    ka: რატნაპურის ოლქი
+    kn: ರತ್ನಾಪುರ ಜಿಲ್ಲೆ
+    ko: 라트나푸라 구
+    mr: रत्नपुरा जिल्हा
+    ms: Ratnapura district
+    nb: Ratnapura distrikt
+    nl: Ratnapura (district)
+    pl: Dystrykt Ratnapura
+    pt: Distrito de Ratnapura
+    ru: Ратнапура
+    si: රත්නපුර දිස්ත් රික්කය
+    sv: Ratnapura
+    ta: இரத்தினபுரி மாவட்டம்
+    te: రత్నపుర జిల్లా
+    th: เขตรัทนาปุระ
+    tr: Ratnapura District
+    uk: Ратнапура
+    ur: رتناپورہ ضلع
+    vi: Quận Ratnapura
+    lv: Ratnapura distrikts
+    ceb: Ratnapura District
+    lt: Ratnapuros apskritis
+    zh: 拉特納普勒區
+    ccp: "𑄢𑄖𑄴𑄚𑄧𑄛𑄪𑄢𑄴"
+    'no': Ratnapura distrikt
+    ca: Ratnapura
+    ml: രത്നപുര ജില്ല
+  type: district
+'92':
+  name: Kegalla
+  code: '92'
+  unofficial_names:
+  - Kegalle
+  geo:
+    latitude: 7.251331700000001
+    longitude: 80.3463754
+    min_latitude: 7.242469799999999
+    min_longitude: 80.3318596
+    max_latitude: 7.264479499999999
+    max_longitude: 80.3595828
+  translations:
+    en: Kegalle
+    ar: مقاطعة كيغال
+    bn: কেগালে জেলা
+    da: Kegalle District
+    de: Kegalle (Distrikt)
+    el: Κεγκάλε
+    es: Distrito de Kegalle
+    fa: ناحیه کگاله
+    fi: Kegallen piirikunta
+    fr: Kegalle
+    gu: કેગલે જિલ્લો
+    hi: क़ेगल जिला
+    id: Distrik Kegalle
+    it: Distretto di Kegalle
+    ja: ケーガッラ県
+    ka: კეგალეს ოლქი
+    kn: ಕೇಗಲ್ ಜಿಲ್ಲೆ
+    ko: 케갈레 구
+    mr: केगल्ले जिल्हा
+    ms: Kegalle District
+    nb: Kegalle distrikt
+    nl: Kegalle (district)
+    pl: Dystrykt Kegalle
+    pt: Distrito de Kegalle
+    ru: Кегалле
+    si: කෑගල්ල පරිපාලන දිස්ත්‍රික්කය
+    sv: Kegalle (distrikt)
+    ta: கேகாலை மாவட்டம்
+    te: కెగాలె జిల్లా
+    th: เคเกลเล่
+    tr: Kegalle District
+    uk: Кегалле
+    ur: کاگال ضلع
+    vi: Quận Kegalle
+    lv: Kegalle distrikts
+    ceb: Kegalle District
+    lt: Kegaės apskritis
+    zh: 凱格勒區
+    ccp: "𑄇𑄨𑄉𑄣𑄨"
+    'no': Kegalle distrikt
+    ml: കെഗല്ലെ ജില്ല
+  type: district

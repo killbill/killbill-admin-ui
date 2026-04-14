@@ -1,0 +1,509 @@
+---
+'1':
+  name: Agadez
+  code: '1'
+  unofficial_names:
+  - Agadez
+  geo:
+    latitude: 16.966667
+    longitude: 7.983333
+    min_latitude: 16.948514
+    min_longitude: 7.9526987
+    max_latitude: 16.9894109
+    max_longitude: 8.0210101
+  translations:
+    en: Agadez
+    ar: منطقة أغاديس
+    bn: আগাডেজ অঞ্চল
+    ca: Agadez (regió)
+    da: Agadez (region)
+    de: Agadez
+    el: Αγκαντέζ
+    es: Región de Agadez
+    fi: Agadez (alue)
+    fr: Agadez
+    gu: અગાડેઝ પ્રદેશ
+    hi: अगाडेज़ क्षेत्र
+    hr: Agadez (regija)
+    id: Agadez (departemen)
+    it: regione di Agadez
+    ja: アガデス州
+    kn: ಅಗಡೆಜ್ ಪ್ರದೇಶ
+    ko: 아가데즈 주
+    mr: अगाडेझ प्रदेश
+    ms: Agadez (wilayah)
+    nb: Agadez (region)
+    nl: Agadez
+    pl: Agadez
+    pt: Agadez (região)
+    ro: Regiunea Agadez
+    ru: Агадес (регион)
+    si: අගඩෙස් කලාපය
+    sv: Agadez (region)
+    ta: ஆக்டேஸ் பகுதி
+    te: అగాడెజ్ ప్రాంతం
+    th: อะกาเดซ
+    tr: Agadez (Nijer bölgesi)
+    ur: اگادیز علاقہ
+    vi: Khu vực Agadez
+    zh: 阿加德兹大区
+    lv: Agadesas reģions
+    ceb: Agadez
+    lt: Agadezo regionas
+    ccp: "𑄃𑄉𑄓𑄬𑄌𑄴"
+    ka: აგადესის რეგიონი
+    ha: Yankin Agadez
+    uk: Регіон Агадес
+    ha_NE: Yankin Agadez
+    'no': Agadez (region)
+    fa: منطقه آگادز
+  type: region
+'2':
+  name: Diffa
+  code: '2'
+  unofficial_names:
+  - Diffa
+  geo:
+    latitude: 13.316667
+    longitude: 12.616667
+    min_latitude: 13.3027664
+    min_longitude: 12.6024342
+    max_latitude: 13.3314146
+    max_longitude: 12.6319599
+  translations:
+    en: Diffa
+    ar: منطقة ديفا
+    bn: ডিফা অঞ্চল
+    ca: Diffa
+    da: Diffa
+    de: Diffa
+    el: Ντίφα
+    es: Región de Diffa
+    fi: Diffa
+    fr: Diffa
+    gu: ડિફા પ્રદેશ
+    hi: डिफा क्षेत्र
+    hr: Diffa
+    id: Diffa
+    it: regione di Diffa
+    ja: ディファ州
+    kn: ಡಿಫಾ ಪ್ರದೇಶ
+    ko: 디파 주
+    mr: डिफ्फा प्रदेश
+    ms: Diffa
+    nb: Diffa
+    nl: Diffa
+    pl: Diffa
+    pt: Diffa
+    ro: Regiunea Diffa
+    ru: Диффа
+    si: ඩිෆ්ෆා කලාපය
+    sv: Diffa (region)
+    ta: டிப்பிபா பகுதி
+    te: డిఫా ప్రాంతం
+    th: ดิฟฟา
+    tr: Diffa
+    ur: دیفا علاقہ
+    vi: Khu vực Diffa
+    lv: Difas reģions
+    ceb: Diffa
+    lt: Difos regionas
+    zh: 迪法大区
+    ccp: "𑄓𑄨𑄜𑄳𑄦"
+    ka: დიფის რეგიონი
+    ha: Yankin Diffa
+    uk: Регіон Діффа
+    ha_NE: Yankin Diffa
+    'no': Diffa
+    fa: ناحیه دیفا
+  type: region
+'3':
+  name: Dosso
+  code: '3'
+  unofficial_names:
+  - Dosso
+  geo:
+    latitude: 13.05
+    longitude: 3.2
+    min_latitude: 13.0239105
+    min_longitude: 3.1782688
+    max_latitude: 13.0693243
+    max_longitude: 3.2271886
+  translations:
+    en: Dosso
+    ar: منطقة دوسو
+    bg: Досо (регион)
+    bn: ডসো অঞ্চল
+    ca: Dosso
+    da: Dosso
+    de: Dosso
+    el: Ντόσσο
+    es: Región de Dosso
+    fi: Dosso
+    fr: Dosso
+    gu: ડોસો પ્રદેશ
+    hi: डोसो क्षेत्र
+    hr: Dosso
+    id: Dosso
+    it: regione di Dosso
+    ja: ドッソ州
+    kn: ಡೋಸ್ಸೋ ಪ್ರದೇಶ
+    ko: 도소 주
+    mr: डोसो प्रदेश
+    ms: Dosso
+    nb: Dosso
+    nl: Dosso
+    pl: Dosso
+    pt: Dosso
+    ro: Regiunea Dosso
+    ru: Досо
+    si: දොස්සෝ කලාපය
+    sv: Dosso
+    ta: டொஸோ பகுதி
+    te: డోసో ప్రాంతం
+    th: ดอสโซ
+    tr: Dosso
+    ur: دوسو علاقہ
+    vi: Khu vực Dosso
+    lv: Doso reģions
+    ceb: Dosso Region
+    lt: Doso regionas
+    zh: 多索大区
+    ccp: "𑄓𑄮𑄥𑄮"
+    ka: დოსოს რეგიონი
+    ha: Yankin Dosso
+    uk: Регіон Досо
+    ha_NE: Yankin Dosso
+    'no': Dosso
+    fa: ناحیه دوسو
+  type: region
+'4':
+  name: Maradi
+  code: '4'
+  unofficial_names:
+  - Maradi
+  geo:
+    latitude: 13.483333
+    longitude: 7.1
+    min_latitude: 13.46399
+    min_longitude: 7.0772901
+    max_latitude: 13.5319182
+    max_longitude: 7.128497299999999
+  translations:
+    en: Maradi
+    ar: منطقة مارادي
+    bn: মারাডি অঞ্চল
+    ca: Maradi
+    da: Maradi
+    de: Maradi
+    el: Μαραντί
+    es: Región de Maradi
+    fi: Maradi
+    fr: Maradi
+    gu: મારાડી પ્રદેશ
+    hi: मराडी क्षेत्र
+    hr: Maradi
+    id: Maradi
+    it: regione di Maradi
+    ja: マラディ州
+    kn: ಮರಾದಿ ಪ್ರದೇಶ
+    ko: 마라디 주
+    mr: मारडी प्रदेश
+    ms: Maradi
+    nb: Maradi
+    nl: Maradi
+    pl: Maradi
+    pt: Maradi
+    ro: Regiunea Maradi
+    ru: Маради
+    si: මරදී කලාපය
+    sv: Maradi
+    ta: மாரடி பகுதி
+    te: మారాడీ ప్రాంతం
+    th: มาราดี
+    tr: Maradi
+    ur: مارادی علاقہ
+    vi: Khu vực Maradi
+    lv: Maradi reģions
+    ceb: Maradi
+    lt: Maradžio regionas
+    zh: 马拉迪大区
+    ccp: "𑄟𑄢𑄓𑄨"
+    ka: მარადის რეგიონი
+    ha: Yankin Maradi
+    uk: Мараді
+    ha_NE: Yankin Maradi
+    'no': Maradi
+    fa: ناحیه مارادی
+  type: region
+'5':
+  name: Tahoua
+  code: '5'
+  unofficial_names:
+  - Tahoua
+  geo:
+    latitude: 14.883333
+    longitude: 5.266667
+    min_latitude: 14.8680217
+    min_longitude: 5.241680100000001
+    max_latitude: 14.9285551
+    max_longitude: 5.2966928
+  translations:
+    en: Tahoua
+    ar: منطقة طاوة
+    bn: তাহোয়া অঞ্চল
+    ca: Tahoua
+    da: Tahoua
+    de: Tahoua
+    el: Ταχούα
+    es: Región de Tahoua
+    fi: Tahoua
+    fr: Tahoua
+    gu: તાહૌઆ પ્રદેશ
+    hi: ताहुआ प्रदेश
+    hr: Tahoua
+    id: Tahoua
+    it: regione di Tahoua
+    ja: タウア州
+    kn: ತಾಹೌ ಪ್ರದೇಶ
+    ko: 타우아 주
+    mr: टहौआ प्रदेश
+    ms: Daeah Tahoua
+    nb: Tahoua
+    nl: Tahoua
+    pl: Region Tahoua
+    pt: Tahoua
+    ro: Regiunea Tahoua
+    ru: Тахуа
+    si: ටාඔහුකලාපය ආ
+    sv: Tahoua
+    ta: டஹௌரா பகுதி
+    te: తహోవా ప్రాంతం
+    th: เขตทาโฮรัว
+    tr: Tahoua
+    ur: تاہؤا علاقہ
+    vi: Khu vực Tahoua
+    lv: Tahua reģions
+    ceb: Tahoua
+    lt: Tahovos regionas
+    zh: 塔瓦大区
+    ccp: "𑄑𑄦𑄪𑄠"
+    ka: ტაჰუის რეგიონი
+    ha: Yankin Tahoua
+    uk: Регіон Тахуа
+    ha_NE: Yankin Tahoua
+    'no': Tahoua
+    fa: ناحیه تاهوآ
+  type: region
+'6':
+  name: Tillabéri
+  code: '6'
+  unofficial_names:
+  - Tillaberi
+  geo:
+    latitude: 14.6489525
+    longitude: 2.1450245
+    min_latitude: 11.9016119
+    min_longitude: 0.16625
+    max_latitude: 15.7044501
+    max_longitude: 4.254564999999999
+  translations:
+    en: Tillabéri
+    ar: منطقة تيلابيري
+    bn: তিল্ল্যাবেরি অঞ্চল
+    ca: Tillabéri
+    da: Tillabéri
+    de: Tillabéri
+    el: Τιλαμπέρι
+    es: Región de Tillabéri
+    fi: Tillabéri
+    fr: Tillabéri
+    gu: ટિલાબેરી પ્રદેશ
+    hi: टिलाबेरी प्रदेश
+    hr: Tillabéri
+    id: Tillabéri
+    it: regione di Tillabéri
+    ja: ティラベリ州
+    kn: ಟಿಲ್ಲಬೆರಿ ಪ್ರದೇಶ
+    ko: 틸라베리 주
+    mr: तिलाबेरी प्रदेश
+    ms: Tillabéri
+    nb: Tillabéri
+    nl: Tillabéri
+    pl: Region Tillabéri
+    pt: Tillabéri
+    ro: Regiunea Tillabéri
+    ru: Тиллабери
+    si: ටිල්ලම්බෙරි කලාපය
+    sv: Tillaberi
+    ta: டில்லபெரி பகுதி
+    te: టిల్లాబెరి ప్రాంతం
+    th: เขตทีราเบรี
+    tr: Tillabéri
+    ur: تیلابےری علاقہ
+    vi: Khu vực Tillabéri
+    lv: Tilaberi reģions
+    ceb: Tillaberi Region
+    lt: Tilaberio regionas
+    zh: 蒂拉贝里大区
+    ccp: "𑄑𑄣𑄳𑄦𑄝𑄬𑄢𑄨"
+    ka: ტილაბერის რეგიონი
+    ha: Tillabéri
+    uk: Регіон Тіллабері
+    ha_NE: Tillabéri
+    'no': Tillabéri
+    fa: ناحیه تیلابری
+  type: region
+'7':
+  name: Zinder
+  code: '7'
+  unofficial_names:
+  - Zinder
+  geo:
+    latitude: 13.805278
+    longitude: 8.988332999999999
+    min_latitude: 13.7752561
+    min_longitude: 8.9602306
+    max_latitude: 13.8345383
+    max_longitude: 9.0148114
+  translations:
+    en: Zinder
+    ar: منطقة زيندر
+    bn: জিন্ডার অঞ্চল
+    da: Zinder
+    de: Zinder
+    el: Ζίντερ
+    es: Región de Zinder
+    fi: Zinder
+    fr: Zinder
+    gu: ઝિન્ડર પ્રદેશ
+    hi: जिन्डर क्षेत्र
+    hr: Zinder
+    id: Zinder
+    it: regione di Zinder
+    ja: ザンデール州
+    kn: ಝಿಂಡರ್ ಪ್ರದೇಶ
+    ko: 잔데르 주
+    mr: जिंडर प्रदेश
+    ms: Zinder
+    nb: Zinder
+    nl: Zinder
+    pl: Region Zinder
+    pt: Zinder
+    ro: Regiunea Zinder
+    ru: Зиндер
+    si: සින්ඩර් කලාපය
+    sv: Zinder
+    ta: சின்டெர் பகுதி
+    te: జిండర్ ప్రాంతం
+    th: เมืองอิโซลา
+    tr: Zinder (Nijer bölgesi)
+    ur: زندر علاقہ
+    vi: Khu vực Zinder
+    lv: Zinderas reģions
+    ceb: Zinder
+    lt: Zinderio regionas
+    zh: 津德尔大区
+    ccp: "𑄎𑄨𑄚𑄴𑄓𑄢𑄴"
+    ka: ზინდერის რეგიონი
+    ha: Yankin Zinder
+    uk: Зіндер
+    ha_NE: Yankin Zinder
+    'no': Zinder
+    ca: Zinder
+  type: region
+'8':
+  name: Niamey
+  code: '8'
+  unofficial_names:
+  - Niamey
+  geo:
+    latitude: 13.521389
+    longitude: 2.105278
+    min_latitude: 13.4461983
+    min_longitude: 2.0319587
+    max_latitude: 13.5793394
+    max_longitude: 2.2061066
+  translations:
+    en: Niamey
+    af: Niamey
+    am: ኒያሜ
+    ar: نيامي
+    az: Niamey
+    be: Горад Ніямей
+    bg: Ниамей
+    bn: নিয়ামে
+    ca: Niamey
+    cs: Niamey
+    da: Niamey
+    de: Niamey
+    el: Νιαμέυ
+    es: Niamey
+    et: Niamey
+    eu: Niamei
+    fa: نیامی
+    fi: Niamey
+    fr: Niamey
+    gl: Niamey
+    gu: નિઆમી
+    he: ניאמיי
+    hi: नियामी
+    hr: Niamey
+    hu: Niamey
+    hy: Նիամեյ
+    id: Niamey
+    is: Níamey
+    it: Niamey
+    ja: ニアメ
+    ka: ნიამეი
+    kn: ನಿಯಾಮೆ
+    ko: 니아메
+    lt: Niamėjus
+    lv: Niameja
+    mn: Ниамей
+    mr: नियामे
+    ms: Niamey
+    nb: Niamey
+    nl: Niamey
+    pl: Niamey
+    pt: Niamey
+    ro: Niamey
+    ru: Ниамей
+    si: නියාමේ
+    sk: Niamey
+    sl: Niamey
+    sr: Нијамеј
+    sv: Niamey
+    sw: Niamey
+    ta: நியாமி
+    te: నయామీ
+    th: นีอาเม
+    tk: Niameý
+    tr: Niamey
+    uk: Ніамей
+    ur: نیامی
+    vi: Niamey
+    cy: Niamey
+    ceb: Niamey (ulohang dakbayan)
+    sr_Latn: Nijamej
+    zh: 尼亞美
+    yue_Hans: 尼亚美
+    sq: Niamey
+    ccp: "𑄚𑄨𑄠𑄟𑄬"
+    ga: Niamey
+    ky: Ниамей
+    ha: Niamey
+    so: Niamey
+    pa: ਨਿਆਮੀ
+    kk: Ниамей
+    yue: 尼亞美
+    yo: Niamey
+    uz: Niamey
+    bs: Niamey
+    mk: Нијамеј
+    ha_NE: Niamey
+    'no': Niamey
+    yo_BJ: Niamey
+    ml: നയാമെ
+    ps: نیامی
+  type: urban_community

@@ -1,0 +1,350 @@
+---
+'01':
+  name: Ville de Kigali
+  code: '01'
+  unofficial_names:
+  - Ville de Kigali
+  geo:
+    latitude: -1.943889
+    longitude: 30.059444
+    min_latitude: -2.0237232
+    min_longitude: 30.0249481
+    max_latitude: -1.8858746
+    max_longitude: 30.1841457
+  translations:
+    en: Kigali
+    af: Kigali
+    am: ኪጋሊ
+    ar: كيغالي
+    az: Kiqali
+    be: Горад Кігалі
+    bg: Кигали
+    bn: কিগালি
+    ca: Kigali
+    cs: Kigali
+    da: Kigali
+    de: Kigali
+    el: Κιγκάλι
+    es: Kigali
+    et: Kigali
+    eu: Kigali
+    fa: کیگالی
+    fi: Kigali
+    fr: Kigali
+    gl: Kigali
+    gu: કિગાલી
+    he: קיגאלי
+    hi: किगाली
+    hr: Kigali
+    hu: Kigali
+    hy: Կիգալի
+    id: Kigali
+    is: Kígalí
+    it: Kigali
+    ja: キガリ
+    ka: კიგალი
+    kn: ಕಿಗಾಲಿ
+    ko: 키갈리
+    lt: Kigalis
+    lv: Kigali
+    mr: किगाली
+    ms: Kigali
+    nb: Kigali
+    nl: Kigali
+    pl: Kigali
+    pt: Kigali
+    ro: Kigali
+    ru: Кигали
+    si: කිගාලි
+    sk: Kigali
+    sl: Kigali
+    sr: Кигали
+    sv: Kigali
+    sw: Kigali
+    ta: கிகாலி
+    te: కిగాలీ
+    th: คิกาลี
+    tr: Kigali
+    uk: Кігалі
+    ur: کیگالی
+    vi: Kigali
+    zh: 吉佳利
+    cy: Kigali
+    ceb: Kigali
+    sr_Latn: Kigali
+    yue_Hans: 基加利
+    jv: Kigali
+    sq: Kigali
+    ccp: "𑄇𑄨𑄉𑄣𑄨"
+    ga: Kigali
+    ky: Кигали
+    ha: Kigali
+    so: Kigali
+    pa: ਕਿਗਾਲੀ
+    ml: കിഗാലി
+    yue: 基加利
+    yo: Kigali
+    uz: Kigali
+    bs: Kigali
+    mk: Кигали
+    ha_NE: Kigali
+    'no': Kigali
+    yo_BJ: Kigali
+    ps: کیګالی
+    zu: Kigali
+  type: city
+'02':
+  name: Est
+  code: '02'
+  unofficial_names:
+  - Est
+  geo:
+    latitude: -1.9174872
+    longitude: 30.4357631
+    min_latitude: -2.4370115
+    min_longitude: 29.957893
+    max_latitude: -1.0534809
+    max_longitude: 30.895958
+  translations:
+    en: Eastern
+    ar: المحافظة الشرقية، رواندا
+    bg: Източна провинция
+    bn: ইস্টার্ন প্রদেশ
+    ca: Província de l’Est
+    cs: Východní provincie
+    da: Eastern Province
+    de: Ostprovinz
+    el: Ανατολική Ρουάντα
+    es: Provincia del Este
+    et: Idaprovints
+    fa: استان شرقی
+    fi: Itäinen provinssi
+    fr: province de l’Est
+    gu: પૂર્વીય પ્રાંત
+    hi: पूर्वी प्रांत
+    hy: Արևելյան նահանգ
+    id: Provinsi Timur
+    it: provincia Orientale
+    ja: 東部州
+    ka: აღმოსავლეთი პროვინცია
+    kn: ಪೂರ್ವ ಪ್ರಾಂತ್ಯ ರುವಾಂಡ
+    ko: 동부 주
+    lt: Rytų provincija
+    mr: पूर्व प्रांत
+    ms: Eastern Province
+    nb: Vest provins
+    nl: Est
+    pl: Prowincja Wschodnia
+    pt: Província Oriental
+    ro: Provincia de Est
+    ru: Восточная провинция
+    si: නැගෙනහිර පළාත
+    sk: Intara y’Iburasirazuba
+    sv: Väst provins
+    ta: கிழக்கு மாகாணம்
+    te: తూర్పు ప్రావిన్స్
+    th: จังหัดอิสเทิร์น
+    tr: Doğu Eyaleti
+    uk: Східна провінція
+    ur: مشرقی صوبہ، روانڈا
+    vi: Tỉnh Miền Đông
+    lv: Austrumu province
+    ceb: Eastern Province
+    zh: 东部省
+    sw: Mkoa wa Mashariki
+    ccp: "𑄛𑄪𑄇𑄴𑄟𑄬𑄇𑄴𑄈𑄬"
+    mk: Источна покраина
+    'no': Vest provins
+    eu: Ekialdeko probintzia
+  type: province
+'03':
+  name: Nord
+  code: '03'
+  unofficial_names:
+  - Nord
+  geo:
+    latitude: -1.656166
+    longitude: 29.8815203
+    min_latitude: -1.9085041
+    min_longitude: 29.454336
+    max_latitude: -1.3148709
+    max_longitude: 30.274553
+  translations:
+    en: Northern
+    ar: المقاطعة الشمالية
+    bg: Северна провинция
+    bn: নর্দান প্রদেশ
+    cs: Severní provincie
+    da: Northern Province
+    de: Nordprovinz
+    el: Βόρεια Ρουάντα
+    es: Provincia Norte
+    et: Põhjaprovints
+    fa: استان شمالی
+    fi: Pohjoinen lääni
+    fr: province du Nord
+    gu: ઉત્તરીય પ્રાંત
+    hi: उत्तरी प्रांत
+    id: Provinsi Utara
+    it: provincia Settentrionale
+    ja: 北部州
+    ka: ჩრდილოეთი პროვინცია
+    kn: ಉತ್ತರ ಪ್ರಾಂತ್ಯ
+    ko: 북부 주
+    lt: Šiaurės provincija
+    mr: उत्तर प्रांत
+    ms: Northern Province
+    nb: Nord provins
+    nl: Nord
+    pl: Prowincja Północna
+    pt: Província do Norte
+    ro: Provincia de Nord
+    ru: Северная провинция
+    si: උතුරු පළාත
+    sk: Intara y’Amajyaruguru
+    sv: Nord provinsen
+    ta: வடக்கு மாகாணம்
+    te: ఉత్తర ప్రావిన్స్
+    th: นอร์ทเทิร์น โพรวิ้น
+    tr: Kuzey Eyaleti
+    uk: Північна провінція
+    ur: شمالی صوبہ، روانڈا
+    vi: Tỉnh Phía Bắc
+    lv: Ziemeļu province
+    ceb: Northern Province (lalawigan sa Rwanda)
+    zh: 北部省
+    sw: Mkoa wa Kaskazini
+    ccp: "𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄴𑄟𑄬𑄇𑄴𑄈𑄬"
+    ca: Província del Nord
+    mk: Северна покраина
+    'no': Nord provins
+    eu: Iparraldeko probintzia
+  type: province
+'04':
+  name: Ouest
+  code: '04'
+  unofficial_names:
+  - Ouest
+  geo:
+    latitude: -2.07649
+    longitude: 29.3250347
+    min_latitude: -2.749662
+    min_longitude: 28.856794
+    max_latitude: -1.501001
+    max_longitude: 29.671675
+  translations:
+    en: Western
+    ar: المحافظة الغربية
+    bg: Западна провинция
+    bn: ওয়েস্টার্ন প্রদেশ
+    cs: Západní provincie
+    da: Western Province
+    de: Westprovinz
+    el: Δυτική Ρουάντα
+    es: Provincia del Oeste
+    et: Lääneprovints
+    fa: استان غربی
+    fi: Western Province
+    fr: province de l’Ouest
+    gu: પશ્ચિમી પ્રાંત
+    hi: पश्चिमी प्रांत
+    id: Provinsi Barat, Rwanda
+    it: provincia Occidentale
+    ja: 西部州
+    ka: დასავლეთი პროვინცია
+    kn: ಪಶ್ಚಿಮ ಪ್ರಾಂತ್ಯ
+    ko: 서부 주
+    lt: Vakarų provincija
+    mr: पश्चिम प्रांत
+    ms: Western Province
+    nb: Vestlig provins
+    nl: Ouest
+    pl: Prowincja Zachodnia
+    pt: Oeste
+    ro: Provincia de Vest, Rwanda
+    ru: Западная провинция
+    si: බස්නාහිර පළාත
+    sk: Intara y’Iburengerazuba
+    sv: Västra Provinsen
+    ta: மேற்கு மாகாணம்
+    te: పశ్చిమ ప్రావిన్స్
+    th: เวสเทิร์น โพรวิ้น
+    tr: Batı Eyaleti
+    uk: Західна провінція
+    ur: مغربی صوبہ، روانڈا
+    vi: Tỉnh Phía Tây
+    lv: Rietumu province
+    ceb: Western Province
+    zh: 西部省
+    sw: Mkoa wa Magharibi
+    ccp: "𑄛𑄧𑄏𑄨𑄟𑄴𑄟𑄬𑄇𑄴𑄈𑄬"
+    ca: Província de l’Oest
+    mk: Западна покраина
+    'no': Vestlig provins
+    eu: Mendebaldeko probintzia
+  type: province
+'05':
+  name: Sud
+  code: '05'
+  unofficial_names:
+  - Sud
+  geo:
+    latitude: -2.5546618
+    longitude: 29.6035495
+    min_latitude: -2.840679
+    min_longitude: 29.26116
+    max_latitude: -1.7338349
+    max_longitude: 30.0145421
+  translations:
+    en: Southern
+    ar: المحافظة الجنوبية، رواندا
+    bg: Южна провинция
+    bn: সাউদার্ন প্রদেশ
+    cs: Jižní provincie
+    da: Sydlige
+    de: Südprovinz
+    el: Νότια Ρουάντα
+    es: Provincia Sur
+    et: Lõunaprovints
+    fa: استان جنوبی
+    fi: Eteläinen provinssi
+    fr: province du Sud
+    gu: દક્ષિણી પ્રાંત
+    hi: दक्षिणी प्रांत
+    hy: Հարավային նահանգ
+    id: Provinsi Selatan
+    it: provincia Meridionale
+    ja: 南部州
+    ka: სამხრეთი პროვინცია
+    kn: ದಕ್ಷಿಣ ಪ್ರಾಂತ್ಯ
+    ko: 남부 주
+    lt: Pietų provincija
+    mr: दक्षिणी प्रांत
+    ms: Southern Province
+    nb: sør provins
+    nl: Sud
+    pl: Prowincja Południowa
+    pt: Província do Sul
+    ro: Provincia de Sud
+    ru: Южная провинция
+    si: දකුණු පළාත
+    sk: Intara y’Amajyepfo
+    sv: Sydprovinsen
+    ta: தெற்கு மாகாணம்
+    te: దక్షిణ ప్రావిన్స్
+    th: จังหวัดเซาเธิร์น
+    tr: Güney Eyaleti
+    uk: Південна провінція
+    ur: جنوبی صوبہ، روانڈا
+    vi: Tỉnh Miền Nam
+    lv: Dienvidu province
+    ceb: Southern Province
+    zh: 南部省
+    sw: Mkoa wa Kusini
+    ccp: "𑄘𑄧𑄊𑄨𑄚𑄴𑄟𑄬𑄇𑄴𑄈𑄬"
+    ca: Província del Sud
+    mk: Јужна покраина
+    'no': sør provins
+    eu: Hegoaldeko probintzia
+    he: מחוז הדרום
+  type: province

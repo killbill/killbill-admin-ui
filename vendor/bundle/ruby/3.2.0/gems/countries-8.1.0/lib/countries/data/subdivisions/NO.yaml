@@ -1,0 +1,964 @@
+---
+'03':
+  name: Oslo
+  code: '03'
+  unofficial_names:
+  - Oslo
+  geo:
+    latitude: 59.9138688
+    longitude: 10.7522454
+    min_latitude: 59.8096749
+    min_longitude: 10.6225688
+    max_latitude: 59.978035
+    max_longitude: 10.9476642
+  translations:
+    af: Oslo
+    am: ኦስሎ
+    ar: أوسلو
+    az: Oslo
+    be: Осла
+    bg: Осло
+    bn: অসলো
+    ca: Oslo
+    cs: Oslo
+    da: Oslo
+    de: Oslo
+    el: Όσλο
+    en: Oslo
+    es: Oslo
+    et: Oslo
+    eu: Oslo
+    fa: اسلو
+    fi: Oslo
+    fr: Oslo
+    gl: Oslo
+    gu: ઓસ્લો
+    he: אוסלו
+    hi: ओस्लो
+    hr: Oslo
+    hu: Oslo
+    hy: Օսլո
+    id: Oslo
+    is: Osló
+    it: Oslo
+    ja: オスロ
+    ka: ოსლო
+    kn: ಓಸ್ಲೋ
+    ko: 오슬로
+    lt: Oslas
+    lv: Oslo
+    ml: ഓസ്ലൊ
+    mn: Осло
+    mr: ओस्लो
+    ms: Oslo
+    nb: Oslo
+    ne: ओस्लो
+    nl: Oslo
+    or: ଅସଲୋ
+    pl: Oslo
+    ps: اوسلو
+    pt: Oslo
+    ro: Oslo
+    ru: Осло
+    si: ඔස්ලෝ
+    sk: Oslo
+    sl: Oslo
+    sr: Осло
+    sv: Oslo
+    sw: Oslo
+    ta: ஒஸ்லோ
+    te: ఓస్లో
+    th: ออสโล
+    tk: Oslo
+    tr: Oslo
+    uk: Осло
+    ur: اوسلو
+    vi: Oslo
+    bs: Oslo
+    ccp: "𑄃𑄧𑄌𑄴𑄣𑄮"
+    ceb: Oslo
+    cy: Oslo
+    ga: Osló
+    ha: Oslo
+    ha_NE: Oslo
+    jv: Oslo
+    kk: Осло
+    ky: Осло
+    mk: Осло
+    my: အော့စလိုမြို့
+    'no': Oslo
+    pa: ਓਸਲੋ
+    so: Oslo
+    sq: Oslo
+    sr_Latn: Oslo
+    uz: Oslo
+    yo: Oslo
+    yo_BJ: Oslo
+    yue: 奧斯陸
+    yue_Hans: 奥斯陆
+    zh: 奥斯陆
+  type: county
+'11':
+  name: Rogaland
+  code: '11'
+  unofficial_names:
+  - Rogaland
+  geo:
+    latitude: 59.1489544
+    longitude: 6.0143431
+    min_latitude: 58.2776276
+    min_longitude: 4.844005999999999
+    max_latitude: 59.84433379999999
+    max_longitude: 7.2119667
+  translations:
+    ar: روغالاند
+    be: Ругалан
+    bg: Ругалан
+    ca: Rogaland
+    cs: Rogaland
+    da: Rogaland
+    de: Rogaland
+    en: Rogaland
+    es: Rogaland
+    et: Rogaland
+    eu: Rogaland
+    fa: روگالاند
+    fi: Rogalandin lääni
+    fr: comté de Rogaland
+    he: רוגלנד
+    hr: Rogaland
+    hu: Rogaland megye
+    hy: Ռուգլան
+    id: Rogaland
+    is: Rogaland
+    it: Rogaland
+    ja: ローガラン県
+    ka: რუგალანი
+    ko: 로갈란 주
+    lt: Rugalandas
+    lv: Rūgalanne
+    nb: Rogaland
+    nl: Rogaland
+    pl: Rogaland
+    pt: Rogaland
+    ro: Rogaland
+    ru: Ругаланн
+    sk: Rogaland
+    sl: Rogaland
+    sr: Рогаланд
+    sv: Rogaland fylke
+    sw: Rogaland
+    tr: Rogaland
+    uk: Руґалан
+    ur: روگالان
+    vi: Rogaland
+    az: Ruqalann
+    bs: Rogaland
+    ccp: "𑄢𑄧𑄉𑄣𑄳𑄠𑄚𑄳𑄓𑄴"
+    ceb: Rogaland Fylke
+    cy: Rogaland
+    el: Ρόγκαλαντ
+    mk: Ругалан
+    'no': Rogaland
+    ps: روګالاند
+    so: Rogaland
+    sq: Rogaland
+    sr_Latn: Rogaland
+    th: เทศมณฑลรูกาลัน
+    zh: 罗加兰郡
+  type: county
+'15':
+  name: Møre og Romsdal
+  code: '15'
+  unofficial_names:
+  - Møre og Romsdal
+  geo:
+    latitude: 62.9760369
+    longitude: 8.018272399999999
+    min_latitude: 61.9565835
+    min_longitude: 5.263584499999999
+    max_latitude: 63.5377568
+    max_longitude: 9.5842118
+  translations:
+    ar: موره ورومسدال
+    be: Мёрэ-ог-Румсдал
+    bg: Мьоре ог Ромсдал
+    ca: Møre og Romsdal
+    cs: Møre og Romsdal
+    da: Møre og Romsdal
+    de: Møre og Romsdal
+    en: Møre og Romsdal
+    es: Møre og Romsdal
+    et: Møre og Romsdal
+    eu: Møre og Romsdal
+    fa: مور او رومسدال
+    fi: Møren ja Romsdalin lääni
+    fr: Comté de Møre og Romsdal
+    hr: Møre og Romsdal
+    hu: Møre og Romsdal megye
+    id: Møre og Romsdal
+    is: Mæri og Raumsdalur
+    it: Møre og Romsdal
+    ja: ムーレ・オ・ロムスダール県
+    ka: მიორე-ოგ-რუმსდალი
+    ko: 뫼레오그롬스달 주
+    lt: Miorė ir Rumsdalis
+    lv: Mēre un Rumsdāle
+    nb: Møre og Romsdal
+    nl: Møre og Romsdal
+    pl: Møre og Romsdal
+    pt: Møre og Romsdal
+    ro: Møre og Romsdal
+    ru: Мёре-ог-Ромсдал
+    sk: Møre og Romsdal
+    sl: Møre og Romsdal
+    sr: Мере ог Ромсдал
+    sv: Møre og Romsdal fylke
+    sw: Møre og Romsdal
+    tr: Møre og Romsdal
+    uk: Мере-ог-Ромсдал
+    ur: مورہ او رومسدال
+    vi: Møre og Romsdal
+    bs: Møre og Romsdal
+    ccp: "𑄟𑄮𑄢𑄴 𑄃𑄮𑄇𑄴 𑄢𑄮𑄟𑄴𑄓𑄣𑄴"
+    ceb: Møre og Romsdal fylke
+    el: Μέρε ογκ Ρόμσνταλ
+    he: מרה ורומסדל
+    hi: मोर ओग रोंस्डल
+    hy: Մյորե օգ Ռոմսդալ
+    kk: Мёре-ог-Ромсдал
+    mk: Мере о Румсдал
+    'no': Møre og Romsdal
+    ps: موره او رومسدال
+    sq: Møre og Romsdal
+    sr_Latn: Mere og Romsdal
+    th: เทศมณฑลเมอเรอและรุมส์ดาล
+    zh: 默勒-鲁姆斯达尔郡
+  type: county
+'18':
+  name: Nordland
+  code: '18'
+  unofficial_names:
+  - Nordland
+  translations:
+    af: Nordland
+    ar: نورلان
+    be: Нурлан
+    bg: Норлан
+    bn: নর্ডল্যান্ড
+    ca: Nordland
+    cs: Nordland
+    da: Nordland
+    de: Nordland
+    el: Νόρντλαντ
+    en: Nordland
+    es: Nordland
+    et: Nordland
+    eu: Nordland
+    fa: نوردلند
+    fi: Nordlandin lääni
+    fr: comté de Nordland
+    gu: નોર્ડલેન્ડ
+    hi: नोर्डलैंड
+    hr: Nordland
+    hu: Nordland megye
+    hy: Նուռլան
+    id: Nordland
+    is: Norðurland
+    it: Nordland
+    ja: ヌールラン県
+    ka: ნურლანი
+    kn: ನಾರ್ಡ್ಲ್ಯಾಂಡ್
+    ko: 노를란 주
+    lt: Nordlandas
+    lv: Nūrlanne
+    mr: नोर्डंड
+    ms: Nordland
+    nb: Nordland
+    nl: Nordland
+    pl: Nordland
+    pt: Nordland
+    ro: Nordland
+    ru: Нурланн
+    si: නොර්ඩ්ලන්ඩ්
+    sk: Nordland
+    sl: Nordland
+    sr: Нордланд
+    sv: Nordland fylke
+    sw: Nordland
+    te: నార్డ్‌లాండ్
+    th: นอร์ดแลนด์
+    tr: Nordland
+    uk: Нурлан
+    ur: نودلان
+    vi: Nordland
+    az: Nurlann
+    bs: Nordland
+    ccp: "𑄚𑄧𑄢𑄴𑄓𑄴𑄣𑄳𑄠𑄚𑄳𑄓𑄴"
+    ceb: Nordland Fylke
+    cy: Norland
+    he: נורדלנד
+    mk: Нурлан
+    my: နို့ဒ်လန်းဒ်
+    'no': Nordland
+    ps: نوردلاند
+    sq: Nordland
+    sr_Latn: Nordland
+    yue: 諾蘭郡
+    yue_Hans: 诺兰郡
+    zh: 诺尔兰郡
+  geo:
+    latitude: 67.69167019999999
+    longitude: 12.7019476
+  type: county
+'21':
+  name: Svalbard (Arctic Region)
+  unofficial_names:
+  - Svalbard (Arctic Region)
+  translations:
+    af: Svalbard
+    ar: سفالبارد
+    az: Şpisbergen
+    be: Шпіцберген
+    bg: Шпицберген
+    bn: স্বালবার্ড
+    ca: Svalbard
+    cs: Špicberky
+    da: Svalbard
+    de: Spitzbergen
+    el: Αρχιπέλαγος Σβάλμπαρντ
+    en: Svalbard
+    es: Svalbard
+    et: Svalbard
+    eu: Svalbard
+    fa: سوالبارد
+    fi: Huippuvuoret
+    fr: Svalbard
+    gl: Svalbard
+    gu: સ્વાલબાર્ડ
+    he: סבאלברד
+    hi: स्वालबार्ड
+    hr: Svalbard
+    hu: Spitzbergák
+    hy: Շպիցբերգեն
+    id: Svalbard
+    is: Svalbarði
+    it: Isole Svalbard
+    ja: スヴァールバル諸島
+    ka: შპიცბერგენი
+    kn: ಸ್ವಾಲ್ಬಾರ್ಡ್
+    ko: 스발바르 제도
+    lt: Svalbardas
+    lv: Svalbāra
+    ml: സ്വാൽബാർഡ്
+    mr: स्वालबार्ड
+    ms: Svalbard
+    nb: Svalbard
+    nl: Spitsbergen
+    pl: Svalbard
+    pt: Svalbard
+    ro: Svalbard
+    ru: Шпицберген
+    si: ස්වාල්බාඩ්
+    sk: Svalbard
+    sl: Spitsbergi
+    sr: Свалбард
+    sv: Svalbard
+    sw: Svalbard
+    ta: சுவல்பார்டு
+    te: స్వాల్బార్డ్
+    th: สฟาลบาร์
+    tr: Svalbard
+    uk: Шпіцберген
+    ur: سوالبارد
+    vi: Svalbard
+    am: ስቫልባር
+    bs: Svalbard
+    ccp: "𑄞𑄣𑄴𑄝𑄢𑄴𑄓𑄴"
+    ceb: Svalbard (dapit sa Svalbard and Jan Mayen)
+    cy: Svalbard
+    ga: Oileánra Svalbard
+    jv: Svalbard
+    kk: Суалбард
+    ky: Шпицберген
+    mk: Шпицбершки Острови
+    'no': Svalbard
+    ps: سوالبرد
+    sq: Svalbard
+    sr_Latn: Svalbard
+    uz: Shpitsbergen
+    yo: Svalbard
+    yo_BJ: Svalbard
+    yue: 斯瓦爾巴群島
+    yue_Hans: 斯瓦尔巴群岛
+    zh: 斯瓦尔巴群岛
+  comments: See also country code SJ
+  code: '21'
+  type: arctic_region
+'22':
+  name: Jan Mayen (Arctic Region)
+  unofficial_names:
+  - Jan Mayen (Arctic Region)
+  translations:
+    af: Jan Mayen
+    ar: جان ماين
+    be: Востраў Ян-Маен
+    bg: Ян Майен
+    ca: Jan Mayen
+    cs: Jan Mayen
+    da: Jan Mayen
+    de: Jan Mayen
+    el: Γιαν Μαγιέν
+    en: Jan Mayen
+    es: Jan Mayen
+    et: Jan Mayen
+    eu: Jan Mayen
+    fa: یان ماین
+    fi: Jan Mayen
+    fr: Jan Mayen
+    gl: Jan Mayen
+    he: יאן מאיין
+    hi: यान मायेन
+    hr: Jan Mayen
+    hu: Jan Mayen-sziget
+    hy: Յան Մայեն
+    id: Jan Mayen
+    is: Jan Mayen
+    it: Jan Mayen
+    ja: ヤンマイエン島
+    ka: იან-მაიენი
+    ko: 얀마옌 섬
+    lt: Jan Majenas
+    lv: Jana Majena sala
+    mn: Ян-Майен
+    mr: यान मायेन
+    ms: Jan Mayen
+    nb: Jan Mayen
+    nl: Jan Mayen
+    pl: Jan Mayen
+    pt: Jan Mayen
+    ro: Insula Jan Mayen
+    ru: Ян-Майен
+    sk: Jan Mayen
+    sl: Jan Mayen
+    sr: Јан Мајен
+    sv: Jan Mayen
+    sw: Jan Mayen
+    ta: ஜான் மாயென்
+    th: ยานไมเอน
+    tr: Jan Mayen
+    uk: Ян-Маєн
+    ur: جان ماین
+    vi: Jan Mayen
+    az: Yan Mayen
+    bn: ইয়ান মায়েন
+    bs: Jan Majen
+    ccp: "𑄎𑄚𑄴 𑄟𑄬𑄠𑄬𑄚𑄴"
+    ceb: Jan Mayen
+    cy: Jan Mayen
+    ga: Jan Mayen
+    jv: Jan Mayen
+    kk: Ян-Майен
+    ky: Ян-Майен
+    mk: Јан Мајен
+    'no': Jan Mayen
+    sq: Jan Mayen
+    sr_Latn: Jan Majen
+    yo: Jan Mayen
+    yo_BJ: Jan Mayen
+    yue: 揚馬延島
+    yue_Hans: 扬马延岛
+    zh: 揚馬延島
+  comments: See also country code SJ
+  code: '22'
+  type: arctic_region
+'30':
+  name: Viken
+  translations:
+    ast: Viken
+    be-tarask: Вікен
+    ca: Viken (comtat)
+    cs: Viken
+    da: Viken
+    de: Viken
+    el: Βίκεν
+    en: Viken
+    es: Provincia de Viken
+    et: Vikeni maakond
+    fi: Vikenin fylke
+    fr: Viken
+    he: ויקן
+    is: Viken
+    it: Viken
+    ja: ヴィッケン県
+    ko: 비켄주
+    nb: Viken
+    nl: Viken
+    nn: Viken fylke
+    sgs: Viken
+    sk: Viken
+    sv: Viken
+    th: เทศมณฑลวีเกิน
+    uk: Вікен
+    zh: 維肯郡
+    ar: فيكن
+    fa: وایکن کانتی
+    pl: Viken
+    pt: Viken (condado)
+    ru: Викен
+    tr: Viken
+  code: '30'
+  type: county
+'34':
+  name: Innlandet
+  translations:
+    aa: Innlandet
+    af: Innlandet
+    ak: Innlandet
+    aln: Innlandet
+    an: Innlandet
+    ang: Innlandet
+    arn: Innlandet
+    ast: Innlandet
+    ay: Innlandet
+    az: Innlandet
+    bar: Innlandet
+    bcl: Innlandet
+    bi: Innlandet
+    bjn: Innlandet
+    bm: Innlandet
+    br: Innlandet
+    brh: Innlandet
+    bs: Innlandet
+    ca: Innlandet
+    cbk-zam: Innlandet
+    cdo: Innlandet
+    ceb: Innlandet
+    ch: Innlandet
+    cho: Innlandet
+    chr: Innlandet
+    chy: Innlandet
+    co: Innlandet
+    cr: Innlandet
+    crh-latn: Innlandet
+    cs: Innlandet
+    csb: Innlandet
+    cy: Innlandet
+    da: Innlandet
+    de: Innlandet
+    de-at: Innlandet
+    de-ch: Innlandet
+    diq: Innlandet
+    dsb: Innlandet
+    dtp: Innlandet
+    ee: Innlandet
+    eml: Innlandet
+    en: Innlandet
+    en-ca: Innlandet
+    en-gb: Innlandet
+    eo: Innlandet
+    es: Innlandet
+    et: Innlandet
+    eu: Innlandet
+    ext: Innlandet
+    ff: Innlandet
+    fi: Innlandet
+    fit: Innlandet
+    fj: Innlandet
+    fo: Innlandet
+    fr: Innlandet
+    frp: Innlandet
+    frr: Innlandet
+    fur: Innlandet
+    fy: Innlandet
+    ga: Innlandet
+    gag: Innlandet
+    gd: Innlandet
+    gl: Innlandet
+    gn: Innlandet
+    got: Innlandet
+    gsw: Innlandet
+    ha: Innlandet
+    hak: Innlandet
+    haw: Innlandet
+    he: ינלנה
+    hif-latn: Innlandet
+    ho: Innlandet
+    hr: Innlandet
+    hsb: Innlandet
+    ht: Innlandet
+    hu: Innlandet
+    hy: Թեդի Պակ
+    hz: Innlandet
+    ia: Innlandet
+    id: Innlandet
+    ie: Innlandet
+    ig: Innlandet
+    ik: Innlandet
+    ike-latn: Innlandet
+    ilo: Innlandet
+    io: Innlandet
+    is: Innlandet
+    it: Innlandet
+    iu: Innlandet
+    ja: インラント県
+    jam: Innlandet
+    jbo: Innlandet
+    jv: Innlandet
+    kaa: Innlandet
+    kab: Innlandet
+    kg: Innlandet
+    ki: Innlandet
+    kj: Innlandet
+    kk-latn: Innlandet
+    kk-tr: Innlandet
+    kl: Innlandet
+    ko: 인란데주
+    kr: Innlandet
+    krj: Innlandet
+    ksh: Innlandet
+    ku: Innlandet
+    la: Innlandet
+    lad: Innlandet
+    lb: Innlandet
+    lfn: Innlandet
+    li: Innlandet
+    lij: Innlandet
+    lmo: Innlandet
+    ln: Innlandet
+    loz: Innlandet
+    lt: Innlandet
+    ltg: Innlandet
+    lus: Innlandet
+    lv: Innlandet
+    lzz: Innlandet
+    map-bms: Innlandet
+    mi: Innlandet
+    min: Innlandet
+    ms: Innlandet
+    mt: Innlandet
+    mus: Innlandet
+    mwl: Innlandet
+    na: Innlandet
+    nah: Innlandet
+    nap: Innlandet
+    nb: Innlandet
+    nds: Innlandet
+    nds-nl: Innlandet
+    ng: Innlandet
+    nl: Innlandet
+    nn: Innlandet
+    nov: Innlandet
+    nrm: Innlandet
+    nso: Innlandet
+    nv: Innlandet
+    ny: Innlandet
+    oc: Innlandet
+    om: Innlandet
+    pag: Innlandet
+    pam: Innlandet
+    pcd: Innlandet
+    pdc: Innlandet
+    pdt: Innlandet
+    pfl: Innlandet
+    pih: Innlandet
+    pl: Innlandet
+    pms: Innlandet
+    prg: Innlandet
+    ps: اينلانه
+    pt: Innlandet
+    pt-br: Innlandet
+    qu: Innlandet
+    qug: Innlandet
+    rif: Innlandet
+    rm: Innlandet
+    rmy: Innlandet
+    rn: Innlandet
+    ro: Innlandet
+    roa-tara: Innlandet
+    ru: Иннландет
+    rup: Innlandet
+    ruq-latn: Innlandet
+    rw: Innlandet
+    sat: Innlandet
+    sc: Innlandet
+    scn: Innlandet
+    sco: Innlandet
+    sdc: Innlandet
+    se: Innlandet
+    sei: Innlandet
+    sg: Innlandet
+    sgs: Innlandet
+    sh: Innlandet
+    shi-latn: Innlandet
+    sk: Innlandet
+    sl: Innlandet
+    sli: Innlandet
+    sm: Innlandet
+    sma: Innlandet
+    sn: Innlandet
+    so: Innlandet
+    sq: Innlandet
+    sr-el: Innlandet
+    srn: Innlandet
+    st: Innlandet
+    stq: Innlandet
+    sv: Innlandet
+    sw: Innlandet
+    szl: Innlandet
+    tet: Innlandet
+    tg-latn: Innlandet
+    th: เทศมณฑลอินลันเนอ
+    tk: Innlandet
+    tl: Innlandet
+    tn: Innlandet
+    to: Innlandet
+    tpi: Innlandet
+    tr: Innlandet
+    tru: Innlandet
+    ts: Innlandet
+    tt-latn: Innlandet
+    tum: Innlandet
+    ty: Innlandet
+    ug-latn: Innlandet
+    uk: Іннланне
+    uz: Innlandet
+    ve: Innlandet
+    vec: Innlandet
+    vep: Innlandet
+    vi: Innlandet
+    vls: Innlandet
+    vmf: Innlandet
+    vo: Innlandet
+    vot: Innlandet
+    wa: Innlandet
+    war: Innlandet
+    wo: Innlandet
+    xh: Innlandet
+    yo: Innlandet
+    za: Innlandet
+    zea: Innlandet
+    zh: 內陸郡
+    zu: Innlandet
+    ar: إينلاندت
+    el: Ίνλαντετ
+    fa: اینلاندت
+    ha_NE: Innlandet
+    yo_BJ: Innlandet
+  code: '34'
+  type: county
+'38':
+  name: Vestfold og Telemark
+  translations:
+    ast: Vestfold og Telemark
+    cs: Vestfold og Telemark
+    da: Vestfold og Telemark
+    de: Vestfold og Telemark
+    de-ch: Vestfold og Telemark
+    el: Βέστφολντ ογκ Τέλεμαρκ
+    en: Vestfold og Telemark
+    en-ca: Vestfold og Telemark
+    en-gb: Vestfold og Telemark
+    es: Provincia de Vestfold og Telemark
+    et: Vestfold og Telemargi maakond
+    fr: Vestfold og Telemark
+    he: וסטפול וטלמרק
+    is: Vestfold og Þelamörk
+    it: Vestfold og Telemark
+    ja: ヴェストフォル・オ・テレマルク県
+    ko: 베스트폴오그텔레마르크주
+    nb: Vestfold og Telemark
+    nl: Vestfold og Telemark
+    nn: Vestfold og Telemark fylke
+    pt: Vestfold og Telemark
+    sv: Vestfold og Telemark
+    th: เทศมณฑลเว็สต์ฟ็อลและเทเลอมาร์ก
+    uk: Вестфолд-ог-Телемарк
+    zh: 西福尔-泰勒马克郡
+    ca: Vestfold og Telemark
+    fa: وستفولد اوگ تلمارک
+    pl: Vestfold og Telemark
+    ro: Vestfold og Telemark
+    ru: Вестфолл-ог-Телемарк
+    tr: Vestfold og Telemark
+  code: '38'
+  type: county
+'42':
+  name: Agder
+  translations:
+    af: Agder
+    ast: Agder
+    br: Agder
+    cs: Agder
+    da: Agder
+    de: Agder
+    el: Άγκντερ
+    en: Agder
+    es: Reino de Agder
+    et: Agder
+    fi: Agder
+    fr: Agder
+    fy: Agder
+    he: אגדר
+    hy: Ագդեր
+    is: Agðir
+    it: Agder
+    ja: アグデル
+    ko: 아그데르주
+    lb: Agder
+    nb: Agder
+    nds: Agder
+    nds-nl: Agder
+    nl: Agder
+    nn: Agder
+    pl: Agder
+    pnb: اگدر
+    sv: Agder
+    ta: அக்டர்
+    th: เทศมณฑลอักเดอร์
+    uk: Агдер
+    zh: 阿格德爾
+    ca: Agder
+    fa: اگدر
+    pt: Agder
+    ro: Agder
+    tr: Agder
+  code: '42'
+  type: county
+'46':
+  name: Vestland
+  translations:
+    af: Vestland
+    ast: Vestland
+    ca: Vestland
+    cs: Vestland
+    da: Vestland
+    de: Vestland
+    en: Vestland
+    es: Provincia de Vestland"
+    fa: وستلند
+    fr: Vestland
+    he: וסטלן
+    is: Vesturland (fylki í Noregi)
+    it: Vestland
+    ja: ヴェストラン県
+    ko: 베스트란주
+    nb: Vestland
+    nl: Vestland
+    nn: Vestland fylke
+    pl: Vestland
+    pt: Vestland
+    ru: Вестланн
+    sv: Vestland
+    th: เทศมณฑลเว็สต์ลัน
+    uk: Вестланн
+    zh: 韋斯特蘭郡
+    ar: فيستلاند (مقاطعة)
+    el: Βέστλαντ
+    tr: Vestland
+  code: '46'
+  type: county
+'50':
+  name: Trøndelag
+  translations:
+    ang: Þrondham
+    ar: تروندلاغ
+    ast: Trøndelag
+    azb: تروندلاق
+    be: Рэгіён Трондэлаг
+    ca: Trøndelag
+    cs: Trøndelag
+    da: Trøndelag
+    de: Trøndelag
+    diq: Trøndelag
+    el: Τρόντελαγκ
+    en: Trøndelag
+    eo: Trøndelag
+    es: Trøndelag
+    et: Trøndelag
+    fa: تروندلاگ
+    fi: Trøndelagin fylke
+    fo: Trøndelag fylki
+    fr: Trøndelag
+    fy: Trøndelag
+    he: נורבגיה התיכונה
+    hu: Trøndelag
+    hy: Տրյոնդելագ
+    is: Þrændalög
+    it: Trøndelag
+    ja: トロンデラーグ
+    ka: ტრიონდელაგი
+    ko: 트뢰넬라그
+    li: Trøndelag
+    lt: Triondelagas
+    lv: Trendelāga
+    mk: Тренделаг
+    nb: Trøndelag
+    nl: Trøndelag
+    nn: Trøndelag
+    os: Централон Норвеги
+    pl: Trøndelag
+    pt: Trøndelag
+    ro: Trøndelag
+    ru: Трёнделаг
+    se: Trøndelága
+    sk: Trøndelag
+    sl: Trøndelag
+    sma: Trööndelage
+    sq: Trøndelag
+    sv: Trøndelag
+    th: เทศมณฑลเทรินเดอลาก
+    tr: Trøndelag
+    tt: Трөнделаг
+    uk: Треннелаг
+    ur: تروندیلاگ
+    zh: 特倫德拉格
+    zh-cn: 特伦德拉格
+    zh-hans: 特伦德拉格
+    zh-hant: 特倫德拉格
+    zh-hk: 特倫德拉格
+    zh-sg: 特伦德拉格
+    zh-tw: 特倫德拉格
+    id: Trøndelag
+  code: '50'
+  type: county
+'54':
+  name: Troms og Finnmark
+  translations:
+    ast: Troms og Finnmark
+    cs: Troms a Finnmark
+    da: Troms og Finnmark
+    de: Troms og Finnmark
+    de-ch: Troms og Finnmark
+    el: Τρομς ογκ Φίνμαρκ
+    en: Troms og Finnmark fylke
+    en-ca: Troms og Finnmark
+    en-gb: Troms og Finnmark
+    es: Provincia de Troms y Finnmark
+    et: Troms og Finnmargi maakond
+    fi: Tromssan ja Finnmarkin lääni
+    fkv: Tromssa ja Finmarkku
+    fr: Comté de Troms et Finnmark
+    he: טרומס ופינמרק
+    hu: Troms og Finnmark
+    is: Troms og Finnmörk
+    it: Troms og Finnmark
+    ja: トロムス・オ・フィンマルク県
+    ko: 트롬스오그핀마르크주
+    nb: Troms og Finnmark
+    nl: Troms og Finnmark
+    nn: Troms og Finnmark
+    pl: Troms og Finnmark
+    pt: Troms og Finnmark
+    ru: Тромс и Финнмарк
+    se: Romsa ja Finnmárku
+    sv: Troms og Finnmark
+    th: เทศมณฑลทรุมส์และฟินมาร์ก
+    uk: Тромс-ог-Фіннмарк
+    zh: 特罗姆斯-芬马克郡
+    ar: ترومس أوغ فينمارك
+    ca: Troms og Finnmark
+    fa: ترومس اوگ فینمارک
+    tr: Troms og Finnmark
+  code: '54'
+  type: county

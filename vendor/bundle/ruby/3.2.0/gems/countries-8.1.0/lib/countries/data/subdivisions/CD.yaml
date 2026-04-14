@@ -1,0 +1,1080 @@
+---
+BC:
+  name: Bas-Congo
+  code: BC
+  unofficial_names:
+  - Bas-Zaire
+  geo:
+    latitude: -5.2365685
+    longitude: 13.914399
+    min_latitude: -6.0573001
+    min_longitude: 12.206631
+    max_latitude: -4.279237999999999
+    max_longitude: 16.2585949
+  translations:
+    en: Bas-Congo
+    ar: الكونغو الوسطى
+    be: Правінцыя Цэнтральнае Конга
+    bg: Централно Конго
+    bn: বাস-কঙ্গো
+    cs: Kongo Central
+    da: Bas-Congo province
+    de: Kongo Central
+    el: Μπας-Κονγκό
+    es: Bajo Congo
+    et: Kesk-Kongo provints
+    fi: Keski-Kongo
+    fr: Bas-Congo
+    gu: બાસ-કોંગો પ્રાંત
+    he: קונגו סנטרל
+    hi: बा-कोंगो प्रान्त
+    hu: Alsó-Kongó
+    id: Kongo Central
+    it: provincia del Basso Congo
+    ja: コンゴ中央州
+    ka: ცენტრალური კონგოს პროვინცია
+    kn: ಬಾಸ್-ಕಾಂಗೋ ಪ್ರಾಂತ್ಯ
+    ko: 바콩고 주
+    lt: Žemutinis Kongas
+    mr: बस-कांगो प्रांत
+    ms: Bas-Congo province
+    nb: Bas-Congo
+    nl: Kongo-Central
+    pl: Kongo Środkowe
+    pt: Congo Central
+    ro: Provincia Kongo Central
+    ru: Нижнее Конго
+    si: බස්-කොංගෝ පළාත
+    sk: Bas-Congo
+    sv: Kongo-Central
+    ta: பஸோ -காங்கோ மாகாணம்
+    te: బాస్-కాంగో ప్రావిన్స్
+    th: จังหวัดบาสคองโก
+    tr: Bas-Congo
+    uk: Нижнє Конго
+    ur: زیریں-کانگو
+    vi: Bas-Congo
+    zh: 下刚果省
+    lv: Centrālās Kongo province
+    ceb: Province du Bas-Congo
+    fa: کنگو مرکزی
+    ccp: "𑄝𑄌𑄴-𑄇𑄧𑄚𑄴𑄉𑄮"
+    hy: Ներքին Կոնգո
+    ca: Província del Baix Congo
+    mk: Долно Конго
+    'no': Bas-Congo
+    cy: Rhanbarth Bas-Congo
+    eu: Kongo-Central
+    sw: Mkoa wa Kongo Kati
+    yue: 中剛果省
+    yue_Hans: 中刚果省
+    zu: Kongo Central
+  type: province
+BU:
+  name: Bas-Uele
+  code: BU
+  translations:
+    be: Правінцыя Ніжняе Уэле
+    bg: Ба Уеле
+    de: Bas-Uele
+    en: Bas-Uélé
+    es: Bajo Uele
+    fi: Ala-Uele
+    fr: Bas-Uele
+    hu: Alsó-Uele tartomány
+    it: Provincia del Basso Uele
+    ja: 低ウエレ州
+    ka: ქვემო უელე
+    ko: 바스우엘레 주
+    nb: Bas-Uele
+    nl: Bas-Uele
+    pl: Dolne Uele
+    pt: Bas-Uele
+    ro: Provincia Bas-Uele
+    ru: Нижнее Уэле
+    sv: Bas-Uele
+    sw: Mkoa wa Wele Chini
+    uk: Нижнє Уеле
+    ceb: Bas Uele
+    zh: 下韦莱省
+    ccp: "𑄝𑄌𑄴-𑄃𑄪𑄠𑄬𑄣𑄬"
+    he: מחוז אואלה תחתית
+    'no': Bas-Uele
+    id: Provinsi Bas-Uélé
+  type: province
+EQ:
+  name: Équateur
+  code: EQ
+  unofficial_names:
+  - Équateur
+  geo:
+    latitude: 0.5640035999999999
+    longitude: 20.3308814
+    min_latitude: -2.529217
+    min_longitude: 16.5381639
+    max_latitude: 5.14574
+    max_longitude: 24.4267169
+  translations:
+    en: Équateur
+    ar: إكواتور
+    be: Экватарыяльная правінцыя
+    bg: Екваториална провинция
+    bn: ইকুয়েটর
+    ca: Equador (República Democràtica del Congo)
+    da: Équateur
+    de: Équateur
+    el: Εκουατόρ
+    es: Équateur
+    fi: Équateur
+    fr: Équateur
+    gu: એક્વાટેયર
+    hi: इक्वेट्योर
+    hu: Egyenlítői tartomány (2009)
+    id: Équateur
+    it: Provincia dell’Equatore
+    ja: 赤道州
+    ka: ეკვატორიალური პროვინცია
+    kn: ಎಕ್ವಚುರ್
+    ko: 에카퇴르 주
+    mr: एक्वातेवर
+    ms: Equateur
+    nb: Équateur (provins)
+    nl: Équateur
+    pl: Prowincja Równikowa
+    pt: Équateur
+    ro: Provincia Équateur
+    ru: Экваториальная провинция
+    si: ඉක්වටියුර්
+    sv: Équateur
+    sw: Mkoa wa Équateur
+    ta: ஏகுட்டேயூர்
+    te: ఈక్వేటర్
+    th: อเควเตอร์
+    tr: Equateur
+    ur: یقواتیور
+    vi: Equateur
+    lv: Ekvators
+    lt: Ekvatorius
+    zh: 赤道省
+    fa: ایکواته
+    ccp: "𑄃𑄨𑄇𑄱𑄑𑄬𑄅𑄪𑄢𑄴"
+    uk: Екватор (Екваторіальна провінція)
+    'no': Équateur (provins)
+    cy: Talaith Équateur
+    he: מחוז אקווטור
+  type: province
+HK:
+  name: Haut-Katanga
+  code: HK
+  translations:
+    be: Правінцыя Верхняя Катанга
+    bg: О Катанга
+    ca: Província d’Alt Katanga
+    de: Haut-Katanga
+    en: Haut-Katanga
+    es: Alto Katanga
+    fi: Ylä-Katanga
+    fr: Haut-Katanga
+    hu: Felső-Katanga tartomány
+    it: Provincia dell’Alto Katanga
+    ja: 上カタンガ州
+    ka: ზემო კატანგის პროვინცია
+    ko: 오트카탕가 주
+    nb: Haut-Katanga
+    nl: Haut-Katanga
+    pl: Górna Katanga
+    pt: Haut-Katanga
+    ro: Provincia Haut-Katanga
+    ru: Верхняя Катанга
+    sv: Haut-Katanga
+    sw: Mkoa wa Katanga Juu
+    uk: Верхня Катанга
+    ceb: Haut Katanga
+    zh: 上加丹加省
+    ccp: "𑄦𑄖𑄴-𑄇𑄑𑄁𑄉"
+    hy: Վերին Կատանգա
+    'no': Haut-Katanga
+    cy: Talaith Haut-Katanga
+    eu: Haut-Katanga
+    fa: استان هاوت-کاتانگا
+    id: Provinsi Haut-Katanga
+  type: province
+HL:
+  name: Haut-Lomami
+  code: HL
+  translations:
+    be: Правінцыя Верхняе Ламамі
+    bg: О Ломами
+    de: Haut-Lomami
+    en: Haut-Lomami
+    es: Alto Lomami
+    fi: Ylä-Lomami
+    fr: Haut-Lomami
+    hu: Felső-Lomami tartomány
+    it: Provincia dell’Alto Lomami
+    ja: 上ロマミ州
+    ka: ზემო ლომამის პროვინცია
+    ko: 오트로마미 주
+    nb: Haut-Lomami
+    nl: Haut-Lomami
+    pl: Górne Lomami
+    pt: Haut-Lomami
+    ro: Provincia Haut-Lomami
+    ru: Верхнее Ломами
+    sv: Haut-Lomami
+    sw: Mkoa wa Lomami Juu
+    uk: Верхнє Ломамі
+    ceb: Haut Lomami
+    zh: 上洛马米省
+    ccp: "𑄦𑄖𑄴-𑄣𑄧𑄟𑄟𑄨"
+    hy: Վերին Լոմամի
+    'no': Haut-Lomami
+    ar: أوت لومامي
+    fa: هاوت لومامی
+    id: Provinsi Haut-Lomami
+  type: province
+HU:
+  name: Haut-Uele
+  code: HU
+  translations:
+    be: Правінцыя Верхняе Уэле
+    bg: О Уеле
+    de: Haut-Uele
+    en: Haut-Uélé
+    es: Alto Uele
+    fi: Ylä-Uele
+    fr: Haut-Uele
+    hu: Felső-Uele tartomány
+    it: Haut-Uélé
+    ja: 高ウエレ州
+    ka: ზემო უელეს პროვინცია
+    ko: 오트우엘레 주
+    nb: Haut-Uele
+    nl: Haut-Uele
+    pl: Górne Uele
+    pt: Haut-Uele
+    ro: Provincia Haut-Uele
+    ru: Верхнее Уэле
+    sv: Haut-Uele
+    sw: Mkoa wa Wele Juu
+    uk: Верхнє Уеле
+    ceb: Haut Uele
+    zh: 上韦莱省
+    ccp: "𑄦𑄖𑄴-𑄃𑄪𑄠𑄬𑄣𑄬"
+    hy: Վերին Ուելե
+    'no': Haut-Uele
+    fa: هاوت اوله
+    id: Provinsi Haut-Uélé
+  type: province
+IT:
+  name: Ituri
+  code: IT
+  translations:
+    en: Ituri
+    ja: イトゥリ州
+    zh: 伊图里临时行政区
+    ccp: "𑄃𑄭𑄑𑄪𑄢𑄨"
+  type: province
+KC:
+  name: Lulua
+  code: KC
+  translations:
+    be: Правінцыя Лулуа
+    bg: Лулуа
+    cs: Lulua
+    de: Kasaï-Central
+    en: Kasaï Central
+    es: Lulua
+    fr: Lulua
+    hu: Lulua tartomány
+    ja: ルルア州
+    ko: 룰루아 주
+    nb: Lulua
+    nl: Lulua
+    pl: Lulua
+    pt: Lulua
+    ro: Provincia Lulua
+    ru: Лулуа
+    sv: Lulua
+    sw: Mkoa wa Lulua
+    uk: Лулуа
+    ceb: Lulua District
+    zh: 卢卢阿省
+    ccp: "𑄇𑄥𑄭 𑄥𑄬𑄚𑄴𑄑𑄳𑄢𑄣𑄴"
+    ka: ლულუის პროვინცია
+    fi: Keski-Kasai
+    it: Provincia del Kasai Centrale
+    'no': Lulua
+  type: province
+KE:
+  name: Kasai-Oriental
+  code: KE
+  unofficial_names:
+  - Kasai-Oriental
+  geo:
+    latitude: -2.8437453
+    longitude: 23.3823545
+    min_latitude: -7.9387741
+    min_longitude: 21.9100151
+    max_latitude: -1.738482
+    max_longitude: 26.265937
+  translations:
+    en: Kasaï-Oriental
+    ar: كاساي الشرقية
+    be: Правінцыя Усходняе Касаі
+    bg: Касаи-Ориентал
+    bn: কাসাই-ওরিয়েন্টাল
+    ca: Kasaï-Oriental
+    da: Kasaï Oriental
+    de: Kasai
+    el: Κασάι-Οριεντάλ
+    es: Kasai Oriental
+    fi: Itä-Kasai
+    fr: Kasaï oriental
+    gu: કાસાઈ-ઓરિએન્ટલ
+    he: קסאי-אוריינטל
+    hi: कासाइ-पूर्वी प्रान्त
+    hu: Kelet-Kasai tartomány
+    id: Kasai-Oriental
+    it: Provincia del Kasai Orientale
+    ja: 東カサイ州
+    ka: აღმოსავლეთ კასაის პროვინცია
+    kn: ಕಸೈ-ಓರಿಯೆಂಟಲ್
+    ko: 카사이오리앙탈 주
+    lt: Rytų Kasajus
+    mr: कासाई-ओरिएंटल
+    ms: Kasai-Oriental
+    nb: Kasaï-Oriental
+    nl: Oost-Kasaï
+    pl: Kasai Wschodnie
+    pt: Kasaï Oriental
+    ru: Чиленге
+    si: කාසි -ඔරියන්ටල්
+    sk: Kasaï-Oriental
+    sv: Kasaï-Oriental
+    sw: Mkoa wa Kasai Mashariki
+    ta: காசை -ஒரிஎண்டல்
+    te: కాసాయి-ఓరియంటల్
+    th: กาซาอีออเรียงตาล
+    tr: Doğu Kasai
+    uk: Східне Касаї
+    ur: کاسائی-مشرقی
+    vi: Kasai-Oriental
+    lv: Austrumkaisai province
+    ceb: Tshilenge District
+    zh: 东开赛省
+    fa: کاسای
+    ccp: "𑄇𑄥𑄭-𑄃𑄧𑄢𑄨𑄠𑄬𑄚𑄴𑄑𑄣𑄴"
+    hy: Արևելյան Կասայ
+    'no': Kasaï-Oriental
+  type: province
+KG:
+  name: Kwango
+  code: KG
+  translations:
+    be: Правінцыя Кванго
+    bg: Кванго
+    de: Kwango
+    en: Kwango
+    es: Kwango
+    fr: Kwango
+    hu: Kwango tartomány
+    ja: クワンゴ州
+    nb: Kwango
+    nl: Kwango
+    pl: Kwango
+    pt: Kwango
+    ro: Provincia Kwango
+    ru: Кванго
+    sv: Kwango
+    uk: Кванго
+    zh: 宽果省
+    ccp: "𑄇𑄧𑄠𑄪𑄁𑄉𑄮"
+    'no': Kwango
+    ca: Kwango
+    cy: Talaith Kwango
+    fa: کوانگو
+    fi: Kwango
+    hy: Կվանգո
+    id: Provinsi Kwango
+    it: provincia di Kwango
+    ka: კუანგოს პროვინცია
+    ko: 쾅고주
+    sw: Mkoa wa Kwango
+    yue: 關果省
+    yue_Hans: 关果省
+  type: province
+KL:
+  name: Kwilu
+  code: KL
+  translations:
+    be: Правінцыя Квілу
+    bg: Квилу
+    ca: Kwilu
+    de: Kwilu
+    en: Kwilu
+    es: Kwilu
+    fi: Kwilu
+    fr: Kwilu
+    hu: Kwilu tartomány
+    it: Provincia di Kwilu
+    ja: クウィル州
+    ka: კვილუს პროვინცია
+    ko: 퀼루 주
+    nb: Kwilu
+    nl: Kwilu
+    pl: Kwilu
+    pt: Kwilu
+    ro: Provincia Kwilu
+    ru: Квилу
+    sv: Kwilu
+    uk: Квілу
+    ceb: Kwilu (distrito)
+    zh: 奎卢省
+    ccp: "𑄇𑄧𑄃𑄨𑄣𑄪"
+    hy: Կվիլու
+    'no': Kwilu
+    fa: استان کویلو
+    he: מחוז קווילו
+    id: Provinsi Kwilu
+  type: province
+KN:
+  name: Kinshasa
+  code: KN
+  unofficial_names:
+  - Kinshasa
+  geo:
+    latitude: -4.325
+    longitude: 15.322222
+    min_latitude: -4.5093664
+    min_longitude: 15.1764986
+    max_latitude: -4.2934483
+    max_longitude: 15.4694102
+  translations:
+    en: Kinshasa
+    af: Kinshasa
+    am: ኪንሻሳ
+    ar: كينشاسا
+    az: Kinşasa
+    be: Кіншаса
+    bg: Киншаса
+    bn: কিনশাসা
+    ca: Kinshasa
+    cs: Kinshasa
+    da: Kinshasa
+    de: Kinshasa
+    el: Κινσάσα
+    es: Kinsasa
+    et: Kinshasa
+    eu: Kinshasa
+    fa: کینشاسا
+    fi: Kinshasa
+    fr: Kinshasa
+    gl: Kinshasa
+    gu: કિન્શાસા
+    he: קינשאסה
+    hi: किन्शासा
+    hr: Kinshasa
+    hu: Kinshasa
+    hy: Կինշասա
+    id: Kinshasa
+    is: Kinsasa
+    it: Kinshasa
+    ja: キンシャサ
+    ka: კინშასა
+    kn: ಕಶ್ಯಾಸಾ
+    ko: 킨샤사
+    lt: Kinšasa
+    lv: Kinšasa
+    ml: കിൻഷസ
+    mn: Киншаса
+    mr: किन्शासा
+    ms: Kinshasa
+    nb: Kinshasa
+    nl: Kinshasa
+    pl: Kinszasa
+    pt: Kinshasa
+    ro: Kinshasa
+    ru: Киншаса
+    si: කින්ශාසා
+    sk: Kinshasa
+    sl: Kinšasa
+    sr: Киншаса
+    sv: Kinshasa
+    sw: Kinshasa
+    ta: கின்ஷாசா
+    te: కిన్షాసా
+    th: กินชาซา
+    tk: Kinşasa
+    tr: Kinşasa
+    uk: Кіншаса
+    ur: کنشاسا
+    vi: Kinshasa
+    cy: Kinshasa
+    ceb: Kinshasa
+    sr_Latn: Kinšasa
+    zh: 金夏沙
+    yue_Hans: 金沙萨
+    jv: Kinshasa
+    sq: Kinsasha
+    ccp: "𑄇𑄨𑄚𑄴𑄥𑄥"
+    ga: Kinshasa
+    ky: Киншаса
+    ha: Kinshasa
+    so: Kinshasa
+    pa: ਕਿਨਸ਼ਾਸਾ
+    kk: Киншаса
+    yue: 金沙薩
+    my: ကင်ရှာဆာမြို့
+    yo: Kinshasa
+    uz: Kinshasa
+    bs: Kinshasa
+    mk: Киншаса
+    ha_NE: Kinshasa
+    'no': Kinshasa
+    yo_BJ: Kinshasa
+    ig: Kinshasa
+    ps: کینشاسا
+  type: city
+KS:
+  name: Kasaï
+  code: KS
+  translations:
+    en: Kasaï
+    fr: Kasaï
+    it: Kasai
+    ja: カサイ州
+    nb: Kasaï
+    nl: Kasaï
+    pl: Kasai
+    pt: Kasaï
+    ro: Provincia Kasaï
+    ru: Касаи
+    sv: Kasaï
+    uk: Касаї
+    ccp: "𑄇𑄥𑄭"
+    'no': Kasaï
+    ca: Kasaï
+    fa: ناحیه کسایی
+    zh: 开赛
+  type: province
+LO:
+  name: Kabinda
+  code: LO
+  translations:
+    be: Правінцыя Ламамі
+    bg: Ломами
+    de: Lomami
+    en: Lomami
+    es: Lomami
+    fi: Lomami
+    fr: Kabinda
+    hu: Lomami tartomány
+    it: Provincia di Lomami
+    ja: カビンダ州
+    ko: 로마미 주
+    nb: Lomami
+    nl: Lomami
+    pl: Lomami
+    pt: Lomami
+    ro: Provincia Lomami
+    ru: Ломами
+    sv: Lomami
+    uk: Ломамі
+    zh: 洛马米省
+    ccp: "𑄣𑄧𑄟𑄟𑄨"
+    ka: ლომამის პროვინცია
+    'no': Lomami
+    ceb: Kabinda (distrito)
+    cy: Talaith Lomami
+    fa: استان لومامی
+    gl: Lomami
+    id: Provinsi Lomami
+  type: province
+LU:
+  name: Lualaba
+  code: LU
+  translations:
+    be: Правінцыя Луалаба
+    bg: Луалаба
+    ca: Lualaba (Província)
+    de: Lualaba
+    en: Lualaba
+    es: Lualaba (provincia)
+    fi: Lualaba
+    fr: Lualaba
+    hu: Lualaba tartomány
+    it: Provincia di Lualaba
+    ja: ルアラバ州
+    ka: ლუალაბის პროვინცია
+    ko: 루알라바 주
+    nb: Lualaba (provins)
+    nl: Lualaba
+    pl: Lualaba (prowincja)
+    pt: Lualaba (província)
+    ro: Provincia Lualaba
+    ru: Луалаба (провинция)
+    sv: Lualaba (provins)
+    sw: Mkoa wa Lualaba
+    uk: Луалаба
+    zh: 卢阿拉巴省
+    ccp: "𑄣𑄪𑄠𑄣𑄝"
+    'no': Lualaba (provins)
+    fa: استان لوالابا
+    id: Provinsi Lualaba
+  type: province
+MA:
+  name: Maniema
+  code: MA
+  unofficial_names:
+  - Maniema
+  geo:
+    latitude: -3.0730929
+    longitude: 26.0413889
+    min_latitude: -5.000742499999999
+    min_longitude: 24.456906
+    max_latitude: -0.082443
+    max_longitude: 28.8420401
+  translations:
+    en: Maniema
+    ar: مانيما
+    be: Правінцыя Маніема
+    bg: Маниема
+    bn: মানেইমা
+    da: Maniema
+    de: Maniema
+    el: Μανιέμα
+    es: Maniema
+    et: Maniema
+    fa: مانیما
+    fi: Maniema
+    fr: Maniema
+    gu: મનિએમા
+    hi: मानिएमा प्रान्त
+    hu: Maniema tartomány
+    id: Maniema
+    it: provincia di Maniema
+    ja: マニエマ州
+    ka: მანიემის პროვინცია
+    kn: ಮಣಿಮಾ
+    ko: 마니에마 주
+    lt: Maniema
+    mr: मनीमा
+    ms: Maniema
+    nb: Maniema
+    nl: Maniema
+    pl: Maniema
+    pt: Maniema
+    ro: Provincia Maniema
+    ru: Маниема
+    si: මනිඑමා
+    sk: Maniema
+    sv: Maniema
+    sw: Mkoa wa Maniema
+    ta: மணியமா
+    te: మనియెమా
+    th: มานีมา
+    tr: Maniema
+    uk: Манієма
+    ur: مانیما
+    vi: Maniema
+    lv: Maniema
+    ceb: Province du Maniema
+    zh: 马涅马省
+    ccp: "𑄟𑄚𑄨𑄠𑄬𑄟"
+    he: מניימה
+    'no': Maniema
+    ca: Maniema
+    cs: Maniema
+    eu: Maniema
+  type: province
+MN:
+  name: Mai-Ndombe
+  code: MN
+  translations:
+    be: Правінцыя Маі-Ндамбэ
+    bg: Ме Ндомбе
+    de: Mai-Ndombe
+    en: Mai-Ndombe
+    es: Mai-Ndombe
+    fi: Mai-Ndombe
+    fr: Mai-Ndombe
+    hu: Mai-Ndombe tartomány
+    it: Provincia di Mai-Ndombe
+    ja: マイ＝ンドンベ州
+    ka: მაი-ნდომბეს პროვინცია
+    ko: 마이은돔베 주
+    nb: Mai-Ndombe
+    nl: Mai-Ndombe
+    pl: Mai-Ndombe
+    pt: Mai-Ndombe
+    ro: Provincia Mai-Ndombe
+    ru: Маи-Ндомбе (провинция)
+    sv: Mai-Ndombe
+    uk: Маї-Ндомбе
+    zh: 马伊恩东贝省
+    ccp: "𑄟𑄭-𑄓𑄮𑄟𑄴𑄝𑄬"
+    'no': Mai-Ndombe
+    cy: Talaith Mai-Ndombe
+    fa: استان مای-ندومبی
+    id: Provinsi Mai-Ndombe
+  type: province
+MO:
+  name: Mongala
+  code: MO
+  translations:
+    be: Правінцыя Мангала
+    bg: Монгала
+    de: Mongala
+    en: Mongala
+    es: Mongala
+    fi: Mongala
+    fr: Mongala
+    hu: Mongala tartomány
+    it: Provincia di Mongala
+    ja: モンガラ州
+    ka: მონგალის პროვინცია
+    ko: 몽갈라 주
+    nl: Mongala
+    pl: Mongala
+    pt: Mongala
+    ro: Provincia Mongala
+    ru: Монгала
+    sv: Mongala
+    sw: Mkoa wa Mongala
+    uk: Монгала
+    ceb: Mongala
+    zh: 蒙加拉省
+    ccp: "𑄟𑄧𑄁𑄉𑄧𑄣"
+    nb: Mongala
+    'no': Mongala
+    fa: مونگالا
+    id: Provinsi Mongala
+  type: province
+NK:
+  name: Nord-Kivu
+  code: NK
+  unofficial_names:
+  - Nord-Kivu
+  geo:
+    latitude: -0.7917729
+    longitude: 29.0459927
+    min_latitude: -2.0661759
+    min_longitude: 27.201624
+    max_latitude: 0.9623669
+    max_longitude: 29.984388
+  translations:
+    en: North Kivu
+    ar: كيفو الشمالية
+    be: Правінцыя Паўночнае Ківу
+    bg: Нор Киву
+    bn: উত্তর কিভু
+    ca: Kivu Nord
+    cs: Severní Kivu
+    da: North Kivu
+    de: Nord-Kivu
+    el: Βόρειο Κίβου
+    es: Kivu del Norte
+    et: Põhja-Kivu
+    fi: Pohjois-Kivu
+    fr: Nord-Kivu
+    gu: નોર્થ કિવુ
+    hi: उत्तर कीवू प्रान्त
+    hu: Észak-Kivu tartomány
+    id: Nord-Kivu
+    it: provincia del Kivu Nord
+    ja: 北キヴ州
+    ka: ჩრდილოეთი კივუს პროვინცია
+    kn: ಉತ್ತರ ಕಿವು
+    ko: 북키부 주
+    lt: Šiaurės Kivu
+    mr: उत्तर किव्वा
+    ms: Nord-Kivu
+    nb: Nord-Kivu
+    nl: Noord-Kivu
+    pl: Kiwu Północne
+    pt: Nord-Kivu
+    ro: Provincia Nord-Kivu
+    ru: Северное Киву
+    si: උතුරු කිවූ
+    sk: Nord-Kivu
+    sv: Norra Kivu-provinsen
+    sw: Mkoa wa Kivu Kaskazini
+    ta: வடக்கு கிவு
+    te: ఉత్తర కివు
+    th: นอร์-กีวู
+    tr: Kuzey Kivu
+    uk: Північне Ківу
+    ur: شمالی کیوو
+    vi: Bắc Kivu
+    lv: Ziemeļu Kivu
+    ceb: Province du Nord-Kivu
+    zh: 北基伍省
+    fa: کیوو شمالی
+    ccp: "𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄴 𑄇𑄨𑄞𑄪"
+    az: Şimali Kivu
+    'no': Nord-Kivu
+    eu: Ipar Kivu
+    he: קיוו צפון
+  type: province
+NU:
+  name: Nord-Ubangi
+  code: NU
+  translations:
+    be: Правінцыя Паўночнае Убангі
+    bg: Нор Убанги
+    de: Nord-Ubangi
+    en: Nord-Ubangi
+    es: Ubangi del Norte
+    fi: Pohjois-Ubangi
+    fr: Nord-Ubangi
+    hu: Észak-Ubangi tartomány
+    id: Nord-Ubangi
+    it: Provincia del Nord Ubangi
+    ja: 北ウバンギ州
+    ka: ჩრდილოეთი უბანგის პროვინცია
+    ko: 북우방기 주
+    nl: Noord-Ubangi
+    pl: Ubangi Północne
+    pt: Nord-Ubangi
+    ro: Provincia Nord-Ubangi
+    ru: Северное Убанги
+    sv: Nord-Ubangi
+    uk: Північне Убангі
+    ceb: Nord Ubangi
+    zh: 北乌班吉省
+    ccp: "𑄚𑄧𑄢𑄳𑄓𑄴-𑄃𑄪𑄝𑄋𑄴𑄉𑄨"
+    nb: Nord-Ubangi
+    'no': Nord-Ubangi
+    fa: نورد اوبانگی
+  type: province
+SA:
+  name: Sankuru
+  code: SA
+  translations:
+    be: Правінцыя Санкуру
+    bg: Санкуру
+    de: Sankuru
+    en: Sankuru
+    es: Sankuru
+    fi: Sankuru
+    fr: Sankuru
+    hu: Sankuru tartomány
+    it: Provincia di Sankuru
+    ja: サンクル州
+    ka: სანკურუს პროვინცია
+    ko: 상쿠루 주
+    nl: Sankuru
+    pl: Sankuru
+    pt: Sankuru
+    ru: Санкуру
+    sv: Sankuru
+    sw: Mkoa wa Sankuru
+    uk: Санкуру
+    ceb: Sankuru
+    zh: 桑库鲁省
+    ccp: "𑄥𑄁𑄇𑄪𑄢𑄪"
+    nb: Sankuru
+    'no': Sankuru
+    fa: سانکورو
+    id: Provinsi Sankuru
+    yue: 桑庫魯省
+    yue_Hans: 桑库鲁省
+  type: province
+SK:
+  name: Sud-Kivu
+  code: SK
+  unofficial_names:
+  - Sud-Kivu
+  geo:
+    latitude: -3.011658
+    longitude: 28.299435
+    min_latitude: -4.9999781
+    min_longitude: 26.798393
+    max_latitude: -1.568222
+    max_longitude: 29.2644927
+  translations:
+    en: South Kivu
+    ar: كيفو الجنوبية
+    be: Правінцыя Паўднёвае Ківу
+    bg: Сюд Киву
+    bn: দক্ষিণ কিভু
+    da: South Kivu
+    de: Sud-Kivu
+    el: Νότιο Κίβου
+    es: Kivu del Sur
+    et: Lõuna-Kivu
+    fi: Etelä-Kivu
+    fr: Sud-Kivu
+    gu: સાઉથ કિવુ
+    hi: दक्षिण कीवू प्रान्त
+    hu: Dél-Kivu tartomány
+    id: Sud-Kivu
+    it: provincia del Kivu Sud
+    ja: 南キヴ州
+    ka: სამხრეთი კივუს პროვინცია
+    kn: ಸೌತ್ ಕಿವು
+    ko: 남키부 주
+    lt: Pietų Kivu
+    mr: दक्षिण किवु
+    ms: Sud-Kivu
+    nb: Sud-Kivu
+    nl: Zuid-Kivu
+    pl: Kiwu Południowe
+    pt: Sud-Kivu
+    ro: Provincia Sud-Kivu
+    ru: Южное Киву
+    si: දකුණු කිවූ
+    sk: Sud-Kivu
+    sv: Södra Kivu-provinsen
+    sw: Mkoa wa Kivu Kusini
+    ta: தெற்கு கிவு
+    te: దక్షిణ ఎలూథెరా
+    th: กีวูใต้
+    tr: Güney Kivu
+    uk: Південне Ківу
+    ur: جنوبی کیوو
+    vi: Nam Kivu
+    lv: Dienvidkivu
+    ceb: South Kivu Province
+    zh: 南基伍省
+    fa: سود کیوا
+    ccp: "𑄘𑄧𑄊𑄨𑄚𑄴 𑄇𑄨𑄞𑄪"
+    uz: Janubiy Kivu
+    mk: Јужно Киву
+    'no': Sud-Kivu
+    ca: Kivu del Sud
+    cs: Jižní Kivu
+    eu: Hego Kivu
+    hy: Հարավային Կիվու
+  type: province
+SU:
+  name: Sud-Ubangi
+  code: SU
+  translations:
+    be: Правінцыя Паўднёвае Убангі
+    bg: Сюд Убанги
+    de: Sud-Ubangi
+    en: Sud-Ubangi
+    es: Ubangi del Sur
+    fi: Etelä-Ubangi
+    fr: Sud-Ubangi
+    hu: Dél-Ubangi tartomány
+    it: Provincia del Sud Ubangi
+    ja: 南ウバンギ州
+    ka: სამხრეთი უბანგის პროვინცია
+    ko: 남우방기 주
+    nl: Zuid-Ubangi
+    pl: Ubangi Południowe
+    pt: Sud-Ubangi
+    ro: Provincia Sud-Ubangi
+    ru: Южное Убанги
+    sv: Sud-Ubangi
+    uk: Південне Убангі
+    ceb: Sud Ubangi
+    zh: 南乌班吉省
+    ccp: "𑄥𑄖𑄴-𑄅𑄪𑄝𑄋𑄴𑄉𑄨"
+    nb: Sud-Ubangi
+    'no': Sud-Ubangi
+    fa: سود-اوبانگی
+    id: Provinsi Sud-Ubangi
+  type: province
+TA:
+  name: Tanganyika
+  code: TA
+  translations:
+    be: Правінцыя Танганьіка
+    bg: Танганика
+    de: Tanganjika
+    en: Tanganyika
+    es: Tanganyika
+    fi: Tanganyika
+    fr: Tanganyika
+    hu: Tanganyika tartomány
+    it: Provincia di Tanganyika
+    ja: タンガニーカ州
+    ka: ტანგანიიკის პროვინცია
+    ko: 탕가니카 주
+    nb: Tanganyika
+    nl: Tanganyika
+    pl: Tanganika
+    pt: Tanganyika
+    ro: Provincia Tanganyika
+    ru: Танганьика
+    sv: Tanganyika
+    sw: Mkoa wa Tanganyika
+    uk: Танганьїка
+    ceb: Kongolo Tanganyika District
+    zh: 坦噶尼喀省
+    ccp: "𑄑𑄋𑄴𑄉𑄚𑄨𑄠𑄇"
+    'no': Tanganyika
+    cy: Talaith Tanganyika
+    eu: Tanganyika (probintzia)
+    fa: استان تانگانیکا
+    id: Provinsi Tanganyika
+  type: province
+TO:
+  name: Tshopo
+  code: TO
+  translations:
+    be: Правінцыя Чапо
+    bg: Чопо
+    de: Tshopo
+    en: Tshopo
+    es: Tshopo
+    fi: Tshopo
+    fr: Tshopo
+    hu: Tshopo tartomány
+    it: Provincia di Tshopo
+    ja: ツォポ州
+    ka: ჩოპოს პროვინცია
+    ko: 초포 주
+    nb: Tshopo
+    nl: Tshopo
+    pl: Tshopo
+    pt: Tshopo
+    ro: Provincia Tshopo
+    ru: Чопо
+    sv: Tshopo
+    sw: Mkoa wa Tshopo
+    uk: Чопо
+    ceb: Tshopo
+    zh: 乔波省
+    ccp: "𑄥𑄮𑄛𑄮"
+    'no': Tshopo
+    eu: Tshopo
+    fa: تاشو
+    id: Provinsi Tshopo
+  type: province
+TU:
+  name: Tshuapa
+  code: TU
+  translations:
+    be: Правінцыя Чуапа
+    bg: Чуапа
+    de: Tshuapa
+    en: Tshuapa
+    es: Tshuapa
+    fi: Tshuapa
+    fr: Tshuapa
+    hu: Tshuapa tartomány
+    it: Provincia di Tshuapa
+    ja: ツアパ州
+    ka: ჩუაპის პროვინცია
+    ko: 추아파 주
+    nb: Tshuapa
+    nl: Tshuapa
+    pl: Tshuapa
+    pt: Tshuapa
+    ro: Provincia Tshuapa
+    ru: Чуапа
+    sv: Tshuapa
+    sw: Mkoa wa Tshuapa
+    uk: Чуапа
+    ceb: Tshuapa
+    zh: 楚阿帕省
+    ccp: "𑄥𑄪𑄠𑄛"
+    'no': Tshuapa
+    fa: تشوپا
+    id: Provinsi Tshuapa
+  type: province

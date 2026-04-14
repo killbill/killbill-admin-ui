@@ -1,0 +1,736 @@
+---
+'01':
+  name: Hodh ech Chargui
+  code: '01'
+  unofficial_names:
+  - Hud-ash-Sharqi
+  - Huđ-aš-Šarqi
+  - Hodh ech Chargui
+  geo:
+    latitude: 18.6737026
+    longitude: -7.092877
+    min_latitude: 15.4940749
+    min_longitude: -9.1601299
+    max_latitude: 23.0624689
+    max_longitude: -5.327115099999999
+  translations:
+    en: Hodh Ech Chargui
+    ar: ولاية الحوض الشرقي
+    bg: Худ аш-Шарки
+    bn: হোধ এক চারগুই অঞ্চল
+    da: Hodh Ech Chargui
+    de: Hodh Ech Chargui
+    el: Χοντχ Εκ Τσάργκουι
+    es: Hod Oriental
+    fi: Hodh El Charghi
+    fr: Hodh Ech Chargui
+    gu: હોધ એચ ચાર્ગુઇ પ્રદેશ
+    hi: होड एच चार्गुई प्रदेश
+    id: Hodh Ech Chargui
+    it: regione di Hodh-Charghi
+    ja: ホズ・エッ・シャルギ州
+    kn: ಹೊದ್ ಇಚ್ ಚಾರ್ಗುಯಿ ಪ್ರದೇಶ
+    ko: 호드에슈샤르기 주
+    lt: Hod eš Šargio vilaja
+    mr: होश एच चारगुई प्रदेश
+    ms: Hodh Ech Chargui
+    nb: Hodh Ech Chargui
+    nl: Hodh Ech Chargui
+    pl: Haud asz-Szarki
+    pt: Hodh ech Chargui
+    ro: Regiunea Hodh Ech Chargui
+    ru: Ход-эш-Шарки
+    si: හොඩ්හ් එච් චාර්ගුයි
+    sv: Hodh Ech Chargui
+    ta: ஹோத் எச் சர்குய் பகுதி
+    te: హోద్ ఎక్ చార్గూ ప్రాంతం
+    th: ฮอดห์ เอค ชาร์กูอิ
+    tr: Hodh Ech Chargui Bölgesi
+    ur: حوض الشرقی علاقہ
+    vi: Khu vực Hodh Ech Chargui
+    zh: 東胡德省
+    lv: Austrumhodas vilājs
+    ceb: Hodh ech Chargui
+    ccp: "𑄦𑄧𑄖𑄴 𑄃𑄬𑄇𑄴 𑄌𑄢𑄴𑄉𑄭𑄪"
+    uk: Регіон Год-еш-Шарґі
+    'no': Hodh Ech Chargui
+    ca: Hodh Oriental
+    fa: استان حوض شرقی
+  type: region
+'02':
+  name: Hodh el Gharbi
+  code: '02'
+  unofficial_names:
+  - Hud-al-Garbi
+  - Huđ-al-Ġarbi
+  - Hodh el Gharbi
+  geo:
+    latitude: 16.6912149
+    longitude: -9.5450974
+    min_latitude: 15.3565569
+    min_longitude: -11.087025
+    max_latitude: 17.681594
+    max_longitude: -8.2803349
+  translations:
+    en: Hodh El Gharbi
+    ar: ولاية الحوض الغربي
+    bg: Худ ал-Гарби
+    bn: হোদ এল গাব্রি অঞ্চল
+    da: Hodh El Gharbi
+    de: Hodh El Gharbi
+    el: Χοντ Ελ Γκάρμπι
+    es: Hod Occidental
+    fi: Hodh El Gharbin maakunta
+    fr: Hodh El Gharbi
+    gu: હોદ અલ ગરબી પ્રદેશ
+    hi: होद एल घर्बी क्षेत्र
+    id: Hodh El Gharbi
+    it: regione di Hodh-Gharbi
+    ja: ホズ・エル・ガルビ州
+    kn: ಹೊದ್ ಎಲ್ ಘರ್ಬಿ ಪ್ರದೇಶ
+    ko: 호드엘가르비 주
+    lt: Hod el Garbis
+    mr: होद एल गरबी प्रदेश
+    ms: Hodh El Gharbi
+    nb: Hodh El Gharbi
+    nl: Hodh El Gharbi
+    pl: Haud al-Gharbi
+    pt: Hodh el Gharbi
+    ro: Regiunea Hodh El Gharbi
+    ru: Ход-эль-Гарби
+    si: හොද්හ් එල් ඝර්බි කලාපය
+    sv: Hodh El Gharbi
+    ta: ஹோத் எல் காரபீ பகுதி
+    te: హోద్ ఎల్ ఘార్బి ప్రాంతం
+    th: ฮอร์ด เอล การ์บิ
+    tr: Hodh El Garbi
+    ur: حوض الغربی علاقہ
+    vi: Khu vực Hodh El Gharbi
+    lv: Hod el Garbi reģions
+    ceb: Hodh el Gharbi
+    zh: 西胡德省
+    ccp: "𑄦𑄧𑄖𑄴 𑄃𑄬𑄣𑄴 𑄊𑄢𑄴𑄝𑄭"
+    uk: Регіон Ход-Ель-Гарбі
+    'no': Hodh El Gharbi
+    ca: Hodh Occidental
+    fa: استان حوض غربی
+  type: region
+'03':
+  name: Assaba
+  code: '03'
+  unofficial_names:
+  - aş-Şabah
+  - Açaba
+  geo:
+    latitude: 16.7759558
+    longitude: -11.5248055
+    min_latitude: 15.1036179
+    min_longitude: -12.878715
+    max_latitude: 18.297223
+    max_longitude: -10.596743
+  translations:
+    en: Assaba
+    ar: ولاية العصابة
+    be: Вобласць Асаба
+    bg: Асаба
+    bn: আসাবা অঞ্চল
+    da: Assaba
+    de: Assaba
+    el: Ασσάμπα
+    es: Assaba
+    fi: Assaban alue
+    fr: Assaba
+    gu: અસાબા પ્રદેશ
+    hi: आसाबा क्षेत्र
+    id: Assaba
+    it: regione di Assaba
+    ja: アサバ州
+    kn: ಅಸ್ಸಬಾ ಪ್ರದೇಶ
+    ko: 아사바 주
+    lt: Asabos vilaja
+    mr: अस्साबा प्रदेश
+    ms: Assaba
+    nb: Assaba
+    nl: Assaba
+    pl: Al-Asaba
+    pt: Assaba
+    ro: Regiunea Assaba
+    ru: Ассаба
+    si: අස්සබා කලාපය
+    sv: Assaba
+    ta: ஆசாபா பகுதி
+    te: అసాబా ప్రాంతం
+    th: อัซซาบา
+    tr: Assaba Bölgesi
+    ur: عصابہ علاقہ
+    vi: Khu vực Assaba
+    lv: Asābas vilājs
+    ceb: Assaba
+    zh: 阿薩巴省
+    ccp: "𑄃𑄥𑄝"
+    uk: Регіон Асаба
+    'no': Assaba
+    ca: Assaba
+    fa: استان عصابه
+  type: region
+'04':
+  name: Gorgol
+  code: '04'
+  unofficial_names:
+  - Gorgol
+  geo:
+    latitude: 15.9717357
+    longitude: -12.6216211
+    min_latitude: 15.129403
+    min_longitude: -13.7075859
+    max_latitude: 16.666545
+    max_longitude: -11.962182
+  translations:
+    en: Gorgol
+    ar: ولاية كوركول
+    bg: Куркул
+    bn: গোরগল অঞ্চল
+    da: Gorgol
+    de: Gorgol
+    el: Γκοργκόλ
+    es: Gorgol
+    fi: Gorgolin maakunta
+    fr: Gorgol
+    gu: ગોરગોલ પ્રદેશ
+    hi: गोर्गोल प्रदेश
+    id: Gorgol
+    it: regione di Gorgol
+    ja: ゴルゴル州
+    kn: ಗೊರ್ಗೊಲ್ ಪ್ರದೇಶ
+    ko: 고르골 주
+    lt: Gorgolo vilaja
+    mr: गोर्गोल प्रदेश
+    ms: Gorgol
+    nb: Gorgol
+    nl: Gorgol
+    pl: Kurkul
+    pt: Gorgol
+    ro: Regiunea Gorgol
+    ru: Горголь
+    si: ගර්ගොල් කලාපය
+    sv: Gorgol
+    ta: கோர்கோள் பகுதி
+    te: గోర్గోల్ ప్రాంతం
+    th: เขตกอร์กอล
+    tr: Gorgol Region
+    ur: گورگول علاقہ
+    vi: Khu vực Gorgol
+    lv: Gorgolas vilājs
+    ceb: Gorgol
+    zh: 戈爾戈勒省
+    ccp: "𑄉𑄧𑄢𑄴𑄉𑄮𑄣𑄴"
+    uk: Регіон Горголь
+    'no': Gorgol
+    ca: Gorgol
+    fa: استان گرگول
+  type: region
+'05':
+  name: Brakna
+  code: '05'
+  unofficial_names:
+  - Brakna
+  geo:
+    latitude: 17.2317561
+    longitude: -13.1740348
+    min_latitude: 16.1070999
+    min_longitude: -14.874167
+    max_latitude: 18.567634
+    max_longitude: -12.3068541
+  translations:
+    en: Brakna
+    ar: ولاية البراكنة
+    be: Вобласць Бракна
+    bg: Бракна
+    bn: ব্রাকান অঞ্চল
+    ca: Brakna
+    da: Brakna
+    de: Brakna
+    el: Μπράκνα
+    es: Brakna
+    fi: Braknan alue
+    fr: Brakna
+    gu: બ્રાંકા પ્રદેશ
+    hi: ब्रकना प्रदेश
+    id: Brakna
+    it: regione di Brakna
+    ja: ブラクナ州
+    kn: ಬ್ರಕ್ನಾ ಪ್ರದೇಶ
+    ko: 브라크나 주
+    lt: Braknos vilaja
+    mr: ब्रकाना प्रदेश
+    ms: Brakna
+    nb: Brakna
+    nl: Brakna
+    pl: Al-Barakina
+    pt: Brakna
+    ro: Regiunea Brakna
+    ru: Бракна
+    si: බ්‍රක්නා කලාපය
+    sv: Brakna
+    ta: ப்ராக்ன்னா பகுதி
+    te: బ్రాక్నా ప్రాంతం
+    th: บรากนา
+    tr: Brakna Bölgesi
+    ur: براکنہ علاقہ
+    vi: Khu vực Brakna
+    lv: Braknas vilājs
+    ceb: Brakna
+    zh: 卜拉克納省
+    ccp: "𑄝𑄳𑄢𑄇𑄴𑄚"
+    uk: Регіон Бракна
+    'no': Brakna
+    fa: استان براکنه
+  type: region
+'06':
+  name: Trarza
+  code: '06'
+  unofficial_names:
+  - Trarza
+  geo:
+    latitude: 17.8664964
+    longitude: -14.6587821
+    min_latitude: 16.062185
+    min_longitude: -16.5152361
+    max_latitude: 18.9968821
+    max_longitude: -12.711503
+  translations:
+    en: Trarza
+    ar: ولاية الترارزة
+    bg: Трарза
+    bn: ত্রারজা অঞ্চল
+    ca: Trarza
+    da: Trarza
+    de: Trarza
+    el: Τράρζα
+    es: Trarza
+    fi: Trarzan maakunta
+    fr: Trarza
+    gu: ટ્રેઝા પ્રદેશ
+    hi: त्रार्ज़ा प्रदेश
+    id: Trarza
+    it: regione di Trarza
+    ja: トラルザ州
+    kn: ಟ್ರಾಜಾ ಪ್ರದೇಶ
+    ko: 트라르자 주
+    lt: Trarzos vilaja
+    mr: ट्रॅझा प्रदेश
+    ms: Trarza
+    nb: Trarza
+    nl: Trarza
+    pl: At-Tarariza
+    pt: Trarza
+    ro: Regiunea Trarza
+    ru: Трарза
+    si: ට්‍රර්සා කලාපය
+    sv: Trarza
+    ta: ட்ரர்சா பகுதி
+    te: ట్రార్జా ప్రాంతం
+    th: เขตทราซา
+    tr: Trarza Bölgesi
+    ur: ترارزہ علاقہ
+    vi: Khu vực Trarza
+    lv: Trarzas vilājs
+    ceb: Wilaya du Trarza
+    zh: 特拉扎省
+    ccp: "𑄑𑄳𑄢𑄢𑄴𑄎"
+    uk: Регіон Трарза
+    cs: Trarza
+    'no': Trarza
+    fa: استان ترارزه
+  type: region
+'07':
+  name: Adrar
+  code: '07'
+  unofficial_names:
+  - Adrar
+  geo:
+    latitude: 19.8652176
+    longitude: -12.8054753
+    min_latitude: 18.567634
+    min_longitude: -14.287234
+    max_latitude: 24.0316981
+    max_longitude: -6.343229
+  translations:
+    en: Adrar
+    ar: ولاية أدرار
+    be: Адрар
+    bg: Адрар (област в Мавритания)
+    bn: আদরার অঞ্চল
+    ca: Regió d’Adrar
+    da: Adrar
+    de: Adrar
+    el: Αντράρ
+    es: Adrar
+    fa: ولایة ادرار
+    fi: Adrar
+    fr: Adrar
+    gu: નઅદરાર પ્રદેશ
+    hi: अदरार प्रदेश
+    id: Adrar
+    it: Adrar
+    ja: アドラル州
+    kn: ಆದ್ರಾರ್ ಪ್ರದೇಶ
+    ko: 아드라르 주 (모리타니)
+    lt: Adraro vilaja (Mauritanija)
+    mr: अदरर प्रदेश
+    ms: Adrar
+    nb: Adrar
+    nl: Adrar
+    pl: Adrar (region)
+    pt: Adrar
+    ro: Regiunea Adrar
+    ru: Адрар
+    si: අඩ්රාර් කලාපය
+    sv: Adrar
+    ta: அட்ரர் பகுதி
+    te: అడ్రార్ ప్రాంతం
+    th: เขตอาดราร์
+    tr: Adrar Bölgesi
+    ur: آدرار علاقہ
+    vi: Khu vực Adrar
+    lv: Adrāras vilājs
+    ceb: Adrar
+    zh: 阿德拉爾省 (毛里塔尼亞)
+    ccp: "𑄃𑄓𑄳𑄢𑄢𑄴"
+    uk: Адрар
+    'no': Adrar
+  type: region
+'08':
+  name: Dakhlet Nouâdhibou
+  code: '08'
+  unofficial_names:
+  - Dakhlat Nawadibu
+  - Đaẖlat Nawadību
+  - Dakhlet Nouadhibou
+  geo:
+    latitude: 20.5985588
+    longitude: -16.2522143
+    min_latitude: 19.275669
+    min_longitude: -17.066521
+    max_latitude: 21.3397559
+    max_longitude: -15.624716
+  translations:
+    en: Dakhlet Nouadhibou
+    ar: داخلة نواذيبو
+    bg: Дахлет Нуадибу
+    bn: দাখলেট নৌয়াদহিবু
+    da: Dakhlet Nouadhibou
+    de: Dakhlet Nouadhibou
+    el: Ντακχλέτ
+    es: Dajlet Nuadibú
+    fi: Dakhletnouadhibou
+    fr: Dakhlet Nouadhibou
+    gu: દાખ્લેટ નૌઆઢિબોઉં
+    hi: दख्लेट नुआधीबू
+    id: Dakhlet Nouadhibou
+    it: regione di Dakhlet-Nouadhibou
+    ja: ダフレト・ヌアジブ州
+    kn: ದಕ್ಲೆಟ್ ನುವಾಧಿಬೌ
+    ko: 다클레트누아디부 주
+    lt: Dachlet Nuadibu vilaja
+    mr: दॅलेट नऊदबाउ
+    ms: Dakhlet Nouadhibou
+    nb: Dakhlet Nouadhibou
+    nl: Dakhlet Nouadhibou
+    pl: Dachlat Nawazibu
+    pt: Dakhlet Nouadhibou
+    ro: Regiunea Dakhlet Nouadhibou
+    ru: Дахлет-Нуадибу
+    si: ඩක්ලෙට් නොවාධිබු
+    sv: Dakhlet Nouadhibou
+    ta: டக்ஹ்ல்ட் நோவுவதிபோ
+    te: డాక్లెట్ నోవాధిబో
+    th: ดาฮ์เลท นวดฮิลบูว
+    tr: Dakhlet Nouadhi
+    ur: داخلت نواذیبو علاقہ
+    vi: Dakhlet Nouadhibou
+    lv: Dahlet-Nuadibu vilājs
+    ceb: Dakhlet Nouadhibou
+    zh: 努瓦迪布灣省
+    ccp: "𑄓𑄇𑄴𑄣𑄬𑄖𑄴 𑄥𑄯𑄃𑄓𑄨𑄝𑄯"
+    uk: Регіон Дахлет-Нуадібу
+    'no': Dakhlet Nouadhibou
+    ca: Dakhlet Nouadhibou
+    fa: استان داخله نواذیبو
+    he: דחלט נואדיבו
+  type: region
+'09':
+  name: Tagant
+  code: '09'
+  unofficial_names:
+  - Tagant
+  geo:
+    latitude: 18.5467527
+    longitude: -9.9018131
+    min_latitude: 17.059023
+    min_longitude: -12.711503
+    max_latitude: 19.9094811
+    max_longitude: -7.8348294
+  translations:
+    en: Tagant
+    ar: ولاية تكانت
+    bg: Такант
+    bn: তাগান্ট অঞ্চল
+    ca: Tagant
+    da: Tagant
+    de: Tagant
+    el: Ταγκάντ
+    es: Tagant
+    fi: Tagantin maakunta
+    fr: Tagant
+    gu: ટાગાન્ટ પ્રદેશ
+    hi: टैगैंट क्षेत्र
+    id: Tagant
+    it: regione di Tagant
+    ja: タガント州
+    kn: ಟ್ಯಾಗಂಟ್ ಪ್ರದೇಶ
+    ko: 타간트 주
+    lt: Tagantas
+    mr: टागण प्रदेश
+    ms: Tagant
+    nb: Tagant
+    nl: Tagant
+    pl: Takant
+    pt: Tagant
+    ro: Regiunea Tagant
+    ru: Тагант
+    si: ටගන්ට් කලාපය
+    sv: Tagant
+    ta: டகன்ட் பகுதி
+    te: టాగంట్ ప్రాంతం
+    th: ภูมิภาคทากันท์
+    tr: Tagant Bölgesi
+    ur: تکانت علاقہ
+    vi: Khu vực Tagant
+    lv: Tagantas vilājs
+    ceb: Tagant
+    zh: 塔甘特省
+    ccp: "𑄑𑄬𑄚𑄴𑄎𑄬𑄚𑄳𑄑𑄴"
+    uk: Регіон Тагант
+    'no': Tagant
+    fa: استان تگانت
+  type: region
+'10':
+  name: Guidimaka
+  code: '10'
+  unofficial_names:
+  - Guidimaka
+  geo:
+    latitude: 15.2557331
+    longitude: -12.2547919
+    min_latitude: 14.7155461
+    min_longitude: -12.7553479
+    max_latitude: 16.141872
+    max_longitude: -11.596648
+  translations:
+    en: Guidimaka
+    ar: ولاية غيديماغا
+    bg: Кудимага
+    bn: গোইডিমাকা অঞ্চল
+    ca: Guidimakha
+    da: Guidimaka
+    de: Guidimaka
+    el: Γκιντιμάγκα
+    es: Guidimaka
+    fi: Guidimakan alue
+    fr: Guidimakha
+    gu: ગુઈદીમાકા પ્રદેશ
+    hi: गिडीमाका क्षेत्र
+    id: Guidimaka
+    it: regione di Guidimagha
+    ja: ギディマカ州
+    kn: ಗುಯಿಡಿಮಾಕಾ ಪ್ರದೇಶ
+    ko: 기디마카 주
+    lt: Gidimakos vilaja
+    mr: गुइदमक प्रदेश
+    ms: Guidimaka
+    nb: Guidimaka
+    nl: Guidimakha
+    pl: Ghidimagha
+    pt: Guidimaka
+    ro: Regiunea Guidimaka
+    ru: Кудимага
+    si: ගුයිඩිමකා පළාත
+    sv: Guidimaka
+    ta: குஇடிமாகா பகுதி
+    te: గుయిడిమాకా ప్రాంతం
+    th: กุยดิมากา
+    tr: Guidimaka Bölgesi
+    ur: گیدیماغا علاقہ
+    vi: Khu vực Guidimaka
+    lv: Gidimakas vilājs
+    ceb: Guidimaka
+    zh: 吉迪馬卡省
+    ccp: "𑄉𑄭𑄪𑄓𑄨𑄟𑄇"
+    uk: Регіон Ґідімака (Кудимага)
+    'no': Guidimaka
+    fa: استان گیدی ماغا
+  type: region
+'11':
+  name: Tiris Zemmour
+  code: '11'
+  unofficial_names:
+  - Tiris Zammur
+  - Tiris Zammūr
+  - Tiris Zemmour
+  geo:
+    latitude: 24.5773764
+    longitude: -9.9018131
+    min_latitude: 21.151442
+    min_longitude: -13.1396484
+    max_latitude: 27.2980729
+    max_longitude: -4.8276739
+  translations:
+    en: Tiris Zemmour
+    ar: ولاية تيرس زمور
+    bg: Тирис Замур
+    bn: তাইরিশ জেমোর অঞ্চল
+    da: Tiris Zemmour
+    de: Tiris Zemmour
+    el: Τίρις Ζεμούρ
+    es: Tiris Zemmur
+    fi: Tiris-Zemmour
+    fr: Tiris Zemmour
+    gu: તિરીસ ઝેમર પ્રદેશ
+    hi: तिरीस ज़मौर क्षेत्र
+    id: Tiris Zemmour
+    it: regione di Tiris-Zemmour
+    ja: ティリス・ゼムール州
+    kn: ಟಿರಿಸ್ ಝೆಮೌರ್ ಪ್ರದೇಶ
+    ko: 티리스젬무르 주
+    lt: Tiris Zemuro vilaja
+    mr: तिरीस झमेर्स प्रांत
+    ms: Tiris Zemmour
+    nb: Tiris Zemmour
+    nl: Tiris Zemmour
+    pl: Tiris Zammur
+    pt: Tiris Zemmour
+    ro: Regiunea Tiris Zemmour
+    ru: Тирис-Земмур
+    si: ටිරිස් සෙම්මොඋර් කලාපය
+    sv: Tiris Zemmour
+    ta: டிரஸ் ஸிமமெர் பகுதி
+    te: టిరిస్ జెమ్మోర్ ప్రాంతం
+    th: ทิริส เซ็มมัวร์
+    tr: Tiris Zemmour Bölgesi
+    ur: تیرس زمور علاقہ
+    vi: Khu vực Tiris Zemmour
+    lv: Tīris Zemmūras vilājs
+    ceb: Tiris Zemmour
+    zh: 提里斯-宰穆爾省
+    ccp: "𑄑𑄨𑄢𑄨𑄌𑄴 𑄎𑄬𑄟𑄴𑄟𑄯𑄢𑄴"
+    uk: Регіон Тіріс-Земур
+    'no': Tiris Zemmour
+    ca: Tiris Zemmour
+    fa: استان تیرس زمور
+  type: region
+'12':
+  name: Inchiri
+  code: '12'
+  unofficial_names:
+  - Inširi
+  - Inchiri
+  geo:
+    latitude: 20.0280561
+    longitude: -15.4068079
+    min_latitude: 18.9205761
+    min_longitude: -16.472452
+    max_latitude: 21.3430535
+    max_longitude: -14.1486749
+  translations:
+    en: Inchiri
+    ar: ولاية إينشيري
+    be: Вобласць Іншыры
+    bg: Иншири
+    bn: ইনকিরি অঞ্চল
+    da: Inchiri
+    de: Inchiri
+    el: Ιντσίρι
+    es: Inchiri
+    fi: Inchirin maakunta
+    fr: Inchiri
+    gu: ઇન્ચીરી પ્રદેશ
+    hi: इन्कीरी प्रदेश
+    id: Inchiri
+    it: regione di Inchiri
+    ja: インシリ州
+    kn: ಇಂಚರಿ ಪ್ರದೇಶ
+    ko: 인시리 주
+    lt: Inširio vilaja
+    mr: इंचिरी प्रदेश
+    ms: Inchiri
+    nb: Inchiri
+    nl: Inchiri
+    pl: Insziri
+    pt: Inchiri
+    ro: Regiunea Inchiri
+    ru: Иншири
+    si: ඉන්චිරි කලාපය
+    sv: Inchiri
+    ta: இஞ்சிரி பகுதி
+    te: ఇంచిరి ప్రాంతం
+    th: อินชิลี
+    tr: Ichiri Bölgesi
+    uk: Інширі
+    ur: اینشیری
+    vi: Khu vực Inchiri
+    lv: Inširi vilājs
+    ceb: Inchiri
+    zh: 因希里省
+    ccp: "𑄃𑄨𑄚𑄴𑄌𑄨𑄢𑄨"
+    'no': Inchiri
+    ca: Inchiri
+    fa: استان اینشیری
+  type: region
+'13':
+  name: Nouakchott Ouest
+  code: '13'
+  translations:
+    en: Nouakchott Ouest
+    ja: ヌアクショット西
+    ko: 서누악쇼트 주
+    ccp: "𑄚𑄯𑄠𑄮𑄇𑄴𑄌𑄮𑄖𑄴 𑄃𑄧𑄠𑄬𑄌𑄴𑄑𑄴"
+    fr: Nouakchott-Ouest
+    ar: ولاية نواكشوط الغربية
+    de: Nouakchott Ouest
+    fa: استان نواکشوت غربی
+    it: Regione di Nouakchott-Ouest
+    ru: Западный Нуакшот
+  type: region
+'14':
+  name: نواكشوط الشمالية
+  code: '14'
+  translations:
+    en: Nouakchott Nord
+    ja: ヌアクショット北
+    ko: 북누악쇼트 주
+    ar: نواكشوط الشمالية
+    ru: Нуакшот-Нор
+    ccp: "𑄚𑄯𑄠𑄮𑄇𑄴𑄌𑄮𑄖𑄴 𑄚𑄧𑄢𑄴𑄓𑄴"
+    fr: Nouakchott-Nord
+    ca: Nouakchott-Nord
+    de: Nouakchott Nord
+    fa: استان نواکشوت شمالی
+    it: Regione di Nouakchott-Nord
+    sv: Nouakchott-Nord
+  type: region
+'15':
+  name: نواكشوط الجنوبية
+  code: '15'
+  translations:
+    en: Nouakchott Sud
+    ja: ヌアクショット南
+    ko: 남누악쇼트 주
+    ar: نواكشوط الجنوبية
+    ru: Нуакшот-Сюд
+    ccp: "𑄚𑄯𑄠𑄮𑄇𑄴𑄌𑄮𑄖𑄴 𑄥𑄖𑄴"
+    fr: Nouakchott-Sud
+    de: Nouakchott Sud
+    fa: استان نواکشوت جنوبی
+    it: Regione di Nouakchott-Sud
+  type: region

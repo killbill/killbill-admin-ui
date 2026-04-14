@@ -1,0 +1,37 @@
+name: Tests
+
+on:
+  pull_request:
+    paths-ignore:
+      - 'README.md'
+      - 'CHANGELOG.md'
+  push:
+    paths-ignore:
+      - 'README.md'
+      - 'CHANGELOG.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [3.2, 3.3, 3.4]
+        gemfile: [7.1, 7.2, '8.0']
+    env: # $BUNDLE_GEMFILE must be set at the job level, so it is set for all steps
+      BUNDLE_GEMFILE: ${{ github.workspace }}/gemfiles/actionpack-${{ matrix.gemfile }}.gemfile
+      CC_TEST_REPORTER_ID: 0d09e6611c01dedd75511b1c60f62329d01729289e06375cfe67cefe67013d9f
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Ruby ${{ matrix.ruby-version }}
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+        bundler-cache: true
+        cache-version: 10
+    - name: Run tests
+
+      run: bundle exec rake
+    - name: Publish code coverage
+      uses: paambaati/codeclimate-action@v5.0.0
+

@@ -1,0 +1,795 @@
+---
+'01':
+  name: Kingston
+  code: '01'
+  unofficial_names:
+  - Kingston
+  geo:
+    latitude: 17.983333
+    longitude: -76.8
+    min_latitude: 17.9634658
+    min_longitude: -76.8719387
+    max_latitude: 18.0724068
+    max_longitude: -76.7293739
+  translations:
+    en: Kingston
+    ar: أبرشية كينغستون
+    bn: কিংস্টোন পারিশ
+    da: Kingston Parish
+    de: Kingston Parish
+    el: Κίνγκστον
+    es: Parroquia de Kingston
+    eu: Kingston Parish
+    fi: Kingstonin kunta
+    fr: Paroisse de Kingston
+    gu: કિંગ્સ્ટન પૅરિશ
+    hi: किंग्स्टन पैरिश
+    id: Paroki Kingston
+    it: Parrocchia di Kingston
+    ja: キングストン教区
+    kn: ಕಿಂಗ್ಸ್ಟನ್ ಪ್ಯಾರಿಷ್
+    ko: 킹스턴 교구
+    mr: किंग्सटोन पॅरीश
+    ms: Kingston Parish
+    nb: Kingston prestegjeld
+    nl: Kingston
+    pl: Kingston
+    pt: Kingston
+    ru: Приход Кингстон
+    si: කිංග්ස්ටන් වසම
+    sv: Kingston Parish
+    ta: கிங்ஸ்டன் பரிஷ்
+    te: కింగ్‌స్టన్ పారిష్
+    th: คิงสตัน เพริช
+    tr: Kingston Parish
+    ur: کنگسٹن پیرش
+    vi: Giáo xứ Kingston
+    zh: 金斯敦區
+    lv: Kingstonas pagasts
+    ceb: Parish of Kingston
+    lt: Kingstono parapija
+    ccp: "𑄇𑄨𑄁𑄌𑄳𑄑𑄧𑄚𑄴"
+    uk: Парафія Кінгстон
+    'no': Kingston prestegjeld
+    fa: پریش کینگستون
+  type: parish
+'02':
+  name: Saint Andrew
+  code: '02'
+  unofficial_names:
+  - Saint Andrew
+  geo:
+    latitude: 18.0028906
+    longitude: -76.8418246
+    min_latitude: 17.9982883
+    min_longitude: -76.8447946
+    max_latitude: 18.011791
+    max_longitude: -76.8372715
+  translations:
+    en: Saint Andrew
+    ar: أبريشة سانت أندرو
+    bn: সেন্ট অ্যান্ড্রু
+    da: Saint Andrew
+    de: Saint Andrew
+    el: Άγιος Ανδρέας, Τζαμάικα
+    es: Parroquia de Saint Andrew (Jamaica)
+    eu: Saint Andrew (Jamaika)
+    fi: Saint Andrew
+    fr: Saint Andrew
+    gu: સેન્ટ એન્ડ્રુ
+    he: סנט אנדרו
+    hi: सेंट एंड्रू पैरिश, जमाइका
+    id: Saint Andrew
+    it: Parrocchia di Saint Andrew
+    ja: セント・アンドリュー教区
+    kn: ಸೇಂಟ್ ಆಂಡ್ರ್ಯೂ
+    ko: 세인트앤드루 교구
+    mr: सेंट ऍन्ड्र्यू
+    ms: Saint Andrew
+    nb: Saint Andrew prestegjeld (Jamaica)
+    nl: Saint Andrew
+    pl: Saint Andrew (Jamajka)
+    pt: Saint Andrew (Jamaica)
+    ru: Приход Сент-Андру
+    si: ශාන්ත ඇන්ඩෘ
+    sl: Saint Andrew
+    sv: Saint Andrew Parish
+    ta: செயின்ட் ஆண்ட்ரு
+    te: సెయింట్ ఆండ్ర్యూ పారిష్
+    th: เซน แอนดริว
+    tr: Saint Andrew
+    uk: Сент-Ендрю (Ямайка)
+    ur: سینٹ اینڈریو
+    vi: Saint Andrew
+    lv: Senendrjū pagasts
+    lt: Saint Endrius
+    zh: 聖安德魯區
+    ccp: "𑄥𑄬𑄚𑄴𑄑𑄴 𑄃𑄬𑄚𑄴𑄓𑄳𑄢𑄪"
+    'no': Saint Andrew prestegjeld (Jamaica)
+    ca: Saint Andrew
+    cy: Saint Andrew
+    fa: پریش سنت اندرو (جامائیکا)
+    ka: სენტ-ენდრიუ
+  type: parish
+'03':
+  name: Saint Thomas
+  code: '03'
+  unofficial_names:
+  - Saint Thomas
+  geo:
+    latitude: 17.9700261
+    longitude: -76.4331698
+    min_latitude: 17.8502263
+    min_longitude: -76.6640716
+    max_latitude: 18.087991
+    max_longitude: -76.183159
+  translations:
+    en: Saint Thomas
+    ar: أبرشية سانت توماس
+    bg: Сейнт Томас
+    bn: সেন্ট থমাস পারিশ
+    da: Saint Thomas Parish
+    de: Saint Thomas Parish
+    el: Άγιος Θωμάς
+    es: Parroquia de Saint Thomas
+    eu: Saint Thomas
+    fi: Saint Thomasin kunta
+    fr: Paroisse de Saint-Thomas
+    gu: સેંટ થોમસ પૅરિશ
+    hi: सेंट थॉमस पैरिश
+    id: Paroki Saint Thomas
+    it: Parrocchia di Saint Thomas
+    ja: セント・トーマス教区
+    kn: ಸೇಂಟ್ ಥಾಮಸ್ ಪ್ಯಾರಿಷ್
+    mr: सेंट थॉमस परश
+    ms: Saint Thomas Parish
+    nb: Saint Thomas prestegjeld
+    nl: Saint Thomas
+    pl: Saint Thomas
+    pt: Saint Thomas
+    ru: Сейнт Томас
+    si: ශාන්ත තෝමස් ප්‍රාන්තය
+    sv: Parish of Saint Thomas
+    ta: செயின்ட் தாமஸ் பாரிஸ்
+    te: సెయింట్ థామస్ పారిష్
+    th: เซนต์โทมัส
+    tr: Saint Thomas Parish
+    ur: سینٹ تھامس پیرش، جمیکا
+    vi: Giáo xứ Saint Thomas
+    lv: Sentomasa pagasts
+    ceb: Parish of Saint Thomas
+    lt: Švento Tomaso parapija, Jamaika
+    zh: 聖托馬斯區
+    ccp: "𑄥𑄬𑄚𑄴𑄑𑄴 𑄗𑄮𑄟𑄌𑄴"
+    ko: 세인트토머스 교구
+    he: סנט תומאס
+    uk: Парафія Сент-Томас
+    'no': Saint Thomas prestegjeld
+    ca: Saint Thomas
+    fa: پریش سنت توماس (جامائیکا)
+  type: parish
+'04':
+  name: Portland
+  code: '04'
+  unofficial_names:
+  - Portland
+  geo:
+    latitude: 18.0844274
+    longitude: -76.4100267
+    min_latitude: 17.9826419
+    min_longitude: -76.7609059
+    max_latitude: 18.267005
+    max_longitude: -76.25551589999999
+  translations:
+    en: Portland
+    ar: أبرشية بورتلاند
+    bn: পোর্টল্যান্ড প্যারিশ
+    da: Portland Parish
+    de: Portland Parish
+    el: Πόρτλαντ, Τζαμάικα
+    es: Parroquia de Portland
+    eu: Portland
+    fi: Portlandin kunta
+    fr: Paroisse de Portland
+    gu: પોર્ટલેન્ડ પૅરિશ
+    hi: पोर्टलैंड पैरिश
+    id: Paroki Portland
+    it: Parrocchia di Portland
+    ja: ポートランド教区
+    kn: ಪೋರ್ಟ್ಲ್ಯಾಂಡ್ ಪ್ಯಾರಿಷ್
+    ko: 포틀랜드 교구
+    mr: पोर्टलँड पॅरीश
+    ms: Portland Parish
+    nb: Portland prestegjeld
+    nl: Portland
+    pl: Portland
+    pt: Portland
+    ru: Приход Портленд
+    si: පොර්ට්ලන්ඩ් ප්‍රාන්තය
+    sv: Parish of Portland
+    ta: போர்ட்லேண்ட் பரிஷ்
+    te: పోర్ట్‌లాండ్ పారిష్
+    th: พอร์ตแลนด์
+    tr: Portland Parish
+    ur: پورٹلینڈ پیرش
+    vi: Giáo xứ Portland
+    lv: Portlendas pagasts
+    ceb: Parish of Portland
+    lt: Portlando parapija
+    zh: 波特蘭區
+    ccp: "𑄛𑄮𑄢𑄴𑄑𑄴𑄣𑄳𑄠𑄚𑄳𑄓𑄴"
+    hy: Պորտլենդի համայնք
+    uk: Парафія Портленд
+    'no': Portland prestegjeld
+    ca: Parròquia de Portland
+    fa: پورتلند پریش
+  type: parish
+'05':
+  name: Saint Mary
+  code: '05'
+  unofficial_names:
+  - Saint Mary
+  geo:
+    latitude: 18.3092711
+    longitude: -76.964306
+    min_latitude: 18.1388119
+    min_longitude: -77.071198
+    max_latitude: 18.4221861
+    max_longitude: -76.701178
+  translations:
+    en: Saint Mary
+    ar: أبرشية سانت ماري
+    bn: সেন্ট মেরি প্যারিশ
+    da: Saint Mary Parish
+    de: Saint Mary Parish
+    el: Αγία Μαρία, Τζαμάικα
+    es: Parroquia de Saint Mary
+    eu: Saint Mary
+    fi: Saint Maryin pitäjä
+    fr: paroisse de Saint Mary
+    gu: સેન્ટ મેરી પૅરિશ
+    hi: सेंट मैरी पैरिश
+    id: Paroki Saint Mary
+    it: Parrocchia di Saint Mary
+    ja: セント・メアリー教区
+    kn: ಸೇಂಟ್ ಮೇರಿ ಪ್ಯಾರಿಷ್
+    ko: 세인트메리 교구
+    mr: सेंट मेरी पॅरीश
+    ms: Saint Mary Parish
+    nb: Saint Mary prestegjeld
+    nl: Saint Mary
+    pl: Saint Mary
+    pt: Saint Mary
+    ru: Сент-Мэри
+    si: ශාන්ත මේරි ප්‍රාන්තය
+    sl: okrožje Saint Mary
+    sv: Parish of Saint Mary (parish i Jamaica)
+    ta: செயின்ட் மேரி பாரிஸ்
+    te: సెయింట్ మాేరీ పారిష్
+    th: เซนต์แมรี่
+    tr: Saint Mary Parish
+    ur: سینٹ میری پیرش، جمیکا
+    vi: Giáo xứ Saint Mary
+    lv: Sentmerī pagasts
+    ceb: Parish of Saint Mary (parokya sa Jamaica)
+    lt: Šventosios Marijos Parapija
+    zh: 聖瑪麗區
+    ccp: "𑄥𑄬𑄚𑄴𑄑𑄴 𑄟𑄬𑄢𑄨"
+    uk: Парафія Сент-Мері
+    'no': Saint Mary prestegjeld
+    ca: Saint Mary
+  type: parish
+'06':
+  name: Saint Ann
+  code: '06'
+  unofficial_names:
+  - Saint Ann
+  geo:
+    latitude: 18.3281428
+    longitude: -77.2405153
+    min_latitude: 18.179688
+    min_longitude: -77.4926529
+    max_latitude: 18.4788759
+    max_longitude: -77.00158379999999
+  translations:
+    en: Saint Ann
+    ar: أبرشية القديس آن
+    bn: সেন্ট অ্যান পারিশ
+    da: Saint Ann Parish
+    de: Saint Ann Parish
+    el: Αγία Άννα, Τζαμάικα
+    es: Parroquia de Saint Ann
+    et: Saint Anni vald
+    eu: Saint Ann
+    fi: Saint Ann
+    fr: Paroisse de Saint Ann
+    gu: સેન્ટ એન પૅરિશ
+    hi: सेंट ऐन पैरिश
+    id: Paroki Saint Ann
+    it: Parrocchia di Saint Ann
+    ja: セント・アン教区
+    kn: ಸೇಂಟ್ ಆನ್ ಪ್ಯಾರಿಷ್
+    ko: 세인트앤 교구
+    mr: सेंट एन पॅरिश
+    ms: Saint Ann Parish
+    nb: Saint Ann prestegjeld
+    nl: Saint Ann
+    pl: Saint Ann
+    pt: Saint Ann
+    ru: приход Сент-Энн
+    si: ශාන්ත ආනා ප්‍රාන්තය
+    sv: Parish of Saint Ann
+    ta: செயின்ட் ஆன் பரிஷ்
+    te: సెయింట్ ఆన్ పారిష్
+    th: ตำบลเซนต์แอน
+    tr: Saint Ann Parish
+    ur: سینٹ این پیرش
+    vi: Giáo xứ Saint Ann
+    lv: Sentenas pagasts
+    ceb: Parish of Saint Ann
+    lt: Šventosios Anos parapija
+    zh: 聖安娜區
+    ccp: "𑄥𑄬𑄚𑄴𑄑𑄴 𑄃𑄬𑄚𑄴"
+    he: סנט אן
+    uk: Парафія Сент-Ан
+    be: Прыход Сент-Эн
+    'no': Saint Ann prestegjeld
+    ca: Saint Ann
+    hy: Սենթ Էն շրջան
+  type: parish
+'07':
+  name: Trelawny
+  code: '07'
+  unofficial_names:
+  - Trelawny
+  geo:
+    latitude: 18.3526143
+    longitude: -77.6077865
+    min_latitude: 18.2023229
+    min_longitude: -77.777457
+    max_latitude: 18.511424
+    max_longitude: -77.44148299999999
+  translations:
+    en: Trelawny
+    ar: أبرشية تريلاوني
+    bn: ত্রেলাওনি পারিশ
+    cs: Trelawny Parish
+    da: Trelawny Parish
+    de: Trelawny Parish
+    el: Τρελόνι
+    es: Parroquia de Trelawny
+    et: Trelawny
+    eu: Trelawny
+    fi: Trelawnyin kunta
+    fr: Paroisse de Trelawny
+    gu: ટ્રેલેવ્ની પૅરિશ
+    he: מחוז טרלוני
+    hi: ट्रिलॉनी पैरिश
+    id: Paroki Trelawny
+    it: Trelawny
+    ja: トレローニー教区
+    kn: ಟ್ರೆಲೋನಿ ಪ್ಯಾರಿಷ್
+    ko: 트렐로니 교구
+    mr: ट्रिलॉनी
+    ms: Trelawny Parish
+    nb: Trelawny prestegjeld
+    nl: Trelawny
+    pl: Trelawny
+    pt: Trelawny
+    ru: Трелони
+    si: ට්‍රේලව්න්යි ප්‍රාන්තය
+    sk: Trelawny
+    sl: okrožje Trelawny
+    sv: Trelawny
+    ta: ட்ரெலாவ்னி பரிஷ்
+    te: ట్రెలానీ పారిష్
+    th: ตำบลเทรลอว์นี
+    tr: Trelawny Parish
+    ur: ٹریلاونی پیرش
+    vi: Giáo xứ Trelawny
+    lv: Triloni pagasts
+    cy: Trelawny
+    ceb: Parish of Trelawny
+    lt: Treloni parapija
+    zh: 特里洛尼區
+    ccp: "𑄑𑄳𑄢𑄬𑄣𑄧𑄚𑄨"
+    hy: Թրելոնի եկեղեցական ծուխ
+    uk: Парафія Трелоні
+    ca: parròquia de Trelawny
+    'no': Trelawny prestegjeld
+  type: parish
+'08':
+  name: Saint James
+  code: '08'
+  unofficial_names:
+  - Saint James
+  geo:
+    latitude: 18.3923184
+    longitude: -77.85959629999999
+    min_latitude: 18.2089849
+    min_longitude: -78.00069189999999
+    max_latitude: 18.5253104
+    max_longitude: -77.737876
+  translations:
+    en: Saint James
+    ar: أبرشية سانت جيمس، جامايكا
+    bn: সেইন্ট জেমস পারিশ
+    cs: Saint James Parish
+    da: Saint James Parish
+    de: Saint James Parish
+    el: Άγιος Ιάκωβος
+    es: Parroquia de Saint James
+    eu: Saint James
+    fi: Saint Jamesin pitäjä
+    fr: Paroisse de Saint James
+    gu: સેંટ જેમ્સ પૅરિશ
+    he: מחוז סיינט ג׳יימס
+    hi: सेंट जेम्स पेरिश, जमाइका
+    id: Paroki Saint James
+    it: Parrocchia di Saint James
+    ja: セント・ジェームズ教区
+    kn: ಸೇಂಟ್ ಜೇಮ್ಸ್ ಪ್ಯಾರಿಷ್
+    ko: 세인트제임스 교구
+    mr: सेंट जेम्स पॅरीश
+    ms: Saint James Parish
+    nb: Saint James prestegjeld
+    nl: Saint James
+    pl: Saint James
+    pt: Saint James
+    ru: Сент-Джеймс
+    si: ශාන්ත ජේම්ස් කෝරලය
+    sv: Parish of Saint James
+    ta: செயின்ட் ஜேம்ஸ் பாரிஸ்
+    te: సెయింట్ జేమ్స్ పారిష్
+    th: ตำบลเซนต์เจมส์
+    tr: Saint James Parish
+    ur: سینٹ جیمز پیرش، جمیکا
+    vi: Giáo xứ Saint James
+    lv: Sendžeimsa pagasts
+    ceb: Parish of Saint James
+    lt: Saint Džeimso parapija
+    zh: 聖詹姆斯區
+    ccp: "𑄥𑄬𑄚𑄴𑄑𑄴 𑄇𑄬𑄟𑄴𑄌𑄴"
+    uk: Парафія Сент-Джеймс
+    'no': Saint James prestegjeld
+    be: прыход Сент-Джэймс
+    ca: Saint James
+    fa: پاریس سنت جیمز (جامائیکا)
+  type: parish
+'09':
+  name: Hanover
+  code: '09'
+  unofficial_names:
+  - Hanover
+  geo:
+    latitude: 18.4097707
+    longitude: -78.13363799999999
+    min_latitude: 18.3051631
+    min_longitude: -78.34310889999999
+    max_latitude: 18.4628808
+    max_longitude: -77.913105
+  translations:
+    en: Hanover
+    ar: أبرشية هانوفر
+    bg: Хановър
+    bn: হ্যানওভার প্যারিশ
+    ca: Parròquia de Hanover
+    da: Hanover Parish
+    de: Hanover Parish
+    el: Αννόβερο
+    es: Parroquia de Hanover
+    et: Hanoveri vald
+    eu: Hanover
+    fi: Hanoverin kunta
+    fr: Paroisse de Hanover
+    gu: હેનોવર પૅરિશ
+    he: הנובר
+    hi: हनोवर पैरिश
+    id: Paroki Hanover
+    it: Parrocchia di Hanover
+    ja: ハノーバー教区
+    kn: ಹ್ಯಾನೋವರ್ ಪ್ಯಾರಿಷ್
+    ko: 해노버 교구
+    mr: हॅनोव्हर पॅरीश
+    ms: Hanover Parish
+    nb: Hanover prestegjeld
+    nl: Hanover
+    pl: Hanover
+    pt: Hanover
+    ru: Приход Ганновер
+    si: හැනෝවර් ප්‍රාන්තය
+    sl: okrožje Hanover
+    sv: Hanover
+    ta: ஹனோவர் பாரிஸ்
+    te: హనోవర్ పారిష్
+    th: ฮันโนเฟอร์
+    tr: Hanover Parish
+    uk: Гановер (Ямайка)
+    ur: ہینور پیرش
+    vi: Giáo xứ Hanover
+    lv: Henoveras pagasts
+    ceb: Parish of Hanover
+    lt: Hanoverio parapija
+    zh: 汉诺威区
+    ccp: "𑄦𑄚𑄮𑄞𑄢𑄴"
+    'no': Hanover prestegjeld
+  type: parish
+'10':
+  name: Westmoreland
+  code: '10'
+  unofficial_names:
+  - Westmoreland
+  geo:
+    latitude: 18.2944378
+    longitude: -78.1564432
+    min_latitude: 18.0689012
+    min_longitude: -78.366638
+    max_latitude: 18.360146
+    max_longitude: -77.87850809999999
+  translations:
+    en: Westmoreland
+    ar: أبرشية ويستمورلاند
+    bn: ওয়েস্টারমল্যান্ডল্যান্ড প্যারিশ
+    da: Westmoreland Parish
+    de: Westmoreland Parish
+    el: Γουεστμόρλαντ
+    es: Parroquia de Westmoreland
+    eu: Westmoreland
+    fi: Westmorelandin pitäjä
+    fr: Paroisse de Westmoreland
+    gu: વેસ્ટમોરલેન્ડ પૅરિશ
+    hi: वेस्टमोरलैंड पैरिश
+    id: Paroki Westmoreland
+    it: Parrocchia di Westmoreland
+    ja: ウェストモアランド教区
+    kn: ವೆಸ್ಟ್ಮೋರ್ಲ್ಯಾಂಡ್ ಪ್ಯಾರಿಷ್
+    ko: 웨스트모얼랜드 교구
+    mr: वेस्टमोरलँड पॅरीश
+    ms: Westmoreland Parish
+    nb: Westmoreland prestegjeld
+    nl: Westmoreland
+    pl: Westmoreland
+    pt: Westmoreland
+    ru: Приход Вестморленд
+    si: වෙස්ටෝම්රෙලන්ඩ් ප්‍රාන්තය
+    sv: Parish of Westmoreland
+    ta: வெஸ்ட்மோர்லாண்ட் பரிஷ்
+    te: వెస్ట్‌మోర్‌లాండ్ పారిష్
+    th: เวสต์มอร์แลนด์
+    tr: Westmoreland Parish
+    ur: ویسٹمورلینڈ پیرش
+    vi: Giáo xứ Westmoreland
+    lv: Vestmorlendas pagasts
+    ceb: Parish of Westmoreland
+    lt: Vestmorelando parapija
+    zh: 西摩蘭區
+    ccp: "𑄃𑄮𑄠𑄬𑄌𑄴𑄟𑄮𑄢𑄴𑄣𑄳𑄠𑄚𑄳𑄓𑄴"
+    uk: Парафія Вестморленд
+    'no': Westmoreland prestegjeld
+    ca: Parròquia de Westmoreland
+    fa: بخش وست مورلند
+  type: parish
+'11':
+  name: Saint Elizabeth
+  code: '11'
+  unofficial_names:
+  - Saint Elizabeth
+  geo:
+    latitude: 18.0788461
+    longitude: -77.69941969999999
+    min_latitude: 17.8543891
+    min_longitude: -77.956349
+    max_latitude: 18.2497811
+    max_longitude: -77.56239699999999
+  translations:
+    en: Saint Elizabeth
+    ar: أبرشية سانت إليزابيث
+    bn: সেন্ট এলিজাবেথ প্রদেশ
+    da: Saint Elizabeth Parish
+    de: Saint Elizabeth Parish
+    el: Αγία Ελίζαμπεθ
+    es: Parroquia de Saint Elizabeth
+    eu: Saint Elizabeth
+    fa: سنت الیزابت، جامائیکا
+    fi: Saint Elizabethin kunta
+    fr: Paroisse de Saint Elizabeth
+    gu: સેન્ટ એલિઝાબેથ પૅરિશ
+    he: מחוז סנט אליזבת
+    hi: सेंट एलिज़ाबेथ पैरिश
+    id: Paroki Saint Elizabeth
+    it: Parrocchia di Saint Elizabeth
+    ja: セント・エリザベス教区
+    kn: ಸೇಂಟ್ ಎಲಿಜಬೆತ್ ಪ್ಯಾರಿಷ್
+    ko: 세인트엘리자베스 교구
+    mr: सेंट एलिझाबेथ पॅरीश
+    ms: Saint Elizabeth Parish
+    nb: Saint Elizabeth prestegjeld
+    nl: Saint Elizabeth
+    pl: Saint Elizabeth
+    pt: Saint Elizabeth
+    ru: приход Сент-Элизабет
+    si: ශාන්ත එලිසබත් කෝරලය
+    sv: Parish of Saint Elizabeth
+    ta: செயின்ட் எலிசபெத் பாரிஸ்
+    te: సెయింట్ ఎలిజబెత్ పారిష్
+    th: ตำบลเซนต์เอลิซเบธ
+    tr: Saint Elizabeth Parish
+    ur: سینٹ الزبتھ پیرش
+    vi: Giáo xứ Saint Elizabeth
+    lv: Senelizabetes pagasts
+    ceb: Parish of Saint Elizabeth
+    lt: Šventosios Elžbietos parapija
+    zh: 聖伊麗莎白區
+    ccp: "𑄥𑄬𑄚𑄴𑄑𑄴 𑄃𑄬𑄣𑄨𑄎𑄝𑄬𑄖𑄴"
+    uk: Парафія Сент-Елізабет
+    'no': Saint Elizabeth prestegjeld
+    ca: Parròquia de Saint Elizabeth
+  type: parish
+'12':
+  name: Manchester
+  code: '12'
+  unofficial_names:
+  - Manchester
+  geo:
+    latitude: 18.0669654
+    longitude: -77.5160788
+    min_latitude: 17.8387709
+    min_longitude: -77.637006
+    max_latitude: 18.2492469
+    max_longitude: -77.34482899999999
+  translations:
+    en: Manchester
+    ar: أبرشية مانشستر
+    bn: ম্যানচেস্টার পারিস
+    da: Manchester Parish
+    de: Manchester Parish
+    el: Μάντσεστερ, Τζαμάικα
+    es: Parroquia de Manchester
+    eu: Manchester
+    fi: Manchesterin kunta
+    fr: Paroisse de Manchester
+    gu: માન્ચેસ્ટર પૅરિશ
+    hi: मेनचेस्टर पैरिश
+    id: Paroki Manchester
+    it: Parrocchia di Manchester
+    ja: マンチェスター教区
+    kn: ಮ್ಯಾಂಚೆಸ್ಟರ್ ಪ್ಯಾರಿಷ್
+    ko: 맨체스터 교구
+    mr: मँचेस्टर परग
+    ms: Manchester Parish
+    nb: Manchester prestegjeld
+    nl: Manchester
+    pl: Manchester
+    pt: Manchester (Middlesex)
+    ru: Приход Манчестер
+    si: මැන්චෙස්ටර් ප්‍රාන්තය
+    sl: Manchester, Jamajka
+    sv: Parish of Manchester
+    ta: மான்செஸ்டர் பாரிஸ்
+    te: మాంచెస్టర్ పారిష్
+    th: ตำบลแมนเชสเตอร์
+    tr: Manchester Parish
+    uk: Манчестер (Ямайка)
+    ur: مانچسٹر پیرش
+    vi: Giáo xứ Manchester
+    lv: Mančestras pagasts
+    ceb: Parish of Manchester
+    lt: Mančesterio parapija
+    zh: 曼徹斯特區
+    ccp: "𑄟𑄳𑄠𑄚𑄴𑄌𑄬𑄌𑄴𑄑𑄢𑄴"
+    he: מחוז מנצ׳סטר
+    'no': Manchester prestegjeld
+    ca: Parròquia de Manchester
+    fa: پریش منچستر
+  type: parish
+'13':
+  name: Clarendon
+  code: '13'
+  unofficial_names:
+  - Clarendon
+  geo:
+    latitude: 17.9557183
+    longitude: -77.2405153
+    min_latitude: 17.7057243
+    min_longitude: -77.4926529
+    max_latitude: 18.2174819
+    max_longitude: -77.1253108
+  translations:
+    en: Clarendon
+    ar: أبرشية كلاريندون، جمايكا
+    bn: ক্লারেন্ডন প্যারিশ
+    da: Clarendon Parish
+    de: Clarendon Parish
+    el: Κλάρεντον
+    es: Parroquia de Clarendon
+    eu: Clarendon
+    fa: کلارندون پریش، جامائیکا
+    fi: Clarendon kunta
+    fr: Paroisse de Clarendon
+    gu: ક્લેરેન્ડન પૅરિશ
+    hi: क्लैरेंडोन पैरिश, जमाइका
+    id: Paroki Clarendon
+    it: Parrocchia di Clarendon
+    ja: クラレンドン教区
+    kn: ಕ್ಲಾರೆಂಡನ್ ಪ್ಯಾರಿಷ್
+    ko: 클래런던 교구
+    mr: क्लेरेडन परिश
+    ms: Clarendon Parish
+    nb: Clarendon prestegjeld
+    nl: Clarendon
+    pl: Clarendon (region Jamajki)
+    pt: Clarendon
+    ru: Кларендон (приход)
+    si: ක්ලරෙන්ඩන් ප්‍රාන්තය
+    sl: Clarendon
+    sv: Clarendon, Jamaica
+    ta: கிளர்ந்தோன் பரிஷ்
+    te: క్లారెండన్ పారిష్
+    th: คลาเรนดอน
+    tr: Clarendon Parish
+    ur: کلاریندون پارش
+    vi: Giáo xứ Clarendon
+    lv: Klarendonas pagasts
+    ceb: Parish of Clarendon
+    lt: Klarendono parapija
+    zh: 克拉倫登區
+    ccp: "𑄇𑄳𑄣𑄢𑄬𑄚𑄴𑄓𑄧𑄚𑄴"
+    uk: Парафія Кларендон
+    'no': Clarendon prestegjeld
+    he: מחוז קלרנדון
+  type: parish
+'14':
+  name: Saint Catherine
+  code: '14'
+  unofficial_names:
+  - Saint Catherine
+  geo:
+    latitude: 18.0364134
+    longitude: -77.0564464
+    min_latitude: 17.8379222
+    min_longitude: -77.21647999999999
+    max_latitude: 18.258774
+    max_longitude: -76.848185
+  translations:
+    en: Saint Catherine
+    ar: أبرشية سانت كاثرين
+    bn: সেন্ট ক্যাথেরিন প্যারিশ
+    da: Saint Catherine Parish
+    de: Saint Catherine Parish
+    el: Αγία Αικατερίνη
+    es: Parroquia de Saint Catherine
+    eu: Saint Catherine
+    fi: Saint Catherine Parish
+    fr: Paroisse de Sainte-Catherine
+    gu: સેન્ટ કેથરિન પૅરિશ
+    hi: सेंट कैथरीन पैरिश
+    id: Paroki Saint Catherine
+    it: Parrocchia di Saint Catherine
+    ja: セント・キャサリン教区
+    kn: ಸೇಂಟ್ ಕ್ಯಾಥರೀನ್ ಪ್ಯಾರಿಷ್
+    ko: 세인트캐서린 교구
+    mr: सेंट कॅथरीन पॅरीश
+    ms: Saint Catherine Parish
+    nb: Saint Catherine prestegjeld
+    nl: Saint Catherine
+    pl: Saint Catherine
+    pt: Saint Catherine
+    ru: Сэнт-Кэтрин
+    si: ශාන්ත කැතරීන් ප්‍රාන්තය
+    sv: Parish of Saint Catherine
+    ta: செயின்ட் கேத்தரின் பரிஷ்
+    te: సెయింట్ కేథరీన్ పారిష్
+    th: เซนต์ แคเธอรีน
+    tr: Saint Catherine District
+    ur: سینٹ کیتھرین پیرش
+    vi: Giáo xứ Saint Catherine
+    lv: Sentketerinas pagasts
+    ceb: Parish of Saint Catherine
+    lt: Šventosios Katerinos parapija
+    zh: 聖凱瑟琳區
+    ccp: "𑄥𑄬𑄚𑄴𑄑𑄴 𑄇𑄳𑄠𑄗𑄧𑄢𑄭𑄚𑄴"
+    he: סנט קתרין
+    uk: Сент-Кетрін
+    'no': Saint Catherine prestegjeld
+    ca: Saint Catherine
+  type: parish

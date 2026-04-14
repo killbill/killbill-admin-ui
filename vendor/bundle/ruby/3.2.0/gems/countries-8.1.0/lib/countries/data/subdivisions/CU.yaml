@@ -1,0 +1,1011 @@
+---
+'01':
+  name: Pinar del Río
+  code: '01'
+  unofficial_names:
+  - Pinar del Río
+  geo:
+    latitude: 22.412222
+    longitude: -83.671944
+    min_latitude: 22.3613422
+    min_longitude: -83.74414449999999
+    max_latitude: 22.4633914
+    max_longitude: -83.6413955
+  translations:
+    en: Pinar del Río
+    af: Pinar del Río
+    ar: محافظة بينار ديل ريو
+    bg: Пинар дел Рио
+    bn: পিনার ডেল রিও প্রদেশ
+    ca: Província de Pinar del Río
+    cs: Pinar del Río
+    da: Pinar del Río Provinsen
+    de: Provinz Pinar del Río
+    el: Πινάρ ντελ Ρίο
+    es: Provincia de Pinar del Río
+    et: Pinar del Río provints
+    eu: Pinar del Ríoko probintzia
+    fa: استان پینار دل ریو
+    fi: Pinar del Río
+    fr: province de Pinar del Río
+    gl: Provincia de Pinar del Río
+    gu: પિનાર ડેલ રિયો પ્રાંત
+    hi: पिनार डेल रियो प्रांत
+    hr: Pinar del Río
+    hu: Pinar del Río
+    id: Provinsi Pinar del Río
+    it: provincia di Pinar del Río
+    ja: ピナール・デル・リオ州
+    ka: პინარ-დელ-რიოს პროვინცია
+    kn: ಪಿನಾರ್ ಡೆಲ್ ರಿಯೊ ಪ್ರಾಂತ್ಯ
+    ko: 피나르델리오 주
+    lt: Pinar del Rijo provincija
+    mr: पिनार डेल रिओ प्रांत
+    ms: Pinar del Río Province
+    nb: Pinar del Rio
+    nl: Pinar del Río
+    pl: Prowincja Pinar del Río
+    pt: Pinar del Río
+    ru: Пинар-дель-Рио
+    si: පිනාර් ඩෙල් රියෝ පළාත
+    sv: Provincia de Pinar del Río
+    ta: பின்னார் டெல் ரியோ மாகாணம்
+    te: పినార్ డెల్ రియో ప్రావిన్స్
+    th: ปีนาร์เดลรีโอ
+    tr: Pinar del Río
+    uk: Пінар-дель-Ріо
+    ur: پینار دیل ریو صوبہ
+    vi: Pinar del Río
+    zh: 比那尔德里奥省
+    lv: Pinaras del Rio province
+    ceb: Pinar del Río
+    ccp: "𑄛𑄧𑄚𑄢𑄴 𑄓𑄬𑄣𑄴 𑄢𑄨𑄃𑄮"
+    mk: Пинар дел Рио
+    'no': Pinar del Rio
+    cy: Talaith Pinar del Río
+  type: province
+'03':
+  name: La Habana
+  code: '03'
+  unofficial_names:
+  - La Habana
+  geo:
+    latitude: 23.159167
+    longitude: -82.271056
+    min_latitude: 22.9200574
+    min_longitude: -82.5742877
+    max_latitude: 23.1812734
+    max_longitude: -82.0911311
+  translations:
+    en: Havana
+    be: Гавана
+    ca: Província de l’Havana
+    de: Provinz La Habana
+    es: Provincia de La Habana
+    fr: Ciudad de La Habana
+    gl: Provincia da Cidade da Habana
+    hu: Havanna
+    ja: ハバナ
+    nl: Ciudad de La Habana
+    pt: Ciudad de La Habana (província)
+    ru: Гавана
+    sv: Provincia de Ciudad de La Habana
+    ccp: "𑄦𑄞𑄚"
+    cy: Talaith La Habana
+    fa: استان لا هابانا
+    hy: Հավանա
+    mr: हवाना प्रांत
+  type: province
+'04':
+  name: Matanzas
+  code: '04'
+  unofficial_names:
+  - Matanzas
+  geo:
+    latitude: 22.5767123
+    longitude: -81.3399414
+    min_latitude: 22.0036335
+    min_longitude: -82.16040799999999
+    max_latitude: 23.2767521
+    max_longitude: -80.47074099999999
+  translations:
+    en: Matanzas
+    af: Matanzas
+    ar: ماتنزاس
+    be: Правінцыя Матансас
+    bg: Матансас
+    bn: মাতানজাস প্রদেশ
+    ca: Província de Matanzas
+    cs: Matanzas
+    da: Matanzas Provinsen
+    de: Provinz Matanzas
+    el: Ματάνσας
+    es: Provincia de Matanzas
+    eu: Matanzasko probintzia
+    fa: استان ماتانزاس
+    fi: Matanzasin lääni
+    fr: province de Matanzas
+    gl: Provincia de Matanzas
+    gu: મતાઝાસ પ્રાંત
+    he: מטנזס
+    hi: मटनजस प्रांत
+    hr: Matanzas
+    hu: Matanzas
+    id: Provinsi Matanzas
+    it: provincia di Matanzas
+    ja: マタンサス州
+    ka: მატანსასის პროვინცია
+    kn: ಮಟಾಂಜಾ ಪ್ರಾಂತ್ಯ
+    ko: 마탄사스 주
+    lt: Matansaso provincija
+    mr: मटणजस प्रांत
+    ms: Matanzas Province
+    nb: Matanzas
+    nl: Matanzas
+    pl: Prowincja Matanzas
+    pt: Matanzas
+    ru: Матансас
+    si: මන්ටනාස් පළාත
+    sv: Matanzas
+    ta: மடன்சஸ் மாகாணம்
+    te: మాటాంజాస్ ప్రావిన్స్
+    th: จังหวัดมาตันซัส
+    tr: Matanzas ili
+    uk: Матансас
+    ur: ماتانساس صوبہ
+    vi: Matanzas
+    lv: Matansasas province
+    ceb: Matanzas
+    zh: 马坦萨斯省
+    ccp: "𑄟𑄑𑄚𑄴𑄎𑄌𑄴"
+    hy: Մատանսաս
+    mk: Матансас
+    'no': Matanzas
+    cy: Talaith Matanzas
+    et: Matanzase provints
+  type: province
+'05':
+  name: Villa Clara
+  code: '05'
+  unofficial_names:
+  - Villa Clara
+  geo:
+    latitude: 22.4937204
+    longitude: -79.9192702
+    min_latitude: 21.92908
+    min_longitude: -80.740882
+    max_latitude: 23.1555759
+    max_longitude: -79.3098399
+  translations:
+    en: Villa Clara
+    af: Villa Clara
+    ar: محافظة فيلا كلارا
+    be: Правінцыя Вілья-Клара
+    bg: Виля Клара
+    bn: ভিলা ক্লারা প্রদেশ
+    ca: Província de Villa Clara
+    cs: Provincia de Villa Clara
+    da: Villa Clara Provinsen
+    de: Provinz Villa Clara
+    el: Βίγια Κλάρα
+    es: Provincia de Villa Clara
+    et: Villa Clara provints
+    eu: Villa Clarako probintzia
+    fa: استان ویلا کلارا
+    fi: Villa Claran lääni
+    fr: Villa Clara
+    gl: Provincia de Villa Clara
+    gu: વિલા ક્લેરા પ્રાંત
+    he: ויה קלרה
+    hi: विला क्लारा प्रांत
+    hr: Villa Clara
+    hu: Villa Clara
+    id: Provinsi Villa Clara
+    it: provincia di Villa Clara
+    ja: ビジャ・クララ州
+    ka: ვილია-კლარას პროვინცია
+    kn: ವಿಲ್ಲಾ ಕ್ಲಾರಾ ಪ್ರಾಂತ್ಯ
+    ko: 비야클라라 주
+    lt: Vilja Klaros provincija
+    mr: व्हिला क्लारा प्रांत
+    ms: Villa Clara Province
+    nb: Villa Clara Provinsen
+    nl: Villa Clara
+    pl: Prowincja Villa Clara
+    pt: Villa Clara
+    ru: Вилья-Клара
+    si: විලා ක්ලාරා පළාත
+    sv: Provincia de Villa Clara
+    ta: வில்லா கிளாரா மாகாணம்
+    te: విల్లా క్లారా ప్రావిన్స్
+    th: บียากลารา
+    tr: Villa Clara ili
+    uk: Вілья-Клара
+    ur: ویا کلارا صوبہ
+    vi: Villa Clara
+    lv: Viljaklaras province
+    cy: Villa Clara Province
+    ceb: Villa Clara
+    zh: 比亚克拉拉省
+    ccp: "𑄞𑄨𑄣 𑄇𑄳𑄣𑄢"
+    mk: Виља Клара
+    'no': Villa Clara Provinsen
+    az: Vilya-Klara əyaləti
+  type: province
+'06':
+  name: Cienfuegos
+  code: '06'
+  unofficial_names:
+  - Cienfuegos
+  geo:
+    latitude: 22.2379783
+    longitude: -80.365865
+    min_latitude: 21.817026
+    min_longitude: -80.93570679999999
+    max_latitude: 22.5832278
+    max_longitude: -80.01658789999999
+  translations:
+    en: Cienfuegos
+    ar: سينفويغوس
+    be: Правінцыя Сьенфуэгас
+    bg: Сиенфуегос
+    bn: চিয়েনফুয়েগোস প্রদেশ
+    cs: Cienfuegos
+    da: Cienfuegos Provinsen
+    de: Provinz Cienfuegos
+    el: Σιενφουέγος
+    es: Provincia de Cienfuegos
+    eu: Cienfuegosko probintzia
+    fa: استان سینفیوگوس
+    fi: Cienfuegos
+    fr: province de Cienfuegos
+    gl: Provincia de Cienfuegos
+    gu: સિએનફ્યુગોસ પ્રાંત
+    hi: सिएनफ्यूगोस प्रांत
+    hr: Cienfuegos
+    hu: Cienfuegos
+    id: Provinsi Cienfuegos
+    it: provincia di Cienfuegos
+    ja: シエンフエーゴス州
+    ka: სიენფუეგოსის პროვინცია
+    kn: ಸಿನ್ಫ್ಯೂಗೊಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 시엔푸에고스 주
+    lt: Sjenfuegoso provincija
+    mr: सिएनफ्यूगोस प्रांत
+    ms: Cienfuegos Province
+    nb: Cienfuegos
+    nl: Cienfuegos
+    pl: Prowincja Cienfuegos
+    pt: Cienfuegos
+    ru: Сьенфуэгос
+    si: සියෙන්ෆියුගොස් පළාත
+    sv: Provincia de Cienfuegos
+    ta: சிஏபியூயகோஸ் மாகாணம்
+    te: సెన్ఫ్యూగోస్ ప్రావిన్స్
+    th: จังหวัดเซียนฟวยโกส
+    tr: Cienfuegos ili
+    uk: Сьєнфуегос
+    ur: سینفویگوس صوبہ
+    vi: Cienfuegos
+    lv: Sjenfuegosas province
+    af: Cienfuegos
+    ceb: Cienfuegos
+    zh: 西恩富戈斯省
+    ccp: "𑄥𑄭𑄠𑄚𑄴𑄜𑄨𑄅𑄪𑄉𑄮𑄌𑄴"
+    mk: Сиенфуегос
+    'no': Cienfuegos
+    ca: província de Cienfuegos
+    cy: Talaith Cienfuegos
+    et: Cienfuegose provints
+  type: province
+'07':
+  name: Sancti Spíritus
+  code: '07'
+  unofficial_names:
+  - Sancti Spíritus
+  geo:
+    latitude: 21.9938214
+    longitude: -79.4703885
+    min_latitude: 21.4506246
+    min_longitude: -80.09424299999999
+    max_latitude: 22.6677195
+    max_longitude: -78.92516309999999
+  translations:
+    en: Sancti Spíritus
+    ar: سانكتي سبيريتوس
+    bg: Санкти Спиритус
+    bn: সানস্কি স্পিরিটস প্রদেশ
+    da: Sancti Spíritus Provinsen
+    de: Provinz Sancti Spíritus
+    el: Σάνκτι Σπίριτους
+    es: Provincia de Sancti Spíritus
+    eu: Sancti Spiritusko probintzia
+    fa: استان سانکتی اسپیریتوس
+    fi: Sancti Spíritusin lääni
+    fr: province de Sancti Spíritus
+    gl: Provincia de Sancti Spíritus
+    gu: સેંક્ટી સ્પિરિટસ પ્રાંત
+    hi: सैंक्टी स्पिरिटस प्रांत
+    hr: Sancti Spíritus
+    hu: Sancti Spíritus
+    id: Provinsi Sancti Spíritus
+    it: provincia di Sancti Spíritus
+    ja: サンクティ・スピリトゥス州
+    ka: სანქტი-სპირიტუსის პროვინცია
+    kn: ಸ್ಯಾಂಕ್ಟಿ ಸ್ಪೈರಿಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 상크티스피리투스 주
+    lt: Sankti Spirituso provincija
+    mr: सँक्टि स्पिरिटस प्रांत
+    ms: Sancti Spiritus Province
+    nb: Sancti Spíritus
+    nl: Sancti Spíritus
+    pl: Prowincja Sancti Spíritus
+    pt: Sancti Spíritus
+    ru: Санкти-Спиритус
+    si: සැන්සිටි ස්ප්රිචස් පළාත
+    sv: Provincia de Sancti Spíritus
+    ta: ஸந்க்தி ஸ்பிரிட்ஸ் மாகாணம்
+    te: సాంక్టి స్పిరిటస్ ప్రావిన్స్
+    th: จังหวัดแซนค์ติ สปิริทัส
+    tr: Sancti Spíritus ili
+    uk: Санкті-Спірітус
+    ur: سانکتی سپیریتوس صوبہ
+    vi: Sancti Spíritus
+    lv: Sanktispiritusas province
+    ceb: Sancti Spíritus
+    zh: 圣斯皮里图斯省
+    ccp: "𑄥𑄚𑄴𑄑𑄨 𑄌𑄳𑄛𑄭𑄢𑄨𑄑𑄌𑄴"
+    mk: Санкти Спиритус
+    'no': Sancti Spíritus
+    ca: Sancti Spíritus
+    cs: Sancti Spíritus
+    cy: Talaith Sancti Spíritus
+    et: Sancti Spírituse provints
+    hy: Սանկտի Սպիրիտուս
+  type: province
+'08':
+  name: Ciego de Ávila
+  code: '08'
+  unofficial_names:
+  - Ciego de Ávila
+  geo:
+    latitude: 21.9329515
+    longitude: -78.5660852
+    min_latitude: 20.844875
+    min_longitude: -79.45208699999999
+    max_latitude: 22.6132385
+    max_longitude: -78.067293
+  translations:
+    en: Ciego de Ávila
+    ar: محافظة سيغو دي أفيلا
+    be: Правінцыя Сьега-дэ-Авіла
+    bg: Сиего де Авила
+    bn: সিয়েগো দে আভিলা প্রদেশ
+    da: Ciego de Ávila Provinsen
+    de: Provinz Ciego de Ávila
+    el: Σιέγο ντε Άβιλα
+    es: Provincia de Ciego de Ávila
+    eu: Ciego de Ávilako probintzia
+    fa: استان سیه‌گو د آویلا
+    fi: Ciego de Ávila
+    fr: province de Ciego de Ávila
+    gl: Provincia de Ciego de Ávila
+    gu: સિએગો દે એવીલા પ્રાંત
+    hi: सिएगो डी एविला प्रांत
+    hr: Ciego de Ávila
+    hu: Ciego de Ávila
+    id: Provinsi Ciego de Ávila
+    it: provincia di Ciego de Ávila
+    ja: シエゴ・デ・アビラ州
+    ka: სიეგო-დე-ავილის პროვინცია
+    kn: ಸಿಯೋಗೊ ಡಿ ಆವಿಲಾ ಪ್ರಾಂತ್ಯ
+    ko: 시에고데아빌라 주
+    lt: Sjego de Avilos provincija
+    mr: सिगो डी एविला प्रांत
+    ms: Ciego de Avila Province
+    nb: Ciego de Avila
+    nl: Ciego de Ávila
+    pl: Prowincja Ciego de Ávila
+    pt: Ciego de Ávila
+    ru: Сьего-де-Авила
+    si: සියෙගෝ ඩි අවිලා පළාත
+    sv: Provincia de Ciego de Ávila
+    ta: சிஎகோ டி அவிலா மாகாணம்
+    te: సియేగో ్ అవిలా ప్రావిన్స్
+    th: เซียโกเดอาบีลา
+    tr: Ciego de Avila Province
+    uk: Сьєго-де-Авіла
+    ur: سیئگو دے ابیلا صوبہ
+    vi: Ciego de Ávila
+    lv: Sjego de Avilas province
+    ceb: Ciego de Ávila
+    zh: 谢戈德阿维拉省
+    ccp: "𑄥𑄭𑄠𑄬𑄉𑄮 𑄓𑄬 𑄃𑄞𑄨𑄣"
+    mk: Сиего де Авила
+    'no': Ciego de Avila
+    ca: Ciego de Ávila
+    cs: Ciego de Ávila
+    cy: Talaith Ciego de Ávila
+    et: Ciego de Ávila provints
+  type: province
+'09':
+  name: Camagüey
+  code: '09'
+  unofficial_names:
+  - Camagüey
+  geo:
+    latitude: 21.3926035
+    longitude: -77.9053182
+    min_latitude: 21.3328497
+    min_longitude: -77.9696273
+    max_latitude: 21.4397273
+    max_longitude: -77.8250886
+  translations:
+    en: Camagüey
+    ar: كاماغوي
+    be: Правінцыя Камагуэй
+    bg: Камагуей
+    bn: কামাগুয়ে প্রদেশ
+    ca: Província de Camagüey
+    cs: Camagüey
+    da: Camagüey Provinsen
+    de: Provinz Camagüey
+    el: Καμαγουέι
+    es: Provincia de Camagüey
+    eu: Camagüeyko probintzia
+    fa: استان کاماگوی
+    fi: Camagüey
+    fr: province de Camagüey
+    gl: Provincia de Camagüey
+    gu: કેમગ્યુઇ પ્રાંત
+    hi: कैमाग्वे प्रांत
+    hr: Camagüey
+    hu: Camagüey
+    id: Provinsi Camagüey
+    it: provincia di Camagüey
+    ja: カマグエイ州
+    ka: კამაგუეის პროვინცია
+    kn: ಕ್ಯಾಮಗು ಪ್ರಾಂತ್ಯ
+    ko: 카마구에이 주
+    lt: Kamagvėjaus provincija
+    mr: कॅमग्युई प्रांत
+    ms: Camaguey Province
+    nb: Camagüey
+    nl: Camagüey
+    pl: Prowincja Camagüey
+    pt: Camagüey
+    ru: Камагуэй
+    si: කැමගුයි පළාත
+    sv: Provincia de Camagüey
+    ta: காமகுஎய் மாகாணம்
+    te: కామాగ్వే ప్రావిన్స్
+    th: เมืองหลวงกามากูเอย์
+    tr: Camagüey ili
+    uk: Камагуей
+    ur: کاماگوئی صوبہ
+    vi: Camagüey
+    lv: Kamagvejas province
+    af: Camagüey (provinsie)
+    ceb: Camagüey
+    zh: 卡马圭省
+    ccp: "𑄇𑄳𑄠𑄟𑄉𑄭𑄪𑄠𑄬"
+    mk: Камагвеј
+    'no': Camagüey
+    cy: Talaith Camagüey
+    et: Camagüey provints
+  type: province
+'10':
+  name: Las Tunas
+  code: '10'
+  unofficial_names:
+  - Las Tunas
+  geo:
+    latitude: 21.0605162
+    longitude: -76.91820969999999
+    min_latitude: 20.5049499
+    min_longitude: -77.831835
+    max_latitude: 21.4577833
+    max_longitude: -76.3107757
+  translations:
+    en: Las Tunas
+    ar: مقاطعة لاس توناس
+    be: Правінцыя Лас-Тунас
+    bg: Лас Тунас
+    bn: লাস তুনাস প্রদেশ
+    ca: Província de Las Tunas
+    da: Las Tunas Provinsen
+    de: Provinz Las Tunas
+    el: Λας Τούνας
+    es: Provincia de Las Tunas
+    eu: Las Tunasko probintzia
+    fa: استان لاس توناس
+    fi: Las Tunasin provinssi
+    fr: province de Las Tunas
+    gl: Provincia de Las Tunas
+    gu: લાસ ટ્યુનાસ પ્રાંત
+    hi: लास ट्यूनास प्रांत
+    hr: Las Tunas
+    hu: Las Tunas
+    id: Provinsi Las Tunas
+    it: provincia di Las Tunas
+    ja: ラス・トゥーナス州
+    ka: ლას-ტუნასის პროვინცია
+    kn: ಲಾಸ್ ಟುನಾಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 라스투나스 주
+    lt: Las Tunaso provincija
+    mr: लास टुनस प्रांत
+    ms: Daerah Las Tunas
+    nb: Las Tunas
+    nl: Las Tunas
+    pl: Prowincja Las Tunas
+    pt: Las Tunas
+    ru: Лас-Тунас
+    si: ලාස් ටුනාස් පළාත
+    sv: Las Tunas
+    ta: லாஸ் டுனாஸ் மாகாணம்
+    te: లాస్ టూనాస్ ప్రావిన్స్
+    th: จังหวัดลาสตูวาส
+    tr: Las Tunas ili
+    uk: Лас-Тунас
+    ur: لاس ٹناس صوبہ
+    vi: Las Tunas
+    lv: Lastunasas province
+    af: Las Tunas
+    ceb: Las Tunas
+    zh: 拉斯图纳斯省
+    ccp: "𑄣𑄌𑄴 𑄑𑄨𑄅𑄪𑄚𑄌𑄴"
+    mk: Лас Тунас
+    'no': Las Tunas
+    cs: Las Tunas
+    cy: Talaith Las Tunas
+  type: province
+'11':
+  name: Holguín
+  code: '11'
+  unofficial_names:
+  - Holguín
+  geo:
+    latitude: 20.7837893
+    longitude: -75.8069082
+    min_latitude: 20.392118
+    min_longitude: -76.7217541
+    max_latitude: 21.2499624
+    max_longitude: -74.7155897
+  translations:
+    en: Holguín
+    ar: هولغوين
+    be: Альгін
+    bg: Олгин
+    bn: হলগুইন প্রদেশ
+    ca: Província d’Holguín
+    da: Holguín Provinsen
+    de: Provinz Holguín
+    el: Ολγκίν
+    es: Provincia de Holguín
+    et: Holguíni provints
+    eu: Holguíngo probintzia
+    fa: استان اولگین
+    fi: Holguín
+    fr: province de Holguín
+    gl: Provincia de Holguín
+    gu: હોલ્ગિન પ્રાંત
+    hi: होलग्विन प्रांत
+    hr: Holguín
+    hu: Holguín
+    id: Provinsi Holguín
+    it: provincia di Holguín
+    ja: オルギン州
+    ka: ოლგინის პროვინცია
+    kn: ಹೊಲ್ಗುಯಿನ್ ಪ್ರಾಂತ್ಯ
+    ko: 올긴 주
+    lt: Holgino provincija
+    mr: होल्गिन प्रांत
+    ms: Daerah Holguín
+    nb: Holguín
+    nl: Holguín
+    pl: Prowincja Holguín
+    pt: Holguín
+    ru: Ольгин
+    si: හොල්ගුයින් පළාත
+    sr: Покрајина Олгин
+    sv: Provincia de Holguín
+    ta: ஹொல்குயின் மாகாணம்
+    te: హోల్గ్విన్ ప్రావిన్స్
+    th: จังหวัดโฮลกวิน
+    tr: Holguín ili
+    uk: Ольгін
+    ur: اولگین صوبہ
+    vi: Holguín
+    lv: Holginas province
+    ceb: Holguín
+    sr_Latn: Pokrajina Olgin
+    zh: 奥尔金省
+    ccp: "𑄦𑄮𑄣𑄴𑄉𑄪𑄃𑄨𑄚𑄴"
+    cs: Holguín
+    az: Olqin
+    mk: Олгин
+    'no': Holguín
+    cy: Talaith Holguín
+  type: province
+'12':
+  name: Granma
+  code: '12'
+  unofficial_names:
+  - Granma
+  geo:
+    latitude: 20.3844902
+    longitude: -76.64127119999999
+    min_latitude: 19.8280831
+    min_longitude: -77.73912
+    max_latitude: 20.7823959
+    max_longitude: -76.1810461
+  translations:
+    en: Granma
+    ar: غرانما
+    be: Правінцыя Гранма
+    bg: Гранма
+    bn: গ্রানমা প্রদেশ
+    ca: Província de Granma
+    da: Granma Provinsen
+    de: Provinz Granma
+    el: Γκράνμα
+    es: Provincia de Granma
+    et: Granma provints
+    eu: Granmako probintzia
+    fa: استان گرانما
+    fi: Granma
+    fr: province de Granma
+    gl: Provincia de Granma
+    gu: ગ્રાનમા પ્રાંત
+    hi: ग्रानमा प्रांत
+    hr: Granma
+    hu: Granma
+    id: Provinsi Granma
+    it: provincia di Granma
+    ja: グランマ州
+    ka: გრანმის პროვინცია
+    kn: ಗ್ರ್ಯಾನ್ಮಾ ಪ್ರಾಂತ್ಯ
+    ko: 그란마 주
+    lt: Granmos provincija
+    mr: ग्रॅनमा प्रांत
+    ms: Granma Province
+    nb: Granma
+    nl: Granma
+    pl: Prowincja Granma
+    pt: Granma
+    ru: Гранма
+    si: ග්‍රන්මා පළාත
+    sr: Покрајина Гранма
+    sv: Provincia Granma
+    ta: கிரான்மா மாகாணம்
+    te: గ్రాన్మా ప్రావిన్స్
+    th: อนาลาแมนกา
+    tr: Granma ili
+    uk: Гранма
+    ur: گرانما صوبہ
+    vi: Granma
+    lv: Granmas province
+    af: Granma
+    ceb: Granma
+    sr_Latn: Pokrajina Granma
+    zh: 格拉玛省
+    ccp: "𑄉𑄳𑄢𑄚𑄴𑄟"
+    mk: Гранма
+    'no': Granma
+    cs: Granma
+    cy: Talaith Granma
+  type: province
+'13':
+  name: Santiago de Cuba
+  code: '13'
+  unofficial_names:
+  - Santiago de Cuba
+  geo:
+    latitude: 20.01693
+    longitude: -75.8301537
+    min_latitude: 19.9578529
+    min_longitude: -75.8923008
+    max_latitude: 20.0909996
+    max_longitude: -75.7598926
+  translations:
+    en: Santiago de Cuba
+    ar: سانتياغو دي كوبا
+    bg: Сантяго де Куба
+    bn: সান্তিয়াগো দে কিউবা প্রদেশ
+    ca: Província de Santiago de Cuba
+    da: Santiago de Cuba Provinsen
+    de: Provinz Santiago de Cuba
+    el: Σαντιάγο ντε Κούβα
+    es: Provincia de Santiago de Cuba
+    eu: Santiago de Cubako probintzia
+    fa: استان سانتیاگو د کوبا
+    fi: Santiago de Cuba
+    fr: province de Santiago de Cuba
+    gl: Provincia de Santiago de Cuba
+    gu: સેન્ટિયાગો ડે ક્યુબા પ્રાંત
+    hi: सैंटियागो डी क्यूबा प्रांत
+    hr: Santiago de Cuba
+    id: Provinsi Santiago de Cuba
+    it: provincia di Santiago di Cuba
+    ja: サンティアーゴ・デ・クーバ州
+    ka: სანტიაგო-დე-კუბის პროვინცია
+    kn: ಸ್ಯಾಂಟಿಯಾಗೊ ಡೆ ಕ್ಯೂಬಾ ಪ್ರಾಂತ್ಯ
+    ko: 산티아고데쿠바 주
+    lt: Kubos Santjago provincija
+    mr: सॅंटियागो दे क्यूबा प्रांत
+    ms: Santiago de Cuba Province
+    nb: Santiago de Cuba
+    nl: Santiago de Cuba
+    pl: Prowincja Santiago de Cuba
+    pt: Santiago de Cuba
+    ru: Сантьяго-де-Куба
+    si: සැන්ටියාගෝ ඩි කියුබා
+    sv: Provincia de Santiago de Cuba
+    ta: சாண்டியாகோ டே குபா மாகாணம்
+    te: సాంటియాగో డి క్యూబా ప్రావిన్స్
+    th: จังหวัดซานเตียโกเดกูบา
+    tr: Santiago de Cuba ili
+    uk: Сантьяго-де-Куба
+    ur: سانتیاگو دے کیوبا صوبہ
+    vi: Santiago de Cuba
+    lv: Santjago de Kubas province
+    ceb: Santiago de Cuba
+    zh: 圣地亚哥省
+    ccp: "𑄥𑄚𑄴𑄑𑄨𑄠𑄉𑄮 𑄓𑄬 𑄇𑄨𑄅𑄪𑄝"
+    cs: Santiago de Cuba
+    mk: Сантјаго де Куба
+    'no': Santiago de Cuba
+    cy: Talaith Santiago de Cuba
+    et: Santiago de Cuba provints
+    he: סנטיאגו דה קובה
+  type: province
+'14':
+  name: Guantánamo
+  code: '14'
+  unofficial_names:
+  - Guantánamo
+  geo:
+    latitude: 20.136667
+    longitude: -75.213889
+    min_latitude: 20.1143527
+    min_longitude: -75.2367424
+    max_latitude: 20.1796493
+    max_longitude: -75.1662037
+  translations:
+    en: Guantánamo
+    ar: مقاطعة غوانتانامو
+    be: Правінцыя Гуантанама
+    bg: Гуантанамо
+    ca: Província de Guantánamo
+    da: Guantanamo-provinsen
+    de: Provinz Guantánamo
+    es: Provincia de Guantánamo
+    eu: Guantánamoko probintzia
+    fa: استان گوانتانامو
+    fr: province de Guantánamo
+    gl: Provincia de Guantánamo
+    hr: Guantánamo
+    hu: Guantánamo
+    id: Provinsi Guantánamo
+    it: provincia di Guantánamo
+    ja: グァンタナモ州
+    ka: გუანტანამოს პროვინცია
+    ko: 관타나모 주
+    lt: Gvantanamo provincija
+    nb: Guantánamo
+    nl: Guantánamo
+    pl: Prowincja Guantánamo
+    pt: Guantánamo
+    ru: Гуантанамо
+    sv: Provincia de Guantánamo
+    tr: Guantánamo ili
+    uk: Гуантанамо
+    ur: گوانتانامو صوبہ
+    vi: Guantánamo
+    ceb: Guantánamo
+    zh: 关塔那摩省
+    ccp: "𑄉𑄪𑄠𑄚𑄴𑄑𑄚𑄟𑄮"
+    mk: Гвантанамо
+    'no': Guantánamo
+    cs: Guantánamo
+    cy: Talaith Guantánamo
+    et: Guantánamo provints
+    fi: Guantánamo (provinssi)
+    th: จังหวัดกวนตานาโม
+  type: province
+'15':
+  name: Artemisa
+  code: '15'
+  unofficial_names:
+  - Artemisa
+  geo:
+    latitude: 22.7522903
+    longitude: -82.99316069999999
+    min_latitude: 22.4866999
+    min_longitude: -83.3889281
+    max_latitude: 23.068672
+    max_longitude: -82.39349399999999
+  translations:
+    en: Artemisa
+    ar: أرتيميسا
+    bg: Артемиса
+    bn: আর্টেমিসা প্রদেশ
+    da: Artemisa Province
+    de: Provinz Artemisa
+    el: Αρτέμισα
+    es: Provincia de Artemisa
+    eu: Artemisako probintzia
+    fa: استان آرتمیسا
+    fi: Artemisa
+    fr: province d’Artemisa
+    gu: આર્ટેમિસા પ્રાંત
+    hi: आर्टेमिस प्रांत
+    hr: Artemisa
+    hu: Artemisa
+    id: Provinsi Artemisa
+    it: provincia di Artemisa
+    ja: アルテミサ州
+    ka: არტემისის პროვინცია
+    kn: ಆರ್ಟೆಮಿಸಾ ಪ್ರಾಂತ್ಯ
+    ko: 아르테미사 주
+    lt: Artemisos provincija
+    mr: आर्टमेसा प्रांत
+    ms: Artemisa Province
+    nb: Artemisa provins
+    nl: Artemisa
+    pl: Prowincja Artemisa
+    pt: Artemisa
+    ru: Артемиса
+    si: අර්ටෙමිසා පළාත
+    sv: Artemisa
+    ta: ஆர்டெமிசா மாகாணம்
+    te: ఆర్టెమీసా ప్రావిన్స్
+    th: จังหวัดอาร์ทีเมีย
+    tr: Artemisa ili
+    uk: Артеміса
+    ur: آرتیمیسا صوبہ
+    vi: Artemisa
+    lv: Artemisas province
+    af: Artemisa
+    ceb: Artemisa
+    zh: 阿爾特米薩省
+    ccp: "𑄃𑄢𑄴𑄑𑄬𑄟𑄨𑄥"
+    ca: província d’Artemisa
+    mk: Артемиса
+    'no': Artemisa provins
+    cs: Artemisa
+    cy: Talaith Artemisa
+    gl: provincia de Artemisa
+  type: province
+'16':
+  name: Mayabeque
+  code: '16'
+  unofficial_names:
+  - Mayabeque
+  geo:
+    latitude: 22.8926529
+    longitude: -81.9534815
+    min_latitude: 22.5725
+    min_longitude: -82.45682599999999
+    max_latitude: 23.1876818
+    max_longitude: -81.58065789999999
+  translations:
+    en: Mayabeque
+    af: Mayabeque
+    ar: محافظة مايابيك
+    bg: Маябеке
+    bn: মায়াবিক প্রদেশ
+    da: Mayabeque Province
+    de: Provinz Mayabeque
+    el: Μαγιαμπέκ
+    es: Provincia de Mayabeque
+    eu: Mayabequeko probintzia
+    fa: استان مایابکه
+    fi: Mayabequen lääni
+    fr: province de Mayabeque
+    gu: માયાબેક પ્રાંત
+    hi: मेबेक प्रांत
+    hr: Mayabeque
+    hu: Mayabeque
+    id: Provinsi Mayabeque
+    it: provincia di Mayabeque
+    ja: マヤベケ州
+    ka: მაიაბეკეს პროვინცია
+    kn: ಮಾಯಾಬೆಕ್ ಪ್ರಾಂತ್ಯ
+    ko: 마야베케 주
+    lt: Majabekės provincija
+    mr: मयाबेक प्रांत
+    ms: Mayabeque Province
+    nb: Mayabeque provins
+    nl: Mayabeque
+    pl: Prowincja Mayabeque
+    pt: Mayabeque
+    ru: Маябеке
+    si: මයබෙකියු පළාත
+    sv: Provincia Mayabeque
+    ta: மயபேயூ மாகாணம்
+    te: మేయబెక్ ప్రావిన్స్
+    th: เดนกูวเล
+    tr: Mayabeque ili
+    uk: Маябеке
+    ur: مایابیکوے صوبہ
+    vi: Mayabeque
+    lv: Majabekes province
+    ceb: Provincia Mayabeque
+    zh: 瑪雅貝克省
+    ccp: "𑄟𑄠𑄝𑄬𑄇𑄴"
+    mk: Мајабеке
+    'no': Mayabeque provins
+    ca: província de Mayabeque
+    cs: Mayabeque
+    cy: Talaith Mayabeque
+  type: province
+'99':
+  name: Isla de la Juventud
+  code: '99'
+  unofficial_names:
+  - Isla de la Juventud
+  geo:
+    latitude: 21.6066405
+    longitude: -82.82097399999999
+    min_latitude: 21.4382502
+    min_longitude: -83.1925464
+    max_latitude: 21.9435016
+    max_longitude: -82.54073369999999
+  translations:
+    en: Isla de la Juventud
+    ar: جزيرة الشباب
+    be: Востраў Хувентуд
+    bg: Хувентуд
+    bn: ইসল ডে লা জুভেন্টুড
+    ca: Illa de la Juventud
+    cs: ostrov Mládeže
+    da: Isla de la Juventud
+    de: Isla de la Juventud
+    el: Ίσλα δε λα Χουβεντούδ
+    es: Isla de la Juventud
+    et: Juventud
+    eu: Isla de la Juventud
+    fa: ایسلا د لا خوبنتود
+    fi: Isla de la Juventud
+    fr: île de la Jeunesse
+    gl: Illa da Juventud
+    gu: ઈસ્લા ડે લા જુવેન્ટુડ
+    he: איסלה דה לה חובנטוד
+    hi: आईला डी ला उवेंतुड
+    hr: Isla de la Juventud
+    hu: Isla de la Juventud
+    hy: Խուվենտուդ
+    id: Isla de la Juventud
+    it: Isola della Gioventù
+    ja: 青年の島
+    ka: ხუვენტუდი
+    kn: ಇಸ್ಲಾ ಡಿ ಲಾ ಜುವೆಂಡುಡ್
+    ko: 후벤투드 섬
+    lt: Chuventudo sala
+    mr: इस्ला दे ला जावेंट्यूड
+    ms: Isla de la Juventud
+    nb: Isla de la Juventud
+    nl: Isla de la Juventud
+    pl: Isla de la Juventud
+    pt: Ilha da Juventude
+    ru: Хувентуд
+    si: ඉස්ලා ඩෙ ලා ජුවෙන්ටුඩ්
+    sv: Isla de la Juventud
+    ta: இஸ்லா டி லா ஜுவேண்டுட்
+    te: ఇస్లా ద లా జువెంటుడ్
+    th: เทศบาลอิสลาเดลาคูเบนตุด
+    tr: Isla de la Juventud
+    uk: Ісла-де-ла-Хувентуд
+    ur: ازلا دے لا خوبینتود
+    vi: Isla de la Juventud
+    lv: Huventudas sala
+    ceb: Isla de la Juventud
+    zh: 青年岛
+    sw: Isla de la Juventud
+    ccp: "𑄃𑄨𑄌𑄴𑄣 𑄓𑄬 𑄣 𑄎𑄪𑄞𑄬𑄚𑄴𑄑𑄖𑄴"
+    kk: Хувентуд
+    mk: Исла де ла Хувентуд
+    'no': Isla de la Juventud
+    ga: Isla de la Juventud
+  type: special_municipality

@@ -1,0 +1,1040 @@
+---
+AW:
+  name: Awdal
+  code: AW
+  unofficial_names:
+  - Awdal
+  geo:
+    latitude: 10.6334285
+    longitude: 43.329466
+    min_latitude: 9.721214999999999
+    min_longitude: 42.68300989999999
+    max_latitude: 11.5114751
+    max_longitude: 44.2172924
+  translations:
+    en: Awdal
+    ar: عدل
+    bg: Аудал
+    ca: Awdal
+    cs: Awdal
+    da: Awdal
+    de: Awdal
+    es: Awdal
+    eu: Awdal
+    fi: Awdal
+    fr: Awdal
+    id: Awdal
+    it: Adal
+    ja: アウダル州
+    ka: ავდალის რეგიონი
+    ko: 아우달 주
+    nl: Awdal
+    pl: Awdal
+    pt: Awdal
+    ru: Авдал
+    sv: Awdal
+    tr: Adal
+    uk: Авдал
+    ur: عدل علاقہ
+    zh: 奥达勒州
+    ceb: Gobolka Awdal
+    jv: Awdal
+    ccp: "𑄃𑄧𑄓𑄣𑄴"
+    so: Awdal
+    el: Αουντάλ
+    fa: اودال
+    th: แคว้นเอาดัล
+    yue: 奧達勒
+    yue_Hans: 奥达勒
+    zu: Awdal
+  type: region
+BK:
+  name: Bakool
+  code: BK
+  unofficial_names:
+  - Bakool
+  geo:
+    latitude: 4.3657221
+    longitude: 44.0960311
+    min_latitude: 3.529067
+    min_longitude: 42.750198
+    max_latitude: 4.960437
+    max_longitude: 44.617615
+  translations:
+    en: Bakool
+    ar: باكول
+    bg: Бакол
+    bn: বাকুল
+    ca: Bakool
+    da: Bakool
+    de: Bakool
+    el: Μπακούλ
+    es: Bakool
+    eu: Bakool
+    fi: Bakool
+    fr: Bakool
+    gu: બાકૂલ
+    hi: बाकुल
+    id: Bakool
+    it: Bakool
+    ja: バコール州
+    ka: ბაკულის რეგიონი
+    kn: ಬಾಕೂಲ್
+    ko: 바콜 주
+    mr: बाकूल
+    ms: Bakool
+    nb: Bakool
+    nl: Bakool
+    pl: Bakool
+    pt: Bakool
+    ru: Баколь
+    si: බකූල්
+    sv: Bakool
+    ta: பகோள்
+    te: బకూల్
+    th: บากูล
+    tr: Bakul
+    uk: Баколь
+    ur: باکول
+    vi: Bakool
+    lv: Bakūla
+    ceb: Gobolka Bakool
+    lt: Bakulas
+    zh: 巴科勒州
+    jv: Bakool
+    ccp: "𑄝𑄇𑄫𑄣𑄴"
+    so: Bakool
+    'no': Bakool
+    fa: استان بکول
+    yue: 巴科勒
+    yue_Hans: 巴科勒
+  type: region
+BN:
+  name: Banaadir
+  code: BN
+  unofficial_names:
+  - Banaadir
+  geo:
+    latitude: 2.1187375
+    longitude: 45.3369459
+    min_latitude: 1.9337841
+    min_longitude: 45.14145629999999
+    max_latitude: 2.195059
+    max_longitude: 45.5860699
+  translations:
+    en: Banaadir
+    ar: بنادر
+    bn: বানাদির
+    ca: Banaadir
+    da: Banaadir
+    de: Banaadir
+    el: Μπανααντίρ
+    es: Benadir
+    eu: Banaadir
+    fi: Banaadir
+    fr: Banaadir
+    gu: બનાદિર
+    hi: बानादीर
+    id: Banaadir
+    it: Benadir
+    ja: バナディール州
+    ka: ბენადირის რეგიონი
+    kn: ಬನಾಡಿರ್
+    ko: 바나디르 주
+    mr: बानादीर
+    ms: Banaadir
+    nb: Banaadir
+    nl: Banaadir
+    pl: Banaadir
+    pt: Banaadir
+    ru: Банадир
+    si: බනාදීර්
+    sv: Banaadir
+    ta: பநாடிர்
+    te: బనాడిర్
+    th: บานาเดียร์
+    tr: Banaadir
+    uk: Бенадір
+    ur: بنادر
+    vi: Banaadir
+    lv: Banādira
+    ceb: Gobolka Banaadir
+    lt: Benadiras
+    zh: 巴納迪爾州
+    fa: بنادر
+    jv: Banaadir
+    ccp: "𑄝𑄚𑄳𑄃𑄓𑄨𑄢𑄴"
+    so: Banaadir
+    'no': Banaadir
+    be: Банаадыр
+    he: בנאדיר
+    sw: Banaadir
+  type: region
+BR:
+  name: Bari
+  code: BR
+  unofficial_names:
+  - Bari
+  geo:
+    latitude: 10.1203847
+    longitude: 49.6911374
+    min_latitude: 8.326447
+    min_longitude: 48.906651
+    max_latitude: 11.9852029
+    max_longitude: 51.4130282
+  translations:
+    en: Bari
+    ar: باري
+    bg: Бари
+    bn: বারি
+    ca: Bari
+    da: Bari
+    de: Bari
+    el: Μπάρι
+    es: Bari
+    et: Bari ringkond
+    eu: Bari
+    fi: Bari
+    fr: Bari
+    gu: બારી
+    hi: बारी
+    id: Bari
+    it: Bari
+    ja: バリ州
+    ka: ბარის რეგიონი
+    kn: ಬಾರಿ
+    ko: 바리 주
+    mr: बारी
+    ms: Bari
+    nb: Bari
+    nl: Bari
+    pl: Bari
+    pt: Bari
+    ru: Бари
+    si: බාරි
+    sv: Bari
+    ta: பரி
+    te: బారి
+    th: บาริ
+    tr: Bari
+    uk: Барі
+    ur: باری، صومالیہ
+    vi: Bari
+    lv: Bari
+    ceb: Gobolka Bari
+    lt: Baris
+    zh: 巴里州
+    jv: Bari, Somalia
+    ccp: "𑄝𑄢𑄨"
+    so: Bari
+    'no': Bari
+    fa: باری (سومالی)
+    yue: 巴里 (索馬里)
+    yue_Hans: 巴里 (索马里)
+  type: region
+BY:
+  name: Bay
+  code: BY
+  unofficial_names:
+  - Bay
+  geo:
+    latitude: 2.4825193
+    longitude: 43.483738
+    min_latitude: 1.625444
+    min_longitude: 42.3411179
+    max_latitude: 3.543456
+    max_longitude: 44.63283209999999
+  translations:
+    en: Bay, Somalia
+    ar: باي
+    bg: Бай
+    bn: বে
+    ca: Bay (Somàlia)
+    da: Baay
+    de: Bay
+    el: Μπέι
+    es: Bay (Somalia)
+    eu: Bay (Somalia)
+    fi: Bay
+    fr: Bay (Somalie)
+    gu: બે
+    hi: बे, सोमालिया
+    id: Bay
+    it: Bai
+    ja: ベイ州
+    ka: ბეის რეგიონი
+    kn: ಬೇ
+    ko: 바이 주
+    mr: बे
+    ms: Bay
+    nb: Bay
+    nl: Bay
+    pl: Bay
+    pt: Bay (Somália)
+    ro: Bay, Somalia
+    ru: Бай
+    si: බේ
+    sv: Bay (Somalien)
+    ta: பே
+    te: బే
+    th: เบย์
+    tr: Bay
+    uk: Бай
+    ur: بای، صومالیہ
+    vi: Bay
+    lv: Bāja
+    ceb: Gobolka Bay
+    lt: Baja
+    zh: 拜州
+    jv: Bay, Somalia
+    ccp: "𑄝𑄬, 𑄥𑄮𑄟𑄣𑄨𑄠"
+    so: Baay
+    'no': Bay
+    fa: بای (سومالی)
+    sw: Mkoa wa Bay
+    yue: 拜
+    yue_Hans: 拜
+  type: region
+GA:
+  name: Galguduud
+  code: GA
+  unofficial_names:
+  - Galguduud
+  geo:
+    latitude: 5.1850128
+    longitude: 46.8252838
+    min_latitude: 3.5412981
+    min_longitude: 45.5051261
+    max_latitude: 6.221599899999999
+    max_longitude: 47.939419
+  translations:
+    en: Galguduud
+    ar: جلجدود
+    bg: Галгудууд
+    bn: গেল্গুদুদ
+    ca: Galguduud
+    da: Galguduud
+    de: Galguduud
+    el: Γκαλγκουντουούντ
+    es: Galguduud
+    eu: Galguduud
+    fi: Galguduud
+    fr: Galguduud
+    gu: ગાલગુડુડ
+    hi: गैलगुडूड
+    id: Galguduud
+    it: Galgudud
+    ja: ガルグドゥード州
+    ka: გალგუდუდის რეგიონი
+    kn: ಗಾಲ್ಗುಡುಡ್
+    ko: 갈구두드 주
+    mr: गालगुडूड
+    ms: Galguduud
+    nb: Galguduud
+    nl: Galguduud
+    pl: Galguduud
+    pt: Galguduud
+    ru: Галгудуд
+    si: ගලගුඩුඩ්
+    sv: Galguduud
+    ta: கல்குடுட்
+    te: గాల్గుడూడ్
+    th: กัลกูดูด
+    tr: Galgudud
+    uk: Галгудуд
+    ur: جلجدود
+    vi: Galguduud
+    lv: Galgududa
+    ceb: Gobolka Galguduud
+    lt: Galgududas
+    zh: 加勒古杜德州
+    jv: Galguduud
+    ccp: "𑄉𑄳𑄠𑄣𑄴𑄉𑄪𑄓𑄫𑄖𑄴"
+    so: Galguduud
+    'no': Galguduud
+    fa: جلجدود
+    sw: Mkoa wa Galguduud
+    yue: 加勒古杜德
+    yue_Hans: 加勒古杜德
+  type: region
+GE:
+  name: Gedo
+  code: GE
+  unofficial_names:
+  - Gedo
+  geo:
+    latitude: 3.5039227
+    longitude: 42.2362435
+    min_latitude: 2.28444
+    min_longitude: 40.992082
+    max_latitude: 4.264552999999999
+    max_longitude: 43.004589
+  translations:
+    en: Gedo
+    ar: جدو
+    bg: Гедо
+    bn: গেডো
+    ca: Gedo
+    da: Geedo
+    de: Gedo
+    el: Γκέντο
+    es: Gedo
+    eu: Gedo
+    fi: Gedo
+    fr: Gedo
+    gu: ગેડો
+    hi: गेडो
+    id: Gedo
+    it: Ghedo
+    ja: ゲド州
+    ka: გედოს რეგიონი
+    kn: ಗೆಡೋ
+    ko: 게도 주
+    mr: गेडो
+    ms: Gedo
+    nb: Gedo
+    nl: Gedo
+    pl: Gedo
+    pt: Gedo
+    ru: Гедо
+    si: ගෙඩෝ
+    sv: Gedo
+    ta: ஜெடோ
+    te: గెడో
+    th: เกโด
+    tr: Gedo
+    uk: Гедо
+    ur: جدو
+    vi: Gedo
+    lv: Gedo
+    ceb: Gobolka Gedo
+    lt: Gedas
+    zh: 蓋多州
+    jv: Gedo
+    ccp: "𑄉𑄬𑄓𑄮"
+    so: Gedo
+    'no': Gedo
+    cs: Gedo
+    fa: جدو
+    yue: 蓋多
+    yue_Hans: 盖多
+  type: region
+HI:
+  name: Hiiraan
+  code: HI
+  unofficial_names:
+  - Hiiraan
+  geo:
+    latitude: 4.321015
+    longitude: 45.29938620000001
+    min_latitude: 3.3195169
+    min_longitude: 44.4159971
+    max_latitude: 5.454314
+    max_longitude: 46.361508
+  translations:
+    en: Hiran
+    ar: هيران
+    bg: Хираан
+    bn: হিরন
+    ca: Hiiraan
+    da: Hiiraan
+    de: Hiiraan
+    el: Χιράν
+    es: Hiiraan
+    eu: Hiiraan
+    fi: Hiiraan
+    fr: Hiiraan
+    gu: હિરન
+    hi: हिरान
+    id: Hiiraan
+    it: Hiran
+    ja: ヒーラーン州
+    ka: ჰირანის რეგიონი
+    kn: ಹಿರಾನ್
+    ko: 히란 주
+    mr: हिरण
+    ms: Hiran
+    nb: Hiiraan
+    nl: Hiiraan
+    pl: Hiran
+    pt: Hiiraan
+    ru: Хиран
+    si: හිරාන්
+    sv: Hiiraan
+    ta: ஹிரான்
+    te: హిరాన్
+    th: ซาโปรอซย่า โอแบลส
+    tr: Hiran
+    uk: Хіран
+    ur: ہیران، صومالیہ
+    vi: Hiran
+    lv: Hīrāna
+    ceb: Gobolka Hiiraan
+    lt: Hiranas
+    zh: 希蘭州
+    jv: Hiiraan
+    ccp: "𑄦𑄨𑄢𑄧𑄚𑄴"
+    so: Hiiraan
+    'no': Hiiraan
+    fa: هیران (سومالی)
+    yue: 希蘭
+    yue_Hans: 希兰
+  type: region
+JD:
+  name: Jubbada Dhexe
+  code: JD
+  unofficial_names:
+  - Jubbada Dhexe
+  geo:
+    latitude: 2.0780488
+    longitude: 41.6011814
+    min_latitude: 0.352452
+    min_longitude: 40.990269
+    max_latitude: 2.38058
+    max_longitude: 43.4949649
+  translations:
+    en: Middle Juba
+    ar: جوبا الوسطى
+    bg: Юбада Дексе
+    bn: মধ্য যুবা
+    ca: Jubbada Dhexe
+    da: Jubbada Dhexe
+    de: Jubbada Dhexe
+    el: Μίντλ Τζούμπα
+    es: Jubbada Dhexe
+    eu: Jubbada Dhexe
+    fi: Keski-Juba
+    fr: Jubbada Dhexe
+    gu: મિડલ જુબા
+    hi: मध्य जूबा
+    id: Middle Juba
+    it: Medio Giuba
+    ja: 中部ジュバ州
+    ka: შუა ჯუბის რეგიონი
+    kn: ಮಧ್ಯ ಜುಬಾ
+    ko: 주바다데헤 주
+    mr: मिडल युबा
+    ms: Middle Juba
+    nb: Jubbada Dhexe
+    nl: Jubbada Dhexe
+    pl: Dżuba Środkowa
+    pt: Jubbada Dhexe
+    ru: Средняя Джубба
+    si: මද්‍යම ජුබා
+    sv: Jubbada Dhexe
+    ta: மிடில் ஜூபா
+    te: మిడిల్ జూబా
+    th: จูเดียกลาง
+    tr: Orta Cuba
+    uk: Середня Джуба
+    ur: وسطی جوبا
+    vi: Middle Juba
+    lv: Vidusdžūba
+    ceb: Gobolka Jubbada Dhexe
+    lt: Vidurinioji Džuba
+    zh: 中朱巴州
+    jv: Jubbada Dhexe
+    ccp: "𑄟𑄨𑄓𑄧𑄣𑄴 𑄎𑄪𑄝"
+    he: ג׳ובה המרכזית
+    so: Jubbada Dhexe
+    'no': Jubbada Dhexe
+    fa: جوبای میانه
+    yue: 中朱巴
+    yue_Hans: 中朱巴
+  type: region
+JH:
+  name: Jubbada Hoose
+  code: JH
+  unofficial_names:
+  - Jubbada Hoose
+  geo:
+    latitude: 0.224021
+    longitude: 41.6011814
+    min_latitude: -1.6541275
+    min_longitude: 40.9886321
+    max_latitude: 1.382667
+    max_longitude: 43.2361241
+  translations:
+    en: Lower Juba
+    ar: جوبا السفلى
+    bg: Юбада Хуусе
+    bn: লোয়ার জুবা
+    ca: Jubbada Hoose
+    cs: Jižní Džuba
+    da: Jubbada Hoose
+    de: Jubbada Hoose
+    el: Λόουερ Τζούμπα
+    es: Jubbada Hoose
+    eu: Jubbada Hoose
+    fi: Ala-Juba
+    fr: Jubbada Hoose
+    gu: લોવર જુબા
+    hi: निचला जुबा
+    id: Lower Juba
+    it: Basso Giuba
+    ja: 下部ジュバ州
+    ka: ქვემო ჯუბის რეგიონი
+    kn: ಲೋ ಜುಬಾ
+    ko: 주바다호세 주
+    mr: लोअर जुबा
+    ms: Lower Juba
+    nb: Nedre Juba
+    nl: Jubbada Hoose
+    pl: Dżuba Dolna
+    pt: Jubbada Hoose
+    ru: Нижняя Джубба
+    si: පහල ජුබා
+    sv: Nedre Juba
+    ta: லோயர் ஜூபா
+    te: లోయర్ జూబా
+    th: จับบาดาฮูส
+    tr: Aşağı Cubba
+    uk: Нижня Джуба
+    ur: زیریں جوبا
+    vi: Hạ Juba
+    lv: Lejasdžūba
+    ceb: Gobolka Jubbada Hoose
+    lt: Žemutinė Džuba
+    zh: 下朱巴州
+    ccp: "𑄣𑄮𑄠𑄢𑄴 𑄎𑄪𑄝"
+    he: ג׳ובה תחתית
+    so: Jubbada Hoose
+    'no': Nedre Juba
+    fa: جوبای سفلی
+    yue: 下朱巴
+    yue_Hans: 下朱巴
+  type: region
+MU:
+  name: Mudug
+  code: MU
+  unofficial_names:
+  - Mudug
+  geo:
+    latitude: 6.5656726
+    longitude: 47.7637565
+    min_latitude: 4.427916
+    min_longitude: 46.2261429
+    max_latitude: 7.797689
+    max_longitude: 49.635255
+  translations:
+    en: Mudug
+    ar: مدج
+    bg: Мудуг
+    bn: মুদুগ
+    ca: Mudug
+    da: Mudug
+    de: Mudug
+    el: Μούντουγκ
+    es: Mudug
+    eu: Mudug
+    fi: Mudug
+    fr: Mudug
+    gu: મુદગ
+    hi: मुदुग
+    id: Mudug
+    it: Mudugh
+    ja: ムドゥグ州
+    ka: მუდუგის რეგიონი
+    kn: ಮುದುಗ್
+    ko: 무두그 주
+    mr: मुदग
+    ms: Mudug
+    nb: Mudug
+    nl: Mudug
+    pl: Mudug
+    pt: Mudug
+    ru: Мудуг
+    si: මුඩග්
+    sv: Mudug
+    ta: முதுகு
+    te: ముడుగ్
+    th: มาดัก
+    tr: Mudug
+    uk: Мудуг
+    ur: مدق
+    vi: Mudug
+    lv: Muduga
+    ceb: Gobolka Mudug
+    lt: Mudugas
+    zh: 穆杜格州
+    jv: Mudug
+    ccp: "𑄟𑄪𑄓𑄪𑄇𑄴"
+    hy: Մուդուգ
+    so: Mudug
+    'no': Mudug
+    fa: مدج
+    hu: Mudug
+    sw: Mkoa wa Mudug
+    yue: 穆杜格
+    yue_Hans: 穆杜格
+  type: region
+NU:
+  name: Nugaal
+  code: NU
+  unofficial_names:
+  - Nugaal
+  geo:
+    latitude: 8.2173496
+    longitude: 49.2030851
+    min_latitude: 7.386317599999999
+    min_longitude: 47.789005
+    max_latitude: 8.9382501
+    max_longitude: 50.16936099999999
+  translations:
+    en: Nugal
+    ar: نوجال
+    bg: Нугаал
+    bn: নুগাল
+    ca: Nugaal
+    da: Nugaal
+    de: Nugaal
+    el: Νούγκαλ
+    es: Nugaal
+    eu: Nugaal
+    fi: Nugaal
+    fr: Nugaal
+    gu: નગલ
+    hi: नुगल
+    id: Nugal
+    it: Nogal
+    ja: ヌガール州
+    ka: ნუგალის რეგიონი
+    kn: ನುಗಲ್
+    ko: 누갈 주
+    mr: नगल
+    ms: Nugal
+    nb: Nugal
+    nl: Nugaal
+    pl: Nugal
+    pt: Nugaal
+    ru: Нугаль
+    si: නුගල්
+    sv: Nugal
+    ta: நுகள்
+    te: నూగల్
+    th: นูกัล
+    tr: Nugal
+    uk: Нугаль
+    ur: نوغال، صومالیہ
+    vi: Nugal
+    lv: Nūgālas reģions
+    ceb: Gobolka Nugaal
+    lt: Nugalis
+    zh: 努加爾州
+    ccp: "𑄚𑄪𑄉𑄣𑄴"
+    so: Nugaal
+    'no': Nugal
+    fa: نوجال (سومالی)
+    sw: Mkoa wa Nugal
+    yue: 努加爾
+    yue_Hans: 努加尔
+  type: region
+SA:
+  name: Sanaag
+  code: SA
+  unofficial_names:
+  - Sanaag
+  geo:
+    latitude: 10.3938218
+    longitude: 47.7637565
+    min_latitude: 9.2556839
+    min_longitude: 45.88597009999999
+    max_latitude: 11.322548
+    max_longitude: 48.95186
+  translations:
+    en: Sanaag
+    ar: سناج
+    bg: Санааг
+    ca: Sanaag
+    cs: Sanaag
+    da: Sanaag
+    de: Sanaag
+    es: Sanaag
+    eu: Sanaag
+    fi: Sanaag
+    fr: Sanaag
+    hy: Սանագ
+    it: Sanag
+    ja: サナーグ州
+    ka: სანაგის რეგიონი
+    ko: 사나그 주
+    nl: Sanaag
+    pt: Sanaag
+    ru: Санааг
+    sv: Sanaag
+    tr: Sanag
+    uk: Санааг
+    ur: سناج
+    ceb: Gobolka Sanaag
+    zh: 薩那格州
+    ccp: "𑄥𑄚𑄳𑄃𑄇𑄴"
+    so: Sanaag
+    fa: سناج (سومالی)
+    sw: Mkoa wa Sanaag
+    th: แคว้นซานาก
+    yue: 薩納格
+    yue_Hans: 萨纳格
+  type: region
+SD:
+  name: Shabeellaha Dhexe
+  code: SD
+  unofficial_names:
+  - Shabeellaha Dhexe
+  geo:
+    latitude: 2.9250247
+    longitude: 45.9039689
+    min_latitude: 2.170552
+    min_longitude: 45.03761
+    max_latitude: 4.030119
+    max_longitude: 47.10182959999999
+  translations:
+    en: Middle Shebelle
+    ar: شبيلا الوسطى
+    bg: Шабелаха Дексе
+    bn: মিডল শেবিলে
+    ca: Shabeellaha Dhexe
+    da: Shabeellaha Dhexe
+    de: Shabeellaha Dhexe
+    el: Μιντλ Σεμπέλε
+    es: Shabeellaha Dhexe
+    eu: Shabeellaha Dhexe
+    fi: Shabeellaha Dhexe
+    fr: Shabeellaha Dhexe
+    gu: મિડલ શબેલ
+    hi: मध्य शीबैल
+    id: Middle Shebelle
+    it: Medio Scebeli
+    ja: 中部シェベリ州
+    ka: შუა შაბელეს რეგიონი
+    kn: ಮಧ್ಯ ಶೆಬೆಲೆ
+    ko: 샤벨라하데헤 주
+    mr: मध्य शेबेल्ले
+    ms: Middle Shebelle
+    nb: Shabeellaha Dhexe
+    nl: Shabeellaha Dhexe
+    pl: Shabeellaha Dhexe
+    pt: Shabeellaha Dhexe
+    ru: Средняя Шабелле
+    si: මද්‍යම ශෙබෙල්
+    sv: Shabeellaha Dhexe
+    ta: மிடில் ஷெபெல்லே
+    te: మిడిల్ షెబిల్లే
+    th: เมืองริเบรา กรานเด
+    tr: Orta Şabel
+    uk: Середня Шабелле
+    ur: وسطی شبیلی
+    vi: Middle Shebelle
+    lv: Vidusšabēlaha
+    ceb: Gobolka Shabeellaha Dhexe
+    lt: Vidurio Šebelė
+    zh: 中謝貝利州
+    jv: Shabeellaha Dhexe
+    ccp: "𑄟𑄨𑄓𑄧𑄣𑄴 𑄥𑄬𑄞𑄬𑄣𑄬"
+    so: Shabeellaha Dhexe
+    be: Сярэдняя Шабеле
+    'no': Shabeellaha Dhexe
+    fa: شبل میانه
+    yue: 中謝貝利
+    yue_Hans: 中谢贝利
+  type: region
+SH:
+  name: Shabeellaha Hoose
+  code: SH
+  unofficial_names:
+  - Shabeellaha Hoose
+  geo:
+    latitude: 1.8766458
+    longitude: 44.2479015
+    min_latitude: 0.6533486
+    min_longitude: 42.904155
+    max_latitude: 3.320112
+    max_longitude: 45.317607
+  translations:
+    en: Lower Shebelle
+    ar: شبيلا السفلى
+    bg: Шабелаха Хуусе
+    bn: লোয়ার শেবারেল
+    ca: Shabeellaha Hoose
+    da: Shabeellaha Hoose
+    de: Shabeellaha Hoose
+    el: Λόουερ Σέμπελε
+    es: Shabeellaha Hoose
+    eu: Shabeellaha Hoose
+    fi: Shabeellaha Hoose
+    fr: Shabeellaha Hoose
+    gu: લોવર શેબેલ
+    hi: निचला शीबेल
+    id: Lower Shebelle
+    it: Basso Scebeli
+    ja: 下部シャベレ州
+    ka: ქვემო შაბელეს რეგიონი
+    kn: ಲೋಯರ್ ಶೆಬೆಲ್
+    ko: 샤벨라하호세 주
+    mr: लोअर शेबेल
+    ms: Lower Shebelle
+    nb: Nedre Shebelle
+    nl: Shabeellaha Hoose
+    pl: Shabeellaha Hoose
+    pt: Shabeellaha Hoose
+    ro: Shabeellaha Hoose
+    ru: Нижняя Шабелле
+    si: පහල ශේබෙලේ
+    sv: Nedre Shebelle
+    ta: லோயர் ஷெபெல்லே
+    te: లోయర్ షిబెల్లె
+    th: โลเวอ ชีเบลล์
+    tr: Aşağı Şabel
+    uk: Нижня Шабелле
+    ur: زیریں شبیلی
+    vi: Hạ Shebelle
+    lv: Lejasšabele
+    ceb: Gobolka Shabeellaha Hoose
+    lt: Žamutinė Šebelė
+    zh: 下謝貝利州
+    jv: Shabeellaha Hoose
+    ccp: "𑄣𑄮𑄠𑄢𑄴 𑄥𑄬𑄞𑄬𑄣𑄬"
+    so: Shabeellaha Hoose
+    'no': Nedre Shebelle
+    fa: شبل پایین
+    yue: 下謝貝利
+    yue_Hans: 下谢贝利
+  type: region
+SO:
+  name: Sool
+  code: SO
+  unofficial_names:
+  - Sool
+  geo:
+    latitude: 8.722155599999999
+    longitude: 47.7637565
+    min_latitude: 7.999999899999999
+    min_longitude: 45.982599
+    max_latitude: 9.778229999999999
+    max_longitude: 48.973164
+  translations:
+    en: Sool
+    ar: سول
+    bg: Сол
+    ca: Sool
+    cs: Sool
+    da: Sool
+    de: Sool
+    es: Sool
+    eu: Sool
+    fi: Sool
+    fr: Sool
+    it: Sol
+    ja: スール州
+    ka: სოლის რეგიონი
+    ko: 솔 주
+    nb: Sool
+    nl: Sool
+    pt: Sool
+    ru: Сул
+    sv: Sool
+    tr: Sul
+    uk: Сул
+    ur: سول
+    ceb: Gobolka Sool
+    zh: 蘇爾州
+    jv: Sool
+    ccp: "𑄥𑄫𑄣𑄴"
+    so: Sool
+    'no': Sool
+    fa: سول (سومالی)
+    pl: Sool
+    th: แคว้นซอล
+    yue: 蘇爾 (索馬里)
+    yue_Hans: 苏尔 (索马里)
+  type: region
+TO:
+  name: Togdheer
+  code: TO
+  unofficial_names:
+  - Togdheer
+  geo:
+    latitude: 9.4460587
+    longitude: 45.29938620000001
+    min_latitude: 8.0030579
+    min_longitude: 44.6282671
+    max_latitude: 10.1261651
+    max_longitude: 46.98998
+  translations:
+    en: Togdheer
+    ar: توجدير
+    bg: Тогдер
+    ca: Togdheer
+    cs: Togdheer
+    da: Togdheer
+    de: Togdheer
+    es: Togdheer
+    eu: Togdheer
+    fi: Togdheer
+    fr: Togdheer
+    it: Tug Dair
+    ja: トゲアー州
+    ka: ტოგდერის რეგიონი
+    ko: 토그데르 주
+    nl: Togdheer
+    pt: Togdheer
+    ru: Тогдер
+    sv: Togdheer
+    tr: Togdeyr
+    uk: Тогдер
+    ur: توجدیر
+    ceb: Gobolka Togdheer
+    zh: 托格代爾州
+    ccp: "𑄑𑄮𑄇𑄴𑄙𑄩𑄢𑄴"
+    so: Togdheer
+    fa: توگدیر
+    sw: Togdheer
+    th: แคว้นท็อกเดร์
+    yue: 托格代爾
+    yue_Hans: 托格代尔
+  type: region
+WO:
+  name: Woqooyi Galbeed
+  code: WO
+  unofficial_names:
+  - Woqooyi Galbeed
+  geo:
+    latitude: 9.542373999999999
+    longitude: 44.0960311
+    min_latitude: 8.785137899999999
+    min_longitude: 43.2783189
+    max_latitude: 10.8666542
+    max_longitude: 45.927817
+  translations:
+    en: Woqooyi Galbeed
+    ar: وقويي جالبيد
+    bg: Вокои Галбеед
+    ca: Woqooyi Galbeed
+    da: Woqooyi Galbeed
+    de: Woqooyi Galbeed
+    es: Woqooyi Galbeed
+    eu: Woqooyi Galbeed
+    fi: Woqooyi Galbeed
+    fr: Woqooyi Galbeed
+    it: Nordovest
+    ja: 北部ガルベード州
+    ka: ვოკუი-გალბიდის რეგიონი
+    ko: 워코이갈베드 주
+    nl: Woqooyi-Galbeed
+    pt: Woqooyi Galbeed
+    ru: Мароди Чех
+    sv: Woqooyi Galbeed
+    tr: Woqoyi Galbed
+    uk: Вокуй-Гальбід
+    ur: وقویی جالبید
+    ceb: Gobolka Woqooyi Galbeed
+    zh: 沃戈伊加勒贝德州
+    ccp: "𑄤𑄇𑄪𑄠𑄨 𑄉𑄣𑄴𑄝𑄬𑄖𑄴"
+    so: Woqooyi Galbeed
+    nb: Woqooyi Galbeed
+    'no': Woqooyi Galbeed
+    fa: مارودی جیکس
+    he: מרודי ג׳יח
+    th: แคว้นวอกอยีกัลเบด
+    yue: 沃戈伊加勒貝德
+    yue_Hans: 沃戈伊加勒贝德
+  type: region

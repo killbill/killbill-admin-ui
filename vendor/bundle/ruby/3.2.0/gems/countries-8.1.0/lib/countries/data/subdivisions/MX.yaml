@@ -1,0 +1,2511 @@
+---
+AGU:
+  name: Aguascalientes
+  code: AGU
+  unofficial_names:
+  - Aguascalientes
+  geo:
+    latitude: 21.8852562
+    longitude: -102.2915677
+    min_latitude: 21.8200957
+    min_longitude: -102.3555606
+    max_latitude: 21.9580787
+    max_longitude: -102.2284165
+  translations:
+    en: Aguascalientes
+    ar: ولاية اغواسكالينتس
+    be: Штат Агуаскальентэс
+    bg: Агуаскалиентес
+    bn: আগুয়াসকালিয়েন্তেস
+    ca: Estat d’Aguascalientes
+    cs: Aguascalientes
+    da: Aguascalientes
+    de: Aguascalientes
+    el: Αγουασκαλιέντες
+    es: Aguascalientes
+    et: Aguascalientese osariik
+    eu: Aguascalientes
+    fa: آگوئاسکالینتس
+    fi: Aguascalientes
+    fr: Aguascalientes
+    gl: Estado de Aguascalientes
+    gu: આગવાસ્કલેંટેસ
+    he: אגואסקליינטס
+    hi: अगुआसकैलिएंटेस
+    hr: Aguascalientes
+    hu: Aguascalientes
+    hy: Ագուասկալիենտես
+    id: Aguascalientes
+    it: Aguascalientes
+    ja: アグアスカリエンテス州
+    ka: აგუასკალიენტესის შტატი
+    kn: ಅಗುಸ್ಕಲೆಂಟಿಸ್
+    ko: 아과스칼리엔테스 주
+    lt: Aguaskaljentesas
+    lv: Agvaskaljentesa
+    mr: अग्वासकाल्येंतेस
+    ms: Aguascalientes
+    nb: Aguascalientes
+    nl: Aguascalientes
+    pl: Aguascalientes
+    pt: Aguascalientes
+    ro: Aguascalientes
+    ru: Агуаскальентес
+    si: අගුආස්කලිඑන්ටෙස්
+    sk: Aguascalientes
+    sr: Агваскалијентес
+    sv: Aguascalientes
+    sw: Aguascalientes
+    ta: அகுற்ஸ்கேலின்ட்ஸ்
+    te: అగువాస్కాలియెంటెస్
+    th: รัฐอากวัสกาเลียนเตส
+    tr: Aguascalientes
+    uk: Аґуаскальєнтес
+    ur: آگوسکالینٹس
+    vi: Aguascalientes
+    zh: 阿瓜斯卡連特斯州
+    cy: Aguascalientes
+    ceb: Estado de Aguascalientes
+    sr_Latn: Agvaskalijentes
+    yue_Hans: 阿瓜斯卡连特斯州
+    ccp: "𑄃𑄉𑄪𑄠𑄌𑄴𑄇𑄣𑄨𑄠𑄬𑄚𑄴𑄑𑄨𑄌𑄴"
+    ga: Aguascalientes
+    pa: ਆਗਵਾਸਕਾਲੀਐਂਤੇਸ
+    yue: 阿瓜斯卡連特斯州
+    uz: Aguaskalentes
+    bs: Aguascalientes
+    mk: Агваскалиентес
+    'no': Aguascalientes
+  type: state
+BCN:
+  name: Baja California
+  code: BCN
+  unofficial_names:
+  - Baja California
+  geo:
+    latitude: 30.8406338
+    longitude: -115.2837585
+    min_latitude: 27.9999998
+    min_longitude: -118.36443
+    max_latitude: 32.7186534
+    max_longitude: -112.7555545
+  translations:
+    en: Baja California
+    af: Baja California
+    ar: ولاية باها كاليفورنيا
+    az: Aşağı Kaliforniya
+    be: Штат Ніжняя Каліфорнія
+    bg: Долна Калифорния
+    bn: বাহা কালিফোর্নিয়া
+    ca: Baixa Califòrnia
+    cs: Baja California
+    da: Baja California
+    de: Baja California
+    el: Μπάχα Καλιφόρνια
+    es: Baja California
+    et: Baja California
+    eu: Kalifornia Beherea
+    fa: باخا کالیفرنیا
+    fi: Baja California
+    fr: Basse-Californie
+    gl: Baixa California - Baja California
+    gu: બાજા કેલિફોર્નિયા
+    he: באחה קליפורניה
+    hi: बाखा कैलिफ़ोर्निया
+    hr: Baja California
+    hu: Alsó-Kalifornia
+    hy: Ստորին Կալիֆոռնիա
+    id: Baja California
+    it: Bassa California
+    ja: バハ・カリフォルニア州
+    ka: ქვემო კალიფორნია
+    kn: ಬಾಜಾ ಕ್ಯಾಲಿಫೋರ್ನಿಯಾ
+    ko: 바하칼리포르니아 주
+    lt: Žemutinė Kalifornija
+    lv: Lejaskalifornija
+    mr: बाहा कालिफोर्निया
+    ms: Baja California
+    nb: Baja California
+    nl: Baja California
+    pl: Kalifornia Dolna
+    pt: Baja California
+    ro: Baja California
+    ru: Нижняя Калифорния
+    si: බජා කලිෆෝර්ණියාව
+    sk: Baja California
+    sr: Доња Калифорнија
+    sv: Baja California
+    sw: Baja California
+    ta: பாகா கலிபோர்னியா
+    te: బాజా కాలిఫోర్నియా
+    th: รัฐบาฮากาลิฟอร์เนีย
+    tr: Aşağı Kaliforniya
+    uk: Баха-Каліфорнія
+    ur: باجا کیلیفورنیا
+    vi: Baja California
+    cy: Baja California
+    ceb: Estado de Baja California
+    sr_Latn: Donja Kalifornija
+    zh: 下加利福尼亞州
+    yue_Hans: 下加利福尼亚州
+    sq: Baja California
+    ccp: "𑄝𑄎 𑄇𑄳𑄠𑄣𑄨𑄜𑄮𑄢𑄴𑄚𑄨𑄠"
+    ga: Baja California
+    pa: ਬਾਖ਼ਾ ਕਾਲੀਫ਼ੋਰਨੀਆ
+    kk: Төменгі Калифорния
+    ml: ബാഹാ കാലിഫോർണിയ
+    yue: 下加利福尼亞州
+    uz: Quyi shimoliy Kaliforniya
+    bs: Donja Kalifornija
+    mk: Долна Калифорнија
+    'no': Baja California
+  type: state
+BCS:
+  name: Baja California Sur
+  code: BCS
+  unofficial_names:
+  - Baja California Sur
+  geo:
+    latitude: 26.0444446
+    longitude: -111.6660725
+    min_latitude: 22.8722626
+    min_longitude: -115.2137241
+    max_latitude: 28.0000017
+    max_longitude: -109.4134348
+  translations:
+    en: Baja California Sur
+    af: Baja California Sur
+    ar: ولاية باخا كاليفورنيا سور
+    be: Штат Паўднёвая Ніжняя Каліфорнія
+    bg: Южна Долна Калифорния
+    bn: বাহা কালিফোর্নিয়া সুর
+    ca: Baixa Califòrnia Sud
+    cs: Baja California Sur
+    da: Baja California Sur
+    de: Baja California Sur
+    el: Μπάχα Καλιφόρνια Σουρ
+    es: Baja California Sur
+    et: Baja California Sur
+    eu: Hego Kalifornia Beherea
+    fa: باحا کالیفرنیا سور
+    fi: Baja California Sur
+    fr: Basse-Californie du Sud
+    gl: Baixa California Sur - Baja California Sur
+    gu: બાજા કેલિફોર્નિયા સુર
+    he: באחה קליפורניה הדרומית
+    hi: बाखा कैलिफोर्निया सुर
+    hr: Baja California Sur
+    hu: Déli-Alsó-Kalifornia
+    hy: Հարավային Ստորին Կալիֆոռնիա
+    id: Baja California Sur
+    it: Bassa California del Sud
+    ja: バハ・カリフォルニア・スル州
+    ka: ქვემო კალიფორნია²
+    kn: ಬಾಜಾ ಕ್ಯಾಲಿಫೋರ್ನಿಯಾ ಸುರ್
+    ko: 바하칼리포르니아수르 주
+    lt: Žemutinė Pietų Kalifornija
+    lv: Dienvidu Lejaskalifornija
+    mr: बाहा कालिफोर्निया सुर
+    ms: Baja California Sur
+    nb: Baja California Sur
+    nl: Baja California Sur
+    pl: Kalifornia Dolna Południowa
+    pt: Baja California Sur
+    ro: Baja California Sur
+    ru: Южная Нижняя Калифорния
+    si: බජා කැලිෆෝනියා සර්
+    sk: Baja California Sur
+    sr: Јужна Доња Калифорнија
+    sv: Baja California Sur
+    sw: Baja California Sur
+    ta: தெற்கு பாகா கலிபோர்னியா
+    te: బాజా కాలిఫోర్నియా సుర్
+    th: รัฐบาฮากาลิฟอร์เนียซูร์
+    tr: Güney Aşağı Kaliforniya
+    uk: Баха-Каліфорнія-Сюр
+    ur: باجا کیلیفورنیا سر
+    vi: Baja California Sur
+    cy: Baja California Sur
+    ceb: Estado de Baja California Sur
+    sr_Latn: Južna Donja Kalifornija
+    zh: 南下加利福尼亞州
+    yue_Hans: 南下加利福尼亚州
+    ccp: "𑄝𑄎 𑄇𑄳𑄠𑄣𑄨𑄜𑄮𑄢𑄴𑄚𑄨𑄠 𑄥𑄢𑄴"
+    ga: Baja California Sur
+    kk: Төменгі оңтүстік Калифорния
+    yue: 南下加利福尼亞州
+    uz: Quyi janubiy Kaliforniya
+    mk: Јужна Долна Калифорнија
+    'no': Baja California Sur
+    bs: Južna Donja Kalifornija
+  type: state
+CAM:
+  name: Campeche
+  code: CAM
+  unofficial_names:
+  - Campeche
+  geo:
+    latitude: 19.8301251
+    longitude: -90.5349087
+    min_latitude: 19.7848441
+    min_longitude: -90.6223751
+    max_latitude: 19.8763407
+    max_longitude: -90.4777941
+  translations:
+    en: Campeche
+    af: Campeche
+    ar: ولاية كامبيتشي
+    be: Штат Кампечэ
+    bg: Кампече
+    bn: কাম্পেচে
+    ca: Estat de Campeche
+    cs: Campeche
+    da: Campeche
+    de: Campeche
+    el: Καμπέτσε
+    es: Campeche
+    et: Campeche osariik
+    eu: Campeche
+    fa: کامپچه
+    fi: Campeche
+    fr: Campeche
+    gl: Estado de Campeche
+    gu: કેમ્પેક
+    he: קמפצ׳ה
+    hi: कैम्पेचे
+    hr: Campeche
+    hu: Campeche
+    hy: Կամպեչե
+    id: Campeche
+    it: Campeche
+    ja: カンペチェ州
+    ka: კამპეჩეს შტატი
+    kn: ಕ್ಯಾಂಪೇಚೆ
+    ko: 캄페체 주
+    lt: Kampečė
+    lv: Kampeče
+    mr: कांपेचे
+    ms: Campeche
+    nb: Campeche
+    nl: Campeche
+    pl: Campeche
+    pt: Campeche
+    ro: Campeche
+    ru: Кампече
+    si: කැම්පේචේ
+    sk: Campeche
+    sr: Држава Кампече
+    sv: Campeche
+    sw: Campeche
+    ta: காம்பெச்சே
+    te: కాంపీచె
+    th: รัฐกัมเปเช
+    tr: Campeche
+    uk: Кампече
+    ur: کامپیچی
+    vi: Campeche
+    cy: Campeche
+    sr_Latn: Država Kampeče
+    zh: 坎佩切州
+    yue_Hans: 坎佩切州
+    ccp: "𑄇𑄳𑄠𑄟𑄴𑄛𑄬𑄌𑄬"
+    ga: Campeche
+    yue: 坎佩切州
+    uz: Kampeche
+    mk: Кампече
+    'no': Campeche
+  type: state
+CHH:
+  name: Chihuahua
+  code: CHH
+  unofficial_names:
+  - Chihuahua
+  geo:
+    latitude: 28.6329957
+    longitude: -106.0691004
+    min_latitude: 28.5586774
+    min_longitude: -106.1671059
+    max_latitude: 28.7729082
+    max_longitude: -105.9612896
+  translations:
+    en: Chihuahua
+    af: Chihuahua
+    ar: ولاية شيواوا
+    az: Çiuaua
+    be: Штат Чыўаўа
+    bg: Чиуауа
+    bn: চিওয়াওয়া
+    ca: Estat de Chihuahua
+    cs: Chihuahua
+    da: Chihuahua
+    de: Chihuahua
+    el: Τσιουάουα
+    es: Chihuahua
+    et: Chihuahua osariik
+    eu: Chihuahua
+    fa: ایالت چیواوا
+    fi: Chihuahua
+    fr: Chihuahua
+    gl: Estado de Chihuahua
+    gu: ચિહુઆહુઆ
+    he: צ׳יוואווה
+    hi: चिहुआहुआ
+    hr: Chihuahua
+    hu: Chihuahua
+    hy: Չիուաուա
+    id: Chihuahua
+    it: Chihuahua
+    ja: チワワ州
+    ka: ჩიუაუა
+    kn: ಚಿಹುವಾಹುವಾ
+    ko: 치와와 주
+    lt: Čihuahua
+    lv: Čivava
+    mr: चिवावा
+    ms: Chihuahua
+    nb: Chihuahua
+    ne: चिहुवाहुवा
+    nl: Chihuahua
+    pl: Chihuahua
+    pt: Chihuahua
+    ro: Chihuahua
+    ru: Чиуауа
+    si: චිහුආහුආ
+    sk: Chihuahua
+    sr: чивава
+    sv: Chihuahua
+    sw: Chihuahua
+    ta: சிஹுஹாஹுவா
+    te: చిహువాహువా
+    th: รัฐชีวาวา
+    tr: Chihuahua
+    uk: Чіуауа
+    ur: چہواہوا
+    vi: Chihuahua
+    cy: Chihuahua
+    ceb: Chihuahua
+    sr_Latn: čivava
+    zh: 奇瓦瓦州
+    yue_Hans: 芝华华州
+    ccp: "𑄌𑄨𑄦𑄱𑄦𑄱"
+    ga: Chihuahua
+    pa: ਚੀਵਾਵਾ
+    yue: 芝華華州
+    uz: Chiuaua
+    bs: Chihuahua
+    mk: Чивава
+    'no': Chihuahua
+  type: state
+CHP:
+  name: Chiapas
+  code: CHP
+  unofficial_names:
+  - Chiapas
+  geo:
+    latitude: 16.7569318
+    longitude: -93.12923529999999
+    min_latitude: 14.5320984
+    min_longitude: -94.13915589999999
+    max_latitude: 17.9852877
+    max_longitude: -90.3702138
+  translations:
+    en: Chiapas
+    af: Chiapas
+    ar: تشياباس
+    bg: Чиапас
+    bn: চিয়াপাস
+    ca: Chiapas
+    cs: Chiapas
+    da: Chiapas
+    de: Chiapas
+    el: Τσιάπας
+    es: Chiapas
+    et: Chiapas
+    eu: Chiapas
+    fa: چیاپاس
+    fi: Chiapas
+    fr: Chiapas
+    gl: Chiapas
+    gu: ચીઆપાસ
+    he: צ׳יאפס
+    hi: चियापास
+    hr: Chiapas
+    hu: Chiapas
+    hy: Չիապաս
+    id: Chiapas
+    it: Chiapas
+    ja: チアパス州
+    ka: ჩიაპასი
+    kn: ಚಿಯಾಪಾಸ್
+    ko: 치아파스 주
+    lt: Čiapasas
+    lv: Čjapasa
+    mr: च्यापास
+    ms: Chiapas
+    nb: Chiapas
+    nl: Chiapas
+    pl: Chiapas
+    pt: Chiapas
+    ro: Chiapas
+    ru: Чьяпас
+    si: චියපාස්
+    sk: Chiapas
+    sr: Чијапас
+    sv: Chiapas
+    sw: Chiapas
+    ta: சியாபாஸ்
+    te: చియాపస్
+    th: รัฐเชียปัส
+    tr: Chiapas
+    uk: Чіапас
+    ur: چیاپاس
+    vi: Chiapas
+    cy: Chiapas
+    ceb: Estado de Chiapas
+    sr_Latn: Čijapas
+    zh: 恰帕斯州
+    yue_Hans: 恰帕斯州
+    ccp: "𑄌𑄨𑄠𑄛𑄌𑄴"
+    ga: Chiapas
+    yue: 恰帕斯州
+    uz: Chyapas
+    bs: Chiapas
+    'no': Chiapas
+    mk: Чијапас
+  type: state
+CMX:
+  name: Ciudad de México
+  code: CMX
+  unofficial_names:
+  - Ciudad de México
+  geo:
+    latitude: 19.2464696
+    longitude: -99.1013498
+    min_latitude: 19.0482366
+    min_longitude: -99.36492419999999
+    max_latitude: 19.5927571
+    max_longitude: -98.94030269999999
+  translations:
+    en: Ciudad de Mexico
+    af: Meksikostad
+    am: ሜክሲኮ ከተማ
+    ar: مدينة مكسيكو
+    az: Mexiko
+    be: Мехіка
+    bg: Мексико
+    bn: মেক্সিকো সিটি
+    ca: Ciutat de Mèxic
+    cs: Ciudad de México
+    da: Mexico City
+    de: Mexiko-Stadt
+    el: Πόλη του Μεξικού
+    es: Ciudad de México
+    et: México
+    eu: Mexiko Hiria
+    fa: مکزیکو سیتی
+    fi: México
+    fr: Mexico
+    gl: Cidade de México
+    gu: મેક્સિકો સિટી
+    he: מקסיקו סיטי
+    hi: मेक्सिको नगर
+    hr: Ciudad de México
+    hu: Mexikóváros
+    hy: Մեխիկո
+    id: Ciudad de México
+    is: Mexíkóborg
+    it: Città del Messico
+    ja: メキシコシティ
+    ka: მეხიკო
+    kn: ಮೆಕ್ಸಿಕೋ ನಗರ
+    ko: 멕시코시티
+    lt: Meksikas
+    lv: Mehiko
+    ml: മെക്സിക്കോ സിറ്റി
+    mn: Мехико
+    mr: मेक्सिको सिटी
+    ms: Bandar Raya Mexico
+    nb: Mexico by
+    nl: Mexico-Stad
+    or: ମେକ୍ସିକୋ ସହର
+    pl: Meksyk
+    pt: Cidade do México
+    ro: Ciudad de México
+    ru: Мехико
+    si: මෙක්සිකෝ නගරය
+    sk: Mexiko
+    sl: Ciudad de México
+    sr: Мексико Сити
+    sv: Mexico City
+    sw: Mexico
+    ta: மெக்சிகோ நகரம்
+    te: మెక్సికో సిటీ
+    th: เม็กซิโกซิตี
+    tk: Mehiko
+    tr: Meksika
+    uk: Мехіко
+    ur: میکسیکو شہر
+    vi: Thành phố México
+    cy: Dinas Mexico
+    ceb: Dakbayan sa Mehiko
+    yo_BJ: Ìlú Mɛ́ksíkò
+    sr_Latn: Meksiko Siti
+    zh: 墨西哥城
+    yue_Hans: 墨西哥城
+    jv: Mexico City
+    sq: Meksiko
+    ccp: "𑄌𑄭𑄅𑄪𑄓𑄖𑄴 𑄓𑄬 𑄟𑄬𑄇𑄴𑄥𑄨𑄇𑄮"
+    ga: Cathair Mheicsiceo
+    ky: Мехико
+    ha: Mexico
+    pa: ਮੈਕਸੀਕੋ ਸ਼ਹਿਰ
+    kk: Мехико
+    yue: 墨西哥城
+    my: မက္ကဆီကိုမြို့
+    yo: Ìlú Mẹ́ksíkò
+    uz: Mexiko shahri
+    bs: Ciudad de México
+    mk: Мексико
+    ha_NE: Mexico
+    'no': Mexico by
+    ig: Mézíkọ city
+  type: capital
+COA:
+  name: Coahuila
+  code: COA
+  unofficial_names:
+  - Coahuila de Zaragoza
+  geo:
+    latitude: 27.058676
+    longitude: -101.7068294
+    min_latitude: 24.542684
+    min_longitude: -103.9600019
+    max_latitude: 29.8800241
+    max_longitude: -99.8431197
+  translations:
+    en: Coahuila
+    af: Coahuila
+    ar: ولاية كواهويلا
+    be: Штат Кааўіла
+    bg: Коауила де Сарагоса
+    bn: কোয়াউইলা
+    ca: Coahuila
+    cs: Coahuila
+    da: Coahuila
+    de: Coahuila
+    el: Κοαουίλα
+    es: Coahuila de Zaragoza
+    et: Coahuila
+    eu: Coahuila de Zaragoza
+    fa: کواویلا
+    fi: Coahuila
+    fr: Coahuila
+    gl: Coahuila de Zaragoza
+    gu: કોઆહુઈલા
+    he: קואווילה
+    hi: कोहुइला
+    hr: Coahuila
+    hu: Coahuila
+    hy: Կոաուիլա
+    id: Coahuila
+    it: Coahuila
+    ja: コアウイラ州
+    ka: კოაუილა
+    kn: ಕೋಹುಲಾಲಾ
+    ko: 코아우일라 주
+    lt: Koahuila
+    lv: Koavila de Saragosa
+    mr: कोआविला
+    ms: Coahuila
+    nb: Coahuila
+    nl: Coahuila de Zaragoza
+    pl: Coahuila
+    pt: Coahuila de Zaragoza
+    ro: Coahuila
+    ru: Коауила
+    si: කාඔහුයිලා
+    sk: Coahuila
+    sr: Коавила
+    sv: Coahuila
+    sw: Coahuila
+    ta: கோகுய்லா
+    te: కోహిలా
+    th: รัฐโกอาวีลา
+    tr: Coahuila
+    uk: Коауїла
+    ur: کواہويلا
+    vi: Coahuila
+    cy: Coahuila
+    ceb: Estado de Coahuila de Zaragoza
+    sr_Latn: Koavila
+    zh: 科阿韋拉州
+    yue_Hans: 科阿韦拉州
+    ccp: "𑄇𑄮𑄦𑄭𑄪𑄣"
+    ga: Coahuila
+    yue: 科阿韋拉州
+    uz: Koauila
+    'no': Coahuila
+    mk: Коавила
+  type: state
+COL:
+  name: Colima
+  code: COL
+  unofficial_names:
+  - Colima
+  geo:
+    latitude: 19.2452342
+    longitude: -103.7240868
+    min_latitude: 19.1987996
+    min_longitude: -103.7838196
+    max_latitude: 19.2943022
+    max_longitude: -103.6734973
+  translations:
+    en: Colima
+    af: Colima
+    ar: ولاية كوليما
+    be: Штат Каліма
+    bg: Колима
+    bn: কোলিমা
+    ca: Estat de Colima
+    cs: Colima
+    da: Colima
+    de: Colima
+    el: Κολίμα
+    es: Colima
+    et: Colima osariik
+    eu: Colima
+    fa: کولیما
+    fi: Colima
+    fr: Colima
+    gl: Estado de Colima
+    gu: કોલિમા
+    he: קולימה
+    hi: कोलीमा
+    hr: Colima
+    hu: Colima
+    hy: Կոլիմա
+    id: Colima
+    it: Colima
+    ja: コリマ州
+    ka: კოლიმა
+    kn: ಕೊಲಿಮಾ
+    ko: 콜리마 주
+    lt: Kolima
+    lv: Kolima
+    mr: कोलिमा
+    ms: Colima
+    nb: Colima
+    nl: Colima
+    pl: Colima
+    pt: Colima
+    ro: Colima
+    ru: Колима
+    si: කොලිමා
+    sk: Colima
+    sr: Држава Колима
+    sv: Colima
+    sw: Colima
+    ta: கலீமா
+    te: కోలిమా
+    th: รัฐโกลีมา
+    tr: Colima
+    uk: Коліма
+    ur: کولیما
+    vi: Colima
+    cy: Colima
+    ceb: Estado de Colima
+    sr_Latn: Država Kolima
+    zh: 科利馬州
+    yue_Hans: 科利马州
+    ccp: "𑄇𑄮𑄣𑄨𑄟"
+    ga: Colima
+    yue: 科利馬州
+    uz: Kolima
+    'no': Colima
+  type: state
+DUR:
+  name: Durango
+  code: DUR
+  unofficial_names:
+  - Durango
+  geo:
+    latitude: 24.0277202
+    longitude: -104.6531759
+    min_latitude: 23.9633543
+    min_longitude: -104.7151846
+    max_latitude: 24.0945669
+    max_longitude: -104.5754014
+  translations:
+    en: Durango
+    af: Durango
+    ar: ولاية دورانجو
+    be: Штат Дуранга
+    bg: Дуранго
+    bn: দুরাঙ্গো
+    ca: Estat de Durango
+    cs: Durango
+    da: Durango
+    de: Durango
+    el: Ντουράνγκο
+    es: Durango
+    et: Durango osariik
+    eu: Durango
+    fa: دورانگو
+    fi: Durango
+    fr: Durango
+    gl: Estado de Durango
+    gu: દુરાન્ગો
+    he: דורנגו
+    hi: दुरंगो
+    hr: Durango
+    hu: Durango
+    hy: Դուրանգո
+    id: Durango
+    it: Durango
+    ja: ドゥランゴ州
+    ka: დურანგოს შტატი
+    kn: ದುರಾಂಗೊ
+    ko: 두랑고 주
+    lt: Durangas
+    lv: Durango
+    mr: दुरांगो
+    ms: Durango
+    nb: Durango
+    nl: Durango
+    pl: Durango
+    pt: Durango
+    ro: Durango
+    ru: Дуранго
+    si: ඩුරන්ගෝ
+    sk: Durango
+    sr: Држава Дуранго
+    sv: Durango
+    sw: Durango
+    ta: டுரங்கோ
+    te: డురాంగో
+    th: รัฐดูรังโก
+    tr: Durango
+    uk: Дуранго
+    ur: دورانگو
+    vi: Durango
+    cy: Durango
+    ceb: Estado de Durango
+    sr_Latn: Država Durango
+    zh: 杜蘭戈州
+    yue_Hans: 杜兰戈州
+    ccp: "𑄓𑄪𑄢𑄋𑄴𑄉𑄮"
+    ga: Durango
+    yue: 杜蘭戈州
+    uz: Durango (shtat)
+    mk: Дуранго
+    'no': Durango
+  type: state
+GRO:
+  name: Guerrero
+  code: GRO
+  unofficial_names:
+  - Guerrero
+  geo:
+    latitude: 17.4391926
+    longitude: -99.54509739999999
+    min_latitude: 16.3159525
+    min_longitude: -102.1834566
+    max_latitude: 18.8878466
+    max_longitude: -98.00727630000002
+  translations:
+    en: Guerrero
+    ar: ولاية غيريرو
+    be: Штат Герэра
+    bg: Гереро
+    bn: গেরেরো
+    ca: Guerrero
+    cs: Guerrero
+    da: Guerrero
+    de: Guerrero
+    el: Γκερρέρο
+    es: Estado de Guerrero
+    et: Guerrero
+    eu: Guerrero
+    fa: گوئررو
+    fi: Guerrero
+    fr: Guerrero
+    gl: Estado de Guerrero
+    gu: એન્ગ્લુઇશ
+    he: גררו
+    hi: ग्वेरेरो
+    hr: Guerrero
+    hu: Guerrero
+    hy: Գեռերո
+    id: Guerrero
+    it: Guerrero
+    ja: ゲレーロ州
+    ka: გერეროს შტატი
+    kn: ಎನ್ಗ್ಲುಯಿಷ್
+    ko: 게레로 주
+    lt: Gereras
+    lv: Gerrero
+    mr: गेरेरो
+    ms: Guerrero
+    nb: Guerrero
+    nl: Guerrero
+    pl: Guerrero
+    pt: Guerrero
+    ro: Guerrero
+    ru: Герреро
+    si: එන්ග්ලුයිෂ්
+    sk: Guerrero
+    sr: Гереро
+    sv: Guerrero
+    sw: Guerrero
+    ta: எங்கிலிஷ்
+    te: గుయెరేరో
+    th: รัฐเกร์เรโร
+    tr: Guerrero
+    uk: Ґерреро
+    ur: گیریرو
+    vi: Guerrero
+    cy: Guerrero
+    ceb: Estado de Guerrero
+    sr_Latn: Gerero
+    zh: 格雷羅州
+    yue_Hans: 格雷罗州
+    ccp: "𑄉𑄪𑄠𑄬𑄢𑄬𑄢𑄮"
+    ga: Guerrero
+    yue: 格雷羅州
+    uz: Gerrero
+    mk: Гереро
+    'no': Guerrero
+    az: Qerrero
+  type: state
+GUA:
+  name: Guanajuato
+  code: GUA
+  unofficial_names:
+  - Guanajuato
+  geo:
+    latitude: 21.0190145
+    longitude: -101.2573586
+    min_latitude: 20.9986079
+    min_longitude: -101.2801804
+    max_latitude: 21.0516362
+    max_longitude: -101.226862
+  translations:
+    en: Guanajuato
+    af: Guanajuato
+    ar: ولاية غواناخواتو
+    be: Штат Гуанахуата
+    bg: Гуанахуато
+    bn: গুয়ানাহুয়াতো
+    ca: Estat de Guanajuato
+    cs: Guanajuato
+    da: Guanajuato
+    de: Guanajuato
+    el: Γκουαναχουάτο
+    es: Guanajuato
+    et: Guanajuato osariik
+    eu: Guanajuato
+    fa: گوآناخوآتو
+    fi: Guanajuato
+    fr: Guanajuato
+    gl: Estado de Guanajuato
+    gu: ગુઆનાજુઆતો
+    he: גואנחואטו
+    hi: गुआनाउआटो
+    hr: Guanajuato
+    hu: Guanajuato
+    hy: Գուանախուատո
+    id: Guanajuato
+    it: Guanajuato
+    ja: グアナフアト州
+    ka: გუანახუატო
+    kn: ಗುವಾನಾಜುವಾಟೊ
+    ko: 과나후아토 주
+    lt: Guanachuatas
+    lv: Gvanahvato
+    mr: ग्वानाह्वातो
+    ms: Guanajuato
+    nb: Guanajuato
+    nl: Guanajuato
+    pl: Guanajuato
+    pt: Guanajuato
+    ro: Guanajuato
+    ru: Гуанахуато
+    si: ගානාජුආටෝ
+    sk: Guanajuato
+    sr: Држава Гванахуато
+    sv: Guanajuato
+    sw: Guanajuato
+    ta: குணஜூஅக்டோ
+    te: గ్వానాజువాటో
+    th: รัฐกวานาคัวโต
+    tr: Guanajuato
+    uk: Ґуанахуато
+    ur: گوانجواتو
+    vi: Guanajuato
+    cy: Guanajuato
+    ceb: Estado de Guanajuato
+    sr_Latn: Država Gvanahuato
+    zh: 瓜納華托州
+    yue_Hans: 瓜纳华托州
+    ccp: "𑄉𑄭𑄪𑄚𑄎𑄪𑄠𑄑𑄮"
+    ga: Guanajuato
+    yue: 瓜納華托州
+    uz: Guanaxuato
+    mk: Гванахуато
+    'no': Guanajuato
+    az: Quanaxuato ştatı
+  type: state
+HID:
+  name: Hidalgo
+  code: HID
+  unofficial_names:
+  - Hidalgo
+  geo:
+    latitude: 20.0910963
+    longitude: -98.7623874
+    min_latitude: 19.5977581
+    min_longitude: -99.85954129999999
+    max_latitude: 21.3985208
+    max_longitude: -97.9849289
+  translations:
+    en: Hidalgo
+    ar: ولاية هيدالغو
+    be: Штат Ідальга
+    bg: Идалго
+    bn: ইদাল্গো
+    ca: Hidalgo
+    cs: Hidalgo
+    da: Hidalgo
+    de: Hidalgo
+    el: Ιδάλγο
+    es: Estado de Hidalgo
+    et: Hidalgo osariik
+    eu: Hidalgo
+    fa: ایالت ایدالگو
+    fi: Hidalgo
+    fr: Hidalgo
+    gl: Estado de Hidalgo
+    gu: હિદાલ્ગો
+    he: אידלגו
+    hi: हिदाल्गो
+    hr: Hidalgo
+    hu: Hidalgo
+    hy: Իդալգո
+    id: Hidalgo
+    it: Hidalgo
+    ja: イダルゴ州
+    ka: იდალგოს შტატი
+    kn: ಹಿಡಾಲ್ಗೊ
+    ko: 이달고 주
+    lt: Idalgas
+    lv: Idalgo
+    mr: इदाल्गो
+    ms: Hidalgo
+    nb: Hidalgo
+    nl: Hidalgo
+    pl: Hidalgo
+    pt: Hidalgo
+    ro: Hidalgo
+    ru: Идальго
+    si: හිදල්ගෝ
+    sk: Hidalgo
+    sr: Држава Идалго
+    sv: Hidalgo
+    sw: Hidalgo
+    ta: ஹிடால்கோ
+    te: హిడాల్గో
+    th: รัฐอีดัลโก
+    tr: Hidalgo
+    uk: Ідальго
+    ur: ہیدالگو (ریاست)
+    vi: Hidalgo
+    cy: Hidalgo
+    ceb: Estado de Hidalgo
+    sr_Latn: Država Idalgo
+    zh: 伊達爾戈州
+    yue_Hans: 伊达尔戈州
+    ccp: "𑄦𑄨𑄓𑄣𑄴𑄉𑄮"
+    ga: Hidalgo
+    yue: 伊達爾戈州
+    uz: Idalgo
+    bs: Hidalgo
+    mk: Идалго
+    'no': Hidalgo
+  type: state
+JAL:
+  name: Jalisco
+  code: JAL
+  unofficial_names:
+  - Jalisco
+  geo:
+    latitude: 20.6595382
+    longitude: -103.3494376
+    min_latitude: 18.9258718
+    min_longitude: -105.6947969
+    max_latitude: 22.7502459
+    max_longitude: -101.5105417
+  translations:
+    en: Jalisco
+    af: Jalisco
+    ar: ولاية خاليسكو
+    be: штат Халіска
+    bg: Халиско
+    bn: হালিস্কো
+    ca: Jalisco
+    cs: Jalisco
+    da: Jalisco
+    de: Jalisco
+    el: Χαλίσκο
+    es: Jalisco
+    et: Jalisco
+    eu: Jalisco
+    fa: خالیسکو
+    fi: Jalisco
+    fr: Jalisco
+    gl: Jalisco
+    gu: જેલિસ્કો
+    he: חליסקו
+    hi: जलिस्को
+    hr: Jalisco
+    hu: Jalisco
+    hy: Խալիսկո
+    id: Jalisco
+    it: Jalisco
+    ja: ハリスコ州
+    ka: ხალისკო
+    kn: ಜಲಿಸ್ಕೊ
+    ko: 할리스코 주
+    lt: Chaliskas
+    lv: Halisko
+    mr: हालिस्को
+    ms: Jalisco
+    nb: Jalisco
+    nl: Jalisco
+    pl: Jalisco
+    pt: Jalisco
+    ro: Jalisco
+    ru: Халиско
+    si: ජලිස්කෝ
+    sk: Jalisco
+    sl: Jalisco
+    sr: Халиско
+    sv: Jalisco
+    sw: Jalisco
+    ta: ஜாலிஸ்கோ
+    te: జాలిస్కో
+    th: รัฐฮาลิสโก
+    tr: Jalisco
+    uk: Халіско
+    ur: جلیسکو
+    vi: Jalisco
+    cy: Jalisco
+    ceb: Estado de Jalisco
+    sr_Latn: Halisko
+    zh: 哈利斯科州
+    yue_Hans: 哈利斯戈州
+    ccp: "𑄎𑄣𑄨𑄌𑄴𑄇𑄮"
+    ga: Jalisco
+    yue: 哈利斯戈州
+    uz: Xalisko
+    mk: Халиско
+    'no': Jalisco
+    bs: Jalisco
+  type: state
+MEX:
+  name: México
+  code: MEX
+  unofficial_names:
+  - México
+  geo:
+    latitude: 19.4326077
+    longitude: -99.133208
+    min_latitude: 19.0482787
+    min_longitude: -99.3641835
+    max_latitude: 19.5919189
+    max_longitude: -98.9401855
+  translations:
+    en: Mexico State
+    ar: مكسيكو
+    be: Штат Мехіка
+    bg: Мексико²
+    bn: মেক্সিকো রাজ্য
+    ca: Estat de Mèxic
+    cs: México
+    da: Mexico
+    de: México
+    el: Πολιτεία του Μεξικού
+    es: Estado de México
+    et: México osariik
+    eu: Mexikoko estatua
+    fa: ایالت‌ مکزیک
+    fi: Estado de México
+    fr: État de Mexico
+    gl: Estado de México
+    gu: મેક્સિકો
+    he: מקסיקו
+    hi: मेक्सिको
+    hr: ples
+    hu: México
+    hy: Մեխիկո²
+    id: Meksiko
+    it: Messico
+    ja: メヒコ州
+    ka: მეხიკოს შტატი
+    kn: ಮೆಕ್ಸಿಕೊ
+    ko: 멕시코 주
+    lt: Meksikas²
+    lv: Mehiko²
+    mr: मेहिको
+    ms: Mexico
+    nb: México
+    nl: Mexico
+    pl: Meksyk²
+    pt: México
+    ro: México
+    ru: Мехико²
+    si: මෙක්සිකෝ
+    sk: Mexiko²
+    sr: Мексико
+    sv: Mexiko
+    sw: Mexico²
+    ta: மெக்சிக்கோ மாநிலம்
+    te: మెక్సికో
+    th: รัฐเมฮีโก
+    tr: Meksika²
+    uk: Мехіко²
+    ur: ریاست میکسیکو
+    vi: México
+    cy: Talaith Mexico
+    ceb: Estado de México (estado)
+    sr_Latn: Meksiko
+    zh: 墨西哥州
+    yue_Hans: 墨西哥州
+    ccp: "𑄟𑄬𑄇𑄴𑄥𑄨𑄇𑄮 𑄌𑄳𑄑𑄬𑄖𑄴"
+    ga: Meicsiceo
+    yue: 墨西哥州
+    uz: Mexiko
+    'no': México
+    bs: México
+    mk: Мексико²
+  type: state
+MIC:
+  name: Michoacán
+  code: MIC
+  unofficial_names:
+  - Michoacán de Ocampo
+  geo:
+    latitude: 19.5665192
+    longitude: -101.7068294
+    min_latitude: 17.9149077
+    min_longitude: -103.7381271
+    max_latitude: 20.3942215
+    max_longitude: -100.0630329
+  translations:
+    en: Michoacán
+    ar: ولاية ميتشواكان
+    be: штат Мічаакан
+    bg: Мичоакан
+    bn: মিচোয়াকান
+    ca: Michoacán
+    cs: Michoacán
+    da: Michoacán
+    de: Michoacán
+    el: Μιτσοακάν
+    es: Michoacán
+    et: Michoacán
+    eu: Michoacán
+    fa: میچوآکان
+    fi: Michoacán
+    fr: Michoacán
+    gl: Michoacán
+    gu: મિચોકાન
+    he: מיצ׳ואקאן
+    hi: मिचौआकैन
+    hr: Michoacán
+    hu: Michoacán
+    hy: Միչոական
+    id: Michoacán
+    it: Michoacán
+    ja: ミチョアカン州
+    ka: მიჩოაკანის შტატი
+    kn: ಮೈಕೋವಕಾನ್
+    ko: 미초아칸 주
+    lt: Mičoakanas
+    lv: Mičoakana de Okampo
+    mr: मिचोआकान
+    ms: Michoacán
+    nb: Michoacán
+    nl: Michoacán de Ocampo
+    pl: Michoacán
+    pt: Michoacán
+    ro: Michoacán
+    ru: Мичоакан
+    si: මිචොආකෑන්
+    sk: Michoacán
+    sr: Мичоакан
+    sv: Michoacán de Ocampo
+    sw: Michoacán
+    ta: மிசோ கண்
+    te: మిచోకాన్
+    th: รัฐมิโชอากัง
+    tr: Michoacán
+    uk: Мічоакан
+    ur: میشواکان
+    vi: Michoacán
+    cy: Michoacán
+    ceb: Estado de Michoacán de Ocampo
+    sr_Latn: Mičoakan
+    zh: 米却肯州
+    yue_Hans: 米却肯州
+    ccp: "𑄟𑄨𑄇𑄮𑄥𑄚𑄴"
+    ga: Michoacán
+    yue: 米卻肯州
+    uz: Michoakan
+    'no': Michoacán
+    az: Miçoakan
+  type: state
+MOR:
+  name: Morelos
+  code: MOR
+  unofficial_names:
+  - Morelos
+  geo:
+    latitude: 18.6813049
+    longitude: -99.1013498
+    min_latitude: 18.332373
+    min_longitude: -99.4944141
+    max_latitude: 19.1317018
+    max_longitude: -98.63294660000001
+  translations:
+    en: Morelos
+    af: Morelos
+    ar: ولاية موريلوس
+    be: Штат Марэлас
+    bg: Морелос
+    bn: মোরেলোস
+    ca: Morelos
+    cs: Morelos
+    da: Morelos
+    de: Morelos
+    el: Μορέλος
+    es: Morelos
+    et: Morelos
+    eu: Morelos
+    fa: ایالت مورلوس
+    fi: Morelos
+    fr: Morelos
+    gl: Morelos
+    he: מורלוס
+    hr: Morelos
+    hu: Morelos
+    hy: Մորելոս
+    id: Morelos
+    it: Morelos
+    ja: モレロス州
+    ka: მორელოსი
+    ko: 모렐로스 주
+    lt: Morelosas
+    lv: Morelosa
+    mr: मोरेलोस
+    ms: Morelos
+    nb: Morelos
+    nl: Morelos
+    pl: Morelos
+    pt: Morelos
+    ro: Morelos
+    ru: Морелос
+    sk: Morelos
+    sl: Morelos
+    sr: Морелос
+    sv: Morelos
+    sw: Morelos
+    th: รัฐโมเรโลส
+    tr: Morelos
+    uk: Морелос
+    ur: موریلوس
+    vi: Morelos
+    cy: Morelos
+    ceb: Estado de Morelos
+    sr_Latn: Morelos
+    zh: 莫雷洛斯州
+    yue_Hans: 莫雷洛斯州
+    ccp: "𑄟𑄮𑄢𑄴𑄣𑄬𑄌𑄴"
+    ga: Morelos
+    pa: ਮੋਰੇਲੋਸ
+    yue: 莫雷洛斯州
+    uz: Morelos
+    'no': Morelos
+    az: Morelos
+    mk: Морелос
+  type: state
+NAY:
+  name: Nayarit
+  code: NAY
+  unofficial_names:
+  - Nayarit
+  geo:
+    latitude: 21.7513844
+    longitude: -104.8454619
+    min_latitude: 20.6032209
+    min_longitude: -106.6877266
+    max_latitude: 23.0845034
+    max_longitude: -103.7208954
+  translations:
+    en: Nayarit
+    af: Nayarit
+    ar: ولاية ناياريت
+    be: Штат Наярыт
+    bg: Наярит
+    bn: নায়ারিত
+    ca: Nayarit
+    cs: Nayarit
+    da: Nayarit
+    de: Nayarit
+    el: Ναγιαρίτ
+    es: Nayarit
+    et: Nayarit
+    eu: Nayarit
+    fa: نایاریت
+    fi: Nayarit
+    fr: Nayarit
+    gl: Nayarit
+    gu: નાયારિત
+    he: נאיאריט
+    hi: नयारित
+    hr: Nayarit
+    hu: Nayarit
+    hy: Նայարիտ
+    id: Nayarit
+    it: Nayarit
+    ja: ナヤリット州
+    ka: ნაიარიტის შტატი
+    kn: ನಾಯರಿತ್
+    ko: 나야리트 주
+    lt: Najaritas
+    lv: Najarita
+    mr: नायारित
+    ms: Nayarit
+    nb: Nayarit
+    nl: Nayarit
+    pl: Nayarit
+    pt: Nayarit
+    ro: Nayarit
+    ru: Наярит
+    si: නයරිට්
+    sk: Nayarit
+    sr: Најарит
+    sv: Nayarit
+    sw: Nayarit
+    ta: நயரிட்
+    te: నయారిట్
+    th: รัฐนายาริต
+    tr: Nayarit
+    uk: Наяріт
+    ur: نایاریت
+    vi: Nayarit
+    cy: Nayarit
+    ceb: Estado de Nayarit
+    sr_Latn: Najarit
+    zh: 納亞里特州
+    yue_Hans: 纳亚里特州
+    ccp: "𑄚𑄬𑄠𑄢𑄨𑄖𑄴"
+    ga: Nayarit
+    pa: ਨਾਈਆਰੀਤ
+    yue: 納亞里特州
+    uz: Nayarit
+    'no': Nayarit
+  type: state
+NLE:
+  name: Nuevo León
+  code: NLE
+  unofficial_names:
+  - Nuevo León
+  geo:
+    latitude: 25.592172
+    longitude: -99.99619469999999
+    min_latitude: 23.162683
+    min_longitude: -101.2067627
+    max_latitude: 27.7991372
+    max_longitude: -98.4215759
+  translations:
+    en: Nuevo León
+    ar: ولاية نويفو ليون
+    be: Штат Нуэва-Леон
+    bg: Нуево Леон
+    bn: নুয়েভো লেওন
+    ca: Nuevo León
+    cs: Nuevo León
+    da: Nuevo León
+    de: Nuevo León
+    el: Νουέβο Λεόν
+    es: Nuevo León
+    et: Nuevo León
+    eu: Nuevo Leon
+    fa: نوئوو لئون
+    fi: Nuevo León
+    fr: Nuevo León
+    gl: Nuevo León
+    gu: નુએવો લિઓન
+    he: נואבו לאון
+    hi: नुएवो लिओन
+    hr: Nuevo León
+    hu: Új-León
+    hy: Նուևո Լեոն
+    id: León Baru
+    it: Nuevo León
+    ja: ヌエボ・レオン州
+    ka: ნუევო-ლეონი
+    kn: ನ್ಯೂವೊ ಲಿಯೋನ್
+    ko: 누에보레온 주
+    lt: Nuevo Leonas
+    lv: Nuevoleona
+    mr: नुएव्हो लेओन
+    ms: Nuevo León
+    nb: Nuevo León
+    nl: Nuevo León
+    pl: Nuevo León
+    pt: Nuevo León
+    ro: Nuevo León
+    ru: Нуэво-Леон
+    si: නුඑවෝ ලියොන්
+    sk: Nuevo León
+    sr: Нови Леон
+    sv: Nuevo León
+    sw: Nuevo León
+    ta: நுஏவோ லியோன்
+    te: న్యూవో లియోన్
+    th: รัฐนวยโวเลออง
+    tr: Nuevo León
+    uk: Нуево-Леон
+    ur: نیوو لیون
+    vi: Nuevo León
+    cy: Nuevo León
+    ceb: Estado de Nuevo León
+    sr_Latn: Novi Leon
+    zh: 新萊昂州
+    yue_Hans: 新莱昂州
+    ccp: "𑄚𑄱𑄠𑄬𑄞𑄮 𑄣𑄨𑄠𑄧𑄚𑄴"
+    ga: Nuevo León
+    yue: 新萊昂州
+    uz: Nuevoleon
+    'no': Nuevo León
+    az: Nuevo-Leon
+    mk: Нов Леон
+  type: state
+OAX:
+  name: Oaxaca
+  code: OAX
+  unofficial_names:
+  - Oaxaca
+  geo:
+    latitude: 17.0594169
+    longitude: -96.7216219
+    min_latitude: 17.0222818
+    min_longitude: -96.78067659999999
+    max_latitude: 17.1332787
+    max_longitude: -96.6762766
+  translations:
+    en: Oaxaca
+    af: Oaxaca
+    am: ወሓካ
+    ar: ولاية واهاكا
+    az: Oaxaka
+    be: Штат Аахака
+    bg: Оахака
+    bn: ওআজাচা
+    ca: Estat d’Oaxaca
+    cs: Oaxaca
+    da: Oaxaca
+    de: Oaxaca
+    el: Οαχάκα
+    es: Oaxaca
+    et: Oaxaca osariik
+    eu: Oaxaca
+    fa: اوآخاکا
+    fi: Oaxaca
+    fr: Oaxaca
+    gl: Oaxaca
+    gu: ઓક્સાકા
+    he: אואחאקה
+    hi: वाहाका
+    hr: Oaxaca
+    hu: Oaxaca
+    hy: Օահակա
+    id: Oaxaca
+    it: Oaxaca
+    ja: オアハカ州
+    ka: ოახაკა
+    kn: ಓಕ್ಸಾಕ
+    ko: 오악사카 주
+    lt: Oachaka
+    lv: Oahaka
+    ml: വഹാക്ക
+    mn: Оахака
+    mr: वाशाका
+    ms: Oaxaca
+    nb: Oaxaca
+    nl: Oaxaca
+    pl: Oaxaca
+    pt: Oaxaca
+    ro: Oaxaca
+    ru: Оахака
+    si: ඔඇක්සකා
+    sk: Oaxaca
+    sl: Oaxaca
+    sr: Оахака
+    sv: Oaxaca
+    sw: Oaxaca
+    ta: வஃகாக்கா
+    te: ఓవక్సాకా
+    th: รัฐวาฮากา
+    tr: Oaxaca
+    uk: Оахака
+    ur: اوکساکا
+    vi: Oaxaca
+    cy: Oaxaca
+    ceb: Estado de Oaxaca
+    sr_Latn: Oahaka
+    zh: 瓦哈卡州
+    yue_Hans: 瓦哈卡
+    sq: Oaxaca
+    ccp: "𑄃𑄮𑄠𑄇𑄴𑄥𑄇"
+    ga: Oaxaca
+    pa: ਵਾਹਾਕਾ
+    yue: 瓦哈卡
+    my: အိုအေဂျေစီအ
+    uz: Oaksaka
+    'no': Oaxaca
+    mk: Оахака
+  type: state
+PUE:
+  name: Puebla
+  code: PUE
+  unofficial_names:
+  - Puebla
+  geo:
+    latitude: 19.0412967
+    longitude: -98.20619959999999
+    min_latitude: 18.9443809
+    min_longitude: -98.2824308
+    max_latitude: 19.1381977
+    max_longitude: -98.1035011
+  translations:
+    en: Puebla
+    ar: ولاية بويبلا
+    be: Штат Пуэбла
+    bg: Пуебла
+    bn: পুয়েব্লা
+    ca: Estat de Puebla
+    cs: Puebla
+    da: Puebla
+    de: Puebla
+    el: Πουέμπλα
+    es: Puebla
+    et: Puebla osariik
+    eu: Puebla
+    fa: پوئبلا
+    fi: Puebla
+    fr: Puebla
+    gl: Estado de Puebla
+    gu: પુએબ્લા
+    he: פואבלה
+    hi: प्यूएबला
+    hr: Puebla
+    hu: Puebla
+    hy: Պուեբլա
+    id: Puebla
+    it: Puebla
+    ja: プエブラ州
+    ka: პუებლა
+    kn: ಪ್ಯುಬ್ಲಾ
+    ko: 푸에블라 주
+    lt: Puebla
+    lv: Puebla
+    mr: पेब्ला
+    ms: Puebla
+    nb: Puebla
+    nl: Puebla
+    pl: Puebla
+    pt: Puebla
+    ro: Puebla
+    ru: Пуэбла
+    si: පුඑබ්ලා
+    sk: Puebla
+    sl: Puebla
+    sr: Држава Пуебла
+    sv: Puebla
+    sw: Puebla
+    ta: புவெப்லா
+    te: పుయెబ్లా
+    th: รัฐปวยบลา
+    tr: Puebla
+    uk: Пуебла
+    ur: پوئبلا
+    vi: Puebla
+    cy: Puebla
+    ceb: Estado de Puebla
+    sr_Latn: Država Puebla
+    zh: 普埃布拉州
+    yue_Hans: 普埃布拉州
+    ccp: "𑄛𑄪𑄠𑄬𑄛𑄴𑄣"
+    ga: Puebla
+    pa: ਪੁਐਬਲਾ
+    yue: 普埃布拉州
+    uz: Puebla
+    'no': Puebla
+    mk: Пуебла
+  type: state
+QUE:
+  name: Querétaro
+  code: QUE
+  unofficial_names:
+  - Querétaro
+  geo:
+    latitude: 20.5887932
+    longitude: -100.3898881
+    min_latitude: 20.5434421
+    min_longitude: -100.482931
+    max_latitude: 20.6854032
+    max_longitude: -100.3285436
+  translations:
+    en: Querétaro
+    af: Querétaro
+    ar: ولاية كويريتارو
+    be: Штат Керэтара
+    bg: Керетаро
+    bn: কেরেতারো
+    ca: Querétaro
+    cs: Querétaro
+    da: Querétaro
+    de: Querétaro
+    el: Κερέταρο
+    es: Querétaro
+    et: Querétaro
+    eu: Querétaro
+    fa: کرتارو
+    fi: Querétaro
+    fr: Querétaro
+    gl: Querétaro
+    gu: ક્વેરેટેરો
+    he: קרטרו
+    hi: क्वेरेतारो
+    hr: Querétaro
+    hu: Querétaro
+    hy: Կերետարո
+    id: Querétaro
+    it: Querétaro
+    ja: ケレタロ州
+    ka: კერეტაროს შტატი
+    kn: ಕ್ವೆರೆಟೊ
+    ko: 케레타로 주
+    lt: Keretaras
+    lv: Keretaro
+    mr: केरेतारो
+    ms: Querétaro
+    nb: Querétaro
+    nl: Querétaro de Arteaga
+    pl: Querétaro
+    pt: Querétaro
+    ro: Querétaro
+    ru: Керетаро
+    si: ක්වෙරෙටරෝ
+    sk: Querétaro
+    sr: Керетаро
+    sv: Querétaro Arteaga
+    sw: Querétaro
+    ta: யூரேட்டரோ
+    te: క్వెరెటారో
+    th: รัฐเกเรตาโร
+    tr: Querétaro
+    uk: Керетаро
+    ur: کوارتارو
+    vi: Querétaro
+    cy: Querétaro
+    ceb: Estado de Querétaro
+    sr_Latn: Keretaro
+    zh: 克雷塔羅州
+    yue_Hans: 克雷塔罗州
+    ccp: "𑄇𑄪𑄠𑄬𑄢𑄬𑄑𑄢𑄮"
+    ga: Querétaro
+    yue: 克雷塔羅州
+    uz: Keretaro (Meksika)
+    'no': Querétaro
+  type: state
+ROO:
+  name: Quintana Roo
+  code: ROO
+  unofficial_names:
+  - Quintana Roo
+  geo:
+    latitude: 19.1817393
+    longitude: -88.4791376
+    min_latitude: 17.8939856
+    min_longitude: -89.29656179999999
+    max_latitude: 21.587621
+    max_longitude: -86.7105607
+  translations:
+    en: Quintana Roo
+    ar: ولاية كينتانا رو
+    be: Штат Кінтана-Роа
+    bg: Кинтана Ро
+    bn: কিন্তানা রো
+    ca: Quintana Roo
+    cs: Quintana Roo
+    da: Quintana Roo
+    de: Quintana Roo
+    el: Κιντάνα Ρόο
+    es: Quintana Roo
+    et: Quintana Roo
+    eu: Quintana Roo
+    fa: کینتانا رو
+    fi: Quintana Roo
+    fr: Quintana Roo
+    gl: Quintana Roo
+    gu: ક્વિન્ટાના રુ
+    he: קינטנה רו
+    hi: क्विंटाना रू
+    hr: Quintana Roo
+    hu: Quintana Roo
+    hy: Կինտանա Ռոո
+    id: Quintana Roo
+    it: Quintana Roo
+    ja: キンタナ・ロー州
+    ka: კინტანა-როოს შტატი
+    kn: ಕ್ವಿಂಟಾನಾ ರೂ
+    ko: 킨타나로오 주
+    lt: Kintana Roo
+    lv: Kintana Roo
+    mr: किंताना रो
+    ms: Quintana Roo
+    nb: Quintana Roo
+    nl: Quintana Roo
+    pl: Quintana Roo
+    pt: Quintana Roo
+    ro: Quintana Roo
+    ru: Кинтана-Роо
+    si: ක්වින්ටනා රූ
+    sk: Quintana Roo
+    sr: Кинтана Ро
+    sv: Quintana Roo
+    sw: Quintana Roo
+    ta: குயின்டனா ரூ
+    te: క్వింటానా రూ
+    th: รัฐกินตานาโร
+    tr: Quintana Roo
+    uk: Кінтана-Роо
+    ur: کوینتانا رو
+    vi: Quintana Roo
+    cy: Quintana Roo
+    ceb: Estado de Quintana Roo
+    sr_Latn: Kintana Ro
+    zh: 金塔納羅奧州
+    yue_Hans: 金塔纳罗奥州
+    ccp: "𑄇𑄭𑄪𑄃𑄨𑄚𑄴𑄑𑄚 𑄢𑄫"
+    ga: Quintana Roo
+    yue: 金塔納羅奧州
+    uz: Kintana-roo
+    mk: Кинтана Ро
+    'no': Quintana Roo
+    am: ኩንታና ሮ
+  type: state
+SIN:
+  name: Sinaloa
+  code: SIN
+  unofficial_names:
+  - Sinaloa
+  geo:
+    latitude: 25.825701
+    longitude: -108.214302
+  translations:
+    en: Sinaloa
+    af: Sinaloa
+    ar: ولاية سينالوا
+    be: Штат Сіналоа
+    bg: Синалоа
+    bn: সিনালোয়া
+    ca: Sinaloa
+    cs: Sinaloa
+    da: Sinaloa
+    de: Sinaloa
+    el: Σιναλόα
+    es: Sinaloa
+    et: Sinaloa
+    eu: Sinaloa
+    fa: سینالوآ
+    fi: Sinaloa
+    fr: Sinaloa
+    gl: Sinaloa
+    gu: સિનાલોઆ
+    he: סינלואה
+    hi: सिनालोआ
+    hr: Sinaloa
+    hu: Sinaloa
+    hy: Սինալոա
+    id: Sinaloa
+    is: Sinaloa
+    it: Sinaloa
+    ja: シナロア州
+    ka: სინალოა
+    kn: ಸಿನಾಲೋವಾ
+    ko: 시날로아 주
+    lt: Sinaloa
+    lv: Sinaloa
+    mr: सिनालोआ
+    ms: Sinaloa
+    nb: Sinaloa
+    ne: सिनालोआ
+    nl: Sinaloa
+    pl: Sinaloa
+    pt: Sinaloa
+    ro: Sinaloa
+    ru: Синалоа
+    si: සිනලොආ
+    sk: Sinaloa
+    sr: Синалоа
+    sv: Sinaloa
+    sw: Sinaloa
+    ta: சினலோங்
+    te: సినాలోవా
+    th: รัฐซีนาโลอา
+    tr: Sinaloa
+    uk: Сіналоа
+    ur: سینالوا
+    vi: Sinaloa
+    cy: Sinaloa
+    ceb: Estado de Sinaloa
+    sr_Latn: Sinaloa
+    zh: 錫那羅亞州
+    yue_Hans: 锡那罗亚州
+    jv: Sinaloa
+    ccp: "𑄥𑄨𑄚𑄣𑄱"
+    ga: Sinaloa
+    yue: 錫那羅亞州
+    yo: Sinaloa
+    uz: Sinaloa
+    'no': Sinaloa
+    yo_BJ: Sinaloa
+    az: Sinaloa
+  type: state
+SLP:
+  name: San Luis Potosí
+  code: SLP
+  unofficial_names:
+  - San Luis Potosí
+  geo:
+    latitude: 22.1564699
+    longitude: -100.9855409
+    min_latitude: 22.0620884
+    min_longitude: -101.0467011
+    max_latitude: 22.2092432
+    max_longitude: -100.8747596
+  translations:
+    en: San Luis Potosí
+    ar: ولاية سان لويس بوتوسي
+    be: Штат Сан-Луіс-Патасі
+    bg: Сан Луис Потоси
+    bn: সান লুইস পোতোসি
+    ca: Estat de San Luis Potosí
+    cs: San Luis Potosí
+    da: San Luis Potosí
+    de: San Luis Potosí
+    el: Σαν Λουίς Ποτοσί
+    es: San Luis Potosí
+    et: San Luis Potosí osariik
+    eu: San Luis Potosí
+    fa: سن لوئیس پوتوسی
+    fi: San Luis Potosí
+    fr: San Luis Potosí
+    gl: Estado de San Luis Potosí
+    gu: સાન લુઈસ પોટોસી
+    he: סן לואיס פוטוסי
+    hi: सैन लुइ पोटोसी
+    hr: San Luis Potosí
+    hu: San Luis Potosí
+    hy: Սան Լուիս
+    id: San Luis Potosí
+    it: San Luis Potosí
+    ja: サン・ルイス・ポトシ州
+    ka: სან-ლუის-პოტოსის შტატი
+    kn: ಸ್ಯಾನ್ ಲೂಯಿಸ್ ಪೊಟೊಸಿ
+    ko: 산루이스포토시 주
+    lt: San Luis Potosi
+    lv: Sanluisa Potosi
+    mr: सान लुइस पोतोसी
+    ms: San Luis Potosí
+    nb: San Luis Potosí
+    nl: San Luis Potosí
+    pl: San Luis Potosí
+    pt: San Luis Potosí
+    ro: San Luis Potosí
+    ru: Сан-Луис-Потоси
+    si: සැන් ලුවිස් පොටෝසි
+    sk: San Luis Potosí
+    sr: Држава Сан Луис Потоси
+    sv: San Luis Potosí
+    sw: San Luis Potosí
+    ta: சான் லுயிஸ் போடோசி
+    te: సాన్ లూయీ పోటోసి
+    th: รัฐซันลุยส์โปโตซี
+    tr: San Luis Potosí
+    uk: Сан-Луїс-Потосі
+    ur: سان لوئیس پوتوسی
+    vi: San Luis Potosí
+    cy: San Luis Potosí
+    ceb: Estado de San Luis Potosí
+    sr_Latn: Država San Luis Potosi
+    zh: 聖路易斯波托西州
+    yue_Hans: 圣路易斯波托西州
+    ccp: "𑄥𑄚𑄴 𑄣𑄪𑄃𑄨𑄌𑄴 𑄛𑄮𑄑𑄮𑄥𑄨"
+    ga: San Luis Potosí
+    yue: 聖路易斯波托西州
+    uz: San-Luis-Potosi
+    'no': San Luis Potosí
+  type: state
+SON:
+  name: Sonora
+  code: SON
+  unofficial_names:
+  - Sonora
+  geo:
+    latitude: 29.2972247
+    longitude: -110.3308814
+    min_latitude: 26.2969879
+    min_longitude: -115.0530223
+    max_latitude: 32.4937985
+    max_longitude: -108.4242708
+  translations:
+    en: Sonora
+    af: Sonora
+    ar: ولاية سونورا
+    be: Штат Санора
+    bg: Сонора
+    bn: সোনোরা
+    ca: Sonora
+    cs: Sonora
+    da: Sonora
+    de: Sonora
+    el: Σονόρα
+    es: Sonora
+    et: Sonora
+    eu: Sonora
+    fa: ایالت سونورا
+    fi: Sonora
+    fr: Sonora
+    gl: Sonora
+    gu: સોનોરા
+    he: סונורה
+    hi: सोनोरा
+    hr: Sonora
+    hu: Sonora
+    hy: Սոնորա
+    id: Sonora
+    it: Sonora
+    ja: ソノラ州
+    ka: სონორა
+    kn: ಸೊನೊರಾ
+    ko: 소노라 주
+    lt: Sonora
+    lv: Sonora
+    mr: सोनोरा
+    ms: Sonora
+    nb: Sonora
+    nl: Sonora
+    pl: Sonora
+    pt: Sonora
+    ro: Sonora
+    ru: Сонора
+    si: සැනොරා
+    sk: Sonora
+    sr: Сонора
+    sv: Sonora
+    sw: Sonora
+    ta: சொனோரா
+    te: సోనోరా
+    th: รัฐโซโนรา
+    tr: Sonora
+    uk: Сонора
+    ur: سونورا
+    vi: Sonora
+    cy: Sonora
+    ceb: Estado de Sonora
+    sr_Latn: Sonora
+    zh: 索諾拉州
+    yue_Hans: 索诺拉州
+    ccp: "𑄥𑄮𑄚𑄮𑄢"
+    ga: Sonora
+    pa: ਸੋਨੋਰਾ
+    yue: 索諾拉州
+    uz: Sonora
+    bs: Sonora
+    mk: Сонора
+    'no': Sonora
+  type: state
+TAB:
+  name: Tabasco
+  code: TAB
+  unofficial_names:
+  - Tabasco
+  geo:
+    latitude: 17.8409173
+    longitude: -92.6189273
+    min_latitude: 17.2508934
+    min_longitude: -94.12979179999999
+    max_latitude: 18.6502994
+    max_longitude: -90.98745919999999
+  translations:
+    en: Tabasco
+    af: Tabasco
+    ar: تاباسكو
+    be: Штат Табаска
+    bg: Табаско
+    bn: তাবাসকো
+    ca: Tabasco
+    cs: Tabasco
+    da: Tabasco
+    de: Tabasco
+    el: Ταμπάσκο
+    es: Tabasco
+    et: Tabasco
+    eu: Tabasco
+    fa: ایالت تاباسکو
+    fi: Tabasco
+    fr: Tabasco
+    gl: Tabasco
+    gu: તાબાસ્કો
+    he: טבסקו
+    hi: टबैस्को
+    hr: Tabasco
+    hu: Tabasco
+    hy: Տաբասկո
+    id: Tabasco
+    it: Tabasco
+    ja: タバスコ州
+    ka: ტაბასკოს შტატი
+    kn: ತಬಾಸ್ಕೊ
+    ko: 타바스코 주
+    lt: Tabaskas
+    lv: Tabasko
+    ml: ടബാസ്കോ
+    mr: ताबास्को
+    ms: Tabasco
+    nb: Tabasco
+    nl: Tabasco
+    pl: Tabasco
+    pt: Tabasco
+    ro: Tabasco
+    ru: Табаско
+    si: ටබස්කෝ
+    sk: Tabasco
+    sr: Табаско
+    sv: Tabasco
+    sw: Tabasco
+    ta: டபாஸ்கோ
+    te: టబాస్కో
+    th: รัฐตาบัสโก
+    tr: Tabasco
+    uk: Табаско
+    ur: تاباسکو
+    vi: Tabasco
+    cy: Tabasco
+    ceb: Estado de Tabasco
+    sr_Latn: Tabasko
+    zh: 塔巴斯科州
+    yue_Hans: 塔巴斯科州
+    ccp: "𑄑𑄝𑄌𑄴𑄇𑄮"
+    ga: Tabasco
+    yue: 塔巴斯科州
+    uz: Tabasko
+    'no': Tabasco
+    mk: Табаско
+  type: state
+TAM:
+  name: Tamaulipas
+  code: TAM
+  unofficial_names:
+  - Tamaulipas
+  geo:
+    latitude: 24.26694
+    longitude: -98.8362755
+    min_latitude: 22.2069658
+    min_longitude: -100.1449502
+    max_latitude: 27.6791263
+    max_longitude: -97.14426089999999
+  translations:
+    en: Tamaulipas
+    ar: ولاية تاماوليباس
+    be: Штат Тамауліпас
+    bg: Тамаулипас
+    bn: তামাউলিপাস
+    ca: Tamaulipas
+    cs: Tamaulipas
+    da: Tamaulipas
+    de: Tamaulipas
+    el: Ταμαουλίπας
+    es: Tamaulipas
+    et: Tamaulipas
+    eu: Tamaulipas
+    fa: تامائولیپاس
+    fi: Tamaulipas
+    fr: Tamaulipas
+    gl: Tamaulipas
+    gu: તામાઉલિપાસ
+    he: טמאוליפס
+    hi: तमौलिपास
+    hr: Tamaulipas
+    hu: Tamaulipas
+    hy: Տամաուլիպաս
+    id: Tamaulipas
+    it: Tamaulipas
+    ja: タマウリパス州
+    ka: ტამაულიპასის შტატი
+    kn: ತಮೌಲಿಪಾಸ್
+    ko: 타마울리파스 주
+    lt: Tamaulipasas
+    lv: Tamaulipasa
+    mr: तामौलिपास
+    ms: Tamaulipas
+    nb: Tamaulipas
+    nl: Tamaulipas
+    pl: Tamaulipas
+    pt: Tamaulipas
+    ro: Tamaulipas
+    ru: Тамаулипас
+    si: ටමෞලිපාස්
+    sk: Tamaulipas
+    sl: Tamaulipas
+    sr: Тамаулипас
+    sv: Tamaulipas
+    sw: Tamaulipas
+    ta: தமௌலிபாஸ்
+    te: టామాలిపాస్
+    th: รัฐตาเมาลีปัส
+    tr: Tamaulipas
+    uk: Тамауліпас
+    ur: تاماولیپاس
+    vi: Tamaulipas
+    cy: Tamaulipas
+    ceb: Estado de Tamaulipas
+    sr_Latn: Tamaulipas
+    zh: 塔毛利帕斯州
+    yue_Hans: 塔毛利帕斯州
+    ccp: "𑄑𑄟𑄅𑄪𑄣𑄨𑄛𑄌𑄴"
+    ga: Tamaulipas
+    yue: 塔毛利帕斯州
+    uz: Tamaulipas
+    'no': Tamaulipas
+    mk: Тамаулипас
+  type: state
+TLA:
+  name: Tlaxcala
+  code: TLA
+  unofficial_names:
+  - Tlaxcala
+  geo:
+    latitude: 19.3181521
+    longitude: -98.2375146
+    min_latitude: 19.3056666
+    min_longitude: -98.24796239999999
+    max_latitude: 19.3264598
+    max_longitude: -98.2316719
+  translations:
+    en: Tlaxcala
+    af: Tlaxcala
+    ar: ولاية تلاكسكالا
+    be: Штат Тласкала
+    bg: Тласкала
+    bn: ত্লাক্সকালা
+    ca: Estat de Tlaxcala
+    cs: Tlaxcala
+    da: Tlaxcala
+    de: Tlaxcala
+    el: Τλαξκάλα
+    es: Tlaxcala
+    et: Tlaxcala osariik
+    eu: Tlaxcala
+    fa: تلاسکالا
+    fi: Tlaxcala
+    fr: Tlaxcala
+    gl: Estado de Tlaxcala
+    gu: ત્લાક્સ્કાલા
+    he: טלקסקלה
+    hi: लैक्सकाला
+    hr: Tlaxcala
+    hu: Tlaxcala
+    hy: Տլասկալա
+    id: Tlaxcala
+    it: Tlaxcala
+    ja: トラスカラ州
+    ka: ტლასკალა
+    kn: ಟಿಲಾಕ್ಸ್ಕಾಲಾ
+    ko: 틀락스칼라 주
+    lt: Tlaskala
+    lv: Tlaskala
+    mr: त्लास्काला
+    ms: Tlaxcala
+    nb: Tlaxcala
+    nl: Tlaxcala
+    pl: Tlaxcala
+    pt: Tlaxcala
+    ro: Tlaxcala
+    ru: Тласкала
+    si: ට්ලක්ස්කලා
+    sk: Tlaxcala
+    sr: Држава Тласкала
+    sv: Tlaxcala
+    sw: Tlaxcala
+    ta: ட்லஸ்க்கால
+    te: ట్లాక్సికాలా
+    th: รัฐตลัซกาลา
+    tr: Tlaxcala
+    uk: Тласкала
+    ur: تلاکسکالا
+    vi: Tlaxcala
+    cy: Tlaxcala
+    ceb: Estado de Tlaxcala
+    sr_Latn: Država Tlaskala
+    zh: 特拉斯卡拉州
+    yue_Hans: 特拉斯卡拉州
+    ccp: "𑄣𑄇𑄴𑄇𑄣"
+    ga: Tlaxcala
+    yue: 特拉斯卡拉州
+    uz: Tlaskala
+    'no': Tlaxcala
+    mk: Тласкала
+  type: state
+VER:
+  name: Veracruz
+  code: VER
+  unofficial_names:
+  - Veracruz de Ignacio de la Llave
+  geo:
+    latitude: 19.173773
+    longitude: -96.1342241
+    min_latitude: 19.1309432
+    min_longitude: -96.206622
+    max_latitude: 19.2266685
+    max_longitude: -96.1181965
+  translations:
+    en: Veracruz
+    af: Veracruz
+    ar: ولاية فيراكروز
+    be: Штат Веракрус
+    bg: Веракрус
+    bn: ভেরাক্রুজ
+    ca: Veracruz
+    cs: Veracruz
+    da: Veracruz
+    de: Veracruz
+    el: Βερακρούζ
+    es: Veracruz
+    et: Veracruzi osariik
+    eu: Veracruz
+    fa: وراکروس
+    fi: Veracruz
+    fr: Veracruz
+    gl: Estado de Veracruz
+    gu: વેરાક્રુઝ
+    he: וראקרוס
+    hi: वेराक्रुज़
+    hr: Veracruz
+    hu: Veracruz
+    hy: Վերակրուս
+    id: Veracruz
+    it: Veracruz
+    ja: ベラクルス州
+    ka: ვერაკრუსის შტატი
+    kn: ವೆರಾಕ್ರಜ್
+    ko: 베라크루스 주
+    lt: Verakrusas
+    lv: Verakrusa de Ignasio de la Ljave
+    mr: बेराक्रुथ
+    ms: Veracruz
+    nb: Veracruz
+    nl: Veracruz de Ignacio de la Llave
+    pl: Veracruz
+    pt: Veracruz
+    ro: Statul Veracruz
+    ru: Веракрус
+    si: වෙරකෘස්
+    sk: Veracruz
+    sr: Држава Веракруз
+    sv: Veracruz
+    sw: Veracruz
+    ta: வேராகிருஸ்
+    te: వెరాక్రజ్
+    th: รัฐเบรากรุซ
+    tr: Veracruz
+    uk: Веракрус
+    ur: ویراکروز
+    vi: Veracruz
+    cy: Veracruz
+    ceb: Estado de Veracruz-Llave
+    sr_Latn: Država Verakruz
+    zh: 韋拉克魯斯州
+    yue_Hans: 韦拉克鲁斯州
+    ccp: "𑄞𑄢𑄝𑄳𑄢𑄪𑄌𑄴"
+    ga: Veracruz
+    pa: ਬੇਰਾਕਰੂਸ
+    yue: 韋拉克魯斯州
+    my: ဗေရကရုမြို့
+    uz: Verakrus
+    mk: Веракруз
+    'no': Veracruz
+  type: state
+YUC:
+  name: Yucatán
+  code: YUC
+  unofficial_names:
+  - Yucatán
+  geo:
+    latitude: 20.7098786
+    longitude: -89.0943377
+    min_latitude: 19.551174
+    min_longitude: -90.40699579999999
+    max_latitude: 21.6242092
+    max_longitude: -87.5331451
+  translations:
+    en: Yucatán
+    af: Yucatán
+    ar: ولاية يوكاتان
+    be: Штат Юкатан
+    bg: Юкатан
+    bn: ইয়ুকাতান
+    ca: Yucatán
+    cs: Yucatán
+    da: Yucatán
+    de: Yucatán
+    el: Γιουκατάν
+    es: Yucatán
+    et: Yucatán
+    eu: Yucatán
+    fa: یوکاتان
+    fi: Yucatán
+    fr: Yucatán
+    gl: Estado de Iucatán
+    gu: યુકાટન
+    he: יוקטן
+    hi: युकाटन
+    hr: Yucatán
+    hu: Yucatán
+    hy: Յուկատան նահանգ
+    id: Yucatán
+    it: Yucatán
+    ja: ユカタン州
+    ka: იუკატანის შტატი
+    kn: ಯುಕಾಟಾನ್
+    ko: 유카탄 주
+    lt: Jukatanas
+    lv: Jukatana
+    mr: युकातान
+    ms: Yucatán
+    nb: Yucatán
+    nl: Yucatán
+    pl: Jukatan
+    pt: Iucatã
+    ro: Yucatán
+    ru: Юкатан
+    si: යුකටාන්
+    sk: Yucatán
+    sr: Јукатан
+    sv: Yucatán
+    sw: Yucatán
+    ta: யுகேடன்
+    te: యూకాటన్
+    th: รัฐยูกาตัง
+    tr: Yucatán
+    uk: Юкатан
+    ur: یوکتان
+    vi: Yucatán
+    cy: Yucatán
+    ceb: Estado de Yucatán
+    sr_Latn: Jukatan
+    zh: 尤卡坦州
+    yue_Hans: 尤卡坦州
+    ccp: "𑄃𑄨𑄅𑄪𑄇𑄑𑄚𑄴"
+    ga: Yucatán
+    pa: ਯੁਕਾਤਾਨ
+    yue: 尤卡坦州
+    uz: Yukatan
+    mk: Јукатан
+    'no': Yucatán
+    ps: یوکاتان
+  type: state
+ZAC:
+  name: Zacatecas
+  code: ZAC
+  unofficial_names:
+  - Zacatecas
+  geo:
+    latitude: 22.7709249
+    longitude: -102.5832539
+    min_latitude: 22.7451586
+    min_longitude: -102.6196943
+    max_latitude: 22.7901168
+    max_longitude: -102.5549838
+  translations:
+    en: Zacatecas
+    af: Zacatecas
+    ar: ولاية زاكاتيكاس
+    be: Штат Сакатэкас
+    bg: Сакатекас
+    bn: যাকাতেকাস
+    ca: Estat de Zacatecas
+    cs: Zacatecas
+    da: Zacatecas
+    de: Zacatecas
+    el: Ζακατέκας
+    es: Zacatecas
+    et: Zacatecase osariik
+    eu: Zacatecas
+    fa: ساکاتکاس
+    fi: Zacatecas
+    fr: Zacatecas
+    gl: Estado de Zacatecas
+    gu: ઝેકાટેકાસ
+    he: סקטקס
+    hi: ज़काटेकास
+    hr: Zacatecas
+    hu: Zacatecas
+    hy: Սակատեկաս
+    id: Zacatecas
+    it: Zacatecas
+    ja: サカテカス州
+    ka: საკატეკასის შტატი
+    kn: ಝಕಟೆಕಾಸ್
+    ko: 사카테카스 주
+    lt: Sakatekas
+    lv: Sakatekasa
+    mr: साकातेकास
+    ms: Zacatecas
+    nb: Zacatecas
+    nl: Zacatecas
+    pl: Zacatecas
+    pt: Zacatecas
+    ro: Zacatecas
+    ru: Сакатекас
+    si: සකටෙකාස්
+    sk: Zacatecas
+    sr: Држава Закатекас
+    sv: Zacatecas
+    sw: Zacatecas
+    ta: சாக்காடேஸாஸ்
+    te: జకాటెకాస్
+    th: รัฐซากาเตกัส
+    tr: Zacatecas
+    uk: Сакатекас
+    ur: زاکاٹیکاس
+    vi: Zacatecas
+    cy: Zacatecas
+    ceb: Estado de Zacatecas
+    sr_Latn: Država Zakatekas
+    zh: 薩卡特卡斯州
+    yue_Hans: 萨卡特卡斯州
+    ccp: "𑄎𑄇𑄖𑄴𑄇𑄌𑄴"
+    ga: Zacatecas
+    pa: ਸਾਕਾਤੇਕਾਸ
+    yue: 薩卡特卡斯州
+    uz: Sakatekas
+    mk: Закатекас
+    'no': Zacatecas
+    sd: زاڪاٽيڪاس
+  type: state

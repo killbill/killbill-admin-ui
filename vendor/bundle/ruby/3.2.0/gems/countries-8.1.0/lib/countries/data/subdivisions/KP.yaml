@@ -1,0 +1,704 @@
+---
+'01':
+  name: 평양직할시
+  code: '01'
+  translations:
+    af: Pjongjang
+    am: ፕዮንግያንግ
+    ar: بيونغيانغ
+    as: পিয়ং ইয়াং
+    az: Pxenyan
+    be: Горад Пхеньян
+    bg: Пхенян
+    bn: পিয়ং ইয়াং
+    ca: Pyongyang
+    cs: Pchjongjang
+    da: Pyongyang
+    de: Pjöngjang
+    el: Πιονγιάνγκ
+    en: Pyongyang
+    es: Pionyang
+    et: P’yŏngyang
+    eu: Piongiang
+    fa: پیونگ‌یانگ
+    fi: Pjongjang
+    fr: Pyongyang
+    gl: Pyongyang
+    gu: ફિયોંગયાંગ
+    he: פיונגיאנג
+    hi: प्योंगयांग
+    hr: Pjongjang
+    hu: Phenjan
+    hy: Փհենյան
+    id: Pyongyang
+    is: Pjongjang
+    it: Pyongyang
+    ja: 平壌
+    ka: ფხენიანი
+    kn: ಪ್ಯೊನ್ಗ್ಯಾಂಗ್
+    ko: 평양직할시
+    lt: Pchenjanas
+    lv: Phenjana
+    ml: പ്യോംങ്യാംഗ്
+    mn: Пхеньян
+    mr: प्याँगयांग
+    ms: Pyongyang
+    nb: Pyongyang
+    ne: प्योङ्गयाङ्ग
+    nl: Pyongyang
+    pl: Pjongjang
+    ps: پيونګيانګ
+    pt: Pyongyang
+    ro: Phenian
+    ru: Пхеньян
+    si: පියොන්යෑං
+    sk: Pchjongjang
+    sl: Pjongjang
+    sr: Пјонгјанг
+    sv: Pyongyang
+    sw: Pyongyang
+    ta: பியொங்யாங்
+    te: ప్యోంగ్యాంగ్
+    th: เปียงยาง
+    tk: Phenýan
+    tr: Pyongyang
+    uk: Пхеньян
+    ur: پیانگ یانگ
+    vi: Bình Nhưỡng
+    zh: 平壤
+    cy: P’yŏngyang
+    ceb: Pyongyang (lalawigan)
+    sr_Latn: Pjongjang
+    yue_Hans: 平壤
+    jv: Pyongyang
+    sq: Pjongian
+    ccp: "𑄛𑄨𑄠𑄧𑄁𑄃𑄨𑄠𑄧𑄁"
+    ga: Pyongyang
+    ky: Пхеньян
+    km: ព្យុងយ៉ាង
+    pa: ਪਿਓਂਗਯਾਂਗ
+    kk: Пхеньян
+    yue: 平壤
+    my: ပြုံယမ်းမြို့
+    yo: Pyongyang
+    uz: Pxenyan
+    bs: Pjongjang
+    mk: Пјонгјанг
+    'no': Pyongyang
+    yo_BJ: Pyongyang
+    ha: Pyongyang
+    ha_NE: Pyongyang
+    sd: پيانگ يانگ
+  type: capital_city
+'02':
+  name: 평안남도
+  code: '02'
+  translations:
+    ar: مقاطعة بيونغان الجنوبية
+    bg: Южен Пхьонан
+    bn: দক্ষিণ পঙ্গান প্রদেশ
+    ca: P’yongan del Sud
+    cs: Jižní Pchjŏngan
+    da: Sydpyongan
+    de: P’yŏngan-namdo
+    el: Νότιο Πγιονγκάν
+    en: South Pyongan
+    es: P’yŏngan del Sur
+    fa: استان پیونگان جنوبی
+    fi: Etelä-P’yŏngan
+    fr: Pyongan du Sud
+    gu: દક્ષિણ પ્યોંગન પ્રાંત
+    hi: दक्षिण प्योंगान प्रांत
+    hu: Dél-Phjongan
+    id: P’yŏngan Selatan
+    it: Sud Pyongan
+    ja: 平安南道
+    kn: ದಕ್ಷಿಣ ಪಯೋಂಗ್ಗನ್ ಪ್ರಾಂತ್ಯ
+    ko: 평안남도
+    lt: Pietų Pchenjano provincija
+    mn: Өмнө Пён-Ань
+    mr: दक्षिण प्योंगान प्रांत
+    ms: South Pyongan Province
+    nb: Sør-Pyongan
+    nl: P’yŏngan-namdo
+    pl: P’yŏngan Południowy
+    pt: Pyongan Sul
+    ro: Provincia Pyongan de Sud
+    ru: Пхёнан-Намдо
+    si: දකුණු ප්යෝන්ගන් පළාත
+    sv: Södra P’yŏngan
+    ta: தெற்கு பியோன்கண் மாகாணம்
+    te: దక్షిణ ప్యోంగాన్ ప్రావిన్స్
+    th: จังหวัดพย็องอันใต้
+    tr: Güney Pyongan
+    uk: Південна провінція Пхьонан
+    ur: جنوبی پیونگان صوبہ
+    vi: Pyongan Nam
+    lv: Phjonannamdo province
+    ceb: P’yŏngan-namdo
+    zh: 平安南道
+    yue_Hans: 平安南道
+    ccp: "𑄘𑄧𑄊𑄨𑄚𑄴 𑄛𑄨𑄠𑄧𑄁𑄉𑄚𑄴"
+    eu: Hego Pyongan
+    yue: 平安南道
+    'no': Sør-Pyongan
+    be: Пхёнан-Намдо
+    cy: Talaith De Pyongan
+    he: דרום פויאנג
+  type: province
+'03':
+  name: 평안북도
+  code: '03'
+  translations:
+    ar: بيونغان الشمالية
+    bg: Северен Пхьонан
+    bn: নর্থ পিয়ংগান প্রদেশ
+    ca: P’yŏngan del Nord
+    cs: Severní Pchjŏngan
+    da: Nordpyongan
+    de: P’yŏngan-pukto
+    el: Βόρειο Πιονγκάν
+    en: North Pyongan
+    es: P’yŏngan del Norte
+    fa: استان پیونگان شمالی
+    fi: Pohjois-P’yŏngan
+    fr: Pyongan du Nord
+    gu: ઉત્તર પ્યોંગન પ્રાંત
+    hi: उत्तरी प्योंगन प्रांत
+    hu: Észak-Phjongan
+    id: P’yŏngan Utara
+    it: Nord Pyongan
+    ja: 平安北道
+    kn: ಉತ್ತರ ಪಯೋನ್ಗಾನ್ ಪ್ರಾಂತ್ಯ
+    ko: 평안북도
+    lt: Šiaurės Pchenjano provincija
+    mn: Умар Пён-Ань
+    mr: उत्तर प्योंगान प्रांत
+    ms: Daerah Pyongan Utara
+    nb: Nord-Pyongan
+    nl: P’yŏngan-pukto
+    pl: P’yŏngan Północny
+    pt: Pyongan Norte
+    ro: Provincia Pyongan de Nord
+    ru: Пхёнан-Пукто
+    si: උතුරු ප්යෝන්ගන් පළාත
+    sv: Norra P’yŏngan
+    ta: வடக்கு பியொண்கண் மாகாணம்
+    te: ఉత్తర పయోన్యన్ ప్రావిన్స్
+    th: จังหวัดพย็องอันเหนือ
+    tr: Kuzey Pyongan
+    uk: Північна провінція Пхьонан
+    ur: شمالی پیونگان صوبہ
+    vi: Pyongan Bắc
+    lv: Phjonanpukto province
+    ceb: P’yŏngan-bukto
+    zh: 平安北道
+    yue_Hans: 平安北道
+    ccp: "𑄅𑄧𑄖𑄳𑄦𑄧𑄢𑄴 𑄛𑄨𑄠𑄧𑄁𑄉𑄚𑄴"
+    eu: Ipar Pyongan
+    yue: 平安北道
+    'no': Nord-Pyongan
+    az: Şimali Pxenyan
+    be: Пхёнан-Пукто
+    cy: Talaith Gogledd Pyongan
+    he: צפון פויאנג
+  type: province
+'04':
+  name: 자강도
+  code: '04'
+  translations:
+    ar: تشاغانغ
+    bg: Чаган
+    bn: চ্যাগাং প্রদেশ
+    ca: Chagang
+    cs: Čagang
+    da: Chagang
+    de: Chagang-do
+    el: Τσαγκάνγκ
+    en: Chagang
+    es: Chagang
+    fa: چاگانگ
+    fi: Chagang
+    fr: Jagang
+    gu: છગાંગ પ્રાંત
+    hi: चगांग प्रांत
+    hu: Csagang tartomány
+    id: Chagang
+    it: Chagang
+    ja: 慈江道
+    kn: ಚಾಗಾಂಗ್ ಪ್ರಾಂತ್ಯ
+    ko: 자강도
+    lt: Čagango provincija
+    mn: Чаган-ду
+    mr: चागॅंग प्रांत
+    ms: Daerah Chagang
+    nb: Chagang
+    nl: Chagang-do
+    pl: Chagang
+    pt: Chagang
+    ru: Чагандо
+    si: චගාන්ග් පළාත
+    sv: Chagang
+    ta: சகங் மாகாணம்
+    te: చగాంగ్ ప్రావిన్స్
+    th: จังหวัดชากัง
+    tr: Chagang
+    uk: Провінція Чаган
+    ur: چانگانگ صوبہ
+    vi: Chagang
+    lv: Čagando province
+    cy: Talaith Chagang
+    ceb: Chagang-do
+    zh: 慈江道
+    yue_Hans: 慈江
+    ccp: "𑄇𑄉𑄳𑄠𑄋𑄴"
+    ro: Provincia Chagang
+    eu: Chagang
+    yue: 慈江
+    'no': Chagang
+    az: Çaqando
+    be: Чагандо
+    sr: Чаганг
+    sr_Latn: Čagang
+  type: province
+'05':
+  name: 황해남도
+  code: '05'
+  translations:
+    ar: جنوب مقاطعة هوانغاي
+    bg: Южен Хванхе
+    bn: দক্ষিন হয়াংহে প্রদেশ
+    ca: Hwanghae del Sud
+    cs: Jižní Hwanghä
+    da: Sydhwanghae
+    de: Hwanghae-namdo
+    el: Νότιο Χουάνγκχε (Σάουθ Χουάνγκχε)
+    en: South Hwanghae
+    es: Hwanghae del Sur
+    fa: استان هوانگهائه جنوبی
+    fi: Etelä-Hwanghae
+    fr: Hwanghae du Sud
+    gu: દક્ષિણ હવાંઘાઈ પ્રાંત
+    hi: दक्षिण ह्वांगे प्रांत
+    hu: Dél-Hvanghe
+    id: Hwanghae Selatan
+    it: Sud Hwanghae
+    ja: 黄海南道
+    kn: ಸೌತ್ ಹಂಗ್ಹೇ ಪ್ರಾಂತ್ಯ
+    ko: 황해남도
+    lt: Pietų Hvanghės provincija
+    mn: Өмнө Хуанхэ
+    mr: दक्षिण व्हानघाई प्रांत
+    ms: Daerah Selatan Hwanghae
+    nb: Sør-Hwanghae
+    nl: Hwanghae-namdo
+    pl: Hwanghae Południowe
+    pt: Hwanghae Sul
+    ru: Хванхэ-Намдо
+    si: දකුණු හ්වන්ග්හයි පළාත
+    sv: Södra Hwanghae
+    ta: தெற்கு வாஙகவே மாகாணம்
+    te: దక్షిణ హవాంగే ప్రావిన్స్
+    th: จังหวัดฮวังแฮใต้ เกาหลีเหนือ
+    tr: Güney Hwanghae
+    uk: Південна провінція Хванхе
+    ur: جنوبی ہوانگہائے صوبہ
+    vi: Hwanghae Nam
+    lv: Hvanhenamdo province
+    ceb: Hwanghae-namdo
+    zh: 黄海南道
+    yue_Hans: 黄海南道
+    ccp: "𑄘𑄧𑄊𑄨𑄚𑄴 𑄦𑄧𑄅𑄪𑄚𑄴𑄊"
+    ro: Provincia Hwanghae de Sud
+    eu: Hego Hwanghae
+    yue: 黃海南道
+    'no': Sør-Hwanghae
+    be: Хванхэ-Намдо
+    he: דרום חוואנגחאייה
+    sr: Јужни Хвангхе
+    sr_Latn: Južni Hvanghe
+  type: province
+'06':
+  name: 황해북도
+  code: '06'
+  translations:
+    ar: هوانغهاي الشمالية
+    bg: Северен Хванхе
+    bn: নর্থ হোয়াংঘে প্রদেশ
+    ca: Hwanghae del Nord
+    cs: Severní Hwanghä
+    da: Nordhwanghae
+    de: Hwanghae-pukto
+    el: Βόρειο Χουανγκέ
+    en: North Hwanghae
+    es: Hwanghae del Norte
+    fa: استان هوانگهائه شمالی
+    fi: Pohjois-Hwanghae
+    fr: Hwanghae du Nord
+    gu: ઉત્તર હ્વાંગહે પ્રાંત
+    hi: उत्तरी ह्वांगहे प्रांत
+    hu: Észak-Hvanghe
+    id: Hwanghae Utara
+    it: Nord Hwanghae
+    ja: 黄海北道
+    kn: ಉತ್ತರ ಹ್ವಾಂಗ್ಹೆಯ ಪ್ರಾಂತ್ಯ
+    ko: 황해북도
+    lt: Šiaurės Hvanghės provincija
+    mn: Умар Хуанхэ
+    mr: उत्तर ह्वंग्हे प्रांत
+    ms: North Hwanghae Province
+    nb: Nord-Hwanghae
+    nl: Hwanghae-pukto
+    pl: Hwanghae Północne
+    pt: Hwanghae Norte
+    ru: Хванхэ-Пукто
+    si: උතුරු හ්වන්හේ පළාත
+    sv: Norra Hwanghae
+    ta: வடக்கு வாஙஹயே மாகாணம்
+    te: ఉత్తర హ్వాంగే ప్రావిన్స్
+    th: ฮัมกย็องใต้
+    tr: Kuzey Hwanghae
+    uk: Північна провінція Хванхе
+    ur: شمالی ہوانگہائے صوبہ
+    vi: Hwanghae Bắc
+    lv: Hvanhepukto province
+    ceb: Hwanghae-bukto
+    zh: 黄海北道
+    yue_Hans: 黄海北道
+    ccp: "𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄴 𑄦𑄧𑄅𑄪𑄚𑄴𑄊"
+    ro: Provincia Hwanghae de Nord
+    eu: Ipar Hwanghae
+    yue: 黃海北道
+    'no': Nord-Hwanghae
+    be: Хванхэ-Пукто
+    cy: Talaith Gogledd Hwanghae
+    sr: Северни Хвангхе
+    sr_Latn: Severni Hvanghe
+  type: province
+'07':
+  name: 강원도
+  code: '07'
+  translations:
+    ar: مقاطعة كانغوون
+    bg: Кануън
+    bn: কাংওন প্রদেশ
+    ca: Kangwon
+    cs: Kangwŏn
+    da: Kangwon
+    de: Kangwŏn-do
+    el: Κάνγκγουον
+    en: Kangwon
+    es: Kangwon-do
+    fa: استان کانگوون
+    fi: Kangwŏn
+    fr: Kangwon
+    gu: કાંગવૉન પ્રાંત
+    hi: कांगवॉन प्रांत
+    hu: Kangvon
+    hy: Կանգվանդո
+    id: Kangwon-do
+    it: Kangwon
+    ja: 江原道 (北)
+    kn: ಕಾಂಗ್ವಾನ್ ಪ್ರಾಂತ್ಯ
+    ko: 강원도
+    lt: Kangvono provincija
+    mn: Умард Солонгосын Канвон
+    mr: कांगवाँ प्रांत
+    ms: Kangwŏn
+    nb: Kangwon
+    nl: Kangwŏn-do
+    pl: Kangwŏn
+    pt: Kangwon
+    ro: Provincia Kangwon
+    ru: Канвондо
+    si: කන්ග්වොන් පළාත
+    sv: Kangwon
+    ta: காங்வ்ன் மாகாணம்
+    te: కంగ్వాన్ ప్రావిన్స్
+    th: จังหวัดคังว็อน
+    tr: Kangvon
+    uk: Провінція Канвон
+    ur: کانگوون صوبہ
+    vi: Kangwon
+    lv: Kanvondo province
+    ceb: Kangwŏn-do
+    zh: 江原道
+    yue_Hans: 江原道
+    ccp: "𑄇𑄧𑄁𑄤𑄚𑄴"
+    eu: Kangwon
+    yue: 江原道
+    'no': Kangwon
+    be: Канвандо
+    cy: Talaith Kangwon
+    sr: Кангвон
+    sr_Latn: Kangvon
+  type: province
+'08':
+  name: 함경남도
+  code: '08'
+  translations:
+    ar: محافظة هامغيونغ الجنوبية
+    bg: Южен Хамгьон
+    bn: দক্ষিন হ্যামইয়ং প্রদেশ
+    ca: Hamgyong del Sud
+    cs: Jižní Hamgjŏng
+    da: Syd-Hamgyong
+    de: Hamgyŏng-namdo
+    el: Σάουθ Χάμγκιονγκ
+    en: South Hamgyong
+    es: Hamgyŏng del Sur
+    fa: استان هامگیونگ جنوبی
+    fi: Etelä-Hamgyŏng
+    fr: Hamgyong du Sud
+    gu: દક્ષિણ હેમગ્યોંગ પ્રાંત
+    hi: दक्षिण हमग्योंग प्रांत
+    hu: Dél-Hamgjong
+    id: Hamgyong Selatan
+    it: Sud Hamgyong
+    ja: 咸鏡南道
+    kn: ಸೌತ್ ಹ್ಯಾಮ್ಯಾಂಗ್ ಪ್ರಾಂತ್ಯ
+    ko: 함경남도
+    lt: Pietų Hamgiongo provincija
+    mn: Өмнө Хамгён
+    mr: दक्षिण हॅमगोंग प्रांत
+    ms: South Hamgyong Province
+    nb: Sør-Hamgyong
+    ne: दक्षिण हाम्गयोग क्षेत्र
+    nl: Hamgyŏng-namdo
+    pl: Hamgyŏng Południowy
+    pt: Hamgyong Sul
+    ro: Provincia Hamgyong de Sud
+    ru: Хамгён-Намдо
+    si: දකුණු හැම්යොන්ග් පළාත
+    sv: Södra Hamgyong
+    ta: தெற்கு ஹம்ஜியோங் மாகாணம்
+    te: దక్షిణ హామ్‌గ్యాంగ్ ప్రావిన్స్
+    th: จังหวัดฮัมพย็องใต้
+    tr: Güney Hamgyong
+    uk: Південна провінція Хамгьон
+    ur: جنوبی ہامگیونگ صوبہ
+    vi: Hamgyong Nam
+    lv: Hamgjonnamdo province
+    ceb: Hamnam
+    zh: 咸镜南道
+    yue_Hans: 咸镜南道
+    ccp: "𑄘𑄧𑄊𑄨𑄚𑄴 𑄦𑄟𑄴𑄎𑄨𑄠𑄧𑄁"
+    eu: Hego Hamgyong
+    yue: 咸鏡南道
+    'no': Sør-Hamgyong
+    be: Хамгён-Намдо
+    sr: Јужни Хамгјонг
+    sr_Latn: Južni Hamgjong
+  type: province
+'09':
+  name: 함경북도
+  code: '09'
+  translations:
+    ar: منطقة شمال هامغيونغ
+    bg: Северен Хамгьон
+    ca: Hamgyong del Nord
+    cs: Severní Hamgjŏng
+    da: Nord-Hamgyong
+    de: Hamgyŏng-pukto
+    en: North Hamgyong
+    es: Hamgyŏng del Norte
+    fa: استان هامگیونگ شمالی
+    fi: Pohjois-Hamgyŏng
+    fr: Hamgyong du Nord
+    he: צפון האמגיונג
+    hu: Észak-Hamgjong
+    id: Hamgyong Utara
+    it: Nord Hamgyong
+    ja: 咸鏡北道
+    ko: 함경북도
+    lt: Šiaurės Hamgiongo provincija
+    mn: Умар Хамгён
+    nb: Nord-Hamgyong
+    nl: Hamgyŏng-pukto
+    pl: Hamgyŏng Północny
+    pt: Hamgyong Norte
+    ru: Хамгён-Пукто
+    sl: Provinca Južni Hamgyong
+    sv: Norra Hamgyong
+    tr: Kuzey Hamgyong
+    uk: Північна провінція Хамгьон
+    ur: شمالی ہامگیونگ صوبہ
+    vi: Hamgyong Bắc
+    cy: Talaith Gogledd Hamgyong
+    ceb: Hambuk
+    zh: 咸镜北道
+    yue_Hans: 咸镜北道
+    ccp: "𑄅𑄧𑄖𑄳𑄦𑄧𑄢𑄴 𑄦𑄟𑄴𑄎𑄨𑄠𑄧𑄁"
+    ro: Provincia Hamgyong de Nord
+    eu: Ipar Hamgyong
+    yue: 咸鏡北道
+    az: Hamqyon-Pukto
+    be: Хамгён-Пукта
+    'no': Nord-Hamgyong
+    el: Επαρχία Βόρειου Χαμγκιόνγκ
+    sr: Северни Хамгјонг
+    sr_Latn: Severni Hamgjong
+    th: จังหวัดฮัมกย็องเหนือ
+  type: province
+'10':
+  name: 량강도
+  code: '10'
+  translations:
+    ar: مقاطعة ريانغانغ
+    bg: Рянган
+    bn: রিয়াংগাং
+    ca: Ryanggang
+    cs: Rjanggang
+    da: Ryanggang
+    de: Ryanggang-do
+    el: Ριανγκάνγκ
+    en: Ryanggang
+    es: Ryanggang
+    fa: استان ریانگ‌گانگ
+    fi: Ryanggang
+    fr: Ryanggang
+    gu: રાયંગગેંગ પ્રાંત
+    hi: रेयांगगैंग प्रांत
+    hu: Rjanggang
+    id: Ryanggang
+    it: Ryanggang
+    ja: 両江道
+    kn: ರಯಾಂಗ್ಗಾಂಗ್ ಪ್ರಾಂತ್ಯ
+    ko: 량강도
+    lt: Jangango provincija
+    mn: Янган
+    mr: रियांगगॅंग प्रांत
+    ms: Wilayah Ryanggang
+    nb: Ryanggang
+    nl: Ryanggang-do
+    pl: Ryanggang
+    pt: Ryanggang
+    ro: Provincia Ryanggang
+    ru: Янгандо
+    si: රයන්ගාන්ග් පළාත
+    sv: Ryanggang
+    ta: ரியங்கங் மாகாணம்
+    te: రియాంగాంగ్ ప్రావిన్స్
+    th: รยังกัง
+    tr: Ryanggang
+    uk: Провінція Янган
+    ur: ریانگگانگ صوبہ
+    vi: Ryanggang
+    lv: Rjangando province
+    cy: Talaith Ryanggang
+    ceb: Yanggang-do
+    zh: 两江道
+    yue_Hans: 两江道
+    ccp: "𑄢𑄨𑄠𑄁𑄉𑄧𑄁"
+    eu: Ryanggang
+    yue: 兩江道
+    'no': Ryanggang
+    be: Янгандо
+    hy: Յանգանդո
+  type: province
+'13':
+  name: 라선특별시
+  code: '13'
+  translations:
+    ar: راسون
+    bg: Расън
+    bn: রাসোন
+    ca: Rasŏn
+    cs: Rasŏn
+    da: Rason
+    de: Rasŏn
+    el: Ράσον
+    en: Rason
+    es: Rasŏn
+    eu: Rason
+    fa: راسون
+    fi: Rasŏn
+    fr: Rasŏn
+    gu: રાસન
+    hi: रासों
+    hu: Raszon
+    id: Rason
+    it: Rasŏn
+    ja: 羅先特別市
+    kn: ರಾಸನ್
+    ko: 라선특별시
+    lt: Rasonas
+    mr: रासन
+    ms: Rason
+    nb: Rason
+    nl: Rasŏn
+    pl: Rasŏn
+    pt: Rason
+    ro: Rasŏn
+    ru: Насон
+    si: රසෝන්
+    sv: Rason
+    ta: ராசன்
+    te: రాసన్
+    th: ราซ็อน
+    tr: Rason
+    uk: Насон
+    ur: راسون
+    vi: Rason
+    lv: Rasona
+    ceb: Rason
+    zh: 羅先特別市
+    yue_Hans: 罗先
+    ccp: "𑄢𑄥𑄧𑄚𑄴"
+    ga: Rason
+    yue: 羅先
+    az: Rason
+    'no': Rason
+    be: Расон
+    mn: Расон
+  type: special_city
+'14':
+  name: 남포특별시
+  code: '14'
+  translations:
+    ceb: Namp’o
+    ms: Nampo
+    ar: نامبو
+    tr: Nampo
+    lt: Nampo
+    vi: Nampho
+    ur: نامپو
+    nl: Namp’o
+    zh: 南浦特別市
+    fa: نامپو
+    pl: Namp’o
+    sw: Nampho
+    yue_Hans: 南浦特别市
+    sv: Nampo
+    ja: 南浦特別市
+    en: Nampho
+    ru: Нампхо
+    fr: Nampo
+    ko: 남포특별시
+    es: Namp’o
+    da: Nampho
+    fi: Namp’o
+    hu: Nampho
+    ro: Namp’o
+    he: נאמפו
+    eu: Nampo
+    pt: Nampo
+    et: Namp’o
+    de: Namp’o
+    it: Namp’o
+    uk: Нампхо
+    cs: Nampcho
+    yue: 南浦特別市
+    az: Nampxo
+    nb: Nampo
+    mn: Нампу
+    ca: Namp’o
+    th: นัมโพ
+    bg: Нампхо
+    'no': Nampo
+    be: Нампхо
+    el: Ναμπό
+    ga: Nampho
+    id: Nampo
+    uz: Nampxo
+  type: metropolitan_city

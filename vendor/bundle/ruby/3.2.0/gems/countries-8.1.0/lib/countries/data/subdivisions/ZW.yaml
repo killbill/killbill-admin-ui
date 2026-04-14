@@ -1,0 +1,567 @@
+---
+BU:
+  name: Bulawayo
+  code: BU
+  unofficial_names:
+  - Bulawayo
+  geo:
+    latitude: -20.1325066
+    longitude: 28.626479
+    min_latitude: -20.2712278
+    min_longitude: 28.4270096
+    max_latitude: -19.9920628
+    max_longitude: 28.7632372
+  translations:
+    en: Bulawayo
+    ru: Булавайо
+    ceb: Bulawayo Province
+    ar: إقليم بولاوايو
+    ja: ブラワヨ
+    ccp: "𑄝𑄪𑄣𑄤𑄃𑄮"
+    be: Булавая
+    cy: Talaith Bulawayo
+    fr: province de Bulawayo
+    zh: 布拉瓦约省
+  type: province
+HA:
+  name: Harare
+  code: HA
+  unofficial_names:
+  - Harare
+  geo:
+    latitude: -17.863889
+    longitude: 31.029722
+    min_latitude: -17.955721
+    min_longitude: 30.8890352
+    max_latitude: -17.6775542
+    max_longitude: 31.2246813
+  translations:
+    en: Harare
+    de: Provinz Harare
+    ru: Хараре
+    ceb: Harare Province
+    ar: إقليم هراري
+    ja: ハラレ州
+    ccp: "𑄦𑄢𑄢𑄬"
+    ko: 하라레주
+    pt: Harare
+    nb: Harare Province
+    ne: हरारे प्रदेश
+    'no': Harare Province
+    cy: Talaith Harare
+    fa: استان هراره
+    lv: Harare
+    uk: Хараре
+    zh: 哈拉雷省
+    zu: Harare, Isifundazwe
+  type: province
+MA:
+  name: Manicaland
+  code: MA
+  unofficial_names:
+  - Manicaland
+  geo:
+    latitude: -18.9216386
+    longitude: 32.174605
+    min_latitude: -21.328112
+    min_longitude: 31.23346299999999
+    max_latitude: -17.250581
+    max_longitude: 33.0563049
+  translations:
+    en: Manicaland
+    af: Manicaland
+    ar: محافظة مانيكالاند
+    bg: Маникаленд
+    bn: মনিকাল্যান্ড প্রদেশ
+    ca: Manicaland
+    cs: Provincie Manica
+    da: Manicaland
+    de: Provinz Manicaland
+    el: Μανικαλάνδη
+    es: Manicalandia
+    et: Manicaland
+    eu: Manicaland
+    fa: استان مانیکالند
+    fi: Manicaland
+    fr: Manicaland
+    gu: મેનિકાલૅન્ડ પ્રાંત
+    hi: मैनिकालैंड प्रांत
+    id: Manicaland
+    it: provincia del Manicaland
+    ja: マニカランド州
+    ka: მანიკალენდი
+    kn: ಮ್ಯಾನಿಕಲ್ ಮತ್ತು ಪ್ರಾಂತ್ಯ
+    ko: 마니칼랜드 주
+    lt: Manikalandas
+    mr: माणिकलँड प्रांत
+    ms: Manicaland
+    nb: Manicaland
+    nl: Manicaland
+    pl: Manicaland
+    pt: Manicaland
+    ro: Manicaland
+    ru: Маникаленд
+    si: මනිකලන්ඩ් පළාත
+    sr: Маникаленд
+    sv: Manicaland
+    ta: மணிகலந்து மாகாணம்
+    te: మానికాలాండ్ ప్రావిన్స్
+    th: จังหวัดมานิกาแลนด์
+    tr: Manicaland
+    uk: Манікаленд
+    ur: مانیکالینڈ صوبہ
+    vi: Tỉnh Manicaland
+    zh: 馬尼卡蘭省
+    lv: Manikalandes province
+    ceb: Manicaland Province
+    sr_Latn: Manikalend
+    ccp: "𑄟𑄧𑄚𑄨𑄇𑄣𑄳𑄠𑄚𑄳𑄓𑄴"
+    'no': Manicaland
+    zu: Manicaland
+  type: province
+MC:
+  name: Mashonaland Central
+  code: MC
+  unofficial_names:
+  - Mashonaland Central
+  geo:
+    latitude: -16.7644295
+    longitude: 31.0793705
+    min_latitude: -17.744136
+    min_longitude: 30.048639
+    max_latitude: -15.617567
+    max_longitude: 32.7613351
+  translations:
+    en: Mashonaland Central
+    af: Masjonaland-Sentraal
+    ar: مقاطعة ماشونالاند الوسطى
+    bg: Централен Машоналенд
+    bn: ম্যাশোনাল্যান্ড কেন্দ্রীয় প্রদেশ
+    ca: Mashonaland Central
+    da: Mashonaland Central
+    de: Provinz Mashonaland Central
+    el: Κεντρική Μασοναλάνδη
+    es: Mashonalandia Central
+    et: Kesk-Mashonaland
+    eu: Erdialdeko Mashonaland
+    fa: استان ماشونالند مرکزی
+    fi: Mashonaland Central
+    fr: Mashonaland central
+    gu: મશોનાલેન્ડ સેન્ટ્રલ પ્રાંત
+    hi: मशोनालैंड मध्य प्रांत
+    id: Mashonaland Pusat
+    it: provincia del Mashonaland Centrale
+    ja: 中央マショナランド州
+    ka: ცენტრალური მაშონალენდი
+    kn: ಮಶೋನಾಲ್ಯಾಂಡ್ ಮಧ್ಯ ಪ್ರಾಂತ್ಯ
+    ko: 중앙마쇼날랜드 주
+    lt: Vidurio Mašonalandas
+    mr: माशॉनलँड मध्यवर्ती प्रांत
+    ms: Mashonaland Central Province
+    nb: Mashonaland Central
+    nl: Mashonaland Central
+    pl: Maszona Środkowa
+    pt: Mashonaland Central
+    ro: Mashonaland Central
+    ru: Центральный Машоналенд
+    si: මාෂ්හොනලන්ඩ් මධ්‍යම පළාත
+    sr: Машоналенд Централ
+    sv: Mashonaland Central
+    ta: மஷோநலன்ட் சென்ட்ரல் மாகாணம்
+    te: మషూనాలాండ్ సెంట్రల్ ప్రావిన్స్
+    th: มาโชนาแลนด์เซนทรัล
+    tr: Mashonaland Merkez
+    uk: Центральний Машоналенд
+    ur: ماشونالینڈ وسطی صوبہ
+    vi: Tỉnh Miền Trung Mashonaland
+    zh: 中馬紹納蘭省
+    lv: Centrālās Mašonalendas province
+    ceb: Mashonaland Central Province
+    sr_Latn: Mašonalend Central
+    ccp: "𑄟𑄥𑄮𑄚𑄣𑄳𑄠𑄚𑄳𑄓𑄴 𑄥𑄬𑄚𑄴𑄑𑄳𑄢𑄣𑄴"
+    'no': Mashonaland Central
+    zu: Mashonaland Central
+  type: province
+ME:
+  name: Mashonaland East
+  code: ME
+  unofficial_names:
+  - Mashonaland East
+  geo:
+    latitude: -18.5871642
+    longitude: 31.2626366
+    min_latitude: -19.2712461
+    min_longitude: 30.485893
+    max_latitude: -16.6989399
+    max_longitude: 32.9946659
+  translations:
+    en: Mashonaland East
+    af: Masjonaland-Oos
+    ar: محافظة شرق ماشونالاند
+    bg: Източен Машоналенд
+    bn: ম্যাশনাল্যান্ড পূর্ব প্রদেশ
+    ca: Mashonaland Oriental
+    da: Mashonaland East
+    de: Provinz Mashonaland East
+    el: Ανατολική Μασοναλάνδη
+    es: Mashonalandia Oriental
+    et: Ida-Mashonaland
+    eu: Ekialdeko Mashonaland
+    fa: استان ماشونالند شرقی
+    fi: Mashonaland East
+    fr: Mashonaland oriental
+    gu: મશોનાલેન્ડ પૂર્વ પ્રાંત
+    hi: माशोनालैंड पूर्व प्रांत
+    id: Mashonaland Timur
+    it: provincia del Mashonaland Orientale
+    ja: 東マショナランド州
+    ka: აღმოსავლეთი მაშონალენდი
+    kn: ಮಶೋನಾಲ್ಯಾಂಡ್ ಪೂರ್ವ ಪ್ರಾಂತ್ಯ
+    ko: 동마쇼날랜드 주
+    lt: Rytų Mašonalandas
+    mr: माशोनॅंड पूर्व प्रांत
+    ms: Mashonaland Timur
+    nb: Mashonaland East
+    nl: Mashonaland East
+    pl: Maszona Wschodnia
+    pt: Mashonaland Este
+    ro: Provincia Mashonaland East
+    ru: Восточный Машоналенд
+    si: මශෝනලන්ඩ් නැගෙනහිර පළාත
+    sr: Машоналенд Исток
+    sv: Mashonaland East
+    ta: மஷோநலன்ட் கிழக்கு மாகாணம்
+    te: మాషోనాలాండ్ ఈస్ట్ ప్రావిన్స్
+    th: มาโชนาแลนด์
+    tr: Doğu Mashonaland
+    uk: Східний Машоналенд
+    ur: ماشونالینڈ مشرقی صوبہ
+    vi: Tỉnh Mashonaland East
+    zh: 東馬紹納蘭省
+    lv: Austrummašonalendas province
+    ceb: Mashonaland East Province
+    sr_Latn: Mašonalend Istok
+    ccp: "𑄟𑄥𑄮𑄚𑄣𑄳𑄠𑄚𑄳𑄓𑄴 𑄛𑄪𑄇𑄴"
+    he: משונאלנד מזרח פרובינציה
+    'no': Mashonaland East
+    zu: Mashonaland East
+  type: province
+MI:
+  name: Midlands
+  code: MI
+  unofficial_names:
+  - Midlands
+  geo:
+    latitude: -19.0552009
+    longitude: 29.6035495
+    min_latitude: -21.045869
+    min_longitude: 27.989973
+    max_latitude: -17.132798
+    max_longitude: 30.8542231
+  translations:
+    en: Midlands
+    af: Midlands
+    ar: محافظة ميدلاندز
+    bg: Мидлендс
+    bn: মিডল্যান্ডস প্রদেশ
+    ca: Midlands
+    da: Midlands
+    de: Provinz Midlands
+    el: Μίντλαντς
+    es: Midlands
+    et: Midlandsi provints
+    eu: Midlands
+    fa: استان میدلندز
+    fi: Midlands
+    fr: Province des Midlands
+    gu: મિડલેન્ડ્સ પ્રાંત
+    hi: मिडलैंड्स प्रांत
+    id: Provinsi Midlands
+    it: provincia delle Midland
+    ja: ミッドランズ州
+    ka: მიდლენდსი
+    kn: ಮಿಡ್ಲ್ಯಾಂಡ್ಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 미들랜즈 주
+    lt: Midlandsas
+    mr: मिडलंड्स प्रांत
+    ms: Midlands Province
+    nb: Midlands
+    nl: Midlands
+    pl: Midlands
+    pt: Midlands
+    ro: Provincia Midlands
+    ru: Мидлендс
+    si: මිඩ්ලන්ඩ් පළාත
+    sr: Мидлендс
+    sv: Midlands
+    ta: மிட்லாண்ட்ஸ் மாகாணம்
+    te: మిడ్‌లాండ్స్ ప్రావిన్స్
+    th: จังหวัดมิดแลนด์
+    tr: Midlands
+    uk: Мідлендс
+    ur: مڈلینڈز صوبہ
+    vi: Tỉnh Midlands
+    zh: 中部省
+    lv: Midlendsas province
+    ceb: Midlands Province
+    sr_Latn: Midlends
+    ccp: "𑄟𑄨𑄖𑄴𑄣𑄳𑄠𑄚𑄳𑄓𑄴𑄥𑄴"
+    'no': Midlands
+    zu: Midlands (Isifundazwe)
+  type: province
+MN:
+  name: Matabeleland North
+  code: MN
+  unofficial_names:
+  - Matabeleland North
+  geo:
+    latitude: -18.5331566
+    longitude: 27.5495846
+    min_latitude: -20.343325
+    min_longitude: 25.237028
+    max_latitude: -17.0204861
+    max_longitude: 29.2292519
+  translations:
+    en: Matabeleland North
+    af: Matabeleland-Noord
+    ar: محافظة شمال ماتابيليلاند
+    bg: Северен Матабелеленд
+    bn: মাতাবেলেল্যান্ড উত্তর প্রদেশ
+    ca: Matabeleland Septentrional
+    da: Matabeleland North
+    de: Provinz Matabeleland North
+    el: Βόρεια Ματαμπελελάνδη
+    es: Matabelelandia Septentrional
+    et: Põhja-Matabeleland
+    eu: Iparraldeko Matabeleland
+    fa: استان ماتابلند شمالی
+    fi: Matabeleland North
+    fr: Matabeleland septentrional
+    gu: મતાબેલેલેન્ડ ઉત્તર પ્રાંત
+    hi: माटेबेलेलैंड उत्तरी प्रांत
+    id: Matabeleland Utara
+    it: provincia del Matabeleland Settentrionale
+    ja: 北マタベレランド州
+    ka: ჩრდილოეთი მატაბელელენდი
+    kn: ಮಾಟಬೇಲೆಲ್ಯಾಂಡ್ ಉತ್ತರ ಪ್ರಾಂತ್ಯ
+    ko: 북마타벨랜드 주
+    lt: Šiaurės Matabelelandas
+    mr: माटेबेलेलांड उत्तर प्रांत
+    ms: Matabeleland North Province
+    nb: Matabeleland North
+    nl: Matabeleland North
+    pl: Matabeleland Północny
+    pt: Matabeleland Norte
+    ro: Matabeleland North
+    ru: Северный Матабелеленд
+    si: මටබෙලෙලන්ඩ් උතුරු පළාත
+    sr: Матабелеленд Север
+    sv: Matabeleland North
+    sw: Matabeleland North
+    ta: மதபேலேலாண்ட் வடக்கு மாகாணம்
+    te: మాటాబెలెలాండ్ ఉత్తర ప్రావిన్స్
+    th: จังหวัดมาทาเบเลแลนด์เหนือ
+    tr: Kuzey Matabeleland
+    uk: Північний Матабелеленд
+    ur: ماتابیلےلینڈ شمالی صوبہ
+    vi: Tỉnh Matabeleland North
+    zh: 北馬塔貝萊蘭省
+    lv: Ziemeļmatabelelendas province
+    ceb: Matabeleland North Province
+    sr_Latn: Matabelelend Sever
+    ccp: "𑄟𑄑𑄝𑄨𑄣𑄨𑄣𑄳𑄠𑄚𑄳𑄓𑄴 𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄴"
+    'no': Matabeleland North
+    zu: Matabeleland North
+  type: province
+MS:
+  name: Matabeleland South
+  code: MS
+  unofficial_names:
+  - Matabeleland South
+  geo:
+    latitude: -21.052337
+    longitude: 29.0459927
+    min_latitude: -22.351074
+    min_longitude: 26.6982439
+    max_latitude: -19.48262
+    max_longitude: 31.1148949
+  translations:
+    en: Matabeleland South
+    af: Matabeleland-Suid
+    ar: مقاطعة جنوب ماتابيليلاند
+    bg: Южен Матабелеленд
+    bn: মাটাবেলেল্যান্ড দক্ষিন প্রদেশ
+    ca: Matabeleland Meridional
+    da: Matabeleland South
+    de: Provinz Matabeleland South
+    el: Νότια Ματαμπελελάνδη
+    es: Matabelelandia Meridional
+    et: Lõuna-Matabeleland
+    eu: Hegoaldeko Matabeleland
+    fa: استان ماتابلند جنوبی
+    fi: Matabeleland South
+    fr: Matabeleland méridional
+    gu: માટેબેલેલેન્ડ દક્ષિણ પ્રાંત
+    hi: माताबेलेलैंड दक्षिण प्रांत
+    id: Matabeleland Selatan
+    it: provincia del Matabeleland Meridionale
+    ja: 南マタベレランド州
+    ka: სამხრეთი მატაბელელენდი
+    kn: ಮ್ಯಾಟಬೇಲೆಲ್ಯಾಂಡ್ ದಕ್ಷಿಣ ಪ್ರಾಂತ್ಯ
+    ko: 남마타벨랜드 주
+    lt: Pietų Matabelelandas
+    mr: माटेबेलेईल दक्षिण प्रांत
+    ms: Daerah Selatan Matabeleland
+    nb: Matabeleland South
+    nl: Matabeleland South
+    pl: Matabeleland Południowy
+    pt: Matabeleland Sul
+    ro: Matabeleland South
+    ru: Южный Матабелеленд
+    si: මටබෙලේලන්ඩ් දකුණු පළාත
+    sr: Матабелеленд Југ
+    sv: Matabeleland South
+    ta: மதபேலேலாண்ட் தெற்கு மாகாணம்
+    te: మాటాబెలెలాండ్ దక్షిణ ప్రావిన్స్
+    th: จังหวัดเมตาเบเลแลนด์เซาท์
+    tr: Güney Matabeleland
+    uk: Південний Матабелеленд
+    ur: ماتابیلےلینڈ جنوبی صوبہ
+    vi: Tỉnh Matabeleland South
+    zh: 南馬塔貝萊蘭省
+    lv: Dienvidmatabelelendas province
+    ceb: Matabeleland South Province
+    sr_Latn: Matabelelend Jug
+    ccp: "𑄟𑄑𑄝𑄨𑄣𑄨𑄣𑄳𑄠𑄚𑄳𑄓𑄴 𑄘𑄧𑄊𑄨𑄚𑄴"
+    'no': Matabeleland South
+    hy: Հարավային Մատաբելելենդ
+    zu: Matabeleland South
+  type: province
+MV:
+  name: Masvingo
+  code: MV
+  unofficial_names:
+  - Masvingo
+  geo:
+    latitude: -20.074444
+    longitude: 30.83277799999999
+    min_latitude: -20.1076843
+    min_longitude: 30.7932604
+    max_latitude: -20.0377179
+    max_longitude: 30.86741769999999
+  translations:
+    en: Masvingo
+    af: Masvingo
+    ar: منطقة ماسفينغو
+    bg: Масвинго
+    bn: মাাভিঙ্গো প্রদেশ
+    ca: Província de Masvingo
+    da: Masvingo
+    de: Provinz Masvingo
+    el: Μασβίνγκο
+    es: Provincia de Masvingo
+    et: Masvingo provints
+    eu: Masvingoko probintzia
+    fa: استان ماسوینگو
+    fi: Masvingo
+    fr: Province de Masvingo
+    gu: માસવિન્ગો પ્રાંત
+    hi: मैसविंगो प्रांत
+    id: Provinsi Masvingo
+    it: Provincia di Masvingo
+    ja: マシンゴ州
+    ka: მასვინგოს პროვინცია
+    kn: ಮಾಸ್ವಿಂಗ್ ಪ್ರಾಂತ್ಯ
+    ko: 마스빙고 주
+    lt: Masvingo provincija
+    mr: मासिविओ प्रांत
+    ms: Wilayah Masvingo
+    nb: Masvingo
+    nl: Masvingo
+    pl: Masvingo
+    pt: Masvingo
+    ro: Provincia Masvingo
+    ru: Масвинго
+    si: මස්වින්ගෝ පළාත
+    sr: Машвинго
+    sv: Masvingo
+    ta: மாசுவிங்கோ மாகாணம்
+    te: మాస్వింగో ప్రావిన్స్
+    th: จังหวัดมาสวินโก
+    tr: Masvingo
+    uk: Масвінго
+    ur: ماسونگو صوبہ
+    vi: Tỉnh Masvingo
+    zh: 馬斯溫戈省
+    lv: Masvingo province
+    ceb: Masvingo Province
+    sr_Latn: Mašvingo
+    ccp: "𑄟𑄌𑄴𑄞𑄨𑄁𑄉𑄮"
+    'no': Masvingo
+    hy: Մասվինգո
+    zu: Masvingo (Isifundazwe)
+  type: province
+MW:
+  name: Mashonaland West
+  code: MW
+  unofficial_names:
+  - Mashonaland West
+  geo:
+    latitude: -17.4851029
+    longitude: 29.7889248
+    min_latitude: -18.902802
+    min_longitude: 28.026284
+    max_latitude: -15.6088341
+    max_longitude: 30.993064
+  translations:
+    en: Mashonaland West
+    af: Masjonaland-Wes
+    ar: محافظة ماشونالاند الغربية
+    bg: Западен Машоналенд
+    bn: ম্যাশনাল্যান্ড ওয়েস্ট প্রদেশ
+    ca: Mashonaland Occidental
+    da: Mashonaland West
+    de: Provinz Mashonaland West
+    el: Δυτική Μασοναλάνδη
+    es: Mashonalandia Occidental
+    et: Lääne-Mashonaland
+    eu: Mendebaldeko Mashonaland
+    fa: استان ماشونالند غربی
+    fi: Mashonaland West
+    fr: Mashonaland occidental
+    gu: મેશોનાલેન્ડ પશ્ચિમ પ્રાંત
+    hi: मशोनालैंड पश्चिमी प्रांत
+    id: Mashonaland Barat
+    it: provincia del Mashonaland Occidentale
+    ja: 西マショナランド州
+    ka: დასავლეთი მაშონალენდი
+    kn: ಪಶ್ಚಿಮ ಪ್ರಾಂತ್ಯದ ಮಶೋನಾಲ್ಯಾಂಡ್
+    ko: 서마쇼날랜드 주
+    lt: Vakarų Mašonalandas
+    mr: मशोनालँड पश्चिम प्रांत
+    ms: Mashonaland Barat
+    nb: Mashonaland West
+    nl: Mashonaland West
+    pl: Maszona Zachodnia
+    pt: Mashonaland Oeste
+    ro: Mashonaland West
+    ru: Западный Машоналенд
+    si: ලක්ෂද්වීප්
+    sr: Машоналенд Запад
+    sv: Mashonaland West
+    ta: மாஷானலேண்ட் மேற்கு மாகாணம்
+    te: మాషోనాలాండ్ పశ్చిమ ప్రావిన్స్
+    th: จังหวัดมาสโฮนาแลน เวส
+    tr: Batı Mashonaland
+    uk: Західний Машоналенд
+    ur: ماشونالینڈ مغربی صوبہ
+    vi: Tỉnh Mashonaland West
+    zh: 西馬紹納蘭省
+    lv: Rietummašonalendas province
+    ceb: Mashonaland West Province
+    sr_Latn: Mašonalend Zapad
+    ccp: "𑄟𑄥𑄮𑄚𑄣𑄳𑄠𑄚𑄳𑄓𑄴 𑄛𑄧𑄏𑄨𑄟𑄴"
+    'no': Mashonaland West
+    he: משונלנד-מערב
+    zu: Mashonaland West
+  type: province

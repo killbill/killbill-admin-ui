@@ -1,0 +1,6340 @@
+---
+'101':
+  name: Kalangala
+  code: '101'
+  unofficial_names:
+  - Kalangala
+  geo:
+    latitude: -0.3208374
+    longitude: 32.2937428
+    min_latitude: -0.3332787
+    min_longitude: 32.2802353
+    max_latitude: -0.3073312
+    max_longitude: 32.3186016
+  translations:
+    en: Kalangala
+    ar: مقاطعة كالانغالا
+    bn: কালানগালা জেলা
+    da: Kalangala District
+    de: Distrikt Kalangala
+    el: Καλανγκάλα
+    es: Distrito de Kalangala
+    fi: Kalangalan piirikunta
+    fr: Kalangala
+    gl: Distrito Kalangala
+    gu: કલંગાલા જિલ્લો
+    he: קלנגלה
+    hi: कलंगल जिला
+    id: Distrik Kalangala
+    it: Kalangala
+    ja: カランガラ県
+    kn: ಕಲಾಂಗಲ ಜಿಲ್ಲೆ
+    ko: 칼랑갈라 구
+    mr: कालंला जिल्हा
+    ms: Mukim Kalangala
+    nb: Kalangala
+    nl: Kalangala
+    pl: Dystrykt Kalangala
+    pt: Kalangala
+    ro: Districtul Kalangala
+    ru: Калангала
+    si: කලන්ගලා දිස්ත්‍රික්කය
+    sr: Калангала
+    sv: Kalangaladistriktet
+    sw: Wilaya ya Kalangala
+    ta: கலங்களா மாவட்டம்
+    te: కలంగాలా జిల్లా
+    th: อำเภอคาลังกาลา
+    tr: Kalangala District
+    ur: کالاگالا ضلع
+    vi: Kalangala
+    zh: 卡蘭加拉區
+    lv: Kalangalas distrikts
+    ceb: Kalangala District
+    sr_Latn: Kalangala
+    lt: Kalangalos apskritis
+    ccp: "𑄇𑄣𑄚𑄴𑄉𑄣"
+    uk: Район Калангала
+    'no': Kalangala
+    fa: ناحیه کالانگالا
+    ml: കലങല ജില്ല
+    zu: Kalangala District
+  type: district
+'102':
+  name: Kampala
+  code: '102'
+  unofficial_names:
+  - Kampala
+  geo:
+    latitude: 0.313611
+    longitude: 32.581111
+    min_latitude: 0.2144788
+    min_longitude: 32.5089713
+    max_latitude: 0.413199
+    max_longitude: 32.6892796
+  translations:
+    en: Kampala
+    ar: مقاطعة كمبالا
+    bn: কাম্পালা জেলা
+    da: Kampala District
+    de: Kampala
+    el: Καμπάλα
+    es: Distrito de Kampala
+    fi: Kampalan piirikunta
+    fr: Kampala
+    gl: Distrito Kampala
+    gu: કેમ્પાલા જિલ્લો
+    hi: कम्पाला जिला
+    id: Distrik Kampala
+    it: Kampala
+    ja: カンパラ県
+    kn: ಕಂಪಾಲಾ ಜಿಲ್ಲೆ
+    ko: 캄팔라 구
+    mr: कंपाला जिल्हा
+    ms: Daerah Kampala
+    nb: Kampala
+    nl: Kampala
+    pl: Dystrykt Kampala
+    pt: Kampala
+    ro: Districtul Kampala
+    ru: Кампала
+    si: කම්පාලා දිස්ත්‍රික්කය
+    sv: Kampala
+    sw: Wilaya ya Kampala
+    ta: கம்பலா மாவட்டம்
+    te: కంపాలా జిల్లా
+    th: อำเภอกัมปาลา
+    tr: Kampala ili
+    ur: کمپالا ضلع
+    vi: Quận Kampala
+    lv: Kampalas reģions
+    ceb: Kampala District
+    lt: Kampalos apskritis
+    zh: 坎帕拉區
+    ccp: "𑄇𑄟𑄴𑄛𑄣"
+    uk: Кампала
+    ca: districte de Kampala
+    'no': Kampala
+    be: акруга Кампала
+  type: city
+'103':
+  name: Kiboga
+  code: '103'
+  unofficial_names:
+  - Kiboga
+  geo:
+    latitude: 0.92
+    longitude: 31.76
+    min_latitude: 0.8917448
+    min_longitude: 31.7495441
+    max_latitude: 0.9379159
+    max_longitude: 31.7912579
+  translations:
+    en: Kiboga
+    ar: مقاطعة كيبوغا
+    bn: কিবোগা জেলা
+    da: Kiboga District
+    de: Kiboga-Distrikt
+    el: Κιμπόγκα
+    es: Distrito de Kiboga
+    fi: Kibogan kaupunginosa
+    fr: Kiboga
+    gl: Distrito Kiboga
+    gu: કિબોગા જિલ્લો
+    hi: किबोगा जिला
+    id: Distrik Kiboga
+    it: Kiboga
+    ja: キボガ県
+    kn: ಕಿಬೋಗಾ ಜಿಲ್ಲೆ
+    ko: 키보가 구
+    mr: किबागा जिल्हा
+    ms: Kiboga District
+    nb: Kiboga
+    nl: Kiboga
+    pl: Dystrykt Kiboga
+    pt: Kiboga
+    ro: Districtul Kiboga
+    ru: Кибога
+    si: කිබෝගා දිස්ත්‍රික්කය
+    sv: Kibogadistriktet
+    sw: Wilaya ya Kiboga
+    ta: கிபோகா மாவட்டம்
+    te: కిబోగా జిల్లా
+    th: เขตคิโบก้า
+    tr: Kiboga District
+    ur: کیبوگا ضلع
+    vi: Quận Kiboga
+    lv: Kibogas distrikts
+    ceb: Kiboga District
+    lt: Kibogos apskritis
+    zh: 基博加區
+    ccp: "𑄇𑄨𑄝𑄮𑄉"
+    uk: Район Кібога
+    'no': Kiboga
+    fa: ناحیه کیبوگا
+    he: קיבוגה
+    ml: കിബൊഗ ജില്ല
+  type: district
+'104':
+  name: Luwero
+  code: '104'
+  unofficial_names:
+  - Luwero
+  geo:
+    latitude: 0.833056
+    longitude: 32.499444
+    min_latitude: 0.8201451
+    min_longitude: 32.4716377
+    max_latitude: 0.8670285
+    max_longitude: 32.5168967
+  translations:
+    en: Luwero
+    ar: مقاطعة لويرو
+    bn: লউরো জেলা
+    da: Luwero
+    de: Distrikt Luwero
+    el: Λουγουεέρο
+    es: Distrito de Luwero
+    fi: Luweron kaupunginosa
+    fr: Luweero
+    gl: Distrito Luweero
+    gu: લુવેરો જિલ્લો
+    hi: लुवीरो जिला
+    id: Distrik Luwero
+    it: Luweero
+    ja: ルウェロ県
+    kn: ಲುವೆರೊ ಜಿಲ್ಲೆ
+    ko: 루웨로 구
+    mr: लुवेरो जिल्हा
+    ms: Daerah Luwero
+    nb: Luweero
+    nl: Luwero
+    pl: Dystrykt Luwero
+    pt: Luweero
+    ro: Districtul Luwero
+    ru: Луверо
+    si: ලොවෙරෝ දිස්ත්‍රික්කය
+    sv: Luweero
+    sw: Wilaya ya Luweero
+    ta: லூவெரோ மாவட்டம்
+    te: లువెరో జిల్లా
+    th: เขคลูเวโร
+    tr: Luwero District
+    ur: لوویرو ضلع
+    vi: Quận Luwero
+    lv: Luvēro reģions
+    ceb: Luwero District
+    lt: Luvero apskritis
+    zh: 盧韋羅區
+    ccp: "𑄣𑄪𑄃𑄨𑄠𑄬𑄢𑄮"
+    uk: Район Луверо
+    'no': Luweero
+    fa: ناحیه لووئرو
+    he: לוורו
+    ml: ലുവീരൊ ജില്ല
+  type: district
+'105':
+  name: Masaka
+  code: '105'
+  unofficial_names:
+  - Masaka
+  geo:
+    latitude: -0.34
+    longitude: 31.74
+    min_latitude: -0.3747893
+    min_longitude: 31.71462159999999
+    max_latitude: -0.3013382
+    max_longitude: 31.791172
+  translations:
+    en: Masaka
+    ar: مقاطعة ماساكا
+    bn: মাসাকা জেলা
+    da: Masaka District
+    de: Masaka-Distrikt
+    el: Μασάκα
+    es: Distrito de Masaka
+    fi: Masakan kaupunginosa
+    fr: Masaka
+    gl: Distrito Masaka
+    gu: મસાકા જિલ્લો
+    hi: मसाका जिला
+    id: Distrik Masaka
+    it: Masaka
+    ja: マサカ県
+    kn: ಮಸಾಕ ಜಿಲ್ಲೆ
+    ko: 마사카 구
+    mr: मसाका जिल्हा
+    ms: Masaka District
+    nb: Masaka
+    nl: Masaka
+    pl: Dystrykt Masaka
+    pt: Distrito de Masaka
+    ro: Districtul Masaka
+    ru: Масака
+    si: මසකා දිස්ත්‍රික්කය
+    sv: Masakadistriktet
+    sw: Wilaya ya Masaka
+    ta: மாசாக்கா மாவட்டம்
+    te: మసాాకా జిల్లా
+    th: มาซากา
+    tr: Masaka District
+    ur: ماساکا ضلع
+    vi: Quận Masaka
+    lv: Masakas distrikts
+    ceb: Masaka District
+    lt: Masakos apskritis
+    zh: 馬薩卡區
+    ccp: "𑄟𑄥𑄇"
+    uk: Район Масака
+    'no': Masaka
+    fa: ناحیه ماساکا
+    he: מאסאקה
+    ml: മസക ജില്ല
+  type: district
+'106':
+  name: Mpigi
+  code: '106'
+  unofficial_names:
+  - Mpigi
+  geo:
+    latitude: 0.233333
+    longitude: 32.333333
+    min_latitude: 0.212645
+    min_longitude: 32.314911
+    max_latitude: 0.2413123
+    max_longitude: 32.3413467
+  translations:
+    en: Mpigi
+    ar: ضاحية مبيجي
+    bn: ম্পিজি জেলা
+    da: Mpigi District
+    de: Mpigi Distrikt
+    el: Μπίγκι
+    es: Distrito de Mpigi
+    fi: Mpigin kaupunginosa
+    fr: Mpigi
+    gl: Distrito Mpigi
+    gu: એમ્પીગિ જિલ્લો
+    hi: प्युजी जिला
+    id: Distrik Mpigi
+    it: Mpigi
+    ja: ムピジ県
+    kn: ಮಪಿಗಿ ಜಿಲ್ಲೆ
+    ko: 음피기 구
+    mr: एमपीआयजी जिल्हा
+    ms: Mpigi District
+    nb: Mpigi
+    nl: Mpigi
+    pl: Dystrykt Mpigi
+    pt: Mpigi
+    ro: Districtul Mpigi
+    ru: Мпиги
+    si: එම්පිගි දිස්ත්‍රික්කය
+    sv: Mpigi
+    sw: Wilaya ya Mpigi
+    ta: ம்பிகி மாவட்டம்
+    te: ఎంపిగి జిల్లా
+    th: เขตเอ็มพิจิ
+    tr: Mpigi District
+    ur: مپیگی ضلع
+    vi: Quận Mpigi
+    lv: Mpigi distrikts
+    ceb: Mpigi District
+    lt: Mpigio apskritis
+    zh: 姆皮吉區
+    ccp: "𑄛𑄨𑄉𑄨"
+    uk: Район Мпігі
+    'no': Mpigi
+    he: מפיגי
+    ml: മ്പിഗി ജില്ല
+  type: district
+'107':
+  name: Mubende
+  code: '107'
+  unofficial_names:
+  - Mubende
+  geo:
+    latitude: 0.5575
+    longitude: 31.395
+    min_latitude: 0.5415835999999999
+    min_longitude: 31.363821
+    max_latitude: 0.5817504
+    max_longitude: 31.41111369999999
+  translations:
+    en: Mubende
+    ar: مقاطعة موبندي
+    bn: মোবেন্ডে জেলা
+    da: Mubende District
+    de: Distrikt Mubende
+    el: Μουμπέντε
+    es: Distrito de Mubende
+    fi: Mubenden kaupunginosa
+    fr: Mubende
+    gl: Distrito Mubende
+    gu: મુબેન્ડે જિલ્લો
+    hi: मुबेंदे जिला
+    id: Distrik Mubende
+    it: Mubende
+    ja: ムベンデ県
+    kn: ಮುಬೆಂಡೆ ಜಿಲ್ಲೆ
+    ko: 무벤데 구
+    mr: मुबेडे जिल्हा
+    ms: Mubende District
+    nb: Mubende
+    nl: Mubende
+    pl: Dystrykt Mubende
+    pt: Mubende
+    ro: Districtul Mubende
+    ru: Мубенде
+    si: මුබෙන්දේ දිස්ත්‍රික්කය
+    sv: Mubendedistriktet
+    sw: Wilaya ya Mubende
+    ta: முபெண்டே மாவட்டம்
+    te: ముబెండె జిల్లా
+    th: มูเบนเด
+    tr: Mubende District
+    ur: موبیندے ضلع
+    vi: Quận Mubende
+    lv: Mubendes distrikts
+    ceb: Mubende District
+    lt: Mubendės apskritis
+    zh: 穆本德區
+    ccp: "𑄟𑄪𑄝𑄬𑄚𑄴𑄓𑄨"
+    uk: Район Мубенде
+    'no': Mubende
+    fa: ناحیه موبنده
+    he: מובנדה
+    ml: മുബെൻഡെ ജില്ല
+  type: district
+'108':
+  name: Mukono
+  code: '108'
+  unofficial_names:
+  - Mukono
+  geo:
+    latitude: 0.353333
+    longitude: 32.755278
+    min_latitude: 0.3381098
+    min_longitude: 32.7301923
+    max_latitude: 0.3836455
+    max_longitude: 32.7797699
+  translations:
+    en: Mukono
+    ar: مقاطعة موكونو
+    bn: মুকুনো জেলা
+    ca: districte de Mukono
+    da: Mukono District
+    de: Distrikt Mukono
+    el: Μουκόνο
+    es: Distrito de Mukono
+    fi: Mukonon kaupunginosa
+    fr: Mukono
+    gl: Distrito Mukono
+    gu: મુકોનો જિલ્લો
+    he: מחוז מוקונו
+    hi: मुकोनो जिला
+    id: Distrik Mukono
+    it: Mukono
+    ja: ムコノ県
+    kn: ಮುಕೊನೊ ಜಿಲ್ಲೆ
+    ko: 무코노 구
+    mr: मुकोना जिल्हा
+    ms: Mukono District
+    nb: Mukono
+    nl: Mukono
+    pl: Dystrykt Mukono
+    pt: Mukono
+    ro: Districtul Mukono
+    ru: Муконо
+    si: මුකොනෝ දිස්ත්‍රික්කය
+    sv: Mukono (distrikt)
+    sw: Wilaya ya Mukono
+    ta: முகோனோ மாவட்டம்
+    te: ముకోనో జిల్లా
+    th: เขตมูโคโน
+    tr: Mukona District
+    ur: موکونو ضلع
+    vi: Quận Mukono
+    lv: Mukono distrikts
+    ceb: Mukono District
+    lt: Mukono apskritis
+    zh: 穆科諾區
+    ccp: "𑄟𑄪𑄇𑄮𑄚𑄮"
+    uk: Район Муконо
+    'no': Mukono
+    fa: ناحیه موکونو
+    ml: മുകുണൊ ജില്ല
+  type: district
+'109':
+  name: Nakasongola
+  code: '109'
+  unofficial_names:
+  - Nakasongola
+  geo:
+    latitude: 1.315
+    longitude: 32.465
+    min_latitude: 1.304857
+    min_longitude: 32.4460602
+    max_latitude: 1.3266522
+    max_longitude: 32.4732686
+  translations:
+    en: Nakasongola
+    ar: مقاطعة ناكاسونغولا
+    bn: নাকাসঙ্গোলা জেলা
+    da: Nakasongola
+    de: Distrikt Nakasongola
+    el: Νακασονγκόλα
+    es: Distrito de Nakasongola
+    fi: Nakasongolan kaupunginosa
+    fr: Nakasongola
+    gl: Distrito Nakasongola
+    gu: નાકાસોંગોલા જિલ્લો
+    hi: नाकासोंगोला जिला
+    id: Distrik Nakasongola
+    it: Nakasongola
+    ja: ナカソンゴラ県
+    kn: ನಕಸಾಂಗೋಲ ಜಿಲ್ಲೆ
+    ko: 나카송골라 구
+    mr: नाकासोंगोला जिल्हा
+    ms: Daerah Nakasongola
+    nb: Nakasongola
+    nl: Nakasongola
+    pl: Dystrykt Nakasongola
+    pt: Distrito de Nakasongola
+    ro: Districtul Nakasongola
+    ru: Накасонгола
+    si: නකසොන්ගොලා දිස්ත්‍රික්කය
+    sv: Nakasongola
+    sw: Wilaya ya Nakasongola
+    ta: நகைசெங்கோலா மாவட்டம்
+    te: నకసోంగోలా జిల్లా
+    th: เขตนาคาซันโกลา
+    tr: Nakasongola District
+    ur: ناکاسونگولا ضلع
+    vi: Quận Nakasongola
+    lv: Nakasongolas distrikts
+    ceb: Nakasongola District
+    lt: Nakasongolos apskritis
+    zh: 納卡松戈拉區
+    ccp: "𑄚𑄇𑄴𑄥𑄮𑄚𑄴𑄉𑄮𑄣"
+    uk: Район Накасонгола
+    'no': Nakasongola
+    fa: ناحیه ناکاسونگولا
+  type: district
+'110':
+  name: Rakai
+  code: '110'
+  unofficial_names:
+  - Rakai
+  geo:
+    latitude: -0.70294
+    longitude: 31.40991
+  translations:
+    en: Rakai
+    ar: مقاطعة راكاي
+    bn: রাকি জেলা
+    da: Rakai District
+    de: Rakai-Distrikt
+    el: Ρακάι
+    es: Distrito de Rakai
+    fi: Rakain kaupunginosa
+    fr: Rakai
+    gl: Distrito Rakai
+    gu: રકાઇ જિલ્લો
+    hi: राकई जिला
+    id: Distrik Rakai
+    it: Rakai
+    ja: ラカイ県
+    kn: ರಾಕೈ ಜಿಲ್ಲೆ
+    ko: 라카이 구
+    mr: राकई जिल्हा
+    ms: Rakai District
+    nb: Rakai
+    nl: Rakai
+    pl: Dystrykt Rakai
+    pt: Rakai
+    ro: Districtul Rakai
+    ru: Ракаи
+    si: රකායි දිස්ත්‍රික්කය
+    sv: Rakai
+    sw: Wilaya ya Rakai
+    ta: ராக்கை மாவட்டம்
+    te: రాకాయి జిల్లా
+    th: ราไก
+    tr: Rakai District
+    ur: راکائی ضلع
+    vi: Quận Rakai
+    lv: Rakai distrikts
+    ceb: Rakai District
+    lt: Rakajaus apskritis
+    zh: 拉卡伊區
+    ccp: "𑄢𑄇𑄭"
+    uk: Район Ракай
+    'no': Rakai
+    fa: ناحیه راکای
+  type: district
+'111':
+  name: Sembabule
+  code: '111'
+  unofficial_names:
+  - Sembabule
+  geo:
+    latitude: -0.08
+    longitude: 31.46
+    min_latitude: -0.08720390000000001
+    min_longitude: 31.4558314
+    max_latitude: -0.07656099999999999
+    max_longitude: 31.4668179
+  translations:
+    en: Sembabule
+    ar: مقاطعة سيمبابول
+    bn: সেম্বাবুল জেলা
+    da: Sembabule District
+    de: Distrikt Sembabule
+    el: Σεμπαμπούλε
+    es: Distrito de Sembabule
+    fi: Sembabulen kaupunginosa
+    fr: Sembabule
+    gl: Distrito Sembabule
+    gu: સેમ્બાબુલ જિલ્લો
+    hi: सेम्बाबुले जिला
+    id: Distrik Sembabule
+    it: Sembabule
+    ja: センバブレ県
+    kn: ಸೆಂಬಬುಲೆ ಜಿಲ್ಲೆ
+    ko: 셈바불레 구
+    mr: सेम्बबल्य जिल्हा
+    ms: Sembabule District
+    nb: Sembabule
+    nl: Sembabule
+    pl: Dystrykt Sembabule
+    pt: Distrito de Sembabule
+    ro: Districtul Sembabule
+    ru: Сембабуле
+    si: සෙම්බබුලේ දිස්ත්‍රික්කය
+    sv: Sembabule distriktet
+    sw: Wilaya ya Sembabule
+    ta: செம்பாபுளே மாவட்டம்
+    te: సెంబాబూల్ జిల్లా
+    th: เขตแซมบาบิล
+    tr: Sembabule District
+    ur: سیمبابولے ضلع
+    vi: Quận Sembabule
+    lv: Sembabules distrikts
+    ceb: Sembabule District
+    lt: Sembabulės apskritis
+    zh: 森巴布萊區
+    ccp: "𑄥𑄬𑄟𑄴𑄝𑄧𑄝𑄪𑄣𑄬"
+    uk: Район Сембабуле
+    'no': Sembabule
+  type: district
+'112':
+  name: Kayunga
+  code: '112'
+  unofficial_names:
+  - Kayunga
+  geo:
+    latitude: 0.7013707
+    longitude: 32.9029088
+    min_latitude: 0.6945249
+    min_longitude: 32.8980446
+    max_latitude: 0.7074843
+    max_longitude: 32.9095459
+  translations:
+    en: Kayunga
+    ar: مقاطعة كايونغا
+    bn: কায়াংগা জেলা
+    da: Kayunga
+    de: Kayunga-Distrikt
+    el: Καγιούνγκα
+    es: Distrito de Kayunga
+    fi: Kayungan kaupunginosa
+    fr: Kayunga
+    gl: Distrito Kayunga
+    gu: કયુન્ગા જિલ્લો
+    he: קאיונגה
+    hi: कयुंगा जिला
+    id: Distrik Kayunga
+    it: Kayunga
+    ja: カユンガ県
+    kn: ಕಯುಂಗಾ ಜಿಲ್ಲೆ
+    ko: 카융가 구
+    mr: कूंगा जिल्हा
+    ms: Daerah Kayunga
+    nb: Kayunga
+    nl: Kayunga
+    pl: Dystrykt Kayunga
+    pt: Distrito de Kayunga
+    ro: Districtul Kayunga
+    ru: Кайунга
+    si: කෙයුන්ගා දිස්ත්‍රික්කය
+    sv: Kayunga
+    sw: Wilaya ya Kayunga
+    ta: காயுங்கா மாவட்டம்
+    te: కయుంగా జిల్లా
+    th: จังหวัดคายุงกา
+    tr: Kayunga District
+    ur: کائونگا ضلع
+    vi: Quận Kayunga
+    lv: Kajungas distrikts
+    ceb: Kayunga District
+    lt: Kajungos apskritis
+    zh: 卡永加區
+    ccp: "𑄇𑄬𑄠𑄪𑄁𑄉"
+    uk: Район Кайунга
+    'no': Kayunga
+    fa: ناحیه کایونگا
+    ml: കയുങ ജില്ല
+  type: district
+'113':
+  name: Wakiso
+  code: '113'
+  unofficial_names:
+  - Wakiso
+  geo:
+    latitude: 0.398056
+    longitude: 32.478056
+    min_latitude: 0.3950514
+    min_longitude: 32.4742611
+    max_latitude: 0.4039581
+    max_longitude: 32.4863777
+  translations:
+    en: Wakiso
+    ar: مقاطعة واكيسو
+    bn: ওয়াকিসো জেলা
+    da: Wakiso District
+    de: Distrikt Wakiso
+    el: Γουακίσο
+    es: Distrito de Wakiso
+    fi: Wakison kaupunginosa
+    fr: Wakiso
+    gl: Distrito Wakiso
+    gu: વાકીશો જિલ્લો
+    hi: वाकिसो जिला
+    id: Distrik Wakiso
+    it: distretto di Wakiso
+    ja: ワキソ県
+    kn: ವಕಿಸೋ ಜಿಲ್ಲೆ
+    ko: 와키소 구
+    mr: वॅकीओ जिल्हा
+    ms: Wakiso District
+    nb: Wakiso
+    nl: Wakiso
+    pl: Dystrykt Wakiso
+    pt: Distrito de Wakiso
+    ro: Districtul Wakiso
+    ru: Вакисо
+    si: වකිසෝ දිස්ත්‍රික්කය
+    sr: Вакисо
+    sv: Wakiso (dirstrikt)
+    sw: Wilaya ya Wakiso
+    ta: வாகிஸோ மாவட்டம்
+    te: వాకిసో జిల్లా
+    th: เขตวาคิโซ
+    tr: Wakiso District
+    ur: واکیسو ضلع
+    vi: Quận Wakiso
+    lv: Vakiso distrikts
+    ceb: Wakiso District
+    sr_Latn: Vakiso
+    lt: Vakiso apskritis
+    zh: 瓦基索區
+    ccp: "𑄤𑄇𑄨𑄥𑄮"
+    uk: Район Вакісо
+    be: акруга Вакісо
+    'no': Wakiso
+    eu: Wakiso (barrutia)
+    fa: ناحیه واکیسو
+    he: מחוז ואקיסו
+  type: district
+'114':
+  name: Mityana
+  code: '114'
+  unofficial_names:
+  - Mityana
+  geo:
+    latitude: 0.4016398
+    longitude: 32.043969
+    min_latitude: 0.3833989
+    min_longitude: 32.0198165
+    max_latitude: 0.4203956
+    max_longitude: 32.0710365
+  translations:
+    en: Lyantonde
+    ar: مقاطعة ليانتوند
+    bn: লায়ান্তন্ডে জেলা
+    da: Lyantonde District
+    de: Lyantonde-Distrikt
+    el: Λιαντόντε
+    es: Distrito de Lyantonde
+    fi: Lyantonden kaupunginosa
+    fr: Lyantonde
+    gl: Distrito Lyantonde
+    gu: લિએંટોન્ડે જિલ્લો
+    hi: लिएनतोंडे जिला
+    id: Distrik Lyantonde
+    it: Lyantonde
+    ja: リャントンデ県
+    kn: ಲಿಯಾಂಟೊಂಡ್ ಜಿಲ್ಲೆ
+    ko: 리안톤데 구
+    mr: लियंडंडे जिल्हा
+    ms: Lyantonde District
+    nb: Lyantonde
+    nl: Lyantonde
+    pl: Dystrykt Lyantonde
+    pt: Lyantonde
+    ro: Districtul Lyantonde
+    ru: Льантонде
+    si: ලියන්ටෝන්ඩේ දිස්ත්‍රික්කය
+    sv: Lyantondedistriktet
+    sw: Wilaya ya Lyantonde
+    ta: லிங்டோண்டே மாவட்டம்
+    te: లయాన్టోండ్ జిల్లా
+    th: เขตลยานทอนดี
+    tr: Lyantonde District
+    ur: لیانتوندے ضلع
+    vi: Quận Lyantonde
+    lv: Ļantondes distrikts
+    ceb: Lyantonde District
+    lt: Lijantodės apskritis
+    zh: 利安通德區
+    ccp: "𑄣𑄨𑄠𑄚𑄴𑄑𑄮𑄚𑄴𑄓𑄬"
+    uk: Район Лайантонд
+    'no': Lyantonde
+    fa: ناحیه لیانتوند
+    he: ליאנטונדה
+    ml: ല്യൻടോൻഡെ ജില്ല
+  type: district
+'115':
+  name: Nakaseke
+  code: '115'
+  unofficial_names:
+  - Nakaseke
+  geo:
+    latitude: 1.0922742
+    longitude: 32.0837445
+    min_latitude: 0.5353182
+    min_longitude: 31.8218994
+    max_latitude: 1.4669437
+    max_longitude: 32.501335
+  translations:
+    en: Mityana
+    ar: ميتيانا
+    bn: মিটায়ান জেলা
+    da: Mityana District
+    de: Distrikt Mityana
+    el: Επαρχία Μιτγιάνα
+    es: Distrito de Mityana
+    fi: Mityanan kaupunginosa
+    fr: Mityana
+    gl: Distrito Mityana
+    gu: મિત્યાના જિલ્લો
+    hi: मित्याना जिला
+    id: Distrik Mityana
+    it: Mityana
+    ja: ミティアナ県
+    kn: ಮಿಥಾನಾ ಜಿಲ್ಲೆ
+    ko: 미티아나 구
+    mr: मिताना जिल्हा
+    ms: Daerah Mityana
+    nb: Mityana
+    nl: Mityana
+    pl: Dystrykt Mityana
+    pt: Distrito de Mityana
+    ro: Districtul Mityana
+    ru: Митьана
+    si: මිට්‍යානා දිස්ත්‍රික්කය
+    sv: Mityana
+    sw: Wilaya ya Mityana
+    ta: மிடியான மாவட்டம்
+    te: మిట్యానా జిల్లా
+    th: เขตมิยานา
+    tr: Mityana District
+    ur: میتیانا ضلع
+    vi: Quận Mityana
+    lv: Mitjanas distrikts
+    ceb: Mityana District
+    lt: Mitjanos apskritis
+    zh: 米特亞納區
+    ccp: "𑄟𑄨𑄑𑄭𑄠𑄚𑄴"
+    uk: Мітьана
+    'no': Mityana
+    fa: ناحیه میتینا
+    he: מיטיאנה
+    ml: മിട്യന ജില്ല
+  type: district
+'116':
+  name: Lyantonde
+  code: '116'
+  unofficial_names:
+  - Lyantonde
+  geo:
+    latitude: -0.406944
+    longitude: 31.1575
+    min_latitude: -0.4140758
+    min_longitude: 31.1474097
+    max_latitude: -0.4017166
+    max_longitude: 31.1623442
+  translations:
+    en: Nakaseke
+    ar: مقاطعة ليانتوند²
+    bn: লায়ান্তন্ডে জেলা²
+    da: Lyantonde District²
+    de: Lyantonde-Distrikt²
+    el: Λιαντόντε²
+    es: Distrito de Lyantonde²
+    fi: Lyantonden kaupunginosa²
+    fr: Lyantonde²
+    gl: Distrito Lyantonde²
+    gu: લિએંટોન્ડે જિલ્લો²
+    hi: लिएनतोंडे जिला²
+    id: Distrik Lyantonde²
+    it: Lyantonde²
+    ja: リャントンデ県²
+    kn: ಲಿಯಾಂಟೊಂಡ್ ಜಿಲ್ಲೆ²
+    ko: 리안톤데 구²
+    mr: लियंडंडे जिल्हा²
+    ms: Lyantonde District²
+    nb: Lyantonde²
+    nl: Lyantonde²
+    pl: Dystrykt Lyantonde²
+    pt: Lyantonde²
+    ro: Districtul Lyantonde²
+    ru: Льантонде²
+    si: ලියන්ටෝන්ඩේ දිස්ත්‍රික්කය²
+    sv: Lyantondedistriktet²
+    sw: Wilaya ya Lyantonde²
+    ta: லிங்டோண்டே மாவட்டம்²
+    te: లయాన్టోండ్ జిల్లా²
+    th: เขตลยานทอนดี²
+    tr: Lyantonde District²
+    ur: لیانتوندے ضلع²
+    vi: Quận Lyantonde²
+    lv: Nakasekes distrikts
+    ceb: Nakaseke District
+    lt: Nakasekės apskritis
+    zh: 利安通德區²
+    ccp: "𑄚𑄇𑄴𑄥𑄬𑄇𑄴"
+    uk: Район Накасеке
+    'no': Lyantonde²
+    fa: ناحیه ناکاسکه
+  type: district
+'117':
+  name: Buikwe
+  code: '117'
+  translations:
+    ar: مقاطعة بويكوي
+    bn: বুইকওয়ে জেলা
+    da: Buikwe District
+    de: Buikwe-Distrikt
+    el: Μπουίκουε
+    en: Buikwe
+    es: Distrito de Buikwe
+    fi: Buikwen kaupunginosa
+    fr: Buikwe
+    gl: Distrito Buikwe
+    gu: બુઈક્વે જિલ્લો
+    hi: बुक्वे जिला
+    id: Distrik Buikwe
+    it: Buikwe
+    ja: ブイクウェ県
+    kn: ಬ್ಯೂಕ್ವೆ ಜಿಲ್ಲೆ
+    ko: 부이퀘 구
+    mr: बुईकवे जिल्हा
+    ms: Buikwe District
+    nb: Buikwe
+    nl: Buikwe
+    pl: Dystrykt Buikwe
+    pt: Distrito de Buikwe
+    ru: Буикве
+    si: බුයික්වේ දිස්ත්‍රික්කය
+    sv: Buikwe
+    ta: புயிக்கவே மாவட்டம்
+    te: బైక్వి జిల్లా
+    th: เขตบุยควี
+    tr: Buikwe District
+    ur: بویکوے ضلع
+    vi: Quận Buikwe
+    lv: Buikves distrikts
+    ceb: Buikwe District
+    lt: Buikvės apskritis
+    zh: 布伊奎區
+    ccp: "𑄝𑄭𑄪𑄃𑄨𑄇𑄴"
+    uk: Район Буїкве
+    'no': Buikwe
+    he: בוויקווה
+    sw: Wilaya ya Buikwe
+  type: district
+'118':
+  name: Bukomansibi
+  code: '118'
+  translations:
+    ar: مقاطعة بوكومانسيمبي
+    bn: বুকোমান্সিম্বি জেলা
+    da: Bukomansimbi
+    de: Bukomansimbi-Distrikt
+    el: Μπουκομανσίμπι
+    en: Bukomansibi
+    es: Distrito de Bukomansimbi
+    fi: Bukomansimbin kaupunginosa
+    fr: Bukomansimbi
+    gl: Distrito Bukomansimbi
+    gu: બુકોમાંસિબી જિલ્લો
+    hi: बूकोमानसिम्बी जिला
+    id: Distrik Bukomansimbi
+    it: Bukomansimbi
+    ja: ブコマンシンビ県
+    kn: ಬುಕೊಮಾಂಸಂಬಿ ಜಿಲ್ಲೆ
+    ko: 부코만심비 구
+    mr: बुकोमसिंब्बी जिल्हा
+    ms: Bukomansimbi District
+    nb: Bukomansimbi
+    nl: Bukomansimbi
+    pl: Dystrykt Bukomansimbi
+    pt: Distrito de Bukomansombi
+    ru: Букомансимби
+    si: බුකොමන්සිම්බි දිස්ත්‍රික්කය
+    sv: Bukomansimbi (distrikt)
+    ta: புக்கோமான்சிம்பி மாவட்டம்
+    te: బుకోమానిసింబి జిల్లా
+    th: บูโคแมนซิมบี ดิสทริค
+    tr: Bukomansimbi District
+    ur: بوکومانسیمبی ضلع
+    vi: Quận Bukomansimbi
+    lv: Bukomansimbi distrikts
+    ceb: Bukomansimbi County
+    lt: Bukomansinbio apskritis
+    zh: 布科曼辛比區
+    ccp: "𑄝𑄪𑄇𑄮𑄟𑄚𑄴𑄥𑄨𑄝𑄨"
+    uk: Район Букомансімбі
+    'no': Bukomansimbi
+    he: בוקומנסימבי
+    sw: Wilaya ya Bukomansimbi
+  type: district
+'119':
+  name: Butambala
+  code: '119'
+  translations:
+    ar: مقاطعة بوتمبالا
+    bn: বোতামবালা জেলা
+    da: Butambala District
+    de: Butambala Distrikt
+    el: Μπουταμπάλα
+    en: Butambala
+    es: Distrito de Butambala
+    fi: Butambalan piirikunta
+    fr: Butambala
+    gl: Distrito Butambala
+    gu: બુટામ્બલા જિલ્લો
+    hi: बुताम्बला जिला
+    id: Distrik Butambala
+    it: Butambala
+    ja: ブタンバラ県
+    kn: ಬಟಂಬಳ ಜಿಲ್ಲೆ
+    ko: 부탐발라 구
+    mr: बटांबला जिल्हा
+    ms: Butambala District
+    nb: Butambala
+    nl: Butambalan
+    pl: Dystrykt Butambala
+    pt: Butambala
+    ru: Бутамбала
+    si: බුටම්බලා දිස්ත්‍රික්කය
+    sv: Butambaladistriktet
+    ta: புட்டம்பல மாவட்டம்
+    te: బుటంబాలా జిల్లా
+    th: บูเท็มบารา
+    tr: Butambala District
+    ur: بوتامبالا ضلع
+    vi: Quận Butambala
+    lv: Butambalas distrikts
+    ceb: Butambala District
+    lt: Butambalos apskritis
+    zh: 布坦巴拉區
+    ccp: "𑄝𑄪𑄑𑄟𑄴𑄝𑄣"
+    uk: Район Бутамбала
+    'no': Butambala
+    fa: ناحیه بوتامبالا
+    he: בוטמבלה
+    ml: ബുടംബല
+    sw: Wilaya ya Butambala
+  type: district
+'120':
+  name: Buvuma
+  code: '120'
+  translations:
+    ar: مقاطعة بوفوما
+    bn: বুভুমা জেলা
+    da: Buvuma District
+    de: Buvuma-Distrikt
+    el: Μπουβούμα
+    en: Buvuma
+    es: Distrito de Buvuma
+    fi: Buvuman kaupunginosa
+    fr: Buvuma
+    gl: Distrito Buvuma
+    gu: બુવુમા જિલ્લો
+    hi: बुवुमा जिला
+    id: Distrik Buvuma
+    it: Buvuma
+    ja: ブヴァマ県
+    kn: ಬುವುಮಾ ಜಿಲ್ಲೆ
+    ko: 부부마 구
+    mr: बुवामा जिल्हा
+    ms: Buvuma District
+    nb: Buvuma
+    nl: Buvuma
+    pl: Dystrykt Buvuma
+    pt: Buvuma
+    ru: Бувума
+    si: බුවුමා දිස්ත්‍රික්කය
+    sv: Buvuma (distrikt)
+    ta: பூவுமா மாவட்டம்
+    te: బువుమా జిల్లా
+    th: เขตบูวูมา
+    tr: Buvuma District
+    ur: بووما ضلع
+    vi: Quận Buvuma
+    lv: Buvumas distrikts
+    ceb: Buvuma District
+    lt: Buvumos apskritis
+    zh: 布武馬區
+    ccp: "𑄝𑄪𑄞𑄪𑄟"
+    uk: Район Бувума
+    'no': Buvuma
+    fa: بخش بوووما
+    he: בובומה
+    ml: ബുവുമ ജില്ല
+    sw: Wilaya ya Buvuma
+  type: district
+'121':
+  name: Gomba
+  code: '121'
+  translations:
+    ar: مقاطعة غومبا
+    bn: গোম্বা জেলা
+    da: Gomba District
+    de: Gomba-Distrikt
+    el: Γκόμπα
+    en: Gomba
+    es: Distrito de Gomba
+    fi: Gomban kaupunginosa
+    fr: Gomba
+    gl: Distrito Gomba
+    gu: ગોમ્બા જિલ્લો
+    hi: गोम्बा जिला
+    id: Distrik Gomba
+    it: Gomba
+    ja: ゴンバ県
+    kn: ಗೊಂಬಾ ಜಿಲ್ಲೆ
+    ko: 곰바 구
+    mr: गोबा जिल्हा
+    ms: Gomba District
+    nb: Gomba
+    nl: Gomba
+    pl: Dystrykt Gomba
+    pt: Gomba
+    ru: Гомба
+    si: ගොම්බා දිස්ත්‍රික්කය
+    sv: Gombadistriktet
+    ta: கொம்பா மாவட்டம்
+    te: గోంబా జిల్లా
+    th: เขตกอมบา
+    tr: Gomba District
+    ur: گومبا ضلع
+    vi: Quận Gomba
+    lv: Gombas distrikts
+    ceb: Gomba District
+    lt: Gombos apskritis
+    zh: 貢巴區
+    ccp: "𑄉𑄮𑄟𑄴𑄝"
+    ml: ഗൊംബ ജില്ല
+    uk: Район Гомба
+    'no': Gomba
+    fa: ناحیه گومبا
+    he: גומבה
+    sw: Wilaya ya Gomba
+  type: district
+'122':
+  name: Kalungu
+  code: '122'
+  translations:
+    ar: مقاطعة كالونغو
+    bn: কালোঙ্গো জেলা
+    da: Kalungu District
+    de: Kalungu-Distrikt
+    el: Καλουνγκού
+    en: Kalungu
+    es: Distrito de Kalungu
+    fi: Kalungun kaupunginosa
+    fr: Kalungu
+    gl: Distrito Kalungu
+    gu: કાલુન્ગુ જિલ્લો
+    hi: कलुंगू जिला
+    id: Distrik Kalungu
+    it: Kalungu
+    ja: カルング県
+    kn: ಕಲುಂಗು ಜಿಲ್ಲೆ
+    ko: 칼룽구 구
+    mr: कळुंगू जिल्हा
+    ms: Kalungu District
+    nb: Kalungu
+    nl: Kalungu
+    pl: Dystrykt Kalungu
+    pt: Distrito de Kalungu
+    ru: Калунгу
+    si: කලුන්ගු දිස්ත්‍රික්කය
+    sv: Kalungudistriktet
+    ta: களுக்கு மாவட்டம்
+    te: కాలుంగు జిల్లా
+    th: เขตคาลันกู
+    tr: Kalungu District
+    ur: کالونگو ضلع
+    vi: Quận Kalungu
+    lv: Kalungu distrikts
+    ceb: Kalungu District
+    lt: Kalungo apskritis
+    zh: 卡倫古區
+    ccp: "𑄇𑄣𑄪𑄚𑄴𑄉𑄪"
+    uk: Район Калунгу
+    'no': Kalungu
+    fa: ناحیه کالونگو
+    he: קלונגו
+    ml: കലുങു ജില്ല
+    sw: Wilaya ya Kalungu
+  type: district
+'123':
+  name: Kyankwanzi
+  code: '123'
+  translations:
+    ar: مقاطعة كيانكوانزي
+    bn: কিয়ানকাঊয়ানজি জেলা
+    da: Kyankwanzi District
+    de: Distrikt Kyankwanzi
+    el: Κιανκουάνζι
+    en: Kyankwanzi
+    es: Kyankwanzi
+    fi: Kyankwanzin kaupunginosa
+    fr: Kyankwanzi
+    gl: Distrito Kyankwanzi
+    gu: ક્યાન્કવાંઝી જિલ્લો
+    hi: क्यांकवान्ज़ी जिला
+    id: Distrik Kyankwanzi
+    it: Kyankwanzi
+    ja: キャンクァンジ県
+    kn: ಕಯಾಂಕ್ವಾಂಜಿ ಜಿಲ್ಲೆ
+    ko: 키안콴지 구
+    mr: कॅनक्वान्झी जिल्हा
+    ms: Kyankwanzi District
+    nb: Kyankwanzi
+    nl: Kyankwanzi
+    pl: Dystrykt Kyankwanzi
+    pt: Distrito de Kyankwanzi
+    ru: Кьянкванзи
+    si: ක්යන්වන්සි දිස්ත්‍රික්කය
+    sv: Kyankwanzidistriktet
+    ta: க்யங்கவாணஜி மாவட்டம்
+    te: క్వాంక్వాంజి జిల్లా
+    th: เขตยายกวานซี
+    tr: Kyankwanzi District
+    ur: کیانکوانزی ضلع
+    vi: Quận Kyankwanzi
+    lv: Kjankvanzi distrikts
+    ceb: Kyankwanzi District
+    lt: Kjankvanzio apskritis
+    zh: 克揚寬齊區
+    ccp: "𑄇𑄨𑄠𑄚𑄴𑄇𑄮𑄠𑄚𑄴𑄎𑄨"
+    uk: Район Кьянкванзі
+    'no': Kyankwanzi
+    fa: ناحیه کیانکوانزی
+    he: קיאנקוונצי
+    ml: ക്യങ്ക്വൻശി ജില്ല
+    sw: Wilaya ya Kyankwanzi
+  type: district
+'124':
+  name: Lwengo
+  code: '124'
+  translations:
+    ar: مقاطعة لوينغو
+    bn: লেঙ্গো জেলা
+    da: Lwengo District
+    de: Lwengo-Distrikt
+    el: Λουέγκο
+    en: Lwengo
+    es: Distrito de Lwengo
+    fi: Lwengon kaupunginosa
+    fr: Lwengo
+    gl: Distrito Lwengo
+    gu: લ્વેન્ગો જિલ્લો
+    hi: ल्वेन्गो जिला
+    id: Distrik Lwengo
+    it: Lwengo
+    ja: ルウェンゴ県
+    kn: ಎಲ್ವೆಂಗೋ ಜಿಲ್ಲೆ
+    ko: 르웽고 구
+    mr: ल्वेन्गो जिल्हा
+    ms: Lwengo District
+    nb: Lwengo
+    nl: Lwengo
+    pl: Dystrykt Lwengo
+    pt: Lwengo
+    ru: Лвенго
+    si: ල්වෙන්ගෝ දිස්ත්‍රික්කය
+    sv: Lwengodistriktet
+    ta: லெவெங்கோ மாவட்டம்
+    te: లువెంగో జిల్లా
+    th: เขตเลวนโก
+    tr: Lwengo District
+    ur: لوینگو ضلع
+    vi: Quận Lwengo
+    lv: Lvengo distrikts
+    ceb: Lwengo District
+    lt: Lvengo apskritis
+    zh: 盧恩戈區
+    ccp: "𑄣𑄧𑄠𑄬𑄚𑄴𑄉𑄮"
+    uk: Район Лвенго
+    'no': Lwengo
+    fa: ناحیه لوانگو
+    he: לוואנגו
+    ml: ൽവെങൊ ജില്ല
+    sw: Wilaya ya Lwengo
+  type: district
+'125':
+  name: Kyotera
+  code: '125'
+  geo:
+    latitude: 1.373333
+    longitude: 32.290275
+    min_latitude: -1.4823178
+    min_longitude: 29.573433
+    max_latitude: 4.218628
+    max_longitude: 35.0330489
+  translations:
+    ja: キョテラ県
+    en: Kyotera
+    de: Distrikt Kyotera
+    fa: ناحیه کیوترا
+    he: קיוטרה
+    nl: Kyotera
+    sw: Wilaya ya Kyotera
+  type: district
+'126':
+  name: Kasanda
+  code: '126'
+  geo:
+    latitude: 1.373333
+    longitude: 32.290275
+    min_latitude: -1.4823178
+    min_longitude: 29.573433
+    max_latitude: 4.218628
+    max_longitude: 35.0330489
+  translations:
+    en: Kasanda
+  type: district
+'201':
+  name: Bugiri
+  code: '201'
+  unofficial_names:
+  - Bugiri
+  geo:
+    latitude: 0.569444
+    longitude: 33.748611
+    min_latitude: 0.5541143
+    min_longitude: 33.7357521
+    max_latitude: 0.5827803
+    max_longitude: 33.7664796
+  translations:
+    en: Bugiri
+    de: Distrikt Bugiri
+    es: Distrito de Bugiri
+    fr: Bugiri
+    gl: Distrito Bugiri
+    it: Bugiri
+    ja: ブギリ県
+    ko: 부기리 구
+    nb: Bugiri
+    nl: Bugiri
+    pl: Dystrykt Bugiri
+    ro: Districtul Bugiri
+    ru: Бугири
+    sw: Wilaya ya Bugiri
+    ur: بوگیری ضلع
+    ceb: Bugiri District
+    zh: 布吉里區
+    ccp: "𑄝𑄪𑄉𑄨𑄢𑄨"
+    'no': Bugiri
+    fa: ناحیه بوگیری
+    id: Distrik Bugiri
+    ml: ബുഗിരി ജില്ല
+  type: district
+'202':
+  name: Busia
+  code: '202'
+  unofficial_names:
+  - Busia
+  geo:
+    latitude: 0.4706692
+    longitude: 34.0919803
+    min_latitude: 0.4560136
+    min_longitude: 34.0731525
+    max_latitude: 0.4804745999999999
+    max_longitude: 34.1007899
+  translations:
+    en: Busia
+    ar: مقاطعة بوسيا
+    bn: বোসিয়া জেলা
+    da: Busia District
+    de: Distrikt Busia
+    el: Μπούσια
+    es: Distrito de Busia
+    fi: Busian kaupunginosa
+    fr: Busia
+    gl: Distrito Busia
+    gu: બસિયા જિલ્લો
+    hi: बुसिया जिला
+    id: Distrik Busia
+    it: Busia
+    ja: ブシア県
+    kn: ಬುಷಿಯಾ ಜಿಲ್ಲೆ
+    ko: 부시아 구
+    mr: बुसीआ जिल्हा
+    ms: Busia District
+    nb: Busia
+    nl: Busia
+    pl: Dystrykt Busia
+    pt: Distrito de Busia
+    ro: Districtul Busia
+    ru: Бусиа
+    si: බුසියා දිස්ත්‍රික්කය
+    sv: Busiadistriktet
+    sw: Wilaya ya Busia
+    ta: பசியா மாவட்டம்
+    te: బుసియా జిల్లా
+    th: เขตบูเซีย
+    tr: Busia District
+    ur: بوسیا ضلع
+    vi: Quận Busia
+    lv: Busijas distrikts
+    ceb: Busia District
+    lt: Busijos apskritis
+    zh: 布西亞區
+    ccp: "𑄝𑄪𑄥𑄨𑄠"
+    uk: Район Бусіа
+    'no': Busia
+    fa: ناحیه بوسیا
+  type: district
+'203':
+  name: Iganga
+  code: '203'
+  unofficial_names:
+  - Iganga
+  geo:
+    latitude: 0.615
+    longitude: 33.485
+    min_latitude: 0.5867283
+    min_longitude: 33.4485625
+    max_latitude: 0.633675
+    max_longitude: 33.4971428
+  translations:
+    en: Iganga
+    ar: مقاطعة إيغانغا
+    bn: ইগানগা জেলা
+    da: Iganga District
+    de: Distrikt Iganga
+    el: Ιγκάνγκα
+    es: Distrito de Iganga
+    fi: Igangan kaupunginosa
+    fr: Iganga
+    gl: Distrito Iganga
+    gu: ઇગંગા જિલ્લો
+    hi: इगांगा जिला
+    id: Distrik Iganga
+    it: Iganga
+    ja: イガンガ県
+    kn: ಇಗಂಗಾ ಜಿಲ್ಲೆ
+    ko: 이강가 구
+    mr: इगंगा जिल्हा
+    ms: Iganga District
+    nb: Iganga
+    nl: Iganga
+    pl: Dystrykt Iganga
+    pt: Iganga
+    ro: Districtul Iganga
+    ru: Иганга
+    si: ඉගැන්ගා දිස්ත්‍රික්කය
+    sv: Igangadrstriktet
+    sw: Wilaya ya Iganga
+    ta: இகங்கா மாவட்டம்
+    te: ఇగాంగా జిల్లా
+    th: เขตไอแกงกา
+    tr: Iganga district
+    ur: اگانگا ضلع
+    vi: Quận Iganga
+    lv: Igangas distrikts
+    ceb: Iganga District
+    lt: Igangos apskritis
+    zh: 伊甘加區
+    ccp: "𑄃𑄉𑄚𑄴𑄉"
+    hy: Իգանգա
+    uk: Район Іганга
+    'no': Iganga
+    fa: ناحیه ایگانگا
+  type: district
+'204':
+  name: Jinja
+  code: '204'
+  unofficial_names:
+  - Jinja
+  geo:
+    latitude: 0.424444
+    longitude: 33.204167
+    min_latitude: 0.4114044
+    min_longitude: 33.1757498
+    max_latitude: 0.4795304
+    max_longitude: 33.2535861
+  translations:
+    en: Jinja
+    ar: ضاحية جينجا
+    bn: জিনিয়া জেলা
+    da: Jinja District
+    de: Distrikt Jinja
+    el: Τζίντζα
+    es: Jinja
+    fi: Jinjan kaupunginosa
+    fr: Jinja
+    gl: Distrito Jinja
+    gu: જીન્જા જિલ્લો
+    hi: जिंजिया जिला
+    id: Distrik Jinja
+    it: Jinja
+    ja: ジンジャ県
+    kn: ಜಿಂಜ ಜಿಲ್ಲೆ
+    ko: 진자 구
+    mr: जिंदा जिल्हा
+    ms: Jinja District
+    nb: Jinja
+    nl: Jinja
+    pl: Dystrykt Jinja
+    pt: Jinja
+    ro: Districtul Jinja
+    ru: Джинджа
+    si: ජින්ජා දිස්ත්‍රික්කය
+    sv: Jinja (distrikt)
+    sw: Wilaya ya Jinja
+    ta: ஜிஞ்சா மாவட்டம்
+    te: జింజా జిల్లా
+    th: ตำบลจินจา
+    tr: Jinja District
+    ur: جنجا ضلع
+    vi: Quận Jinja
+    lv: Džindžas distrikts
+    ceb: Jinja District
+    lt: Džindžos rajonas
+    zh: 金賈區
+    ccp: "𑄎𑄨𑄚𑄴𑄎"
+    he: ג׳ינג׳ה
+    uk: Район Джинджа
+    'no': Jinja
+    fa: ناحیه جینجا
+  type: district
+'205':
+  name: Kamuli
+  code: '205'
+  unofficial_names:
+  - Kamuli
+  geo:
+    latitude: 0.9450000000000001
+    longitude: 33.125
+    min_latitude: 0.9370790999999999
+    min_longitude: 33.116076
+    max_latitude: 0.9535992999999999
+    max_longitude: 33.1316112
+  translations:
+    en: Kamuli
+    ar: مقاطعة كامولي
+    bn: কামুলি জেলা
+    da: Kamuli District
+    de: Distrikt Kamuli
+    el: Καμούλι
+    es: Distrito de Kamuli
+    fi: Kamulin piirikunta
+    fr: Kamuli
+    gl: Distrito Kamuli
+    gu: કમુલિ જિલ્લો
+    hi: कमुली जिला
+    id: Distrik Kamuli
+    it: Kamuli
+    ja: カムリ県
+    kn: ಕಮುಲಿ ಜಿಲ್ಲೆ
+    ko: 카물리 구
+    mr: कमुली जिल्हा
+    ms: Kamuli District
+    nb: Kamuli
+    nl: Kamuli
+    pl: Dystrykt Kamuli
+    pt: Kamuli
+    ro: Districtul Kamuli
+    ru: Камули
+    si: කමුලි දිස්ත්‍රික්කය
+    sv: Kamulidistriktet
+    sw: Wilaya ya Kamuli
+    ta: குமுளி மாவட்டம்
+    te: కామూలి జిల్లా
+    th: แกรน อัลเซ่ พราสลิน
+    tr: Kamuli District
+    ur: کامولی ضلع
+    vi: Quận Kamuli
+    lv: Kamuli distrikts
+    ceb: Kamuli District
+    lt: Kamulio apskritis
+    zh: 卡穆利區
+    ccp: "𑄇𑄟𑄪𑄣𑄨"
+    uk: Район Камулі
+    'no': Kamuli
+    fa: ناحیه کامولی
+  type: district
+'206':
+  name: Kapchorwa
+  code: '206'
+  unofficial_names:
+  - Kapchorwa
+  geo:
+    latitude: 1.4
+    longitude: 34.45
+    min_latitude: 1.3889478
+    min_longitude: 34.439199
+    max_latitude: 1.4056369
+    max_longitude: 34.4549704
+  translations:
+    en: Kapchorwa
+    ar: مقاطعة كابشوروا
+    bn: কাপচোয়া জেলা
+    da: Kapchorwa District
+    de: Distrikt Kapchorwa
+    el: Καπτσόρουα
+    es: Distrito de Kapchorwa
+    fi: Kapchorwan kaupunginosa
+    fr: Kapchorwa
+    gl: Distrito Kapchorwa
+    gu: કેપચોર્વા જિલ્લો
+    hi: कैपकोरवा जिला
+    id: Distrik Kapchorwa
+    it: Kapchorwa
+    ja: カプチョルワ県
+    kn: ಕಪ್ಚೋರ್ವಾ ಜಿಲ್ಲೆ
+    ko: 카프초르와 구
+    mr: कॅप्चारावा जिल्हा
+    ms: Daerah Kapchorwa
+    nb: Kapchorwa
+    nl: Kapchorwa
+    pl: Dystrykt Kapchorwa
+    pt: Distrito de Kapchorwa
+    ro: Districtul Kapchorwa
+    ru: Капчорва
+    si: කප්චෝර්වා දිස්ත්‍රික්කය
+    sv: Kapchorwa distriktet
+    sw: Wilaya ya Kapchorwa
+    ta: கபிச்சோர்வா மாவட்டம்
+    te: కాప్చోర్వా జిల్లా
+    th: เขตแคบปอร์วา
+    tr: Kapshorwa District
+    ur: کاپچوروا ضلع
+    vi: Quận Kapchorwa
+    lv: Kapčorvas distrikts
+    ceb: Kapchorwa District
+    lt: Kapčorvos apskritis
+    zh: 卡普喬魯瓦區
+    ccp: "𑄇𑄛𑄴𑄌𑄮𑄢𑄴𑄤"
+    uk: Район Капчорва
+    'no': Kapchorwa
+    he: קפצ׳ורווה
+  type: district
+'207':
+  name: Katakwi
+  code: '207'
+  unofficial_names:
+  - Katakwi
+  geo:
+    latitude: 1.915
+    longitude: 33.955
+    min_latitude: 1.9058622
+    min_longitude: 33.9466382
+    max_latitude: 1.9234477
+    max_longitude: 33.967924
+  translations:
+    en: Katakwi
+    ar: مقاطعة كاتاكوي
+    bn: কাটাকউই জেলা
+    da: Katakwi District
+    de: Distrikt Katakwi
+    el: Κατάγουι
+    es: Distrito de Katakwi
+    fi: Katakwin kaupunginosa
+    fr: Katakwi
+    gl: Distrito Katakwi
+    gu: કટકવી જિલ્લો
+    hi: काताक्वी जिला
+    id: Distrik Katakwi
+    it: Katakwi
+    ja: カタクイ県
+    kn: ಕಟಾಕ್ವಿ ಜಿಲ್ಲೆ
+    ko: 카타퀴 구
+    mr: कटकावी जिल्हा
+    ms: Katakwi District
+    nb: Katakwi
+    nl: Katakwi
+    pl: Dystrykt Katakwi
+    pt: Katakwi
+    ro: Districtul Katakwi
+    ru: Катакви
+    si: කටක්වි දිස්ත්‍රික්කය
+    sv: Katakwidistriktet
+    sw: Wilaya ya Katakwi
+    ta: கடகவி மாவட்டம்
+    te: కటాక్వి జిల్లా
+    th: คาตัควี
+    tr: Katakwi District
+    ur: کاتاکوی ضلع
+    vi: Quận Katakwi
+    lv: Katakvi distrikts
+    ceb: Katakwi District
+    lt: Katakvio apskritis
+    zh: 卡塔奎區
+    ccp: "𑄇𑄑𑄇𑄴𑄃𑄨"
+    uk: Район Катакві
+    'no': Katakwi
+    fa: ناحیه کاتاکوی
+  type: district
+'208':
+  name: Kumi
+  code: '208'
+  unofficial_names:
+  - Kumi
+  geo:
+    latitude: 1.49
+    longitude: 33.935
+    min_latitude: 1.4751163
+    min_longitude: 33.9199877
+    max_latitude: 1.4952798
+    max_longitude: 33.9476252
+  translations:
+    en: Kumi
+    ar: مقاطعة كومي
+    bn: কুমি জেলা
+    da: Kumi District
+    de: Distrikt Kumi
+    el: Κούμι
+    es: Distrito de Kumi
+    fi: Kumin kaupunginosa
+    fr: Kumi
+    gl: Distrito Kumi
+    gu: કુમી જિલ્લો
+    hi: कुमी जिला
+    id: Distrik Kumi
+    it: Kumi
+    ja: クミ県
+    kn: ಕುಮಿ ಜಿಲ್ಲೆ
+    ko: 쿠미 구
+    mr: कुमी जिल्हा
+    ms: Kumi District
+    nb: Kumi
+    nl: Kumi
+    pl: Dystrykt Kumi
+    pt: Kumi
+    ro: Districtul Kumi
+    ru: Куми
+    si: කුමි දිස්ත්‍රික්කය
+    sv: Kumi
+    sw: Wilaya ya Kumi
+    ta: குமி மாவட்டம்
+    te: కుమి జిల్లా
+    th: คูมิ
+    tr: Kumi District
+    ur: کومی ضلع
+    vi: Quận Kumi
+    lv: Kumi distrikts
+    ceb: Kumi District
+    lt: Kumio apskritis
+    zh: 庫米區
+    ccp: "𑄇𑄪𑄟𑄨"
+    uk: Район Кумі
+    'no': Kumi
+    fa: ناحیه کومی
+  type: district
+'209':
+  name: Mbale
+  code: '209'
+  unofficial_names:
+  - Mbale
+  geo:
+    latitude: 1.080556
+    longitude: 34.175
+    min_latitude: 1.0560868
+    min_longitude: 34.1436195
+    max_latitude: 1.1036286
+    max_longitude: 34.2084217
+  translations:
+    en: Mbale
+    ar: مقاطعة مبالي
+    bn: এম্বেল জেলা
+    da: Mbale District
+    de: Distrikt Mbale
+    el: Μπάλε
+    es: Distrito de Mbale
+    fi: Mbalen kaupunginosa
+    fr: Mbale
+    gl: Distrito Mbale
+    gu: એમ્બલે જિલ્લો
+    hi: बाले जिला
+    id: Distrik Mbale
+    it: Mbale
+    ja: ムバレ県
+    kn: ಎಂಬಲೇ ಜಿಲ್ಲೆ
+    ko: 음발레 구
+    mr: म्बले जिल्हा
+    ms: Mbale District
+    nb: Mbale
+    nl: Mbale
+    pl: Dystrykt Mbale
+    pt: Mbale
+    ro: Districtul Mbale
+    ru: Мбале
+    si: එම්බලේ දිස්ත්‍රික්කය
+    sv: Mbaledistriktet
+    sw: Wilaya ya Mbale
+    ta: ம்பலே மாவட்டம்
+    te: ఎంబేల్ జిల్లా
+    th: เขตมเบลลา
+    tr: Mbale District
+    ur: مبالے ضلع
+    vi: Quận Mbale
+    lv: Mbales distrikts
+    ceb: Mbale District
+    lt: Mbalės apskritis
+    zh: 姆巴萊區
+    ccp: "𑄝𑄣𑄬"
+    uk: Район Мбале
+    'no': Mbale
+  type: district
+'210':
+  name: Pallisa
+  code: '210'
+  unofficial_names:
+  - Pallisa
+  geo:
+    latitude: 1.1675
+    longitude: 33.71
+    min_latitude: 1.1583564
+    min_longitude: 33.7033511
+    max_latitude: 1.179402
+    max_longitude: 33.7169123
+  translations:
+    en: Pallisa
+    ar: مقاطعة باليسا
+    bn: পালিসা জেলা
+    da: Pallisa District
+    de: Pallisa-Distrikt
+    el: Παλίσσα
+    es: Distrito de Pallisa
+    fi: Pallisan kaupunginosa
+    fr: Pallisa
+    gl: Distrito Pallisa
+    gu: પાલીસા જિલ્લો
+    hi: पल्लीसा जिला
+    id: Distrik Pallisa
+    it: Pallisa
+    ja: パリサ県
+    kn: ಪಲಿಸಾ ಜಿಲ್ಲೆ
+    ko: 팔리사 구
+    mr: पल्लिस जिल्हा
+    ms: Pallisa District
+    nb: Pallisa
+    nl: Pallisa
+    pl: Dystrykt Pallisa
+    pt: Pallisa
+    ro: Districtul Pallisa
+    ru: Паллиса
+    si: පල්ලිසා දිස්ත්‍රික්කය
+    sv: Pallisadistriktet
+    sw: Wilaya ya Pallisa
+    ta: பல்லிஸா மாவட்டம்
+    te: పాలిసా జిల్లా
+    th: ปาลลิสสา
+    tr: Pallisa District
+    ur: پالیسا ضلع
+    vi: Quận Pallisa
+    lv: Pallisas distrikts
+    ceb: Pallisa District
+    lt: Palisos apskritis
+    zh: 帕利薩區
+    ccp: "𑄛𑄣𑄳𑄦𑄨𑄥"
+    uk: Район Палліса
+    'no': Pallisa
+    fa: ناحیه پالیسا
+  type: district
+'211':
+  name: Soroti
+  code: '211'
+  unofficial_names:
+  - Soroti
+  geo:
+    latitude: 1.715
+    longitude: 33.611111
+    min_latitude: 1.6942225
+    min_longitude: 33.5904408
+    max_latitude: 1.7504162
+    max_longitude: 33.6426258
+  translations:
+    en: Soroti
+    ar: مقاطعة سوروتي
+    bn: সরোতি জেলা
+    da: Soroti District
+    de: Distrikt Soroti
+    el: Σορότι
+    es: Distrito de Soroti
+    fi: Sorotin kaupunginosa
+    fr: Soroti
+    gl: Distrito Soroti
+    gu: સોરોટી જિલ્લો
+    hi: सोरॉटी जिला
+    id: Distrik Soroti
+    it: Soroti
+    ja: ソロティ県
+    kn: ಸೊರೊಟಿ ಜಿಲ್ಲೆ
+    ko: 소로티 구
+    mr: सोरोटा जिल्हा
+    ms: Soroti District
+    nb: Soroti
+    nl: Soroti
+    pl: Dystrykt Soroti
+    pt: Soroti
+    ro: Districtul Soroti
+    ru: Сороти
+    si: සොරෝටි දිස්ත්‍රික්කය
+    sv: Sorotidistriktet
+    sw: Wilaya ya Soroti
+    ta: சொரொட்டி மாவட்டம்
+    te: సోరోటి జిల్లా
+    th: เขตโซโรติ
+    tr: Soroti District
+    ur: سوروتی ضلع
+    vi: Quận Soroti
+    lv: Soroti distrikts
+    ceb: Soroti District
+    lt: Soročio apskritis
+    zh: 索羅提區
+    ccp: "𑄥𑄮𑄢𑄮𑄑𑄨"
+    uk: Район Сороті
+    'no': Soroti
+    fa: ناحیه سوروتی
+  type: district
+'212':
+  name: Tororo
+  code: '212'
+  unofficial_names:
+  - Tororo
+  geo:
+    latitude: 0.692778
+    longitude: 34.181111
+    min_latitude: 0.6541015
+    min_longitude: 34.1529751
+    max_latitude: 0.7098015999999999
+    max_longitude: 34.2079068
+  translations:
+    en: Tororo
+    ar: مقاطعة تورورو
+    bn: তুরুরু জেলা
+    da: Tororo District
+    de: Tororo-Distrikt
+    el: Τορόρο
+    es: Distrito de Tororo
+    fi: Tororon kaupunginosa
+    fr: Tororo
+    gl: Distrito Tororo
+    gu: ટોરોરો જિલ્લો
+    he: טורורו
+    hi: टोरोरो जिला
+    id: Distrik Tororo
+    it: Tororo
+    ja: トロロ県
+    kn: ಟೊರೊರೊ ಜಿಲ್ಲೆ
+    ko: 토로로 구
+    mr: टोरोरा जिल्हा
+    ms: Tororo District
+    nb: Tororo
+    nl: Tororo
+    pl: Dystrykt Tororo
+    pt: Distrito de Tororo
+    ro: Districtul Tororo
+    ru: Тороро
+    si: ටොරෝරෝ දිස්ත්‍රික්කය
+    sv: Tororodistriktet
+    sw: Wilaya ya Tororo
+    ta: டோரோரோ மாவட்டம்
+    te: టొరోరో జిల్లా
+    th: เขตปกครองโตโรโร่
+    tr: Tororo District
+    ur: تورورو ضلع
+    vi: Quận Tororo
+    lv: Tororo distrikts
+    ceb: Tororo District
+    lt: Tororo sritis
+    zh: 托羅羅區
+    ccp: "𑄑𑄮𑄢𑄮𑄢𑄮"
+    uk: Район Тороро
+    ca: Districte de Tororo
+    'no': Tororo
+    fa: ناحیه تورورو
+  type: district
+'213':
+  name: Kaberamaido
+  code: '213'
+  unofficial_names:
+  - Kaberamaido
+  geo:
+    latitude: 1.766667
+    longitude: 33.152222
+    min_latitude: 1.7596816
+    min_longitude: 33.1466532
+    max_latitude: 1.7682606
+    max_longitude: 33.1565666
+  translations:
+    en: Kaberamaido
+    ar: مقاطعة كابيرامايدو
+    bn: কাবেরামাইদো জেলা
+    da: Kaberamaido District
+    de: Distrikt Kaberamaido
+    el: Καμπερμάιντο
+    es: Distrito de Kaberamaido
+    fi: Kaberamaidon kaupunginosa
+    fr: Kaberamaido
+    gl: Distrito Kaberamaido
+    gu: કાબરમાઈડો જિલ્લો
+    hi: कैबेरमाईडो जिला
+    id: Distrik Kaberamaido
+    it: Kaberamaido
+    ja: カベラマイド県
+    kn: ಕಾಬರಮಾಯಿಡೋ ಜಿಲ್ಲೆ
+    ko: 카베라마이도 구
+    mr: कामरमाइदो जिल्हा
+    ms: Daerah Kaberamaido
+    nb: Kaberamaido
+    nl: Kaberamaido (district)
+    pl: Dystrykt Kaberamaido
+    pt: Distrito de Kaberamaido
+    ro: Districtul Kaberamaido
+    ru: Каберамайдо
+    si: කබරමයිදෝ දිස්ත්‍රික්කය
+    sv: Kaberamaido
+    sw: Wilaya ya Kaberamaido
+    ta: கபேரமைடோ மாவட்டம்
+    te: కాబెరామైడో జిల్లా
+    th: เขตกาเบอราเมโด
+    tr: Kaberamaid District
+    ur: کابیرامایدو ضلع
+    vi: Quận Kaberamaido
+    lv: Kaberamaido distrikts
+    ceb: Kaberamaido District
+    lt: Kaberamaido apskritis
+    zh: 卡貝拉馬伊多區
+    ccp: "𑄇𑄝𑄬𑄢𑄟𑄭𑄓𑄮"
+    uk: Район Каберамайдо
+    'no': Kaberamaido
+  type: district
+'214':
+  name: Mayuge
+  code: '214'
+  unofficial_names:
+  - Mayuge
+  geo:
+    latitude: 0.2532134
+    longitude: 33.5508661
+    min_latitude: -0.046986
+    min_longitude: 33.4011293
+    max_latitude: 0.46483
+    max_longitude: 33.7006029
+  translations:
+    en: Mayuge
+    ar: مقاطعة مايوج
+    bn: মাইউজে জেলা
+    da: Mayuge
+    de: Mayuge-Distrikt
+    el: Μαγιούγκε
+    es: Distrito de Mayuge
+    fi: Mayugen kaupunginosa
+    fr: Mayuge
+    gl: Distrito Mayuge
+    gu: મયુગ જિલ્લો
+    hi: मायुजे जिला
+    id: Distrik Mayuge
+    it: Mayuge
+    ja: マユゲ県
+    kn: ಮೇಯುಜ್ ಜಿಲ್ಲೆ
+    ko: 마유게 구
+    mr: मयूज जिल्हा
+    ms: Mayuge District
+    nb: Mayuge
+    nl: Mayuge
+    pl: Dystrykt Mayuge
+    pt: Distrito de Mayuge
+    ro: Districtul Mayuge
+    ru: Майуге
+    si: මෙයුගේ දිස්ත්‍රික්කය
+    sv: Mayugedistriktet
+    sw: Wilaya ya Mayuge
+    ta: மயூகே மாவட்டம்
+    te: మాయుగె జిల్లా
+    th: เขตมายูเกะ
+    tr: Mayugebdistrict
+    ur: مائوگی ضلع
+    vi: Quận Mayuge
+    lv: Majuges distrikts
+    ceb: Mayuge District
+    lt: Majugės apskritis
+    zh: 馬尤蓋區
+    ccp: "𑄟𑄬𑄠𑄪𑄉𑄬"
+    uk: Район Маюге
+    'no': Mayuge
+    fa: ناحیه مایوژ
+    ml: മയുഗെ ജില്ല
+  type: district
+'215':
+  name: Sironko
+  code: '215'
+  unofficial_names:
+  - Sironko
+  geo:
+    latitude: 1.233333
+    longitude: 34.25
+    min_latitude: 1.2243245
+    min_longitude: 34.2446638
+    max_latitude: 1.2361664
+    max_longitude: 34.252839
+  translations:
+    en: Sironko
+    ar: مقاطعة سيرونكو
+    bn: সিরঙ্কো জেলা
+    da: Sironko District
+    de: Sironko-Distrikt
+    el: Σιρόνκο
+    es: Distrito de Sironko
+    fi: Sironkon kaupunginosa
+    fr: Sironko
+    gl: Distrito Sironko
+    gu: સિરોન્કો જિલ્લો
+    hi: सिरोंको जिला
+    id: Distrik Sironko
+    it: Sironko
+    ja: シロンコ県
+    kn: ಸಿರೊಂಕೊ ಜಿಲ್ಲೆ
+    ko: 시론코 구
+    mr: सिरोन्को जिल्हा
+    ms: Sironko District
+    nb: Sironko
+    nl: Sironko
+    pl: Dystrykt Sironko
+    pt: Distrito de Sironko
+    ro: Districtul Sironko
+    ru: Сиронко
+    si: සිරෝන්කෝ දිස්ත්‍රික්කය
+    sv: Sironkodistriktet
+    sw: Wilaya ya Sironko
+    ta: சிரோங்கோ மாவட்டம்
+    te: సిరోంకో జిల్లా
+    th: เขตซิรานโค
+    tr: Sironko District
+    ur: سیرونکو ضلع
+    vi: Quận Sironko
+    lv: Sironko distrikts
+    ceb: Sironko District
+    lt: Sironko apskritis
+    zh: 錫龍科區
+    ccp: "𑄥𑄨𑄢𑄮𑄚𑄴𑄇𑄮"
+    uk: Район Сіронко
+    'no': Sironko
+    fa: ناحیه سیرونکو
+  type: district
+'216':
+  name: Amuria
+  code: '216'
+  unofficial_names:
+  - Amuria
+  geo:
+    latitude: 2.03017
+    longitude: 33.6427533
+    min_latitude: 2.0231453
+    min_longitude: 33.6368751
+    max_latitude: 2.0345965
+    max_longitude: 33.6482048
+  translations:
+    en: Amuria
+    ar: مقاطعة أموريا
+    bn: আমুরিয়া জেলা
+    da: Amuria District
+    de: Amuria-Distrikt
+    el: Αμούρια
+    es: Distrito de Amuria
+    fa: بخش اموریا
+    fi: Amurian kaupunginosa
+    fr: Amuria
+    gl: Distrito Amuria
+    gu: અમુરિયા જિલ્લો
+    hi: अमूरिया जिला
+    id: Distrik Amuria
+    it: Amuria
+    ja: アムリア県
+    kn: ಅಮುರಿಯಾ ಜಿಲ್ಲೆ
+    ko: 아무리아 구
+    mr: अमरुया जिल्हा
+    ms: Amuria District
+    nb: Amuria
+    nl: Amuria
+    pl: Dystrykt Amuria
+    pt: Amuria
+    ro: Districtul Amuria
+    ru: Амуриа
+    si: අමුරියා දිස්ත්‍රික්කය
+    sv: Amuria
+    sw: Wilaya ya Amuria
+    ta: அமுரியா மாவட்டம்
+    te: అమూరియా జిల్లా
+    th: เขตอมูเรีย
+    tr: Amuria District
+    ur: اموریا ضلع
+    vi: Quận Amuria
+    lv: Amurijas distrikts
+    ceb: Amuria District
+    lt: Amurijos apskritis
+    zh: 阿穆里亞區
+    ccp: "𑄃𑄟𑄪𑄢𑄨𑄠"
+    ml: അമുറിയ ജില്ല
+    uk: Район Амурія
+    'no': Amuria
+  type: district
+'217':
+  name: Budaka
+  code: '217'
+  unofficial_names:
+  - Budaka
+  geo:
+    latitude: 1.016667
+    longitude: 33.945
+    min_latitude: 1.0106683
+    min_longitude: 33.939128
+    max_latitude: 1.02043
+    max_longitude: 33.959062
+  translations:
+    en: Budaka
+    ar: مقاطعة بوداكا
+    bn: বোডাকা জেলা
+    da: Budaka District
+    de: Distrikt Budaka
+    el: Μπουντάκα
+    es: Distrito de Budaka
+    fi: Budakan kaupunginosa
+    fr: Budaka
+    gl: Distrito Budaka
+    gu: બુડાકા જિલ્લો
+    hi: बुडाका जिला
+    id: Distrik Budaka
+    it: Budaka
+    ja: ブダカ県
+    kn: ಬುಡಕ ಜಿಲ್ಲೆ
+    ko: 부다카 구
+    mr: बुडाका जिल्हा
+    ms: Budaka District
+    nb: Budaka
+    nl: Budaka
+    pl: Dystrykt Budaka
+    pt: Budaka
+    ro: Districtul Budaka
+    ru: Будака
+    si: බුදකා දිස්ත්‍රික්කය
+    sr: Будака
+    sv: Budaka
+    sw: Wilaya ya Budaka
+    ta: படக்கா மாவட்டம்
+    te: బుడాాకా జిల్లా
+    th: เขตบูดากา
+    tr: Budaka District
+    ur: بوداکا ضلع
+    vi: Quận Budaka
+    lv: Budakas disrikts
+    ceb: Budaka District
+    sr_Latn: Budaka
+    lt: Budakos apskritis
+    zh: 布達卡區
+    ccp: "𑄝𑄪𑄘𑄇"
+    uk: Район Будака
+    'no': Budaka
+    fa: ناحیه بوداکا
+  type: district
+'218':
+  name: Bukwa
+  code: '218'
+  unofficial_names:
+  - Bukwa
+  geo:
+    latitude: 1.2938
+    longitude: 34.7396699
+  translations:
+    en: Bududa
+    ar: مقاطعة بودودا
+    bn: বুডোডা জেলা
+    da: Bududa District
+    de: Bududa-Distrikt
+    el: Μπουντούντα
+    es: Distrito de Bududa
+    fi: Bududan kaupunginosa
+    fr: Bududa
+    gl: Distrito Bududa
+    gu: બુદુડા જિલ્લો
+    hi: बुडूडा जिला
+    id: Distrik Bududa
+    it: Bududa
+    ja: ブドゥダ県
+    kn: ಬುದುಡಾ ಜಿಲ್ಲೆ
+    ko: 부두다 구
+    mr: बुदुडा जिल्हा
+    ms: Bududa District
+    nb: Bududa
+    nl: Bududa
+    pl: Dystrykt Bududa
+    pt: Bududa
+    ro: Districtul Bududa
+    ru: Будуда
+    si: බුඩුඩා දිස්ත්‍රික්කය
+    sv: Bududa
+    sw: Wilaya ya Bududa
+    ta: புடுடா மாவட்டம்
+    te: బుడూడా జిల్లా
+    th: บูดูดา ดิสทริค
+    tr: Bududa District
+    ur: بودودا ضلع
+    vi: Quận Bududa
+    lv: Bududas distrikts
+    ceb: Bududa District
+    lt: Bududos apskritis
+    zh: 布杜達區
+    ccp: "𑄝𑄪𑄘𑄪𑄘"
+    ml: ബുഡുഡ ജില്ല
+    uk: Район Будуда
+    ca: districte de Bududa
+    'no': Bududa
+    fa: ناحیه بودا
+  type: district
+'219':
+  name: Butaleja
+  code: '219'
+  unofficial_names:
+  - Butaleja
+  geo:
+    latitude: 0.9252009999999999
+    longitude: 33.945702
+  translations:
+    en: Bukedea
+    ar: ضاحية بوتليجا
+    bn: বুুতালেজে জেলা
+    da: Butaleja District
+    de: Butaleja-Distrikt
+    el: Μπουταλέτζα
+    es: Distrito de Butaleja
+    fi: Butalejan kaupunginosa
+    fr: Butaleja
+    gl: Distrito Butaleja
+    gu: બુટલેજા જિલ્લો
+    hi: बुटालिया जिला
+    id: Distrik Butaleja
+    it: Butaleja
+    ja: ブタレジャ県
+    kn: ಬುಟೇಲೆಜಾ ಜಿಲ್ಲೆ
+    ko: 부탈레자 구
+    mr: बोटलेजा जिल्हा
+    ms: Butaleja District
+    nb: Butaleja
+    nl: Butaleja
+    pl: Dystrykt Butaleja
+    pt: Butaleja
+    ro: Districtul Butaleja
+    ru: Буталеджа
+    si: බුටලේජා දිස්ත්‍රික්කය
+    sv: Butalejadistriktet
+    sw: Wilaya ya Butaleja
+    ta: பூட்லெஜா மாவட்டம்
+    te: బుల్టాలెజా జిల్లా
+    th: สเวติ อันดราส วี สโลเวนสเคอร์ โกริชาร์
+    tr: Butaleja District
+    ur: بوتالیجا ضلع
+    vi: Quận Butaleja
+    lv: Bukedea distrikts
+    ceb: Bukedea District
+    lt: Bukedėjos apskritis
+    zh: 布塔萊賈區
+    ccp: "𑄝𑄪𑄇𑄬𑄓𑄨𑄠"
+    ml: ബുകെഡിയ
+    uk: Район Букудеа
+    'no': Butaleja
+  type: district
+'220':
+  name: Kaliro
+  code: '220'
+  unofficial_names:
+  - Kaliro
+  geo:
+    latitude: 0.8927499
+    longitude: 33.5028005
+    min_latitude: 0.8857374
+    min_longitude: 33.4992672
+    max_latitude: 0.9000693999999999
+    max_longitude: 33.5104035
+  translations:
+    en: Bukwa
+    ar: مقاطعة كاليرو
+    bn: কালিরো জেলা
+    da: Kaliro District
+    de: Kaliro-Distrikt
+    el: Καλίρο
+    es: Distrito de Kaliro
+    fi: Kaliron kaupunginosa
+    fr: Kaliro
+    gl: Distrito Kaliro
+    gu: કાલિરો જિલ્લો
+    hi: कालीरो जिला
+    id: Distrik Kaliro
+    it: Kaliro
+    ja: カリロ県
+    kn: ಕಲಿಯೊ ಜಿಲ್ಲೆ
+    ko: 칼리로 구
+    mr: कालिरो जिल्हा
+    ms: Kaliro District
+    nb: Kaliro
+    nl: Kaliro
+    pl: Dystrykt Kaliro
+    pt: Kaliro
+    ro: Districtul Kaliro
+    ru: Калиро
+    si: කලිරෝ දිස්ත්‍රික්කය
+    sv: Kalirodistriktet
+    sw: Wilaya ya Kaliro
+    ta: களிரோ மாவட்டம்
+    te: కాలిరో జిల్లా
+    th: เขตคาริโร
+    tr: Kaliro District
+    ur: کالیرو ضلع
+    vi: Quận Bukwo
+    lv: Bukvo distrikts
+    ceb: Bukwa District
+    lt: Bukvo apskritis
+    zh: 布克瓦區
+    ccp: "𑄝𑄪𑄇𑄴𑄤"
+    uk: Район Букво
+    'no': Kaliro
+    fa: ناحیه بوکو
+    ga: Ceantar Bukwo
+  type: district
+'221':
+  name: Manafwa
+  code: '221'
+  unofficial_names:
+  - Manafwa
+  geo:
+    latitude: 0.9063599
+    longitude: 34.28660910000001
+    min_latitude: 0.7461110000000001
+    min_longitude: 34.165519
+    max_latitude: 1.0062541
+    max_longitude: 34.484844
+  translations:
+    en: Butaleja
+    ar: ضاحية منفوا
+    bn: মানাফাওয়া জেলা
+    da: Manafwa District
+    de: Manafwa-Distrikt
+    el: Μανάφουα
+    es: Distrito de Manafwa
+    fi: Manafwan kaupunginosa
+    fr: Manafwa
+    gl: Distrito Manafwa
+    gu: મનાફવા જિલ્લો
+    hi: मानफवा जिला
+    id: Distrik Manafwa
+    it: Manafwa
+    ja: マナフワ県
+    kn: ಮನಾಫ ಜಿಲ್ಲೆ
+    ko: 마나프와 구
+    mr: मणफावा जिल्हा
+    ms: Manafwa District
+    nb: Manafwa
+    nl: Manafwa
+    pl: Dystrykt Manafwa
+    pt: Manafwa
+    ro: Districtul Manafwa
+    ru: Манафва
+    si: මනෆ්වා දිස්ත්‍රික්කය
+    sv: Manafwadistriktet
+    sw: Wilaya ya Manafwa
+    ta: மனபிவா மாவட்டம்
+    te: మనాఫ్వా జిల్లా
+    th: รัฐตาบัสโก
+    tr: Manafwa District
+    ur: مانافوا ضلع
+    vi: Quận Manafwa
+    lv: Butaledžas distrikts
+    ceb: Butaleja District
+    lt: Butalėjos apskritis
+    zh: 馬納富阿區
+    ccp: "𑄝𑄪𑄑𑄣𑄬𑄎"
+    uk: Район Буталеджа
+    'no': Manafwa
+    fa: ناحیه بوتالجا
+  type: district
+'222':
+  name: Namutumba
+  code: '222'
+  unofficial_names:
+  - Namutumba
+  geo:
+    latitude: 0.8360898
+    longitude: 33.6860965
+    min_latitude: 0.8321851
+    min_longitude: 33.6810781
+    max_latitude: 0.8400807
+    max_longitude: 33.6882877
+  translations:
+    en: Kaliro
+    ar: مقاطعة كاليرو²
+    bn: কালিরো জেলা²
+    da: Kaliro District²
+    de: Kaliro-Distrikt²
+    el: Καλίρο²
+    es: Distrito de Kaliro²
+    fi: Kaliron kaupunginosa²
+    fr: Kaliro²
+    gl: Distrito Kaliro²
+    gu: કાલિરો જિલ્લો²
+    hi: कालीरो जिला²
+    id: Distrik Kaliro²
+    it: Kaliro²
+    ja: カリロ県²
+    kn: ಕಲಿಯೊ ಜಿಲ್ಲೆ²
+    ko: 칼리로 구²
+    mr: कालिरो जिल्हा²
+    ms: Kaliro District²
+    nb: Kaliro²
+    nl: Kaliro²
+    pl: Dystrykt Kaliro²
+    pt: Kaliro²
+    ro: Districtul Kaliro²
+    ru: Калиро²
+    si: කලිරෝ දිස්ත්‍රික්කය²
+    sv: Kalirodistriktet²
+    sw: Wilaya ya Kaliro²
+    ta: களிரோ மாவட்டம்²
+    te: కాలిరో జిల్లా²
+    th: เขตคาริโร²
+    tr: Kaliro District²
+    ur: ناموتومبا ضلع
+    vi: Quận Namutumba
+    lv: Kaliro distrikts
+    ceb: Kaliro District
+    lt: Kaliro apskritis
+    zh: 納穆通巴區
+    ccp: "𑄇𑄣𑄨𑄛𑄮"
+    uk: Район Каліро
+    'no': Kaliro²
+    fa: ناحیه کالیرو
+    ml: കലിരൊ ജില്ല
+  type: district
+'223':
+  name: Bududa
+  code: '223'
+  unofficial_names:
+  - Bududa
+  geo:
+    latitude: 1.0029693
+    longitude: 34.3338123
+    min_latitude: 0.9976026
+    min_longitude: 34.3259883
+    max_latitude: 1.011033
+    max_longitude: 34.3380904
+  translations:
+    en: Manafwa
+    ar: ضاحية منفوا²
+    bn: মানাফাওয়া জেলা²
+    da: Manafwa District²
+    de: Manafwa-Distrikt²
+    el: Μανάφουα²
+    es: Distrito de Manafwa²
+    fi: Manafwan kaupunginosa²
+    fr: Manafwa²
+    gl: Distrito Manafwa²
+    gu: મનાફવા જિલ્લો²
+    hi: मानफवा जिला²
+    id: Distrik Manafwa²
+    it: Manafwa²
+    ja: マナフワ県²
+    kn: ಮನಾಫ ಜಿಲ್ಲೆ²
+    ko: 마나프와 구²
+    mr: मणफावा जिल्हा²
+    ms: Manafwa District²
+    nb: Manafwa²
+    nl: Manafwa²
+    pl: Dystrykt Manafwa²
+    pt: Manafwa²
+    ro: Districtul Manafwa²
+    ru: Манафва²
+    si: මනෆ්වා දිස්ත්‍රික්කය²
+    sv: Manafwadistriktet²
+    sw: Wilaya ya Manafwa²
+    ta: மனபிவா மாவட்டம்²
+    te: మనాఫ్వా జిల్లా²
+    th: รัฐตาบัสโก²
+    tr: Manafwa District²
+    ur: مانافوا ضلع²
+    vi: Quận Manafwa²
+    lv: Manafvas distrikts
+    ceb: Manafwa District
+    lt: Manafvos apskritis
+    zh: 馬納富阿區²
+    ccp: "𑄟𑄚𑄛𑄴𑄤"
+    uk: Район Манафва
+    'no': Manafwa²
+    fa: ناحیه منافوا
+  type: district
+'224':
+  name: Bukedea
+  code: '224'
+  unofficial_names:
+  - Bukedea
+  geo:
+    latitude: 1.3475
+    longitude: 34.044444
+    min_latitude: 1.344586
+    min_longitude: 34.0401077
+    max_latitude: 1.3518796
+    max_longitude: 34.0469742
+  translations:
+    en: Namutumba
+    ar: مقاطعة بوكيدا
+    bn: বুকেডিয়া জেলা
+    da: Bukedea District
+    de: Bukedea-Distrikt
+    el: Μπουκέντεα
+    es: Distrito de Bukedea
+    fi: Bukedean kaupunginosa
+    fr: Bukedea
+    gl: Distrito Bukedea
+    gu: બુકેડી જિલ્લો
+    hi: बुकेडे जिला
+    id: Distrik Bukedea
+    it: Bukedea
+    ja: ブケデア県
+    kn: ಬುಕೆಡಿಯಾ ಜಿಲ್ಲೆ
+    ko: 부케데아 구
+    mr: बुकेडे जिल्हा
+    ms: Bukedea District
+    nb: Bukedea
+    nl: Bukedea
+    pl: Dystrykt Bukedea
+    pt: Bukedea
+    ro: Districtul Bukedea
+    ru: Букедеа
+    si: බුකේඩා දිස්ත්‍රික්කය
+    sv: Bukedeadistriktet
+    sw: Wilaya ya Bukedea
+    ta: புகேடேயா மாவட்டம்
+    te: బుకేడియా జిల్లా
+    th: เขตบูเคเดีย
+    tr: Buedea District
+    ur: بوکیدیا ضلع
+    vi: Quận Bukedea
+    lv: Namutumbas distrikts
+    ceb: Namutumba District
+    lt: Namutumbos apskritis
+    zh: 布凱德阿區
+    ccp: "𑄚𑄟𑄪𑄑𑄪𑄟𑄴𑄝"
+    uk: Район Намутумба
+    'no': Bukedea
+    fa: ناحیه ناموتومبا
+  type: district
+'225':
+  name: Bulambuli
+  code: '225'
+  translations:
+    ar: مقاطعة بولامبولي
+    bn: বুলামবুলি জেলা
+    da: Bulambuli District
+    de: Bulambuli-Distrikt
+    el: Μπουλαμπούλι
+    en: Bulambuli
+    es: Distrito de Bulambuli
+    fi: Bulambulin kaupunginosa
+    fr: Bulambuli
+    gl: Distrito Bulambuli
+    gu: બુલામ્બુલી જિલ્લો
+    hi: बुलम्बुली जिला
+    id: Distrik Bulambuli
+    it: Bulambuli
+    ja: ブランブリ県
+    kn: ಬುಲಂಬುಲಿ ಜಿಲ್ಲೆ
+    ko: 불람불리 구
+    mr: बुलमबुलि जिल्हा
+    ms: Bulambuli District
+    nb: Bulambuli
+    nl: Bulambuli
+    pl: Dystrykt Bulambuli
+    pt: Bulambuli
+    ru: Буламбули
+    si: බුලම්බුලි දිස්ත්‍රික්කය
+    sv: Bulambulidistriktet
+    ta: புலம்புலி மாவட்டம்
+    te: బులంబులి జిల్లా
+    th: จังหวัดเจาซ์จัน
+    tr: Bulambuli District
+    ur: بولامبولی ضلع
+    vi: Quận Bulambuli
+    lv: Bulambuli distrikts
+    ceb: Bulambuli District
+    lt: Bulambulio apskritis
+    zh: 布蘭布利區
+    ccp: "𑄝𑄪𑄣𑄟𑄴𑄝𑄪𑄣𑄨"
+    uk: Район Буламбулі
+    'no': Bulambuli
+    fa: ناحیه بولامبولی
+    sw: Wilaya ya Bulambuli
+  type: district
+'226':
+  name: Buyende
+  code: '226'
+  translations:
+    ar: مقاطعة بويندي
+    bn: বায়েন্ডি জেলা
+    da: Buyende
+    de: Distrikt Buyende
+    el: Μπουγέντε
+    en: Buyende
+    es: Distrito de Buyende
+    fi: Buyenden kaupunginosa
+    fr: Buyende
+    gl: Distrito Buyende
+    gu: બુયેંડે જિલ્લો
+    hi: बुयेंदे जिला
+    id: Distrik Buyende
+    it: Buyende
+    ja: ブイェンデ県
+    kn: ಬೈಂಡೆನ್ ಡಿಸ್ಟ್ರಿಕ್ಟ್
+    ko: 부옌데 구
+    mr: बायएंदे जिल्हा
+    ms: Daerah Buyende
+    nb: Buyende
+    nl: Buyende District
+    pl: Dystrykt Buyende
+    pt: Distrito de Buyende
+    ru: Буйенде
+    si: බයෙන්ඩෙ දිස්ත්‍රික්කය
+    sv: Buyende distriktet
+    ta: பூஎண்டே மாவட்டம்
+    te: బుయెండే జిల్లా
+    th: บูเยนเด
+    tr: Buyende District
+    ur: بوئیندے ضلع
+    vi: Quận Buyende
+    lv: Bujendes distrikts
+    ceb: Buyende District
+    lt: Bujendės apskritis
+    zh: 布延德區
+    ccp: "𑄝𑄪𑄠𑄬𑄚𑄴𑄓𑄨"
+    uk: Район Буйенде
+    'no': Buyende
+    sw: Wilaya ya Buyende
+  type: district
+'227':
+  name: Kibuku
+  code: '227'
+  translations:
+    ar: مقاطعة كيبوكو
+    bn: কিবুকো জেলা
+    da: Kibuku District
+    de: Kibuku Distrikt
+    el: Κιμπουκού
+    en: Kibuku
+    es: Distrito de Kibuku
+    fi: Kibukun kaupunginosa
+    fr: Kibuku
+    gl: Distrito Kibuku
+    gu: કિબુકુ જિલ્લો
+    hi: किबुकु जिला
+    id: Distrik Kibuku
+    it: Kibuku
+    ja: キブク県
+    kn: ಕಿಬುಕು ಜಿಲ್ಲೆ
+    ko: 키부쿠 구
+    mr: किबुकु जिल्हा
+    ms: Kibuku District
+    nb: Kibuku
+    nl: Kibuku District
+    pl: Dystrykt Kibuku
+    pt: Kibuku
+    ru: Кибуку
+    si: කිබුකු දිස්ත්‍රික්කය
+    sv: Kibukudistriktet
+    ta: கிபுக்கு மாவட்டம்
+    te: కిబుకు జిల్లా
+    th: คิบูคู
+    tr: Kibuku District
+    ur: کیبوکو ضلع
+    vi: Quận Kibuku
+    lv: Kibuku distrikts
+    ceb: Kibuku District
+    lt: Kibuku apskritis
+    zh: 基布庫區
+    ccp: "𑄇𑄨𑄝𑄪𑄇𑄪"
+    uk: Район Кібуку
+    'no': Kibuku
+    fa: ناحیه کیبوکو
+    sw: Wilaya ya Kibuku
+  type: district
+'228':
+  name: Kween
+  code: '228'
+  translations:
+    ar: مقاطعة كوين
+    bn: কিন জেলা
+    da: Kween District
+    de: Distrikt Kween
+    el: Κουήν
+    en: Kween
+    es: Distrito de Kween
+    fi: Kween kaupunginosa
+    fr: Kween
+    gl: Distrito Kween
+    gu: ક્વીન જિલ્લો
+    hi: क्वीन जिला
+    id: Distrik Kween
+    it: Kween
+    ja: クウェエン県
+    kn: ಕ್ವೀನ್ ಡಿಸ್ಟ್ರಿಕ್ಟ್
+    ko: 퀜 구
+    mr: केन जिल्हा
+    ms: Kween District
+    nb: Kween
+    nl: Kween
+    pl: Dystrykt Kween
+    pt: Distrito de Kween
+    ru: Квеен
+    si: කවීන් දිස්ත්‍රික්කය
+    sv: Kweendistriktet
+    ta: க்வென் மாவட்டம்
+    te: క్వీన్ జిల్లా
+    th: เขตควีน
+    tr: Kween District
+    ur: کوین ضلع
+    vi: Quận Kween
+    lv: Kvenas distrikts
+    ceb: Kween District
+    lt: Kvino apskritis
+    zh: 奎恩區
+    ccp: "𑄇𑄨𑄠𑄬𑄚𑄴"
+    uk: Район Квін
+    'no': Kween
+    fa: ناحیه کوین
+    he: קווין
+    sw: Wilaya ya Kween
+  type: district
+'229':
+  name: Luuka
+  code: '229'
+  translations:
+    ar: ضاحية لوكا
+    bn: লুকা জেলা
+    da: Luuka District
+    de: Luuka
+    el: Λουούκα
+    en: Luuka
+    es: Distrito de Luuka
+    fi: Luukan kaupunginosa
+    fr: Luuka
+    gl: Distrito Luuka
+    gu: લુકા જિલ્લો
+    hi: ल्युका जिला
+    id: Distrik Luuka
+    it: Luuka
+    ja: ルッカ県 (ウガンダ)
+    kn: ಲುಯುಕಾ ಜಿಲ್ಲೆ
+    ko: 루카 구
+    mr: लुका जिल्हा
+    ms: Luuka District
+    nb: Luuka
+    nl: Luuka
+    pl: Dystrykt Luuka
+    pt: Luuka
+    ru: Луука
+    si: ලුකා දිස්ත්‍රික්කය
+    sv: Luuka
+    ta: லுயூகா மாவட்டம்
+    te: ల్యూకా జిల్లా
+    th: เขตลูกา
+    tr: Luuka District
+    ur: کووکا ضلع
+    vi: Quận Luuka
+    lv: Lukas distrikts
+    ceb: Luuka District
+    lt: Lukos apskritis
+    zh: 盧卡區
+    ccp: "𑄣𑄫𑄇"
+    uk: Район Луука
+    'no': Luuka
+    fa: ناحیه لووکا
+    ml: ലൂക ജില്ല
+    sw: Wilaya ya Luuka
+  type: district
+'230':
+  name: Namayingo
+  code: '230'
+  translations:
+    ar: مقاطعة نامايينغو
+    bn: নামাইংগো জেলা
+    da: Namayingo District
+    de: Namayingo-Distrikt
+    el: Ναμαγίνγκο
+    en: Namayingo
+    es: Distrito de Namayingo
+    fi: Namayingon kaupunginosa
+    fr: Namayingo
+    gl: Distrito Namayingo
+    gu: નામાયિન્ગો જિલ્લો
+    hi: नमयिंगो जिला
+    id: Distrik Namayingo
+    it: Namayingo
+    ja: ナマインゴ県
+    kn: ನಾಮಾಯಿಂಗೋ ಜಿಲ್ಲೆ
+    ko: 나마잉고 구
+    mr: नमायणिंगो जिल्हा
+    ms: Namayingo District
+    nb: Namayingo
+    nl: Namayingo
+    pl: Dystrykt Namayingo
+    pt: Namayingo
+    ru: Намайинго
+    si: නමයින්ගෝ දිස්ත්‍රික්කය
+    sv: Namayingodistriktet
+    ta: நமயிங்கோ மாவட்டம்
+    te: నమాయింగో జిల్లా
+    th: นามายินโก
+    tr: Namayingo District
+    ur: نامائینگو ضلع
+    vi: Quận Namayingo
+    lv: Namajingo distrikts
+    ceb: Namayingo District
+    lt: Namajingo apskritis
+    zh: 納馬因戈區
+    ccp: "𑄚𑄟𑄨𑄠𑄨𑄁𑄉𑄮"
+    uk: Район Намеїнго
+    'no': Namayingo
+    sw: Wilaya ya Namayingo
+  type: district
+'231':
+  name: Ngora
+  code: '231'
+  translations:
+    ar: مقاطعة نغورا
+    bn: নাগোরা জেলা
+    da: Ngora District
+    de: Distrikt Ngora
+    el: Νγκόρα
+    en: Ngora
+    es: Distrito de Ngora
+    fi: Ngoran kaupunginosa
+    fr: Ngora
+    gl: Distrito Ngora
+    gu: નગોરા જિલ્લો
+    hi: गोरा जिला
+    id: Distrik Ngora
+    it: Ngora
+    ja: ンゴラ県
+    kn: ಎನ್ಗೋರಾ ಜಿಲ್ಲೆ
+    ko: 응고라 구
+    mr: नागोरा जिल्हा
+    ms: Daerah Ngora
+    nb: Ngora
+    nl: Ngora
+    pl: Dystrykt Ngora
+    pt: Distrito de Ngora
+    ru: Нгора
+    si: එන්ගොරා දිස්ත්‍රික්කය
+    sv: Ngora distriktet
+    ta: ங்கோரா மாவட்டம்
+    te: ఎన్గోరా జిల్లా
+    th: เขตโงร่า
+    tr: Ngora District
+    ur: نگورا ضلع
+    vi: Quận Ngora
+    lv: Ngoras distrikts
+    ceb: Ngora District
+    lt: Ngoros apskritis
+    zh: 恩戈拉區
+    ccp: "𑄉𑄮𑄢"
+    uk: Район Нгора
+    'no': Ngora
+    fa: ناحیه نگورا
+    sw: Wilaya ya Ngora
+  type: district
+'232':
+  name: Serere
+  code: '232'
+  translations:
+    ar: مقاطعة سيرير
+    bn: সেরে জেলা
+    da: Serere District
+    de: Distrikt Serere
+    el: Σερέρε
+    en: Serere
+    es: Distrito de Serere
+    fi: Sereren kaupunginosa
+    fr: Serere
+    gl: Distrito Serere
+    gu: સેરેરે જિલ્લો
+    hi: सेरेरे जिला
+    id: Distrik Serere
+    it: Serere
+    ja: セレレ県
+    kn: ಸೆರೆರೆ ಜಿಲ್ಲೆ
+    ko: 세레레 구
+    mr: सेरे जिल्हा
+    ms: Serere District
+    nb: Serere
+    nl: Serere
+    pl: Dystrykt Serere
+    pt: Distrito de Serere
+    ru: Серере
+    si: සේරෙරේ දිස්ත්‍රික්කය
+    sv: Serere distriktet
+    ta: சேரேறே மாவட்டம்
+    te: సెరెరి జిల్లా
+    th: เขตเซเลเล่
+    tr: Serere District
+    ur: سیریرے ضلع
+    vi: Quận Serere
+    lv: Sereres distrikts
+    ceb: Serere District
+    lt: Sererės apskritis
+    zh: 塞雷雷區
+    ccp: "𑄥𑄬𑄢𑄬𑄢𑄴"
+    uk: Район Серере
+    'no': Serere
+    fa: ناحیه سرره
+    sw: Wilaya ya Serere
+  type: district
+'233':
+  name: Butebo
+  code: '233'
+  geo:
+    latitude: 1.373333
+    longitude: 32.290275
+    min_latitude: -1.4823178
+    min_longitude: 29.573433
+    max_latitude: 4.218628
+    max_longitude: 35.0330489
+  translations:
+    ja: ブテボ県
+    en: Butebo
+    de: Distrikt Butebo
+    fa: ناحیه بوتبو
+    nl: Butebo (district)
+    sw: Wilaya ya Butebo
+  type: district
+'234':
+  name: Namisindwa
+  code: '234'
+  geo:
+    latitude: 1.373333
+    longitude: 32.290275
+    min_latitude: -1.4823178
+    min_longitude: 29.573433
+    max_latitude: 4.218628
+    max_longitude: 35.0330489
+  translations:
+    ja: ナミシンドワ県
+    en: Namisindwa
+    de: Distrikt Namisindwa
+    nl: Namisindwa (district)
+    sw: Wilaya ya Namisindwa
+  type: district
+'235':
+  name: Bugweri
+  code: '235'
+  geo:
+    latitude: 1.373333
+    longitude: 32.290275
+    min_latitude: -1.4823178
+    min_longitude: 29.573433
+    max_latitude: 4.218628
+    max_longitude: 35.0330489
+  translations:
+    en: Bugweri
+    ja: ブグウェリ県
+  type: district
+'236':
+  name: Kapelebyong
+  code: '236'
+  geo:
+    latitude: 1.373333
+    longitude: 32.290275
+    min_latitude: -1.4823178
+    min_longitude: 29.573433
+    max_latitude: 4.218628
+    max_longitude: 35.0330489
+  translations:
+    en: Kapelebyong
+    ja: カペレビョン県
+  type: district
+'237':
+  translations:
+    en: Kalaki
+    de: Kalaki-Distrikt
+    ja: カラキ県
+    nl: Kalaki
+  name: Kalaki
+  code: '237'
+  type: district
+'301':
+  name: Adjumani
+  code: '301'
+  unofficial_names:
+  - Adjumani
+  geo:
+    latitude: 3.384444
+    longitude: 31.781944
+    min_latitude: 3.3578541
+    min_longitude: 31.763835
+    max_latitude: 3.3905632
+    max_longitude: 31.8085957
+  translations:
+    en: Adjumani
+    ar: مقاطعة أديوماني
+    bn: এডজুমানি জেলা
+    da: Adjumani District
+    de: Distrikt Adjumani
+    el: Ατζουμάνι
+    es: Distrito de Adjumani
+    fa: منطقه اجومانی
+    fi: Adjumanin kaupunginosa
+    fr: Adjumani
+    gu: અડ્જુમાની જિલ્લો
+    hi: अंजुमनी जिला
+    id: Distrik Adjumani
+    it: Adjumani
+    ja: アジュマニ県
+    kn: ಅಡ್ಜುಮಾನಿ ಜಿಲ್ಲೆ
+    ko: 아주마니 구
+    mr: आडुमाणी जिल्हा
+    ms: Adjumani District
+    nb: Adjumani
+    nl: Adjumani
+    pl: Dystrykt Adjumani
+    pt: Adjumani
+    ro: Districtul Adjumani
+    ru: Аджумани
+    si: අජුමනි නගර සභාව
+    sv: Adjumani (distrikt)
+    sw: Wilaya ya Adjumani
+    ta: லாட்ஜுமணி மாவட்டம்
+    te: అడ్జూమాని జిల్లా
+    th: เขตแอดจูมานิ
+    tr: Adjumani District
+    ur: ادجومانی ضلع
+    vi: Quận Adjumani
+    lv: Adžumani distrikts
+    ceb: Adjumani District
+    lt: Adžumanio apskritis
+    zh: 阿朱馬尼區
+    ccp: "𑄃𑄌𑄴𑄎𑄪𑄟𑄚𑄨"
+    uk: Район Аджумані
+    'no': Adjumani
+  type: district
+'302':
+  name: Apac
+  code: '302'
+  unofficial_names:
+  - Apac
+  geo:
+    latitude: 1.983333
+    longitude: 32.533333
+    min_latitude: 1.9798057
+    min_longitude: 32.5274278
+    max_latitude: 1.9909571
+    max_longitude: 32.5391007
+  translations:
+    en: Apac
+    ar: إقليم أباك
+    bn: এপাক জেলা
+    da: Apac District
+    de: Distrikt Apac
+    el: Απάκ
+    es: Distrito de Apac
+    fi: Apacin kaupunginosa
+    fr: Apac
+    gu: એપેક જિલ્લો
+    hi: अपाक जिला
+    id: Distrik Apac
+    it: Apac
+    ja: アパッチ県
+    kn: ಅಪಾಕ್ ಜಿಲ್ಲೆ
+    ko: 아파크 구
+    mr: अपॅक जिल्हा
+    ms: Apac District
+    nb: Apac
+    nl: Apac
+    pl: Dystrykt Apac
+    pt: Apac
+    ro: Districtul Apac
+    ru: Апак
+    si: ඇපක් දිස්ත්‍රික්කය
+    sv: Apac distriktet
+    sw: Wilaya ya Apac
+    ta: அபக் மாவட்டம்
+    te: అపాక్ జిల్లా
+    th: เขตเอแพค
+    tr: Apac District
+    ur: اپاک ضلع
+    vi: Quận Apac
+    lv: Apaka distrikts
+    ceb: Apac District
+    lt: Apako apskritis
+    zh: 阿帕克區
+    ccp: "𑄃𑄬𑄛𑄇𑄴"
+    uk: Район Апак
+    'no': Apac
+    fa: ناحیه آپاک
+  type: district
+'303':
+  name: Arua
+  code: '303'
+  unofficial_names:
+  - Arua
+  geo:
+    latitude: 3.038333
+    longitude: 30.910833
+    min_latitude: 2.980156
+    min_longitude: 30.8827865
+    max_latitude: 3.0597949
+    max_longitude: 30.9381553
+  translations:
+    en: Arua
+    ar: مقاطعة أروا
+    bn: আরুয়া জেলা
+    da: Arua District
+    de: Distrikt Arua
+    el: Αρούα
+    es: Distrito de Arua
+    fi: Aruan kaupunginosa
+    fr: Arua
+    gu: આરૂઆ જિલ્લો
+    hi: अरुआ जिला
+    id: Distrik Arua
+    it: Arua
+    ja: アルア県
+    kn: ಅರುವಾ ಜಿಲ್ಲೆ
+    ko: 아루아 구
+    mr: अरुआ जिल्हा
+    ms: Arua District
+    nb: Arua
+    nl: Arua
+    pl: Dystrykt Arua
+    pt: Arua
+    ro: Districtul Arua
+    ru: Аруа
+    si: අරුවා දිස්ත්‍රික්කය
+    sv: Aruadistriktet
+    sw: Wilaya ya Arua
+    ta: ஆர்உஆ மாவட்டம்
+    te: ఆరువా జిల్లా
+    th: เขตอรัว
+    tr: Arua District
+    ur: اروا ضلع
+    vi: Quận Arua
+    lv: Arua distikts
+    ceb: Arua District
+    lt: Arua apskritis
+    zh: 阿魯阿區
+    ccp: "𑄃𑄢𑄪𑄠"
+    uk: Район Аруа
+    'no': Arua
+    fa: ناحیه آروا
+  type: district
+'304':
+  name: Gulu
+  code: '304'
+  unofficial_names:
+  - Gulu
+  geo:
+    latitude: 2.78
+    longitude: 32.3
+    min_latitude: 2.7299274
+    min_longitude: 32.2442722
+    max_latitude: 2.8207154
+    max_longitude: 32.33164790000001
+  translations:
+    en: Gulu
+    ar: ضاحية غولو
+    bn: গুলো জেলা
+    da: Gulu District
+    de: Distrikt Gulu
+    el: Γκουλού
+    es: Distrito de Gulu
+    fi: Gulun kaupunginosa
+    fr: Gulu
+    gu: ગુલુ જિલ્લો
+    hi: गुलू जिला
+    id: Distrik Gulu
+    it: Gulu
+    ja: グル県
+    kn: ಗುಲು ಜಿಲ್ಲೆ
+    ko: 굴루 구
+    mr: गुलू जिल्हा
+    ms: Gulu District
+    nb: Gulu
+    nl: Gulu (district)
+    pl: Dystrykt Gulu
+    pt: Gulu
+    ro: Districtul Gulu
+    ru: Гулу
+    si: ගුළු දිස්ත්‍රික්කය
+    sv: Gulu
+    sw: Wilaya ya Gulu
+    ta: குலு மாவட்டம்
+    te: గులు జిల్లా
+    th: เขตกูลู
+    tr: Gulu District
+    ur: گولو ضلع
+    vi: Quận Gulu
+    lv: Gulu distrikts
+    ceb: Gulu District
+    lt: Gulu apskritis
+    zh: 古盧區
+    ccp: "𑄉𑄪𑄣𑄪"
+    uk: Гулу
+    'no': Gulu
+    fa: ناحیه گولو
+  type: district
+'305':
+  name: Kitgum
+  code: '305'
+  unofficial_names:
+  - Kitgum
+  geo:
+    latitude: 3.2884847
+    longitude: 32.8789499
+    min_latitude: 3.271503
+    min_longitude: 32.8665876
+    max_latitude: 3.311252
+    max_longitude: 32.8989887
+  translations:
+    en: Kitgum
+    ar: مقاطعة كيتجوم
+    bn: কিটগাম জেলা
+    da: Kitgum District
+    de: Distrikt Kitgum
+    el: Κιτγκούμ
+    es: Distrito de Kitgum
+    fi: Kitgumin kaupunginosa
+    fr: Kitgum
+    gu: કિટગમ જિલ્લો
+    hi: किटगूं जिला
+    id: Distrik Kitgum
+    it: distretto di Kitgum
+    ja: キトゥグム県
+    kn: ಕಿಟ್ಗುಮ್ ಜಿಲ್ಲೆ
+    ko: 키트굼 구
+    mr: किटगूम जिल्हा
+    ms: Mukim Kitgum
+    nb: Kitgum
+    nl: Kitgum
+    pl: Dystrykt Kitgum
+    pt: Distrito de Kitgum
+    ro: Districtul Kitgum
+    ru: Китгум
+    si: කිට්ගම් දිස්ත්‍රික්කය
+    sv: Kitgum
+    sw: Wilaya ya Kitgum
+    ta: கிட்கும் மாவட்டம்
+    te: కిట్గుమ్ జిల్లా
+    th: อำเภอคิตกัม
+    tr: Kitgum District
+    ur: کتگوم ضلع
+    vi: Quận Kitgum
+    lv: Kitgumas distrikts
+    ceb: Kitgum District
+    lt: Kitgumo apskritis
+    zh: 基特古姆區
+    ccp: "𑄇𑄨𑄖𑄴𑄉𑄟𑄴"
+    uk: Район Кітгум
+    'no': Kitgum
+    fa: ناحیه کیتگوم
+  type: district
+'306':
+  name: Kotido
+  code: '306'
+  unofficial_names:
+  - Kotido
+  geo:
+    latitude: 3.006111
+    longitude: 34.1125
+    min_latitude: 2.9930987
+    min_longitude: 34.101026
+    max_latitude: 3.0211803
+    max_longitude: 34.1233742
+  translations:
+    en: Kotido
+    ar: مقاطعة كوتيدو
+    bn: কুতিডু জেলা
+    da: Kotido District
+    de: Kotido-Distrikt
+    el: Κοτίντο
+    es: Distrito de Kotido
+    fi: Kotidon kaupunginosa
+    fr: Kotido
+    gu: કોટીડો જિલ્લો
+    hi: कोतिविभाग जिला
+    id: Distrik Kotido
+    it: Kotido
+    ja: コティド県
+    kn: ಕೋಟಿಡೊ ಜಿಲ್ಲೆ
+    ko: 코티도 구
+    mr: कोतोदो जिल्हा
+    ms: Kotido District
+    nb: Kotido
+    nl: Kotido
+    pl: Dystrykt Kotido
+    pt: Distrito de Kotido
+    ro: Districtul Kotido
+    ru: Котидо
+    si: කොටිඩෝ දිස්ත්‍රික්කය
+    sv: Kotidodistriktet
+    sw: Wilaya ya Kotido
+    ta: கொடிடோ மாவட்டம்
+    te: కోటిడో జిల్లా
+    th: อำเภอโกติโด
+    tr: Kotido District
+    ur: کوتیدو ضلع
+    vi: Quận Kotido
+    lv: Kotido distrikts
+    ceb: Kotido District
+    lt: Kotido apskritis
+    zh: 科蒂多區
+    ccp: "𑄇𑄮𑄑𑄨𑄓𑄮"
+    uk: Район Котідо
+    'no': Kotido
+    fa: ناحیه کوتیدو
+  type: district
+'307':
+  name: Lira
+  code: '307'
+  unofficial_names:
+  - Lira
+  geo:
+    latitude: 2.247222
+    longitude: 32.9
+    min_latitude: 2.2199915
+    min_longitude: 32.8629635
+    max_latitude: 2.2770474
+    max_longitude: 32.9197788
+  translations:
+    en: Lira
+    ar: مقاطعة ليرا
+    bn: লিরা জেলা
+    da: Lira District
+    de: Distrikt Lira
+    el: Λίρα
+    es: Distrito de Lira
+    fi: Liran kaupunginosa
+    fr: Lira
+    gu: લીરા જિલ્લો
+    hi: लीरा जिला
+    id: Distrik Lira
+    it: distretto di Lira
+    ja: リラ県
+    kn: ಲಿರಾ ಜಿಲ್ಲೆ
+    ko: 리라 구
+    mr: लीरा जिल्हा
+    ms: Lira District
+    nb: Lira
+    nl: Lira
+    pl: Dystrykt Lira
+    pt: Lira
+    ro: Districtul Lira
+    ru: Лира
+    si: ලිරා දිස්ත්‍රික්කය
+    sv: Liradistriktet
+    sw: Wilaya ya Lira
+    ta: லிரா மாவட்டம்
+    te: లీరా జిల్లా
+    th: อำเภอลิรา
+    tr: Lira District
+    ur: لیرا ضلع
+    vi: Quận Lira
+    lv: Liras distrikts
+    ceb: Lira District
+    lt: Liros apskritis
+    zh: 利拉區
+    ccp: "𑄣𑄨𑄢"
+    ml: ലിറ ജില്ല
+    uk: Район Ліра
+    'no': Lira
+    be: акруга Ліра
+    fa: ناحیه لیرا
+  type: district
+'308':
+  name: Moroto
+  code: '308'
+  unofficial_names:
+  - Moroto
+  geo:
+    latitude: 2.53
+    longitude: 34.67
+    min_latitude: 2.518148
+    min_longitude: 34.6501924
+    max_latitude: 2.5395847
+    max_longitude: 34.6737099
+  translations:
+    en: Moroto
+    ar: مقاطعة موروتو
+    bn: মুরোতু জেলা
+    da: Moroto District
+    de: Moroto-Distrikt
+    el: Μορότο
+    es: Distrito de Moroto
+    fi: Moroton piirikunta
+    fr: Moroto
+    gl: Distrito Moroto
+    gu: મોરોટો જિલ્લો
+    he: מחוז מורוטו
+    hi: मोरोटो जिला
+    id: Distrik Moroto
+    it: Moroto
+    ja: モロト県
+    kn: ಮೊರೊಟೊ ಜಿಲ್ಲೆ
+    ko: 모로토 구
+    mr: मोरोतो जिल्हा
+    ms: Moroto District
+    nb: Moroto
+    nl: Moroto
+    pl: Dystrykt Moroto
+    pt: Moroto
+    ro: Districtul Moroto
+    ru: Морото
+    si: මොරොටෝ දිස්ත්‍රික්කය
+    sv: Morotodistriktet
+    sw: Wilaya ya Moroto
+    ta: மோரோடோ மாவட்டம்
+    te: మొరోటో జిల్లా
+    th: เขตโมโรโต้
+    tr: Morota District
+    ur: موروتو ضلع
+    vi: Quận Moroto
+    lv: Moroto distrikts
+    ceb: Moroto District
+    lt: Moroto apskritis
+    zh: 莫羅托區
+    ccp: "𑄟𑄮𑄢𑄮𑄑𑄮"
+    uk: Район Морото
+    'no': Moroto
+    fa: ناحیه موروتو
+  type: district
+'309':
+  name: Moyo
+  code: '309'
+  unofficial_names:
+  - Moyo
+  geo:
+    latitude: 3.655
+    longitude: 31.72
+    min_latitude: 3.6419376
+    min_longitude: 31.7107917
+    max_latitude: 3.6649148
+    max_longitude: 31.7376995
+  translations:
+    en: Moyo
+    ar: مقامويو
+    bn: ময়ো জেলা
+    da: Moyo District
+    de: Moyo-Distrikt
+    el: Μόγιο
+    es: Distrito de Moyo
+    fi: Moyon piirikunta
+    fr: Moyo
+    gl: Distrito Moyo
+    gu: મોયો જિલ્લો
+    hi: मोयो जिला
+    id: Distrik Moyo
+    it: Moyo
+    ja: モヨ県
+    kn: ಮೊಯೋ ಜಿಲ್ಲೆ
+    ko: 모요 구
+    mr: मोओ जिल्हा
+    ms: Moyo District
+    nb: Moyo
+    nl: Moyo
+    pl: Dystrykt Moyo District
+    pt: Moyo
+    ro: Districtul Moyo
+    ru: Мойо
+    si: මොයෝ දිස්ත්‍රික්කය
+    sv: Moyodistriktet
+    sw: Wilaya ya Moyo
+    ta: மொயோ மாவட்டம்
+    te: మోయో జిల్లా
+    th: เขตโมโย
+    tr: Moyo District
+    ur: مویو ضلع
+    vi: Quận Moyo
+    lv: Mojo distrikts
+    ceb: Moyo District
+    lt: Mojo apskritis
+    zh: 莫約區
+    ccp: "𑄟𑄮𑄠𑄮"
+    uk: Район Мойо
+    'no': Moyo
+    fa: ناحیه موویو
+  type: district
+'310':
+  name: Nebbi
+  code: '310'
+  unofficial_names:
+  - Nebbi
+  geo:
+    latitude: 2.479167
+    longitude: 31.09
+    min_latitude: 2.4683704
+    min_longitude: 31.07337
+    max_latitude: 2.4935382
+    max_longitude: 31.1025953
+  translations:
+    en: Nebbi
+    ar: مقاطعة نيبي
+    bn: নেবি জেলা
+    da: Nebbi District
+    de: Nebbi-Distrikt
+    el: Νέμπι
+    es: Distrito de Nebbi
+    fi: Nebbin piirikunta
+    fr: Nebbi
+    gl: Distrito Nebbi
+    gu: નેબી જિલ્લો
+    hi: नेबी जिला
+    id: Distrik Nebbi
+    it: Nebbi
+    ja: ネビ県
+    kn: ನೆಬಿ ಜಿ
+    ko: 네비 구
+    mr: नेबबी जिल्हा
+    ms: Nebbi District
+    nb: Nebbi
+    nl: Nebbi
+    pl: Dystrykt Nebbi
+    pt: Nebbi
+    ro: Districtul Nebbi
+    ru: Небби
+    si: නෙබ්බි දිස්ත්‍රික්කය
+    sv: Nebbidistriktet
+    sw: Wilaya ya Nebbi
+    ta: நேப்பி மாவட்டம்
+    te: నెబ్బి జిల్లా
+    th: อำเภอเน็บบี
+    tr: Nebbi District
+    ur: نیبی ضلع
+    vi: Quận Nebbi
+    lv: Nebi distrikts
+    ceb: Nebbi District
+    lt: Nebio apskritis
+    zh: 內比區
+    ccp: "𑄚𑄬𑄝𑄳𑄦𑄨"
+    uk: Район Неббі
+    'no': Nebbi
+    fa: ناحیه نبی
+  type: district
+'311':
+  name: Nakapiripirit
+  code: '311'
+  unofficial_names:
+  - Nakapiripirit
+  geo:
+    latitude: 1.8502515
+    longitude: 34.7215859
+    min_latitude: 1.8424673
+    min_longitude: 34.7171401
+    max_latitude: 1.8577372
+    max_longitude: 34.7301005
+  translations:
+    en: Nakapiripirit
+    ar: مقاطعة ناكابيريبيريت
+    bn: নাকাপিরিপিরিত জেলা
+    da: Nakapiripirit District
+    de: Nakapiripirit-Distrikt
+    el: Νακαπιριπιρίτ
+    es: Distrito de Nakapiripirit
+    fi: Nakapiripiritin kaupunginosa
+    fr: Nakapiripirit
+    gl: Distrito Nakapiripirit
+    gu: નકાપિરિપિરિટ જિલ્લો
+    he: נאקאפיריפירית
+    hi: नकापीरिपिरित जिला
+    id: Distrik Nakapiripirit
+    it: Nakapiripirit
+    ja: ナカピリピリ県
+    kn: ನಕಾಪಿರಿಪಿತ್ ಜಿಲ್ಲೆ
+    ko: 나카피리피리트 구
+    mr: नक्षीरिपिर जिल्हा
+    ms: Nakapiripirit District
+    nb: Nakapiripirit
+    nl: Nakapiripirit
+    pl: Dystrykt Nakapiripirit
+    pt: Nakapiripirit
+    ro: Districtul Nakapiripirit
+    ru: Накапирипирит
+    si: නකපිරිපිරිට් දිස්ත්‍රික්කය
+    sv: Nakapiripirit (distrikt)
+    sw: Wilaya ya Nakapiripirit
+    ta: நாகப்பிரிப்பிரிட் மாவட்டம்
+    te: నాకాపిరిపిరిట్ జిల్లా
+    th: เอนเนดี
+    tr: Nakapiripirit District
+    ur: ناکاپیریپیریت ضلع
+    vi: Quận Nakapiripirit
+    lv: Nakapiripiritas distrikts
+    ceb: Nakapiripirit District
+    lt: Nakapiripirito apskritis
+    zh: 納卡皮里皮里特區
+    ccp: "𑄚𑄇𑄛𑄨𑄢𑄨𑄛𑄨𑄢𑄨𑄖𑄴"
+    uk: Район Накапіріпіріт
+    'no': Nakapiripirit
+    fa: ناحیه ناکاپیریپیریت
+  type: district
+'312':
+  name: Pader
+  code: '312'
+  unofficial_names:
+  - Pader
+  geo:
+    latitude: 2.881111
+    longitude: 33.086389
+    min_latitude: 2.8723218
+    min_longitude: 33.0796623
+    max_latitude: 2.8881804
+    max_longitude: 33.0921077
+  translations:
+    en: Pader
+    de: Distrikt Pader
+    es: Distrito de Pader
+    fr: Pader
+    gl: Distrito Pader
+    it: Pader
+    ja: パデル県
+    ko: 파데르 구
+    nb: Pader
+    nl: Pader
+    ro: Districtul Pader
+    ru: Падер
+    sv: Pader (distrikt)
+    sw: Wilaya ya Pader
+    ur: پادیر ضلع
+    ceb: Pader District
+    zh: 帕德爾區
+    ccp: "𑄛𑄓𑄬𑄢𑄴"
+    'no': Pader
+    fa: ناحیه پدر
+    id: Distrik Pader
+    ml: പടെർ ജില്ല
+  type: district
+'313':
+  name: Yumbe
+  code: '313'
+  unofficial_names:
+  - Yumbe
+  geo:
+    latitude: 3.466667
+    longitude: 31.25
+    min_latitude: 3.4607329
+    min_longitude: 31.238594
+    max_latitude: 3.4764325
+    max_longitude: 31.2558459
+  translations:
+    en: Yumbe
+    ar: مقاطعة يومبي
+    bn: ইউম্বে জেলা
+    da: Yumbe District
+    de: Yumbe-Distrikt
+    el: Γιούμπε
+    es: Distrito de Yumbe
+    fi: Yumben piirikunta
+    fr: Yumbe
+    gl: Distrito Yumbe
+    gu: યુમ્બે જિલ્લો
+    hi: युम्बे जिला
+    id: Distrik Yumbe
+    it: Yumbe
+    ja: ユンベ県
+    kn: ಯುಂಬೆ ಜಿಲ್ಲೆ
+    ko: 윰베 구
+    mr: यमबे जिल्हा
+    ms: Yumbe District
+    nb: Yumbe
+    nl: Yumbe
+    pl: Dystrykt Yumbe
+    pt: Distrito de Yumbe
+    ro: Districtul Yumbe
+    ru: Йумбе
+    si: යුඹේ දිස්ත්‍රික්කය
+    sv: Yumbe distriktet
+    sw: Wilaya ya Yumbe
+    ta: யும்பெ மாவட்டம்
+    te: యుంబే జిల్లా
+    th: เขตยัมบิ
+    tr: Yumbe district
+    ur: یومبے ضلع
+    vi: Quận Yumbe
+    lv: Jumbes distrikts
+    ceb: Yumbe District
+    lt: Jumbės apskritis
+    zh: 永貝區
+    ccp: "𑄃𑄨𑄠𑄮𑄟𑄴𑄝𑄬"
+    uk: Район Юмбе
+    'no': Yumbe
+    fa: ناحیه یومبه
+  type: district
+'314':
+  name: Amolatar
+  code: '314'
+  unofficial_names:
+  - Amolatar
+  geo:
+    latitude: 1.6329923
+    longitude: 32.8183226
+    min_latitude: 1.6298765
+    min_longitude: 32.8126432
+    max_latitude: 1.6377698
+    max_longitude: 32.8252603
+  translations:
+    en: Abim
+    ar: مقاطعة أبيم
+    bn: আবিম জেলা
+    da: Abim District
+    de: Abim-Distrikt
+    el: Αμπίμ
+    es: Distrito de Abim
+    fa: منطقه ابیم
+    fi: Abimin kaupunginosa
+    fr: Abim
+    gl: Distrito Abim
+    gu: અબિમ જિલ્લો
+    he: אבים
+    hi: एबिम जिला
+    id: Distrik Abim
+    it: Abim
+    ja: アビム県
+    kn: ಅಬಿಮ್ ಜಿಲ್ಲೆ
+    ko: 아빔 구
+    mr: अबिम जिल्हा
+    ms: Abim District
+    nb: Abim
+    nl: Abim
+    pl: Dystrykt Abim
+    pt: Abim
+    ro: Districtul Abim
+    ru: Абим
+    si: අබිම් දිස්ත්‍රික්කය
+    sv: Abimdistriktet
+    sw: Wilaya ya Abim
+    ta: அபின் மாவட்டம்
+    te: అబిమ్ జిల్లా
+    th: อบิม
+    tr: Abim District
+    ur: ابیم ضلع
+    vi: Quận Abim
+    lv: Abimas distrikts
+    ceb: Abim District
+    lt: Abimo apskritis
+    zh: 阿比姆區
+    ccp: "𑄃𑄝𑄨𑄟𑄴"
+    ml: അബിം ജില്ല
+    uk: Район Абім
+    'no': Abim
+  type: district
+'315':
+  name: Kaabong
+  code: '315'
+  unofficial_names:
+  - Kaabong
+  geo:
+    latitude: 3.5124436
+    longitude: 34.1337219
+    min_latitude: 3.5059357
+    min_longitude: 34.1279876
+    max_latitude: 3.5195678
+    max_longitude: 34.1406263
+  translations:
+    en: Amolatar
+    ar: مقاطعة أمولاتار
+    bn: আমোলাতার জেলা
+    da: Amolatar District
+    de: Distrikt Amolatar
+    el: Αμολατάρ
+    es: Distrito de Amolatar
+    fa: بخش امولاتار
+    fi: Amolatarin kaupunginosa
+    fr: Amolatar
+    gu: એમોલટર જિલ્લો
+    hi: अमोलातार जिला
+    id: Distrik Amolatar
+    it: Amolatar
+    ja: アモラタル県
+    kn: ಅಮೋಲಾತರ್ ಜಿಲ್ಲೆ
+    ko: 아몰라타르 구
+    mr: अमोलार जिल्हा
+    ms: Amolatar District
+    nb: Amolatar
+    nl: Amolatar
+    pl: Dystrykt Amolatar
+    pt: Distrito de Amolatar
+    ro: Districtul Kaabong
+    ru: Каабонг
+    si: කාබොන්ග් දිස්ත්‍රික්කය
+    sv: Kaabongdistriktet
+    sw: Wilaya ya Kaabong
+    ta: காபோங் மாவட்டம்
+    te: కాబాంగ్ జిల్లా
+    th: การ์บง
+    tr: Kaabong Distrisct
+    ur: کآبونگ ضلع
+    vi: Quận Kaabong
+    lv: Amolataras distrikts
+    ceb: Amolatar District
+    lt: Amolataro apskritis
+    zh: 卡邦區
+    ccp: "𑄃𑄟𑄮𑄣𑄑𑄢𑄴"
+    uk: Амолатар
+    'no': Amolatar
+  type: district
+'316':
+  name: Koboko
+  code: '316'
+  unofficial_names:
+  - Koboko
+  geo:
+    latitude: 3.41
+    longitude: 30.95999999999999
+    min_latitude: 3.3891923
+    min_longitude: 30.938208
+    max_latitude: 3.4341307
+    max_longitude: 30.98374129999999
+  translations:
+    en: Amuru
+    ar: مقاطعة أمورو
+    be: Кабака
+    bn: আমুরু জেলা
+    da: Amuru District
+    de: Amuru-Distrikt
+    el: Αμουρού
+    es: Distrito de Amuru
+    fa: بخش امورو
+    fi: Amurun kaupunginosa
+    fr: Amuru
+    gu: અમુરુ જિલ્લો
+    hi: अमुरु जिला
+    id: Distrik Amuru
+    it: Amuru
+    ja: アムル県
+    kn: ಅಮುರು ಜಿಲ್ಲೆ
+    ko: 아무루 구
+    mr: अमरु जिल्हा
+    ms: Daerah Amuru
+    nb: Amuru
+    nl: Amuru
+    pl: Dystrykt Amuru
+    pt: Distrito de Amuru
+    ro: Districtul Amuru
+    ru: Амуру
+    si: අමුරු දිස්ත්‍රික්කය
+    sv: Amuru
+    sw: Wilaya ya Amuru
+    ta: அமுரி மாவட்டம்
+    te: అమూరు జిల్లా
+    th: เขตอมูรู
+    tr: Amuru District
+    ur: امورو ضلع
+    vi: Quận Amuru
+    lv: Amuru distrikts
+    ceb: Amuru District
+    lt: Amuro apskritis
+    zh: 阿穆魯區
+    ccp: "𑄃𑄟𑄪𑄢𑄪"
+    uk: Район Амуру
+    'no': Amuru
+  type: district
+'317':
+  name: Abim
+  code: '317'
+  unofficial_names:
+  - Abim
+  geo:
+    latitude: 2.706698
+    longitude: 33.6595337
+    min_latitude: 2.6962337
+    min_longitude: 33.65344049999999
+    max_latitude: 2.7221257
+    max_longitude: 33.6679459
+  translations:
+    en: Dokolo
+    ar: مقاطعة أبيم²
+    bn: আবিম জেলা²
+    da: Abim District²
+    de: Abim-Distrikt²
+    el: Αμπίμ²
+    es: Distrito de Abim²
+    fa: منطقه ابیم²
+    fi: Abimin kaupunginosa²
+    fr: Abim²
+    gl: Distrito Abim²
+    gu: અબિમ જિલ્લો²
+    he: אבים²
+    hi: एबिम जिला²
+    id: Distrik Abim²
+    it: Abim²
+    ja: アビム県²
+    kn: ಅಬಿಮ್ ಜಿಲ್ಲೆ²
+    ko: 아빔 구²
+    mr: अबिम जिल्हा²
+    ms: Abim District²
+    nb: Abim²
+    nl: Abim²
+    pl: Dystrykt Abim²
+    pt: Abim²
+    ro: Districtul Abim²
+    ru: Абим²
+    si: අබිම් දිස්ත්‍රික්කය²
+    sv: Abimdistriktet²
+    sw: Wilaya ya Abim²
+    ta: அபின் மாவட்டம்²
+    te: అబిమ్ జిల్లా²
+    th: อบิม²
+    tr: Abim District²
+    ur: ابیم ضلع²
+    vi: Quận Abim²
+    lv: Dokolo distrikts
+    ceb: Dokolo District
+    lt: Dokolo apskritis
+    zh: 阿比姆區²
+    ccp: "𑄓𑄮𑄇𑄮𑄣𑄮"
+    uk: Район Доколо
+    'no': Abim²
+  type: district
+'318':
+  name: Dokolo
+  code: '318'
+  unofficial_names:
+  - Dokolo
+  geo:
+    latitude: 1.916667
+    longitude: 33.166667
+    min_latitude: 1.9062268
+    min_longitude: 33.164935
+    max_latitude: 1.9208743
+    max_longitude: 33.1776167
+  translations:
+    en: Kaabong
+    ar: مقاطعة دوكولو
+    bn: ডুকুলু জেলা
+    da: Dokolo District
+    de: Bezirk Dokolo
+    el: Ντοκόλο
+    es: Distrito de Dokolo
+    fi: Dokolon kaupunginosa
+    fr: Dokolo
+    gu: ડોકોલો જિલ્લો
+    hi: डोकोलो जिला
+    id: Distrik Dokolo
+    it: Dokolo
+    ja: ドコロ県
+    kn: ಡೊಕೊಲೊ ಜಿಲ್ಲೆ
+    ko: 도콜로 구
+    mr: डकोलो जिल्हा
+    ms: Daerah Dokolo
+    nb: Dokolo
+    nl: Dokolo
+    pl: Dystrykt Dokolo
+    pt: Dokolo
+    ro: Districtul Kaabong²
+    ru: Каабонг²
+    si: කාබොන්ග් දිස්ත්‍රික්කය²
+    sv: Kaabongdistriktet²
+    sw: Wilaya ya Kaabong²
+    ta: காபோங் மாவட்டம்²
+    te: కాబాంగ్ జిల్లా²
+    th: การ์บง²
+    tr: Kaabong Distrisct²
+    ur: کآبونگ ضلع²
+    vi: Quận Kaabong²
+    lv: Kaabongas distrikts
+    ceb: Kaabong District
+    lt: Kaabongo apskritis
+    zh: 卡邦區²
+    ccp: "𑄇𑄳𑄃𑄝𑄧𑄁"
+    uk: Район Каабонг
+    'no': Dokolo
+    fa: ناحیه کابونگ
+  type: district
+'319':
+  name: Amuru
+  code: '319'
+  unofficial_names:
+  - Amuru
+  geo:
+    latitude: 2.9667878
+    longitude: 32.0837445
+    min_latitude: 2.529905
+    min_longitude: 31.344368
+    max_latitude: 3.584319
+    max_longitude: 32.388592
+  translations:
+    en: Koboko
+    ar: مقاطعة أمورو²
+    be: Кабака²
+    bn: আমুরু জেলা²
+    da: Amuru District²
+    de: Amuru-Distrikt²
+    el: Αμουρού²
+    es: Distrito de Amuru²
+    fa: بخش امورو²
+    fi: Amurun kaupunginosa²
+    fr: Amuru²
+    gu: અમુરુ જિલ્લો²
+    hi: अमुरु जिला²
+    id: Distrik Amuru²
+    it: Amuru²
+    ja: アムル県²
+    kn: ಅಮುರು ಜಿಲ್ಲೆ²
+    ko: 아무루 구²
+    mr: अमरु जिल्हा²
+    ms: Daerah Amuru²
+    nb: Amuru²
+    nl: Amuru²
+    pl: Dystrykt Amuru²
+    pt: Distrito de Amuru²
+    ro: Districtul Amuru²
+    ru: Амуру²
+    si: අමුරු දිස්ත්‍රික්කය²
+    sv: Amuru²
+    sw: Wilaya ya Amuru²
+    ta: அமுரி மாவட்டம்²
+    te: అమూరు జిల్లా²
+    th: เขตอมูรู²
+    tr: Amuru District²
+    ur: امورو ضلع²
+    vi: Quận Amuru²
+    lv: Koboko distrikts
+    ceb: Koboko District
+    lt: Koboko apskritis
+    zh: 阿穆魯區²
+    ccp: "𑄇𑄮𑄝𑄮𑄇𑄮"
+    uk: Район Кобоко
+    'no': Amuru²
+  type: district
+'320':
+  name: Maracha
+  code: '320'
+  unofficial_names:
+  - Maracha
+  geo:
+    latitude: 3.2873127
+    longitude: 30.9403023
+    min_latitude: 3.2831701
+    min_longitude: 30.9346805
+    max_latitude: 3.2919098
+    max_longitude: 30.9473842
+  translations:
+    en: Maracha
+    ar: مقاطعة مارشا
+    bn: মারাকায় জেলা
+    da: Maracha District
+    de: Maracha-Distrikt
+    el: Μαράτσα
+    es: Distrito de Nyadri
+    fi: Marachan kaupunginosa
+    fr: Maracha
+    gu: મરાચા જિલ્લો
+    hi: मारचा जिला
+    id: Distrik Maracha
+    it: Maracha
+    ja: マラチャ県
+    kn: ಮರಾಚಾ ಜಿಲ್ಲೆ
+    ko: 마라차 구
+    mr: मांचा जिल्हा
+    ms: Maracha District
+    nb: Maracha
+    nl: Maracha
+    pl: Dystrykt Maracha
+    pt: Maraacha
+    ru: Марача
+    si: මරචා දිස්ත්‍රික්කය
+    sv: Marachadistriktet
+    ta: மரச்சா மாவட்டம்
+    te: మరాచా జిల్లా
+    th: เมืองมาราชา
+    tr: Maracha District
+    ur: مراچا ضلع
+    vi: Quận Maracha
+    lv: Maračas-Terego distrikts
+    ceb: Maracha District
+    lt: Maračos apskritis
+    ccp: "𑄟𑄢𑄌"
+    uk: Район Марача
+    'no': Maracha
+    fa: ناحیه ماراچا
+  type: district
+'321':
+  name: Oyam
+  code: '321'
+  unofficial_names:
+  - Oyam
+  geo:
+    latitude: 2.2776281
+    longitude: 32.4467238
+    min_latitude: 2.0733884
+    min_longitude: 32.2280412
+    max_latitude: 2.622433
+    max_longitude: 32.8245309
+  translations:
+    en: Oyam
+    ar: مقاطعة أويام
+    bn: ওয়াম জেলা
+    da: Oyam District
+    de: Oyam-Distrikt
+    el: Ογιάμ
+    es: Distrito de Oyam
+    fi: Oyamin kaupunginosa
+    fr: Oyam
+    gl: Distrito Oyam
+    gu: ઓયમ જિલ્લો
+    hi: ओयाम जिला
+    id: Distrik Oyam
+    it: Oyam
+    ja: オヤム県
+    kn: ಒಯಾಮ್ ಜಿಲ್ಲೆ
+    ko: 오얌 구
+    mr: ओयम जिल्हा
+    ms: Oyam District
+    nb: Oyam
+    nl: Oyam
+    pl: Dystrykt Oyam
+    pt: Oyam
+    ro: Districtul Oyam
+    ru: Ойам
+    si: ඔයාම් දිස්ත්‍රික්කය
+    sv: Oyam
+    sw: Wilaya ya Oyam
+    ta: ஓயும் மாவட்டம்
+    te: ఓయామ్ జిల్లా
+    th: เขตโอยัม
+    tr: Oyam District
+    ur: اویام ضلع
+    vi: Quận Oyam
+    lv: Ojamas distrikts
+    ceb: Oyam District
+    lt: Ojamo apskritis
+    zh: 奧揚區
+    ccp: "𑄃𑄮𑄠𑄟𑄴"
+    uk: Район Ойам
+    'no': Oyam
+    fa: ناحیه اویام
+  type: district
+'322':
+  name: Agago
+  code: '322'
+  translations:
+    ar: مقاطعة أغاجو
+    bn: আগাগো জেলা
+    da: Agago District
+    de: Agago-Distrikt
+    el: Αγκάγκο
+    en: Agago
+    es: Distrito de Agago
+    fi: Agagon kaupunginosa
+    fr: Agago
+    gu: અગાગો જિલ્લો
+    hi: अगागो जिला
+    id: Distrik Agago
+    it: Agago
+    ja: アガゴ県
+    kn: ಅಗೋಗೊ ಜಿಲ್ಲೆ
+    ko: 아가고 구
+    mr: आगागो जिल्हा
+    ms: Agago District
+    nb: Agago
+    nl: Agago
+    pl: Dystrykt Agago
+    pt: Agago
+    ru: Агаго
+    si: අගගෝ දිස්ත්‍රික්කය
+    sv: Agagodistriktet
+    ta: அககோ மாவட்டம்
+    te: అగాగో జిల్లా
+    th: เขตอกาโก
+    tr: Agago District
+    ur: اگاگو ضلع
+    vi: Quận Agago
+    lv: Agago distrikts
+    ceb: Agago District
+    lt: Agago apskritis
+    zh: 阿加戈區
+    ccp: "𑄃𑄉𑄉𑄮"
+    uk: Район Агаго
+    'no': Agago
+    fa: ناحیه آگاگو
+    sw: Wilaya ya Agago
+  type: district
+'323':
+  name: Alebtong
+  code: '323'
+  translations:
+    ar: مقاطعة ايبتونغ
+    bn: আলেবটং জেলা
+    da: Alebtong District
+    de: Alebtong Distrikt
+    el: Αλεμπτόνγκ
+    en: Alebtong
+    es: Distrito de Alebtong
+    fa: بخش الیبتانگ
+    fi: Alebtongn kaupunginosa
+    fr: Alebtong
+    gu: એલેબટોંગ જિલ્લો
+    hi: एलेबटोंग जिला
+    id: Distrik Alebtong
+    it: Alebtong
+    ja: アレブトング県
+    kn: ಅಲೆಬ್ಟಾಂಗ್ ಜಿಲ್ಲೆ
+    ko: 알레브통 구
+    mr: अॅलेबटोंग जिल्हा
+    ms: Alebtong District
+    nb: Alebtong
+    nl: Alebtong District
+    pl: Dystrykt Alebtong
+    pt: Alebtong
+    ru: Алебтонг
+    si: අලෙබ්ටොන්ග් දිස්ත්‍රික්කය
+    sv: Alebtongdistriktet
+    ta: அலெபிடோங் மாவட்டம்
+    te: అలెబ్‌టాంగ్ జిల్లా
+    th: เขตอเลบตอง
+    tr: Alebtong District
+    ur: الیبتونگ ضلع
+    vi: Quận Alebtong
+    lv: Alebtongas distrikts
+    ceb: Alebtong District
+    lt: Alebtongo apskritis
+    zh: 阿萊布通區
+    ccp: "𑄃𑄣𑄨𑄛𑄴𑄑𑄧𑄁"
+    uk: Район Алебтонг
+    'no': Alebtong
+    sw: Wilaya ya Alebtong
+  type: district
+'324':
+  name: Amudat
+  code: '324'
+  translations:
+    ar: مقاطعة أمودات
+    bn: আমুদাত জেলা
+    da: Amudat
+    de: Distrikt Amudat
+    el: Αμουντάτ
+    en: Amudat
+    es: Distrito de Amudat
+    fa: بخش امودات
+    fi: Amudatin kaupunginosa
+    fr: Amudat
+    gu: અમુદત જિલ્લો
+    hi: अमुदत जिला
+    id: Distrik Amudat
+    it: Amudat
+    ja: アムダット県
+    kn: ಅಮುಡತ್ ಜಿಲ್ಲೆ
+    ko: 아무다트 구
+    mr: अमदुत जिल्हा
+    ms: Amudat District
+    nb: Amudat
+    nl: Amudat
+    pl: Dystrykt Amudat
+    pt: Amudat
+    ru: Амудат
+    si: අමුදත් දිස්ත්‍රික්කය
+    sv: Amudatdistriktet
+    ta: அமுதட் மாவட்டம்
+    te: అమూడాట్ జిల్లా
+    th: เขตอมาดัท
+    tr: Amudat District
+    ur: امودات ضلع
+    vi: Quận Amudat
+    lv: Amudatas distrikts
+    ceb: Amudat District
+    lt: Amudato apskritis
+    zh: 阿穆達特區
+    ccp: "𑄃𑄟𑄪𑄓𑄖𑄴"
+    uk: Район Амудат
+    'no': Amudat
+    sw: Wilaya ya Amudat
+  type: district
+'325':
+  name: Kole
+  code: '325'
+  translations:
+    ar: ضاحية كول
+    bn: কোলে জেলা
+    da: Kole District
+    de: Distrikt Kole
+    el: Κόλε
+    en: Kole
+    es: Distrito de Kole
+    fi: Kolen kaupunginosa
+    fr: Kole
+    gu: કોલ જિલ્લો
+    hi: कोल जिला
+    id: Distrik Kole
+    it: Kole
+    ja: コレ県
+    kn: ಕೋಲೆ ಜಿಲ್ಲೆ
+    ko: 콜레 구
+    mr: कोले जिल्हा
+    ms: Kole District
+    nb: Kole
+    nl: Kole
+    pl: Dystrykt Kole
+    pt: Distrito de Kole
+    ru: Коле
+    si: කොලේ දිස්ත්‍රික්කය
+    sv: Koledistriktet
+    ta: கோலே மாவட்டம்
+    te: కోలె జిల్లా
+    th: เขตโคว
+    tr: Kole District
+    ur: کولے ضلع
+    vi: Quận Kole
+    lv: Koles distrikts
+    ceb: Kole District
+    lt: Kolės apskritis
+    zh: 科萊區
+    ccp: "𑄇𑄮𑄣𑄨"
+    uk: Район Коле
+    'no': Kole
+    fa: استان کله
+    sw: Wilaya ya Kole
+  type: district
+'326':
+  name: Lamwo
+  code: '326'
+  translations:
+    ar: مقاطعة لامو
+    bn: লামৌ জেলা
+    da: Lamwo District
+    de: Distrikt Lamwo
+    el: Λάμουο
+    en: Lamwo
+    es: Distrito de Lamwo
+    fi: Lamwon kaupunginosa
+    fr: Lamwo
+    gu: લમ્વો જિલ્લો
+    hi: लैंवो जिला
+    id: Distrik Lamwo
+    it: Lamwo
+    ja: ランウォ県
+    kn: ಲಾಮ್ವೋ ಜಿಲ್ಲೆ
+    ko: 람워 구
+    mr: लामओ जिल्हा
+    ms: Lamwo District
+    nb: Lamwo
+    nl: Lamwo
+    pl: Dystrykt Lamwo
+    pt: Lamwo
+    ru: Ламво
+    si: ලම්වො දිස්ත්‍රික්කය
+    sv: Lamwodistriktet
+    ta: லாம்வ்வ் மாவட்டம்
+    te: లా్మ్వో జిల్లా
+    th: เขตลัมโว
+    tr: Lamwo District
+    ur: لاموو ضلع
+    vi: Quận Lamwo
+    lv: Lamvo distrikts
+    ceb: Lamwo District
+    lt: Lamvo apskritis
+    zh: 蘭沃區
+    ccp: "𑄣𑄟𑄴𑄤𑄮"
+    uk: Район Ламво
+    'no': Lamwo
+    fa: ناحیه لامو
+    sw: Wilaya ya Lamwo
+  type: district
+'327':
+  name: Napak
+  code: '327'
+  translations:
+    ar: مقاطعة ناباك
+    bn: নাপাক জেলা
+    da: Napak District
+    de: Napak-Distrikt
+    el: Ναπάκ
+    en: Napak
+    es: Distrito de Napak
+    fi: Napakin kaupunginosa
+    fr: Napak
+    gl: Distrito Napak
+    gu: નપક જિલ્લો
+    hi: नपक जिला
+    id: Distrik Napak
+    it: Napak
+    ja: ナパック県
+    kn: ನಪಾಕ್ ಜಿಲ್ಲೆ
+    ko: 나파크 구
+    mr: नपक जिल्हा
+    ms: Napak District
+    nb: Napak
+    nl: Napak
+    pl: Dystrykt Napak
+    pt: Napak
+    ru: Напак
+    si: නපක් දිස්ත්‍රික්කය
+    sv: Napakdistriktet
+    ta: நபாக் மாவட்டம்
+    te: నాపక్ జిల్లా
+    th: เขตนาปัค
+    tr: Napak District
+    ur: ناپاک ضلع
+    vi: Quận Napak
+    lv: Napakas distrikts
+    ceb: Napak District
+    lt: Napako apskritis
+    zh: 納帕克區
+    ccp: "𑄚𑄛𑄇𑄴"
+    uk: Район Напак
+    'no': Napak
+    fa: ناحیه ناپاک
+    sw: Wilaya ya Napak
+  type: district
+'328':
+  name: Nwoya
+  code: '328'
+  translations:
+    ar: مقاطعة نويا
+    bn: নৌইয়া জেলা
+    da: Nwoya District
+    de: Nwoya-Distrikt
+    el: Νουόγια
+    en: Nwoya
+    es: Distrito de Nwoya
+    fi: Nwoyan kaupunginosa
+    fr: Nwoya
+    gl: Distrito Nwoya
+    gu: ન્વોયા જિલ્લો
+    hi: नवोया जिला
+    id: Distrik Nwoya
+    it: Nwoya
+    ja: ナウォヤ県
+    kn: ನವೋಯಾ ಜಿಲ್ಲೆ
+    ko: 은워야 구
+    mr: नवाया जिल्हा
+    ms: Nwoya District
+    nb: Nwoya
+    nl: Nwoya
+    pl: Dystrykt Nwoya
+    pt: Nwoya
+    ru: Нвойя
+    si: එන්වොයා දිස්ත්‍රික්කය
+    sv: Nwoyadistriktet
+    ta: னேஒயா மாவட்டம்
+    te: నవోయా జిల్లా
+    th: เขตนโวยา
+    tr: Nwoya District
+    ur: نوویا ضلع
+    vi: Quận Nwoya
+    lv: Nvojas distrikts
+    ceb: Nwoya District
+    lt: Nvojos apskritis
+    zh: 恩沃亞區
+    ccp: "𑄚𑄱𑄃𑄨𑄠"
+    uk: Район Нвойя
+    'no': Nwoya
+    fa: ناحیه نوویا
+    sw: Wilaya ya Nwoya
+  type: district
+'329':
+  name: Otuke
+  code: '329'
+  translations:
+    ar: مقاطعة أوتوك
+    bn: ওতুকে জেলা
+    da: Otuke District
+    de: Otuke-District
+    el: Οτούκε
+    en: Otuke
+    es: Distrito de Otuke
+    fi: Otuken kaupunginosa
+    fr: Otuke
+    gl: Distrito Otuke
+    gu: ઓટુક જિલ્લો
+    hi: औट्यूक ज़िला
+    id: Distrik Otuke
+    it: Otuke
+    ja: オツケ県
+    kn: ಒಟುಕೆ ಜಿಲ್ಲೆ
+    ko: 오투케 구
+    mr: ओटूक जिल्हा
+    ms: Otuke District
+    nb: Otuke
+    nl: Otuke
+    pl: Dystrykt Otuke
+    pt: Otuke
+    ru: Отуке
+    si: ඔටුකේ දිස්ත්‍රික්කය
+    sv: Otukedistriktet
+    ta: ஒட்டுக்கே மாவட்டம்
+    te: ఓటుకె జిల్లా
+    th: เขตโอทูเคะ
+    tr: Otuke District
+    ur: اوتوکے ضلع
+    vi: Quận Otuke
+    lv: Otukes distrikts
+    ceb: Otuke District
+    lt: Otukės apskritis
+    zh: 奧圖凱區
+    ccp: "𑄃𑄮𑄑𑄪𑄇𑄴"
+    uk: Район Отуке
+    'no': Otuke
+    sw: Wilaya ya Otuke
+  type: district
+'330':
+  name: Zombo²
+  code: '330'
+  translations:
+    ar: مقاطعة زومبو
+    bn: জোম্বো জেলা
+    da: Zombo District
+    de: Zombo-Distrikt
+    el: Ζόμπο
+    en: Zombo²
+    es: Distrito de Zombo
+    fi: Zombon kaupunginosa
+    fr: Zombo
+    gl: Distrito Zombo
+    gu: ઝોમ્બો જિલ્લો
+    hi: ज़ोम्बो जिला
+    id: Distrik Zombo
+    it: Zombo
+    ja: ゾンボ県
+    kn: ಜೋಮ್ಬೋ ಜಿಲ್ಲೆ
+    ko: 좀보 구
+    mr: झोंबो जिल्हा
+    ms: Zombo District
+    nb: Zombo
+    nl: Zombo
+    pl: Dystrykt Zombo
+    pt: Distrito de Zombo
+    ru: Зомбо
+    si: සොම්බෝ දිස්ත්‍රික්කය
+    sv: Zombodistriktet
+    ta: ஸ்ஓம்போ மாவட்டம்
+    te: జోంబో జిల్లా
+    th: ซอบโบ
+    tr: Zombo District
+    ur: زومبو ضلع
+    vi: Quận Zombo
+    lv: Zombo distrikts
+    ceb: Zombo District
+    lt: Zombo apskritis
+    zh: 宗博區
+    ccp: "𑄎𑄮𑄟𑄴𑄝𑄪"
+    uk: Район Зомбо
+    'no': Zombo
+    fa: ناحیه زومبو
+    sw: Wilaya ya Zombo
+  type: district
+'331':
+  name: Zombo
+  code: '331'
+  translations:
+    en: Zombo
+    ja: オモロ県
+    ccp: "𑄎𑄮𑄟𑄴𑄝𑄪"
+    de: Distrikt Omoro
+    fa: ناحیه عمورو
+    nl: Omoro (district)
+    sw: Wilaya ya Omoro
+  type: district
+'332':
+  name: Pakwach
+  code: '332'
+  geo:
+    latitude: 1.373333
+    longitude: 32.290275
+    min_latitude: -1.4823178
+    min_longitude: 29.573433
+    max_latitude: 4.218628
+    max_longitude: 35.0330489
+  translations:
+    ja: パクワチ県
+    en: Pakwach
+    de: Distrikt Pakwach
+    fa: ناحیه پاکواچ
+    nl: Pakwach (district)
+    sw: Wilaya ya Pakwach
+  type: district
+'333':
+  name: Kwania
+  code: '333'
+  geo:
+    latitude: 1.373333
+    longitude: 32.290275
+    min_latitude: -1.4823178
+    min_longitude: 29.573433
+    max_latitude: 4.218628
+    max_longitude: 35.0330489
+  translations:
+    en: Kwania
+    ja: クワニア県
+  type: district
+'334':
+  name: Nabilatuk
+  code: '334'
+  geo:
+    latitude: 0.3179766
+    longitude: 32.574073
+  translations:
+    en: Nabilatuk
+    ja: ナビラトゥク県
+  type: district
+'335':
+  translations:
+    en: Karenga
+    fa: ناحیه کارنگا
+    ja: カレンガ県
+    nl: Karenga (district)
+    sw: Wilaya ya Karenga
+  name: Karenga
+  code: '335'
+  type: district
+'336':
+  translations:
+    en: Madi-Okollo
+    ja: マディ・オコロ県
+    sw: Wilaya ya Madi-Okollo
+  name: Madi-Okollo
+  code: '336'
+  type: district
+'337':
+  translations:
+    en: Obongi
+    fa: ناحیه اوبونگی
+    ja: オボンギ県
+    nl: Obongi
+    sw: Wilaya ya Obongi
+  name: Obongi
+  code: '337'
+  type: district
+'401':
+  name: Bundibugyo
+  code: '401'
+  unofficial_names:
+  - Bundibugyo
+  geo:
+    latitude: 0.7125
+    longitude: 30.06
+    min_latitude: 0.7008759
+    min_longitude: 30.0584221
+    max_latitude: 0.7167534
+    max_longitude: 30.0672626
+  translations:
+    en: Bundibugyo
+    ar: مقاطعة بونديبوجيو
+    bn: বুন্ডিবোয়ু জেলা
+    da: Bundibugyo District
+    de: Bundibugyo-Distrikt
+    el: Μπουντιμπούγκγιο
+    es: Distrito de Bundibugyo
+    fi: Bundibugyon kaupunginosa
+    fr: Bundibugyo
+    gu: બુંદિબુગ્યો જિલ્લો
+    he: בונדיבוגיו
+    hi: बंडीबूग्यो जिला
+    id: Distrik Bundibugyo
+    it: Bundibugyo
+    ja: ブンディブギョ県
+    kn: ಬುಂಡಿಬುಗ್ಯೋ ಜಿಲ್ಲೆ
+    ko: 분디부교 구
+    mr: बुंदीबुग्यो जिल्हा
+    ms: Bundibugyo District
+    nb: Bundibugyo
+    nl: Bundibugyo
+    pl: Dystrykt Bundibugyo
+    pt: Distrito de Bundibugyo
+    ro: Districtul Bundibugyo
+    ru: Бундибугио
+    si: බන්ඩිබග්යෝ දිස්ත්‍රික්කය
+    sv: Bundibugyodistriktet
+    sw: Wilaya ya Bundibugyo
+    ta: பந்திபூஜியோ மாவட்டம்
+    te: బుండిబుగ్యో జిల్లా
+    th: เขตบันดิบัคโย
+    tr: Bundibugyo District
+    ur: بوندیبوگیو ضلع
+    vi: Quận Bundibugyo
+    lv: Bundibugo distrikts
+    ceb: Bundibugyo District
+    lt: Bundibugo apskritis
+    zh: 本迪布焦區
+    ccp: "𑄝𑄪𑄚𑄴𑄓𑄨𑄝𑄇𑄴𑄉𑄮"
+    uk: Район Бундібугіо
+    'no': Bundibugyo
+  type: district
+'402':
+  name: Bushenyi
+  code: '402'
+  unofficial_names:
+  - Bushenyi
+  geo:
+    latitude: -0.541667
+    longitude: 30.185
+    min_latitude: -0.5504344999999999
+    min_longitude: 30.1815355
+    max_latitude: -0.5361228
+    max_longitude: 30.2082825
+  translations:
+    en: Bushenyi
+    ar: مقاطعة بوشيني
+    bn: বুসেনি জেলা
+    da: Bushenyi District
+    de: Distrikt Bushenyi
+    el: Μπουσένι
+    es: Distrito de Bushenyi
+    fi: Bushenyin kaupunginosa
+    fr: Bushenyi
+    gu: બુશેની જિલ્લો
+    hi: बुसानयी जिला
+    id: Distrik Bushenyi
+    it: Bushenyi
+    ja: ブシェニ県
+    kn: ಬುಶೆನಿ ಜಿಲ್ಲೆ
+    ko: 부셰니 구
+    mr: बुसानयी जिल्हा
+    ms: Bushenyi District
+    nb: Bushenyi
+    nl: Bushenyi
+    pl: Dystrykt Bushenyi
+    pt: Bushenyi
+    ro: Districtul Bushenyi
+    ru: Бушеньи
+    si: බුෂෙනි දිස්ත්‍රික්කය
+    sv: Bushenyidistriktet
+    sw: Wilaya ya Bushenyi
+    ta: புஷேனயி மாவட்டம்
+    te: బుషెన్యి జిల్లా
+    th: เขตบูเชนยี
+    tr: Bushenyi Districnt
+    ur: بوشینئی ضلع
+    vi: Quận Bushenyi
+    lv: Bušeņi distrikts
+    ceb: Bushenyi District
+    lt: Bušenjo apskritis
+    zh: 布謝尼區
+    ccp: "𑄝𑄪𑄥𑄬𑄚𑄨𑄠𑄭"
+    uk: Район Бушеній
+    'no': Bushenyi
+    fa: ناحیه بوشنی
+  type: district
+'403':
+  name: Hoima
+  code: '403'
+  unofficial_names:
+  - Hoima
+  geo:
+    latitude: 1.431944
+    longitude: 31.3525
+    min_latitude: 1.4163196
+    min_longitude: 31.3272573
+    max_latitude: 1.4481528
+    max_longitude: 31.375494
+  translations:
+    en: Hoima
+    ar: مقاطعة هويما
+    bn: হৈমা জেলা
+    da: Hoima District
+    de: Hoima-Distrikt
+    el: Χόιμα
+    es: Distrito de Hoima
+    fi: Hoiman kaupunginosa
+    fr: Hoima
+    gu: હોઈમા જિલ્લો
+    hi: होइमा जिला
+    id: Distrik Hoima
+    it: Hoima
+    ja: ホイマ県
+    kn: ಹೊಯ್ಮಾ ಜಿಲ್ಲೆ
+    ko: 호이마 구
+    mr: होईमा जिल्हा
+    ms: Hoima District
+    nb: Hoima
+    nl: Hoima
+    pl: Dystrykt Hoima
+    pt: Hoima
+    ro: Districtul Hoima
+    ru: Хоима
+    si: හොයිමා දිස්ත්‍රික්කය
+    sv: Hoimadistriktet
+    sw: Wilaya ya Hoima
+    ta: ஹொய்மா மாவட்டம்
+    te: హోయిమా జిల్లా
+    th: เขตฮอยมา
+    tr: Hoima District
+    ur: ہویما ضلع
+    vi: Quận Hoima
+    lv: Hoimas distrikts
+    ceb: Hoima District
+    lt: Hoimos apskritis
+    zh: 霍伊馬區
+    ccp: "𑄦𑄰𑄟"
+    uk: Район Гойма
+    'no': Hoima
+    fa: ناحیه هویما
+  type: district
+'404':
+  name: Kabale
+  code: '404'
+  unofficial_names:
+  - Kabale
+  geo:
+    latitude: -1.25
+    longitude: 29.99
+    min_latitude: -1.2719921
+    min_longitude: 29.9646521
+    max_latitude: -1.2280573
+    max_longitude: 30.01499179999999
+  translations:
+    en: Kabale
+    ar: مقاطعة كابالي
+    bn: কাবালে জেলা
+    da: Kabale District
+    de: Distrikt Kabale
+    el: Καμπάλε
+    es: Distrito de Kabale
+    fi: Kabalen kaupunginosa
+    fr: Kabale
+    gu: કાબાલે જિલ્લો
+    hi: कबाले जिला
+    id: Distrik Kabale
+    it: Kabale
+    ja: カバレ県
+    kn: ಕಾಬಲೆ ಜಿಲ್ಲೆ
+    ko: 카발레 구
+    mr: काबले जिल्हा
+    ms: Kabale District
+    nb: Kabale
+    nl: Kabale
+    pl: Kabale District
+    pt: Kabale
+    ro: Districtul Kabale
+    ru: Кабале
+    si: කබලේ දිස්ත්‍රික්කය
+    sv: Kabale dirstriktet
+    sw: Wilaya ya Kabale
+    ta: கபாலி மாவட்டம்
+    te: కాబేల్ జిల్లా
+    th: เขตคาเบล
+    tr: Kabale District
+    ur: کابالے ضلع
+    vi: Quận Kabale
+    lv: Kabales distrikts
+    ceb: Kabale District
+    lt: Kabalės apskritis
+    zh: 卡巴萊區
+    ccp: "𑄇𑄝𑄣𑄴"
+    uk: Район Кабале
+    'no': Kabale
+    az: Kabale (rayon)
+    fa: ناحیه کاباله
+  type: district
+'405':
+  name: Kabarole
+  code: '405'
+  unofficial_names:
+  - Kabarole
+  geo:
+    latitude: 0.5896682
+    longitude: 30.2548787
+    min_latitude: 0.5870078
+    min_longitude: 30.2527723
+    max_latitude: 0.5914896
+    max_longitude: 30.2577274
+  translations:
+    en: Kabarole
+    ar: مقاطعة كابارول
+    bn: কাবারোলে জেলা
+    da: Kabarole District
+    de: Distrikt Kabarole
+    el: Καμπαρόλε
+    es: Distrito de Kabarole
+    fi: Kabarolen kaupunginosa
+    fr: Kabarole
+    gu: કાબેરોલ જિલ્લો
+    hi: कबरोल जिला
+    id: Distrik Kabarole
+    it: Kabarole
+    ja: カバロレ県
+    kn: ಕಬರೋಲ್ ಜಿಲ್ಲೆ
+    ko: 카바롤레 구
+    mr: काबरोल जिल्हा
+    ms: Kabarole District
+    nb: Kabarole
+    nl: Kabarole
+    pl: Dystrykt Kabarole
+    pt: Kabarole
+    ro: Districtul Kabarole
+    ru: Кабароле
+    si: කබරෝලේ දිස්ත්‍රික්කය
+    sv: Kabarole (distrikt)
+    sw: Wilaya ya Kabarole
+    ta: கபரோலே மாவட்டம்
+    te: కాబరోల్ జిల్లా
+    th: เขตคาบาโรว
+    tr: Kabarole District
+    ur: کابارولے ضلع
+    vi: Quận Kabarole
+    lv: Kabaroles distrikts
+    ceb: Kabarole District
+    lt: Karabolės apskritis
+    zh: 卡巴羅萊區
+    ccp: "𑄇𑄝𑄢𑄮𑄣𑄴"
+    uk: Район Кабароле
+    'no': Kabarole
+    fa: ناحیه کاباروله
+  type: district
+'406':
+  name: Kasese
+  code: '406'
+  unofficial_names:
+  - Kasese
+  geo:
+    latitude: 0.186667
+    longitude: 30.08805599999999
+    min_latitude: 0.1502894
+    min_longitude: 30.0615886
+    max_latitude: 0.1932903
+    max_longitude: 30.1070882
+  translations:
+    en: Kasese
+    ar: مقاطعة كاسيس
+    bn: কাসেসে জেলা
+    da: Kasese District
+    de: Distrikt Kasese
+    el: Κασέσε
+    es: Distrito de Kasese
+    fi: Kasesen kaupunginosa
+    fr: Kasese
+    gu: કાસિસ જિલ્લો
+    hi: कासिस जिला
+    id: Distrik Kasese
+    it: Kasese
+    ja: カセセ県
+    kn: ಕಸ್ಸೀಸ್ ಜಿಲ್ಲೆ
+    ko: 카세세 구
+    mr: कासिस जिल्हा
+    ms: Kasese District
+    nb: Kasese
+    nl: Kasese
+    pl: Dystrykt Kasese
+    pt: Kasese
+    ro: Districtul Kasese
+    ru: Касесе
+    si: කසෙසේ දිස්ත්‍රික්කය
+    sv: Kasesedistriktet
+    sw: Wilaya ya Kasese
+    ta: காஸெஸ் மாவட்டம்
+    te: కాసీస్ జిల్లా
+    th: เขตคาเซเซ่
+    tr: Kasese District
+    ur: کاسیسے ضلع
+    vi: Quận Kasese
+    lv: Kaseses distrikts
+    ceb: Kasese District
+    lt: Kasesės apskritis
+    zh: 卡塞塞區
+    ccp: "𑄇𑄥𑄬𑄌𑄴"
+    uk: Район Касесе
+    'no': Kasese
+    fa: ناحیه کاسهسی
+  type: district
+'407':
+  name: Kibaale
+  code: '407'
+  unofficial_names:
+  - Kibaale
+  geo:
+    latitude: 0.7682547
+    longitude: 31.0776593
+    min_latitude: 0.7634414
+    min_longitude: 31.0700227
+    max_latitude: 0.7959682
+    max_longitude: 31.0847855
+  translations:
+    en: Kibaale
+    ar: مقاطعة كيبالي
+    bn: কিবালে জেলা
+    da: Kibaale District
+    de: Distrikt Kibaale
+    el: Κιμπαάλε
+    es: Distrito de Kibaale
+    fi: Kibaalen kaupunginosa
+    fr: Kibaale
+    gu: કિબાલે જિલ્લો
+    hi: किबाले जिला
+    id: Distrik Kibaale
+    it: Kibaale
+    ja: キバレ県
+    kn: ಕಿಬಾಲೆ ಜಿಲ್ಲೆ
+    ko: 키발레 구
+    mr: किबाले जिल्हा
+    ms: Kibaale District
+    nb: Kibaale
+    nl: Kibaale
+    pl: Dystrykt Kibaale
+    pt: Kibaale
+    ro: Districtul Kibaale
+    ru: Кибале
+    si: කිබාලේ දිස්ත්‍රික්කය
+    sv: Kibaaledistriktet
+    sw: Wilaya ya Kibaale
+    ta: கிபாலே மாவட்டம்
+    te: కిబాలె జిల్లా
+    th: เขตคิบาเอิล
+    tr: Kibaale District
+    ur: کیبآلے ضلع
+    vi: Quận Kibaale
+    lv: Kibaales distrikts
+    ceb: Kibale District
+    lt: Kibalės apskritis
+    zh: 基巴萊區
+    ccp: "𑄇𑄨𑄝𑄳𑄃𑄣𑄴"
+    uk: Район Кібаале
+    'no': Kibaale
+  type: district
+'408':
+  name: Kisoro
+  code: '408'
+  unofficial_names:
+  - Kisoro
+  geo:
+    latitude: -1.285
+    longitude: 29.685
+    min_latitude: -1.2916639
+    min_longitude: 29.6779346
+    max_latitude: -1.2734509
+    max_longitude: 29.70327619999999
+  translations:
+    en: Kisoro
+    es: Distrito de Kisoro
+    fr: Kisoro
+    it: Kisoro
+    ja: キソロ県
+    ko: 키소로 구
+    nb: Kisoro
+    nl: Kisoro
+    ro: Districtul Kisoro
+    ru: Кисоро
+    sw: Wilaya ya Kisoro
+    ur: کیسورو ضلع
+    ceb: Kisoro District
+    zh: 基索羅區
+    ccp: "𑄇𑄨𑄥𑄮𑄢𑄮"
+    'no': Kisoro
+    az: Kisoro (rayon)
+    de: Distrikt Kisoro
+    fa: ناحیه کیسورو
+    id: Distrik Kisoro
+  type: district
+'409':
+  name: Masindi
+  code: '409'
+  unofficial_names:
+  - Masindi
+  geo:
+    latitude: 1.683333
+    longitude: 31.733333
+    min_latitude: 1.6642805
+    min_longitude: 31.6970158
+    max_latitude: 1.7076062
+    max_longitude: 31.7424202
+  translations:
+    en: Masindi
+    ar: مقاطعة ماسيندي
+    bn: মাসিন্ডী জেলা
+    da: Masindi District
+    de: Masindi-Distrikt
+    el: Μασίντι
+    es: Distrito de Masindi
+    fi: Masindin kaupunginosa
+    fr: Masindi
+    gu: માસિંડી જિલ્લો
+    he: מאסינדי
+    hi: मसिंदी जिला
+    id: Distrik Masindi
+    it: Masindi
+    ja: マシンディ県
+    kn: ಮಸಂದಿ ಜಿಲ್ಲೆ
+    ko: 마신디 구
+    mr: मसिंदी जिल्हा
+    ms: Masindi District
+    nb: Masindi
+    nl: Masindi
+    pl: Dystrykt Masindi
+    pt: Masindi
+    ro: Districtul Masindi
+    ru: Масинди
+    si: මසන්ඩි දිස්ත්‍රික්කය
+    sv: Masindi
+    sw: Wilaya ya Masindi
+    ta: மசிந்துய் மாவட்டம்
+    te: మాసింది జిల్లా
+    th: เขตมาซินดิ
+    tr: Masindi District
+    ur: ماسیندی ضلع
+    vi: Quận Masindi
+    lv: Masindi distrikts
+    ceb: Masindi District
+    lt: Masindžio apskritis
+    zh: 馬辛迪區
+    ccp: "𑄟𑄥𑄨𑄚𑄴𑄓𑄨"
+    uk: Район Масінді
+    'no': Masindi
+    fa: ناحیه ماسندی
+  type: district
+'410':
+  name: Mbarara
+  code: '410'
+  unofficial_names:
+  - Mbarara
+  geo:
+    latitude: -0.613333
+    longitude: 30.658333
+    min_latitude: -0.659326
+    min_longitude: 30.6038331
+    max_latitude: -0.563716
+    max_longitude: 30.70477
+  translations:
+    en: Mbarara
+    ar: مقاطعة مبارارا
+    bn: এমবারারা জেলা
+    da: Mbarara District
+    de: Distrikt Mbarara
+    el: Μπαράρα
+    es: Distrito de Mbarara
+    fi: Mbararan kaupunginosa
+    fr: Mbarara
+    gu: એમ્બારારા જિલ્લો
+    hi: बरारा जिला
+    id: Distrik Mbarara
+    it: Mbarara
+    ja: ムバララ県
+    kn: ಮಬರಾ ಜಿಲ್ಲೆ
+    ko: 음바라라 구
+    mr: मुबारारा जिल्हा
+    ms: Mbarara District
+    nb: Mbarara
+    nl: Mbarara
+    pl: Dystrykt Mbarara
+    pt: Distrito de Mbarara
+    ro: Districtul Mbarara
+    ru: Мбарара
+    si: එම්බරරා දිස්ත්‍රික්කය
+    sv: Mbarara dirstriktet
+    sw: Wilaya ya Mbarara
+    ta: ம்பறாரா மாவட்டம்
+    te: ఎంబరారా జిల్లా
+    th: เขตมบารารา
+    tr: Mbarara District
+    ur: مبارارا ضلع
+    vi: Quận Mbarara
+    lv: Mbararas distrikts
+    ceb: Mbarara District
+    lt: Mbararos sritis
+    zh: 姆巴拉拉區
+    ccp: "𑄝𑄢𑄢"
+    uk: Район Мбарара
+    'no': Mbarara
+  type: district
+'411':
+  name: Ntungamo
+  code: '411'
+  unofficial_names:
+  - Ntungamo
+  geo:
+    latitude: -0.881944
+    longitude: 30.265278
+    min_latitude: -0.8855658
+    min_longitude: 30.2594376
+    max_latitude: -0.8652263
+    max_longitude: 30.2731704
+  translations:
+    en: Ntungamo
+    ar: مقاطعة نتونغامو
+    bn: নানগামো জেলা
+    da: Ntungamo District
+    de: Distrikt Ntungamo
+    el: Ντουνγκάμο
+    es: Distrito de Ntungamo
+    fi: Ntungamon kaupunginosa
+    fr: Ntungamo
+    gu: નટુંગામો જિલ્લો
+    hi: नटुंगामो जिला
+    id: Distrik Ntungamo
+    it: Ntungamo
+    ja: ントゥンガモ県
+    kn: ಎನ್ಟುಂಗಮೋ ಜಿಲ್ಲೆ
+    ko: 은퉁가모 구
+    mr: नटुंगो जिल्हा
+    ms: Ntungamo District
+    nb: Ntungamo
+    nl: Ntungamo
+    pl: Dystrykt Ntungamo
+    pt: Ntungamo
+    ro: Districtul Ntungamo
+    ru: Нтунгамо
+    si: එන්ටුන්ගමෝ දිස්ත්‍රික්කය
+    sv: Ntungamodistriktet
+    sw: Wilaya ya Ntungamo
+    ta: நடுங்கமோ மாவட்டம்
+    te: జిల్లా
+    th: เขตนตันกาโม
+    tr: Ntungamo District
+    ur: نتونگامو ضلع
+    vi: Quận Ntungamo
+    lv: Ntungamo distrikts
+    ceb: Ntungamo District
+    lt: Ntungamo apskritis
+    zh: 恩通加莫区
+    ccp: "𑄑𑄪𑄚𑄴𑄉𑄟𑄮"
+    uk: Район Нтунгамо
+    'no': Ntungamo
+    fa: ناحیه نتونگامو
+  type: district
+'412':
+  name: Rukungiri
+  code: '412'
+  unofficial_names:
+  - Rukungiri
+  geo:
+    latitude: -0.7899999999999999
+    longitude: 29.925
+    min_latitude: -0.7959682
+    min_longitude: 29.9177456
+    max_latitude: -0.7836099
+    max_longitude: 29.9323367
+  translations:
+    en: Rukungiri
+    ar: مقاطعة روكونجيري
+    bn: রুকোঙ্গিরি জেলা
+    da: Rukungiri District
+    de: Distrikt Rukungiri
+    el: Ρουκουνγκίρι
+    es: Distrito de Rukungiri
+    fi: Rukungirin kaupunginosa
+    fr: Rukungiri
+    gu: રુકુંગીરી જિલ્લો
+    hi: रुकुंगिरी जिला
+    id: Distrik Rukungiri
+    it: Rukungiri
+    ja: ルクンギリ県
+    kn: ರುಕುಂಗಿರಿ ಜಿಲ್ಲೆ
+    ko: 루쿵기리 구
+    mr: रुकुंगीरी जिल्हा
+    ms: Rukungiri District
+    nb: Rukungiri
+    nl: Rukungiri
+    pl: Dystrykt Rukungiri
+    pt: Distrito de Rukungiri
+    ro: Districtul Rukungiri
+    ru: Рукунгири
+    si: රුකුන්ගිරි දිස්ත්‍රික්කය
+    sv: Rukungiri drsitrktet
+    sw: Wilaya ya Rukungiri
+    ta: ருகுங்கிரி மாவட்டம்
+    te: రుకుంగిరి జిల్లా
+    th: เขตรุบุงกีรี
+    tr: Rukungiri district
+    ur: روکونگیری ضلع
+    vi: Quận Rukungiri
+    lv: Rukungiri distrikts
+    ceb: Rukungiri District
+    lt: Rukungirio apskritis
+    zh: 魯昆吉里區
+    ccp: "𑄢𑄪𑄇𑄪𑄚𑄴𑄉𑄨𑄢𑄨"
+    uk: Район Рукунгірі
+    'no': Rukungiri
+    az: Rukunqiri (rayon)
+    fa: ناحیه روکونگیری
+  type: district
+'413':
+  name: Kamwenge
+  code: '413'
+  unofficial_names:
+  - Kamwenge
+  geo:
+    latitude: 0.186066
+    longitude: 30.4512086
+    min_latitude: 0.1808451
+    min_longitude: 30.4474068
+    max_latitude: 0.1904579
+    max_longitude: 30.4590797
+  translations:
+    en: Kamwenge
+    ar: مقاطعة كامونج
+    bn: কামোয়েঙ্গে জেলা
+    da: Kamwenge District
+    de: Kamwenge-Distrikt
+    el: Καμουένγκε
+    es: Distrito de Kamwenge
+    fi: Kamwengen kaupunginosa
+    fr: Kamwenge
+    gu: કામવેંગે જિલ્લો
+    hi: कैमवेंगे जिला
+    id: Distrik Kamwenge
+    it: Kamwenge
+    ja: カムウェンゲ県
+    kn: ಕಾಮ್ವಂಗೆ ಜಿಲ್ಲೆ
+    ko: 캄웽게 구
+    mr: कामावेनगे जिल्हा
+    ms: Kamwenge District
+    nb: Kamwenge
+    nl: Kamwenge
+    pl: Dystrykt Kamwenge
+    pt: Distrito Kamwenge
+    ro: Districtul Kamwenge
+    ru: Камвенге
+    si: කම්වෙන්ගේ දිස්ත්‍රික්කය
+    sv: Kamwengedistriktet
+    sw: Wilaya ya Kamwenge
+    ta: காமவென்ஜ் மாவட்டம்
+    te: కామ్వెంజ్ జిల్లా
+    th: อำเภอคัมเวงเก
+    tr: Kamwenge District
+    ur: کاموینگے ضلع
+    vi: Quận Kamwenge
+    lv: Kamvenges distrikts
+    ceb: Kamwenge District
+    lt: Kamvengės apskritis
+    zh: 卡姆文蓋區
+    ccp: "𑄇𑄟𑄴𑄃𑄨𑄠𑄬𑄚𑄴𑄉𑄨"
+    uk: Район Камвенге
+    'no': Kamwenge
+  type: district
+'414':
+  name: Kanungu
+  code: '414'
+  unofficial_names:
+  - Kanungu
+  geo:
+    latitude: -0.896944
+    longitude: 29.775556
+    min_latitude: -0.9059051999999999
+    min_longitude: 29.7632074
+    max_latitude: -0.8688307
+    max_longitude: 29.7992992
+  translations:
+    en: Kanungu
+    ar: مقاطعة كانونغو
+    bn: কানোনগো জেলা
+    da: Kanungu District
+    de: Kanungu-Distrikt
+    el: Κανουνγκού
+    es: Distrito de Kanungu
+    fi: Kanungun kaupunginosa
+    fr: Kanungu
+    gu: કાનુંગુ જિલ્લો
+    hi: कनुन्गु जिला
+    id: Distrik Kanungu
+    it: Kanungu
+    ja: カヌング県
+    kn: ಕಾನುಂಗ್ ಜಿಲ್ಲೆ
+    ko: 카눙구 구
+    mr: कानुंगू जिल्हा
+    ms: Kanungu District
+    nb: Kanungu
+    nl: Kanungu
+    pl: Dystrykt Kanungu
+    pt: Kanungu
+    ro: Districtul Kanungu
+    ru: Канунгу
+    si: කනුන්ගු දිස්ත්‍රික්කය
+    sv: Kanungudistriktet
+    sw: Wilaya ya Kanungu
+    ta: கானுக்கு மாவட்டம்
+    te: కనుంగు జిల్లా
+    th: เมืองกานันกู
+    tr: Kanungu District
+    ur: کانونگو ضلع
+    vi: Quận Kanungu
+    lv: Kanungu distrikts
+    ceb: Kanungu District
+    lt: Kanungo apskritis
+    zh: 卡農古區
+    ccp: "𑄇𑄚𑄪𑄚𑄴𑄉𑄪"
+    uk: Район Канунгу
+    'no': Kanungu
+    fa: ناحیه کانونگو
+  type: district
+'415':
+  name: Kyenjojo
+  code: '415'
+  unofficial_names:
+  - Kyenjojo
+  geo:
+    latitude: 0.61
+    longitude: 30.644167
+    min_latitude: 0.5959977
+    min_longitude: 30.6322003
+    max_latitude: 0.6239767
+    max_longitude: 30.6506539
+  translations:
+    en: Kyenjojo
+    ar: ضاحية كينجوجو
+    bn: কিয়েনজুজু জেলা
+    da: Kyenjojo District
+    de: Kyenjojo-Distrikt
+    el: Κιεντζότζο
+    es: Distrito de Kyenjojo
+    fi: Kyenjojon kaupunginosa
+    fr: Kyenjojo
+    gu: ક્યેંજોજો જિલ્લો
+    hi: क्येंयोयो जिला
+    id: Distrik Kyenjojo
+    it: Kyenjojo
+    ja: キエンジョジョ県
+    kn: ಕ್ಯೆನ್ಜೊಜೊ ಜಿಲ್ಲೆ
+    ko: 키엔조조 구
+    mr: कायेजोजो जिल्हा
+    ms: Kyenjojo District
+    nb: Kyenjojo
+    nl: Kyenjojo
+    pl: Dystrykt Kyenjojo
+    pt: Kyenjojo
+    ro: Districtul Kyenjojo
+    ru: Кьенжожо
+    si: ක්යෙන්ජෝජෝ දිස්ත්‍රික්කය
+    sv: Kyenjojo
+    sw: Wilaya ya Kyenjojo
+    ta: கிஎண்ஜோஜோ மாவட்டம்
+    te: క్యెంజోజో జిల్లా
+    th: เขตคเยนโจโจ
+    tr: Kyenjojo district
+    ur: کئینجوجو ضلع
+    vi: Quận Kyenjojo
+    lv: Kjendžodžo distrikts
+    ceb: Kyenjojo District
+    lt: Kjendžodžo apskritis
+    zh: 基恩喬喬區
+    ccp: "𑄇𑄨𑄠𑄬𑄚𑄴𑄎𑄮𑄎𑄮"
+    uk: Район Кьенжожо
+    'no': Kyenjojo
+  type: district
+'416':
+  name: Ibanda
+  code: '416'
+  unofficial_names:
+  - Ibanda
+  geo:
+    latitude: -0.12
+    longitude: 30.5
+    min_latitude: -0.1435945
+    min_longitude: 30.4829407
+    max_latitude: -0.0857448
+    max_longitude: 30.51486959999999
+  translations:
+    en: Buliisa
+    ar: مقاطعة بوليسا
+    bn: বুলিসা জেলা
+    da: Buliisa District
+    de: Distrikt Buliisa
+    el: Μπουλιίσα
+    es: Distrito de Buliisa
+    fi: Buliisan kaupunginosa
+    fr: Buliisa
+    gu: બુલીસા જિલ્લો
+    he: בוליסה
+    hi: इबान्दा जिला
+    id: Distrik Ibanda
+    it: Ibanda
+    ja: イバンダ県
+    kn: ಇಬಂಡಾ ಜಿಲ್ಲೆ
+    ko: 이반다 구
+    mr: इबंडा जिल्हा
+    ms: Ibanda District
+    nb: Ibanda
+    nl: Bulisa
+    pl: Dystrykt Ibanda
+    pt: Distrito de Ibanda
+    ro: Districtul Ibanda
+    ru: Ибанда
+    si: ඉබන්ඩා දිස්ත්‍රික්කය
+    sv: Ibanda distriktet
+    sw: Wilaya ya Ibanda
+    ta: இபண்டா மாவட்டம்
+    te: ఇబాండా జిల్లా
+    th: เขตไอบานดา
+    tr: Ibanda District
+    ur: اباندا ضلع
+    vi: Quận Ibanda
+    lv: Bulisas distrikts
+    ceb: Bulisa District
+    lt: Bulisos apskritis
+    zh: 伊班達區
+    ccp: "𑄝𑄪𑄣𑄩𑄥"
+    uk: Район Буліса
+    'no': Ibanda
+    fa: ناحیه بولیسا
+  type: district
+'417':
+  name: Isingiro
+  code: '417'
+  unofficial_names:
+  - Isingiro
+  geo:
+    latitude: -0.7454997
+    longitude: 30.75798339999999
+    min_latitude: -1.0761676
+    min_longitude: 30.4783058
+    max_latitude: -0.6023487
+    max_longitude: 30.9170723
+  translations:
+    en: Ibanda
+    ar: مقاطعة إيسينجيرو
+    bn: ইসিংরো জেলা
+    da: Isingiro
+    de: Isingiro-Distrikt
+    el: Ισινγκίρο
+    es: Distrito de Isingiro
+    fi: Isingironin kaupunginosa
+    fr: Isingiro
+    gu: ઇસિંગિરો જિલ્લો
+    hi: इसिंगिरो जिला
+    id: Distrik Isingiro
+    it: Isingiro
+    ja: イシンギロ県
+    kn: ಐಸಿಂಗ್ರೋ ಜಿಲ್ಲೆ
+    ko: 이싱기로 구
+    mr: इसिनगिरो जिल्हा
+    ms: Isingiro District
+    nb: Isingiro
+    nl: Isingiro
+    pl: Dystrykt Isingiro
+    pt: Distrito de Isingiro
+    ro: Districtul Isingiro
+    ru: Исингиро
+    si: ඉසින්ගිරෝ දිස්ත්‍රික්කය
+    sv: Isingirodistriktet
+    sw: Wilaya ya Isingiro
+    ta: இஷின்ஜிரோ மாவட்டம்
+    te: ఇసింజిరో జిల్లా
+    th: ไอซินจิโร
+    tr: Isingiro District
+    ur: اسینگیرو ضلع
+    vi: Quận Isingiro
+    lv: Ibandas distrikts
+    ceb: Ibanda District
+    lt: Ibandos apskritis
+    zh: 伊辛吉羅區
+    ccp: "𑄃𑄨𑄝𑄚𑄴𑄓"
+    uk: Район Ібанда
+    'no': Isingiro
+    fa: ناحیه ایباندا
+  type: district
+'418':
+  name: Kiruhura
+  code: '418'
+  unofficial_names:
+  - Kiruhura
+  geo:
+    latitude: -0.196398
+    longitude: 30.84425
+  translations:
+    en: Isingiro
+    ar: مقاطعة إيسينجيرو²
+    bn: ইসিংরো জেলা²
+    da: Isingiro²
+    de: Isingiro-Distrikt²
+    el: Ισινγκίρο²
+    es: Distrito de Isingiro²
+    fi: Isingironin kaupunginosa²
+    fr: Isingiro²
+    gu: ઇસિંગિરો જિલ્લો²
+    hi: इसिंगिरो जिला²
+    id: Distrik Isingiro²
+    it: Isingiro²
+    ja: イシンギロ県²
+    kn: ಐಸಿಂಗ್ರೋ ಜಿಲ್ಲೆ²
+    ko: 이싱기로 구²
+    mr: इसिनगिरो जिल्हा²
+    ms: Isingiro District²
+    nb: Isingiro²
+    nl: Isingiro²
+    pl: Dystrykt Isingiro²
+    pt: Distrito de Isingiro²
+    ro: Districtul Isingiro²
+    ru: Исингиро²
+    si: ඉසින්ගිරෝ දිස්ත්‍රික්කය²
+    sv: Isingirodistriktet²
+    sw: Wilaya ya Isingiro²
+    ta: இஷின்ஜிரோ மாவட்டம்²
+    te: ఇసింజిరో జిల్లా²
+    th: ไอซินจิโร²
+    tr: Isingiro District²
+    ur: اسینگیرو ضلع²
+    vi: Quận Isingiro²
+    lv: Isingiro distrikts
+    ceb: Isingiro District
+    lt: Isingiro apskritis
+    zh: 伊辛吉羅區²
+    ccp: "𑄃𑄨𑄥𑄨𑄚𑄴𑄉𑄨𑄢𑄮"
+    uk: Район Ісінгіро
+    'no': Isingiro²
+    fa: ناحیه ایسینگیرو
+  type: district
+'419':
+  name: Buliisa
+  code: '419'
+  unofficial_names:
+  - Buliisa
+  geo:
+    latitude: 2.0299607
+    longitude: 31.5370003
+    min_latitude: 1.666287
+    min_longitude: 31.3198184
+    max_latitude: 2.323078
+    max_longitude: 31.7638859
+  translations:
+    en: Kiruhura
+    ar: مقاطعة بوليسا²
+    bn: বুলিসা জেলা²
+    da: Buliisa District²
+    de: Distrikt Buliisa²
+    el: Μπουλιίσα²
+    es: Distrito de Buliisa²
+    fi: Buliisan kaupunginosa²
+    fr: Buliisa²
+    gu: બુલીસા જિલ્લો²
+    he: בוליסה²
+    hi: बुलीसा जिला
+    id: Distrik Buliisa
+    it: Kiruhura
+    ja: キルフラ県
+    kn: ಬುಲಿಸಾ ಜಿಲ್ಲಾ
+    ko: 키루후라 구
+    mr: बुलिसा जिल्हा
+    ms: Buliisa District
+    nb: Kiruhura
+    nl: Bulisa²
+    pl: Dystrykt Buliisa
+    pt: Buliisa
+    ro: Districtul Kiruhura
+    ru: Кирухура
+    si: බුලිසා දිස්ත්‍රික්කය
+    sv: Buliisadistriktet
+    sw: Wilaya ya Kiruhura
+    ta: புலியிஸா மாவட்டம்
+    te: బులిలీసా జిల్లా
+    th: เมืองซเวซาย
+    tr: Buliisa District
+    ur: کیروہورا ضلع
+    vi: Quận Buliisa
+    ceb: Kiruhura District
+    zh: 基魯胡拉區
+    ccp: "𑄇𑄨𑄢𑄮𑄦𑄪𑄢"
+    'no': Kiruhura
+    fa: ناحیه کیروهورا
+  type: district
+'420':
+  name: Buhweju
+  code: '420'
+  translations:
+    ar: مقاطعة بوهيويو
+    bn: বুওয়েজু জেলা
+    da: Buhweju
+    de: Distrikt Buhweju
+    el: Μπουγουεντζού
+    en: Buhweju
+    es: Distrito de Buhweju
+    fi: Buhwejun kaupunginosa
+    fr: Buhweju
+    gu: બુહવેજુ જિલ્લો
+    hi: बुहवेखु जिला
+    id: Distrik Buhweju
+    it: Buhweju
+    ja: ブフウェジュ県
+    kn: ಬುಹ್ವೆಜ್ ಜಿಲ್ಲೆ
+    ko: 부흐웨주 구
+    mr: बुहवेजू जिल्हा
+    ms: Buhweju District
+    nb: Buhweju
+    nl: Buhweju
+    pl: Dystrykt Buhweju
+    pt: Buhweju
+    ru: Бувейу
+    si: බුවෙජු දිස්ත්‍රික්කය
+    sv: Buhwejudistriktet
+    ta: பூஹ்வெஜு மாவட்டம்
+    te: బుహ్వేజు జిల్లా
+    th: เขตเบอร์เวจู
+    tr: Buhweju District
+    ur: بوہویجو ضلع
+    vi: Quận Buhweju
+    lv: Buhvedžu distirkts
+    ceb: Buhweju District
+    lt: Buvėjaus apskritis
+    zh: 布惠朱區
+    ccp: "𑄝𑄪𑄦𑄴𑄃𑄨𑄠𑄮𑄎𑄪"
+    uk: Район Бувейу
+    'no': Buhweju
+    sw: Wilaya ya Buhweju
+  type: district
+'421':
+  name: Kiryandongo
+  code: '421'
+  translations:
+    ar: مقاطعة كيرياندونغو
+    bn: কিরিয়ান্দুং জেলা
+    da: Kiryandongo District
+    de: Distrikt Kiryandongo
+    el: Κιριαντόνγκο
+    en: Kiryandongo
+    es: Distrito de Kiryandongo
+    fi: Kiryandongon kaupunginosa
+    fr: Kiryandongo
+    gu: કિરિયાંડોન્ગો જિલ્લો
+    hi: किरयानडोंगो जिला
+    id: Distrik Kiryandongo
+    it: Kiryandongo
+    ja: キリャンドンゴ県
+    kn: ಕಿರಿಯಾಂಡೋಂಗೋ ಜಿಲ್ಲೆ
+    ko: 키리안동고 구
+    mr: किर्यादोंदोंगो जिल्हा
+    ms: Kiryandongo District
+    nb: Kiryandongo
+    nl: Kiryandongo District
+    pl: Dystrykt Kiryandongo
+    pt: Distrito de Kiryandongo
+    ru: Кирьандонго
+    si: කර්යන්ඩොන්ගෝ දිස්ත්‍රික්කය
+    sv: Kiryandongodirstriktet
+    ta: கிரிங்டோங்கோ மாவட்டம்
+    te: కిర్యాండాగో జిల్లా
+    th: เคอยันดอนโก
+    tr: Kiryandongo District
+    ur: کیریاندونگو ضلع
+    vi: Quận Kiryandongo
+    lv: Kirjandongo province
+    ceb: Kiryandongo District
+    lt: Kirjangdongo provincija
+    zh: 基爾揚東戈區
+    ccp: "𑄇𑄨𑄢𑄨𑄠𑄚𑄴𑄓𑄮𑄚𑄴𑄉𑄮"
+    uk: Район Кірьяндонго
+    'no': Kiryandongo
+    fa: ناحیه کیریاندونگو
+  type: district
+'422':
+  name: Kyegegwa
+  code: '422'
+  translations:
+    ar: مقاطعة كيجيغوا
+    bn: কিজেগউয়া জেলা
+    da: Kyegegwa District
+    de: Distrikt Kyegegwa
+    el: Κιεγκέρουα
+    en: Kyegegwa
+    es: Distrito de Kyegegwa
+    fi: Kyegegwan kaupunginosa
+    fr: Kyegegwa
+    gu: ક્યેગેગવા જિલ્લો
+    hi: क्येजेग्वा जिला
+    id: Distrik Kyegegwa
+    it: Kyegegwa
+    ja: キェゲグワ県
+    kn: ಕೈಗ್ಗ್ವಾ ಜಿಲ್ಲೆ
+    ko: 키에게과 구
+    mr: कायेगगवा जिल्हा
+    ms: Kyegegwa District
+    nb: Kyegegwa
+    nl: Kyegegwa
+    pl: Dystrykt Kyegegwa
+    pt: Kyegegwa
+    ru: Кьегегва
+    si: ක්යෙගේග්වා දිස්ත්‍රික්කය
+    sv: Kyegegwadistriktet
+    ta: கஏஜேஜிவா மாவட்டம்
+    te: క్యెగెగ్వా జిల్లా
+    th: เขตคยีเก็กวา
+    tr: Kyegegwa District
+    ur: کئیگیگوا ضلع
+    vi: Quận Kyegegwa
+    lv: Ķegegvas distrikts
+    ceb: Kyegegwa District
+    lt: Kjegegvos apskritis
+    zh: 基埃蓋瓜區
+    ccp: "𑄇𑄨𑄠𑄬𑄉𑄬𑄇𑄴𑄤"
+    uk: Район Кьєгегва
+    'no': Kyegegwa
+    fa: ناحیه کیگگوا
+    sw: Wilaya ya Kyegegwa
+  type: district
+'423':
+  name: Mitooma
+  code: '423'
+  translations:
+    ar: إقليم ميتووما
+    bn: মিতোমা জেলা
+    da: Mitooma District
+    de: Distrikt Mitooma
+    el: Μιτοόμα
+    en: Mitooma
+    es: Distrito de Mitooma
+    fi: Mitooman kaupunginosa
+    fr: Mitooma
+    gu: મિટૂમા જિલ્લો
+    hi: मिटूमा जिला
+    id: Distrik Mitooma
+    it: Mitooma
+    ja: ミトマ県
+    kn: ಮಿತುಮಾ ಜಿಲ್ಲೆ
+    ko: 미토마 구
+    mr: मिटुमा जिल्हा
+    ms: Mitooma District
+    nb: Mitooma
+    nl: Mitooma
+    pl: Dystrykt Mitooma
+    pt: Mitooma
+    ru: Митоома
+    si: මීටුමා දිස්ත්‍රික්කය
+    sv: Mitoomadistriktet
+    ta: மிட்டோமோ மாவட்டம்
+    te: మిటూమా జిల్లా
+    th: เขตมิทูมา
+    tr: Mitooma District
+    ur: میتوما ضلع
+    vi: Quận Mitooma
+    lv: Mitoomas distrikts
+    ceb: Mitoma District
+    lt: Mitumos apskritis
+    zh: 米托馬區
+    ccp: "𑄟𑄨𑄑𑄫𑄟"
+    uk: Район Мітоома
+    'no': Mitooma
+    fa: ناحیه میتوما
+    sw: Wilaya ya Mitooma
+  type: district
+'424':
+  name: Ntoroko
+  code: '424'
+  translations:
+    ar: مقاطعة نتوروكو
+    bn: নুরোকু জেলা
+    da: Ntoroko District
+    de: Distrikt Ntoroko
+    el: Ντορόκο
+    en: Ntoroko
+    es: Distrito de Ntoroko
+    fi: Ntorokon kaupunginosa
+    fr: Ntoroko
+    gu: ન્ટોરોકો જિલ્લો
+    hi: नतोरोको जिला
+    id: Distrik Ntoroko
+    it: Ntoroko
+    ja: ントロコ県
+    kn: ಎನ್ಟೋರೋ ಜಿಲ್ಲೆ
+    ko: 은토로코 구
+    mr: नटोरो जिल्हा
+    ms: Ntoroko District
+    nb: Ntoroko
+    nl: Ntoroko
+    pl: Dystrykt Ntoroko
+    pt: Ntoroko
+    ru: Нтороко
+    si: න්ටෝරොකෝ දිස්ත්‍රික්කය
+    sv: Ntorokodistriktet
+    ta: நிடோரோகோ மாவட்டம்
+    te: ఎన్‌టోరోకో జిల్లా
+    th: เขตโนโตโกะ
+    tr: Ntorolo District
+    ur: نتوروکو ضلع
+    vi: Quận Ntoroko
+    lv: Ntoroko distrikts
+    ceb: Ntoroko District
+    lt: Ntoroko apskritis
+    zh: 恩托羅科區
+    ccp: "𑄑𑄮𑄢𑄮𑄇𑄮"
+    uk: Район Нтороко
+    'no': Ntoroko
+    fa: ناحیه نتوروکو
+    sw: Wilaya ya Ntoroko
+  type: district
+'425':
+  name: Rubirizi
+  code: '425'
+  translations:
+    ar: مقاطعة روبيريزي
+    bn: রুবিরজি জেলা
+    da: Rubirizi District
+    de: Distrikt Rubirizi
+    el: Ρουμπιρίζι
+    en: Rubirizi
+    es: Distrito de Rubirizi
+    fi: Rubirizin kaupunginosa
+    fr: Rubirizi
+    gu: રુબિરીઝી જિલ્લો
+    hi: रुबिरिज़ी जिला
+    id: Distrik Rubirizi
+    it: Rubirizi
+    ja: ルビリジ県
+    kn: ರುಬಿರಿಜಿ ಜಿಲ್ಲೆ
+    ko: 루비리지 구
+    mr: रुबिरीझी जिल्हा
+    ms: Rubirizi District
+    nb: Rubirizi
+    nl: Rubirizi District
+    pl: Dystrykt Rubirizi
+    pt: Rubirizi
+    ru: Рубиризи
+    si: රුබිරිසි දිස්ත්‍රික්කය
+    sv: Rubirizi
+    ta: ருபிரிஜி மாவட்டம்
+    te: రుబిరిజి జిల్లా
+    th: เขครูบิริซี
+    tr: Rubirzi District
+    ur: روبیریزی ضلع
+    vi: Quận Rubirizi
+    lv: Rubirizi distrikts
+    ceb: Rubirizi District
+    lt: Rubirizio rajonas
+    zh: 魯比里齊區
+    ccp: "𑄢𑄪𑄝𑄨𑄢𑄨𑄎𑄨"
+    uk: Район Рубірізі
+    'no': Rubirizi
+    fa: ناحیه روبیریزی
+    sw: Wilaya ya Rubirizi
+  type: district
+'426':
+  name: Sheema
+  code: '426'
+  translations:
+    ar: مقاطعة شيما
+    bn: সিমা জেলা
+    da: Sheema District
+    de: Distrikt Sheema
+    el: Σήμα
+    en: Sheema
+    es: Distrito de Sheema
+    fi: Sheeman kaupunginosa
+    fr: Sheema
+    gu: શીમા જિલ્લો
+    hi: शीमा जिला
+    id: Distrik Sheema
+    it: Sheema
+    ja: シェエマ県
+    kn: ಶೀಮಾ ಜಿಲ್ಲೆ
+    ko: 셰마 구
+    mr: शमी जिल्हा
+    ms: Sheema District
+    nb: Sheema
+    nl: Sheema
+    pl: Dystrykt Sheema
+    pt: Sheema
+    ru: Шеема
+    si: ශිමා දිස්ත්‍රික්කය
+    sv: Sheema (dristrikt)
+    ta: ஷீமா மாவட்டம்
+    te: షీమా జిల్లా
+    th: เมืองซีมา
+    tr: Sheema District
+    ur: شیما ضلع
+    vi: Quận Sheema
+    lv: Šemas distrikts
+    ceb: Sheema District
+    lt: Šimos apskritis
+    zh: 謝馬區
+    ccp: "𑄥𑄩𑄟"
+    uk: Район Шеема
+    'no': Sheema
+    sw: Wilaya ya Sheema
+  type: district
+'427':
+  name: Kagadi
+  code: '427'
+  geo:
+    latitude: 1.373333
+    longitude: 32.290275
+    min_latitude: -1.4823178
+    min_longitude: 29.573433
+    max_latitude: 4.218628
+    max_longitude: 35.0330489
+  translations:
+    ja: カガディ県
+    en: Kagadi
+    de: Distrikt Kagadi
+    fa: ناحیه کاگادی
+    nl: Kagadi (district)
+    sw: Wilaya ya Kagadi
+  type: district
+'428':
+  name: Kakumiro
+  code: '428'
+  geo:
+    latitude: 1.373333
+    longitude: 32.290275
+    min_latitude: -1.4823178
+    min_longitude: 29.573433
+    max_latitude: 4.218628
+    max_longitude: 35.0330489
+  translations:
+    ja: カクミロ県
+    en: Kakumiro
+    de: Distrikt Kakumiro
+    fa: ناحیه کاکومیرو
+    nl: Kakumiro (district)
+    sv: Kakumiro
+    sw: Wilaya ya Kakumiro
+  type: district
+'429':
+  name: Rubanda
+  code: '429'
+  geo:
+    latitude: 1.373333
+    longitude: 32.290275
+    min_latitude: -1.4823178
+    min_longitude: 29.573433
+    max_latitude: 4.218628
+    max_longitude: 35.0330489
+  translations:
+    ja: ルバンダ県
+    en: Rubanda
+    de: Distrikt Rubanda
+    fa: ناحیه روباندا
+    nl: Rubanda (district)
+    sw: Wilaya ya Rubanda
+  type: district
+'430':
+  name: Bunyangabu
+  code: '430'
+  geo:
+    latitude: 1.373333
+    longitude: 32.290275
+    min_latitude: -1.4823178
+    min_longitude: 29.573433
+    max_latitude: 4.218628
+    max_longitude: 35.0330489
+  translations:
+    ja: ブニャンガブ県
+    en: Bunyangabu
+    de: Distrikt Bunyangabu
+    fa: ناحیه بانیانگابو
+    fr: District de Bunyangabu
+    nl: Bunyangabu
+    sw: Wilaya ya Bunyangabu
+  type: district
+'431':
+  name: Rukiga
+  code: '431'
+  geo:
+    latitude: 1.373333
+    longitude: 32.290275
+    min_latitude: -1.4823178
+    min_longitude: 29.573433
+    max_latitude: 4.218628
+    max_longitude: 35.0330489
+  translations:
+    ja: ルキガ県
+    en: Rukiga
+    de: Distrikt Rukiga
+    fa: ناحیه روکیگا
+    nl: Rukiga (district)
+    sw: Wilaya ya Rukiga
+  type: district
+'432':
+  name: Kikuube
+  code: '432'
+  geo:
+    latitude: 1.373333
+    longitude: 32.290275
+    min_latitude: -1.4823178
+    min_longitude: 29.573433
+    max_latitude: 4.218628
+    max_longitude: 35.0330489
+  translations:
+    en: Kikuube
+    ja: キクベ県
+  type: district
+'433':
+  translations:
+    en: Kazo
+    de: Kazo-Distrikt
+    fa: ناحیه کازو
+    ja: カゾ県
+    nl: Kazo
+    sw: Wilaya ya Kazo
+  name: Kazo
+  code: '433'
+  type: district
+'434':
+  translations:
+    en: Kitagwenda
+    fa: ناحیه کیتاگوندا
+    ja: キタグウェンダ県
+    nl: Kitagwenda
+    sw: Wilaya ya Kitagwenda
+  name: Kitagwenda
+  code: '434'
+  type: district
+'435':
+  translations:
+    en: Rwampara
+    fa: ناحیه روآمپارا
+    ja: ルワンパラ県
+    nl: Rwampara
+    sw: Wilaya ya Rwampara
+  name: Rwampara
+  code: '435'
+  type: district
+C:
+  name: Central
+  code: C
+  translations:
+    de: Zentraluganda
+    el: Κεντρική Ουγκάντα
+    en: Central
+    fr: Centre
+    it: Regione centrale
+    ja: 中央地域
+    ka: ცენტრალური რეგიონი
+    ko: 중부 주
+    nb: Central
+    nl: Central
+    pt: Região Central
+    ru: Центральная область
+    sr: Централни регион
+    tr: Merkez Bölgesi
+    uk: Центральна область
+    ur: وسطی علاقہ، یوگنڈا
+    ceb: Central Region
+    sr_Latn: Centralni region
+    zh: 中部區
+    fa: استان مرکزی، اوگاندا
+    sw: Mkoa wa Kati
+    ccp: "𑄥𑄬𑄚𑄴𑄑𑄳𑄢"
+    hy: Կենտրոնական շրջան
+    ca: Regió Central
+    be: Цэнтральная вобласць
+    'no': Central
+    az: Mərkəz bölgəsi (Uqanda)
+    eu: Erdialdekoa (Uganda)
+    fi: Ugandan keskinen alue
+    id: Region Tengah, Uganda
+    vi: Trung Uganda
+  type: geographical_region
+E:
+  name: Eastern
+  code: E
+  translations:
+    el: Ανατολική Ουγκάντα
+    en: Eastern
+    fr: Est
+    it: Regione orientale
+    ja: 東部地域
+    ka: აღმოსავლეთის რეგიონი
+    ko: 동부 주
+    nb: Eastern
+    nl: Eastern
+    pt: Região Leste
+    ru: Восточная область
+    tr: Doğu Bölgesi
+    uk: Східна область
+    ur: مشرقی علاقہ، یوگنڈا
+    ceb: Eastern Region
+    zh: 東部區
+    fa: استان شرقی، اوگاندا
+    sw: Mkoa wa Mashariki
+    ccp: "𑄛𑄪𑄇𑄴𑄟𑄬𑄇𑄴𑄈𑄬"
+    hy: Արևելյան շրջան
+    ro: Regiunea Estică
+    ca: Regió de l’Est d’Uganda
+    'no': Eastern
+    ar: المنطقة الشرقية (أوغندا)
+    az: Şərq bölgəsi (Uqanda)
+    de: Eastern Region (Uganda)
+    id: Region Timur, Uganda
+    ml: കിഴക്കൻ മേഖല, ഉഗാണ്ട
+    vi: Đông Uganda
+  type: geographical_region
+N:
+  name: Northern
+  code: N
+  translations:
+    el: Βόρεια Ουγκάντα
+    en: Northern
+    fr: Nord
+    it: Regione settentrionale
+    ja: 北部地域
+    ka: ჩრდილოეთის რეგიონი
+    ko: 북부 주
+    nb: Northern
+    nl: Northern
+    pt: Região Norte
+    ru: Северная область
+    tr: Kuzey Bölgesi
+    uk: Північна область
+    ur: شمالی علاقہ، یوگنڈا
+    ceb: Northern Region
+    zh: 北部區
+    fa: استان شمالی، اوگاندا
+    sw: Mkoa wa Kaskazini
+    ccp: "𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄴𑄟𑄬𑄇𑄴𑄈𑄬"
+    'no': Northern
+    az: Şimal bölgəsi
+    be: Паўночная вобласць
+    de: Northern Region
+    he: אזור צפון
+    hy: Հյուսիսային շրջան
+    id: Region Utara, Uganda
+    vi: Bắc Uganda
+  type: geographical_region
+W:
+  name: Western
+  code: W
+  translations:
+    el: Δυτική Ουγκάντα
+    en: Western
+    fr: Ouest
+    it: Regione occidentale
+    ja: 西部地域
+    ka: დასავლეთის რეგიონი
+    ko: 서부 주
+    nb: Western
+    nl: Western
+    pt: Região Oeste
+    ru: Западная область
+    tr: Batı Bölgesi
+    uk: Західна область
+    ur: مغربی علاقہ، یوگنڈا
+    ceb: Western Region
+    zh: 西部區
+    fa: استان غربی، اوگاندا
+    sw: Mkoa wa Magharibi
+    ccp: "𑄛𑄧𑄏𑄨𑄟𑄴𑄟𑄬𑄇𑄴𑄈𑄬"
+    hy: Արեւմտյան մարզ
+    'no': Western
+    az: Qərb bölgəsi (Uqanda)
+    de: Western Region (Uganda)
+    es: Región Occidental, Uganda
+    id: Region Barat, Uganda
+    pl: Region Zachodni
+    vi: Tây Uganda
+  type: geographical_region

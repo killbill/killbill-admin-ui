@@ -1,0 +1,1277 @@
+---
+'11':
+  name: Seoul Teugbyeolsi [Seoul-T'ukpyolshi]
+  code: '11'
+  unofficial_names:
+  - Seoul
+  - Soul
+  geo:
+    latitude: 37.566535
+    longitude: 126.9779692
+    min_latitude: 37.4259627
+    min_longitude: 126.7645827
+    max_latitude: 37.7017495
+    max_longitude: 127.18359
+  translations:
+    en: Seoul
+    af: Seoel
+    am: ሶል
+    ar: سول
+    az: Seul
+    be: Сеул
+    bg: Сеул
+    bn: সিওল
+    ca: Seül
+    cs: Soul
+    da: Seoul
+    de: Seoul
+    el: Σεούλ
+    es: Seúl
+    et: Sŏul
+    eu: Seul
+    fa: سئول
+    fi: Soul
+    fr: Séoul
+    gl: Seúl
+    gu: સિઓલ
+    he: סיאול
+    hi: सियोल
+    hr: Seul
+    hu: Szöul
+    hy: Սեուլ
+    id: Seoul
+    is: Seúl
+    it: Seul
+    ja: ソウル特別市
+    ka: სეული
+    km: សេអ៊ូល
+    kn: ಸೌಲ್
+    ko: 서울특별시
+    lt: Seulas
+    lv: Seula
+    ml: സോൾ
+    mn: Сөүл
+    mr: सोल
+    ms: Seoul
+    nb: Seoul
+    ne: सोल
+    nl: Seoel
+    or: ସିଓଲ
+    pl: Seul
+    ps: سيول
+    pt: Seul
+    ro: Seul
+    ru: Сеул
+    si: "‍සෝල්"
+    sk: Soul
+    sl: Seul
+    sr: Сеул
+    sv: Seoul
+    sw: Seoul
+    ta: சியோல்
+    te: సియొల్
+    th: โซล
+    tk: Seul
+    tr: Seul
+    uk: Сеул
+    ur: سیول
+    vi: Seoul
+    zh: 首爾
+    cy: Seoul
+    ceb: Seoul
+    as: ছিউল
+    sr_Latn: Seul
+    yue_Hans: 首尔
+    jv: Seoul
+    sq: Seoul
+    ccp: "𑄥𑄨𑄅𑄪𑄣𑄴"
+    ga: Seoul
+    ky: Сеул
+    ha: Seoul
+    so: Seoul
+    pa: ਸਿਓਲ
+    kk: Сеул
+    yue: 首爾
+    my: ဆိုးလ်မြို့
+    yo: Seoul
+    uz: Seul
+    bs: Seul
+    mk: Сеул
+    ha_NE: Seoul
+    'no': Seoul
+    yo_BJ: Seoul
+    lo: ໂຊລ
+  type: special_city
+'26':
+  name: Busan Gwang'yeogsi [Pusan-Kwangyokshi]
+  code: '26'
+  unofficial_names:
+  - Busan
+  geo:
+    latitude: 35.1795543
+    longitude: 129.0756416
+    min_latitude: 34.9835815
+    min_longitude: 128.787197
+    max_latitude: 35.3874414
+    max_longitude: 129.3100483
+  translations:
+    en: Busan
+    af: Busan
+    ar: بوسان
+    az: Busan
+    be: Горад Пусан
+    bg: Пусан
+    bn: বুসান
+    ca: Busan
+    cs: Pusan
+    da: Busan
+    de: Busan
+    el: Μπούσαν
+    es: Busan
+    et: Pusan
+    eu: Busan
+    fa: بوسان
+    fi: Busan
+    fr: Busan
+    gl: Busan
+    gu: બુસાન
+    he: פוסן
+    hi: बुसान
+    hr: Busan
+    hu: Puszan
+    hy: Բուսան
+    id: Busan
+    it: Pusan
+    ja: 釜山広域市
+    ka: პუსანი
+    kn: ಬುಸಾನ್
+    ko: 부산광역시
+    lt: Busanas
+    lv: Pusana
+    ml: ബുസാൻ
+    mn: Пүсан
+    mr: बुसान
+    ms: Busan
+    nb: Busan
+    nl: Busan
+    pl: Pusan
+    pt: Busan
+    ro: Busan
+    ru: Пусан
+    si: බුසාන්
+    sk: Pusan
+    sr: Бусан
+    sv: Pusan
+    sw: Busan
+    ta: புசான்
+    te: బుసాన్
+    th: ปูซาน
+    tr: Busan
+    uk: Пусан
+    ur: بوسان
+    vi: Busan
+    cy: Busan
+    ceb: Busan (lalawigan)
+    sr_Latn: Busan
+    zh: 釜山
+    yue_Hans: 釜山
+    jv: Busan
+    sq: Busan
+    ccp: "𑄝𑄪𑄥𑄚𑄴"
+    ga: Busan
+    ky: Пусан
+    is: Busan
+    ha: Busan
+    sl: Pusan
+    pa: ਬੂਸਾਨ
+    kk: Пусан
+    yue: 釜山
+    am: ቡሳን
+    my: ဘူဆန်မြို့
+    uz: Pusan
+    mk: Пусан
+    ha_NE: Busan
+    'no': Busan
+    km: ប៊ូសាន
+  type: metropolitan_city
+'27':
+  name: Daegu Gwang'yeogsi [Taegu-Kwangyokshi]
+  code: '27'
+  unofficial_names:
+  - Daegu
+  geo:
+    latitude: 35.8714354
+    longitude: 128.601445
+    min_latitude: 35.6071707
+    min_longitude: 128.3497208
+    max_latitude: 36.0172827
+    max_longitude: 128.7632175
+  translations:
+    en: Daegu
+    af: Daegu
+    ar: دايغو
+    be: Тэгу
+    bg: Тегу
+    bn: ডেগু
+    ca: Daegu
+    cs: Tegu
+    da: Daegu
+    de: Daegu
+    el: Ντέγκου
+    es: Daegu
+    et: Taegu
+    eu: Daegu
+    fa: دائجو
+    fi: Daegu
+    fr: Daegu
+    gl: Daegu
+    gu: ડેગૂ
+    he: טגו
+    hi: दाएगू
+    hu: Tegu
+    hy: Դեգու
+    id: Daegu
+    it: Taegu
+    ja: 大邱広域市
+    kn: ಡೇಗು
+    ko: 대구광역시
+    lt: Tegu
+    lv: Tegu
+    ml: ദേഗു
+    mn: Тэгү
+    mr: दैगू
+    ms: Daegu
+    nb: Daegu
+    nl: Daegu
+    pl: Daegu
+    pt: Daegu
+    ro: Daegu
+    ru: Тэгу
+    si: ඩයිගු
+    sk: Tägu
+    sl: Daegu
+    sr: Тегу
+    sv: Daegu
+    sw: Daegu
+    ta: டேகு
+    te: డేగు
+    th: แทกู
+    tr: Daegu
+    uk: Тегу
+    ur: ڈائے گو
+    vi: Daegu
+    ceb: Daegu (lalawigan)
+    sr_Latn: Tegu
+    zh: 大邱廣域市
+    yue_Hans: 大邱
+    ccp: "𑄓𑄠𑄬𑄉𑄪"
+    ka: ტეგუ
+    ha: Daegu
+    hr: Daegu
+    kk: Тэгу
+    yue: 大邱
+    ha_NE: Daegu
+    'no': Daegu
+    az: Tequ
+    ga: Daegu
+    km: ដែហ្គូ
+  type: metropolitan_city
+'28':
+  name: Incheon Gwang'yeogsi [Inch'n-Kwangyokshi]
+  code: '28'
+  unofficial_names:
+  - Incheon
+  - Inchon
+  geo:
+    latitude: 37.4562557
+    longitude: 126.7052062
+    min_latitude: 37.0063057
+    min_longitude: 124.608139
+    max_latitude: 37.982666
+    max_longitude: 126.7936273
+  translations:
+    en: Incheon
+    af: Incheon
+    ar: إنتشون
+    be: Горад Інчхон
+    bg: Инчхън
+    bn: ইনছন
+    ca: Inchon
+    cs: Inčchon
+    da: Incheon
+    de: Incheon
+    el: Ιντσόν
+    es: Incheon
+    et: Inch’ŏn
+    eu: Incheon
+    fa: اینچئون
+    fi: Incheon
+    fr: Incheon
+    gu: ઇન્ચેઓન
+    he: אינצ׳ון
+    hi: इंचियोन
+    hr: Incheon
+    hu: Incshon
+    hy: Ինչոն
+    id: Incheon
+    it: Incheon
+    ja: 仁川広域市
+    ka: ინჩხონი
+    kn: ಇಂಚಿಯೋನ್
+    ko: 인천광역시
+    lt: Inčonas
+    lv: Inčhona
+    mn: Инчон
+    mr: इंचेवॉन
+    ms: Incheon
+    nb: Incheon
+    nl: Incheon
+    pl: Inczon
+    pt: Incheon
+    ro: Incheon
+    ru: Инчхон
+    si: ඉන්චියෝන්
+    sk: Inčchon
+    sr: Инчон
+    sv: Inchon
+    sw: Incheon
+    ta: இங்கியோன்
+    te: ఇంచియోన్
+    th: อินช็อน
+    tr: İncheon
+    uk: Інчхон
+    ur: ان چیون
+    vi: Incheon
+    cy: Incheon
+    ceb: Incheon
+    sr_Latn: Inčon
+    zh: 仁川廣域市
+    yue_Hans: 仁川
+    jv: Incheon
+    ccp: "𑄃𑄨𑄚𑄴𑄥𑄨𑄠𑄧𑄚𑄴"
+    ky: Инчхон
+    ha: Incheon
+    pa: ਇਨਚਨ
+    kk: Инчхон
+    yue: 仁川
+    my: အင်ချွန်းမြို့
+    uz: Inchxon
+    ha_NE: Incheon
+    'no': Incheon
+    az: İnçxon
+    ga: Incheon
+    km: អ៊ីនឆុន
+  type: metropolitan_city
+'29':
+  name: Gwangju Gwang'yeogsi [Kwangju-Kwangyokshi]
+  code: '29'
+  unofficial_names:
+  - Gwangju
+  geo:
+    latitude: 35.1595454
+    longitude: 126.8526012
+    min_latitude: 35.0508149
+    min_longitude: 126.6449036
+    max_latitude: 35.2589426
+    max_longitude: 127.0229414
+  translations:
+    en: Gwangju City
+    af: Gwangju
+    ar: غوانغجو
+    az: Kvanju
+    be: Горад Кванджу
+    bg: Куанджу
+    bn: গোয়াংজু
+    ca: Gwangju
+    cs: Kwangdžu
+    da: Gwangju
+    de: Gwangju
+    el: Γκουάνγκτζου
+    es: Gwangju
+    et: Kwangju
+    eu: Gwangju
+    fa: گوانگجو
+    fi: Gwangju
+    fr: Gwangju
+    gu: ગ્વાંગજુ
+    he: קוואנגג׳ו
+    hi: ग्वांगजू
+    hu: Kvangdzsu
+    hy: Գվանջու
+    id: Gwangju
+    it: Gwangju
+    ja: 光州広域市
+    kn: ಗ್ವಾಂಗ್ಜು
+    ko: 광주광역시
+    lt: Kvandžu
+    lv: Kvandžu
+    mn: Куанжү
+    mr: ग्वांगजू
+    ms: Gwangju
+    nb: Gwangju
+    nl: Gwangju
+    pl: Gwangju
+    pt: Gwangju
+    ro: Gwangju
+    ru: Кванджу
+    si: ග්වන්ග්ජු
+    sk: Kwangdžu
+    sl: Gvangdžu
+    sr: Квангџу
+    sv: Gwangju
+    sw: Gwangju
+    ta: குவாங்கு
+    te: గ్వాంగ్జూ
+    th: ควังจู
+    tr: Gwangju
+    uk: Кванджу
+    ur: گوانگ جو
+    vi: Gwangju
+    cy: Gwangju
+    ceb: Gwangju (lalawigan)
+    sr_Latn: Kvangdžu
+    zh: 光州廣域市
+    yue_Hans: 光州
+    jv: Gwangju
+    ccp: "𑄉𑄧𑄁𑄎𑄪 𑄥𑄨𑄑𑄨"
+    ky: Кванже
+    kk: Кванджу
+    yue: 光州
+    mk: Квангџу
+    'no': Gwangju
+    ga: Gwangju
+    hr: Gwangju
+    km: ក្វាងជូ
+    uz: Kvanju
+  type: metropolitan_city
+'30':
+  name: Daejeon Gwang'yeogsi [Taejon-Kwangyokshi]
+  code: '30'
+  unofficial_names:
+  - Daejeon
+  - Taejeon
+  - Taejon
+  geo:
+    latitude: 36.3504119
+    longitude: 127.3845475
+    min_latitude: 36.1833708
+    min_longitude: 127.2464501
+    max_latitude: 36.4999477
+    max_longitude: 127.5590437
+  translations:
+    en: Daejeon
+    af: Daejeon
+    ar: دايجيون
+    bg: Теджън
+    bn: ডেজন
+    ca: Daejeon
+    cs: Tedžon
+    da: Daejeon
+    de: Daejeon
+    el: Ντέτζον
+    es: Daejeon
+    et: Taejŏn
+    eu: Daejeon
+    fa: دائجونگ
+    fi: Daejeon
+    fr: Daejeon
+    gu: ડેજોન
+    he: טג׳אן
+    hi: डाइजेन
+    hu: Tedzson
+    hy: Դեջոն
+    id: Daejeon
+    it: Daejeon
+    ja: 大田広域市
+    kn: ಡೇಜಿಯೋನ್
+    ko: 대전광역시
+    lt: Tedžonas
+    lv: Tedžona
+    mn: Тэжон
+    mr: देजॉन
+    ms: Daejeon
+    nb: Daejeon
+    nl: Daejeon
+    pl: Daejeon
+    pt: Daejeon
+    ro: Daejeon
+    ru: Тэджон
+    si: ඩයිජියොන්
+    sk: Tädžon
+    sl: Daedžeon
+    sr: Теџон
+    sv: Daejeon
+    sw: Daejeon
+    ta: டேய்ஜேயோன்
+    te: డాయిజియన్
+    th: แทจ็อน
+    tr: Daejeon
+    uk: Теджон
+    ur: ڈائے جیون
+    vi: Daejeon
+    ceb: Daejeon (lalawigan)
+    sr_Latn: Tedžon
+    zh: 大田广域市
+    yue_Hans: 大田
+    jv: Daejeon
+    ccp: "𑄓𑄬𑄎𑄨𑄠𑄧𑄚𑄴"
+    ha: Daejeon
+    hr: Daejeon
+    kk: Тэджон
+    yue: 大田
+    uz: Daejeon
+    mk: Теџон
+    ha_NE: Daejeon
+    'no': Daejeon
+    az: Tecon
+    cy: Daejeon
+    ga: Daejeon
+    km: ដែចន់
+  type: metropolitan_city
+'31':
+  name: Ulsan Gwang'yeogsi [Ulsan-Kwangyokshi]
+  code: '31'
+  unofficial_names:
+  - Ulsan Gwang'yeogsi [Ulsan-Kwangyokshi]
+  geo:
+    latitude: 35.5383773
+    longitude: 129.3113596
+    min_latitude: 35.3218658
+    min_longitude: 128.9756829
+    max_latitude: 35.7252482
+    max_longitude: 129.4666138
+  translations:
+    en: Ulsan
+    af: Ulsan
+    ar: أولسان
+    bg: Улсан
+    bn: উলসান
+    ca: Ulsan
+    cs: Ulsan
+    da: Ulsan
+    de: Ulsan
+    el: Ούλσαν
+    es: Ulsan
+    et: Ulsan
+    eu: Ulsan
+    fa: اولسان
+    fi: Ulsan
+    fr: Ulsan
+    gu: ઉલ્સન
+    he: אולסן
+    hi: उल्सान
+    hu: Ulszan
+    hy: Ուլսան
+    id: Ulsan
+    it: Ulsan
+    ja: 蔚山広域市
+    kn: ಉಲ್ಸಾನ್
+    ko: 울산광역시
+    lt: Ulsanas
+    lv: Ulsana
+    mn: Үлсан
+    mr: उल्सान
+    ms: Ulsan
+    nb: Ulsan
+    nl: Ulsan
+    pl: Ulsan
+    pt: Ulsan
+    ro: Ulsan
+    ru: Ульсан
+    si: අල්සාන්
+    sr: Улсан
+    sv: Ulsan
+    sw: Ulsan
+    ta: உள்சன்
+    te: ఉల్సాన్
+    th: อุลซัน
+    tr: Ulsan
+    uk: Ульсан
+    ur: السان
+    vi: Ulsan
+    ceb: Ulsan
+    sr_Latn: Ulsan
+    zh: 蔚山广域市
+    yue_Hans: 蔚山
+    ccp: "𑄃𑄣𑄴𑄥𑄚𑄴"
+    kk: Ульсан
+    yue: 蔚山
+    az: Ulsan
+    my: အောလ်ဆန်မြို့
+    uz: Ulsan
+    'no': Ulsan
+    ga: Ulsan
+    hr: Ulsan
+    km: អ៊ុលសាន
+  type: metropolitan_city
+'41':
+  name: Gyeonggido [Kyonggi-do]
+  code: '41'
+  unofficial_names:
+  - Gyeonggido [Kyonggi-do]
+  geo:
+    latitude: 37.41379999999999
+    longitude: 127.5183
+    min_latitude: 36.8939685
+    min_longitude: 126.3763885
+    max_latitude: 38.3026711
+    max_longitude: 127.8582527
+  translations:
+    en: Gyeonggi
+    ar: مقاطعة غيونغي
+    bg: Кьонги-до
+    bn: গিয়েওনগি
+    ca: Gyeonggi-do
+    cs: Kjonggi
+    da: Gyeonggi Province
+    de: Gyeonggi-do
+    el: Γκιόνγκι-ντο
+    es: Gyeonggi
+    et: Kyŏnggi provints
+    fa: گیونگی-دو
+    fi: Gyeonggi
+    fr: Gyeonggi
+    gu: ગ્યોંગી પ્રાંત
+    he: גיונגי
+    hi: गियॉन्गी प्रांत
+    hu: Kjonggi
+    hy: Գյոնգի-դո
+    id: Gyeonggi
+    it: Gyeonggi
+    ja: 京畿道
+    kn: ಜಿಯಾಂಗ್ಗಿ ಪ್ರಾಂತ್ಯ
+    ko: 경기도
+    lt: Kiongi provincija
+    mn: Кёнги
+    mr: ग्याँगी प्रांत
+    ms: Gyeonggi
+    nb: Gyeonggi
+    nl: Gyeonggi-do
+    pl: Gyeonggi
+    pt: Gyeonggi
+    ro: Gyeonggi-do
+    ru: Кёнгидо
+    si: ජියෝන්ගි පළාත
+    sk: Kjonggi
+    sv: Gyeonggi
+    sw: Gyeonggi-do
+    ta: இக்யாங்கி மாநிலம்
+    te: జయోంగి ప్రావిన్స్
+    th: จังหวัดคย็องกี
+    tr: Gyeonggi
+    uk: Провінція Кьонгі
+    ur: گیئونگی صوبہ
+    vi: Gyeonggi
+    lv: Kjongido
+    cy: Talaith Gyeonggi
+    ceb: Gyeonggi-do
+    zh: 京畿道
+    yue_Hans: 京畿道
+    ccp: "𑄉𑄭𑄠𑄮𑄚𑄴𑄉𑄨"
+    ka: კიონგიდო
+    eu: Gyeonggi
+    kk: Кёңгидо
+    yue: 京畿道
+    'no': Gyeonggi
+    az: Köngido vilayəti
+  type: province
+'42':
+  name: Gang'weondo [Kang-won-do]
+  code: '42'
+  unofficial_names:
+  - Kangwon
+  translations:
+    en: Gangwon
+    ar: مقاطعة غانغوون
+    bg: Кануън-до
+    bn: গাংওয়ান
+    ca: Gangwon-do
+    cs: Kangwŏn
+    da: Gangwon
+    de: Gangwon-do
+    el: Γκάνγουον-ντο
+    es: Gangwon
+    et: Kangwŏni provints
+    fa: گانکون-دو
+    fi: Gangwon
+    fr: Gangwon
+    gu: ગંગવાન પ્રાંત
+    he: גאנג וואן
+    hi: गैंगवॉन प्रांत, दक्षिण कोरिया
+    hu: Kangvon
+    hy: Գանգվոն-դո
+    id: Gangwon
+    it: Gangwon
+    ja: 江原道 (南)
+    kn: ಗ್ಯಾಂಗ್ವಾನ್ ಪ್ರಾಂತ್ಯ
+    ko: 강원도
+    lt: Kangvono provincija
+    mn: Өмнө Солонгосын Канвонь аймаг
+    mr: गंगवान प्रांत
+    ms: Gangwon
+    nb: Gangwon
+    nl: Gangwon-do
+    pl: Gangwon
+    pt: Gangwon
+    ro: Gangwon-do
+    ru: Канвондо
+    si: ගන්ග්වොන් පළාත
+    sk: Kangwon
+    sv: Gangwon
+    sw: Gangwon-do
+    ta: காங்வ்ன் மாகாணம்
+    te: గ్యాంగ్వన్ ప్రావిన్స్
+    th: จังหวัดคังว็อน
+    tr: Kangvon
+    uk: Провінція Канвон
+    ur: گانگوان صوبہ
+    vi: Gangwon
+    lv: Kanvondo province
+    cy: Talaith Gangwon
+    ceb: Gangwon-do
+    zh: 江原道
+    yue_Hans: 江原道
+    ccp: "𑄉𑄳𑄠𑄁𑄤𑄚𑄴"
+    eu: Gangwon
+    kk: Канвондо
+    yue: 江原道
+    be: правінцыя Канвандо
+    mk: Кангвон
+    'no': Gangwon
+    az: Kanvondo
+  type: province
+'43':
+  name: Chungcheongbugdo [Ch'ungch'ongbuk-do]
+  code: '43'
+  unofficial_names:
+  - North Chungchong
+  translations:
+    en: North Chungcheong
+    ar: تشنغتشونغ الشمالية
+    bg: Чхунчхън-Пукто
+    bn: উত্তর চুংচেয়ং
+    ca: Chungcheongbuk-do
+    cs: Severní Čchungčchong
+    da: Norra Chungcheong
+    de: Chungcheongbuk-do
+    el: Τσούνγκτσονγκμπουκ-ντο
+    es: Chungcheong del Norte
+    et: Põhja-Ch’ungch’ŏngi provints
+    fa: چونگچیونبوک-دو
+    fi: Pohjois-Chungcheon
+    fr: Chungcheongbuk
+    gu: ઉત્તર ચુંગચેઓંગ પ્રાંત
+    he: צפון צ׳ונגצ׳אונג
+    hi: उत्तर चुंगचेओग प्रांत
+    hu: Észak-Cshungcshong
+    hy: Հյուսիսային Չունգչոնգ
+    id: Chungcheong Utara
+    it: Nord Chungcheong
+    ja: 忠清北道
+    kn: ಉತ್ತರ ಚುಂಗ್ಚೆಂಗ್ ಪ್ರಾಂತ್ಯ
+    ko: 충청북도
+    lt: Šiaurės Čungčongo provincija
+    mn: Умар Чүнчон
+    mr: उत्तर चुंगचाँग प्रांत
+    ms: Chungcheong Utara
+    nb: Nord-Chungcheong
+    nl: Chungcheongbuk-do
+    pl: Ch’ungch’ŏng Północny
+    pt: Chungcheong do Norte
+    ru: Чхунчхон-Пукто
+    si: උතුරු චන්ග්චියොන්ග් පළාත
+    sk: Severný Čchungčchong
+    sv: Nordchungcheong
+    sw: Chungcheongbuk-do
+    ta: வடக்கு சுங்சேயோன் மாகாணம்
+    te: ఉత్తర చంగ్‌చియాంగ్ ప్రావిన్స్
+    th: จังหวัดชุงช็องเหนือ
+    tr: Kuzey Çungçeong
+    uk: Північна провінція Чхунчхон
+    ur: شمالی چونگچیونگ صوبہ
+    vi: Chungcheong Bắc
+    lv: Čhunčhonpukto province
+    cy: Chungcheongbuk-do
+    ceb: Chungcheongbuk-do
+    zh: 忠清北道
+    yue_Hans: 忠清北道
+    jv: Chungcheong Utara
+    ccp: "𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄴 𑄌𑄪𑄁𑄌𑄨𑄠𑄧𑄁"
+    eu: Ipar Chungcheong
+    yue: 忠清北道
+    be: Чхунчхон-Пукто
+    'no': Nord-Chungcheong
+    ro: Chungcheong de Nord
+  type: province
+'44':
+  name: Chungcheongnamdo [Ch'ungch'ongnam-do]
+  code: '44'
+  unofficial_names:
+  - South Chungchong
+  geo:
+    latitude: 36.5184
+    longitude: 126.8
+    min_latitude: 35.9806574
+    min_longitude: 125.9581375
+    max_latitude: 37.0618896
+    max_longitude: 127.6396353
+  translations:
+    en: South Chungcheong
+    ar: مقاطعة تشنغتشونغ الجنوبية
+    bg: Чхунчхън-Намдо
+    bn: দক্ষিণ চুংচেয়ং
+    ca: Chungcheongnam-do
+    cs: Jižní Čchungčchong
+    da: South Chungcheong Province
+    de: Chungcheongnam-do
+    el: Τσούνγκτσονγκναμ-ντο
+    es: Chungcheong del Sur
+    et: Lõuna-Ch’ungch’ŏngi provints
+    fa: چونگچئونگنام-دو
+    fi: Etelä-Chungcheong
+    fr: Chungcheong du Sud
+    gu: દક્ષિણ ચુંગચેઓંગ પ્રાંત
+    he: דרום צ׳ונגצ׳אונג
+    hi: दक्षिणी चुंगचियोंग प्रांत
+    hu: Dél-Cshungcshong
+    hy: Հարավային Չունգչոնգ
+    id: Chungcheong Selatan
+    it: Sud Chungcheong
+    ja: 忠清南道
+    kn: ದಕ್ಷಿಣ ಚುಂಗ್ಚೆಂಗ್ ಪ್ರಾಂತ್ಯ
+    ko: 충청남도
+    lt: Pietų Čungčongo provincija
+    mn: Өмнөд Чүнчон
+    mr: दक्षिण चुंगचाँग प्रांत
+    ms: Chungcheong Selatan
+    nb: Sør-Chungcheong
+    nl: Chungcheongnam-do
+    pl: Chungcheong Południowy
+    pt: Chungcheong do Sul
+    ru: Чхунчхон-Намдо
+    si: දකුණු චන් චියෝන්ග් පළාත
+    sk: Južný Čchungčchong
+    sv: Sydchungcheong
+    sw: Chungcheongnam-do
+    ta: தெற்கு சுங்கிச்செவ்ங் மாகாணம்
+    te: దక్షిణ చంగ్‌చియాంగ్ ప్రావిన్స్
+    th: จังหวัดชุงช็องใต้
+    tr: Güney Çungçeong
+    uk: Південна провінція Чхунчхон
+    ur: جنوبی چونگچیونگ صوبہ
+    vi: Chungcheong Nam
+    lv: Čhunčhonnamdo province
+    cy: Talaith De Chungcheong
+    ceb: Chungcheongnam-do
+    zh: 忠清南道
+    yue_Hans: 忠清南道
+    ccp: "𑄘𑄧𑄊𑄨𑄚𑄴 𑄌𑄪𑄁𑄌𑄨𑄠𑄧𑄁"
+    eu: Hego Chungcheong
+    kk: Чхуңчхоң-Намдо
+    yue: 忠清南道
+    'no': Sør-Chungcheong
+    ro: Chungcheong de Sud
+  type: province
+'45':
+  name: Jeonrabugdo[Chollabuk-do]
+  code: '45'
+  unofficial_names:
+  - Chollapuk
+  - North Cholla
+  translations:
+    en: North Jeolla
+    ar: مقاطعة جولا الشمالية
+    be: Паўночная Чала
+    bg: Чъла-Пукто
+    bn: উত্তর জেওলা
+    ca: Jeollabuk-do
+    cs: Severní Čolla
+    da: North Jeolla Province
+    de: Jeollabuk-do
+    el: Τζόλαμπουκ-ντο
+    es: Jeolla del Norte
+    et: Põhja-Chŏlla provints
+    fa: جئولابوک-دو
+    fi: Pohjois-Jeolla
+    fr: Jeolla du Nord
+    gu: ઉત્તર જેઓલા પ્રાંત
+    he: צפון ג׳אולה
+    hi: उत्तरी जेओला प्रांत
+    hu: Észak-Csolla
+    hy: Հյուսիսային Ջոլա
+    id: Jeolla Utara
+    it: Nord Jeolla
+    ja: 全羅北道
+    kn: ಉತ್ತರ ಜೆಯೋಲಾ ಪ್ರಾಂತ್ಯ
+    ko: 전라북도
+    lt: Šiaurės Džolos provincija
+    mn: Умард Чолла
+    mr: उत्तर जेओला प्रांत
+    ms: Jeolla Utara
+    nb: Nord-Jeolla
+    nl: Jeollabuk-do
+    pl: Jeolla Północna
+    pt: Jeolla do Norte
+    ru: Чолла-Пукто
+    si: උතුරු ජෙයෝල්ලා පළාත
+    sv: Nordjeolla
+    sw: Jeollabuk-do
+    ta: வடக்கு ஜெயல்ல மாகாணம்
+    te: ఉత్తర జియోలా ప్రావిన్స్
+    th: จังหวัดช็อลลาเหนือ
+    tr: Kuzey Jeolla Province
+    uk: Північна провінція Чолла
+    ur: شمالی جئولا صوبہ
+    vi: Jeolla Bắc
+    lv: Čollapukto province
+    cy: Talaith Gogledd Jeolla
+    ceb: Jeollabuk-do
+    zh: 全羅北道
+    yue_Hans: 全罗北道
+    jv: Jeollabuk-do
+    ccp: "𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄴 𑄎𑄨𑄠𑄮𑄣𑄳𑄦"
+    eu: Ipar Jeolla
+    kk: Чолла-Пукто
+    yue: 全羅北道
+    'no': Nord-Jeolla
+    ro: Jeolla de Nord
+  type: province
+'46':
+  name: Jeonranamdo [Chollanam-do]
+  code: '46'
+  unofficial_names:
+  - South Cholla
+  translations:
+    en: South Jeolla
+    ar: مقاطعة جولا الجنوبية
+    be: Паўднёвая Чала
+    bg: Чъла-Намдо
+    bn: দক্ষিণ জেওলা
+    ca: Jeollanam-do
+    cs: Jižní Čolla
+    da: South Jeolla Province
+    de: Jeollanam-do
+    el: Τζόλαναμ-ντο
+    es: Jeolla del Sur
+    et: Lõuna-Chŏlla provints
+    fa: جئولانام-دو
+    fi: Etelä-Jeolla
+    fr: Jeolla du Sud
+    gu: દક્ષિણ જેઓલ્લા પ્રાંત
+    he: דרום ג׳אולה
+    hi: दक्षिण जेओला प्रांत
+    hu: Dél-Csolla
+    hy: Հարավային Ջոլա
+    id: Jeolla Selatan
+    it: Sud Jeolla
+    ja: 全羅南道
+    kn: ದಕ್ಷಿಣ ಜೆಯೋಲಾ ಪ್ರಾಂತ್ಯ
+    ko: 전라남도
+    lt: Pietų Džolos provincija
+    mn: Өмнөд Чолла
+    mr: दक्षिण जेओला प्रांत
+    ms: Jeolla Selatan
+    nb: Sør-Jeolla
+    ne: दक्षिण जेओला क्षेत्र
+    nl: Jeollanam-do
+    pl: Jeolla Południowa
+    pt: Jeolla do Sul
+    ru: Чолла-Намдо
+    si: දකුණු ජෙඔලා පළාත
+    sv: Sydjeolla
+    sw: Jeollanam-do
+    ta: தெற்கு ஜெஒல்லா மாகாணம்
+    te: దక్షిణ జియోలా ప్రావిన్స్
+    th: จังหวัดช็อลลาใต้
+    tr: Güney Jeolla
+    uk: Південна провінція Чолла
+    ur: جنوبی جئولا صوبہ
+    vi: Jeolla Nam
+    lv: Čollanamdo province
+    cy: Talaith De Jeolla
+    ceb: Jeollanam-do
+    zh: 全羅南道
+    yue_Hans: 全罗南道
+    ccp: "𑄘𑄧𑄊𑄨𑄚𑄴 𑄎𑄨𑄠𑄮𑄣𑄳𑄦"
+    eu: Hego Jeolla
+    kk: Чолла-Намдо
+    yue: 全羅南道
+    'no': Sør-Jeolla
+    ro: Jeolla de Sud
+  type: province
+'47':
+  name: Gyeongsangbugdo [Kyongsangbuk-do]
+  code: '47'
+  unofficial_names:
+  - North Kyongsang
+  geo:
+    latitude: 36.4919
+    longitude: 128.8889
+    min_latitude: 35.5664734
+    min_longitude: 127.7938878
+    max_latitude: 37.542778
+    max_longitude: 130.9232178
+  translations:
+    en: North Gyeongsang
+    ar: مقاطعة غيونغسانغ الشمالية
+    bg: Кьонсан-Пукто
+    bn: উত্তর গিয়েওংসাং
+    ca: Gyeongsangbuk-do
+    cs: Severní Kjongsang
+    da: North Gyeongsang Province
+    de: Gyeongsangbuk-do
+    el: Γκιόνγκσανγκμπουκ-ντο
+    es: Gyeongsang del Norte
+    et: Põhja-Kyŏngsangi provints
+    fa: جئونسانگبوک-دو
+    fi: Pohjois-Gyeongsang
+    fr: Gyeongsang du Nord
+    gu: ઉત્તર જ્યોંગ્સાંગ પ્રાંત
+    he: צפון גיאונגסאנג
+    hi: उत्तरी ग्योंगसैंग प्रांत
+    hu: Észak-Kjongszang
+    hy: Հյուսիսային Գյոնգսանգ
+    id: Gyeongsang Utara
+    it: Nord Gyeongsang
+    ja: 慶尚北道
+    kn: ಉತ್ತರ ಜಿಯಾಂಗ್ಶಾಂಗ್ ಪ್ರಾಂತ್ಯ
+    ko: 경상북도
+    lt: Šiaurės Kiongsango provincija
+    mn: Умар Кёнсан
+    mr: उत्तर ग्याँगसांग प्रांत
+    ms: Gyeongsang Utara
+    nb: Nord-Gyeongsang
+    nl: Gyeongsangbuk-do
+    pl: Gyeongsang Północny
+    pt: Gyeongsang do Norte
+    ro: Gyeongsangbuk-do
+    ru: Кёнсан-Пукто
+    si: උතුරු ගෙයෝන්ග්සාන්ග් පළාත
+    sv: Nordgyeongsang
+    sw: Gyeongsangbuk-do
+    ta: வடக்கு ஜியொங்சங் மாகாணம்
+    te: ఉత్తర గియోంగ్సాంగ్ ప్రావిన్స్
+    th: จังหวัดคย็องซังเหนือ
+    tr: Kuzey Gyeongsang
+    uk: Північна провінція Кьонсан
+    ur: شمالی گیئونگسانگ صوبہ
+    vi: Gyeongsang Bắc
+    lv: Kjonsanpukto province
+    cy: Talaith Gogledd Gyeongsang
+    ceb: Gyeongsangbuk-do
+    zh: 庆尚北道
+    yue_Hans: 庆尚北道
+    ccp: "𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄴 𑄎𑄨𑄠𑄧𑄁𑄥𑄁"
+    eu: Ipar Gyeongsang
+    kk: Кёңсаң-Пукто
+    yue: 慶尚北道
+    be: Кёнсан-Пукта
+    'no': Nord-Gyeongsang
+    az: Könsan-Pukto
+  type: province
+'48':
+  name: Gyeongsangnamdo [Kyongsangnam-do]
+  code: '48'
+  unofficial_names:
+  - Gyeongsangnamdo/ Kyongsang-namdo/ South Kyongsang
+  geo:
+    latitude: 35.4606
+    longitude: 128.2132
+    min_latitude: 34.5321655
+    min_longitude: 127.5622163
+    max_latitude: 35.9099572
+    max_longitude: 129.2198762
+  translations:
+    en: South Gyeongsang
+    ar: مقاطعة غيونغسانغ الجنوبية
+    bg: Кьонсан-Намдо
+    bn: দক্ষিণ গিয়েওংসাং
+    ca: Gyeongsangnam-do
+    cs: Jižní Kjongsang
+    da: South Gyeongsang Province
+    de: Gyeongsangnam-do
+    el: Γκιόνγκσανγκναμ-ντο
+    es: Gyeongsang del Sur
+    et: Lõuna-Kyŏngsangi provints
+    fa: جئونسانگنام-دو
+    fi: Etelä-Gyeongsang
+    fr: Gyeongsang du Sud
+    gu: દક્ષિણ જયોંગ્સાંગ પ્રાંત
+    he: דרום גיאונגסאנג
+    hi: दक्षिण गेयोंग्सेंग प्रांत
+    hu: Dél-Kjongszang
+    hy: Հարավային Գյոնգսանգ
+    id: Gyeongsang Selatan
+    it: Sud Gyeongsang
+    ja: 慶尚南道
+    kn: ದಕ್ಷಿಣ ಜಿಯಾಂಗ್ಗಾಂಗ್ ಪ್ರಾಂತ್ಯ
+    ko: 경상남도
+    lt: Pietų Kiongsango provincija
+    mn: Өмнө Кёнсан
+    mr: दक्षिण ग्याँगसांग प्रांत
+    ms: Gyeongsang Selatan
+    nb: Sør-Gyeongsang
+    nl: Gyeongsangnam-do
+    pl: Gyeongsang Południowy
+    pt: Gyeongsang do Sul
+    ru: Кёнсан-Намдо
+    si: දකුණු ජියෝන්ග්සාන්ග්
+    sk: Južný Kjongsang
+    sv: Sydgyeongsang
+    sw: Gyeongsangnam-do
+    ta: தெற்கு குயென்க்சங் மாகாணம்
+    te: దక్షిణ గియాంగ్సాంగ్ ప్రావిన్స్
+    th: จังหวัดคย็องซังใต้
+    tr: Güney Gyeongsang
+    uk: Південна провінція Кьонсан
+    ur: جنوبی گیئونگسانگ صوبہ
+    vi: Gyeongsang Nam
+    lv: Kjonsannamdo province
+    cy: Talaith De Gyeongsang
+    ceb: Gyeongsangnam-do
+    zh: 庆尚南道
+    yue_Hans: 庆尚南道
+    ccp: "𑄘𑄧𑄊𑄨𑄚𑄴 𑄎𑄨𑄠𑄧𑄁𑄥𑄁"
+    eu: Hego Gyeongsang
+    kk: Кёнсан-Намдо
+    yue: 慶尚南道
+    'no': Sør-Gyeongsang
+    be: Кёнсан-Намда
+    ro: Gyeongsang de Sud
+  type: province
+'49':
+  name: Jejudo [Cheju-do]
+  code: '49'
+  unofficial_names:
+  - Jeju
+  - Quelpart
+  geo:
+    latitude: 33.4890113
+    longitude: 126.4983023
+    min_latitude: 33.1061096
+    min_longitude: 126.1637192
+    max_latitude: 34.0062218
+    max_longitude: 126.9742813
+  translations:
+    en: Jeju
+    ar: مقاطعة جيجو
+    be: Чэджуда
+    bg: Чеджу-до
+    bn: জেজু দ্বীপ
+    ca: Jeju-do
+    cs: Čedžu
+    da: Jeju-do
+    de: Jeju-do
+    el: Τζετζού
+    es: Jeju-do
+    et: Cheju provints
+    eu: Jeju
+    fa: ججو-دو
+    fi: Jeju
+    fr: Jeju-do
+    gl: Jeju
+    gu: જેજુ
+    he: ג׳ג׳ו
+    hi: जेजू
+    hr: Jeju
+    hu: Csedzsu-sziget
+    hy: Ջեջու նահանգ
+    id: Jeju
+    it: Jeju-do
+    ja: 済州特別自治道
+    kn: ಜೆಜು
+    ko: 제주특별자치도
+    lt: Čedžu
+    mr: जेजू
+    ms: Jeju
+    nb: Jeju
+    ne: जेजु प्रान्त
+    nl: Jeju-do
+    pl: Czedżu
+    pt: Jeju
+    ro: Insula Jeju
+    ru: Чеджудо
+    si: ජෙජු දූපත
+    sr: Чеџу
+    sv: Jeju
+    sw: Jeju-do
+    ta: ஜேஜூ
+    te: జేజూ
+    th: จังหวัดเชจู
+    tr: Jeju
+    uk: Провінція Чеджу
+    ur: جیجو صوبہ
+    vi: Jeju
+    lv: Čendžu
+    ceb: Jeju-do
+    sr_Latn: Čedžu
+    zh: 濟州特別自治道
+    yue_Hans: 济州特别自治道
+    jv: Jejudo
+    ccp: "𑄎𑄬𑄎𑄪"
+    kk: Чеджудо
+    yue: 濟州特別自治道
+    az: Çejudo adası
+    mk: Чеџу
+    'no': Jeju
+    cy: Talaith Jeju
+    ka: ჩეჯუს პროვინცია
+    ky: Жежу (Корея)
+  type: special_self-governing_province
+'50':
+  name: 세종특별자치시
+  code: '50'
+  translations:
+    ar: مدينة سيجونغ
+    bn: সেজং শহর
+    cs: Sedžong
+    da: Sejong
+    de: Sejong
+    el: Σετζόνγκ
+    en: Sejong
+    es: Sejong
+    fa: سجونگ سیتی
+    fi: Sejong City
+    fr: Sejong
+    gu: સિઝોંગ શહેર
+    hi: सेजोंग सिटी
+    hu: Szedzsong (település)
+    id: Kota Sejong
+    it: Città di Sejong
+    ja: 世宗特別自治市
+    kn: ಸೆಹೋಂಗ್ ನಗರ
+    ko: 세종특별자치시
+    lt: Sedžongas
+    mn: Сэжун хот
+    mr: सेजोन्ग शहर
+    ms: Sejong
+    nb: Sejong by
+    nl: Sejong
+    pl: Sedżong
+    pt: Cidade de Sejong
+    ru: Седжон
+    si: සිජෝන්ග් නගරය
+    sv: Sejong City
+    ta: சீஜொங் நகரம்
+    te: సెజాంగ్ కౌంటీ
+    th: เมืองเซจง
+    tr: Sejong
+    ur: سیجونگ شہر
+    vi: Sejong
+    lv: Sedžonga
+    ceb: Sejong-si
+    zh: 世宗特別自治市
+    yue_Hans: 世宗特别自治市
+    ccp: "𑄥𑄬𑄎𑄧𑄁"
+    hy: Սեջոնգ
+    eu: Sejong
+    kk: Сечжон
+    uk: Седжон
+    yue: 世宗特別自治市
+    'no': Sejong by
+    af: Sejong
+    et: Sejong
+    ga: Cathair Sejong
+    ky: Седжоң (шаар)
+    ro: Sejong-si
+  type: special_self-governing_city

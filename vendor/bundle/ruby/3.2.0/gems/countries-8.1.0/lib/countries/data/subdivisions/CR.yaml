@@ -1,0 +1,429 @@
+---
+A:
+  name: Alajuela
+  code: A
+  unofficial_names:
+  - Alajuela
+  geo:
+    latitude: 10.391583
+    longitude: -84.4382721
+    min_latitude: 9.8215051
+    min_longitude: -85.43863999999999
+    max_latitude: 11.0793161
+    max_longitude: -84.149513
+  translations:
+    en: Alajuela
+    ar: الأخويلا
+    bg: Алахуела
+    bn: আলাজুয়েলা প্রদেশ
+    ca: Província d’Alajuela
+    cs: Alajuela
+    da: Alajuela
+    de: Provinz Alajuela
+    el: Επαρχία Αλαχουέλα
+    es: Provincia de Alajuela
+    fa: استان الاهوئلا
+    fi: Alajuelan maakunta
+    fr: Alajuela
+    gu: અલાજુએલા પ્રાંત
+    he: אלחואלה
+    hi: अलाउएला प्रांत
+    hr: Alajuela, provincija
+    hy: Ալախուելա
+    id: Provinsi Alajuela
+    it: provincia di Alajuela
+    ja: アラフエラ州
+    ka: ალახუელის პროვინცია
+    kn: ಅಲಾಜುವೆಲಾ ಪ್ರಾಂತ್ಯ
+    ko: 알라후엘라 주
+    lt: Alachuelos provincija
+    mr: अलाजुएला प्रांत
+    ms: Alajuela Province
+    nb: Alajuela
+    nl: Alajuela
+    pl: Alajuela
+    pt: Alajuela
+    ro: Provincia Alajuela
+    ru: Алахуэла
+    si: අලජුඑලා පළාත
+    sr: Алахуела
+    sv: Alajuela
+    ta: லாஜுஎலா மாகாணம்
+    te: అలాజుయెలా ప్రావిన్స్
+    th: จังหวัดอาลาคูเอลา,
+    tr: Alajuela Province
+    uk: Алахуела
+    ur: الاخویلا صوبہ
+    vi: Alajuela
+    zh: 阿拉胡埃拉省
+    lv: Alahvelas province
+    ceb: Provincia de Alajuela
+    sr_Latn: Alahuela
+    ccp: "𑄃𑄣𑄴𑄎𑄪𑄠𑄬𑄣"
+    sd: الاخويلا
+    eu: Alajuela (probintzia)
+    'no': Alajuela
+    cy: Talaith Alajuela
+  type: province
+C:
+  name: Cartago
+  code: C
+  unofficial_names:
+  - Cartago
+  geo:
+    latitude: 9.7539596
+    longitude: -83.67739279999999
+    min_latitude: 9.505219100000001
+    min_longitude: -84.0711091
+    max_latitude: 10.1429971
+    max_longitude: -83.301808
+  translations:
+    en: Cartago
+    ar: كارتاغو
+    bg: Картаго
+    ca: Província de Cartago
+    cs: Cartago
+    da: Cartago
+    de: Provinz Cartago
+    el: Επαρχία Καρτάγο
+    es: Provincia de Cartago
+    fa: استان کارتاگو
+    fi: Cartagon maakunta
+    fr: Cartago
+    he: קרטגו
+    hr: Cartago, provincija
+    hy: Կարտագո
+    id: Provinsi Cartago
+    it: provincia di Cartago
+    ja: カルタゴ州
+    ka: კარტაგოს პროვინცია
+    ko: 카르타고 주
+    lt: Kartago provincija
+    nb: Cartago
+    nl: Cartago
+    pl: Cartago
+    pt: Cartago
+    ro: Provincia Cartago
+    ru: Картаго
+    sr: Картаго
+    sv: Cartago
+    uk: Картаго
+    ur: کارتاگو صوبہ
+    vi: Cartago
+    ceb: Provincia de Cartago
+    tr: Cartago ili
+    sr_Latn: Kartago
+    zh: 卡塔戈省
+    ccp: "𑄇𑄢𑄴𑄑𑄉𑄮"
+    eu: Cartago (probintzia)
+    'no': Cartago
+    th: จังหวัดการ์ตาโก
+  type: province
+G:
+  name: Guanacaste
+  code: G
+  unofficial_names:
+  - Guanacaste
+  geo:
+    latitude: 10.4957971
+    longitude: -85.35496499999999
+    min_latitude: 9.723861099999999
+    min_longitude: -85.9460828
+    max_latitude: 11.2168181
+    max_longitude: -84.760645
+  translations:
+    en: Guanacaste
+    ar: غواناكاسته
+    bg: Гуанакасте
+    bn: গুনাস্যাচ প্রদেশ
+    ca: Província de Guanacaste
+    cs: Guanacaste
+    da: Guanacaste
+    de: Provinz Guanacaste
+    el: Επαρχία Γκουανακάστε
+    es: Provincia de Guanacaste
+    fa: استان گواناکاسته
+    fi: Guanacasten maakunta
+    fr: Guanacaste
+    gu: ગુઆનાકાસ્ટ પ્રાંત
+    he: גואנאקאסטה
+    hi: गुनाकास्ट प्रांत
+    hr: Guanacaste, provincija
+    hy: Գուանակաստե
+    id: Provinsi Guanacaste
+    it: provincia di Guanacaste
+    ja: グアナカステ州
+    ka: გუანაკასტეს პროვინცია
+    kn: ಗುವಾನಾಕಸ್ಟ್ ಪ್ರಾಂತ್ಯ
+    ko: 과나카스테 주
+    lt: Gvanakastės provincija
+    mr: गुनाकास्ट प्रांत
+    ms: Guanacaste Province
+    nb: Guanacaste
+    nl: Guanacaste
+    pl: Guanacaste
+    pt: Guanacaste
+    ro: Provincia Guanacaste
+    ru: Гуанакасте
+    si: ගයනකස්ටේ පළාත
+    sr: Гванакасте
+    sv: Guanacaste
+    ta: குணஸாஸ்ட் மாகாணம்
+    te: గువానాకాస్ట్ ప్రావిన్స్
+    th: กัวนาคาสเต้
+    tr: Guanacaste Province
+    uk: Ґуанакасте
+    ur: گواناکاستے صوبہ
+    vi: Guanacaste
+    lv: Gvanakastes province
+    ceb: Provincia de Guanacaste
+    sr_Latn: Gvanakaste
+    zh: 瓜纳卡斯特省
+    ccp: "𑄉𑄪𑄠𑄚𑄇𑄌𑄴𑄑𑄬"
+    'no': Guanacaste
+    cy: Talaith Guanacaste
+    eu: Guanacaste probintzia
+  type: province
+H:
+  name: Heredia
+  code: H
+  unofficial_names:
+  - Heredia
+  geo:
+    latitude: 10.473523
+    longitude: -84.01674229999999
+    min_latitude: 9.9513191
+    min_longitude: -84.19046589999999
+    max_latitude: 10.789644
+    max_longitude: -83.714804
+  translations:
+    en: Heredia
+    ar: إيريذيا
+    be: Правінцыя Эрэдзія
+    bg: Ередия
+    ca: Província d’Heredia
+    cs: Heredia
+    da: Heredia
+    de: Provinz Heredia
+    el: Επαρχία Ερέδια
+    es: Provincia de Heredia
+    fa: استان اردیا
+    fi: Heredian maakunta
+    fr: Heredia
+    he: ארדיה
+    hr: Heredia, provincija
+    hy: Էրեդիա
+    id: Provinsi Heredia
+    it: provincia di Heredia
+    ja: エレディア州
+    ka: ერედიის პროვინცია
+    ko: 에레디아 주
+    lt: Heredijos provincija
+    nb: Heredia
+    nl: Heredia
+    pl: Heredia
+    pt: Heredia
+    ro: Provincia Heredia
+    ru: Эредия
+    sr: Ередија
+    sv: Heredia
+    uk: Ередія
+    ur: ایریدیا صوبہ
+    vi: Heredia
+    ceb: Provincia de Heredia
+    tr: Heredia ili
+    sr_Latn: Eredija
+    zh: 埃雷迪亚省
+    ccp: "𑄦𑄬𑄢𑄬𑄓𑄨𑄠"
+    hu: Heredia tartomány
+    eu: Heredia (probintzia)
+    'no': Heredia
+    cy: Talaith Heredia
+    th: จังหวัดเอเรเดีย
+  type: province
+L:
+  name: Limón
+  code: L
+  unofficial_names:
+  - Limón
+  geo:
+    latitude: 9.983333
+    longitude: -83.033333
+    min_latitude: 9.9721473
+    min_longitude: -83.06642529999999
+    max_latitude: 10.0114533
+    max_longitude: -83.0199856
+  translations:
+    en: Limón
+    ar: ليمون
+    bg: Лимон
+    ca: Província de Limón
+    cs: Limón
+    da: Limón
+    de: Provinz Limón
+    el: Επαρχία Λιμόν
+    es: Provincia de Limón
+    fa: استان لیمون
+    fi: Limónin maakunta
+    fr: Limón
+    he: לימון
+    hr: Limón, provincija
+    hy: Լիմոն
+    id: Provinsi Limón
+    it: provincia di Limón
+    ja: リモン州
+    ka: ლიმონის პროვინცია
+    ko: 리몬 주
+    lt: Limono provincija
+    nb: Limón
+    nl: Limón
+    pl: Limón
+    pt: Limón
+    ru: Лимон
+    sr: Лимон
+    sv: Limón
+    uk: Лимон
+    ur: لیمون صوبہ
+    vi: Limón
+    ceb: Provincia de Limón
+    tr: Limón ili
+    sr_Latn: Limon
+    zh: 利蒙省
+    ccp: "𑄣𑄨𑄟𑄧𑄚𑄴"
+    'no': Limón
+    cy: Talaith Limón
+    eu: Limón probintzia
+    mr: लिमोन प्रांत
+    th: จังหวัดลิมอน
+  type: province
+P:
+  name: Puntarenas
+  code: P
+  unofficial_names:
+  - Puntarenas
+  geo:
+    latitude: 9.9778439
+    longitude: -84.82942109999999
+    min_latitude: 9.9740775
+    min_longitude: -84.8512676
+    max_latitude: 9.983031
+    max_longitude: -84.7929956
+  translations:
+    en: Puntarenas
+    ar: بونتاريناس
+    bg: Пунтаренас
+    bn: পুন্টারেনাস প্রদেশ
+    ca: Província de Puntarenas
+    cs: Puntarenas
+    da: Puntarenas
+    de: Provinz Puntarenas
+    el: Επαρχία Πουνταρένας
+    es: Provincia de Puntarenas
+    fa: استان پونتارناس
+    fi: Puntarenasin maakunta
+    fr: Puntarenas
+    gu: પન્ટારેનાસ પ્રાંત
+    he: פונטרנס
+    hi: पंटारेनस प्रांत
+    hr: Puntarenas, provincija
+    hy: Պունտարենաս
+    id: Provinsi Puntarenas
+    it: provincia di Puntarenas
+    ja: プンタレナス州
+    ka: პუნტარენასის პროვინცია
+    kn: ಪಂಟರೆನಾಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 푼타레나스 주
+    lt: Puntarenaso provincija
+    mr: पंटारेनस प्रांत
+    ms: Puntarenas Province
+    nb: Puntarenas
+    nl: Puntarenas
+    pl: Puntarenas
+    pt: Puntarenas
+    ru: Пунтаренас
+    si: පුන්ටරෙනාස් පළාත
+    sr: Пунтаренас
+    sv: Puntarenas
+    ta: புன்டரேனஸ் மாகாணம்
+    te: పుంటారెనాస్ ప్రావిన్స్
+    th: จังหวัดปันตาเรนาส
+    tr: Puntaneras Province
+    uk: Пунтаренас
+    ur: پونتاریناس صوبہ
+    vi: Puntarenas
+    lv: Puantarenasas province
+    ceb: Provincia de Puntarenas
+    sr_Latn: Puntarenas
+    zh: 蓬塔雷纳斯省
+    ccp: "𑄛𑄪𑄚𑄴𑄑𑄢𑄬𑄚𑄌𑄴"
+    eu: Puntarenas (probintzia)
+    'no': Puntarenas
+    cy: Talaith Puntarenas
+    ml: പുണ്ടാരെനാസ് പ്രവിശ്യ
+  type: province
+SJ:
+  name: San José
+  code: SJ
+  unofficial_names:
+  - San José
+  geo:
+    latitude: 9.9280694
+    longitude: -84.0907246
+    min_latitude: 9.899968699999999
+    min_longitude: -84.1794991
+    max_latitude: 9.9712598
+    max_longitude: -84.047191
+  translations:
+    en: San José
+    ar: محافظة سان خوسيه
+    bg: Сан Хосе
+    bn: স্যাান জোসে প্রদেশ
+    ca: província de San José
+    cs: San José
+    da: San José
+    de: Provinz San José
+    el: Επαρχία Σαν Χοσέ
+    es: Provincia de San José
+    fa: استان سن خوزه
+    fi: San Josén maakunta
+    fr: San José
+    gu: સેન જોસ પ્રાંત
+    he: סן חוסה
+    hi: सैन जोस प्रांत
+    hr: San José, provincija
+    hy: Սան Խոսե
+    id: Provinsi San José
+    it: provincia di San José
+    ja: サンホセ州
+    ka: სან-ხოსეს პროვინცია
+    kn: ಸ್ಯಾನ್ ಜೋಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 산호세 주
+    lt: San Chosė provincija
+    mr: सॅन जोस प्रांत
+    ms: San Jose Province
+    nb: San José
+    nl: San José
+    pl: San José
+    pt: San José
+    ru: Сан-Хосе
+    si: සැන් ජොසේ පළාත
+    sr: Сан Хосе
+    sv: San José
+    ta: சான் ஜோஸ் மாகாணம்
+    te: సాన్ జోస్ ప్రావిన్స్
+    th: จังหวัดซานโฮเซ่
+    tr: San soze Province
+    uk: Сан-Хосе
+    ur: سان خوزے صوبہ
+    vi: San José
+    lv: Sanhosē province
+    ceb: Provincia de San José
+    sr_Latn: San Hose
+    zh: 圣何塞省
+    ccp: "𑄥𑄚𑄴 𑄎𑄧𑄥𑄬"
+    eu: San Jose (probintzia)
+    be: правінцыя Сан-Хасэ
+    'no': San José
+    az: San-Xose vilayəti
+    cy: Talaith San José
+  type: province

@@ -1,0 +1,635 @@
+---
+'01':
+  name: Christ Church
+  code: '01'
+  unofficial_names:
+  - Christ Church
+  geo:
+    latitude: 13.083735
+    longitude: -59.52967419999999
+    min_latitude: 13.0449995
+    min_longitude: -59.6110459
+    max_latitude: 13.125974
+    max_longitude: -59.4719928
+  translations:
+    en: Christ Church
+    ar: كنيسة المسيح
+    da: Christ Church
+    de: Christchurch
+    el: Κράιστ Τσερτς
+    es: Parroquia de Christ Church
+    fa: کرایست چرچ، باربادوس
+    fi: Christ Church
+    fr: Christ Church
+    gu: ક્રિસ્ટ ચર્ચ
+    hi: क्राइस्ट चर्च
+    id: Christ Church
+    it: Christ Church
+    ja: クライスト・チャーチ (バルバドス)
+    kn: ಕ್ರೈಸ್ಟ್ ಚರ್ಚ್
+    ko: 크라이스트처치 교구
+    lt: Kristaus bažnyčios parapija
+    lv: Kraistčērčas pagasts
+    mr: क्राइस्ट चर्च
+    ms: Kariah Christ Church
+    nb: Christ Church prestegjeld
+    nl: Christ Church
+    pl: Christ Church
+    pt: Christ Church
+    ro: Christ Church
+    ru: Крайстчерч
+    si: ක්‍රයිස්ට්චර්ච්
+    sv: Christ Church
+    ta: கிறிஸ்ட் சர்ச்
+    te: క్రైస్ట్ చర్చి
+    th: คริส ครัซ
+    tk: Kraýst Çörç
+    tr: Christ Kilisesi
+    uk: Крайст-Черч
+    ur: کرائسٹ چرچ، بارباڈوس
+    vi: Christ Church
+    zh: 基督城教區
+    ceb: Christ Church
+    bn: "\"খ্রীষ্ট চার্চ"
+    ccp: "𑄇𑄳𑄢𑄨𑄥𑄳𑄑𑄴 𑄌𑄢𑄴𑄌𑄴"
+    ca: Christ Church
+    'no': Christ Church prestegjeld
+  type: parish
+'02':
+  name: Saint Andrew
+  code: '02'
+  unofficial_names:
+  - Saint Andrew
+  geo:
+    latitude: 13.2540083
+    longitude: -59.5757599
+    min_latitude: 13.204939
+    min_longitude: -59.60091989999999
+    max_latitude: 13.293989
+    max_longitude: -59.5420721
+  translations:
+    en: Saint Andrew
+    ar: سانت أندرو
+    bn: সেন্ট অ্যান্ড্রু
+    da: Saint Andrew
+    de: Saint Andrew
+    el: Άγιος Ανδρέας
+    es: Saint Andrew
+    fa: سنت آندرو، باربادوس
+    fi: Saint Andrew
+    fr: Saint Andrew
+    gu: સેન્ટ એન્ડ્રુ
+    hi: सेंट एंड्रू
+    id: Saint Andrew
+    it: Saint Andrew
+    ja: セント・アンドリュー (バルバドス)
+    kn: ಸೇಂಟ್ ಆಂಡ್ರ್ಯೂ
+    ko: 세인트앤드루 교구
+    lt: Šv. Andriejaus parapija
+    mr: सेंट ऍन्ड्र्यू
+    ms: Saint Andrew
+    nb: Saint Andrew prestegjeld
+    nl: Saint Andrew
+    pl: Saint Andrew
+    pt: Saint Andrew
+    ro: Saint Andrew
+    ru: Сент-Эндрю
+    si: ශාන්ත ඇන්ඩ්රූ
+    sv: Saint Andrew
+    ta: செயின்ட் அன்றெவ்
+    te: సెయింట్ ఆండ్య్రూ
+    th: เซน แอนดริว
+    tk: Sent Endrýu
+    tr: Saint Andrew
+    ur: سینٹ اینڈریو، بارباڈوس
+    vi: Saint Andrew
+    lv: Sentendrū pagasts
+    ceb: Saint Andrew
+    zh: 聖安德魯區
+    ccp: "𑄥𑄬𑄚𑄳𑄑𑄴 𑄃𑄬𑄚𑄴𑄓𑄳𑄢𑄪"
+    he: סנט אנדרו
+    uk: Парафія Сент-Андрю
+    ca: Saint Andrew
+    'no': Saint Andrew prestegjeld
+  type: parish
+'03':
+  name: Saint George
+  code: '03'
+  unofficial_names:
+  - Saint George
+  geo:
+    latitude: 13.148292
+    longitude: -59.55271499999999
+    min_latitude: 13.099258
+    min_longitude: -59.5823159
+    max_latitude: 13.1815211
+    max_longitude: -59.50622000000001
+  translations:
+    en: Saint George
+    ar: سانت جورج، بربادوس
+    bn: সেন্ট জর্জ
+    da: Saint George
+    de: Saint George
+    el: Άγιος Γεώργιος
+    es: Parroquia de Saint George
+    fa: سنت جورج، باربادوس
+    fi: Saint George
+    fr: Saint George
+    gu: સેન્ટ જ્યોર્જ
+    hi: सेंट जॉर्ज
+    id: Saint George
+    it: Saint George
+    ja: セント・ジョージ (バルバドス)
+    kn: ಸೇಂಟ್ ಜಾರ್ಜ್
+    ko: 세인트조지 교구
+    lt: Šv. Jurgio parapija
+    lv: Sentdžordža pagasts
+    mr: सेंट जॉर्ज
+    ms: Saint George
+    nb: Saint George prestegjeld
+    nl: Saint George
+    pl: Saint George
+    pt: Saint George
+    ro: Saint George
+    ru: Приход Сент-Джордж
+    si: ශාන්ත ජෝජ්
+    sv: Saint George
+    ta: செயின்ட் ஜார்ஜ்
+    te: సెయింట్ జార్జ్
+    th: เซนต์จอร์จ
+    tk: Sent Džordž
+    tr: Saint George
+    ur: سینٹ جارج، بارباڈوس
+    vi: Saint George
+    ceb: Saint George
+    zh: 聖喬治教區
+    ccp: "𑄥𑄬𑄚𑄳𑄑𑄴 𑄎𑄧𑄢𑄳𑄎𑄴"
+    uk: Парафія Сент-Джордж
+    ca: Saint George
+    mk: Сент Џорџ
+    'no': Saint George prestegjeld
+  type: parish
+'04':
+  name: Saint James
+  code: '04'
+  unofficial_names:
+  - Saint James
+  geo:
+    latitude: 13.1939911
+    longitude: -59.6276259
+    min_latitude: 13.1381931
+    min_longitude: -59.64361599999999
+    max_latitude: 13.237683
+    max_longitude: -59.598465
+  translations:
+    en: Saint James
+    ar: سانت جيمس، بربادوس
+    bn: স্টিেন্ট জেমস, বার্বাডোস
+    da: Saint James, Barbados
+    de: Saint James, Barbados
+    el: Άγιος Ιάκωβος, Μπαρμπάντος
+    es: Parroquia de Saint James
+    fa: سنت جیمز، باربادوس
+    fi: Saint James, Barbados
+    fr: Saint James
+    gu: સેન્ટ જેમ્સ, બાર્બાડોસ
+    he: סנט ג׳יימס, ברבדוס
+    hi: सेंट जेम्स, बारबाडोस
+    id: Saint James, Barbados
+    it: Saint James
+    ja: セント・ジェームズ (バルバドス)
+    kn: ಸೇಂಟ್ ಜೇಮ್ಸ್, ಬಾರ್ಬಡೋಸ್
+    ko: 세인트제임스 교구
+    lt: Šv. Jokūbo parapija
+    mr: सेंट जेम्स, बारबाडोस
+    ms: Saint James, Barbados
+    nb: Saint James prestegjeld
+    nl: Saint James
+    pl: Saint James
+    pt: Saint James
+    ro: Saint James, Barbados
+    ru: Сент-Джеймс
+    si: ශාන්ත ජේම්ස් බාර්බඩෝස්
+    sv: Saint James (parish)
+    ta: செயின்ட் ஜேம்ஸ், பார்படாஸ்
+    te: సెయింట్ జేమ్స్, బార్బడోస్
+    th: เซนต์เจมส์,บาร์บาดอส
+    tk: Sent Jeýms
+    tr: Saint James, Barbados
+    ur: سینٹ جیمز، بارباڈوس
+    vi: Saint James, Barbados
+    lv: Sentdžeimsa, Barbadosa
+    ceb: Saint James (parokya)
+    zh: 聖詹姆斯教區
+    ccp: "𑄥𑄬𑄚𑄳𑄑𑄴 𑄎𑄬𑄟𑄴𑄥𑄴"
+    uk: Парафія Сент-Джеймс
+    ca: Saint James
+    'no': Saint James prestegjeld
+  type: parish
+'05':
+  name: Saint John
+  code: '05'
+  unofficial_names:
+  - Saint John
+  geo:
+    latitude: 13.1833369
+    longitude: -59.5066376
+    min_latitude: 13.1376361
+    min_longitude: -59.54018499999999
+    max_latitude: 13.210594
+    max_longitude: -59.45831699999999
+  translations:
+    en: Saint John
+    ar: سانت جون، بربادوس
+    bn: সেন্ট জন
+    ca: Saint John
+    da: St. John
+    de: Saint John
+    el: Άγιος Ιωάννης
+    es: Parroquia de Saint John
+    fa: سنت جان، باربادوس
+    fi: Saint John
+    fr: Saint John
+    gu: સેન્ટ જ્હોન
+    hi: सेंट जॉन, बारबाडोस
+    id: Saint John
+    it: Saint John
+    ja: セント・ジョン (バルバドス)
+    kn: ಸೇಂಟ್ ಜಾನ್
+    ko: 세인트존 교구
+    lt: Šv. Jono parapija
+    mr: सेंट जॉन
+    ms: Saint John
+    nb: Saint John
+    nl: Saint John
+    pl: Saint John
+    pt: Saint John
+    ro: Saint John
+    ru: Сент-Джон
+    si: ශාන්ත ජෝන්
+    sv: Saint John
+    ta: செயின்ட் ஜான்
+    te: సెయింట్ జాన్
+    th: เซนต์จอห์น
+    tk: Sent Jon
+    tr: Saint John
+    ur: سینٹ جان، بارباڈوس
+    vi: Saint John
+    lv: Sendžona
+    ceb: Saint John
+    zh: 聖約翰教區
+    ccp: "𑄥𑄬𑄚𑄳𑄑𑄴 𑄎𑄧𑄚𑄴"
+    uk: Парафія Сент-Джон
+    mk: Сент Џон
+    'no': Saint John
+  type: parish
+'06':
+  name: Saint Joseph
+  code: '06'
+  unofficial_names:
+  - Saint Joseph
+  geo:
+    latitude: 13.2040088
+    longitude: -59.54695439999999
+    min_latitude: 13.169218
+    min_longitude: -59.575138
+    max_latitude: 13.235171
+    max_longitude: -59.51017799999999
+  translations:
+    en: Saint Joseph
+    ar: سانت جوزيف، بربادوس
+    bn: সেন্ট জোসেফ, বার্বাডোস
+    da: Saint Joseph, Barbados
+    de: Saint Joseph, Barbados
+    el: Άγιος Ιωσήφ, Μπαρμπάντος
+    es: Parroquia de Saint Joseph
+    fa: سنت جوزف، باربادوس
+    fi: Saint Joseph, Barbados
+    fr: Saint Joseph
+    gu: સેન્ટ જોસેફ, બાર્બાડોસ
+    hi: सेंट जोसेफ, बारबाडोस
+    id: Saint Joseph, Barbados
+    it: Saint Joseph
+    ja: セント・ジョセフ (バルバドス)
+    kn: ಸೇಂಟ್ ಜೋಸೆಫ್, ಬಾರ್ಬಡೋಸ್
+    ko: 세인트조지프 교구
+    lt: Šv. Juozapo parapija
+    mr: सेंट जोसेफ, बार्बाडोस
+    ms: Saint Joseph, Barbados
+    nb: Saint Joseph prestegjeld
+    nl: Saint Joseph
+    pl: Saint Joseph
+    pt: Saint Joseph
+    ro: Saint Joseph, Barbados
+    ru: Сент-Джозеф
+    si: ශාන්ත ජෝසප්,බාර්බඩෝස්
+    sv: Saint Joseph (parish i Barbados)
+    ta: செயின்ட் ஜோசப் , பார்படாஸ்
+    te: సెయింట్ జోసెఫ్, బార్బడోస్
+    th: เซนต์ โจเซฟ
+    tk: Sent Jozef
+    tr: Sain Joseph, Barbados
+    ur: سینٹ جوسف، بارباڈوس
+    vi: Saint Joseph, Barbados
+    lv: Sentdžozefa pagasts, Barbadosa
+    ceb: Saint Joseph
+    zh: 聖約瑟夫區
+    ccp: "𑄥𑄬𑄚𑄳𑄑𑄴 𑄎𑄧𑄥𑄬𑄛𑄴"
+    uk: Парафія Сент-Джозеф
+    ca: Saint Joseph
+    mk: Сент Џозеф
+    'no': Saint Joseph prestegjeld
+  type: parish
+'07':
+  name: Saint Lucy
+  code: '07'
+  unofficial_names:
+  - Saint Lucy
+  geo:
+    latitude: 13.3011778
+    longitude: -59.621862
+    min_latitude: 13.2740421
+    min_longitude: -59.650559
+    max_latitude: 13.3350319
+    max_longitude: -59.57436509999999
+  translations:
+    en: Saint Lucy
+    ar: سانت لوسي
+    bn: সেন্ট লুসি
+    da: Saint Lucy
+    de: Saint Lucy
+    el: Αγία Λουκία
+    es: Parroquia de Saint Lucy
+    fa: سنت لوسی، باربادوس
+    fi: Saint Lucy
+    fr: Saint Lucy
+    gu: સેન્ટ લ્યુસી
+    hi: सेंट लुसी
+    id: Saint Lucy
+    it: Saint Lucy
+    ja: セント・ルーシー (バルバドス)
+    kn: ಸೇಂಟ್ ಲೂಸಿ
+    ko: 세인트루시 교구
+    lt: Šv. Liucijos parapija
+    mr: सेंट लुसी
+    ms: Saint Lucy
+    nb: Saint Lucy prestegjeld
+    nl: Saint Lucy
+    pl: Saint Lucy
+    pt: Saint Lucy
+    ro: Saint Lucy
+    ru: Сент-Люси
+    si: ශාන්ත ලුසී
+    sv: Saint Lucy
+    ta: செயின்ட் லூசி
+    te: సెయింట్ లూసీ
+    th: เซนต์ ลูซี่
+    tk: Sent Lýusi
+    tr: Saint Lucy
+    uk: Сент-Люсі
+    ur: سینٹ لسی، بارباڈوس
+    vi: Saint Lucy
+    lv: Sentlūsijas pagasts
+    ceb: Saint Lucy
+    zh: 聖露西教區
+    ccp: "𑄥𑄬𑄚𑄳𑄑𑄴 𑄣𑄪𑄌𑄨"
+    ca: Saint Lucy
+    'no': Saint Lucy prestegjeld
+  type: parish
+'08':
+  name: Saint Michael
+  code: '08'
+  unofficial_names:
+  - Saint Michael
+  geo:
+    latitude: 13.1132219
+    longitude: -59.59880889999999
+    min_latitude: 13.0784939
+    min_longitude: -59.63719399999999
+    max_latitude: 13.158466
+    max_longitude: -59.567387
+  translations:
+    en: Saint Michael
+    ar: سانت مايكل
+    bn: সেন্ট মাইকেল
+    cs: Saint Michael
+    da: Saint Michael
+    de: Saint Michael
+    el: Άγιος Μιχαήλ
+    es: Parroquia de Saint Michael
+    fa: سنت مایکل، باربادوس
+    fi: Saint Michael
+    fr: Saint Michael
+    gu: સેંટ માઈકલ
+    he: סיינט מייקל
+    hi: सेंट माइकल
+    hy: Սեն Միշել
+    id: Saint Michael
+    it: Saint Michael
+    ja: セント・マイケル
+    kn: ಸೇಂಟ್ ಮೈಕೆಲ್
+    ko: 세인트마이클 교구
+    lt: Šv. Mykolo parapija
+    mr: सेंट मायकेल
+    ms: Saint Michael
+    nb: Saint Michael prestegjeld
+    nl: Saint Michael
+    pl: Saint Michael
+    pt: Saint Michael
+    ro: Saint Michael
+    ru: Сен-Мишель
+    si: ශාන්ත මයිකල්
+    sl: Saint Michael
+    sv: St. Michael
+    ta: செயின்ட் மைகேல்
+    te: సెయింట్ మైకేల్
+    th: เซนต์ไมเคิล
+    tk: Sent Maýkl
+    tr: Saint Michael
+    ur: سینٹ مائیکل، بارباڈوس
+    vi: Saint Michael
+    lv: Sentmišelas pagasts
+    cy: Saint Michael
+    ceb: Saint Michael (parokya)
+    zh: 聖邁克爾區
+    sq: Saint Michael
+    ccp: "𑄥𑄬𑄚𑄳𑄑𑄴 𑄟𑄭𑄇𑄬𑄣𑄴"
+    uk: Парафія Сент-Майкл (Сент-МІшель)
+    ca: Saint Michael
+    be: Сен-Мішэль
+    'no': Saint Michael prestegjeld
+    bg: Сейнт Майкъл
+    hu: Saint Michael
+  type: parish
+'09':
+  name: Saint Peter
+  code: '09'
+  unofficial_names:
+  - Saint Peter
+  geo:
+    latitude: 13.2600459
+    longitude: -59.621862
+    min_latitude: 13.2257179
+    min_longitude: -59.6469631
+    max_latitude: 13.299063
+    max_longitude: -59.572906
+  translations:
+    en: Saint Peter
+    ar: سانت بيتر، بربادوس
+    bn: সেইন্ট পিটার ,বারবাডোজ
+    da: St. Peter, Barbados
+    de: Saint Peter, Barbados
+    el: Άγιος Πέτρος, Μπαρμπάντος
+    es: Parroquia de Saint Peter
+    fa: سنت پیتر، باربادوس
+    fi: Saint Peter, Barbados
+    fr: Saint Peter
+    gu: સેન્ટ પીટર, બાર્બાડોસ
+    hi: सेंट पीटर, बारबाडोस
+    id: Saint Peter, Barbados
+    it: Saint Peter
+    ja: セント・ペーター (バルバドス)
+    kn: ಸೇಂಟ್ ಪೀಟರ್, ಬಾರ್ಬಡೋಸ್
+    ko: 세인트피터 교구
+    lt: Šv. Petro parapija
+    mr: सेंट पीटर, बार्बाडोस
+    ms: Saint Peter, Barbados
+    nb: Saint Peter prestegjeld
+    nl: Saint Peter
+    pl: Saint Peter
+    pt: Saint Peter
+    ro: Saint Peter, Barbados
+    ru: Сент-Питер
+    si: ශාන්ත පීතර ,බාර්බඩෝස්
+    sv: Saint Peter (parish i Barbados)
+    ta: செயின்ட் பீட்டர் , பார்படோஸ்
+    te: సెయింట్ పీటర్, బార్బడోస్
+    th: เซนต์ปีเตอร์บาร์เบโดส
+    tk: Sent Piter
+    tr: Saint Peter, Barbados
+    uk: Сент-Пітер
+    ur: سینٹ پیٹر، بارباڈوس
+    vi: Saint Peter, Barbados
+    lv: Sentpītera, Barbadosa
+    ceb: Saint Peter (parokya sa Barbados)
+    zh: 聖彼得教區
+    ccp: "𑄥𑄬𑄚𑄳𑄑𑄴 𑄛𑄨𑄑𑄢𑄴"
+    ca: Saint Peter
+    be: Сент-Пітэр
+    'no': Saint Peter prestegjeld
+  type: parish
+'10':
+  name: Saint Philip
+  code: '10'
+  unofficial_names:
+  - Saint Philip
+  geo:
+    latitude: 13.1362782
+    longitude: -59.4605768
+    min_latitude: 13.0789943
+    min_longitude: -59.51082299999999
+    max_latitude: 13.1829601
+    max_longitude: -59.4210709
+  translations:
+    en: Saint Philip
+    ar: سانت فيليب، باربادوس
+    bn: সেন্ট ফিলিপ
+    da: Saint Philip
+    de: Saint Philip
+    el: Άγιος Φίλιππος
+    es: Parroquia de Saint Philip
+    fa: سنت فیلیپ، باربادوس
+    fi: Saint Philip
+    fr: Saint Philip
+    gu: સેન્ટ ફિલિપ
+    hi: सेंट फिलिप, बारबाडोस
+    id: Saint Philip
+    it: Saint Philip
+    ja: セント・フィリップ (バルバドス)
+    kn: ಸೇಂಟ್ ಫಿಲಿಪ್
+    ko: 세인트필립 교구
+    lt: Šv. Pilypo parapija
+    lv: Sentfilipa pagasts
+    mr: सेंट फिलिप
+    ms: Saint Philip
+    nb: Saint Philip
+    nl: Saint Philip
+    pl: Saint Philip
+    pt: Saint Philip
+    ro: Saint Philip
+    ru: Сент-Филип
+    si: ශාන්ත පිලිප්
+    sv: Saint Philip
+    ta: செயின்ட் பிலிப்
+    te: సెయింట్ ఫిలిప్
+    th: เซนต์ ฟิลลิป
+    tk: Sent Filip
+    tr: Sain Philip
+    uk: Сент-Філіп
+    ur: سینٹ فلپ، بارباڈوس
+    vi: Saint Philip
+    ceb: Saint Philip (parokya sa Barbados)
+    zh: 聖菲利普區
+    ccp: "𑄥𑄬𑄚𑄳𑄑𑄴 𑄜𑄨𑄣𑄨𑄛𑄴"
+    ca: Saint Philip
+    'no': Saint Philip
+    az: Sent-Filip
+    be: Сент-Філіп
+  type: parish
+'11':
+  name: Saint Thomas
+  code: '11'
+  unofficial_names:
+  - Saint Thomas
+  geo:
+    latitude: 13.1748291
+    longitude: -59.59880889999999
+    min_latitude: 13.1466249
+    min_longitude: -59.617723
+    max_latitude: 13.216692
+    max_longitude: -59.55319399999999
+  translations:
+    en: Saint Thomas
+    ar: سانت توماس، بربادوس
+    bn: সেন্ট থমাস
+    da: Saint Thomas
+    de: Saint Thomas
+    el: Άγιος Θωμάς
+    es: Parroquia de Saint Thomas
+    fa: سنت توماس، باربادوس
+    fi: Saint Thomas
+    fr: Saint Thomas
+    gu: સેન્ટ થોમસ
+    hi: सेंट थॉमस, बारबाडोस
+    id: Saint Thomas
+    it: Saint Thomas
+    ja: セント・トーマス (バルバドス)
+    kn: ಸೇಂಟ್ ಥಾಮಸ್
+    lt: Šv. Tomo parapija
+    mr: सेंट थॉमस
+    ms: Saint Thomas
+    nb: Saint Thomas prestegjeld
+    nl: Saint Thomas
+    pl: Saint Thomas
+    pt: Saint Thomas
+    ro: Saint Thomas
+    ru: Сент-Томас
+    si: ශාන්ත තෝමස්
+    sv: Saint Thomas
+    ta: செயின்ட் தாமஸ்
+    te: సెయింట్ థామస్
+    th: เซนต์โทมัส
+    tk: Sent Tomas
+    tr: Saint Thomas
+    ur: سینٹ تھامس، بارباڈوس
+    vi: Saint Thomas
+    lv: Senttomasa
+    ceb: Saint Thomas
+    zh: 聖托馬斯區
+    ccp: "𑄥𑄬𑄚𑄳𑄑𑄴 𑄗𑄧𑄟𑄌𑄴"
+    ko: 세인트토머스 교구
+    uk: Парафія Сент-Томас
+    ca: Saint Thomas
+    mk: Сент Томас
+    'no': Saint Thomas prestegjeld
+  type: parish

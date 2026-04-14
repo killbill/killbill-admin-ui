@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+x() {
+    echo "+ $*" >&2
+    "$@"
+}
+
+retry_delay_seconds=10
+
+i="0"
+while [ $i -lt 4 ]
+do
+    x "$@" && exit 0
+    sleep "${retry_delay_seconds}"
+    i=$[$i+1]
+done
+
+echo "$0: retrying [$*] timed out" >&2
+exit 1

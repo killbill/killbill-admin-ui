@@ -1,0 +1,684 @@
+---
+'11':
+  name: Bouenza
+  code: '11'
+  unofficial_names:
+  - Bouénza
+  geo:
+    latitude: -4.1128079
+    longitude: 13.7289167
+    min_latitude: -4.78104
+    min_longitude: 12.601334
+    max_latitude: -3.45881
+    max_longitude: 14.383406
+  translations:
+    en: Bouenza
+    ar: إدارة بوينزا
+    bg: Буенза
+    bn: বুয়েঞ্জা বিভাগ
+    da: Bouenza Department
+    de: Bouenza
+    el: Μπουενζά
+    es: Bouenza
+    fi: Bouenzan departmentti
+    fr: Bouenza
+    gu: બોઉંએન્ઝા વિભાગ
+    hi: बुएँज़ा विभाग
+    id: Bouenza
+    it: Dipartimento di Bouenza
+    ja: ブエンザ地方
+    ka: ბუენზის დეპარტამენტი
+    kn: ಬೋವೆಂಜ ಇಲಾಖೆ
+    ko: 부엔자 주
+    lt: Buenzos regionas
+    mr: बॉऊएन्झा विभाग
+    ms: Bouenza
+    nb: Bouenza
+    nl: Bouenza
+    pl: Departament Bouenza
+    pt: Bouenza
+    ro: Bouenza
+    ru: Буэнза
+    si: බෝඑන්සා දෙපාර්තමේන්තුව
+    sv: Région de la Bouenza
+    ta: போன்ஜா துறை
+    te: బోయెంజా డిపార్ట్మెంట్
+    th: บูอองซา
+    tr: Bouenza
+    ur: بؤینزا محکمہ
+    vi: Khu vực hành chính Bouenza
+    lv: Buenzas departaments
+    ceb: Région de la Bouenza
+    zh: 布恩扎省
+    ccp: "𑄝𑄯𑄠𑄬𑄚𑄴𑄎"
+    uk: Регіон Буенза
+    'no': Bouenza
+    ca: Bouenza
+    fa: بخش بوئنزا
+  type: department
+'12':
+  name: Pool
+  code: '12'
+  unofficial_names:
+  - Pool
+  geo:
+    latitude: -2.420088
+    longitude: 16.1816196
+    min_latitude: -6.1148617
+    min_longitude: 12.3650857
+    max_latitude: 2.2295692
+    max_longitude: 25.1980562
+  translations:
+    en: Pool
+    ar: إدارة بول
+    bg: Пол
+    bn: পুল বিভাগ
+    ca: Pool
+    da: Pool Department
+    de: Pool
+    el: Πουλ
+    es: Departamento de Pool
+    fi: Poolin departmentti
+    fr: Pool
+    gu: પૂલ વિભાગ
+    hi: पूल विभाग
+    id: Pool Department
+    it: Dipartimento di Pool
+    ja: プール地方
+    ka: პოოლის დეპარტამენტი
+    kn: ಪೂಲ್ ಡಿಪಾರ್ಟ್ಮೆಂಟ್
+    ko: 풀 주
+    mr: पूल विभाग
+    ms: Pool Department
+    nb: Pool
+    nl: Pool
+    pl: Departament Pool
+    pt: Pool
+    ro: Departamentul Pool
+    ru: Пул
+    si: පූල් දිස්ත්‍රික්කය
+    sv: Pool (departement)
+    ta: பூல் துறை
+    te: పూల్ డిపార్ట్మెంట్
+    th: เขตพลู
+    tr: Pool
+    ur: پول محکمہ
+    vi: Khu vực hành chính Pool
+    lv: Pulas departaments
+    ceb: Pool (departamento)
+    lt: Baseino regionas
+    zh: 普爾省
+    ccp: "𑄛𑄪𑄣𑄴"
+    uk: Регіон Пул
+    'no': Pool
+    fa: بخش پول
+  type: department
+'13':
+  name: Sangha
+  code: '13'
+  unofficial_names:
+  - Sangha
+  geo:
+    latitude: 1.4662328
+    longitude: 15.4068079
+    min_latitude: 0.031058
+    min_longitude: 13.130887
+    max_latitude: 2.685291
+    max_longitude: 17.014767
+  translations:
+    en: Sangha
+    ar: إدارة سانغا
+    bg: Санга
+    bn: সাংহা বিভাগ
+    da: Sangha Department
+    de: Sangha
+    el: Σανγκά
+    es: Departamento de Sangha
+    fi: Sangha
+    fr: Sangha
+    gu: સાંઘા વિભાગ
+    hi: संघ विभाग
+    id: Sangha Department
+    it: Dipartimento di Sangha
+    ja: サンガ地方
+    ka: სანგის დეპარტამენტი
+    kn: ಸಂಘ ಇಲಾಖೆ
+    ko: 상가 주
+    lt: Sangos regionas
+    mr: संघ विभाग
+    ms: Sangha Department
+    nb: Sangha
+    nl: Sangha
+    pl: Departament Sangha
+    pt: Sangha
+    ro: Sangha
+    ru: Санга
+    si: සැන්ගා දෙපාර්තමේන්තුව
+    sv: Sangha (departement)
+    ta: சங்க துறை
+    te: సంఘా డిపార్ట్మెంట్
+    th: ซังกา
+    tr: Sangha
+    ur: سانگا محکمہ
+    vi: Khu vực hành chính Sangha
+    lv: Sangas departaments
+    ceb: Sangha
+    zh: 桑加省
+    ccp: "𑄥𑄁𑄦"
+    uk: Регіон Санга
+    'no': Sangha
+    ca: Sangha
+    fa: ناحیه سنگا (جمهوری کنگو)
+  type: department
+'14':
+  name: Plateaux
+  code: '14'
+  unofficial_names:
+  - Plateaux
+  geo:
+    latitude: -2.0680088
+    longitude: 15.4068079
+    min_latitude: -3.098674
+    min_longitude: 14.0830219
+    max_latitude: -0.939503
+    max_longitude: 16.6609534
+  translations:
+    en: Plateaux
+    ar: إدارة بلاتيوكس
+    bg: Плато
+    bn: প্লেটুক্স বিভাগ
+    da: Plateaux Department
+    de: Plateaux
+    el: Πλατώ
+    es: Plateaux
+    fi: Plateauxin departmentti
+    fr: Plateaux
+    gu: પ્લેટોક્સ વિભાગ
+    hi: प्लेटो विभाग
+    id: Plateaux Department
+    it: Dipartimento degli Altopiani
+    ja: プラトー地方
+    ka: პლატოს დეპარტამენტი
+    kn: ಪ್ಲೇಟೆಕ್ಸ್ ಡಿಪಾರ್ಟ್ಮೆಂಟ್
+    ko: 플라토 주
+    mr: प्लेटोक्स विभाग
+    ms: Plateaux Department
+    nb: Plateaux
+    nl: Plateaux
+    pl: Departament Plateaux
+    pt: Plateaux
+    ro: Departamentul Plateaux, Republica Congo
+    ru: Плато
+    si: ප්ලටේඋක්ස්‌ දෙපාර්තමේන්තුව
+    sv: Plateaux (departement i Kongo-Brazzaville)
+    ta: பிலடீஸ் துறை
+    te: ప్లాటూక్స్ డిపార్ట్మెంట్
+    th: พลาโต ดีพาทเม้น
+    tr: Plateaux
+    ur: پلاتو محکمہ
+    vi: Khu vực hành chính Plateaux
+    lv: Plato departaments
+    ceb: Plateaux (departamento sa Republika sa Congo)
+    lt: Plato regionas
+    zh: 高原省
+    yue_Hans: 高原省
+    ccp: "𑄛𑄳𑄣𑄧𑄑𑄮𑄠𑄇𑄴"
+    uk: Регіон Плато
+    yue: 高原省
+    'no': Plateaux
+    fa: ناحیه پلاتیوکس (جمهوری کنگو)
+  type: department
+'15':
+  name: Cuvette-Ouest
+  code: '15'
+  unofficial_names:
+  - Cuvette Ouest
+  geo:
+    latitude: 0.144755
+    longitude: 14.4723301
+    min_latitude: -1.283519
+    min_longitude: 13.88563
+    max_latitude: 1.3734011
+    max_longitude: 15.387269
+  translations:
+    en: Cuvette-Ouest
+    ar: أدارة كوفيت-كويست
+    bg: Кювет Уест
+    bn: কুবেতে বিভাগ
+    da: Cuvette-Ouest Department
+    de: Cuvette-Ouest
+    el: Κυβέτ-Ουέστ
+    es: Cuvette-Oeste
+    fi: Cuvette-Ouestn departmentti
+    fr: Cuvette-Ouest
+    gu: કુવેટ- ક્પશ્ચિમ વિભાગ
+    he: קובט מערב
+    hi: कुवेटे-आउस्ट विभाग
+    id: Cuvette-Ouest
+    it: Dipartimento di Cuvette-Ovest
+    ja: 西キュヴェト地方
+    ka: დასავლეთ კიუვეტის დეპარტამენტი
+    kn: ಕ್ವೆವೆಟ್-ಔಯೆಸ್ಟ್ ಇಲಾಖೆ
+    ko: 퀴베트우에스트 주
+    lt: Vakarų Kuvetės regionas
+    mr: क्युव्हेटी-ऑस्ट विभाग
+    ms: Cuvette-Ouest Department
+    nb: Cuvette-Ouest
+    nl: Cuvette-Ouest
+    pl: Departament Cuvette-Ouest
+    pt: Cuvette-Ouest
+    ro: Cuvette-Ouest
+    ru: Западный Кювет
+    si: කුවෙටේ-අවුස්ට් දෙපාර්තමේන්තුව
+    sv: Cuvette-Ouest
+    ta: சுவேட்டே -ஆயுஸ்ட் துறை
+    te: కవెట్-క్వెస్ట్ డిపార్ట్మెంట్
+    th: คูเวทเท่ เออส
+    tr: Batı Cuvette
+    ur: کؤیت-مغربی محکمہ
+    vi: Khu vực hành chính Cuvette-Ouest
+    lv: Rietumkivetas departaments
+    ceb: Cuvette-Ouest
+    zh: 西盆地省
+    ccp: "𑄇𑄨𑄅𑄪𑄞𑄑𑄬-𑄃𑄧𑄅𑄪𑄠𑄬𑄌𑄴"
+    uk: Регіон Західний Кювет
+    'no': Cuvette-Ouest
+    fa: بخش کووت اوست
+  type: department
+'16':
+  name: Pointe-Noire
+  code: '16'
+  translations:
+    en: Pointe-Noire
+    ceb: Pointe-Noire (distrito)
+    ja: ポワントノワール
+    sv: Pointe-Noire
+    ccp: "𑄛𑄧𑄠𑄬𑄚𑄳𑄑𑄴-𑄚𑄧𑄠𑄨𑄢𑄴"
+  type: department
+'2':
+  name: Lékoumou
+  code: '2'
+  unofficial_names:
+  - Lékoumou
+  geo:
+    latitude: -3.170382
+    longitude: 13.3587288
+    min_latitude: -4.0506931
+    min_longitude: 12.6057329
+    max_latitude: -2.1133809
+    max_longitude: 14.3262581
+  translations:
+    en: Lékoumou
+    ar: إدارة ليكومو
+    bg: Лекуму
+    bn: লেকুমৌ বিভাগ
+    da: Lekoumou Department
+    de: Lékoumou
+    el: Λεκουμού
+    es: Lékoumou
+    fi: Lékoumoun departmentti
+    fr: Lékoumou
+    gu: લેકૌમો વિભાગ
+    hi: लिकूमू विभाग
+    id: Lékoumou
+    it: Dipartimento di Lékoumou
+    ja: レクム地方
+    ka: ლეკუმუს დეპარტამენტი
+    kn: ಲೆಕೌಮ ಇಲಾಖೆ
+    ko: 레쿠무 주
+    lt: Lekumu regionas
+    mr: लेकौमुऊ विभाग
+    ms: Jabatan Lekoumou
+    nb: Lékoumou
+    nl: Lékoumou
+    pl: Departament Lékoumou
+    pt: Lékoumou
+    ro: Departamentul Lékoumou
+    ru: Лекуму
+    si: ලෙකෞමෞ දෙපාර්තමේන්තුව
+    sv: Lékoumou
+    ta: லெகோமோஉ துறை
+    te: లెకోమూ డిపార్ట్మెంట్
+    th: เมืองเลกูมู
+    tr: Lékoumou
+    ur: لیکؤمؤ محکمہ
+    vi: Khu hành chính Lékoumou
+    zh: 萊庫穆省
+    lv: Lekumu novads
+    ceb: Lékoumou (departamento)
+    yue_Hans: 莱库穆省
+    ccp: "𑄣𑄬𑄇𑄯𑄟𑄯"
+    uk: Лекуму
+    yue: 萊庫穆省
+    'no': Lékoumou
+    fa: بخش لکومو
+    zu: Lékoumou Department
+  type: department
+'5':
+  name: Kouilou
+  code: '5'
+  unofficial_names:
+  - Kouilou
+  geo:
+    latitude: -4.1428413
+    longitude: 11.8891721
+    min_latitude: -5.0283128
+    min_longitude: 11.2050089
+    max_latitude: -3.512756
+    max_longitude: 12.7600829
+  translations:
+    en: Kouilou
+    ar: إدارة كويلو
+    bg: Куилу
+    bn: কুইলু বিভাগ
+    da: Kouilou Department
+    de: Kouilou
+    el: Κουιλού
+    es: Kouilou
+    fi: Kouiloun depatermentti
+    fr: Kouilou
+    gu: કૌઇલૌ વિભાગ
+    hi: कुइलू विभाग
+    id: Kouilou
+    it: Dipartimento di Kouilou
+    ja: クイル地方
+    ka: კუილუს დეპარტამენტი
+    kn: ಕೌಯಿಲೊ ಇಲಾಖೆ
+    ko: 쿠일루 주
+    lt: Kvilu regionas
+    mr: कौइलोऊ विभाग
+    ms: Kouilou Department
+    nb: Kouilou
+    nl: Kouilou
+    pl: Departament Kouilou
+    pt: Kouilou
+    ro: Kouilou
+    ru: Куилу
+    si: කොයිලු දෙපාර්තමේන්තුව
+    sv: Région du Kouilou
+    ta: கோயிலூ துறை
+    te: కోయిలోవ్ డిపార్ట్మెంట్
+    th: เมืองคูลุย
+    tr: Kouilou
+    ur: کؤیلؤ محکمہ
+    vi: Khu vực hành chính Kouilou
+    lv: Kuilu departaments
+    ceb: Région du Kouilou
+    zh: 奎盧省
+    ccp: "𑄇𑄯𑄃𑄨𑄣𑄯"
+    uk: Куілу
+    'no': Kouilou
+    fa: بخش کویلو
+  type: department
+'7':
+  name: Likouala
+  code: '7'
+  unofficial_names:
+  - Likouala
+  geo:
+    latitude: 2.043924000000001
+    longitude: 17.668887
+    min_latitude: -0.7595563
+    min_longitude: 16.435879
+    max_latitude: 3.7030821
+    max_longitude: 18.649839
+  translations:
+    en: Likouala
+    ar: إدارة ليكوالا
+    bg: Ликуала
+    bn: লিকুউলা বিভাগ
+    da: Likouala Department
+    de: Likouala
+    el: Λικουαλά
+    es: Likouala
+    fa: لیکوالا
+    fi: Likouala
+    fr: Likouala
+    gu: લિકૌલા વિભાગ
+    hi: लिकौला विभाग
+    id: Likouala Department
+    it: Dipartimento di Likouala
+    ja: リクアラ地方
+    ka: ლიკუალის დეპარტამენტი
+    kn: ಲಿಕುವಾಲಾ ಇಲಾಖೆ
+    ko: 리쿠알라 주
+    lt: Likualos regionas
+    mr: लिकौला विभाग
+    ms: Likouala Department
+    nb: Likouala
+    nl: Likouala
+    pl: Departament Likouala
+    pt: Likouala
+    ro: Likouala
+    ru: Ликуала
+    si: ලිකොඅලා දෙපාර්තමේන්තුව
+    sv: Likouala
+    ta: லிகோலா துறை
+    te: లికువాలా డిపార్ట్మెంట్
+    th: ลีกูอาลา
+    tr: Likouala
+    ur: لیکوالا محکمہ
+    vi: Khu vực hành chính Likouala
+    lv: Likvalas departaments
+    ceb: Likouala
+    zh: 利夸拉省
+    ccp: "𑄣𑄨𑄇𑄯𑄠𑄣"
+    uk: Регіон Лікуала
+    'no': Likouala
+    ca: Likouala
+  type: department
+'8':
+  name: Cuvette
+  code: '8'
+  unofficial_names:
+  - Cuvette
+  geo:
+    latitude: -0.2877446
+    longitude: 16.1580937
+    min_latitude: -2.028305
+    min_longitude: 14.349458
+    max_latitude: 0.453031
+    max_longitude: 17.5505448
+  translations:
+    en: Cuvette
+    ar: إدارة كوفيت
+    bg: Кювет
+    bn: কুবেতে বিভাগ²
+    da: Cuvette Department
+    de: Cuvette
+    el: Κυβέτ
+    es: Departamento de Cuvette
+    fi: Cuvetten departmentti
+    fr: Cuvette
+    gu: ક્યુવેટ વિભાગ
+    hi: क्यूवेट विभाग
+    id: Wilayah Cuvette
+    it: Dipartimento di Cuvette
+    ja: キュヴェト地方
+    ka: კიუვეტის დეპარტამენტი
+    kn: ಕುವೆಟ್ಟೆ ಇಲಾಖೆ
+    ko: 퀴베트 주
+    lt: Kuvetės regionas
+    mr: क्युव्हेट विभाग
+    ms: Wilayah Cuvette
+    nb: Cuvette
+    nl: Cuvette
+    pl: Departament Cuvette
+    pt: Cuvette
+    ro: Cuvette
+    ru: Кювет
+    si: කුවෙට්ටේ දෙපාර්තමේන්තුව
+    sv: Cuvette
+    ta: சுவேட்டே துறை
+    te: కువెట్ డిపార్ట్మెంట్
+    th: เขตกูแวต
+    tr: Cuvette
+    ur: کؤیت محکمہ
+    vi: Khu vực hành chính Cuvette
+    lv: Kivetas departaments
+    ceb: Cuvette
+    zh: 盆地省
+    yue_Hans: 盆地省
+    ccp: "𑄇𑄨𑄅𑄪𑄞𑄑𑄬"
+    uk: Регіон Кувет
+    yue: 盆地省
+    'no': Cuvette
+    az: Küvet departamenti
+    ca: Cuvette
+    fa: بخش کووت
+  type: department
+'9':
+  name: Niari
+  code: '9'
+  unofficial_names:
+  - Niari
+  geo:
+    latitude: -3.18427
+    longitude: 12.2547919
+    min_latitude: -4.919864
+    min_longitude: 11.607122
+    max_latitude: -1.858259
+    max_longitude: 13.609751
+  translations:
+    en: Niari
+    ar: إدارة نياري
+    bg: Ниари
+    bn: নিয়ারি বিভাগ
+    da: Niari Department
+    de: Niari (Kongo)
+    el: Νιαρί
+    es: Niari
+    fi: Niarin hallintoalue
+    fr: Niari
+    gu: નિઆરી વિભાગ
+    hi: नियारी विभाग
+    id: Niari Department
+    it: Dipartimento di Niari
+    ja: ニアリ地方
+    ka: ნიარის დეპარტამენტი
+    kn: ನಿಯಾರಿ ಇಲಾಖೆ
+    ko: 니아리 주
+    lt: Niario regionas
+    mr: नियारी विभाग
+    ms: Niari Department
+    nb: Niari
+    nl: Niari
+    pl: Departament Niari
+    pt: Niari
+    ro: Niari
+    ru: Ниари
+    si: නියාරි දෙපාර්තමේන්තුව
+    sv: Région du Niari
+    ta: நீஅறி துறை
+    te: నియారి డిపార్ట్మెంట్
+    th: นียารี
+    tr: Niari
+    ur: نیاری محکمہ
+    vi: Khu vực hành chính Niari
+    lv: Niari departaments
+    ceb: Région du Niari
+    zh: 尼阿里省
+    yue_Hans: 尼阿里省
+    ccp: "𑄚𑄭𑄢𑄨"
+    uk: Ніарі
+    yue: 尼阿里省
+    'no': Niari
+    fa: بخش نیاری
+    sw: Mkoa wa Niari
+  type: department
+BZV:
+  name: Brazzaville
+  code: BZV
+  unofficial_names:
+  - Brazzaville
+  geo:
+    latitude: -4.267778
+    longitude: 15.291944
+    min_latitude: -4.3710429
+    min_longitude: 15.1371001
+    max_latitude: -4.1233473
+    max_longitude: 15.3173448
+  translations:
+    en: Brazzaville
+    af: Brazzaville
+    am: ብራዛቪል
+    ar: برازافيل
+    az: Brazzavil
+    be: Бразавіль
+    bg: Бразавил
+    bn: ব্রাজাভিল
+    ca: Brazzaville
+    cs: Brazzaville
+    da: Brazzaville
+    de: Brazzaville
+    el: Μπραζαβίλ
+    es: Brazzaville
+    et: Brazzaville
+    eu: Brazzaville
+    fa: برازاویل
+    fi: Brazzaville
+    fr: Brazzaville
+    gl: Brazzaville
+    gu: બ્રાઝાવિલ
+    he: ברזוויל
+    hi: ब्राजाविल
+    hr: Brazzaville
+    hu: Brazzaville
+    hy: Բրազավիլ
+    id: Brazzaville
+    is: Brazzaville
+    it: Brazzaville
+    ja: ブラザヴィル
+    ka: ბრაზავილი
+    kn: ಬ್ರೆಜಾವಿಲ್ಲೆ
+    ko: 브라자빌
+    lt: Brazavilis
+    lv: Brazavila
+    mr: ब्राझाव्हिल
+    ms: Brazzaville
+    nb: Brazzaville
+    nl: Brazzaville
+    or: ବ୍ରାଜାଭିଲ
+    pl: Brazzaville
+    pt: Brazzaville
+    ro: Brazzaville
+    ru: Браззавиль
+    si: බ්‍රසවිලි
+    sk: Brazzaville
+    sl: Brazzaville
+    sr: Бразавил
+    sv: Brazzaville
+    sw: Brazzaville
+    ta: பிராசவில்லி
+    te: బ్రేజావిల్లె
+    th: บราซาวีล
+    tr: Brazzaville
+    uk: Браззавіль
+    ur: برازاویلے
+    vi: Brazzaville
+    cy: Brazzaville
+    ceb: Brazzaville (ulohang dakbayan sa Republika sa Congo)
+    sr_Latn: Brazavil
+    zh: 布拉柴维尔
+    yue_Hans: 布拉柴维尔
+    jv: Brazzaville
+    sq: Brazzaville
+    ccp: "𑄝𑄳𑄢𑄎𑄞𑄨𑄣𑄬"
+    ga: Brazzaville
+    ky: Браззавиль
+    ha: Brazzaville
+    so: Barasafille
+    pa: ਬ੍ਰਾਜ਼ਾਵਿਲ
+    kk: Браззавиль
+    ml: ബ്രാസവില്ലെ
+    yue: 布拉柴維爾
+    my: ဘရာဇာဗီးလ်မြို့
+    yo: Brazzaville
+    uz: Brazzavil
+    bs: Brazzaville
+    mk: Бразавил
+    ha_NE: Brazzaville
+    'no': Brazzaville
+    yo_BJ: Brazzaville
+    ps: برازاویل
+  type: department

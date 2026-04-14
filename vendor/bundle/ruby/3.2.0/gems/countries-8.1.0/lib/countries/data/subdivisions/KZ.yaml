@@ -1,0 +1,1363 @@
+---
+AKM:
+  name: Aqmola oblysy
+  code: AKM
+  unofficial_names:
+  - Akmola
+  - Akmolinsk
+  - Aķmola
+  - Celinograd
+  - Tselinograd
+  geo:
+    latitude: 51.916532
+    longitude: 69.4110493
+    min_latitude: 50.111386
+    min_longitude: 65.2571501
+    max_latitude: 53.708545
+    max_longitude: 74.19755889999999
+  translations:
+    en: Akmola
+    ar: أوبليس أكمولا
+    az: Aqmola vilayəti
+    be: Акмалінская вобласць
+    bg: Акмолинска област
+    bn: আকমুলা অঞ্চল
+    ca: Província d’Akmolà
+    cs: Akmolská oblast
+    da: Akmola Region
+    de: Aqmola
+    el: Ακμόλα
+    es: Provincia de Akmola
+    et: Akmola oblast
+    eu: Aqmola
+    fa: استان اکمولا
+    fi: Aqmolan alue
+    fr: Oblys d’Aqmola
+    gu: અક્મોલા પ્રદેશ
+    hi: अकमोला प्रांत
+    hy: Աքմոլայի մարզ
+    id: Provinsi Aqmola
+    is: Aqmolafylki
+    it: Regione di Aqmola
+    ja: アクモラ州
+    ka: აკმოლის ოლქი
+    kn: ಅಕ್ಮೋಲಾ ಪ್ರದೇಶ
+    ko: 아크몰라 주
+    lt: Akmolos sritis
+    lv: Akmolas apgabals
+    mr: अकमोला
+    ms: Wilayah Akmola
+    nb: Akmola region
+    nl: Oblast Aqmola
+    pl: Obwód akmolski
+    pt: Aqmola
+    ro: Provincia Akmola
+    ru: Акмолинская область
+    si: අක්මොලා කලාපය
+    sr: Акмолинска област
+    sv: Aqmola
+    ta: அஃமோலா பகுதி
+    te: అక్మోలా ప్రాంతం
+    th: อัคโมลา
+    tk: Akmola
+    tr: Akmola Eyaleti
+    uk: Акмолинська область
+    ur: اقمولا صوبہ
+    vi: Akmola
+    zh: 阿克莫拉州
+    ceb: Aqmola Oblysy
+    sr_Latn: Akmolinska oblast
+    ccp: "𑄃𑄇𑄴𑄟𑄧𑄣"
+    ky: Акмоло облусу
+    he: אקמולה (מחוז)
+    kk: Ақмола облысы
+    uz: Akmola viloyati
+    mk: Акмола
+    'no': Akmola region
+    cy: Ardal Akmola
+    hu: Akmolai terület
+    yue: 厄莫拉州
+    yue_Hans: 厄莫拉州
+  type: region
+AKT:
+  name: Aqtöbe oblysy
+  code: AKT
+  unofficial_names:
+  - Aktjubinsk
+  - Aktyubinsk
+  - Aktöbe
+  - Aktʿubinsk
+  geo:
+    latitude: 48.7797078
+    longitude: 57.9974377
+    min_latitude: 45.162695
+    min_longitude: 53.5261182
+    max_latitude: 51.339557
+    max_longitude: 64.1807611
+  translations:
+    en: Aktobe
+    ar: أوبليس أكتوبي
+    az: Aqtöbe vilayəti
+    be: Акцюбінская вобласць
+    bg: Актобенска област
+    bn: আকতুবে অঞ্চল
+    ca: Província d’Aktobé
+    cs: Akťubinská oblast
+    da: Aktjubinsk oblast
+    de: Aqtöbe
+    el: Περιφέρεια Ακτόμπε
+    es: Provincia de Aktobe
+    et: Aktöbe oblast
+    eu: Aktobe probintzia
+    fa: استان اکتوب
+    fi: Aqtöben alue
+    fr: Oblys d’Aqtöbe
+    gu: અક્ટોબે પ્રદેશ
+    hi: अकतोबे प्रांत
+    id: Provinsi Aqtöbe
+    is: Aktöbefylki
+    it: Regione di Aqtöbe
+    ja: アクトベ州
+    ka: აქტობეს ოლქი
+    kn: ಅಕ್ಟೋಬ್ ಪ್ರದೇಶ
+    ko: 악퇴베 주
+    lt: Aktobės sritis
+    lv: Aktebes apgabals
+    mr: अक्तोबे
+    ms: Wilayah Aktobe
+    nb: Aqtöbe
+    nl: Oblast Aqtöbe
+    pl: Obwód aktobski
+    pt: Aqtöbe
+    ro: Provincia Aktobe
+    ru: Актюбинская область
+    si: අක්ටෝබේ කලාපය
+    sr: Актјубинска област
+    sv: Aqtöbe
+    ta: அக்டொபே பகுதி
+    te: అక్టోబె ప్రాంతం
+    th: อักโตเบ
+    tk: Aktobe
+    tr: Aktöbe eyaleti
+    uk: Актюбінська область
+    ur: اقتوبے صوبہ
+    vi: Aktobe
+    zh: 阿克托貝州
+    ceb: Aktyubinskaya Oblast’
+    sr_Latn: Aktjubinska oblast
+    ccp: "𑄃𑄇𑄴𑄑𑄮𑄝𑄬"
+    ky: Актөбө облусу
+    he: אקטובה (מחוז)
+    kk: Ақтөбе облысы
+    uz: Aqtoʻbe viloyati
+    mk: Актобе
+    'no': Aqtöbe
+    hu: Aktöbe terület
+    hy: Ակտոբեի շրջան
+    yue: 厄托別州
+    yue_Hans: 厄托别州
+  type: region
+ALA:
+  name: Almaty
+  code: ALA
+  unofficial_names:
+  - Almati Oblasti
+  - Almaty Oblasty
+  - Almatı
+  geo:
+    latitude: 43.2220146
+    longitude: 76.8512485
+    min_latitude: 43.0287453
+    min_longitude: 76.7415618
+    max_latitude: 43.4057021
+    max_longitude: 77.1467686
+  translations:
+    en: Almaty
+    af: Almaty
+    am: አልማቲ
+    ar: ألماتي
+    az: Almatı
+    be: Алма-Ата
+    bg: Алмати
+    bn: আলমেটি
+    ca: Almati
+    cs: Almaty
+    da: Almaty
+    de: Almaty
+    el: Αλμάτι
+    es: Almatý
+    et: Almatõ
+    eu: Almaty
+    fa: آلماآتی
+    fi: Almaty
+    fr: Almaty
+    gl: Almati
+    gu: અલ્માટી
+    he: אלמטי
+    hi: अलमाती
+    hr: Almati
+    hu: Almati
+    hy: Ալմաթի
+    id: Almaty
+    is: Almaty
+    it: Almaty
+    ja: アルマトイ
+    ka: ალმათი
+    kn: ಅಲ್ಮಾಟಿ
+    ko: 알마티
+    lt: Almata
+    lv: Almati
+    ml: അൽമാട്ടി
+    mn: Алматы
+    mr: अल्माटी
+    ms: Almaty
+    nb: Almaty
+    nl: Alma-Ata
+    pl: Ałmaty
+    pt: Almaty
+    ro: Almatî
+    ru: Алматы
+    si: අල්මටි
+    sk: Alma-Ata
+    sl: Almati
+    sr: Алмати
+    sv: Almaty
+    sw: Almaty
+    ta: அல்மாத்தி
+    te: ఆల్మాటీ
+    th: อัลมาตี
+    tk: Almaty
+    tr: Almatı
+    uk: Алмати
+    ur: الماتی
+    vi: Almaty
+    zh: 阿拉木圖
+    zu: Almaty
+    cy: Almaty
+    ceb: Almaty (kapital sa lalawigan)
+    sr_Latn: Almati
+    yue_Hans: 阿拉木图
+    sq: Almati
+    ccp: "𑄃𑄣𑄴𑄟𑄑𑄨"
+    ga: Almaty
+    ky: Алматы
+    pa: ਅਲਮਾਟੀ
+    kk: Алматы
+    yue: 阿拉木圖
+    yo: Almaty
+    uz: Almati
+    bs: Almaty
+    mk: Алмати
+    'no': Almaty
+    yo_BJ: Almaty
+    ps: الماته
+  type: city
+ALM:
+  name: Almaty oblysy
+  code: ALM
+  unofficial_names:
+  - Almaty oblysy
+  geo:
+    latitude: 45.0119227
+    longitude: 78.4229392
+    min_latitude: 42.202049
+    min_longitude: 74.0447233
+    max_latitude: 47.329847
+    max_longitude: 82.63085889999999
+  translations:
+    en: Almaty Region
+    ar: أوبليس ألماطي
+    az: Almatı vilayəti
+    be: Алмацінская вобласць
+    bg: Алматинска област
+    bn: আলমাটি অঞ্চল
+    ca: Província d’Almati
+    cs: Almatinská oblast
+    da: Almaty Region
+    de: Almaty²
+    el: Επαρχία Αλμάτι
+    es: Provincia de Almaty
+    et: Almatõ oblast
+    eu: Almatyko probintzia
+    fa: استان الماتی
+    fi: Almaty maakunta
+    fr: Oblys d’Almaty
+    gl: Provincia de Almati
+    gu: અલ્માટી પ્રદેશ
+    hi: अलमाती प्रांत
+    hy: Ալմաթի շրջան
+    id: Provinsi Almaty
+    is: Almatyfylki
+    it: Regione di Almaty
+    ja: アルマトイ州
+    ka: ალმათის ოლქი
+    kn: ಅಲ್ಮಾಟಿ ಪ್ರದೇಶ
+    ko: 알마티 주
+    lt: Almatos sritis
+    lv: Almati apgabals
+    mr: अल्माटी²
+    ms: Wilayah Almaty
+    nb: Almaty region
+    nl: Oblast Almaty
+    pl: Obwód ałmacki
+    pt: Almaty²
+    ro: Provincia Almatî
+    ru: Алматинская область
+    si: අල්මෙටි කලාපය
+    sr: Алматинска област
+    sv: Almaty²
+    ta: அள்மாடி பகுதி
+    te: ఆల్మాటీ ప్రాంతం
+    th: อัลมาตี²
+    tk: Almaty welaýaty
+    tr: Almatı Eyaleti
+    uk: Алматинська область
+    ur: الماتی صوبہ
+    vi: Almaty²
+    zh: 阿拉木圖州
+    ceb: Almaty Qalasy
+    sr_Latn: Almatinska oblast
+    ccp: "𑄃𑄣𑄴𑄟𑄑𑄨 𑄢𑄨𑄎𑄨𑄠𑄧𑄚𑄴"
+    ky: Алматы облусу
+    he: אלמטי (מחוז)
+    pa: ਅਲਮਾਟੀ ਸੂਬਾ
+    kk: Алматы облысы
+    uz: Almati²
+    mk: Алмати²
+    'no': Almaty region
+    yue: 阿拉木圖州
+    yue_Hans: 阿拉木图州
+  type: region
+AST:
+  name: Astana
+  code: AST
+  unofficial_names:
+  - Astana
+  geo:
+    latitude: 51.16052269999999
+    longitude: 71.4703558
+    min_latitude: 51.0055461
+    min_longitude: 71.2160397
+    max_latitude: 51.2903453
+    max_longitude: 71.7427397
+  translations:
+    en: Astana
+    af: Astana
+    am: አስታና
+    ar: أستانا
+    az: Astana
+    be: Горад Астана
+    bg: Астана
+    bn: আস্তানা
+    ca: Astanà
+    cs: Astana
+    da: Astana
+    de: Astana
+    el: Αστανά
+    es: Astaná
+    et: Astana
+    eu: Astana
+    fa: آستانه
+    fi: Astana
+    fr: Astana
+    gl: Astana
+    gu: અસટાના
+    he: אסטנה
+    hi: अस्ताना
+    hr: Astana
+    hu: Asztana
+    hy: Աստանա
+    id: Astana, Kazakhstan
+    is: Astana
+    it: Astana
+    ja: アスタナ
+    ka: ასტანა
+    kn: ಅಸ್ತಾನ
+    ko: 아스타나
+    lt: Astana
+    lv: Astana
+    ml: അസ്താന
+    mn: Астана
+    mr: अस्ताना
+    ms: Astana
+    nb: Astana
+    ne: अस्टाना
+    nl: Astana
+    or: ଅସ୍ତାନା
+    pl: Astana
+    ps: استانه
+    pt: Astana
+    ro: Astana
+    ru: Астана
+    si: අස්තානා
+    sk: Astana
+    sl: Astana
+    sr: Астана
+    sv: Astana
+    sw: Astana
+    ta: அஸ்தானா
+    te: అస్తానా
+    th: อัสตานา
+    tk: Astana
+    tr: Astana
+    uk: Астана
+    ur: آستانہ
+    vi: Astana
+    zh: 阿斯塔納
+    cy: Astana
+    ceb: Astana
+    sr_Latn: Astana
+    yue_Hans: 阿斯塔纳
+    jv: Astana, Kazakhstan
+    sq: Astana
+    ccp: "𑄃𑄌𑄴𑄑𑄚"
+    ga: Astana
+    ky: Астана
+    pa: ਅਸਤਾਨਾ
+    kk: Астана қаласы
+    yue: 阿斯塔納
+    yo: Astana
+    uz: Ostona
+    bs: Astana
+    mk: Астана
+    'no': Astana
+    yo_BJ: Astana
+    ha: Nur-Sultan
+    ha_NE: Nur-Sultan
+    km: នុរស៊ុលតង់
+    my: နျူ-ဆူလ်တန်မြို့
+    sd: نور سلطان
+  type: city
+ATY:
+  name: Atyrau oblysy
+  code: ATY
+  unofficial_names:
+  - Ateransk
+  - Aterau
+  - Atirau
+  - Atırau
+  - Gurjev
+  - Guryev
+  geo:
+    latitude: 47.9053152
+    longitude: 51.3780767
+    min_latitude: 46.16998
+    min_longitude: 46.994003
+    max_latitude: 49.270703
+    max_longitude: 56.37093609999999
+  translations:
+    en: Atyrau
+    ar: أوبليس أتييرو
+    az: Atırau vilayəti
+    be: Атыраўская вобласць
+    bg: Атърауска област
+    bn: আতিরাউ প্রদেশ
+    ca: Província d’Atyrau
+    cs: Atyrauská oblast
+    da: Atyrau Province
+    de: Atyrau
+    el: Περιφέρεια Ατιράου
+    es: Atyrau
+    et: Atõrau oblast
+    eu: Atyrau probintzia
+    fa: استان آتیرائو
+    fi: Atıraw’n alue
+    fr: Oblys d’Atyraou
+    gu: અતિરાઉ પ્રાંત
+    hy: Արիտաու մարզ
+    id: Provinsi Atyrau
+    is: Atýráfylki
+    it: Regione di Atyrau
+    ja: アティラウ州
+    ka: ატირაუს ოლქი
+    kn: ಆತಿರಾವ್ ಪ್ರಾಂತ್ಯ
+    ko: 아티라우 주
+    lt: Atyrau sritis
+    lv: Atirau apgabals
+    mr: अतिरौ
+    ms: Wilayah Atyrau
+    nb: Atyrau oblast
+    nl: Oblast Atıraw
+    pl: Obwód atyrauski
+    pt: Atyrau
+    ro: Provincia Atîrau
+    ru: Атырауская область
+    si: අටියාරු පළාත
+    sr: Атирауска област
+    sv: Atyraw
+    ta: அடிராவ் மாகாணம்
+    te: అటిరావ్ ప్రావిన్స్
+    th: จังหวัดมูลา
+    tk: Atyrau
+    tr: Atırav Eyaleti
+    uk: Атирауська область
+    ur: اتیراؤ صوبہ
+    vi: Atyrau
+    zh: 阿特勞州
+    ceb: Atyraū Oblysy
+    sr_Latn: Atirauska oblast
+    ccp: "𑄃𑄑𑄨𑄠𑄢𑄅𑄪"
+    ky: Атырау облусу
+    he: מחוז אטיראו
+    kk: Атырау облысы
+    uz: Atirau viloyati
+    mk: Атирау
+    'no': Atyrau oblast
+    hi: अतिरऊ प्रांत
+    yue: 阿特勞州
+    yue_Hans: 阿特劳州
+  type: region
+KAR:
+  name: Qaraghandy oblysy
+  code: KAR
+  unofficial_names:
+  - Karaganda
+  - Karagandi
+  - Karagandy
+  - Qaraghandy
+  - Ķaragandı
+  geo:
+    latitude: 47.90221820000001
+    longitude: 71.77068059999999
+    min_latitude: 46.001395
+    min_longitude: 62.6005359
+    max_latitude: 51.38928199999999
+    max_longitude: 77.6211869
+  translations:
+    en: Karagandy
+    ar: أوبليس كراغندي
+    az: Karaqanda vilayəti
+    be: Карагандзінская вобласць
+    bg: Карагандинска област
+    bn: কারাগান্ডি অঞ্চল
+    ca: Província de Karaganda
+    cs: Karagandská oblast
+    da: Karagandy Region
+    de: Qaraghandy
+    el: Περιφέρεια Καραγκάντα
+    es: Provincia de Karagandá
+    et: Karagandõ oblast
+    eu: Karagandy probintzia
+    fa: استان قراغندی
+    fi: Karakandan alue
+    fr: Oblys de Karaganda
+    gu: કારાગંડી પ્રદેશ
+    hi: काराग़ान्दी प्रांत
+    hu: Karagandi terület
+    hy: Կարագանդայի մարզ
+    id: Provinsi Qaraghandy
+    is: Karagandyfylki
+    it: Regione di Qaraǧandy
+    ja: カラガンダ州
+    ka: ყარაღანდის ოლქი
+    kn: ಕರಾಗಾಂಡಿ ಪ್ರದೇಶ
+    ko: 카라간다 주
+    lt: Karagandos sritis
+    lv: Karaghandi apgabals
+    mr: कारागंडी
+    ms: Wilayah Karagandy
+    nb: Karagandy region
+    nl: Oblast Qarağandı
+    pl: Obwód karagandzki
+    pt: Qaraghandy
+    ro: Provincia Karagandî
+    ru: Карагандинская область
+    si: කරගන්ඩි කලාපය
+    sr: Карагандинска област
+    sv: Qaraghandy
+    ta: காரகண்டி பகுதி
+    te: కారగాండీ ప్రాంతం
+    th: การากันดี
+    tk: Karaganda
+    tr: Karagandı Eyaleti
+    uk: Карагандинська область
+    ur: قاراغاندی صوبہ
+    vi: Karagandy
+    zh: 卡拉干達州
+    ceb: Qaraghandy Oblysy
+    sr_Latn: Karagandinska oblast
+    ccp: "𑄇𑄢𑄉𑄚𑄴𑄓𑄨"
+    ky: Караганды облусу
+    he: קרגנדה (מחוז)
+    kk: Қарағанды облысы
+    uz: Qaragʻandi viloyati
+    mk: Караганди
+    'no': Karagandy region
+    yue: 卡拉干達州
+    yue_Hans: 卡拉干达州
+  type: region
+KUS:
+  name: Qostanay oblysy
+  code: KUS
+  unofficial_names:
+  - Kostanay
+  - Kustanai
+  - Kustanaj
+  - Kustanay
+  - Ķostanay
+  geo:
+    latitude: 51.5077096
+    longitude: 64.04790729999999
+    min_latitude: 48.197313
+    min_longitude: 60.0529098
+    max_latitude: 54.7125819
+    max_longitude: 68.02896299999999
+  translations:
+    en: Kostanay
+    ar: أوبليس كوستناي
+    az: Qostanay vilayəti
+    be: Кастанайская вобласць
+    bg: Костанайска област
+    bn: কুস্টানি অঞ্চল
+    cs: Kostanajská oblast
+    da: Kostanay Region
+    de: Qostanai
+    el: Κοστανέι
+    es: Provincia de Kostanay
+    et: Kostanaj oblast
+    eu: Kostanay probintzia
+    fa: استان قوستانای
+    fi: Qostanayn alue
+    fr: Oblys de Kostanaï
+    gu: કોસ્તાનાય પ્રદેશ
+    hi: कोस्तानय प्रांत
+    hu: Kosztanaji terület
+    hy: Կոստանայ շրջան
+    id: Provinsi Qostanay
+    is: Kóstanæfylki
+    it: Regione di Qostanay
+    ja: コスタナイ州
+    ka: კოსტანაის ოლქი
+    kn: ಕೊಸ್ಟನೇ ಪ್ರದೇಶ
+    ko: 코스타나이 주
+    lt: Kostanajaus sritis
+    lv: Kostanajas apgabals
+    mr: कोस्तानय
+    ms: Wilayah Kostanay
+    nb: Kostanay region
+    nl: Oblast Qostanay
+    pl: Obwód kustanajski
+    pt: Qostanay
+    ro: Provincia Kostanai
+    ru: Костанайская область
+    si: කොස්ටනේ කලාපය
+    sr: Костанајска област
+    sv: Qostanaj
+    ta: கோஸ்டானாய் பகுதி
+    te: కోస్టానే ప్రాంతం
+    th: คอสตาไน
+    tk: Kostanaý
+    tr: Kostanay Eyaleti
+    uk: Костанайська область
+    ur: قوستانای صوبہ
+    vi: Kostanay
+    zh: 庫斯塔奈州
+    ceb: Qostanay Oblysy
+    sr_Latn: Kostanajska oblast
+    ccp: "𑄇𑄮𑄌𑄴𑄑𑄚𑄬"
+    ky: Костанай облусу
+    he: קוסטנאי (מחוז)
+    pa: ਕੋਸਤਾਨਾਏ ਸੂਬਾ
+    kk: Қостанай облысы
+    ca: província de Kostanay
+    uz: Qoʻstanoy viloyati
+    mk: Костанај
+    'no': Kostanay region
+    yue: 哥斯塔里州
+    yue_Hans: 哥斯塔里州
+  type: region
+KZY:
+  name: Qyzylorda oblysy
+  code: KZY
+  unofficial_names:
+  - Ak-Mechet
+  - Kizilorda
+  - Kyzyl-Orda
+  - Kyzylorda
+  - Kzyl-Orda
+  - Qyzylorda
+  - Ķızılorda
+  geo:
+    latitude: 44.6922613
+    longitude: 62.6571885
+    min_latitude: 42.421028
+    min_longitude: 58.7882902
+    max_latitude: 47.854687
+    max_longitude: 68.0135679
+  translations:
+    en: Kyzylorda
+    ar: أوبليس كيزيلوردا
+    az: Qızılorda vilayəti
+    be: Кызылардзінская вобласць
+    bg: Къзълординска област
+    bn: কিজিলোর্দা প্রদেশ
+    ca: Província de Khizilordà
+    cs: Kyzylordská oblast
+    da: Kyzylorda Province
+    de: Qysylorda
+    el: Περιφέρεια Κιζιλόρντα
+    es: Provincia de Kyzylorda
+    et: Kõzõlorda oblast
+    eu: Kyzylorda probintzia
+    fa: استان قیزیل‌اوردا
+    fi: Kyzyl-Ordan alue
+    fr: Oblys de Kyzylorda
+    gu: કીઝીલોર્ડા પ્રાંત
+    hi: किज़िलओरदा प्रांत
+    hy: Կզըլ-Օրդայի մարզ
+    id: Provinsi Qyzylorda
+    is: Kusulórdafylki
+    it: Regione di Qyzylorda
+    ja: クズロルダ州
+    ka: ყიზილორდის ოლქი
+    kn: ಕಿಜಿಲೋರ್ಡಾ ಪ್ರಾಂತ್ಯ
+    ko: 키질로르다 주
+    lt: Kyzylordos sritis
+    lv: Kizilordas apgabals
+    mr: किझिलोर्दा
+    ms: Wilayah Kyzylorda
+    nb: Qızılorda
+    nl: Oblast Qızılorda
+    pl: Obwód kyzyłordyński
+    pt: Qyzylorda
+    ro: Provincia Kîzîlorda
+    ru: Кызылординская область
+    si: කිසිලොර්ඩා පළාත
+    sr: Кизилординска област
+    sv: Qyzylorda
+    ta: காய்ஸ்யலாடா மாகாணம்
+    te: కైజిలోర్డా ప్రావిన్స్
+    th: จังหวัดกีซิลอร์ดา
+    tk: Kyzylorda
+    tr: Kızılorda Eyaleti
+    uk: Кизилординська область
+    ur: قیزیلوردا صوبہ
+    vi: Kyzylorda
+    zh: 克孜勒奧爾達州
+    ceb: Qyzylorda Oblysy
+    sr_Latn: Kizilordinska oblast
+    ccp: "𑄇𑄭𑄎𑄭𑄣𑄧𑄢𑄴𑄓"
+    ky: Кызыл-Ордо облусу
+    he: קזילאורדה (מחוז)
+    kk: Қызылорда облысы
+    uz: Qiziloʼrda viloyati
+    mk: Кизилорда
+    'no': Qızılorda
+    yue: 基孜羅達州
+    yue_Hans: 基孜罗达州
+  type: region
+MAN:
+  name: Mangghystau oblysy
+  code: MAN
+  unofficial_names:
+  - Mangghystau
+  - Mangistau
+  - Mangkistau
+  - Mangqystau
+  geo:
+    latitude: 44.590802
+    longitude: 53.84995079999999
+    min_latitude: 41.240135
+    min_longitude: 50.0048314
+    max_latitude: 46.461712
+    max_longitude: 56.696327
+  translations:
+    en: Mangystau
+    ar: أوبليس مانكيستاو
+    az: Manğıstau vilayəti
+    bg: Мангистауска област
+    bn: মঙ্গিস্টৌ অঞ্চল
+    ca: Mangghystau
+    cs: Mangystauská oblast
+    da: Mangystau Region
+    de: Mangghystau
+    el: Περιφέρεια Μανγκιστάου
+    es: Mangystau
+    et: Manggõstau oblast
+    eu: Mangystau
+    fa: استان مانغیستاو
+    fi: Mañğıstaw’n alue
+    fr: Oblys de Manguistaou
+    gu: માંગિસ્તૌ પ્રદેશ
+    id: Provinsi Mangghystau
+    is: Mangystáfylki
+    it: Regione di Mangghystau
+    ja: マンギスタウ州
+    ka: მანგისთაუს ოლქი
+    kn: ಮಂಗೈಸ್ಟೌ ಪ್ರದೇಶ
+    ko: 망기스타우 주
+    lt: Mangyštau sritis
+    lv: Manghistau apgabals
+    mr: मांगिस्तौ
+    ms: Wilayah Mangystau
+    nb: Mangystau oblast
+    nl: Oblast Mañğıstaw
+    pl: Obwód mangystauski
+    pt: Mangghystau
+    ro: Provincia Mangîstau
+    ru: Мангистауская область
+    si: මැන්ගිස්ටවු කලාපය
+    sr: Мангистауска област
+    sv: Mangghystaw
+    ta: மஞ்சிஸ்டாவு பகுதி
+    te: మేంజిస్టావ్ ప్రాంతం
+    th: มังกืย์สตาอู
+    tk: Mangystau
+    tr: Mangistav Eyaleti
+    uk: Мангистауська область
+    ur: مانغیستاؤ صوبہ
+    vi: Mangistau
+    zh: 曼格斯套州
+    ceb: Mangistauskaya Oblast’
+    sr_Latn: Mangistauska oblast
+    ccp: "𑄟𑄁𑄉𑄨𑄌𑄴𑄑𑄅𑄪"
+    ky: Маңгыстоо областы
+    he: מנגוסטאו (מחוז)
+    pa: ਮਾਂਗਿਸਤੌ
+    kk: Маңғыстау облысы
+    be: Мангістаўская вобласць
+    uz: Mangʻistov viloyati
+    mk: Мангистау
+    'no': Mangystau oblast
+    hi: मान्गीस्तऊ प्रांत
+    yue: 曼節斯套州
+    yue_Hans: 曼节斯套州
+  type: region
+PAV:
+  name: Pavlodar oblysy
+  code: PAV
+  unofficial_names:
+  - Pavlodar oblysy
+  geo:
+    latitude: 52.65085440000001
+    longitude: 76.7773224
+    min_latitude: 50.023726
+    min_longitude: 73.282956
+    max_latitude: 54.4579159
+    max_longitude: 79.590622
+  translations:
+    en: Pavlodar
+    ar: أوبليس بافلودار
+    az: Pavlodar vilayəti
+    be: Паўладарская вобласць
+    bg: Павлодарска област
+    bn: পাভলোদার প্রদেশ
+    ca: Província de Pavlodar
+    cs: Pavlodarská oblast
+    da: Pavlodar Province
+    de: Pawlodar
+    el: Περιφέρεια Παβλοντάρ
+    es: Provincia de Pavlodar
+    et: Pavlodari oblast
+    eu: Pavlodar probintzia
+    fa: استان پاولودار
+    fi: Pavlodarin alue
+    fr: Oblys de Pavlodar
+    gu: પાવ્લોડોર પ્રાંત
+    hi: पाव्लोदार प्रांत
+    id: Provinsi Pavlodar
+    is: Pavlódarfylki
+    it: Regione di Pavlodar
+    ja: パブロダール州
+    ka: პავლოდარის ოლქი
+    kn: ಪವ್ಲೋಡರ್ ಪ್ರಾಂತ್ಯ
+    ko: 파블로다르 주
+    lt: Pavlodaro sritis
+    lv: Pavlodaras apgabals
+    mr: पाव्लोदर
+    ms: Wilayah Pavlodar
+    nb: Pavlodar provins
+    nl: Oblast Pavlodar
+    pl: Obwód pawłodarski
+    pt: Pavlodar
+    ro: Provincia Pavlodar
+    ru: Павлодарская область
+    si: පව්ලොදාර් පළාත
+    sr: Павлодарска област
+    sv: Pavlodar
+    ta: பாவ்லோடர் மாகாணம்
+    te: పావ్లోడర్
+    th: ปัฟโลดาร์
+    tk: Pawlodar
+    tr: Pavlodar Eyaleti
+    uk: Павлодарська область
+    ur: پاؤلودار صوبہ
+    vi: Pavlodar
+    zh: 巴甫洛達爾州
+    ceb: Pavlodar Oblysy
+    sr_Latn: Pavlodarska oblast
+    ccp: "𑄛𑄛𑄴𑄣𑄮𑄓𑄢𑄴"
+    hy: Պավլոդարի մարզ
+    ky: Павлодар областы
+    he: פבלודר (מחוז)
+    pa: ਪਾਵਲੋਦਰ
+    kk: Павлодар облысы
+    uz: Pavlodar viloyati
+    mk: Павлодар
+    'no': Pavlodar provins
+    yue: 巴甫洛達州
+    yue_Hans: 巴甫洛达州
+  type: region
+SEV:
+  name: Soltüstik Qazaqstan oblysy
+  code: SEV
+  unofficial_names:
+  - Northern Kazakhstan
+  - Soltüstik Kazakstan
+  - Soltüstik Qazaqstan
+  geo:
+    latitude: 53.2948229
+    longitude: 69.4047872
+    min_latitude: 53.2533834
+    min_longitude: 69.35711859999999
+    max_latitude: 53.3444028
+    max_longitude: 69.4638061
+  translations:
+    en: North Kazakhstan
+    ar: أوبليس كازاخستان الشمالي
+    az: Şimalı Qazaxıstan vilayəti
+    be: Паўночна-Казахстанская вобласць
+    bg: Североказахстанска област
+    bn: উত্তর কাজাখস্তান প্রদেশ
+    ca: Província del Kazakhstan Septentrional
+    cs: Severokazašská oblast
+    da: North Kazakhstan Province
+    de: Nordkasachstan
+    el: Περιφέρεια Βορείου Καζακστάν
+    es: Provincia de Kazajistán Septentrional
+    et: Põhja-Kasahstani oblast
+    eu: Iparraldeko Kazakhstan
+    fa: استان قزاقستان شمالی
+    fi: Pohjois-Kazakstanin alue
+    fr: Kazakhstan septentrional
+    gu: ઉત્તર કઝાકસ્તાન પ્રાંત
+    hi: उत्तर क़ाज़ाक़स्तान प्रांत
+    hy: Հյուսիս-Ղազախստանյան մարզ
+    id: Provinsi Kazakhstan Utara
+    is: Norður-Kasakstanfylki
+    it: Regione del Kazakistan Settentrionale
+    ja: 北カザフスタン州
+    ka: ჩრდილოეთ ყაზახეთის ოლქი
+    kn: ಉತ್ತರ ಕಝಾಕಿಸ್ತಾನ್ ಪ್ರಾಂತ್ಯ
+    ko: 솔튀스틱카작스탄 주
+    lt: Šiaurės Kazachstano sritis
+    lv: Ziemeļkazahstānas apgabals
+    mr: उत्तर कझाकस्तान
+    ms: Wilayah Kazakhstan Utara
+    nb: Nord Kazakhstan provins
+    nl: Oblast Noord-Kazachstan
+    pl: Obwód północnokazachstański
+    pt: Cazaquistão do Norte
+    ro: Provincia Kazahstanul de Nord
+    ru: Северо-Казахстанская область
+    si: උතුරු කසකස්තාන් පළාත
+    sr: Северноказахстанска област
+    sv: Nordkazakstan
+    ta: வடக்கு கஜகஸ்தான் மாகாணம்
+    te: ఉత్తర కజకిస్తాన్ ప్రావిన్స్
+    th: นอร์ท คาซัคสถาน
+    tk: Demirgazyk Gazagystan welaýaty
+    tr: Kuzey Kazakistan Eyaleti
+    uk: Північно-Казахстанська область
+    ur: شمالی قازقستان صوبہ
+    vi: Bắc Kazakhstan
+    zh: 北哈薩克斯坦州
+    ceb: Severo-Kazakhstanskaya Oblast’
+    sr_Latn: Severnokazahstanska oblast
+    ccp: "𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄴 𑄇𑄎𑄈𑄌𑄴𑄑𑄚𑄴"
+    he: מחוז הצפון (קזחסטן)
+    pa: ਉੱਤਰੀ ਕਜ਼ਾਖ਼ਿਸਤਾਨ ਸੂਬਾ
+    kk: Солтүстік Қазақстан облысы
+    uz: Shimoliy Qozogʻiston viloyati
+    mk: Северен Казахстан
+    'no': Nord Kazakhstan provins
+    cy: Ardal Gogledd Casachstan
+    ky: Түндүк Казакстан облусу
+    yue: 北哈薩克州
+    yue_Hans: 北哈萨克州
+  type: region
+SHY:
+  name: Shymkent
+  code: SHY
+  geo:
+    latitude: 48.019573
+    longitude: 66.923684
+    min_latitude: 40.5685841
+    min_longitude: 46.493672
+    max_latitude: 55.4419839
+    max_longitude: 87.315415
+  translations:
+    en: Shymkent
+    af: Sjimkent
+    ar: شيمكنت
+    az: Çimkənd
+    be: Шымкент
+    bg: Шимкент
+    bn: শ্যামকেন্ট
+    ca: Ximkent
+    ceb: Shymkent (kapital sa lalawigan)
+    cs: Šymkent
+    da: Shymkent
+    de: Schymkent
+    el: Σίμκεντ
+    es: Shymkent
+    et: Šõmkent
+    eu: Shimkent
+    fa: چیمکند
+    fi: Šymkent
+    fr: Chimkent
+    ga: Shymkent
+    gu: શિમકેંટ
+    he: שימקנט
+    hi: शिमकेंट
+    hu: Simkent
+    hy: Շիմքենտ
+    id: Shymkent
+    is: Sjimkent
+    it: Şımkent
+    ja: シムケント
+    ka: შიმქენთი
+    kk: Шымкент
+    kn: ಶಿಮ್ಕೆಂಟ್
+    ko: 쉼켄트
+    ky: Чымкент
+    lt: Šymkentas
+    lv: Šimkenta
+    mk: Шимкент
+    mn: Шымкент
+    mr: शिमकेंत
+    ms: Shymkent
+    nl: Sjimkent
+    pl: Szymkent
+    pt: Shymkent
+    ro: Shymkent
+    ru: Шымкент
+    si: ශිම්කෙන්ට්
+    sl: Šimkent
+    sq: Shymkent
+    sr: Шимкент
+    sr_Latn: Šimkent
+    sv: Sjymkent
+    ta: சிம்கென்ட்
+    te: షేమకెంట్
+    th: เชิมเกียนต์
+    tk: Çimkent
+    tr: Çimkent
+    uk: Шимкент
+    ur: شیمکنت
+    uz: Chimkent
+    vi: Shymkent
+    yue: 苫勤
+    yue_Hans: 苫勤
+    zh: 希姆肯特
+  type: city
+VOS:
+  name: Shyghys Qazaqstan oblysy
+  code: VOS
+  unofficial_names:
+  - Eastern Kazakhstan
+  - Shyghys Qazaqstan
+  - Sigis Kazakstan
+  geo:
+    latitude: 48.4884873
+    longitude: 82.7103185
+    min_latitude: 45.57064099999999
+    min_longitude: 76.76924199999999
+    max_latitude: 51.4008139
+    max_longitude: 87.3126599
+  translations:
+    en: East Kazakhstan
+    ar: أوبليس كازاخستان الشرقي
+    az: Şərqi Qazaxıstan əyaləti
+    be: Усходне-Казахстанская вобласць
+    bg: Източноказахстанска област
+    bn: ইস্ট কাজাকাস্তান অঞ্চল
+    ca: Província del Kazakhstan Oriental
+    cs: Východokazašská oblast
+    da: East Kazakhstan Region
+    de: Ostkasachstan
+    el: Περιφέρεια Ανατολικού Καζακστάν
+    es: Provincia de Kazajistán Oriental
+    et: Ida-Kasahstani oblast
+    eu: Ekialdeko Kazakhstan
+    fa: استان قزاقستان شرقی
+    fi: Itä-Kazakstanin alue
+    fr: Kazakhstan oriental
+    gu: પૂર્વ કઝાખસ્તાન પ્રદેશ
+    hi: पूर्व क़ाज़ाक़स्तान प्रांत
+    id: Provinsi Kazakhstan Timur
+    is: Austur-Kasakstanfylki
+    it: Regione del Kazakistan Orientale
+    ja: 東カザフスタン州
+    ka: აღმოსავლეთ ყაზახეთის ოლქი
+    kn: ಪೂರ್ವ ಕಝಾಕಿಸ್ತಾನ್ ಪ್ರದೇಶ
+    ko: 시기스카작스탄 주
+    lt: Rytų Kazachstano sritis
+    lv: Austrumkazahstānas apgabals
+    mr: पूर्व कझाकस्तान
+    ms: Wilayah Kazakhstan Timur
+    nb: Vest Kazakhstan region
+    nl: Oblast Oost-Kazachstan
+    pl: Obwód wschodniokazachstański
+    pt: Cazaquistão Oriental
+    ro: Provincia Kazahstanul de Est
+    ru: Восточно-Казахстанская область
+    si: නැගෙනහිර කසකස්තාන් කලාපය
+    sr: Источноказахстанска област
+    sv: Östkazakstan
+    ta: கிழக்கு கஜகஸ்தான் பகுதி
+    te: తూర్పు కజకిస్తాన్ ప్రాంతం
+    th: คาซัคสถานตะวันออก
+    tk: Gündogar Gazagystan welaýaty
+    tr: Doğu Kazakistan Eyaleti
+    uk: Східно-Казахстанська область
+    ur: مشرقی قازقستان صوبہ
+    vi: Đông Kazakhstan
+    zh: 東哈薩克斯坦州
+    ceb: Shyghys Qazaqstan Oblysy
+    sr_Latn: Istočnokazahstanska oblast
+    ccp: "𑄛𑄪𑄇𑄴 𑄇𑄎𑄈𑄌𑄴𑄑𑄚𑄴"
+    hy: Արևելաղազախական շրջան
+    he: מחוז המזרח (קזחסטן)
+    kk: Шығыс Қазақстан облысы
+    uz: Sharqiy Qozogʻiston viloyati
+    mk: Источен Казахстан
+    'no': Vest Kazakhstan region
+    cy: Ardal Dwyrain Kazakhstan
+    hu: Kelet-Kazahsztáni terület
+    ky: Чыгыш Казакстан облусу
+    yue: 東哈薩克州
+    yue_Hans: 东哈萨克州
+  type: region
+YUZ:
+  name: Ongtüstik Qazaqstan oblysy
+  code: YUZ
+  unofficial_names:
+  - Ongtüstik Qazaqstan
+  - Ongtüstük Kazakstan
+  - Southern Kazakhstan
+  geo:
+    latitude: 49.56797270000001
+    longitude: 50.8066617
+    min_latitude: 48.002499
+    min_longitude: 46.4918561
+    max_latitude: 51.76659799999999
+    max_longitude: 54.5574649
+  translations:
+    en: South Kazakhstan
+    ar: أوبليس كازاخستان الجنوبي
+    az: Cənubi Qazaxıstan əyaləti
+    be: Паўднёва-Казахстанская вобласць
+    bg: Южноказахстанска област
+    bn: সাউথ কাজাকাস্তান অঞ্চল
+    ca: Província del Kazakhstan Meridional
+    cs: Jihokazašská oblast
+    da: South Kazakhstan Region
+    de: Südkasachstan
+    el: Περιφέρεια Νότιου Καζακστάν
+    es: Provincia de Kazajistán Meridional
+    et: Lõuna-Kasahstani oblast
+    eu: Hegoaldeko Kazakhstan
+    fa: استان قزاقستان جنوبی
+    fi: Etelä-Kazakstanin alue
+    fr: Kazakhstan méridional
+    gu: દક્ષિણ કઝાકિસ્તાન પ્રદેશ
+    hi: दक्षिण क़ाज़ाक़स्तान प्रांत
+    hy: Հարավ-Ղազախստանյան մարզ
+    id: Provinsi Kazakhstan Selatan
+    is: Suður-Kasakstanfylki
+    it: Regione del Kazakistan Meridionale
+    ja: 南カザフスタン州
+    ka: სამხრეთ ყაზახეთის ოლქი
+    kn: ದಕ್ಷಿಣ ಕಝಾಕಿಸ್ತಾನ್ ಪ್ರದೇಶ
+    ko: 옹튀스틱카작스탄 주
+    lt: Pietų Kazachstano sritis
+    lv: Dienvidkazahstānas apgabals
+    mr: दक्षिण कझाकस्तान
+    ms: Wilayah Kazakhstan Selatan
+    nb: Sør Kazakhstan region
+    nl: Oblast Zuid-Kazachstan
+    pl: Obwód południowokazachstański
+    pt: Cazaquistão do Sul
+    ro: Provincia Kazahstanul de Sud
+    ru: Южно-Казахстанская область
+    si: දකුණු කසකස්තානය
+    sl: Južno-kazahstanska oblast
+    sr: Јужно-казахстанска област
+    sv: Sydkazakstan
+    ta: தெற்கு கஜகஸ்தான் பகுதி
+    te: దక్షిణ కజకిస్తాన్ ప్రాంతం
+    th: คาซัคสถานใต้
+    tk: Günorta Gazagystan welaýaty
+    tr: Güney Kazakistan Eyaleti
+    uk: Південно-Казахстанська область
+    ur: جنوبی قازقستان صوبہ
+    vi: Nam Kazakhstan
+    zh: 南哈薩克斯坦州
+    ceb: Yuzhno-Kazakhstanskaya Oblast’
+    sr_Latn: Južno-kazahstanska oblast
+    ccp: "𑄘𑄧𑄊𑄨𑄚𑄴 𑄇𑄎𑄈𑄌𑄴𑄑𑄚𑄴"
+    he: מחוז הדרום (קזחסטן)
+    pa: ਦੱਖਣੀ ਕਜ਼ਾਖ਼ਸਤਾਨ
+    kk: Түркістан облысы
+    uz: Turkiston viloyati
+    mk: Јужен Казахстан
+    'no': Sør Kazakhstan region
+    ky: Түркстан облусу
+    yue: 突厥斯坦州
+    yue_Hans: 突厥斯坦州
+  type: region
+ZAP:
+  name: Batys Qazaqstan oblysy
+  code: ZAP
+  unofficial_names:
+  - Batis Kazakstan
+  - Batys Qazaqstan
+  - Uralsk
+  - Uralskaya Oblast
+  - Western Kazakhstan
+  geo:
+    latitude: 49.56797270000001
+    longitude: 50.8066617
+    min_latitude: 48.002499
+    min_longitude: 46.4918561
+    max_latitude: 51.76659799999999
+    max_longitude: 54.5574649
+  translations:
+    en: West Kazakhstan
+    ar: كازاخستان الغربية
+    az: Qərbi Qazaxıstan əyaləti
+    bg: Западноказахстанска област
+    bn: পশ্চি্চিম কাজাকস্তান প্রদেশ
+    ca: Kazakhstan Occidental
+    cs: Západokazašská oblast
+    da: Vest-Kasakhstan oblast
+    de: Westkasachstan
+    el: Περιφέρεια Δυτικού Καζακστάν
+    es: Provincia de Kazajistán Occidental
+    et: Lääne-Kasahstani oblast
+    eu: Mendebaldeko Kazakhstan
+    fa: استان قزاقستان غربی
+    fi: Länsi-Kazakstanin alue
+    fr: Kazakhstan occidental
+    gu: પશ્ચિમ કઝાખસ્તાન પ્રાંત
+    hi: पश्चिम क़ाज़ाक़स्तान प्रांत
+    hy: Արևմտյան Ղազախստանի մարզ
+    id: Provinsi Kazakhstan Barat
+    is: Vestur-Kasakstanfylki
+    it: Regione del Kazakistan Occidentale
+    ja: 西カザフスタン州
+    ka: დასავლეთ ყაზახეთის ოლქი
+    kn: ಪಶ್ಚಿಮ ಕಝಾಕಿಸ್ತಾನ್ ಪ್ರಾಂತ್ಯ
+    ko: 바티스카작스탄 주
+    lt: Vakarų Kazachstano sritis
+    lv: Rietumkazahstānas apgabals
+    mr: पश्चिम कझाकस्तान
+    ms: Wilayah Kazakhstan Barat
+    nb: Vest-Kasakhstan oblast
+    nl: Oblast Batıs Qazaqstan
+    pl: Obwód zachodniokazachstański
+    pt: Cazaquistão Ocidental
+    ro: Provincia Kazahstanul de Vest
+    ru: Западно-Казахстанская область
+    si: බටහිර කසකස්තාන් පළාත
+    sr: Западноказахстанска област
+    sv: Västkazakstan
+    ta: மேற்கு கஜகஸ்தான் மாகாணம்
+    te: పశ్చిమ కజకిస్తానా ప్రావిన్స్
+    th: คาซัคสถานตะวันตก
+    tk: Günbatar Gazagystan welaýaty
+    tr: Batı Kazakistan Eyaleti
+    uk: Західно-Казахстанська область
+    ur: مغربی قازقستان صوبہ
+    vi: Tây Kazakhstan
+    zh: 西哈薩克斯坦州
+    ceb: Batys Qazaqstan Oblysy
+    sr_Latn: Zapadnokazahstanska oblast
+    ccp: "𑄛𑄧𑄏𑄨𑄟𑄴 𑄇𑄎𑄈𑄌𑄴𑄑𑄚𑄴"
+    ky: Батыш Казакстан облусу
+    he: מחוז המערב (קזחסטן)
+    kk: Батыс Қазақстан облысы
+    be: Заходне-Казахстанская вобласць
+    uz: Gʻarbiy Qozogʻiston viloyati
+    mk: Западноказахстанска област
+    'no': Vest-Kasakhstan oblast
+    cy: Ardal Gorllewin Casachstan
+    ps: لویدیځ قزاقستان ولایت
+    yue: 西哈薩克州
+    yue_Hans: 西哈萨克州
+  type: region
+ZHA:
+  name: Zhambyl oblysy
+  code: ZHA
+  unofficial_names:
+  - Aulie-Ata
+  - Auliye-Ata
+  - Cambil
+  - Cambıl
+  - Djambul
+  - Dzhambul
+  - Zhambul
+  - Zhambyl
+  - Zhambül
+  geo:
+    latitude: 44.2220308
+    longitude: 72.36579669999999
+    min_latitude: 42.2212301
+    min_longitude: 68.9939081
+    max_latitude: 46.0366224
+    max_longitude: 75.77342999999999
+  translations:
+    en: Jambyl
+    ar: أوبليس جامبيل
+    az: Cambul vilayəti
+    bg: Жамбълска област
+    ca: Província de Jàmbil
+    cs: Žambylská oblast
+    de: Schambyl
+    es: Provincia de Zhambyl
+    et: Žambõli oblast
+    eu: Zhambyl
+    fa: استان ژمبیل
+    fi: Jambılin alue
+    fr: Oblys de Djamboul
+    hi: झ़ामबिल प्रांत
+    id: Provinsi Zhambyl
+    is: Djambýlfylki
+    it: Regione di Žambyl
+    ja: ジャンブール州
+    ka: ჟამბილის ოლქი
+    ko: 잠빌 주
+    lt: Žambylo sritis
+    lv: Žambilas apgabals
+    mr: झांबील
+    ms: Wilayah Zhambyl
+    nl: Oblast Jambıl
+    pl: Obwód żambylski
+    pt: Jambyl
+    ro: Provincia Jambîl
+    ru: Жамбылская область
+    sr: Жамбилска област
+    sv: Zjambyl
+    tk: Žambyl
+    tr: Jambıl Eyaleti
+    uk: Жамбилська область
+    ur: جمبیل پراونس
+    vi: Zhambyl
+    zh: 江布爾州
+    ceb: Zhambyl Oblysy
+    sr_Latn: Žambilska oblast
+    el: Περιφέρεια Τζαμπίλ
+    ccp: "𑄎𑄟𑄴𑄝𑄨𑄣𑄴"
+    ky: Жамбыл облусу
+    he: דז׳אמבול (מחוז)
+    kk: Жамбыл облысы
+    be: Жамбылская вобласць
+    uz: Jambul viloyati
+    mk: Жамбил
+    hy: Ժամբիլսկայա շրջան
+    ta: ஜம்பில் பிராந்தியம்
+    th: แคว้นฌัมเบิล
+    yue: 江布州
+    yue_Hans: 江布州
+  type: region

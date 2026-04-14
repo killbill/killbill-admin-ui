@@ -1,0 +1,901 @@
+---
+'002':
+  name: Aimeliik
+  code: '002'
+  unofficial_names:
+  - Aimeliik
+  geo:
+    latitude: 7.445585899999998
+    longitude: 134.5030878
+    min_latitude: 7.393169
+    min_longitude: 134.4686879
+    max_latitude: 7.479571
+    max_longitude: 134.540505
+  translations:
+    en: Aimeliik
+    ar: أيميليك
+    bn: এইমেলিক
+    da: Aimeliik
+    de: Aimeliik
+    el: Αϊμελίκ
+    es: Aimeliik
+    et: Aimeliik
+    fi: Aimeliik
+    fr: Aimeliik
+    gu: એમેલીક
+    hi: एमिलीइक
+    hy: Այիմելիկ
+    id: Aimeliik
+    it: Aimeliik
+    ja: アイメリーク州
+    kn: ಐಮೆಲಿಕ್
+    ko: 아이멜리크 주
+    lt: Aimelikas
+    mr: आयमेलिक
+    ms: Aimeliik
+    nb: Aimeliik
+    nl: Aimeliik
+    pl: Aimeliik
+    pt: Aimeliik
+    ru: Аимелиик
+    si: අයිමෙලික්
+    sv: Aimeliik
+    ta: ஐமேலியிக்
+    te: ఎయిమెలిక్
+    th: อัลเมลลิก
+    tr: Aimeliik
+    ur: آئمیلیک
+    vi: Aimeliik
+    zh: 艾梅利克州
+    lv: Aimeliika
+    ceb: State of Aimeliik
+    ccp: "𑄃𑄭𑄟𑄬𑄣𑄨𑄇𑄴"
+    ka: აიმელიიკი
+    uk: Аімеліік
+    'no': Aimeliik
+    ca: Aimeliik
+    cs: Aimeliik
+    fa: ایملیک
+  type: state
+'004':
+  name: Airai
+  code: '004'
+  unofficial_names:
+  - Airai
+  geo:
+    latitude: 7.364184199999999
+    longitude: 134.5360667
+    min_latitude: 7.350336699999999
+    min_longitude: 134.5076989
+    max_latitude: 7.3903012
+    max_longitude: 134.5656967
+  translations:
+    en: Airai
+    ar: ولاية أيراي
+    bn: এইরায়
+    da: Airai
+    de: Airai
+    el: Αϊράι
+    es: Airai
+    et: Airai
+    fi: Airai
+    fr: Airai
+    gu: ઐરાઇ
+    hi: ऐराई
+    hy: Այրայ
+    id: Airai
+    it: Airai
+    ja: アイライ州
+    kn: ಏರ್ಯಾಯ್
+    ko: 아이라이 주
+    lt: Airajus
+    mr: एअरलाई
+    ms: Airai
+    nb: Airai
+    nl: Airai
+    pl: Airai
+    pt: Airai
+    ru: Аираи
+    si: අයිරායි
+    sr: Аираи
+    sv: Airai
+    ta: ஐரை
+    te: అయిరాయ్
+    th: ไอลาย
+    tr: Airai
+    ur: آئرائی
+    vi: Airai
+    lv: Airai
+    ceb: State of Airai
+    sr_Latn: Airai
+    zh: 艾拉伊州
+    ccp: "𑄃𑄭𑄢𑄭"
+    ka: აირაი
+    uk: Аіраї
+    mk: Ајрај
+    'no': Airai
+    cs: Airai
+    fa: استان ایرایی
+  type: state
+'010':
+  name: Angaur
+  code: '010'
+  unofficial_names:
+  - Angaur
+  geo:
+    latitude: 6.909223
+    longitude: 134.1387934
+    min_latitude: 6.887742599999999
+    min_longitude: 134.121834
+    max_latitude: 6.925106299999999
+    max_longitude: 134.1539668
+  translations:
+    en: Angaur
+    ar: أنغاور
+    be: Востраў Ангаур
+    bn: এঙ্গুয়ার
+    da: Angaur
+    de: Angaur
+    el: Ανγκόρ
+    es: Angaur
+    fi: Angaur
+    fr: Angaur
+    gl: Angaur
+    gu: અંગૌર
+    he: אנגאור
+    hi: अंगौर
+    id: Angaur
+    it: Angaur
+    ja: アンガウル州
+    kn: ಆಂಗೌರ್
+    ko: 앙가우르 주
+    lt: Angauras
+    mr: अंगौर
+    ms: Angaur
+    nb: Angaur
+    nl: Angaur
+    pl: Angaur
+    pt: Angaur
+    ru: Ангаур
+    si: අන්ගුවාර්
+    sv: Angaur
+    ta: அந்குர்
+    te: ఆంగార్
+    th: อันกัว
+    tr: Angaur
+    ur: انگاور
+    vi: Angaur
+    lv: Angaura
+    ceb: Angaur
+    zh: 安加爾
+    ccp: "𑄃𑄚𑄴𑄉𑄧𑄅𑄪𑄢𑄴"
+    uk: Ангаур
+    ca: Angaur
+    mk: Ангаур
+    'no': Angaur
+    cs: Angaur
+    fa: آنگور
+  type: state
+'050':
+  name: Hatobohei
+  code: '050'
+  unofficial_names:
+  - Hatobohei
+  geo:
+    latitude: 3.0048867
+    longitude: 131.1214186
+    min_latitude: 3.0008772
+    min_longitude: 131.1203134
+    max_latitude: 3.0074129
+    max_longitude: 131.124487
+  translations:
+    en: Hatohobei
+    ar: ولاية هاتوهوبي
+    bn: হাতোহবেই
+    da: Hatohobei
+    de: Hatohobei
+    el: Χατοχομπέι
+    es: Hatohobei
+    fa: هاتوهوبئی
+    fi: Hatohobei
+    fr: Hatohobei
+    gl: Illa Hatohobei
+    gu: હતોહોબેઈ
+    hi: हतोहोबेई
+    id: Hatohobei
+    it: Hatohobei
+    ja: ハトホベイ州
+    kn: ಹ್ಯಾಟೊಹೋಬಿಯಿ
+    ko: 하토호베이 주
+    lt: Hatohobėjus
+    mr: हातोहोबेई
+    ms: Hatohobei
+    nb: Hatohobei
+    nl: Hatohobei
+    pl: Hatohobei
+    pt: Hatohobei
+    ru: Хатохобеи
+    si: හටෝබෝබෙයි
+    sv: Hatohobei
+    ta: ஹாடோகோபெய்
+    te: హాటోహోబే
+    th: ฮาโตโฮเบะ
+    tr: Hatohobei
+    ur: ہاتوبوبئی
+    vi: Hatohobei
+    lv: Hatohobei
+    zh: 哈托博海伊州
+    ccp: "𑄦𑄑𑄮𑄦𑄮𑄝𑄬𑄭"
+    uk: Хатохобей
+    mk: Хатохобеј
+    'no': Hatohobei
+    ceb: State of Hatohobei
+  type: state
+'100':
+  name: Kayangel
+  code: '100'
+  unofficial_names:
+  - Kayangel
+  geo:
+    latitude: 8.0889471
+    longitude: 134.709999
+    min_latitude: 8.0378983
+    min_longitude: 134.6807957
+    max_latitude: 8.1035034
+    max_longitude: 134.7238827
+  translations:
+    en: Kayangel
+    ar: كايانغيل
+    bn: কায়ানজেল
+    da: Kayangel
+    de: Kayangel
+    el: Καγιάνγκελ
+    es: Kayangel
+    fi: Kayangel
+    fr: Kayangel
+    gu: કાયાનગેલ
+    hi: कयांगेल
+    id: Kayangel
+    it: Kayangel
+    ja: カヤンゲル州
+    kn: ಕಯಾಂಗಲ್
+    ko: 카양겔 주
+    lt: Kajangelis
+    mr: कायणगेलं
+    ms: Kayangel
+    nb: Kayangel
+    nl: Kayangel
+    pl: Kayangel
+    pt: Kayangel
+    ru: Каянгел
+    si: කේන්ජල්
+    sv: Kayangel
+    ta: கயங்கள்
+    te: కేయాంజెల్
+    th: คายานเจล
+    tr: Kayangel
+    ur: کایانگیل
+    vi: Kayangel
+    lv: Kajanela
+    ceb: State of Kayangel
+    zh: 卡揚埃爾
+    ccp: "𑄇𑄬𑄠𑄚𑄴𑄉𑄬𑄣𑄴"
+    uk: Каянгел
+    'no': Kayangel
+    fa: کایانگل
+    mk: Кајангел
+  type: state
+'150':
+  name: Koror
+  code: '150'
+  unofficial_names:
+  - Koror
+  geo:
+    latitude: 7.3419444
+    longitude: 134.4791667
+  translations:
+    en: Koror
+    am: ኮሮር
+    ar: كورور
+    be: Горад Корар
+    bn: কোরা
+    ca: Koror
+    cs: Koror
+    da: Koror
+    de: Koror
+    el: Κορόρ
+    es: Koror
+    eu: Koror
+    fa: کورور
+    fi: Koror
+    fr: Koror
+    gu: કોરોર
+    he: קורור
+    hi: कोरर
+    hy: Կորոր
+    id: Koror
+    it: Koror
+    ja: コロール
+    ka: კორორი (კუნძული)
+    kn: ಕೊರೋರ್
+    ko: 코로르
+    lt: Kororas
+    mr: कोरोर
+    ms: Koror
+    nb: Koror
+    nl: Koror
+    pl: Koror
+    pt: Koror
+    ru: Корор
+    si: කොරොර්
+    sk: Koror
+    sr: Корор
+    sv: Koror
+    ta: கொரோர்
+    te: కోరోర్
+    th: คอรอร์
+    tr: Koror
+    uk: Корор
+    ur: کورور
+    vi: Koror
+    lv: Korora
+    ceb: State of Koror
+    sr_Latn: Koror
+    zh: 科羅爾州
+    ccp: "𑄇𑄢𑄮𑄢𑄴"
+    uz: Koror
+    mk: Корор
+    'no': Koror
+    gl: Koror
+    ro: Koror
+  type: state
+'212':
+  name: Melekeok
+  code: '212'
+  unofficial_names:
+  - Melekeok
+  geo:
+    latitude: 7.4951158
+    longitude: 134.6336896
+    min_latitude: 7.491069
+    min_longitude: 134.6302414
+    max_latitude: 7.4995374
+    max_longitude: 134.6382129
+  translations:
+    en: Melekeok
+    ar: ولاية ميلكيوك
+    bn: মেলেকেওক
+    cs: Melekeok
+    da: Melekeok
+    de: Melekeok
+    el: Μελεκεόκ
+    es: Melekeok
+    et: Melekeoki osariik
+    fi: Melekeok
+    fr: Melekeok
+    gu: મેલેકેઓક
+    hi: मेलेकोक
+    hu: Melekeok
+    id: Melekeok
+    it: Melekeok
+    ja: マルキョク州
+    kn: ಮೆಲೆಕೊಕ್
+    ko: 멜레케오크 주
+    mr: मेलेकेक
+    ms: Melekeok
+    nb: Melekeok
+    nl: Melekeok
+    pl: Melekeok
+    pt: Melekeok
+    ru: Мелекеок
+    si: මෙලෙකෙයෝක්
+    sr: Мелекеок
+    sv: Melekeok
+    ta: மெலேக்கியக்
+    te: మెలికియోక్
+    th: เมเลเกอ็อก
+    tr: Melekeok
+    uk: Мелекеок
+    ur: میلیکئوک
+    vi: Melekeok
+    lv: Melegeoka
+    ceb: State of Melekeok
+    sr_Latn: Melekeok
+    lt: Melekokas
+    zh: 梅莱凯奥克州
+    ccp: "𑄟𑄬𑄣𑄬𑄇𑄬𑄃𑄮𑄇𑄴"
+    ka: მელეკეოკი
+    kk: Мелекеок
+    'no': Melekeok
+    fa: ملکیک
+  type: state
+'214':
+  name: Ngaraard
+  code: '214'
+  unofficial_names:
+  - Ngaraard
+  geo:
+    latitude: 7.607939999999999
+    longitude: 134.6348645
+    min_latitude: 7.5722982
+    min_longitude: 134.593708
+    max_latitude: 7.686935300000001
+    max_longitude: 134.6466028
+  translations:
+    en: Ngaraard
+    ar: نغارأرد
+    bn: নাগারার্দ
+    da: Ngaraard
+    de: Ngaraard
+    el: Νγκαραάρντ
+    es: Ngaraard
+    fi: Ngaraard
+    fr: Ngaraard
+    gu: નગરાર્ડ
+    hi: गैरार्ड
+    id: Ngaraard
+    it: Ngaraard
+    ja: ガラルド州
+    kn: ಎನ್ಗಾರಾರ್ಡ್
+    ko: 가라르드 주
+    lt: Ngarardas
+    mr: नगराड
+    ms: Ngaraard
+    nb: Ngaraard
+    nl: Ngaraard
+    pl: Ngaraard
+    pt: Ngaraard
+    ru: Нгараард
+    si: එන්ගරාඩ්
+    sv: Ngaraard
+    ta: நகரார்ட்
+    te: ఎన్గారార్డ్
+    th: รัฐงาราร์ด
+    tr: Ngaraard
+    ur: نگارآرد
+    vi: Ngaraard
+    lv: Narārta
+    ceb: State of Ngaraard
+    zh: 雅拉爾德州
+    ccp: "𑄉𑄢𑄳𑄃𑄖𑄴"
+    uk: Нгарард
+    mk: Нгарард
+    'no': Ngaraard
+    fa: نگارارد
+  type: state
+'218':
+  name: Ngarchelong
+  code: '218'
+  unofficial_names:
+  - Ngarchelong
+  geo:
+    latitude: 7.7105469
+    longitude: 134.6301646
+    min_latitude: 7.686335100000001
+    min_longitude: 134.609328
+    max_latitude: 7.731662800000001
+    max_longitude: 134.6457489
+  translations:
+    en: Ngarchelong
+    ar: ولاية نغارتشيلونغ
+    bn: গারচেলং
+    da: Ngarchelong
+    de: Ngarchelong
+    el: Νγκαρτσελόνγκ
+    es: Ngarchelong
+    fi: Ngarchelong
+    fr: Ngarchelong
+    gu: નગારચેલોંગ
+    hi: गार्शिलॉन्ग
+    id: Ngarchelong
+    it: Ngarchelong
+    ja: アルコロン州
+    kn: ನೂರ್ಚೆಲೋಂಗ್
+    ko: 가르첼롱 주
+    lt: Ngarčelongas
+    mr: नगारचेलोन्ग
+    ms: Ngarchelong
+    nb: Ngarchelong
+    nl: Ngarchelong
+    pl: Ngarchelong
+    pt: Ngarchelong
+    ru: Нгарчелонг
+    si: එන්ගාර්චෙලොන්ග්
+    sv: Ngarchelong
+    ta: ஞர்சேலோங்
+    te: ఎన్గార్కెలాంగ్
+    th: งาร์เชลอง
+    tr: Ngarchelong
+    ur: نگارچیلونگ
+    vi: Ngarchelong
+    lv: Narelona
+    ceb: State of Ngarchelong
+    zh: 雅切隆州
+    ccp: "𑄉𑄢𑄴𑄥𑄬𑄣𑄧𑄁"
+    uk: Нгарчелонг
+    'no': Ngarchelong
+    fa: نگارچلونگ
+  type: state
+'222':
+  name: Ngardmau
+  code: '222'
+  unofficial_names:
+  - Ngardmau
+  geo:
+    latitude: 7.585048599999999
+    longitude: 134.5596089
+    min_latitude: 7.555898
+    min_longitude: 134.5350928
+    max_latitude: 7.6205105
+    max_longitude: 134.6022465
+  translations:
+    en: Ngardmau
+    ar: نغاردماو
+    bn: গার্ডমাউ
+    da: Ngardmau
+    de: Ngardmau
+    el: Νγκαρντμάου
+    es: Ngardmau
+    fi: Ngardmau
+    fr: Ngardmau
+    gu: નગાર્ડમઉ
+    hi: गार्डमाउ
+    id: Ngardmau
+    it: Ngardmau
+    ja: ガラスマオ州
+    kn: ಗರ್ಡ್ಮೌ
+    ko: 가르드마우 주
+    lt: Ngardmau
+    mr: नगार्डमऊ
+    ms: Ngardmau
+    nb: Ngardmau
+    nl: Ngardmau
+    pl: Ngardmau
+    pt: Ngardmau
+    ru: Нгардмау
+    si: එන්ගර්ඩ්මෞ
+    sv: Ngardmau
+    ta: நகர்ட்மவு
+    te: ఎన్‌‌గార్డమావ్
+    th: นการ์ดเมา
+    tr: Ngardmau
+    ur: نگاردماو
+    vi: Ngardmau
+    lv: Nardmau
+    ceb: State of Ngardmau
+    zh: 雅德馬烏州
+    ccp: "𑄉𑄢𑄴𑄓𑄴𑄟𑄧𑄅𑄪"
+    uk: Нгардмау
+    'no': Ngardmau
+    fa: نگاردماو
+  type: state
+'224':
+  name: Ngatpang
+  code: '224'
+  unofficial_names:
+  - Ngatpang
+  geo:
+    latitude: 7.4710994
+    longitude: 134.5266466
+    min_latitude: 7.417311
+    min_longitude: 134.484237
+    max_latitude: 7.5069398
+    max_longitude: 134.560673
+  translations:
+    en: Ngatpang
+    ar: ولاية نغاتبانغ
+    bn: নাগাপাং
+    da: Ngatpang
+    de: Ngatpang
+    el: Νγκατπάνγκ
+    es: Ngatpang
+    fi: Ngatpang
+    fr: Ngatpang
+    gu: ન્ગાતપાંગ
+    hi: गैत्पैंग
+    hr: Ngatpang
+    id: Ngatpang
+    it: Ngatpang
+    ja: ガスパン州
+    kn: ನ್ಗಾಟ್ ಪಾಂಗ್
+    ko: 가트팡 주
+    lt: Ngatpangas
+    mr: नगातपांग
+    ms: Ngatpang
+    nb: Ngatpang
+    nl: Ngatpang
+    pl: Ngatpang
+    pt: Ngatpang
+    ru: Нгатпанг
+    si: එන්ගට්පන්ග්
+    sv: Ngatpang
+    ta: கட்பங்
+    te: ఎన్‌గాట్పాంగ్
+    th: งัดปัง
+    tr: Ngatpang
+    ur: نگاتپانگ
+    vi: Ngatpang
+    lv: Natpana
+    ceb: State of Ngatpang
+    zh: 雅龐
+    ccp: "𑄉𑄖𑄴𑄛𑄧𑄁"
+    ka: ნგატპანგი
+    uk: Нгатпанг
+    'no': Ngatpang
+    fa: نگاتپانگ
+    he: נגטפנג
+  type: state
+'226':
+  name: Ngchesar
+  code: '226'
+  unofficial_names:
+  - Ngchesar
+  geo:
+    latitude: 7.452328
+    longitude: 134.5784342
+    min_latitude: 7.411645499999999
+    min_longitude: 134.549198
+    max_latitude: 7.502810999999999
+    max_longitude: 134.6229831
+  translations:
+    en: Ngchesar
+    ar: نيغتشيسار
+    bn: গচেসার
+    da: Ngchesar
+    de: Ngchesar
+    el: Νγκτσεσάρ
+    es: Ngchesar
+    fi: Ngchesar
+    fr: Ngchesar
+    gu: ન્ગચેસર
+    hi: निश्सर
+    id: Ngchesar
+    it: Ngchesar
+    ja: エサール州
+    kn: ನ್ಗೆಶೇಸಾರ್
+    ko: 체사르 주
+    lt: Ngčesaras
+    mr: न्गचेसार
+    ms: Ngchesar
+    nb: Ngchesar
+    nl: Ngchesar
+    pl: Ngchesar
+    pt: Ngchesar
+    ru: Нгчесар
+    si: න්ග්චෙසාර්
+    sv: Ngchesar
+    ta: நஃசெசர்
+    te: ఎన్జెషెసర్
+    th: งเอซาร์
+    tr: Ngchesar
+    ur: نگچیسار
+    vi: Ngchesar
+    lv: Nesara
+    ceb: State of Ngchesar
+    zh: 恩切薩爾州
+    ccp: "𑄌𑄬𑄥𑄢𑄴"
+    uk: Нгчесар
+    'no': Ngchesar
+    ca: Ngchesar
+    fa: نگچسار
+  type: state
+'227':
+  name: Ngeremlengui
+  code: '227'
+  unofficial_names:
+  - Ngeremlengui
+  geo:
+    latitude: 7.5198397
+    longitude: 134.5596089
+    min_latitude: 7.464199000000001
+    min_longitude: 134.49916
+    max_latitude: 7.5774421
+    max_longitude: 134.599446
+  translations:
+    en: Ngeremlengui
+    ar: نغاريملينغوي
+    bn: গেরেম্লেঙ্গুই
+    da: Ngeremlengui
+    de: Ngaremlengui
+    el: Νγκερεμλενγκούι
+    es: Ngeremlengui
+    fi: Ngeremlengui
+    fr: Ngaremlengui
+    gu: ન્ગેરેમ્લેન્ગ્યુઇ
+    hi: गेरेमलेंगुई
+    id: Ngaremlengui
+    it: Ngaremlengui
+    ja: アルモノグイ州
+    kn: ನಗೆರೆಂಗೆಯಿಯಿ
+    ko: 가렘렝구이 주
+    lt: Ngaremlengujis
+    mr: नगेरेम्लेंगुई
+    ms: Ngeremlengui
+    nb: Ngeremlengui
+    nl: Ngeremlengui
+    pl: Ngeremlengui
+    pt: Ngeremlengui
+    ru: Нгеремленги
+    si: එනගෙරේම්ලෙන්ගුයි
+    sv: Ngeremlengui
+    ta: ங்கேர்ம்லெங்குஇ
+    te: ఎన్‌జెరెమెలెంగ్వి
+    th: รัฐเงเรมเลงุย
+    tr: Ngeremlengui
+    ur: نگیریملینگوئی
+    vi: Ngaremlengui
+    lv: Neremlenui
+    ceb: State of Ngeremlengui
+    zh: 埃雷姆倫維州
+    ccp: "𑄉𑄬𑄢𑄬𑄟𑄴𑄣𑄬𑄁𑄉𑄭𑄪"
+    ka: ნგარემლენგი
+    uk: Нгеремленгі
+    'no': Ngeremlengui
+  type: state
+'228':
+  name: Ngiwal
+  code: '228'
+  unofficial_names:
+  - Ngiwal
+  geo:
+    latitude: 7.561476399999999
+    longitude: 134.6160619
+    min_latitude: 7.532054899999999
+    min_longitude: 134.594404
+    max_latitude: 7.5800329
+    max_longitude: 134.6382236
+  translations:
+    en: Ngiwal
+    ar: نغيوال
+    bn: গিবাল
+    da: Ngiwal
+    de: Ngiwal
+    el: Νγκίβαλ
+    es: Ngiwal
+    fi: Ngiwal
+    fr: Ngiwal
+    gu: નગીવાલ
+    hi: गीवाल
+    id: Ngiwal
+    it: Ngiwal
+    ja: オギワル州
+    kn: ಎನ್ಜಿವಾಲ್
+    ko: 기왈 주
+    lt: Ngivalas
+    mr: नगीवाल
+    ms: Ngiwal
+    nb: Ngiwal
+    nl: Ngiwal
+    pl: Ngiwal
+    pt: Ngiwal
+    ru: Нгивал
+    si: න්ගිවල්
+    sv: Ngiwal
+    ta: கிவால்
+    te: ఎన్జీవల్
+    th: งีวัล
+    tr: Ngiwal
+    ur: نگیوال
+    vi: Ngiwal
+    lv: Nivalas štats
+    ceb: State of Ngiwal
+    zh: 宜瓦尔州
+    ccp: "𑄉𑄭𑄤𑄣𑄴"
+    uk: Нгівал
+    'no': Ngiwal
+    fa: نگیوال
+  type: state
+'350':
+  name: Peleliu
+  code: '350'
+  unofficial_names:
+  - Peleliu
+  geo:
+    latitude: 7.002290599999999
+    longitude: 134.2431628
+    min_latitude: 6.973421999999999
+    min_longitude: 134.2217079
+    max_latitude: 7.049378000000001
+    max_longitude: 134.2706156
+  translations:
+    en: Peleliu
+    ar: بيليليو
+    bn: পেলেলিউ
+    ca: Peleliu
+    da: Peleliu
+    de: Peleliu
+    el: Πελελίου
+    es: Peleliu
+    fi: Peleliu
+    fr: Peleliu
+    gu: પેલેલુ
+    hi: पेलेलिऊ
+    hy: Պելելիու
+    id: Peleliu
+    it: Peleliu
+    ja: ペリリュー州
+    kn: ಪೆಲೆಲಿಯು
+    ko: 펠렐리우 주
+    lt: Peleliu
+    mr: पेलेलु
+    ms: Peleliu
+    nb: Peleliu
+    nl: Peleliu
+    pl: Peleliu
+    pt: Peleliu
+    ru: Пелелиу
+    si: පෙලෙලියු
+    sl: Peleliu
+    sv: Peleliu
+    ta: பேலேல்யு
+    te: పెలెలియూ
+    th: รัฐเปเลลิว
+    tr: Peleliu
+    uk: Пелеліу
+    ur: پیلیلیو
+    vi: Peleliu
+    lv: Peleliu
+    ceb: Peleliu (pulo sa Palau)
+    zh: 貝里琉州
+    ccp: "𑄛𑄬𑄣𑄬𑄣𑄨𑄅𑄪"
+    ka: პელელიუს შტატი
+    'no': Peleliu
+    cs: Peleliu
+    fa: پلیلیو
+  type: state
+'370':
+  name: Sonsorol
+  code: '370'
+  unofficial_names:
+  - Sonsorol
+  geo:
+    latitude: 4.319971799999999
+    longitude: 132.3126369
+    min_latitude: 4.3124723
+    min_longitude: 131.947925
+    max_latitude: 4.6583571
+    max_longitude: 132.3141002
+  translations:
+    en: Sonsorol
+    ar: سونسورول
+    be: Астравы Сансарол
+    bn: সন্সোরোল
+    da: Sonsorol
+    de: Sonsorol
+    el: Σονσορόλ
+    es: Sonsoral
+    fa: سونسورول
+    fi: Sonsorol
+    fr: Sonsorol
+    gu: સન્સોરોલ
+    hi: सोंसोरोल
+    hy: Սոնսորոլ
+    id: Sonsorol
+    it: Sonsorol
+    ja: ソンソロール州
+    kn: ಸನ್ಸೋರಾಲ್
+    ko: 손소롤 주
+    lt: Sonsorolis
+    mr: सोंसोल
+    ms: Sonsorol
+    nb: Sonsoral
+    nl: Sonsorol
+    pl: Sonsorol
+    pt: Sonsoral
+    ru: Сонсорол
+    si: සොන්සොරෝල්
+    sv: Sonsoral
+    ta: சென்சாரால்
+    te: సోన్సోరోల్
+    th: ซันโซรอล
+    tr: Sonsorol
+    ur: سونسورول
+    vi: Sonsorol
+    lv: Sonsorola
+    ceb: State of Sonsorol
+    zh: 松索羅爾
+    ccp: "𑄥𑄧𑄚𑄴𑄥𑄮𑄢𑄮𑄣𑄴"
+    uk: Сонсорол
+    'no': Sonsoral
+    mk: Сонсорол
+  type: state

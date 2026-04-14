@@ -1,0 +1,1946 @@
+---
+'01':
+  name: Arusha
+  code: '01'
+  unofficial_names:
+  - Arusha
+  geo:
+    latitude: -3.372301
+    longitude: 36.6944136
+    min_latitude: -3.4624464
+    min_longitude: 36.6108228
+    max_latitude: -3.3338411
+    max_longitude: 36.7436028
+  translations:
+    en: Arusha
+    ar: إقليم أروشا
+    bg: Аруша
+    bn: আরোশা অঞ্চল
+    ca: Regió d’Arusha
+    da: Arusha
+    de: Arusha
+    el: Περιφέρεια Αρούσα
+    es: Región de Arusha
+    et: Arusha piirkond
+    fa: استان آروشا
+    fi: Arushan alue
+    fr: Région d’Arusha
+    gl: Rexión de Arusha
+    gu: અરુશા પ્રદેશ
+    hi: अरुशा प्रदेश
+    hr: Aruša
+    id: Wilayah Arusha
+    it: regione di Arusha
+    ja: アルーシャ州
+    ka: არუშის ოლქი
+    kn: ಅರುಶ ಪ್ರದೇಶ
+    ko: 아루샤 주
+    mr: अरुषा प्रदेश
+    ms: Arusha Region
+    nb: Arusha
+    nl: Arusha
+    pl: Arusza
+    pt: Arusha
+    ro: Regiunea Arusha
+    ru: Аруша
+    si: අරුෂා කලාපය
+    sr: Аруша
+    sv: Arusha
+    sw: Mkoa wa Arusha
+    ta: அரூஷா பகுதி
+    te: ఆరుషా ప్రాంతం
+    th: เขตอะรูชา
+    tr: Arusha Region
+    uk: Аруша
+    ur: اروشا ریجن
+    vi: Arusha
+    zh: 阿鲁沙区
+    lv: Arušas reģions
+    ceb: Arusha Region
+    sr_Latn: Aruša
+    lt: Arušos regionas
+    yue_Hans: 阿鲁沙区
+    ccp: "𑄃𑄢𑄪𑄥"
+    yue: 阿魯沙區
+    yo: Agbègbè Arusha
+    'no': Arusha
+    yo_BJ: Agbègbè Arusha
+    zu: Arusha Region
+  type: region
+'02':
+  name: Dar es Salaam
+  code: '02'
+  unofficial_names:
+  - Daressalam
+  geo:
+    latitude: -6.8
+    longitude: 39.283333
+    min_latitude: -6.950965
+    min_longitude: 39.0268707
+    max_latitude: -6.5891538
+    max_longitude: 39.4815816
+  translations:
+    en: Dar es Salaam
+    ar: إقليم دار السلام
+    bg: Дар ес Салаам
+    bn: দারুস-সালাম অঞ্চল
+    ca: Regió de Dar al-Salaam
+    da: Dar-es-Salaam
+    de: Region Daressalam
+    el: Περιφέρεια Νταρ ες Σαλαάμ
+    es: Región de Dar es-Salam
+    fa: استان دارالسلام
+    fi: Dar es Salaam
+    fr: Dar es Salaam
+    gl: Rexión de Dar es Salaam
+    gu: દર એસ સલામ પ્રદેશ
+    hi: दार अस सलाम क्षेत्र
+    hr: Dar-es-Salaam
+    id: Wilayah Dar es Salaam
+    it: regione di Dar es Salaam
+    ja: ダルエスサラーム州
+    ka: დარ-ეს-სალამის ოლქი
+    kn: ಡಾರ್ ಎಸ್ ಸಲಾಮ್ ಪ್ರದೇಶ
+    ko: 다르에스살람 주
+    mr: दार एस सलाम प्रदेश
+    ms: Dar es Salaam Region
+    nb: Dar-es-Salaam
+    nl: Dar es Salaam
+    pl: Dar es Salaam
+    pt: Dar es Salaam
+    ro: Regiunea Dar es Salaam
+    ru: Дар-эс-Салам
+    si: ඩාර් එස් සලාම් කලාපය
+    sr: Дар ес Салам
+    sv: Dar-es-Salaam (region)
+    sw: Mkoa wa Dar es Salaam
+    ta: டார் எஸ் ஸலாம் பகுதி
+    te: డార్ ఎస్ సలామ్ ప్రాంతం
+    th: เขตดาเรสซาราม
+    tr: Dar es Salaam Bölgesi
+    ur: دَر اس سلام ریجن
+    vi: Dar es Salaam
+    lv: Dāresalāmas reģions
+    ceb: Dar es Salaam Region
+    sr_Latn: Dar es Salam
+    lt: Dar es Salamo regionas
+    zh: 达累斯萨拉姆区
+    ccp: "𑄓𑄢𑄴 𑄃𑄬𑄌𑄴 𑄥𑄣𑄳𑄃𑄟𑄴"
+    uk: Регіон Дар-ес-Салам
+    yo: Agbègbè Dar es Salaam
+    mk: Дар ес Салам
+    'no': Dar-es-Salaam
+    yo_BJ: Agbègbè Dar es Salaam
+    az: Dar əs Salam regionu
+    eu: Dar es Salaam (eskualdea)
+    ga: Réigiún Dárasalám
+  type: region
+'03':
+  name: Dodoma
+  code: '03'
+  unofficial_names:
+  - Dodoma
+  geo:
+    latitude: -6.173056
+    longitude: 35.741944
+    min_latitude: -6.2163048
+    min_longitude: 35.6944152
+    max_latitude: -6.120853100000001
+    max_longitude: 35.8233639
+  translations:
+    en: Dodoma
+    bg: Додома
+    ca: Regió de Dodoma
+    da: Dodoma
+    de: Dodoma
+    el: Περιφέρεια Ντοντόμα
+    es: Región de Dodoma
+    et: Dodoma piirkond
+    fa: استان دودوما
+    fi: Dodoman alue
+    fr: Dodoma
+    gl: Rexión de Dodoma
+    hi: दोदोमा क्षेत्र
+    hr: Dodoma
+    it: regione di Dodoma
+    ja: ドドマ州
+    ka: დოდომის ოლქი
+    ko: 도도마 주
+    nb: Dodoma
+    nl: Dodoma
+    pl: Dodoma
+    pt: Dodoma
+    ro: Regiunea Dodoma
+    ru: Додома
+    sr: Додома
+    sv: Dodoma
+    sw: Mkoa wa Dodoma
+    tr: Dodoma
+    uk: Додома (регіон)
+    vi: Dodoma
+    ceb: Dodoma Region
+    sr_Latn: Dodoma
+    zh: 多多馬區
+    yue_Hans: 杜笃玛区
+    ccp: "𑄓𑄮𑄓𑄮𑄟"
+    yue: 杜篤瑪區
+    yo: Agbègbè Dodoma
+    mk: Додома
+    'no': Dodoma
+    yo_BJ: Agbègbè Dodoma
+    cy: Ardal Dodoma
+    id: Region Dodoma
+    ur: دودوما علاقہ
+  type: region
+'04':
+  name: Iringa
+  code: '04'
+  unofficial_names:
+  - Iringa
+  geo:
+    latitude: -7.77
+    longitude: 35.69
+    min_latitude: -7.815317299999999
+    min_longitude: 35.6575782
+    max_latitude: -7.723390999999999
+    max_longitude: 35.7300982
+  translations:
+    en: Iringa
+    ar: إقليم إيرينغا
+    bg: Иринга
+    bn: ইরিংগা অঞ্চল
+    ca: Regió d’Iringa
+    da: Iringa
+    de: Iringa
+    el: Περιφέρεια Ιρίνγκα
+    es: Región de Iringa
+    et: Iringa piirkond
+    fa: استان ایرینگا
+    fi: Iringan alue
+    fr: Iringa
+    gl: Rexión de Iringa
+    gu: ઈરિંગા પ્રદેશ
+    hi: इरिंगा प्रदेश
+    hr: Iringa
+    id: Wilayah Iringa
+    it: regione di Iringa
+    ja: イリンガ州
+    ka: ირინგის ოლქი
+    kn: ಇರಿಂಗ ಪ್ರದೇಶ
+    ko: 이링가 주
+    mr: इरीगा प्रदेश
+    ms: Iringa Region
+    nb: Iringa
+    nl: Iringa
+    pl: Iringa
+    pt: Iringa
+    ro: Regiunea Iringa
+    ru: Иринга
+    si: ඉරින්ගා පළාත
+    sr: Иринга
+    sv: Iringa
+    sw: Mkoa wa Iringa
+    ta: ரிங்கா பகுதி
+    te: ఇరింగా ప్రాంతం
+    th: เขตอีริงกา
+    tr: Iringa
+    uk: Ірінґа (регіон)
+    ur: یرینجا ریجن
+    vi: Iringa
+    lv: Iringas reģions
+    ceb: Iringa Region
+    sr_Latn: Iringa
+    lt: Iringos regionas
+    zh: 伊林加區
+    yue_Hans: 伊林加区
+    ccp: "𑄃𑄨𑄢𑄨𑄚𑄴𑄉"
+    yue: 伊林加區
+    yo: Agbègbè Iringa
+    'no': Iringa
+    yo_BJ: Agbègbè Iringa
+  type: region
+'05':
+  name: Kagera
+  code: '05'
+  unofficial_names:
+  - Akagera
+  - Ziwa Magharibi
+  geo:
+    latitude: -2.3751124
+    longitude: 31.2626366
+    min_latitude: -3.3440899
+    min_longitude: 30.4033911
+    max_latitude: -0.990736
+    max_longitude: 32.6189474
+  translations:
+    en: Kagera
+    ar: إقليم كاجيرا
+    bg: Кагера
+    bn: কাগেরা অঞ্চল
+    ca: Regió de Kagera
+    da: Kagera
+    de: Kagera
+    el: Καγκέρα
+    es: Región de Kagera
+    et: Kagera piirkond
+    fa: استان کاگرا
+    fi: Kageran alue
+    fr: Kagera
+    gl: Rexión de Kagera
+    gu: કેગેરા પ્રદેશ
+    hi: कगेरा प्रदेश
+    hr: Kagera
+    id: Region Kagera
+    it: regione del Kagera
+    ja: カゲラ州
+    ka: კაგერის ოლქი
+    kn: ಕಗೆರಾ ಪ್ರದೇಶ
+    ko: 카게라 주
+    mr: केगेरा प्रदेश
+    ms: Kagera Region
+    nb: Kagera
+    nl: Kagera
+    pl: Kagera
+    pt: Kagera
+    ro: Regiunea Kagera
+    ru: Кагера
+    si: කගෙරා කලාපය
+    sr: Кагера
+    sv: Kagera
+    sw: Mkoa wa Kagera
+    ta: கஜீரா ரீஜியன்
+    te: కాగేరా ప్రాంతం
+    th: คาเกรา รีัเจี้ยน
+    tr: Kagera Bölgesi
+    ur: کاگیرا علاقہ
+    vi: Kagera
+    lv: Kageras reģions
+    ceb: Kagera Region
+    sr_Latn: Kagera
+    lt: Kageros regionas
+    zh: 卡蓋拉區
+    yue_Hans: 卡盖拉区
+    ccp: "𑄇𑄉𑄬𑄢"
+    uk: Регіон Кагера
+    yue: 卡蓋拉區
+    yo: Agbègbè Kagera
+    'no': Kagera
+    yo_BJ: Agbègbè Kagera
+  type: region
+'06':
+  name: Kaskazini Pemba
+  code: '06'
+  unofficial_names:
+  - Kaskazini Pemba
+  geo:
+    latitude: -5.031935199999999
+    longitude: 39.7755571
+    min_latitude: -5.2071645
+    min_longitude: 39.6152071
+    max_latitude: -4.8667473
+    max_longitude: 39.875565
+  translations:
+    en: North Pemba
+    ar: إقليم شمال بيمبا
+    bg: Пемба-север
+    bn: নর্থ পেম্বা অঞ্চল
+    ca: Regió de Pemba del Nord
+    da: Pemba Kaskazini
+    de: Pemba Kaskazini
+    el: Πέμπα Νορθ Ρίτζιον
+    es: Región de Pemba North
+    fa: استان پمبای شمالی
+    fi: North Pemban maakunta
+    fr: Pemba Nord
+    gl: Pemba Norte
+    gu: ઉત્તર પેમ્બા પ્રદેશ
+    hi: उत्तरी पिम्बा क्षेत्र
+    hr: Pemba Sjever
+    id: Wilayah Pemba Utara
+    it: regione di Pemba Nord
+    ja: ペンバ北部州
+    ka: ჩრდილოეთი პემბა
+    kn: ಉತ್ತರ ಪೆಂಬಾ ಪ್ರದೇಶ
+    ko: 펨바 북부 주
+    mr: उत्तर पेम्बा प्रदेश
+    ms: North Pemba Region
+    nb: Pemba Kaskazini
+    nl: Noord-Pemba
+    pl: Pemba Północna
+    pt: Pemba Norte
+    ro: Regiunea Pemba North
+    ru: Пемба Северная
+    si: උතුරු පෙම්බා කලාපය
+    sr: Пемба север
+    sv: Norra Pemba
+    sw: Mkoa wa Pemba Kaskazini
+    ta: நோர்த் பெம்பா பகுதி
+    te: ఉత్తతర పెంబా ప్రాంతం
+    th: นอร์ท เปมบา
+    tr: Kuzey Pemba Bölgesi
+    ur: پیمبا شمالی علاقہ
+    vi: Pemba North
+    lv: Ziemeļpembas reģions
+    ceb: Pemba North Region
+    sr_Latn: Pemba sever
+    lt: Šiaurės Pembos regionas
+    zh: 北奔巴區
+    yue_Hans: 北奔巴区
+    ccp: "𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄴 𑄛𑄬𑄟𑄝"
+    uk: Регіон Пемба Північна
+    yue: 北奔巴區
+    yo: Agbègbè Pemba Àríwá
+    'no': Pemba Kaskazini
+    yo_BJ: Agbègbè Pemba Àríwá
+  type: region
+'07':
+  name: Kaskazini Unguja
+  code: '07'
+  unofficial_names:
+  - Unguja
+  geo:
+    latitude: -5.9395093
+    longitude: 39.2791011
+    min_latitude: -6.083642999999999
+    min_longitude: 39.186363
+    max_latitude: -5.721938
+    max_longitude: 39.409218
+  translations:
+    en: Zanzibar North
+    ar: إقليم شمال زنجبار
+    bg: Северен Занзибар (регион)
+    bn: জাঞ্জিবার উত্তর অঞ্চল
+    ca: Regió de Zanzibar Nord
+    da: Unguja Kaskazini
+    de: Zanzibar North
+    el: Ζανζιμπάρ Νορθ Ρίτζιον
+    es: Región de Zanzibar North
+    fa: استان زنگبار شمالی
+    fi: Zanzibar Northn maakunta
+    fr: Unguja Nord
+    gl: Zanzíbar Norte
+    gu: ઝાંઝીબાર ઉત્તર પ્રદેશ
+    hi: जंज़ीबार उत्तरी क्षेत्र
+    hr: Zanzibar Sjever
+    id: Wilayah Utara Zanzibar
+    it: regione di Zanzibar Nord
+    ja: ザンジバル北部州
+    ka: ჩრდილოეთი ზანზიბარი
+    kn: ಜಂಜಿಬಾರ್ ನಾರ್ತ್ ರೀಜನ್
+    ko: 잔지바르 북부 주
+    mr: झांझिबार उत्तर प्रदेश
+    ms: Zanzibar North Region
+    nb: Unguja Kaskazini
+    nl: Noord-Zanzibar
+    pl: Zanzibar Północny
+    pt: Zanzibar North (região)
+    ro: Regiunea Zanzibar North
+    ru: Занзибар Северный
+    si: සන්සිබාර් උතුරු කලාපය
+    sr: Занзибар север
+    sv: Norra Zanzibar
+    sw: Mkoa wa Unguja Kaskazini
+    ta: சன்னஜிப்பர் நோர்த் பகுதி
+    te: జాంజిబార్ నార్త్ ప్రాంతం
+    th: ซานซิบา นอร์ท
+    tr: Kuzey Zanzibar Bölgesi
+    ur: زانزیبر نارتھ ریجن
+    vi: Zanzibar North (vùng)
+    lv: Ziemeļzanzibāras reģions
+    ceb: Zanzibar North Region
+    sr_Latn: Zanzibar sever
+    lt: Šiaurinis Zanzibaro regionas
+    zh: 尚西巴北區
+    yue_Hans: 北安古迦区
+    ccp: "𑄎𑄚𑄴𑄎𑄨𑄝𑄢𑄴 𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄴"
+    uk: Регіон Північний Занзібар
+    yue: 北安古迦區
+    yo: Agbègbè Zanzibar Àríwá
+    mk: Занзибар Север
+    'no': Unguja Kaskazini
+    yo_BJ: Agbègbè Zanzibar Àríwá
+  type: region
+'08':
+  name: Kigoma
+  code: '08'
+  unofficial_names:
+  - Kigoma
+  geo:
+    latitude: -4.883332999999999
+    longitude: 29.633333
+    min_latitude: -4.9241075
+    min_longitude: 29.5995595
+    max_latitude: -4.8398476
+    max_longitude: 29.7011989
+  translations:
+    en: Kigoma
+    ar: إقليم كيغوما
+    bg: Кигома
+    bn: কিগুমা অঞ্চল
+    ca: Regió de Kigoma
+    da: Kigoma
+    de: Kigoma
+    el: Περιφέρεια Κιγκόμα
+    es: Región de Kigoma
+    et: Kigoma piirkond
+    fa: استان کیگوما
+    fi: Kigoman alue
+    fr: Région de Kigoma
+    gl: Rexión de Kigoma
+    gu: કિગોમા પ્રદેશ
+    he: קיגומה
+    hi: किगोमा क्षेत्र
+    hr: Kigoma
+    id: Wilayah Kigoma
+    it: regione di Kigoma
+    ja: キゴマ州
+    ka: კიგომის ოლქი
+    kn: ಕಿಗೊಮಾ ಪ್ರದೇಶ
+    ko: 키고마 주
+    mr: किगोमा प्रदेश
+    ms: Kigoma Region
+    nb: Kigoma
+    nl: Kigoma
+    pl: Kigoma
+    pt: Kigoma
+    ro: Regiunea Kigoma
+    ru: Кигома
+    si: කිගොමා කලාපය
+    sr: Кигома
+    sv: Kigoma
+    sw: Mkoa wa Kigoma
+    ta: கிகோமா பகுதி
+    te: కిగోమా ప్రాంతం
+    th: คิโกมา
+    tr: Kigoma Bölgesi
+    ur: کیگوما علاقہ
+    vi: Kigoma
+    lv: Kigomas reģions
+    ceb: Kigoma Region
+    sr_Latn: Kigoma
+    lt: Kigomos regionas
+    zh: 基戈馬區
+    yue_Hans: 基戈马区
+    ccp: "𑄇𑄨𑄉𑄮𑄟"
+    uk: Регіон Кігома
+    yue: 基戈馬區
+    yo: Agbègbè Kigoma
+    'no': Kigoma
+    yo_BJ: Agbègbè Kigoma
+  type: region
+'09':
+  name: Kilimanjaro
+  code: '09'
+  unofficial_names:
+  - Kilimanjaro
+  geo:
+    latitude: -4.1336927
+    longitude: 37.8087693
+    min_latitude: -4.623959999999999
+    min_longitude: 36.97385
+    max_latitude: -2.8484581
+    max_longitude: 38.471599
+  translations:
+    en: Kilimanjaro
+    ar: مقاطعة كليمنجارو
+    bg: Килиманджаро
+    bn: কিলিমাঞ্জারো অঞ্চল
+    ca: Regió de Kilimanjaro
+    da: Kilimanjaro
+    de: Kilimandscharo
+    el: Περιφέρεια Κιλιμαντζάρο
+    es: Región de Kilimanjaro
+    et: Kilimanjaro piirkond
+    fa: استان کلیمانجارو
+    fi: Kilimanjaron alue
+    fr: Kilimandjaro
+    gl: Rexión do Kilimanjaro
+    gu: કિલીમંજારો પ્રદેશ
+    hi: किलीमंजारो प्रदेश
+    hr: Kilimandžaro
+    id: Wilayah Kilimanjaro
+    it: regione del Kilimangiaro
+    ja: キリマンジャロ州
+    ka: კილიმანჯაროს ოლქი
+    kn: ಕಿಲಿಮಾಂಜರೋ ಪ್ರದೇಶ
+    ko: 킬리만자로 주
+    mr: किलीमंजारो प्रदेश
+    ms: Daerah Kilimanjaro
+    nb: Kilimanjaro
+    nl: Kilimanjaro
+    pl: Kilimandżaro
+    pt: Kilimanjaro
+    ro: Regiunea Kilimanjaro
+    ru: Килиманджаро
+    si: කිලිමන්ජාරෝ කලාපය
+    sr: Килиманџаро
+    sv: Kilimanjaro
+    sw: Mkoa wa Kilimanjaro
+    ta: கிளிமஞ்சாரோ பகுதி
+    te: కిలిమంజారో ప్రాంతం
+    th: คิลิมันจาโร
+    tr: Kilimanjaro Bölgesi
+    uk: Кіліманджаро (регіон)
+    ur: کلیمنجارو علاقہ
+    vi: Kilimanjaro
+    lv: Kilimandžaro reģions
+    ceb: Kilimanjaro Region
+    sr_Latn: Kilimandžaro
+    lt: Kilimandžaro regionas
+    zh: 乞力馬扎羅區
+    yue_Hans: 乞力马扎罗区
+    ccp: "𑄇𑄨𑄣𑄨𑄟𑄚𑄴𑄎𑄢𑄮"
+    yue: 乞力馬扎羅區
+    yo: Agbègbè Kilimanjaro
+    'no': Kilimanjaro
+    yo_BJ: Agbègbè Kilimanjaro
+    hy: Կիլիմանջարո շրջան
+  type: region
+'10':
+  name: Kusini Pemba
+  code: '10'
+  unofficial_names:
+  - Kusini Pemba
+  geo:
+    latitude: -5.3146961
+    longitude: 39.7549511
+    min_latitude: -5.476286
+    min_longitude: 39.580599
+    max_latitude: -5.1784691
+    max_longitude: 39.8530017
+  translations:
+    en: South Pemba
+    ar: إقليم جنوب بيمبا
+    bg: Пемба-юг
+    bn: সাউথ পেম্বা অঞ্চল
+    ca: Regió de Pemba Sud
+    da: Pemba Kusini
+    de: Pemba Kusini
+    el: Πέμπα
+    es: Región de Pemba South
+    fa: استان پمبای جنوبی
+    fi: South Pemban maakunta
+    fr: Pemba Sud
+    gl: Pemba Sur
+    gu: દક્ષિણ પેમ્બા પ્રદેશ
+    hi: दक्षिण पेम्बा क्षेत्र
+    hr: Pemba Jug
+    id: Wilayah Pemba Selatan
+    it: regione di Pemba Sud
+    ja: ペンバ南部州
+    ka: სამხრეთი პემბა
+    kn: ದಕ್ಷಿಣ ಪೆಂಬಾ ಪ್ರದೇಶ
+    ko: 펨바 남부 주
+    mr: दक्षिण पेम्बा प्रदेश
+    ms: South Pemba Region
+    nb: Pemba Kusini
+    nl: Zuid-Pemba
+    pl: Pemba Południowa
+    pt: Pemba Sul
+    ro: Regiunea Pemba South
+    ru: Пемба Южная
+    si: දකුණු පෙම්බා කලාපය
+    sr: Пемба југ
+    sv: Södra Pemba
+    sw: Mkoa wa Pemba Kusini
+    ta: தெற்கு பெம்பா பகுதி
+    te: దక్షిణ పెంబా ప్రాంతం
+    th: เซาต์ เพมบา
+    tr: South Pemba Bölgesi
+    ur: پیمبا جنوبی علاقہ
+    vi: Pemba South
+    lv: Dienvidpembas reģions
+    ceb: Pemba South Region
+    sr_Latn: Pemba jug
+    lt: Pietinis Pembos regionas
+    zh: 南奔巴區
+    yue_Hans: 南奔巴区
+    ccp: "𑄘𑄧𑄊𑄨𑄚𑄴 𑄛𑄬𑄟𑄴𑄝"
+    uk: Регіон Південна Пемба
+    yue: 南奔巴區
+    yo: Agbègbè Pemba Gúúsù
+    'no': Pemba Kusini
+    yo_BJ: Agbègbè Pemba Gúúsù
+  type: region
+'11':
+  name: Kusini Unguja
+  code: '11'
+  unofficial_names:
+  - Kusini Unguja
+  geo:
+    latitude: -6.2036563
+    longitude: 39.3621196
+    min_latitude: -6.476134999999999
+    min_longitude: 39.26983999999999
+    max_latitude: -6.0552399
+    max_longitude: 39.579086
+  translations:
+    en: Zanzibar Central/South
+    bg: Централен/Южен Занзибар
+    ca: Regió de Zanzibar Central-Sud
+    da: Unguja Kusini
+    de: Zanzibar Central/South
+    es: Región de Zanzibar Central/South
+    fa: استان زنگبارمرکزی-جنوبی
+    fr: Unguja Sud et Central
+    gl: Zanzíbar Central/Sur
+    hr: Zanzibar Centar/Jug
+    it: regione di Zanzibar Centro-Sud
+    ja: ザンジバル中部・南部州
+    ka: ცენტრალური სამხრეთის ზანზიბარი
+    ko: 잔지바르 중부·남부 주
+    nb: Unguja Kusini
+    nl: Centraal- en Zuid-Zanzibar
+    pl: Zanzibar Południowy
+    pt: Zanzibar Central/South
+    ro: Regiunea Zanzibar South and Central
+    ru: Занзибар Центрально-Южный
+    sv: Södra Zanzibar
+    sw: Mkoa wa Unguja Kusini
+    ceb: Zanzibar Central/South Region
+    zh: 尚西巴南區
+    yue_Hans: 南安古迦区
+    ccp: "𑄎𑄚𑄴𑄎𑄨𑄝𑄢𑄴 𑄥𑄬𑄚𑄴𑄑𑄳𑄢𑄣𑄴/𑄘𑄧𑄊𑄨𑄚𑄴"
+    uk: Занзібар Південний
+    yue: 南安古迦區
+    yo: Agbègbè Zanzibar Àrin/Gúúsù
+    'no': Unguja Kusini
+    yo_BJ: Agbègbè Zanzibar Àrin/Gúúsù
+    id: Region Unguja Selatan
+    ur: انگوجا جنوبی علاقہ
+  type: region
+'12':
+  name: Lindi
+  code: '12'
+  unofficial_names:
+  - Lindi
+  geo:
+    latitude: -9.996944
+    longitude: 39.714444
+    min_latitude: -10.0248502
+    min_longitude: 39.6923375
+    max_latitude: -9.9624893
+    max_longitude: 39.7192051
+  translations:
+    en: Lindi
+    ar: إقليم ليندي
+    bg: Линди
+    bn: লিন্ডি অঞ্চল
+    ca: Regió de Lindi
+    da: Lindi
+    de: Lindi
+    el: Περιφέρεια Λίντι
+    es: Región de Lindi
+    et: Lindi piirkond
+    fa: استان لیندی
+    fi: Lindin alue
+    fr: Lindi
+    gl: Rexión de Lindi
+    gu: લીન્દી પ્રદેશ
+    he: לינדי
+    hi: लिंडी प्रदेश
+    hr: Lindi
+    id: Wilayah Lindi
+    it: regione di Lindi
+    ja: リンディ州
+    ka: ლინდის ოლქი
+    kn: ಲಿಂಡಿ ಪ್ರದೇಶ
+    ko: 린디 주
+    mr: लिंडी प्रदेश
+    ms: Lindi Region
+    nb: Lindi
+    nl: Lindi
+    pl: Lindi
+    pt: Lindi
+    ro: Regiunea Lindi
+    ru: Линди
+    si: ලින්ඩි කලාපය
+    sr: Линди
+    sv: Lindi
+    sw: Mkoa wa Lindi
+    ta: லினடி பகுதி
+    te: లిండి ప్రాంతం
+    th: เขตลินดิ
+    tr: Lindi Region
+    ur: لیندی علاقہ
+    vi: Lindi
+    lv: Lindi reģions
+    ceb: Lindi Region
+    sr_Latn: Lindi
+    lt: Lindžio regionas
+    zh: 林迪區
+    yue_Hans: 莲迪区
+    ccp: "𑄣𑄨𑄚𑄴𑄓𑄨"
+    uk: Регіон Лінді
+    yue: 蓮迪區
+    yo: Agbègbè Lindi
+    'no': Lindi
+    yo_BJ: Agbègbè Lindi
+  type: region
+'13':
+  name: Mara
+  code: '13'
+  unofficial_names:
+  - Mara
+  geo:
+    latitude: -1.7753538
+    longitude: 34.1531947
+    min_latitude: -2.528427
+    min_longitude: 32.7954015
+    max_latitude: -1.0252941
+    max_longitude: 35.32159
+  translations:
+    en: Mara
+    ar: اقليم مارا
+    be: Мара
+    bg: Мара
+    bn: মারা অঞ্চল
+    ca: Regió de Mara
+    da: Mara
+    de: Mara
+    el: Περιφέρεια Μάρα
+    es: Región de Mara
+    fa: استان مارا
+    fi: Maran alue
+    fr: Mara
+    gl: Rexión de Mara
+    gu: મારા પ્રદેશ
+    hi: मारा प्रदेश
+    hr: Mara
+    id: Wilayah Mara
+    it: regione del Mara
+    ja: マラ州
+    ka: მარის ოლქი
+    kn: ಮಾರಾ ಪ್ರದೇಶ
+    ko: 마라 주
+    mr: मरा प्रदेश
+    ms: Mara Region
+    nb: Mara
+    nl: Mara
+    pl: Mara
+    pt: Mara
+    ro: Regiunea Mara
+    ru: Мара
+    si: මරා කලාපය
+    sr: Мара
+    sv: Mara
+    sw: Mkoa wa Mara
+    ta: மாரா பகுதி
+    te: మారా ప్రాంతం
+    th: เขตมารา
+    tr: Mara Bölgesi
+    ur: مارا علاقہ
+    vi: Mara
+    lv: Mara reģions
+    ceb: Mara Region
+    sr_Latn: Mara
+    lt: Maros regionas
+    zh: 馬拉區
+    yue_Hans: 马拉区
+    ccp: "𑄟𑄢"
+    uk: Регіон Мара
+    yue: 馬拉區
+    yo: Agbègbè Mara
+    'no': Mara
+    yo_BJ: Agbègbè Mara
+    et: Mara piirkond
+    he: מחוז מארה
+  type: region
+'14':
+  name: Mbeya
+  code: '14'
+  unofficial_names:
+  - Mbeya
+  geo:
+    latitude: -8.9
+    longitude: 33.45
+    min_latitude: -8.9592026
+    min_longitude: 33.3601812
+    max_latitude: -8.8526556
+    max_longitude: 33.5545536
+  translations:
+    en: Mbeya
+    ar: إقليم مبيا
+    bg: Мбея
+    bn: এমবেয়া অঞ্চল
+    ca: Regió de Mbeya
+    da: Mbeya
+    de: Mbeya
+    el: Μπέγια
+    es: Región de Mbeya
+    et: Mbeya piirkond
+    fa: استان امبیا
+    fi: Mbeyan alue
+    fr: Mbeya
+    gl: Rexión de Mbeya
+    gu: મ્બેયા પ્રદેશ
+    hi: मेबिया प्रदेश
+    hr: Mbeya
+    id: Wilayah Mbeya
+    it: regione di Mbeya
+    ja: ムベヤ州
+    ka: მბეის ოლქი
+    kn: ಮೆಬಿಯಾ ಪ್ರದೇಶ
+    ko: 므베야 주
+    mr: माबेया प्रदेश
+    ms: Mbeya Region
+    nb: Mbeya
+    nl: Mbeya
+    pl: Mbeya
+    pt: Mbeya
+    ro: Regiunea Mbeya
+    ru: Мбея
+    si: එම්බෙයා කලාපය
+    sr: Мбеја
+    sv: Mbeya
+    sw: Mkoa wa Mbeya
+    ta: ம்பேயா பகுதி
+    te: ఎంబేయా ప్రాంతం
+    th: มเบยา
+    tr: Mbeya Bölgesi
+    ur: مبیا علاقہ
+    vi: Mbeya
+    lv: Mbejas reģions
+    ceb: Mbeya Region
+    sr_Latn: Mbeja
+    lt: Mbejos regionas
+    zh: 姆貝亞區
+    yue_Hans: 姆贝亚区
+    ccp: "𑄝𑄬𑄠"
+    uk: Мбея
+    yue: 姆貝亞區
+    yo: Agbègbè Mbeya
+    'no': Mbeya
+    yo_BJ: Agbègbè Mbeya
+    he: מביה
+  type: region
+'15':
+  name: Mjini Magharibi
+  code: '15'
+  unofficial_names:
+  - Mjini Magharibi
+  geo:
+    latitude: -6.229813600000001
+    longitude: 39.2583293
+    min_latitude: -6.3821774
+    min_longitude: 39.1856115
+    max_latitude: -6.076521199999999
+    max_longitude: 39.2991794
+  translations:
+    en: Zanzibar Urban/West
+    bg: Западен Занзибар
+    ca: Regió de Zanzibar Urbà-Oest
+    da: Unguja Mjini Magharibi
+    de: Zanzibar Urban/West
+    el: Μτζίνι Μαγκχαρίμπι
+    es: Región de Zanzibar Urban/West
+    fa: استان زنگبارشهری-غربی
+    fi: Zanzibar Urban/West Region
+    fr: Unguja Ville et Ouest
+    gl: Zanzíbar Urbano/Oeste
+    gu: ઝાંઝીબાર અર્બન / પશ્ચિમ પ્રદેશ
+    hr: Zanzibar Grad/Zapad
+    id: Wilayah Zanzibar Urban/Barat
+    it: regione di Zanzibar Urbana-Ovest
+    ja: ザンジバル都市部・西部州
+    ka: დასავლეთ ზანზიბარი
+    kn: ಜಂಜಿಬಾರ್ ಅರ್ಬನ್ / ವೆಸ್ಟ್ ರೀಜನ್
+    ko: 잔지바르 도시·서부 주
+    mr: झांझिबार शहरी/पश्चिम प्रदेश
+    ms: Mjini Magharibi Region
+    nb: Unguja Mjini Magharibi
+    nl: Stedelijk- en West-Zanzibar
+    pl: Zanzibar Zachodni
+    pt: Zanzibar Urban/West
+    ro: Regiunea Zanzibar West
+    ru: Занзибар Западный
+    si: සන්සිබාර් නාගරික /බස්නාහිර කලාපය
+    sv: Västra Zanzibar
+    sw: Mkoa wa Unguja Mjini Magharibi
+    ta: சன்னஜிப்பர் அர்பன் /மேற்கு பகுதி
+    th: เมืองแซนซิบาร์/เวส รีเจี้ยน
+    tr: Zanzibar Kırsal/Batı Bölgesi
+    ur: مجینی مغربی علاقہ
+    vi: Zanzibar West
+    lv: Rietumzanzibāras reģions
+    ceb: Zanzibar Urban/West Region
+    yo_BJ: Agbègbè Zanzibar Ìlú/Ìwɔ̀orùn
+    lt: Zanzibaro vakarinis regionas
+    zh: 尚西巴西區
+    bn: জাাঞ্জিবার আরবান/ওয়েস্ট অঞ্চল
+    yue_Hans: 桑给巴尔西区
+    ccp: "𑄎𑄚𑄴𑄎𑄨𑄝𑄢𑄴 𑄅𑄪𑄢𑄴𑄝𑄚𑄴/𑄛𑄧𑄏𑄨𑄟𑄴"
+    hy: Արևմտյան Զանզիբար
+    uk: Регіон Західний Занзібар
+    yue: 桑給巴爾西區
+    yo: Agbègbè Zanzibar Ìlú/Ìwọ̀orùn
+    'no': Unguja Mjini Magharibi
+    hi: जंजीबार शहरी/पश्चिमी क्षेत्र
+  type: region
+'16':
+  name: Morogoro
+  code: '16'
+  unofficial_names:
+  - Morogoro
+  geo:
+    latitude: -6.816667000000001
+    longitude: 37.666667
+    min_latitude: -6.8526342
+    min_longitude: 37.623539
+    max_latitude: -6.792040699999999
+    max_longitude: 37.69769670000001
+  translations:
+    en: Morogoro
+    ar: إقليم موروغورو
+    bg: Морогоро
+    bn: মুরোগুরো অঞ্চল
+    ca: Regió de Morogoro
+    da: Morogoro
+    de: Morogoro
+    el: Περιφέρεια Μορογκόρο
+    es: Región de Morogoro
+    et: Morogoro piirkond
+    fa: استان موروگورو
+    fi: Morogoron alue
+    fr: Morogoro
+    gl: Rexión de Morogoro
+    gu: મોરોગોરો પ્રદેશ
+    hi: मोरोगोरो क्षेत्र
+    hr: Morogoro
+    id: Wilayah Morogoro
+    it: regione di Morogoro
+    ja: モロゴロ州
+    ka: მოროგოროს ოლქი
+    kn: ಮೊರೊಗೊರೊ ಪ್ರದೇಶ
+    ko: 모로고로 주
+    mr: मोरोगोरो प्रांत
+    ms: Morogoro Region
+    nb: Morogoro
+    nl: Morogoro
+    pl: Morogoro
+    pt: Morogoro
+    ro: Regiunea Morogoro
+    ru: Морогоро
+    si: මොරෝගොරෝ කලාපය
+    sr: Морогоро
+    sv: Morogoro
+    sw: Mkoa wa Morogoro
+    ta: மொரோகோரோ பகுதி
+    te: మోరోగోరో ప్రాంతం
+    th: โมโรโกโร
+    tr: Morogora Bölgesi
+    ur: موروگورو علاقہ
+    vi: Morogoro
+    lv: Morogoro reģions
+    ceb: Morogoro Region
+    sr_Latn: Morogoro
+    lt: Morogoro regionas
+    zh: 莫罗戈罗区
+    yue_Hans: 莫罗戈罗区
+    ccp: "𑄟𑄮𑄢𑄮𑄉𑄮𑄢𑄮"
+    uk: Морогоро
+    yue: 莫羅戈羅區
+    yo: Agbègbè Morogoro
+    'no': Morogoro
+    yo_BJ: Agbègbè Morogoro
+    hy: Մորոգորո
+    ig: Morogoro Region
+  type: region
+'17':
+  name: Mtwara
+  code: '17'
+  unofficial_names:
+  - Mtware
+  geo:
+    latitude: -10.273611
+    longitude: 40.182778
+    min_latitude: -10.382298
+    min_longitude: 40.1423263
+    max_latitude: -10.2536284
+    max_longitude: 40.212965
+  translations:
+    en: Mtwara
+    ar: إقليم متوارا
+    be: Мтвара
+    bg: Мтвара
+    bn: এমতাওয়ারা অঞ্চল
+    ca: Regió de Mtwara
+    da: Mtwara
+    de: Mtwara
+    el: Περιφέρεια Μτουάρα
+    es: Región de Mtwara
+    fa: استان امتوارا
+    fi: Mtwaran alue
+    fr: Mtwara
+    gl: Rexión de Mtwara
+    gu: મતવારા પ્રદેશ
+    hi: मत्तवार क्षेत्र
+    hr: Mtwara
+    id: Wilayah Mtwara
+    it: regione di Mtwara
+    ja: ムトワラ州
+    ka: მტვარის ოლქი
+    kn: ಮೌಂಟ್ರಾ ಪ್ರದೇಶ
+    ko: 므트와라 주
+    mr: मत्तवार प्रदेश
+    ms: Mtwara Region
+    nb: Mtwara
+    nl: Mtwara
+    pl: Mtwara
+    pt: Mtwara
+    ro: Regiunea Mtwara
+    ru: Мтвара
+    si: ම්ට්වරා කලාපය
+    sr: Мтвара
+    sv: Mtwara
+    sw: Mkoa wa Mtwara
+    ta: மத்வாரா பகுதி
+    te: మత్వారా ప్రాంతం
+    th: มวารา
+    tr: Mtwara Bölgesi
+    ur: متوارا علاقہ
+    vi: Mtwara
+    lv: Mtvaras reģions
+    ceb: Mtwara Region
+    sr_Latn: Mtvara
+    lt: Mtvaros regionas
+    zh: 姆特瓦拉區
+    yue_Hans: 姆特华拉区
+    ccp: "𑄑𑄠𑄢"
+    uk: Регіон Мтвара
+    yue: 姆特華拉區
+    yo: Agbègbè Mtwara
+    'no': Mtwara
+    yo_BJ: Agbègbè Mtwara
+    et: Mtwara piirkond
+  type: region
+'18':
+  name: Mwanza
+  code: '18'
+  unofficial_names:
+  - Mwanza
+  geo:
+    latitude: -2.516667
+    longitude: 32.9
+    min_latitude: -2.5725184
+    min_longitude: 32.8744311
+    max_latitude: -2.4342968
+    max_longitude: 32.9982823
+  translations:
+    en: Mwanza
+    ar: إقليم موانزا
+    bg: Муанза
+    bn: এমওয়াঞ্জা অঞ্চল
+    ca: Regió de Mwanza
+    da: Mwanza
+    de: Mwanza
+    el: Περιφέρεια Μουάνζα
+    es: Región de Mwanza
+    et: Mwanza piirkond
+    fa: استان موانزا
+    fi: Mwanzan alue
+    fr: Mwanza
+    gl: Rexión de Mwanza
+    gu: મ્વાન્ઝા પ્રદેશ
+    hi: मवान्ज़ा प्रदेश
+    hr: Mwanza
+    id: Wilayah Mwanza
+    it: regione di Mwanza
+    ja: ムワンザ州
+    ka: მვანზის ოლქი
+    kn: ಮುವಾಝಾ ಪ್ರದೇಶ
+    ko: 므완자 주
+    mr: म्वांझू प्रदेश
+    ms: Mwanza Region
+    nb: Mwanza
+    nl: Mwanza
+    pl: Mwanza
+    pt: Mwanza
+    ro: Regiunea Mwanza
+    ru: Мванза
+    si: ම්වන්සා කලාපය
+    sr: Мванза
+    sv: Mwanza
+    sw: Mkoa wa Mwanza
+    ta: மவன்ச பகுதி
+    te: మవాంజా ప్రాంతం
+    th: มวันซา
+    tr: Mwanza Bölgesi
+    ur: موانزا علاقہ
+    vi: Mwanza
+    lv: Mvanzas reģions
+    ceb: Mwanza Region
+    sr_Latn: Mvanza
+    lt: Mvangos regionas
+    zh: 姆萬紮區
+    yue_Hans: 姆宛札区
+    ccp: "𑄤𑄚𑄴𑄎"
+    uk: Регіон Мванза
+    yue: 姆宛札區
+    yo: Agbègbè Mwanza
+    'no': Mwanza
+    yo_BJ: Agbègbè Mwanza
+    he: מוואנזה
+  type: region
+'19':
+  name: Pwani
+  code: '19'
+  unofficial_names:
+  - Coast
+  geo:
+    latitude: -7.323771400000001
+    longitude: 38.8205454
+    min_latitude: -8.4510141
+    min_longitude: 37.8144299
+    max_latitude: -5.828001
+    max_longitude: 39.910326
+  translations:
+    en: Pwani
+    ar: إقليم بواني
+    be: Пвані
+    bg: Пвани
+    bn: পউয়ানি অঞ্চল
+    ca: Regió de Pwani
+    da: Pwani
+    de: Pwani
+    el: Περιφέρεια Πουάνι
+    es: Región de Pwani
+    fa: استان پوانی
+    fi: Pwanin alue
+    fr: Pwani
+    gl: Pwani
+    gu: પવાની પ્રદેશ
+    hi: पवानी प्रदेश
+    hr: Pwani
+    id: Wilayah Pwani
+    it: regione di Pwani
+    ja: プワニ州
+    ka: პვანის ოლქი
+    kn: ಪ್ವಾನಿ ಪ್ರದೇಶ
+    ko: 프와니 주
+    mr: पवाणी प्रदेश
+    ms: Pwani Region
+    nb: Pwani
+    nl: Pwani
+    pl: Pwani
+    pt: Pwani
+    ro: Regiunea Pwani
+    ru: Пвани
+    si: ප්වනි කලාපය
+    sr: Пвани
+    sv: Pwani
+    sw: Mkoa wa Pwani
+    ta: பவானி பகுதி
+    te: ప్వానీ ప్రాంతం
+    th: เขตปวานิ
+    tr: Pwani Region
+    ur: پوانی علاقہ
+    vi: Pwani
+    lv: Pvani reģions
+    ceb: Coast Region
+    sr_Latn: Pvani
+    lt: Pvanio regionas
+    zh: 濱海區
+    yue_Hans: 滨海区
+    ccp: "𑄤𑄚𑄨"
+    uk: Регіон Пвані
+    yue: 濱海區
+    yo: Agbègbè Pwani
+    'no': Pwani
+    yo_BJ: Agbègbè Pwani
+    et: Pwani piirkond
+  type: region
+'20':
+  name: Rukwa
+  code: '20'
+  unofficial_names:
+  - Rukwa
+  geo:
+    latitude: -6.965368499999999
+    longitude: 31.2626366
+    min_latitude: -9.076138
+    min_longitude: 29.95819109999999
+    max_latitude: -5.182548100000001
+    max_longitude: 32.7445109
+  translations:
+    en: Rukwa
+    ar: إقليم روكوا
+    bg: Руква
+    bn: রুকওয়া অঞ্চল
+    ca: Rukwa
+    da: Rukwa
+    de: Rukwa
+    el: Περιφέρεια Ρούκουα
+    es: Región de Rukwa
+    fa: استان روکاوا
+    fi: Rukwan alue
+    fr: Rukwa
+    gl: Rukwa
+    gu: રુકવા પ્રદેશ
+    hi: रुक्वा क्षेत्र
+    hr: Rukwa
+    id: Wilayah Rukwa
+    it: regione del Rukwa
+    ja: ルクワ州
+    ka: რუკვის ოლქი
+    kn: ರುಕ್ವಾ ಪ್ರದೇಶ
+    ko: 루콰 주
+    mr: रुक्वा प्रदेश
+    ms: Rukwa Region
+    nb: Rukwa
+    nl: Rukwa
+    pl: Rukwa
+    pt: Rukwa
+    ro: Regiunea Rukwa
+    ru: Руква
+    si: රුක්වා කලාපය
+    sr: Руква
+    sv: Rukwa
+    sw: Mkoa wa Rukwa
+    ta: ருக்கவா பகுதி
+    te: రుక్వా ప్రాంతం
+    th: รุกวา
+    tr: Rukwa Bölgesi
+    ur: رکوا ریجن
+    vi: Rukwa
+    lv: Rukvas reģions
+    ceb: Rukwa Region
+    sr_Latn: Rukva
+    lt: Rukvos regionas
+    zh: 魯夸區
+    yue_Hans: 鲁夸区
+    ccp: "𑄢𑄪𑄇𑄧𑄤"
+    uk: Регіон Руква
+    yue: 魯夸區
+    yo: Agbègbè Rukwa
+    'no': Rukwa
+    yo_BJ: Agbègbè Rukwa
+    et: Rukwa piirkond
+  type: region
+'21':
+  name: Ruvuma
+  code: '21'
+  unofficial_names:
+  - Ruvuma
+  geo:
+    latitude: -10.6878717
+    longitude: 36.2630846
+    min_latitude: -11.745696
+    min_longitude: 34.5682455
+    max_latitude: -9.1864479
+    max_longitude: 38.071091
+  translations:
+    en: Ruvuma
+    ar: إقليم روفوما
+    bg: Рувума
+    bn: রুভুমা অঞ্চল
+    ca: Regió de Ruvuma
+    da: Ruvuma
+    de: Ruvuma
+    el: Ρουβούμα
+    es: Región de Ruvuma
+    fa: استان روووما
+    fi: Ruvuman alue
+    fr: Ruvuma
+    gl: Rexión de Ruvuma
+    gu: રુવુમા પ્રદેશ
+    hi: रूवुमा प्रदेश
+    hr: Ruvuma
+    id: Wilayah Ruvuma
+    it: regione del Ruvuma
+    ja: ルヴマ州
+    ka: რუვუმის ოლქი
+    kn: ರುವುಮಾ ಪ್ರದೇಶ
+    ko: 루부마 주
+    mr: रुवामा प्रदेश
+    ms: Ruvuma Region
+    nb: Ruvuma
+    nl: Ruvuma
+    pl: Ruvuma
+    pt: Ruvuma
+    ro: Regiunea Ruvuma
+    ru: Рувума
+    si: රුවුමා කලාපය
+    sr: Рувума
+    sv: Ruvuma
+    sw: Mkoa wa Ruvuma
+    ta: ருவுமா பகுதி
+    te: రువూమా ప్రాంతం
+    th: รูวูมา
+    tr: Ruvuma Region
+    ur: روووما ریجن
+    vi: Ruvuma
+    lv: Ruvumas reģions
+    ceb: Ruvuma Region
+    sr_Latn: Ruvuma
+    lt: Ruvumos regionas
+    zh: 魯伍馬區
+    yue_Hans: 鲁伍马区
+    ccp: "𑄢𑄪𑄞𑄪𑄟"
+    uk: Регіон Рувума
+    yue: 魯伍馬區
+    yo: Agbègbè Ruvuma
+    mk: Рувума
+    'no': Ruvuma
+    yo_BJ: Agbègbè Ruvuma
+    et: Ruvuma piirkond
+  type: region
+'22':
+  name: Shinyanga
+  code: '22'
+  unofficial_names:
+  - Shinyanga
+  geo:
+    latitude: -3.661944
+    longitude: 33.423056
+    min_latitude: -3.6935938
+    min_longitude: 33.3919132
+    max_latitude: -3.650936499999999
+    max_longitude: 33.4494835
+  translations:
+    en: Shinyanga
+    ar: إقليم شينيانغا
+    bg: Шинянга
+    bn: শিনিয়াঙ্গা অঞ্চল
+    ca: Regió de Shinyanga
+    da: Shinyanga
+    de: Shinyanga
+    el: Περιφέρεια Σινυάνγκα
+    es: Región de Shinyanga
+    fa: استان شینیانگا
+    fi: Shinyangan alue
+    fr: Shinyanga
+    gl: Rexión de Shinyanga
+    gu: શિન્યંગા પ્રદેશ
+    hi: शिन्यांगा प्रदेश
+    hr: Šinjanga
+    id: Wilayah Shinyanga
+    it: regione di Shinyanga
+    ja: シニャンガ州
+    ka: შინიანგის ოლქი
+    kn: ಶಿನ್ಯಾಂಗ ಪ್ರದೇಶ
+    ko: 시니앙가 주
+    mr: शिनींगा प्रांत
+    ms: Shinyanga Region
+    nb: Shinyanga
+    nl: Shinyanga
+    pl: Shinyanga
+    pt: Shinyanga
+    ro: Regiunea Shinyanga
+    ru: Шиньянга
+    si: ශින්යන්ගා කලාපය
+    sr: Шињанга
+    sv: Shinyanga
+    sw: Mkoa wa Shinyanga
+    ta: ஷின்யாங்க பகுதி
+    te: షిన్యాంగా ప్రాంతం
+    th: โลการ์
+    tr: Shinyanga Bölgesi
+    ur: شینیانگا علاقہ
+    vi: Shinyanga
+    lv: Šiņangas reģions
+    ceb: Shinyanga Region
+    sr_Latn: Šinjanga
+    lt: Šinjangos regionas
+    zh: 欣延加區
+    yue_Hans: 辛阳贾区
+    ccp: "𑄥𑄨𑄚𑄨𑄠𑄁𑄉"
+    uk: Регіон Шиньянга
+    yue: 辛陽賈區
+    yo: Agbègbè Shinyanga
+    'no': Shinyanga
+    yo_BJ: Agbègbè Shinyanga
+    et: Shinyanga piirkond
+  type: region
+'23':
+  name: Singida
+  code: '23'
+  unofficial_names:
+  - Singida
+  geo:
+    latitude: -4.819999999999999
+    longitude: 34.73999999999999
+    min_latitude: -4.8474173
+    min_longitude: 34.706626
+    max_latitude: -4.777412600000001
+    max_longitude: 34.7794962
+  translations:
+    en: Singida
+    ar: اقليم سينغيدا
+    bg: Сингида
+    bn: সিনগিডা অঞ্চল
+    ca: Regió de Singida
+    da: Singida
+    de: Singida
+    el: Περιφέρεια Σινγκίντα
+    es: Región de Singida
+    fa: استان سینگیدا
+    fi: Singidan alue
+    fr: Singida
+    gl: Rexión de Singida
+    gu: સિંગીડા પ્રદેશ
+    hi: सिंगिदा क्षेत्र
+    hr: Singida
+    id: Wilayah Singida
+    it: regione di Singida
+    ja: シンギダ州
+    ka: სინგიდის ოლქი
+    kn: ಸಿಂಗಿಡಾ ಪ್ರದೇಶ
+    ko: 싱기다 주
+    mr: सिंगदा प्रदेश
+    ms: Singida Region
+    nb: Singida
+    nl: Singida
+    pl: Singida
+    pt: Singida
+    ro: Regiunea Singida
+    ru: Сингида
+    si: සින්ගිඩා කලාපය
+    sr: Сингида
+    sv: Singida
+    sw: Mkoa wa Singida
+    ta: சிங்கிடா பகுதி
+    te: సింగిడా ప్రాంతం
+    th: ซินกิด้า
+    tr: Singida Bölgesi
+    ur: سنگیدا علاقہ
+    vi: Singida
+    lv: Singidas reģions
+    ceb: Singida Region
+    sr_Latn: Singida
+    lt: Singidos regionas
+    zh: 辛吉達區
+    yue_Hans: 辛基达区
+    ccp: "𑄥𑄨𑄚𑄴𑄉𑄨𑄓"
+    uk: Регіон Сингіда
+    yue: 辛基達區
+    yo: Agbègbè Singida
+    'no': Singida
+    yo_BJ: Agbègbè Singida
+    et: Singida piirkond
+  type: region
+'24':
+  name: Tabora
+  code: '24'
+  unofficial_names:
+  - Tabora
+  geo:
+    latitude: -5.016667
+    longitude: 32.8
+    min_latitude: -5.0897659
+    min_longitude: 32.7742009
+    max_latitude: -4.9860158
+    max_longitude: 32.8532632
+  translations:
+    en: Tabora
+    ar: إقليم تابورا
+    bg: Табора
+    bn: তাবুরা অঞ্চল
+    ca: Regió de Tabora
+    da: Tabora
+    de: Tabora
+    el: Περιφέρεια Ταμπόρα
+    es: Región de Tabora
+    et: Tabora piirkond
+    fa: استان تابورا
+    fi: Taboran alue
+    fr: Tabora (région)
+    gl: Rexión de Tabora
+    gu: તબોરા પ્રદેશ
+    hi: तबोरा क्षेत्र
+    hr: Tabora
+    id: Wilayah Tabora
+    it: regione di Tabora
+    ja: タボーラ州
+    ka: ტაბორის ოლქი
+    kn: ಟಾಬರಾ ಪ್ರದೇಶ
+    ko: 타보라 주
+    mr: ताबोरा प्रदेश
+    ms: Tabora Region
+    nb: Tabora
+    nl: Tabora
+    pl: Tabora
+    pt: Tabora
+    ro: Regiunea Tabora
+    ru: Табора
+    si: ටබෝරා කලාපය
+    sr: Табора
+    sv: Tabora
+    sw: Mkoa wa Tabora
+    ta: தம்போரா பகுதி
+    te: టబోరా ప్రాంతం
+    th: ทาบอรา
+    tr: Tabora Region
+    ur: تابورا علاقہ
+    vi: Tabora
+    lv: Taboras reģions
+    ceb: Tabora Region
+    sr_Latn: Tabora
+    lt: Taboros regionas
+    zh: 塔波拉區
+    yue_Hans: 塔波拉区
+    ccp: "𑄑𑄝𑄮𑄢"
+    uk: Регіон Табора
+    yue: 塔波拉區
+    yo: Agbègbè Tabora
+    'no': Tabora
+    yo_BJ: Agbègbè Tabora
+  type: region
+'25':
+  name: Tanga
+  code: '25'
+  unofficial_names:
+  - Tanga
+  geo:
+    latitude: -5.0888751
+    longitude: 39.1023228
+    min_latitude: -5.1261043
+    min_longitude: 39.0567078
+    max_latitude: -5.0548382
+    max_longitude: 39.1312501
+  translations:
+    en: Tanga
+    ar: مقاطعة تانغا
+    bg: Танга
+    bn: তাংগা অঞ্চল
+    ca: Regió de Tanga
+    da: Tanga
+    de: Tanga
+    el: Περιφέρεια Τάνγκα
+    es: Región de Tanga
+    et: Tanga piirkond
+    eu: Tanga eskualdea
+    fa: استان تانگا
+    fi: Tangan alue
+    fr: Tanga
+    gl: Rexión de Tanga
+    gu: તંગા પ્રદેશ
+    hi: टंगा क्षेत्र
+    hr: Tanga
+    id: Wilayah Tanga
+    it: regione di Tanga
+    ja: タンガ州
+    ka: ტანგის ოლქი
+    kn: ಟಂಗಾ ಪ್ರದೇಶ
+    ko: 탕가 주
+    mr: तंगा प्रदेश
+    ms: Tanga Region
+    nb: Tanga
+    nl: Tanga
+    pl: Tanga
+    pt: Tanga
+    ro: Regiunea Tanga
+    ru: Танга
+    si: ටැන්ගා කලාපය
+    sr: Танга
+    sv: Tanga
+    sw: Mkoa wa Tanga
+    ta: தங்கா பகுதி
+    te: టాంగా ప్రాంతం
+    th: ทังกา
+    tr: Tanga Region
+    ur: ٹانگہ ریجن
+    vi: Tanga
+    lv: Tangas reģions
+    ceb: Tanga Region
+    sr_Latn: Tanga
+    lt: Tangos regionas
+    zh: 坦噶区
+    yue_Hans: 坦噶区
+    ccp: "𑄑𑄚𑄴𑄉"
+    uk: Танга
+    yue: 坦噶區
+    yo: Agbègbè Tanga
+    'no': Tanga
+    yo_BJ: Agbègbè Tanga
+    he: מחוז טנגה
+    hu: Tanga régió
+    ig: Tanga
+  type: region
+'26':
+  name: Manyara
+  code: '26'
+  unofficial_names:
+  - Manyara
+  geo:
+    latitude: -4.3150058
+    longitude: 36.954107
+    min_latitude: -5.980841
+    min_longitude: 34.78854
+    max_latitude: -3.391186
+    max_longitude: 38.0391009
+  translations:
+    en: Manyara
+    ar: إقليم مانيارا
+    bg: Маняра
+    bn: ম্যানিয়ারা অঞ্চল
+    ca: Regió de Manyara
+    da: Manyara
+    de: Manyara
+    el: Περιφέρεια Μανυάρα
+    es: Región de Manyara
+    et: Manyara piirkond
+    fa: استان مانیارا
+    fi: Manyaran alue
+    fr: Manyara
+    gl: Manyara
+    gu: માન્યારા પ્રાંત
+    hi: मन्यारा प्रदेश
+    hr: Manyara
+    id: Wilayah Manyara
+    it: regione del Manyara
+    ja: マニャラ州
+    ka: მანიარის ოლქი
+    kn: ಮನ್ಯಾರಾ ಪ್ರದೇಶ
+    ko: 마냐라 주
+    mr: अनेकारा प्रदेश
+    ms: Manyara Region
+    nb: Manyara
+    nl: Manyara
+    pl: Manyara
+    pt: Manyara
+    ro: Regiunea Manyara
+    ru: Маньяра
+    si: මන්යරා කලාපය
+    sr: Мањара
+    sv: Manyara
+    sw: Mkoa wa Manyara
+    ta: மான்யரா பகுதி
+    te: మన్యారా ప్రాంతం
+    th: มันยารา
+    tr: Manyara Bölgesi
+    ur: مانیارا علاقہ
+    vi: Manyara
+    lv: Manjaras reģions
+    ceb: Manyara Region
+    sr_Latn: Manjara
+    lt: Manjaros regionas
+    zh: 曼亞拉區
+    yue_Hans: 曼亚拉区
+    ccp: "𑄟𑄚𑄨𑄠𑄢"
+    uk: Регіон Маньяра
+    yue: 曼亞拉區
+    yo: Agbègbè Manyara
+    'no': Manyara
+    yo_BJ: Agbègbè Manyara
+    he: מניארה
+  type: region
+'27':
+  name: Mkoa wa Geita
+  code: '27'
+  translations:
+    ar: إقليم جيتا
+    bn: গীতা অঞ্চল
+    ca: Regió de Geita
+    da: Geita Region
+    de: Region Geita
+    el: Γκέιτα
+    en: Geita
+    es: Región Geita
+    et: Geita piirkond
+    fa: استان گیتا
+    fi: Geitan alue
+    fr: Région de Geita
+    gu: ગેઇતા પ્રદેશ
+    hi: गीता क्षेत्र
+    hr: Geita
+    id: Wilayah Geita
+    it: Regione di Geita
+    ja: ゲイタ州
+    ka: გეიტის ოლქი
+    kn: ಗೀತಾ ಪ್ರದೇಶ
+    ko: 게이타 주
+    mr: गेईता प्रदेश
+    ms: Geita Region
+    nb: Geita
+    nl: Geita Regio
+    pl: Region Geita
+    pt: Geita
+    ru: Гейта
+    si: ගෙයිටා කලාපය
+    sv: Geita
+    sw: Mkoa wa Geita
+    ta: ஜெய்த்தா பகுதி
+    te: గెయిటా ప్రాంతం
+    th: เกยตา
+    tr: Geita Bölgesi
+    ur: گئیتا علاقہ
+    vi: Khu vực Geita
+    lv: Geitas reģions
+    ceb: Geita Region
+    lt: Geitos regionas
+    yue_Hans: 盖塔区
+    ccp: "𑄉𑄨𑄠𑄬𑄑"
+    uk: Регіон Гейта
+    yue: 蓋塔區
+    'no': Geita
+    he: גייטה
+    zh: 盖塔区
+  type: region
+'28':
+  name: Mkoa wa Katavi
+  code: '28'
+  translations:
+    ar: إقليم كاتافي
+    bn: কাটাভি অঞ্চল
+    ca: Regió de Katavi
+    da: Katavi Region
+    de: Region Katavi
+    el: Περιφέρεια Κατάβι
+    en: Katavi
+    es: Región del Katavi
+    fi: Katavin alue
+    fr: Région de Katavi
+    gu: કાતાવી પ્રદેશ
+    hi: कातावी क्षेत्र
+    hr: Katavi
+    id: Wilayah Katavi
+    it: Regione del Katavi
+    ja: カタヴィ州
+    ka: კატავის ოლქი
+    kn: ಕಟಾವಿ ಪ್ರದೇಶ
+    ko: 카타비 주
+    mr: कातावी प्रदेश
+    ms: Katavi Region
+    nb: Katavi
+    nl: Katavi
+    pl: Region Katavi
+    pt: Katavi
+    ru: Катави
+    si: කටවි කලාපය
+    sv: Katavi (region)
+    sw: Mkoa wa Katavi
+    ta: தடவி பகுதி
+    te: కటావి ప్రాంతం
+    th: คาทาวี
+    tr: Katavi Bölgesi
+    ur: کاتاوی علاقہ
+    vi: Khu vực Katavi
+    lv: Katavi reģions
+    ceb: Katavi Region
+    lt: Katavio regionas
+    yue_Hans: 卡塔维区
+    ccp: "𑄇𑄑𑄞𑄨"
+    uk: Регіон Катаві
+    yue: 卡塔維區
+    'no': Katavi
+    et: Katavi piirkond
+    fa: ناحیه کاتوی
+    zh: 卡塔维区
+  type: region
+'29':
+  name: Mkoa wa Njombe
+  code: '29'
+  translations:
+    ar: إقليم نجومبي
+    bn: জম্বে অঞ্চল
+    ca: Regió de Njombe
+    da: Njombe Region
+    de: Region Njombe
+    el: Περιφέρεια Ντζόμπε
+    en: Njombe
+    es: Región del Njombe
+    fi: Njomben alue
+    fr: Région de Njombe
+    gu: ન્જોમ્બે પ્રદેશ
+    hi: नियोम्बे क्षेत्र
+    hr: Njombe
+    id: Wilayah Njombe
+    it: Regione di Njombe
+    ja: ンジョンベ州
+    ka: ნჯომბეს ოლქი
+    kn: ನಜೋಬೆ ಪ್ರದೇಶ
+    ko: 느좀베 주
+    mr: नोजोम् प्रदेश
+    ms: Daerah Njombe
+    nb: Njombe
+    nl: Njombe Region
+    pl: Region Njombe
+    pt: Região de Njombe
+    ru: Нджомб
+    si: එන්ජෝම්බේ කලාපය
+    sv: Njombe
+    sw: Mkoa wa Njombe
+    ta: ஞ்சோம்பே பகுதி
+    te: ఎన్జోంబ్ ప్రాంతం
+    th: เขตจอมบิ
+    tr: Nhombe Bölgesi
+    ur: نجومبے علاقہ
+    vi: Khu vực Njombe
+    lv: Nģombes reģions
+    ceb: Njombe Region
+    lt: Njombės regionas
+    zh: 恩瓊貝區
+    yue_Hans: 恩琼贝区
+    ccp: "𑄎𑄮𑄟𑄴𑄝𑄨"
+    uk: Регіон Нджомбе
+    yue: 恩瓊貝區
+    'no': Njombe
+    et: Njombe piirkond
+    fa: استان انجومبه
+  type: region
+'30':
+  name: Mkoa wa Simiyu
+  code: '30'
+  translations:
+    ar: اقليم سيميو
+    bn: সিমিয়ো অঞ্চল
+    ca: Regió de Simiyu
+    da: Simiya
+    de: Region Simiyu
+    el: Περιφέρεια Σιμίγιου
+    en: Simiyu
+    es: Región del Simiyu
+    fi: Simiyun alue
+    fr: Simiyu
+    gu: સિમિયુ પ્રદેશ
+    hi: सिमिऊ प्रदेश
+    hr: Simiju
+    id: Wilayah Simiyu
+    it: Regione del Simiyu
+    ja: シミユ州
+    ka: სიმიუს ოლქი
+    kn: ಸಿಮಿಯು ಪ್ರದೇಶ
+    ko: 시미유 주
+    mr: सिमियु प्रदेश
+    ms: Simiyu Region
+    nb: Simiyu
+    nl: Simiya
+    pl: Region Simiyu
+    pt: Região de Simiyu
+    ru: Симию
+    si: සිමියු කලාපය
+    sv: Simiyu (region)
+    sw: Mkoa wa Simiyu
+    ta: சிமியு பகுதி
+    te: సిమియు ప్రాంతం
+    th: เขตซิมิยู
+    tr: Simiyu Region
+    ur: سیمیو ریجن
+    vi: Khu vực Simiyu
+    lv: Simiju reģions
+    ceb: Simiyu Region
+    lt: Simijo regionas
+    yue_Hans: 锡米尤区
+    ccp: "𑄥𑄨𑄟𑄨𑄠𑄪"
+    uk: Регіон Сімію
+    yue: 錫米尤區
+    'no': Simiyu
+    et: Simiyu piirkond
+    fa: ناحیه سیمیو
+    he: סימיו (מחוז)
+    zh: 锡米尤区
+  type: region
+'31':
+  name: Songwe
+  code: '31'
+  geo:
+    latitude: -6.369028
+    longitude: 34.888822
+    min_latitude: -11.7612539
+    min_longitude: 29.34
+    max_latitude: -0.9843968000000001
+    max_longitude: 40.6398
+  translations:
+    en: Songwe
+  type: region

@@ -1,0 +1,147 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap);
+
+:root {
+  --bs-primary: #1570ef; /* your custom primary color */
+  --bs-secondary: #777777;
+  --bs-success: #4caf50;
+  --bs-danger: #f44336;
+  --bs-warning: #ffc107;
+  --bs-info: #00bcd4;
+  --bs-light: #f1f1f1;
+  --bs-dark: #212121;
+}
+
+.btn-primary {
+  background-color: #1570ef !important;
+  border-color: #1570ef !important;
+}
+
+.text-primary {
+  color: #1570ef !important;
+}
+
+.bg-primary {
+  background-color: #1570ef !important;
+}
+
+.text-black-900 {
+  color: #181d27 !important;
+}
+
+.text-black-700 {
+  color: #414651 !important;
+}
+
+.text-tertiary {
+  color: #535862 !important;
+}
+
+.text-quaternary {
+  color: #717680 !important;
+}
+
+.fw-500 {
+  font-weight: 500 !important;
+}
+
+.fw-600 {
+  font-weight: 600 !important;
+}
+
+.radius-md {
+  border-radius: 0.375rem !important;
+}
+
+.fs-7 {
+  font-size: 0.875rem !important;
+}
+
+.custom-hover:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.flex {
+  display: flex !important;
+}
+.flex-column {
+  flex-direction: column !important;
+}
+.flex-row {
+  flex-direction: row !important;
+}
+.justify-content-between {
+  justify-content: space-between !important;
+}
+.justify-center {
+  justify-content: center !important;
+}
+.items-center {
+  align-items: center !important;
+}
+.align-items-start {
+  align-items: flex-start !important;
+}
+.align-items-end {
+  align-items: flex-end !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-end {
+  text-align: end !important;
+}
+.text-start {
+  text-align: start !important;
+}
+
+.btn-check:focus + .btn-primary,
+.btn-primary:focus {
+  box-shadow: none !important;
+}
+
+.border-secondary {
+  border-color: #e9eaeb !important;
+}
+
+.kaui-button {
+  padding: 6px 10px;
+  align-items: center;
+  display: flex;
+  max-height: max-content;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #414651 !important;
+  border: 1px solid #d5d7da !important;
+}
+
+.kaui-button:hover {
+  background-color: #fff !important;
+}
+
+.kaui-dropdown {
+  background-color: #1570ef !important;
+  padding: 6px 10px;
+  align-items: center;
+  display: flex;
+  max-height: max-content;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #fff !important;
+}
+.kaui-dropdown:hover {
+  background-color: #1570ef !important;
+}
+
+.kaui-button:focus,
+.kaui-dropdown:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: inherit !important;
+}

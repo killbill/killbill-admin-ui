@@ -1,0 +1,563 @@
+---
+AB:
+  name: Abidjan
+  code: AB
+  translations:
+    af: Abidjan
+    ar: أبيدجان
+    az: Abican
+    be: Абіджан
+    bg: Абиджан
+    bn: আবিজান
+    ca: Abidjan
+    cs: Abidžan
+    da: Abidjan
+    de: Abidjan
+    el: Αμπιτζάν
+    en: Abidjan
+    es: Abiyán
+    et: Abidjan
+    eu: Abidjan
+    fa: آبیجان
+    fi: Abidjan
+    fr: Abidjan
+    gl: Abidjan
+    gu: અબિદ્જાન
+    he: אביג׳אן
+    hi: आबिडजान
+    hr: Abidjan
+    hu: Abidjan
+    hy: Աբիջան
+    id: Abidjan
+    is: Abidjan
+    it: Abidjan
+    ja: アビジャン
+    ka: აბიჯანი
+    kn: ಅಬಿಜಾನ್
+    ko: 아비장
+    lt: Abidžanas
+    lv: Abidžana
+    ml: അബിജാൻ
+    mn: Абижан хот
+    mr: आबिजान
+    ms: Abidjan
+    nb: Abidjan
+    nl: Abidjan
+    pl: Abidżan
+    pt: Abidjan
+    ro: Abidjan
+    ru: Абиджан
+    si: අබිජාන්
+    sk: Abidjan
+    sl: Abidžan
+    sr: Абиџан
+    sv: Abidjan
+    sw: Abidjan
+    ta: அபிஜான்
+    te: అబిద్ జాన్
+    th: อาบีจาน
+    tk: Abidjan
+    tr: Abidjan
+    uk: Абіджан
+    ur: آبدجان
+    vi: Abidjan
+    zh: 阿比让
+    cy: Abidjan
+    ceb: Abidjan
+    sr_Latn: Abidžan
+    yue_Hans: 阿必尚
+    jv: Abidjan
+    sq: Abidjan
+    ccp: "𑄃𑄝𑄨𑄖𑄴𑄎𑄚𑄴"
+    ga: Abidjan
+    ky: Абиджан шаары
+    ha: Abidjan
+    so: Abidjan
+    pa: ਅਬੀਜਾਨ
+    kk: Абиджан
+    yue: 阿必尚
+    am: አቢጃን
+    yo: Abidjan
+    uz: Abidjan
+    bs: Abidjan
+    mk: Абиџан
+    ha_NE: Abidjan
+    'no': Abidjan
+    yo_BJ: Abidjan
+    ps: ابیجان
+    sd: عابدجان
+  type: autonomous_district
+BS:
+  name: District du Bas-Sassandra
+  code: BS
+  translations:
+    ar: مقاطعة باس-ساساندرا
+    bn: বাস সাসান্ড্রা জেলা
+    da: Bas-Sassandra District
+    de: Bas-Sassandra
+    el: Μπας-Σασάντρα
+    en: Bas-Sassandra²
+    es: Distrito de Bas-Sassandra
+    fi: Bas-Sassandran kaupunginosa
+    fr: District du Bas-Sassandra
+    gu: બાસ-સસેન્દ્રા ડિ
+    hi: बास-ससैंद्रा जिला
+    id: Distrik Bas-Sassandra
+    it: Bas-Sassandra District
+    ja: 低サッサンドラ
+    kn: ಬಸ್-ಸಾಸ್ಸಂದ್ರ ಜಿಲ್ಲೆ
+    ko: 바사상드라 지구
+    mr: बास-सासॅन्ड्रा जिल्हा
+    ms: Bas-Sassandra District
+    nb: Bas-Sassandra distrikt
+    nl: Bas-Sassandra
+    pl: Dystrykt Bas-Sassandra
+    pt: Bas-Sassandra
+    ru: Бас-Сассандра
+    si: බාස් -සස්සන්ද්‍රා දිස්ත්‍රික්කය
+    sv: Bas-Sassandra distriktet
+    ta: பஸ்-சஸ்ஸான்ற மாவட்டம்
+    te: బాస్-ససాండ్రా జిల్లా
+    th: บาส ซาสซานดร้า ดิสทรี่
+    tr: Bas-Sassandra District
+    ur: باس-ساساندرا ضلع
+    vi: Quận Bas-Sassandra
+    lv: Bassasandras distrikts
+    lt: Bas-Sasandros apskritis
+    zh: 下薩桑德拉區
+    ccp: "𑄝𑄌𑄴-𑄥𑄥𑄚𑄴𑄓𑄳𑄢"
+    ka: ქვემო სასანდრა
+    uk: Район Бас-Сассандра
+    'no': Bas-Sassandra distrikt
+    sd: باس ساسندرہ ضلعو
+    sw: Jimbo la Bas-Sassandra
+  type: district
+CM:
+  name: District de la Comoé
+  code: CM
+  translations:
+    de: Comoé
+    en: Comoé
+    fr: District de la Comoé
+    ja: コモエ地方
+    ur: کوموے ضلع
+    zh: 科莫埃區
+    ccp: "𑄇𑄧𑄟𑄧𑄠𑄬"
+    ka: კომოეს ოლქი
+    it: Distretto di Comoé
+    uk: Комое (район)
+    be: Камое
+    fa: ناحیه کومو
+    fi: Comoé District
+    nl: Comoé
+    pl: Comoé (dystrykt)
+    ru: Комоэ
+    sd: ڪوموئي ضلعو
+    sw: Wilaya ya Comoé
+  type: district
+DN:
+  name: Denguélé
+  code: DN
+  translations:
+    ar: مقاطعة دينغويلي
+    bn: ডেনগোয়েলে জেলা
+    da: Denguélé District
+    de: Denguélé
+    el: Ντενγκουέλε
+    en: Denguélé²
+    es: Denguélé
+    fi: Denguélén kaupunginosa
+    fr: Denguélé
+    gu: ડેન્ગુએલે જિલ્લો
+    hi: डेंगुएले जिला
+    id: Distrik Denguélé
+    it: Denguélé
+    ja: デンゲレ
+    kn: ಡೆಂಕೆಲ್ಲೆ ಜಿಲ್ಲೆ
+    ko: 뎅겔레 지구
+    mr: डिन्गुएले जिल्हा
+    ms: Denguele District
+    nb: Denguele distrikt
+    nl: Denguélé
+    pl: Dystrykt Denguélé
+    pt: Denguélé
+    ru: Денгеле
+    si: ඩෙන්ගුයිලි දිස්ත්‍රික්කය
+    sv: Denguele distriktet
+    ta: டெங்குயிலே மாவட்டம்
+    te: డెంగీ జిల్లా
+    th: จังหวัดแอ็งเดรลัวร์
+    tr: Denguélé District
+    uk: Денґеле
+    ur: دینجویلی ڈسٹرک
+    vi: Quận Denguélé
+    lv: Dengeles distrikts
+    lt: Dengelės apskritis
+    zh: 登蓋萊區
+    ccp: "𑄓𑄬𑄚𑄴𑄉𑄪𑄠𑄬𑄣𑄬"
+    ka: დენგელეს ოლქი
+    'no': Denguele distrikt
+    be: раён Дэнгеле
+    fa: ناحیه دنگوله
+    sw: Wilaya ya Denguélé
+  type: district
+GD:
+  name: Gôh-Djiboua
+  code: GD
+  translations:
+    de: Gôh-Djiboua
+    en: Gôh-Djiboua
+    uk: Ґо-Джибуа
+    zh: 戈吉布阿區
+    el: Γκο-Ντζιμπουά
+    ccp: "𑄉𑄧𑄦𑄴-𑄎𑄨𑄝𑄯𑄠"
+    ka: გო-ჯიბუა
+    it: Distretto di Gôh-Djiboua
+    ar: مقاطعة غوه-جيبوا
+    fa: ناحیه گه-جیبوا
+    fi: Gôh-Djibouan piirikunta
+    fr: District du Gôh-Djiboua
+    nl: Gôh-Djiboua
+    pl: Gôh-Djiboua
+    ru: Гох-Джибоа
+    sw: Wilaya ya Gôh-Djiboua
+    ja: ゴー＝ジブア地方
+  type: district
+LC:
+  name: District des Lacs
+  code: LC
+  translations:
+    de: Lacs
+    en: Lacs²
+    fr: District des Lacs
+    uk: Лак (район)
+    zh: 湖泊區
+    ru: Лак
+    ccp: "𑄣𑄇𑄳𑄌𑄴"
+    ka: ტბების ოლქი
+    it: Distretto di Lacs
+    be: раён Лак
+    ca: Districte de Lacs
+    fa: ناحیه لاک
+    fi: Lacsin piirikunta
+    ja: ラック地方
+    pl: Lacs (dystrykt)
+    sw: Wilaya ya Lacs
+  type: district
+LG:
+  name: District des Lagunes
+  code: LG
+  translations:
+    de: Lagunes
+    en: Lagunes²
+    fr: District des Lagunes
+    uk: Район Лаґюн
+    ur: لاگونیس ضلع
+    zh: 潟湖區
+    ccp: "𑄣𑄳𑄠𑄉𑄪𑄚𑄴𑄥𑄴"
+    ka: ლაგუნების ოლქი
+    it: Distretto di Lagunes
+    be: раён Лагюн
+    fa: ناحیه لاگونس
+    fi: Lagunesin piirikunta
+    ja: ラギューヌ地方
+    pl: Lagunes
+    sw: Wilaya ya Lagunes
+  type: district
+MG:
+  name: District des Montagnes
+  code: MG
+  translations:
+    de: Montagnes
+    en: Montagnes
+    fr: District des Montagnes
+    ur: مونتاگنیس ضلع
+    zh: 山地區
+    ru: округ Монтань
+    ccp: "𑄟𑄧𑄚𑄴𑄑𑄳𑄠𑄇𑄴𑄚𑄬𑄌𑄴"
+    ka: მონტანის ოლქი
+    it: Distretto di Montagnes
+    ar: مقاطعة الجبال
+    cs: distrikt Hor
+    fi: Montagnesin piirikunta
+    ja: モンターニュ地方
+    nl: Montagnes
+    pl: Montagnes
+    sw: Wilaya ya Montagnes
+  type: district
+SM:
+  name: District du Sassandra-Marahoué
+  code: SM
+  translations:
+    de: Sassandra-Marahoué
+    en: Sassandra-Marahoué
+    fr: District du Sassandra-Marahoué
+    zh: 薩桑德拉-馬拉韋區
+    fa: منطقه سساندرا ماراهوئه
+    ccp: "𑄥𑄥𑄚𑄴𑄓𑄳𑄢-𑄟𑄢𑄦𑄯𑄠𑄬"
+    ka: სასანდრა-მარაუე
+    it: Distretto di Sassandra-Marahoué
+    fi: Sassandra-Marahouén piirikunta
+    nl: Sassandra-Marahoué
+    pl: Sassandra-Marahoué
+    ro: Sassandra-Marahoué
+    ru: Сассандра-Марахуэ
+    sw: Jimbo la Sassandra-Marahoué
+    ja: サッサンドラ＝マラウェ地方
+  type: district
+SV:
+  name: Savanes
+  code: SV
+  translations:
+    ar: مقاطعة سافانس
+    bn: সাবানেস জেলা
+    da: Savanes District
+    de: Savanes
+    el: Σαβάνες
+    en: Savanes
+    es: Savanes
+    fi: Savanesin kaupunginosa
+    fr: Savanes
+    gu: સેવેન્સ જિલ્લો
+    hi: सवानेस जिला
+    id: Distrik Savanes
+    it: Savanes District
+    ja: サヴァヌ
+    kn: ಸವನೆಸ್ ಜಿಲ್ಲೆ
+    ko: 사반 지구
+    mr: सावेन जिल्हा
+    ms: Savanes District
+    nb: Savanes distrikt
+    nl: Savanes
+    pl: Dystrykt Savanes
+    pt: Distrito de Savanes
+    ru: Саван
+    si: සවනෙස් දිස්ත්‍රික්කය
+    sv: Savanes (distrikt)
+    ta: சவனேஸ் மாவட்டம்
+    te: సవానెస్ జిల్లా
+    th: ซาวาเนส
+    tr: Savanes District
+    ur: ساوانیس ڈسٹرک
+    vi: Quận Savanes
+    lv: Savannas distrikts
+    lt: Savaneso apskritis
+    zh: 薩瓦內區
+    ccp: "𑄥𑄞𑄚𑄬𑄌𑄴"
+    ka: სავანების ოლქი
+    uk: Район Саван
+    'no': Savanes distrikt
+    fa: ناحیه ساوانس
+    he: מחוז סוואננס
+    sw: Jimbo la Savanes
+  type: district
+VB:
+  name: Vallée du Bandama
+  code: VB
+  translations:
+    ar: مقاطعة فالي دو باندما
+    bn: ভালি দো বান্দামা জেলা
+    da: Vallée du Bandama District
+    de: Vallée du Bandama
+    el: Βαλέ ντου Μπαντάμα
+    en: Vallée du Bandama²
+    es: Vallée du Bandama
+    fi: Vallée du Bandaman kaupunginosa
+    fr: Vallée du Bandama
+    gu: વૅલી ડુ બન્ડામા જિલ્લો
+    hi: वैली डू बैंडामा जिला
+    id: Distrik Vallée du Bandama
+    it: Vallée du Bandama District
+    ja: バンダマ渓谷地方
+    kn: ವಲ್ಲೀ ಡು ಬಾಂಡಮಾ ಜಿಲ್ಲೆ
+    ko: 발레뒤방다마 지구
+    mr: वल्ली डि बॅन्डमा जिल्हा
+    ms: Vallee du Bandama District
+    nb: Vallee du Dandama distrikt
+    nl: Vallée du Bandama
+    pl: Dystrykt Vallée du Bandama
+    pt: Vale do Bandama
+    ru: Валле-дю-Бандама
+    si: වැලේ ඩු බන්ඩමා දිස්ත්‍රික්කය
+    sv: Vallee du Dandama (distrikt)
+    ta: வல்லீ டு பண்டமா மாவட்டம்
+    te: వల్లీ డు బందామా జిల్లా
+    th: วัลลี ดู บานดามา
+    tr: Vallée du Bandama District
+    uk: Район Валле-дю-Бандама
+    ur: والیی دو بانداما ضلع
+    vi: Quận Vallée du Bandama
+    lv: Bandamas ielejas distrikts
+    lt: Vale du Bandamos apskritis
+    zh: 邦達馬河谷區
+    ccp: "𑄞𑄣𑄬 𑄓𑄪 𑄝𑄚𑄴𑄓𑄟"
+    ka: ვალე-დუ-ბანდამა
+    'no': Vallee du Dandama distrikt
+    he: מחוז ואלי דו בנדמה
+    sw: Jimbo la Vallée du Bandama
+  type: district
+WR:
+  name: District du Woroba
+  code: WR
+  translations:
+    de: Woroba
+    en: Woroba
+    fi: Woroban piiri
+    fr: District du Woroba
+    ja: ウォロバ地方
+    uk: Район Вороба
+    ur: ووروبا ضلع
+    zh: 沃羅巴區
+    ccp: "𑄤𑄢𑄧𑄝"
+    ka: ვორობა
+    it: Distretto di Woroba
+    ca: Districte de Woroba
+    fa: بخش وروبا
+    nl: Woroba
+    pl: Woroba
+    ru: Вороба
+    sw: Jimbo la Woroba
+  type: district
+YM:
+  name: Yamoussoukro
+  code: YM
+  translations:
+    af: Yamoussoukro
+    am: ያሙሱክሮ
+    ar: ياموسوكرو
+    az: Yamosukro
+    be: Горад Ямусукра
+    bg: Ямусукро
+    bn: ইয়ামোসোক্রো
+    ca: Yamoussoukro
+    cs: Yamoussoukro
+    da: Yamoussoukro
+    de: Yamoussoukro
+    el: Γιαμουσουκρό
+    en: Yamoussoukro
+    es: Yamusukro
+    et: Yamoussoukro
+    eu: Jamusukro
+    fa: یاموسوکرو
+    fi: Yamoussoukro
+    fr: Yamoussoukro
+    gl: Yamoussoukro
+    gu: યામોસ્સોક્રો
+    he: יאמוסוקרו
+    hi: यामूसूक्रो
+    hr: Yamoussoukro
+    hu: Yamoussoukro
+    hy: Յամուսուկրո
+    id: Yamoussoukro
+    is: Yamoussoukro
+    it: Yamoussoukro
+    ja: ヤムスクロ
+    ka: იამუსუკრო
+    kn: ಯಮೌಸೌಕ್ರೋ
+    ko: 야무수크로
+    lt: Jamusukras
+    lv: Jamusukro
+    mn: Ямусукро хот
+    mr: यामूसूक्रो
+    ms: Yamoussoukro
+    nb: Yamoussoukro
+    nl: Yamoussoukro
+    or: ୟାମୁସସୁତ୍ରୋ
+    pl: Jamusukro
+    pt: Yamoussoukro
+    ro: Yamoussoukro
+    ru: Ямусукро
+    si: යාමොසුක්‍රෝ
+    sk: Yamoussoukro
+    sl: Yamoussoukro
+    sr: Јамусукро
+    sv: Yamoussoukro
+    sw: Yamoussoukro
+    ta: யாமூசூக்ரோ
+    te: యామోసూక్రో
+    th: ยามูซูโกร
+    tk: Ýamusukro
+    tr: Yamoussoukro
+    uk: Ямусукро
+    ur: یاموسسوکرو
+    vi: Yamoussoukro
+    cy: Yamoussoukro
+    ceb: Yamoussoukro (ulohang dakbayan sa Baybayon sa Marpil)
+    sr_Latn: Jamusukro
+    zh: 亚穆苏克罗
+    yue_Hans: 雅穆苏克雷
+    jv: Yamoussoukro
+    sq: Jamusukro
+    ccp: "𑄃𑄨𑄠𑄟𑄯𑄥𑄯𑄇𑄴𑄢𑄮"
+    ga: Yamoussoukro
+    ky: Ямусукро
+    ha: Yamoussoukro
+    so: Yamoussoukro
+    pa: ਯਾਮੂਸੂਕਰੋ
+    kk: Ямусукро
+    ml: യമൂസ്സൂക്രോ
+    yue: 雅穆蘇克雷
+    yo: Yamoussoukro
+    uz: Yamusukro
+    bs: Yamoussoukro
+    mk: Јамусукро
+    ha_NE: Yamoussoukro
+    'no': Yamoussoukro
+    yo_BJ: Yamoussoukro
+    ps: یاموسوکرو
+    sd: يامسوڪرو
+  type: autonomous_district
+ZZ:
+  name: Zanzan
+  code: ZZ
+  translations:
+    en: Zanzan²
+    uk: Район Занзан
+    ur: زانزان ضلع
+    lv: Zanzānas reģions
+    mr: झानझन प्रदेश
+    ceb: Zanzan
+    ms: Zanzan Region
+    ar: إقليم زانزان
+    te: జంజన్ ప్రాంతం
+    tr: Zanzan Bölgesi
+    lt: Zanzanas
+    ta: சான்சன் பகுதி
+    vi: Khu vực Zanzan
+    nl: Zanzan
+    zh: 赞赞区
+    bn: জানজান অঞ্চল
+    pl: Region Zanzan
+    sw: Mkoa wa Zanzan
+    sv: Region Zanzan
+    el: Ζανζάν
+    hi: ज़नजान प्रदेश
+    ja: ザンザン州
+    ru: Занзан
+    ccp: "𑄎𑄚𑄴𑄎𑄚𑄴"
+    gu: ઝાંઝાન પ્રદેશ
+    ka: ზანზანი
+    fr: Zanzan
+    ko: 장잔 주
+    gl: Zanzan
+    es: Zanzan
+    si: සන්සන් කලාපය
+    da: Zanzan Region
+    fi: Zanzan
+    kn: ಝಾನ್ಜನ್ ಪ್ರದೇಶ
+    id: Wilayah Zanzan
+    ro: Regiunea Zanzan
+    eu: Zanzan
+    pt: Zanzan
+    de: Region Zanzan
+    it: regione di Zanzan
+    kk: Занзан
+    cs: Zanzan
+    nb: Zanzan
+    be: Рэгіён Занзан
+    th: ซานซาน
+    bg: Занзан
+    'no': Zanzan
+    fa: ناحیه ززانز
+    hy: Զանզանի շրջան
+  type: district

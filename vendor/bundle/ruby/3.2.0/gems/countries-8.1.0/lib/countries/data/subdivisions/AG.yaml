@@ -1,0 +1,469 @@
+---
+'03':
+  name: Saint George
+  code: '03'
+  unofficial_names:
+  - Saint George
+  geo:
+    latitude: 17.1078489
+    longitude: -61.7882743
+    min_latitude: 17.0828211
+    min_longitude: -61.8104881
+    max_latitude: 17.1695276
+    max_longitude: -61.74657209999999
+  translations:
+    en: Saint George
+    ar: أبرشية القديس جورج
+    bn: সেন্ট জর্জ প্যারিশ
+    da: Saint George Parish
+    de: Saint George
+    el: Άγιος Γεώργιος, Αντίγκουα και Μπαρμπούντα
+    es: Parroquia de Saint George
+    fi: Saint George
+    fr: Saint-George
+    gu: સેન્ટ જ્યોર્જ પૅરિશ
+    hi: सेंट जॉर्ज पल्ली
+    id: Paroki Saint George, Antigua dan Barbuda
+    it: Saint George
+    ja: セント・ジョージ教区
+    kn: ಸೇಂಟ್ ಜಾರ್ಜ್ ಪ್ಯಾರಿಷ್
+    ko: 세인트조지 교구
+    lt: Šv. Jurgio parapija
+    lv: Sentdžordža pagasts
+    mr: सेंट जॉर्ज पॅरीश
+    ms: Paroki Saint George, Antigua dan Barbuda
+    nb: Saint George prestegjeld
+    nl: Saint George
+    pl: Saint George
+    pt: Saint George
+    ro: Parohia Saint George
+    ru: Приход Сент-Джордж
+    si: ශාන්ත ජෝජ් ප්‍රාන්තය
+    sr: Сент Џорџ
+    sv: Parish of Saint George
+    ta: செயின்ட் ஜார்ஜ் பரிஷ்
+    te: సెయింట్ జార్జ్ పారిష్
+    th: เซนต์จอนส์
+    tk: Sent-Jordž
+    tr: Saint George Parish
+    ur: سینٹ جارج پیرش، اینٹیگوا و باربوڈا
+    vi: Giáo xứ Saint George
+    zh: 聖喬治區
+    ceb: Parish of Saint George
+    sr_Latn: Sent Džordž
+    ccp: "𑄥𑄬𑄚𑄳𑄑𑄴 𑄎𑄧𑄢𑄳𑄎𑄴"
+    uk: Парафія Сент-Джордж
+    ca: Parròquia de Saint George
+    'no': Saint George prestegjeld
+  type: parish
+'04':
+  name: Saint John’s
+  code: '04'
+  unofficial_names:
+  - Saint John’s
+  geo:
+    latitude: 17.116667
+    longitude: -61.84999999999999
+    min_latitude: 17.1079801
+    min_longitude: -61.8614586
+    max_latitude: 17.1409954
+    max_longitude: -61.8271922
+  translations:
+    en: Saint John
+    de: Saint John
+    el: Άγιος Ιωάννης, Αντίγκουα και Μπαρμπούντα
+    es: Parroquia de Saint John
+    fr: Saint-John
+    hi: सेंट जॉन पल्ली
+    id: Paroki Saint John, Antigua dan Barbuda
+    it: Saint John
+    ko: 세인트존 교구
+    lt: Šv. Jono parapija
+    lv: Sentdžona pagasts
+    ms: Paroki Saint John, Antigua dan Barbuda
+    nb: Saint John prestegjeld
+    nl: Saint John
+    pl: Saint John
+    pt: Saint John
+    ro: Parohia Saint John
+    sr: Сент Џон
+    sv: Parish of Saint John
+    tk: Sent-Jon
+    ur: سینٹ جان پیرش، اینٹیگوا و باربوڈا
+    ceb: Parish of Saint John (parokya sa Antigua ug Barbuda)
+    sr_Latn: Sent Džon
+    zh: 圣约翰区
+    ja: セント・ジョン教区
+    ccp: "𑄥𑄬𑄚𑄳𑄑𑄴 𑄎𑄧𑄚𑄴"
+    ca: Parròquia de Saint John
+    'no': Saint John prestegjeld
+    fa: پاریس سنت جان (آنتیگوا و باربودا)
+    fi: Saint John (Antigua ja Barbuda)
+    ru: Сент-Джон
+  type: parish
+'05':
+  name: Saint Mary
+  code: '05'
+  unofficial_names:
+  - Saint Mary
+  geo:
+    latitude: 17.0512064
+    longitude: -61.87602829999999
+    min_latitude: 17.0037693
+    min_longitude: -61.905935
+    max_latitude: 17.105279
+    max_longitude: -61.805473
+  translations:
+    en: Saint Mary
+    ar: أبرشية سانت ماري
+    bn: সেন্ট ম্যারি পারিশ
+    da: Saint Mary Parish
+    de: Saint Mary
+    el: Αγία Μαρία, Αντίγκουα και Μπαρμπούντα
+    es: Parroquia de Saint Mary
+    fi: Saint Maryin kunta
+    fr: Saint-Mary
+    gu: સેન્ટ મેરી પૅરિશ
+    he: קהילת סנט מרי
+    hi: सेंट मैरी पल्ली
+    id: Paroki Saint Mary, Antigua dan Barbuda
+    it: Saint Mary
+    ja: セント・メアリー教区
+    kn: ಸೇಂಟ್ ಮೇರಿ ಪ್ಯಾರಿಷ್
+    ko: 세인트메리 교구
+    lt: Šv. Marijos parapija
+    lv: Sentmerī pagasts
+    mr: सेंट मेरी पॅरीश
+    ms: Paroki Saint Mary, Antigua dan Barbuda
+    nb: Saint Mary prestegjeld
+    nl: Saint Mary
+    pl: Saint Mary
+    pt: Saint Mary
+    ro: Parohia Saint Mary
+    ru: Приход Сент-Мэри
+    si: ශාන්ත මේරි ප්‍රාන්තය
+    sr: Сент Мери
+    sv: Parish of Saint Mary
+    ta: செயின்ட் மேரி பரிஷ்
+    te: సెయింట్ మేరీ పారిష్
+    th: ตำบลเซนต์ แมรี่
+    tk: Sent-Meri
+    tr: Saint Mary Parish
+    ur: سینٹ میری پیرش، اینٹیگوا و باربوڈا
+    vi: Giáo xứ Saint Mary
+    ceb: Parish of Saint Mary
+    sr_Latn: Sent Meri
+    zh: 聖瑪麗區
+    ccp: "𑄥𑄬𑄚𑄳𑄑𑄴 𑄟𑄬𑄢𑄨"
+    uk: Парафія Сент-Мері
+    ca: Parròquia de Saint Mary
+    'no': Saint Mary prestegjeld
+  type: parish
+'06':
+  name: Saint Paul
+  code: '06'
+  unofficial_names:
+  - Saint Paul
+  geo:
+    latitude: 17.0371588
+    longitude: -61.7824256
+    min_latitude: 16.99795
+    min_longitude: -61.81293110000001
+    max_latitude: 17.065935
+    max_longitude: -61.73061
+  translations:
+    en: Saint Paul
+    ar: أبرشية القديس بول
+    bn: সেন্ট পল পাারিশ
+    da: Saint Paul Parish
+    de: Saint Paul
+    el: Άγιος Παύλος, Αντίγκουα και Μπαρμπούντα
+    es: Parroquia de Saint Paul
+    fi: Saint Paulin pitäjä
+    fr: Saint-Paul
+    gu: સેન્ટ પૌલ પૅરિશ
+    hi: सेंट पॉल पल्ली
+    id: Paroki Saint Paul, Antigua dan Barbuda
+    it: Saint Paul
+    ja: セント・ポール (ドミニカ国)
+    kn: ಸೇಂಟ್ ಪಾಲ್ ಪ್ಯಾರಿಷ್
+    ko: 세인트폴 교구
+    lt: Šv. Pauliaus parapija
+    lv: Sentpola pagasts
+    mr: सेंट पॉल पॅरीश
+    ms: Paroki Saint Paul, Antigua dan Barbuda
+    nb: Saint Paul prestegjeld
+    nl: Saint Paul
+    pl: Saint Paul
+    pt: Saint Paul
+    ro: Parohia Saint Paul
+    ru: Приход Сент-Пол
+    si: ශාන්ත පෝල් ප්‍රාන්තය
+    sr: Сент Пол
+    sv: Parish of Saint Paul
+    ta: செயின்ட் பால் பரிஷ்
+    te: సెయింట్ పాాల్ పారిష్
+    th: เซนต์พอล
+    tk: Sent-Pol
+    tr: Saint Paul PArish
+    ur: سینٹ پال پیرش
+    vi: Giáo xứ Saint Paul
+    ceb: Parish of Saint Paul
+    sr_Latn: Sent Pol
+    zh: 聖保羅區
+    ccp: "𑄥𑄬𑄚𑄳𑄑𑄴 𑄛𑄧𑄣𑄴"
+    uk: Парафія Сент-Пол
+    ca: Parròquia de Saint Paul
+    'no': Saint Paul prestegjeld
+    az: Sent Pol səmti
+    fa: پاریس سنت پل (آنتیگوا و باربودا)
+  type: parish
+'07':
+  name: Saint Peter
+  code: '07'
+  unofficial_names:
+  - Saint Peter
+  geo:
+    latitude: 17.0980665
+    longitude: -61.75903289999999
+    min_latitude: 17.062068
+    min_longitude: -61.787629
+    max_latitude: 17.1485654
+    max_longitude: -61.71377
+  translations:
+    en: Saint Peter
+    ar: أبرشية القديس بيتر
+    bn: সেন্ট পিটার পারিশ
+    da: Saint Peter Parish
+    de: Saint Peter
+    el: Άγιος Πέτρος, Αντίγκουα και Μπαρμπούντα
+    es: Parroquia de Saint Peter
+    fi: Saint Peterin kunta
+    fr: Saint-Peter
+    gu: સેન્ટ પીટર પૅરિશ
+    hi: सेंट पीटर पल्ली
+    id: Paroki Saint Peter, Antigua dan Barbuda
+    it: Saint Peter
+    ja: セント・ピーター (ドミニカ国)
+    kn: ಸೇಂಟ್ ಪೀಟರ್ ಪ್ಯಾರಿಷ್
+    ko: 세인트피터 교구
+    lt: Šv. Petro parapija
+    lv: Sentpītera pagasts
+    mr: सेंट पीटर परश
+    ms: Paroki Saint Peter, Antigua dan Barbuda
+    nb: Saint Peter prestegjeld
+    nl: Saint Peter
+    pl: Saint Peter
+    pt: Saint Peter
+    ro: Parohia Saint Peter
+    ru: Приход Сент-Питер
+    si: ශාන්ත පීටර් ප්‍රාන්තය
+    sr: Сент Питер
+    sv: Parish of Saint Peter
+    ta: செயின்ட் பீட்டர் பரிஷ்
+    te: సెయింట్ పీటర్ పారిష్
+    th: ตำบลเซนต์ปีเตอร์
+    tk: Sent-Piter
+    tr: Saint Peter Parish
+    ur: سینٹ پیٹر پیرش، اینٹیگوا و باربوڈا
+    vi: Giáo xứ Saint Peter
+    ceb: Parish of Saint Peter
+    sr_Latn: Sent Piter
+    zh: 聖彼得區
+    ccp: "𑄥𑄬𑄚𑄳𑄑𑄴 𑄛𑄨𑄑𑄢𑄴"
+    uk: Парафія Сент-Пітер
+    ca: Parròquia de Saint Peter
+    'no': Saint Peter prestegjeld
+    fa: پریش سنت پیتر (آنتیگوا و باربودا)
+  type: parish
+'08':
+  name: Saint Philip
+  code: '08'
+  unofficial_names:
+  - Saint Philip
+  geo:
+    latitude: 17.0480636
+    longitude: -61.71225699999999
+    min_latitude: 17.0310207
+    min_longitude: -61.74468299999999
+    max_latitude: 17.1040329
+    max_longitude: -61.660976
+  translations:
+    en: Saint Philip
+    ar: أبرشية سانت فيليب، أنتيغوا وبربودا
+    bn: সেন্ট ফিলিপ পারিস
+    da: Saint Philip Parish
+    de: Saint Philip
+    el: Άγιος Φίλιππος, Αντίγκουα και Μπαρμπούντα
+    es: Parroquia de Saint Philip
+    fi: Saint Philipin kunta
+    fr: Saint-Philip
+    gu: સેન્ટ ફિલિપ પૅરિશ
+    hi: सेंट फिलिप पल्ली
+    id: Paroki Saint Philip, Antigua dan Barbuda
+    it: Saint Philip
+    ja: サンフィリップ教区
+    kn: ಸೇಂಟ್ ಫಿಲಿಪ್ ಪ್ಯಾರಿಷ್
+    ko: 세인트필립 교구
+    lt: Šv. Pilypo parapija
+    lv: Sentfilipa pagasts
+    mr: सेंट फिलिप पॅरिश
+    ms: Paroki Saint Philip, Antigua dan Barbuda
+    nb: Saint Philip prestegjeld
+    nl: Saint Philip
+    pl: Saint Philip
+    pt: Saint Philip
+    ro: Parohia Saint Philip
+    ru: Приход Сент-Филип
+    si: ශාන්ත පිලිප් ප්‍රාන්තය
+    sr: Сент Филип
+    sv: Parish of Saint Philip
+    ta: செயின்ட் பிலிப் பாரிஸ்
+    te: సెయింట్ ఫిలిప్ పారిష్
+    th: ตำบลเซนต์ ฟิลิป
+    tk: Sent-Filip
+    tr: Saint Philip Paris
+    ur: سینٹ فلپ پیرش، اینٹیگوا و باربوڈا
+    vi: Giáo xứ Saint Philip
+    ceb: Parish of Saint Philip
+    sr_Latn: Sent Filip
+    zh: 聖菲利普區
+    ccp: "𑄥𑄬𑄚𑄳𑄑𑄴 𑄜𑄨𑄣𑄨𑄛𑄴"
+    uk: Парафія Сент-Філіп
+    ca: Parròquia de Saint Philip
+    'no': Saint Philip prestegjeld
+  type: parish
+'10':
+  name: Barbuda
+  code: '10'
+  unofficial_names:
+  - Barbuda
+  geo:
+    latitude: 17.626798
+    longitude: -61.7707288
+    min_latitude: 17.5437252
+    min_longitude: -61.885789
+    max_latitude: 17.7293354
+    max_longitude: -61.7318075
+  translations:
+    en: Barbuda
+    ar: بربودا
+    be: Востраў Барбуда
+    bg: Барбуда
+    bn: বারবুডা
+    ca: Barbuda
+    cs: Barbuda
+    da: Barbuda
+    de: Barbuda
+    el: Μπαρμπούντα
+    es: Barbuda
+    et: Barbuda
+    eu: Barbuda
+    fa: بارابودا
+    fi: Barbuda
+    fr: Barbuda
+    gl: Barbuda
+    gu: બાર્બુડા
+    he: ברבודה
+    hi: बारबूडा
+    id: Barbuda
+    it: Barbuda
+    ja: バーブーダ島
+    kn: ಬರ್ಬುಡಾ
+    ko: 바부다 섬
+    lt: Barbuda
+    ml: ബാർബുഡ
+    mr: बार्बुडा
+    ms: Barbuda
+    nb: Barbuda
+    nl: Barbuda
+    pl: Barbuda
+    pt: Barbuda
+    ro: Barbuda
+    ru: Барбуда
+    si: බර්බුඩා
+    sr: Барбуда
+    sv: Barbuda
+    ta: பர்புடா
+    te: బార్బుడా
+    th: บาร์บูดา
+    tk: Barbuda
+    tr: Barbuda
+    uk: Барбуда
+    ur: باربوڈا
+    vi: Barbuda
+    lv: Barbuda
+    cy: Barbuda
+    ceb: Barbuda (parokya sa Antigua ug Barbuda)
+    sr_Latn: Barbuda
+    zh: 巴布達島
+    yue_Hans: 巴布达岛
+    ccp: "𑄝𑄢𑄴𑄝𑄪𑄘"
+    hu: Barbuda
+    yue: 巴布達島
+    yo: Bàrbúdà
+    mk: Барбуда
+    'no': Barbuda
+    yo_BJ: Bàrbúdà
+    hy: Բարբուդա կղզի
+    ky: Барбуда
+    ps: باربودا
+  type: dependency
+'11':
+  name: Redonda
+  code: '11'
+  translations:
+    ar: ريدوندا
+    be: Востраў Рэдонда
+    bn: রেডোন্ডা
+    ca: Redonda
+    cs: Redonda
+    da: Redonda
+    de: Redonda
+    el: Ρεντόντα
+    en: Redonda
+    es: Isla Redonda
+    et: Redonda
+    eu: Redonda
+    fi: Redonda
+    fr: Redonda
+    gl: Illa Redonda
+    gu: રેડોંડા
+    he: רדונדה
+    hi: रेडोन्डा
+    hu: Redonda
+    id: Redonda
+    it: Redonda
+    ja: レドンダ島
+    kn: ರೆಡ್ಡಾ
+    ko: 레돈다 섬
+    lt: Redonda
+    mr: रेडांडो
+    ms: Redonda
+    nb: Redonda
+    nl: Redonda
+    pl: Redonda
+    pt: Redonda
+    ro: Redonda
+    ru: Редонда
+    si: රෙඩොන්ඩා
+    sr: Редонда
+    sv: Redonda (församling i Antigua och Barbuda)
+    ta: ரேடோண்டா
+    te: రెడోండా
+    th: เรดอนดา
+    tk: Redonda
+    tr: Redonda
+    uk: Редонда
+    ur: ریدوندا
+    vi: Redonda
+    lv: Redonda
+    ceb: Redonda
+    sr_Latn: Redonda
+    zh: 雷東達島
+    ccp: "𑄢𑄬𑄓𑄮𑄚𑄴𑄘"
+    ga: Redonda
+    kk: Редонда
+    mk: Редонда
+    'no': Redonda
+  type: dependency

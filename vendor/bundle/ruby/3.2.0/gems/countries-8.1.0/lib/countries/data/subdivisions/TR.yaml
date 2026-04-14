@@ -1,0 +1,6140 @@
+---
+'01':
+  name: Adana
+  code: '01'
+  unofficial_names:
+  - Seyhan
+  geo:
+    latitude: 37
+    longitude: 35.321333
+    min_latitude: 36.929137
+    min_longitude: 35.1040759
+    max_latitude: 37.065693
+    max_longitude: 35.4720578
+  translations:
+    en: Adana
+    ar: أضنة
+    az: Adana vilayəti
+    be: Правінцыя Адана
+    bg: Адана
+    bn: আদানা প্রদেশ
+    ca: Província d’Adana
+    cs: Adana
+    da: Adana Province
+    de: Adana
+    el: Επαρχία Αδάνων
+    es: Provincia de Adana
+    et: Adana provints
+    eu: Adana probintzia
+    fa: استان آدانا
+    fi: Adanan maakunta
+    fr: Adana
+    gl: Provincia de Adana
+    gu: અદાના પ્રાંત
+    he: אדנה
+    hi: अडाना प्रांत
+    hr: Adana
+    hu: Adana
+    hy: Ադանա
+    id: Provinsi Adana
+    it: provincia di Adana
+    ja: アダナ県
+    ka: ადანის პროვინცია
+    kn: ಅದಾನಾ ಪ್ರಾಂತ್ಯ
+    ko: 아다나 주
+    lv: Adanas ils
+    mr: अदना प्रांत
+    ms: Wilayah Adana
+    nb: Adana
+    nl: Adana
+    pl: Adana
+    pt: Adana
+    ro: Provincia Adana
+    ru: Адана
+    si: අදනා පළාත
+    sl: Adana
+    sr: Адана
+    sv: Adana
+    sw: Mkoa wa Adana
+    ta: அதனா மாகாணம்
+    te: అడానా ప్రావిన్స్
+    th: จังหวัดอาดานา
+    tk: Adana
+    tr: Adana
+    uk: Адана
+    ur: آدانا صوبہ
+    vi: Adana
+    zh: 阿达纳省
+    cy: Adana
+    ceb: Adana (lalawigan)
+    sr_Latn: Adana
+    lt: Adanos provincija
+    yue_Hans: 阿达纳省
+    jv: Provinsi Adana
+    ccp: "𑄃𑄓𑄚"
+    pa: ਅਦਾਨਾ
+    kk: Адана
+    yue: 阿達納省
+    uz: Adana
+    bs: Adana
+    mk: Адана
+    'no': Adana
+  type: province
+'02':
+  name: Adıyaman
+  code: '02'
+  unofficial_names:
+  - Adıyaman
+  geo:
+    latitude: 37.7647509
+    longitude: 38.278561
+    min_latitude: 37.741438
+    min_longitude: 38.2312051
+    max_latitude: 37.793365
+    max_longitude: 38.320623
+  translations:
+    en: Adıyaman
+    ar: أديامان
+    az: Adıyaman vilayəti
+    be: Правінцыя Адыяман
+    bg: Адъяман
+    bn: আদিয়ামান প্রদেশ
+    ca: Província d’Adıyaman
+    cs: Adıyamanská provincie
+    de: Adıyaman
+    el: Επαρχία Αντιγιαμάν
+    es: Provincia de Adıyaman
+    et: Adıyamani provints
+    eu: Adiyaman probintzia
+    fa: استان آدیامان
+    fi: Adıyamanin maakunta
+    fr: Adıyaman
+    gl: Provincia de Adıyaman
+    he: אדיאמן
+    hu: Adıyaman
+    hy: Ադըյաման
+    id: Provinsi Adıyaman
+    it: provincia di Adıyaman
+    ja: アドゥヤマン県
+    ka: ადიამანის პროვინცია
+    ko: 아디야만 주
+    lv: Adijamanas ils
+    mr: आद्यामान प्रांत
+    ms: Wilayah Adıyaman
+    nb: Adıyaman
+    nl: Adıyaman
+    pl: Adıyaman
+    pt: Adıyaman
+    ro: Provincia Adıyaman
+    ru: Адыяман
+    sl: Adıyaman
+    sr: Адијаман
+    sv: Adıyaman
+    sw: Mkoa wa Adıyaman
+    th: จังหวัดอาดึยามัน
+    tk: Adyýaman
+    tr: Adıyaman
+    uk: Адияман
+    ur: آدیامان صوبہ
+    vi: Adıyaman
+    cy: Adıyaman
+    ceb: Adıyaman (lalawigan)
+    sr_Latn: Adijaman
+    zh: 阿德亚曼省
+    yue_Hans: 阿德亚曼省
+    hi: आदियामान प्रांत
+    sq: Adëjamani
+    ccp: "𑄃𑄨𑄓𑄨𑄠𑄟𑄳𑄠𑄚𑄴"
+    pa: ਅਦਿਅਮਾਨ ਪ੍ਰਾਂਤ
+    kk: Адыяман
+    yue: 阿德亞曼省
+    uz: Adıyaman
+    bs: Adıyaman
+    mk: Адјаман
+    'no': Adıyaman
+    hr: Adıyaman (pokrajina)
+    ta: அத்யமான் மாகாணம்
+  type: province
+'03':
+  name: Afyon
+  code: '03'
+  unofficial_names:
+  - Afyon
+  geo:
+    latitude: 38.754167
+    longitude: 30.54027799999999
+    min_latitude: 38.716577
+    min_longitude: 30.5121179
+    max_latitude: 38.796503
+    max_longitude: 30.5979509
+  translations:
+    en: Afyonkarahisar
+    ar: أفيون
+    az: Afyonkarahisar vilayəti
+    bg: Афионкарахисар
+    bn: আফিয়নকারাহিসার প্রদেশ
+    ca: Província d’Afyonkarahisar
+    cs: Provincie Afyonkarahisar
+    da: Afyonkarahisar Province
+    de: Afyonkarahisar
+    el: Επαρχία Αφιόν Καραχισάρ
+    es: Provincia de Afyonkarahisar
+    et: Afyonkarahisari provints
+    eu: Afyonkarahisar probintzia
+    fa: استان افیون قره‌حصار
+    fi: Afyonkarahisarin maakunta
+    fr: Afyonkarahisar
+    gl: Provincia de Afyonkarahisar
+    gu: અફ્યોનકારાહિસાર પ્રાંત
+    hi: एफ्योंकराहिसर प्रांत
+    hu: Afyonkarahisar
+    hy: Աֆիոնկարահիսարի նահանգ
+    id: Provinsi Afyonkarahisar
+    it: provincia di Afyonkarahisar
+    ja: アフィヨンカラヒサール県
+    ka: აფიონ-ყარაჰისარის პროვინცია
+    kn: ಅಫಿಯಾನ್ಕಾರ್ಹಿಸಾರ್ ಪ್ರಾಂತ್ಯ
+    ko: 아피온카라히사르 주
+    lv: Afjonas ils
+    mr: आफ्योनकाराहिसार प्रांत
+    ms: Wilayah Afyonkarahisar
+    nb: Afyonkarahisar
+    nl: Afyonkarahisar
+    pl: Afyonkarahisar
+    pt: Afyonkarahisar
+    ro: Provincia Afyonkarahisar
+    ru: ил Афьонкарахисар
+    si: අෆ්යොන්කරහිසාර් පළාත
+    sl: Afyonkarahisar
+    sr: Афјонкарахисар
+    sv: Afyonkarahisar
+    sw: Mkoa wa Afyonkarahisar
+    ta: அபியோன்கர்ஹிஷர் மாகாணம்
+    te: ఆఫ్యోంకారాహిసర్ ప్రావిన్స్
+    th: จังหวัดอัฟยอนคาราฮิซาร์
+    tk: Afýonkarahisar
+    tr: Afyonkarahisar
+    uk: Афьонкарахісар
+    ur: افیون قرہ حصار صوبہ
+    vi: Afyonkarahisar
+    cy: Afyonkarahisar
+    ceb: Afyonkarahisar
+    sr_Latn: Afjonkarahisar
+    lt: Afjonkarachisaro provincija
+    zh: 阿菲永卡拉希萨尔省
+    yue_Hans: 阿菲永卡拉希萨尔省
+    ccp: "𑄃𑄜𑄨𑄠𑄧𑄚𑄴𑄖𑄢𑄝𑄦𑄨𑄥𑄢𑄴"
+    pa: ਅਫ਼ਿਓਨਕਾਰਾਹਿਸਾਰ ਪ੍ਰਾਂਤ
+    kk: Афьонкарахисар
+    yue: 阿菲永卡拉希薩爾省
+    uz: Afyonkarahisar
+    bs: Afyonkarahisar
+    mk: Афјонкарахисар
+    'no': Afyonkarahisar
+    hr: Afyonkarahisar
+  type: province
+'04':
+  name: Ağrı
+  code: '04'
+  unofficial_names:
+  - Ağrı
+  geo:
+    latitude: 39.7188318
+    longitude: 43.0484269
+    min_latitude: 39.692784
+    min_longitude: 42.9903562
+    max_latitude: 39.751162
+    max_longitude: 43.0799288
+  translations:
+    en: Ağrı
+    ar: أغري
+    az: Ağrı vilayəti
+    be: Правінцыя Агры
+    bg: Агръ
+    bn: আরি প্রদেশ
+    ca: Província d’Ağrı
+    cs: Ağrıská provincie
+    da: Ağrı Province
+    de: Ağrı
+    el: Άγκρι
+    es: Provincia de Ağrı
+    et: Ağrı provints
+    eu: Agri probintzia
+    fa: استان آغری
+    fi: Ağrın maakunta
+    fr: Ağrı
+    gl: Provincia de Ağrı
+    gu: આગ્રી પ્રાંત
+    hi: एग्री प्रांत
+    hu: Ağrı
+    hy: Աղրի
+    id: Provinsi Ağrı
+    it: provincia di Ağrı
+    ja: アール県
+    ka: აღრის პროვინცია
+    kn: ಆಗ್ರಿ ಪ್ರಾಂತ್ಯ
+    ko: 아리 주
+    lv: Āgri ils
+    mr: आर प्रांत
+    ms: Provinsi Ağrı
+    nb: Ağrı
+    nl: Ağrı
+    pl: Ağrı
+    pt: Ağrı
+    ro: Provincia Ağrı
+    ru: Агры
+    si: අග්රි පළාත
+    sr: Вилајет Агри
+    sv: Ağrı
+    sw: Mkoa wa Ağrı
+    ta: அக்ரி மாகாணம்
+    te: అగ్రి ప్రావిన్స్
+    th: จังหวัดอารึ
+    tk: Agry
+    tr: Ağrı
+    uk: Агри
+    ur: آغری صوبہ
+    vi: Ağrı
+    cy: Ağrı
+    ceb: Ağrı
+    sr_Latn: Vilajet Agri
+    lt: Agrio provincija
+    zh: 阿勒省
+    yue_Hans: 阿勒省
+    ccp: "𑄃𑄇𑄴𑄢𑄨"
+    pa: ਆਗਰੀ ਸੂਬਾ
+    kk: Ағры
+    yue: 阿勒省
+    uz: Ağrı
+    bs: Ağrı
+    mk: Агри
+    'no': Ağrı
+    hr: Ağrı (pokrajina)
+  type: province
+'05':
+  name: Amasya
+  code: '05'
+  unofficial_names:
+  - Amasya
+  geo:
+    latitude: 40.64991
+    longitude: 35.83532
+    min_latitude: 40.64035
+    min_longitude: 35.788518
+    max_latitude: 40.672106
+    max_longitude: 35.8556602
+  translations:
+    en: Amasya
+    ar: أماصيا
+    az: Amasya vilayəti
+    be: Правінцыя Амасья
+    bg: Амасия
+    bn: আমাসিয়া প্রদেশ
+    ca: Província d’Amasya
+    cs: Amasyjská provincie
+    da: Amasya Province
+    de: Amasya
+    el: Επαρχία Αμάσειας
+    es: Provincia de Amasya
+    et: Amasya provints
+    eu: Amasya probintzia
+    fa: استان آماسیه
+    fi: Amasyan maakunta
+    fr: Amasya
+    gl: Provincia de Amasya
+    gu: અમાસ્યા પ્રાંત
+    hi: अमासिया प्रांत
+    hu: Amasya
+    hy: Ամասիայի նահանգ
+    id: Provinsi Amasya
+    it: provincia di Amasya
+    ja: アマスィヤ県
+    ka: ამასიის პროვინცია
+    kn: ಅಮಸ್ಯಾ ಪ್ರಾಂತ್ಯ
+    ko: 아마시아 주
+    lv: Amasjas ils
+    mr: अमास्या प्रांत
+    ms: Wilayah Amasya
+    nb: Amasya
+    nl: Amasya
+    pl: Amasya
+    pt: Amasya
+    ro: Provincia Amasya
+    ru: Амасья
+    si: අමස්යා පළාත
+    sr: Амасија
+    sv: Amasya
+    sw: Mkoa wa Amasya
+    ta: அமஸ்யா மாகாணம்
+    te: అమాస్య ప్రావిన్స్
+    th: จังหวัดอะมัสยา
+    tk: Amasýa
+    tr: Amasya
+    uk: Амасья
+    ur: اماسیا صوبہ
+    vi: Amasya
+    cy: Amasya
+    ceb: Amasya (lalawigan)
+    sr_Latn: Amasija
+    lt: Amasjos provincija
+    zh: 阿马西亚省
+    yue_Hans: 阿马西亚省
+    ccp: "𑄃𑄟𑄥𑄨𑄠"
+    pa: ਅਮਾਸਿਆ ਸੂਬਾ
+    kk: Амасья
+    yue: 阿馬西亞省
+    uz: Amasya
+    bs: Amasya
+    mk: Амасија
+    'no': Amasya
+    hr: Amasya (pokrajina)
+  type: province
+'06':
+  name: Ankara
+  code: '06'
+  unofficial_names:
+  - Ankara
+  geo:
+    latitude: 39.92077
+    longitude: 32.85411
+    min_latitude: 39.730421
+    min_longitude: 32.5286899
+    max_latitude: 40.076332
+    max_longitude: 33.0070561
+  translations:
+    en: Ankara
+    ar: أنقرة
+    az: Ankara ili
+    be: Правінцыя Анкара
+    bg: Анкара
+    bn: আঙ্কারা প্রদেশ
+    ca: Província d’Ankara
+    cs: Ankarská provincie
+    de: Ankara
+    el: Επαρχία Άγκυρας
+    es: Ankara
+    et: Ankara provints
+    eu: Ankara probintzia
+    fa: استان آنکارا
+    fi: Ankaran maakunta
+    fr: Ankara
+    he: אנקרה
+    hr: Ankara
+    hu: Ankara
+    hy: Անկարա
+    id: Provinsi Ankara
+    it: provincia di Ankara
+    ja: アンカラ県
+    ka: ანკარის პროვინცია
+    ko: 앙카라 주
+    lv: Ankaras ils
+    mr: अंकारा प्रांत
+    ms: Wilayah Ankara
+    nb: Ankara
+    nl: Ankara
+    pl: Ankara
+    pt: Ancara
+    ro: Provincia Ankara
+    ru: Анкара
+    sd: انقره صوبو
+    sl: Ankara
+    sr: Анкарски вилајет
+    sv: Ankara
+    sw: Mkoa wa Ankara
+    tk: Ankara
+    tr: Ankara
+    uk: Анкара
+    ur: انقرہ صوبہ
+    vi: Ankara
+    cy: Ankara
+    ceb: Ankara
+    sr_Latn: Ankarski vilajet
+    zh: 安卡拉省
+    yue_Hans: 安卡拉省
+    ccp: "𑄃𑄁𑄇𑄢"
+    yue: 安卡拉省
+    th: จังหวัดอังการา
+    uz: Ankara
+    bs: Ankara
+    mk: Анкара
+    'no': Ankara
+    ta: அங்காரா மாகாணம்
+  type: province
+'07':
+  name: Antalya
+  code: '07'
+  unofficial_names:
+  - Antalya
+  geo:
+    latitude: 36.88414
+    longitude: 30.70563
+    min_latitude: 36.820289
+    min_longitude: 30.5809589
+    max_latitude: 36.975586
+    max_longitude: 30.8552512
+  translations:
+    en: Antalya
+    ar: أنطاليا
+    az: Antalya vilayəti
+    be: Правінцыя Анталья
+    bg: Анталия
+    bn: আন্তালিয়া প্রদেশ
+    ca: Província d’Antalya
+    cs: Antalijská provincie
+    da: Antalya
+    de: Antalya
+    el: Επαρχία Αττάλειας
+    es: Provincia de Antalya
+    et: Antalya provints
+    eu: Antalya probintzia
+    fa: استان آنتالیا
+    fi: Antalyan maakunta
+    fr: Antalya
+    gl: Provincia de Antalya
+    gu: અંતાલ્યા પ્રાંત
+    hi: अंताल्या प्रांत
+    hr: Antalya
+    hu: Antalya
+    hy: Անթալիա
+    id: Provinsi Antalya
+    it: provincia di Adalia
+    ja: アンタルヤ県
+    ka: ანთალიის პროვინცია
+    kn: ಆಂತಲ್ಯ ಪ್ರಾಂತ್ಯ
+    ko: 안탈리아 주
+    lt: Antalijos provincija
+    lv: Antaljas ils
+    mr: अंताल्या प्रांत
+    ms: Wilayah Antalya
+    nb: Antalya
+    nl: Antalya
+    pl: Antalya
+    pt: Antália (província)
+    ro: Provincia Antalya
+    ru: Анталья
+    si: අන්ටල්‍යා පළාත
+    sl: Antalya
+    sr: Анталија
+    sv: Antalya
+    sw: Mkoa wa Antalya
+    ta: அண்டலியா மாகாணம்
+    te: అంటాల్యా ప్రావిన్స్
+    th: จังหวัดอันตัลยา
+    tk: Antalýa
+    tr: Antalya
+    uk: Анталія
+    ur: انطالیہ صوبہ
+    vi: Antalya
+    cy: Antalya
+    ceb: Antalya (lalawigan)
+    sr_Latn: Antalija
+    zh: 安塔利亚省
+    yue_Hans: 安塔利亚省
+    sq: Antalya
+    ccp: "𑄃𑄚𑄴𑄑𑄣𑄨𑄠"
+    pa: ਅੰਤਾਲਿਆ ਸੂਬਾ
+    kk: Анталья
+    yue: 安塔利亞省
+    uz: Antalya
+    bs: Antalya
+    mk: Анталија
+    'no': Antalya
+    ml: അന്റാലിയ പ്രവിശ്യ
+  type: province
+'08':
+  name: Artvin
+  code: '08'
+  unofficial_names:
+  - Artvin
+  geo:
+    latitude: 41.18277
+    longitude: 41.81829099999999
+    min_latitude: 41.168135
+    min_longitude: 41.79922200000001
+    max_latitude: 41.191183
+    max_longitude: 41.8366858
+  translations:
+    en: Artvin
+    ar: أرتفين
+    az: Artvin vilayəti
+    be: Правінцыя Артвін
+    bg: Артвин
+    bn: আর্টভিন প্রদেশ
+    ca: Província d’Artvin
+    cs: Artvinská provincie
+    da: Artvin Province
+    de: Artvin
+    el: Επαρχία Αρτβίν
+    es: Provincia de Artvin
+    et: Artvini provints
+    eu: Artvin probintzia
+    fa: استان آرتوین
+    fi: Artvinin maakunta
+    fr: Artvin
+    gl: Provincia de Artvin
+    gu: આર્ટવિન પ્રાંત
+    he: ארטווין
+    hi: आर्टविन प्रांत
+    hu: Artvin
+    hy: Արդվինի նահանգ
+    id: Provinsi Artvin
+    it: provincia di Artvin
+    ja: アルトヴィン県
+    ka: ართვინის პროვინცია
+    kn: ಆರ್ಟ್ವಿನ್ ಪ್ರಾಂತ್ಯ
+    ko: 아르트빈 주
+    lv: Artvinas ils
+    mr: आर्त्विन प्रांत
+    ms: Wilayah Artvin
+    nb: Artvin
+    nl: Artvin
+    pl: Artvin
+    pt: Artvin
+    ro: Provincia Artvin
+    ru: Артвин
+    si: අර්ට්වින් පළාත
+    sr: Артвин
+    sv: Artvin
+    sw: Mkoa wa Artvin
+    ta: அற்டவின் மாகாணம்
+    te: ఆర్ట్విన్
+    th: จังหวัดอาร์ตวิน
+    tk: Artwin
+    tr: Artvin ili
+    uk: Артвін
+    ur: آرتوین صوبہ
+    vi: Artvin
+    cy: Artvin
+    ceb: Artvin
+    sr_Latn: Artvin
+    lt: Artvino provincija
+    zh: 阿尔特温省
+    yue_Hans: 阿尔特温省
+    sq: Artvin
+    ccp: "𑄃𑄢𑄴𑄑𑄴𑄞𑄨𑄚𑄴"
+    pa: ਅਰਤਵਿਨ
+    kk: Артвин
+    yue: 阿爾特溫省
+    uz: Artvin
+    bs: Artvin
+    mk: Артвин
+    'no': Artvin
+    hr: Artvin (pokrajina)
+  type: province
+'09':
+  name: Aydın
+  code: '09'
+  unofficial_names:
+  - Aydın
+  geo:
+    latitude: 37.84805600000001
+    longitude: 27.845278
+    min_latitude: 37.803987
+    min_longitude: 27.794327
+    max_latitude: 37.867569
+    max_longitude: 27.9005062
+  translations:
+    en: Aydın
+    af: Aydın
+    ar: أيدين
+    az: Aydın vilayəti
+    be: Правінцыя Айдын
+    bg: Айдън
+    bn: আইডিন প্রদেশ
+    ca: Província d’Aydın
+    cs: Aydınská provincie
+    da: Aydın
+    de: Aydın
+    el: Επαρχία Αϊδινίου
+    es: Provincia de Aydin
+    et: Aydıni provints
+    eu: Aydin probintzia
+    fa: استان آیدین
+    fi: Aydınin maakunta
+    fr: Aydın
+    gl: Aydın
+    gu: એડીન પ્રાંત
+    hi: आयदीन प्रांत
+    hr: Aydın
+    hu: Aydın
+    hy: Այդընի նահանգ
+    id: Provinsi Aydın
+    is: Aydın
+    it: provincia di Aydın
+    ja: アイドゥン県
+    ka: აიდინის პროვინცია
+    kn: ಆಯ್ದಿನ್ ಪ್ರಾಂತ್ಯ
+    ko: 아이딘 주
+    lt: Aydın
+    lv: Ajdinas ils
+    mr: आय्दन प्रांत
+    ms: Wilayah Aydın
+    nb: Aydın
+    nl: Aydın
+    pl: Aydın
+    pt: Aydın
+    ro: Provincia Aydın
+    ru: Айдын
+    si: අයිඩින් පළාත
+    sk: Aydın
+    sl: Aydın
+    sr: Ајдин
+    sv: Aydın
+    sw: Mkoa wa Aydın
+    ta: ஐடின் மாகாணம்
+    te: ఐడిన్ ప్రావిన్స్
+    th: จังหวัดไอดีน
+    tk: Aýdyn
+    tr: Aydın
+    uk: Айдин
+    ur: آیدین صوبہ
+    vi: Aydın
+    cy: Aydın
+    ceb: Aydın (lalawigan)
+    sr_Latn: Ajdin
+    zh: 艾登省
+    yue_Hans: 艾登省
+    sq: Ajdëni
+    ccp: "𑄃𑄨𑄠𑄬𑄓𑄨𑄚𑄴"
+    ga: Aydın
+    yue: 艾登省
+    uz: Aydın
+    bs: Aydın
+    mk: Ајдин
+    'no': Aydın
+  type: province
+'10':
+  name: Balıkesir
+  code: '10'
+  unofficial_names:
+  - Balıkesir
+  geo:
+    latitude: 39.648369
+    longitude: 27.88261
+    min_latitude: 39.612411
+    min_longitude: 27.8383129
+    max_latitude: 39.683234
+    max_longitude: 27.9411919
+  translations:
+    en: Balıkesir
+    ar: باليكسير
+    az: Balıkəsir vilayəti
+    be: Правінцыя Балыкесір
+    bg: Балъкесир
+    bn: বালিকেসির প্রদেশ
+    ca: Província de Balıkesir
+    cs: Balıkesirská provincie
+    da: Balıkesir Province
+    de: Balıkesir
+    el: Επαρχία Μπαλικεσίρ
+    es: Provincia de Balıkesir
+    et: Balıkesiri provints
+    eu: Balikesir probintzia
+    fa: استان بالیکسیر
+    fi: Balıkesirin maakunta
+    fr: Balıkesir
+    gl: Provincia de Balıkesir
+    gu: બાલિકેસિર પ્રાંત
+    hi: बालिकेसिर प्रांत
+    hu: Balıkesir
+    hy: Բալըքեսիր
+    id: Provinsi Balıkesir
+    it: provincia di Balıkesir
+    ja: バルケスィル県
+    ka: ბალიქესირის პროვინცია
+    kn: ಬಾಲಿಕೆಸರ್ ಪ್ರಾಂತ್ಯ
+    ko: 발리케시르 주
+    lv: Balikesiras ils
+    mr: बाल्केसिर प्रांत
+    ms: Wilayah Balıkesir
+    nb: Balıkesir
+    nl: Balıkesir
+    pl: Balıkesir
+    pt: Balıkesir
+    ro: Provincia Balıkesir
+    ru: Балыкесир
+    si: බලිකෙසීර් පළාත
+    sl: Balıkesir
+    sr: Баликесир
+    sv: Balıkesir
+    sw: Mkoa wa Balıkesir
+    ta: பாலிகேஸிர் மாகாணம்
+    te: బాలికేసిర్ ప్రావిన్స్
+    th: บาลีเคซีร์
+    tk: Balykesir
+    tr: Balıkesir
+    uk: Баликесір
+    ur: بالیکسیر صوبہ
+    vi: Balıkesir
+    cy: Balıkesir
+    ceb: Balıkesir
+    sr_Latn: Balikesir
+    lt: Balikesiro provincija
+    zh: 巴勒克埃西尔省
+    yue_Hans: 巴勒克埃西尔省
+    sq: Ballëkesiri
+    ccp: "𑄝𑄣𑄨𑄇𑄬𑄥𑄨𑄢𑄴"
+    pa: ਬਾਲਿਕੇਸਿਰ
+    kk: Балыкесир
+    yue: 巴勒克埃西爾省
+    uz: Balıkesir
+    bs: Balıkesir
+    mk: Балкесир
+    'no': Balıkesir
+  type: province
+'11':
+  name: Bilecik
+  code: '11'
+  unofficial_names:
+  - Bilecik
+  geo:
+    latitude: 40.15013099999999
+    longitude: 29.983061
+    min_latitude: 40.12762
+    min_longitude: 29.957953
+    max_latitude: 40.2001
+    max_longitude: 29.991397
+  translations:
+    en: Bilecik
+    ar: بيلجيك
+    az: Biləcik vilayəti
+    be: Правінцыя Біледжык
+    bg: Биледжик
+    bn: বিলেচিক প্রদেশ
+    ca: Província de Bilecik
+    cs: Bilecikská provincie
+    da: Bilecik Province
+    de: Bilecik
+    el: Επαρχία Μπιλετσίκ
+    es: Provincia de Bilecik
+    et: Bileciki provints
+    eu: Bilecik probintzia
+    fa: استان بیله‌جک
+    fi: Bilecikin maakunta
+    fr: Bilecik
+    gl: Provincia de Bilecik
+    gu: બિલેસિક પ્રાંત
+    he: בילג׳יק
+    hi: बिलेसिक प्रांत
+    hu: Bilecik
+    hy: Բիլեջիկ
+    id: Provinsi Bilecik
+    it: provincia di Bilecik
+    ja: ビレジク県
+    ka: ბილეჯიქის პროვინცია
+    kn: ಬಿಲೆಸಿಕ್ ಪ್ರಾಂತ್ಯ
+    ko: 빌레지크 주
+    lv: Biledžikas ils
+    mr: बिलेचिक प्रांत
+    ms: Wilayah Bilecik
+    nb: Bilecik
+    nl: Bilecik
+    pl: Bilecik
+    pt: Bilecik
+    ro: Provincia Bilecik
+    ru: Биледжик
+    si: බිලෙසික් පළාත
+    sl: Bilecik
+    sr: Билеџик
+    sv: Bilecik
+    sw: Mkoa wa Bilecik
+    ta: பிளேஸிக் மாகாணம்
+    te: బిలెసిక్ ప్రావిన్స్
+    th: จังหวัดบิเลชิก
+    tk: Bilejik
+    tr: Bilecik
+    uk: Біледжик
+    ur: بیلیجک صوبہ
+    vi: Bilecik
+    ceb: Bilecik
+    sr_Latn: Biledžik
+    lt: Biledžiko provincija
+    zh: 比莱吉克省
+    yue_Hans: 比莱吉克省
+    sq: Bilecik
+    ccp: "𑄝𑄨𑄣𑄬𑄥𑄨𑄇𑄴"
+    kk: Билежик
+    yue: 比萊吉克省
+    uz: Bilecik
+    bs: Bilecik
+    mk: Билеџик
+    'no': Bilecik
+    cy: Talaith Bilecik
+    sd: بليسڪ صوبو
+  type: province
+'12':
+  name: Bingöl
+  code: '12'
+  unofficial_names:
+  - Bingöl
+  geo:
+    latitude: 38.885349
+    longitude: 40.49829099999999
+    min_latitude: 38.874678
+    min_longitude: 40.4800891
+    max_latitude: 38.89169
+    max_longitude: 40.5216061
+  translations:
+    en: Bingöl
+    ar: بينغول
+    az: Bingöl vilayəti
+    be: Правінцыя Бінгёль
+    bg: Бингьол
+    bn: বিঙ্গল প্রদেশ
+    ca: Província de Bingöl
+    cs: Bingölská provincie
+    da: Bingol
+    de: Bingöl
+    el: Μπινγκόλ
+    es: Provincia de Bingöl
+    et: Bingöli provints
+    eu: Bingol probintzia
+    fa: استان بینگول
+    fi: Bingölin maakunta
+    fr: Bingöl
+    gl: Provincia de Bingöl
+    gu: બિંગોલ પ્રાંત
+    hi: बिंगोल प्रांत
+    hu: Bingöl
+    hy: Բինգյոլ
+    id: Provinsi Bingöl
+    it: provincia di Bingöl
+    ja: ビンギョル県
+    ka: ბინგოლის პროვინცია
+    kn: ಬಿಂಗೊಲ್ ಪ್ರಾಂತ್ಯ
+    ko: 빙괼 주
+    lv: Bingelas ils
+    mr: बिंगोल प्रांत
+    ms: Wilayah Bingöl
+    nb: Bingöl
+    nl: Bingöl
+    pl: Bingöl
+    pt: Bingöl
+    ro: Provincia Bingöl
+    ru: Бингёль
+    si: බින්ගොල් පළාත
+    sr: Бингол
+    sv: Bingöl
+    sw: Mkoa wa Bingöl
+    ta: பிங்கோள் மாகாணம்
+    te: బింగోల్ ప్రావిన్స్
+    th: จังหวัดบินกอล
+    tk: Bingöl
+    tr: Bingöl
+    uk: Бінґель
+    ur: بینگول صوبہ
+    vi: Bingöl
+    cy: Bingöl
+    ceb: Bingöl
+    sr_Latn: Bingol
+    lt: Bingelo provincija
+    zh: 宾格尔省
+    yue_Hans: 宾格尔省
+    ccp: "𑄝𑄨𑄚𑄴𑄉𑄮𑄣𑄴"
+    kk: Бингөл
+    yue: 賓格爾省
+    uz: Bingöl
+    bs: Bingöl
+    mk: Бингол
+    'no': Bingöl
+    af: Bingöl
+    hr: Bingöl (pokrajina)
+  type: province
+'13':
+  name: Bitlis
+  code: '13'
+  unofficial_names:
+  - Bitlis
+  geo:
+    latitude: 38.393799
+    longitude: 42.12318
+    min_latitude: 38.37997
+    min_longitude: 42.0875269
+    max_latitude: 38.429029
+    max_longitude: 42.1383121
+  translations:
+    en: Bitlis
+    ar: بدليس
+    az: Bitlis vilayəti
+    be: Правінцыя Бітліс
+    bg: Битлис
+    bn: বিতলিস প্রদেশ
+    ca: Província de Bitlis
+    cs: Bitliská provincie
+    da: Bitlis Province
+    de: Bitlis
+    el: Μπίτλις
+    es: Provincia de Bitlis
+    et: Bitlisi provints
+    eu: Bitlis probintzia
+    fa: استان بتلیس
+    fi: Bitlisin maakunta
+    fr: Bitlis
+    gu: બિટલીસ પ્રાંત
+    he: ביטליס
+    hi: बिटलिस प्रांत
+    hu: Bitlis
+    hy: Բիթլիս
+    id: Provinsi Bitlis
+    it: provincia di Bitlis
+    ja: ビトリス県
+    ka: ბითლისის პროვინცია
+    kn: ಬಿಟ್ಲಿಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 비틀리스 주
+    lv: Bitlisas ils
+    mr: बित्लिस प्रांत
+    ms: Wilayah Bitlis
+    nb: Bitlis
+    nl: Bitlis
+    pl: Bitlis
+    pt: Bitlis
+    ro: Provincia Bitlis
+    ru: Битлис
+    si: බිට්ලිස් පළාත
+    sr: Битлис
+    sv: Bitlis
+    sw: Mkoa wa Bitlis
+    ta: பிட்டலிஸ் மாகாணம்
+    te: బిట్లిస్ ప్రావిన్స్
+    th: จังหวัดบิตลิส
+    tk: Bitlis
+    tr: Bitlis
+    uk: Бітліс
+    ur: بتلیس صوبہ
+    vi: Bitlis
+    ceb: Bitlis
+    sr_Latn: Bitlis
+    lt: Bitliso provincija
+    zh: 比特利斯省
+    yue_Hans: 比特利斯省
+    ccp: "𑄝𑄨𑄣𑄴𑄑𑄨𑄌𑄴"
+    kk: Битлис
+    yue: 比特利斯省
+    uz: Bitlis
+    bs: Bitlis
+    mk: Битлис
+    'no': Bitlis
+    cy: Talaith Bitlis
+  type: province
+'14':
+  name: Bolu
+  code: '14'
+  unofficial_names:
+  - Bolu
+  geo:
+    latitude: 40.739479
+    longitude: 31.611561
+    min_latitude: 40.706339
+    min_longitude: 31.564409
+    max_latitude: 40.765095
+    max_longitude: 31.658418
+  translations:
+    en: Bolu
+    ar: بولو
+    az: Bolu vilayəti
+    be: Правінцыя Балу
+    bg: Болу
+    bn: বলু প্রদেশ
+    ca: Província de Bolu
+    cs: Bolská provincie
+    da: Bolu Province
+    de: Bolu
+    el: Επαρχία Μπολού
+    es: Provincia de Bolu
+    et: Bolu provints
+    eu: Bolu probintzia
+    fa: استان بولی
+    fi: Bolun maakunta
+    fr: Bolu
+    gl: Provincia de Bolu
+    gu: બોલુ પ્રાંત
+    hi: बोलू प्रांत
+    hu: Bolu
+    hy: Բոլուի նահանգ
+    id: Provinsi Bolu
+    it: provincia di Bolu
+    ja: ボル県
+    ka: ბოლუს პროვინცია
+    kn: ಬೋಲು ಪ್ರಾಂತ್ಯ
+    ko: 볼루 주
+    lv: Bolu ils
+    mr: बोलू प्रांत
+    ms: Wilayah Bolu
+    nb: Bolu
+    nl: Bolu
+    pl: Bolu
+    pt: Bolu
+    ro: Provincia Bolu
+    ru: Болу
+    si: බොලු පළාත
+    sr: Болу
+    sv: Bolu
+    sw: Mkoa wa Bolu
+    ta: பாலு மாகாணம்
+    te: బోలు ప్రావిన్స్
+    th: จังหวัดโบลู
+    tk: Bolu
+    tr: Bolu
+    uk: Болу
+    ur: بولو صوبہ
+    vi: Bolu
+    cy: Bolu
+    ceb: Bolu (lalawigan)
+    sr_Latn: Bolu
+    lt: Bolo provincija
+    zh: 博卢省
+    yue_Hans: 博卢省
+    sq: Bolu
+    ccp: "𑄝𑄮𑄣𑄪"
+    kk: Болу
+    yue: 博盧省
+    uz: Bolu
+    bs: Bolu
+    mk: Болу
+    'no': Bolu
+  type: province
+'15':
+  name: Burdur
+  code: '15'
+  unofficial_names:
+  - Burdur
+  geo:
+    latitude: 37.726909
+    longitude: 30.288876
+    min_latitude: 37.704594
+    min_longitude: 30.2286262
+    max_latitude: 37.760559
+    max_longitude: 30.3362129
+  translations:
+    en: Burdur
+    ar: بوردور
+    az: Burdur vilayəti
+    be: Правінцыя Бурдур
+    bg: Бурдур
+    bn: বুরদূর প্রদেশ
+    ca: Província de Burdur
+    cs: Burdurská provincie
+    da: Burdur Province
+    de: Burdur
+    el: Επαρχία Μπουρντούρ
+    es: Provincia de Burdur
+    et: Burduri provints
+    eu: Burdur probintzia
+    fa: استان بوردور
+    fi: Burdurin maakunta
+    fr: Burdur
+    gu: બુર્ડુર પ્રાંત
+    hi: बुर्दूर प्रांत
+    hu: Burdur
+    hy: Բուրդուր
+    id: Provinsi Burdur
+    it: provincia di Burdur
+    ja: ブルドゥル県
+    ka: ბურდურის პროვინცია
+    kn: ಬೂರ್ಡು ಪ್ರಾಂತ್ಯ
+    ko: 부르두르 주
+    lv: Burduras ils
+    mr: बुर्दुर प्रांत
+    ms: Wilayah Burdur
+    nb: Burdur
+    ne: बुर्डुर् क्षेत्र
+    nl: Burdur
+    pl: Burdur
+    pt: Burdur
+    ro: Provincia Burdur
+    ru: Бурдур (ил)
+    si: බර්ඩර් පළාත
+    sr: Бурдур
+    sv: Burdur
+    sw: Mkoa wa Burdur
+    ta: பர்துர் மாகாணம்
+    te: బుర్డుర్ ప్రావిన్స్
+    th: จังหวัดบูร์ดูร์
+    tk: Burdur
+    tr: Burdur
+    uk: Бурдур
+    ur: بوردور صوبہ
+    vi: Burdur
+    ceb: Burdur
+    sr_Latn: Burdur
+    lt: Burduro provincija
+    zh: 布尔杜尔省
+    yue_Hans: 布林杜尔省
+    sq: Burdur
+    ccp: "𑄝𑄪𑄢𑄴𑄓𑄪𑄢𑄴"
+    kk: Бурдур
+    yue: 布林杜爾省
+    uz: Burdur
+    bs: Burdur
+    mk: Бурдур
+    'no': Burdur
+    cy: Talaith Burdur
+  type: province
+'16':
+  name: Bursa
+  code: '16'
+  unofficial_names:
+  - Bursa
+  geo:
+    latitude: 40.266864
+    longitude: 29.0634479
+    min_latitude: 40.254332
+    min_longitude: 29.0490682
+    max_latitude: 40.318955
+    max_longitude: 29.114446
+  translations:
+    en: Bursa
+    ar: بورصة
+    az: Bursa vilayəti
+    be: Правінцыя Бурса
+    bg: Бурса
+    bn: বুরসা প্রদেশ
+    ca: Província de Bursa
+    cs: Burská provincie
+    da: Bursa Province
+    de: Bursa
+    el: Επαρχία Προύσας
+    es: Provincia de Bursa
+    et: Bursa provints
+    eu: Bursa probintzia
+    fa: استان بورسا
+    fi: Bursan maakunta
+    fr: Bursa
+    gl: Provincia de Bursa
+    gu: બૃસા પ્રાંત
+    hi: बुर्सा प्रांत
+    hr: Bursa
+    hu: Bursa
+    hy: Բուրսա
+    id: Provinsi Bursa
+    it: provincia di Bursa
+    ja: ブルサ県
+    ka: ბურსის პროვინცია
+    kn: ಬುರ್ಸಾ ಪ್ರಾಂತ್ಯ
+    ko: 부르사 주
+    lv: Bursas ils
+    mr: बुर्सा प्रांत
+    ms: Wilayah Bursa
+    nb: Bursa
+    nl: Bursa
+    pl: Bursa
+    pt: Bursa
+    ro: Provincia Bursa
+    ru: Бурса
+    si: බර්සා පළාත
+    sl: Bursa
+    sr: Бурса
+    sv: Bursa
+    sw: Mkoa wa Bursa
+    ta: பர்ஸா மாகாணம்
+    te: బుర్సా ప్రావిన్స్
+    th: จังหวัดบูร์ซา
+    tk: Bursa
+    tr: Bursa
+    uk: Бурса
+    ur: بورصہ صوبہ
+    vi: Bursa
+    cy: Bursa
+    ceb: Bursa (lalawigan)
+    sr_Latn: Bursa
+    lt: Bursos provincija
+    zh: 布尔萨省
+    yue_Hans: 布尔萨省
+    sq: Brusa
+    ccp: "𑄝𑄪𑄢𑄴𑄥"
+    yue: 布爾薩省
+    uz: Bursa
+    bs: Bursa
+    mk: Бурса
+    'no': Bursa
+    he: מחוז בורסה
+  type: province
+'17':
+  name: Çanakkale
+  code: '17'
+  unofficial_names:
+  - Çanakkale
+  geo:
+    latitude: 40.147778
+    longitude: 26.405556
+    min_latitude: 40.089921
+    min_longitude: 26.3857388
+    max_latitude: 40.17119599999999
+    max_longitude: 26.468447
+  translations:
+    en: Çanakkale
+    ar: محافظة جاناكالي
+    az: Çanaqqala vilayəti
+    be: Правінцыя Чанакале
+    bg: Чанаккале
+    bn: ক্যানাক্কালে প্রদেশ
+    ca: Província de Çanakkale
+    cs: Çanakkale (provincie)
+    da: Çanakkale Province
+    de: Çanakkale
+    el: Επαρχία Τσανάκκαλε
+    es: Provincia de Çanakkale
+    et: Çanakkale provints
+    eu: Çanakkale probintzia
+    fa: استان چاناق‌قلعه
+    fi: Çanakkalen maakunta
+    fr: Çanakkale
+    gl: Provincia de Çanakkale
+    gu: કનકાલે પ્રાંત
+    hi: कनक्केल प्रांत
+    hu: Çanakkale
+    hy: Չանաքկալե
+    id: Provinsi Çanakkale
+    it: provincia di Çanakkale
+    ja: チャナッカレ県
+    ka: ჩანაქკალეს პროვინცია
+    kn: ಕ್ಯಾನಕ್ಕಲೆ ಪ್ರಾಂತ್ಯ
+    ko: 차나칼레 주
+    lv: Čanakales ils
+    mr: चनाक्काले प्रांत
+    ms: Wilayah Çanakkale
+    nb: Çanakkale
+    nl: Çanakkale
+    pl: Çanakkale
+    pt: Çanakkale
+    ro: Provincia Çanakkale
+    ru: Чанаккале
+    si: කනක්කලේ පළාත
+    sl: Çanakkale
+    sr: Чанакале
+    sv: Çanakkale
+    sw: Mkoa wa Çanakkale
+    ta: கணுக்களே மாகாணம்
+    te: కెనక్కేల్ ప్రావిన్స్
+    th: จังหวัด คานากเคล
+    tk: Çanakkale
+    tr: Çanakkale
+    uk: Чанаккале
+    ur: چناق قلعہ صوبہ
+    vi: Çanakkale
+    cy: Çanakkale
+    ceb: Çanakkale
+    sr_Latn: Čanakale
+    lt: Čanakalės provincija
+    zh: 恰纳卡莱省
+    yue_Hans: 恰纳卡莱省
+    jv: Provinsi Çanakkale
+    ccp: "𑄇𑄬𑄚𑄇𑄴𑄇𑄣𑄬"
+    kk: Чанаккале
+    yue: 恰納卡萊省
+    uz: Çanakkale
+    bs: Çanakkale
+    mk: Чанаккале
+    'no': Çanakkale
+  type: province
+'18':
+  name: Çankırı
+  code: '18'
+  unofficial_names:
+  - Çankırı
+  geo:
+    latitude: 40.6013428
+    longitude: 33.6134213
+    min_latitude: 40.567176
+    min_longitude: 33.5933449
+    max_latitude: 40.647551
+    max_longitude: 33.635831
+  translations:
+    en: Çankırı
+    ar: جانقري
+    az: Çankırı ili
+    be: Правінцыя Чанкыры
+    bg: Чанкъръ (вилает)
+    bn: ক্লেযান ক্যানকিরি প্রদেশ
+    ca: Província de Çankırı
+    cs: Çankırská provincie
+    da: Çankırı Province
+    de: Çankırı (Provinz)
+    el: Επαρχία Τσανκιρί
+    es: Provincia de Çankırı
+    et: Çankırı provints
+    eu: Çankırı probintzia
+    fa: استان چانقری
+    fi: Çankırın maakunta
+    fr: Çankırı (province)
+    gu: કેન્કીરી પ્રાંત
+    hi: कैंकीरी प्रांत
+    hu: Çankırı (tartomány)
+    id: Provinsi Çankırı
+    it: provincia di Çankırı
+    ja: チャンクル県
+    ka: ჩანქირის პროვინცია
+    kn: ಚಾಂಕಿರಿ ಪ್ರಾಂತ್ಯ
+    ko: 창키리 주
+    lv: Čankiri ils
+    mr: चांकर प्रांत
+    ms: Wilayah Çankırı
+    nb: Çankırı
+    nl: Çankırı
+    pl: Çankırı (prowincja)
+    pt: Çankırı (província)
+    ro: Provincia Çankırı
+    ru: Чанкыры (ил)
+    si: කන්කිරි පළාත
+    sr: Чанкири (вилајет)
+    sv: Çankırı (provins)
+    sw: Mkoa wa Çankırı
+    ta: கான்கிரி மாகாணம்
+    te: కాంకిరి ప్రావిన్స్
+    th: จังหวัดแคนคิรี่
+    tk: Çankyry (il)
+    tr: Çankırı (il)
+    uk: Чанкири (іл)
+    ur: چانقری صوبہ
+    vi: Çankırı (tỉnh)
+    ceb: Çankırı
+    sr_Latn: Čankiri (vilajet)
+    lt: Čankirio provincija
+    zh: 昌克勒省
+    yue_Hans: 昌克勒省
+    ccp: "𑄇𑄚𑄴𑄇𑄨𑄢𑄨"
+    kk: Чанкыры
+    yue: 昌克勒省
+    uz: Çankırı (viloyat)
+    bs: Çankiri
+    mk: Чанкр (покраина)
+    'no': Çankırı
+    cy: Talaith Çankırı
+    hy: Չանքըրըի մարզ
+  type: province
+'19':
+  name: Çorum
+  code: '19'
+  unofficial_names:
+  - Çorum
+  geo:
+    latitude: 40.554371
+    longitude: 34.963718
+    min_latitude: 40.486869
+    min_longitude: 34.887546
+    max_latitude: 40.583577
+    max_longitude: 34.9962619
+  translations:
+    en: Çorum
+    ar: شوروم
+    az: Çorum ili
+    be: Правінцыя Чарум
+    bg: Чорум (вилает)
+    ca: Província de Çorum
+    cs: Çorumská provincie
+    de: Çorum
+    el: Επαρχία Τσορούμ
+    es: Provincia de Çorum
+    et: Çorumi provints
+    eu: Çorum probintzia
+    fa: استان چوروم
+    fi: Çorumin maakunta
+    fr: Çorum (province)
+    hu: Çorum (tartomány)
+    hy: Չորումի նահանգ
+    id: Provinsi Çorum
+    it: provincia di Çorum
+    ja: チョルム県
+    ka: ჩორუმის პროვინცია
+    ko: 초룸 주
+    lv: Čorumas ils
+    mr: चोरुम प्रांत
+    ms: Wilayah Çorum
+    nb: Çorum
+    nl: Çorum
+    pl: Çorum (prowincja)
+    pt: Çorum (província)
+    ro: Provincia Çorum
+    ru: Чорум (ил)
+    sr: Чорум
+    sv: Çorum (provins)
+    sw: Mkoa wa Çorum
+    tk: Çorum (il)
+    tr: Çorum (il)
+    uk: Чорум (іл)
+    ur: چوروم صوبہ
+    vi: Çorum (tỉnh)
+    cy: Çorum
+    ceb: Çorum
+    sr_Latn: Čorum
+    zh: 乔鲁姆省
+    yue_Hans: 乔鲁姆省
+    hi: कॉरम प्रांत
+    ccp: "𑄇𑄢𑄪𑄟𑄴"
+    kk: Чорум
+    yue: 喬魯姆省
+    th: จังหวัดโชรุม
+    uz: Çorum (viloyat)
+    bs: Çorum
+    mk: Чорум (покраина)
+    'no': Çorum
+    ta: கோரம் மாகாணம்
+  type: province
+'20':
+  name: Denizli
+  code: '20'
+  unofficial_names:
+  - Denizli
+  geo:
+    latitude: 37.77652
+    longitude: 29.08639
+    min_latitude: 37.722339
+    min_longitude: 28.9931389
+    max_latitude: 37.843464
+    max_longitude: 29.1701542
+  translations:
+    en: Denizli
+    ar: دينيزلي
+    az: Dənizli vilayəti
+    be: Правінцыя Дэнізлі
+    bg: Денизли
+    bn: দানিজি প্রদেশ
+    ca: Província de Denizli
+    cs: Denizliská provincie
+    da: Denizli Province
+    de: Denizli
+    el: Επαρχία Ντενιζλί
+    es: Provincia de Denizli
+    et: Denizli provints
+    eu: Denizli probintzia
+    fa: استان دنیزلی
+    fi: Denizlin maakunta
+    fr: Denizli
+    gu: ડેનિઝ્લી પ્રાંત
+    hi: देनिज्ली प्रांत
+    hu: Denizli
+    hy: Դենիզլիի նահանգ
+    id: Provinsi Denizli
+    it: provincia di Denizli
+    ja: デニズリ県
+    ka: დენიზლის პროვინცია
+    kn: ಡೆನಿಜ್ಲಿ ಪ್ರಾಂತ್ಯ
+    ko: 데니즐리 주
+    lv: Denizli ils
+    mr: देनिझ्ली प्रांत
+    ms: Wilayah Denizli
+    nb: Denizli
+    nl: Denizli
+    pl: Denizli
+    pt: Denizli
+    ro: Provincia Denizli
+    ru: Денизли
+    si: ඩෙනිස්ලි පළාත
+    sl: Denizli
+    sr: Денизли
+    sv: Denizli
+    sw: Mkoa wa Denizli
+    ta: டெனிஸ்லி மாகாணம்
+    te: డెనిజిల్ ప్రావిన్స్
+    th: จังหวัดเดนิซลี
+    tk: Denizli
+    tr: Denizli
+    uk: Денізлі
+    ur: دنیزلی صوبہ
+    vi: Denizli
+    ceb: Denizli
+    sr_Latn: Denizli
+    lt: Denizlio provincija
+    zh: 代尼兹利省
+    yue_Hans: 代尼兹利省
+    ccp: "𑄓𑄬𑄚𑄨𑄌𑄴𑄣𑄨"
+    kk: Денизли
+    yue: 代尼茲利省
+    uz: Denizli
+    bs: Denizli
+    mk: Денизли
+    'no': Denizli
+    cy: Talaith Denizli
+  type: province
+'21':
+  name: Diyarbakır
+  code: '21'
+  unofficial_names:
+  - Diyarbakır
+  geo:
+    latitude: 37.9144099
+    longitude: 40.230629
+    min_latitude: 37.86583
+    min_longitude: 40.078436
+    max_latitude: 37.979755
+    max_longitude: 40.24692
+  translations:
+    en: Diyarbakır
+    ar: دياربكر
+    az: Diyarbəkir vilayəti
+    be: Правінцыя Дыярбакыр
+    bg: Диарбекир
+    bn: দিয়ারবাকির প্রদেশ
+    ca: Província de Diyarbakır
+    cs: Diyarbakırská provincie
+    da: Diyarbakır Province
+    de: Diyarbakır
+    el: Επαρχία Ντιγιαρμπακίρ
+    es: Provincia de Diyarbakır
+    et: Diyarbakıri provints
+    eu: Diyarbakir probintzia
+    fa: استان دیاربکر
+    fi: Diyarbakırin maakunta
+    fr: Diyarbakır
+    gu: દિયાર્બકીર પ્રાંત
+    he: נפת דיארבקיר
+    hi: दियेर्बाकीर प्रांत
+    hu: Diyarbakır
+    hy: Դիարբեքիր
+    id: Provinsi Diyarbakır
+    it: provincia di Diyarbakır
+    ja: ディヤルバクル県
+    ka: დიარბაქირის პროვინცია
+    kn: ಡಿಯರಿಬಕಿರ್ ಪ್ರಾಂತ್ಯ
+    ko: 디야르바키르 주
+    lv: Dijarbakiras ils
+    mr: दियाबाकर प्रांत
+    ms: Wilayah Diyarbakır
+    nb: Diyarbakır
+    nl: Diyarbakır
+    pl: Diyarbakır
+    pt: Diyarbakır
+    ro: Provincia Diyarbakır
+    ru: Диярбакыр
+    si: දියර්බකිර් පළාත
+    sl: Diyarbakır
+    sr: Дијарбакир
+    sv: Diyarbakır
+    sw: Mkoa wa Diyarbakır
+    ta: டியர்பகிர் மாகாணம்
+    te: డియార్బకర్ ప్రావిన్స్
+    th: จังหวัดดียาร์บากึร์
+    tk: Diýarbakyr
+    tr: Diyarbakır
+    uk: Діярбакир
+    ur: دیار بکر صوبہ
+    vi: Diyarbakır
+    cy: Diyarbakır
+    ceb: Diyarbakır
+    sr_Latn: Dijarbakir
+    lt: Dijarbakiro provincija
+    zh: 迪亚巴克尔省
+    yue_Hans: 迪亚巴克尔省
+    sq: Dijarbakëri
+    ccp: "𑄓𑄨𑄠𑄢𑄴𑄝𑄇𑄨𑄢𑄴"
+    yue: 迪亞巴克爾省
+    uz: Diyarbakır
+    bs: Diyarbakır
+    mk: Дијарбекир
+    'no': Diyarbakır
+  type: province
+'22':
+  name: Edirne
+  code: '22'
+  unofficial_names:
+  - Edirne
+  geo:
+    latitude: 41.674444
+    longitude: 26.560833
+    min_latitude: 41.6419
+    min_longitude: 26.5429609
+    max_latitude: 41.695851
+    max_longitude: 26.6036879
+  translations:
+    en: Edirne
+    ar: ادرنة
+    az: Ədirnə vilayəti
+    be: Правінцыя Эдзірне
+    bg: Одрин
+    bn: এডির্নে প্রদেশ
+    ca: Província d’Edirne
+    cs: Edirneská provincie
+    da: Edirne
+    de: Edirne
+    el: Επαρχία Αδριανούπολης
+    es: Provincia de Edirne
+    et: Edirne provints
+    eu: Edirne probintzia
+    fa: استان ادرنه
+    fi: Edirnen maakunta
+    fr: Edirne
+    gu: એડિર્ને પ્રાંત
+    hi: एडीर्ने प्रांत
+    hr: Edirne
+    hu: Edirne
+    hy: Էդիրնե
+    id: Provinsi Edirne
+    it: provincia di Edirne
+    ja: エディルネ県
+    ka: ედირნეს პროვინცია
+    kn: ಎಡಿರ್ನೆ ಪ್ರಾಂತ್ಯ
+    ko: 에디르네 주
+    lv: Edirnes ils
+    mr: एदिर्ने प्रांत
+    ms: Wilayah Edirne
+    nb: Edirne
+    ne: एडिरने क्षेत्र
+    nl: Edirne
+    pl: Edirne
+    pt: Edirne
+    ro: Provincia Edirne
+    ru: Эдирне
+    si: එඩිර්නේ පළාත
+    sl: Odrin
+    sr: Једрене
+    sv: Edirne
+    sw: Mkoa wa Edirne
+    ta: எதிர்ன் மாகாணம்
+    te: ఎడిర్నె ప్రావిన్స్
+    th: จังหวัดเอเดียร์เน
+    tk: Edirne
+    tr: Edirne
+    uk: Едірне
+    ur: ادرنہ صوبہ
+    vi: Edirne
+    cy: Edirne
+    ceb: Edirne
+    sr_Latn: Jedrene
+    lt: Edirnės provincija
+    zh: 埃迪尔内省
+    yue_Hans: 埃迪尔内省
+    sq: Edirne
+    ccp: "𑄃𑄬𑄓𑄨𑄢𑄴𑄚𑄬"
+    yue: 埃迪爾內省
+    uz: Edirne
+    bs: Edirne
+    mk: Одрин
+    'no': Edirne
+    gl: Provincia de Edirne
+  type: province
+'23':
+  name: Elazığ
+  code: '23'
+  unofficial_names:
+  - Elazığ
+  geo:
+    latitude: 38.680969
+    longitude: 39.226398
+    min_latitude: 38.631944
+    min_longitude: 39.1205639
+    max_latitude: 38.697375
+    max_longitude: 39.27574010000001
+  translations:
+    en: Elazığ
+    ar: إيلازيغ
+    az: Elazığ ili
+    be: Правінцыя Элязыг
+    bg: Елязъг
+    bn: এলাজিগ প্রদেশ
+    ca: Província d’Elâzığ
+    cs: Elâzığ (provincie)
+    da: Elazığ Province
+    de: Elazığ
+    el: Επαρχία Ελαζίγκ
+    es: Provincia de Elazığ
+    et: Elazıği provints
+    eu: Elazığ probintzia
+    fa: استان الازیغ
+    fi: Elazığin maakunta
+    fr: Elâzığ
+    gu: એલાઝિગ પ્રાંત
+    he: נפת אלזי
+    hi: एलाज़िग
+    hu: Elazığ
+    hy: Խարբերդի նահանգ
+    id: Provinsi Elâzığ
+    it: provincia di Elâzığ
+    ja: エラズー県
+    ka: ელაზიღის პროვინცია
+    kn: ಎಲಾಝಿಗ್ ಪ್ರಾಂತ್ಯ
+    ko: 엘라지 주
+    lv: Elazīgas ils
+    mr: एलाझग प्रांत
+    ms: Wilayah Elâzığ
+    nb: Elazığ
+    nl: Elazığ
+    pl: Elazığ
+    pt: Elazığ
+    ro: Provincia Elazığ
+    ru: Элязыг
+    si: එලසිග් පළාත
+    sr: Елазиг
+    sv: Elazığ
+    sw: Mkoa wa Elazığ
+    ta: எலாஜிக் மாகாணம்
+    te: ఎలాజిగ్ ప్రావిన్స్
+    th: จังหวัดซัลซิก
+    tk: Elazyg
+    tr: Elâzığ
+    uk: Елязиг
+    ur: الازیغ صوبہ
+    vi: Elâzığ
+    ceb: Elazığ
+    sr_Latn: Elazig
+    lt: Elazigo provincija
+    zh: 埃拉泽省
+    yue_Hans: 埃拉泽省
+    sq: Provinca Ellazë
+    ccp: "𑄃𑄨𑄣𑄎𑄨𑄇𑄴"
+    yue: 埃拉澤省
+    uz: Elazığ
+    bs: Elazığ
+    mk: Елазиг
+    'no': Elazığ
+    cy: Talaith Elazığ
+  type: province
+'24':
+  name: Erzincan
+  code: '24'
+  unofficial_names:
+  - Erzincan
+  geo:
+    latitude: 39.7399289
+    longitude: 39.504501
+    min_latitude: 39.712936
+    min_longitude: 39.4603087
+    max_latitude: 39.781213
+    max_longitude: 39.547508
+  translations:
+    en: Erzincan
+    ar: أرزنجان
+    az: Ərzincan ili
+    be: Правінцыя Эрзінджан
+    bg: Ерзинджан
+    bn: এরজিঙ্কান প্রদেশ
+    ca: Província d’Erzincan
+    cs: Erzincanská provincie
+    da: Erzincan Province
+    de: Erzincan
+    el: Ερζινκάν
+    es: Provincia de Erzincan
+    et: Erzincani provints
+    eu: Erzincan probintzia
+    fa: استان ارزنجان
+    fi: Erzincanin maakunta
+    fr: Erzincan
+    gu: એર્ઝિનકેન પ્રાંત
+    hi: अर्ज़िनकैन प्रांत
+    hu: Erzincan
+    hy: Էրզինջանի նահանգ
+    id: Provinsi Erzincan
+    it: provincia di Erzincan
+    ja: エルズィンジャン県
+    ka: ერზინჯანის პროვინცია
+    kn: ಎರ್ಜಿನ್ಸನ್ ಪ್ರಾಂತ್ಯ
+    ko: 에르진잔 주
+    lv: Erzindžanas ils
+    mr: एर्झिंजान प्रांत
+    ms: Wilayah Erzincan
+    nb: Erzincan
+    nl: Erzincan
+    pl: Erzincan
+    pt: Erzincan
+    ro: Provincia Erzincan
+    ru: Эрзинджан
+    si: එර්සින්කන් පළාත
+    sr: Ерзинџан
+    sv: Erzincan
+    sw: Mkoa wa Erzincan
+    ta: இரசிங்கன் மாகாணம்
+    te: ఎర్జింకన్ ప్రావిన్స్
+    th: จังหวัดเอร์ซินจัน
+    tk: Erzinjan
+    tr: Erzincan
+    uk: Ерзінджан
+    ur: ارزنجان صوبہ
+    vi: Erzincan
+    cy: Erzincan
+    ceb: Erzincan
+    sr_Latn: Erzindžan
+    lt: Erzindžano provincija
+    zh: 埃尔津詹省
+    yue_Hans: 埃尔津詹省
+    ccp: "𑄃𑄨𑄢𑄴𑄎𑄨𑄚𑄴𑄇𑄚𑄴"
+    yue: 埃爾津詹省
+    uz: Erzincan
+    bs: Erzincan
+    mk: Ерзинџан
+    'no': Erzincan
+    hr: Erzincan (pokrajina)
+  type: province
+'25':
+  name: Erzurum
+  code: '25'
+  unofficial_names:
+  - Erzurum
+  geo:
+    latitude: 39.908611
+    longitude: 41.276944
+    min_latitude: 39.867876
+    min_longitude: 41.2164562
+    max_latitude: 39.955924
+    max_longitude: 41.3105771
+  translations:
+    en: Erzurum
+    ar: أرضروم
+    az: Ərzurum ili
+    be: Правінцыя Эрзурум
+    bg: Ерзурум
+    bn: এরজুরাম প্রদেশ
+    ca: Província d’Erzurum
+    cs: Erzurum
+    da: Erzurum
+    de: Erzurum
+    el: Ερζουρούμ
+    es: Provincia de Erzurum
+    et: Erzurumi provints
+    eu: Erzurum probintzia
+    fa: استان ارزروم
+    fi: Erzurumin maakunta
+    fr: Erzurum
+    gu: એર્ઝૂરુમ પ્રાંત
+    he: ארזורום
+    hi: एर्ज़ुरुम प्रांत
+    hu: Erzurum
+    hy: Էրզրում
+    id: Provinsi Erzurum
+    it: provincia di Erzurum
+    ja: エルズルム県
+    kn: ಎರ್ಜುರುಮ್ ಪ್ರಾಂತ್ಯ
+    ko: 에르주룸 주
+    lv: Erzurumas ils
+    mr: एर्झुरुम प्रांत
+    ms: Wilayah Erzurum
+    nb: Erzurum
+    nl: Erzurum
+    pl: Erzurum
+    pt: Erzurum
+    ro: Provincia Erzurum
+    ru: Эрзурум
+    si: එර්සරම් පළාත
+    sl: Erzurum
+    sr: Ерзурум
+    sv: Erzurum
+    sw: Mkoa wa Erzurum
+    ta: ஏர்ஸுரும் மாகாணம்
+    te: ఎర్జురుమ్ ప్రావిన్స్
+    th: จังหวัดเออซูรัม
+    tk: Erzurum
+    tr: Erzurum
+    uk: Ерзурум
+    ur: ارض روم صوبہ
+    vi: Erzurum (tỉnh)
+    cy: Erzurum
+    ceb: Erzurum
+    sr_Latn: Erzurum
+    lt: Erzurumo provincija
+    zh: 埃尔祖鲁姆省
+    yue_Hans: 埃尔祖鲁姆省
+    sq: Erzurum
+    ccp: "𑄃𑄨𑄢𑄴𑄎𑄪𑄢𑄪𑄟𑄴"
+    ka: ერზურუმის პროვინცია
+    pa: ਏਰਜੁਰਮ
+    yue: 埃爾祖魯姆省
+    uz: Erzurum
+    bs: Erzurum
+    mk: Ерзурум
+    'no': Erzurum
+  type: province
+'26':
+  name: Eskişehir
+  code: '26'
+  unofficial_names:
+  - Eskişehir
+  geo:
+    latitude: 39.776667
+    longitude: 30.520556
+    min_latitude: 39.702564
+    min_longitude: 30.4090549
+    max_latitude: 39.828122
+    max_longitude: 30.6805741
+  translations:
+    en: Eskişehir
+    ar: إسكيشهر
+    az: Əskişəhər ili
+    be: Правінцыя Эскішэхір
+    bg: Ескишехир
+    bn: এস্কিসেহির প্রদেশ
+    ca: Província d’Eskişehir
+    cs: Eskişehir
+    da: Eskişehir Province
+    de: Eskişehir
+    el: Επαρχία Εσκί Σεχίρ
+    es: Provincia de Eskişehir
+    et: Eskişehiri provints
+    eu: Eskişehir probintzia
+    fa: استان اسکی‌شهر
+    fi: Eskişehirin maakunta
+    fr: Eskişehir
+    gu: એસ્કિશેહિર પ્રાંત
+    hi: एस्कीसेहिर प्रांत
+    hu: Eskişehir
+    hy: Էսքիշեհիր
+    id: Provinsi Eskişehir
+    it: provincia di Eskişehir
+    ja: エスキシェヒル県
+    ka: ესქიშეჰირის პროვინცია
+    kn: ಎಸ್ಕಿಶೀರ್ ಪ್ರಾಂತ್ಯ
+    ko: 에스키셰히르 주
+    lv: Eskišehiras ils
+    mr: एस्किशेहिर प्रांत
+    ms: Wilayah Eskişehir
+    nb: Eskişehir
+    nl: Eskişehir
+    pl: Eskişehir
+    pt: Eskişehir
+    ro: Provincia Eskișehir
+    ru: Эскишехир
+    si: එස්කිසේහිර් පළාත
+    sr: Ескишехир
+    sv: Eskişehir
+    sw: Mkoa wa Eskişehir
+    ta: எஸ்கிசோஹிர் மாகாணம்
+    te: ఎస్కిసెహిర్ ప్రావిన్స్
+    th: เมืองหลวงเอสกิซีเฮียร์
+    tk: Eskişehir
+    tr: Eskişehir
+    uk: Ескішехір
+    ur: اسکی شہر صوبہ
+    vi: Eskişehir
+    ceb: Eskişehir
+    sr_Latn: Eskišehir
+    lt: Eskišehiro provincija
+    zh: 埃斯基谢希尔省
+    yue_Hans: 埃斯基谢希尔省
+    ccp: "𑄃𑄨𑄌𑄴𑄇𑄨𑄥𑄬𑄦𑄨𑄢𑄴"
+    yue: 埃斯基謝希爾省
+    uz: Eskişehir
+    bs: Eskişehir
+    mk: Ескишехир
+    'no': Eskişehir
+    cy: Talaith Eskişehir
+  type: province
+'27':
+  name: Gaziantep
+  code: '27'
+  unofficial_names:
+  - Gaziantep
+  geo:
+    latitude: 37.06622
+    longitude: 37.38332
+    min_latitude: 37.009252
+    min_longitude: 37.3034992
+    max_latitude: 37.108291
+    max_longitude: 37.4567749
+  translations:
+    en: Gaziantep
+    ar: عنتاب
+    az: Qaziantep ili
+    be: Правінцыя Газіянтэп
+    bg: Газиантеп
+    bn: গাজিয়ান্টেপ প্রদেশ
+    ca: Província de Gaziantep
+    cs: Gaziantepská provincie
+    da: Gaziantep Province
+    de: Gaziantep
+    el: Επαρχία Γκαζιαντέπ
+    es: Provincia de Gaziantep
+    et: Gaziantepi provints
+    eu: Gaziantep probintzia
+    fa: استان غازی‌عینتاب
+    fi: Gaziantepin maakunta
+    fr: Gaziantep
+    gu: ગાઝયન્ટેપ પ્રાંત
+    hi: गज़ियांटेप प्रांत
+    hu: Gaziantep
+    hy: Գազիանթեփ
+    id: Provinsi Gaziantep
+    it: provincia di Gaziantep
+    ja: ガズィアンテプ県
+    ka: გაზიანთეფის პროვინცია
+    kn: ಗಜಿಯಾಂಟ್ ಪ್ರಾಂತ್ಯ
+    ko: 가지안테프 주
+    lv: Gaziantepas ils
+    mr: गाझियान्तेप प्रांत
+    ms: Wilayah Gaziantep
+    nb: Gaziantep
+    nl: Gaziantep
+    pl: Gaziantep
+    pt: Gaziantep
+    ro: Provincia Gaziantep
+    ru: Газиантеп
+    si: ගාසියන්ටෙප් පළාත
+    sr: Газијантеп
+    sv: Gaziantep
+    sw: Mkoa wa Gaziantep
+    ta: கசியன்டேப் மாகாணம்
+    te: గాజియాంటెప్ ప్రావిన్స్
+    th: อัล ชาฮ์เคีย โกเวอโนเรท
+    tk: Gaziantep
+    tr: Gaziantep
+    uk: Ґазіантеп
+    ur: غازی عینتاب صوبہ
+    vi: Gaziantep
+    cy: Gaziantep
+    ceb: Gaziantep
+    sr_Latn: Gazijantep
+    lt: Gaziantepo provincija
+    zh: 加济安泰普省
+    yue_Hans: 加济安泰普省
+    ccp: "𑄉𑄳𑄠𑄎𑄨𑄠𑄚𑄴𑄑𑄬𑄛𑄴"
+    yue: 加濟安泰普省
+    uz: Gaziantep
+    bs: Gaziantep
+    mk: Газиантеп
+    'no': Gaziantep
+    he: גזיאנטפ
+  type: province
+'28':
+  name: Giresun
+  code: '28'
+  unofficial_names:
+  - Giresun
+  geo:
+    latitude: 40.912811
+    longitude: 38.38953
+    min_latitude: 40.880759
+    min_longitude: 38.3108371
+    max_latitude: 40.92777
+    max_longitude: 38.4476309
+  translations:
+    en: Giresun
+    ar: غيرسون
+    az: Girəsun ili
+    be: Правінцыя Гірэсун
+    bg: Гиресун
+    bn: গিরেসুন প্রদেশ
+    ca: Província de Giresun
+    cs: Giresunská provincie
+    da: Giresun Province
+    de: Giresun
+    el: Επαρχία Κερασούντας
+    es: Provincia de Giresun
+    et: Giresuni provints
+    eu: Giresun probintzia
+    fa: استان گره‌سون
+    fi: Giresunin maakunta
+    fr: Giresun
+    gu: ગિર્સન પ્રાંત
+    hi: गियरसन प्रांत
+    hu: Giresun
+    hy: Գիրեսուն
+    id: Provinsi Giresun
+    it: provincia di Giresun
+    ja: ギレスン県
+    ka: გირესუნის პროვინცია
+    kn: ಜಿರಸುನ್ ಪ್ರಾಂತ್ಯ
+    ko: 기레순 주
+    lv: Giresunas ils
+    mr: गिरेसुन प्रांत
+    ms: Wilayah Giresun
+    nb: Giresun
+    nl: Giresun
+    pl: Giresun
+    pt: Giresun (província)
+    ro: Provincia Giresun
+    ru: Гиресун
+    si: ගරෙසන් පළාත
+    sr: Гиресун
+    sv: Giresun
+    sw: Mkoa wa Giresun
+    ta: கிரேசன் மாகாணம்
+    te: గిరెసున్ ప్రావిన్స్
+    th: จังหวัดกิเรซุน
+    tk: Giresun
+    tr: Giresun
+    uk: Ґіресун
+    ur: گریسون صوبہ
+    vi: Giresun
+    cy: Giresun
+    ceb: Giresun (lalawigan)
+    sr_Latn: Giresun
+    lt: Giresuno provincija
+    zh: 吉雷松省
+    yue_Hans: 吉雷松省
+    sq: Giresun
+    ccp: "𑄉𑄨𑄠𑄬𑄢𑄴𑄥𑄚𑄴"
+    yue: 吉雷松省
+    uz: Giresun
+    bs: Giresun
+    mk: Гиресун
+    'no': Giresun
+  type: province
+'29':
+  name: Gümüşhane
+  code: '29'
+  unofficial_names:
+  - Gümüşhane
+  geo:
+    latitude: 40.4385883
+    longitude: 39.5085557
+    min_latitude: 40.4282392
+    min_longitude: 39.4586489
+    max_latitude: 40.4684801
+    max_longitude: 39.5207309
+  translations:
+    en: Gümüşhane
+    ar: غوموشخان
+    az: Gümüşxanə ili
+    be: Правінцыя Гюмюшханэ
+    bg: Гюмюшхане
+    ca: Província de Gümüşhane
+    cs: Gümüşhanská provincie
+    de: Gümüşhane
+    el: Επαρχία Γκιουμούσχανε
+    es: Provincia de Gümüşhane
+    et: Gümüşhane provints
+    eu: Gümüşhane probintzia
+    fa: استان گوموش‌خانه
+    fi: Gümüşhanen maakunta
+    fr: Gümüşhane
+    hu: Gümüşhane
+    hy: Գյումյուշխանե
+    id: Provinsi Gümüşhane
+    it: provincia di Gümüşhane
+    ja: ギュミュシュハーネ県
+    ka: გუმუშჰანეს პროვინცია
+    ko: 귀뮈샤네 주
+    lv: Gimišhanes ils
+    mr: ग्युमुशाने प्रांत
+    ms: Wilayah Gümüşhane
+    nb: Gümüşhane
+    nl: Gümüşhane
+    pl: Gümüşhane
+    pt: Gümüşhane
+    ro: Provincia Gümüșhane
+    ru: Гюмюшхане
+    sr: Гумушхане
+    sv: Gümüşhane
+    sw: Mkoa wa Gümüşhane
+    tk: Gümüşhane
+    tr: Gümüşhane
+    uk: Ґюмюшхане
+    ur: گوموشخانے صوبہ
+    vi: Gümüşhane
+    cy: Gümüşhane
+    ceb: Gümüşhane (lalawigan sa Turkiya)
+    sr_Latn: Gumušhane
+    zh: 居米什哈内省
+    yue_Hans: 居米什哈内省
+    ccp: "𑄉𑄪𑄟𑄪𑄥𑄚𑄴"
+    yue: 居米什哈內省
+    th: จังหวัดกือมึชฮาแน
+    uz: Gümüşhane
+    bs: Gümüşhane
+    mk: Ѓумушхане
+    'no': Gümüşhane
+    ta: கோமஹேன் மாகாணம்
+  type: province
+'30':
+  name: Hakkâri
+  code: '30'
+  unofficial_names:
+  - Hakkâri
+  geo:
+    latitude: 37.576389
+    longitude: 43.736667
+    min_latitude: 37.556175
+    min_longitude: 43.7149901
+    max_latitude: 37.592381
+    max_longitude: 43.754594
+  translations:
+    en: Hakkâri
+    ar: حكاري
+    az: Hakkari vilayəti
+    be: Правінцыя Хаккары
+    bg: Хаккяри
+    bn: হাক্কারি প্রদেশ
+    ca: Província de Hakkâri
+    cs: Hakkarijská provincie
+    da: Hakkari Provins
+    de: Hakkâri
+    el: Χακάρι
+    es: Provincia de Hakkâri
+    et: Hakkâri provints
+    eu: Hakkari probintzia
+    fa: استان حکاری
+    fi: Hakkarin maakunta
+    fr: Hakkari
+    gu: હક્કારી પ્રાંત
+    he: האקארי
+    hi: हक्कारी प्रोविंस
+    hu: Hakkari
+    hy: Հակյարի
+    id: Provinsi Hakkari
+    it: provincia di Hakkâri
+    ja: ハッキャリ県
+    ka: ჰაქარის პროვინცია
+    kn: ಹಕ್ಕರಿ ಪ್ರಾ೦ತ್ಯ
+    ko: 하카리 주
+    lv: Hakari ils
+    mr: हक्कारी प्रांत
+    ms: Wilayah Hakkâri
+    nb: Hakkâri
+    nl: Hakkâri
+    pl: Hakkari
+    pt: Hakkâri
+    ro: Provincia Hakkâri
+    ru: Хаккяри
+    si: හක්කාරී පළාත
+    sl: Hakkâri
+    sr: Хакари
+    sv: Hakkari
+    sw: Mkoa wa Hakkâri
+    ta: ஹக்கரின் மாகாணம்
+    te: హక్కారి ప్రావిన్స్
+    th: จังหวัดฮัคคาริ
+    tk: Hakkari
+    tr: Hakkâri
+    uk: Хаккярі
+    ur: حکاری صوبہ
+    vi: Hakkâri
+    cy: Hakkâri
+    sr_Latn: Hakari
+    lt: Hakario provincija
+    zh: 哈卡里省
+    yue_Hans: 哈卡里省
+    ccp: "𑄦𑄇𑄳𑄦𑄢𑄨"
+    yue: 哈卡裡省
+    uz: Hakkari
+    bs: Hakkari
+    mk: Хаќари
+    'no': Hakkâri
+  type: province
+'31':
+  name: Hatay
+  code: '31'
+  unofficial_names:
+  - Hatay
+  geo:
+    latitude: 36.2
+    longitude: 36.166667
+    min_latitude: 36.16479
+    min_longitude: 36.1002049
+    max_latitude: 36.27726
+    max_longitude: 36.231053
+  translations:
+    en: Hatay
+    ar: هتاي
+    az: Hatay vilayəti
+    be: Правінцыя Хатай
+    bg: Хатай
+    bn: হাতায়
+    ca: Província de Hatay
+    cs: Hatayská provincie
+    da: Hatay
+    de: Hatay
+    el: Επαρχία Χατάι
+    es: Provincia de Hatay
+    et: Hatay provints
+    eu: Hatay probintzia
+    fa: استان ختای
+    fi: Hatayn maakunta
+    fr: Hatay
+    gu: હટાય
+    he: נפת האטיי
+    hi: हेटे
+    hu: Hatay
+    hy: Հաթայ
+    id: Provinsi Hatay
+    is: Hatay
+    it: provincia di Hatay
+    ja: ハタイ県
+    ka: ჰათაის პროვინცია
+    kn: ಹತಾಯ್
+    ko: 하타이 주
+    lv: Hatajas ils
+    mr: हाताय प्रांत
+    ms: Wilayah Hatay
+    nb: Hatay
+    nl: Hatay
+    pl: Hatay
+    pt: Hatay
+    ro: Provincia Hatay
+    ru: Хатай
+    si: හටේ
+    sl: Hatay
+    sr: Хатај
+    sv: Hatay
+    sw: Mkoa wa Hatay
+    ta: காட்டாய்
+    te: హటాయ్
+    th: จังหวัดฮาไต
+    tk: Hataý
+    tr: Hatay
+    uk: Хатай
+    ur: ہاتے صوبہ
+    vi: Hatay
+    cy: Hatay
+    ceb: Hatay
+    sr_Latn: Hataj
+    lt: Chatajus
+    zh: 哈塔伊省
+    yue_Hans: 哈塔伊省
+    ccp: "𑄦𑄑𑄬"
+    pa: ਹਤਾਏ
+    yue: 哈塔伊省
+    uz: Hatay
+    bs: Hatay
+    mk: Хатај
+    'no': Hatay
+  type: province
+'32':
+  name: Isparta
+  code: '32'
+  unofficial_names:
+  - Isparta
+  geo:
+    latitude: 37.764771
+    longitude: 30.556561
+    min_latitude: 37.746192
+    min_longitude: 30.5077259
+    max_latitude: 37.834092
+    max_longitude: 30.5919461
+  translations:
+    en: Isparta
+    ar: إسبرطة
+    az: İsparta ili
+    be: Правінцыя Ыспарта
+    bg: Ъспарта
+    bn: ইস্পার্টা প্রদেশ
+    ca: Província d’Isparta
+    cs: Ispartská provincie
+    da: Isparta Province
+    de: Isparta
+    el: Επαρχία Ισπάρτα
+    es: Provincia de Isparta
+    et: Isparta provints
+    eu: Isparta probintzia
+    fa: استان اسپارتا
+    fi: Ispartan maakunta
+    fr: Isparta
+    gu: ઇસ્પાર્તા પ્રાંત
+    hi: इस्पार्टा प्रांत
+    hu: Isparta
+    hy: Ըսպարտայի նահանգ
+    id: Provinsi Isparta
+    it: provincia di Isparta
+    ja: ウスパルタ県
+    ka: ისპარტის პროვინცია
+    kn: ಇಸ್ಪಾರ್ಟಾ ಪ್ರಾಂತ್ಯ
+    ko: 이스파르타 주
+    lv: Ispartas ils
+    mr: इस्पार्ता प्रांत
+    ms: Wilayah Isparta
+    nb: Isparta
+    nl: Isparta
+    pl: Isparta
+    pt: Isparta
+    ro: Provincia Isparta
+    ru: Ыспарта
+    si: ඉස්පර්ටා කලාපය
+    sl: Isparta
+    sr: Испарта
+    sv: Isparta
+    sw: Mkoa wa Isparta
+    ta: இஸ்பார்ட்டா மாகாணம்
+    te: ఇస్పార్టా ప్రావిన్స్
+    th: จังหวัดอิสปาร์ตา
+    tr: Isparta
+    uk: Испарта
+    ur: اسپارتا صوبہ
+    vi: Isparta
+    ceb: Isparta (lalawigan)
+    sr_Latn: Isparta
+    lt: Ispartos provincija
+    zh: 伊斯帕尔塔省
+    yue_Hans: 伊斯帕尔塔省
+    ccp: "𑄃𑄨𑄌𑄴𑄛𑄢𑄴𑄑"
+    pa: ਇਸਪਾਰਤਾ ਸੂਬਾ
+    yue: 伊斯帕爾塔省
+    uz: Isparta
+    bs: Isparta
+    mk: Испарта
+    'no': Isparta
+    cy: Talaith Isparta
+  type: province
+'33':
+  name: İçel
+  code: '33'
+  unofficial_names:
+  - İçel
+  geo:
+    latitude: 36.6321731
+    longitude: 33.617577
+    min_latitude: 36.01681
+    min_longitude: 32.5361768
+    max_latitude: 37.435227
+    max_longitude: 35.14063
+  translations:
+    en: Mersin
+    ar: مرسين
+    az: Mersin vilayəti
+    be: Правінцыя Мерсін
+    bg: Мерсин
+    bn: মেরসিন প্রদেশ
+    ca: Província de Mersin
+    cs: Mersinská provincie
+    da: Mersin Province
+    de: Mersin
+    el: Επαρχία Μερσίν
+    es: Provincia de Mersin
+    et: Mersini provints
+    eu: Mersin probintzia
+    fa: استان مرسین
+    fi: Mersinin maakunta
+    fr: Mersin
+    gu: મેર્સિન પ્રાંત
+    hi: मर्सिन प्रांत
+    hu: Mersin
+    hy: Մերսին
+    id: Provinsi Mersin
+    it: provincia di Mersin
+    ja: メルスィン県
+    ka: მერსინის პროვინცია
+    kn: ಮೆರ್ಸಿನ್
+    ko: 메르신 주
+    lv: Mersinas ils
+    mr: मेर्सिन प्रांत
+    ms: Wilayah Mersin
+    nb: Mersin
+    nl: Mersin
+    pl: Mersin
+    pt: Mersin
+    ro: Provincia Mersin
+    ru: Мерсин
+    si: මර්සින් පළාත
+    sr: Мерсин
+    sv: Mersin
+    sw: Mkoa wa Mersin
+    ta: மெர்ஸின் மாகாணம்
+    te: మెరి్సిన్ ప్రావిన్స్
+    th: จังหวัดเมอซิน
+    tk: Mersin
+    tr: Mersin
+    uk: Мерсін
+    ur: مرسین صوبہ
+    vi: Mersin
+    sr_Latn: Mersin
+    lt: Mersino provincija
+    zh: 梅尔辛省
+    yue_Hans: 梅尔辛省
+    ccp: "𑄟𑄬𑄢𑄴𑄥𑄨𑄚𑄴"
+    pa: ਮਰਸਿਨ
+    yue: 梅爾辛省
+    bs: Mersin
+    mk: Мерсин
+    'no': Mersin
+    cy: Talaith Mersin
+    he: מחוז מרסין
+    uz: Mersin
+  type: province
+'34':
+  name: İstanbul
+  code: '34'
+  unofficial_names:
+  - İstanbul
+  geo:
+    latitude: 41.00527
+    longitude: 28.97696
+    min_latitude: 40.811404
+    min_longitude: 28.5955538
+    max_latitude: 41.199239
+    max_longitude: 29.4288052
+  translations:
+    en: Istanbul
+    ar: إسطنبول
+    az: İstanbul ili
+    be: Правінцыя Стамбул
+    bg: Истанбул
+    ca: Província d’Istanbul
+    cs: Istanbulská provincie
+    de: Istanbul
+    el: Επαρχία Κωνσταντινούπολης
+    es: Provincia de Estambul
+    et: İstanbuli provints
+    eu: Istanbul probintzia
+    fa: استان استانبول
+    fi: İstanbulin maakunta
+    fr: Istanbul
+    he: איסטנבול
+    hu: İstanbul
+    hy: Ստամբուլի նահանգ
+    id: Provinsi İstanbul
+    it: provincia di Istanbul
+    ja: イスタンブール県
+    ka: სტამბოლის პროვინცია
+    ko: 이스탄불 주
+    lv: Stambulas ils
+    mr: इस्तंबूल प्रांत
+    ms: Wilayah Istanbul
+    nb: İstanbul
+    nl: Istanboel
+    pl: Stambuł
+    pt: Istambul (província)
+    ro: Provincia Istanbul
+    ru: Стамбул
+    sl: İstanbul
+    sr: Истанбулски вилајет
+    sv: İstanbul
+    sw: Mkoa wa Istanbul
+    tk: Stambul
+    tr: İstanbul
+    uk: Стамбул
+    ur: استنبول صوبہ
+    vi: Istanbul
+    sr_Latn: Istanbulski vilajet
+    lt: Stambulo provincija
+    zh: 伊斯坦堡省
+    yue_Hans: 伊斯坦堡省
+    hi: इस्तांबुल प्रांत
+    jv: Provinsi İstanbul
+    ccp: "𑄃𑄨𑄌𑄴𑄑𑄚𑄴𑄝𑄪𑄣𑄴"
+    pa: ਇਸਤਾਂਬੁਲ ਸੂਬਾ
+    yue: 伊斯坦堡省
+    th: จังหวัดอิสตันบูล
+    uz: Istanbul
+    bs: Istanbul
+    mk: Истанбул
+    'no': İstanbul
+    ceb: İstanbul (lalawigan)
+    cy: Talaith Istanbul
+    ga: Cúige Iostanbúl
+    hr: Istanbul (pokrajina)
+    ky: Ыстанбул (ил)
+  type: province
+'35':
+  name: İzmir
+  code: '35'
+  unofficial_names:
+  - İzmir
+  geo:
+    latitude: 38.41885
+    longitude: 27.12872
+    min_latitude: 38.290113
+    min_longitude: 26.8549492
+    max_latitude: 38.545237
+    max_longitude: 27.3044851
+  translations:
+    en: Izmir
+    ar: ازمير
+    az: İzmir ili
+    be: Правінцыя Ізмір
+    bg: Измир (вилает)
+    bn: ইজমির প্রদেশ
+    ca: Província d’İzmir
+    cs: Izmirská provincie
+    da: Izmir Province
+    de: Izmir
+    el: Επαρχία Σμύρνης
+    es: Provincia de Esmirna
+    et: İzmiri provints
+    eu: Izmir probintzia
+    fa: استان ازمیر
+    fi: İzmirin maakunta
+    fr: Izmir
+    gl: Provincia de Esmirna
+    gu: ઇઝમિર પ્રાંત
+    hi: इज़मिर प्रांत
+    hu: İzmir (tartomány)
+    hy: Իզմիրի նահանգ
+    id: Provinsi İzmir
+    it: provincia di Smirne
+    ja: イズミル県
+    ka: იზმირის პროვინცია
+    kn: ಇಜ್ಮಿರ್ ಪ್ರಾಂತ್ಯ
+    ko: 이즈미르 주
+    lv: Izmiras ils
+    mr: इझ्मिर प्रांत
+    ms: Wilayah İzmir
+    nb: İzmir
+    nl: İzmir
+    pl: İzmir
+    pt: Esmirna (província)
+    ro: Provincia İzmir
+    ru: Измир
+    si: ඉස්මීර් පළාත
+    sl: İzmir (provinca)
+    sr: Измир (вилајет)
+    sv: İzmir (provins)
+    sw: Mkoa wa İzmir
+    ta: இஸ்மிர் மாகாணம்
+    te: ఇజ్మిర్ ప్రావిన్స్
+    th: จังหวัดอิสเมอร์
+    tk: Izmir
+    tr: İzmir (il)
+    uk: Ізмір (іл)
+    ur: ازمیر صوبہ
+    vi: İzmir (tỉnh)
+    cy: İzmir
+    ceb: İzmir
+    sr_Latn: Izmir (vilajet)
+    lt: Izmiro provincija
+    zh: 伊兹密尔省
+    yue_Hans: 伊兹密尔省
+    sq: Smirnë
+    ccp: "𑄃𑄨𑄌𑄴𑄟𑄨𑄢𑄴"
+    yue: 伊茲密爾省
+    uz: Izmir (viloyati)
+    bs: İzmir
+    mk: Измир (покраина)
+    'no': İzmir
+    he: מחוז איזמיר
+    ky: Измир (ил)
+  type: province
+'36':
+  name: Kars
+  code: '36'
+  unofficial_names:
+  - Kars
+  geo:
+    latitude: 40.616667
+    longitude: 43.1
+    min_latitude: 40.570057
+    min_longitude: 43.071051
+    max_latitude: 40.623337
+    max_longitude: 43.1325241
+  translations:
+    en: Kars
+    ar: قارص
+    az: Qars vilayəti
+    be: Правінцыя Карс
+    bg: Карс
+    ca: Província de Kars
+    cs: Karská provincie
+    de: Kars
+    es: Kars
+    et: Karsi provints
+    eu: Kars probintzia
+    fa: استان قارص
+    fi: Karsin maakunta
+    fr: Kars
+    he: קארס
+    hu: Kars
+    hy: Կարսի նահանգ
+    id: Provinsi Kars
+    it: Kars
+    ja: カルス県
+    ka: ყარსის პროვინცია
+    ko: 카르스 주
+    lv: Karsas ils
+    mr: कार्स प्रांत
+    ms: Wilayah Kars
+    nb: Kars
+    nl: Kars
+    pl: Kars
+    pt: Kars
+    ro: Provincia Kars
+    ru: Карс
+    sl: Kars
+    sr: Карс
+    sv: Kars
+    sw: Mkoa wa Kars
+    tk: Kars
+    tr: Kars
+    uk: Карс
+    ur: قارص صوبہ
+    vi: Kars
+    cy: Kars
+    ceb: Kars
+    sr_Latn: Kars
+    zh: 卡尔斯省
+    yue_Hans: 卡尔斯省
+    el: Επαρχία Καρς
+    hi: कार्स प्रांत
+    ccp: "𑄇𑄢𑄴𑄌𑄴"
+    yue: 卡爾斯省
+    th: จังหวัดคาร์ส
+    uz: Kars
+    bs: Kars
+    mk: Карс
+    'no': Kars
+    ta: கார்ஸ் மாகாணம்
+  type: province
+'37':
+  name: Kastamonu
+  code: '37'
+  unofficial_names:
+  - Kastamonu
+  geo:
+    latitude: 41.38871
+    longitude: 33.78273
+    min_latitude: 41.358148
+    min_longitude: 33.7584892
+    max_latitude: 41.437135
+    max_longitude: 33.8178499
+  translations:
+    en: Kastamonu
+    ar: قسطموني
+    az: Kastamonu ili
+    be: Правінцыя Кастаману
+    bg: Кастамону
+    bn: কাস্তামনু প্রদেশ
+    ca: Província de Kastamonu
+    cs: Kastamonská provincie
+    da: Kastamonu Province
+    de: Kastamonu
+    el: Επαρχία Κασταμονής
+    es: Provincia de Kastamonu
+    et: Kastamonu provints
+    eu: Kastamonu probintzia
+    fa: استان قسطمونی
+    fi: Kastamonun maakunta
+    fr: Kastamonu
+    gu: કાસ્તમોનો પ્રાંત
+    hi: कस्तामोनु प्रांत
+    hu: Kastamonu
+    hy: Կաստամոնու
+    id: Provinsi Kastamonu
+    it: provincia di Kastamonu
+    ja: カスタモヌ県
+    ka: კასთამონუს პროვინცია
+    kn: ಕಸ್ತಮೋನು ಪ್ರಾಂತ್ಯ
+    ko: 카스타모누 주
+    lv: Kastamonu ils
+    mr: कास्तामोनू प्रांत
+    ms: Wilayah Kastamonu
+    nb: Kastamonu
+    nl: Kastamonu
+    pl: Kastamonu
+    pt: Kastamonu
+    ro: Provincia Kastamonu
+    ru: Кастамону
+    si: කස්ටමොනු පළාත
+    sr: Кастамону
+    sv: Kastamonu
+    sw: Mkoa wa Kastamonu
+    ta: கஷ்டமோனு மாகாணம்
+    te: కాస్టామోను ప్రావిన్స్
+    th: จังหวัดกาสตาโมนู
+    tk: Kastamonu
+    tr: Kastamonu
+    uk: Кастамону
+    ur: کاستامونو صوبہ
+    vi: Kastamonu
+    cy: Kastamonu
+    ceb: Kastamonu (lalawigan)
+    sr_Latn: Kastamonu
+    lt: Kastamono provincija
+    zh: 卡斯塔莫努省
+    yue_Hans: 卡斯塔莫努省
+    ccp: "𑄇𑄌𑄴𑄑𑄟𑄮𑄚𑄪"
+    pa: ਕਾਸਤਾਮੋਨੋ ਸੂਬਾ
+    yue: 卡斯塔莫努省
+    uz: Kastamonu
+    bs: Kastamonu
+    mk: Кастамону
+    'no': Kastamonu
+  type: province
+'38':
+  name: Kayseri
+  code: '38'
+  unofficial_names:
+  - Kayseri
+  geo:
+    latitude: 38.73122
+    longitude: 35.478729
+    min_latitude: 38.622002
+    min_longitude: 35.3126992
+    max_latitude: 38.8248
+    max_longitude: 35.627675
+  translations:
+    en: Kayseri
+    ar: قيصرية
+    az: Kayseri ili
+    be: Правінцыя Кайсеры
+    bg: Кайсери
+    bn: কিয়েসির প্রদেশ
+    ca: Província de Kayseri
+    cs: Kayseri
+    da: Kayseri Province
+    de: Kayseri
+    el: Επαρχία Καισάρειας
+    es: Provincia de Kayseri
+    et: Kayseri provints
+    eu: Kayseri probintzia
+    fa: استان قیصریه
+    fi: Kayserin maakunta
+    fr: Kayseri
+    gu: કેસેરી પ્રાંત
+    hi: केसेरी प्रांत
+    hu: Kayseri
+    hy: Կայսերի
+    id: Provinsi Kayseri
+    it: provincia di Kayseri
+    ja: カイセリ県
+    ka: კაისერის პროვინცია
+    kn: ಕಯ್ಸೆರಿ ಪ್ರಾಂತ್ಯ
+    ko: 카이세리 주
+    lv: Kajseri ils
+    mr: कायसेरी प्रांत
+    ms: Wilayah Kayseri
+    nb: Kayseri
+    nl: Kayseri
+    pl: Kayseri
+    pt: Kayseri
+    ro: Provincia Kayseri
+    ru: Кайсери
+    si: කෙසේරි පළාත
+    sr: Кајсери
+    sv: Kayseri
+    sw: Mkoa wa Kayseri
+    ta: கைசேரி மாகாணம்
+    te: కేసెరి ప్రావిన్స్
+    th: จังหวัดไกเซรี
+    tk: Kaýseri
+    tr: Kayseri
+    uk: Кайсері
+    ur: قیصری صوبہ
+    vi: Kayseri
+    ceb: Kayseri
+    sr_Latn: Kajseri
+    lt: Kaiserio provincija
+    zh: 开塞利省
+    yue_Hans: 开塞利省
+    ccp: "𑄇𑄬𑄠𑄥𑄬𑄢𑄨"
+    pa: ਕਾਇਸੇਰੀ
+    yue: 開塞利省
+    uz: Kayseri
+    bs: Kayseri
+    mk: Кајсери
+    'no': Kayseri
+    cy: Talaith Kayseri
+  type: province
+'39':
+  name: Kırklareli
+  code: '39'
+  unofficial_names:
+  - Kirklareli
+  geo:
+    latitude: 41.742908
+    longitude: 27.226089
+    min_latitude: 41.712183
+    min_longitude: 27.1916528
+    max_latitude: 41.760377
+    max_longitude: 27.244107
+  translations:
+    en: Kırklareli
+    ar: كيركلاريلي
+    az: Kırklareli ili
+    be: Правінцыя Кыркларэлі
+    bg: Лозенград
+    bn: কির্কারেলি প্রদেশ
+    ca: Província de Kırklareli
+    cs: Kırklarelská provincie
+    da: Kırklareli Province
+    de: Kırklareli
+    el: Επαρχία Σαράντα Εκκλησιών
+    es: Provincia de Kırklareli
+    et: Kırklareli provints
+    eu: Kirklareli probintzia
+    fa: استان قرقلرایلی
+    fi: Kırklarelin maakunta
+    fr: Kırklareli
+    gu: કિર્કલરેલી પ્રાંત
+    hi: किर्कलारेली प्रांत
+    hu: Kırklareli
+    hy: Քըրքլարելի
+    id: Provinsi Kırklareli
+    it: provincia di Kırklareli
+    ja: クルクラーレリ県
+    ka: ქირკლარელის პროვინცია
+    kn: ಕಿರ್ಕ್ಲಾರೆ ಪ್ರಾಂತ್ಯ
+    ko: 키르클라렐리 주
+    lv: Kirkraleri ils
+    mr: कर्क्लारेली प्रांत
+    ms: Wilayah Kırklareli
+    nb: Kırklareli
+    nl: Kırklareli
+    pl: Kırklareli
+    pt: Kırklareli
+    ro: Provincia Kırklareli
+    ru: Кыркларели
+    si: කරක්ලරේලි පළාත
+    sl: Kırklareli
+    sr: Киркларели
+    sv: Kırklareli
+    sw: Mkoa wa Kırklareli
+    ta: கிரக்ளரேலி மாகாணம்
+    te: కిర్క్‌లారేలీ ప్రావిన్స్
+    th: เขตมานาฟวา
+    tk: Kyrklareli
+    tr: Kırklareli
+    uk: Киркларелі
+    ur: قرقلرایلی صوبہ
+    vi: Kırklareli
+    ceb: Kırklareli
+    sr_Latn: Kirklareli
+    lt: Kirklarelio provincija
+    zh: 克尔克拉雷利省
+    yue_Hans: 克尔克拉雷利省
+    sq: Kërklareli
+    ccp: "𑄇𑄨𑄢𑄴𑄇𑄴𑄣𑄢𑄬𑄣𑄨"
+    yue: 克爾克拉雷利省
+    bs: Kırklareli
+    mk: Кркларели
+    'no': Kırklareli
+    cy: Talaith Kırklareli
+    uz: Kırklareli
+  type: province
+'40':
+  name: Kırşehir
+  code: '40'
+  unofficial_names:
+  - Kırşehir
+  geo:
+    latitude: 39.146
+    longitude: 34.1607
+    min_latitude: 39.083829
+    min_longitude: 34.119774
+    max_latitude: 39.199712
+    max_longitude: 34.21962
+  translations:
+    en: Kırşehir
+    ar: قيرشهر
+    az: Kırşəhər vilayəti
+    be: Правінцыя Кыршэхір
+    bg: Кършехир
+    bn: কিরিসিয়ার প্রদেশ
+    ca: Província de Kırşehir
+    cs: Kırşehirská provincie
+    da: Kırşehir Province
+    de: Kırşehir
+    el: Επαρχία Κιρσεχίρ
+    es: Provincia de Kırşehir
+    et: Kırşehiri provints
+    eu: Kırşehir probintzia
+    fa: استان قرشهر
+    fi: Kırşehirin maakunta
+    fr: Kırşehir
+    gu: કિર્શેહિર પ્રાંત
+    hi: किरिसहिर प्रांत
+    hu: Kırşehir
+    hy: Քըրշեհիր
+    id: Provinsi Kırşehir
+    it: provincia di Kırşehir
+    ja: クルシェヒル県
+    ka: ქირშეჰირის პროვინცია
+    kn: ಕಿರ್ಶೈರ್ ಪ್ರಾಂತ್ಯ
+    ko: 키르셰히르 주
+    lv: Kiršehiras ils
+    mr: किर्शेहिर प्रांत
+    ms: Wilayah Kırşehir
+    nb: Kırşehir
+    nl: Kırşehir
+    pl: Kırşehir
+    pt: Kırşehir
+    ro: Provincia Kırșehir
+    ru: Кыршехир
+    si: කසියර් ප්‍රාන්තය
+    sr: Киршехир
+    sv: Kırşehir
+    sw: Mkoa wa Kırşehir
+    ta: கிரஸீஹிர் மாகாணம்
+    te: కిర్సెహిర్ ప్రావిన్స్
+    th: จังหวัดกึร์เชฮีร์
+    tk: Kyrşehir
+    tr: Kırşehir
+    uk: Киршехір
+    ur: قر شہر صوبہ
+    vi: Kırşehir
+    ceb: Kırşehir
+    sr_Latn: Kiršehir
+    lt: Kiršehiro provincija
+    zh: 克尔谢希尔省
+    yue_Hans: 克尔谢希尔省
+    ccp: "𑄇𑄨𑄢𑄴𑄥𑄬𑄦𑄨𑄢𑄴"
+    yue: 克爾謝希爾省
+    bs: Kırşehir
+    mk: Кршехир
+    'no': Kırşehir
+    cy: Talaith Kırşehir
+    uz: Kırşehir (viloyat)
+  type: province
+'41':
+  name: Kocaeli
+  code: '41'
+  unofficial_names:
+  - Kocaeli
+  geo:
+    latitude: 40.8532704
+    longitude: 29.8815203
+    min_latitude: 40.521065
+    min_longitude: 29.3331263
+    max_latitude: 41.20976
+    max_longitude: 30.3677431
+  translations:
+    en: Kocaeli
+    ar: كوكالي
+    az: Kocaeli vilayəti
+    be: Правінцыя Каджаэлі
+    bg: Коджаели
+    bn: কোকাইলি প্রদেশ
+    ca: Província de Kocaeli
+    cs: Kocaeliská provincie
+    da: Kocaeli Provins
+    de: Kocaeli
+    el: Επαρχία Κοτζαελί
+    es: Provincia de Kocaeli
+    et: Kocaeli provints
+    eu: Kocaeli probintzia
+    fa: استان قوجاایلی
+    fi: Kocaelin maakunta
+    fr: Kocaeli
+    gu: કોકેલી પ્રાંત
+    hi: कोकाएली
+    hu: Kocaeli
+    hy: Կոջաելի
+    id: Provinsi Kocaeli
+    it: provincia di Kocaeli
+    ja: コジャエリ県
+    ka: ქოჯაელის პროვინცია
+    kn: ಕೋಕೇಲಿ ಪ್ರಾ೦ತ್ಯ
+    ko: 코자엘리 주
+    lv: Kodžaeli ils
+    mr: कोचेली प्रांत
+    ms: Wilayah Kocaeli
+    nb: Kocaeli
+    nl: Kocaeli
+    pl: Kocaeli
+    pt: Kocaeli
+    ro: Provincia Kocaeli
+    ru: Коджаэли
+    si: කොකාඑලි පළාත
+    sl: Kocaeli
+    sr: Коџаели
+    sv: Kocaeli
+    sw: Mkoa wa Kocaeli
+    ta: கோச்சேலி மாகாணம்
+    te: కోసేలీ ప్రావిన్స్
+    th: จังหวัดโคเจลี
+    tk: Kojaeli
+    tr: Kocaeli
+    uk: Коджаелі
+    ur: قوجائلی صوبہ
+    vi: Kocaeli
+    ceb: Kocaeli
+    sr_Latn: Kodžaeli
+    lt: Kodžaelis
+    zh: 科贾埃利省
+    yue_Hans: 科贾埃利省
+    sq: Koxhaeli
+    ccp: "𑄇𑄮𑄥𑄠𑄬𑄣𑄨"
+    yue: 科賈埃利省
+    uz: Kocaeli
+    bs: Kocaeli
+    mk: Коџаели
+    'no': Kocaeli
+    cy: Talaith Kocaeli
+    he: קוג׳לי
+  type: province
+'42':
+  name: Konya
+  code: '42'
+  unofficial_names:
+  - Konya
+  geo:
+    latitude: 37.866667
+    longitude: 32.483333
+    min_latitude: 37.722702
+    min_longitude: 32.3650058
+    max_latitude: 38.034311
+    max_longitude: 32.647959
+  translations:
+    en: Konya
+    ar: قونية
+    az: Konya vilayəti
+    be: Правінцыя Конья
+    bg: Кония
+    bn: কন্যা প্রদেশ
+    ca: Província de Konya
+    cs: Konyanská provincie
+    da: Konya Province
+    de: Konya
+    el: Επαρχία Ικονίου
+    es: Provincia de Konya
+    et: Konya provints
+    eu: Konya probintzia
+    fa: استان قونیه
+    fi: Konyan maakunta
+    fr: Konya
+    gu: કોન્યા પ્રાંત
+    hi: कोन्या प्रांत
+    hu: Konya
+    hy: Կոնիա
+    id: Provinsi Konya
+    it: provincia di Konya
+    ja: コンヤ県
+    ka: კონიის პროვინცია
+    kn: ಕೊನ್ಯಾ ಪ್ರಾಂತ್ಯ
+    ko: 코니아 주
+    lv: Konjas ils
+    mr: कोन्या प्रांत
+    ms: Wilayah Konya
+    nb: Konya
+    nl: Konya
+    pl: Konya
+    pt: Konya (província)
+    ro: Provincia Konya
+    ru: Конья
+    si: කොන්යා පළාත
+    sl: Konya
+    sr: Конија
+    sv: Konya
+    sw: Mkoa wa Konya
+    ta: கொன்யா மாகாணம்
+    te: కోన్యా ప్రావిన్స్
+    th: จังหวัดคอนย่า
+    tk: Konýa
+    tr: Konya
+    uk: Конья
+    ur: قونیہ صوبہ
+    vi: Konya
+    ceb: Konya
+    sr_Latn: Konija
+    lt: Konjos provincija
+    zh: 科尼亚省
+    yue_Hans: 科尼亚省
+    sq: Konya
+    ccp: "𑄇𑄮𑄚𑄨𑄠"
+    yue: 科尼亞省
+    uz: Konya
+    bs: Konya
+    mk: Конија
+    'no': Konya
+    cy: Talaith Konya
+  type: province
+'43':
+  name: Kütahya
+  code: '43'
+  unofficial_names:
+  - Kütahya
+  geo:
+    latitude: 39.4167
+    longitude: 29.9833
+    min_latitude: 39.383705
+    min_longitude: 29.9209691
+    max_latitude: 39.448665
+    max_longitude: 30.053083
+  translations:
+    en: Kütahya
+    ar: كوتاهيا
+    az: Kütahya vilayəti
+    bg: Кютахия
+    bn: কুটাহিয়া প্রদেশ
+    ca: Província de Kütahya
+    cs: Kütahyanská provincie
+    da: Kütahya Province
+    de: Kütahya
+    el: Επαρχία Κιουτάχειας
+    es: Provincia de Kütahya
+    et: Kütahya provints
+    eu: Kutahya probintzia
+    fa: استان کوتاهیه
+    fi: Kütahyan maakunta
+    fr: Kütahya
+    gu: કુતાહ્યા પ્રાંત
+    hi: कुताह्या प्रांत
+    hu: Kütahya
+    hy: Քյութահիայի նահանգ
+    id: Provinsi Kütahya
+    it: provincia di Kütahya
+    ja: キュタヒヤ県
+    ka: ქუთაჰიის პროვინცია
+    kn: ಕುಟ್ಟಹ್ಯಾ ಪ್ರಾಂತ್ಯ
+    ko: 퀴타히아 주
+    lv: Kitahjas ils
+    mr: कुताह्या प्रांत
+    ms: Wilayah Kütahya
+    nb: Kütahya
+    nl: Kütahya
+    pl: Kütahya
+    pt: Kütahya
+    ro: Provincia Kütahya
+    ru: Кютахья
+    si: කුටයා පළාත
+    sr: Китахија
+    sv: Kütahya
+    sw: Mkoa wa Kütahya
+    ta: குட்டஹயா மாகாணம்
+    te: కుటాహ్యా ప్రావిన్స్
+    th: จังหวัดกึตทายา
+    tk: Kütahýa
+    tr: Kütahya
+    uk: Кютахʼя
+    ur: کوتاہیا صوبہ
+    vi: Kütahya
+    ceb: Kütahya (lalawigan)
+    sr_Latn: Kitahija
+    lt: Kutachjos provincija
+    zh: 屈塔希亚省
+    yue_Hans: 屈塔希亚省
+    sq: Qytahia
+    ccp: "𑄇𑄪𑄑𑄦𑄨𑄠"
+    yue: 屈塔希亞省
+    uz: Kütahya (viloyat)
+    bs: Kütahya
+    mk: Ќутахија
+    'no': Kütahya
+    cy: Talaith Kütahya
+  type: province
+'44':
+  name: Malatya
+  code: '44'
+  unofficial_names:
+  - Malatya
+  geo:
+    latitude: 38.35
+    longitude: 38.3
+    min_latitude: 38.312895
+    min_longitude: 38.1716921
+    max_latitude: 38.392921
+    max_longitude: 38.3802232
+  translations:
+    en: Malatya
+    ar: ملطية
+    az: Malatya vilayəti
+    bg: Малатия (вилает)
+    bn: মালাটিয়া প্রদেশ
+    ca: Província de Malatya
+    cs: Malatya
+    da: Malatya Province
+    de: Malatya
+    el: Επαρχία Μαλάτειας
+    es: Provincia de Malatya
+    et: Malatya provints
+    eu: Malatya probintzia
+    fa: استان ملطیه
+    fi: Malatyan maakunta
+    fr: Malatya
+    gu: માલાત્યા પ્રાંત
+    hi: मालात्या प्रांत
+    hu: Malatya
+    hy: Մալաթիա
+    id: Provinsi Malatya
+    it: provincia di Malatya
+    ja: マラティヤ県
+    ka: მალათიის პროვინცია
+    kn: ಮಲಾತ್ಯ ಪ್ರಾಂತ್ಯ
+    ko: 말라티아 주
+    lv: Malatjas ils
+    mr: मलात्या प्रांत
+    ms: Wilayah Malatya
+    nb: Malatya
+    nl: Malatya
+    pl: Malatya
+    pt: Malatya
+    ro: Provincia Malatya
+    ru: Малатья
+    si: මලට්‍යා පළාත
+    sr: Малатија
+    sv: Malatya
+    sw: Mkoa wa Malatya
+    ta: மலடியா மாகாணம்
+    te: మలాట్యా ప్రావిన్స్
+    th: มาลัตยา
+    tk: Malatýa
+    tr: Malatya
+    uk: Малатья
+    ur: مالاطیہ صوبہ
+    vi: Malatya
+    cy: Malatya
+    ceb: Malatya (lalawigan)
+    sr_Latn: Malatija
+    lt: Malatajos provincija
+    zh: 马拉蒂亚省
+    yue_Hans: 马拉蒂亚省
+    ccp: "𑄟𑄣𑄑𑄨𑄠"
+    yue: 馬拉蒂亞省
+    bs: Malatya
+    mk: Малатија
+    'no': Malatya
+    uz: Malatya (viloyat)
+  type: province
+'45':
+  name: Manisa
+  code: '45'
+  unofficial_names:
+  - Manisa
+  geo:
+    latitude: 38.619099
+    longitude: 27.428921
+    min_latitude: 38.602441
+    min_longitude: 27.3085369
+    max_latitude: 38.645072
+    max_longitude: 27.4787759
+  translations:
+    en: Manisa
+    ar: مانيسا
+    az: Manisa vilayəti
+    be: Правінцыя Маніса
+    bg: Маниса
+    bn: মানিশা প্রদেশ
+    ca: Província de Manisa
+    cs: Manisa
+    da: Manisa Province
+    de: Manisa
+    el: Επαρχία Μανίσας
+    es: Provincia de Manisa
+    et: Manisa provints
+    eu: Manisa probintzia
+    fa: استان مانیسا
+    fi: Manisan maakunta
+    fr: Manisa
+    gu: મનિસા પ્રાંત
+    hi: मनीसा प्रांत
+    hu: Manisa
+    hy: Մանիսայի նահանգ
+    id: Provinsi Manisa
+    it: provincia di Manisa
+    ja: マニサ県
+    ka: მანისის პროვინცია
+    kn: ಮನಿಸಾ ಪ್ರಾಂತ್ಯ
+    ko: 마니사 주
+    lv: Manisas ils
+    mr: मनिसा प्रांत
+    ms: Wilayah Manisa
+    nb: Manisa
+    nl: Manisa
+    pl: Manisa
+    pt: Manisa
+    ro: Provincia Manisa
+    ru: Маниса
+    si: මනිසා පළාත
+    sl: Manisa
+    sr: Маниса
+    sv: Manisa
+    sw: Mkoa wa Manisa
+    ta: மனிஷா மாகாணம்
+    te: మానిసా ప్రావిన్స్
+    th: จังหวัดแมนิสซา
+    tk: Manisa
+    tr: Manisa
+    uk: Маніса
+    ur: مانیسا صوبہ
+    vi: Manisa
+    ceb: Manisa
+    sr_Latn: Manisa
+    lt: Manisos provincija
+    zh: 马尼萨省
+    yue_Hans: 马尼萨省
+    ccp: "𑄟𑄚𑄨𑄥"
+    yue: 馬尼薩省
+    bs: Manisa
+    mk: Маниса
+    'no': Manisa
+    cy: Talaith Manisa
+    uz: Manisa
+  type: province
+'46':
+  name: Kahramanmaraş
+  code: '46'
+  unofficial_names:
+  - Kahramanmaraş
+  - Maraş
+  geo:
+    latitude: 37.583333
+    longitude: 36.933333
+    min_latitude: 37.500703
+    min_longitude: 36.8144921
+    max_latitude: 37.610065
+    max_longitude: 37.0086919
+  translations:
+    en: Kahramanmaraş
+    ar: مرعش
+    az: Qəhrəmanmaraş ili
+    be: Правінцыя Кахраманмараш
+    bg: Кахраманмараш
+    bn: কাহ্রামমানমারাস প্রদেশ
+    ca: Província de Kahramanmaraş
+    cs: Kahramanmaraşská provincie
+    da: Kahramanmaraş Province
+    de: Kahramanmaraş
+    el: Επαρχία Καχραμανμαράς
+    es: Provincia de Kahramanmaraş
+    et: Kahramanmaraşi provints
+    eu: Kahramanmaras probintzia
+    fa: استان قهرمان مرعش
+    fi: Kahramanmaraşin maakunta
+    fr: Kahramanmaraş
+    gu: કાહરામમરાસ પ્રાંત
+    hi: कहारामनमारास प्रांत
+    hu: Kahramanmaraş
+    hy: Մարաշի նահանգ
+    id: Provinsi Kahramanmaraş
+    it: provincia di Kahramanmaraş
+    ja: カフラマンマラシュ県
+    ka: ქაჰრამანმარაშის პროვინცია
+    kn: ಕಹ್ರಾಮರಾಮಾಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 카라만마라슈 주
+    lv: Kahramanmarašas ils
+    mr: काहरामानमराश प्रांत
+    ms: Wilayah Kahramanmaraş
+    nb: Kahramanmaraş
+    nl: Kahramanmaraş
+    pl: Kahramanmaraş
+    pt: Kahramanmaraş
+    ro: Provincia Kahramanmaraș
+    ru: Кахраманмараш (ил)
+    si: කහරමන්මරාස් පළාත
+    sr: Кахраманмараш
+    sv: Kahramanmaraş
+    sw: Mkoa wa Kahramanmaraş
+    ta: கஹரமான்மார்ஸ மாகாணம்
+    te: కహారామన్మారస్ ప్రావిన్స్
+    th: จังหวัดคาห์รามานมารัส
+    tk: Kahramanmaraş
+    tr: Kahramanmaraş
+    uk: Кахраманмараш
+    ur: قہرمان مرعش صوبہ
+    vi: Kahramanmaraş
+    cy: Kahramanmaraş
+    ceb: Kahramanmaraş
+    sr_Latn: Kahramanmaraš
+    lt: Kahramanmarašo provincija
+    zh: 卡赫拉曼马拉什省
+    yue_Hans: 卡赫拉曼马拉什省
+    ccp: "𑄇𑄦𑄴𑄢𑄟𑄚𑄴𑄟𑄢𑄌𑄴"
+    yue: 卡赫拉曼馬拉什省
+    uz: Kahramanmaraş
+    bs: Kahramanmaraş
+    mk: Кахраманмараш
+    'no': Kahramanmaraş
+  type: province
+'47':
+  name: Mardin
+  code: '47'
+  unofficial_names:
+  - Mardin
+  geo:
+    latitude: 37.3211634
+    longitude: 40.7244774
+    min_latitude: 37.300656
+    min_longitude: 40.6910659
+    max_latitude: 37.340449
+    max_longitude: 40.7663849
+  translations:
+    en: Mardin
+    ar: ماردين
+    az: Mardin vilayəti
+    be: Правінцыя Мардзін
+    bg: Мардин
+    bn: মার্দিন প্রদেশ
+    ca: Província de Mardin
+    cs: Mardinská provincie
+    da: Mardin Province
+    de: Mardin
+    el: Επαρχία Μαρντίν
+    es: Provincia de Mardin
+    et: Mardini provints
+    eu: Mardin probintzia
+    fa: استان ماردین
+    fi: Mardinin maakunta
+    fr: Mardin
+    gu: માર્ડિન પ્રાંત
+    hi: मार्दिन प्रांत
+    hu: Mardin
+    hy: Մարդին
+    id: Provinsi Mardin
+    it: provincia di Mardin
+    ja: マルディン県
+    ka: მარდინის პროვინცია
+    kn: ಮಾರ್ಡಿನ್ ಪ್ರಾಂತ್ಯ
+    ko: 마르딘 주
+    lv: Mardinas ils
+    mr: मार्दिन प्रांत
+    ms: Wilayah Mardin
+    nb: Mardin
+    nl: Mardin
+    pl: Mardin
+    pt: Mardin
+    ro: Provincia Mardin
+    ru: ил Мардин
+    si: මාර්දින් පළාත
+    sr: Мардин
+    sv: Mardin
+    sw: Mkoa wa Mardin
+    ta: மார்டின் மாகாணம்
+    te: మార్డిన్ ప్రావిన్స్
+    th: จังหวัดมาร์ดิน
+    tk: Mardin
+    tr: Mardin
+    uk: Мардін
+    ur: ماردین صوبہ
+    vi: Mardin
+    cy: Mardin
+    ceb: Mardin
+    sr_Latn: Mardin
+    lt: Mardino provincija
+    zh: 马尔丁省
+    yue_Hans: 玛律丁省
+    ccp: "𑄟𑄢𑄴𑄓𑄨𑄚𑄴"
+    yue: 瑪律丁省
+    bs: Mardin
+    mk: Мардин
+    'no': Mardin
+    he: נפת מרדין
+    uz: Mardin (viloyat)
+  type: province
+'48':
+  name: Muğla
+  code: '48'
+  unofficial_names:
+  - Muğla
+  geo:
+    latitude: 37.216667
+    longitude: 28.366667
+    min_latitude: 37.195114
+    min_longitude: 28.342408
+    max_latitude: 37.225165
+    max_longitude: 28.3861861
+  translations:
+    en: Muğla
+    ar: موغلا
+    az: Muğla vilayəti
+    be: Правінцыя Мугла
+    bg: Мугла
+    bn: মুগ্লা প্রদেশ
+    ca: Província de Muğla
+    cs: Muğlanská provincie
+    da: Muğla Province
+    de: Muğla
+    el: Επαρχία Μούγλων
+    es: Provincia de Muğla
+    et: Muğla provints
+    eu: Muğla probintzia
+    fa: استان موغله
+    fi: Muğlan maakunta
+    fr: Muğla
+    gl: Provincia de Muğla
+    gu: મુગલા પ્રાંત
+    hi: मुगला प्रांत
+    hu: Muğla
+    hy: Մուղլայի նահանգ
+    id: Provinsi Muğla
+    it: provincia di Muğla
+    ja: ムーラ県
+    ka: მუღლის პროვინცია
+    kn: ಮುಗ್ಲಾ ಪ್ರಾಂತ್ಯ
+    ko: 물라 주
+    lv: Muglas ils
+    mr: मुला प्रांत
+    ms: Wilayah Muğla
+    nb: Muğla
+    nl: Muğla
+    pl: Muğla
+    pt: Muğla
+    ro: Provincia Muğla
+    ru: Мугла
+    si: මුග්ලා පළාත
+    sl: Muğla
+    sr: Мугла
+    sv: Muğla
+    sw: Mkoa wa Muğla
+    ta: முகிலா மாகாணம்
+    te: ముగ్లా ప్రావిన్స్
+    th: จังหวัดแอ็ง
+    tk: Mugla
+    tr: Muğla
+    uk: Мугла
+    ur: موغلا صوبہ
+    vi: Muğla
+    ceb: Muğla
+    sr_Latn: Mugla
+    lt: Muglos provincija
+    zh: 穆拉省
+    yue_Hans: 穆拉省
+    sq: Mugla
+    ccp: "𑄟𑄪𑄇𑄴𑄣"
+    pa: ਮੁਗਲਾ ਸੂਬਾ
+    yue: 穆拉省
+    bs: Muğla
+    mk: Мугла
+    'no': Muğla
+    cy: Talaith Muğla
+  type: province
+'49':
+  name: Muş
+  code: '49'
+  unofficial_names:
+  - Muş
+  geo:
+    latitude: 38.733333
+    longitude: 41.491111
+    min_latitude: 38.718225
+    min_longitude: 41.47230589999999
+    max_latitude: 38.783503
+    max_longitude: 41.540625
+  translations:
+    en: Muş
+    ar: موش
+    az: Muş ili
+    be: Правінцыя Муш
+    bg: Муш
+    bn: মোস প্রদেশ
+    ca: Província de Muş
+    cs: Muşská provincie
+    da: Muş Province
+    de: Muş
+    el: Μους
+    es: Provincia de Muş
+    et: Muşi provints
+    eu: Muş probintzia
+    fa: استان موش
+    fi: Muşin maakunta
+    fr: Muş
+    gu: મુસ પ્રાંત
+    hi: मूस प्रांत
+    hu: Muş
+    hy: Մուշ
+    id: Provinsi Muş
+    it: provincia di Muş
+    ja: ムシュ県
+    ka: მუშის პროვინცია
+    kn: ಮುಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 무슈 주
+    lv: Mušas ils
+    mr: मुश प्रांत
+    ms: Wilayah Muş
+    nb: Muş
+    nl: Muş
+    pl: Muş
+    pt: Muş
+    ro: Provincia Muș
+    ru: Муш
+    si: මස් පළාත
+    sl: Muş
+    sr: Муш
+    sv: Muş
+    sw: Mkoa wa Muş
+    ta: முஸ் மாகாணம்
+    te: ముస్ ప్రావిన్స్
+    th: จังหวัดมุส
+    tk: Muş
+    tr: Muş
+    uk: Муш
+    ur: موش صوبہ
+    vi: Muş
+    ceb: Muş
+    sr_Latn: Muš
+    lt: Mušo provincija
+    zh: 穆什省
+    yue_Hans: 穆什省
+    ccp: "𑄟𑄪𑄌𑄴"
+    he: מוש (נפה)
+    pa: ਮੁਸ ਪ੍ਰਾਂਤ
+    kk: Муш
+    yue: 穆什省
+    bs: Muş
+    mk: Муш
+    'no': Muş
+    cy: Talaith Muş
+  type: province
+'50':
+  name: Nevşehir
+  code: '50'
+  unofficial_names:
+  - Nevşehir
+  geo:
+    latitude: 38.62442
+    longitude: 34.7239689
+    min_latitude: 38.589047
+    min_longitude: 34.6697521
+    max_latitude: 38.676487
+    max_longitude: 34.7477789
+  translations:
+    en: Nevşehir
+    ar: نوشهر
+    az: Nevşəhər ili
+    be: Правінцыя Неўшэхір
+    bg: Невшехир
+    bn: নেভসেহির প্রদেশ
+    ca: Província de Nevşehir
+    cs: Nevşehirská provincie
+    da: Nevşehir Province
+    de: Nevşehir
+    el: Επαρχία Νεβσεχίρ
+    es: Provincia de Nevşehir
+    et: Nevşehiri provints
+    eu: Nevşehir probintzia
+    fa: استان نوشهر
+    fi: Nevşehirin maakunta
+    fr: Nevşehir
+    gu: નેવેસીર પ્રાંત
+    hi: नेविसिर प्रांत
+    hu: Nevşehir
+    hy: Նևշեհիր
+    id: Provinsi Nevşehir
+    it: provincia di Nevşehir
+    ja: ネヴシェヒル県
+    ka: ნევშეჰირის პროვინცია
+    kn: ನೆವ್ಶಿಹೀರ್ ಪ್ರಾಂತ್ಯ
+    ko: 네브셰히르 주
+    lv: Nevšehiras ils
+    mr: नेवशेहिर प्रांत
+    ms: Wilayah Nevşehir
+    nb: Nevşehir
+    nl: Nevşehir
+    pl: Nevşehir
+    pt: Nevşehir
+    ro: Provincia Nevșehir
+    ru: Невшехир
+    si: නෙව්සෙහිර් පළාත
+    sr: Невшехир
+    sv: Nevşehir
+    sw: Mkoa wa Nevşehir
+    ta: நெவ்செஹிர் மாகாணம்
+    te: నెవ్సెహిర్ ప్రావిన్స్
+    th: จังหวัดเนฟเซไฮร์
+    tk: Newşehir
+    tr: Nevşehir
+    uk: Невшехір
+    ur: نو شہر صوبہ
+    vi: Nevşehir
+    ceb: Nevşehir
+    sr_Latn: Nevšehir
+    lt: Nevšechiro provincija
+    zh: 内夫谢希尔省
+    yue_Hans: 内夫谢希尔省
+    ccp: "𑄚𑄬𑄛𑄴𑄥𑄬𑄦𑄨𑄢𑄴"
+    pa: ਨਵਸੇਹਰ
+    yue: 內夫謝希爾省
+    uz: Nevşehir
+    bs: Nevşehir
+    mk: Невшехир
+    'no': Nevşehir
+    cy: Talaith Nevşehir
+  type: province
+'51':
+  name: Niğde
+  code: '51'
+  unofficial_names:
+  - Niğde
+  geo:
+    latitude: 37.97646
+    longitude: 34.69376
+    min_latitude: 37.93935
+    min_longitude: 34.633795
+    max_latitude: 38.00588500000001
+    max_longitude: 34.7289149
+  translations:
+    en: Niğde
+    ar: نيغدة
+    az: Niğdə ili
+    be: Правінцыя Нійдэ
+    bg: Нигде
+    bn: নিগদে প্রদেশ
+    ca: Província de Niğde
+    cs: Niğdská provincie
+    da: Niğde Province
+    de: Niğde
+    el: Επαρχία Νίγδης
+    es: Provincia de Niğde
+    et: Niğde provints
+    eu: Niğde probintzia
+    fa: استان نیغده
+    fi: Niğden maakunta
+    fr: Niğde
+    gu: નીગ્દે પ્રાંત
+    hi: निगडे प्रांत
+    hu: Niğde
+    hy: Նիղդե
+    id: Provinsi Niğde
+    it: provincia di Niğde
+    ja: ニーデ県
+    ka: ნიგდეს პროვინცია
+    kn: ನಿಗ್ಡೆ ಪ್ರಾಂತ್ಯ
+    ko: 니데 주
+    lv: Nīgdes ils
+    mr: नीदे प्रांत
+    ms: Wilayah Niğde
+    nb: Niğde
+    nl: Niğde
+    pl: Niğde (prowincja)
+    pt: Niğde (província)
+    ro: Provincia Niğde
+    ru: Нигде
+    si: නිග්ඩේ පළාත
+    sr: Нигде
+    sv: Niğde
+    sw: Mkoa wa Niğde
+    ta: நிகிடே மாகாணம்
+    te: నిగ్డె ప్రావిన్స్
+    th: จังหวัดนิจเด
+    tk: Nigde
+    tr: Niğde
+    uk: Нігде
+    ur: نیغدے صوبہ
+    vi: Niğde
+    ceb: Niğde
+    sr_Latn: Nigde
+    lt: Nigdės provincija
+    zh: 尼代省
+    yue_Hans: 尼代省
+    ccp: "𑄚𑄨𑄇𑄴𑄓𑄬"
+    yue: 尼代省
+    bs: Niğde
+    mk: Нигде
+    'no': Niğde
+    cy: Talaith Niğde
+  type: province
+'52':
+  name: Ordu
+  code: '52'
+  unofficial_names:
+  - Ordu
+  geo:
+    latitude: 40.98387899999999
+    longitude: 37.876411
+    min_latitude: 40.948541
+    min_longitude: 37.7917351
+    max_latitude: 41.038519
+    max_longitude: 38.0206169
+  translations:
+    en: Ordu
+    ar: أردو
+    az: Ordu ili
+    be: Правінцыя Арду
+    bg: Орду
+    bn: অর্দু প্রদেশ
+    ca: Província d’Ordu
+    cs: Orduská provincie
+    da: Ordu Province
+    de: Ordu
+    el: Επαρχία Ορντού
+    es: Provincia de Ordu
+    et: Ordu provints
+    eu: Ordu probintzia
+    fa: استان اردو
+    fi: Ordun maakunta
+    fr: Ordu
+    gu: ઓર્ડુ પ્રાંત
+    hi: ओर्दू प्रांत
+    hu: Ordu
+    hy: Օրդու
+    id: Provinsi Ordu
+    it: provincia di Ordu
+    ja: オルドゥ県
+    ka: ორდუს პროვინცია
+    kn: ಆರ್ಡು ಪ್ರಾಂತ್ಯ
+    ko: 오르두 주
+    lv: Ordu ils
+    mr: ओर्दू प्रांत
+    ms: Wilayah Ordu
+    nb: Ordu
+    nl: Ordu
+    pl: Ordu
+    pt: Ordu
+    ro: Provincia Ordu
+    ru: Орду
+    si: ඔර්දු පළාත
+    sr: Орду
+    sv: Ordu
+    sw: Mkoa wa Ordu
+    ta: போர்டு மாகாணம்
+    te: ఓర్డు ప్రావిన్స్
+    th: จังหวัดโอดู
+    tk: Ordu
+    tr: Ordu
+    uk: Орду
+    ur: صوبہ اردو
+    vi: Ordu
+    cy: Ordu
+    ceb: Ordu
+    sr_Latn: Ordu
+    lt: Ordu provincija
+    zh: 奥尔杜省
+    yue_Hans: 奥尔杜省
+    ccp: "𑄃𑄧𑄢𑄴𑄓𑄪"
+    pa: ਓਰਦੂ
+    yue: 奧爾杜省
+    uz: Ordu
+    bs: Ordu
+    mk: Орду
+    'no': Ordu
+  type: province
+'53':
+  name: Rize
+  code: '53'
+  unofficial_names:
+  - Rize
+  geo:
+    latitude: 41.02005
+    longitude: 40.523449
+    min_latitude: 41.010782
+    min_longitude: 40.4785778
+    max_latitude: 41.052146
+    max_longitude: 40.6146409
+  translations:
+    en: Rize
+    ar: ريزه
+    az: Rizə ili
+    be: Правінцыя Рызэ
+    bg: Ризе
+    bn: রিজ প্রদেশ
+    ca: Província de Rize
+    cs: Rizenská provincie
+    da: Rize Province
+    de: Rize
+    el: Επαρχία Ριζούντας
+    es: Provincia de Rize
+    et: Rize provints
+    eu: Rize probintzia
+    fa: استان ریزه
+    fi: Rizen maakunta
+    fr: Rize
+    gu: રાઇઝ પ્રાંત
+    hi: रिज़े प्रांत
+    hu: Rize
+    hy: Ռիզե
+    id: Provinsi Rize
+    it: provincia di Rize
+    ja: リゼ県
+    ka: რიზეს პროვინცია
+    kn: ರೈಜ್ ಪ್ರಾಂತ್ಯ
+    ko: 리제 주
+    lv: Rizes ils
+    mr: रिझे प्रांत
+    ms: Wilayah Rize
+    nb: Rize
+    nl: Rize
+    pl: Prowincja Rize
+    pt: Rize
+    ro: Provincia Rize
+    ru: Ризе
+    si: රිසේ පළාත
+    sr: Ризе
+    sv: Rize
+    sw: Mkoa wa Rize
+    ta: ரிஸி மாகாணம்
+    te: రైజ్ ప్రావిన్స్
+    th: จังหวัดริเซ
+    tk: Rize
+    tr: Rize
+    uk: Різе
+    ur: ریزہ صوبہ
+    vi: Rize
+    cy: Rize
+    ceb: Rize
+    sr_Latn: Rize
+    lt: Rizės provincija
+    zh: 里泽省
+    yue_Hans: 里泽省
+    ccp: "𑄢𑄭𑄌𑄴"
+    yue: 裡澤省
+    uz: Rize
+    bs: Rize
+    mk: Ризе
+    'no': Rize
+  type: province
+'54':
+  name: Sakarya
+  code: '54'
+  unofficial_names:
+  - Sakarya
+  geo:
+    latitude: 40.783333
+    longitude: 30.4
+    min_latitude: 40.68175
+    min_longitude: 30.3247559
+    max_latitude: 40.816299
+    max_longitude: 30.439832
+  translations:
+    en: Sakarya
+    ar: ساكاريا
+    az: Sakarya vilayəti
+    bg: Сакария
+    bn: সা্কায়া প্রদেশ
+    ca: Província de Sakarya
+    cs: Sakaryjská provincie
+    da: Sakarya Province
+    de: Sakarya
+    el: Επαρχία Σαγγάριου
+    es: Provincia de Sakarya
+    et: Sakarya provints
+    eu: Sakarya probintzia
+    fa: استان سقاریه
+    fi: Sakaryan maakunta
+    fr: Sakarya
+    gl: Provincia de Sakarya
+    gu: સાકર્યા પ્રાંત
+    hi: सकरया प्रोविंस
+    hu: Sakarya
+    hy: Սակարիա
+    id: Provinsi Sakarya
+    it: provincia di Sakarya
+    ja: サカリヤ県
+    ka: საქარიის პროვინცია
+    kn: ಸಕರಿಯಾ ಪ್ರಾಂತ್ಯ
+    ko: 사카리아 주
+    lv: Sakarjas ils
+    mr: सकार्या प्रांत
+    ms: Wilayah Sakarya
+    nb: Sakarya
+    nl: Sakarya
+    pl: Sakarya
+    pt: Sakarya
+    ro: Provincia Sakarya
+    ru: Сакарья
+    si: සකර්යා පළාත
+    sl: Sakarya
+    sr: Сакарија
+    sv: Sakarya
+    sw: Mkoa wa Sakarya
+    ta: சக்கரியா மாகாணம்
+    te: సకార్యా ప్రావిన్స్
+    th: จังหวัดซาการ์ยะ
+    tk: Sakarýa
+    tr: Sakarya
+    uk: Сакарʼя
+    ur: ساکاریا صوبہ
+    vi: Sakarya
+    ceb: Sakarya (lalawigan sa Turkiya)
+    sr_Latn: Sakarija
+    lt: Sakarajos provincija
+    zh: 萨卡里亚省
+    yue_Hans: 萨卡里亚省
+    ccp: "𑄥𑄇𑄢𑄨𑄠"
+    pa: ਸਕਾਰੀਆ
+    yue: 薩卡裡亞省
+    uz: Sakarya
+    bs: Sakarya
+    mk: Сакарија
+    'no': Sakarya
+    cy: Talaith Sakarya
+  type: province
+'55':
+  name: Samsun
+  code: '55'
+  unofficial_names:
+  - Samsun
+  geo:
+    latitude: 41.292782
+    longitude: 36.33128
+    min_latitude: 41.239349
+    min_longitude: 36.2428711
+    max_latitude: 41.343598
+    max_longitude: 36.3819319
+  translations:
+    en: Samsun
+    ar: سامسون
+    az: Samsun ili
+    be: Правінцыя Самсун
+    bg: Самсун
+    ca: Província de Samsun
+    cs: Samsunská provincie
+    de: Samsun
+    el: Επαρχία Σαμψούντας
+    es: Provincia de Samsun
+    et: Samsuni provints
+    eu: Samsun probintzia
+    fa: استان سامسون
+    fi: Samsunin maakunta
+    fr: Samsun
+    hu: Samsun
+    hy: Սամսուն
+    id: Provinsi Samsun
+    it: provincia di Samsun
+    ja: サムスン県
+    ka: სამსუნის პროვინცია
+    ko: 삼순 주
+    lv: Samsunas ils
+    mr: साम्सुन प्रांत
+    ms: Wilayah Samsun
+    nb: Samsun
+    nl: Samsun
+    pl: Samsun
+    pt: Samsun
+    ro: Provincia Samsun
+    ru: Самсун
+    sl: Samsun
+    sr: Самсун
+    sv: Samsun
+    sw: Mkoa wa Samsun
+    tk: Samsun
+    tr: Samsun
+    uk: Самсун
+    ur: سامسون صوبہ
+    vi: Samsun
+    ceb: Samsun
+    sr_Latn: Samsun
+    zh: 萨姆松省
+    yue_Hans: 森松省
+    ccp: "𑄥𑄟𑄴𑄥𑄪𑄚𑄴"
+    pa: ਸਾਮਸੂਨ ਸੂਬਾ
+    yue: 森松省
+    uz: Samsun
+    bs: Samsun
+    mk: Самсун
+    'no': Samsun
+    cy: Talaith Samsun
+    hi: सम्सुन
+    ta: சாம்சூன் மாகாணம்
+    th: จังหวัดซัมซุน
+  type: province
+'56':
+  name: Siirt
+  code: '56'
+  unofficial_names:
+  - Siirt
+  geo:
+    latitude: 37.93554710000001
+    longitude: 41.9368268
+    min_latitude: 37.911382
+    min_longitude: 41.9029088
+    max_latitude: 37.949366
+    max_longitude: 41.9638651
+  translations:
+    en: Siirt
+    ar: سعرد
+    az: Siirt ili
+    be: Правінцыя Сіірт
+    bg: Сиирт
+    bn: সাঁর্ত প্রদেশ
+    ca: Província de Siirt
+    cs: Siirtská provincie
+    da: Siirt Province
+    de: Siirt
+    el: Επαρχία Σιίρτ
+    es: Provincia de Siirt
+    et: Siirti provints
+    eu: Siirt probintzia
+    fa: استان سعرد
+    fi: Siirtin maakunta
+    fr: Siirt
+    gu: સીર્ત પ્રાંત
+    hi: सिर्ट प्रांत
+    hu: Siirt
+    hy: Սղերթ
+    id: Provinsi Siirt
+    it: provincia di Siirt
+    ja: スィイルト県
+    ka: სიირთის პროვინცია
+    kn: ಸೀಟ್ ಪ್ರಾಂತ್ಯ
+    ko: 시이르트 주
+    lv: Siirtas ils
+    mr: सीर्त प्रांत
+    ms: Wilayah Siirt
+    nb: Siirt
+    nl: Siirt
+    pl: Siirt
+    pt: Siirt
+    ro: Provincia Siirt
+    ru: Сиирт
+    si: සිර්ට් පළාත
+    sr: Сирт
+    sv: Siirt
+    sw: Mkoa wa Siirt
+    ta: சிறிட் மாகாணம்
+    te: సీర్ట్ ప్రావిన్స్
+    th: จังหวัดซเอี้ยท
+    tk: Siirt
+    tr: Siirt
+    uk: Сіїрт
+    ur: سیرت صوبہ
+    vi: Siirt
+    ceb: Siirt
+    sr_Latn: Sirt
+    lt: Siirto provincija
+    zh: 锡尔特省
+    yue_Hans: 锡尔特省
+    ccp: "𑄥𑄩𑄢𑄴𑄑𑄴"
+    yue: 錫爾特省
+    uz: Siirt
+    bs: Siirt
+    mk: Сирт
+    'no': Siirt
+    cy: Talaith Siirt
+  type: province
+'57':
+  name: Sinop
+  code: '57'
+  unofficial_names:
+  - Sinop
+  geo:
+    latitude: 42.02314
+    longitude: 35.153069
+    min_latitude: 41.993839
+    min_longitude: 35.0675269
+    max_latitude: 42.034432
+    max_longitude: 35.1922838
+  translations:
+    en: Sinop
+    ar: محافظة سينوب
+    az: Sinop vilayəti
+    be: Правінцыя Сіноп
+    bg: Синоп
+    bn: সিনোপ প্রদেশ
+    ca: Província de Sinop
+    cs: Sinop (provincie)
+    da: Sinop Province
+    de: Sinop
+    el: Επαρχία Σινώπης
+    es: Provincia de Sinope
+    et: Sinopi provints
+    eu: Sinop probintzia
+    fa: استان سینوپ
+    fi: Sinopin maakunta
+    fr: Sinop
+    gu: સિનોપ પ્રાંત
+    hi: सिनोप
+    hu: Sinop
+    hy: Սինոպ
+    id: Provinsi Sinop
+    it: provincia di Sinope
+    ja: スィノプ県
+    ka: სინოპის პროვინცია
+    kn: ಸಿನೋಪ್ ಪ್ರಾಂತ್ಯ
+    ko: 시노프 주
+    lv: Sinopas ils
+    mr: सिनोप प्रांत
+    ms: Wilayah Sinop
+    nb: Sinop
+    nl: Sinop
+    pl: Synopa
+    pt: Sinop
+    ro: Provincia Sinop
+    ru: Синоп
+    si: සිනොප් පළාත
+    sr: Синоп
+    sv: Sinop
+    sw: Mkoa wa Sinop
+    ta: சினோப் மாகாணம்
+    te: సినోప్ ప్రావిన్స్
+    th: จังหวัดซีนอป
+    tr: Sinop
+    uk: Синоп
+    ur: سینوپ صوبہ
+    vi: Sinop
+    cy: Sinop
+    ceb: Sinop
+    sr_Latn: Sinop
+    lt: Sinopo provincija
+    zh: 锡诺普省
+    yue_Hans: 锡诺普省
+    ccp: "𑄥𑄨𑄚𑄮𑄛𑄴"
+    yue: 錫諾普省
+    bs: Sinop
+    mk: Синоп
+    'no': Sinop
+  type: province
+'58':
+  name: Sivas
+  code: '58'
+  unofficial_names:
+  - Sivas
+  geo:
+    latitude: 39.747662
+    longitude: 37.017879
+    min_latitude: 39.715307
+    min_longitude: 36.9270799
+    max_latitude: 39.781486
+    max_longitude: 37.0647389
+  translations:
+    en: Sivas
+    ar: سيواس
+    az: Sivas ili
+    be: Правінцыя Сівас
+    bg: Сивас
+    bn: সিভাস প্রদেশ
+    ca: Província de Sivas
+    cs: Sivaská provincie
+    da: Sivas Province
+    de: Sivas
+    el: Επαρχία Σεβάστειας
+    es: Provincia de Sivas
+    et: Sivasi provints
+    eu: Sivas probintzia
+    fa: استان سیواس
+    fi: Sivasin maakunta
+    fr: Sivas
+    gl: Provincia de Sivas
+    gu: સિવાસ પ્રાંત
+    hi: सिवास प्रांत
+    hu: Sivas
+    hy: Սիվաս
+    id: Provinsi Sivas
+    it: provincia di Sivas
+    ja: スィヴァス県
+    ka: სივასის პროვინცია
+    kn: ಶಿವಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 시바스 주
+    lv: Sivasas ils
+    mr: सिवास प्रांत
+    ms: Wilayah Sivas
+    nb: Sivas
+    nl: Sivas
+    pl: Sivas
+    pt: Sivas
+    ro: Provincia Sivas
+    ru: Сивас
+    si: සිවාස් පළාත
+    sr: Сивас
+    sv: Sivas
+    sw: Mkoa wa Sivas
+    ta: சிவாஸ் மாகாணம்
+    te: శివాస్ ప్రావిన్స్
+    th: จังหวัดซิวาส
+    tk: Siwas
+    tr: Sivas
+    uk: Сівас
+    ur: سیواس صوبہ
+    vi: Sivas
+    cy: Sivas
+    ceb: Sivas
+    sr_Latn: Sivas
+    lt: Sivaso provincija
+    zh: 錫瓦斯省
+    yue_Hans: 锡瓦斯省
+    ccp: "𑄥𑄨𑄞𑄌𑄴"
+    yue: 錫瓦斯省
+    uz: Sivas
+    bs: Sivas
+    mk: Сивас
+    'no': Sivas
+  type: province
+'59':
+  name: Tekirdağ
+  code: '59'
+  unofficial_names:
+  - Tekirdağ
+  geo:
+    latitude: 40.977778
+    longitude: 27.515278
+    min_latitude: 40.920071
+    min_longitude: 27.469809
+    max_latitude: 40.99954400000001
+    max_longitude: 27.6462518
+  translations:
+    en: Tekirdağ
+    ar: تيكيرداغ
+    az: Təkirdağ vilayəti
+    be: Правінцыя Тэкірдаг
+    bg: Родосто
+    bn: তিকরদাগ প্রদেশ
+    ca: Província de Tekirdağ
+    cs: Tekirdağská provincie
+    da: Tekirdağ Province
+    de: Tekirdağ
+    el: Επαρχία Ραιδεστού
+    es: Provincia de Tekirdağ
+    et: Tekirdaği provints
+    eu: Tekirdağ probintzia
+    fa: استان تکیرداغ
+    fi: Tekirdağin maakunta
+    fr: Tekirdağ
+    gl: Provincia de Tekirdağ
+    gu: તેકિરદાગ પ્રાંત
+    hi: टेकीरडैग प्रांत
+    hu: Tekirdağ
+    hy: Թեքիրդաղ
+    id: Provinsi Tekirdağ
+    it: provincia di Tekirdağ
+    ja: テキルダー県
+    ka: თექირდაღის პროვინცია
+    kn: ಟೆಕಿರ್ಡಾಗ್ ಪ್ರಾಂತ್ಯ
+    ko: 테키르다 주
+    lv: Tekirdāgas ils
+    mr: तेकिर्दा प्रांत
+    ms: Wilayah Tekirdağ
+    nb: Tekirdağ
+    nl: Tekirdağ
+    pl: Tekirdağ
+    pt: Tekirdağ
+    ro: Provincia Tekirdağ
+    ru: Текирдаг
+    si: ටෙකිර්දාග් පළාත
+    sl: Tekirdağ
+    sr: Текирдаг
+    sv: Tekirdağ
+    sw: Mkoa wa Tekirdağ
+    ta: தெகிரிதாகி மாகாணம்
+    te: టెకిర్డాగ్ ప్రావిన్స్
+    th: จังหวัดเตเกอร์แดก
+    tk: Tekirdag
+    tr: Tekirdağ
+    uk: Текірдаг
+    ur: تکیرداغ صوبہ
+    vi: Tekirdağ
+    ceb: Tekirdağ
+    sr_Latn: Tekirdag
+    lt: Tekirdago provincija
+    zh: 泰基尔达省
+    yue_Hans: 泰基尔达省
+    sq: Tekirdagu
+    ccp: "𑄑𑄬𑄇𑄨𑄢𑄴𑄓𑄇𑄴"
+    yue: 泰基爾達省
+    bs: Tekirdağ
+    mk: Текирдаг
+    'no': Tekirdağ
+    cy: Talaith Tekirdağ
+  type: province
+'60':
+  name: Tokat
+  code: '60'
+  unofficial_names:
+  - Tokat
+  geo:
+    latitude: 40.313889
+    longitude: 36.554167
+    min_latitude: 40.267868
+    min_longitude: 36.4696621
+    max_latitude: 40.358932
+    max_longitude: 36.5932192
+  translations:
+    en: Tokat
+    ar: توقات
+    az: Toqat ili
+    be: Правінцыя Такат
+    bg: Токат
+    bn: টোকাট প্রদেশ
+    ca: Província de Tokat
+    cs: Tokatská provincie
+    da: Tokat Province
+    de: Tokat
+    el: Επαρχία Τοκάτ
+    es: Provincia de Tokat
+    et: Tokati provints
+    eu: Tokat probintzia
+    fa: استان توقات
+    fi: Tokatin maakunta
+    fr: Tokat
+    gl: Provincia de Tokat
+    gu: ટોકટ પ્રાંત
+    he: טוקט
+    hi: टोकैत प्रांत
+    hu: Tokat
+    hy: Թոկաթ
+    id: Provinsi Tokat
+    it: provincia di Tokat
+    ja: トカト県
+    ka: თოქათის პროვინცია
+    kn: ಟೋಕ್ಯಾಟ್ ಪ್ರಾಂತ್ಯ
+    ko: 토카트 주
+    lv: Tokatas ils
+    mr: तोकात प्रांत
+    ms: Wilayah Tokat
+    nb: Tokat
+    nl: Tokat
+    pl: Tokat
+    pt: Tokat
+    ro: Provincia Tokat
+    ru: Токат
+    si: ටොකට් පළාත
+    sr: Токат
+    sv: Tokat
+    sw: Mkoa wa Tokat
+    ta: டோகாட் மாகாணம்
+    te: టోకాట్ ప్రావిన్స్
+    th: จังหวัดโตกัต
+    tk: Tokat
+    tr: Tokat
+    uk: Токат
+    ur: توقات صوبہ
+    vi: Tokat
+    cy: Tokat
+    ceb: Tokat
+    sr_Latn: Tokat
+    lt: Tokato provincija
+    zh: 托卡特省
+    yue_Hans: 托卡特省
+    ccp: "𑄑𑄮𑄇𑄖𑄴"
+    yue: 托卡特省
+    uz: Tokat
+    bs: Tokat
+    mk: Токат
+    'no': Tokat
+  type: province
+'61':
+  name: Trabzon
+  code: '61'
+  unofficial_names:
+  - Trabzon
+  geo:
+    latitude: 41.00145
+    longitude: 39.7177999
+    min_latitude: 40.973513
+    min_longitude: 39.6524071
+    max_latitude: 41.01237
+    max_longitude: 39.808463
+  translations:
+    en: Trabzon
+    ar: طرابزون
+    az: Trabzon ili
+    be: Правінцыя Трабзон
+    bg: Трабзон
+    bn: ট্রাব্জন প্রদেশ
+    ca: Província de Trabzon
+    cs: Trabzonská provincie
+    da: Trabzon Province
+    de: Trabzon
+    el: Επαρχία Τραπεζούντας
+    es: Provincia de Trabzon
+    et: Trabzoni provints
+    eu: Trabzon probintzia
+    fa: استان ترابزون
+    fi: Trabzonin maakunta
+    fr: Trabzon
+    gl: Provincia de Trebizonda
+    gu: ટ્રેબઝોન પ્રાંત
+    hi: ट्रैब्जन प्रांत
+    hu: Trabzon
+    hy: Տրապիզոն
+    id: Provinsi Trabzon
+    it: provincia di Trebisonda
+    ja: トラブゾン県
+    ka: ტრაპიზონის პროვინცია
+    kn: ಟ್ರಾಬ್ಜಾನ್ ಪ್ರಾಂತ್ಯ
+    ko: 트라브존 주
+    lv: Trabzonas ils
+    mr: त्राब्झोन प्रांत
+    ms: Wilayah Trabzon
+    nb: Trabzon
+    nl: Trabzon
+    pl: Trabzon
+    pt: Trebizonda
+    ro: Provincia Trabzon
+    ru: Трабзон
+    si: ට්‍රබ්සන් පළාත
+    sl: Trabzon
+    sr: Трабзон
+    sv: Trabzon
+    sw: Mkoa wa Trabzon
+    ta: ட்ராப்ஸ்ன் மாகாணம்
+    te: ట్రాబ్జోన్ ప్రావిన్స్
+    th: จังหวัดแทรปซอน
+    tk: Trabzon
+    tr: Trabzon
+    uk: Трабзон
+    ur: ترابزون صوبہ
+    vi: Trabzon
+    cy: Trabzon
+    ceb: Trabzon
+    sr_Latn: Trabzon
+    lt: Trabzono provincija
+    zh: 特拉布宗省
+    yue_Hans: 特拉布宗省
+    sq: Trabzon
+    ccp: "𑄑𑄳𑄢𑄛𑄴𑄎𑄮𑄚𑄴"
+    he: מחוז טרבזון
+    yue: 特拉布宗省
+    uz: Trabzon
+    bs: Trabzon
+    mk: Трабзон
+    'no': Trabzon
+  type: province
+'62':
+  name: Tunceli
+  code: '62'
+  unofficial_names:
+  - Tunceli
+  geo:
+    latitude: 39.1058251
+    longitude: 39.5455166
+    min_latitude: 39.067998
+    min_longitude: 39.5122501
+    max_latitude: 39.118647
+    max_longitude: 39.5571623
+  translations:
+    en: Tunceli
+    ar: تونجيلي
+    az: Tuncəli ili
+    be: Правінцыя Тунджэлі
+    bg: Тунджели
+    bn: টুনসেলি প্রদেশ
+    ca: Província de Tunceli
+    cs: Tuncelská provincie
+    da: Tunceli Province
+    de: Tunceli
+    el: Τούνκελι
+    es: Provincia de Tunceli
+    et: Tunceli provints
+    eu: Tunceli probintzia
+    fa: استان تونج‌ایلی
+    fi: Tuncelin maakunta
+    fr: Tunceli
+    gl: Provincia de Tunceli
+    gu: ટુંસેલી પ્રાંત
+    hi: ट्यूनसेली प्रांत
+    hu: Tunceli
+    hy: Թունջելի
+    id: Provinsi Tunceli
+    it: provincia di Tunceli
+    ja: トゥンジェリ県
+    ka: თუნჯელის პროვინცია
+    kn: ಟುನ್ಸೆಲಿ ಪ್ರಾಂತ್ಯ
+    ko: 툰젤리 주
+    lv: Tundželi ils
+    mr: तुंजेली प्रांत
+    ms: Wilayah Tunceli
+    nb: Tunceli
+    nl: Tunceli
+    pl: Tunceli
+    pt: Tunceli
+    ro: Provincia Tunceli
+    ru: Тунджели
+    si: ටුන්සෙලි පළාත
+    sr: Тунџели
+    sv: Tunceli
+    sw: Mkoa wa Tunceli
+    ta: தான்செலி மாகாணம்
+    te: టున్సెలి ప్రావిన్స్
+    th: จังหวัดทันเชลี่
+    tk: Tunjeli
+    tr: Tunceli
+    uk: Тунджелі
+    ur: تونجیلی صوبہ
+    vi: Tunceli
+    ceb: Tunceli
+    sr_Latn: Tundželi
+    lt: Tundželio provincija
+    zh: 通杰利省
+    yue_Hans: 通杰利省
+    ccp: "𑄑𑄪𑄚𑄴𑄥𑄬𑄣𑄨"
+    yue: 通傑利省
+    uz: Tunceli
+    bs: Tunceli
+    mk: Тунџели
+    'no': Tunceli
+    cy: Talaith Tunceli
+    he: טונצלי
+  type: province
+'63':
+  name: Şanlıurfa
+  code: '63'
+  unofficial_names:
+  - Şanlıurfa
+  geo:
+    latitude: 37.159149
+    longitude: 38.796909
+    min_latitude: 37.100904
+    min_longitude: 38.7599281
+    max_latitude: 37.233371
+    max_longitude: 38.891956
+  translations:
+    en: Şanlıurfa
+    ar: محافظة أورفة
+    az: Şanlıurfa ili
+    be: Правінцыя Шанлыўрфа
+    bg: Шанлъурфа (вилает)
+    bn: স্যানলুরফা প্রদেশ
+    ca: Província de Şanlıurfa
+    cs: Şanlıurfská provincie
+    da: Şanlıurfa Province
+    de: Şanlıurfa
+    el: Επαρχία Σανλιούρφα
+    es: Provincia de Sanliurfa
+    et: Şanlıurfa provints
+    eu: Şanlıurfa probintzia
+    fa: استان شانلی‌اورفه
+    fi: Şanlıurfan maakunta
+    fr: Şanlıurfa
+    gu: સેન્લુર્ફા પ્રાંત
+    hi: सैन्ल्युर्फा
+    hu: Şanlıurfa (tartomány)
+    id: Provinsi Şanlıurfa
+    it: provincia di Şanlıurfa
+    ja: シャンルウルファ県
+    ka: ურფის პროვინცია
+    kn: ಸ್ಯಾನ್ಲಿರ್ಫಾ ಪ್ರಾಂತ್ಯ
+    ko: 샨리우르파 주
+    lv: Šanliurfas ils
+    mr: शानलुर्फा प्रांत
+    ms: Wilayah Şanlıurfa
+    nb: Şanlıurfa
+    nl: Şanlıurfa
+    pl: Şanlıurfa (prowincja)
+    pt: Şanlıurfa (província)
+    ro: Provincia Șanlıurfa
+    ru: Шанлыурфа
+    si: සැන්ලියුර්ෆා පළාත
+    sr: Шанлијурфа
+    sv: Şanlıurfa (provins)
+    sw: Mkoa wa Şanlıurfa
+    ta: ஆன்லைனுரபிஆ மாகாணம்
+    te: సాన్లుర్ఫా ప్రావిన్స్
+    th: รัฐบาเดิน-เวือร์ทเทิมแบร์ค
+    tk: Şanlyurfa (il)
+    tr: Şanlıurfa
+    uk: Шанлиурфа (іл)
+    ur: شانلیعرفا صوبہ
+    vi: Şanlıurfa (tỉnh)
+    ceb: Şanlıurfa
+    sr_Latn: Šanlijurfa
+    lt: Šanliurfos provincija
+    zh: 尚勒乌尔法省
+    yue_Hans: 尚勒乌尔法省
+    sq: Shanllëurfa
+    ccp: "𑄥𑄚𑄴𑄣𑄨𑄅𑄪𑄢𑄴𑄜"
+    hy: Ուռհայի նահանգ
+    yue: 尚勒烏爾法省
+    uz: Şanlıurfa (viloyat)
+    bs: Şanlıurfa (provincija)
+    mk: Шанлурфа (покраина)
+    'no': Şanlıurfa
+    cy: Talaith Şanlıurfa
+    he: נפת שנלאורפה
+  type: province
+'64':
+  name: Uşak
+  code: '64'
+  unofficial_names:
+  - Uşak
+  geo:
+    latitude: 38.682301
+    longitude: 29.40818999999999
+    min_latitude: 38.633352
+    min_longitude: 29.3559361
+    max_latitude: 38.705018
+    max_longitude: 29.456464
+  translations:
+    en: Uşak
+    ar: أوشاك
+    az: Uşaq ili
+    be: Правінцыя Ушак
+    bg: Ушак
+    bn: উসাক প্রদেশ
+    ca: Província d’Uşak
+    cs: Uşacká provincie
+    da: Uşak Province
+    de: Uşak
+    el: Επαρχία Ουσάκ
+    es: Provincia de Uşak
+    et: Uşaki provints
+    eu: Usak probintzia
+    fa: استان عشاق
+    fi: Uşakin maakunta
+    fr: Uşak
+    gl: Provincia de Uşak
+    gu: ઉસક પ્રાંત
+    hi: उसाक प्रांत
+    hu: Uşak
+    hy: Ուշաքի նահանգ
+    id: Provinsi Uşak
+    it: provincia di Uşak
+    ja: ウシャク県
+    ka: უშაქის პროვინცია
+    kn: ಯುಸಾಕ್ ಪ್ರಾಂತ್ಯ
+    ko: 우샤크 주
+    lv: Ušakas ils
+    mr: उशाक प्रांत
+    ms: Wilayah Uşak
+    nb: Uşak
+    nl: Uşak
+    pl: Uşak
+    pt: Uşak
+    ro: Provincia Ușak
+    ru: Ушак
+    si: උසාක් පළාත
+    sr: Ушак
+    sv: Uşak
+    sw: Mkoa wa Uşak
+    ta: உசக் மாகாணம்
+    te: ఉసాక్ ప్రావిన్స్
+    th: จังหวัดอูซัค
+    tk: Uşak
+    tr: Uşak
+    uk: Ушак
+    ur: عشاق صوبہ
+    vi: Uşak
+    ceb: Uşak (lalawigan)
+    sr_Latn: Ušak
+    lt: Ušako provincija
+    zh: 乌沙克省
+    yue_Hans: 乌沙克省
+    ccp: "𑄅𑄪𑄥𑄇𑄴"
+    yue: 烏沙克省
+    uz: Uşak
+    bs: Uşak
+    mk: Ушак
+    'no': Uşak
+    cy: Talaith Uşak
+  type: province
+'65':
+  name: Van
+  code: '65'
+  unofficial_names:
+  - Van
+  geo:
+    latitude: 38.494167
+    longitude: 43.38
+    min_latitude: 38.425492
+    min_longitude: 43.2695239
+    max_latitude: 38.580314
+    max_longitude: 43.447585
+  translations:
+    en: Van
+    ar: محافظة وان
+    az: Van vilayəti
+    be: Правінцыя Ван
+    bg: Ван
+    bn: ভয়ান ভ্যান প্রদেশ
+    ca: Província de Van
+    cs: Vanská provincie
+    da: Van Province
+    de: Van
+    el: Βαν
+    es: Provincia de Van
+    et: Vani provints
+    eu: Van probintzia
+    fa: استان وان
+    fi: Vanin maakunta
+    fr: Van
+    gl: Provincia de Van
+    gu: વેન પ્રાંત
+    he: ואן
+    hi: वान प्रांत
+    hu: Van
+    hy: Վան
+    id: Provinsi Van
+    it: provincia di Van
+    ja: ヴァン県
+    ka: ვანის პროვინცია
+    kn: ವ್ಯಾನ್ ಪ್ರಾಂತ್ಯ
+    ko: 반 주
+    lv: Vanas ils
+    mr: वान प्रांत
+    ms: Wilayah Van
+    nb: Van
+    nl: Van
+    pl: Wan
+    pt: Van
+    ro: Provincia Van
+    ru: Ван
+    si: වැන් පළාත
+    sl: Van
+    sr: Ван
+    sv: Van
+    sw: Mkoa wa Van
+    ta: வான் மாகாணம்
+    te: వాన్
+    th: มณฑลวาน
+    tk: Wan
+    tr: Van
+    uk: Ван
+    ur: وان صوبہ
+    vi: Van
+    cy: Van
+    ceb: Van (lalawigan)
+    sr_Latn: Van
+    lt: Vano provincija
+    zh: 凡城省
+    yue_Hans: 凡城省
+    ccp: "𑄞𑄳𑄠𑄚𑄴"
+    pa: ਵਾਨ
+    yue: 凡城省
+    bs: Van
+    mk: Ван
+    'no': Van
+  type: province
+'66':
+  name: Yozgat
+  code: '66'
+  unofficial_names:
+  - Yozgat
+  geo:
+    latitude: 39.818081
+    longitude: 34.81469
+    min_latitude: 39.792581
+    min_longitude: 34.7747827
+    max_latitude: 39.837859
+    max_longitude: 34.8495329
+  translations:
+    en: Yozgat
+    ar: يوزغات
+    az: Yozqat vilayəti
+    be: Правінцыя Ёзгат
+    bg: Йозгат
+    bn: ইয়জগাট প্রদেশ
+    ca: Província de Yozgat
+    cs: Yozgatská provincie
+    da: Yozgat Province
+    de: Yozgat
+    el: Επαρχία Γιοζγκάτ
+    es: Provincia de Yozgat
+    et: Yozgati provints
+    eu: Yozgat probintzia
+    fa: استان یوزگات
+    fi: Yozgatin maakunta
+    fr: Yozgat
+    gl: Provincia de Yozgat
+    gu: યોઝગાત પ્રાંત
+    hi: योज़्गट प्रांत
+    hu: Yozgat
+    hy: Յոզգաթի նահանգ
+    id: Provinsi Yozgat
+    it: provincia di Yozgat
+    ja: ヨズガト県
+    ka: იოზგათის პროვინცია
+    kn: ಯೊಜ್ಗತ್ ಪ್ರಾಂತ್ಯ
+    ko: 요즈가트 주
+    lv: Jozgatas ils
+    mr: योझ्गात प्रांत
+    ms: Wilayah Yozgat
+    nb: Yozgat
+    nl: Yozgat
+    pl: Yozgat
+    pt: Yozgat
+    ro: Provincia Yozgat
+    ru: Йозгат
+    si: යෝස්ගට් පළාත
+    sr: Јозгат
+    sv: Yozgat
+    sw: Mkoa wa Yozgat
+    ta: யோஸ்கட் மாகாணம்
+    te: యోజ్గాట్ ప్రావిన్స్
+    th: จังหวัดยอซแกท
+    tk: Ýozgat
+    tr: Yozgat
+    uk: Йозгат
+    ur: یوزگت علاقہ
+    vi: Yozgat
+    ceb: Yozgat
+    sr_Latn: Jozgat
+    lt: Jozgato provincija
+    zh: 约兹加特省
+    yue_Hans: 约兹加特省
+    ccp: "𑄃𑄨𑄠𑄮𑄉𑄖𑄴"
+    kk: Йозгат
+    yue: 約茲加特省
+    uz: Yozgat
+    bs: Yozgat
+    mk: Јозгат
+    'no': Yozgat
+    cy: Talaith Yozgat
+  type: province
+'67':
+  name: Zonguldak
+  code: '67'
+  unofficial_names:
+  - Zonguldak
+  geo:
+    latitude: 41.456409
+    longitude: 31.798731
+    min_latitude: 41.42287
+    min_longitude: 31.72608
+    max_latitude: 41.495178
+    max_longitude: 31.8742409
+  translations:
+    en: Zonguldak
+    ar: زانغولداك
+    az: Zonquldak ili
+    be: Правінцыя Зангулдак
+    bg: Зонгулдак (вилает)
+    bn: জঙ্গুলডাক প্রদেশ
+    ca: Província de Zonguldak
+    cs: Zonguldakská provincie
+    da: Zonguldak Province
+    de: Zonguldak
+    el: Επαρχία Ζονγκουλντάκ
+    es: Provincia de Zonguldak
+    et: Zonguldaki provints
+    eu: Zonguldak probintzia
+    fa: استان زونگولداغ
+    fi: Zonguldakin maakunta
+    fr: Zonguldak (province)
+    gl: Provincia de Zonguldak
+    gu: ઝોંગુલડક પ્રાંત
+    hi: ज़ोंगुलदक प्रांत
+    hu: Zonguldak (tartomány)
+    id: Provinsi Zonguldak
+    it: provincia di Zonguldak
+    ja: ゾングルダク県
+    ka: ზონგულდაქის პროვინცია
+    kn: ಝೊಂಗುಲ್ಡಾಕ್ ಪ್ರಾಂತ್ಯ
+    ko: 종굴다크 주
+    lv: Zonguldakas ils
+    mr: झोंगुल्दाक प्रांत
+    ms: Wilayah Zonguldak
+    nb: Zonguldak
+    nl: Zonguldak
+    pl: Zonguldak (prowincja)
+    pt: Zonguldak (província)
+    ro: Provincia Zonguldak
+    ru: Зонгулдак (ил)
+    si: සොන්ගුල්ඩක් පළාත
+    sr: Зонгулдак
+    sv: Zonguldak (provins)
+    sw: Mkoa wa Zonguldak
+    ta: ஸ்ஓங்குலடாகி மாகாணம்
+    te: జోంగుల్డాక్ ప్రావిన్స్
+    th: จังหวัดซองกุลดัค
+    tk: Zonguldak (il)
+    tr: Zonguldak (il)
+    uk: Зонгулдак (іл)
+    ur: زانگولداک صوبہ
+    vi: Zonguldak (tỉnh)
+    cy: Zonguldak
+    ceb: Zonguldak
+    sr_Latn: Zonguldak
+    lt: Zonguldako provincija
+    zh: 宗古尔达克省
+    yue_Hans: 宗古尔达克省
+    ccp: "𑄎𑄧𑄁𑄉𑄪𑄣𑄴𑄓𑄇𑄴"
+    pa: ਜੋਂਗੁਲਡਕ
+    yue: 宗古爾達克省
+    uz: Zonguldak (viloyat)
+    bs: Zonguldak (provincija)
+    mk: Зонгулдак (покраина)
+    'no': Zonguldak
+    hy: Զոնգուլդաքի մարզ
+  type: province
+'68':
+  name: Aksaray
+  code: '68'
+  unofficial_names:
+  - Aksaray
+  geo:
+    latitude: 38.36869
+    longitude: 34.03698
+    min_latitude: 38.292834
+    min_longitude: 33.9268219
+    max_latitude: 38.428766
+    max_longitude: 34.0744111
+  translations:
+    en: Aksaray
+    ar: آق سراي
+    az: Ağsaray vilayəti
+    be: Правінцыя Аксарай
+    bg: Аксарай
+    bn: আকসার প্রদেশ
+    ca: Província d’Aksaray
+    cs: Aksarayská provincie
+    da: Aksaray Province
+    de: Aksaray
+    el: Επαρχία Ακσαράι
+    es: Provincia de Aksaray
+    et: Aksaray provints
+    eu: Aksaray probintzia
+    fa: استان آق‌سرای
+    fi: Aksarayn maakunta
+    fr: Aksaray
+    gl: Provincia de Aksaray
+    gu: અક્સારાય પ્રાંત
+    hi: अकसरय प्रांत
+    hu: Aksaray
+    hy: Ակսարայ
+    id: Provinsi Aksaray
+    it: provincia di Aksaray
+    ja: アクサライ県
+    ka: აქსარაის პროვინცია
+    kn: ಅಕ್ಸರಾಯ್ ಪ್ರಾಂತ್ಯ
+    ko: 악사라이 주
+    lv: Aksarajas ils
+    mr: अक्साराय प्रांत
+    ms: Wilayah Aksaray
+    nb: Aksaray
+    nl: Aksaray
+    pl: Aksaray
+    pt: Aksaray
+    ro: Provincia Aksaray
+    ru: Аксарай
+    si: අක්සරේ පළාත
+    sr: Аксарај
+    sv: Aksaray
+    sw: Mkoa wa Aksaray
+    ta: அக்ஸராய் மாகாணம்
+    te: అక్సారే ప్రావిన్స్
+    th: จังหวัดอักซาไร
+    tk: Aksaraý
+    tr: Aksaray
+    uk: Аксарай
+    ur: آق سرائے صوبہ
+    vi: Aksaray
+    ceb: Aksaray
+    sr_Latn: Aksaraj
+    lt: Aksarajaus provincija
+    zh: 阿克萨赖省
+    yue_Hans: 阿克萨赖省
+    sq: Aksaray
+    ccp: "𑄃𑄇𑄴𑄥𑄢𑄬"
+    yue: 阿克薩賴省
+    uz: Aksaray
+    bs: Aksaray
+    mk: Аксарај
+    'no': Aksaray
+    cy: Talaith Aksaray
+    hr: Aksaray
+    sk: Çetin
+    sl: Çetin
+    yo: Çetin
+    yo_BJ: Çetin
+  type: province
+'69':
+  name: Bayburt
+  code: '69'
+  unofficial_names:
+  - Bayburt
+  geo:
+    latitude: 40.255169
+    longitude: 40.22488
+    min_latitude: 40.235426
+    min_longitude: 40.19289300000001
+    max_latitude: 40.282803
+    max_longitude: 40.259813
+  translations:
+    en: Bayburt
+    ar: بايبورت
+    az: Bayburt ili
+    be: Правінцыя Байбурт
+    bg: Байбурт
+    bn: বেবোর্ট প্রদেশ
+    ca: Província de Bayburt
+    cs: Bayburtská provincie
+    da: Bayburt Province
+    de: Bayburt
+    el: Επαρχία Μπαϊμπούρτ
+    es: Provincia de Bayburt
+    et: Bayburti provints
+    eu: Bayburt probintzia
+    fa: استان بایبورت
+    fi: Bayburtin maakunta
+    fr: Bayburt
+    gu: બેબર્ટ પ્રાંત
+    hi: बेबर्ट प्रांत
+    hu: Bayburt
+    hy: Բայբուրթի նահանգ
+    id: Provinsi Bayburt
+    it: provincia di Bayburt
+    ja: バイブルト県
+    ka: ბაიბურთის პროვინცია
+    kn: ಬೇಬಬರ್ಟ್ ಪ್ರಾಂತ್ಯ
+    ko: 바이부르트 주
+    lv: Bajburtas ils
+    mr: बायबुर्त प्रांत
+    ms: Wilayah Bayburt
+    nb: Bayburt
+    nl: Bayburt
+    pl: Bayburt
+    pt: Bayburt
+    ro: Provincia Bayburt
+    ru: Байбурт
+    si: බෙබර්ට් පළාත
+    sr: Бајбурт
+    sv: Bayburt
+    sw: Mkoa wa Bayburt
+    ta: பயபுரட் மாகாணம்
+    te: బేబర్ట్ ప్రావిన్స్
+    th: จังหวัดเบย์เบิร์ต
+    tk: Baýburt
+    tr: Bayburt
+    uk: Байбурт
+    ur: بایبورت صوبہ
+    vi: Bayburt
+    cy: Bayburt
+    ceb: Bayburt (lalawigan)
+    sr_Latn: Bajburt
+    lt: Baiburto provincija
+    zh: 巴伊布尔特省
+    yue_Hans: 巴伊布林特省
+    ccp: "𑄝𑄬𑄝𑄪𑄢𑄴𑄑𑄴"
+    pa: ਬੇਬੁਰਤ ਸੂਬਾ
+    kk: Байбурт
+    yue: 巴伊布林特省
+    uz: Bayburt
+    bs: Bayburt
+    mk: Бајбурт
+    'no': Bayburt
+  type: province
+'70':
+  name: Karaman
+  code: '70'
+  unofficial_names:
+  - Karaman
+  geo:
+    latitude: 37.17593
+    longitude: 33.228748
+    min_latitude: 37.146256
+    min_longitude: 33.179099
+    max_latitude: 37.212325
+    max_longitude: 33.271025
+  translations:
+    en: Karaman
+    ar: كارامان
+    az: Karaman ili
+    be: Правінцыя Караман
+    bg: Караман
+    bn: ক্যারাম্যান প্রদেশ
+    ca: Província de Karaman
+    cs: Karamanská provincie
+    da: Karaman Province
+    de: Karaman
+    el: Επαρχία Καραμάν
+    es: Provincia de Karaman
+    et: Karamani provints
+    eu: Karaman probintzia
+    fa: استان قرامان
+    fi: Karamanin maakunta
+    fr: Karaman
+    gu: કારમેન પ્રાંત
+    he: קאראמאן
+    hi: कारमन जिला
+    hu: Karaman
+    hy: Կարաման
+    id: Provinsi Karaman
+    it: provincia di Karaman
+    ja: カラマン県
+    ka: ქარამანის პროვინცია
+    kn: ಕರಮನ್ ಪ್ರಾಂತ್ಯ
+    ko: 카라만 주
+    lv: Karamanas ils
+    mr: करामान प्रांत
+    ms: Wilayah Karaman
+    nb: Karaman
+    nl: Karaman
+    pl: Karaman
+    pt: Karaman (província)
+    ro: Provincia Karaman
+    ru: Караман
+    si: කරමන් පළාත
+    sr: Караман
+    sv: Karaman
+    sw: Mkoa wa Karaman
+    ta: காரமான மாகாணம்
+    te: కారామన్ ప్రావిన్స్
+    th: จังหวัดการามาน
+    tk: Karaman
+    tr: Karaman
+    uk: Караман
+    ur: کارامان صوبہ
+    vi: Karaman
+    ceb: Karaman
+    sr_Latn: Karaman
+    lt: Karamano provincija
+    zh: 卡拉曼省
+    yue_Hans: 卡拉曼省
+    ccp: "𑄇𑄢𑄟𑄚𑄴"
+    yue: 卡拉曼省
+    uz: Karaman
+    bs: Vilajet Karaman
+    mk: Караман
+    'no': Karaman
+    cy: Talaith Karaman
+  type: province
+'71':
+  name: Kırıkkale
+  code: '71'
+  unofficial_names:
+  - Kırıkkale
+  geo:
+    latitude: 39.846821
+    longitude: 33.515251
+    min_latitude: 39.814633
+    min_longitude: 33.4698919
+    max_latitude: 39.869203
+    max_longitude: 33.5761229
+  translations:
+    en: Kırıkkale
+    ar: محافظة قيريقكالي
+    be: Правінцыя Кырыкале
+    bg: Къръккале
+    bn: কিরিক্কাল প্রদেশ
+    ca: Província de Kırıkkale
+    cs: Kırıkkalská provincie
+    da: Kırıkkale Province
+    de: Kırıkkale
+    el: Επαρχία Κιρίκαλε
+    es: Provincia de Kırıkkale
+    et: Kırıkkale provints
+    eu: Kırıkkale probintzia
+    fa: استان قیریق‌قلعه
+    fi: Kırıkkalen maakunta
+    fr: Kırıkkale
+    gu: કિનકેલ પ્રાંત
+    he: נפת קרקקלה
+    hi: किरिककैले प्रांत
+    hu: Kırıkkale
+    hy: Քըրըքկալե
+    id: Provinsi Kırıkkale
+    it: provincia di Kırıkkale
+    ja: クルッカレ県
+    ka: ქირიქკალეს პროვინცია
+    kn: ಕಿರಿಕಲೆ ಪ್ರಾಂತ್ಯ
+    ko: 키리칼레 주
+    lv: Kirikales ils
+    mr: करक्काले प्रांत
+    ms: Wilayah Kırıkkale
+    nb: Kırıkkale
+    nl: Kırıkkale
+    pl: Kırıkkale
+    pt: Kırıkkale
+    ro: Provincia Kırıkkale
+    ru: Ил Кырыккале
+    si: කරික්කලේ පළාත
+    sr: Кирикале
+    sv: Kırıkkale
+    sw: Mkoa wa Kırıkkale
+    ta: க்ரிக்களே மாகாணம்
+    te: కిరిక్కాలె ప్రావిన్స్
+    th: เมืองหลวงคิริคคาเล
+    tk: Kyrykkale
+    tr: Kırıkkale
+    uk: Кириккале
+    ur: قیریق قلعہ صوبہ
+    vi: Kırıkkale
+    ceb: Kırıkkale
+    sr_Latn: Kirikale
+    lt: Kirikalės provincija
+    zh: 克勒克卡莱省
+    yue_Hans: 克勒克卡莱省
+    ccp: "𑄇𑄨𑄢𑄨𑄇𑄴𑄇𑄣𑄬"
+    yue: 克勒克卡萊省
+    uz: Kırıkkale
+    bs: Kırıkkale
+    mk: Крккале
+    'no': Kırıkkale
+    az: Kırıkkale ili
+    cy: Talaith Kırıkkale
+  type: province
+'72':
+  name: Batman
+  code: '72'
+  unofficial_names:
+  - Batman
+  geo:
+    latitude: 37.881168
+    longitude: 41.13509
+    min_latitude: 37.85689199999999
+    min_longitude: 41.08907019999999
+    max_latitude: 37.934147
+    max_longitude: 41.1744038
+  translations:
+    en: Batman
+    ar: بطمان
+    az: Batman vilayəti
+    be: Правінцыя Батман
+    bg: Батман
+    bn: ব্যাটম্যান প্রদেশ
+    ca: Província de Batman
+    cs: Batman
+    da: Batman Province
+    de: Batman
+    el: Επαρχία Μπατμάν
+    es: Provincia de Batman
+    et: Batmani provints
+    eu: Batman probintzia
+    fa: استان باتمان
+    fi: Batmanin maakunta
+    fr: Batman
+    gu: બેટમેન પ્રાંત
+    hi: बतमान
+    hu: Batman
+    hy: Բաթման
+    id: Provinsi Batman
+    it: provincia di Batman
+    ja: バトマン県
+    ka: ბათმანის პროვინცია
+    kn: ಬ್ಯಾಟ್ಮ್ಯಾನ್ ಪ್ರಾಂತ್ಯ
+    ko: 바트만 주
+    lv: Batmanas ils
+    mr: बात्मान प्रांत
+    ms: Wilayah Batman
+    nb: Batman
+    nl: Batman
+    pl: Batman
+    pt: Batman
+    ro: Provincia Batman
+    ru: ил Батман
+    si: බැට්මෑන් පළාත
+    sl: Batman
+    sr: Батман
+    sv: Batman
+    sw: Mkoa wa Batman
+    ta: பேட்மேன் மாகாணம்
+    te: బ్యాట్మన్ ప్రావిన్స్
+    th: บาตมัน
+    tk: Batman
+    tr: Batman
+    uk: Батман
+    ur: باتمان صوبہ
+    vi: Batman
+    ceb: Batman
+    sr_Latn: Batman
+    lt: Betmeno provincija
+    zh: 巴特曼省
+    yue_Hans: 巴特曼省
+    sq: Batman
+    ccp: "𑄝𑄳𑄠𑄖𑄴𑄟𑄳𑄠𑄚𑄴"
+    pa: ਬਾਤਮਾਨ ਸੂਬਾ
+    kk: Батман
+    yue: 巴特曼省
+    uz: Batman
+    bs: Batman
+    mk: Батман
+    'no': Batman
+    cy: Talaith Batman
+  type: province
+'73':
+  name: Şırnak
+  code: '73'
+  unofficial_names:
+  - Şırnak
+  geo:
+    latitude: 37.516389
+    longitude: 42.461111
+    min_latitude: 37.50877699999999
+    min_longitude: 42.440616
+    max_latitude: 37.53534
+    max_longitude: 42.4721549
+  translations:
+    en: Şırnak
+    ar: شرناق
+    az: Şırnaq ili
+    be: Правінцыя Шырнак
+    bg: Шърнак
+    bn: সিনাক প্রদেশ
+    ca: Província de Şırnak
+    cs: Şırnakská provincie
+    da: Şırnak Province
+    de: Şırnak
+    el: Σίρνακ
+    es: Provincia de Şırnak
+    et: Şırnaki provints
+    eu: Şırnak probintzia
+    fa: استان شرناق
+    fi: Şırnakin maakunta
+    fr: Şırnak
+    gu: સિર્નાક પ્રાંત
+    hi: सिर्नक प्रांत
+    hu: Şırnak
+    hy: Շըրնաք
+    id: Provinsi Şırnak
+    it: provincia di Şırnak
+    ja: シュルナク県
+    ka: შირნაქის პროვინცია
+    kn: ಸೆರ್ನಾಕ್ ಪ್ರಾಂತ್ಯ
+    ko: 시르나크 주
+    lv: Širnakas ils
+    mr: शर्नाक प्रांत
+    ms: Wilayah Şırnak
+    nb: Şırnak
+    nl: Şırnak
+    pl: Şırnak
+    pt: Şırnak
+    ro: Provincia Șırnak
+    ru: Ширнак
+    si: සිමාක් පළාත
+    sr: Ширнак
+    sv: Şırnak
+    sw: Mkoa wa Şırnak
+    ta: சிரணாக மாகாணம்
+    te: సిర్నక్ ప్రావిన్స్
+    th: จังหวัดซรินิก
+    tk: Şyrnak
+    tr: Şırnak
+    uk: Ширнак
+    ur: شرناق صوبہ
+    vi: Şırnak
+    ceb: Şırnak
+    sr_Latn: Širnak
+    lt: Širnako provincija
+    zh: 舍尔纳克省
+    yue_Hans: 舍尔纳克省
+    sq: Shërnak
+    ccp: "𑄥𑄨𑄢𑄴𑄚𑄇𑄴"
+    yue: 舍爾納克省
+    uz: Şırnak
+    bs: Şırnak
+    mk: Шрнак
+    'no': Şırnak
+    cy: Talaith Şırnak
+  type: province
+'74':
+  name: Bartın
+  code: '74'
+  unofficial_names:
+  - Bartın
+  geo:
+    latitude: 41.641521
+    longitude: 32.345581
+    min_latitude: 41.604933
+    min_longitude: 32.3046411
+    max_latitude: 41.654625
+    max_longitude: 32.37159310000001
+  translations:
+    en: Bartın
+    ar: بارتين
+    az: Bartın vilayəti
+    be: Правінцыя Бартын
+    bg: Бартън
+    bn: বারতিন প্রদেশ
+    ca: Província de Bartın
+    cs: Bartınská provincie
+    da: Bartın Province
+    de: Bartın
+    el: Επαρχία Μπαρτίν
+    es: Bartın
+    et: Bartıni provints
+    eu: Bartın probintzia
+    fa: استان بارتین
+    fi: Bartınin maakunta
+    fr: Bartın
+    gu: બાર્ટિન પ્રાંત
+    hi: बार्टिन प्रांत
+    hu: Bartın
+    hy: Բարթըն
+    id: Provinsi Bartın
+    it: provincia di Bartın
+    ja: バルトゥン県
+    ka: ბართინის პროვინცია
+    kn: ಬಾರ್ಟಿನ್ ಪ್ರಾಂತ್ಯ
+    ko: 바르틴 주
+    lv: Bartinas ils
+    mr: बार्तन प्रांत
+    ms: Wilayah Bartın
+    nb: Bartın
+    nl: Bartın
+    pl: Bartın
+    pt: Bartın
+    ro: Provincia Bartın
+    ru: Бартын
+    si: බාර්ටින් පළාත
+    sr: Бартин
+    sv: Bartın
+    sw: Mkoa wa Bartın
+    ta: பார்ட்டின் மாகாணம்
+    te: బార్టిన్ ప్రావిన్స్
+    th: จังหวัดบาร์ติน
+    tk: Bartyn
+    tr: Bartın
+    uk: Бартин
+    ur: بارتین صوبہ
+    vi: Bartın
+    ceb: Bartın (lalawigan)
+    sr_Latn: Bartin
+    lt: Bartino provincija
+    zh: 巴尔滕省
+    yue_Hans: 巴尔滕省
+    ccp: "𑄝𑄢𑄴𑄑𑄨𑄚𑄴"
+    pa: ਬਾਰਤੀਨ ਸੂਬਾ
+    kk: Бартын
+    yue: 巴爾滕省
+    uz: Bartın
+    bs: Bartın
+    mk: Бартин
+    'no': Bartın
+    cy: Talaith Bartın
+  type: province
+'75':
+  name: Ardahan
+  code: '75'
+  unofficial_names:
+  - Ardahan
+  geo:
+    latitude: 41.110481
+    longitude: 42.702171
+    min_latitude: 41.099811
+    min_longitude: 42.6801308
+    max_latitude: 41.125951
+    max_longitude: 42.7281391
+  translations:
+    en: Ardahan
+    ar: أرداهان
+    az: Ərdəhan vilayəti
+    be: Правінцыя Ардахан
+    bg: Ардахан
+    bn: আরদাহান প্রদেশ
+    ca: Província d’Ardahan
+    cs: Ardahanská provincie
+    da: Ardahan Province
+    de: Ardahan
+    el: Αρνταχάν
+    es: Provincia de Ardahan
+    et: Ardahani provints
+    eu: Ardahan probintzia
+    fa: استان اردهان
+    fi: Ardahanin maakunta
+    fr: Ardahan
+    gu: અર્દાહન પ્રાંત
+    he: ארדהאן
+    hi: अर्दहन प्रांत
+    hu: Ardahan
+    hy: Արդահանի նահանգ
+    id: Provinsi Ardahan
+    it: provincia di Ardahan
+    ja: アルダハン県
+    ka: არტაანის პროვინცია
+    kn: ಆರ್ಡಹಾನ್ ಪ್ರಾಂತ್ಯ
+    ko: 아르다한 주
+    lv: Ardahanas ils
+    mr: अर्दाहान प्रांत
+    ms: Wilayah Ardahan
+    nb: Ardahan
+    nl: Ardahan
+    pl: Ardahan
+    pt: Ardahan
+    ro: Provincia Ardahan
+    ru: Ардахан (ил)
+    si: අර්දහන් පළාත
+    sl: Ardahan
+    sr: Ардахан
+    sv: Ardahan
+    sw: Mkoa wa Ardahan
+    ta: ஆர்தான் மாகாணம்
+    te: అర్డాహన్ ప్రావిన్స్
+    th: จังหวัดอาร์ดาฮาน
+    tk: Ardahan
+    tr: Ardahan
+    uk: Ардахан
+    ur: ارداہان صوبہ
+    vi: Ardahan
+    ceb: Ardahan (lalawigan)
+    sr_Latn: Ardahan
+    lt: Ardahano provincija
+    zh: 阿尔达汉省
+    yue_Hans: 阿尔达汉省
+    sq: Ardahan
+    ccp: "𑄃𑄢𑄴𑄝𑄦𑄚𑄴"
+    pa: ਅਰਦਹਾਨ ਸੂਬਾ
+    kk: Ардахан
+    yue: 阿爾達漢省
+    uz: Ardahan
+    bs: Ardahan
+    mk: Ардахан
+    'no': Ardahan
+    cy: Talaith Ardahan
+    hr: Ardahan (pokrajina)
+  type: province
+'76':
+  name: Iğdır
+  code: '76'
+  unofficial_names:
+  - Iğdır
+  geo:
+    latitude: 39.91930000000001
+    longitude: 44.065498
+    min_latitude: 39.884109
+    min_longitude: 43.9807291
+    max_latitude: 39.950163
+    max_longitude: 44.0928248
+  translations:
+    en: Iğdır
+    ar: اغدير
+    az: İğdır vilayəti
+    be: Правінцыя Ыйдыр
+    bg: Ъгдър
+    ca: Província d’Iğdır
+    cs: Iğdırská provincie
+    da: Iğdır
+    de: Iğdır
+    es: Provincia de Iğdır
+    et: Iğdıri provints
+    eu: Iğdır probintzia
+    fa: استان ایغدیر
+    fi: Iğdırin maakunta
+    fr: Iğdır
+    hu: Iğdır
+    hy: Իգդիրի նահանգ
+    id: Provinsi Iğdır
+    it: provincia di Iğdır
+    ja: ウードゥル県
+    ka: იგდირის პროვინცია
+    ko: 이디르 주
+    lv: Īgdiras ils
+    mr: इदिर प्रांत
+    ms: Wilayah Iğdır
+    nb: Iğdır
+    nl: Iğdır
+    pl: Iğdır
+    pt: Iğdır
+    ro: Provincia Iğdır
+    ru: Ыгдыр
+    sl: Iğdır
+    sr: Игдир
+    sv: Iğdır
+    sw: Mkoa wa Iğdır
+    tk: Ygdyr
+    tr: Iğdır
+    uk: Игдир
+    ur: اغدیر صوبہ
+    vi: Iğdır
+    ceb: Iğdır
+    sr_Latn: Igdir
+    zh: 厄德尔省
+    yue_Hans: 厄德尔省
+    ccp: "𑄃𑄨𑄇𑄴𑄓𑄢𑄴"
+    ps: ايګدير
+    pa: ਇਗਦੀਰ ਸੂਬਾ
+    yue: 厄德爾省
+    th: จังหวัดอือดือร์
+    bs: Iğdır
+    mk: Игдир
+    'no': Iğdır
+    cy: Talaith Iğdır
+    el: Επαρχία Ιγκντίρ
+    hi: इग्दीर
+    ta: ஐடார் மாகாணம்
+  type: province
+'77':
+  name: Yalova
+  code: '77'
+  unofficial_names:
+  - Yalova
+  geo:
+    latitude: 40.65
+    longitude: 29.266667
+    min_latitude: 40.619459
+    min_longitude: 29.2101232
+    max_latitude: 40.66593
+    max_longitude: 29.3150099
+  translations:
+    en: Yalova
+    ar: يالوفا
+    az: Yalova ili
+    be: Правінцыя Ялава
+    bg: Ялова
+    bn: ইয়ালোভা প্রদেশ
+    ca: Província de Yalova
+    cs: Yalovská provincie
+    da: Yalova Province
+    de: Yalova
+    el: Επαρχία Γιάλοβας
+    es: Provincia de Yalova
+    et: Yalova provints
+    eu: Yalova probintzia
+    fa: استان یالوا
+    fi: Yalovan maakunta
+    fr: Yalova
+    gl: Provincia de Yalova
+    gu: યાલોવા પ્રાંત
+    hi: यलोवा प्रांत
+    hu: Yalova
+    hy: Յալովա
+    id: Provinsi Yalova
+    it: provincia di Yalova
+    ja: ヤロヴァ県
+    ka: იალოვის პროვინცია
+    kn: ಯಲೋವಾ ಪ್ರಾಂತ್ಯ
+    ko: 얄로바 주
+    lv: Jalovas ils
+    mr: यालोवा प्रांत
+    ms: Wilayah Yalova
+    nb: Yalova
+    nl: Yalova
+    pl: Yalova
+    pt: Yalova
+    ro: Provincia Yalova
+    ru: Ялова
+    si: යලොවා පළාත
+    sl: Yalova
+    sr: Јалова
+    sv: Yalova
+    sw: Mkoa wa Yalova
+    ta: யலோவா மாகாணம்
+    te: యలోవా ప్రావిన్స్
+    th: จังหวัดยาโลวา
+    tk: Ýalowa
+    tr: Yalova
+    uk: Ялова
+    ur: یالووا صوبہ
+    vi: Yalova
+    ceb: Yalova
+    sr_Latn: Jalova
+    lt: Jalovos provincija
+    zh: 亚洛瓦省
+    yue_Hans: 雅洛华省
+    sq: Jallova
+    ccp: "𑄃𑄨𑄠𑄣𑄮𑄞"
+    yue: 雅洛華省
+    uz: Yalova
+    bs: Yalova
+    mk: Јалова
+    'no': Yalova
+    cy: Talaith Yalova
+    ha: Lardin Yalova
+    ha_NE: Lardin Yalova
+  type: province
+'78':
+  name: Karabük
+  code: '78'
+  unofficial_names:
+  - Karabük
+  geo:
+    latitude: 41.2061
+    longitude: 32.62035
+    min_latitude: 41.172524
+    min_longitude: 32.589157
+    max_latitude: 41.239923
+    max_longitude: 32.7121672
+  translations:
+    en: Karabük
+    ar: كارابوك
+    az: Karabük ili
+    be: Правінцыя Карабюк
+    bg: Карабюк
+    bn: কারাবুক প্রদেশ
+    ca: Província de Karabük
+    cs: Karabükská provincie
+    da: Karabuk Province
+    de: Karabük
+    el: Επαρχία Καραμπούκ
+    es: Provincia de Karabük
+    et: Karabüki provints
+    eu: Karabük probintzia
+    fa: استان قره‌بوک
+    fi: Karabükin maakunta
+    fr: Karabük
+    gu: કરબુક પ્રાંત
+    hi: कराबुक प्रांत
+    hu: Karabük
+    hy: Կարաբյուկ
+    id: Provinsi Karabük
+    it: provincia di Karabük
+    ja: カラビュック県
+    ka: ყარაბუქის პროვინცია
+    kn: ಕರಾಬುಕ್ ಪ್ರಾಂತ್ಯ
+    ko: 카라뷔크 주
+    lv: Karabikas ils
+    mr: काराबुक प्रांत
+    ms: Wilayah Karabük
+    nb: Karabük
+    nl: Karabük
+    pl: Karabük
+    pt: Karabük
+    ro: Provincia Karabük
+    ru: Карабюк
+    si: කරබුක් පළාත
+    sr: Карабик
+    sv: Karabük
+    sw: Mkoa wa Karabük
+    ta: கராபுக் மாகாணம்
+    te: కారాబుక్ ప్రావిన్స్
+    th: จังหวัดการาบุก
+    tk: Karabük
+    tr: Karabük
+    uk: Карабюк
+    ur: کارابوک صوبہ
+    vi: Karabük
+    cy: Karabük
+    ceb: Karabük (lalawigan)
+    sr_Latn: Karabik
+    lt: Karabjuko provincija
+    zh: 卡拉比克省
+    yue_Hans: 卡拉比克省
+    ccp: "𑄇𑄢𑄝𑄪𑄇𑄴"
+    yue: 卡拉比克省
+    uz: Karabük
+    bs: Karabük
+    mk: Карабук
+    'no': Karabük
+  type: province
+'79':
+  name: Kilis
+  code: '79'
+  unofficial_names:
+  - Kilis
+  geo:
+    latitude: 36.718399
+    longitude: 37.12122
+    min_latitude: 36.70222
+    min_longitude: 37.0916161
+    max_latitude: 36.736896
+    max_longitude: 37.1601428
+  translations:
+    en: Kilis
+    ar: كلس
+    az: Kilis vilayəti
+    be: Правінцыя Кіліс
+    bg: Килис
+    bn: কিলিস প্রদেশ
+    ca: Província de Kilis
+    cs: Kiliská provincie
+    da: Kilis Province
+    de: Kilis
+    el: Επαρχία Κιλίς
+    es: Provincia de Kilis
+    et: Kilisi provints
+    eu: Kilis probintzia
+    fa: استان کیلیس
+    fi: Kilisin maakunta
+    fr: Kilis
+    gu: કિલિસ પ્રાંત
+    hi: किलिस प्रांत
+    hu: Kilis
+    hy: Քիլիս
+    id: Provinsi Kilis
+    it: provincia di Kilis
+    ja: キリス県
+    ka: ქილისის პროვინცია
+    kn: ಕಿಲಿಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 킬리스 주
+    lv: Kilisas ils
+    mr: किलिस प्रांत
+    ms: Wilayah Kilis
+    nb: Kilis
+    nl: Kilis
+    pl: Kilis
+    pt: Kilis
+    ro: Provincia Kilis
+    ru: Килис
+    si: කිලිස් පළාත
+    sr: Килис
+    sv: Kilis
+    sw: Mkoa wa Kilis
+    ta: கிளிஸ் மாகாணம்
+    te: కిలిస్ ప్రావిన్స్
+    th: จังหวัดคิลิส
+    tk: Kilis
+    tr: Kilis
+    uk: Кіліс
+    ur: کیلیس صوبہ
+    vi: Kilis
+    ceb: Kilis
+    sr_Latn: Kilis
+    lt: Kilio provincija
+    zh: 基利斯省
+    yue_Hans: 基利斯省
+    ccp: "𑄇𑄨𑄣𑄨𑄌𑄴"
+    yue: 基利斯省
+    bs: Kilis
+    mk: Килис
+    'no': Kilis
+    cy: Talaith Kilis
+    he: קיליס
+    uz: Kilis (viloyat)
+  type: province
+'80':
+  name: Osmaniye
+  code: '80'
+  unofficial_names:
+  - Osmaniye
+  geo:
+    latitude: 37.06805
+    longitude: 36.261589
+    min_latitude: 37.04694
+    min_longitude: 36.2080339
+    max_latitude: 37.104061
+    max_longitude: 36.2902399
+  translations:
+    en: Osmaniye
+    ar: عثمانية
+    az: Osmaniyə ili
+    be: Правінцыя Асманіе
+    bg: Османие
+    bn: ওমানিয়ে প্রদেশ
+    ca: Província d’Osmaniye
+    cs: Osmanijská provincie
+    da: Osmaniye Province
+    de: Osmaniye
+    el: Επαρχία Οσμανίγιε
+    es: Provincia de Osmaniye
+    et: Osmaniye provints
+    eu: Osmaniye probintzia
+    fa: استان عثمانیه
+    fi: Osmaniyen maakunta
+    fr: Osmaniye
+    gu: ઓસ્માનિયા પ્રાંત
+    hi: उस्मानिये प्रांत
+    hu: Osmaniye
+    hy: Օսմանիյե
+    id: Provinsi Osmaniye
+    it: provincia di Osmaniye
+    ja: オスマニエ県
+    ka: ოსმანიეს პროვინცია
+    kn: ಓಸ್ಮಾನಿ ಪ್ರಾಂತ್ಯ
+    ko: 오스마니예 주
+    lv: Osmanijes ils
+    mr: ओस्मानिये प्रांत
+    ms: Wilayah Osmaniye
+    nb: Osmaniye
+    nl: Osmaniye
+    pl: Osmaniye
+    pt: Osmaniye
+    ro: Provincia Osmaniye
+    ru: Османие
+    si: ඔස්මනියේ පළාත
+    sr: Османије
+    sv: Osmaniye
+    sw: Mkoa wa Osmaniye
+    ta: ஒஸ்மானியே மாகாணம்
+    te: ఉస్మానియె ప్రావిన్స్
+    th: จังหวัดออสแมนนี
+    tk: Osmaniýe
+    tr: Osmaniye
+    uk: Османіє
+    ur: عثمانیہ صوبہ
+    vi: Osmaniye
+    cy: Osmaniye
+    ceb: Osmaniye
+    sr_Latn: Osmanije
+    lt: Osmanijės provincija
+    zh: 奧斯曼尼耶省
+    yue_Hans: 奥斯曼尼耶省
+    ccp: "𑄃𑄮𑄌𑄴𑄟𑄚𑄨𑄠"
+    pa: ਓਸਮਾਨਿਏ
+    yue: 奧斯曼尼耶省
+    uz: Osmaniye
+    bs: Osmaniye
+    mk: Османие
+    'no': Osmaniye
+  type: province
+'81':
+  name: Düzce
+  code: '81'
+  unofficial_names:
+  - Düzce
+  geo:
+    latitude: 40.843849
+    longitude: 31.15654
+    min_latitude: 40.820133
+    min_longitude: 31.116829
+    max_latitude: 40.886112
+    max_longitude: 31.1883682
+  translations:
+    en: Düzce
+    ar: دوزجي
+    az: Düzcə ili
+    be: Правінцыя Дзюзджэ
+    bg: Дюздже
+    bn: দুজচে প্রদেশ
+    ca: Província de Düzce
+    cs: Düzcská provincie
+    da: Duzce Province
+    de: Düzce
+    el: Επαρχία Ντούζτζε
+    es: Provincia de Düzce
+    et: Düzce provints
+    eu: Düzce probintzia
+    fa: استان دوزجه
+    fi: Düzcen maakunta
+    fr: Düzce
+    gu: ડુઝ પ્રાંત
+    hi: डूट्स प्रांत
+    hu: Düzce
+    hy: Դյուզջեի նահանգ
+    id: Provinsi Düzce
+    it: provincia di Düzce
+    ja: デュズジェ県
+    ka: დუზჯეს პროვინცია
+    kn: ಡ್ಯೂಜ್ ಪ್ರಾಂತ್ಯ
+    ko: 뒤즈제 주
+    lv: Dizdžes ils
+    mr: दुझ प्रांत
+    ms: Wilayah Düzce
+    nb: Düzce
+    nl: Düzce
+    pl: Düzce
+    pt: Düzce
+    ro: Provincia Düzce
+    ru: Дюздже
+    si: ඩස්ක් පළාත
+    sr: Дузџе
+    sv: Düzce
+    sw: Mkoa wa Düzce
+    ta: டியூஸ்ஸ் மாகாணம்
+    te: డూస్ ప్రావిన్స్
+    th: จังหวัดดุซเซ
+    tk: Düzje
+    tr: Düzce
+    uk: Дюздже
+    ur: دوزجے صوبہ
+    vi: Düzce
+    cy: Düzce
+    sr_Latn: Duzdže
+    lt: Diuzdžės apskritis
+    zh: 迪兹杰省
+    yue_Hans: 迪兹杰省
+    sq: Dyzxhe
+    ccp: "𑄓𑄪𑄌𑄴𑄥𑄬"
+    pa: ਦੁਜ਼ਗੇ
+    yue: 迪茲傑省
+    uz: Düzce
+    bs: Düzce
+    mk: Дузџе
+    'no': Düzce
+  type: province

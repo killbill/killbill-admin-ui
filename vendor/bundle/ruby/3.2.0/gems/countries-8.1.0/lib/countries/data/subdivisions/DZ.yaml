@@ -1,0 +1,3166 @@
+---
+'01':
+  name: Adrar
+  code: '01'
+  unofficial_names:
+  - Adrar
+  geo:
+    latitude: 27.866667
+    longitude: -0.283333
+    min_latitude: 27.7680133
+    min_longitude: -0.3310157
+    max_latitude: 28.1852177
+    max_longitude: -0.0769043
+  translations:
+    en: Adrar
+    ar: ولاية أدرار
+    be: Адрар
+    bg: Адрар
+    bn: আদ্রার প্রদেশ
+    ca: Província d’Adrar
+    da: Adrar
+    de: Wilaya Adrar
+    el: Αντράρ
+    es: Provincia de Adrar
+    eu: Adrar probintzia
+    fa: استان ادرار
+    fi: Adrarin maakunta
+    fr: wilaya d’Adrar
+    gl: Provincia de Adrar
+    gu: અદ્રાર પ્રાંત
+    hi: अद्रर प्रांत
+    id: Provinsi Adrar
+    it: provincia di Adrar
+    ja: アドラール県
+    ka: ადრარის პროვინცია
+    kn: ಅಡ್ರಾ ಪ್ರಾಂತ್ಯ
+    ko: 아드라르 주
+    lt: Adraro vilaja
+    mr: अदरर प्रांत
+    ms: Wilayah Adrar
+    nb: Adrar
+    nl: Adrar
+    pl: Prowincja Adrar
+    pt: Adrar
+    ro: Provincia Adrar
+    ru: Адрар
+    si: අද්රාර් පළාත
+    sr: Адрар
+    sv: Adrar
+    sw: Jimbo la Adrar
+    ta: அட்ரர் மாகாணம்
+    te: అడ్రార్ ప్రావిన్స్
+    th: จังหวัดอัดราร์
+    tr: Adrar Vilayeti
+    uk: Адрар
+    ur: صوبہ ادرار
+    vi: Adrar
+    zh: 阿德拉爾省
+    lv: Adrāras vilāja
+    ceb: Adrar (lalawigan sa Arhelya, lat 25,75, long -1,00)
+    sr_Latn: Adrar
+    sq: Vilajeti Adrar
+    ccp: "𑄃𑄓𑄳𑄢𑄢𑄴"
+    he: מחוז אדראר
+    az: Adrar vilayəti
+    bs: Adrar
+    'no': Adrar
+    cy: Talaith Adrar
+    zu: Adrar Province
+  type: province
+'02':
+  name: Chlef
+  code: '02'
+  unofficial_names:
+  - Al Asnam
+  - Al Asnām
+  - Chelef
+  - Chelf
+  - Chlef
+  - Chlif
+  - Ech Cheliff
+  - El Asnam
+  geo:
+    latitude: 36.166667
+    longitude: 1.333333
+    min_latitude: 36.0892685
+    min_longitude: 1.2608528
+    max_latitude: 36.2490494
+    max_longitude: 1.4494228
+  translations:
+    en: Chlef
+    ar: ولاية الشلف
+    be: Правінцыя Эш-Шэліф
+    bg: Шлеф
+    bn: ক্লেফ প্রদেশ
+    ca: Província de Chlef
+    da: Chlef Province
+    de: Chlef
+    el: Σλεφ
+    es: Provincia de Chlef
+    eu: Chlef probintzia
+    fa: استان الشلف
+    fi: Chlefin maakunta
+    fr: wilaya de Chlef
+    gl: Provincia de Chlef
+    gu: ક્લેફ પ્રાંત
+    hi: छलेफ प्रांत
+    id: Provinsi Syilf
+    it: provincia di Chlef
+    ja: シュレフ県
+    ka: ჩლეფის პროვინცია
+    kn: ಕ್ಲೆಫ್ ಪ್ರಾಂತ್ಯ
+    ko: 슐레프 주
+    lt: Šelifo vilaja
+    mr: क्लेफ प्रांत
+    ms: Wilayah Chlef
+    nb: Chlef
+    nl: Chlef
+    pl: Prowincja Asz-Szalif
+    pt: Chlef
+    ro: Provincia Chlef
+    ru: Эш-Шелифф
+    si: චෙල්ෆ් පළාත
+    sr: Шлеф
+    sv: Chlef
+    sw: Jimbo la Chlef
+    ta: செலேபி மாகாணம்
+    te: చ్లెఫ్ ప్రావిన్స్
+    th: จังหวัดชเรฟ
+    tr: Şelf Vilayeti
+    uk: Шлеф
+    ur: صوبہ الشلف
+    vi: Chlef
+    lv: Šelīfas vilāja
+    ceb: Wilaya de Chlef
+    sr_Latn: Šlef
+    zh: 谢里夫省
+    ccp: "𑄇𑄳𑄣𑄬𑄛𑄴"
+    he: מחוז א-שלף
+    'no': Chlef
+    cy: Talaith Chlef
+  type: province
+'03':
+  name: Laghouat
+  code: '03'
+  unofficial_names:
+  - Laghouat
+  geo:
+    latitude: 33.7972551
+    longitude: 2.8694065
+    min_latitude: 33.7396685
+    min_longitude: 2.8309535
+    max_latitude: 33.8350786
+    max_longitude: 2.947855
+  translations:
+    en: Laghouat
+    ar: ولاية الأغواط
+    be: Правінцыя Агуат
+    bg: Лагуат
+    bn: লাঘুয়াট প্রদেশ
+    da: Laghouat Province
+    de: Laghouat
+    el: Λαγκουάτ
+    es: Provincia de Laghouat
+    eu: Laghouat probintzia
+    fa: استان الاغواط
+    fi: Laghouat
+    fr: wilaya de Laghouat
+    gl: Provincia de Laghouat
+    gu: લાગોઆટ પ્રાંત
+    hi: लाघौत प्रांत
+    id: Provinsi Laghouat
+    it: provincia di Laghouat
+    ja: ラグアット県
+    ka: ლაგუატის პროვინცია
+    kn: ಲಘುತ್ ಪ್ರಾಂತ್ಯ
+    ko: 라구아트 주
+    lt: Laguato vilaja
+    mr: लगोआट प्रांत
+    ms: Wilayah Laghouat
+    nb: Laghouat
+    nl: Laghouat
+    pl: Prowincja Al-Aghwat
+    pt: Laghouat
+    ro: Provincia Laghouat
+    ru: Лагуат
+    si: ලගොඋඅට් පළාත
+    sr: Лагуат
+    sv: Laghouat
+    sw: Jimbo la Laghouat
+    ta: லாஃஹௌஅட் மாகாணம்
+    te: లాగ్హోవే ప్రావిన్స్
+    th: จังหวัดเลกเฮาท์
+    tr: Lagvat Vilayeti
+    uk: Лагуат
+    ur: صوبہ الاغواط
+    vi: Laghouat
+    lv: Agvātas vilāja
+    ceb: Wilaya de Laghouat
+    sr_Latn: Laguat
+    zh: 艾格瓦特省
+    ccp: "𑄣𑄊𑄯𑄖𑄴"
+    'no': Laghouat
+    cy: Talaith Laghouat
+  type: province
+'04':
+  name: Oum el Bouaghi
+  code: '04'
+  unofficial_names:
+  - Canrobert
+  - Oum el Bouaghi
+  geo:
+    latitude: 35.7881449
+    longitude: 7.179025999999999
+    min_latitude: 35.4122201
+    min_longitude: 6.1793371
+    max_latitude: 36.167782
+    max_longitude: 7.932361999999999
+  translations:
+    en: Oum El Bouaghi
+    ar: ولاية أم البواقي
+    be: Правінцыя Ум-эль-Буахі
+    bg: Ум ел-Буаги
+    bn: ওয়াম এল বুঘাই প্রদেশ
+    da: Oum El Bouaghi Province
+    de: Oum el Bouaghi
+    el: Ουμ Ελ Μπουάγι
+    es: Provincia de Oum el-Bouaghi
+    eu: Oum-El-Bouaghi probintzia
+    fa: استان ام‌البواقی
+    fi: Oum El Bouaghin lääni
+    fr: wilaya d’Oum El Bouaghi
+    gl: Provincia de Oum El Bouaghi
+    gu: ઓમ અલ બૌઆઘી પ્રાંત
+    hi: ओउम एल बोअघी प्रांत
+    id: Provinsi Oum el Bouaghi
+    it: provincia di Oum el-Bouaghi
+    ja: ウメル・ブアーギ県
+    ka: უმ-ელ-ბუახის პროვინცია
+    kn: ಓಮ್ ಎಲ್ ಬೊವಾಗಿ ಪ್ರಾಂತ್ಯ
+    ko: 움엘부아기 주
+    lt: Um el Buagio vilaja
+    mr: ओम एल बौआजी प्रांत
+    ms: Wilayah Oum El Bouaghi
+    nb: Oum el-Bouaghi
+    nl: Oum el-Bouaghi
+    pl: Prowincja Umm al-Bawaki
+    pt: Oum el Bouaghi
+    ro: Provincia Oum el-Bouaghi
+    ru: Ум-эль-Буахи
+    si: ඕඌම් එල් බෝගී පළාත
+    sr: Ум ел Буаги
+    sv: Oum El Bouaghi
+    sw: Jimbo ya Oum el-Bouaghi
+    ta: ஓம் எல் பௌஅஃஹி மாகாணம்
+    te: ఓవమ్ ఎల్ బొవాఘీ ప్రావిన్స్
+    th: จังหวัดอูม เอล บวกฮี
+    tr: Em El Buvaki Vilayeti
+    uk: Ум-ель-Буакі
+    ur: صوبہ ام البواقی
+    vi: Oum El Bouaghi
+    lv: Umm el Bavāgī vilāja
+    ceb: Oum el Bouaghi (lalawigan)
+    sr_Latn: Um el Buagi
+    zh: 乌姆布瓦吉省
+    ccp: "𑄃𑄧𑄅𑄟𑄴 𑄃𑄬𑄣𑄴 𑄝𑄯𑄊𑄩"
+    az: Umm-el-Buaqi vilayəti
+    'no': Oum el-Bouaghi
+    cy: Talaith Oum El Bouaghi
+  type: province
+'05':
+  name: Batna
+  code: '05'
+  unofficial_names:
+  - Batna
+  geo:
+    latitude: 35.55
+    longitude: 6.166666999999999
+    min_latitude: 35.5123258
+    min_longitude: 6.0786152
+    max_latitude: 35.6445679
+    max_longitude: 6.2781502
+  translations:
+    en: Batna
+    ar: ولاية باتنة
+    be: Правінцыя Батна
+    bg: Батна
+    bn: বাটনা প্রদেশ
+    ca: Província de Batna
+    da: Batna
+    de: Batna
+    el: Μπάτνα
+    es: Provincia de Batna
+    eu: Batna probintzia
+    fa: استان باتنه
+    fi: Batnan maakunta
+    fr: wilaya de Batna
+    gl: Provincia de Batna
+    gu: બટના પ્રાંત
+    hi: बटना प्रांत
+    id: Provinsi Batnah
+    it: provincia di Batna
+    ja: バトナ県
+    ka: ბატნის პროვინცია
+    kn: ಬಟ್ನಾ ಪ್ರಾಂತ್ಯ
+    ko: 바트나 주
+    lt: Batnos vilaja
+    mr: बाटना प्रांत
+    ms: Wilayah Batna
+    nb: Batna
+    nl: Batna
+    pl: Prowincja Batina
+    pt: Batna
+    ro: Provincia Batna
+    ru: Батна
+    si: බටනා කලාපය
+    sr: Батна
+    sv: Batna
+    sw: Jimbo la Batna
+    ta: பட்நா மாகாணம்
+    te: బాట్నా ప్రావిన్స్
+    th: จังหวัดแบทนา
+    tr: Batna Vilayeti
+    uk: Батна
+    ur: صوبہ باتنہ
+    vi: Batna
+    lv: Bātinas vilāja
+    ceb: Wilaya de Batna
+    sr_Latn: Batna
+    zh: 巴特纳省
+    sq: Batna
+    ccp: "𑄝𑄧𑄚𑄴𑄑"
+    az: Batna vilayəti
+    'no': Batna
+    cy: Talaith Batna
+  type: province
+'06':
+  name: Béjaïa
+  code: '06'
+  unofficial_names:
+  - Bejaïa
+  - Béjaïa
+  - Bougie
+  geo:
+    latitude: 36.7508896
+    longitude: 5.056733299999999
+    min_latitude: 36.7055347
+    min_longitude: 4.9087
+    max_latitude: 36.833659
+    max_longitude: 5.1074721
+  translations:
+    en: Béjaïa
+    ar: ولاية بجاية
+    be: Правінцыя Беджая
+    bg: Беджая
+    bn: বেজাইয়া প্রদেশ
+    ca: Província de Bejaïa
+    da: Béjaïa (provins)
+    de: Bejaia
+    el: Μπετζάγια
+    es: Provincia de Bujía
+    eu: Bejaia probintzia
+    fa: استان بجایه
+    fi: Béjaïan provinssi
+    fr: wilaya de Béjaïa
+    gl: Provincia de Béjaïa
+    gu: બેજાઇઆ પ્રાંત
+    hi: बेजैअ प्रांत
+    id: Provinsi Bajayah
+    it: provincia di Béjaïa
+    ja: ベジャイア県
+    ka: ბეჯაიის პროვინცია
+    kn: ಬೇಜೈಯಾ ಪ್ರಾಂತ್ಯ
+    ko: 베자이아 주
+    lt: Bedžajos vilaja
+    mr: बेजाया प्रांत
+    ms: Wilayah Béjaïa
+    nb: Béjaïa
+    nl: Béjaïa
+    pl: Prowincja Bidżaja
+    pt: Bugia
+    ro: Provincia Béjaïa
+    ru: Беджая
+    si: බෙජයිය්යා පළාත
+    sr: Беџаја
+    sv: Béjaïa
+    sw: Jimbo ya Béjaïa
+    ta: பெஜாஇஆ மாகாணம்
+    te: బేజాయా ప్రావిన్స్
+    th: จังหวัดเบจาเอีย
+    tr: Becaye Vilayeti
+    uk: Беджая
+    ur: صوبہ بجایہ
+    vi: Béjaïa
+    lv: Bidžājas vilāja
+    ceb: Wilaya de Bejaïa
+    sr_Latn: Bedžaja
+    zh: 贝贾亚省
+    ccp: "𑄝𑄬𑄎𑄭𑄠"
+    az: Becaya vilayəti
+    'no': Béjaïa
+    cy: Talaith Béjaïa
+  type: province
+'07':
+  name: Biskra
+  code: '07'
+  unofficial_names:
+  - Beskra
+  - Biskara
+  - Biskra
+  geo:
+    latitude: 34.85
+    longitude: 5.733333
+    min_latitude: 34.7857523
+    min_longitude: 5.6545258
+    max_latitude: 34.9172558
+    max_longitude: 5.794816
+  translations:
+    en: Biskra
+    ar: ولاية بسكرة
+    be: Правінцыя Біскра
+    bg: Бискра (област)
+    bn: বিস্ক্রা
+    ca: Província de Biskra
+    da: Biskra
+    de: Biskra
+    el: Μπίσκρα
+    es: Provincia de Biskra
+    eu: Biskra probintzia
+    fa: استان بسکره
+    fi: Biskra
+    fr: wilaya de Biskra
+    gl: Provincia de Biskra
+    gu: બિસ્ક્ર્રા
+    hi: बिस्क्रा प्रांत
+    id: Provinsi Biskirah
+    it: provincia di Biskra
+    ja: ビスクラ県
+    ka: ბისკრის პროვინცია
+    kn: ಬಿಸ್ಕ್ರಾ
+    ko: 비스크라 주
+    lt: Biskros vilaja
+    mr: बिसकरा
+    ms: Wilayah Biskra
+    nb: Biskra
+    nl: Biskra
+    pl: Prowincja Biskira
+    pt: Biskra
+    ro: Provincia Biskra
+    ru: Бискра
+    si: බිස්ක්රා
+    sr: Бискра
+    sv: Biskra
+    sw: Jimbo ya Biskra
+    ta: பிஸ்க்ர
+    te: బిస్క్రా
+    th: จังหวัดบิสกรา
+    tr: Biskra Vilayeti
+    uk: Біскра
+    ur: صوبہ بسکرہ
+    vi: Biskra
+    lv: Biskra
+    ceb: Wilaya de Biskra
+    sr_Latn: Biskra
+    zh: 比斯克拉省
+    ccp: "𑄝𑄨𑄌𑄴𑄇𑄳𑄢"
+    az: Biskra vilayəti
+    'no': Biskra
+    cs: Biskra
+  type: province
+'08':
+  name: Béchar
+  code: '08'
+  unofficial_names:
+  - Béchar
+  geo:
+    latitude: 31.6182492
+    longitude: -2.2143231
+    min_latitude: 31.1824797
+    min_longitude: -2.9278564
+    max_latitude: 32.166313
+    max_longitude: -1.352005
+  translations:
+    en: Béchar
+    ar: ولاية بشار
+    be: Правінцыя Бешар
+    bg: Бешар
+    bn: বেকার প্রদেশ
+    ca: Província de Bechar
+    da: Béchar
+    de: Wilaya Bechar
+    el: Μπεσάρ
+    es: Provincia de Béchar
+    eu: Bexar probintzia
+    fa: استان بشار
+    fi: Bécharin maakunta
+    fr: wilaya de Béchar
+    gl: Provincia de Béchar
+    gu: બેચર પ્રાંત
+    hi: बेचार प्रांत
+    id: Provinsi Bechar
+    it: provincia di Béchar
+    ja: ベシャール県
+    ka: ბეშარის პროვინცია
+    kn: ಬೆಚಾರ್ ಪ್ರಾಂತ್ಯ
+    ko: 베샤르 주
+    lt: Bešaro vilaja
+    mr: बेचर प्रांत
+    ms: Wilayah Béchar
+    nb: Béchar
+    nl: Béchar
+    pl: Prowincja Baszszar
+    pt: Béchar
+    ro: Provincia Béchar
+    ru: Бешар
+    si: බේචාර් පළාත
+    sr: Бешар
+    sv: Béchar
+    sw: Jimbo ya Béchar
+    ta: பேச்சர் மாகாணம்
+    te: బెచార్ ప్రావిన్స్
+    th: จังหวัดเบชา
+    tr: Beşar Vilayeti
+    uk: Бешар
+    ur: صوبہ بشار
+    vi: Béchar
+    lv: Bešāras vilāja
+    ceb: Wilaya de Béchar
+    sr_Latn: Bešar
+    zh: 贝沙尔省
+    sq: Bechar
+    ccp: "𑄝𑄬𑄌𑄢𑄴"
+    az: Beşar vilayəti
+    'no': Béchar
+    cy: Talaith Béchar
+  type: province
+'09':
+  name: Blida
+  code: '09'
+  unofficial_names:
+  - El Boulaida
+  - Blida
+  geo:
+    latitude: 36.4798683
+    longitude: 2.8005677
+    min_latitude: 36.4433975
+    min_longitude: 2.7320336
+    max_latitude: 36.5172071
+    max_longitude: 2.8684831
+  translations:
+    en: Blida
+    ar: ولاية البليدة
+    be: Правінцыя Бліда
+    bg: Блида
+    bn: বিলিডা প্রদেশ
+    ca: Província de Blida
+    da: Blida Province
+    de: Blida
+    el: Μπλίντα
+    es: Provincia de Blida
+    eu: Blida probintzia
+    fa: استان البلیده
+    fi: Blidan provinssi
+    fr: wilaya de Blida
+    gl: Provincia de Blida
+    gu: બ્લિડા પ્રાંત
+    hi: ब्लिडा प्रांत
+    id: Provinsi Bulidah
+    it: provincia di Blida
+    ja: ブリダ県
+    ka: ბლიდის პროვინცია
+    kn: ಬ್ಲಿಡಾ ಪ್ರಾಂತ್ಯ
+    ko: 블리다 주
+    lt: Blidos vilaja
+    mr: ब्लिडा प्रांत
+    ms: Wilayah Blida
+    nb: Blida
+    nl: Blida
+    pl: Prowincja Al-Bulajda
+    pt: Blida
+    ro: Provincia Blida
+    ru: Блида
+    si: බ්ලිඩා පළාත
+    sr: Блида
+    sv: Blida
+    sw: Jimbo ya Blida
+    ta: பிளிடா மாகாணம்
+    te: బ్లిడా ప్రావిన్స్
+    th: จังหวัดบลิดา
+    tr: Blida Vilayeti
+    uk: Бліда
+    ur: صوبہ البلیدہ
+    vi: Blida
+    lv: Blīdas vilāja
+    ceb: Wilaya de Blida
+    sr_Latn: Blida
+    zh: 卜利达省
+    ccp: "𑄝𑄳𑄣𑄨𑄓"
+    az: Blida vilayəti
+    'no': Blida
+    cy: Talaith Blida
+  type: province
+'10':
+  name: Bouira
+  code: '10'
+  unofficial_names:
+  - Bouira
+  geo:
+    latitude: 36.2835299
+    longitude: 3.9878427
+    min_latitude: 35.8270988
+    min_longitude: 3.375708
+    max_latitude: 36.5897481
+    max_longitude: 4.47439
+  translations:
+    en: Bouira
+    ar: ولاية البويرة
+    be: Правінцыя Буіра
+    bg: Буира
+    bn: বুইরা প্রদেশ
+    ca: Província de Bouira
+    da: Bouïra Province
+    de: Bouira
+    el: Μπουίρα
+    es: Provincia de Bouira
+    eu: Bouïra probintzia
+    fa: استان بویره
+    fi: Bouïran provinssi
+    fr: wilaya de Bouira
+    gl: Provincia de Bouira
+    gu: બોઈરા પ્રાંત
+    hi: बोउइरा प्रांत
+    id: Provinsi Bouira
+    it: provincia di Bouira
+    ja: ブイラ県
+    ka: ბუირის პროვინცია
+    kn: ಬೋಯಿಯಾ ಪ್ರಾಂತ್ಯ
+    ko: 부이라 주
+    lt: Buiros vilaja
+    mr: बहीरा प्रांत
+    ms: Bouira Province
+    nb: Bouira
+    nl: Bouira
+    pl: Prowincja Al-Buwajra
+    pt: Bouira
+    ro: Provincia Bouira
+    ru: Буира
+    si: බෞඉරා පළාත
+    sr: Бујра
+    sv: Bouira
+    sw: Jimbo ya Bouira
+    ta: பெய்ரா மாகாணம்
+    te: బాయిరా ప్రావిన్స్
+    th: จังหวัดบุยรา
+    tr: Buira Vilayeti
+    uk: Буїра
+    ur: صوبہ البویرہ
+    vi: Bouira
+    lv: Būīras vilāja
+    ceb: Wilaya de Bouira
+    sr_Latn: Bujra
+    zh: 布维拉省
+    ccp: "𑄝𑄯𑄃𑄨𑄢"
+    'no': Bouira
+    az: Buira vilayəti
+    cy: Talaith Bouïra
+  type: province
+'11':
+  name: Tamanghasset
+  code: '11'
+  unofficial_names:
+  - Fort-Laperrine
+  - Tamanghist
+  - Tamanrasset
+  geo:
+    latitude: 22.785
+    longitude: 5.522778
+    min_latitude: 20.8985885
+    min_longitude: 4.6884155
+    max_latitude: 23.6506568
+    max_longitude: 6.662521399999999
+  translations:
+    en: Tamanghasset
+    ar: ولاية تمنراست
+    be: Правінцыя Таманрасет
+    bg: Таманрасет
+    bn: তামাঙ্ঘাসেট প্রদেশ
+    da: Tamanghasset Province
+    de: Tamanrasset
+    el: Ταμαγκασσέτ
+    es: Provincia de Tamanghasset
+    et: Tamanrasseti provints
+    eu: Tamanrasset probintzia
+    fa: استان تمنراست
+    fi: Tamanrassetin maakunta
+    fr: wilaya de Tamanrasset
+    gl: Provincia de Tamanrasset
+    gu: તમંઘાસેટ પ્રાંત
+    hi: तमान्रस्सेट प्रांत
+    id: Provinsi Tamanghasset
+    it: provincia di Tamanrasset
+    ja: タマンラセット県
+    ka: თამანრასეტის პროვინცია
+    kn: ತಮಂಗ್ಹಾಸೆಟ್ ಪ್ರಾಂತ್ಯ
+    ko: 타만라세트 주
+    lt: Tamanraseto vilaja
+    mr: तमांगसासेट प्रांत
+    ms: Tamanghasset
+    nb: Tamanrasset
+    nl: Tamanrasset
+    pl: Prowincja Tamanrasset
+    pt: Tamanghasset
+    ro: Provincia Tamanrasset
+    ru: Таманрассет
+    si: තමන්ගස්සෙට් පළාත
+    sr: Таманрасет
+    sv: Tamanrasset
+    sw: Jimbo ya Tamanghasset
+    ta: தாமங்அஸெட் மாகாணம்
+    te: టామంగాసెట్ ప్రావిన్స్
+    th: เจเซนิเช
+    tr: Tamanrasset Vilayeti
+    uk: Таманрассет
+    ur: صوبہ تمنراست
+    vi: Tamanrasset
+    lv: Tamanrāsetas vilāja
+    ceb: Wilaya de Tamanrasset
+    sr_Latn: Tamanraset
+    zh: 塔曼拉塞特省
+    ccp: "𑄑𑄟𑄋𑄴𑄊𑄥𑄬𑄖𑄴"
+    ca: Província de Tamanghasset
+    'no': Tamanrasset
+    cy: Talaith Tamanghasset
+    hy: Թամանրասեթ
+  type: province
+'12':
+  name: Tébessa
+  code: '12'
+  unofficial_names:
+  - Tbessa
+  - Tébessa
+  geo:
+    latitude: 35.4
+    longitude: 8.116667000000001
+    min_latitude: 35.3811426
+    min_longitude: 8.0502319
+    max_latitude: 35.4423093
+    max_longitude: 8.170857999999999
+  translations:
+    en: Tébessa
+    ar: ولاية تبسة
+    be: Правінцыя Тэбеса
+    bg: Тебеса
+    bn: তেবেস্যা প্রদেশ
+    ca: Tebessa
+    da: Tébessa Province
+    de: Tebessa
+    el: Τεμπέσσα
+    es: Provincia de Tébessa
+    eu: Tébessa probintzia
+    fa: استان تبسه
+    fi: Tébessan lääni
+    fr: wilaya de Tébessa
+    gl: Provincia de Tébessa
+    gu: ટેબેસા પ્રાંત
+    hi: तेबेस्स प्रांत
+    id: Provinsi Tebessa
+    it: provincia di Tébessa
+    ja: テベッサ県
+    kn: ಟೆಬೆಸ್ಸ ಪ್ರಾಂತ್ಯ
+    ko: 테베사 주
+    lt: Tebesos vilaja
+    mr: टेबसेसा प्रांत
+    ms: Wilayah Tébessa
+    nb: Tébessa
+    nl: Tébessa
+    pl: Prowincja Tibissa
+    pt: Tébessa
+    ro: Provincia Tébessa
+    ru: Тебесса
+    si: ටෙබෙස්සා පළාත
+    sr: Тебеса
+    sv: Tébessa
+    sw: Wilaya ya Tébessa
+    ta: டேபிஎஸ்ஸா மாகாணம்
+    te: టెబెస్సా ప్రావిన్స్
+    th: จังหวัดเทเบซซ่า
+    tr: Tebesa Vilayeti
+    uk: Тебесса
+    ur: صوبہ تبسہ
+    vi: Tébessa
+    lv: Tibisas vilāja
+    ceb: Wilaya de Tébessa
+    sr_Latn: Tebesa
+    zh: 泰贝萨省
+    ccp: "𑄑𑄬𑄝𑄬𑄥"
+    'no': Tébessa
+    cy: Talaith Tébessa
+  type: province
+'13':
+  name: Tlemcen
+  code: '13'
+  unofficial_names:
+  - Tilimsen
+  - Tlemcen
+  geo:
+    latitude: 34.882776
+    longitude: -1.31667
+    min_latitude: 34.8574818
+    min_longitude: -1.3708879
+    max_latitude: 34.9344265
+    max_longitude: -1.2593079
+  translations:
+    en: Tlemcen
+    ar: ولاية تلمسان
+    be: Правінцыя Тлемсен
+    bg: Тлемсен
+    bn: তলেমচেন প্রদেশ
+    ca: Província de Tlemcen
+    da: Tlemcen Province
+    de: Tlemcen
+    el: Τλεμσέν
+    es: Provincia de Tlemecén
+    eu: Tlemcen probintzia
+    fa: استان تلمسان
+    fi: Tlemcenin kunta
+    fr: wilaya de Tlemcen
+    gl: Provincia de Tlemcen
+    gu: ટલેમસન પ્રાંત
+    hi: त्लेम्सेन प्रांत
+    hu: Tilimszán tartomány
+    id: Provinsi Tilimsan
+    it: provincia di Tlemcen
+    ja: トレムセン県
+    ka: ტლემსენის პროვინცია
+    kn: ಟ್ಲೆಮ್ಸೆನ್ ಪ್ರಾಂತ್ಯ
+    ko: 틀렘센 주
+    lt: Tlemseno vilaja
+    mr: टलेमसन प्रांत
+    ms: Wilayah Tlemcen
+    nb: Tlemcen
+    nl: Tlemcen
+    pl: Prowincja Tilimsan
+    pt: Tlemcen
+    ro: Provincia Tlemcen
+    ru: Тлемсен
+    si: ට්ලෙම්සන් පළාත
+    sr: Тлемсен
+    sv: Tlemcen
+    ta: ட்லேம்ஸன் மாகாணம்
+    te: ట్లెమ్సెన్ ప్రావిన్స్
+    th: จังหวัดเตรมเซน
+    tr: Tlemsan Vilayeti
+    uk: Тлемсен
+    ur: صوبہ تلمسان
+    vi: Tlemcen
+    lv: Tlīmsānas vilāja
+    ceb: Wilaya de Tlemcen
+    sr_Latn: Tlemsen
+    zh: 特莱姆森省
+    ccp: "𑄑𑄳𑄣𑄬𑄟𑄥𑄬𑄚𑄴"
+    az: Tlemsen vilayəti
+    'no': Tlemcen
+    cy: Talaith Tlemcen
+    sw: Wilaya ya Tlemcen
+  type: province
+'14':
+  name: Tiaret
+  code: '14'
+  unofficial_names:
+  - Tihert
+  - Tiaret
+  geo:
+    latitude: 35.3673553
+    longitude: 1.3220322
+    min_latitude: 35.3086815
+    min_longitude: 1.2896061
+    max_latitude: 35.4112982
+    max_longitude: 1.4936257
+  translations:
+    en: Tiaret
+    ar: ولاية تيارت
+    be: Правінцыя Тыярэт
+    bg: Тиарет
+    bn: তিয়ারেত প্রদেশ
+    ca: Província de Tiaret
+    da: Tiaret Province
+    de: Tiaret
+    el: Τιαρέτ
+    es: Provincia de Tiaret
+    eu: Tiaret probintzia
+    fa: استان تیارت
+    fi: Tiaretin provinssi
+    fr: wilaya de Tiaret
+    gl: Provincia de Tiaret
+    gu: તિયારેટ પ્રાંત
+    hi: टिअरेत प्रांत
+    id: Provinsi Tiaret
+    it: provincia di Tiaret
+    ja: ティアレット県
+    ka: ტიარეტის პროვინცია
+    kn: ಟಿಯಾರೆಟ್ ಪ್ರಾಂತ್ಯ
+    ko: 티아레트 주
+    lt: Tiareto vilaja
+    mr: तियारेट प्रांत
+    ms: Wilayah Tiaret
+    nb: Tiaret
+    nl: Tiaret
+    pl: Prowincja Tijarat
+    pt: Tiaret
+    ro: Provincia Tiaret
+    ru: Тиарет
+    si: ටයරෙට් පළාත
+    sr: Тијарет
+    sv: Tiaret
+    sw: Jimbo ya Tiaret
+    ta: டியாரெட் மாகாணம்
+    te: టియారెట్ ప్రావిన్స్
+    th: จังหวัดเทียเรต
+    tr: Tiyaret Vilayeti
+    uk: Тіарет
+    ur: صوبہ تیارت
+    vi: Tiaret
+    lv: Tiaretas vilāja
+    ceb: Wilaya de Tiaret
+    sr_Latn: Tijaret
+    zh: 提亚雷特省
+    ccp: "𑄑𑄠𑄢𑄬𑄖𑄴"
+    az: Tiaret vilayəti
+    'no': Tiaret
+    cy: Talaith Tiaret
+    ga: Cúige Tiaret
+  type: province
+'15':
+  name: Tizi Ouzou
+  code: '15'
+  unofficial_names:
+  - Tizi-Ouzou
+  geo:
+    latitude: 36.716667
+    longitude: 4.05
+    min_latitude: 36.6438373
+    min_longitude: 3.9758921
+    max_latitude: 36.7565764
+    max_longitude: 4.1750836
+  translations:
+    en: Tizi Ouzou
+    ar: ولاية تيزي وزو
+    be: Правінцыя Тызі-Узу
+    bg: Тизи Узу
+    bn: তিজি ওউজু প্রদেশ
+    ca: Província de Tizi Uzu
+    da: Tizi Ouzou Province
+    de: Tizi Ouzou
+    el: Τιζί Ουζού
+    es: Provincia de Tizi Ouzou
+    eu: Tizi Uzu probintzia
+    fa: استان تیزی وزو
+    fi: Tizi Ouzoun lääni
+    fr: wilaya de Tizi Ouzou
+    gl: Provincia de Tizi Ouzou
+    gu: ટીઝી ઓઝોઉં પ્રાંત
+    hi: तिज़ि ओउज़ोउ प्रांत
+    id: Provinsi Tizi Ouzou
+    it: provincia di Tizi Ouzou
+    ja: ティジ・ウズー県
+    ka: ტიზი-უზუს პროვინცია
+    kn: ಟಿಜಿ ಒಜುವ್ ಪ್ರಾಂತ್ಯ
+    ko: 티지우주 주
+    lt: Tizi Uzu vilaja
+    mr: तीझी औझु प्रांत
+    ms: Wilayah Tizi Ouzou
+    nb: Tizi Ouzou
+    nl: Tizi Ouzou
+    pl: Prowincja Tizi Wuzu
+    pt: Tizi Ouzou
+    ro: Provincia Tizi Ouzou
+    ru: Тизи-Узу
+    si: ටිසි ඕසු පළාත
+    sr: Тизи Узу
+    sv: Tizi Ouzou
+    sw: Jimbo ya Tizi Ouzou
+    ta: டிஜி ஒஉஸ்வு மாகாணம்
+    te: టిజి ఔజో ప్రావిన్స్
+    th: คันทรี่ เวสมีนท์
+    tr: Tizi Vuzu Vilayeti
+    uk: Тізі-Узу
+    ur: صوبہ تیزی وزو
+    vi: Tizi Ouzou
+    lv: Tīzī Vuzū vilāja
+    ceb: Wilaya de Tizi Ouzou
+    sr_Latn: Tizi Uzu
+    zh: 提济乌祖省
+    ccp: "𑄑𑄨𑄎𑄨 𑄃𑄧𑄅𑄫𑄎𑄯"
+    az: Tizi-Uzu vilayəti
+    'no': Tizi Ouzou
+    cy: Talaith Tizi Ouzou
+  type: province
+'16':
+  name: Alger
+  code: '16'
+  unofficial_names:
+  - Al-Jazair
+  - Al-Jazaʿir
+  - El Djazair
+  - al-Jazāʿir
+  - Algier
+  - Alger
+  geo:
+    latitude: 36.752887
+    longitude: 3.042048
+  translations:
+    en: Algiers
+    ar: ولاية الجزائر
+    be: правінцыя Алжыр
+    bg: Алжир
+    ca: Província d’Alger
+    de: Algier
+    es: Provincia de Argel
+    eu: Aljer probintzia
+    fa: ولایة الجزائر
+    fr: wilaya d’Alger
+    gl: Provincia de Alxer
+    hi: अल्जीयर्स प्रांत
+    id: Provinsi Aljir
+    it: provincia di Algeri
+    ja: アルジェ県
+    ka: ალჟირის პროვინცია
+    ko: 알제 주
+    lt: Alžyro vilaja
+    ms: Wilayah Algiers
+    nb: Alger
+    nl: Algiers
+    pl: Prowincja Algier
+    pt: Argel
+    ro: Provincia Alger
+    ru: Алжир
+    sr: Алжир
+    sv: Alger
+    sw: Jimbo ya Algiers
+    tr: Cezayir Vilayeti
+    uk: Алжир
+    ur: صوبہ الجزائر
+    vi: Algiers
+    ceb: Wilaya d’ Alger
+    sr_Latn: Alžir
+    zh: 阿尔及尔省
+    ccp: "𑄃𑄣𑄴𑄎𑄭𑄠𑄢𑄴𑄥𑄴"
+    da: Algier
+    'no': Alger
+    az: Əlcəzair vilayəti
+    cy: Talaith Algiers
+    el: Επαρχία Αλγερίου
+    ga: Cúige Chathair na hAilgéire
+    hy: Ալժիր
+  type: province
+'17':
+  name: Djelfa
+  code: '17'
+  unofficial_names:
+  - El Djelfa
+  - Djelfa
+  geo:
+    latitude: 34.666667
+    longitude: 3.25
+    min_latitude: 34.6235673
+    min_longitude: 3.201828
+    max_latitude: 34.7007481
+    max_longitude: 3.2964777
+  translations:
+    en: Djelfa
+    ar: ولاية الجلفة
+    be: Правінцыя Джэльфа
+    bg: Джелфа
+    bn: ডিলফা প্রদেশ
+    ca: Província de Djelfa
+    da: Djelfa Province
+    de: Djelfa
+    el: Τζέλφα
+    es: Provincia de Djelfa
+    eu: Djelfa probintzia
+    fa: استان جلفه
+    fi: Djelfan lääni
+    fr: wilaya de Djelfa
+    gl: Provincia de Djelfa
+    gu: જેલ્ફા પ્રાંત
+    hi: जेल्फा प्रांत
+    id: Provinsi Jalfah
+    it: provincia di Djelfa
+    ja: ジェルファ県
+    ka: ჯელფის პროვინცია
+    kn: ಡಿಜೆಲ್ಫಾ ಪ್ರಾಂತ್ಯ
+    ko: 젤파 주
+    lt: Dželfos vilaja
+    mr: जिल्फा प्रांत
+    ms: Wilayah Djelfa
+    nb: Djelfa
+    nl: Djelfa
+    pl: Prowincja Dżilfa
+    pt: Djelfa
+    ro: Provincia Djelfa
+    ru: Джельфа
+    si: ඩ්ජෙල්ෆා පළාත
+    sr: Џелфа
+    sv: Djelfa
+    sw: Jimbo ya Djelfa
+    ta: ட்ஜெலபிஆ மாகாணம்
+    te: జెల్ఫా ప్రావిన్స్
+    th: เทศมณฑลบีสตรีตซา-นะเซาด์
+    tr: Celfa Vilayeti
+    uk: Джельфа
+    ur: صوبہ الجلفہ
+    vi: Djelfa
+    lv: Džilfas vilāja
+    ceb: Wilaya de Djelfa
+    sr_Latn: Dželfa
+    zh: 杰勒法省
+    ccp: "𑄎𑄬𑄣𑄴𑄜"
+    'no': Djelfa
+    cy: Talaith Djelfa
+  type: province
+'18':
+  name: Jijel
+  code: '18'
+  unofficial_names:
+  - Djidjel
+  - Djidjelli
+  - Jijel
+  - Djidjeli
+  geo:
+    latitude: 36.81673869999999
+    longitude: 5.749093299999999
+    min_latitude: 36.7631604
+    min_longitude: 5.678882799999999
+    max_latitude: 36.8293218
+    max_longitude: 5.822110299999999
+  translations:
+    en: Jijel
+    ar: ولاية جيجل
+    be: Правінцыя Джыджэль
+    bg: Джиджел
+    bn: জিয়েল প্রদেশ
+    ca: Província de Jijel
+    da: Jijel Province
+    de: Jijel
+    el: Τζίτζελ
+    es: Provincia de Jijel
+    fa: استان جیجل
+    fi: Jijelin lääni
+    fr: wilaya de Jijel
+    gl: Provincia de Jijel
+    gu: જિજેલ પ્રાંત
+    hi: जिजेल प्रांत
+    id: Provinsi Jijel
+    it: provincia di Jijel
+    ja: ジジェル県
+    ka: ჯიჯელის პროვინცია
+    kn: ಜಿಜೆಲ್ ಪ್ರಾಂತ್ಯ
+    ko: 지젤 주
+    lt: Džidželio vilaja
+    mr: जिझल प्रांत
+    ms: Wilayah Jijel
+    nb: Jijel
+    nl: Jijel
+    pl: Prowincja Dżidżal
+    pt: Jijel
+    ro: Provincia Jijel
+    ru: Джиджель
+    si: ජිජෙල් පළාත
+    sr: Џиџел
+    sv: Jijel
+    sw: Jimbo ya Jijel
+    ta: ஜிஜேல் மாகாணம்
+    te: జిజెల్ ప్రావిన్స్
+    th: จีเจล
+    tr: Cicel Vilayeti
+    uk: Джиджель
+    ur: صوبہ جیجل
+    vi: Jijel
+    lv: Džīdžilas vilāja
+    ceb: Wilaya de Jijel
+    sr_Latn: Džidžel
+    zh: 吉杰勒省
+    ccp: "𑄎𑄨𑄎𑄬𑄣𑄴"
+    'no': Jijel
+    cy: Talaith Jijel
+    eu: Jijelgo probintzia
+  type: province
+'19':
+  name: Sétif
+  code: '19'
+  unofficial_names:
+  - Setif
+  - Stif
+  - Sétif
+  geo:
+    latitude: 36.1969027
+    longitude: 5.4150871
+    min_latitude: 36.1337157
+    min_longitude: 5.333186500000001
+    max_latitude: 36.2473189
+    max_longitude: 5.507240299999999
+  translations:
+    en: Sétif
+    ar: ولاية سطيف
+    be: Правінцыя Сетыф
+    bg: Сетиф
+    bn: সেতিফ প্রদেশ
+    da: Sétif Province
+    de: Sétif
+    el: Σετίφ
+    es: Provincia de Sétif
+    et: Sétifi provints
+    fa: استان سطيف
+    fi: Sétifin provinssi
+    fr: wilaya de Sétif
+    gl: Provincia de Sétif
+    gu: સેટીફ પ્રાંત
+    hi: सेतिफ प्रांत
+    id: Provinsi Sathif
+    it: provincia di Sétif
+    ja: セティフ県
+    ka: სეტიფის პროვინცია
+    kn: ಸೆಟಿಫ್ ಪ್ರಾಂತ್ಯ
+    ko: 세티프 주
+    lt: Setifo vilaja
+    mr: सैटफ प्रांत
+    ms: Wilayah Sétif
+    nb: Sétif
+    nl: Sétif
+    pl: Prowincja Satif
+    pt: Sétif
+    ro: Provincia Sétif
+    ru: Сетиф
+    si: සේටිෆ් පළාත
+    sr: Сетиф
+    sv: Sétif
+    sw: Jimbo ya Sétif
+    ta: செடிப் மாகாணம்
+    te: సెటిఫ్ ప్రావిన్స్
+    th: เซติฟ
+    tr: Setif Vilayeti
+    uk: Сетіф
+    ur: صوبہ سطیف
+    vi: Sétif
+    lv: Satīfas vilāja
+    ceb: Wilaya de Sétif
+    sr_Latn: Setif
+    zh: 塞提夫省
+    ccp: "𑄥𑄬𑄑𑄨𑄛𑄴"
+    ca: Província de Sétif
+    'no': Sétif
+    cy: Talaith Sétif
+    eu: Setifeko probintzia
+  type: province
+'20':
+  name: Saïda
+  code: '20'
+  unofficial_names:
+  - Saida
+  - Saïda
+  geo:
+    latitude: 34.8412014
+    longitude: 0.1484305
+    min_latitude: 34.8122529
+    min_longitude: 0.1194763
+    max_latitude: 34.8716372
+    max_longitude: 0.1772404
+  translations:
+    en: Saïda
+    ar: ولاية سعيدة
+    be: Правінцыя Саіда
+    bg: Сайда
+    bn: সাইদা প্রদেশ
+    ca: Província de Saïda
+    da: Saïda Province
+    de: Saida
+    el: Σάιντα
+    es: Provincia de Saida
+    fa: استان سعیده
+    fi: Saïdan maakunta
+    fr: wilaya de Saïda
+    gl: Provincia de Saïda
+    gu: સઈદા પ્રાંત
+    hi: सैदा प्रांत
+    id: Provinsi Saida
+    it: provincia di Saida
+    ja: サイダ県
+    ka: საიდის პროვინცია
+    kn: ಸೈದಾ ಪ್ರಾಂತ್ಯ
+    ko: 사이다 주
+    lt: Saidos vilaja
+    mr: सईदा प्रांत
+    ms: Saida Province
+    nb: Saida
+    nl: Saïda
+    pl: Prowincja Saida
+    pt: Saïda
+    ro: Provincia Saïda
+    ru: Саида
+    si: සයිඩා පළාත
+    sr: Сајида
+    sv: Saïda
+    sw: Jimbo ya Saida
+    ta: சைடா மாகாணம்
+    te: సాయిదా ప్రావిన్స్
+    th: จังหวัดไซดา
+    tr: Saida Vilayeti
+    uk: Саїда
+    ur: سیدہ علاقہ
+    vi: Saida
+    lv: Saīdas vilāja
+    ceb: Wilaya de Saïda
+    sr_Latn: Sajida
+    zh: 赛伊达省
+    ccp: "𑄥𑄭𑄓"
+    cs: Saida
+    'no': Saida
+    cy: Talaith Saïda
+    eu: Saidako probintzia
+  type: province
+'21':
+  name: Skikda
+  code: '21'
+  unofficial_names:
+  - Skikda
+  geo:
+    latitude: 36.866667
+    longitude: 6.899999999999999
+    min_latitude: 36.8385534
+    min_longitude: 6.8444823
+    max_latitude: 36.9170289
+    max_longitude: 7.026958599999999
+  translations:
+    en: Skikda
+    ar: ولاية سكيكدة
+    be: Правінцыя Скікда
+    bg: Скикда
+    bn: স্কিকদা প্রদেশ
+    ca: Província de Skikda
+    da: Skikda Province
+    de: Skikda
+    el: Σκίκντα
+    es: Provincia de Skikda
+    fa: استان سکیکده
+    fi: Skikdan lääni
+    fr: wilaya de Skikda
+    gl: Provincia de Skikda
+    gu: સ્કિકડા પ્રાંત
+    hi: स्किक्डा प्रांत
+    id: Provinsi Skikda
+    it: provincia di Skikda
+    ja: スキクダ県
+    ka: სკიკდის პროვინცია
+    kn: ಸ್ಕಿಕ್ಡಾ ಪ್ರಾಂತ್ಯ
+    ko: 스키크다 주
+    lt: Skikdos vilaja
+    mr: स्किक्डा प्रांत
+    ms: Wilayah Skikda
+    nb: Skikda
+    nl: Skikda
+    pl: Prowincja Sukajkida
+    pt: Skikda
+    ro: Provincia Skikda
+    ru: Скикда
+    si: ස්කික්දා පළාත
+    sr: Скикда
+    sv: Skikda
+    sw: Jimbo ya Skikda
+    ta: சகிக்கிட மாகாணம்
+    te: స్కిక్డా ప్రావిన్స్
+    th: จังหวัดสกิกดา
+    tr: Sekikda Vilayeti
+    uk: Скікда
+    ur: صوبہ سکیکدہ
+    vi: Skikda
+    lv: Skīkidas vilāja
+    ceb: Wilaya de Skikda
+    sr_Latn: Skikda
+    zh: 斯基克达省
+    ccp: "𑄇𑄨𑄇𑄴𑄓"
+    'no': Skikda
+    cy: Talaith Skikda
+    eu: Skikdako probintzia
+  type: province
+'22':
+  name: Sidi Bel Abbès
+  code: '22'
+  unofficial_names:
+  - Sidi bel Abbès
+  geo:
+    latitude: 35.2
+    longitude: -0.641389
+    min_latitude: 35.1609683
+    min_longitude: -0.6890702999999999
+    max_latitude: 35.2516998
+    max_longitude: -0.5712032
+  translations:
+    en: Sidi Bel Abbès
+    ar: ولاية سيدي بلعباس
+    be: Правінцыя Сідзі-Бель-Абес
+    bg: Сиди Бел Абес
+    bn: সিদি বেল আব্বেস প্রদেশ
+    ca: Província de Sidi Bel Abbes
+    da: Sidi Bel Abbès Province
+    de: Sidi Bel Abbès
+    el: Σίντι Μπελ Άμπες
+    es: Provincia de Sidi Bel Abbes
+    fa: استان سیدی بلعباس
+    fi: Sidi Bel Abbèsn provinssi
+    fr: wilaya de Sidi Bel Abbès
+    gl: Provincia de Sidi Bel Abbes
+    gu: સિદી બેલ અબ્બેસ પ્રાંત
+    hi: सिदी बेल अब्बास प्रांत
+    it: provincia di Sidi Bel Abbes
+    ja: シディ・ベル・アッベス県
+    ka: სიდი-ბელ-აბესის პროვინცია
+    kn: ಸಿಡಿ ಬೆಲ್ ಅಬ್ಬೆಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 시디벨아베스 주
+    lt: Sidi bel Abeso vilaja
+    mr: सिदी बेल अब्बे प्रांत
+    ms: Wilayah Sidi Bel Abbès
+    nb: Sidi bel Abbès
+    nl: Sidi-bel-Abbès
+    pl: Prowincja Sidi Bu-l-Abbas
+    pt: Sidi Bel Abbès
+    ro: Provincia Sidi Bel Abbès
+    ru: Сиди-Бель-Аббес
+    si: සිඩි බෙල් අබ්බේස් පළාත
+    sr: Сиди Бел Абес
+    sv: Sidi Bel Abbès
+    sw: Jimbo ya Sidi Bel Abbes
+    ta: சிதி பெல் அபிபிஎஸ் மாகாணம்
+    te: సిడి బెల్ అబెస్ ప్రావిన్స్
+    th: จังหวัดซิดีเบลอับแบส
+    tr: Sidi Belabbas Vilayeti
+    uk: Сіді-Бель-Аббес
+    ur: صوبہ سیدی بلعباس
+    vi: Sidi Bel Abbes
+    lv: Sīdī Bil Abāsas vilāja
+    ceb: Wilaya de Sidi Bel Abbès
+    sr_Latn: Sidi Bel Abes
+    zh: 西迪贝勒阿巴斯省
+    ccp: "𑄥𑄨𑄓𑄨 𑄝𑄬𑄣𑄴 𑄃𑄝𑄬𑄌𑄴"
+    'no': Sidi bel Abbès
+    cy: Talaith Sidi Bel Abbès
+    eu: Sidi Bel Abbesko probintzia
+  type: province
+'23':
+  name: Annaba
+  code: '23'
+  unofficial_names:
+  - Bona
+  - Bône
+  - Annaba
+  geo:
+    latitude: 36.9
+    longitude: 7.766667
+    min_latitude: 36.8656479
+    min_longitude: 7.695407899999999
+    max_latitude: 36.9698538
+    max_longitude: 7.793147699999999
+  translations:
+    en: Annaba
+    ar: ولاية عنابة
+    be: Правінцыя Анаба
+    bg: Анаба
+    bn: আন্নাবা প্রদেশ
+    ca: Província d’Annaba
+    da: Annaba
+    de: Annaba
+    el: Ανάμπα
+    es: Provincia de Annaba
+    fa: استان عنابه
+    fi: Annaban maakunta
+    fr: wilaya d’Annaba
+    gl: Provincia de Annaba
+    gu: અનાબા પ્રાંત
+    hi: अन्नाबा प्रांत
+    id: Provinsi ‘Annabah
+    it: provincia di Annaba
+    ja: アンナバ県
+    ka: ანაბის პროვინცია
+    kn: ಅನಾಬಾ ಪ್ರಾಂತ್ಯ
+    ko: 안나바 주
+    lt: Anabos vilaja
+    mr: अन्नबा प्रांत
+    ms: Wilayah Annaba
+    nb: Annaba
+    nl: Annaba
+    pl: Prowincja Annaba
+    pt: Annaba
+    ro: Provincia Annaba
+    ru: Аннаба
+    si: අන්නබා පළාත
+    sr: Анаба
+    sv: Annaba
+    sw: Jimbo ya Annaba
+    ta: அன்னபா மாகாணம்
+    te: అన్నాబా ప్రావిన్స్
+    th: จังหวัดอันนาบะ
+    tr: Annaba Vilayeti
+    uk: Аннаба
+    ur: صوبہ عنابہ
+    vi: Annaba
+    lv: Annābas vilāja
+    ceb: Annaba (lalawigan)
+    sr_Latn: Anaba
+    zh: 安纳巴省
+    ccp: "𑄃𑄚𑄝"
+    az: Annaba vilayəti
+    'no': Annaba
+    cy: Talaith Annaba
+    eu: Annabako probintzia
+    uz: Annoba viloyati
+  type: province
+'24':
+  name: Guelma
+  code: '24'
+  unofficial_names:
+  - Guelma
+  geo:
+    latitude: 36.45
+    longitude: 7.433332999999999
+    min_latitude: 36.4342657
+    min_longitude: 7.397575399999999
+    max_latitude: 36.4795519
+    max_longitude: 7.469287
+  translations:
+    en: Guelma
+    ar: ولاية قالمة
+    be: Правінцыя Гельма
+    bg: Гелма
+    bn: গুয়েল্মা প্রদেশ
+    ca: Província de Guelma
+    da: Guelma Province
+    de: Guelma
+    el: Γκέλμα
+    es: Provincia de Guelma
+    fa: استان قالمه
+    fi: Guelman provinssi
+    fr: wilaya de Guelma
+    gl: Provincia de Guelma
+    gu: ગુએલ્મા પ્રાંત
+    hi: गुएलमा प्रांत
+    id: Provinsi Guelma
+    it: provincia di Guelma
+    ja: ゲルマ県
+    ka: გუელმის პროვინცია
+    kn: ಗುಲ್ಮಾ ಪ್ರಾಂತ್ಯ
+    ko: 겔마 주
+    lt: Gelmos vilaja
+    mr: ग्वाल्मा प्रांत
+    ms: Wilayah Guelma
+    nb: Guelma
+    nl: Guelma
+    pl: Prowincja Kalima
+    pt: Guelma
+    ro: Provincia Guelma
+    ru: Гельма
+    si: ගුඑල්මා පළාත
+    sr: Гелма
+    sv: Guelma
+    sw: Jimbo ya Guelma
+    ta: கோயில்மா மாகாணம்
+    te: గ్వెల్మా ప్రావిన్స్
+    th: กัวมา
+    tr: Kalime Vilayeti
+    uk: Гельма
+    ur: صوبہ قالمہ
+    vi: Guelma
+    lv: Gālmas vilāja
+    ceb: Wilaya de Guelma
+    sr_Latn: Gelma
+    zh: 盖勒马省
+    ccp: "𑄉𑄪𑄠𑄬𑄣𑄴𑄟"
+    'no': Guelma
+    az: Qelma vilayəti
+    cy: Talaith Guelma
+    eu: Guelmako probintzia
+  type: province
+'25':
+  name: Constantine
+  code: '25'
+  unofficial_names:
+  - Ksontina
+  - Qacentina
+  - Qoussantina
+  - Qusanţīnah
+  - Constantine
+  geo:
+    latitude: 36.35
+    longitude: 6.6
+    min_latitude: 36.2589189
+    min_longitude: 6.5284056
+    max_latitude: 36.44905290000001
+    max_longitude: 6.7665481
+  translations:
+    en: Constantine
+    ar: ولاية قسنطينة
+    be: Правінцыя Канстанціна
+    bg: Константин
+    bn: কন্সট্যাটাইন প্রদেশ
+    ca: Província de Constantina
+    da: Constantine Province
+    de: Constantine
+    el: Κωνσταντίνη
+    es: Provincia de Constantina
+    fa: استان قسنطینه
+    fi: Constantinen lääni
+    fr: wilaya de Constantine
+    gl: Provincia de Constantina
+    gu: કોન્સ્ટેન્ટાઇન પ્રાંત
+    hi: कॉन्स्टैन्टाइन प्रांत
+    id: Provinsi Qusnathinah
+    it: provincia di Costantina
+    ja: コンスタンティーヌ県
+    ka: კონსტანტინის პროვინცია
+    kn: ಕಾನ್ಸ್ಟಂಟೈನ್ ಪ್ರಾಂತ್ಯ
+    ko: 콩스탕틴 주
+    lt: Konstantinos vilaja
+    mr: कॉन्स्टन्टाईन प्रांत
+    ms: Wilayah Constantine
+    nb: Constantine
+    nl: Constantine
+    pl: Prowincja Konstantyna
+    pt: Constantina
+    ro: Provincia Constantine
+    ru: Константина
+    si: කොන්ස්ටන්ටයින් පළාත
+    sr: Константин
+    sv: Constantine
+    sw: Jimbo ya Constantine
+    ta: கான்ஸ்டான்டின் மாகாணம்
+    te: కాన్స్టాంటిన్ ప్రావిన్స్
+    th: จังหวัดคอนสแตนติน
+    tr: Konstantine Vilayeti
+    uk: Константіна
+    ur: صوبہ قسنطینہ
+    vi: Constantine
+    lv: Konstantinas vilāja
+    ceb: Wilaya de Constantine
+    sr_Latn: Konstantin
+    zh: 君士坦丁省
+    ccp: "𑄇𑄧𑄚𑄴𑄥𑄴𑄑𑄚𑄴𑄑𑄭𑄚𑄴"
+    'no': Constantine
+    az: Qüsəntinə vilayəti
+    cy: Talaith Constantine
+    eu: Konstantinako probintzia
+    hu: Kaszentína tartomány
+    kk: Қусантия уәлаяты
+    uz: Qusantina viloyati
+  type: province
+'26':
+  name: Médéa
+  code: '26'
+  unofficial_names:
+  - Lemdiyya
+  - al-Midyah
+  - Médéa
+  geo:
+    latitude: 36.266667
+    longitude: 2.75
+    min_latitude: 36.2312581
+    min_longitude: 2.7220345
+    max_latitude: 36.3364236
+    max_longitude: 2.823658
+  translations:
+    en: Médéa
+    ar: ولاية المدية
+    be: Правінцыя Медэа
+    bg: Мостаганем
+    bn: মেদিয়া প্রদেশ
+    da: Médéa Province
+    de: Medea
+    el: Μεντέα
+    es: Provincia de Médéa
+    fa: استان مدیه
+    fi: Médéan provinssi
+    fr: wilaya de Médéa
+    gl: Provincia de Médéa
+    gu: મેદેયા પ્રાંત
+    hi: मेडी प्रांत
+    id: Provinsi Medea
+    it: provincia di Médéa
+    ja: メデア県
+    ka: მედეას პროვინცია
+    kn: ಮೆಡೆಯಾ ಪ್ರಾಂತ್ಯ
+    ko: 메데아 주
+    lt: Medėjos vilaja
+    mr: मेदेया प्रांत
+    ms: Wilayah Médéa
+    nb: Medea
+    nl: Médéa
+    pl: Prowincja Al-Midija
+    pt: Médéa
+    ro: Provincia Médéa
+    ru: Медеа
+    si: මෙදියා පළාත
+    sr: Медеја
+    sv: Médéa
+    sw: Jimbo ya Médéa
+    ta: மீடீயா மாகாணம்
+    te: మెడియా ప్రావిన్స్
+    th: จังหวัดมีเดีย
+    tr: Mediye Vilayeti
+    uk: Медея
+    ur: صوبہ المدیہ
+    vi: Médéa
+    lv: Medejas vilāja
+    ceb: Wilaya de Médéa
+    sr_Latn: Medeja
+    zh: 麦迪亚省
+    ccp: "𑄟𑄬𑄓𑄬𑄠"
+    ca: Província de Médéa
+    'no': Medea
+    az: Medea vilayəti
+    cy: Talaith Médéa
+    eu: Medeako probintzia
+  type: province
+'27':
+  name: Mostaganem
+  code: '27'
+  unofficial_names:
+  - Mestghanem
+  - Mustaghanam
+  - Mustaghanim
+  - Mustaġānam
+  - Mostaganem
+  geo:
+    latitude: 35.933333
+    longitude: 0.08333299999999999
+    min_latitude: 35.9107075
+    min_longitude: 0.0536443
+    max_latitude: 36.0394952
+    max_longitude: 0.1765537
+  translations:
+    en: Mostaganem
+    ar: ولاية مستغانم
+    be: Правінцыя Мастаганем
+    bg: Мостаганем²
+    bn: মোস্তাগানেম প্রদেশ
+    da: Mostaganem
+    de: Mostaganem
+    el: Μοσταγκανέμ
+    es: Provincia de Mostaganem
+    fa: استان مستغانم
+    fi: Mostaganemin lääni
+    fr: wilaya de Mostaganem
+    gl: Provincia de Mostaganem
+    gu: મોસ્ટગનેમ પ્રાંત
+    hi: मोस्तगनेम प्रांत
+    id: Provinsi Mostaganem
+    it: provincia di Mostaganem
+    ja: モスタガネム県
+    ka: მოსტაგანემის პროვინცია
+    kn: ಮೋಸ್ಟ್ಗನೇಮ್ ಪ್ರಾಂತ್ಯ
+    ko: 모스타가넴 주
+    lt: Mostaganemo vilaja
+    mr: मोस्टगेंम प्रांत
+    ms: Wilayah Mostaganem
+    nb: Mostaganem
+    nl: Mostaganem
+    pl: Prowincja Mustaghanam
+    pt: Mostaganem
+    ro: Provincia Mostaganem
+    ru: Мостаганем
+    si: මොස්ටගනෙම් පළාත
+    sr: Мостаганем
+    sv: Mostaganem
+    sw: Jimbo ya Mostaganem
+    ta: மோஸ்தகனேம் மாகாணம்
+    te: మోస్టాగానెమ్ ప్రావిన్స్
+    th: จังหวัดมอสตากาเรม
+    tr: Mostaganem Vilayeti
+    uk: Мостаганем
+    ur: صوبہ مستغانم
+    vi: Mostaganem
+    lv: Mustegānimas vilāja
+    ceb: Wilaya de Mostaganem
+    sr_Latn: Mostaganem
+    zh: 穆斯塔加奈姆省
+    ccp: "𑄟𑄧𑄌𑄴𑄑𑄉𑄚𑄬𑄟𑄴"
+    ca: Província de Mostaganem
+    'no': Mostaganem
+    az: Mostaqanem vilayəti
+    cy: Talaith Mostaganem
+    eu: Mostaganemgo probintzia
+  type: province
+'28':
+  name: Msila
+  code: '28'
+  unofficial_names:
+  - MʿSila
+  - Msila
+  geo:
+    latitude: 35.701944
+    longitude: 4.547222
+    min_latitude: 35.5699353
+    min_longitude: 4.431953399999999
+    max_latitude: 35.8723598
+    max_longitude: 4.605503199999999
+  translations:
+    en: M’Sila
+    ar: ولاية المسيلة
+    be: Правінцыя Мсіла
+    da: M’Sila Province
+    de: M’Sila
+    el: Εμσίλα
+    es: Provincia de M’Sila
+    fa: استان مسیله
+    fi: M’Silan lääni
+    fr: wilaya de M’Sila
+    gl: Provincia de M’Sila
+    gu: મ’સિલા પ્રાંત
+    hi: म’सिला प्रांत
+    id: Provinsi M’Sila
+    it: provincia di M’Sila
+    ja: ムシラ県
+    kn: ಎಂ ಸಿಲಾ ಪ್ರಾಂತ್ಯ
+    ko: 음실라 주
+    lt: Msilos vilaja
+    mr: एम’सिल प्रांत
+    ms: Wilayah M’Sila
+    nb: M’Sila
+    nl: M’Sila
+    pl: Prowincja Al-Masila
+    pt: M’Sila
+    ro: Provincia M’Sila
+    ru: Мсила
+    si: මසිලා පළාත
+    sr: Мсила
+    sv: M’Sila
+    sw: Jimbo ya M’Sila
+    ta: ம் ‘சிலா மாகாணம்
+    te: ఎంసిలా ప్రావిన్స్
+    th: จังหวัดเอ็มซิลา
+    tr: M’Sila Vilayeti
+    uk: Мсіла
+    ur: صوبہ المسیلہ
+    vi: M’Sila
+    lv: Msīlas vilāja
+    ceb: Wilaya de M’Sila
+    sr_Latn: Msila
+    zh: 姆西拉省
+    bn: ম’সিলা প্রদেশ
+    ccp: "𑄟𑄳𑄃𑄥𑄨𑄣"
+    ca: Província de M’Sila
+    'no': M’Sila
+    cy: Talaith M’Sila
+    eu: M’Silako probintzia
+    he: מחוז מסילה
+  type: province
+'29':
+  name: Mascara
+  code: '29'
+  unofficial_names:
+  - Mouaskar
+  - Mascara
+  geo:
+    latitude: 35.3904125
+    longitude: 0.1494988
+    min_latitude: 34.984219
+    min_longitude: -0.4987059999999999
+    max_latitude: 35.7647711
+    max_longitude: 0.9324479999999999
+  translations:
+    en: Mascara
+    ar: ولاية معسكر
+    be: правінцыя Маскара
+    bg: Маскара
+    bn: মাস্কারার প্রদেশ
+    ca: Província de Mascara
+    da: Mascara Province
+    de: Muaskar
+    el: Μάσκαρα
+    es: Provincia de Muaskar
+    fa: استان معسکر
+    fi: Mascaran lääni
+    fr: wilaya de Mascara
+    gl: Provincia de Mascara
+    gu: મસ્કરા પ્રાંત
+    hi: मस्कारा प्रांत
+    id: Provinsi Mascara
+    it: provincia di Mascara
+    ja: マスカラ県
+    ka: მასკარის პროვინცია
+    kn: ಮಸ್ಕರಾ ಪ್ರಾಂತ್ಯ
+    ko: 마스카라 주
+    lt: Maskaros vilaja
+    mr: मस्करा प्रांत
+    ms: Wilayah Mascara
+    nb: Muaskar
+    nl: Mascara
+    pl: Prowincja Muaskar
+    pt: Mascara
+    ro: Provincia Mascara
+    ru: Маскара
+    si: මස්කාරා පළාත
+    sr: Маскара
+    sv: Muaskar
+    sw: Jimbo ya Mascara
+    ta: மாஸ்க்கார மாகாணம்
+    te: మస్కారా ప్రావిన్స్
+    th: จังหวัดมาสการ่า
+    tr: Muaskar Vilayeti
+    uk: Маскара
+    ur: صوبہ معسکر
+    vi: Mascara
+    lv: Maskaras vilāja
+    ceb: Wilaya de Mascara
+    sr_Latn: Maskara
+    zh: 穆阿斯凯尔省
+    ccp: "𑄟𑄌𑄴𑄇𑄢"
+    'no': Muaskar
+    cy: Talaith Mascara
+    eu: Mascarako probintzia
+  type: province
+'30':
+  name: Ouargla
+  code: '30'
+  unofficial_names:
+  - Wargla
+  - Ouargla
+  geo:
+    latitude: 31.95
+    longitude: 5.316667
+    min_latitude: 31.874059
+    min_longitude: 4.463195799999999
+    max_latitude: 32.5074455
+    max_longitude: 5.4502058
+  translations:
+    en: Ouargla
+    ar: ولاية ورقلة
+    be: Правінцыя Уаргла
+    bg: Уаргла
+    bn: উয়ার্গলা প্রদেশ
+    da: Ouargla Province
+    de: Ouargla
+    el: Ουέργκλα
+    es: Provincia de Ouargla
+    fa: استان ورقله
+    fi: Ouarglan maakunta
+    fr: wilaya d’Ouargla
+    gl: Provincia de Ouargla
+    gu: ઔઆર્ગ્લા પ્રાંત
+    hi: ऑर्ग्ला प्रांत
+    id: Provinsi Ouargla
+    it: provincia di Ouargla
+    ja: ワルグラ県
+    ka: უარგლის პროვინცია
+    kn: ಓರ್ಗಾಲಾ ಪ್ರಾಂತ್ಯ
+    ko: 와르글라 주
+    lt: Uarglos vilaja
+    mr: औअर्गला प्रांत
+    ms: Wilayah Ouargla
+    nb: Ouargla
+    nl: Ouargla
+    pl: Prowincja Warkala
+    pt: Ouargla
+    ro: Provincia Ouargla
+    ru: Уаргла
+    si: ඖහම් ප්‍රාන්තය
+    sr: Варгла
+    sv: Ouargla
+    sw: Jimbo ya Ouargla
+    ta: ஓவர்களா மாகாணம்
+    te: ఉవార్గలా ప్రావిన్స్
+    th: จังหวัดอัวกลา
+    tr: Vurkla Vilayeti
+    uk: Уаргла
+    ur: صوبہ ورقلہ
+    vi: Ouargla
+    lv: Varglas vilāja
+    ceb: Wilaya de Ouargla
+    sr_Latn: Vargla
+    zh: 瓦尔格拉省
+    ccp: "𑄃𑄯𑄢𑄴𑄉𑄳𑄣"
+    az: Uarqla vilayəti
+    ca: Província d’Ouargla
+    'no': Ouargla
+    cy: Talaith Ouargla
+    eu: Ouarglako probintzia
+  type: province
+'31':
+  name: Oran
+  code: '31'
+  unofficial_names:
+  - Ouahran
+  - Oran
+  geo:
+    latitude: 35.6976541
+    longitude: -0.6337376
+    min_latitude: 35.6451955
+    min_longitude: -0.7298182999999999
+    max_latitude: 35.769723
+    max_longitude: -0.5530071
+  translations:
+    en: Oran
+    ar: ولاية وهران
+    be: Правінцыя Аран
+    bg: Оран
+    bn: অরণ
+    ca: Província d’Orà
+    da: Oran
+    de: Oran
+    el: Οράν
+    es: Provincia de Orán
+    fa: استان وهران
+    fi: Oranin maakunta
+    fr: wilaya d’Oran
+    gl: Provincia de Orán
+    gu: ઓરેન
+    hi: ओरान प्रांत
+    id: Oran
+    it: provincia di Orano
+    ja: オラン県
+    ka: ორანის პროვინცია
+    kn: ಒರಾನ್
+    ko: 오랑 주
+    lt: Orano vilaja
+    mr: ऑरान
+    ms: Wilayah Oran
+    nb: Oran
+    nl: Oran
+    pl: Prowincja Oran
+    pt: Orã
+    ro: Provincia Oran
+    ru: Оран
+    si: ඔරාන්
+    sr: Оран
+    sv: Oran
+    sw: Jimbo ya Oran
+    ta: ஓரான்
+    te: ఓరాన్
+    th: จังหวัดโอรัน
+    tr: Oran Vilayeti
+    uk: Оран
+    ur: صوبہ وھران
+    vi: Oran
+    lv: Orānas vilāja
+    ceb: Oran
+    sr_Latn: Oran
+    zh: 奥兰省
+    ccp: "𑄃𑄧𑄢𑄚𑄴"
+    'no': Oran
+    az: Vəhran vilayəti
+    cs: Provincie Vahrán
+    cy: Talaith Oran
+    eu: Orango probintzia
+    hy: Օրան նահանգ
+    uz: Vahron viloyati
+  type: province
+'32':
+  name: El Bayadh
+  code: '32'
+  unofficial_names:
+  - El Bayadh
+  geo:
+    latitude: 33.680278
+    longitude: 1.020278
+    min_latitude: 33.4892988
+    min_longitude: 0.8449173000000001
+    max_latitude: 33.7897053
+    max_longitude: 1.1710738
+  translations:
+    en: El Bayadh
+    ar: ولاية البيض
+    be: Правінцыя Эль-Баяд
+    bg: Ел-Баяд
+    bn: এল বায়াধ প্রদেশ
+    da: El Bayadh
+    de: El Bayadh
+    el: Ελ Μπάγιαδ
+    es: Provincia de El Bayadh
+    fa: استان البیض
+    fi: El Bayadhn lääni
+    fr: wilaya d’El Bayadh
+    gl: Provincia de El Bayadh
+    gu: અલ બાયાદ પ્રાંત
+    hi: एल बयादा प्रांत
+    id: Provinsi El Bayadh
+    it: provincia di El Bayadh
+    ja: エル・バヤード県
+    ka: ელ-ბაიადის პროვინცია
+    kn: ಎಲ್ ಬಯಾದ್ ಪ್ರಾಂತ್ಯ
+    ko: 엘바야드 주
+    lt: Bajado vilaja
+    mr: एल बेअद प्रांत
+    ms: Wilayah El Bayadh
+    nb: El Bayadh
+    nl: El Bayadh
+    pl: Prowincja Al-Bajad
+    pt: El Bayadh
+    ro: Provincia El Bayadh
+    ru: Эль-Баяд
+    si: එල් බයදෝ පළාත
+    sr: Ел Бајад
+    sv: El Bayadh
+    sw: Jimbo ya El Bayadh
+    ta: எல் பயத் மாகாணம்
+    te: ఎల్ బయాధ్ ప్రావిన్స్
+    th: จังหวัดเอล บาหยาด
+    tr: El Beyaz Vilayeti
+    uk: Ель-Баяд
+    ur: صوبہ البیض
+    vi: El Bayadh
+    lv: Bejedas vilāja
+    ceb: El Bayadh (lalawigan)
+    sr_Latn: El Bajad
+    zh: 巴亚兹省
+    ccp: "𑄃𑄬𑄣𑄴 𑄝𑄠𑄖𑄴"
+    ca: Província d’El Bayadh
+    'no': El Bayadh
+    cy: Talaith El Bayadh
+    eu: El Bayadheko probintzia
+  type: province
+'33':
+  name: Illizi
+  code: '33'
+  unofficial_names:
+  - Illizi
+  geo:
+    latitude: 26.1690005
+    longitude: 8.4842465
+    min_latitude: 23.0151409
+    min_longitude: 5.8658301
+    max_latitude: 30.1144791
+    max_longitude: 11.979548
+  translations:
+    en: Illizi
+    ar: ولاية إليزي
+    be: Правінцыя Ілізі
+    bg: Илизи
+    bn: ইলিজি প্রদেশ
+    ca: Província d’Illizi
+    cs: Illizi (provincie)
+    da: Illizi Province
+    de: Illizi
+    el: Ιλλίζι
+    es: Provincia de Illizi
+    fa: استان الیزی
+    fi: Illizin maakunta
+    fr: wilaya d’Illizi
+    gl: Provincia de Illizi
+    gu: ઇલિઝી પ્રાંત
+    hi: इल्लिज़ि प्रांत
+    id: Provinsi Illizi
+    it: provincia di Illizi
+    ja: イリジ県
+    ka: ილიზის პროვინცია
+    kn: ಇಲ್ಜಿ ಪ್ರಾಂತ್ಯ
+    ko: 일리지 주
+    lt: Ilizio vilaja
+    mr: इलिझी प्रांत
+    ms: Wilayah Illizi
+    nb: Illizi
+    nl: Illizi
+    pl: Prowincja Illizi
+    pt: Illizi
+    ro: Provincia Illizi
+    ru: Иллизи
+    si: ඉල්ලිස් පළාත
+    sr: Илизи
+    sv: Illizi
+    sw: Jimbo la Illizi
+    ta: இல்லிஜி மாகாணம்
+    te: ఇల్లిజి ప్రావిన్స్
+    th: อิลลิซี
+    tr: İlizi Vilayeti
+    uk: Іллізі
+    ur: صوبہ الیزی
+    vi: Illizi
+    lv: Illīzī vilāja
+    ceb: Illizi
+    sr_Latn: Ilizi
+    zh: 伊利济省
+    ccp: "𑄃𑄨𑄣𑄳𑄣𑄨𑄎𑄨"
+    'no': Illizi
+    cy: Talaith Illizi
+    eu: Illiziko probintzia
+  type: province
+'34':
+  name: Bordj Bou Arréridj
+  code: '34'
+  unofficial_names:
+  - Bordj Bou Arreridj
+  geo:
+    latitude: 36.0704188
+    longitude: 4.7564046
+    min_latitude: 36.0166846
+    min_longitude: 4.6901322
+    max_latitude: 36.1206129
+    max_longitude: 4.848232299999999
+  translations:
+    en: Bordj Bou Arréridj
+    ar: ولاية برج بوعريريج
+    be: Правінцыя Бордж-Бу-Арэрыдж
+    bg: Бордж Бу Ареридж
+    bn: বোর্ডজ বু প্রদেশ
+    ca: Província de Bordj Bou Arreridj
+    da: Bordj Bou Arréridj
+    de: Bordj Bou Arreridj
+    el: Μπορντζ Μπου Αρερίντζ
+    es: Provincia de Bordj Bou Arréridj
+    fa: استان برج بوعریریج
+    fi: Bordj Bou Arréridjin provinssi
+    fr: wilaya de Bordj Bou Arreridj
+    gl: Provincia de Bordj Bou Arréridj
+    gu: બોર્ડજ બૌ એરેગ્રીડ પ્રાંત
+    hi: बोर्दज बोउ अर्रेरिदज प्रांत
+    id: Provinsi Bordj Bou Arreridj
+    it: provincia di Bordj Bou Arreridj
+    ja: ボルジ・ブ・アレリジ県
+    ka: ბორჯ-ბუ-არერიჯის პროვინცია
+    kn: ಬೋರ್ಜ್ ಬೌ ಅರೆರಿಡ್ಜ್ ಪ್ರಾಂತ್ಯ
+    ko: 보르즈부아레리즈 주
+    lt: Bordž Bu Areridžo vilaja
+    mr: बर्डज बाऊ एररेरिड प्रांत
+    ms: Wilayah Bordj Bou Arréridj
+    nb: Bordj Bou Arréridj
+    nl: Bordj Bou Arréridj
+    pl: Prowincja Burdż Bu Urajridż
+    pt: Bordj Bou Arreridj
+    ro: Provincia Bordj Bou Arréridj
+    ru: Бордж-Бу-Арреридж
+    si: බොර්ද්ජු බෞ අර්රේරිඩ්ජ් පළාත
+    sr: Борџ Бу Арериџ
+    sv: Bordj Bou Arréridj
+    sw: Jimbo ya Bordj Bou Arréridj
+    ta: போர்ட்ஜ் போது அர்ரேரிட்ஜ் மாகாணம்
+    te: బోర్జ్ బౌ ఆరిడ్జె ప్రావిన్స్
+    th: บอร์จ บัว อาร์เรริดจ์
+    tr: Burc Bu Ariric Vilayeti
+    uk: Бордж-Бу-Аррерідж
+    ur: صوبہ برج بو عریریج
+    vi: Bordj Bou Arréridj
+    lv: Bordž Bū Arrīridžas vilāja
+    ceb: Wilaya de Bordj Bou Arréridj
+    sr_Latn: Bordž Bu Areridž
+    zh: 布阿拉里季堡省
+    ccp: "𑄝𑄧𑄢𑄳𑄓𑄴𑄎𑄴 𑄝𑄯 𑄃𑄢𑄬𑄢𑄨𑄖𑄴𑄎𑄴"
+    az: Borc-Bu-Arreric vilayəti
+    'no': Bordj Bou Arréridj
+    cy: Talaith Bordj Bou Arréridj
+    eu: Bordj Bou Arreridjeko probintzia
+  type: province
+'35':
+  name: Boumerdès
+  code: '35'
+  unofficial_names:
+  - Boumerdès
+  geo:
+    latitude: 36.7675962
+    longitude: 3.7029002
+    min_latitude: 36.526798
+    min_longitude: 3.301881
+    max_latitude: 36.9245898
+    max_longitude: 4.1178311
+  translations:
+    en: Boumerdès
+    ar: ولاية بومرداس
+    be: Правінцыя Бумердэс
+    bg: Бумердес
+    bn: বৌমেরডেস প্রদেশ
+    da: Boumerdès Province
+    de: Boumerdes
+    el: Μπουμερντές
+    es: Provincia de Boumerdès
+    fa: استان بومرداس
+    fi: Boumerdèsin lääni
+    fr: wilaya de Boumerdès
+    gl: Provincia de Boumerdès
+    gu: બોમેર્ડેસ પ્રાંત
+    hi: बोउमेर्डेस प्रांत
+    id: Provinsi Boumerdes
+    it: provincia di Boumerdès
+    ja: ブメルデス県
+    ka: ბუმერდესის პროვინცია
+    kn: ಬೊಮೆರ್ಡೆಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 부메르데스 주
+    lt: Bumerdeso vilaja
+    mr: बोमेर्ड्स प्रांत
+    ms: Wilayah Boumerdès
+    nb: Boumerdès
+    nl: Boumerdès
+    pl: Prowincja Bumardas
+    pt: Boumerdès
+    ro: Provincia Boumerdès
+    ru: Бумердес
+    si: බෞමෙර්ඩෙස් පළාත
+    sr: Бумердес
+    sv: Boumerdès
+    sw: Jimbo ya Boumerdès
+    ta: பௌமெர்டேஸ் மாகாணம்
+    te: బౌమెర్డెస్ ప్రావిన్స్
+    th: จังหวัดบัวเมอเดส
+    tr: Bumerdas Vilayeti
+    uk: Бумердес
+    ur: صوبہ بومرداس
+    vi: Boumerdès
+    lv: Būmerdāsas vilāja
+    ceb: Wilaya de Boumerdes
+    sr_Latn: Bumerdes
+    zh: 布米尔达斯省
+    ccp: "𑄝𑄯𑄟𑄢𑄴𑄓𑄬𑄌𑄴"
+    ca: Província de Boumerdès
+    'no': Boumerdès
+    az: Bumerdes vilayəti
+    cy: Talaith Boumerdès
+    eu: Boumerdesko probintzia
+  type: province
+'36':
+  name: El Tarf
+  code: '36'
+  unofficial_names:
+  - El Taref
+  - at-Tarf
+  - El Tarf
+  geo:
+    latitude: 36.7558581
+    longitude: 8.2212979
+    min_latitude: 36.3699299
+    min_longitude: 7.730847
+    max_latitude: 36.9521553
+    max_longitude: 8.67615
+  translations:
+    en: El Tarf
+    ar: ولاية الطارف
+    be: Правінцыя Эль-Тарф
+    bg: Ел-Тарф
+    bn: এল টারফ প্রদেশ
+    ca: Província d’El Tarf
+    da: El Tarf Province
+    de: El Tarf
+    el: Ελ Ταρφ
+    es: Provincia de El Tarf
+    fa: استان الطارف
+    fi: El Tarfin lääni
+    fr: wilaya d’El Tarf
+    gl: Provincia de El Taref
+    gu: અલ ટાર્ફ પ્રાંત
+    hi: एल तरेफ प्रांत
+    hu: El Tarf tartomány
+    id: Provinsi El Tarf
+    it: provincia di El Tarf
+    ja: エル・タルフ県
+    ka: ელ-ტარეფის პროვინცია
+    kn: ಎಲ್ ಟ್ಯಾಫ್ ಪ್ರಾಂತ್ಯ
+    ko: 엘타르프 주
+    lt: Tarefo vilaja
+    mr: एल तारफ प्रांत
+    ms: El Tarf Province
+    nb: El Tarf
+    nl: El Tarf
+    pl: Prowincja At-Tarif
+    pt: El Tarf
+    ro: Provincia El Tarf
+    ru: Эль-Тарф
+    si: එල් ටාර්ෆ් පළාත
+    sr: Ел Тарф
+    sv: El Tarf
+    sw: Jimbo ya El Tarf
+    ta: எல் தரப்பி மாகாணம்
+    te: ఎల్ టర్ఫ్ ప్రావిన్స్
+    th: จังหวัดเอล ทาร์ฟ
+    tr: El Tarif Vilayeti
+    uk: Ат-Тарф
+    ur: صوبہ الطارف
+    vi: El Taref
+    lv: Tārfas vilāja
+    ceb: El Tarf
+    sr_Latn: El Tarf
+    zh: 塔里夫省
+    ccp: "𑄃𑄬𑄣𑄴 𑄑𑄢𑄴𑄛𑄴"
+    'no': El Tarf
+    az: El-Tarf vilayəti
+    cy: Talaith El Tarf
+    eu: El Tarefeko probintzia
+  type: province
+'37':
+  name: Tindouf
+  code: '37'
+  unofficial_names:
+  - Tindouf
+  geo:
+    latitude: 27.6761012
+    longitude: -8.1276526
+    min_latitude: 25.5684593
+    min_longitude: -8.6666626
+    max_latitude: 28.9236408
+    max_longitude: -3.9839172
+  translations:
+    en: Tindouf
+    ar: ولاية تندوف
+    be: Правінцыя Тындуф
+    bg: Тиндуф
+    bn: তিন্দুফ প্রদেশ
+    ca: Província de Tindouf
+    da: Tindouf Province
+    de: Tindouf
+    el: Τιντούφ
+    es: Provincia de Tinduf
+    fa: استان تندوف
+    fi: Tindoufin maakunta
+    fr: wilaya de Tindouf
+    gl: Provincia de Tindouf
+    gu: ટિન્ડૌફ પ્રાંત
+    he: מחוז טינדוף
+    hi: टिन्डोउफ प्रांत
+    id: Provinsi Tindouf
+    it: provincia di Tindouf
+    ja: ティンドゥフ県
+    ka: ტინდუფის პროვინცია
+    kn: ಟಿಂಡೋಫ್ ಪ್ರಾಂತ್ಯ
+    ko: 틴두프 주
+    lt: Tindufo vilaja
+    mr: टिंडौफ प्रांत
+    ms: Tindouf
+    nb: Tindouf
+    nl: Tindouf
+    pl: Prowincja Tinduf
+    pt: Tindouf
+    ro: Provincia Tindouf
+    ru: Тиндуф
+    si: ටින්ඩොඋෆ් පළාත
+    sr: Тиндуф
+    sv: Tindouf
+    sw: Jimbo ya Tindouf
+    ta: டின்டோவுப் மாகாணம்
+    te: టిండోఫ్ ప్రావిన్స్
+    th: จังหวัดทินดอฟ
+    tr: Tinduf Vilayeti
+    uk: Тіндуф
+    ur: صوبہ تندوف
+    vi: Tindouf
+    lv: Tīndūfas vilāja
+    ceb: Wilaya de Tindouf
+    sr_Latn: Tinduf
+    zh: 廷杜夫省
+    ccp: "𑄑𑄨𑄚𑄴𑄓𑄯𑄛𑄴"
+    az: Tinduf vilayəti
+    'no': Tindouf
+    cy: Talaith Tindouf
+    eu: Tindufeko probintzia
+  type: province
+'38':
+  name: Tissemsilt
+  code: '38'
+  unofficial_names:
+  - Tissemselt
+  - Tissemsilt
+  geo:
+    latitude: 35.607778
+    longitude: 1.811111
+    min_latitude: 35.5865321
+    min_longitude: 1.7660523
+    max_latitude: 35.6178491
+    max_longitude: 1.8383218
+  translations:
+    en: Tissemsilt
+    ar: ولاية تيسمسيلت
+    be: Правінцыя Тысемсілт
+    bg: Тисемсилт
+    bn: টিসসেমসিলত প্রদেশ
+    da: Tissemsilt Province
+    de: Tissemsilt
+    el: Τισσεμσίλτ
+    es: Provincia de Tissemsilt
+    fa: تسمسیلت
+    fi: Tissemsiltin provinssi
+    fr: wilaya de Tissemsilt
+    gl: Provincia de Tissemsilt
+    gu: ટીસેમ્સિલ્ટ પ્રાંત
+    hi: टिस्सेम्सिल्त प्रांत
+    id: Provinsi Tissemsilt
+    it: provincia di Tissemsilt
+    ja: ティセムシルト県
+    ka: ტისემსილტის პროვინცია
+    kn: ಟಿಸ್ಸೆಮ್ಸಿಲ್ಟ್ ಪ್ರಾಂತ್ಯ
+    ko: 티셈실트 주
+    lt: Tisemsilto vilaja
+    mr: टीसिमेल्ल्ट प्रांत
+    ms: Wilayah Tissemsilt
+    nb: Tissemsilt
+    nl: Tissemsilt
+    pl: Prowincja Tisamsilt
+    pt: Tissemsilt
+    ro: Provincia Tissemsilt
+    ru: Тиссемсилт
+    si: ටිසේමිසිල්ට් පළාත
+    sr: Тисемсилт
+    sv: Tissemsilt
+    sw: Jimbo ya Tissemsilt
+    ta: டிஸ்ஸம்ஸில்ட் மாகாணம்
+    te: టిసెమ్‌సిల్ట్ ప్రావిన్స్
+    th: จังหวัดทิสแสมซอล์ท
+    tr: Tissemsilt Vilayeti
+    uk: Тіссемсілт
+    ur: صوبہ تسمسیلت
+    vi: Tissemsilt
+    lv: Tisemsīltas vilāja
+    ceb: Wilaya de Tissemsilt
+    sr_Latn: Tisemsilt
+    zh: 提塞姆西勒特省
+    ccp: "𑄑𑄨𑄥𑄬𑄟𑄴𑄥𑄨𑄣𑄴𑄑𑄴"
+    az: Tissemsilt vilayəti
+    ca: Província de Tissemsilt
+    'no': Tissemsilt
+    cy: Talaith Tissemsilt
+    eu: Tissemsilteko probintzia
+  type: province
+'39':
+  name: El Oued
+  code: '39'
+  unofficial_names:
+  - El Ouâdi
+  - El Wad
+  - El Oued
+  geo:
+    latitude: 33.3713397
+    longitude: 6.8479682
+    min_latitude: 33.3297394
+    min_longitude: 6.820836099999999
+    max_latitude: 33.412323
+    max_longitude: 6.8943501
+  translations:
+    en: El Oued
+    ar: ولاية الوادي
+    be: Правінцыя Эль-Уэд
+    bg: Ел-Уед
+    bn: এল ওয়েড প্রদেশ
+    ca: Província d’El Oued
+    da: El Oued
+    de: El Oued
+    el: Ελ Ουέντ
+    es: Provincia de El Oued
+    fa: استان الوادی
+    fi: El Oued Province
+    fr: wilaya d’El Oued
+    gl: Provincia de El Oued
+    gu: એલ ઓયડ પ્રાંત
+    hi: एल ऑड
+    id: Provinsi El Oued
+    it: provincia di El Oued
+    ja: エル・ウェッド県
+    ka: ელ-უედის პროვინცია
+    kn: ಎಲ್ ಔಡ್ ಪ್ರಾಂತ್ಯ
+    ko: 엘웨드 주
+    lt: Uedo vilaja
+    mr: एल ओयड प्रांत
+    ms: Wilayah El Oued
+    nb: El Oued
+    nl: El Oued
+    pl: Prowincja Al-Wadi
+    pt: El Oued
+    ro: Provincia El Oued
+    ru: Эль-Уэд
+    si: එල් ඔයිඩ් කලාපය
+    sr: Ел Ујед
+    sv: El Oued
+    sw: Jimbo ya El Oued
+    ta: எல் யது மாகாணம்
+    te: ఎల్ ఓయెద్ ప్రావిన్స్
+    th: จังหวัดเอลโลด์
+    tr: El Vadi Vilayeti
+    uk: Ель-Уед
+    ur: صوبہ الوادی
+    vi: El Oued
+    lv: Vādas vilāja
+    ceb: El Oued
+    sr_Latn: El Ujed
+    zh: 瓦迪省
+    ccp: "𑄃𑄬𑄣𑄴 𑄃𑄮𑄠𑄬𑄖𑄴"
+    'no': El Oued
+    cy: Talaith El Oued
+    eu: El Ouedeko probintzia
+  type: province
+'40':
+  name: Khenchela
+  code: '40'
+  unofficial_names:
+  - Khenchla
+  - Khenchela
+  geo:
+    latitude: 35.416667
+    longitude: 7.133332999999999
+    min_latitude: 35.3918488
+    min_longitude: 7.113818999999999
+    max_latitude: 35.4608097
+    max_longitude: 7.1690083
+  translations:
+    en: Khenchela
+    ar: ولاية خنشلة
+    be: Правінцыя Хеншэла
+    bg: Хеншела
+    bn: কেনচেল্লা প্রদেশ
+    ca: Província de Khenchela
+    da: Khenchela
+    de: Khenchela
+    el: Χενσέλα
+    es: Provincia de Khenchela
+    fa: استان خنشله
+    fi: Khenchelan lääni
+    fr: wilaya de Khenchela
+    gl: Provincia de Khenchela
+    gu: ખેંચેલા પ્રાંત
+    hi: खेन्छेला प्रांत
+    id: Provinsi Khenchela
+    it: provincia di Khenchela
+    ja: ヘンシュラ県
+    ka: ხენშელის პროვინცია
+    kn: ಖೆಂಚೆಲಾ ಪ್ರಾಂತ್ಯ
+    ko: 켄셸라 주
+    lt: Chenšelos vilaja
+    mr: किंखेला प्रांत
+    ms: Wilayah Khenchela
+    nb: Khenchela
+    nl: Khenchela
+    pl: Prowincja Chanszala
+    pt: Khenchela
+    ro: Provincia Khenchela
+    ru: Хеншела
+    si: ඛේන්චෙලා පළාත
+    sr: Хеншела
+    sv: Khenchela
+    sw: Jimbo ya Khenchela
+    ta: க்ஹெஞ்சேலை மாகாணம்
+    te: ఖెంచేలా ప్రావిన్స్
+    th: จังหวัดเคนเชลา
+    tr: Henşle Vilayeti
+    uk: Хеншела
+    ur: صوبہ خنشلہ
+    vi: Khenchela
+    lv: Hanselas vilāja
+    ceb: Wilaya de Khenchela
+    sr_Latn: Henšela
+    zh: 汉舍莱省
+    ccp: "𑄈𑄬𑄚𑄴𑄥𑄬𑄣"
+    az: Xenşela vilayəti
+    'no': Khenchela
+    cy: Talaith Khenchela
+    eu: Khenchelako probintzia
+  type: province
+'41':
+  name: Souk Ahras
+  code: '41'
+  unofficial_names:
+  - Souq Ahras
+  - Souk Ahras
+  geo:
+    latitude: 36.286389
+    longitude: 7.951111000000001
+    min_latitude: 36.2441347
+    min_longitude: 7.916808100000001
+    max_latitude: 36.3115633
+    max_longitude: 8.0016517
+  translations:
+    en: Souk Ahras
+    ar: ولاية سوق أهراس
+    be: Правінцыя Сук-Ахрас
+    bg: Сук Ахрас
+    bn: সাৌক আহ্রাস প্রদেশ
+    ca: Província de Souk Ahras
+    da: Souk Ahras Province
+    de: Souk Ahras
+    el: Σουκ Αχράς
+    es: Provincia de Souk Ahras
+    fa: استان سوق اهراس
+    fi: Souk Ahrasin provinssi
+    fr: wilaya de Souk Ahras
+    gl: Provincia de Souk Ahras
+    gu: સૌક એહરસ પ્રાંત
+    hi: सूक अह्रस प्रांत
+    id: Provinsi Souk Ahras
+    it: provincia di Souk Ahras
+    ja: スーク・アフラース県
+    ka: სუკ-აჰრასის პროვინცია
+    kn: ಸೌಕ್ ಅಹ್ರಾಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 수크아라스 주
+    lt: Suk Ahraso vilaja
+    mr: सौके अह्रस प्रांत
+    ms: Wilayah Souk Ahras
+    nb: Souk Ahras
+    nl: Souk Ahras
+    pl: Prowincja Suk Ahras
+    pt: Souk Ahras
+    ro: Provincia Souk Ahras
+    ru: Сук-Ахрас
+    si: විලයාහ් සොඋක් අහ්රාස්
+    sr: Сук Ахрас
+    sv: Souk Ahras
+    sw: Jimbo ya Souk Ahras
+    ta: சௌக் அஹ்ரஸ் மாகாணம்
+    te: సౌక్ ఆహ్రాస్ ప్రావిన్స్
+    th: จังหวัดซูการัส
+    tr: Sevk Ahras Vilayeti
+    uk: Сук-Ахрас
+    ur: صوبہ سوق اھراس
+    vi: Souk Ahras
+    lv: Sūk Ehrāsas vilāja
+    ceb: Wilaya de Souk Ahras
+    sr_Latn: Suk Ahras
+    zh: 苏格艾赫拉斯省
+    ccp: "𑄥𑄯𑄇𑄴 𑄃𑄦𑄳𑄢𑄌𑄴"
+    'no': Souk Ahras
+    cy: Talaith Souk Ahras
+    eu: Souk Ahrasko probintzia
+  type: province
+'42':
+  name: Tipaza
+  code: '42'
+  unofficial_names:
+  - Tipaza
+  geo:
+    latitude: 36.6178786
+    longitude: 2.3912362
+    min_latitude: 36.5477421
+    min_longitude: 2.3005308
+    max_latitude: 36.6454234
+    max_longitude: 2.5180149
+  translations:
+    en: Tipasa
+    ar: ولاية تيبازة
+    be: Правінцыя Тыпаса
+    bg: Типаза
+    bn: টিপাসা প্রদেশ
+    ca: Província de Tipaza
+    da: Tipasa Province
+    de: Tipaza
+    el: Τιπάσα
+    es: Provincia de Tipasa
+    eu: Tipasa probintzia
+    fa: استان تی‌پازه
+    fi: Tipasan provinssi
+    fr: wilaya de Tipaza
+    gl: Provincia de Tipaza
+    gu: ટિપાસા પ્રાંત
+    hi: टिपज़ा प्रांत
+    id: Provinsi Tipaza
+    it: provincia di Tipasa
+    ja: ティパザ県
+    ka: ტიპასის პროვინცია
+    kn: ಟಿಪಾಸಾ ಪ್ರಾಂತ್ಯ
+    ko: 티파자 주
+    lt: Tipazos vilaja
+    mr: टिपसा प्रांत
+    ms: Tipasa Province
+    nb: Tipaza
+    nl: Tipaza
+    pl: Prowincja Tibaza
+    pt: Tipasa
+    ro: Provincia Tipaza
+    ru: Типаса
+    si: ටිපසා පළාත
+    sr: Типаса
+    sv: Tipaza
+    sw: Jimbo ya Tipasa
+    ta: டிப்ஸா மாகாணம்
+    te: టిపాసా ప్రావిన్స్
+    th: จังหวัดทิปาซา
+    tr: Tibaze Vilayeti
+    uk: Тіпаза
+    ur: صوبہ تیبازہ
+    vi: Tipaza
+    lv: Tibisas vilāja²
+    ceb: Wilaya de Tipaza
+    sr_Latn: Tipasa
+    zh: 提帕萨省
+    ccp: "𑄑𑄨𑄛𑄥"
+    hu: Tipáza
+    az: Tipaza vilayəti
+    'no': Tipaza
+    cy: Talaith Tipasa
+    hy: Տիպասա
+  type: province
+'43':
+  name: Mila
+  code: '43'
+  unofficial_names:
+  - Mila
+  geo:
+    latitude: 36.450278
+    longitude: 6.264444
+    min_latitude: 36.4249427
+    min_longitude: 6.208820299999999
+    max_latitude: 36.4780338
+    max_longitude: 6.2886429
+  translations:
+    en: Mila
+    ar: ولاية ميلة
+    be: Правінцыя Міла
+    bg: Мила
+    bn: মিলা প্রদেশ
+    ca: Província de Mila
+    da: Mila Province
+    de: Mila
+    el: Μίλα
+    es: Provincia de Mila
+    fa: استان میله
+    fi: Milan provinssi
+    fr: wilaya de Mila
+    gl: Provincia de Mila
+    gu: મિલા પ્રાંત
+    he: מילה, אלג׳יריה
+    hi: मिला प्रांत
+    id: Provinsi Mila
+    it: provincia di Mila
+    ja: ミラ県
+    ka: მილის პროვინცია
+    kn: ಮಿಲಾ ಪ್ರಾಂತ್ಯ
+    ko: 밀라 주
+    lt: Milos vilaja
+    mr: मिल प्रांत
+    ms: Wilayah Mila
+    nb: Mila
+    nl: Mila
+    pl: Prowincja Mila
+    pt: Mila
+    ro: Provincia Mila
+    ru: Мила
+    si: මිලා පළාත
+    sr: Мила
+    sv: Mila
+    sw: Jimbo ya Mila
+    te: మిలా ప్రావిన్స్
+    th: จังหวัดมิลา
+    tr: Mila Vilayeti
+    uk: Міла
+    ur: صوبہ میلہ
+    vi: Mila
+    lv: Mīlas vilāja
+    ceb: Wilaya de Mila
+    sr_Latn: Mila
+    zh: 米拉省
+    ccp: "𑄟𑄨𑄣"
+    'no': Mila
+    cy: Talaith Mila
+    eu: Milako probintzia
+  type: province
+'44':
+  name: Aïn Defla
+  code: '44'
+  unofficial_names:
+  - Aïn Eddefla
+  - Aïn Defla
+  geo:
+    latitude: 36.0729193
+    longitude: 1.9881527
+    min_latitude: 35.834492
+    min_longitude: 1.6114019
+    max_latitude: 36.422291
+    max_longitude: 2.7431009
+  translations:
+    en: Aïn Defla
+    ar: ولاية عين الدفلى
+    be: Правінцыя Айн-Дэфла
+    bg: Айн Дефла
+    bn: আইন ডেফ্লা প্রদেশ
+    ca: Província d’Ain Defla
+    da: Aïn Defla
+    de: Ain Defla
+    el: Αϊν Ντέφλα
+    es: Provincia de Aïn Defla
+    fa: استان عین الدفلی
+    fi: Aïn Deflan provinssi
+    fr: wilaya de Aïn Defla
+    gl: Provincia de Aïn Defla
+    gu: એન ડેફ્લા પ્રાંત
+    hi: ऐन देल्फ्ल प्रांत
+    id: Provinsi Ain Defla
+    ja: アインデフラ県
+    ka: აინ-დეფლის პროვინცია
+    kn: ಏನ್ ಡೆಫ್ಲಾ ಪ್ರಾಂತ್ಯ
+    ko: 아인데플라 주
+    lt: Ain Deflos vilaja
+    mr: ऐन डिफला प्रांत
+    ms: Wilayah Aïn Defla
+    nb: Aïn Defla
+    nl: Aïn Defla
+    pl: Prowincja Ajn ad-Dafla
+    pt: Aïn Defla
+    ro: Provincia Aïn Defla
+    ru: Айн-Дефла
+    si: අයින් ඩෙෆ්ලා පළාත
+    sr: Ајн Делфа
+    sv: Aïn Defla
+    sw: Wilaya ya Aïn Defla
+    ta: அய்ன் டேப்பிலா மாகாணம்
+    te: ఎయిన్ డెఫ్లా ప్రావిన్స్
+    th: จังหวัดอิน เดลฟา
+    tr: Ayn el Defla Vilayeti
+    uk: Айн-Дефля
+    ur: صوبہ عین الدفلی
+    vi: Aïn Defla
+    lv: Deflas vilāja
+    ceb: Wilaya de Aïn Defla
+    sr_Latn: Ajn Delfa
+    zh: 艾因迪夫拉省
+    sq: Ain Defla
+    ccp: "𑄃𑄭𑄚𑄴 𑄓𑄬𑄛𑄴𑄣"
+    az: Ayn-Defla vilayəti
+    'no': Aïn Defla
+    cy: Talaith Aïn Defla
+    eu: Ain Deflako probintzia
+  type: province
+'45':
+  name: Naama
+  code: '45'
+  unofficial_names:
+  - Naama
+  geo:
+    latitude: 33.4350615
+    longitude: -0.9056623
+    min_latitude: 32.108521
+    min_longitude: -1.7384947
+    max_latitude: 34.2906
+    max_longitude: 0.134101
+  translations:
+    en: Naama
+    ar: ولاية النعامة
+    be: Правінцыя Наама
+    bg: Наама
+    bn: নামা প্রদেশ
+    ca: Província de Naama
+    da: Naama Province
+    de: Naama
+    el: Ναάμα
+    es: Naama
+    fa: استان نعامه
+    fi: Naaman provinssi
+    fr: wilaya de Naâma
+    gl: Provincia de Naâma
+    gu: નામા પ્રાંત
+    hi: नामा प्रांत
+    id: Provinsi Naama
+    it: provincia di Naâma
+    ja: ナーマ県
+    ka: ნაამის პროვინცია
+    kn: ನಾಮಾ ಪ್ರಾಂತ್ಯ
+    ko: 나마 주
+    lt: Naamos vilaja
+    mr: नामा प्रांत
+    ms: Wilayah Naama
+    nb: Naama
+    nl: Naama
+    pl: Prowincja Naama
+    pt: Naâma
+    ro: Provincia Naâma
+    ru: Наама
+    si: නාමා පළාත
+    sr: Нама
+    sv: Naâma
+    sw: Jimbo ya Naama
+    ta: நாமா மாகாணம்
+    te: నామా ప్రావిన్స్
+    th: จังหวัดนาอามา
+    tr: Niame Vilayeti
+    uk: Наама
+    ur: صوبہ النعامہ
+    vi: Naâma
+    lv: Naāmas vilāja
+    ceb: Wilaya de Naama
+    sr_Latn: Nama
+    zh: 纳马省
+    ccp: "𑄚𑄟"
+    'no': Naama
+    az: Naama vilayəti
+    cy: Talaith Naama
+    eu: Naâmako probintzia
+  type: province
+'46':
+  name: Aïn Témouchent
+  code: '46'
+  unofficial_names:
+  - Aïn Temouchent
+  geo:
+    latitude: 35.3072501
+    longitude: -1.1424514
+    min_latitude: 35.279241
+    min_longitude: -1.1580491
+    max_latitude: 35.320658
+    max_longitude: -1.1136531
+  translations:
+    en: Aïn Témouchent
+    ar: ولاية عين تموشنت
+    be: Правінцыя Айн-Тэмушэнт
+    bg: Айн Темушент
+    bn: আইন টেমুচেন্ট প্রদেশ
+    ca: Província d’Aïn Témouchent
+    da: Aïn Témouchent
+    de: Ain Temouchent
+    el: Αΐν Τεμουχέντ
+    es: Aïn Témouchent
+    fa: استان عین تموشنت
+    fi: Aïn Témouchentin provinssi
+    fr: wilaya d’Aïn Témouchent
+    gl: Provincia de Aïn Témouchent
+    gu: આઇન ટેમોઉચેન્ટ પ્રાંત
+    hi: ऐन टेमॉछेन्त प्रांत
+    id: Provinsi Ain Temouchent
+    it: provincia di Aïn Témouchent
+    ja: アイン・ティムシェント県
+    ka: აინ-ტემუშენტის პროვინცია
+    kn: ಐನ್ ಟೆಮೌಚೆಂಟ್ ಪ್ರಾಂತ್ಯ
+    ko: 아인테무셴트 주
+    lt: Ain Temušento vilaja
+    mr: ऐन टेमौचेंन्ट प्रांत
+    ms: Wilayah Aïn Témouchent
+    nb: Aïn Témouchent
+    nl: Aïn Témouchent
+    pl: Prowincja Ajn Tumuszanat
+    pt: Aïn Témouchent
+    ro: Provincia Aïn Témouchent
+    ru: Айн-Темушент
+    si: අයින් ටෙමොඋචෙන්ට් පළාත
+    sr: Ајн Темушент
+    sv: Aïn Témouchent
+    sw: Jimbo ya Aïn Témouchent
+    ta: ஆயின் டெமெசேண்ட் மாகாணம்
+    te: ఎయిన్ టెమోచెంట్ ప్రావిన్స్
+    th: จังหวัดเอนเอมูเชียน
+    tr: Ayn Temuşent Vilayeti
+    uk: Айн-Темушент
+    ur: صوبہ عین تموشنت
+    vi: Aïn Témouchent
+    lv: Ain Tīmūšentas vilāja
+    ceb: Wilaya de Aïn Temouchent
+    sr_Latn: Ajn Temušent
+    zh: 艾因泰穆尚特省
+    ccp: "𑄃𑄭𑄚𑄴 𑄑𑄬𑄟𑄯𑄥𑄬𑄚𑄴𑄑𑄴"
+    az: Ayn-Temuşent vilayəti
+    'no': Aïn Témouchent
+    cy: Talaith Aïn Témouchent
+    eu: Ain Temouchenteko probintzia
+  type: province
+'47':
+  name: Ghardaïa
+  code: '47'
+  unofficial_names:
+  - Ghardaïa
+  geo:
+    latitude: 32.4902246
+    longitude: 3.6738412
+    min_latitude: 32.4574303
+    min_longitude: 3.5745049
+    max_latitude: 32.7046889
+    max_longitude: 3.916626
+  translations:
+    en: Ghardaïa
+    ar: ولاية غرداية
+    be: Правінцыя Гардая
+    bg: Гардая
+    bn: ঘর্দা প্রদেশ
+    cs: Ghardája
+    da: Ghardaïa Province
+    de: Ghardaia
+    el: Γαρντάια
+    es: Provincia de Ghardaïa
+    fa: استان غردایه
+    fi: Ghardaïan maakunta
+    fr: wilaya de Ghardaïa
+    gl: Provincia de Ghardaïa
+    gu: ઘારદૈયા પ્રાંત
+    hi: घर्डै प्रांत
+    id: Provinsi Ghardaia
+    it: provincia di Ghardaïa
+    ja: ガルダイア県
+    ka: გარდაიის პროვინცია
+    kn: ಘಾರ್ಡಿಯಾ ಪ್ರಾಂತ್ಯ
+    lt: Gardajos vilaja
+    mr: घारदाई प्रांत
+    ms: Wilayah Ghardaïa
+    nb: Ghardaïa
+    nl: Ghardaïa
+    pl: Prowincja Ghardaja
+    pt: Ghardaia
+    ro: Provincia Ghardaïa
+    ru: Гардая
+    si: ගර්දයියා පළාත
+    sr: Гардаја
+    sv: Ghardaïa
+    ta: கார்டையே மாகாணம்
+    te: గార్డాయియా ప్రావిన్స్
+    th: จังหวัดการ์ดาเอีย
+    tr: Gardaye Vilayeti
+    uk: Гардая
+    ur: صوبہ غرادیہ
+    vi: Ghardaïa
+    lv: Gardājas vilāja
+    ceb: Wilaya de Ghardaïa
+    sr_Latn: Gardaja
+    zh: 盖尔达耶省
+    ccp: "𑄊𑄢𑄴𑄓𑄭𑄠"
+    ca: Província de Ghardaïa
+    'no': Ghardaïa
+    cy: Talaith Ghardaïa
+    eu: Ghardaiako probintzia
+  type: province
+'48':
+  name: Relizane
+  code: '48'
+  unofficial_names:
+  - Ghilizane
+  - Ighil Izane
+  - Rélizane
+  - Relizane
+  geo:
+    latitude: 35.733333
+    longitude: 0.5499999999999999
+    min_latitude: 35.6958176
+    min_longitude: 0.5295754
+    max_latitude: 35.7633683
+    max_longitude: 0.5892706000000001
+  translations:
+    en: Relizane
+    ar: ولاية غليزان
+    be: Правінцыя Рэлізан
+    bg: Релизан
+    bn: রেলিজান প্রদেশ
+    ca: Província de Relizane
+    da: Relizane Province
+    de: Relizane
+    el: Ρελιζάν
+    es: Provincia de Relizan
+    fa: استان غلیزان
+    fi: Relizanen lääni
+    fr: wilaya de Relizane
+    gl: Provincia de Relizane
+    gu: રિલાઈજેન પ્રાંત
+    hi: रेलिज़ेन प्रांत
+    id: Provinsi Relizane
+    it: provincia di Relizane
+    ja: ルリザンヌ県
+    ka: რელიზანის პროვინცია
+    kn: ರಿಲಿಜೆನ್ ಪ್ರಾಂತ್ಯ
+    ko: 렐리잔 주
+    lt: Relizano vilaja
+    mr: रॅलिझने प्रांत
+    ms: Relizane Province
+    nb: Relizane
+    nl: Relizane
+    pl: Prowincja Ghulajzan
+    pt: Relizane
+    ro: Provincia Relizane
+    ru: Релизан
+    si: රෙලිසනේ පළාත
+    sr: Релизан
+    sv: Relizane
+    sw: Jimbo ya Relizane
+    ta: ரிலீசானே மாகாணம்
+    te: రిెలిజేన్ ప్రావిన్స్
+    th: เมืองเรริเซน
+    tr: Relizane Vilayeti
+    uk: Релізан
+    ur: صوبہ غلیزان
+    vi: Relizane
+    lv: Relīzanas vilāja
+    ceb: Wilaya de Relizane
+    sr_Latn: Relizan
+    zh: 埃利赞省
+    ccp: "𑄢𑄬𑄣𑄨𑄎𑄚𑄬"
+    'no': Relizane
+    cy: Talaith Relizane
+    eu: Relizaneko probintzia
+  type: province

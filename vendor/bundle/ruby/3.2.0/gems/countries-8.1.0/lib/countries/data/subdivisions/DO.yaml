@@ -1,0 +1,1862 @@
+---
+'01':
+  name: Distrito Nacional (Santo Domingo)
+  code: '01'
+  unofficial_names:
+  - Distrito Nacional (Santo Domingo)
+  geo:
+    latitude: 18.466667
+    longitude: -69.95
+    min_latitude: 18.4130476
+    min_longitude: -70.0187874
+    max_latitude: 18.5475279
+    max_longitude: -69.8750532
+  translations:
+    en: Distrito Nacional
+    de: Distrito Nacional
+    es: Distrito Nacional
+    fa: دیستریتو ناسیونال
+    fr: Distrito Nacional
+    ja: ドミニカ共和国国家地区
+    ko: 국가 지구
+    ms: Daerah Negara
+    nl: Distrito Nacional
+    pt: Distrito Nacional
+    sl: Distrito Nacional
+    tr: Distrito Nacional
+    ur: وفاقی ضلع، جمہوریہ ڈومینیکن
+    zh: 國家特區
+    ceb: Distrito Nacional
+    pl: Distrito Nacional
+    ccp: "𑄓𑄨𑄌𑄴𑄑𑄳𑄢𑄨𑄑𑄮𑄚𑄥𑄨𑄃𑄮𑄚𑄣𑄴"
+    ca: Distrito Nacional
+    eu: Barruti Nazionala
+    he: דיסטריטו נסיונאל
+    th: ดิสตริโตนาซิโอนัล
+  type: district
+'02':
+  name: Azua
+  code: '02'
+  unofficial_names:
+  - Azua
+  geo:
+    latitude: 18.46
+    longitude: -70.74
+    min_latitude: 18.4351155
+    min_longitude: -70.75877659999999
+    max_latitude: 18.4683747
+    max_longitude: -70.706486
+  translations:
+    en: Azua
+    ar: محافظة أزوا
+    bn: আজুয়া প্রদেশ
+    cs: Azua
+    da: Azua Province
+    de: Azua
+    el: Επαρχία Άσουα
+    es: Azua
+    fa: استان آزوا
+    fi: Azua
+    fr: Azua
+    gu: અઝુઆ પ્રાંત
+    hi: एज़ुआ प्रांत
+    id: Provinsi Azua
+    it: provincia di Azua
+    ja: アスア州
+    kn: ಅಜುವಾ ಪ್ರಾಂತ್ಯ
+    ko: 아수아 주
+    mr: अझुआ प्रांत
+    ms: Azua Province
+    nb: Azua provins
+    nl: Azua
+    pl: Prowincja Azua
+    pt: Azua (província)
+    ru: Асуа
+    si: අසුආ පළාත
+    sk: Azua
+    sl: Provinca Azua
+    sv: Ázua
+    ta: அஸுயா மாகாணம்
+    te: అజూవా ప్రావిన్స్
+    th: จังหวัดอซูอา
+    tr: Azua Province
+    uk: Асуа
+    ur: آسوا صوبہ
+    vi: Azua (tỉnh)
+    lv: Asvas province
+    ceb: Provincia de Azua
+    lt: Azua provincija
+    zh: 阿蘇阿省
+    ccp: "𑄃𑄎𑄪𑄠"
+    'no': Azua provins
+    ca: Azua
+    cy: Talaith Azua
+    eu: Azua probintzia
+  type: province
+'03':
+  name: Bahoruco
+  code: '03'
+  unofficial_names:
+  - Bahoruco
+  - Baoruco
+  geo:
+    latitude: 18.4752899
+    longitude: -71.3349322
+    min_latitude: 18.3329619
+    min_longitude: -71.628498
+    max_latitude: 18.6551589
+    max_longitude: -70.99380289999999
+  translations:
+    en: Baoruco
+    ar: محافظة باهوروكو
+    bn: বাউরুকো প্রদেশ
+    da: Baoruco Province
+    de: Baoruco
+    el: Μπαορούκο
+    es: Bahoruco
+    fa: استان بائوروکو
+    fi: Baoruco
+    fr: Baoruco
+    gu: બાઓરૂકો પ્રાંત
+    hi: बाओरुको प्रांत
+    id: Provinsi Baoruco
+    it: provincia di Baoruco
+    ja: バオルコ州
+    kn: ಬಾವೊಕುಕೋ ಪ್ರಾಂತ್ಯ
+    ko: 바오루코 주
+    mr: बोरुको प्रांत
+    ms: Baoruco Province
+    nb: Baoruco provins
+    nl: Baoruco
+    pl: Prowincja Baoruco
+    pt: Bahoruco (província)
+    ru: Баоруко
+    si: බවුරුකෝ පළාත
+    sl: Provinca Baoruco
+    sv: Baoruco
+    ta: பஒருகோ மாகாணம்
+    te: బావోరుకో ప్రావిన్స్
+    th: จังหวัดบาโอรูโก
+    tr: Baoruco Province
+    ur: باوروکو صوبہ
+    vi: Baoruco (tỉnh)
+    lv: Baoruko province
+    ceb: Provincia de Baoruco
+    lt: Boruko provincija
+    zh: 巴奧魯可省
+    ccp: "𑄝𑄮𑄢𑄪𑄇𑄮"
+    uk: Провінція Баоруко
+    'no': Baoruco provins
+    ca: Baoruco
+    cy: Talaith Baoruco
+    eu: Bahoruco probintzia
+  type: province
+'04':
+  name: Barahona
+  code: '04'
+  unofficial_names:
+  - Barahona
+  geo:
+    latitude: 18.2120807
+    longitude: -71.10240759999999
+    min_latitude: 18.183971
+    min_longitude: -71.12504799999999
+    max_latitude: 18.2363322
+    max_longitude: -71.0814747
+  translations:
+    en: Barahona
+    ar: محافظة باراهونا
+    bn: বারাহোনা প্রদেশ
+    ca: Barahona
+    da: Barahona
+    de: Barahona
+    el: Επαρχεία Μπαραόνα
+    es: Barahona
+    fa: استان بارائونا
+    fi: Barahona
+    fr: Barahona
+    gu: બરાહોના પ્રાંત
+    hi: बाराहोना प्रांत
+    id: Provinsi Barahona
+    it: provincia di Barahona
+    ja: バラオナ
+    kn: ಬರಾಹೋನಾ ಪ್ರಾಂತ್ಯ
+    ko: 바라오나 주
+    mr: बाराहोन प्रांत
+    ms: Wilayah Barahona
+    nb: Barahona provins
+    nl: Barahona
+    pl: Prowincja Barahona
+    pt: Barahona
+    ru: Бараона
+    si: බරහොනා පළාත
+    sl: Provinca Barahona
+    sv: Barahona
+    ta: பராஹானா மாகாணம்
+    te: బరాహోనా ప్రావిన్స్
+    th: จังหวัดบาราโอนา
+    tr: Barahona Province
+    ur: بارائونا صوبہ
+    vi: Barahona
+    lv: Baraonas province
+    ceb: Provincia de Barahona
+    lt: Baraonos provincija
+    zh: 巴拉奧納省
+    ccp: "𑄝𑄢𑄦𑄮𑄚"
+    uk: Бараона
+    'no': Barahona provins
+    cy: Talaith Barahona
+    eu: Barahona probintzia
+  type: province
+'05':
+  name: Dajabón
+  code: '05'
+  unofficial_names:
+  - Dajabón
+  geo:
+    latitude: 19.5499241
+    longitude: -71.7086514
+    min_latitude: 19.5324915
+    min_longitude: -71.7128062
+    max_latitude: 19.5652088
+    max_longitude: -71.6943526
+  translations:
+    en: Dajabón
+    de: Dajabón
+    es: Dajabón
+    fa: استان داخابون
+    fi: Dajabón
+    fr: Dajabón
+    it: Dajabón
+    ja: ダハボン
+    ko: 다하본 주
+    nl: Dajabón
+    pt: Dajabón
+    ru: Дахабон
+    sl: Provinca Dajabón
+    sv: Dajabón
+    ur: داخابون صوبہ
+    vi: Dajabón
+    ceb: Provincia de Dajabón
+    zh: 達哈翁省
+    pl: Dajabón
+    ccp: "𑄓𑄎𑄝𑄧𑄚𑄴"
+    ca: Dajabón
+    cy: Talaith Dajabón
+    eu: Dajabón probintzia
+    id: Provinsi Dajabón
+    th: จังหวัดดาฮาบอน
+  type: province
+'06':
+  name: Duarte
+  code: '06'
+  unofficial_names:
+  - Duarte
+  geo:
+    latitude: 19.2535285
+    longitude: -70.0979491
+    min_latitude: 19.023292
+    min_longitude: -70.35893709999999
+    max_latitude: 19.4983759
+    max_longitude: -69.642184
+  translations:
+    en: Duarte
+    ar: مقاطعة دوارتي
+    bn: দুয়ার্তে প্রদেশ
+    da: Duarte Province
+    de: Duarte
+    el: Ντουάρτε
+    es: Duarte (provincia)
+    fa: استان دوارته
+    fi: Duarte
+    fr: Duarte (province)
+    gu: ડુઆર્ટ પ્રાંત
+    hi: ड्यूआर्टे प्रांत
+    id: Provinsi Duarte
+    it: provincia di Duarte
+    ja: ドゥアルテ州
+    kn: ಡುವಾರ್ಟೆ ಪ್ರಾಂತ್ಯ
+    ko: 두아르테 주
+    mr: डुआर्टे प्रांत
+    ms: Duarte Province
+    nb: Duarte kommune
+    nl: Duarte
+    pl: Prowincja Duarte
+    pt: Duarte (província)
+    ru: Дуарте (провинция)
+    si: ඩුඅර්ටේ පළාත
+    sl: Provinca Duarte
+    sv: Duarte (provins)
+    ta: டுயர்ட் மாகாணம்
+    te: డువార్ట్ ప్రావిన్స్
+    th: จังหวัดดูอาร์เต
+    tr: Duerte Province
+    ur: دوارتے صوبہ
+    vi: Duarte (tỉnh)
+    lv: Duartes province
+    ceb: Provincia Duarte
+    lt: Duartės provincija
+    zh: 杜華德省
+    ccp: "𑄘𑄪𑄠𑄢𑄴𑄑𑄬"
+    uk: Провінція Дуарте
+    'no': Duarte kommune
+    ca: Duarte
+    cy: Talaith Duarte
+    eu: Duarte probintzia
+  type: province
+'07':
+  name: La Estrelleta [Elías Piña]
+  code: '07'
+  unofficial_names:
+  - La Estrelleta [Elías Piña]
+  geo:
+    latitude: 18.8766964
+    longitude: -71.7044138
+    min_latitude: 18.8692959
+    min_longitude: -71.71033849999999
+    max_latitude: 18.8846859
+    max_longitude: -71.6910266
+  translations:
+    en: Elías Piña
+    ar: محافظة إلياس بينيا
+    bn: এলিয়াস পিনা প্রদেশ
+    da: Elías Piña Province
+    de: Elías Piña
+    el: Ελίας Πίνιας
+    es: Elías Piña
+    eu: Elías Piña
+    fa: استان الیاس پینیا
+    fi: Elías Piña
+    fr: Elías Piña
+    gu: એલિયાસ પીના પ્રાંત
+    hi: एलियास पीना प्रांत
+    id: Provinsi Elías Piña
+    it: provincia di Elías Piña
+    ja: エリアス・ピーニャ州
+    kn: ಎಲಿಯಾಸ್ ಪಿನಾ ಪ್ರಾಂತ್ಯ
+    ko: 엘리아스피냐 주
+    mr: एलियास पिना प्रांत
+    ms: Elias Piña Province
+    nb: Elias Pina provins
+    nl: Elías Piña
+    pl: Prowincja Elías Piña
+    pt: Elías Piña
+    ru: Элиас-Пинья
+    si: එලයස් පිනා පළාත
+    sl: Provinca Elías Piña
+    sv: Elías Piña
+    ta: எலியாஸ் பினா மாகாணம்
+    te: ఇలియాస్ పినా ప్రావిన్స్
+    th: จังหวัดอีเลียส ปิน่า
+    tr: Elias Pina Province
+    ur: ایلیاس پینیا صوبہ
+    vi: Elías Piña
+    lv: Eliaspinjas province
+    ceb: Provincia de Elías Piña
+    lt: Ilajaus Pinjo provincija
+    zh: 艾利斯皮亞省
+    ccp: "𑄃𑄬𑄣𑄨𑄠𑄬𑄌𑄴 𑄛𑄭𑄚"
+    uk: Еліас-Пінья
+    'no': Elias Pina provins
+    ca: Elías Piña
+    cy: Talaith Elías Piña
+  type: province
+'08':
+  name: El Seybo [El Seibo]
+  code: '08'
+  unofficial_names:
+  - El Seybo [El Seibo]
+  geo:
+    latitude: 18.763
+    longitude: -69.042
+    min_latitude: 18.7496595
+    min_longitude: -69.0513898
+    max_latitude: 18.7788351
+    max_longitude: -69.0306616
+  translations:
+    en: El Seibo
+    ar: مقاطعة إلسيبو
+    bn: এল সিবো প্রদেশ
+    da: El Seibo Province
+    de: El Seibo
+    el: Ελ Σέιμπο
+    es: El Seibo
+    fa: استان ال سیبو
+    fi: El Seibo
+    fr: El Seibo
+    gu: અલ સેઇબો પ્રાંત
+    hi: एल सीबो प्रांत
+    id: Provinsi El Seibo
+    it: provincia di El Seibo
+    ja: エル・セイボ州
+    kn: ಎಲ್ ಸೆಬಿಯಾ ಪ್ರಾಂತ್ಯ
+    ko: 엘세이보 주
+    mr: अल सेईबो प्रांत
+    ms: El Seibo Province
+    nb: El Seibo provins
+    nl: El Seibo
+    pl: Prowincja El Seibo
+    pt: El Seibo
+    ru: Эль-Сейбо
+    si: එල් සයිබෝ පළාත
+    sl: Provinca El Seibo
+    sv: El Seibo
+    ta: எல் சேபா மாகாணம்
+    te: ఎల్ సీబో ప్రావిన్స్
+    th: จังหวัดอัล ไซโบ
+    tr: El Seibo Province
+    uk: Ель-Сейбо
+    ur: ایل سئیبو صوبہ
+    vi: El Seibo
+    lv: Elseibo province
+    ceb: Provincia de El Seibo
+    lt: El Seibo provincija
+    zh: 賽堡省
+    ccp: "𑄃𑄬𑄣𑄴 𑄥𑄬𑄭𑄝𑄮"
+    'no': El Seibo provins
+    ca: El Seibo
+    cy: Talaith El Seibo
+    eu: El Seibo probintzia
+  type: province
+'09':
+  name: Espaillat
+  code: '09'
+  unofficial_names:
+  - Espaillat
+  geo:
+    latitude: 19.5788064
+    longitude: -70.3598758
+    min_latitude: 19.356488
+    min_longitude: -70.625559
+    max_latitude: 19.6954355
+    max_longitude: -70.0608123
+  translations:
+    en: Espaillat
+    ar: محافظة إسبايلات
+    bn: এস্পিল্লাত প্রদেশ
+    da: Espaillat Province
+    de: Espaillat
+    el: Εσπαϊγιάτ
+    es: Espaillat
+    fa: استان اسپاییات
+    fi: Espaillat
+    fr: Espaillat
+    gu: એસ્પાઈલેટ પ્રાંત
+    hi: एसपैलट प्रांत
+    id: Provinsi Espaillat
+    it: provincia di Espaillat
+    ja: エスパイジャト州
+    kn: ಎಸ್ಪಿಲ್ಲತ್ ಪ್ರಾಂತ್ಯ
+    ko: 에스파이야트 주
+    mr: एस्पाइलेट प्रांत
+    ms: Espaillat Province
+    nb: Espaillat provins
+    nl: Espaillat
+    pl: Prowincja Espaillat
+    pt: Espaillat
+    ru: Эспайльят
+    si: එස්පයිල්ලට් පළාත
+    sl: Provinca Espaillat
+    sv: Espaillat
+    ta: எச்பில்லட் மாகாணம்
+    te: ఎస్పాయిల్లట్ ప్రావిన్స్
+    th: จังหวัดเอสไปยัต
+    tr: Espaillat Province
+    uk: Еспаят
+    ur: ایسپایئات صوبہ
+    vi: Espaillat
+    lv: Espailjatas province
+    ceb: Provincia Espaillat
+    lt: Espailjato provincija
+    zh: 艾斯派亞省
+    ccp: "𑄃𑄬𑄌𑄴𑄛𑄭𑄣𑄧𑄖𑄴"
+    'no': Espaillat provins
+    ca: Espaillat
+    cy: Talaith Espaillat
+    eu: Espaillat probintzia
+  type: province
+'10':
+  name: Independencia
+  code: '10'
+  unofficial_names:
+  - Independencia
+  geo:
+    latitude: 18.4126807
+    longitude: -71.6198686
+    min_latitude: 18.167527
+    min_longitude: -72.00348699999999
+    max_latitude: 18.6965481
+    max_longitude: -71.2074061
+  translations:
+    en: Independencia
+    ar: محافظة الاستقلال
+    bn: ইন্ডিপেন্সিয়া প্রদেশ
+    da: Independencia Province
+    de: Independencia
+    el: Ιντεπεντένσια
+    es: Independencia
+    fa: استان ایندپندنسیا
+    fi: Independencia
+    fr: Independencia
+    gu: ઈન્ડિપેન્ડિનેશિયા પ્રાંત
+    hi: इंडिपेंडेंसिया प्रांत
+    id: Provinsi Independencia
+    it: provincia di Independencia
+    ja: インデペンデンシア州
+    kn: ಸ್ವತಂತ್ರ ಪ್ರಾಂತ
+    ko: 인데펜덴시아 주
+    mr: इंडिपेडन्सिया प्रांत
+    ms: Independencia Province
+    nb: Independencia provins
+    nl: Independencia
+    pl: Prowincja Independencia
+    pt: Independencia
+    ru: Индепенденсия
+    si: ඉන්ඩිපෙන්ඩන්සියා පළාත
+    sl: Provinca Independencia
+    sv: Independencia
+    ta: இன்டெபேன்டென்சியா மாகாணம்
+    te: ఇండిపెండెన్షియా ప్రావిన్స్
+    th: จังหวัดอินดิเพนเดนเซีย
+    tr: Independencia Province
+    ur: اندیپیندینسیا صوبہ
+    vi: Independencia
+    lv: Independesijas province
+    ceb: Provincia de Independencia
+    lt: Indepensijos provincija
+    zh: 獨立省
+    ccp: "𑄃𑄨𑄚𑄴𑄓𑄬𑄛𑄬𑄚𑄴𑄓𑄬𑄚𑄴𑄥𑄨𑄠"
+    uk: Провінція Індепенденсія
+    'no': Independencia provins
+    ca: Independencia
+    eu: Independencia probintzia
+  type: province
+'11':
+  name: La Altagracia
+  code: '11'
+  unofficial_names:
+  - La Altagracia
+  geo:
+    latitude: 18.5850236
+    longitude: -68.62010719999999
+    min_latitude: 18.1104096
+    min_longitude: -68.914192
+    max_latitude: 18.9641829
+    max_longitude: -68.3234068
+  translations:
+    en: La Altagracia
+    ar: مقاطعة لا ألتاغراسيا
+    bn: লা আল্ট্রাগার্সিয়া প্রদেশ
+    ca: Província de La Altagracia
+    da: La Altagracia
+    de: La Altagracia
+    el: Λα Αλταγράσια
+    es: La Altagracia
+    fa: استان لا آلتاگراسیا
+    fi: La Altagracian provinssi
+    fr: La Altagracia
+    gu: લા અલ્ટાગ્રાસિયા પ્રાંત
+    hi: ला ऑल्टाग्रेसिया प्रांत
+    id: Provinsi La Altagracia
+    it: provincia di La Altagracia
+    ja: ラ・アルタグラシア州
+    kn: ಲಾ ಅಲ್ಟ್ರಾಗಾಸಿಯಾ ಪ್ರಾಂತ್ಯ
+    ko: 라알타그라시아 주
+    mr: ला लाटॅग्रेशिया प्रांत
+    ms: La Altagracia Province
+    nb: La Altagracia provins
+    nl: La Altagracia
+    pl: Prowincja La Altagracia
+    pt: La Altagracia
+    ru: Ла-Альтаграсия
+    si: ලා අල්ටග්රාශියා පළාත
+    sl: Provinca La Altagracia
+    sv: La Altagracia
+    ta: லா அல்டக்ராஸிஆ மாகாணம்
+    te: లా అల్టాగ్రేసియా ప్రావిన్స్
+    th: จังหวัดลา อัลทากาเซีย
+    tr: La Altagracia Province
+    ur: لا التاغراسیا صوبہ
+    vi: La Altagracia
+    lv: Laaltagrasija province
+    ceb: Provincia de La Altagracia
+    lt: La Altagrasijos provincija
+    zh: 聖母省
+    ccp: "𑄣 𑄃𑄣𑄴𑄑𑄉𑄳𑄢𑄥𑄨𑄠"
+    uk: Провінція Ла-Альтаграсіа
+    'no': La Altagracia provins
+    cy: Talaith La Altagracia
+    eu: La Altagracia probintzia
+    hy: Լա Ալտագրասիա
+  type: province
+'12':
+  name: La Romana
+  code: '12'
+  unofficial_names:
+  - La Romana
+  geo:
+    latitude: 18.43
+    longitude: -68.97
+    min_latitude: 18.3971731
+    min_longitude: -69.0599727
+    max_latitude: 18.4692704
+    max_longitude: -68.8850681
+  translations:
+    en: La Romana
+    ar: محافظة لا رومانا
+    bn: লা রোমানা প্রদেশ
+    da: La Romana Province
+    de: La Romana
+    el: Λα Ρομάνα
+    es: La Romana
+    fa: استان لا رومانا
+    fi: La Romanan lääni
+    fr: La Romana
+    gu: લા રોમાના પ્રાંત
+    hi: ला रोमाना प्रांत
+    id: Provinsi La Romana
+    it: provincia di La Romana
+    ja: ラ・ロマーナ州
+    kn: ಲಾ ರೊಮಾನಾ ಪ್ರಾಂತ್ಯ
+    ko: 라로마나 주
+    mr: ला रोमाना प्रांत
+    ms: La Romana Province
+    nb: La Romana provins
+    nl: La Romana
+    pl: Prowincja La Romana
+    pt: La Romana
+    ru: Ла-Романа
+    si: ලා රොමානා පළාත
+    sl: Provinca La Romana
+    sv: La Romana
+    ta: லா ரோமனா மாகாணம்
+    te: లా రోమానా ప్రావిన్స్
+    th: จังหวัดลาโรมานา
+    tr: La Romano Province
+    ur: لا رومانا صوبہ، جمہوریہ ڈومینیکن
+    vi: La Romana
+    lv: Laromana province
+    ceb: Provincia de La Romana
+    lt: La Romanos provincija
+    zh: 羅馬納省
+    ccp: "𑄣 𑄢𑄧𑄟𑄚"
+    uk: Провінція Ла-Романа
+    'no': La Romana provins
+    ca: La Romana (província)
+    cy: Talaith La Romana
+    eu: La Romana probintzia
+  type: province
+'13':
+  name: La Vega
+  code: '13'
+  unofficial_names:
+  - La Vega
+  geo:
+    latitude: 19.22
+    longitude: -70.53
+    min_latitude: 19.1902093
+    min_longitude: -70.5602932
+    max_latitude: 19.250633
+    max_longitude: -70.4960917
+  translations:
+    en: La Vega
+    ar: مقاطعة لا فيغا
+    bn: লা ভেগা প্রদেশ
+    ca: La Vega
+    da: La Vega Province
+    de: La Vega
+    el: Λα Βέγκα
+    es: La Vega
+    fa: استان لا وگا
+    fi: La Vegan provinssi
+    fr: La Vega
+    gu: લા વેગા પ્રાંત
+    hi: ला वेगा प्रांत
+    id: Provinsi La Vega
+    it: provincia di La Vega
+    ja: ラ・ベガ州
+    kn: ಲಾ ವೆಗಾ ಪ್ರಾಂತ್ಯ
+    ko: 라베가 주
+    mr: ला वेगा प्रांत
+    ms: La Vega Province
+    nb: La Vega provins
+    nl: La Vega
+    pl: La Vega Province
+    pt: La Vega
+    ru: Ла-Вега
+    si: ලා වේගා පළාත
+    sl: Provinca La Vega
+    sv: La Vega
+    ta: லா வேகா மாகாணம்
+    te: లా వేగా ప్రావిన్స్
+    th: จังหวัดลาเวกา
+    tr: La Vega Province
+    uk: Ла-Вега
+    ur: لا ویغا صوبہ
+    vi: La Vega
+    lv: Lavegas province
+    ceb: Provincia de La Vega
+    lt: La Vegos provincija
+    zh: 拉維加省
+    ccp: "𑄣 𑄞𑄬𑄉"
+    kk: Ла-Вега
+    'no': La Vega provins
+    cy: Talaith La Vega
+    eu: La Vega probintzia
+  type: province
+'14':
+  name: María Trinidad Sánchez
+  code: '14'
+  unofficial_names:
+  - María Trinidad Sánchez
+  geo:
+    latitude: 19.4245445
+    longitude: -70.0026756
+    min_latitude: 19.1959421
+    min_longitude: -70.17286589999999
+    max_latitude: 19.6834869
+    max_longitude: -69.7155799
+  translations:
+    en: María Trinidad Sánchez
+    ar: محافظة ماريا ترينيداد سانشيز
+    bn: মারিয়া ত্রিনিদাদ সানচেজ প্রদেশ
+    da: María Trinidad Sánchez Province
+    de: María Trinidad Sánchez
+    el: Μαρία Τρινιδάδ Σάντσες
+    es: María Trinidad Sánchez
+    fa: استان ماریا ترینیداد سانچز
+    fi: María Trinidad Sánchezn lääni
+    fr: María Trinidad Sánchez
+    gu: મારિયા ત્રિનિદાદ સાંચેઝ પ્રાંત
+    hi: मारिया त्रिनिदाद सांचेज़ प्रांत
+    id: Provinsi María Trinidad Sánchez
+    it: provincia di María Trinidad Sánchez
+    ja: マリア・トリニダード・サンチェス州
+    kn: ಮರಿಯಾ ಟ್ರಿನಿಡಾಡ್ ಸ್ಯಾಂಚೆಜ್ ಪ್ರಾಂತ್ಯ
+    ko: 마리아트리니다드산체스 주
+    mr: मारिया त्रिनिदाद सॅचेझ प्रांत
+    ms: Maria Trinidad Sanchez Province
+    nb: Maria Trinidad Sanchez Provins
+    nl: María Trinidad Sánchez
+    pl: Prowincja María Trinidad Sánchez
+    pt: María Trinidad Sánchez
+    ru: Мария-Тринидад-Санчес
+    si: මරියා ට්‍රිනිඩැඩ් සැන්චෙස් පළාත
+    sl: Provinca María Trinidad Sánchez
+    sv: María Trinidad Sánchez
+    ta: மரியா டிரினிடாட் சஞ்செஸ் மாகாணம்
+    te: మరియా ట్రినిడాడ్ సాంచెజ్ ప్రావిన్స్
+    th: จังหวัดมาเรีย ทรินิดัด ซานเชส
+    tr: María Trinidad Sánchez
+    uk: Марія-Тринідад-Санчес
+    ur: ماریا ترینیداد سانچیز صوبہ
+    vi: María Trinidad Sánchez
+    lv: Marijas Trindidadas Sančesas province
+    ceb: Provincia María Trinidad Sánchez
+    lt: Maria Trinidad Sančesas
+    zh: 瑪麗亞·桑其斯省
+    ccp: "𑄟𑄢𑄨𑄠 𑄑𑄳𑄢𑄨𑄚𑄨𑄘𑄖𑄴 𑄥𑄚𑄴𑄥𑄬𑄌𑄴"
+    'no': Maria Trinidad Sanchez Provins
+    ca: María Trinidad Sánchez
+    cy: Talaith María Trinidad Sánchez
+    eu: María Trinidad Sánchez probintzia
+  type: province
+'15':
+  name: Monte Cristi
+  code: '15'
+  unofficial_names:
+  - Monte Cristi
+  geo:
+    latitude: 19.8473452
+    longitude: -71.6406361
+    min_latitude: 19.8294117
+    min_longitude: -71.65944089999999
+    max_latitude: 19.8610592
+    max_longitude: -71.62982939999999
+  translations:
+    en: Monte Cristi
+    ar: محافظة مونتي كريستي
+    bn: মন্টে ক্রিস্টি প্রদেশ
+    da: Monte Cristi Province
+    de: Monte Cristi
+    el: Μόντε Κρίστι
+    es: Monte Cristi
+    fa: استان مونته کریستی
+    fi: Monte Cristin lääni
+    fr: Monte Cristi
+    gu: મોન્ટે ક્રિસ્ટી પ્રાંત
+    hi: मोंटे क्रिस्टी प्रांत
+    id: Provinsi Monte Cristi
+    it: provincia di Montecristi
+    ja: モンテ・クリスティ州
+    kn: ಮಾಂಟೆ ಕ್ರಿಸ್ಟಿ ಪ್ರಾಂತ್ಯ
+    ko: 몬테크리스티 주
+    mr: मोंटे क्रिस्टी प्रांत
+    ms: Monte Cristi Province
+    nb: Monte Cristi provins
+    nl: Monte Cristi
+    pl: Prowincja Monte Cristi
+    pt: Monte Cristi
+    ru: Монте-Кристи
+    si: මොන්ටේ ක්‍රිස්ටි පළාත
+    sl: Provinca Monte Cristi
+    sv: Monte Cristi
+    ta: மான்டே கிறிஸ்டி மாகாணம்
+    te: మాంటి క్రిస్టీ ప్రావిన్స్
+    th: เมืองดอยรัน
+    tr: Monte Cristi Province
+    ur: مونتے کریستی صوبہ
+    vi: Monte Cristi
+    lv: Montekristi province
+    ceb: Provincia de Monte Cristi
+    lt: Monte Kristi provincija
+    zh: 基度山省
+    ccp: "𑄟𑄧𑄚𑄴𑄑𑄬 𑄇𑄳𑄢𑄨𑄌𑄴𑄑𑄨"
+    uk: Провінція Монте-Крісті
+    'no': Monte Cristi provins
+    ca: Monte Cristi
+    cy: Talaith Monte Cristi
+    eu: Monte Cristi probintzia
+  type: province
+'16':
+  name: Pedernales
+  code: '16'
+  unofficial_names:
+  - Pedernales
+  geo:
+    latitude: 18.033333
+    longitude: -71.75
+    min_latitude: 18.027098
+    min_longitude: -71.7515374
+    max_latitude: 18.0537032
+    max_longitude: -71.7323972
+  translations:
+    en: Pedernales
+    ar: محافظة بيدرناليس
+    bn: পেডের্নালিস প্রদেশ
+    da: Pedernales Province
+    de: Pedernales
+    el: Πεδερνάλες
+    es: Pedernales
+    fa: استان پدرنالس
+    fi: Pedernalesin lääni
+    fr: Pedernales
+    gu: પેડર્નેલ્સ પ્રાંત
+    hi: पेडर्नलेस प्रांत
+    id: Provinsi Pedernales
+    it: provincia di Pedernales
+    ja: ペデルナレス州
+    kn: ಪೆಡೆರ್ನೆಲ್ಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 페데르날레스 주
+    mr: पेडर्नलेस प्रांत
+    ms: Pedernales Province
+    nb: Pedernales Provins
+    nl: Pedernales
+    pl: Prowincja Pedernales
+    pt: Pedernales
+    ru: Педерналес
+    si: පෙඩර්නේල්ස් පළාත
+    sl: Provinca Pedernales
+    sv: Pedernales
+    ta: பெடெர்னலிஸ் மாகாணம்
+    te: పెడెమాలెస్ ప్రావిన్స్
+    th: จังหวัดเปเดอร์นาเลส
+    tr: Pedernales Province
+    ur: پیدرنالیس صوبہ
+    vi: Pedernales
+    lv: Pedernalesas province
+    ceb: Provincia de Pedernales
+    lt: Pedernaleso provincija
+    zh: 佩德納萊斯省
+    ccp: "𑄛𑄬𑄓𑄬𑄢𑄴𑄚𑄣𑄴𑄌𑄴"
+    uk: Провінція Педерналес
+    'no': Pedernales Provins
+    ca: Pedernales
+    cy: Talaith Pedernales
+    eu: Pedernales probintzia
+  type: province
+'17':
+  name: Peravia
+  code: '17'
+  unofficial_names:
+  - Peravia
+  geo:
+    latitude: 18.2855033
+    longitude: -70.3836815
+    min_latitude: 18.193577
+    min_longitude: -70.58622679999999
+    max_latitude: 18.5075071
+    max_longitude: -70.1509938
+  translations:
+    en: Peravia
+    ar: محافظة بيرافيا
+    bn: পেরাভিয়া প্রদেশ
+    da: Peravia Province
+    de: Peravia
+    el: Περαβία
+    es: Peravia
+    fa: استان پراویا
+    fi: Peravian provinssi
+    fr: Peravia
+    gu: પેરાવિયા પ્રાંત
+    hi: पेराविया प्रांत
+    id: Provinsi Peravia
+    it: provincia di Peravia
+    ja: ペラビア州
+    kn: ಪೆರಾವಿಯಾ ಪ್ರಾಂತ್ಯ
+    ko: 페라비아 주
+    mr: पेराविया प्रांत
+    ms: Peravia Province
+    nb: Peravia provins
+    nl: Peravia
+    pl: Prowincja Peravia
+    pt: Peravia
+    ru: Перавия
+    si: පෙරේවියා පළාත
+    sl: Provinca Peravia
+    sv: Peravia
+    ta: பெறவியா மாகாணம்
+    te: పెరావియా ప్రావిన్స్
+    th: จังหวัดเพราเวีย
+    tr: Prevaia Province
+    uk: Перавія
+    ur: پیراویا صوبہ
+    vi: Peravia
+    lv: Peravijas province
+    ceb: Provincia de Peravia
+    lt: Peravijos provincija
+    zh: 佩拉維亞省
+    ccp: "𑄛𑄬𑄢𑄞𑄨𑄠"
+    'no': Peravia provins
+    ca: Peravia
+    cy: Talaith Peravia
+    eu: Peravia probintzia
+  type: province
+'18':
+  name: Puerto Plata
+  code: '18'
+  unofficial_names:
+  - Puerto Plata
+  geo:
+    latitude: 19.7807686
+    longitude: -70.6871091
+    min_latitude: 19.7499826
+    min_longitude: -70.74062339999999
+    max_latitude: 19.8284223
+    max_longitude: -70.63154279999999
+  translations:
+    en: Puerto Plata
+    ar: محافظة بويرتو بلاتا
+    bn: পুয়ের্তো প্লাটা প্রদেশ
+    ca: Puerto Plata
+    da: Puerto Plata Province
+    de: Puerto Plata
+    el: Πουέρτο Πλάτα
+    es: Puerto Plata
+    fa: استان پوئرتو پلاتا
+    fi: Puerto Plata
+    fr: Puerto Plata
+    gu: પ્યુર્ટો પ્લાટા પ્રાંત
+    hi: प्यूर्टो प्लाटा प्रांत
+    id: Provinsi Puerto Plata
+    it: provincia di Puerto Plata
+    ja: プエルト・プラタ州
+    kn: ಪೋರ್ಟೊ ಪ್ಲಾಟಾ ಪ್ರಾಂತ್ಯ
+    ko: 푸에르토플라타 주
+    mr: प्वेर्टो प्लाटा प्रांत
+    ms: Puerto Plata Province
+    nb: Puerto Plata provins
+    nl: Puerto Plata
+    pl: Prowincja Puerto
+    pt: Puerto Plata
+    ru: Пуэрто-Плата
+    si: පුවර්ටෝ ප්ලාටා පළාත
+    sl: Provinca Puerto Plata
+    sv: Puerto Plata
+    ta: புயர்டோ பிளடா மாகாணம்
+    te: పుయెర్టో ప్రాటా ప్రావిన్స్
+    th: จังหวัดเปอร์โตปลาตา
+    tr: Puerto Plata Province
+    uk: Пуерто-Плата
+    ur: پورتو پلاتا صوبہ
+    vi: Puerto Plata (tỉnh)
+    lv: Puertoplatas province
+    ceb: Provincia de Puerto Plata
+    lt: Puerto Platos provincija
+    zh: 銀港省
+    ccp: "𑄛𑄪𑄠𑄬𑄢𑄴𑄑𑄮 𑄛𑄳𑄣𑄑"
+    'no': Puerto Plata provins
+    cy: Talaith Puerto Plata
+    eu: Puerto Plata probintzia
+  type: province
+'19':
+  name: Salcedo
+  code: '19'
+  unofficial_names:
+  - Salcedo
+  geo:
+    latitude: 19.3966586
+    longitude: -70.3598758
+    min_latitude: 19.2355209
+    min_longitude: -70.462923
+    max_latitude: 19.574569
+    max_longitude: -70.2323139
+  translations:
+    en: Hermanas Mirabal
+    ar: مقاطعة هيرماناس ميرابال
+    bn: হারমানাস মিরাবা প্রদেশ
+    da: Hermanas Mirabal Province
+    de: Hermanas Mirabal
+    el: Επαρχία Ερμάνας Μιραμπάλ
+    es: Hermanas Mirabal
+    fa: استان ارماناس میرابال
+    fi: Hermanas Mirabalin lääni
+    fr: Hermanas Mirabal
+    gu: હર્મંસ મિરાબાલ પ્રાંત
+    hi: हर्मानास मिराबल प्रांत
+    id: Provinsi Hermanas Mirabal
+    it: provincia di Hermanas Mirabal
+    ja: エルマーナス・ミラバル州
+    kn: ಹರ್ಮನಾಸ್ ಮಿರಾಬಾಲ್ ಪ್ರಾಂತ್ಯ
+    ko: 에르마나스미라발 주
+    mr: हर्मस मिरबळ प्रांत
+    ms: Daerah Hermanas Mirabal
+    nb: Hermanas Mirabal provins
+    nl: Hermanas Mirabal
+    pl: Prowincja Hermanas Mirabal
+    pt: Hermanas Mirabal
+    ru: Эрманас-Мирабаль
+    si: හර්මනාස් මිරබාල් පළාත
+    sl: Provinca Hermanas Mirabal
+    sv: Hermanas Mirabal
+    ta: ஹெர்மானஸ் மிரபல் மாகாணம்
+    te: హెర్మనాస్ మిరాబాల్ ప్రావిన్స్
+    th: จังหวัดเฮอร์มาเนส มิราเบิล
+    tr: Hermanas Mirabal Province
+    ur: ایرماناس میرابال صوبہ
+    vi: Hermanas Mirabal
+    lv: Hermanaso Mirabai province
+    ceb: Provincia de Hermanas Mirabal
+    lt: Hermanaso Mirabalo provincija
+    zh: 米拉貝姐妹省
+    ccp: "𑄦𑄬𑄢𑄴𑄟𑄚𑄌𑄴 𑄟𑄨𑄢𑄝𑄧𑄣𑄴"
+    uk: Провінція Германас-Мірабаль
+    'no': Hermanas Mirabal provins
+    ca: Hermanas Mirabal
+    cy: Talaith Hermanas Mirabal
+    eu: Hermanas Mirabal probintzia
+  type: province
+'20':
+  name: Samaná
+  code: '20'
+  unofficial_names:
+  - Samaná
+  geo:
+    latitude: 19.2080704
+    longitude: -69.3324518
+    min_latitude: 19.1966887
+    min_longitude: -69.35201169999999
+    max_latitude: 19.2204978
+    max_longitude: -69.32639110000001
+  translations:
+    en: Samaná
+    ar: محافظة سامانا
+    bn: সামানা প্রদেশ
+    da: Samaná Province
+    de: Samaná
+    el: Σαμανά
+    es: Samaná
+    fa: استان سامانا
+    fi: Samanán lääni
+    fr: Samaná
+    gu: સમના પ્રાંત
+    hi: समाना प्रांत
+    id: Provinsi Samaná
+    it: provincia di Samaná
+    ja: サマナ州
+    kn: ಸಮನಾ ಪ್ರಾಂತ್ಯ
+    ko: 사마나 주
+    mr: समाना प्रांत
+    ms: Samana Province
+    nb: Samana provins
+    nl: Samaná
+    pl: Prowincja Samaná
+    pt: Samaná
+    ru: Самана
+    si: සමනා පළාත
+    sl: Provinca Samaná
+    sv: Samaná
+    ta: சமான மாகாணம்
+    te: సమానా ప్రావిన్స్
+    th: รัฐรีอูกรันดีดูนอร์ตี
+    tr: Samana Province
+    ur: سامانآ صوبہ
+    vi: Samaná
+    lv: Samanas province
+    ceb: Samaná Province
+    lt: Samanos provincija
+    zh: 山美納省
+    ccp: "𑄥𑄟𑄚"
+    uk: Провінція Самана
+    'no': Samana provins
+    ca: Samaná
+    cy: Talaith Samaná
+    eu: Samaná probintzia
+  type: province
+'21':
+  name: San Cristóbal
+  code: '21'
+  unofficial_names:
+  - San Cristóbal
+  geo:
+    latitude: 18.4188797
+    longitude: -70.1030668
+    min_latitude: 18.3786707
+    min_longitude: -70.15319819999999
+    max_latitude: 18.4918471
+    max_longitude: -70.0852203
+  translations:
+    en: San Cristóbal
+    ar: محافظة سان كريستوبال
+    bn: স্যান ক্রিস্টোবাল প্রদেশ
+    da: San Cristóbal Province
+    de: San Cristóbal
+    el: Επαρχία Σαν Κριστόμπαλ
+    es: San Cristóbal
+    fa: استان سن کریستوبال
+    fi: San Cristóbalin lääni
+    fr: San Cristóbal
+    gu: સેન ક્રિસ્ટોબલ પ્રાંત
+    hi: सैन क्रिस्टोबल प्रांत
+    id: Provinsi San Cristóbal
+    it: provincia di San Cristóbal
+    ja: サン・クリストバル州
+    kn: ಸ್ಯಾನ್ ಕ್ರಿಸ್ಟಾಬಾಲ್ ಪ್ರಾಂತ್ಯ
+    ko: 산크리스토발 주
+    mr: सॅन क्रिस्टोबल प्रांत
+    ms: San Cristobal Province
+    nb: San Cristobal provins
+    nl: San Cristóbal
+    pl: Prowincja San Cristóbal
+    pt: San Cristóbal
+    ru: Сан-Кристобаль
+    si: සැන් ක්‍රිස්ටොබල් පළාත
+    sl: Provinca San Cristóbal
+    sv: San Cristóbal
+    ta: சான் கிரிஸ்டோபல் மாகாணம்
+    te: సాన్ క్రిస్టోబాల్ ప్రావిన్స్
+    th: เมืองเซบู
+    tr: San Cristobal Province
+    uk: Сан-Крістобаль
+    ur: سان کریستوبال صوبہ
+    vi: San Cristóbal
+    lv: Sankristobalas province
+    ceb: Provincia de San Cristóbal
+    lt: San Kristobalio provincija
+    zh: 聖克里斯多堡省
+    ccp: "𑄥𑄚𑄴 𑄇𑄳𑄢𑄨𑄌𑄴𑄑𑄮𑄝𑄧𑄣𑄴"
+    'no': San Cristobal provins
+    ca: San Cristóbal
+    cy: Talaith San Cristóbal
+    eu: San Cristóbal probintzia
+  type: province
+'22':
+  name: San Juan
+  code: '22'
+  unofficial_names:
+  - San Juan
+  geo:
+    latitude: 18.8810919
+    longitude: -71.2874209
+    min_latitude: 18.505682
+    min_longitude: -71.61811399999999
+    max_latitude: 19.237646
+    max_longitude: -70.87680499999999
+  translations:
+    en: San Juan
+    ar: محافظة سان خوان
+    bn: স্যান জুয়ান প্রদেশ
+    da: San Juan Province
+    de: San Juan
+    el: Σαν Χουάν
+    es: San Juan
+    fa: استان سن خوان، جمهوری دومینیکن
+    fi: San Juanin lääni
+    fr: San Juan
+    gu: સેન જુઆન પ્રાંત
+    hi: सैन जुआन प्रान्त
+    id: Provinsi San Juan
+    it: provincia di San Juan
+    ja: サン・フアン州 (ドミニカ共和国)
+    kn: ಸ್ಯಾನ್ ಜುವಾನ್ ಪ್ರಾಂತ್ಯ
+    ko: 산후안 주
+    mr: सान जुआन प्रांत
+    ms: San Juan Province
+    nb: San Juan
+    nl: San Juan
+    pl: Prowincja San Juan
+    pt: San Juan
+    ru: Сан-Хуан
+    si: සැන් ජුවාන් පළාත
+    sl: Provinca San Juan
+    sv: San Juan
+    ta: சான் ஜூவான் மாகாணம்
+    te: సాన్్ జవాన్ ప్రావిన్స్
+    th: จังหวัดซานฮวน
+    tr: San Juan Province
+    uk: Сан-Хуан
+    ur: سان خوان صوبہ
+    vi: San Juan
+    lv: Sanhuanas province
+    ceb: Provincia de San Juan
+    lt: San Chuano provincija
+    zh: 聖胡安省
+    ccp: "𑄥𑄚𑄴 𑄎𑄪𑄠𑄚𑄴"
+    kk: Сан-Хуан
+    'no': San Juan
+    ca: San Juan
+    cy: Talaith San Juan
+    eu: San Juan probintzia (Dominikar Errepublika)
+  type: province
+'23':
+  name: San Pedro de Macorís
+  code: '23'
+  unofficial_names:
+  - San Pedro de Macorís
+  geo:
+    latitude: 18.45
+    longitude: -69.3
+    min_latitude: 18.4340059
+    min_longitude: -69.35020999999999
+    max_latitude: 18.5051913
+    max_longitude: -69.2550814
+  translations:
+    en: San Pedro de Macorís
+    ar: سان بيدرو دي ماكوريس
+    bn: সান পেদ্রো দে মাকোরিস
+    da: San Pedro de Macorís
+    de: San Pedro de Macorís
+    el: Σαν Πέδρο ντε Μακορίς
+    es: San Pedro de Macorís
+    fa: استان سن پدرو ده ماکوریس
+    fi: San Pedro de Macorís
+    fr: San Pedro de Macorís
+    gu: સાન પેડ્રો દે મેકોરીઝ
+    hi: सैन पेड्रो डी मैकोरिस
+    id: San Pedro de Macorís
+    it: provincia di San Pedro de Macorís
+    ja: サン・ペテロ・デ・マコリス州
+    kn: ಸ್ಯಾನ್ ಪೆಡ್ರೊ ಡಿ ಮಾಕೋರಿಸ್
+    ko: 산페드로데마코리스 주
+    mr: सॅन पेड्रो डी मॅकोरीस
+    ms: San Pedro de Macoris
+    nb: San Pedro de Macoris
+    nl: San Pedro de Macorís
+    pl: San Pedro de Macorís
+    pt: San Pedro de Macorís
+    ru: Сан-Педро-де-Макорис
+    si: සැන් පෙඩ්රෝ ඩි මකොරිස්
+    sl: Provinca San Pedro de Macorís
+    sv: San Pedro de Macorís
+    ta: சான் பெட்ரொ டே மகர்ர்ஸ்
+    te: సాన్ పెడ్రో ద మాకోరిస్
+    th: จังหวัดซานเปโดรเดมาโกริส
+    tr: San Pedro de Macorís
+    ur: سان پیدرو دے ماکوریس صوبہ
+    vi: San Pedro de Macorís
+    lv: Sanpedro de Makorisas province
+    ceb: Provincia de San Pedro de Macorís
+    lt: San Pedro de Makoriso provincija
+    zh: 聖彼德省
+    ccp: "𑄥𑄚𑄴 𑄛𑄬𑄓𑄳𑄢𑄮 𑄓𑄬 𑄟𑄇𑄮𑄢𑄨𑄌𑄴"
+    uk: Провінція Сан-Педро-де-Макоріс
+    'no': San Pedro de Macoris
+    ca: San Pedro de Macorís (província)
+    eu: San Pedro de Macorís probintzia
+  type: province
+'24':
+  name: Sánchez Ramírez
+  code: '24'
+  unofficial_names:
+  - Sánchez Ramírez
+  geo:
+    latitude: 18.9808932
+    longitude: -70.0979491
+    min_latitude: 18.854074
+    min_longitude: -70.37288490000002
+    max_latitude: 19.159525
+    max_longitude: -69.91209599999999
+  translations:
+    en: Sánchez Ramírez
+    ar: محافظة سانشيز راميريز
+    bn: সাঞ্চেজ রামিরেজ প্রদেশ
+    da: Sánchez Ramírez Province
+    de: Sánchez Ramírez
+    el: Σάντσες Ραμίρες
+    es: Sánchez Ramírez
+    fa: استان سانچز رامیرس
+    fi: Sánchez Ramírezin lääni
+    fr: Sánchez Ramírez
+    gu: સાંચેઝ રામિરેઝ પ્રાંત
+    hi: सांचेज़ रामिरेज़ प्रांत
+    id: Provinsi Sánchez Ramírez
+    it: provincia di Sánchez Ramírez
+    ja: サンチェス・ラミレス州
+    kn: ಸ್ಯಾಂಚೆಜ್ ರಾಮಿರೆಜ್ ಪ್ರಾಂತ್ಯ
+    ko: 산체스라미레스 주
+    mr: सॅचेझ रामिरेझ प्रांत
+    ms: Sanchez Ramirez Province
+    nb: Sanchez Ramirez provins
+    nl: Sánchez Ramírez
+    pl: Prowincja Sánchez Ramírez
+    pt: Sánchez Ramírez
+    ru: Санчес-Рамирес
+    si: සන්චෙස් රමිරෙස් පළාත
+    sl: Provinca Sánchez Ramírez
+    sv: Sánchez Ramírez
+    ta: சாஞ்செஸ் ராமிரெஸ் மாகாணம்
+    te: సాంచెజ్ రామిరెజ్ ప్రావిన్స్
+    th: จังหวัดซานเชซรามิเรซ
+    tr: Sanchez Ramirez
+    ur: سانچیز رامیریز صوبہ
+    vi: Sánchez Ramírez
+    lv: Sančesramiresas province
+    ceb: Provincia Sánchez Ramírez
+    lt: Sančeso Ramireso provincija
+    zh: 桑切斯·拉米斯省
+    ccp: "𑄥𑄚𑄴𑄥𑄬𑄌𑄴 𑄢𑄟𑄨𑄢𑄬𑄌𑄴"
+    uk: Провінція Санчес-Рамірес
+    'no': Sanchez Ramirez provins
+    ca: Sánchez Ramírez
+    cy: Talaith Sánchez Ramírez
+    eu: Sánchez Ramírez probintzia
+  type: province
+'25':
+  name: Santiago
+  code: '25'
+  unofficial_names:
+  - Santiago
+  geo:
+    latitude: 19.466667
+    longitude: -70.7
+    min_latitude: 19.3650005
+    min_longitude: -70.75648989999999
+    max_latitude: 19.5146896
+    max_longitude: -70.5895568
+  translations:
+    en: Santiago
+    ar: مقاطعة سانتياغو
+    bn: স্যান্তিয়াগো প্রদেশ
+    da: Santiago Province
+    de: Santiago
+    el: Σαντιάγο
+    es: Santiago
+    fa: استان سانتیاگو، جمهوری دومینیکن
+    fi: Santiagon provinssi
+    fr: Santiago
+    gu: સેન્ટિયાગો પ્રાંત
+    hi: सैंटियागो प्रांत(डोमिनिकन गणतंत्र)
+    id: Provinsi Santiago
+    it: provincia di Santiago
+    ja: サンティアゴ県
+    kn: ಸ್ಯಾಂಟಿಯಾಗೊ ಪ್ರಾಂತ್ಯ
+    ko: 산티아고 주
+    mr: सांतियागो प्रांत
+    ms: Wilayah Santiago
+    nb: Santiago provins
+    nl: Santiago
+    pl: Prowincja Santiago
+    pt: Santiago
+    ru: Сантьяго
+    si: සන්තියාගෝ පළාත
+    sl: Provinca Santiago
+    sv: Santiago
+    ta: சாண்டியாகோ மாகாணம்
+    te: సాంటియాాగో ప్రావిన్స్
+    th: จังหวัดซันติอาโก
+    tr: Santiago Province
+    uk: Сантьяго
+    ur: سانتیاغو صوبہ
+    vi: Santiago
+    lv: Santjago province
+    ceb: Provincia de Santiago
+    lt: Santjago provincija
+    zh: 聖地牙哥省
+    ccp: "𑄥𑄚𑄴𑄑𑄨𑄠𑄉𑄮"
+    he: סנטיאגו
+    eu: Santiago probintzia
+    'no': Santiago provins
+    ca: Santiago
+    cy: Talaith Santiago
+  type: province
+'26':
+  name: Santiago Rodríguez
+  code: '26'
+  unofficial_names:
+  - Santiago Rodríguez
+  geo:
+    latitude: 19.4713181
+    longitude: -71.33958009999999
+    min_latitude: 19.4681499
+    min_longitude: -71.3439197
+    max_latitude: 19.4742671
+    max_longitude: -71.3354799
+  translations:
+    en: Santiago Rodríguez
+    ar: مقاطعة سانتياغو رودريغيز
+    bn: স্যান্তিয়াগো রড্রিগেজ প্রদেশ
+    da: Santiago Rodríguez Province
+    de: Santiago Rodríguez
+    el: Σαντιάγο Ροδρίγκες
+    es: Santiago Rodríguez (provincia)
+    fa: استان سانتیاگو رودریگز
+    fi: Santiago Rodríguezin provinssi
+    fr: Santiago Rodríguez
+    gu: સેન્ટિયાગો રોડરિગુએઝ પ્રાંત
+    hi: सैंटियागो रोड्रिग्ज़ प्रांत
+    id: Provinsi Santiago Rodríguez
+    it: provincia di Santiago Rodríguez
+    ja: サンティアーゴ・ロドリゲス州
+    kn: ಸ್ಯಾಂಟಿಯಾಗೊ ರೊಡ್ರಿಗ್ವೆಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 산티아고로드리게스 주
+    mr: सांतियागो रोड्रिग्झ प्रांत
+    ms: Wilayah Santiago Rodriguez
+    nb: Santiago Rodriguez provins
+    nl: Santiago Rodríguez
+    pl: Santiago Rodríguez Province
+    pt: Santiago Rodríguez
+    ru: Сантьяго-Родригес
+    si: සන්තියාගෝ රොඩ්රිගොස් පළාත
+    sl: Provinca Santiago Rodríguez
+    sv: Santiago Rodríguez
+    ta: சாண்டியாகோ ரோட்ரிகுயஸ் மாகாணம்
+    te: సాంటియాగో రోడ్రిగ్వెజ్ ప్రావిన్స్
+    th: จังหวัดซานเตียโกโรดริเกซ
+    tr: Santiago Rodriguez Province
+    ur: سانتیاغو روریغیز صوبہ
+    vi: Santiago Rodríguez
+    lv: Santjagorodrigesas province
+    ceb: Provincia de Santiago Rodríguez
+    lt: Santjago Rodrigezo provincija
+    zh: 聖地亞哥-羅里蓋茲省
+    ccp: "𑄥𑄚𑄴𑄑𑄨𑄠𑄉𑄮 𑄢𑄮𑄓𑄳𑄢𑄨𑄉𑄪𑄠𑄬𑄌𑄴"
+    uk: Провінція Сантьяго-Родрігес
+    'no': Santiago Rodriguez provins
+    ca: Santiago Rodríguez
+    cy: Talaith Santiago Rodríguez
+    eu: Santiago Rodríguez probintzia
+  type: province
+'27':
+  name: Valverde
+  code: '27'
+  unofficial_names:
+  - Valverde
+  geo:
+    latitude: 19.6323442
+    longitude: -71.0497768
+    min_latitude: 19.498182
+    min_longitude: -71.21334999999999
+    max_latitude: 19.77729
+    max_longitude: -70.875855
+  translations:
+    en: Valverde
+    ar: محافظة فالفيردي
+    bn: ভ্যালভার্দে প্রদেশ
+    da: Valverde Province
+    de: Valverde
+    el: Βαλβέρδε
+    es: Valverde
+    fa: استان والورده
+    fi: Valverden lääni
+    fr: Valverde
+    gu: વેલવેર્ડે પ્રાંત
+    hi: वल्वेर्दे प्रांत
+    id: Provinsi Valverde
+    it: provincia di Valverde
+    ja: バルベルデ州
+    kn: ವಾಲ್ವರ್ಡೆ ಪ್ರಾಂತ್ಯ
+    ko: 발베르데 주
+    mr: व्हॅलेव्हरड प्रांत
+    ms: Valverde Province
+    nb: Valverde
+    nl: Valverde
+    pl: Dystrykt Valverde
+    pt: Valverde
+    ru: Вальверде
+    si: වල්වර්දේ පළාත
+    sl: Provinca Valverde
+    sv: Valverde
+    ta: வாழ்வேர்டே மாகாணம்
+    te: వాల్వర్డ్ ప్రావిన్స్
+    th: จังหวัดวาลเวิร์ด
+    tr: Valverde
+    ur: بالبیردے صوبہ
+    vi: Valverde
+    lv: Valverdes province
+    ceb: Provincia de Valverde
+    lt: Valverdės provincija
+    zh: 巴韋德省
+    ccp: "𑄞𑄧𑄣𑄴𑄞𑄢𑄴𑄓𑄬"
+    uk: Провінція Вальверде
+    'no': Valverde
+    ca: Valverde (República Dominicana)
+    cy: Talaith Valverde
+    eu: Valverde probintzia
+  type: province
+'28':
+  name: Monseñor Nouel
+  code: '28'
+  unofficial_names:
+  - Monseñor Nouel
+  geo:
+    latitude: 18.9215234
+    longitude: -70.3836815
+    min_latitude: 18.7310471
+    min_longitude: -70.56509500000001
+    max_latitude: 19.124081
+    max_longitude: -70.2046211
+  translations:
+    en: Monseñor Nouel
+    ar: مقاطعة مونسينور نويل
+    bn: মন্সেনর ন্যুয়েল প্রদেশ
+    da: Monseñor Nouel Province
+    de: Monseñor Nouel
+    el: Μονσενιόρ Νουέλ
+    es: Monseñor Nouel
+    fa: استان مونسنیور نوول
+    fi: Monseñornoueln provinssi
+    fr: Monseñor Nouel
+    gu: મોન્સેનર નૌલ પ્રાંત
+    hi: मोंसेन्योर नूएल प्रांत
+    id: Provinsi Monseñor Nouel
+    it: provincia di Monseñor Nouel
+    ja: モンセニョール・ノウエル州
+    kn: ಮಾನ್ಸೆನೋರ್ ನೌವೆಲ್ ಪ್ರಾಂತ್ಯ
+    ko: 몬세뇨르노우엘 주
+    mr: मॉनसेनोर नऊल प्रांत
+    ms: Monseñor Nouel Province
+    nb: Monsenor Nouel provins
+    nl: Monseñor Nouel
+    pl: Prowincja Monseñor Nouel
+    pt: Monseñor Nouel
+    ru: Монсеньор-Новэль
+    si: මොන්සෙනොර් නොඋල් පළාත
+    sl: Provinca Monseñor Nouel
+    sv: Monseñor Nouel
+    ta: முன்செனோர் நோயல் மாகாணம்
+    te: మాన్సెనర్ నోయల్ ప్రావిన్స్
+    th: จังหวัดมอนเซนอร์นูล
+    tr: Monsenor Nouel Province
+    ur: مونسینیور نوویئل صوبہ
+    vi: Monseñor Nouel
+    lv: Monsenjornoeula province
+    ceb: Provincia de Monseñor Nouel
+    lt: Monsenjoro Nuelio provincija
+    zh: 主教·瑙黎省
+    ccp: "𑄟𑄧𑄚𑄴𑄥𑄬𑄚𑄧𑄢𑄴 𑄚𑄯𑄠𑄬𑄣𑄴"
+    uk: Провінція Монсеньор-Новель
+    'no': Monsenor Nouel provins
+    ca: Monseñor Nouel
+    cy: Talaith Monseñor Nouel
+    eu: Monseñor Nouel probintzia
+  type: province
+'29':
+  name: Monte Plata
+  code: '29'
+  unofficial_names:
+  - Monte Plata
+  geo:
+    latitude: 18.81
+    longitude: -69.78999999999999
+    min_latitude: 18.7976463
+    min_longitude: -69.8058844
+    max_latitude: 18.8225077
+    max_longitude: -69.7759295
+  translations:
+    en: Monte Plata
+    ar: محافظة مونتي بلاتا
+    bn: মন্টে প্লাটা প্রদেশ
+    da: Monte Plata Province
+    de: Monte Plata
+    el: Μόντε Πλάτα
+    es: Monte Plata
+    fa: استان مونته پلاتا
+    fi: Monte Platan lääni
+    fr: Monte Plata
+    gu: મોન્ટે પ્લાટા પ્રાંત
+    hi: मोंटे प्लाटा प्रांत
+    id: Provinsi Monte Plata
+    it: provincia di Monte Plata
+    ja: モンテ・プラタ州
+    kn: ಮಾಂಟೆ ಪ್ಲಾಟಾ ಪ್ರಾಂತ್ಯ
+    ko: 몬테플라타 주
+    mr: मोंटे प्लाटा प्रांत
+    ms: Monte Plata Province
+    nb: Monte Plata Provins
+    nl: Monte Plata
+    pl: Prowincja Monte Plata
+    pt: Monte Plata
+    ru: Монте-Плата
+    si: මොන්ටේ ප්ලාටා පළාත
+    sl: Provinca Monte Plata
+    sv: Monte Plata
+    ta: மான்டே ப்லாட மாகாணம்
+    te: మాంటె ప్లాటా ప్రావిన్స్
+    th: จังหวัดมอนเตปลาตา
+    tr: Monte Plata Province
+    ur: مونتے پلاتا صوبہ
+    vi: Monte Plata
+    lv: Monteplatas province
+    ceb: Provincia de Monte Plata
+    lt: Monte Platos provincija
+    zh: 銀山省
+    ccp: "𑄟𑄧𑄚𑄴𑄑𑄬 𑄛𑄳𑄣𑄑"
+    uk: Провінція Монте-Плата
+    'no': Monte Plata Provins
+    ca: Monte Plata (província)
+    cy: Talaith Monte Plata
+    eu: Monte Plata probintzia
+  type: province
+'30':
+  name: Hato Mayor
+  code: '30'
+  unofficial_names:
+  - Hato Mayor
+  geo:
+    latitude: 18.766667
+    longitude: -69.25
+    min_latitude: 18.7412879
+    min_longitude: -69.2666531
+    max_latitude: 18.7849907
+    max_longitude: -69.2366016
+  translations:
+    en: Hato Mayor
+    ar: مقاطعة هاتو مايور
+    bn: হাতো মেয়র প্রদেশ
+    da: Hato Mayor
+    de: Hato Mayor
+    el: Επαρχία Άτο Μαγιόρ
+    es: Hato Mayor
+    fa: استان آتو مایور
+    fi: Hato Mayor
+    fr: Hato Mayor
+    gu: હાટો મેયર પ્રાંત
+    hi: हातो मेयर प्रांत
+    id: Provinsi Hato Mayor
+    it: provincia di Hato Mayor
+    ja: アト・マジョール州
+    kn: ಹ್ಯಾಟೊ ಮೇಯರ್ ಪ್ರಾಂತ್ಯ
+    ko: 아토마요르 주
+    mr: हातो मेयर प्रांत
+    ms: Wilayah Hato Mayor
+    nb: Hato Mayor Provins
+    nl: Hato Mayor
+    pl: Prowincja Hato Mayor
+    pt: Hato Mayor
+    ru: Ато-Майор
+    si: හටෝ මායෝර් පළාත
+    sl: Provinca Hato Mayor
+    sv: Hato Mayor
+    ta: ஹாடோ மாயோர் மாகாணம்
+    te: హాటో మేయర్ ప్రావిన్స్
+    th: เมืองฮาโตเมเยอร์
+    tr: Hato Mayor Province
+    uk: Ато-Майор
+    ur: آتو مائیور صوبہ
+    vi: Hato Mayor
+    lv: Atomajoras province
+    ceb: Provincia de Hato Mayor
+    lt: Hato Majoro provincija
+    zh: 阿托馬約省
+    ccp: "𑄦𑄑𑄮 𑄟𑄳𑄠𑄠𑄧𑄢𑄴"
+    kk: Ато-Майор
+    'no': Hato Mayor Provins
+    ca: Hato Mayor
+    cy: Talaith Hato Mayor
+    eu: Hato Mayor probintzia
+  type: province
+'31':
+  name: San Jose de Ocoa
+  code: '31'
+  unofficial_names:
+  - San Jose de Ocoa
+  geo:
+    latitude: 18.55
+    longitude: -70.5
+    min_latitude: 18.5308865
+    min_longitude: -70.5147601
+    max_latitude: 18.555543
+    max_longitude: -70.4983234
+  translations:
+    en: San José de Ocoa
+    ar: مقاطعة سان خوسيه دي أوكوا
+    bn: স্যান জোসে ডি ওকোয়া প্রদেশ
+    da: San José de Ocoa Province
+    de: San José de Ocoa
+    el: Σαν Χοσέ ντε Οκόα
+    es: San José de Ocoa
+    fa: استان سن خوزه ده اوکوا
+    fi: San José de Ocoan lääni
+    fr: San José de Ocoa
+    gu: સાન જોસ દે ઓકોઆ પ્રાંત
+    hi: सैन जोस डी ओकोआ प्रांत
+    id: Provinsi San José de Ocoa
+    it: provincia di San José de Ocoa
+    ja: サン・ホセ・デ・オコア州
+    kn: ಸ್ಯಾನ್ ಜೋಸ್ ಡಿ ಓಕೋ ಪ್ರಾಂತ್ಯ
+    ko: 산호세데오코아 주
+    mr: सॅन होझ द ओकोआ प्रांत
+    ms: San Jose de Ocoa Province
+    nb: San jose provins
+    nl: San José de Ocoa
+    pl: Prowincja San José de Ocoa
+    pt: San José de Ocoa
+    ru: Сан-Хосе-де-Окоа
+    si: සැන් ජොසේ ඩි ඔකොවා පළාත
+    sl: Provinca San José de Ocoa
+    sv: San José de Ocoa
+    ta: சான் ஜோஸ் டி ஓஸோயா மாகாணம்
+    te: సాన్ జోస్ డి ఓకోవా ప్రావిన్స్
+    th: จังหวัดซาน โจเซ่ เดอ โอโค่
+    tr: San José de Ocoa
+    ur: سان خوسے دے اوکوا صوبہ
+    vi: San José de Ocoa
+    lv: Sanhosē de Okoas province
+    ceb: San José de Ocoa
+    lt: San Chose de Okovos provincija
+    zh: 聖荷西省
+    ccp: "𑄥𑄚𑄴 𑄎𑄮𑄥𑄬 𑄓𑄬 𑄃𑄧𑄇𑄮𑄠"
+    uk: Провінція Сан-Хосе-де-Окоа
+    'no': San jose provins
+    ca: San José de Ocoa
+    cy: Talaith San José de Ocoa
+    eu: San José de Ocoa probintzia
+  type: province
+'32':
+  name: Santo Domingo
+  code: '32'
+  translations:
+    ar: محافظة سانتو دومينغو
+    bn: স্যান্টো ডোমিঙ্গ প্রদেশ
+    da: Santo Domingo Province
+    de: Santo Domingo
+    el: Επαρχία Σάντο Ντομίνγκο
+    en: Santo Domingo
+    es: Santo Domingo
+    fa: استان سانتو دومینیگو
+    fi: Santo Domingon lääni
+    fr: Santo Domingo
+    gu: સાન્ટો ડોમિંગો પ્રાંત
+    hi: सैंटो डोमिंगो प्रांत
+    id: Provinsi Santo Domingo
+    it: provincia di Santo Domingo
+    ja: サント・ドミンゴ州
+    kn: ಸ್ಯಾಂಟೋ ಡೊಮಿಂಗೊ ಪ್ರಾಂತ್ಯ
+    ko: 산토도밍고 주
+    mr: सँटो डोमिंगो प्रांत
+    ms: Santo Domingo
+    nb: Santo Domingo provins
+    nl: Santo Domingo
+    pl: Prowincja Santo Domingo
+    pt: Santo Domingo
+    ru: Санто-Доминго
+    si: සැන්ටෝ ඩොමින්ගෝ පළාත
+    sl: Provinca Santo Domingo
+    sv: Santo Domingo
+    ta: சந்தோ டொமிங்கோ மாகாணம்
+    te: సాంటో డామింగో ప్రావిన్స్
+    th: จังหวัดซานโตโดมิงโก
+    tr: Santo domingo
+    ur: سانتو دومینگو صوبہ
+    vi: Santo Domingo
+    lv: Santodomingo province
+    ceb: Provincia de Santo Domingo
+    lt: Santo Domingo provincija
+    zh: 聖多明哥省
+    ccp: "𑄥𑄚𑄴𑄑𑄮 𑄓𑄮𑄟𑄨𑄚𑄴𑄉𑄮"
+    uk: Санто-Домінго
+    'no': Santo Domingo provins
+    ca: Santo Domingo (província)
+    cy: Talaith Santo Domingo
+    eu: Santo Domingo probintzia
+  type: province
+'33':
+  name: Cibao Nordeste
+  code: '33'
+  translations:
+    en: Cibao Nordeste
+    ccp: "𑄥𑄨𑄝𑄃𑄮 𑄚𑄧𑄢𑄴𑄓𑄬𑄌𑄴𑄑𑄬"
+    ja: 北東シバオ地域
+  type: region
+'34':
+  name: Cibao Noroeste
+  code: '34'
+  translations:
+    en: Cibao Noroeste
+    ccp: "𑄥𑄨𑄝𑄃𑄮 𑄚𑄧𑄢𑄧𑄠𑄬𑄌𑄴𑄑𑄬"
+    ja: 北西シバオ地域
+  type: region
+'35':
+  name: Cibao Norte
+  code: '35'
+  translations:
+    en: Cibao Norte
+    ccp: "𑄥𑄨𑄝𑄃𑄮 𑄚𑄧𑄢𑄴𑄑𑄬"
+    ja: 北シバオ地域
+  type: region
+'36':
+  name: Cibao Sur
+  code: '36'
+  translations:
+    en: Cibao Sur
+    ccp: "𑄥𑄨𑄝𑄃𑄮 𑄥𑄢𑄴"
+    ja: 南シバオ地域
+  type: region
+'37':
+  name: El Valle
+  code: '37'
+  translations:
+    en: El Valle
+    ccp: "𑄃𑄬𑄣𑄴 𑄞𑄣𑄬"
+    ja: エル・バジェ地域
+  type: region
+'38':
+  name: Enriquillo
+  code: '38'
+  translations:
+    en: Enriquillo
+    ccp: "𑄃𑄬𑄚𑄴𑄢𑄨𑄇𑄪𑄃𑄨𑄣𑄮"
+    ja: エンリキージョ地域
+  type: region
+'39':
+  name: Higüamo
+  code: '39'
+  translations:
+    en: Higüamo
+    ccp: "𑄦𑄭𑄉𑄪𑄠𑄟𑄮"
+    ja: イグアモ地域
+  type: region
+'40':
+  name: Ozama
+  code: '40'
+  translations:
+    en: Ozama
+    ccp: "𑄃𑄧𑄎𑄟"
+    ja: オサマ地域
+  type: region
+'41':
+  name: Valdesia
+  code: '41'
+  translations:
+    en: Valdesia
+    ccp: "𑄞𑄧𑄣𑄴𑄓𑄬𑄥𑄨𑄠"
+    ja: バルデシア地域
+  type: region
+'42':
+  name: Yuma
+  code: '42'
+  translations:
+    en: Yuma
+    ccp: "𑄃𑄨𑄠𑄟"
+    ja: ユマ地域
+  type: region

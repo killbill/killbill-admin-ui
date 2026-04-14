@@ -1,0 +1,1828 @@
+---
+ALX:
+  name: Al Iskandariyah
+  code: ALX
+  unofficial_names:
+  - El Iskandariya
+  - al-Iskandariyah
+  - al-Iskandarīyah
+  - Alexandria
+  - Alexandrie
+  - Alexandria
+  geo:
+    latitude: 31.2000924
+    longitude: 29.9187387
+    min_latitude: 31.1173177
+    min_longitude: 29.8233701
+    max_latitude: 31.330904
+    max_longitude: 30.0864016
+  translations:
+    en: Alexandria
+    ar: الإسكندرية
+    be: Мухафаза Александрыя
+    bg: Александрия
+    bn: আলেক্সান্দ্রিয়া গভর্নোরেট
+    ca: Governació d’Alexandria
+    cs: Alexandrie
+    da: Alexandria
+    de: al-Iskandariyya
+    el: Κυβερνείο Αλεξάνδρειας
+    es: Alejandría
+    et: Aleksandria kubernerkond
+    fa: استان اسکندریه
+    fi: Al-Iskandariyyan kuvernoraatti
+    fr: Gouvernorat d’Alexandrie
+    gu: એલેક્ઝાન્ડ્રિયા ગવર્નોરેટ
+    hi: सिकन्दरिया मुहाफ़ज़ाह
+    hy: Ալեքսանդրիա
+    id: Kegubernuran Al Iskandariyah
+    it: Governatorato di Alessandria
+    ja: アレクサンドリア県
+    ka: ალექსანდრიის მუჰაფაზა
+    kn: ಅಲೆಕ್ಸಾಂಡ್ರಿಯಾ ಗವರ್ನೇಟ್
+    ko: 알렉산드리아 주
+    lt: Aleksandrijos muchafaza
+    mr: अलेग्ज़ॅंड्रिया गव्हर्नोरेट
+    ms: Alexandria Governorate
+    nb: Guvernementet Al Iskandariyah
+    nl: Alexandrië
+    pl: Aleksandria
+    pt: Alexandria (província egípcia)
+    ro: Al Iskandariyah
+    ru: Александрия
+    si: ඇලෙක්සැන්ඩ්‍රියා පළාත
+    sr: Александрија
+    sv: Guvernementet Alexandria
+    sw: Mkoa wa Aleksandria
+    ta: அலெக்சாண்ட்ரியா கோவெர்னோரே
+    te: ఆలెక్సాండ్రియా గవర్నరేట్
+    th: อัลอิสกันดาริยาห์
+    tr: İskenderiye
+    uk: Александрія
+    ur: محافظہ اسکندریہ
+    vi: Alexandria
+    zh: 亞歷山大省
+    lv: Aleksandrijas muhāfaza
+    sr_Latn: Aleksandrija
+    ccp: "𑄃𑄣𑄬𑄇𑄴𑄎𑄚𑄴𑄓𑄳𑄢𑄨𑄠"
+    hu: Alexandria kormányzóság
+    he: מחוז אלכסנדריה
+    bs: Aleksandrija
+    'no': Guvernementet Al Iskandariyah
+    az: əl-İskəndəriyyə mühafəzəsi
+    so: Alexandria Governorate
+    yue: 亞歷山大省
+    yue_Hans: 亚历山大省
+    zu: Alexandria Governorate
+  type: governorate
+ASN:
+  name: Aswan
+  code: ASN
+  unofficial_names:
+  - Aswān
+  - Assuan
+  - Assouan
+  geo:
+    latitude: 24.088938
+    longitude: 32.8998293
+    min_latitude: 24.0714761
+    min_longitude: 32.8794385
+    max_latitude: 24.1131931
+    max_longitude: 32.9207739
+  translations:
+    en: Aswan
+    ar: محافظة أسوان
+    be: Мухафаза Асуан
+    bg: Асуан
+    ca: Governació d’Assuan
+    cs: Asuán
+    da: Aswan
+    de: Aswan
+    el: Κυβερνείο Ασουάν
+    es: Asuán
+    et: Aswāni kubernerkond
+    fa: استان اسوان
+    fi: Assuanin kuvernoraatti
+    fr: Gouvernorat d’Assouan
+    hi: असवान मुहाफ़ज़ाह
+    id: Kegubernuran Aswan
+    it: Governatorato di Assuan
+    ja: アスワン県
+    ka: ასუანის მუჰაფაზა
+    ko: 아스완 주
+    lt: Asuano muchafaza
+    nb: Aswan
+    nl: Aswan
+    pl: Asuan
+    pt: Assuão
+    ro: Guvernoratul Aswan
+    ru: Асуан
+    sr: Асуан
+    sv: Guvernementet Assuan
+    sw: Mkoa wa Aswan
+    tr: Asvan
+    uk: Асуан
+    ur: محافظہ اسوان
+    vi: Aswan
+    sr_Latn: Asuan
+    zh: 阿斯旺省
+    ccp: "𑄃𑄥𑄮𑄠𑄚𑄴"
+    hy: Ասուան
+    hu: Asszuán kormányzóság
+    bs: Asuan
+    'no': Aswan
+    az: Əsvan mühafəzəsi
+    mk: Асуан (област)
+    th: เขตผู้ว่าการอัสวาน
+    yue: 阿斯旺省
+    yue_Hans: 阿斯旺省
+  type: governorate
+AST:
+  name: Asyut
+  code: AST
+  unofficial_names:
+  - Asiut
+  - Assyût
+  - Siut
+  - Asyūţ
+  - Assiut
+  - Assiout
+  geo:
+    latitude: 27.1783117
+    longitude: 31.1859257
+    min_latitude: 27.1580509
+    min_longitude: 31.1566813
+    max_latitude: 27.1960162
+    max_longitude: 31.2121548
+  translations:
+    en: Asyut
+    ar: أسيوط
+    be: Мухафаза Асьют
+    bg: Асют
+    bn: আসুত গভর্নোরেট
+    ca: Governació d’Asyut
+    cs: Asijút
+    da: Asyut
+    de: Asyut
+    el: Κυβερνείο Ασιούτ
+    es: Asiut
+    et: Asyūţi kubernerkond
+    fa: استان اسیوط
+    fi: Asyutin kuvernoraatti
+    fr: Gouvernorat d’Assiout
+    gu: અસ્યુત ગવર્નોરેટ
+    hi: असयूत मुहाफ़ज़ाह
+    id: Asyut Governorate
+    it: Governatorato di Asyut
+    ja: アシュート県
+    ka: ასიუტის მუჰაფაზა
+    kn: ಅಸ್ಯುತ್ ಗವರ್ನೇಟ್
+    ko: 아시우트 주
+    lt: Asjuto muchafaza
+    mr: अस्युत गव्हर्नोरेट
+    ms: Asyut Governorate
+    nb: Guvernementet Asyut
+    nl: Assioet
+    pl: Asjut
+    pt: Assiut
+    ro: Guvernoratul Asyut
+    ru: Асьют
+    si: අස්යුට් පළාත
+    sr: Асјут
+    sv: Guvernementet Asyut
+    sw: Mkoa wa Asyut
+    ta: அஸ்யூட் கோவெர்னோரே
+    te: అస్యుత్ గవర్నరేట్
+    th: อัสยูต
+    tr: Asyut
+    uk: Асьют
+    ur: محافظہ اسیوط
+    vi: Tỉnh Asyut
+    lv: Asjūtas muhāfaza
+    sr_Latn: Asjut
+    zh: 艾斯尤特省
+    ccp: "𑄃𑄥𑄭𑄠𑄪𑄖𑄴"
+    hy: Ասյութ
+    hu: Aszjút kormányzóság
+    he: מחוז אסיוט
+    bs: Asyut
+    'no': Guvernementet Asyut
+    az: Əsyut mühafəzəsi
+    yue: 艾斯尤特省
+    yue_Hans: 艾斯尤特省
+  type: governorate
+BA:
+  name: Al Bahr al Ahmar
+  code: BA
+  unofficial_names:
+  - El Bahr el Ahmar
+  geo:
+    latitude: 25.1076838
+    longitude: 33.7964613
+    min_latitude: 21.9996377
+    min_longitude: 30.741445
+    max_latitude: 29.3923378
+    max_longitude: 36.8945141
+  translations:
+    en: Red Sea
+    ar: البحر الأحمر
+    bg: Червено море
+    bn: লোহিত সাগর গভর্নোরেট
+    ca: Governació de la Mar Roja
+    cs: Al-Bahri al-Ahmari
+    da: Al-Bahr al-Ahmar
+    de: al-Bahr al-ahmar
+    el: Κυβερνείο Ερυθράς Θάλασσας
+    es: Mar Rojo
+    et: Al-Baḩr al-Aḩmari kubernerkond
+    fa: استان بحرالاحمر
+    fi: Al-Bahr al-Ahmar
+    fr: Gouvernorat de la Mer-Rouge
+    gu: રેડ સી ગવર્નોરેટ
+    hi: लाल सागर मुहाफ़ज़ाह
+    hy: Կարմիր ծով
+    id: Kegubernuran Al-Bahr al-Ahmar
+    it: Governatorato del Mar Rosso
+    ja: 紅海県
+    ka: წითელი ზღვის მუჰაფაზა
+    kn: ಕೆಂಪು ಸಮುದ್ರ ಗವರ್ನರ್
+    ko: 홍해 주
+    lt: Raudonosios Jūros muchafaza
+    mr: रेड सी गव्हर्नोरेट
+    ms: Pentadbiran Red Sea
+    nb: Guvernementet Al-Bahr al-Ahmar
+    nl: Rode Zee
+    pl: Prowincja Morza Czerwonego
+    pt: Mar Vermelho
+    ro: Guvernoratul Al Bahr al Ahmar
+    ru: Красное Море
+    si: රතු මුහුද පළාත
+    sk: Al-Bahr al-Ahmar
+    sr: Црвено море
+    sv: Guvernementet Al-Bahr al-Ahmar
+    sw: Mkoa wa Bahari ya Shamu
+    ta: ரெட் செபட கோவெர்னோராட்
+    te: రెడ్ సీ గవర్నరేట్
+    th: เขตการปกครองเรดซี
+    tr: Kızıldeniz
+    uk: Червоне Море
+    ur: محافظہ بحر احمر
+    vi: Biển Đỏ
+    lv: Sarkanās jūras muhāfaza
+    ceb: Red Sea Governorate
+    sr_Latn: Crveno more
+    zh: 红海省
+    ccp: "𑄢𑄬𑄖𑄴-𑄥𑄨"
+    he: הים האדום (מחוז)
+    bs: Crveno more
+    'no': Guvernementet Al-Bahr al-Ahmar
+    az: Qırmızı dəniz mühafəzəsi
+    mk: Црвено Море (област)
+  type: governorate
+BH:
+  name: Al Buhayrah
+  code: BH
+  unofficial_names:
+  - El Buhayra
+  - al-Buh̨ayrah
+  geo:
+    latitude: 30.8480986
+    longitude: 30.3435506
+    min_latitude: 29.9339286
+    min_longitude: 29.5338788
+    max_latitude: 31.4683007
+    max_longitude: 30.8513688
+  translations:
+    en: Beheira
+    ar: محافظة البحيرة
+    be: Мухафаза Бухейра
+    bg: Бухайра
+    bn: বেহিরা গভর্নোরেট
+    ca: Governació de Buhayra
+    cs: Buhajra
+    da: Al Buhayrah
+    de: al-Buhaira
+    el: Κυβερνείο Μπεχέιρα
+    es: Behera
+    et: Al-Buḩayrāti kubernerkond
+    fa: استان بحیره
+    fi: Al-Buhaira
+    fr: Gouvernorat de Beheira
+    gu: બીહેઇરા ગવર્નોરેટ
+    hi: बेहेइरा मुहाफ़ज़ाह
+    id: Kegubernuran Al Buhayrah
+    it: Governatorato di Buhayra
+    ja: ブハイラ県
+    ka: ბეჰეირის მუჰაფაზა
+    kn: ಬೆಹಿರಾ ಗವರ್ನೇಟ್
+    ko: 베헤이라 주
+    lt: Beheiros muchafaza
+    mr: बेहेरा गव्हरनेट
+    ms: Beheira Governorate
+    nb: Guvernementet Al Buhayrah
+    nl: Al Buhayrah
+    pl: Al-Buhajra
+    pt: Al-Buhaira
+    ro: Guvernoratul Beheira
+    ru: Бухейра
+    si: බෙහෙරියා පළාත
+    sk: Al-Buhajra
+    sr: Бухејра
+    sv: Guvernementet Beheira
+    sw: Mkoa wa Beheira
+    ta: பெஹெயிரா கோவெர்னோரே
+    te: బెహీరా గవర్నరేట్
+    th: เบเฮยรา โกเวอโรเนท
+    tr: Buheyre
+    uk: Бухейра
+    ur: محافظہ بحیرہ
+    vi: Tỉnh Beheira
+    lv: Buheirātas muhāfaza
+    ceb: Beheira Governorate
+    sr_Latn: Buhejra
+    zh: 布海拉省
+    ccp: "𑄝𑄬𑄦𑄬𑄃𑄨𑄢"
+    hy: Բուհեյրա
+    he: מחוז אל-בחירה
+    hr: Beheira
+    bs: Beheira
+    'no': Guvernementet Al Buhayrah
+    az: əl-Büheyrə mühafəzəsi
+  type: governorate
+BNS:
+  name: Bani Suwayf
+  code: BNS
+  unofficial_names:
+  - Bani Suwayf
+  - Banī Suwayf
+  geo:
+    latitude: 29.0661274
+    longitude: 31.0993845
+    min_latitude: 29.0058847
+    min_longitude: 31.0616271
+    max_latitude: 29.0958994
+    max_longitude: 31.1423418
+  translations:
+    en: Beni Suef
+    ar: بني سويف
+    be: Мухафаза Бені-Суэйф
+    bg: Бени Суеф
+    bn: বানি সুয়েফ গভর্নোরেট
+    ca: Governació de Beni Suef
+    cs: Bání Suvajf
+    da: Bani Suwayf
+    de: Bani Suwaif
+    el: Κυβερνείο Μπένι Σουέφ
+    es: Beni Suef
+    fa: استان بنی‌سویف
+    fi: Bani Suwaifin kuvernoraatti
+    fr: Gouvernorat de Beni Souef
+    gu: બેની સુએફ ગવર્નોરેટ
+    hi: बनी सुएफ़ मुहाफ़ज़ाह
+    id: Kegubernuran Bani Suwayf
+    it: Governatorato di Beni Suef
+    ja: ベニ・スエフ県
+    ka: ბანი-სუაფის მუჰაფაზა
+    kn: ಬೆನಿ ಸುಯೆಫ್ ಗವರ್ನೇಟ್
+    ko: 베니수에프 주
+    lt: Beni Sueifo muchafaza
+    mr: बेनी सुएफ गव्हरनेटेट
+    ms: Beni Suef Governorate
+    nb: Guvernementet Bani Suwayf
+    nl: Beni Suef
+    pl: Bani Suwajf
+    pt: Beni Suef
+    ro: Bani Suwayf
+    ru: Бени-Суэйф
+    si: බෙනි සුඑෆ් පළාත
+    sr: Бени Суејф
+    sv: Guvernementet Beni Suef
+    sw: Mkoa wa Beni Suef
+    ta: பெனி சுயபி கோவெர்னோரே
+    te: బేని సుయెఫ్ గవర్నరేట్
+    th: เบนี เซิฟ กอฟเวอโนเลท
+    tr: Beni Suveyf
+    uk: Бені-Суейф
+    ur: محافظہ بنی سیوف
+    vi: Tỉnh Beni Suef
+    lv: Benī Sueifas muhāfaza
+    sr_Latn: Beni Suejf
+    zh: 贝尼苏韦夫省
+    ccp: "𑄝𑄬𑄚𑄨 𑄥𑄪𑄠𑄬𑄛𑄴"
+    hy: Բենի Սուեյֆ
+    he: מחוז בני סויף
+    ml: ബനീ സുവൈഫ്
+    bs: Beni Suef
+    'no': Guvernementet Bani Suwayf
+    az: Bəni Süveyf mühafəzəsi
+    mk: Бени Суејф (област)
+  type: governorate
+C:
+  name: Al Qahirah
+  code: C
+  unofficial_names:
+  - El Qahira
+  - Le Caire-sur-Mer
+  - al-Qāhirah
+  - Kairo
+  - Caire
+  - Cairo
+  geo:
+    latitude: 30.0444196
+    longitude: 31.2357116
+    min_latitude: 30.0083745
+    min_longitude: 31.2149558
+    max_latitude: 30.1106024
+    max_longitude: 31.3019729
+  translations:
+    en: Cairo
+    ar: محافظة القاهرة
+    be: Мухафаза Каір
+    bg: Кайро
+    bn: কায়রো গভর্নোরেট
+    ca: Governació del Caire
+    cs: Káhira
+    da: Al Qahirah
+    de: al-Qahira
+    el: Κυβερνείο του Καΐρου
+    es: El Cairo
+    fa: استان قاهره
+    fi: Kairon kuvernoraatti
+    fr: Gouvernorat du Caire
+    gu: કૈરો ગવર્નોરેટ
+    he: מחוז קהיר
+    hi: क़ाहिरा मुहाफ़ज़ाह
+    hy: Կահիրե
+    id: Kegubernuran Al Qahirah
+    it: Governatorato del Cairo
+    ja: カイロ県
+    ka: კაიროს მუჰაფაზა
+    kn: ಕೈರೋ ಗವರ್ನೇಟ್
+    ko: 카이로 주
+    lt: Kairo muchafaza
+    lv: Kairas muhāfaza
+    mr: कैरो गव्हर्नोरेट
+    ms: Cairo Governorate
+    nb: Guvernementet Al Qahirah
+    nl: Caïro
+    pl: Kair
+    pt: Cairo
+    ro: Al Qahirah
+    ru: Каир
+    si: කයිරෝ පළාත
+    sk: Káhira
+    sr: Каиро
+    sv: Guvernementet Kairo
+    sw: Mkoa wa Kairo
+    ta: கெய்ரோ கோவெர்னோரேட்
+    te: కెయిరో గవర్నరేట్
+    th: อัลกาฮิราห์
+    tr: Kahire
+    uk: Каїр
+    ur: محافظہ قاہرہ
+    vi: Cairo
+    sr_Latn: Kairo
+    zh: 开罗省
+    ccp: "𑄇𑄭𑄢𑄮"
+    bs: Kairo
+    'no': Guvernementet Al Qahirah
+    az: əl-Qahirə mühafəzəsi
+    cy: Llywodraethiaeth Cairo
+    eu: Kairoko gobernazioa
+    ga: Gobharnóireacht Chaireo
+  type: governorate
+DK:
+  name: Ad Daqahliyah
+  code: DK
+  unofficial_names:
+  - Dakahlia
+  - El Daqahliya
+  - ad-Daqahliyah
+  geo:
+    latitude: 31.0832017
+    longitude: 31.4913182
+    min_latitude: 30.5769786
+    min_longitude: 31.2086064
+    max_latitude: 31.5452581
+    max_longitude: 32.0835976
+  translations:
+    en: Dakahlia
+    ar: الدقهلية
+    be: Дакахлія
+    bg: Дакахлия
+    bn: ডাকাহ্লিয়া গভর্নোরেট
+    ca: Governació d’Al-Daqahliyah
+    cs: Dachílija
+    da: Ad Daqahliyah
+    de: ad-Daqahliyya
+    el: Κυβερνείο Ντακάχλια
+    es: Dacalia
+    fa: استان دقهلیه
+    fi: Al-Daqahliyya
+    fr: Gouvernorat de Dakahleya
+    gu: ડાકાહલિઆ ગવર્નોરેટ
+    he: א-דקהלייה
+    hi: दक़ैहलेया मुहाफ़ज़ाह
+    id: Kegubernuran Ad Daqahliyah
+    it: Governatorato di Daqahliyya
+    ja: ダカリーヤ県
+    ka: დაკაჰლიის მუჰაფაზა
+    kn: ಡಕಾಹ್ಲಿಯಾ ಗವರ್ನೇಟ್
+    ko: 다칼리야 주
+    lt: Dakahlijos muchafaza
+    mr: डाख्लिया गव्हर्नोरेट
+    ms: Dakahlia Governorate
+    nb: Ad Daqahliyah
+    nl: Ad Daqahliyah
+    pl: Ad-Dakahlijja
+    pt: Dakahlia
+    ro: Ad Daqahliyah
+    ru: Дакахлия
+    si: ඩකහිලා පළාත
+    sr: Дакахлија
+    sv: Ad-Daqahliyya
+    sw: Mkoa wa Dakahlia
+    te: డాకాహిలా గవర్నరేట్
+    th: จังหวัดนครสวรรค์
+    tr: Dekahliye
+    uk: Дакахлія
+    ur: محافظہ دقہلیہ
+    vi: Tỉnh Dakahlia
+    lv: Dekahlījas muhāfaza
+    sr_Latn: Dakahlija
+    zh: 代蓋赫利耶省
+    ccp: "𑄓𑄇𑄦𑄴𑄣𑄨𑄠"
+    hy: Դակահլիա
+    bs: Dakahlia
+    'no': Ad Daqahliyah
+    az: əd-Dəqəhliyyə mühafəzəsi
+  type: governorate
+DT:
+  name: Dumyat
+  code: DT
+  unofficial_names:
+  - Damiat
+  - Dumyat
+  - Dumyāţ
+  - Damiette
+  geo:
+    latitude: 31.4175388
+    longitude: 31.81444339999999
+    min_latitude: 31.3934849
+    min_longitude: 31.7816078
+    max_latitude: 31.4417822
+    max_longitude: 31.8280067
+  translations:
+    en: Damietta
+    ar: محافظة دمياط
+    bg: Дамиета
+    bn: দামিয়েট্টা গভর্নোরেট
+    ca: Governació de Damietta
+    cs: Dimját
+    da: Dumyat
+    de: Dumyat
+    el: Κυβερνείο Δαμιέτης
+    es: Damieta
+    fa: استان دمیاط
+    fi: Dumjatin kuvernoraatti
+    fr: Gouvernorat de Damiette
+    gu: ડેમિએટા ગવર્નોરેટ
+    hi: दुमयात मुहाफ़ज़ाह
+    hy: Դումյաթ
+    id: Kegubernuran Dumyat
+    it: Governatorato di Damietta
+    ja: ディムヤート県
+    ka: დუმიატის მუჰაფაზა
+    kn: ಡಾಮಿತಾ ಗವರ್ನೇಟ್
+    ko: 다미에타 주
+    lt: Dumjato muchafaza
+    mr: डॅमिएटटा गव्हरनेटेट
+    ms: Damietta Governorate
+    nb: Guvernementet Dumyat
+    nl: Damietta
+    pl: Damietta (muhafaza)
+    pt: Damieta
+    ro: Dumyat
+    ru: Думьят
+    si: ඩමීඑට්ටා පළාත
+    sr: Дамијета
+    sv: Guvernementet Damietta
+    sw: Mkoa wa Damietta
+    ta: தமியேட்டா கோவெர்னோகைட்
+    te: డామియెట్టా గవర్నరేట్
+    th: ดัมยัต
+    tr: Dimyat
+    uk: Думʼят
+    ur: محافظہ دمیاط
+    vi: Tỉnh Damietta
+    lv: Dumjātas muhāfaza
+    sr_Latn: Damijeta
+    zh: 杜姆亞特省
+    ccp: "𑄓𑄟𑄭𑄠𑄬𑄑"
+    bs: Damietta
+    'no': Guvernementet Dumyat
+    az: Dümyat mühafəzəsi
+    he: דמיאט
+  type: governorate
+FYM:
+  name: Al Fayyum
+  code: FYM
+  unofficial_names:
+  - El Faiyūm
+  - al-Fayyum
+  - al-Fayyūm
+  geo:
+    latitude: 29.3084021
+    longitude: 30.8428497
+    min_latitude: 29.2918259
+    min_longitude: 30.8206875
+    max_latitude: 29.3299673
+    max_longitude: 30.86388549999999
+  translations:
+    en: Faiyum
+    ar: محافظة الفيوم
+    bg: Фаюм
+    ca: Governació d’el Faium
+    cs: Fajjúm
+    da: Al Fayyum
+    de: al-Fayyum
+    el: Κυβερνείο Φαγιούμ
+    es: Fayún
+    eu: Faiyum
+    fa: استان فیوم
+    fi: Al-Fayyumin kuvernoraatti
+    fr: Gouvernorat du Fayoum
+    he: אל-פיום
+    hi: फ़य्यूम मुहाफ़ज़ाह
+    hy: Ալ-Ֆայում
+    it: Governatorato di Faiyum
+    ja: ファイユーム県
+    ka: ელ-ფაიუმის მუჰაფაზა
+    ko: 파이윰 주
+    lt: Fajumo muchafaza
+    nb: Guvernementet Al Fayyum
+    nl: Fajoem
+    pl: Fajum
+    pt: Faium
+    ro: Guvernoratul Al Fayyum
+    ru: Эль-Файюм
+    sr: Фајум
+    sv: Guvernementet Faijum
+    sw: Mkoa wa Faiyum
+    tr: Feyyum
+    uk: Ель-Файюм
+    ur: محافظہ فیوم
+    sr_Latn: Fajum
+    zh: 法尤姆省
+    ccp: "𑄜𑄭𑄠𑄪𑄟𑄴"
+    bs: Faiyum
+    'no': Guvernementet Al Fayyum
+    az: əl-Fəyyum mühafəzəsi
+    th: เขตผู้ว่าการอัลฟัยยูม
+  type: governorate
+GH:
+  name: Al Gharbiyah
+  code: GH
+  unofficial_names:
+  - El Gharbiya
+  - Gharbiya
+  - al-Garbiyah
+  - al-Ġarbīyah
+  geo:
+    latitude: 30.8753556
+    longitude: 31.03351
+    min_latitude: 30.5747929
+    min_longitude: 30.7465372
+    max_latitude: 31.1583532
+    max_longitude: 31.3105264
+  translations:
+    en: Gharbia
+    ar: الغربية
+    bg: Гарбия
+    bn: ঘারবিয়া গভর্নোরেট
+    ca: Governació d’Al-Gharbiya
+    cs: Gharbíja
+    da: Al Gharbiyah
+    de: al-Gharbiyya
+    el: Κυβερνείο Γαρμπία
+    es: Occidental
+    fa: استان غربیه
+    fi: Al-Gharbiyyan kuvernoraatti
+    fr: Gouvernorat de Gharbeya
+    gu: ઘારબીયા ગવર્નમેંટ
+    hi: ग़रबीया मुहाफ़ज़ाह
+    hy: Ղարբիա
+    id: Kegubernuran Al Gharbiyah
+    it: Governatorato di Gharbiyya
+    ja: ガルビーヤ県
+    ka: გარბიის მუჰაფაზა
+    kn: ಘರ್ಬಿಯಾ ಗವರ್ನೇಟ್
+    ko: 가르비야 주
+    lt: Garbijos muchafaza
+    mr: घर्बिया गव्हरनेटेट
+    ms: Gharbia Governorate
+    nb: Guvernementet Al Gharbiyah
+    nl: Al Gharbiyah
+    pl: Prowincja Zachodnia
+    pt: Garbia
+    ro: Al Gharbiyah
+    ru: Гарбия
+    si: ඝර්බියා පළාත
+    sr: Гарбија
+    sv: Guvernementet Al-Gharbiyya
+    sw: Mkoa wa Gharbia
+    ta: காரபீஆ கோவெர்னோரே
+    te: గార్బియా గవర్నరేట్
+    th: กาฮ์เบีย โกเวอโนเรท
+    tr: Garbiya
+    uk: Гарбія
+    ur: محافظہ غربیہ
+    vi: Tỉnh Gharbia
+    lv: Garbijas muhāfaza
+    cy: Gharbia Governorate
+    sr_Latn: Garbija
+    zh: 西部省
+    ccp: "𑄊𑄢𑄴𑄝𑄨𑄠"
+    he: מחוז אל-ע׳רביה
+    bs: Gharbia
+    'no': Guvernementet Al Gharbiyah
+    az: əl-Qərbiyyə mühafəzəsi
+    be: мухафаза Гарбія
+    hu: Gharbijja
+  type: governorate
+GZ:
+  name: Al Jizah
+  code: GZ
+  unofficial_names:
+  - El Giza
+  - Gise
+  - Giza
+  - Gizah
+  - Jiza
+  - Jizah
+  - al-Jīzah
+  - Giseh
+  - Gîza
+  geo:
+    latitude: 30.0130557
+    longitude: 31.2088526
+    min_latitude: 29.9621703
+    min_longitude: 31.1472406
+    max_latitude: 30.0714063
+    max_longitude: 31.2320457
+  translations:
+    en: Giza
+    ar: محافظة الجيزة
+    be: Эль-Гіза
+    bg: Гиза
+    bn: গিজা গভর্নোরেট
+    ca: Governació de Gizeh
+    cs: Gíza
+    da: Al Jizah
+    de: al-Dschiza
+    el: Κυβερνείο Γκίζας
+    es: Guiza
+    et: Giza kubernerkond
+    eu: Gizako gobernaketa
+    fa: استان جیزه
+    fi: Al-Gizan kuvernoraatti
+    fr: Gouvernorat de Gizeh
+    gu: ગિઝા ગવર્નોરેટ
+    he: אל-גיזה
+    hi: गीज़ा मुहाफ़ज़ाह
+    id: Kegubernuran Al Jizah
+    it: Governatorato di Giza
+    ja: ギーザ県
+    ka: გიზის მუჰაფაზა
+    kn: ಗೀಜಾ ಗವರ್ನೇಟ್
+    ko: 기자 주
+    lt: Gizos muchafaza
+    mr: गिझा गव्हर्नोरेट
+    ms: Giza Governorate
+    nb: Guvernementet Al Jizah
+    nl: Gizeh
+    pl: Giza
+    pt: Guizé
+    ro: Al Jizah
+    ru: Эль-Гиза
+    si: ගීසා පළාත
+    sr: Гиза
+    sv: Guvernementet Giza
+    sw: Mkoa wa Giza
+    ta: கிசா கோவெர்னோரே
+    te: గీజా గవర్నరేట్
+    th: อัลจิซาห์
+    tr: Gize
+    uk: Гіза
+    ur: محافظہ جیزہ
+    vi: Giza
+    lv: Gīzas muhāfaza
+    sr_Latn: Giza
+    zh: 吉薩省
+    ccp: "𑄎𑄨𑄎"
+    hy: Ալ-Գիզա
+    bs: Giza
+    'no': Guvernementet Al Jizah
+    az: əl-Cizə mühafəzəsi
+  type: governorate
+IS:
+  name: Al Ismā`īlīyah
+  code: IS
+  unofficial_names:
+  - El Ismailia
+  - Ismaʿiliya
+  - al-Ismailiyah
+  - al-Ismāīlīyah
+  geo:
+    latitude: 30.5830934
+    longitude: 32.2653887
+    min_latitude: 30.2436079
+    min_longitude: 31.6954456
+    max_latitude: 31.0059587
+    max_longitude: 32.7520118
+  translations:
+    en: Ismailia
+    ar: الإسماعيلية
+    bg: Исмаилия
+    bn: ইস্মাইলিয়া গভর্নোরেট
+    ca: Governació d’Ismailiyah
+    cs: Ismá’ílíja
+    da: Al Isma’iliyah
+    el: Κυβερνείο Ισμαηλίας
+    es: Ismailia
+    fa: استان اسماعیلیه
+    fi: Al-Isma’iliyyan kuvernoraatti
+    fr: Gouvernorat d’Ismaïlia
+    gu: ઇસ્માઇલિયા ગવર્નોરેટ
+    hi: इस्माईलिया मुहाफ़ज़ाह
+    hy: Իսմայիլիա
+    id: Kegubernuran Al Isma’iliyah
+    it: Governatorato di Ismailia
+    ja: イスマイリア県
+    ka: ისმაილიის მუჰაფაზა
+    kn: ಇಸ್ಮೇಲಿಯಾ ಗವರ್ನೇಟ್
+    ko: 이스마일리아 주
+    lt: Ismailijos muchafaza
+    mr: इस्माईलिया गव्हर्नोरेट
+    ms: Ismailia Governorate
+    nb: Guvernementet Al Isma’iliyah
+    nl: Ismaïlia
+    pl: Ismailia
+    pt: Ismaília
+    ro: Al Isma’iliyah
+    ru: Исмаилия
+    si: ඉස්මයිලියා පළාත
+    sk: Al-Ismá’ílíja
+    sr: Исмаилија
+    sv: Guvernementet Ismailia
+    sw: Mkoa wa Ismailia
+    ta: இஸ்மாயிலிஆ கோவெர்னோராட்
+    te: ఇస్మాయిలియా గవర్నరేట్
+    th: อิสมาเลีย กอฟเวอโนเรท
+    tr: İsmailiye
+    uk: Ісмаїлія
+    ur: محافظہ اسماعیلیہ
+    vi: Tỉnh Ismailia
+    lv: Ismaīlījas muhāfaza
+    ceb: Ismailia Governorate
+    sr_Latn: Ismailija
+    zh: 伊斯梅利亚省
+    ccp: "𑄃𑄨𑄌𑄴𑄟𑄭𑄣𑄨𑄠"
+    he: מחוז אל-אסמאעיליה
+    bs: Ismailija
+    'no': Guvernementet Al Isma’iliyah
+    az: əl-İsmailiyyə mühafəzəsi
+    mk: Исмаилија (област)
+  type: governorate
+JS:
+  name: Janub Sina'
+  code: JS
+  unofficial_names:
+  - Sina al-Janūbīyah
+  - Sinai al-Janubiyah
+  - South Sinai
+  geo:
+    latitude: 29.3101828
+    longitude: 34.1531947
+    min_latitude: 27.7240277
+    min_longitude: 32.6094505
+    max_latitude: 29.9494465
+    max_longitude: 34.9076691
+  translations:
+    en: South Sinai
+    ar: جنوب سيناء
+    bg: Южен Синай
+    bn: দক্ষিন সিনাই গভর্নোরেট
+    ca: Governació del Sinaí del Sud
+    cs: Jižní Sinaj
+    da: Janub Sina’
+    de: Dschanub Sina
+    el: Κυβερνείο Νοτίου Σινά
+    es: Sinaí del Sur
+    et: Lõuna-Siinai kubernerkond
+    fa: استان سینای جنوبی
+    fi: Janub Sina’
+    fr: Gouvernorat du Sinaï Sud
+    gu: સાઉથ સિનાઇ ગવર્નોરેટ
+    he: דרום סיני
+    hi: दक्षिण सीनाई मुहाफ़ज़ाह
+    hr: Južni Sinaj
+    hy: Հարավային Սինայ
+    id: Janub Sina’
+    it: Governatorato del Sinai del Sud
+    ja: 南シナイ県
+    ka: სამხრეთ სინაის მუჰაფაზა
+    kn: ಸೌತ್ ಸಿನೈ ಗವರ್ನೇಟ್
+    ko: 자누브시나 주
+    lt: Pietų Sinajaus muchafaza
+    mr: दक्षिण सिनाई गव्हर्नोरेट
+    ms: Sinai Selatan
+    nb: Guvernementet Janub Sina’
+    nl: Zuid-Sinaï
+    pl: Synaj Południowy
+    pt: Sinai do Sul
+    ro: Janub Sina’
+    ru: Южный Синай
+    si: දකුණු සිනයි පළාත
+    sr: Јужни Синај
+    sv: Guvernementet Sina al-Janubiyya
+    sw: Mkoa wa Sinai Kusini
+    ta: தெற்கு சினாய் கோவெர்னோரே
+    te: దక్షిణ సినాయి గవర్నరేట్
+    th: เมืองดาโชกุซ
+    tr: Güney Sina
+    uk: Південний Синай
+    ur: محافظہ جنوبی سینا
+    vi: Tỉnh Nam Sinai
+    lv: Dienvidsīnāja muhāfaza
+    ceb: South Sinai Governorate
+    sr_Latn: Južni Sinaj
+    zh: 南西奈省
+    ccp: "𑄘𑄧𑄊𑄨𑄚𑄴 𑄥𑄨𑄚𑄭"
+    bs: Južni Sinaj
+    mk: Јужен Синај
+    'no': Guvernementet Janub Sina’
+    az: Cənubi Sina mühafəzəsi
+  type: governorate
+KB:
+  name: Al Qalyubiyah
+  code: KB
+  unofficial_names:
+  - El Qalubiya
+  - al-Qalyubiyah
+  geo:
+    latitude: 30.3292368
+    longitude: 31.2168466
+    min_latitude: 30.1040552
+    min_longitude: 31.0542669
+    max_latitude: 30.6076595
+    max_longitude: 31.4157302
+  translations:
+    en: Qalyubia
+    ar: محافظة القليوبية
+    bg: Калюбия
+    bn: কালুবিয়া গভর্নোরেট
+    ca: Governació de Qalyubia
+    cs: Kaljúbíja
+    da: Al Qalyubiyah
+    de: al-Qalyubiyya
+    el: Κυβερνείο Καλγιούμπια
+    es: Caliubia
+    eu: Qaliubiya
+    fa: استان قلیوبیه
+    fi: Al-Qalyubiyya
+    fr: Gouvernorat de Qalyubiya
+    gu: ક્વાલિબિયા ગવર્નોરેટ
+    hi: क़ल्यूबीया मुहाफ़ज़ाह
+    id: Kegubernuran Al Qalyubiyah
+    it: Governatorato di al-Qalyūbiyya
+    ja: カリュービーヤ県
+    ka: კალიუბიის მუჰაფაზა
+    kn: ಕ್ಲ್ಯಾಲಿಯಾಬಿ ಗವರ್ನೇಟ್
+    ko: 칼리우비야 주
+    lt: Kaljubijos muchafaza
+    mr: कल्याबिया गव्हर्नोरेट
+    ms: Qalyubia Governorate
+    nb: Al Qalyubiyah
+    nl: Al Qalyubiyah
+    pl: Al-Kaljubijja
+    pt: Qaliubia
+    ro: Al Qalyubiyah
+    ru: Кальюбия
+    si: කලියුබියා පළාත
+    sr: Каљубија
+    sv: Al-Qalyubiyya
+    ta: கிப்லயுபீஆ கோவெர்னோராட்
+    te: ఖాల్యుబియా గవర్నరేట్
+    th: อัลกอลยุบียะห์
+    tr: Kalyubiye
+    uk: Кальюбія
+    ur: محافظہ قلیوبیہ
+    vi: Tỉnh Qalyubia
+    lv: Kaljūbījas muhāfaza
+    sr_Latn: Kaljubija
+    zh: 蓋盧比尤省
+    ccp: "𑄇𑄧𑄠𑄣𑄭𑄠𑄪𑄝𑄨𑄠"
+    he: מחוז אל-קליוביה
+    bs: Qalyubia
+    'no': Al Qalyubiyah
+    az: əl-Qəlyubiyyə mühafəzəsi
+    hy: Քալյուբիա
+  type: governorate
+KFS:
+  name: Kafr ash Shaykh
+  code: KFS
+  unofficial_names:
+  - Kafr-ash-Shaykh
+  - Kafr-aš-Šayẖ
+  geo:
+    latitude: 31.3085444
+    longitude: 30.8039474
+    min_latitude: 30.9942465
+    min_longitude: 30.3653976
+    max_latitude: 31.6016217
+    max_longitude: 31.3122298
+  translations:
+    en: Kafr el-Sheikh
+    ar: محافظة كفر الشيخ
+    bg: Кафър ел-Шейх
+    bn: কাফ্র এল-শেইখ গভর্নোরেট
+    ca: Governació de Kafr al-Sheikh
+    cs: Kafr aš-Šajch
+    da: Kafr ash Shaykh
+    de: Kafr asch-Schaich
+    el: Κυβερνείο Καφρ ελ Σεΐχ
+    es: Kafr el Sheij
+    fa: استان کفرالشیخ
+    fi: Kafr al-Šaykh
+    fr: Gouvernorat de Kafr el-Cheik
+    gu: કાફર અલ-શેખ ગવર્નોરેટ
+    hi: कफ़्र अल-शेख़ मुहाफ़ज़ाह
+    id: Kegubernuran Kafr asy Syaykh
+    it: Governatorato di Kafr el-Sheikh
+    ja: カフル・アッシャイフ県
+    ka: ქაფრ-ელ-შაიხის მუჰაფაზა
+    kn: ಕಾಫ್ರ್ ಎಲ್-ಶೇಖ್ ಗವರ್ನೇಟ್
+    ko: 카프르엘셰이크 주
+    lt: Kafr eš Šeicho muchafaza
+    mr: कफर एल-शेख गव्हर्नोरेट
+    ms: Kafr el-Sheikh Governorate
+    nb: Kafr ash Shaykh
+    nl: Kafr el Sheikh
+    pl: Kafr asz-Szajch
+    pt: Kafr el-Sheikh
+    ro: Guvernoratul Kafr el-Sheikh
+    ru: Кафр-эш-Шейх
+    si: කෆ්ර් එල්-ෂෙයික් පළාත
+    sk: Kafr aš-Šajch
+    sr: Кафр еш Шејх
+    sv: Kafr el-Sheikh
+    ta: காபிர் எல் -ஷேக் கோவெர்னோரேட்
+    te: కాఫర్ ఎల్-షేక్ గవర్నరేట్
+    th: คาฟร์เอลเชก
+    tr: Kafrü’ş-Şeyh
+    uk: Кафр-еш-Шейх
+    ur: محافظہ کفر الشیخ
+    vi: Tỉnh Kafr el-Sheikh
+    lv: Kefr eš Šeihas muhāfaza
+    ceb: Kafr ash Shaykh
+    sr_Latn: Kafr eš Šejh
+    zh: 謝赫村省
+    ccp: "𑄇𑄛𑄴𑄢 𑄃𑄬𑄣𑄴-𑄥𑄬𑄇𑄴"
+    he: מחוז כפר א שיח׳
+    bs: Kafr el-Sheikh
+    'no': Kafr ash Shaykh
+    az: Kəfr əş-Şeyx mühafəzəsi
+  type: governorate
+KN:
+  name: Qina
+  code: KN
+  unofficial_names:
+  - Qina
+  - Qinā
+  geo:
+    latitude: 26.155061
+    longitude: 32.7160121
+    min_latitude: 26.1320478
+    min_longitude: 32.6828284
+    max_latitude: 26.2104418
+    max_longitude: 32.7601361
+  translations:
+    en: Qena
+    ar: محافظة قنا
+    be: Кена
+    bg: Кена
+    bn: কেনা গভর্নোরেট
+    ca: Governació de Qena
+    cs: Kená
+    da: Qina
+    de: Qina
+    el: Κυβερνείο Κένα
+    es: Quena
+    et: Qinā kubernerkond
+    fa: استان قنا
+    fi: Qinan kuvernoraatti
+    fr: gouvernorat de Qena
+    gu: ક્વેના ગવર્નોરેટ
+    hi: क़ेना मुहाफ़ज़ाह
+    id: Kegubernuran Qina
+    it: Governatorato di Qena
+    ja: ケナ県
+    ka: კენის მუჰაფაზა
+    kn: ಕ್ಯೂನಾ ಗವರ್ನೇಟ್
+    ko: 케나 주
+    lt: Kenos muchafaza
+    mr: कायदे गव्हर्नोरेट
+    ms: Qena Governorate
+    nb: Guvernementet Qina
+    nl: Qina
+    pl: Kina
+    pt: Qina
+    ro: Guvernoratul Qena
+    ru: Кена
+    si: කෙනා පළාත
+    sr: Кена
+    sv: Guvernementet Qena
+    sw: Mkoa wa Qena
+    ta: கியேனா கோவெர்னோரே
+    te: ఖేనా గవర్నరేట్
+    th: กินะ
+    tr: Kina
+    uk: Кена
+    ur: محافظہ قنا
+    vi: Tỉnh Qena
+    lv: Kinas muhāfaza
+    sr_Latn: Kena
+    zh: 基納省
+    ccp: "𑄇𑄪𑄠𑄬𑄚"
+    he: מחוז קינא
+    bs: Qena
+    'no': Guvernementet Qina
+    az: Qina mühafəzəsi
+  type: governorate
+LX:
+  name: al-Uqsur
+  code: LX
+  unofficial_names:
+  - al-Uqsur
+  - al-Uqşur
+  - Luxor
+  - Louxor
+  geo:
+    latitude: 25.6872431
+    longitude: 32.6396357
+    min_latitude: 25.6540777
+    min_longitude: 32.6225071
+    max_latitude: 25.7358046
+    max_longitude: 32.6964268
+  translations:
+    en: Luxor
+    ar: محافظة الأقصر
+    be: Луксор
+    bg: Луксор
+    ca: Governació de Luxor
+    cs: Luxor
+    da: Luxor
+    de: al-Uqsur
+    el: Κυβερνείο Λούξορ
+    es: Lúxor
+    et: Luxori kubernerkond
+    fa: استان اقصر
+    fi: Luxorin kuvernoraatti
+    fr: Gouvernorat de Louxor
+    hi: लक्सर मुहाफ़ज़ाह
+    it: Governatorato di Luxor
+    ja: ルクソール県
+    ka: ლუქსორის მუჰაფაზა
+    ko: 룩소르 주
+    lt: Luksoro muchafaza
+    nb: Guvernementet Luxor
+    nl: Luxor
+    pl: Luksor
+    pt: Luxor
+    ro: Guvernoratul Luxor
+    ru: Луксор
+    sr: Луксор
+    sv: Guvernementet Luxor
+    sw: Mkoa wa Luxor
+    tr: Luksor
+    uk: Луксор
+    ur: محافظہ الاقصر
+    sr_Latn: Luksor
+    zh: 盧克索省
+    ccp: "𑄣𑄇𑄴𑄎𑄮𑄢𑄴"
+    hy: Լուքսոր
+    he: מחוז לוקסור
+    bs: Luxor
+    'no': Guvernementet Luxor
+    az: əl-Üqsür mühafəzəsi
+    id: Kegubernuran Luxor
+    mk: Луксор (област)
+    th: เขตผู้ว่าการลักซอร์
+  type: governorate
+MN:
+  name: Al Minya
+  code: MN
+  unofficial_names:
+  - El Minya
+  - Minia
+  - al-Minya
+  - al-Minyā
+  geo:
+    latitude: 28.0870967
+    longitude: 30.7618397
+    min_latitude: 28.058606
+    min_longitude: 30.7170696
+    max_latitude: 28.1318404
+    max_longitude: 30.7843728
+  translations:
+    en: Minya
+    ar: المنيا
+    be: Эль-Мінья
+    bg: Миня
+    bn: মিন্যা গভর্নোরেট
+    ca: Governació d’Al-Minya
+    cs: Minjá
+    da: Al Minya
+    de: al-Minya
+    el: Κυβερνείο Μίνια
+    es: Menia
+    fa: استان منیا
+    fi: Al-Minyan kuvernoraatti
+    fr: Gouvernorat de Minya
+    gu: મિન્યા ગવર્નોરેટ
+    he: מיניה
+    hi: मिन्या मुहाफ़ज़ाह
+    hy: Էլ Մինյա
+    id: Al Minya
+    it: Governatorato di Minya
+    ja: ミニヤー県
+    ka: ელ-მინიის მუჰაფაზა
+    kn: ಮಿನ್ಯ ಗವರ್ನೇಟ್
+    ko: 미니아 주
+    lt: Minjos muchafaza
+    mr: मिनिया गव्हर्नोरेट
+    ms: Al Minya
+    nb: Guvernementet Al Minya
+    nl: Minya
+    pl: Al-Minja (muhafaza)
+    pt: Minya
+    ro: Al Minya
+    ru: Эль-Минья
+    si: මින්යා පළාත
+    sr: Миња
+    sv: Guvernementet Al-Minya
+    sw: Mkoa wa Minya
+    ta: மின்னியா கோவெர்னோரே
+    te: మిన్యా గవర్నరేట్
+    th: อัลมิเนีย
+    tr: Minye
+    uk: Мінья (губернаторство)
+    ur: محافظہ منیا
+    vi: Tỉnh Minya
+    lv: Minjas muhāfaza
+    sr_Latn: Minja
+    zh: 明亞省
+    ccp: "𑄟𑄨𑄚𑄨𑄠"
+    ky: Минья
+    bs: Minya
+    'no': Guvernementet Al Minya
+    az: əl-Minya mühafəzəsi
+  type: governorate
+MNF:
+  name: Al Minufiyah
+  code: MNF
+  unofficial_names:
+  - El Minufiya
+  - Menufiya
+  - al-Minufiyah
+  - al-Minūfīyah
+  geo:
+    latitude: 30.5972455
+    longitude: 30.9876321
+    min_latitude: 30.1829009
+    min_longitude: 30.4745556
+    max_latitude: 30.7480879
+    max_longitude: 31.2559327
+  translations:
+    en: Monufia
+    ar: محافظة المنوفية
+    bg: Минуфия
+    bn: মনুফিয়া গভর্নোরেট
+    ca: Governació de Menufeya
+    cs: Minúfija
+    da: Al Minufiyah
+    de: al-Minufiyya
+    el: Κυβερνείο Μενούφια
+    es: Menufia
+    fa: استان منوفیه
+    fi: Al-Minufiyya
+    fr: Gouvernorat de Menufeya
+    gu: મોનુફિયા ગવર્નોરેટ
+    he: אל-מִנופיה
+    hi: मोनूफ़िया मुहाफ़ज़ाह
+    id: Kegubernuran Al Minufiyah
+    it: Governatorato di al-Manufiyya
+    ja: ミヌーフィーヤ県
+    ka: მონუფიის მუჰაფაზა
+    kn: ಮೊನುಫಿಯ ಗವರ್ನೇಟ್
+    ko: 무누피아 주
+    lt: Minufijos muchafaza
+    mr: मोनूफिया गव्हर्नोरेट
+    ms: Monufia Governorate
+    nb: Guvernementet Al Minufiyah
+    nl: Al Minufiyah
+    pl: Al-Minufijja
+    pt: Monufia
+    ro: Al Minufiyah
+    ru: Минуфия
+    si: මොනුෆියා පළාත
+    sr: Минуфија
+    sv: Guvernementet Al-Minufiyya
+    sw: Mkoa wa Monufia
+    ta: மொநுபியா கோவெர்னோரே
+    te: మోనూఫియా గవర్నరేట్
+    th: โมนูเฟีย โกเวอโนเรท
+    tr: Minufiye
+    uk: Мінуфія
+    ur: محافظہ منوفیہ
+    vi: Tỉnh Monufia
+    lv: Minūfījas muhāfaza
+    sr_Latn: Minufija
+    zh: 米努夫省
+    ccp: "𑄟𑄧𑄚𑄪𑄜𑄨𑄠"
+    hy: Մինուֆիա
+    be: Мінуфія
+    bs: Monufia
+    'no': Guvernementet Al Minufiyah
+    az: əl-Minufiyyə mühafəzəsi
+  type: governorate
+MT:
+  name: Matrūh
+  code: MT
+  unofficial_names:
+  - Matrah
+  - Matrūh
+  geo:
+    latitude: 31.3543445
+    longitude: 27.2373159
+    min_latitude: 31.2970958
+    min_longitude: 27.156232
+    max_latitude: 31.3761768
+    max_longitude: 27.3544331
+  translations:
+    en: Matrouh
+    ar: محافظة مطروح
+    bg: Матрух
+    bn: মাত্রুহ গভর্নোরেট
+    ca: Governació de Matruh
+    cs: Matrúh
+    da: Matruh
+    de: Matruh
+    el: Κυβερνείο Ματρούχ
+    es: Matrú
+    fa: استان مطروح
+    fi: Matruhin kuvernoraatti
+    fr: Gouvernorat de Marsa-Matruh
+    gu: મટ્રોહ ગવર્નોરેટ
+    hi: मत्रूह मुहाफ़ज़ाह
+    hu: Matrúh
+    id: Kegubernuran Matruh
+    it: Governatorato di Matruh
+    ja: マトルーフ県
+    ka: მატრუჰის მუჰაფაზა
+    kn: ಮಾಥೌರ್ ಗವರ್ನೇಟ್
+    ko: 마트루 주
+    lt: Matruho muchafaza
+    mr: मॅटरफ गव्हर्नोरेट
+    ms: Matrouh Governorate
+    nb: Guvernementet Matruh
+    nl: Matruh
+    pl: Matruh
+    pt: Matruh
+    ro: Matruh
+    ru: Матрух
+    si: මට්‍රෝ පළාත
+    sr: Матрух
+    sv: Guvernementet Matruh
+    sw: Mkoa wa Matruh
+    ta: மற்றொருஹ் கோவெர்னோரே
+    te: మాట్రో గవర్నరేట్
+    th: เขตมัฏรูห์
+    tr: Matruh
+    uk: Матрух
+    ur: محافظہ مطروح
+    vi: Tỉnh Matrouh
+    lv: Matrūhas muhāfaza
+    sr_Latn: Matruh
+    zh: 馬特魯省
+    ccp: "𑄟𑄖𑄳𑄢𑄮𑄦𑄴"
+    he: מחוז מטרוח
+    ml: മത്രോഹ് ഗവർണ്ണറേറ്റ്
+    bs: Matrouh
+    mk: Матрух
+    'no': Guvernementet Matruh
+    az: Mətruh mühafəzəsi
+  type: governorate
+PTS:
+  name: Būr Sa`īd
+  code: PTS
+  unofficial_names:
+  - Bur Said
+  - Būr Saʿīd
+  geo:
+    latitude: 31.2652893
+    longitude: 32.3018661
+    min_latitude: 31.1988856
+    min_longitude: 32.2490287
+    max_latitude: 31.2784705
+    max_longitude: 32.3213102
+  translations:
+    en: Port Said
+    ar: بورسعيد
+    be: Мухафаза Порт-Саід
+    bg: Порт Саид
+    bn: পোর্ট সঈদ গভর্নোরেট
+    ca: Governació de Port Saïd
+    cs: Port Said
+    da: Bur Sa’id
+    el: Κυβερνείο Πορτ Σάιντ
+    es: Puerto Saíd
+    fa: استان پورت‌سعید
+    fi: Bur Sa’idin kuvernoraatti
+    fr: Gouvernorat de Port-Saïd
+    gu: પોર્ટ સેડ ગવર્નોરેટ
+    hi: पोर्ट सईद मुहाफ़ज़ाह
+    id: Kegubernuran Bur Sa’id
+    it: Governatorato di Porto Said
+    ja: ポートサイド県
+    ka: პორტ-საიდის მუჰაფაზა
+    kn: ಪೋರ್ಟ್ ಗವರ್ನೇಟ್ ಸೇಡ್
+    ko: 포트사이드 주
+    lt: Port Saido muchafaza
+    mr: पोर्ट सेड गव्हर्नोरेट
+    ms: Port Said Governorate
+    nb: Bur Sa’id
+    nl: Port Said
+    pl: Port Said
+    pt: Governamento de Porto Said
+    ro: Bur Sa’id
+    ru: Порт-Саид
+    si: පොර්ට් සෙඩ් පළාත
+    sr: Порт Саид
+    sv: Port Said
+    sw: Mkoa wa Port Said
+    ta: போர்ட் சேட் கோவெர்னோரே
+    te: పోర్ట్ సెయిద్ గవర్నరేట్
+    th: เมืองพอร์ตซาอิด
+    tr: Port Said
+    uk: Порт-Саїд
+    ur: محافظہ پورٹ سعید
+    vi: Tỉnh Port Said
+    lv: Portsaīdas muhāfaza
+    sr_Latn: Port Said
+    zh: 塞得港省
+    ccp: "𑄛𑄧𑄢𑄳𑄑𑄴 𑄥𑄬𑄃𑄨𑄖𑄴"
+    he: מחוז פורט סעיד
+    bs: Port Said
+    'no': Bur Sa’id
+    az: Port-Səid mühafəzəsi
+    uz: Port Said Gubernatorligi
+  type: governorate
+SHG:
+  name: Suhaj
+  code: SHG
+  unofficial_names:
+  - Sawhaj
+  - Suhag
+  - Suhaj
+  - Sūhaj
+  - Sawhāj
+  geo:
+    latitude: 26.501348
+    longitude: 31.76513619999999
+    min_latitude: 26.1518194
+    min_longitude: 31.3415418
+    max_latitude: 26.9343956
+    max_longitude: 32.1707085
+  translations:
+    en: Sohag
+    ar: محافظة سوهاج
+    bg: Сухадж
+    bn: সোহাগ গভর্নোরেট
+    ca: Governació de Sohag
+    cs: Suhag
+    da: Sohag Governorate
+    de: Sauhadsch
+    el: Κυβερνείο Σοχάγκ
+    es: Suhag
+    fa: استان سوهاج
+    fi: Suhaj
+    fr: Gouvernorat de Sohag
+    gu: સોહગ ગવર્નોરેટ
+    hi: सोहाग मुहाफ़ज़ाह
+    hu: Szohág kormányzóság
+    id: Kegubernuran Suhaj
+    it: Governatorato di Sohag
+    ja: ソハーグ県
+    ka: სუჰაგის მუჰაფაზა
+    kn: ಸೊಹಾಗ್ ಗವರ್ನೇಟ್
+    ko: 소하그 주
+    lt: Sohago muchafaza
+    mr: सोहाग गव्हर्नोरेट
+    ms: Sohag Governorate
+    nb: Suhaj
+    nl: Suhaj
+    pl: Sauhadż
+    pt: Sohag
+    ro: Guvernoratul Sohag
+    ru: Сохаг
+    si: සොහාග් පළාත
+    sk: Sawhádž
+    sr: Сохаг
+    sv: Guvernementet Sohag
+    sw: Mkoa wa Sohag
+    ta: சோகக் கோவெர்னோரேட்
+    te: సోహాగ్ గవర్నరేట్
+    th: ซุฮัจ
+    tr: Sevhac
+    uk: Согаґ
+    ur: محافظہ سوہاج
+    vi: Tỉnh Sohag
+    lv: Sauhāgas muhāfaza
+    sr_Latn: Sohag
+    zh: 索哈傑省
+    ccp: "𑄥𑄮𑄦𑄇𑄴"
+    he: מחוז סוהאג
+    bs: Sohag
+    'no': Suhaj
+    az: Sövhac mühafəzəsi
+  type: governorate
+SHR:
+  name: Ash Sharqiyah
+  code: SHR
+  unofficial_names:
+  - ash-Sharqiyah
+  - aš-Šarqīyah
+  geo:
+    latitude: 30.7326622
+    longitude: 31.7195459
+    min_latitude: 30.2886886
+    min_longitude: 31.2607672
+    max_latitude: 31.168795
+    max_longitude: 32.1782565
+  translations:
+    en: Al Sharqia
+    ar: الشرقية
+    bg: Шаркия
+    bn: আল শারকিয়া গভর্নোরেট
+    ca: Governació de Sharqia
+    cs: Šarkíja
+    da: Ash Sharqiyah
+    de: asch-Scharqiyya
+    el: Ας Σαρκίγια
+    es: Oriental
+    fa: استان شرقیه
+    fi: Al-Šarqiyya
+    fr: Ach-Charqiya
+    gu: અલ શારકિયા ગવર્નોરેટ
+    he: א-שרקיה
+    hi: अल-शरक़िया मुहाफ़ज़ाह
+    id: Kegubernuran Asy Syarqiyah
+    it: Governatorato di Sharqiyya
+    ja: シャルキーヤ県
+    ka: შარკიის მუჰაფაზა
+    kn: ಅಲ್ ಶಾರ್ಖಿಯ ಗವರ್ನೇಟ್
+    ko: 샤르키야 주
+    lt: Šarkijos muchafaza
+    mr: अल शर्किया गव्हर्नोरेट
+    ms: Al Sharqia Governorate
+    nb: Ash Sharqiyah
+    nl: Ash Sharqiyah
+    pl: Prowincja Wschodnia
+    pt: Xarqia
+    ro: Ash Sharqiyah
+    ru: Шаркия
+    si: අල් ශකියා පළාත
+    sr: Шаркија
+    sv: Ash-Sharqiyya
+    sw: Mkoa wa Sharqia
+    ta: அல் ஷார்க்கியா கோவெர்னோரேட்
+    te: అల్ షర్ఖియా గవర్నరేట్
+    th: เบโรโว
+    tr: Şarkiye
+    uk: Шаркія
+    ur: محافظہ الشرقیہ
+    vi: Tỉnh Al Sharqia
+    lv: Šerkījas muhāfaza
+    sr_Latn: Šarkija
+    zh: 東部省
+    ccp: "𑄃𑄣𑄴 𑄥𑄢𑄴𑄇𑄭𑄪𑄠"
+    hy: Շարկիա
+    bs: Sharqia
+    'no': Ash Sharqiyah
+    az: əş-Şərqiyyə mühafəzəsi
+  type: governorate
+SIN:
+  name: Shamal Sina'
+  code: SIN
+  unofficial_names:
+  - Shamal Sina
+  - Sina aš-Šamālīyah
+  - Sinai ash-Shamaliyah
+  - Šamāl Sīna
+  geo:
+    latitude: 30.6084723
+    longitude: 33.617577
+    min_latitude: 29.5932723
+    min_longitude: 32.554564
+    max_latitude: 31.3314092
+    max_longitude: 34.8774622
+  translations:
+    en: North Sinai
+    ar: شمال سيناء
+    bg: Северен Синай
+    bn: নর্থ সিনাই গভর্নোরেট
+    ca: Governació del Sinaí del Nord
+    cs: Severní Sinaj
+    da: Shamal Sina’
+    de: Schimal Sina
+    el: Κυβερνείο Βορείου Σινά
+    es: Sinaí del Norte
+    et: Põhja-Siinai kubernerkond
+    fa: استان سینای شمالی
+    fi: Šamal Sina’
+    fr: Gouvernorat du Sinaï Nord
+    gu: નોર્થ સિનાઇ ગવર્નોરેટ
+    he: צפון סיני
+    hi: उत्तर सीनाई मुहाफ़ज़ाह
+    hy: Հյուսիսային Սինայ
+    id: Kegubernuran Syamal Sina’
+    it: Governatorato del Sinai del Nord
+    ja: 北シナイ県
+    ka: ჩრდილოეთ სინაის მუჰაფაზა
+    kn: ಉತ್ತರ ಸಿನೈ ಗವರ್ನೇಟ್
+    ko: 샤말시나 주
+    lt: Šiaurės Sinajaus muchafaza
+    mr: नॉर्थ सिनाई गव्हर्नोरेट
+    ms: North Sinai Governorate
+    nb: Guvernementet Shamal Sina’
+    nl: Noord-Sinaï
+    pl: Synaj Północny
+    pt: Sinai do Norte
+    ro: Shamal Sina’
+    ru: Северный Синай
+    si: උතුරු සිනයි පළාත
+    sr: Северни Синај
+    sv: Guvernementet Sina ash-Shamaliyya
+    sw: Mkoa wa Sinai Kaskazini
+    ta: வடக்கு சினாய் கோவெர்னோரே
+    te: నార్త్ సినాయి గవర్నరేట్
+    th: ชามาลซินา
+    tr: Kuzey Sina
+    uk: Північний Синай
+    ur: محافظہ شمالی سینا
+    vi: Tỉnh Bắc Sinai
+    lv: Ziemeļu Sinajas muhāfaza
+    sr_Latn: Severni Sinaj
+    zh: 北西奈省
+    ccp: "𑄃𑄪𑄖𑄳𑄦𑄧𑄢𑄴 𑄥𑄨𑄚𑄭"
+    bs: Sjeverni Sinaj
+    mk: Северен Синај
+    'no': Guvernementet Shamal Sina’
+    az: Şimali Sina mühafəzəsi
+  type: governorate
+SUZ:
+  name: As Suways
+  code: SUZ
+  unofficial_names:
+  - El Suweiz
+  - as-Suways
+  geo:
+    latitude: 29.9668343
+    longitude: 32.5498069
+    min_latitude: 29.9329452
+    min_longitude: 32.4374941
+    max_latitude: 30.0211813
+    max_longitude: 32.5854957
+  translations:
+    en: Suez
+    ar: السويس
+    bg: Суец
+    bn: সুয়েজ গভর্নোরেট
+    ca: Governació de Suez
+    cs: Suez
+    da: Suez Governorate
+    de: as-Suwais
+    el: Κυβερνείο Σουέζ
+    es: Gobernación de Suez
+    fa: استان سوئز
+    fi: Al-Suwaisin kuvernoraatti
+    fr: Gouvernorat de Suez
+    gu: સુએઝ ગવર્નોરેટ
+    he: סואץ
+    hi: सुएज़ मुहाफ़ज़ाह
+    id: Kegubernuran As Suways
+    it: Governatorato di Suez
+    ja: スエズ県
+    ka: სუეცის მუჰაფაზა
+    kn: ಸುಯೆಜ್ ಗವರ್ನೇಟ್
+    ko: 수에즈 주
+    lt: Sueco muchafaza
+    mr: सुएझ गव्हर्नोरेट
+    ms: Pentadbiran Suez
+    nb: As Suways
+    nl: Suez
+    pl: Suez
+    pt: Suez
+    ro: As Suways
+    ru: Суэц
+    si: සුඑස් පළාත
+    sr: Суец
+    sv: Suez
+    sw: Mkoa wa Suez
+    te: సూయెజ్ గవర్నరేట్
+    th: เขตการปกครองซัลซ์
+    tr: Süveyş
+    uk: Суец
+    ur: محافظہ سوئیز
+    vi: Tỉnh Suez
+    lv: Suecas muhāfaza
+    ceb: As Suways
+    sr_Latn: Suec
+    zh: 蘇伊士省
+    ccp: "𑄥𑄪𑄠𑄬𑄌𑄴"
+    hy: Սուեզ
+    bs: Suez
+    'no': As Suways
+    az: Süveyş mühafəzəsi
+    cy: Llywodraethiaeth Suez
+    mk: Суец (област)
+  type: governorate
+WAD:
+  name: Al Wadi al Jadid
+  code: WAD
+  unofficial_names:
+  - El Wadi el Jadid
+  - El Wadi el Jedid
+  geo:
+    latitude: 24.5455638
+    longitude: 27.1735316
+    min_latitude: 21.9915523
+    min_longitude: 25.0003101
+    max_latitude: 27.6966292
+    max_longitude: 32.9224299
+  translations:
+    en: New Valley
+    ar: محافظة الوادي الجديد
+    bg: Уади ал Джадид
+    bn: নিউ ভ্যালি গভর্নোরেট
+    ca: Governació de Wadi al Jadid
+    cs: Al-Vádí al-Gadíd
+    da: New Valley Governorate
+    de: al-Wadi al-dschadid
+    el: Νιου Βάλεϊ
+    es: Nuevo Valle
+    et: Al-Wādī al-Jadīdi kubernerkond
+    fa: استان وادی‌الجدید
+    fi: Al-Wadi al-Gadid
+    fr: Gouvernorat de la Nouvelle-Vallée
+    gu: ન્યૂ વેલી ગવર્નોરેટ
+    hi: वादी अल-जदीद मुहाफ़ज़ाह
+    id: Al Wadi al Jadid
+    it: Governatorato di Wadi al-Jadid
+    ja: ニューバレー県
+    ka: ახალი ველის მუჰაფაზა
+    kn: ನ್ಯೂ ವ್ಯಾಲಿ ಗವರ್ನೇಟ್
+    ko: 알와디알자디드 주
+    lt: Naujojo Slėnio muchafaza
+    mr: अल वाडी अल जदिद प्रदेश
+    ms: New Valley Governorate
+    nb: Guvernementet Al Wadi al Jadid
+    nl: Nieuwe Vallei
+    pl: Nowa Dolina
+    pt: Vale Novo
+    ro: Al Wadi al Jadid
+    ru: Новая Долина
+    si: නිව් වැලි පළාත
+    sk: Al-Wádí al-Džadíd
+    sr: Нова Долина
+    sv: Guvernementet Al-Wadi al-Jadid
+    sw: Mkoa wa Bonde la Mpya
+    ta: நியூ வாலே கோவெர்னோரேட்
+    te: న్యూ వ్యాలీ గవర్నరేట్
+    th: เขตอัลวะดีอัลจะดิด
+    tr: Yeni Vadi
+    uk: Нова Долина
+    ur: محافظہ وادی جدید
+    vi: Tỉnh New Valley
+    lv: Vādīelgedīdas muhāfaza
+    sr_Latn: Nova Dolina
+    zh: 新河谷省
+    ccp: "𑄚𑄱 𑄞𑄬𑄣𑄨"
+    he: מחוז אל-ואדי אל-ג׳דיד
+    hr: Al Wadi al Jadid
+    bs: Nova Dolina
+    'no': Guvernementet Al Wadi al Jadid
+    az: Yeni Vadi mühafəzəsi
+  type: governorate

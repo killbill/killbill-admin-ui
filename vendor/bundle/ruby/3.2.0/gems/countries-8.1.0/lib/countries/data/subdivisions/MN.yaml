@@ -1,0 +1,1552 @@
+---
+'035':
+  name: Orhon
+  code: '035'
+  unofficial_names:
+  - Orhon
+  geo:
+    latitude: 49.004705
+    longitude: 104.3016527
+    min_latitude: 48.9046019
+    min_longitude: 104.004139
+    max_latitude: 49.1322389
+    max_longitude: 104.577072
+  translations:
+    en: Orkhon
+    ar: محافظة أورخون
+    bg: Орхон
+    bn: ওরকন প্রদেশ
+    ca: Província d’Orkhon
+    cs: Orchonský ajmag
+    da: Orchon-Aimag
+    de: Orchon-Aimag
+    el: Ορκόν
+    es: Orhon
+    et: Orhoni aimakk
+    fa: استان آرخان
+    fi: Orhon
+    fr: Orkhon
+    gu: ઓરખોન પ્રાંત
+    he: אורחון
+    hi: ओरख़ोन प्रान्त
+    hu: Orhon (tartomány)
+    id: Provinsi Orkhon
+    it: provincia dell’Orhon
+    ja: オルホン県
+    ka: ორხონის აიმაკი
+    kn: ಆರ್ಖೋನ್ ಪ್ರಾಂತ್ಯ
+    ko: 오르홍 주
+    lt: Orchono aimakas
+    mn: Орхон
+    mr: ओरखोन प्रांत
+    ms: Wilayah Orkhon
+    nb: Orkhon
+    nl: Orhon
+    pl: Ajmak orchoński
+    pt: Orhon
+    ro: Orchon-Aimag
+    ru: Орхон
+    si: ඔර්ක්හොන් පළාත
+    sv: Orchon
+    ta: ஓர்க்ஹன் மாகாணம்
+    te: ఆర్ఖోన్ ప్రావిన్స్
+    th: จังหวัดออร์คอน
+    tr: Orhun
+    uk: Орхон
+    ur: ارخون صوبہ
+    vi: Orkhon
+    lv: Orhonas aimaks
+    ceb: Orhon Aymag
+    zh: 鄂尔浑省
+    ccp: "𑄃𑄧𑄢𑄴𑄈𑄮𑄚𑄴"
+    ga: Orkhon
+    az: Orxon vilayəti
+    mk: Орхон
+    'no': Orkhon
+    cy: Talaith Orkhon
+    yue: 鄂爾渾
+    yue_Hans: 鄂尔浑
+  type: province
+'037':
+  name: Darhan uul
+  code: '037'
+  unofficial_names:
+  - Darhan uul
+  geo:
+    latitude: 49.448929
+    longitude: 106.2325245
+    min_latitude: 49.084558
+    min_longitude: 105.8157009
+    max_latitude: 49.82596590000001
+    max_longitude: 106.806087
+  translations:
+    en: Darkhan-Uul
+    ar: مقاطعة درخان-وول
+    bg: Дархан Ул
+    bn: দারখান-উল প্রদেশ
+    ca: Província de Darkhan-Uul
+    cs: Darchanúlský ajmag
+    da: Darkhan-Uul
+    de: Darchan-Uul-Aimag
+    el: Νταρκχάν-Ουούλ
+    es: Darhan-Uul
+    et: Darhani aimakk
+    fa: استان دارخن-یول
+    fi: Darhan-Uul
+    fr: Darhan-Uul
+    gu: ડાર્ખન-ઉલ પ્રાંત
+    he: דרחאן-אול
+    hi: दरख़ान-ऊल प्रांत
+    hu: Darhan-Úl ajmag
+    id: Provinsi Darkhan-Uul
+    it: provincia di Darhan-Uul
+    ja: ダルハン・オール県
+    ka: დარხან-უული
+    kn: ಡರ್ಖನ್-ಉಲ್ ಪ್ರಾಂತ್ಯ
+    ko: 다르항올 주
+    lt: Darchan Ulo aimakas
+    mn: Дархан-Уул
+    mr: दारखान-उूल प्रांत
+    ms: Darkhan-Uul Province
+    nb: Darkhan-Uul
+    nl: Darhan-Uul
+    pl: Ajmak darchański
+    pt: Darhan-Uul
+    ro: Darchan-Uul-Aimag
+    ru: Дархан-Уул
+    si: ඩර්ක්හන්-ඌල් පළාත
+    sr: Дархан-Ул
+    sv: Darchan-Uul
+    ta: டார்க்கின்-யூல் மாகாணம்
+    te: డర్ఖన్-ఉల్-ప్రావిన్స్
+    th: จังหวัดดาร์ฮาน-อูล
+    tr: Darhan-Ul
+    uk: Дархан-Уул
+    ur: درخان-اول صوبہ
+    vi: Darkhan-Uul
+    lv: Darhanūlas aimaks
+    ceb: Darhan-Uul Aymag
+    sr_Latn: Darhan-Ul
+    zh: 达尔汗乌勒省
+    ccp: "𑄓𑄢𑄴𑄈𑄚𑄴-𑄅𑄫𑄣𑄴"
+    ga: Darkhan-Uul
+    az: Darxan-Uul vilayəti
+    mk: Дархан-Ул
+    'no': Darkhan-Uul
+    cy: Talaith Darkhan-Uul
+    yue: 達爾汗烏拉
+    yue_Hans: 达尔汗乌拉
+  type: province
+'039':
+  name: Hentiy
+  code: '039'
+  unofficial_names:
+  - Hentii
+  - Khentii
+  geo:
+    latitude: 47.6081209
+    longitude: 109.9372856
+    min_latitude: 46.062024
+    min_longitude: 108.350123
+    max_latitude: 49.4067421
+    max_longitude: 112.6971711
+  translations:
+    en: Khentii
+    ar: محافظة خنتي
+    bg: Хентий
+    bn: খনিটি প্রদেশ
+    ca: Província de Khentii
+    da: Khentij
+    de: Chentii-Aimag
+    el: Χέντιι
+    es: Hentiy
+    et: Hentij aimakk
+    fa: استان خنتی
+    fi: Hentii
+    fr: Khentii
+    gu: ખેંતી પ્રાંત
+    he: חנטי
+    hi: ख़ेन्ती प्रांत
+    id: Provinsi Khentii
+    it: provincia del Hėntij
+    ja: ヘンティー県
+    ka: ხენტიი
+    kn: ಕೆಂಥಿ ಪ್ರಾಂತ್ಯ
+    ko: 헹티 주
+    lt: Chentėjaus aimakas
+    mn: Хэнтий
+    mr: खेतीई प्रांत
+    ms: Khentii Province
+    nb: Khentij
+    nl: Henti
+    pl: Ajmak chentejski
+    pt: Khentiy
+    ro: Chentii-Aimag
+    ru: Хэнтий
+    si: ඛේන්ටි පළාත
+    sv: Chentij
+    ta: க்ஹெண்டிய் மாகாணம்
+    te: ఖేంటీ ప్రావిన్స్
+    th: จังหวัดเฮ็นตี
+    tr: Hentii ili
+    uk: Хентій
+    ur: خنتی صوبہ
+    vi: Khentii
+    lv: Henteja aimaks
+    ceb: Hentiy Aymag
+    zh: 肯特省
+    ccp: "𑄈𑄬𑄚𑄴𑄑𑄳𑄦𑄨"
+    hu: Hentij tartomány
+    mk: Хентиј
+    'no': Khentij
+    az: Xentiy vilayəti
+    cy: Talaith Khentii
+    hy: Խենթիի
+    yue: 肯特
+    yue_Hans: 肯特
+  type: province
+'041':
+  name: Hövsgöl
+  code: '041'
+  unofficial_names:
+  - Hovsgol
+  - Khuvsgul
+  geo:
+    latitude: 50.2204484
+    longitude: 100.3213768
+    min_latitude: 48.233659
+    min_longitude: 96.879998
+    max_latitude: 52.1542471
+    max_longitude: 102.78852
+  translations:
+    en: Khövsgöl
+    ar: مقاطعة خوفسغول
+    bg: Хьовсгьол
+    bn: খবসগোল প্রদেশ
+    ca: Província de Khövsgöl
+    da: Khövsgöl
+    de: Chöwsgöl-Aimag
+    el: Κχοβσγκόλ
+    es: Hövsgöl
+    et: Hövsgöli aimakk
+    fa: استان خووسگول
+    fi: Hövsgöl
+    fr: Khövsgöl
+    gu: ખોવસ્ગોલ પ્રાંત
+    he: חובסגול
+    hi: ख़ोव्स्गोल प्रांत
+    hu: Hövszgöl ajmag
+    id: Provinsi Khövsgöl
+    it: provincia del Hôvsgôl
+    ja: フブスグル県
+    ka: ხუვსგელი
+    kn: ಖೊವಾಸ್ಗೋಲ್ ಪ್ರಾಂತ್ಯ
+    ko: 흐브스글 주
+    lt: Chubsugulo aimakas
+    mn: Хөвсгөл
+    mr: खोव्स्ग्लल प्रांत
+    ms: Khovsgol Province
+    nb: Khövsgöl
+    nl: Hövsgöl
+    pl: Ajmak chubsugulski
+    pt: Khövsgöl
+    ro: Chöwsgöl-Aimag
+    ru: Хувсгел
+    si: කොව්ස්ගෝල් පළාත
+    sv: Chövsgöl
+    ta: க்ஹோவஸ்கொல் மாகாணம்
+    te: ఖోవస్‌గోల్ ప్రావిన్స్
+    th: จังหวัดโกฟโกล
+    tr: Hövsgöl
+    uk: Хувсгел
+    ur: خووسگول صوبہ
+    vi: Tỉnh Khovsgol
+    lv: Huvsgula aimaks
+    ceb: Hövsgöl Aymag
+    zh: 库苏古尔省
+    ccp: "𑄈𑄮𑄛𑄴𑄉𑄮𑄣𑄴"
+    ga: Khövsgöl
+    kk: Хөвсгөл аймағы
+    mk: Ховсгол
+    'no': Khövsgöl
+    az: Xövsgöl vilayəti
+    cy: Talaith Khövsgöl
+    hy: Խուվսգել
+    yue: 庫蘇古爾
+    yue_Hans: 库苏古尔
+  type: province
+'043':
+  name: Hovd
+  code: '043'
+  unofficial_names:
+  - Khovd
+  geo:
+    latitude: 48.004167
+    longitude: 91.65
+    min_latitude: 47.9380819
+    min_longitude: 91.6108704
+    max_latitude: 48.0193817
+    max_longitude: 91.67026520000002
+  translations:
+    en: Khovd
+    az: Xovd aymakı
+    bg: Ховд
+    ca: Província de Khovd
+    da: Khovd
+    de: Chowd-Aimag
+    es: Hovd
+    et: Hovdi aimakk
+    fa: استان خاود
+    fi: Hovd
+    fr: Khovd
+    he: חובד
+    hi: ख़ोव्द प्रांत
+    id: Provinsi Khovd
+    it: provincia di Hovd
+    ja: ホブド県
+    ka: ხოვდის აიმაკი
+    ko: 허브드 주
+    lt: Kobdo aimakas
+    mn: Ховд
+    nb: Khovd
+    nl: Ajmag Hovd
+    pl: Ajmak kobdoski
+    pt: Khovd
+    ro: Chowd-Aimag
+    ru: Ховд
+    sv: Chovd
+    tr: Hovd
+    uk: Ховд
+    ur: خوود صوبہ
+    vi: Khovd
+    cy: Talaith Khovd
+    ceb: Hovd
+    zh: 科布多省
+    ccp: "𑄇𑄮𑄛𑄴𑄓𑄴"
+    hu: Hovd tartomány
+    kk: Ховда аймағы
+    mk: Ховд
+    'no': Khovd
+    ar: محافظة خوفد
+    be: Хоўд
+    cs: Chovdský ajmag
+    hy: Խովդի շրջան
+    yue: 科布多盟
+    yue_Hans: 科布多盟
+  type: province
+'046':
+  name: Uvs
+  code: '046'
+  unofficial_names:
+  - Uvs
+  geo:
+    latitude: 49.64497069999999
+    longitude: 93.27365759999999
+    min_latitude: 48.4370969
+    min_longitude: 90.000101
+    max_latitude: 50.89464599999999
+    max_longitude: 95.7276089
+  translations:
+    en: Uvs
+    ar: مقاطعة أوفس
+    az: Uvs
+    bg: Увс
+    bn: উভস প্রদেশ
+    ca: Uvs
+    da: Uvs
+    de: Uws-Aimag
+    el: Ουβς
+    es: Uvs
+    et: Uvsi aimakk
+    fa: استان اووس
+    fi: Uvs
+    fr: Uvs
+    gu: યુવ્સ પ્રાંત
+    he: אובס
+    hi: उव्स प्रांत
+    id: Provinsi Uvs
+    it: provincia dell’Uvs
+    ja: オブス県
+    ka: უვსის აიმაკი
+    kn: ಯುವಾಸ್ ಪ್ರಾಂತ್ಯ
+    ko: 오브스 주
+    lt: Ubso aimakas
+    mn: Увс
+    mr: यूव्हस प्रांत
+    ms: Uvs Province
+    nb: Uvs
+    nl: Uvs
+    pl: Ajmak uwski
+    pt: Uvs
+    ro: Uws-Aimag
+    ru: Увс
+    si: උව්ස් පළාත
+    sr: Увс
+    sv: Uvs
+    ta: உவ்ஸ் மாகாணம்
+    te: యువిస్ ప్రావిన్స్
+    th: จังหวัดอุฟส์
+    tr: Uvs
+    uk: Увс
+    ur: یوس صوبہ
+    vi: Uvs
+    lv: Uvsas aimaks
+    ceb: Uvs Aymag
+    sr_Latn: Uvs
+    zh: 乌布苏省
+    ccp: "𑄅𑄪𑄣𑄨𑄌𑄴"
+    hu: Uvsz tartomány
+    kk: Увс аймағы
+    be: Убсунурскі аймак
+    mk: Увс
+    'no': Uvs
+    cy: Talaith Uvs
+    hy: Ուվս
+    yue: 烏布蘇
+    yue_Hans: 乌布苏
+  type: province
+'047':
+  name: Töv
+  code: '047'
+  unofficial_names:
+  - Tov
+  geo:
+    latitude: 47.2124056
+    longitude: 106.41541
+    min_latitude: 46.38429199999999
+    min_longitude: 104.070697
+    max_latitude: 49.1231531
+    max_longitude: 109.044458
+  translations:
+    en: Töv
+    ar: مقاطعة توف
+    bg: Тьов
+    bn: তভ প্রদেশ
+    ca: Província de Töv
+    da: Töv
+    de: Töw-Aimag
+    el: Τοβ
+    es: Töv
+    et: Keskaimakk
+    fa: استان تو
+    fi: Tuv
+    fr: Töv
+    gu: ટોવ પ્રાંત
+    he: טוב
+    hi: तोव प्रांत
+    hy: Տուվե
+    id: Provinsi Töv
+    it: provincia del Tôv
+    ja: トゥブ県
+    ka: ტუვე
+    kn: ಟೊವ್ ಪ್ರಾಂತ್ಯ
+    ko: 투브 주
+    lt: Tiobo aimakas
+    mn: Төв
+    mr: टॉव प्रांत
+    ms: Tov Province
+    nb: Töv
+    nl: Töv
+    pl: Ajmak centralny
+    pt: Töv
+    ro: Töw-Aimag
+    ru: Туве
+    si: ටෝව් පළාත
+    sv: Töv
+    ta: டோவ் மாகாணம்
+    te: టోవ్ ప్రావిన్స్
+    th: จังหวัดโตว
+    tr: Tuv
+    uk: Туве
+    ur: توو صوبہ
+    vi: Töv
+    lv: Tuves aimaks
+    ceb: Töv Aymag
+    zh: 中央省
+    ccp: "𑄑𑄮𑄛𑄴"
+    hu: Központi tartomány
+    az: Töv vilayəti
+    be: Цэнтральны аймак
+    mk: Тов
+    'no': Töv
+    cs: Centrální ajmag
+    cy: Talaith Töv
+    yue: 中央盟
+    yue_Hans: 中央盟
+  type: province
+'049':
+  name: Selenge
+  code: '049'
+  unofficial_names:
+  - Selenge
+  geo:
+    latitude: 50.0059273
+    longitude: 106.4434108
+    min_latitude: 48.49716799999999
+    min_longitude: 104.345383
+    max_latitude: 50.4804
+    max_longitude: 108.5555881
+  translations:
+    en: Selenge
+    ar: محافظة سيلنج
+    bg: Селенге
+    bn: সেলেঙ্গে প্রদেশ
+    ca: Província de Selenge
+    cs: Selengský ajmag
+    da: Selenge
+    de: Selenge-Aimag
+    el: Σέλενγκε
+    es: Selenge
+    et: Selenge aimakk
+    fa: استان سلنگ
+    fi: Selenge
+    fr: Selenge
+    gu: સેલેંગ પ્રાંત
+    he: סלנגה
+    hi: सेलेंगे प्रांत
+    hu: Szelenge ajmag
+    id: Provinsi Selenge
+    it: provincia del Sėlėngė
+    ja: セレンゲ県
+    ka: სელენგე
+    kn: ಸೆಲೆಂಗ ಪ್ರಾಂತ್ಯ
+    ko: 셀렝게 주
+    lt: Selengės aimakas
+    mn: Сэлэнгэ
+    mr: सेलेझिंग प्रांत
+    ms: Selenge Province
+    nb: Selenge
+    nl: Selenge
+    pl: Ajmak selengijski
+    pt: Selenge
+    ro: Selenge-Aimag
+    ru: Сэлэнгэ
+    si: සෙලෙන්ගේ පළාත
+    sv: Selenga
+    ta: செலெங்கே மாகாணம்
+    te: సెలెంజి ప్రావిన్స్
+    th: จังหวัดเซเลงเก
+    tr: Selenge
+    uk: Селенге
+    ur: سیلینگی صوبہ
+    vi: Selenge
+    lv: Selengas aimaks
+    ceb: Selenge Aymag
+    zh: 色楞格省
+    ccp: "𑄥𑄬𑄣𑄬𑄚𑄴"
+    mk: Селенге
+    'no': Selenge
+    az: Selenqe vilayəti
+    cy: Talaith Selenge
+    hy: Սելենգե
+    yue: 色楞格
+    yue_Hans: 色楞格
+  type: province
+'051':
+  name: Sühbaatar
+  code: '051'
+  unofficial_names:
+  - Sukhbaatar
+  geo:
+    latitude: 50.236389
+    longitude: 106.206389
+    min_latitude: 50.1804158
+    min_longitude: 106.1433793
+    max_latitude: 50.265753
+    max_longitude: 106.2765886
+  translations:
+    en: Sükhbaatar
+    ar: محافظة سوخباتار
+    bg: Сухе Батор
+    bn: সুখবরত প্রদেশ
+    ca: Província de Sükhbaatar
+    da: Sükhbaatar
+    de: Süchbaatar-Aimag
+    el: Σουκχμπαατάρ
+    es: Sühbaatar
+    et: Sühbaatari aimakk
+    fa: استان سوخباتر
+    fi: Sühbaatar
+    fr: Sühbaatar
+    gu: સુખબાતર પ્રાંત
+    he: סוחבאאטאר
+    hi: सूखबातर (शहर)
+    hu: Szühebátor ajmag
+    id: Provinsi Sükhbaatar
+    it: provincia di Sùhbaatar
+    ja: スフバートル県
+    ka: სუხე-ბატორის აიმაკი
+    kn: ಸುಖಾಬಾಟರ್ ಪ್ರಾಂತ್ಯ
+    ko: 수흐바타르 주
+    lt: Suche Batoro aimakas
+    mn: Сүхбаатар
+    mr: शुबब्बर प्रांत
+    ms: Sukhbaatar Province
+    nb: Sükhbaatar
+    nl: Sühbaatar
+    pl: Ajmak suchebatorski
+    pt: Sükhbaatar
+    ro: Süchbaatar-Aimag
+    ru: Сухэ-Батор
+    si: සුක්බාතර් පළාත
+    sv: Süchbaatar
+    ta: சுக்ஹபாதர் மாகாணம்
+    te: సుఖ్‌బాతర్ ప్రావిన్స్
+    th: จังหวัดซือบาตาร์
+    tr: Sühbatur
+    uk: Сухе-Батор
+    ur: سخباتار صوبہ
+    vi: Sükhbaatar
+    lv: Suhebatoras aimaks
+    ceb: Sühbaatar Aymag
+    zh: 苏赫巴托尔省
+    ccp: "𑄥𑄪𑄇𑄴𑄝𑄑𑄢𑄴"
+    mk: Сухбатар
+    'no': Sükhbaatar
+    az: Süxbaatar vilayəti
+    cy: Talaith Sükhbaatar
+    yue: 蘇赫巴托盟
+    yue_Hans: 苏赫巴托盟
+  type: province
+'053':
+  name: Ömnögovi
+  code: '053'
+  unofficial_names:
+  - Omnogobi
+  geo:
+    latitude: 43.500024
+    longitude: 104.2861116
+    min_latitude: 41.567638
+    min_longitude: 99.389793
+    max_latitude: 45.188183
+    max_longitude: 108.033485
+  translations:
+    en: Ömnögovi
+    ar: مقاطعة أومنوغوفي
+    bg: Йомньо Гови
+    bn: ওম্নোগোভি প্রদেশ
+    ca: Província d’Ömnögovi
+    cs: Jihogobijský ajmag
+    da: Ömnögov
+    de: Ömnö-Gobi-Aimag
+    el: Ομνογκόβι
+    es: Ömnögovi
+    et: Lõuna-Gobi aimakk
+    fa: استان اومنوگاوی
+    fi: Ömnögovi
+    fr: Ömnögovi
+    gu: ઓમ્નોગોવિ પ્રાંત
+    he: אומנוגובי
+    hi: ओम्नोगोवी प्रांत
+    hu: Ömnögovi ajmag
+    id: Provinsi Ömnögovi
+    it: provincia dell’Ômnôgov’
+    ja: ウムヌゴビ県
+    ka: უმნეგოვი
+    kn: ಒಮ್ನೊಗೊವಿ ಪ್ರಾಂತ್ಯ
+    ko: 으므느고비 주
+    lt: Pietų Gobio aimakas
+    mn: Өмнөговь
+    mr: ओमनोगोवी प्रांत
+    ms: Omnogovi Province
+    nb: Ömnögov
+    nl: Ömnögovĭ
+    pl: Ajmak południowogobijski
+    pt: Ömnögovĭ
+    ro: Ömnö-Gobi-Aimag
+    ru: Умнеговь
+    si: ඕම්නොගොවී පළාත
+    sv: Ömnögobi
+    ta: ஒம்நகோவி மாகாணம்
+    te: ఓమ్నోగోవి ప్రావిన్స్
+    th: จังหวัดออมโนโกวิ
+    tr: Umnugobi
+    uk: Умнеговь
+    ur: اومنوگووی صوبہ
+    vi: Ömnögovi
+    lv: Dienvidgobi aimaks
+    ceb: Ömnögovi Province
+    zh: 南戈壁省
+    ccp: "𑄃𑄧𑄟𑄴𑄚𑄮𑄉𑄮𑄞𑄨"
+    mk: Омногови
+    'no': Ömnögov
+    az: Ömnöqovi vilayəti
+    cy: Talaith Ömnögovi
+    yue: 南戈壁
+    yue_Hans: 南戈壁
+  type: province
+'055':
+  name: Övörhangay
+  code: '055'
+  unofficial_names:
+  - Ovorhangai
+  - Uvurkhangai
+  geo:
+    latitude: 45.7624392
+    longitude: 103.0917032
+    min_latitude: 44.056532
+    min_longitude: 101.1333329
+    max_latitude: 47.414307
+    max_longitude: 104.655877
+  translations:
+    en: Övörkhangai
+    ar: مقاطعة أوفوخاناجي
+    bg: Йовьорхангай
+    bn: ওভোরখাঙ্গাই প্রদেশ
+    ca: Província d’Övörkhangai
+    da: Övörkhangaj
+    de: Öwörchangai-Aimag
+    el: Οβορκχανγκάι
+    es: Övörhangay
+    et: Övörhangaj aimakk
+    fa: استان اوورخنگای
+    fi: Övörhangai
+    fr: Övörkhangai aïmag
+    gu: ઓવોખંગાઈ પ્રાંત
+    he: אובורחאנגאי
+    hi: ओवोरख़ानगई प्रांत
+    hu: Övörhangaj ajmag
+    id: Provinsi Övörkhangai
+    it: provincia del Ôvôrhangaj
+    ja: ウブルハンガイ県
+    ka: უვერხანგაი
+    kn: ಓವೊರ್ಖಂಗೈ ಪ್ರಾಂತ್ಯ
+    ko: 으브르항가이 주
+    lt: Pietinio Changajaus aimakas
+    mn: Өвөрхангай
+    mr: ओवोरखांगाई प्रांत
+    ms: Ovorkhangai Province
+    nb: Övörkhangaj
+    nl: Övörhangaj
+    pl: Ajmak południowochangajski
+    pt: Övörkhangay
+    ro: Öwörchangai-Aimag
+    ru: Уверхангай
+    si: ඔවෝර්ඛන්ගායි පළාත
+    sv: Övörchangaj
+    ta: ஒவொர்க்ஹங்கை மாகாணம்
+    te: ఓవర్కాంగై ప్రావిన్స్
+    th: จังหวัดโอเวอคันใจ
+    tr: Övörhangay
+    uk: Уверхангай
+    ur: اوورخانگائی صوبہ
+    vi: Övörkhangai
+    lv: Uvurhangaja aimaks
+    ceb: Övörhangay Aymag
+    zh: 前杭爱省
+    ccp: "𑄃𑄮𑄞𑄧𑄢𑄴𑄈𑄚𑄴𑄉𑄭"
+    ga: Övörkhangai
+    az: Övörxanqay vilayəti
+    be: Увэр-Хангайскі аймак
+    mk: Оворхангај
+    'no': Övörkhangaj
+    cy: Talaith Övörkhangai
+    hy: Ուվերխանգայ
+    yue: 前杭愛
+    yue_Hans: 前杭爱
+  type: province
+'057':
+  name: Dzavhan
+  code: '057'
+  unofficial_names:
+  - Zavkhan
+  geo:
+    latitude: 48.2388147
+    longitude: 96.07030189999999
+    min_latitude: 46.583037
+    min_longitude: 93.17390499999999
+    max_latitude: 50.041237
+    max_longitude: 99.2185871
+  translations:
+    en: Zavkhan
+    ar: محافظة زافخان
+    bg: Завхан
+    bn: জাবখান প্রদেশ
+    ca: Província de Zavkhan
+    da: Zavkhan
+    de: Dsawchan-Aimag
+    el: Ζαβκχάν
+    es: Zavhan (aymag)
+    et: Dzavhani aimakk
+    fa: استان زوخان
+    fi: Zavhan
+    fr: Zavkhan
+    gu: ઝવખાન પ્રાંત
+    he: זבחאן
+    hi: ज़वख़ान प्रांत
+    id: Provinsi Zavkhan
+    it: provincia del Zavhan
+    ja: ザブハン県
+    ka: ზავხანი
+    kn: ಜವಕನ್ ಪ್ರಾಂತ್ಯ
+    ko: 자브항 주
+    lt: Dzabchano aimakas
+    mn: Завхан
+    mr: झवखान प्रांत
+    ms: Zavkhan Province
+    nb: Zavkhan
+    nl: Zavhan
+    pl: Ajmak dzawchański
+    pt: Zavkhan
+    ro: Zawchan-Aimag
+    ru: Завхан
+    si: සව්ඛාන් [පළාත
+    sv: Dzavchan
+    ta: சவ்கான் மாகாணம்
+    te: జావఖాన్ ప్రావిన్స్
+    th: จังหวัดซาวค์
+    tr: Zavhan
+    uk: Завхан
+    ur: زاوخان صوبہ
+    vi: Zavkhan (tỉnh)
+    lv: Dzavhanas aimaks
+    ceb: Dzavhan Aymag
+    zh: 扎布汗省
+    ccp: "𑄎𑄛𑄴𑄈𑄚𑄴"
+    hu: Dzavhan tartomány
+    kk: Завхан аймағы
+    mk: Завхан (покраина)
+    'no': Zavkhan
+    az: Zavxan vilayəti
+    be: Заўхан
+    cy: Talaith Zavkhan
+    hy: Զավհան
+    yue: 扎布汗
+    yue_Hans: 扎布汗
+  type: province
+'059':
+  name: Dundgovi
+  code: '059'
+  unofficial_names:
+  - Dundgobi
+  geo:
+    latitude: 45.5822786
+    longitude: 106.7644209
+    min_latitude: 44.179281
+    min_longitude: 103.618634
+    max_latitude: 46.779331
+    max_longitude: 108.658953
+  translations:
+    en: Dundgovi
+    ar: محافظة دوندغوفي
+    bg: Дунд Гови
+    bn: দুন্ডগোভি
+    ca: Província de Dundgovi
+    da: Dundgov
+    de: Dund-Gobi-Aimag
+    el: Ντουνγκόβι
+    es: Dundgovi
+    et: Kesk-Gobi aimakk
+    fa: استان دوندگاوی
+    fi: Dundgovi
+    fr: Dundgovi
+    gu: ડુન્ડગોવિ પ્રાંત
+    he: דונדגובי
+    hi: दुन्दगोवी प्रांत
+    id: Provinsi Dundgovi
+    it: provincia del Dundgov’
+    ja: ドンドゴビ県
+    ka: დუნდგოვი
+    kn: ಡುಂಡ್ಗೊವಿ ಪ್ರಾಂತ್ಯ
+    ko: 동드고비 주
+    lt: Vidurinio Gobio aimakas
+    mn: Дундговь
+    mr: दुंडगोई प्रांत
+    ms: Dundgovi Province
+    nb: Dundgov
+    nl: Dundgovĭ
+    pl: Ajmak środkowogobijski
+    pt: Dundgovĭ
+    ro: Dund-Gobi-Aimag
+    ru: Дундговь
+    si: ඩන්ඩ්ගොවි පළාත
+    sr: Дундгови
+    sv: Dundgobi
+    ta: டுண்ட்கோவி மாகாணம்
+    te: దుండ్గోవి ప్రావిన్స్
+    th: จังหวัดดุนด์โกวิ
+    tr: Dundgobi
+    uk: Дундговь
+    ur: دوندگووی صوبہ
+    vi: Dundgovi
+    lv: Vidusgobi aimaks
+    ceb: Dundgovĭ Aymag
+    sr_Latn: Dundgovi
+    zh: 中戈壁省
+    ccp: "𑄓𑄪𑄚𑄳𑄓𑄴𑄉𑄮𑄞𑄨"
+    ga: Dundgovi
+    hu: Közép-Góbi tartomány
+    mk: Дундгови
+    'no': Dundgov
+    az: Dundqovi vilayəti
+    cy: Talaith Dundgovi
+    yue: 中戈壁
+    yue_Hans: 中戈壁
+  type: province
+'061':
+  name: Dornod
+  code: '061'
+  unofficial_names:
+  - Dornod
+  geo:
+    latitude: 47.4658154
+    longitude: 115.3927119
+    min_latitude: 46.23549999999999
+    min_longitude: 111.9632341
+    max_latitude: 50.28290879999999
+    max_longitude: 119.924301
+  translations:
+    en: Dornod
+    ar: مقاطعة دورنود
+    bg: Дорнод
+    bn: ডর্নড প্রদেশ
+    ca: Província de Dornod
+    cs: Východní ajmag
+    da: Dornod
+    de: Dornod-Aimag
+    el: Ντορνόντ
+    es: Dornod
+    et: Idaaimakk
+    fa: استان دارناد
+    fi: Dornod
+    fr: Dornod
+    gu: ડોર્નોડ પ્રાંત
+    he: דורנוד
+    hi: दोरनोद प्रांत
+    id: Provinsi Dornod
+    it: provincia del Dornod
+    ja: ドルノド県
+    ka: დორნოდი
+    kn: ಡೊರ್ನಾಡ್ ಪ್ರಾಂತ್ಯ
+    ko: 더르너드 주
+    lt: Dornodo aimakas
+    mn: Дорнод
+    mr: डोर्नोड प्रांत
+    ms: Dornod Province
+    nb: Dornod
+    nl: Dornod
+    pl: Ajmak wschodni
+    pt: Dornod
+    ro: Dornod-Aimag
+    ru: Дорнод
+    si: දොර්නොඩ් පළාත
+    sr: Дорнод
+    sv: Dornod
+    ta: டோர்னோட் மாகாணம்
+    te: డోర్నోడ్ ప్రావిన్స్
+    th: จังหวัดดอร์นอด
+    tr: Dornod
+    uk: Дорнод
+    ur: دورنود صوبہ
+    vi: Dornod
+    lv: Dornodo province
+    ceb: Dornod Aymag
+    sr_Latn: Dornod
+    zh: 东方省
+    ccp: "𑄓𑄧𑄢𑄴𑄚𑄮𑄖𑄴"
+    ga: Dornod
+    hu: Keleti tartomány (Mongólia)
+    kk: Дорнод
+    mk: Дорнод
+    'no': Dornod
+    az: Dornod vilayəti
+    be: Дарнод
+    cy: Talaith Dornod
+    hy: Դորնոդ
+    yue: 東方盟
+    yue_Hans: 东方盟
+  type: province
+'063':
+  name: Dornogovi
+  code: '063'
+  unofficial_names:
+  - Dornogobi
+  geo:
+    latitude: 43.9653889
+    longitude: 109.1773459
+    min_latitude: 42.387329
+    min_longitude: 107.636619
+    max_latitude: 46.62841299999999
+    max_longitude: 112.015564
+  translations:
+    en: Dornogovi
+    ar: مقاطعة دورنوغوفي
+    bg: Дорно Гови
+    bn: ডর্নোগোবি প্রদেশ
+    ca: Dornogovi
+    da: Dornogov
+    de: Dorno-Gobi-Aimag
+    el: Ντορνογκόβι
+    es: Dornogovi
+    et: Ida-Gobi aimakk
+    fa: استان دارناگاوی
+    fi: Dornogovi
+    fr: Dornogovi
+    gu: ડોર્નોગોવી પ્રાંત
+    he: דורנוגובי
+    hi: दोरनोगोवी प्रांत
+    id: Provinsi Dornogovi
+    it: provincia del Dornogov’
+    ja: ドルノゴビ県
+    ka: დორნოგოვი
+    kn: ಡೊರ್ನೊಗೊವಿ ಪ್ರಾಂತ್ಯ
+    ko: 더르너고비 주
+    lt: Rytų Gobio aimakas
+    mn: Дорноговь
+    mr: डॉर्नोगोवी प्रांत
+    ms: Wilayah Dornogovi
+    nb: Dornogov
+    nl: Dornogovĭ
+    pl: Ajmak wschodniogobijski
+    pt: Dornogovĭ
+    ro: Dorno-Gobi-Aimag
+    ru: Дорноговь
+    si: ඩොර්නෝගොවි පළාත
+    sr: Дорногови
+    sv: Dornogobi
+    ta: டொரினோகோவி மாகாணம்
+    te: డోర్నోగోవి ప్రావిన్స్
+    th: จังหวัดดอร์โนโกวี
+    tr: Dornogobi
+    uk: Дорноговь
+    ur: دورنوگووی صوبہ
+    vi: Dornogovi
+    lv: Austrumgobi aimaks
+    cy: Talaith Dornogovi
+    ceb: Dornogovĭ Aymag
+    sr_Latn: Dornogovi
+    zh: 东戈壁省
+    ccp: "𑄓𑄧𑄢𑄚𑄮𑄉𑄮𑄞𑄨"
+    hu: Kelet-Góbi tartomány
+    cs: Východogobijský ajmag
+    mk: Дорногови
+    'no': Dornogov
+    az: Dornoqovi vilayəti
+    yue: 東戈壁
+    yue_Hans: 东戈壁
+  type: province
+'064':
+  name: Govi-Sümber
+  code: '064'
+  unofficial_names:
+  - Gobisumber
+  geo:
+    latitude: 46.4762754
+    longitude: 108.5570627
+    min_latitude: 45.906124
+    min_longitude: 107.9454489
+    max_latitude: 46.98451
+    max_longitude: 109.0039898
+  translations:
+    en: Govisümber
+    ar: مقاطعة جوفيسومبر
+    bg: Гови Сумбер
+    bn: গোভিসুম্বার প্রদেশ
+    ca: Província de Govisümber
+    da: Gov-Sümber
+    de: Gobi-Sümber-Aimag
+    el: Γκοβισούμπερ
+    es: Govisümber
+    et: Gov-Sümberi aimakk
+    fa: استان گاوی‌سومبر
+    fi: Govisumber
+    fr: Govisümber
+    gu: ગોવિસુમ્બર પ્રાંત
+    he: גוביסומבר
+    hi: गोवीसुम्बेर प्रांत
+    hu: Góbi-Szümber ajmag
+    id: Provinsi Govisümber
+    it: provincia del Gov’-Sùmbėr
+    ja: ゴビスンベル県
+    ka: გობი-სუმბერი
+    kn: ಗೋವಿಶಂಬರ್ ಪ್ರಾಂತ್ಯ
+    ko: 고비숨베르 주
+    lt: Gobisumbero aimakas
+    mn: Говьсүмбэр
+    mr: गोविस्कुंबेर प्रांत
+    ms: Govisumber Province
+    nb: Gov-Sümber
+    nl: Govĭsümber
+    pl: Ajmak gobijsko-sumberski
+    pt: Govĭsümber
+    ro: Gobi-Sümber-Aimag
+    ru: Говь-Сумбэр
+    si: ගොවිසම්බර් පළාත
+    sv: Gobi-Sümber
+    ta: கொவிசும்பேர் மாகாணம்
+    te: గోవిసుంబర్ ప్రావిన్స్
+    th: จังหวัดโกวิซัมเบอร์
+    tr: Gobisümber
+    uk: Говь-Сумбер
+    ur: گوویسمبر صوبہ
+    vi: Govisümber
+    lv: Govisumberas aimaks
+    ceb: Govĭ-Sumber
+    zh: 戈壁苏木贝尔省
+    ccp: "𑄉𑄮𑄞𑄨𑄥𑄪𑄟𑄴𑄝𑄢𑄴"
+    ga: Govisümber
+    mk: Говисумбер
+    'no': Gov-Sümber
+    az: Qovisümber vilayəti
+    cy: Talaith Govisümber
+    yue: 戈壁蘇木貝爾
+    yue_Hans: 戈壁苏木贝尔
+  type: province
+'065':
+  name: Govi-Altay
+  code: '065'
+  unofficial_names:
+  - Gobi-Altai
+  - Gobi-Altay
+  geo:
+    latitude: 45.4511227
+    longitude: 95.8505766
+    min_latitude: 42.70520399999999
+    min_longitude: 93.063152
+    max_latitude: 47.7823939
+    max_longitude: 98.466612
+  translations:
+    en: Govi-Altai
+    ar: مقاطعة غوفي-ألتاي
+    bg: Гови Алтай
+    bn: গোভি-আল্টাই প্রদেশ
+    ca: Província de Govi-Altai
+    da: Gov-Altaj
+    de: Gobi-Altai-Aimag
+    el: Γκόβι-Αλτάι
+    es: Govi-Altay
+    et: Gobi Altai aimakk
+    fa: استان گاوی-آلتای
+    fi: Govi-Altai
+    fr: Govi-Altai
+    gu: ગોવિ-અલ્તાઇ પ્રાંત
+    he: גובי-אלטאי
+    hi: गोवी-अल्ताई प्रांत
+    id: Provinsi Govi-Altai
+    it: provincia del Gov’-Altaj
+    ja: ゴビ・アルタイ県
+    ka: გობი-ალთაი
+    kn: ಗೋವಿ-ಆಲ್ಟಾಯ್ ಪ್ರಾಂತ್ಯ
+    ko: 고비알타이 주
+    lt: Gobio Altajaus aimakas
+    mn: Говь-Алтай
+    mr: गोवि-अल्ताई प्रांत
+    ms: Govi-Altai Province
+    nb: Gov-Altaj
+    nl: Govĭ-Altaj
+    pl: Ajmak gobijsko-ałtajski
+    pt: Govi-Altay
+    ro: Gobi-Altai-Aimag
+    ru: Говь-Алтай
+    si: ගොවි-අල්ටයි පළාත
+    sr: Гови-Алтај
+    sv: Gobi-Altaj
+    ta: கோவி -அல்டை மாகாணம்
+    te: గోవి-అల్టాయి ప్రావిన్స్
+    th: จังหวัดโกวิ-อัลไต
+    tr: Gobi-Altay
+    uk: Говь-Алтай
+    ur: گووی-التائی صوبہ
+    vi: Govi-Altai
+    lv: Gobi Altaja aimaks
+    cy: Talaith Govi-Altai
+    ceb: Govĭ-Altay Aymag
+    sr_Latn: Govi-Altaj
+    zh: 戈壁阿尔泰省
+    ccp: "𑄉𑄮𑄞𑄨-𑄃𑄣𑄴𑄑𑄭"
+    hu: Góbi-Altaj tartomány
+    kk: Говь Алтай аймағы
+    az: Qovi-Altay vilayəti
+    mk: Гови-Алтај
+    'no': Gov-Altaj
+    gl: Provincia de Govi-Altai
+    yue: 戈壁阿勒泰
+    yue_Hans: 戈壁阿勒泰
+  type: province
+'067':
+  name: Bulgan
+  code: '067'
+  unofficial_names:
+  - Bulgan
+  geo:
+    latitude: 48.811944
+    longitude: 103.533611
+    min_latitude: 48.7746887
+    min_longitude: 103.4531021
+    max_latitude: 48.8664087
+    max_longitude: 103.587513
+  translations:
+    en: Bulgan
+    ar: محافظة بولغان
+    bg: Булган
+    bn: বুল্গান প্রদেশ
+    ca: Província de Bulgan
+    da: Bulgan
+    de: Bulgan-Aimag
+    el: Μπούλγκαν
+    es: Bulgan
+    et: Bulgani aimakk
+    fa: استان بولگن
+    fi: Bulgan
+    fr: Bulgan
+    gu: બુલ્ગન પ્રાંત
+    he: בולגאן
+    hi: बुल्गन प्रांत
+    id: Provinsi Bulgan
+    it: provincia di Bulgan
+    ja: ボルガン県
+    ka: ბულგანის აიმაკი
+    kn: ಬುಲ್ಗನ್ ಪ್ರಾಂತ್ಯ
+    ko: 볼간 주
+    lt: Bulgano aimakas
+    mn: Булган
+    mr: बुल्गान प्रांत
+    ms: Bulgan Province
+    nb: Bulgan
+    nl: Ajmag Bulgan
+    pl: Ajmak bulgański
+    pt: Bulgan
+    ro: Bulgan-Aimag
+    ru: Булган
+    si: බුල්ගාන් පළාත
+    sr: Булган
+    sv: Bulgan
+    ta: புல்கண் மாகாணம்
+    te: బుల్గాన్ ప్రావిన్స్
+    th: จังหวัดบัลแกน
+    tr: Bulgan
+    uk: Булган
+    ur: بلگان صوبہ
+    vi: Bulgan
+    lv: Bulganas aimaks
+    ceb: Bulgan
+    sr_Latn: Bulgan
+    zh: 布尔干省
+    ccp: "𑄝𑄪𑄣𑄴𑄉𑄚𑄴"
+    ga: Bulgan
+    hu: Bulgan tartomány
+    mk: Булган
+    'no': Bulgan
+    az: Bulqan vilayəti
+    be: Булган
+    cy: Talaith Bulgan
+    yue: 布爾干盟
+    yue_Hans: 布尔干盟
+  type: province
+'069':
+  name: Bayanhongor
+  code: '069'
+  unofficial_names:
+  - Bayanhongor
+  - Bayankhongor
+  geo:
+    latitude: 46.191667
+    longitude: 100.717778
+    min_latitude: 46.1453508
+    min_longitude: 100.6864358
+    max_latitude: 46.2142884
+    max_longitude: 100.7368184
+  translations:
+    en: Bayankhongor
+    ar: محافظة بايانخونغور
+    bg: Баянхонгор
+    bn: বায়ানকোংওর প্রদেশ
+    ca: Província de Baiankhongor
+    da: Bajankhongor
+    de: Bajanchongor-Aimag
+    el: Μπαγιανκχονγκόρ
+    es: Bayanhongor
+    et: Bajanhongori aimakk
+    fa: استان بایان خونگور
+    fi: Bajanhongor
+    fr: Bayanhongor
+    gu: બાયંખોંગોર પ્રાંત
+    he: באיינחונגור
+    hi: बयानख़ोंगोर प्रांत
+    id: Provinsi Bayankhongor
+    it: provincia di Bajanhongor
+    ja: バヤンホンゴル県
+    ka: ბაიანხონგორის აიმაკი
+    kn: ಬೇಯಾನ್ಖೊಂಗೋರ್ ಪ್ರಾಂತ್ಯ
+    ko: 바잉헝거르 주
+    lt: Bajanchongoro aimakas
+    mn: Баянхонгор
+    mr: बायानखोंगोर प्रांत
+    ms: Bayankhongor Province
+    nb: Bajankhongor
+    nl: Bajanhongor
+    pl: Ajmak bajanchongorski
+    pt: Bayankhongor
+    ro: Bajanchongor-Aimag
+    ru: Баянхонгор
+    si: බයන්කොන්ඝෝර් පළාත
+    sr: Бајанхонгор
+    sv: Bajanchongor
+    ta: பாய்நக்ஹோங்கோர் மாகாணம்
+    te: బయాన్కోంగర్ ప్రావిన్స్
+    th: จังหวัดบายันคนกอร์
+    tr: Bayanhongor
+    uk: Баянхонгор
+    ur: بیانخونگور صوبہ
+    vi: Bayankhongor
+    lv: Bajanhongoras aimaks
+    ceb: Bayanhongor Aymag
+    sr_Latn: Bajanhongor
+    zh: 巴彦洪戈尔省
+    ccp: "𑄝𑄬𑄠𑄚𑄴𑄈𑄧𑄁𑄉𑄧𑄢𑄴"
+    hu: Bajanhongor tartomány
+    az: Bayanxonqor vilayəti
+    be: Баян-Хангорскі аймак
+    mk: Бајанхонгор
+    'no': Bajankhongor
+    cy: Talaith Bayankhongor
+    yue: 巴彥洪戈爾盟
+    yue_Hans: 巴彦洪戈尔盟
+  type: province
+'071':
+  name: Bayan-Ölgiy
+  code: '071'
+  unofficial_names:
+  - Bayan-Olgii
+  - Bayan-Ulgii
+  geo:
+    latitude: 48.3983254
+    longitude: 89.66259149999999
+    min_latitude: 46.544199
+    min_longitude: 87.74966409999999
+    max_latitude: 50.009587
+    max_longitude: 91.9268699
+  translations:
+    en: Bayan-Ölgii
+    ar: محافظة بايان-أولجي
+    az: Bayan-Ölgiy
+    bg: Баян Йолгий
+    bn: বায়ান-ওলগি প্রদেশ
+    ca: Província de Bayan-Ölgii
+    da: Bajan-Ölgij
+    de: Bajan-Ölgii-Aimag
+    el: Μπαγιάν Ολγκίι
+    es: Bayan-Ölgiy
+    et: Bajan-Ölgij aimakk
+    fa: استان بایان-اولگی
+    fi: Bajan-Ölgii
+    fr: Bayan-Ölgii
+    gu: બાયન-ઓલ્ગી પ્રાંત
+    he: באיין-אולגי
+    hi: बयान-ओलगी प्रांत
+    id: Provinsi Bayan-Ölgii
+    it: provincia del Bajan-Ôlgij
+    ja: バヤン・ウルギー県
+    ka: ბაიან-ულგიი
+    kn: ಬೇಯಾನ್-ಒಲ್ಗಿ ಪ್ರಾಂತ್ಯ
+    ko: 바잉울기 주
+    lt: Bajan Ulegėjaus aimakas
+    mn: Баян-Өлгий
+    mr: बायान-ऑल्जी प्रांत
+    ms: Bayan-Olgii Province
+    nb: Bajan-Ölgij
+    nl: Bajan-Ölgi
+    pl: Ajmak bajanolgijski
+    pt: Bayan-Ölgiy
+    ro: Bajan-Ölgii-Aimag
+    ru: Баян-Улгий
+    si: බයාන්-ඔල්ගි පළාත
+    sr: Бајан-Улгиј
+    sv: Bajan-Ölgij
+    ta: பாயான் -ஒல்கிய் மாகாணம்
+    te: బయాన్-ఓల్గీ ప్రావిన్స్
+    th: จังหวัดบายัน-เอิลกี
+    tr: Bayan Ölgii ili
+    uk: Баян-Улгий
+    ur: بیان-اولگی صوبہ
+    vi: Bayan-Ölgii
+    lv: Bajanulgī aimaks
+    ceb: Bayan-Ölgiy Aymag
+    sr_Latn: Bajan-Ulgij
+    zh: 巴彦乌列盖省
+    ccp: "𑄝𑄬𑄠𑄚𑄴-𑄃𑄣𑄴𑄎𑄳𑄦𑄨"
+    ga: Bayan-Ölgii
+    hu: Bajan-Ölgij tartomány
+    kk: Баян-Өлгей аймағы
+    mk: Бајан-Олги
+    'no': Bajan-Ölgij
+    be: Баян-Улэгэйскі аймак
+    cs: Bajanölgijský ajmag
+    cy: Talaith Bayan-Ölgii
+    hy: Բայան Ուլգի
+    ky: Бай-Өлкө
+    yue: 巴彥烏列蓋
+    yue_Hans: 巴彦乌列盖
+  type: province
+'073':
+  name: Arhangay
+  code: '073'
+  unofficial_names:
+  - Arhangai
+  - Arhangay
+  - Arkhangai
+  geo:
+    latitude: 47.8971101
+    longitude: 100.7240165
+    min_latitude: 46.826294
+    min_longitude: 98.166168
+    max_latitude: 49.1983439
+    max_longitude: 103.673478
+  translations:
+    en: Arkhangai
+    ar: محافظة أرخانغاي
+    az: Arxanqay
+    bg: Архангай
+    bn: আর্খঙ্গাই প্রদেশ
+    ca: Arkhangai
+    da: Arkhangaj
+    de: Archangai-Aimag
+    el: Αρκανγκάι
+    es: Arhangay
+    et: Arhangaj aimakk
+    fa: استان آرخانگای
+    fi: Arkhangai
+    fr: Arkhangai
+    gu: અર્ખંગાઈ પ્રાંત
+    he: ארחאנגאי
+    hi: अरख़ानगई प्रांत
+    id: Provinsi Arkhangai
+    it: provincia dell’Arhangaj
+    ja: アルハンガイ県
+    ka: არახანგაის აიმაკი
+    kn: ಅರ್ಖಂಗೈ ಪ್ರಾಂತ್ಯ
+    ko: 아르항가이 주
+    lt: Archangajaus aimakas
+    mn: Архангай
+    mr: अर्खांगई प्रांत
+    ms: Arkhangai Province
+    nb: Arkhangaj
+    nl: Arhangaj
+    pl: Ajmak północnochangajski
+    pt: Arkhangay
+    ro: Archangai-Aimag
+    ru: Архангай
+    si: අර්ක්ගන්ගයි පළාත
+    sr: Архангај
+    sv: Archangaj
+    ta: ஆர்க்கன்காய் மாகாணம்
+    te: అర్కాంగై ప్రావిన్స్
+    th: จังหวัดอาร์ฮังไก
+    tr: Arhangay
+    uk: Архангай
+    ur: ارخانگائی صوبہ
+    vi: Arkhangai
+    lv: Arhangaja aimaks
+    ceb: Arhangay Aymag
+    sr_Latn: Arhangaj
+    zh: 后杭爱省
+    ccp: "𑄃𑄢𑄴𑄈𑄚𑄴𑄉𑄭"
+    ga: Arkhangai
+    hu: Észak-Hangáj tartomány
+    cs: Severochangajský ajmag
+    be: Ара-Хангайскі аймак
+    mk: Архангај
+    'no': Arkhangaj
+    cy: Talaith Arkhangai
+    yue: 後杭愛
+    yue_Hans: 后杭爱
+  type: province
+'1':
+  name: Ulaanbaatar
+  code: '1'
+  unofficial_names:
+  - Ulaanbaatar
+  geo:
+    latitude: 47.91999999999999
+    longitude: 106.92
+    min_latitude: 47.8241773
+    min_longitude: 106.6994427
+    max_latitude: 47.9591229
+    max_longitude: 107.1043
+  translations:
+    en: Ulaanbaatar
+    af: Ulaanbaatar
+    am: ኡላዓን ባዓታር
+    ar: أولان باتور
+    az: Ulan-Bator
+    be: Улан-Батар
+    bg: Улан Батор
+    bn: উলানবাটর
+    ca: Ulan Bator
+    cs: Ulánbátar
+    da: Ulan Bator
+    de: Ulaanbaatar
+    el: Ουλάν Μπατόρ
+    es: Ulán Bator
+    et: Ulaanbaatar
+    eu: Ulan Bator
+    fa: اولان‌باتور
+    fi: Ulan Bator
+    fr: Oulan-Bator
+    gl: Ulán Bátor
+    gu: ઉલાનબાતર
+    he: אולן בטור
+    hi: उलान बतोर
+    hr: Ulan Bator
+    hu: Ulánbátor
+    hy: Ուլան Բատոր
+    id: Ulan Bator
+    is: Úlan Bator
+    it: Ulan Bator
+    ja: ウランバートル
+    ka: ულან-ბატორი
+    km: អ៊ូលេនបាធរ
+    kn: ಉಲಾನ್ ಬತೊರ್
+    ko: 울란바토르
+    lt: Ulan Batoras
+    lv: Ulanbatora
+    ml: ഉലാൻബാതാർ
+    mn: Улаанбаатар
+    mr: उलानबातर
+    ms: Ulan Bator
+    nb: Ulan Bator
+    ne: उलानबटोर
+    nl: Ulaanbaatar
+    pl: Ułan Bator
+    pt: Ulan Bator
+    ro: Ulaanbaatar
+    ru: Улан-Батор
+    si: ඌෆා
+    sk: Ulanbátar
+    sl: Ulan Bator
+    sr: Улан Батор
+    sv: Ulan Bator
+    sw: Ulaanbaatar
+    ta: ஊலான் பாடோர்
+    te: ఊలాన్ బటోర్
+    th: อูลานบาตาร์
+    tk: Ulan-Bator
+    tr: Ulan Batur
+    uk: Улан-Батор
+    ur: اولان‌ باتور
+    vi: Ulaanbaatar
+    zh: 乌兰巴托
+    cy: Ulan Bator
+    ceb: Ulaanbaatar Hot
+    sr_Latn: Ulan Bator
+    yue_Hans: 乌兰巴托
+    jv: Ulaanbaatar
+    sq: Ulan Bator
+    ccp: "𑄅𑄪𑄣𑄚𑄴𑄝𑄑𑄢𑄴"
+    ga: Ulánbátar
+    ky: Улан-Баатыр
+    so: Ulan Bator
+    pa: ਉਲਾਨ ਬਤੋਰ
+    kk: Ұланбатыр
+    yue: 烏蘭巴托
+    my: ဦလန်ဘာတာမြို့
+    yo: Ulan Bator
+    uz: Ulan-Bator
+    bs: Ulan Bator
+    mk: Улан Батор
+    'no': Ulan Bator
+    yo_BJ: Ulan Bator
+    ha: Ulan Bato
+    ha_NE: Ulan Bato
+    ps: اولان باتور
+  type: capital_city

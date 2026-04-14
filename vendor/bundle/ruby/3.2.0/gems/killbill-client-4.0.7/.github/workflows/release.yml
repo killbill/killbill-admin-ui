@@ -1,0 +1,46 @@
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_version:
+        description: 'Target version: next [major|minor|patch|pre|release] or a given version number [x.x.x]'
+        required: true
+        default: 'patch'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup git user
+        env:
+          BUILD_USER: ${{ secrets.BUILD_USER }}
+          BUILD_TOKEN: ${{ secrets.BUILD_TOKEN }}
+        run: |
+          git config --global user.email "contact@killbill.io"
+          git config --global user.name "Kill Bill core team"
+          git config --global url."https://${BUILD_USER}:${BUILD_TOKEN}@github.com/".insteadOf "git@github.com:"
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.4.2'
+      - name: Download Ruby dependencies
+        run: |
+          bundle install
+      - name: Tag repository
+        run: |
+          bundle exec gem bump -c -p -t -v ${{ github.event.inputs.target_version }}
+      - name: Release Gem
+        env:
+          RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+        run: |
+          mkdir -p ~/.gem
+          cat << EOF > ~/.gem/credentials
+          ---
+          :rubygems_api_key: ${RUBYGEMS_API_KEY}
+          EOF
+          chmod 0600 ~/.gem/credentials
+          bundle install
+          bundle exec gem release
+          rm -f ~/.gem/credentials

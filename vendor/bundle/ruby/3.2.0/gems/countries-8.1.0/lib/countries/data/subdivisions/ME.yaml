@@ -1,0 +1,1259 @@
+---
+'01':
+  name: Andrijevica
+  code: '01'
+  unofficial_names:
+  - Andrijevica
+  geo:
+    latitude: 42.739722
+    longitude: 19.785833
+    min_latitude: 42.7250737
+    min_longitude: 19.771657
+    max_latitude: 42.744286
+    max_longitude: 19.799509
+  translations:
+    ar: بلدية أندرييفيكا
+    bg: Андриевица
+    bn: আন্দ্রেজেভিকা পৌরসভা
+    bs: Andrijevica
+    ccp: "𑄃𑄚𑄴𑄓𑄳𑄢𑄨𑄎𑄬𑄞𑄨𑄇"
+    da: Andrijevica Municipality
+    de: Gemeinde Andrijevica
+    el: Αντριτζέβικα
+    en: Andrijevica
+    es: Municipio de Andrijevica
+    et: Andrijevica vald
+    fi: Andrijevican kunta
+    fr: Municipalité d’Andrijevica
+    gu: એન્ડ્રેજેવિકા મ્યુનિસિપાલિટી
+    hi: एंड्रीएविका नगरपालिका
+    id: Kotamadya Andrijevica
+    it: Andrijevica
+    ja: アンドリイェヴィツァ
+    ka: ანდრიევიცის მუნიციპალიტეტი
+    kn: ಆಂಡ್ರಿಜೆವಿಕಾ ಪುರಸಭೆ
+    ko: 안드리예비차 지방 자치제
+    lt: Andrijevicos opština
+    lv: Andrijevicas pašvaldība
+    mr: अँड्रिजेवीच म्युन्सिपाल्टी
+    ms: Andrijevica Municipality
+    nb: Andrijevica Kommune
+    nl: Andrijevica Municipality
+    'no': Andrijevica Kommune
+    pl: Andrijevica (gmina)
+    pt: Andrijevica
+    ro: Comuna Andrijevica
+    ru: Андриевица
+    si: අන්ද්‍රේජෙවිකා නගර සභාව
+    sq: Komuna e Andrijevicës
+    sr: Андријевица
+    sr_Latn: Andrijevica
+    sv: Andrijevica Kommun
+    ta: அன்ரிஜெவிக்கா நகராட்சி
+    te: అండ్రిజెవికా మున్సిపాలిటీ
+    th: แอนดริเจวิกา
+    tr: Andrijevica Belediyesi
+    uk: Андрієвиця
+    ur: آندریےویتسا بلدیہ
+    vi: Đô thị tự trị Andrijevica
+    zh: 安德里耶維察區
+    cy: Bwrdeistref Andrijevica
+    fa: شهرداری آندریژویکا
+    hr: Općina Andrijevica
+  type: municipality
+'02':
+  name: Bar
+  code: '02'
+  unofficial_names:
+  - Bar
+  geo:
+    latitude: 42.2040425
+    longitude: 19.140438
+    min_latitude: 42.006969
+    min_longitude: 18.9345229
+    max_latitude: 42.315069
+    max_longitude: 19.3438407
+  translations:
+    ar: بلدية بار
+    be: абшчына Бар
+    bn: বার পৌরসভা
+    ccp: "𑄝𑄢𑄴"
+    ceb: Bar (munisipyo)
+    da: Bar Municipality
+    de: Gemeinde Bar
+    el: Μπαρ
+    en: Bar
+    es: Municipio de Bar
+    et: Bari vald
+    fi: Barin kunta
+    fr: Municipalité de Bar
+    gu: બાર મ્યુનિસિપાલિટી
+    hi: बार नगर पालिका
+    id: Kotamadya Bar
+    it: Comune di Bar
+    ja: バール
+    ka: ბარის მუნიციპალიტეტი
+    kn: ಬಾರ್ ಪುರಸಭೆ
+    ko: 바 지방 자치제
+    lt: Baro opština
+    lv: Baras pašvaldība
+    mk: Општина Бар
+    mr: बार म्युन्सिपाल्टी
+    ms: Bar Municipality
+    nb: Bar kommune
+    nl: Bar
+    'no': Bar kommune
+    pl: Bar (gmina)
+    pt: Bar (Montenegro)
+    ro: Comuna Bar
+    ru: Бар
+    si: බාර් නගර සභාව
+    sq: Komuna e Tivarit
+    sr: Бар
+    sr_Latn: Bar
+    sv: Bar kommun
+    ta: பார் நகராட்சி
+    te: బార్ మున్సిపాలిటీ
+    th: บาร์ มูนิซิพัลลิตี้
+    tr: Bar Belediyesi
+    uk: Бар
+    ur: بار بلدیہ
+    vi: Đô thị tự trị Bar
+    zh: 巴爾區
+    cy: Bwrdeistref Bar
+    fa: شهرداری بار
+  type: municipality
+'03':
+  name: Berane
+  code: '03'
+  unofficial_names:
+  - Berane
+  geo:
+    latitude: 42.84
+    longitude: 19.86
+    min_latitude: 42.807177
+    min_longitude: 19.8447418
+    max_latitude: 42.8696597
+    max_longitude: 19.8848308
+  translations:
+    ar: بلدية بيراني
+    bg: Беране
+    bn: বেরানে পৌরসভা
+    ccp: "𑄝𑄬𑄢𑄚𑄴"
+    ceb: Berane
+    da: Berane
+    de: Berane
+    el: Μπεράνε
+    en: Berane
+    es: Municipio de Berane
+    et: Berane vald
+    fi: Beranen kunta
+    fr: Berane
+    gu: બેરેન મ્યુનિસિપાલિટી
+    hi: बिरेन नगरपालिका
+    id: Kotamadya Berane
+    it: Berane
+    ja: ベラネ
+    ka: ბერანეს მუნიციპალიტეტი
+    kn: ಬೆರೇನ್ ಪುರಸಭೆ
+    ko: 베라네 지방 자치제
+    lt: Beranės opština
+    lv: Beranes pašvaldība
+    mr: बेरणे म्युन्सिपाल्टी
+    ms: Berane Municipality
+    nb: Berane kommune
+    nl: Berane
+    'no': Berane kommune
+    pl: Berane
+    pt: Berane
+    ro: Comuna Berane
+    ru: Беране
+    si: බෙරානේ නගර සභාව
+    sq: Komuna e Beranes
+    sr: Беране
+    sr_Latn: Berane
+    sv: Berane kommun
+    ta: பேரன் நகராட்சி
+    te: బెరేన్ మున్సిపాలిటీ
+    th: เทศบาลบาเรน
+    tr: Berane Municipality
+    uk: Беране
+    ur: بیرانے بلدیہ
+    vi: Đô thị tự trị Berane
+    zh: 貝拉內區
+    cy: Bwrdeistref Berane
+    fa: شهرداری برانه
+  type: municipality
+'04':
+  name: Bijelo Polje
+  code: '04'
+  unofficial_names:
+  - Bijelo Polje
+  geo:
+    latitude: 43.04
+    longitude: 19.75
+    min_latitude: 43.0089153
+    min_longitude: 19.7273254
+    max_latitude: 43.065439
+    max_longitude: 19.7872352
+  translations:
+    ar: بلدية بييلو بولي
+    bg: Биело поле (община)
+    bn: বিজেলো পোলজে পৌরসভা
+    ccp: "𑄝𑄨𑄎𑄬𑄣𑄮 𑄛𑄮𑄣𑄴𑄎𑄨"
+    ceb: Bijelo Polje
+    da: Bijelo Polje Municipality
+    de: Gemeinde Bijelo Polje
+    el: Μπιτζέλο Πόλτζε
+    en: Bijelo Polje
+    es: Municipio de Bijelo Polje
+    et: Bijelo Polje vald
+    fi: Bijelo Poljen kunta
+    fr: Municipalité de Bijelo Polje
+    gu: બિજેલો પોલ્જે મ્યુનિસિપાલિટી
+    hi: बिएलो पोलिए नगर पालिका
+    id: Bijelo Polje
+    it: Bijelo Polje
+    ja: ビイェロ・ポリェ
+    ka: ბიელო-პოლეს მუნიციპალიტეტი
+    kn: ಬೈಜೆಲೋ ಪೊಲ್ಜೆ ಪುರಸಭೆ
+    ko: 비옐로폴레
+    lt: Bijelo Polės opština
+    lv: Bijelo Poljes pašvaldība
+    mr: बिजलो पॉलजे म्युन्सिपाल्टी
+    ms: Perbandaran Bijelo Polje
+    nb: Bijelo Polje kommune
+    'no': Bijelo Polje kommune
+    pl: Bijelo Polje (gmina)
+    pt: Bijelo Polje (município)
+    ro: Comuna Bijelo Polje
+    ru: Биело-Поле (община)
+    si: බිජෙලෝ පොල්ජේ නගර සභාව
+    sq: Komuna e Bellopojës
+    sr: Бијело Поље
+    sr_Latn: Bijelo Polje
+    sv: Bijelo Polje kommun
+    ta: பிஜெலோ பொல்ஜெ நகராட்சி
+    te: బిజెలో పోల్జె మున్సిపాలిటీ
+    th: ไบจีโล พอลจี มูนิซิพัลลิตี้
+    tr: Bijelo Polje Belediyesi
+    uk: Муніципалітет Бієло-Полє
+    ur: بیئلو پولیے بلدیہ
+    vi: Đô thị tự trị Bijelo Polje
+    zh: 比耶洛波列區
+    cy: Bwrdeistref Bijelo Polje
+    fa: شهرداری بیجلو پولجه
+  type: municipality
+'05':
+  name: Budva
+  code: '05'
+  unofficial_names:
+  - Budva
+  geo:
+    latitude: 42.288056
+    longitude: 18.8425
+    min_latitude: 42.2734745
+    min_longitude: 18.8220477
+    max_latitude: 42.3027695
+    max_longitude: 18.8609032
+  translations:
+    ar: بلدية بودفا
+    bn: বুদ্ভা পৌরসভা
+    ccp: "𑄝𑄪𑄖𑄴𑄞"
+    ceb: Budva
+    da: Budva Municipality
+    de: Gemeinde Budva
+    el: Μπούντβα
+    en: Budva
+    es: Municipio de Budva
+    et: Budva vald
+    fi: Budvan kunta
+    fr: Municipalité de Budva
+    gu: બુદ્વ મ્યુનિસિપાલિટી
+    hi: बुडवा नगर पालिका
+    id: Kotamadya Budva
+    it: Budua
+    ja: ブドヴァ
+    ka: ბუდვის მუნიციპალიტეტი
+    kn: ಬಡ್ವಾ ಪುರಸಭೆ
+    ko: 부드바 지방 자치제
+    lt: Budvos opština
+    lv: Budvas pašvaldība
+    mk: Општина Будва
+    mr: बुडवे म्युन्सिपाल्टी
+    ms: Budva Municipality
+    nb: Budva Kommune
+    nl: Budva Municipality
+    'no': Budva Kommune
+    pl: Budva (gmina)
+    pt: Budva (município)
+    ro: Comuna Budva
+    ru: Будва
+    si: බුඩ්වා නගර සභාව
+    sr: Будва
+    sr_Latn: Budva
+    sv: Budva (kommun)
+    ta: பூத்வா நகராட்சி
+    te: బుడ్వా మున్సిపాలిటీ
+    th: เมืองบุ้ดว่า
+    tr: Budva Belediyesi
+    uk: Будва
+    ur: بودوا بلدیہ
+    vi: Đô thị tự trị Budva
+    zh: 布德瓦區
+    bg: Будва (община)
+    cy: Bwrdeistref Budva
+    fa: شهرداری بودوا
+  type: municipality
+'06':
+  name: Cetinje
+  code: '06'
+  unofficial_names:
+  - Cetinje
+  geo:
+    latitude: 42.38
+    longitude: 18.92
+    min_latitude: 42.3725432
+    min_longitude: 18.8862705
+    max_latitude: 42.4086289
+    max_longitude: 18.9402152
+  translations:
+    ar: بلدية سيتينيي
+    be: Цэцінэ
+    bn: সেতিঞ্জে পৌরসভা
+    ccp: "𑄥𑄬𑄖𑄨𑄚𑄴𑄎𑄬"
+    ceb: Cetinje
+    da: Cetinje
+    de: Gemeinde Cetinje
+    el: Κετίντζε
+    en: Cetinje
+    es: Municipio de Cetinje
+    et: Cetinje vald
+    fi: Cetinjen kunta
+    fr: Cetinje
+    gu: સેતિંજે મ્યુનિસિપાલિટી
+    hi: केतिन्ये नगर पालिका
+    id: Kotamadya Cetinje
+    it: Comune di Cetinje
+    ja: ツェティニェ
+    ka: ცეტინიეს მუნიციპალიტეტი
+    kn: ಸೆಟಿಂಜೆ ಪುರಸಭೆ
+    ko: 체티녜 지방 자치제
+    lt: Cetinės opština
+    lv: Cetiņes pašvaldība
+    mk: Престолнина Цетиње
+    mr: सिटिंजे म्युन्सिपाल्टी
+    ms: Cetinje Municipality
+    nb: Cetinje Kommune
+    'no': Cetinje Kommune
+    pl: Cetynia (gmina)
+    pt: Cetinje
+    ro: Comuna Cetinje
+    ru: Цетине
+    si: චෙටින්ජේ ප්‍රාන්තය
+    sq: Komuna e Cetinës
+    sr: Цетиње
+    sr_Latn: Cetinje
+    sv: Cetinje (kommun)
+    ta: செடிஞ்சே நகராட்சி
+    te: సెటింజె మున్సిపాలిటీ
+    th: เมืองหลวงเซตีเนีย
+    tr: Cetinje Belediyesi
+    uk: Муніципалітет Цетине
+    ur: قدیم شاہی دارالحکومت سیتینیے
+    vi: Đô thị tự trị Cetinje
+    fa: پایتخت سلطنتی قدیمی ستینجی
+  type: municipality
+'07':
+  name: Danilovgrad
+  code: '07'
+  unofficial_names:
+  - Danilovgrad
+  geo:
+    latitude: 42.5537532
+    longitude: 19.1077389
+    min_latitude: 42.5411924
+    min_longitude: 19.0853548
+    max_latitude: 42.5631326
+    max_longitude: 19.1203737
+  translations:
+    ar: بلدية دانيلوفغراد
+    bn: ডানিলোভগ্রাড পৌরসভা
+    ccp: "𑄓𑄚𑄨𑄣𑄮𑄛𑄴𑄉𑄳𑄢𑄖𑄴"
+    ceb: Danilovgrad
+    da: Danilovgrad Municipality
+    de: Gemeinde Danilovgrad
+    el: Ντανιλοβγκράντ
+    en: Danilovgrad
+    es: Municipio de Danilovgrad
+    et: Danilovgradi vald
+    fi: Danilovgradin kunta
+    fr: Municipalité de Danilovgrad
+    gu: ડેનિલોવગ્રાદ મ્યુનિસિપાલિટી
+    hi: दानिलोवग्राद नगर पालिका
+    id: Kotamadya Danilovgrad
+    it: Comune di Danilovgrad
+    ja: ダニロヴグラード
+    ka: დანილოვგრადის მუნიციპალიტეტი
+    kn: ಡ್ಯಾನಿಲೋವ್ಗ್ರಾಡ್ ಪುರಸಭೆ
+    ko: 다닐로브그라드 지방 자치제
+    lt: Danilovgrado opština
+    lv: Danilovgradas pašvaldība
+    mr: डॅनिलोव्हग्रॅड म्युन्सिपाल्टी
+    ms: Danilovgrad Municipality
+    nb: Danilovgrad Kommune
+    'no': Danilovgrad Kommune
+    pl: Danilovgrad
+    pt: Município de Danilovgrad
+    ro: Comuna Danilovgrad
+    ru: Даниловград
+    si: දැනිලෝව්ග්රඩ් නගර සභාව
+    sr: Даниловград
+    sr_Latn: Danilovgrad
+    sv: Danilovgrad (kommun)
+    ta: டனிலோவ்க்ராட் நகராட்சி
+    te: మున్సిపాలిటీ
+    th: เมืองดานิลอฟกราด
+    tr: Danilovgrad Belediyesi
+    uk: Муніципалітет Даниловград
+    ur: دانیلووگراد بلدیہ
+    vi: Đô thị tự trị Danilovgrad
+    zh: 達尼洛夫格勒區
+    cy: Bwrdeistref Danilovgrad
+    fa: شهرداری دانیلوگراد
+  type: municipality
+'08':
+  name: Herceg-Novi
+  code: '08'
+  unofficial_names:
+  - Herceg-Novi
+  geo:
+    latitude: 42.4572478
+    longitude: 18.5314753
+    min_latitude: 42.4490956
+    min_longitude: 18.5141516
+    max_latitude: 42.4661614
+    max_longitude: 18.5613638
+  translations:
+    ar: بلدية هرسك نوفي
+    az: Herseq Novi
+    bg: Херцег Нови
+    bn: হারচেগ নোভি পৌরসভা
+    bs: Herceg Novi
+    ca: Herceg Novi
+    ccp: "𑄦𑄬𑄢𑄴𑄥𑄬𑄇𑄴 𑄚𑄮𑄞𑄨"
+    ceb: Herceg Novi
+    cs: Herceg Novi
+    da: Herceg Novi Municipality
+    de: Gemeinde Herceg Novi
+    el: Χερκέγκ Νόβι
+    en: Herceg Novi
+    es: Municipio de Herceg Novi
+    et: Herceg Novi vald
+    eu: Herceg Novi
+    fa: هرتسگ نووی
+    fi: Herceg Novin kunta
+    fr: Municipalité d’Herceg Novi
+    gu: હર્સેગ નોવી મ્યુનિસિપાલિટી
+    he: הרצג נובי
+    hi: हर्जेग नोवी नगर पालिका
+    hr: Herceg Novi
+    hu: Herceg Novi
+    id: Kotamadya Herceg Novi
+    it: Comune di Herceng Novi
+    ja: ヘルツェグ・ノヴィ
+    ka: ჰერცეგ-ნოვის მუნიციპალიტეტი
+    kn: ಹೆರ್ಸೆಗ್ ನೊವಿ ಪುರಸಭೆ
+    ko: 헤르체그노비
+    lt: Herceg Novio opština
+    lv: Herceg-Novas pašvaldība
+    mk: Општина Херцег Нови
+    mr: हर्सेग नोवी म्युन्सिपाल्टी
+    ms: Herceg Novi Municipality
+    nb: Herceg Novi kommune
+    nl: Herceg Novi
+    'no': Herceg Novi kommune
+    pl: Herceg Novi (gmina)
+    pt: Herceg-Novi
+    ro: Comuna Herceg Novi
+    ru: Херцег-Нови
+    si: හෙර්සෙග් නොවී නගර සභාව
+    sk: Herceg Novi
+    sl: Herceg Novi
+    sq: Komuna e Herceg Novit
+    sr: Херцег Нови
+    sr_Latn: Herceg Novi
+    sv: Herceg Novi kommun
+    ta: ஹெர்ஸ்க் நோவி நகராட்சி
+    te: హెర్సెజ్ నోవి మున్సిపాలిటీ
+    th: แฮร์เซ็ก โนวี่
+    tr: Herceg Novi Belediye
+    uk: Херцег-Новий
+    ur: خیرتسیگ نووی بلدیہ
+    vi: Đô thị tự trị Herceg Novi
+    zh: 赫爾采格諾維區
+    be: Херцэг-Нові
+    cy: Bwrdeistref Herceg Novi
+    ps: هرتسګ نووي
+  type: municipality
+'09':
+  name: Kolašin
+  code: '09'
+  unofficial_names:
+  - Kolašin
+  geo:
+    latitude: 42.823611
+    longitude: 19.5225
+    min_latitude: 42.8146069
+    min_longitude: 19.5110321
+    max_latitude: 42.8338702
+    max_longitude: 19.5420171
+  translations:
+    ar: بلدية كولاشين
+    bn: কোলাসিন পৌরসভা
+    ccp: "𑄇𑄮𑄣𑄥𑄨𑄚𑄴"
+    ceb: Opština Kolašin
+    da: Kolašin Municipality
+    de: Gemeinde Kolašin
+    el: Κολασίν
+    en: Kolašin
+    es: Municipio de Kolašin
+    et: Kolašini vald
+    fi: Kolašinin kunta
+    fr: Kolašin
+    gu: કોલેસિન મ્યુનિસિપાલિટી
+    hi: कोलासिन नगरपालिका
+    id: Kotamadya Kolašin
+    it: Kolašin
+    ja: コラシン
+    ka: კოლაშინის მუნიციპალიტეტი
+    kn: ಕೊಲಾಸಿನ್ ಪುರಸಭೆ
+    ko: 콜라신 지방 자치제
+    lt: Kolašino opština
+    lv: Kolašinas pašvaldība
+    mr: कोलाशिन म्युन्सिपाल्टी
+    ms: Kolasin Municipality
+    nb: Kolasin kommune
+    nl: Kolašin
+    'no': Kolasin kommune
+    pl: Kolašin
+    pt: Kolašin
+    ro: Comuna Kolašin
+    ru: Колашин
+    si: කොලසින් නගර සභාව
+    sq: Komuna e Koloshinit
+    sr: Колашин
+    sr_Latn: Kolašin
+    sv: Opština Kolašin
+    ta: கொலுசின் நகராட்சி
+    te: కోలాసిన్ మున్సిపాలిటీ
+    th: เมืองโคซาลิน
+    tr: Kolasin Belediyesi
+    uk: Муніципалітет Колашин
+    ur: کولاشن بلدیہ
+    vi: Đô thị tự trị Kolasin
+    zh: 科拉欣區
+    cy: Bwrdeistref Kolašin
+    fa: شهرداری کولاژین
+  type: municipality
+'10':
+  name: Kotor
+  code: '10'
+  unofficial_names:
+  - Kotor
+  geo:
+    latitude: 42.424662
+    longitude: 18.771234
+    min_latitude: 42.4211597
+    min_longitude: 18.7663583
+    max_latitude: 42.4273177
+    max_longitude: 18.7748086
+  translations:
+    ccp: "𑄇𑄮𑄑𑄮𑄢𑄴"
+    ceb: Kotor (munisipyo)
+    en: Kotor
+    es: Municipio de Kotor
+    et: Kotori vald
+    fr: Kotor
+    ja: コトル
+    ka: კოტორის მუნიციპალიტეტი
+    lt: Kotoro opština
+    mk: Општина Котор
+    pl: Kotor
+    pt: Kotor
+    ro: Comuna Kotor
+    ru: Котор
+    sq: Komuna e Kotorrit
+    sr_Latn: Kotor
+    sr: Котор
+    sv: Kotor
+    uk: Котор
+    ur: کوتور بلدیہ
+    zh: 科托爾區
+    be: Котар
+    bg: Котор (община)
+    cy: Bwrdeistref Kotor
+    de: Gemeinde Kotor
+    fa: شهرداری کوتور
+    he: מחוז קוטור
+    id: Munisipalitas Kotor
+    it: Comune di Cattaro
+  type: municipality
+'11':
+  name: Mojkovac
+  code: '11'
+  unofficial_names:
+  - Mojkovac
+  geo:
+    latitude: 42.96
+    longitude: 19.58
+    min_latitude: 42.9522135
+    min_longitude: 19.5728303
+    max_latitude: 42.9672261
+    max_longitude: 19.5910262
+  translations:
+    ar: بلدية مويكوفاتش
+    bn: মজকোভিক পৌরসভা
+    ccp: "𑄟𑄌𑄴𑄇𑄮𑄞𑄇𑄴"
+    ceb: Mojkovac
+    da: Mojkovac Municipality
+    de: Gemeinde Mojkovac
+    el: Μόζκοβακ
+    en: Mojkovac
+    es: Municipio de Mojkovac
+    et: Mojkovaci vald
+    fi: Mojkovacin kunta
+    fr: Municipalité de Mojkovac
+    gu: મોજ્કોવેક મ્યુનિસિપાલિટી
+    hi: मोकोवैक नगर पालिका
+    id: Kotamadya Mojkovac
+    it: Comune di Mojkovac
+    ja: モイコヴァツ
+    ka: მოიკოვაცის მუნიციპალიტეტი
+    kn: ಮೊಜಕೊವಾಕ್ ಪುರಸಭೆ
+    ko: 모이코바츠 지방 자치제
+    lt: Moikovaco opština
+    lv: Mojkovacas pašvaldība
+    mr: मोजकोवक म्युन्सिपाल्टी
+    ms: Mojkovac Municipality
+    nb: Mojkovac kommune
+    nl: Mojkovac
+    'no': Mojkovac kommune
+    pl: Mojkovac
+    pt: Mojkovac
+    ro: Comuna Mojkovac
+    ru: Мойковац
+    si: මොජෝකොවැක් නගර සභාව
+    sq: Komuna e Mojkovacit
+    sr: Мојковац
+    sr_Latn: Mojkovac
+    sv: Mojkovac kommun
+    ta: மொஜ்கோவாக் நகராட்சி
+    te: మోజ్‌కోవాక్ మున్సిపాలిటీ
+    th: มอจโคแวก มูนิซิพัลลิตี้
+    tr: Mojkovac Belediyesi
+    uk: Муніципалітет Мойковац
+    ur: مویکوواتس بلدیہ
+    vi: Đô thị tự trị Mojkovac
+    zh: 莫伊科瓦茨區
+    cy: Bwrdeistref Mojkovac
+    fa: شهرداری موجوکوچ
+  type: municipality
+'12':
+  name: Nikšic´
+  code: '12'
+  unofficial_names:
+  - Nikšic´
+  geo:
+    latitude: 42.78
+    longitude: 18.94
+    min_latitude: 42.7371471
+    min_longitude: 18.897965
+    max_latitude: 42.8094439
+    max_longitude: 18.9982796
+  translations:
+    ar: بلدية نيكتسيتش
+    bn: নিকসিক পৌরসভা
+    ccp: "𑄚𑄨𑄇𑄴𑄥𑄨𑄇𑄴"
+    da: Nikšić Municipality
+    de: Gemeinde Nikšić
+    el: Νικσίτς
+    en: Nikšić
+    es: Municipio de Nikšić
+    et: Nikšići vald
+    fi: Nikšićn kunta
+    fr: Municipalité de Nikšić
+    gu: નિક્સિક મ્યુનિસિપાલિટી
+    hi: निक्सिक नगरपालिका
+    id: Kotamadya Nikšić
+    it: Comune di Nikšić
+    ja: ニクシチ
+    ka: ნიკშიჩის მუნიციპალიტეტი
+    kn: ನಿಕ್ಸಿಕ್ ಪುರಸಭೆ
+    ko: 닉시치 지방 자치제
+    lt: Nikšičiaus opština
+    lv: Nikšičas pašvaldība
+    mr: निक्सीक म्युन्सिपाल्टी
+    ms: Niksic Municipality
+    nb: Niksic kommune
+    nl: Niksic
+    'no': Niksic kommune
+    pl: Gmina Nikšić
+    pt: Município de Niksic
+    ro: Comuna Nikšić
+    ru: Никшич
+    si: නික්සික් නගර සභාව
+    sr: Никшић
+    sr_Latn: Nikšić
+    sv: Niksic kommun
+    ta: நிக்கஸிக் நகராட்சி
+    te: నిక్సిక్ మున్సిపాలిటీ
+    th: นิคชิซ
+    tr: Niksic Belediyesi
+    uk: Муніципалітет Никшич
+    ur: نیکشیچ بلدیہ
+    vi: Đô thị tự trị Niksić
+    zh: 尼克希奇區
+    ceb: Opština Nikšić
+    cy: Bwrdeistref Nikšić
+    fa: شهرداری نیکچیچ
+    hy: Նիկշիչ
+  type: municipality
+'13':
+  name: Plav
+  code: '13'
+  unofficial_names:
+  - Plav
+  geo:
+    latitude: 42.6001337
+    longitude: 19.9407541
+    min_latitude: 42.5892922
+    min_longitude: 19.930226
+    max_latitude: 42.6091342
+    max_longitude: 19.9534082
+  translations:
+    ar: بلدية بلاف
+    bg: Плав (община)
+    bn: প্লেভ পৌরসভা
+    ccp: "𑄛𑄳𑄣𑄛𑄴"
+    ceb: Opština Plav
+    da: Plav Municipality
+    de: Gemeinde Plav
+    el: Πλαβ
+    en: Plav
+    es: Municipio de Plav
+    et: Plavi vald
+    fi: Plavin kunta
+    fr: Municipalité de Plav
+    gu: પ્લેવ મ્યુનિસિપાલિટી
+    hi: प्लाव नगरपालिका
+    id: Kotamadya Plav
+    it: Comune di Plav
+    ja: プラヴ
+    ka: პლავის მუნიციპალიტეტი
+    kn: ಪ್ಲಾಸ್ವ್ ಪುರಸಭೆ
+    ko: 플라브 지방 자치제
+    lt: Plavo opština
+    lv: Plavas pašvaldība
+    mr: प्लॅव्ह म्युन्सिपाल्टी
+    ms: Plav Municipality
+    nb: Plav Kommune
+    nl: Plav
+    'no': Plav Kommune
+    pl: Plav (gmina)
+    pt: Município de Plav
+    ro: Comuna Plav
+    ru: Плав
+    si: පලව් නගර සභාව
+    sr: Плав
+    sr_Latn: Plav
+    sv: Plav (kommun)
+    ta: ப்ளவ் நகராட்சி
+    te: ప్లావ్ మున్సిపాలిటీ
+    th: เมืองพลาว
+    tr: Plav Province
+    uk: Плав
+    ur: پلاو بلدیہ
+    vi: Đô thị tự trị Plav
+    zh: 普拉夫區
+    ca: Plav
+    cy: Bwrdeistref Plav
+    fa: شهرداری پلاو
+    sq: Komuna e Plavës
+  type: municipality
+'14':
+  name: Pljevlja
+  code: '14'
+  unofficial_names:
+  - Pljevlja
+  geo:
+    latitude: 43.36
+    longitude: 19.36
+    min_latitude: 43.3385382
+    min_longitude: 19.3206596
+    max_latitude: 43.3736113
+    max_longitude: 19.3831443
+  translations:
+    ar: بلدية بليفليه
+    bg: Плевля
+    bn: প্লিভিজা পৌরসভা
+    ccp: "𑄎𑄬𑄛𑄴𑄎"
+    da: Pljevlja Municipality
+    de: Gemeinde Pljevlja
+    el: Πλτζέβλτζα
+    en: Pljevlja
+    es: Municipio de Pljevlja
+    et: Pljevlja vald
+    fi: Pljevljan kunta
+    fr: Municipalité de Pljevlja
+    gu: પ્લજેવ્લ્જા મ્યુનિસિપાલિટી
+    hi: प्लेवलिया नगर पालिका
+    id: Kotamadya Pljevlja
+    it: Comune di Pljevlja
+    ja: プリェヴリャ
+    ka: პლიევლიის მუნიციპალიტეტი
+    kn: ಪ್ಲೆಜೆವೆಲ್ಜಾ ಪುರಸಭೆ
+    ko: 플레블라 지방 자치제
+    lt: Plevlios opština
+    lv: Pljevljas pašvaldība
+    mr: प्लजिल्जा म्युन्सिपाल्टी
+    ms: Pljevlja Municipality
+    nb: Pljevlja Kommune
+    nl: Pljevlja Municipality
+    'no': Pljevlja Kommune
+    pl: Gmina Pljevlja
+    pt: Pljevlja
+    ro: Comuna Pljevlja
+    ru: Плевля
+    si: ප්ලේජෙව්ල්ජා නගර සභාව
+    sq: Komuna e Plevlës
+    sr: Пљевља
+    sr_Latn: Pljevlja
+    sv: Pljevlja Kommun
+    ta: ப்ளஜத்வல்ஜ நகராட்சி
+    te: ప్లెజోవెల్జా మున్సిపాలిటీ
+    th: พัลเจลจา
+    tr: Pljevlja Belediyesi
+    uk: Муніципалітет Плевля
+    ur: پلئیولیا بلدیہ
+    vi: Đô thị tự trị Pljevlja
+    zh: 普列夫利亞區
+    bs: Općina Pljevlja
+    cy: Bwrdeistref Pljevlja
+    fa: شهرداری پلیفلیا
+  type: municipality
+'15':
+  name: Plužine
+  code: '15'
+  unofficial_names:
+  - Plužine
+  geo:
+    latitude: 43.1541366
+    longitude: 18.8410376
+    min_latitude: 43.1508473
+    min_longitude: 18.8326693
+    max_latitude: 43.1582202
+    max_longitude: 18.8480115
+  translations:
+    ar: بلدية بلوزين
+    bn: প্লুজাইন পৌরসভা
+    ccp: "𑄛𑄳𑄣𑄪𑄎𑄭𑄚𑄴"
+    ceb: Opština Plužine
+    da: Plužine Municipality
+    de: Gemeinde Plužine
+    el: Πλουζίνε
+    en: Plužine
+    es: Municipio de Plužine
+    et: Plužine vald
+    fi: Plužinen kunta
+    fr: Municipalité de Plužine
+    gu: પ્લુઝિન મ્યુનિસિપાલિટી
+    hi: प्लुजाइन नगरपालिका
+    id: Kotamadya Plužine
+    it: Comune di Plužine
+    ja: プルジネ
+    ka: პლუჟინეს მუნიციპალიტეტი
+    kn: ಪ್ಲುಜಿನ್ ಮುನ್ಸಿಪಾಲಿಟಿ
+    ko: 플루지네 지방 자치제
+    lt: Plužinės opština
+    lv: Plužines pašvaldība
+    mr: प्लुझिन म्युन्सिपाल्टी
+    ms: Pluzine Municipality
+    nb: Pluzine Kommune
+    nl: Pluzine
+    'no': Pluzine Kommune
+    pl: Gmina Plužine
+    pt: Município de Pluzine
+    ro: Comuna Plužine
+    ru: Плужине
+    si: ප්ලුසිනේ නගර සභාව
+    sr: Плужине
+    sr_Latn: Plužine
+    sv: Opština Plužine
+    ta: பலுசினே நகராட்சி
+    te: ప్లూజైన్ మున్సిపాలిటీ
+    th: เมืองปลูชิเน
+    tr: Pluzine Belediyesi
+    uk: Муніципалітет Плужине
+    ur: پلوژینے بلدیہ
+    vi: Đô thị tự trị Pluzine
+    zh: 普盧日內區
+    cy: Bwrdeistref Plužine
+    fa: شهرداری پلوزین
+  type: municipality
+'16':
+  name: Podgorica
+  code: '16'
+  unofficial_names:
+  - Podgorica
+  geo:
+    latitude: 42.441286
+    longitude: 19.262892
+    min_latitude: 42.368358
+    min_longitude: 19.1815065
+    max_latitude: 42.4956435
+    max_longitude: 19.3302512
+  translations:
+    ccp: "𑄛𑄧𑄖𑄴𑄉𑄮𑄢𑄨𑄇"
+    ceb: Podgorica (munisipyo)
+    de_CH: Grossgemeinde Podgorica
+    de: Großgemeinde Podgorica
+    en: Podgorica
+    es: Municipio de Podgorica
+    et: Podgorica vald
+    fr: Podgorica
+    he: מחוז פודגוריצה
+    ja: ポドゴリツァ
+    ka: პოდგორიცის მუნიციპალიტეტი
+    lt: Podgoricos opština
+    mk: Гравен град Подгорица
+    pl: Podgorica
+    pt: Podgorica
+    ro: Municipiul Podgorica
+    ru: Подгорица
+    sq: Komuna e Podgoricës
+    sr_Latn: Glavni grad Podgorica
+    sr: Главни град Подгорица
+    ur: پودگوریتسا دارالحکومت شہر
+    cy: Bwrdeistref Podgorica
+    fa: پودگوریسا کاپیتال سیتی
+    id: Munisipalitas Podgorica
+  type: municipality
+'17':
+  name: Rožaje
+  code: '17'
+  unofficial_names:
+  - Rožaje
+  geo:
+    latitude: 42.8333
+    longitude: 20.1667
+    min_latitude: 42.8273239
+    min_longitude: 20.1424885
+    max_latitude: 42.8588217
+    max_longitude: 20.1917553
+  translations:
+    en: Rožaje
+    bg: Рожайе
+    es: Municipio de Rožaje
+    et: Rožaje vald
+    ja: ロジャイェ
+    ka: როჟაიეს მუნიციპალიტეტი
+    lt: Rožajės opština
+    nl: Rožaje
+    pl: Rožaje (gmina)
+    pt: Rožaje
+    ro: Comuna Rožaje
+    sr: Рожаје
+    uk: Рожає
+    ur: روژایے بلدیہ
+    ceb: Opština Rožaje
+    sr_Latn: Rožaje
+    zh: 羅扎耶區
+    el: Δήμος Ρόζαγιε
+    sq: Komuna e Rozhajës
+    ccp: "𑄢𑄮𑄎𑄎𑄬"
+    fr: Rožaje
+    bs: Rožaje
+    cy: Bwrdeistref Rožaje
+    de: Gemeinde Rožaje
+    fa: شهرداری روژاجه
+    id: Munisipalitas Rožaje
+    ru: Рожае
+  type: municipality
+'18':
+  name: Šavnik
+  code: '18'
+  unofficial_names:
+  - Šavnik
+  geo:
+    latitude: 42.9577803
+    longitude: 19.0943627
+    min_latitude: 42.95211949999999
+    min_longitude: 19.0911485
+    max_latitude: 42.9614791
+    max_longitude: 19.1002035
+  translations:
+    ar: بلدية تشافنيك
+    bn: সাভনিক পৌরসভা
+    ccp: "𑄥𑄛𑄴𑄚𑄨𑄇𑄴"
+    ceb: Opština Šavnik
+    da: Šavnik Municipality
+    de: Gemeinde Šavnik
+    el: Σάβνικ
+    en: Šavnik
+    es: Municipio de Šavnik
+    et: Šavniki vald
+    fi: Šavnikin kunta
+    fr: Municipalité de Šavnik
+    gu: સાવનિક મ્યુનિસિપાલિટી
+    hi: सवनिक नगर पालिका
+    id: Kotamadya Šavnik
+    it: Comune di Šavnik
+    ja: シャヴニク
+    ka: შავნიკის მუნიციპალიტეტი
+    kn: ಸವನಿಕ್ ಪುರಸಭೆ
+    ko: 샤브니크 지방 자치제
+    lt: Šavniko opština
+    lv: Šavnikas pašvaldība
+    mr: स्वनिक म्युन्सिपाल्टी
+    ms: Savnik Municipality
+    nb: Savnik Kommune
+    nl: Šavnik
+    'no': Savnik Kommune
+    pl: Gmina Šavnik
+    pt: Šavnik
+    ro: Comuna Šavnik
+    ru: муниципалитет Шавник
+    si: සව්නික් නගර සභාව
+    sq: Komuna e Shavnikut
+    sr: Шавник
+    sr_Latn: Šavnik
+    sv: Savnik Kommun
+    ta: சவனிக் நகராட்சி
+    te: సావ్నిక్ మున్సిపాలిటీ
+    th: ซาวนิก มูนิพาลิตี้
+    tr: Savnik Belediyesi
+    uk: Муніципалітет Шавник
+    ur: شاونک بلدیہ
+    vi: Đô thị tự trị Savnik
+    zh: 沙夫尼克區
+    cy: Bwrdeistref Šavnik
+    fa: شهرداری شاونیک
+  type: municipality
+'19':
+  name: Tivat
+  code: '19'
+  unofficial_names:
+  - Tivat
+  geo:
+    latitude: 42.43
+    longitude: 18.7
+    min_latitude: 42.4175716
+    min_longitude: 18.6844826
+    max_latitude: 42.44611889999999
+    max_longitude: 18.7237287
+  translations:
+    ccp: "𑄑𑄭𑄞𑄖𑄴"
+    ceb: Tivat
+    en: Tivat
+    es: Municipio de Tivat
+    et: Tivati vald
+    fr: Tivat
+    id: Kota praja Tivat
+    ja: ティヴァト
+    ka: ტივატის მუნიციპალიტეტი
+    lt: Tivato opština
+    mk: Општина Тиват
+    pt: Tivat
+    ro: Comuna Tivat
+    sr_Latn: Tivat
+    sr: Тиват
+    sv: Tivat
+    ur: تیوات بلدیہ
+    zh: 蒂瓦特區
+    cy: Bwrdeistref Tivat
+    de: Gemeinde Tivat
+    fa: شهرداری تیوات
+    it: Comune di Teodo
+    pl: Gmina Tivat
+    ru: Тиват
+    uk: Муніципалітет Тиват
+  type: municipality
+'20':
+  name: Ulcinj
+  code: '20'
+  unofficial_names:
+  - Ulcinj
+  geo:
+    latitude: 41.9310884
+    longitude: 19.2147632
+    min_latitude: 41.9187885
+    min_longitude: 19.1914062
+    max_latitude: 41.9386158
+    max_longitude: 19.2313958
+  translations:
+    ar: بلدية أولتسي
+    bg: Улцин
+    bn: উলচিঞ্জ পৌরসভা
+    ccp: "𑄃𑄣𑄴𑄥𑄬𑄚𑄴𑄎𑄴"
+    ceb: Ulcinj (munisipyo)
+    da: Ulcinj Municipality
+    de: Gemeinde Ulcinj
+    el: Ουλκίντζ
+    en: Ulcinj
+    es: Municipio de Ulcinj
+    et: Ulcinji vald
+    fi: Ulcinjin kunta
+    fr: Municipalité d’Ulcinj
+    gu: ઉલકીંજ મ્યુનિસિપાલિટી
+    hi: अलसिंज नगरपालिका
+    id: Kotamadya Ulcinj
+    it: Comune di Ulkinj
+    ja: ウルツィニ
+    ka: ულცინის მუნიციპალიტეტი
+    kn: ಉಲ್ಸಿಂಜ್ ಪುರಸಭೆ
+    ko: 울치니 지방 자치제
+    lt: Ulcinio opština
+    lv: Ulciņas pašvaldība
+    mk: Општина Улцињ
+    mr: उलचिनज म्युन्सिपाल्टी
+    ms: Ulcinj Municipality
+    nb: Ulcinj kommune
+    'no': Ulcinj kommune
+    pl: Ulcinj
+    pt: Ulcinj
+    ro: Comuna Ulcinj
+    ru: Улцинь
+    si: උල්සින්ජ් නගර සභාව
+    sq: Komuna e Ulqinit
+    sr: Улцињ
+    sr_Latn: Ulcinj
+    sv: Ulcinj kommun
+    ta: உலசிஞ் நகராட்சி
+    te: ఉల్సింజ్ మున్సిపాలిటీ
+    th: อุลซิน
+    tr: Ulcinj Belediyesi
+    uk: Улцинь
+    ur: اولتسینی بلدیہ
+    vi: Đô thị tự trị Ulcinj
+    cy: Bwrdeistref Ulcinj
+    fa: شهرداری اولکینج
+  type: municipality
+'21':
+  name: Žabljak
+  code: '21'
+  unofficial_names:
+  - Žabljak
+  geo:
+    latitude: 43.1555152
+    longitude: 19.1226018
+    min_latitude: 43.1471842
+    min_longitude: 19.1090442
+    max_latitude: 43.1686245
+    max_longitude: 19.1503287
+  translations:
+    ar: بلدية شابلياك
+    bn: জাব্লজাক পৌরসভা
+    ccp: "𑄎𑄛𑄴𑄎𑄇𑄴"
+    ceb: Opština Žabljak
+    da: Žabljak Municipality
+    de: Gemeinde Žabljak
+    el: Ζάμπλτζακ
+    en: Žabljak
+    es: Municipio de Žabljak
+    et: Žabljaki vald
+    fi: Žabljakin kunta
+    fr: Municipalité de Žabljak
+    gu: ઝબ્જેક મ્યુનિસિપાલિટી
+    hi: ज़ाब्लियाक नगरपालिका
+    id: Kotamadya Žabljak
+    it: Comune di Žabljak
+    ja: ジャブリャク
+    ka: ჟაბლიაკის მუნიციპალიტეტი
+    kn: ಝಬ್ಲ್ಜಾಕ್ ಪುರಸಭೆ
+    ko: 자블라크 지방 자치제
+    lt: Žabliako opština
+    lv: Žabļakas pašvaldība
+    mr: झाब्लिजक म्युन्सिपाल्टी
+    ms: Zabljak Municipality
+    nb: Zabljak kommune
+    nl: Žabljak
+    'no': Zabljak kommune
+    pl: Gmina Žabljak
+    pt: Žabljak
+    ro: Comuna Žabljak
+    ru: Жабляк
+    si: සබ්ල්ජක් නගර සභාව
+    sq: Komuna e Zhabjakut
+    sr: Жабљак
+    sr_Latn: Žabljak
+    sv: Opština Žabljak
+    ta: சப்லஜாக் நகராட்சி
+    te: జబల్జాక్ మున్సిపాలిటీ
+    th: กานดาคิ โซน
+    tr: Zabljak Belediyesi
+    uk: Муніципалітет Жабляк
+    ur: زابلجک میونسپلٹی
+    vi: Đô thị tự trị Zabljak
+    zh: 扎布利亞克區
+    cy: Bwrdeistref Žabljak
+    fa: شهرداری ژابلیاک
+  type: municipality
+'22':
+  name: Општина Гусиње
+  code: '22'
+  translations:
+    bg: Гусине (община)
+    ccp: "𑄉𑄪𑄥𑄨𑄚𑄴𑄎𑄬"
+    en: Gusinje
+    es: Municipio de Gusinje
+    ja: グシニェ
+    ka: გუსინიეს მუნიციპალიტეტი
+    ro: Comuna Gusinje
+    sq: Komuna e Gucisë
+    sr: Општина Гусиње
+    sr_Latn: Opština Gusinje
+    zh: 古西涅區
+    ur: گوسینیے بلدیہ
+    fa: شهرداری گوسینجه
+    id: Munisipalitas Gusinje
+    pl: Gmina Gusinje
+    ru: Гусине
+  type: municipality
+'23':
+  name: Општина Петњица
+  code: '23'
+  translations:
+    bg: Петница (община)
+    ccp: "𑄛𑄬𑄑𑄚𑄴𑄎𑄨𑄇"
+    en: Petnjica
+    es: Municipio de Petnjica
+    ja: ペトニツァ
+    ka: პეტნიიცის მუნიციპალიტეტი
+    ro: Comuna Petnjica
+    sr: Општина Петњица
+    sr_Latn: Opština Petnjica
+    ur: پیتنئیتسا بلدیہ
+    cy: Bwrdeistref Petnjica
+    de: Gemeinde Petnjica
+    fa: شهرداری پتنیکا
+    id: Munisipalitas Petnjica
+    nl: Petnjica
+    pl: Gmina Petnjica
+    ru: Петница
+    sq: Komuna e Petnjicës
+  type: municipality
+'24':
+  name: Tuzi
+  code: '24'
+  geo:
+    latitude: 42.708678
+    longitude: 19.37439
+    min_latitude: 41.8297
+    min_longitude: 18.4337921
+    max_latitude: 43.558743
+    max_longitude: 20.352926
+  translations:
+    en: Tuzi
+    ja: トゥジ
+  type: municipality

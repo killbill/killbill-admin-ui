@@ -1,0 +1,177 @@
+---
+AL:
+  name: Alo
+  code: AL
+  translations:
+    af: Alo
+    ar: ألو
+    bn: আলো
+    ca: Alo
+    cs: Alo
+    da: Alo
+    de: Alo
+    el: Άλο
+    en: Alo
+    es: Alo
+    et: Alo
+    eu: Alo
+    fa: الو (والیز و فاتونا)
+    fi: Alo
+    fr: Alo
+    gl: Alo
+    gu: આલો
+    he: אלו
+    hi: एलो
+    hr: Alo
+    hu: Alo
+    id: Alo
+    is: Alo
+    it: Alo
+    ja: アロ首長国
+    ka: ალო
+    kn: ಅಲೋ
+    ko: 알로
+    lt: Alo
+    lv: Alo
+    mr: आल्लो
+    ms: Alo
+    nb: Alo
+    nl: Alo
+    pl: Alo
+    pt: Alo
+    ro: Alo
+    ru: Ало
+    si: අලෝ
+    sk: Alo
+    sv: Alo
+    sw: Alo
+    ta: அலோ
+    te: ఆలో
+    th: อะโล
+    tr: Alo
+    ur: الو
+    vi: Alo
+    zh: 阿洛
+    zu: Alo
+    cy: Alo
+    ceb: Circonscription d’Alo
+    ccp: "𑄃𑄣𑄮"
+    ga: Alo
+    uk: Ало
+    'no': Alo
+  type: administrative_precinct
+SG:
+  name: Sigave
+  code: SG
+  translations:
+    af: Sigave
+    ar: مدينة سيغاف
+    bn: সিগাভে
+    ca: Sigave
+    cs: Sigave
+    da: Sigave
+    de: Sigave
+    el: Σιγκάβε
+    en: Sigave
+    es: Sigave
+    et: Sigave
+    eu: Sigave
+    fi: Sigave
+    fr: Sigave
+    gl: Sigave
+    gu: સિગવે
+    hi: सिगेव
+    hr: Sigave
+    hu: Sigave
+    id: Sigave
+    is: Sigave
+    it: Sigave
+    ja: シガベ首長国
+    ka: სიგავი
+    kn: ಸಿಗೇವ್
+    ko: 시가베
+    lt: Sigave
+    lv: Sigave
+    mr: सिगवे
+    ms: Sigave
+    nb: Sigave
+    nl: Sigave
+    pl: Sigave
+    pt: Sigave
+    ro: Sigave
+    ru: Сигав
+    si: සිගාවේ
+    sk: Sigave
+    sv: Sigave
+    sw: Sigave
+    ta: சிக்கவே
+    te: సిగేవ్
+    th: ซิกาวิ
+    tr: Sigave
+    ur: سیگاوی
+    vi: Sigave
+    zh: 锡加韦
+    cy: Sigave
+    ceb: Circonscription de Sigavé
+    ccp: "𑄥𑄨𑄉𑄃𑄨𑄛𑄴"
+    ga: Sigave
+    uk: Сігаве
+    'no': Sigave
+  type: administrative_precinct
+UV:
+  name: Uvea
+  code: UV
+  translations:
+    ar: أوفيا
+    bn: উভা
+    ca: Regne d’Uvea
+    da: Uvea
+    de: Uvea
+    el: Ουβέα
+    en: Uvea
+    es: Uvea
+    fa: یووآ
+    fi: Uvea
+    fr: Royaume coutumier de Uvea
+    gu: ઉવેઆ
+    hi: यूविया
+    id: Uvea
+    it: Wallis (Wallis e Futuna)
+    ja: ウベア首長国
+    kn: ಯುವಾ
+    ko: 우베아
+    mr: उवेआ
+    ms: Uvea
+    nb: Uvea
+    nl: Uvea
+    pl: Uvea
+    pt: Uvea
+    ru: Увеа
+    si: උවියා
+    sv: Uvea (kungadöme)
+    ta: உவே
+    te: యువియా
+    th: ยูเวีย
+    tr: Uvea
+    ur: وویا
+    vi: Uvea
+    zh: 乌韦阿
+    lv: Uvea
+    cy: Uvea
+    af: Uvea
+    lt: Uveja
+    sw: Uvea
+    ccp: "𑄅𑄪𑄞𑄨𑄠"
+    ga: Uvea
+    gl: Uvea
+    hu: Uvea
+    is: Uvea
+    sk: Uvea
+    ro: Uvea
+    hr: Uvea
+    eu: Uvea
+    et: Uvea
+    uk: Увеа
+    cs: Uvea
+    'no': Uvea
+  type: administrative_precinct

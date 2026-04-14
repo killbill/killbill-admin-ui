@@ -1,0 +1,1551 @@
+---
+'130':
+  name: Alutaguse
+  code: '130'
+  type: rural_municipality
+  translations:
+    en: Alutaguse
+'141':
+  name: Anija
+  code: '141'
+  type: rural_municipality
+  translations:
+    en: Anija
+'142':
+  name: Antsla
+  code: '142'
+  type: rural_municipality
+  translations:
+    en: Antsla
+'171':
+  name: Elva
+  code: '171'
+  type: rural_municipality
+  translations:
+    en: Elva
+'184':
+  name: Haapsalu
+  code: '184'
+  type: urban_municipality
+  translations:
+    en: Haapsalu
+'191':
+  name: Haljala
+  code: '191'
+  type: rural_municipality
+  translations:
+    en: Haljala
+'198':
+  name: Harku
+  code: '198'
+  type: rural_municipality
+  translations:
+    en: Harku
+'205':
+  name: Hiiumaa
+  code: '205'
+  type: rural_municipality
+  translations:
+    en: Hiiumaa
+'214':
+  name: Häädemeeste
+  code: '214'
+  type: rural_municipality
+  translations:
+    en: Häädemeeste
+'245':
+  name: Jõelähtme
+  code: '245'
+  type: rural_municipality
+  translations:
+    en: Jõelähtme
+'247':
+  name: Jõgeva
+  code: '247'
+  type: rural_municipality
+  translations:
+    en: Jõgeva
+'251':
+  name: Jõhvi
+  code: '251'
+  type: rural_municipality
+  translations:
+    en: Jõhvi
+'255':
+  name: Järva
+  code: '255'
+  type: rural_municipality
+  translations:
+    en: Järva
+'272':
+  name: Kadrina
+  code: '272'
+  type: rural_municipality
+  translations:
+    en: Kadrina
+'283':
+  name: Kambja
+  code: '283'
+  type: rural_municipality
+  translations:
+    en: Kambja
+'284':
+  name: Kanepi
+  code: '284'
+  type: rural_municipality
+  translations:
+    en: Kanepi
+'291':
+  name: Kastre
+  code: '291'
+  type: rural_municipality
+  translations:
+    en: Kastre
+'293':
+  name: Kehtna
+  code: '293'
+  type: rural_municipality
+  translations:
+    en: Kehtna
+'296':
+  name: Keila
+  code: '296'
+  type: urban_municipality
+  translations:
+    en: Keila
+'303':
+  name: Kihnu
+  code: '303'
+  type: rural_municipality
+  translations:
+    en: Kihnu
+'305':
+  name: Kiili
+  code: '305'
+  type: rural_municipality
+  translations:
+    en: Kiili
+'317':
+  name: Kohila
+  code: '317'
+  type: rural_municipality
+  translations:
+    en: Kohila
+'321':
+  name: Kohtla-Järve
+  code: '321'
+  type: urban_municipality
+  translations:
+    en: Kohtla-Järve
+'338':
+  name: Kose
+  code: '338'
+  type: rural_municipality
+  translations:
+    en: Kose
+'353':
+  name: Kuusalu
+  code: '353'
+  type: rural_municipality
+  translations:
+    en: Kuusalu
+'37':
+  name: Harjumaa
+  code: '37'
+  unofficial_names:
+  - Harjumaa
+  - Harju
+  geo:
+    latitude: 59.33342390000001
+    longitude: 25.2466973
+    min_latitude: 58.989357
+    min_longitude: 23.7301295
+    max_latitude: 59.68570260000001
+    max_longitude: 25.9551028
+  translations:
+    'no': Harju
+    ar: مقاطعة هاريو
+    bg: Харю
+    bn: হার্জু কাউন্টি
+    bs: Okrug Harjumaa
+    ca: Comtat de Harju
+    ccp: "𑄦𑄢𑄴𑄎𑄪"
+    ceb: Harjumaa
+    cs: Harjumaa
+    da: Harjumaa
+    de: Kreis Harju
+    el: Επαρχία Χάργιου
+    en: Harju
+    es: Condado de Harju
+    et: Harju maakond
+    eu: Harju konderria
+    fa: شهرستان هاریو
+    fi: Harjumaa
+    fr: Comté de Harju
+    gl: Condado de Harju
+    gu: હાર્જુ કાઉન્ટી
+    he: האריו
+    hi: हरजू काउंटी
+    hr: Okrug Harjumaa
+    hu: Harjumaa
+    hy: Հարյումաա
+    id: County Harju
+    it: Harjumaa
+    ja: ハリュ県
+    ka: ჰარიუმაა
+    kn: ಹರ್ಜು ಕೌಂಟಿ
+    ko: 하리우 주
+    lt: Harju apskritis
+    lv: Harju apriņķis
+    mk: Харју
+    mr: हरजू काउंटी
+    ms: County Harju
+    nb: Harju
+    nl: Harjumaa
+    pl: Harjumaa
+    pt: Harjumaa
+    ro: Regiunea Harju
+    ru: Харьюмаа
+    si: හර්ජු ප්‍රාන්තය
+    sk: Harju maakond
+    sr_Latn: Harju
+    sr: Харју
+    sv: Harju län
+    ta: அர்ஜு கவுண்டி
+    te: హార్జు కౌంటీ
+    th: ฮาร์ยู
+    tr: Harju ili
+    uk: Гарʼюмаа
+    ur: ہاریو کاؤنٹی
+    vi: Harju
+    zh: 哈留縣
+    ga: Harjumaa
+    az: Haryumaa
+    cy: Sir Harju
+  type: county
+'39':
+  name: Hiiumaa
+  code: '39'
+  unofficial_names:
+  - Dagden
+  - Dagö
+  - Hiiu
+  - Hiiumaa
+  geo:
+    latitude: 58.9239553
+    longitude: 22.5919468
+    min_latitude: 58.6870921
+    min_longitude: 22.0388167
+    max_latitude: 59.09294079999999
+    max_longitude: 23.1801319
+  translations:
+    'no': Hiiu
+    ar: مقاطعة هيو
+    be: Павет Хійу
+    bg: Хииу
+    bn: হিউ কাউন্টি
+    bs: Okrug Hiiumaa
+    ca: Comtat de Hiiu
+    ccp: "𑄦𑄨𑄅𑄪"
+    ceb: Hiiumaa
+    cs: Hiiumaa
+    da: Hiiu County
+    de: Kreis Hiiu
+    el: Επαρχία Χιίου
+    en: Hiiu
+    es: Condado de Hiiu
+    et: Hiiu maakond
+    eu: Hiiu konderria
+    fa: شهرستان هیو
+    fi: Hiidenmaa
+    fr: Comté de Hiiu
+    ga: Hiiumaa
+    gl: Condado de Hiiu
+    gu: હીઉ કાઉન્ટી
+    he: היו
+    hi: हायुउ काउंटी
+    hr: Okrug Hiiumaa
+    hu: Hiiumaa
+    hy: Հիյումաա
+    id: County Hiiu
+    it: Hiiumaa
+    ja: ヒーウ県
+    ka: ჰიიუმაა
+    kn: ಹೈಯು ಕೌಂಟಿ
+    ko: 히우 주
+    lt: Hyju apskritis
+    lv: Hījumā apriņķis
+    mk: Хују
+    mr: हायियू काउंटी
+    ms: County Hiiu
+    nb: Hiiu
+    nl: Hiiumaa
+    pl: Hiiumaa
+    pt: Hiiumaa
+    ro: Regiunea Hiiu
+    ru: Хийумаа
+    si: හියු ප්‍රාන්තය
+    sr_Latn: Hiju
+    sr: Хију
+    sv: Hiiu län
+    ta: ஹியு கவுண்டி
+    te: హయూ కౌంటీ
+    th: ฮียู คันทรี่
+    tr: Hiiu ili
+    uk: Хіюмаа
+    ur: ہییو کاؤنٹی
+    vi: Hiiu
+    zh: 希尤縣
+    cy: Sir Hiiu
+  type: county
+'424':
+  name: Loksa
+  code: '424'
+  type: urban_municipality
+  translations:
+    en: Loksa
+'430':
+  name: Lääneranna
+  code: '430'
+  type: rural_municipality
+  translations:
+    en: Lääneranna
+'431':
+  name: Lääne-Harju
+  code: '431'
+  type: rural_municipality
+  translations:
+    en: Lääne-Harju
+'432':
+  name: Luunja
+  code: '432'
+  type: rural_municipality
+  translations:
+    en: Luunja
+'441':
+  name: Lääne-Nigula
+  code: '441'
+  type: rural_municipality
+  translations:
+    en: Lääne-Nigula
+'442':
+  name: Lüganuse
+  code: '442'
+  type: rural_municipality
+  translations:
+    en: Lüganuse
+'446':
+  name: Maardu
+  code: '446'
+  type: urban_municipality
+  translations:
+    en: Maardu
+'45':
+  name: Ida-Virumaa
+  code: '45'
+  unofficial_names:
+  - Ida-Virumaa
+  - Ida-Viru
+  - И́да-Ви́руский уезд
+  geo:
+    latitude: 59.25926629999999
+    longitude: 27.4136535
+    min_latitude: 58.86563799999999
+    min_longitude: 26.7023311
+    max_latitude: 59.5005651
+    max_longitude: 28.2090051
+  translations:
+    ar: مقاطعة إيدا فيرو
+    be: павет Іда-Віру
+    bg: Ида-Виру
+    bn: ইদা-ভিরু কাউন্টি
+    ca: Comtat d’Ida-Viru
+    cs: Ida-Virumaa
+    da: Ida-Virumaa
+    de: Kreis Ida-Viru
+    el: Επαρχία Ίντα-Βίρου
+    en: Ida-Virumaa
+    es: Condado de Ida-Viru
+    et: Ida-Viru maakond
+    eu: Ida-Viru konderria
+    fa: شهرستان ایدا-ویرو
+    fi: Itä-Virumaa
+    fr: Comté de Viru-Est
+    gl: Condado de Ida-Viru
+    gu: ઇદા-વીરુ કાઉન્ટી
+    he: אידה-וירו
+    hi: आइडा-विरु काउंटी
+    hr: Okrug Ida-Virumaa
+    hu: Ida-Virumaa
+    hy: Իդա-Վիրումաա
+    id: County Ida-Viru
+    it: Ida-Virumaa
+    ka: იდა-ვირუმაა
+    kn: ಇಡಾ-ವೀರು ಕೌಂಟಿ
+    ko: 이다비루 주
+    lt: Rytų Viru apskritis
+    lv: Austrumviru apriņķis
+    mr: आयडा-वीरू काउंटी
+    ms: County Ida-Viru
+    nb: Ida-Viru
+    nl: Ida-Virumaa
+    pl: Ida-Virumaa
+    pt: Ida-Virumaa
+    ro: Regiunea Ida-Viru
+    ru: И́да-Ви́румаа
+    si: ඉඩා-විරු ප්‍රාන්තය
+    sr: Ида-Виру
+    sv: Ida-Viru län
+    ta: ஐடா -விறு கவுண்டி
+    te: ఇడా-వీరు కౌంటీ
+    th: ไอดา วิรู
+    tr: Ida-Viru ili
+    uk: Іда-Вірумаа
+    ur: ایدا-ویرو کاؤنٹی
+    vi: Hạt Ida-Viru
+    ceb: Ida-Virumaa
+    sr_Latn: Ida-Viru
+    zh: 東維魯縣
+    ccp: "𑄃𑄨𑄓-𑄞𑄨𑄢𑄪"
+    ga: Virumaa Thoir
+    bs: Okrug Ida-Virumaa
+    mk: Ида-Виру
+    'no': Ida-Viru
+  type: county
+'478':
+  name: Muhu
+  code: '478'
+  type: rural_municipality
+  translations:
+    en: Muhu
+'480':
+  name: Mulgi
+  code: '480'
+  type: rural_municipality
+  translations:
+    en: Mulgi
+'486':
+  name: Mustvee
+  code: '486'
+  type: rural_municipality
+  translations:
+    en: Mustvee
+'50':
+  name: Jõgevamaa
+  code: '50'
+  unofficial_names:
+  - Jogevamaa
+  geo:
+    latitude: 58.6947229
+    longitude: 26.3902301
+    min_latitude: 58.4708678
+    min_longitude: 25.750229
+    max_latitude: 58.96892199999999
+    max_longitude: 27.1633907
+  translations:
+    ar: مقاطعة يوجيفا
+    be: Павет Йыгева
+    bg: Йъгева
+    bn: জোগেভা
+    ca: Comtat de Jõgeva
+    cs: Jõgevamaa
+    da: Jõgevamaa
+    de: Kreis Jõgeva
+    el: Επαρχία Γιογκέβα
+    en: Jõgevamaa
+    es: Condado de Jõgeva
+    et: Jõgeva maakond
+    fa: شهرستان یوگوا
+    fi: Jõgevamaa
+    fr: Comté de Jõgeva
+    gl: Condado de Jõgeva
+    gu: જોજેવા કાઉન્ટી
+    he: מחוז ייגבה
+    hi: जोगेवा काउंटी
+    hr: Okrug Jõgevamaa
+    hu: Jõgevamaa
+    hy: Յիգևամաա
+    id: County Jõgeva
+    it: Jõgevamaa
+    ja: ヨゲヴァ県
+    ka: იიგევამაა
+    kn: ಜೊಗ್ವಾ ಕೌಂಟಿ
+    ko: 여게바 주
+    lt: Jegevos apskritis
+    lv: Jegevas apriņķis
+    mr: जोएव्वा काउंटी
+    ms: County Jõgeva
+    nb: Jõgeva
+    nl: Jõgevamaa
+    pl: Jõgevamaa
+    pt: Jõgevamaa
+    ro: Regiunea Jõgeva
+    ru: Йыгевамаа
+    si: ජෝගේවා ප්‍රාන්තය
+    sr: Јигева
+    sv: Jõgeva län
+    ta: ஜோகேவா கவுண்டி
+    te: జోగేవా కౌంటీ
+    th: โจเกวา
+    tr: Jõgeva ili
+    uk: Йиґевамаа
+    ur: یوگاوا کاؤنٹی
+    vi: Hạt Jogeva
+    ceb: Jõgevamaa
+    sr_Latn: Jigeva
+    zh: 約格瓦縣
+    ccp: "𑄎𑄮𑄉𑄬𑄞"
+    ga: Jõgevamaa
+    bs: Okrug Jõgevamaa
+    mk: Јигева
+    'no': Jõgeva
+  type: county
+'503':
+  name: Märjamaa
+  code: '503'
+  type: rural_municipality
+  translations:
+    en: Märjamaa
+'511':
+  name: Narva
+  code: '511'
+  type: urban_municipality
+  translations:
+    en: Narva
+'514':
+  name: Narva-Jõesuu
+  code: '514'
+  type: urban_municipality
+  translations:
+    en: Narva-Jõesuu
+'52':
+  name: Järvamaa
+  code: '52'
+  unofficial_names:
+  - Järvamaa
+  - Järva
+  - Jerwen
+  geo:
+    latitude: 58.8866713
+    longitude: 25.5000625
+    min_latitude: 58.6061109
+    min_longitude: 25.1950171
+    max_latitude: 59.2696539
+    max_longitude: 26.1688011
+  translations:
+    ar: مقاطعة يارفا
+    be: Павет Ярва
+    bg: Ярва
+    bn: জাভা কাউন্টি
+    ca: Comtat de Järva
+    cs: Järvamaa
+    da: Järvamaa
+    de: Kreis Järva
+    el: Επαρχία Γιέρβα
+    en: Järvamaa
+    es: Condado de Järva
+    et: Järva maakond
+    eu: Järva konderria
+    fa: شهرستان یاروا
+    fi: Järvamaa
+    fr: Comté de Järva
+    gl: Condado de Järva
+    gu: જાર્વા કાઉન્ટી
+    he: יארבה
+    hi: जार्वा काउंटी
+    hr: Okrug Järvamaa
+    hu: Järvamaa
+    hy: Յարվամաա
+    id: County Järva
+    it: Järvamaa
+    ja: イェルヴァ県
+    ka: იარვამაა
+    kn: ಜಾರ್ವಾ ಕೌಂಟಿ
+    ko: 얘르바 주
+    la: Jervia
+    lt: Jervos apskritis
+    lv: Jervas apriņķis
+    mr: ज्वाला काउंटी
+    ms: County Järva
+    nb: Järva
+    nl: Järvamaa
+    pl: Järvamaa
+    pt: Järvamaa
+    ro: Regiunea Järva
+    ru: Ярвамаа
+    si: ජාවා ප්‍රාන්තය
+    sr: Харва
+    sv: Järvamaa
+    ta: ஜெர்வா கவுண்டி
+    te: జార్వా కౌంటీ
+    th: มณฑลแยร์วา
+    tr: Järva ili
+    uk: Ярвамаа
+    ur: جاروا کاؤنٹی
+    vi: Hạt Jarva
+    ceb: Järvamaa
+    sr_Latn: Harva
+    zh: 耶爾瓦縣
+    ccp: "𑄎𑄢𑄴𑄞"
+    ga: Järvamaa
+    bs: Okrug Järvamaa
+    mk: Јерва
+    'no': Järva
+  type: county
+'528':
+  name: Nõo
+  code: '528'
+  type: rural_municipality
+  translations:
+    en: Nõo
+'557':
+  name: Otepää
+  code: '557'
+  type: rural_municipality
+  translations:
+    en: Otepää
+'56':
+  name: Läänemaa
+  code: '56'
+  unofficial_names:
+  - Läänemaa
+  - Lääne
+  - Wiek
+  - Wieck
+  geo:
+    latitude: 58.89071850000001
+    longitude: 23.7925806
+    min_latitude: 58.534504
+    min_longitude: 23.0778348
+    max_latitude: 59.304363
+    max_longitude: 24.1925961
+  translations:
+    ar: مقاطعة لانا
+    be: Павет Ляэнэ
+    bg: Ляяне
+    bn: লাআন কাউন্টি
+    ca: Comtat de Lääne
+    cs: Läänemaa
+    da: Läänemaa
+    de: Kreis Lääne
+    el: Επαρχία Λέενε
+    en: Läänemaa
+    es: Condado de Lääne
+    et: Lääne maakond
+    fa: شهرستان لنه
+    fi: Läänemaa
+    fr: Comté de Lääne
+    gl: Condado de Lääne
+    gu: લાન કાઉન્ટી
+    he: לאנה
+    hi: लाने काउंटी
+    hr: Okrug Läänemaa
+    hu: Läänemaa
+    hy: Լյաենեմաա
+    id: County Lääne
+    it: Läänemaa
+    ja: レーネ県
+    ka: ლიაენემაა
+    kn: ಲಾನ್ ಕೌಂಟಿ
+    ko: 래네 주
+    la: Rotalia
+    lt: Lenės apskritis
+    lv: Lēnes apriņķis
+    mr: लोन काउंटी
+    ms: County Lääne
+    nb: Lääne
+    nl: Läänemaa
+    pl: Läänemaa
+    pt: Läänemaa
+    ro: Lääne
+    ru: Ляэнемаа
+    si: ලානේ ප්‍රාන්තය
+    sr: Ланема
+    sv: Lääne län
+    ta: லானே கவுண்டி
+    te: లానె కౌంటీ
+    th: เมืองลาเน
+    tr: Lääne ili
+    uk: Ляянемаа
+    ur: لانی کاؤنٹی
+    vi: Hạt Laane
+    ceb: Läänemaa
+    sr_Latn: Lanema
+    zh: 萊內縣
+    ccp: "𑄣𑄚𑄬"
+    ga: Läänemaa
+    bs: Okrug Läänemaa
+    mk: Лене
+    'no': Lääne
+  type: county
+'567':
+  name: Paide
+  code: '567'
+  type: urban_municipality
+  translations:
+    en: Paide
+'586':
+  name: Peipsiääre
+  code: '586'
+  type: rural_municipality
+  translations:
+    en: Peipsiääre
+'60':
+  name: Lääne-Virumaa
+  code: '60'
+  unofficial_names:
+  - Lääne-Virumaa
+  - Lääne-Viru
+  geo:
+    latitude: 59.30188159999999
+    longitude: 26.3280312
+    min_latitude: 58.8769299
+    min_longitude: 25.5363979
+    max_latitude: 59.822016
+    max_longitude: 26.9527359
+  translations:
+    ar: مقاطعة لين-فيرو
+    be: Павет Ляэнэ-Віру
+    bg: Ляяне-Виру
+    bn: লাআনে-ভিরু কাউন্টি
+    ca: Comtat de Lääne-Viru
+    cs: Lääne-Virumaa
+    da: Lääne-Virumaa
+    de: Kreis Lääne-Viru
+    el: Επαρχία Λέενε-Βίρου
+    en: Lääne-Virumaa
+    es: Condado de Lääne-Viru
+    et: Lääne-Viru maakond
+    fa: شهرستان لنه-ویرو
+    fi: Länsi-Virumaa
+    fr: Comté de Viru-Ouest
+    gl: Condado de Lääne-Viru
+    gu: લાને-વીરુ કાઉન્ટી
+    he: לאנה-וירו
+    hi: लाएन-विरु काउंटी
+    hr: Okrug Lääne-Virumaa
+    hu: Lääne-Virumaa
+    hy: Լյաենե-Վիրումաա
+    id: County Lääne-Viru
+    it: Lääne-Virumaa
+    ka: ლიაენე-ვირუმაა
+    kn: ಲಾನ್-ವಿರು ಕೌಂಟಿ
+    ko: 래네비루 주
+    lt: Vakarų Viru apskritis
+    lv: Rietumviru apriņķis
+    mr: लोन-विरु काउंटी
+    ms: County Lääne-Viru
+    nb: Lääne-Viru
+    nl: Lääne-Virumaa
+    pl: Lääne-Virumaa
+    pt: Lääne-Virumaa
+    ro: Regiunea Lääne-Viru
+    ru: Ляэне-Вирумаа
+    si: ලානේ -විරූ කලාපය
+    sr: Љаене-Виру
+    sv: Väst-Virumaa län
+    ta: ளானே -விறு கவுண்டி
+    te: లానే-వీరు కౌంటీ
+    th: เขตลานวิรุน
+    tr: Lääne-Viru ili
+    uk: Ляяне-Вірумаа
+    ur: لانی-ویرو کاؤنٹی
+    vi: Hạt Laane-Viru
+    ceb: Lääne-Virumaa
+    sr_Latn: Ljaene-Viru
+    zh: 西維魯縣
+    ccp: "𑄣𑄚𑄬-𑄞𑄨𑄢𑄪"
+    ga: Virumaa Thiar
+    bs: Okrug Lääne-Virumaa
+    mk: Лене-Виру
+    'no': Lääne-Viru
+  type: county
+'615':
+  name: Põhja-Sakala
+  code: '615'
+  type: rural_municipality
+  translations:
+    en: Põhja-Sakala
+'618':
+  name: Põltsamaa
+  code: '618'
+  type: rural_municipality
+  translations:
+    en: Põltsamaa
+'622':
+  name: Põlva
+  code: '622'
+  type: rural_municipality
+  translations:
+    en: Põlva
+'624':
+  name: Pärnu
+  code: '624'
+  type: urban_municipality
+  translations:
+    en: Pärnu
+'638':
+  name: Põhja-Pärnumaa
+  code: '638'
+  type: rural_municipality
+  translations:
+    en: Põhja-Pärnumaa
+'64':
+  name: Põlvamaa
+  code: '64'
+  unofficial_names:
+  - Polvamaa
+  - Põlva County
+  geo:
+    latitude: 58.11606219999999
+    longitude: 27.2066395
+    min_latitude: 57.81740799999999
+    min_longitude: 26.566258
+    max_latitude: 58.2682399
+    max_longitude: 27.8189979
+  translations:
+    ar: مقاطعة بولفا
+    be: Павет Пылва
+    bg: Пълва
+    bn: পোল্ভা কাউন্টি
+    ca: Comtat de Põlva
+    cs: Põlvamaa
+    da: Põlvamaa
+    de: Kreis Põlva
+    el: Επαρχία Πόλβα
+    en: Põlvamaa
+    es: Condado de Põlva
+    et: Põlva maakond
+    fa: شهرستان پولوا
+    fi: Põlvamaa
+    fr: Comté de Põlva
+    gl: Condado de Põlva
+    gu: પોલવા કાઉન્ટી
+    he: מחוז פילבה
+    hi: पोलावा काउंटी
+    hr: Okrug Põlvamaa
+    hu: Põlvamaa
+    hy: Պիլվամաա
+    id: County Põlva
+    it: Põlvamaa
+    ja: ポルヴァ県
+    ka: პილვამაა
+    kn: ಪೊಲ್ವಾ ಕೌಂಟಿ
+    ko: 펄바 주
+    lt: Pelvos apskritis
+    lv: Pelvas apriņķis
+    mr: पोलाव्ह काउंटी
+    ms: County Põlva
+    nb: Põlva
+    nl: Põlvamaa
+    pl: Põlvamaa
+    pt: Põlvamaa
+    ro: Regiunea Põlva
+    ru: Пылвамаа
+    si: පෝල්වා ප්‍රාන්තය
+    sr: Пилва
+    sv: Põlva län
+    ta: போல்வா கவுண்டி
+    te: పోల్వా కౌంటీ
+    th: โพลวา
+    tr: Põlva ili
+    uk: Пилвамаа
+    ur: پولوا کاؤنٹی
+    vi: Hạt Polva
+    ceb: Põlvamaa
+    sr_Latn: Pilva
+    zh: 珀爾瓦縣
+    ccp: "𑄛𑄮𑄣𑄴𑄞"
+    ga: Põlvamaa
+    bs: Okrug Põlvamaa
+    mk: Пилва
+    'no': Põlva
+  type: county
+'651':
+  name: Raasiku
+  code: '651'
+  type: rural_municipality
+  translations:
+    en: Raasiku
+'653':
+  name: Rae
+  code: '653'
+  type: rural_municipality
+  translations:
+    en: Rae
+'661':
+  name: Rakvere
+  code: '661'
+  type: rural_municipality
+  translations:
+    en: Rakvere
+'663':
+  name: Rakvere
+  code: '663'
+  type: urban_municipality
+  translations:
+    en: Rakvere
+'668':
+  name: Rapla
+  code: '668'
+  type: rural_municipality
+  translations:
+    en: Rapla
+'68':
+  name: Pärnumaa
+  code: '68'
+  unofficial_names:
+  - Pärnumaa
+  - Pärnu
+  geo:
+    latitude: 58.46634429999999
+    longitude: 24.69612
+    min_latitude: 57.8645448
+    min_longitude: 23.6090122
+    max_latitude: 58.7569807
+    max_longitude: 25.3071801
+  translations:
+    ar: مقاطعة بارنو
+    be: Павет Пярну
+    bg: Пярну
+    bn: পারনু কাউন্টি
+    ca: Comtat de Pärnu
+    cs: Pärnumaa
+    da: Pärnumaa
+    de: Kreis Pernau
+    el: Επαρχία Πάρνου
+    en: Pärnumaa
+    es: Condado de Pärnu
+    et: Pärnu maakond
+    eu: Pärnu konderria
+    fa: شهرستان پارنو
+    fi: Pärnumaa
+    fr: Comté de Pärnu
+    gl: Condado de Pärnu
+    gu: પરનુ કાઉન્ટી
+    he: מחוז פרנו
+    hi: पार्नू काउंटी
+    hr: Okrug Pärnumaa
+    hu: Pärnumaa
+    hy: Պյարնումաա
+    id: County Pärnu
+    it: Pärnumaa
+    ja: ペルヌ県
+    ka: პიარნუმაა
+    kn: ಪರ್ನು ಕೌಂಟಿ
+    ko: 패르누 주
+    lt: Pernu apskritis
+    lv: Pērnavas apriņķis
+    mr: परनु काउंटी
+    ms: County Pärnu
+    nb: Pärnu
+    nl: Pärnumaa
+    pl: Pärnumaa
+    pt: Pärnumaa
+    ro: Regiunea Pärnu
+    ru: Пярнумаа
+    si: පාමු ප්‍රාන්තය
+    sl: Okrožje Pärnu
+    sr: Парнума
+    sv: Pärnu län
+    ta: பார்னு கவுண்டி
+    te: పార్ను కౌంటీ
+    th: เมืองแปร์นู
+    tr: Pärnu ili
+    uk: Пярнумаа
+    ur: پارنو کاؤنٹی
+    vi: Pärnu
+    ceb: Pärnumaa
+    sr_Latn: Parnuma
+    zh: 派爾努縣
+    ccp: "𑄛𑄢𑄴𑄚𑄪"
+    ga: Pärnumaa
+    bs: Okrug Pärnumaa
+    mk: Перну
+    'no': Pärnu
+  type: county
+'689':
+  name: Ruhnu
+  code: '689'
+  type: rural_municipality
+  translations:
+    en: Ruhnu
+'698':
+  name: Rõuge
+  code: '698'
+  type: rural_municipality
+  translations:
+    en: Rõuge
+'708':
+  name: Räpina
+  code: '708'
+  type: rural_municipality
+  translations:
+    en: Räpina
+'71':
+  name: Raplamaa
+  code: '71'
+  unofficial_names:
+  - Raplamaa
+  - Rapla
+  geo:
+    latitude: 58.8492625
+    longitude: 24.7346568
+    min_latitude: 58.65556099999999
+    min_longitude: 24.0706308
+    max_latitude: 59.22798409999999
+    max_longitude: 25.3339442
+  translations:
+    ar: مقاطعة رابلا
+    az: Raplamaa
+    be: Павет Рапла
+    bg: Рапла
+    bn: রাপ্লা কাউন্টি
+    ca: Comtat de Rapla
+    cs: Raplamaa
+    da: Raplamaa
+    de: Kreis Rapla
+    el: Επαρχία Ράπλα
+    en: Raplamaa
+    es: Condado de Rapla
+    et: Rapla maakond
+    fa: شهرستان رپلا
+    fi: Raplamaa
+    fr: Comté de Rapla
+    gl: Condado de Rapla
+    gu: રેપલ કાઉન્ટી
+    he: ראפלה
+    hi: रापला काउंटी
+    hr: Okrug Raplamaa
+    hu: Raplamaa
+    hy: Ռապլամաա
+    id: County Rapla
+    it: Raplamaa
+    ja: ラプラ県
+    ka: რაპლამაა
+    kn: ರಾಪ್ಲಾ ಕೌಂಟಿ
+    ko: 라플라 주
+    lt: Raplos apskritis
+    lv: Raplas apriņķis
+    mr: रॅपल काउंटी
+    ms: County Rapla
+    nb: Rapla
+    nl: Raplamaa
+    pl: Raplamaa
+    pt: Raplamaa
+    ro: Regiunea Rapla
+    ru: Рапламаа
+    si: රප්ලා ප්‍රාන්තය
+    sr: Рапла
+    sv: Rapla län
+    ta: ராப்லா கவுண்டி
+    te: రాప్లా కౌంటీ
+    th: ลาพรา คันทรี่
+    tr: Rapla ili
+    uk: Рапламаа
+    ur: رپلا کاؤنٹی
+    vi: Hạt Rapla
+    ceb: Raplamaa
+    sr_Latn: Rapla
+    zh: 拉普拉縣
+    ccp: "𑄢𑄛𑄴𑄣"
+    ga: Raplamaa
+    bs: Okrug Raplamaa
+    mk: Рапла
+    'no': Rapla
+  type: county
+'712':
+  name: Saarde
+  code: '712'
+  type: rural_municipality
+  translations:
+    en: Saarde
+'714':
+  name: Saaremaa
+  code: '714'
+  type: rural_municipality
+  translations:
+    en: Saaremaa
+'719':
+  name: Saku
+  code: '719'
+  type: rural_municipality
+  translations:
+    en: Saku
+'726':
+  name: Saue
+  code: '726'
+  type: rural_municipality
+  translations:
+    en: Saue
+'732':
+  name: Setomaa
+  code: '732'
+  type: rural_municipality
+  translations:
+    en: Setomaa
+'735':
+  name: Sillamäe
+  code: '735'
+  type: urban_municipality
+  translations:
+    en: Sillamäe
+'74':
+  name: Saaremaa
+  code: '74'
+  unofficial_names:
+  - Saare
+  - Ösel
+  - Oesel
+  geo:
+    latitude: 58.4849721
+    longitude: 22.6136407
+    min_latitude: 57.9044003
+    min_longitude: 21.8281004
+    max_latitude: 58.64212449999999
+    max_longitude: 23.328579
+  translations:
+    be: Павет Саарэ
+    bg: Сааре
+    ca: Comtat de Saare
+    cs: Saaremaa
+    da: Saare maakond
+    de: Kreis Saare
+    el: Επαρχία Σάαρε
+    en: Saare
+    es: Condado de Saare
+    et: Saare maakond
+    fa: شهرستان ساره
+    fi: Saarenmaa
+    fr: Comté de Saare
+    gl: Condado de Saare
+    he: מחוז סארה
+    hr: Okrug Saaremaa
+    hu: Saaremaa
+    hy: Սաարեմաա
+    id: County Saare
+    it: Saaremaa
+    ja: サーレ県
+    ka: საარემაა
+    ko: 사레 주
+    la: Oesel
+    lt: Sarės apskritis
+    lv: Sāremā apriņķis
+    ms: County Saare
+    nb: Saare
+    nl: Saaremaa
+    pl: Saaremaa
+    ro: Regiunea Saare
+    ru: Сааремаа
+    sr: Саре
+    sv: Saare län
+    tr: Saare ili
+    uk: Сааремаа
+    ur: سارے کاؤنٹی
+    ceb: Saaremaa
+    sr_Latn: Sare
+    vi: Saare
+    zh: 薩雷縣
+    ccp: "𑄥𑄢𑄬"
+    ga: Saaremaa
+    bs: Okrug Saaremaa
+    mk: Саре
+    'no': Saare
+    ar: مقاطعة سار
+    cy: Sir Saare
+  type: county
+'784':
+  name: Tallinn
+  code: '784'
+  type: urban_municipality
+  translations:
+    en: Tallinn
+'79':
+  name: Tartumaa
+  code: '79'
+  unofficial_names:
+  - Tartumaa
+  - Tartu
+  geo:
+    latitude: 58.40571279999999
+    longitude: 26.8015761
+    min_latitude: 58.113041
+    min_longitude: 26.078548
+    max_latitude: 58.682793
+    max_longitude: 27.5323021
+  translations:
+    ar: مقاطعة تارتو
+    be: павет Тарту
+    bg: Тарту
+    bn: তার্তু কাউন্টি
+    ca: Comtat de Tartu
+    cs: Tartumaa
+    da: Tartumaa
+    de: Kreis Dorpat
+    el: Επαρχία Τάρτου
+    en: Tartumaa
+    es: Condado de Tartu
+    et: Tartu maakond
+    fa: شهرستان تارتو
+    fi: Tartumaa
+    fr: Comté de Tartu
+    gl: Condado de Tartu
+    gu: ટાર્ટુ કાઉન્ટી
+    he: מחוז טרטו
+    hi: टर्टू काउंटी
+    hr: Okrug Tartumaa
+    hy: Տարտումաա
+    id: County Tartu
+    it: Tartumaa
+    ja: タルトゥ県
+    ka: ტარტუმაა
+    kn: ಟಾರ್ಟು ಕೌಂಟಿ
+    ko: 타르투 주
+    lt: Tartu apskritis
+    lv: Tartu apriņķis
+    mr: टार्टू काउंटी
+    ms: County Tartu
+    nb: Tartu
+    nl: Tartumaa
+    pl: Tartumaa
+    pt: Tartumaa
+    ro: Regiunea Tartu
+    ru: Тартумаа
+    si: ටර්ටු ප්‍රාන්තය
+    sr: Тарту
+    sv: Tartu län
+    ta: டார்டு கவுண்டி
+    te: టార్టు కౌంటీ
+    th: มณฑลตาร์ตู
+    tr: Tartu ili
+    uk: Тартумаа
+    ur: تارتو کاؤنٹی
+    vi: Hạt Tartu
+    ceb: Tartumaa
+    sr_Latn: Tartu
+    zh: 塔爾圖縣
+    ccp: "𑄑𑄢𑄴𑄑𑄪"
+    ga: Tartumaa
+    hu: Tartumaa
+    kk: Тартумаа
+    bs: Okrug Tartumaa
+    mk: Тарту
+    'no': Tartu
+  type: county
+'792':
+  name: Tapa
+  code: '792'
+  type: rural_municipality
+  translations:
+    en: Tapa
+'793':
+  name: Tartu
+  code: '793'
+  type: urban_municipality
+  translations:
+    en: Tartu
+'796':
+  name: Tartu
+  code: '796'
+  type: rural_municipality
+  translations:
+    en: Tartu
+'803':
+  name: Toila
+  code: '803'
+  type: rural_municipality
+  translations:
+    en: Toila
+'809':
+  name: Tori
+  code: '809'
+  type: rural_municipality
+  translations:
+    en: Tori
+'81':
+  name: Valgamaa
+  code: '81'
+  unofficial_names:
+  - Valgamaa
+  - Valga
+  geo:
+    latitude: 57.9103441
+    longitude: 26.1601819
+    min_latitude: 57.57223490000001
+    min_longitude: 25.5805171
+    max_latitude: 58.184323
+    max_longitude: 26.6250823
+  translations:
+    ar: مقاطعة فالغا
+    be: Павет Валга
+    bg: Валга
+    bn: ওয়াগা কাউন্টি
+    ca: Comtat de Valga
+    cs: Valgamaa
+    da: Valgamaa
+    de: Kreis Valga
+    el: Επαρχία Βάλγκα
+    en: Valgamaa
+    es: Condado de Valga
+    et: Valga maakond
+    fa: شهرستان والگا
+    fi: Valgamaa
+    fr: Comté de Valga
+    gl: Condado de Valga
+    gu: વાલ્ગા કાઉન્ટી
+    he: מחוז ולגה
+    hi: वल्गा काउंटी
+    hr: Okrug Valgamaa
+    hu: Valgamaa
+    hy: Վալգամաա
+    id: County Valga
+    it: Valgamaa
+    ja: ヴァルガ県
+    ka: ვალგამაა
+    kn: ವ್ಯಾಲ್ಗಾ ಕೌಂಟಿ
+    ko: 발가 주
+    lt: Valgos apskritis
+    lv: Valgas apriņķis
+    mr: वाल्गा काउंटी
+    ms: County Valga
+    nb: Valga
+    nl: Valgamaa
+    pl: Valgamaa
+    pt: Valgamaa
+    ro: Regiunea Valga
+    ru: Валгамаа
+    si: වල්ගා ප්‍රාන්තය
+    sr: Валга
+    sv: Valga län
+    ta: வாகா கவுண்டி
+    te: వాాల్గా కౌంటీ
+    th: วัลก้า คันทรี่
+    tr: Valga ili
+    uk: Валгамаа
+    ur: والگا کاؤنٹی
+    vi: Hạt Valga
+    ceb: Valgamaa
+    sr_Latn: Valga
+    zh: 瓦爾加縣
+    ccp: "𑄞𑄣𑄴𑄉"
+    ga: Valgamaa
+    bs: Okrug Valgamaa
+    mk: Валга
+    'no': Valga
+  type: county
+'824':
+  name: Tõrva
+  code: '824'
+  type: rural_municipality
+  translations:
+    en: Tõrva
+'834':
+  name: Türi
+  code: '834'
+  type: rural_municipality
+  translations:
+    en: Türi
+'84':
+  name: Viljandimaa
+  code: '84'
+  unofficial_names:
+  - Viljandimaa
+  - Viljandi
+  geo:
+    latitude: 58.2821746
+    longitude: 25.5752233
+    min_latitude: 57.9559418
+    min_longitude: 24.9719397
+    max_latitude: 58.69011700000001
+    max_longitude: 26.190842
+  translations:
+    ar: مقاطعة فيلياندي
+    be: Павет Вільяндзі
+    bg: Вилянди
+    bn: ভিলজান্ডি কাউন্টি
+    ca: Comtat de Viljandi
+    cs: Viljandimaa
+    da: Viljandimaa
+    de: Kreis Viljandi
+    el: Επαρχία Βιλγιάντι
+    en: Viljandi
+    es: Condado de Viljandi
+    et: Viljandi maakond
+    fa: شهرستان ویلیاندی
+    fi: Viljandimaa
+    fr: Comté de Viljandi
+    gl: Condado de Viljandi
+    gu: વિલ્જાન્ડી કાઉન્ટી
+    he: מחוז ויליאנדי
+    hi: वियांदी काउंटी
+    hr: Okrug Viljandimaa
+    hu: Viljandimaa
+    hy: Վիլյանդիմաա
+    id: County Viljandi
+    it: Viljandimaa
+    ja: ヴィリャンディ県
+    ka: ვილიანდიმაა
+    kn: ವಿಲ್ಜಂಡಿ ಕೌಂಟಿ
+    ko: 빌리안디 주
+    lt: Viljandžio apskritis
+    lv: Viljandi apriņķis
+    mr: विलजानंदी काउंटी
+    ms: County Viljandi
+    nb: Viljandi
+    nl: Viljandimaa
+    pl: Viljandimaa
+    pt: Viljandimaa
+    ro: Regiunea Viljandi
+    ru: Вильяндимаа
+    si: විල්ජන්ඩි ප්‍රාන්තය
+    sr: Виљанди
+    sv: Viljandi län
+    ta: விலஜாண்டி கவுண்டி
+    te: విల్జండి కౌంటీ
+    th: วิลจันดี
+    tr: Viljandi ili
+    uk: Вільяндімаа
+    ur: ویلیاندی کاؤنٹی
+    vi: Hạt Viljandi
+    ceb: Viljandimaa
+    sr_Latn: Viljandi
+    zh: 維爾揚迪縣
+    ccp: "𑄞𑄨𑄣𑄴𑄎𑄚𑄴𑄓𑄨"
+    ga: Viljandimaa
+    kk: Вильяндимаа
+    bs: Okrug Viljandimaa
+    mk: Вилјанди
+    'no': Viljandi
+    cy: Sir Viljandi
+  type: county
+'855':
+  name: Valga
+  code: '855'
+  type: rural_municipality
+  translations:
+    en: Valga
+'87':
+  name: Võrumaa
+  code: '87'
+  unofficial_names:
+  - Võrumaa
+  - Võru
+  geo:
+    latitude: 57.80381070000001
+    longitude: 26.8524025
+    min_latitude: 57.50931600000001
+    min_longitude: 26.3708779
+    max_latitude: 57.9571869
+    max_longitude: 27.554923
+  translations:
+    ar: مقاطعة فورو
+    be: Павет Выру
+    bg: Въру
+    bn: ভোঁরু কাউন্টি
+    ca: Comtat de Võru
+    cs: Võrumaa
+    da: Võrumaa
+    de: Kreis Võru
+    el: Επαρχία Βόρου
+    en: Võrumaa
+    es: Condado de Võru
+    et: Võru maakond
+    fa: شهرستان وورو
+    fi: Võrumaa
+    fr: Comté de Võru
+    gl: Condado de Võru
+    gu: વોરુ કાઉન્ટી
+    he: מחוז וורו
+    hi: वोरू काउंटी
+    hr: Okrug Võrumaa
+    hu: Võrumaa
+    hy: Վիրումաա
+    id: County Võru
+    it: Võrumaa
+    ja: ヴォル県
+    ka: ვირუმაა
+    kn: ಕೌಂಟಿ ಕೌಂಟಿ
+    ko: 버루 주
+    lt: Veru apskritis
+    lv: Veru apriņķis
+    mr: वोरु काउंटी
+    ms: County Võru
+    nb: Võru
+    nl: Võrumaa
+    pl: Võrumaa
+    pt: Võrumaa
+    ro: Regiunea Võru
+    ru: Вырумаа
+    si: වෝරු ප්‍රාන්තය
+    sr: Виру
+    sv: Võru län
+    ta: வொரு கவுண்டி
+    te: వోరు కౌంటీ
+    th: เทศมณฑลโวรู
+    tr: Võru ili
+    uk: Вирумаа
+    ur: وورو کاؤنٹی
+    vi: Hạt Voru
+    ceb: Võrumaa
+    sr_Latn: Viru
+    zh: 沃魯縣
+    ccp: "𑄞𑄮𑄢𑄪"
+    ga: Võrumaa
+    bs: Okrug Võrumaa
+    mk: Виру
+    'no': Võru
+  type: county
+'890':
+  name: Viimsi
+  code: '890'
+  type: rural_municipality
+  translations:
+    en: Viimsi
+'897':
+  name: Viljandi
+  code: '897'
+  type: urban_municipality
+  translations:
+    en: Viljandi
+'899':
+  name: Viljandi
+  code: '899'
+  type: rural_municipality
+  translations:
+    en: Viljandi
+'901':
+  name: Vinni
+  code: '901'
+  type: rural_municipality
+  translations:
+    en: Vinni
+'903':
+  name: Viru-Nigula
+  code: '903'
+  type: rural_municipality
+  translations:
+    en: Viru-Nigula
+'907':
+  name: Vormsi
+  code: '907'
+  type: rural_municipality
+  translations:
+    en: Vormsi
+'917':
+  name: Võru
+  code: '917'
+  type: rural_municipality
+  translations:
+    en: Võru
+'919':
+  name: Võru
+  code: '919'
+  type: urban_municipality
+  translations:
+    en: Võru
+'928':
+  name: Väike-Maarja
+  code: '928'
+  type: rural_municipality
+  translations:
+    en: Väike-Maarja

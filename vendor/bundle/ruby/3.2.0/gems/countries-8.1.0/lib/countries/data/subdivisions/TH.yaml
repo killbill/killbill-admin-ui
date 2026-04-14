@@ -1,0 +1,4994 @@
+---
+'10':
+  name: Krung Thep Maha Nakhon [Bangkok]
+  code: '10'
+  unofficial_names:
+  - Krung Thep
+  - Bangkok
+  - BKK
+  geo:
+    latitude: 13.7563309
+    longitude: 100.5017651
+    min_latitude: 13.49409
+    min_longitude: 100.3278136
+    max_latitude: 13.955111
+    max_longitude: 100.938408
+  translations:
+    en: Bangkok
+    af: Bangkok
+    am: ባንኮክ
+    ar: بانكوك
+    as: বেংকক
+    az: Banqkok
+    be: Бангкок
+    bg: Банкок
+    bn: ব্যাংকক
+    ca: Bangkok
+    cs: Bangkok
+    da: Bangkok
+    de: Bangkok
+    el: Μπανγκόκ
+    es: Bangkok
+    et: Bangkok
+    eu: Bangkok
+    fa: بانکوک
+    fi: Bangkok
+    fr: Bangkok
+    gl: Bangkok
+    gu: બેંગકોક
+    he: בנגקוק
+    hi: बैंकॉक
+    hr: Bangkok
+    hu: Bangkok
+    hy: Բանգկոկ
+    id: Bangkok
+    is: Bangkok
+    it: Bangkok
+    ja: バンコク
+    ka: ბანგკოკი
+    km: បាងកក
+    kn: ಬ್ಯಾಂಕಾಕ್
+    ko: 방콕
+    lo: ບາງກອກ
+    lt: Bankokas
+    lv: Bangkoka
+    ml: ബാങ്കോക്ക്
+    mn: Бангкок
+    mr: बँकॉक
+    ms: Bangkok
+    nb: Bangkok
+    ne: बैङ्कक
+    nl: Bangkok
+    or: ବ୍ୟାଙ୍କକ
+    pl: Bangkok
+    ps: بانګکوک
+    pt: Banguecoque
+    ro: Bangkok
+    ru: Бангкок
+    si: බැංකොක්
+    sk: Bangkok
+    sl: Bangkok
+    sr: Бангкок
+    sv: Bangkok
+    sw: Bangkok
+    ta: பாங்கொக்
+    te: బ్యాంకాక్
+    th: กรุงเทพมหานคร
+    tk: Bangkok
+    tr: Bangkok
+    uk: Бангкок
+    ur: بنکاک
+    vi: Bangkok
+    zh: 曼谷
+    cy: Bangkok
+    ceb: Bangkok
+    sr_Latn: Bangkok
+    yue_Hans: 曼谷
+    jv: Bangkok
+    sq: Bangkok
+    ccp: "𑄝𑄳𑄠𑄁𑄇𑄧𑄇𑄴"
+    ga: Bancác
+    ky: Бангкок
+    ha: Bangkok
+    so: Bangkok
+    pa: ਬੈਂਕਾਕ
+    kk: Бангкок
+    yue: 曼谷
+    my: ဘန်ကောက်မြို့
+    yo: Bangkok
+    uz: Bangkok
+    bs: Bangkok
+    mk: Бангкок
+    ha_NE: Bangkok
+    'no': Bangkok
+    yo_BJ: Bangkok
+    sd: بينڪاڪ
+  type: metropolitan_administration
+'11':
+  name: Samut Prakan
+  code: '11'
+  unofficial_names:
+  - Samut Prakan
+  geo:
+    latitude: 13.5990961
+    longitude: 100.5998319
+    min_latitude: 13.4793403
+    min_longitude: 100.4444578
+    max_latitude: 13.7169169
+    max_longitude: 100.9639206
+  translations:
+    en: Samut Prakan
+    ar: محافظة ساموت براكان
+    bg: Самут Пракан
+    bn: সামুত প্রাকান
+    da: Samut Prakan
+    de: Samut Prakan
+    el: Σάμουτ Πράκαν
+    es: Provincia de Samut Prakan
+    fi: Samut Prakan
+    fr: Samut Prakan
+    gl: Provincia Samut Prakan
+    gu: સમુટ પ્રકાન
+    he: סמוט פרקן
+    hi: समुत प्राकान प्रान्त
+    id: Samut Prakan
+    it: provincia di Samut Prakan
+    ja: サムットプラーカーン県
+    kn: ಸಮತ್ ಪ್ರಕನ್
+    ko: 사뭇쁘라깐 주
+    lo: ຈັງຫວັດສະໝຸດປາການ
+    mr: सॅम्युट प्रकाण
+    ms: Samut Prakan
+    nb: Samut Prakan
+    nl: Changwat Samut Prakan
+    pl: Prowincja Samut Prakan
+    pt: Samut Prakan
+    ro: Provincia Samut Prakan
+    ru: Самутпракан
+    si: සමුට් ප්‍රකාන්
+    sv: Samut Prakan
+    ta: சமுட் பிரகன்
+    te: సాముట్ ప్రకాన్
+    th: จังหวัดสมุทรปราการ
+    tr: Samut Prakan
+    uk: Самутпракан
+    ur: ساموت پراکان
+    vi: Samut Prakan
+    zh: 北欖府
+    lv: Samutprākāna
+    ceb: Changwat Samut Prakan (lalawigan sa Tailandya)
+    lt: Samut Prakanas
+    yue_Hans: 北榄府
+    ccp: "𑄥𑄟𑄪𑄖𑄴 𑄛𑄳𑄢𑄇𑄚𑄴"
+    yue: 北欖府
+    'no': Samut Prakan
+    fa: استان ساموت پراکان
+    ka: სამუტპრაკანის პროვინცია
+    km: ខេត្តសមុទ្រប្រាការ
+  type: province
+'12':
+  name: Nonthaburi
+  code: '12'
+  unofficial_names:
+  - Nonthaburi
+  geo:
+    latitude: 13.8621125
+    longitude: 100.5143528
+    min_latitude: 13.7888688
+    min_longitude: 100.2623644
+    max_latitude: 14.1403089
+    max_longitude: 100.5677219
+  translations:
+    en: Nonthaburi
+    ar: محافظة نونثابوري
+    bg: Нонтабури
+    bn: নোনতাবুরি
+    da: Nonthaburi
+    de: Nonthaburi
+    el: Νονθαμπούρι
+    es: Provincia de Nonthaburi
+    fa: نونتابوری
+    fi: Nonthaburi
+    fr: Nonthaburi
+    gl: Provincia Nonthaburi
+    gu: નોન્થબુરી
+    he: נונתאבורי
+    hi: नोन्थाबुरी प्रान्त
+    id: Nonthaburi
+    it: provincia di Nonthaburi
+    ja: ノンタブリー県
+    kn: ನಾನ್ತಾಬುರಿ
+    ko: 논타부리 주
+    lo: ຈັງຫວັດນົນທະບຸລີ
+    mr: नोनथबुरी
+    ms: Nonthaburi
+    nb: Nonthaburi
+    nl: Changwat Nonthaburi
+    pl: Prowincja Nonthaburi
+    pt: Nonthaburi
+    ro: Provincia Nonthaburi
+    ru: Нонтхабури
+    si: නොතම්බ්රි
+    sl: Nonthaburi
+    sv: Nonthaburi
+    ta: நொந்தபுரி
+    te: నాంతాబురి
+    th: จังหวัดนนทบุรี
+    tr: Nonthaburi
+    uk: Нонтхабурі
+    ur: نونتھابوری صوبہ
+    vi: Nonthaburi
+    zh: 暖武里府
+    lv: Nonthaburī
+    ceb: Changwat Nonthaburi
+    lt: Nontaburis
+    yue_Hans: 暖武里府
+    ccp: "𑄚𑄧𑄚𑄴𑄗𑄝𑄪𑄢𑄨"
+    yue: 暖武里府
+    mk: Нонтабури
+    'no': Nonthaburi
+    be: Нонтхабуры (правінцыя)
+    ca: Nonthaburi
+    cs: Nonthaburi
+    ka: ნონთაბურის პროვინცია
+    km: ខេត្តនន្ទបុរី
+    my: နွန်ထဘူရီပြည်နယ်
+  type: province
+'13':
+  name: Pathum Thani
+  code: '13'
+  unofficial_names:
+  - Pathum Thani
+  geo:
+    latitude: 14.0208391
+    longitude: 100.5250276
+    min_latitude: 13.9161577
+    min_longitude: 100.3316202
+    max_latitude: 14.2759685
+    max_longitude: 100.9520247
+  translations:
+    en: Pathum Thani
+    ar: محافظة باثوم ثاني
+    bg: Патум Тани
+    bn: পাথুম থানি
+    da: Pathum Thani
+    de: Pathum Thani
+    el: Πάτουμ Τάνι
+    es: Provincia de Pathum Thani
+    fa: استان پاتوم تانی
+    fi: Pathum Thani
+    fr: Pathum Thani
+    gl: Provincia Pathum Thani
+    gu: પાથમ થાની
+    hi: पथुम थानी प्रान्त
+    id: Pathum Thani
+    it: provincia di Pathum Thani
+    ja: パトゥムターニー県
+    kn: ಪಾಥಮ್ ಥಾನಿ
+    ko: 빠툼타니 주
+    lo: ຈັງຫວັດປະທຸມທານີ
+    mr: पथम थानी
+    ms: Pathum Thani
+    nb: Pathum Thani
+    nl: Changwat Pathum Thani
+    pl: Prowincja Pathum Thani
+    pt: Pathum Thani
+    ro: Provincia Pathum Thani
+    ru: Патхумтхани
+    si: පැතුම් තනි
+    sv: Pathum Thani
+    ta: பாத்தும் தானி
+    te: పాథుమ్ థాని
+    th: จังหวัดปทุมธานี
+    tr: Pathum Thani
+    ur: پاتھاوم تھانی صوبہ
+    vi: Pathum Thani
+    zh: 巴吞他尼府
+    lv: Pathumthānī
+    ceb: Changwat Pathum Thani
+    lt: Patum Tanio provincija
+    yue_Hans: 巴吞他尼府
+    ccp: "𑄛𑄗𑄪𑄟𑄴 𑄗𑄚𑄨"
+    uk: Провінція Патум-Тані
+    yue: 巴吞他尼府
+    'no': Pathum Thani
+    be: Патхумтхані (правінцыя)
+    km: ខេត្តបទុមធានី
+  type: province
+'14':
+  name: Phra Nakhon Si Ayutthaya
+  code: '14'
+  unofficial_names:
+  - Phra Nakhon Si Ayutthaya
+  geo:
+    latitude: 14.3532128
+    longitude: 100.5689599
+    min_latitude: 14.1105626
+    min_longitude: 100.2126958
+    max_latitude: 14.6755751
+    max_longitude: 100.8232816
+  translations:
+    en: Phra Nakhon Si Ayutthaya
+    ar: محافظة فرا ناخون سي أيوتثايا
+    bg: Аютая
+    bn: ফ্রা নাখন সি আয়ুত্তায়িয়া
+    da: Phra Nakhon Si Ayutthaya
+    de: Ayutthaya
+    el: Πρα Νακόν Σι Αγιουτάγια
+    es: Provincia de Phra Nakhon Si Ayutthaya
+    fa: آیوتتایا
+    fi: Phra Nakhon Si Ayutthaya
+    fr: Ayutthaya
+    gl: Provincia Phra Nakhon Si Ayutthaya
+    gu: ફ્રા નેખોન સિ અયુત્થાયા
+    hi: फ्र नखोन सी अयुथया प्रान्त
+    id: Phra Nakhon Si Ayutthaya
+    it: provincia di Ayutthaya
+    ja: アユタヤ県
+    kn: ಫ್ರ ನಖೋನ್ ಸಿ ಆಯುತ್ತಾಯ
+    ko: 아유타야 주
+    lo: ຈັງຫວັດພະນະຄອນສີອະຍຸທະຍາ
+    mr: फ्रा नखोन सी आयुथाय
+    ms: Ayutthaya
+    nb: Ayutthaya
+    nl: Changwat Ayutthaya
+    pl: Prowincja Ayutthaya
+    pt: Phra Nakhon Si Ayutthaya
+    ro: Provincia Ayutthaya
+    ru: Аюттхая
+    si: ප්‍රා නඛෝන් සි අයුත්තයා
+    sv: Ayutthaya
+    ta: பிறஎ நக்ஹோன் சி ஆயுட்தயா
+    te: ఫ్రా నాఖోన్ సి అయుతాయా
+    th: จังหวัดพระนครศรีอยุธยา
+    tr: Ayutthaya
+    ur: پھرا ناکھون سی ایوتتھایا صوبہ
+    vi: Ayutthaya
+    zh: 大城府
+    lv: Ajutthaja
+    ceb: Changwat Phra Nakhon Si Ayutthaya (lalawigan sa Tailandya)
+    lt: Fra Nakon Si Ajutaja regionas
+    yue_Hans: 大城府
+    ccp: "𑄜𑄳𑄢 𑄚𑄈𑄧𑄚𑄴 𑄥𑄨 𑄃𑄠𑄪𑄖𑄴𑄗𑄠"
+    ml: ഫ്രാ നഘോൺ സി അയുത്ഥയ പ്രവിശ്യ
+    uk: Провінція Аюттхая
+    yue: 大城府
+    'no': Ayutthaya
+    be: Аютхая (правінцыя)
+    he: איוטהאיה
+    ka: აიუთაიის პროვინცია
+    km: ខេត្តអយុធ្យា
+    my: ဘုရာ့နခွန်စီအယုဓယပြည်နယ်
+  type: province
+'15':
+  name: Ang Thong
+  code: '15'
+  unofficial_names:
+  - Ang Thong
+  geo:
+    latitude: 14.5896054
+    longitude: 100.455052
+    min_latitude: 14.438901
+    min_longitude: 100.1877062
+    max_latitude: 14.802408
+    max_longitude: 100.5163315
+  translations:
+    en: Ang Thong
+    ar: محافظة أنغ ثونغ
+    bg: Анг Тонг
+    bn: আং তাং
+    da: Ang Thong
+    de: Ang Thong
+    el: Ανγκ Θονγκ
+    es: Provincia de Ang Thong
+    eu: Ang Thong probintzia
+    fa: آنگ تونگ
+    fi: Ang Thong
+    fr: Ang Thong
+    gl: Provincia Ang Thong
+    gu: આંગ થોંગ
+    hi: आंग थोंग प्रान्त
+    id: Ang Thong
+    it: provincia di Ang Thong
+    ja: アーントーン県
+    kn: ಆಂಗ್ ಥೊಂಗ್
+    ko: 앙통 주
+    lo: ຈັງຫວັດອ່າງທອງ
+    mr: आंग पेटी
+    ms: Ang Thong
+    nb: Ang Thong
+    nl: Changwat Ang Thong
+    pl: Prowincja Ang Thong
+    pt: Ang Thong
+    ro: Provincia Ang Thong
+    ru: Ангтхонг
+    si: අන්ග් තොන්ග්
+    sv: Ang Thong
+    ta: அங் தொங்
+    te: ఆంగ్ థాంగ్
+    th: จังหวัดอ่างทอง
+    tr: Ang Thong
+    ur: صوبہ آنگ تھونگ
+    vi: Ang Thong
+    zh: 紅統府
+    lv: Ānthonas province
+    ceb: Changwat Ang Thong
+    lt: Ang Tongo provincija
+    yue_Hans: 红统府
+    ccp: "𑄃𑄧𑄁 𑄗𑄧𑄁"
+    uk: Провінція Анг-Тонг
+    yue: 紅統府
+    'no': Ang Thong
+    be: Ангтхонг (правінцыя)
+    ca: Ang Thong
+    km: ខេត្តអាងថង
+  type: province
+'16':
+  name: Lop Buri
+  code: '16'
+  unofficial_names:
+  - Lop Buri
+  geo:
+    latitude: 14.7995081
+    longitude: 100.6533706
+    min_latitude: 14.6550888
+    min_longitude: 100.4293391
+    max_latitude: 15.7481383
+    max_longitude: 101.4136046
+  translations:
+    en: Lopburi
+    ar: محافظة لوبوري
+    bg: Лопбури
+    bn: লুপ বুরি
+    da: Lopburi
+    de: Lopburi
+    el: Λοπ μπούρι
+    es: Provincia de Lopburi
+    fa: لوپبوری
+    fi: Lopburi
+    fr: Lopburi
+    gl: Provincia Lop Buri
+    gu: લોપબરી
+    hi: लोपबुरी प्रान्त
+    id: Lopburi
+    it: provincia di Lopburi
+    ja: ロッブリー県
+    kn: ಲೋಪ್ಬುರಿ
+    ko: 롭부리 주
+    lo: ຈັງຫວັດລົບບຸລີ
+    mr: लोपबरी
+    ms: Lopburi
+    nb: Lop Buri
+    nl: Changwat Lopburi
+    pl: Prowincja Lopburi
+    pt: Lop Buri
+    ro: Provincia Lopburi
+    ru: Лопбури
+    si: ලොප්බුරි
+    sv: Lop Buri
+    ta: லோப்புரி மாகாணம்
+    te: లోప్‌బూరి
+    th: จังหวัดลพบุรี
+    tr: Lopburi
+    ur: لوپبوری صوبہ
+    vi: Lopburi
+    zh: 華富里府
+    lv: Lopburi
+    ceb: Changwat Lop Buri
+    lt: Lopburis
+    yue_Hans: 华富里府
+    ccp: "𑄣𑄮𑄛𑄴𑄝𑄪𑄢𑄨"
+    ml: ലോപ്ബുരി പ്രവിശ്യ
+    uk: Провінція Лопбурі
+    yue: 華富里府
+    'no': Lop Buri
+    be: Лапбуры (правінцыя)
+    ca: Lop Buri
+    ka: ლოპბურის პროვინცია
+    km: ខេត្តលពបុរី
+  type: province
+'17':
+  name: Sing Buri
+  code: '17'
+  unofficial_names:
+  - Sing Buri
+  geo:
+    latitude: 14.8936253
+    longitude: 100.3967314
+    min_latitude: 14.7149053
+    min_longitude: 100.1814679
+    max_latitude: 15.1182942
+    max_longitude: 100.4882162
+  translations:
+    en: Sing Buri
+    ar: محافظة سنغ بوري
+    bg: Синг Бури
+    bn: সিং বুরি
+    da: Sing Buri
+    de: Singburi
+    el: Σίνγκμπουρι
+    es: Provincia de Sing Buri
+    fa: سینگ بوری
+    fi: Sing Buri
+    fr: Sing Buri
+    gl: Provincia Sing Buri
+    gu: સિંગ બરી
+    hi: सिंग बुरी प्रान्त
+    id: Sing Buri
+    it: provincia di Sing Buri
+    ja: シンブリー県
+    kn: ಸಿಂಗ್ ಬುರಿ
+    ko: 싱부리 주
+    lo: ຈັງຫວັດສິງບຸລີ
+    mr: सिंग बुरी
+    ms: Sing Buri
+    nb: Sing Buri
+    nl: Changwat Singburi
+    pl: Prowincja Sing Buri
+    pt: Sing Buri
+    ro: Provincia Singburi
+    ru: Сингбури
+    si: සින්ග් බුරි
+    sv: Sing Buri
+    ta: சிங் பூரி
+    te: సింగ్ బురి
+    th: จังหวัดสิงห์บุรี
+    tr: Singburi
+    ur: سنگ بوری صوبہ
+    vi: Sing Buri
+    zh: 信武里府
+    lv: Sinburī province
+    ceb: Changwat Sing Buri (lalawigan sa Tailandya)
+    lt: Sig Burio provincija
+    yue_Hans: 信武里府
+    ccp: "𑄥𑄨𑄁 𑄝𑄪𑄢𑄨"
+    uk: Провінція Сінгбурі
+    yue: 信武里府
+    'no': Sing Buri
+    be: Сінгбуры (правінцыя)
+    ka: სინგბურის პროვინცია
+    km: ខេត្តសិង្ហបុរី
+  type: province
+'18':
+  name: Chai Nat
+  code: '18'
+  unofficial_names:
+  - Chainat
+  - Jainat
+  - Jayanath
+  geo:
+    latitude: 15.1252422
+    longitude: 100.1423172
+    min_latitude: 15.0934621
+    min_longitude: 100.1184262
+    max_latitude: 15.1659048
+    max_longitude: 100.1771848
+  translations:
+    en: Chai Nat
+    ar: محافظة تشاينات
+    bg: Чайнат
+    bn: চৈ নাট প্রদেশ
+    da: Chai Nat
+    de: Chainat
+    el: Τσάι Νατ
+    es: Provincia de Chainat
+    fa: چاینات
+    fi: Chai Nat
+    fr: Chai Nat
+    gl: Provincia Chai Nat
+    gu: ચાઈ નેટ
+    hi: चइ नात प्रान्त
+    id: Chai Nat
+    it: provincia di Chainat
+    ja: チャイナート県
+    kn: ಚಾಯ್ ನ್ಯಾಟ್
+    ko: 차이낫 주
+    lo: ຈັງຫວັດໄຊນາດ
+    mr: चाई नेट
+    ms: Chainat
+    nb: Chainat
+    nl: Changwat Chainat
+    pl: Prowincja Chainat
+    pt: Chai Nat
+    ro: Provincia Chainat
+    ru: Чайнат
+    si: චායි නැට්
+    sv: Chai Nat
+    ta: சாய் நாட்
+    te: చాయ్ నాట్
+    th: จังหวัดชัยนาท
+    tr: Chainat
+    ur: چائی نات صوبہ
+    vi: Chainat
+    zh: 猜納府
+    lv: Čhajnāta
+    ceb: Changwat Chai Nat
+    lt: Čainatas
+    yue_Hans: 猜纳府
+    ccp: "𑄇𑄭 𑄚𑄖𑄴"
+    uk: Провінція Чайнат
+    yue: 猜納府
+    'no': Chainat
+    be: Чайнат (правінцыя)
+    ka: ჩაინატის პროვინცია
+    km: ខេត្តជ័យនាថ
+  type: province
+'19':
+  name: Saraburi
+  code: '19'
+  unofficial_names:
+  - Saraburi
+  geo:
+    latitude: 14.5289154
+    longitude: 100.9101421
+    min_latitude: 14.2430606
+    min_longitude: 100.5748146
+    max_latitude: 15.045331
+    max_longitude: 101.4545122
+  translations:
+    en: Saraburi
+    ar: محافظة سارابوري
+    bg: Сарабури
+    bn: সারাবুরি
+    da: Saraburi
+    de: Saraburi
+    el: Σαραμπούρι
+    es: Provincia de Saraburi
+    fa: سارابوری
+    fi: Saraburi
+    fr: Saraburi
+    gl: Provincia Saraburi
+    gu: સારાબુરી
+    hi: सराबुरी प्रान्त
+    id: Saraburi
+    it: provincia di Saraburi
+    ja: サラブリー県
+    kn: ಸರಬುರಿ
+    ko: 사라부리 주
+    lo: ຈັງຫວັດສະລະບຸລີ
+    mr: साराबुरी
+    ms: Saraburi
+    nb: Saraburi
+    nl: Changwat Saraburi
+    pl: Prowincja Saraburi
+    pt: Saraburi
+    ro: Provincia Saraburi
+    ru: Сарабури
+    si: සරබුරි
+    sv: Saraburi
+    ta: சாரபுரி
+    te: సారాబురి
+    th: จังหวัดสระบุรี
+    tr: Saraburi
+    ur: سارابوری صوبہ
+    vi: Saraburi
+    zh: 北標府
+    lv: Saraburi
+    ceb: Changwat Sara Buri
+    lt: Saraburis
+    yue_Hans: 北标府
+    ccp: "𑄥𑄢𑄝𑄪𑄢𑄨"
+    ml: സരാബുരി പ്രവിശ്യ
+    uk: Провінція Сарабурі
+    yue: 北標府
+    'no': Saraburi
+    be: правінцыя Сарабуры
+    ka: სარაბურის პროვინცია
+    km: ខេត្តស្រៈបុរី
+  type: province
+'20':
+  name: Chon Buri
+  code: '20'
+  unofficial_names:
+  - Chon Buri
+  geo:
+    latitude: 13.3611431
+    longitude: 100.9846717
+    min_latitude: 12.5086995
+    min_longitude: 100.6470747
+    max_latitude: 13.5893563
+    max_longitude: 101.7168862
+  translations:
+    en: Chon Buri
+    ar: محافظة تشونبوري
+    bg: Чонбури
+    bn: চাঁন বুড়ি
+    da: Chon Buri
+    de: Chonburi
+    el: Τσόνμπουρι
+    es: Provincia de Chon Buri
+    fa: چونبوری
+    fi: Chon Buri
+    fr: Chon Buri
+    gl: Provincia Chon Buri
+    gu: ચૉન બુરી
+    hi: चोनबुरी प्रान्त
+    id: Chon Buri
+    it: provincia di Chonburi
+    ja: チョンブリー県
+    ka: ჩონბურის პროვინცია
+    kn: ಚೊನ್ ಬುರಿ
+    ko: 촌부리 주
+    lo: ຈັງຫວັດຊົນບຸລີ
+    mr: चोन बुरी
+    ms: Chonburi
+    nb: Chonburi
+    nl: Changwat Chonburi
+    pl: Prowincja Chonburi
+    pt: Chon Buri
+    ro: Provincia Chonburi
+    ru: Чонбури
+    si: චොන් බුරි
+    sv: Chon Buri
+    ta: சொந்த பூரி
+    te: చోన్ బ్యూరి
+    th: จังหวัดชลบุรี
+    tr: Chonburi
+    ur: چونبوری صوبہ
+    vi: Chon Buri
+    zh: 春武里府
+    lv: Čonburi
+    ceb: Changwat Chon Buri (lalawigan sa Tailandya)
+    lt: Čoburis
+    yue_Hans: 春武里府
+    ccp: "𑄌𑄧𑄚𑄴 𑄝𑄪𑄢𑄨"
+    km: ខេត្តធនបុរី
+    uk: Провінція Чонбурі
+    yue: 春武里府
+    my: ချွန်ဘူရီ ပြည်နယ်
+    'no': Chonburi
+    be: Чонбуры (правінцыя)
+    cs: Čonburi
+    he: מחוז צ׳ונבורי
+  type: province
+'21':
+  name: Rayong
+  code: '21'
+  unofficial_names:
+  - Rayong
+  geo:
+    latitude: 12.707434
+    longitude: 101.1473517
+    min_latitude: 12.5130282
+    min_longitude: 100.984673
+    max_latitude: 13.163471
+    max_longitude: 101.8312551
+  translations:
+    en: Rayong
+    af: Rayong
+    ar: محافظة رايونغ
+    bg: Районг
+    bn: রায়ং
+    ca: Rayong
+    cs: Rayong
+    da: Rayong
+    de: Rayong
+    el: Ραϊόνγκ
+    es: Rayong
+    et: Rayong
+    eu: Rayong
+    fa: رایونگ
+    fi: Rayong
+    fr: Rayong
+    gl: Provincia Rayong
+    gu: રેયોંગ
+    hi: रयोंग प्रान्त
+    hr: Rayong
+    hu: Rayong
+    id: Rayong
+    is: Rayong
+    it: provincia di Rayong
+    ja: ラヨーン県
+    ka: რაიონგის პროვინცია
+    kn: ರೇಯಾಂಗ್
+    ko: 라영 주
+    lo: ຈັງຫວັດລະຍອງ
+    mr: रॅयोंग
+    ms: Rayong
+    nb: Rayong
+    nl: Changwat Rayong
+    pl: Prowincja Rayong
+    pt: Rayong
+    ro: Provincia Rayong
+    ru: Районг
+    si: රෙයෝන්ග්
+    sk: Rayong
+    sl: Rayong
+    sv: Rayong
+    sw: Rayong
+    ta: ராயோங்
+    te: రయోంగ్
+    th: จังหวัดระยอง
+    tr: Rayong
+    ur: رایونگ صوبہ
+    vi: Rayong
+    zh: 羅勇府
+    zu: Rayong
+    lv: Rajona
+    cy: Rayong
+    ceb: Changwat Rayong
+    lt: Rajongas
+    yue_Hans: 罗勇府
+    jv: Rayong
+    ccp: "𑄢𑄬𑄠𑄧𑄁"
+    ga: Rayong
+    pa: ਰੇਯੋੰਗ ਪ੍ਰਦੇਸ਼
+    uk: Провінція Районг
+    yue: 羅勇府
+    'no': Rayong
+    km: ខេត្តរយ៉ង
+  type: province
+'22':
+  name: Chanthaburi
+  code: '22'
+  unofficial_names:
+  - Chanthaburi
+  geo:
+    latitude: 12.6112485
+    longitude: 102.1037806
+    min_latitude: 12.5818304
+    min_longitude: 102.0659321
+    max_latitude: 12.6218309
+    max_longitude: 102.1175623
+  translations:
+    en: Chanthaburi
+    ar: محافظة تشانثابوري
+    bg: Чантабури
+    bn: কান্থাবুড়ি
+    da: Chanthaburi
+    de: Chanthaburi
+    el: Τσαντάμπουρι
+    es: Provincia de Chanthaburi
+    fa: چانتابوری
+    fi: Chanthaburi
+    fr: Chanthaburi
+    gl: Provincia Chanthaburi
+    gu: ચાંઠાબૂરી
+    hi: चन्थाबुरी प्रान्त
+    id: Chanthaburi
+    it: provincia di Chanthaburi
+    ja: チャンタブリー県
+    ka: ჩანთაბურის პროვინცია
+    kn: ಚಂತಬೂರಿ
+    ko: 짠타부리 주
+    lo: ຈັງຫວັດຈັນທະບຸລີ
+    mr: चंताबरी
+    ms: Chanthaburi
+    nb: Chanthaburi
+    nl: Changwat Chantaburi
+    pl: Prowincja Chanthaburi
+    pt: Chanthaburi
+    ro: Provincia Chanthaburi
+    ru: Чантхабури
+    si: චන්තබුරි
+    sv: Chanthaburi
+    ta: சாந்தபுரி
+    te: చాంతాబురి
+    th: จังหวัดจันทบุรี
+    tr: Chanthaburi
+    ur: چانتھابوری صوبہ
+    vi: Chanthaburi
+    zh: 尖竹汶府
+    lv: Čanthaburi
+    ceb: Changwat Chanthaburi (lalawigan sa Tailandya)
+    lt: Čantaburis
+    yue_Hans: 尖竹汶府
+    ccp: "𑄌𑄚𑄴𑄗𑄝𑄪𑄢𑄨"
+    hu: Csanthaburi tartomány
+    km: ខេត្តច័ន្ទបុរី
+    uk: Провінція Чантхабурі
+    yue: 尖竹汶府
+    'no': Chanthaburi
+    be: Чантхабуры (правінцыя)
+    ca: Chanthaburi
+  type: province
+'23':
+  name: Trat
+  code: '23'
+  unofficial_names:
+  - Trat
+  geo:
+    latitude: 12.2427563
+    longitude: 102.5174734
+    min_latitude: 11.5617527
+    min_longitude: 102.2355769
+    max_latitude: 12.7582072
+    max_longitude: 102.9151464
+  translations:
+    en: Trat
+    ar: محافظة ترات
+    bg: Трат
+    bn: ট্রাট
+    da: Trat
+    de: Trat
+    el: Τρατ
+    es: Trat
+    fa: ترات
+    fi: Trat
+    fr: Trat
+    gl: Provincia Trat
+    gu: ટ્રાટ
+    hi: त्रात प्रान्त
+    id: Provinsi Trat
+    it: provincia di Trat
+    ja: トラート県
+    ka: ტრატის პროვინცია
+    kn: ಟ್ರ್ಯಾಟ್
+    ko: 뜨랏 주
+    lo: ຈັງຫວັດຕຣາດ
+    mr: ट्राट
+    ms: Trat
+    nb: Trat
+    nl: Changwat Trat
+    pl: Prowincja Trat
+    pt: Trat
+    ro: Provincia Trat
+    ru: Трат
+    si: ට්‍රට්
+    sv: Trat
+    ta: ட்ராட்
+    te: ట్రాట్
+    th: จังหวัดตราด
+    tr: Trat
+    uk: Трат
+    ur: ترات صوبہ
+    vi: Trat
+    zh: 桐艾府
+    lv: Trāta
+    ceb: Changwat Trat
+    lt: Trato provincija
+    yue_Hans: 桐艾
+    ccp: "𑄑𑄳𑄢𑄖𑄴"
+    yue: 桐艾
+    'no': Trat
+    be: Трат (правінцыя)
+    km: ខេត្តត្រាច
+  type: province
+'24':
+  name: Chachoengsao
+  code: '24'
+  unofficial_names:
+  - Chachoengsao
+  geo:
+    latitude: 13.6904194
+    longitude: 101.0779596
+    min_latitude: 13.1786652
+    min_longitude: 100.8489619
+    max_latitude: 13.976755
+    max_longitude: 101.9902707
+  translations:
+    en: Chachoengsao
+    ar: محافظة شاشوينجساو
+    bg: Чачоенгсао
+    bn: চাকোএংসাও
+    da: Chachoengsao
+    de: Chachoengsao
+    el: Τσατσοενγκσάο
+    es: Provincia de Chachoengsao
+    fa: چاچوئنگسائو
+    fi: Chachoengsao
+    fr: Chachoengsao
+    gl: Provincia Chachoengsao
+    gu: ચાચોનગ્સાઓ
+    hi: चाचअंग्साओ प्रान्त
+    id: Chachoengsao
+    it: provincia di Chachoengsao
+    ja: チャチューンサオ県
+    ka: ჩაჩენგსაოს პროვინცია
+    kn: ಚಾಚೊಂಗ್ಸಾವ್
+    ko: 차층사오 주
+    lo: ຈັງຫວັດສະເຊີງເຊົາ
+    mr: चाचोंग्साओ
+    ms: Chachoengsao
+    nb: Chachoengsao
+    nl: Changwat Chachoengsao
+    pl: Prowincja Chachoengsao
+    pt: Chachoengsao
+    ro: Provincia Chachoengsao
+    ru: Чаченгсау
+    si: චාචෝඑන්ග්සාඕ
+    sv: Chachoengsao
+    ta: ச்ச்சோஎஙஸோ
+    te: చాచోయెంగ్సావో
+    th: จังหวัดฉะเชิงเทรา
+    tr: Chachoengsao
+    ur: چاچوئنگساو صوبہ
+    vi: Chachoengsao
+    zh: 北柳府
+    lv: Čhačhonsau
+    ceb: Changwat Chachoengsao (lalawigan sa Tailandya)
+    lt: Čačengsao
+    yue_Hans: 北柳府
+    ccp: "𑄌𑄌𑄮𑄠𑄬𑄁𑄥𑄃𑄮"
+    uk: Провінція Чаченгсау
+    yue: 北柳府
+    'no': Chachoengsao
+    be: Чачэнгсау (правінцыя)
+    km: ខេត្តស្ទឹងជ្រៅ
+  type: province
+'25':
+  name: Prachin Buri
+  code: '25'
+  unofficial_names:
+  - Prachin Buri
+  geo:
+    latitude: 14.0420699
+    longitude: 101.6600874
+    min_latitude: 13.5823122
+    min_longitude: 101.137452
+    max_latitude: 14.4625612
+    max_longitude: 102.1060804
+  translations:
+    en: Prachin Buri
+    ar: محافظة براشينبوري
+    bg: Прачинбури
+    bn: প্রচীন বুরি
+    da: Prachin Buri
+    de: Prachinburi
+    el: Πρατσίνμπουρι
+    es: Provincia de Prachinburi
+    fa: پراچینبوری
+    fi: Prachin Buri
+    fr: Prachin Buri
+    gl: Provincia Prachin Buri
+    gu: પ્રાચિન બુરી
+    hi: प्राचीनबुरी प्रान्त
+    id: Prachin Buri
+    it: provincia di Prachinburi
+    ja: プラーチーンブリー県
+    ka: პრაჩინბურის პროვინცია
+    kn: ಪ್ರಖಿನ್ ಬುರಿ
+    ko: 쁘라찐부리 주
+    lo: ຈັງຫວັດປາຈີນບຸລີ
+    mr: प्राचिन बुरी
+    ms: Prachinburi
+    nb: Prachinburi
+    nl: Changwat Prachinburi
+    pl: Prowincja Prachinburi
+    pt: Prachin Buri
+    ro: Provincia Prachinburi
+    ru: Прачинбури
+    si: ප්‍රචින් බුරි
+    sv: Prachin Buri
+    ta: ப்ராச்சீன் பூரி
+    te: ప్రాజిన్ బురి
+    th: จังหวัดปราจีนบุรี
+    tr: Prachinburi
+    ur: پراچنبوری صوبہ
+    vi: Prachinburi
+    zh: 巴真府
+    lv: Pračīnburī province
+    ceb: Changwat Prachin Buri (lalawigan sa Tailandya)
+    lt: Pračinburio provincija
+    yue_Hans: 巴真府
+    ccp: "𑄛𑄳𑄢𑄌𑄨𑄚𑄴 𑄝𑄪𑄢𑄨"
+    uk: Провінція Прачінбурі
+    yue: 巴真府
+    'no': Prachinburi
+    be: Прачынбуры (правінцыя)
+    km: ខេត្តប្រាចិនបុរី
+  type: province
+'26':
+  name: Nakhon Nayok
+  code: '26'
+  unofficial_names:
+  - Nakhon Nayok
+  geo:
+    latitude: 14.2038387
+    longitude: 101.2268773
+    min_latitude: 14.1934153
+    min_longitude: 101.2067585
+    max_latitude: 14.210597
+    max_longitude: 101.2307342
+  translations:
+    en: Nakhon Nayok
+    ar: محافظة ناخون نايوك
+    bg: Након Найок
+    bn: নাখন নওক
+    da: Nakhon Nayok
+    de: Nakhon Nayok
+    el: Νάκον Ναϊγιόκ
+    es: Provincia de Nakhon Nayok
+    fa: ناخون نایوک
+    fi: Nakhonnayok
+    fr: Nakhon Nayok
+    gl: Provincia Nakhon Nayok
+    gu: નાખોન નાયોક
+    hi: नखोन नायोक प्रान्त
+    id: Nakhon Nayok
+    it: provincia di Nakhon Nayok
+    ja: ナコーンナーヨック県
+    kn: ನಖೋನ್ ನಯೋಕ್
+    ko: 나콘나욕 주
+    lo: ຈັງຫວັດນະຄອນນາຍົກ
+    mr: नाखोन नायक
+    ms: Nakhon Nayok
+    nb: Nakhon Nayok
+    nl: Changwat Nakhon Nayok
+    pl: Prowincja Nakhon Nayok
+    pt: Nakhon Nayok
+    ro: Provincia Nakhon Nayok
+    ru: Накхоннайок
+    si: නකොන් නයෝක්
+    sv: Nakhon Nayok
+    ta: நக்ஹோன் நயோக்
+    te: నాఖోన్ నాయోక్
+    th: จังหวัดนครนายก
+    tr: Nakhon Nayok
+    ur: ناکھون نایوک صوبہ
+    vi: Nakhon Nayok
+    zh: 坤西育府
+    lv: Nakhonnājokas province
+    ceb: Changwat Nakhon Nayok
+    lt: Nakon Najokas
+    yue_Hans: 坤西育府
+    ccp: "𑄚𑄈𑄧𑄚𑄴 𑄚𑄠𑄧𑄇𑄴"
+    sl: provinca Nakhon Nayok
+    uk: Провінція Накхоннайок
+    yue: 坤西育府
+    'no': Nakhon Nayok
+    be: Накхонаёк (правінцыя)
+    km: ខេត្តនគរនាយក
+  type: province
+'27':
+  name: Sa Kaeo
+  code: '27'
+  unofficial_names:
+  - Sa Kaeo
+  geo:
+    latitude: 13.8240407
+    longitude: 102.0645821
+    min_latitude: 13.7347952
+    min_longitude: 102.0167527
+    max_latitude: 13.8665771
+    max_longitude: 102.1392174
+  translations:
+    en: Sa Kaeo
+    ar: محافظة سا كايو
+    bg: Са Каео
+    bn: সাঁ কায়েও
+    da: Sa Kaeo
+    de: Sa Kaeo
+    el: Σα Καέο
+    es: Provincia de Sa Kaeo
+    fa: سا کایو
+    fi: Sa Kaeo
+    fr: Sa Kaeo
+    gl: Provincia Sa Kaeo
+    gu: સા કેઓ
+    hi: सा कैओ प्रान्त
+    id: Provinsi Sa Kaeo
+    it: provincia di Sa Kaeo
+    ja: サケーオ県
+    ka: საკეოს პროვინცია
+    kn: ಸ ಕೇಓ
+    ko: 사깨오 주
+    lo: ຈັງຫວັດສະແກ້ວ
+    mr: एसए केओ
+    ms: Sa Kaeo
+    nb: Sa Kaeo
+    nl: Changwat Sa Kaew
+    pl: Prowincja Sa Kaeo
+    pt: Sa Kaeo
+    ro: Provincia Sa Kaeo
+    ru: Сакэу
+    si: සා කයියෝ
+    sv: Sa Kaeo
+    ta: சா கேயோ
+    te: సా కాయో
+    th: จังหวัดสระแก้ว
+    tr: Sa Kaeo
+    ur: سا کیو علاقہ
+    vi: Sa Kaeo
+    zh: 沙繳府
+    lv: Sakēu province
+    ceb: Changwat Sa Kaeo
+    lt: Sa Keo
+    yue_Hans: 沙缴府
+    ccp: "𑄥 𑄇𑄨𑄠𑄮"
+    uk: Провінція Сакеу
+    yue: 沙繳府
+    'no': Sa Kaeo
+    be: Сакэу (правінцыя)
+    km: ខេត្តស្រះកែវ
+  type: province
+'30':
+  name: Nakhon Ratchasima
+  code: '30'
+  unofficial_names:
+  - Nakhon Ratchasima
+  geo:
+    latitude: 14.9798997
+    longitude: 102.0977693
+    min_latitude: 14.1206849
+    min_longitude: 101.180731
+    max_latitude: 15.8096069
+    max_longitude: 103.0125791
+  translations:
+    en: Nakhon Ratchasima
+    ar: محافظة ناخون راتشاسيما
+    bg: Након Ратчасима
+    bn: নাখন রাৎকাসিমা
+    da: Nakhon Ratchasima
+    de: Nakhon Ratchasima
+    el: Νάνκον Ρατσάσιμα
+    es: Provincia de Nakhon Ratchasima
+    fa: ناخون راتچاسیما
+    fi: Nakhon Ratchasima
+    fr: Nakhon Ratchasima
+    gl: Provincia Nakhon Ratchasima
+    gu: નાખોન રાચાસિમા
+    hi: नखोन रात्चासीमा प्रान्त
+    id: Provinsi Nakhon Ratchasima
+    it: provincia di Nakhon Ratchasima
+    ja: ナコーンラーチャシーマー県
+    kn: ನಖೋನ್ ರಾಚ್ಚಾಸಿಮಾ
+    ko: 나콘랏차시마 주
+    lo: ຈັງຫວັດນະຄອນລາຊະສີມາ
+    mr: नाखोन राचाशिमा
+    ms: Nakhon Ratchasima
+    nb: Nakhon Ratchasima
+    nl: Changwat Nakhon Ratchasima
+    pl: Prowincja Nakhon Ratchasima
+    pt: Nakhon Ratchasima
+    ro: Provincia Nakhon Ratchasima
+    ru: Накхонратчасима
+    si: නකොන් රැචසිමා
+    sv: Nakhon Ratchasima
+    ta: நக்ஹோன் ராட்சஷிமா
+    te: నాఖోన్ రాట్చాసిమా
+    th: จังหวัดนครราชสีมา
+    tr: Nakhon Ratchasima
+    ur: ناکھون راتچاسیما صوبہ
+    vi: Nakhon Ratchasima
+    zh: 呵叻府
+    lv: Nakhonratčhasīmas province
+    ceb: Changwat Nakhon Ratchasima
+    lt: Nachon Ratčasimos provincija
+    yue_Hans: 呵叻府
+    ccp: "𑄚𑄈𑄧𑄚𑄴 𑄢𑄖𑄴𑄌𑄥𑄨𑄟"
+    uk: Провінція Нахон-Ратчасіма
+    yue: 呵叻府
+    'no': Nakhon Ratchasima
+    be: Накхонратчасіма (правінцыя)
+    ca: Nakhon Ratchasima
+    km: ខេត្តនគររាជ
+  type: province
+'31':
+  name: Buri Ram
+  code: '31'
+  unofficial_names:
+  - Buri Ram
+  geo:
+    latitude: 14.9930017
+    longitude: 103.1029191
+    min_latitude: 14.1307677
+    min_longitude: 102.4323873
+    max_latitude: 15.7956564
+    max_longitude: 103.5050278
+  translations:
+    en: Buri Ram
+    ar: محافظة بوريرام
+    bg: Бури Рам
+    bn: বুরি রাম
+    da: Buri Ram
+    de: Buriram
+    el: Μπούρι Ραμ
+    es: Provincia de Buri Ram
+    fa: بوری رام
+    fi: Buriram
+    fr: Buri Ram
+    gl: Provincia Buri Ram
+    gu: બુરી રામ
+    hi: बुरीरम प्रान्त
+    id: Provinsi Buriram
+    it: provincia di Buri Ram
+    ja: ブリーラム県
+    kn: ಬುರಿ ರಾಮ್
+    ko: 부리람 주
+    lo: ຈັງຫວັດບຸລີລຳ
+    mr: बुरी राम
+    ms: Buriram
+    nb: Buriram
+    nl: Changwat Buriram
+    pl: Prowincja Buri Ram
+    pt: Buri Ram
+    ro: Provincia Buriram
+    ru: Бурирам
+    si: බුරි රාම්
+    sv: Buri Ram
+    ta: பூரி ராம்
+    te: బూరీ రామ్
+    th: จังหวัดบุรีรัมย์
+    tr: Buriram
+    uk: Бурі Рам
+    ur: صوبہ بوریرام
+    vi: Buri Ram (tỉnh)
+    zh: 武里喃府
+    lv: Burīrama
+    ceb: Changwat Buriram
+    lt: Buri Ramas
+    yue_Hans: 武里喃府
+    ccp: "𑄝𑄪𑄢𑄨 𑄢𑄟𑄴"
+    km: ខេត្តបុរីរម្យ
+    yue: 武里喃府
+    'no': Buriram
+    be: Бурырам (правінцыя)
+    he: בוריראם
+    ka: ბურირამის პროვინცია
+  type: province
+'32':
+  name: Surin
+  code: '32'
+  unofficial_names:
+  - Surin
+  geo:
+    latitude: 14.882905
+    longitude: 103.4937107
+    min_latitude: 14.3289551
+    min_longitude: 103.0892664
+    max_latitude: 15.4828457
+    max_longitude: 104.0918941
+  translations:
+    en: Surin
+    ar: محافظة سورين
+    bg: Сурин
+    bn: সুরিিন
+    da: Surin
+    de: Surin
+    el: Σουρίν
+    es: Surin
+    fa: استان سورین
+    fi: Surin
+    fr: Surin
+    gl: Provincia Surin
+    gu: સુરીન
+    hi: सुरीन प्रान्त
+    hu: Szurin
+    id: Provinsi Surin
+    it: provincia di Surin
+    ja: スリン県
+    kn: ಸುರಿನ್
+    ko: 수린 주
+    lo: ຈັງຫວັດສຸລິນ
+    mr: सुरिन
+    ms: Surin
+    nb: Surin
+    nl: Changwat Surin
+    pl: Prowincja Surin
+    pt: Surin
+    ro: Provincia Surin
+    ru: Сурин
+    si: සුරින්
+    sv: Surin
+    ta: சூரின்
+    te: సూరిన్
+    th: จังหวัดสุรินทร์
+    tr: Surin
+    uk: Сурін
+    ur: سورن صوبہ
+    vi: Surin
+    zh: 素輦府
+    lv: Surinas province
+    ceb: Changwat Surin (lalawigan sa Tailandya)
+    lt: Surinas
+    yue_Hans: 素辇府
+    ccp: "𑄥𑄪𑄢𑄨𑄚𑄴"
+    yue: 素輦府
+    'no': Surin
+    be: Сурын (правінцыя)
+    km: ខេត្តសុរិន្ទ្រ
+    uz: Surin provinsiyasi
+  type: province
+'33':
+  name: Si Sa Ket
+  code: '33'
+  unofficial_names:
+  - Si Sa Ket
+  geo:
+    latitude: 15.1186009
+    longitude: 104.3220095
+    min_latitude: 14.3422348
+    min_longitude: 103.9019555
+    max_latitude: 15.5683691
+    max_longitude: 104.9076399
+  translations:
+    en: Si Sa Ket
+    ar: محافظة سي سا كت
+    bg: Сисакет
+    bn: সি সাঁ কেট
+    da: Si Sa Ket
+    de: Si Sa Ket
+    el: Σι Σα Κετ
+    es: Provincia de Sisaket
+    fa: سی سا کت
+    fi: Si Sa Ket
+    fr: Si Sa Ket
+    gl: Provincia Si Sa Ket
+    gu: સી સા કેટ
+    hi: सीसाकेत प्रान्त
+    id: Provinsi Sisaket
+    it: provincia di Sisaket
+    ja: シーサケート県
+    kn: ಸಿ ಸ ಕೆಟ್
+    ko: 시사껫 주
+    lo: ຈັງຫວັດສີສະເກດ
+    mr: सी सा केट
+    ms: Sisaket
+    nb: Sisaket
+    nl: Changwat Sisaket
+    pl: Prowincja Sisaket
+    pt: Si Sa Ket
+    ro: Provincia Sisaket
+    ru: Сисакет
+    si: සි සා කෙට්
+    sv: Sisaket
+    ta: சி ச கேட்
+    te: సి సా కెట్
+    th: จังหวัดศรีสะเกษ
+    tr: Sisaket
+    ur: سیساکیت صوبہ
+    vi: Sisaket
+    zh: 四色菊府
+    lv: Sīsakēta
+    ceb: Changwat Sisaket
+    lt: Sisaketas
+    yue_Hans: 四色菊府
+    ccp: "𑄥𑄨 𑄥 𑄇𑄬𑄖𑄴"
+    uk: Провінція Сі-Са-Кет
+    yue: 四色菊府
+    'no': Sisaket
+    be: Сісакет (правінцыя)
+    ka: სისაკეტის პროვინცია
+    km: ខេត្តសិរីសាកេត
+  type: province
+'34':
+  name: Ubon Ratchathani
+  code: '34'
+  unofficial_names:
+  - Ubon Ratchathani
+  geo:
+    latitude: 15.2286861
+    longitude: 104.8564217
+    min_latitude: 14.2095638
+    min_longitude: 104.3716245
+    max_latitude: 16.0980447
+    max_longitude: 105.6361068
+  translations:
+    en: Ubon Ratchathani
+    ar: محافظة أوبون راتشاثاني
+    bg: Убон Ратчатани
+    bn: উডন রেচহ্যাটার
+    da: Ubon Ratchathani
+    de: Ubon Ratchathani
+    el: Ούμπον Ρατσαθάνι
+    es: Provincia de Ubon Ratchathani
+    fa: اوبون راتچاتانی
+    fi: Ubon Ratchathani
+    fr: Ubon Ratchathani
+    gl: Provincia Ubon Ratchathani
+    gu: ઉબોન રાચથાની
+    hi: उबोन रात्चाथानी प्रान्त
+    id: Ubon Ratchathani
+    it: provincia di Ubon Ratchathani
+    ja: ウボンラーチャターニー県
+    kn: ಉಬನ್ ರಾಚ್ಚಾತನಿ
+    ko: 우본랏차타니 주
+    lo: ຈັງຫວັດອຸບົນລາຊະທານີ
+    mn: Убонрачатхани аймаг
+    mr: उबन राछटानी
+    ms: Ubon Ratchathani
+    nb: Ubon Ratchathani
+    nl: Changwat Ubon Ratchathani
+    pl: Prowincja Ubon Ratchathani
+    pt: Ubon Ratchathani
+    ro: Provincia Ubon Ratchathani
+    ru: Убонратчатхани
+    si: උබොන් රට්චතනි
+    sv: Ubon Ratchathani
+    ta: உபான் ரட்சதானி
+    te: ఉబోన్ రట్చతాని
+    th: จังหวัดอุบลราชธานี
+    tr: Ubon Ratchathani
+    ur: صوبہ ابون راتچاتھانی
+    vi: Ubon Ratchathani
+    zh: 烏汶府
+    lv: Ubonrātčhatānī
+    ceb: Changwat Ubon Ratchathani (lalawigan sa Tailandya)
+    lt: Ubon Račatanio provincija
+    yue_Hans: 乌汶府
+    ccp: "𑄅𑄪𑄝𑄮𑄚𑄴 𑄢𑄖𑄴𑄌𑄗𑄚𑄨"
+    km: ខេត្តអ៊ូប៊ុន
+    uk: Убон-Ратчатані
+    yue: 烏汶府
+    'no': Ubon Ratchathani
+    be: Убонратчатхані (правінцыя)
+    ca: Ubon Ratchathani
+  type: province
+'35':
+  name: Yasothon
+  code: '35'
+  unofficial_names:
+  - Yasothon
+  geo:
+    latitude: 15.792641
+    longitude: 104.1452827
+    min_latitude: 15.289189
+    min_longitude: 103.9974997
+    max_latitude: 16.3487691
+    max_longitude: 104.8249267
+  translations:
+    en: Yasothon
+    ar: محافظة ياسوثون
+    bg: Ясотон
+    bn: ইয়াসোথোন
+    da: Yasothon
+    de: Yasothon
+    el: Γιάσοθον
+    es: Provincia de Yasothon
+    fa: یاسوتون
+    fi: Yasothon
+    fr: Yasothon
+    gl: Provincia Yasothon
+    gu: યાસોથન
+    hi: यसोथोन प्रान्त
+    id: Yasothon
+    it: provincia di Yasothon
+    ja: ヤソートーン県
+    kn: ಯಾಸೋಥನ್
+    ko: 야소톤 주
+    lo: ຈັງຫວັດຍະໂສທອນ
+    mr: यासोथोन
+    ms: Yasothon
+    nb: Yasothon
+    nl: Changwat Yasothon
+    pl: Prowincja Yasothon
+    pt: Yasothon
+    ro: Provincia Yasothon
+    ru: Ясотхон
+    si: යසොතන්
+    sv: Yasothon
+    ta: யசோதான்
+    te: యాసోథాన్
+    th: จังหวัดยโสธร
+    tr: Yasothon
+    ur: یسوتھون علاقہ
+    vi: Yasothon
+    zh: 益梭通府
+    lv: Jasothonas province
+    ceb: Changwat Yasothon
+    lt: Jasotonas
+    yue_Hans: 益梭通府
+    ccp: "𑄃𑄨𑄠𑄥𑄮𑄗𑄮𑄚𑄴"
+    uk: Ясотхон
+    yue: 益梭通府
+    'no': Yasothon
+    be: Ясатхон (правінцыя)
+    km: ខេត្តយសោធរ
+  type: province
+'36':
+  name: Chaiyaphum
+  code: '36'
+  unofficial_names:
+  - Chaiyaphum
+  geo:
+    latitude: 15.8068173
+    longitude: 102.0315027
+    min_latitude: 15.3121548
+    min_longitude: 101.326297
+    max_latitude: 16.7032031
+    max_longitude: 102.4598896
+  translations:
+    en: Chaiyaphum
+    ar: محافظة تشايافوم
+    bg: Чайяфун
+    bn: কাইয়াফুম
+    da: Chaiyaphum
+    de: Chaiyaphum
+    el: Τσαιγιαπούμ
+    es: Provincia de Chaiyaphum
+    fa: چاافوم
+    fi: Chaiyaphum
+    fr: Chaiyaphum
+    gl: Provincia Chaiyaphum
+    gu: ચાઈયફૂમ
+    hi: चइयफूम प्रान्त
+    id: Provinsi Chaiyaphum
+    it: provincia di Chaiyaphum
+    ja: チャイヤプーム県
+    kn: ಚೈಯಾಫಮ್
+    ko: 차이야품 주
+    lo: ຈັງຫວັດໄຊຍະພູມ
+    mr: चाइअफुम
+    ms: Chaiyaphum
+    nb: Chaiyaphum
+    nl: Changwat Chaiyaphum
+    pl: Prowincja Chaiyaphum
+    pt: Chaiyaphum
+    ro: Provincia Chaiyaphum
+    ru: Чайяпхум
+    si: ", චෛයාපුම්"
+    sv: Chaiyaphum
+    ta: செய்யப்ஹும்
+    te: చయాఫుమ్
+    th: จังหวัดชัยภูมิ
+    tr: Chaiyaphum
+    ur: چائیاپھوم صوبہ
+    vi: Chaiyaphum
+    zh: 猜也奔府
+    lv: Čhaijapūma
+    ceb: Changwat Chaiyaphum (lalawigan sa Tailandya)
+    lt: Čaijafumas
+    yue_Hans: 猜也贲府
+    ccp: "𑄌𑄭𑄠𑄜𑄪𑄟𑄴"
+    uk: Чайяпхум
+    yue: 猜也賁府
+    'no': Chaiyaphum
+    be: Чаяпхум (правінцыя)
+    ka: ჩაიიაფუმის პროვინცია
+    km: ខេត្តជ័យភូមិ
+  type: province
+'37':
+  name: Amnat Charoen
+  code: '37'
+  unofficial_names:
+  - Amnat Charoen
+  geo:
+    latitude: 15.8656783
+    longitude: 104.6257774
+    min_latitude: 15.5371433
+    min_longitude: 104.4189022
+    max_latitude: 16.2843339
+    max_longitude: 105.0602077
+  translations:
+    en: Amnat Charoen
+    ar: محافظة أمنات تشاروين
+    bg: Амнат Чароен
+    bn: আমানত চেরন
+    da: Amnat Charoen
+    de: Amnat Charoen
+    el: Άμνατ Τσάροεν
+    es: Provincia de Amnat Charoen
+    fa: امنات چاروین
+    fi: Amnat Charoen
+    fr: Amnat Charoen
+    gl: Provincia Amnat Charoen
+    gu: અમનત શેરોન
+    hi: अम्नत चारोएन प्रान्त
+    id: Provinsi Amnat Charoen
+    it: provincia di Amnat Charoen
+    ja: アムナートチャルーン県
+    kn: ಅಮ್ನಾಟ್ ಚರೋನ್
+    ko: 암낫짜른 주
+    lo: ຈັງຫວັດອຳນາດຈະເລີນ
+    mr: अम्नॅट शेरोन
+    ms: Amnat Charoen
+    nb: Amnat Charoen
+    nl: Changwat Amnat Charoen
+    pl: Prowincja Amnat Charoen
+    pt: Amnat Charoen
+    ro: Provincia Amnat Charoen
+    ru: Амнатчарен
+    si: අම්නට් චරෝඑන්
+    sv: Amnat Charoen
+    ta: அமணர் சரோயின்
+    te: అమ్నట్ కోరాయెన్
+    th: จังหวัดอำนาจเจริญ
+    tr: Amnat Charoen
+    ur: صوبہ امنات چاروئن
+    vi: Amnat Charoen
+    zh: 安納乍能府
+    lv: Amnātčaronas province
+    ceb: Changwat Amnat Charoen
+    lt: Amnat Charoeno provincija
+    yue_Hans: 安纳乍能府
+    ccp: "𑄃𑄟𑄴𑄚𑄖𑄴 𑄌𑄢𑄮𑄠𑄬𑄚𑄴"
+    uk: Провінція Амнатчарен
+    yue: 安納乍能府
+    'no': Amnat Charoen
+    be: Амнатчарэн (правінцыя)
+    km: ខេត្តអំណាចច្រើន
+  type: province
+'38':
+  name: จังหวัดบึงกาฬ
+  code: '38'
+  translations:
+    ar: بوينغ كان
+    bn: বুয়েং কান
+    da: Bueng Kan
+    de: Bueng Kan
+    el: Μπουένγκ Καν
+    en: Bueng Kan
+    es: Bueng Kan
+    fi: Bueng Kan
+    fr: Province de Bueng Kan
+    gl: Provincia Bueng Kan
+    gu: બુએન કાન
+    hi: बुएंग कान प्रान्त
+    id: Provinsi Bueng Kan
+    it: provincia di Bueng Kan
+    ja: ブンカーン県
+    kn: ಬುಯಿಂಗ್ ಕನ್
+    ko: 븡깐 주
+    lo: ຈັງຫວັດບຶງການ
+    mr: बुइंग कान
+    ms: Bueng Kan
+    nb: Bungkan
+    nl: Bueng Kan
+    pl: Bueng Kan
+    pt: Bungkan
+    ro: Provincia Bueng Kan
+    ru: Бунгкан
+    si: බුඑන්ග් කාන්
+    sv: Bueng Kan
+    ta: புயெங் காண்
+    te: బుయెంగ్ కాన్
+    th: จังหวัดบึงกาฬ
+    tr: Bueng Kan
+    ur: صوبہ بوئنگ کان
+    vi: Bueng Kan (tỉnh)
+    zh: 汶干府
+    lv: Bungkana
+    ceb: Changwat Bueng Kan
+    lt: Bung Kanas
+    yue_Hans: 汶干府
+    ccp: "𑄝𑄪𑄠𑄬𑄁 𑄇𑄚𑄴"
+    uk: Провінція Бунгкан
+    yue: 汶幹府
+    'no': Bungkan
+    be: Бынгкан (правінцыя)
+    fa: استان بوئنگ کان
+    ka: ბენგკანის პროვინცია
+    km: ខេត្តបឹងកាល
+  type: province
+'39':
+  name: Nong Bua Lam Phu
+  code: '39'
+  unofficial_names:
+  - Nong Bua Lam Phu
+  geo:
+    latitude: 17.2218247
+    longitude: 102.4260368
+    min_latitude: 16.7782727
+    min_longitude: 101.983666
+    max_latitude: 17.676059
+    max_longitude: 102.6814234
+  translations:
+    en: Nong Bua Lam Phu
+    ar: محافظة نونغ بوا لامفو
+    bg: Нонгбуа Ламфу
+    bn: নাং বাউ লাম ফু
+    da: Nong Bua Lam Phu
+    de: Nongbua Lamphu
+    el: Νόνγκ Μποάα Λάμπου
+    es: Nongbua Lamphu
+    fa: نونگ بوا لامفو
+    fi: Nong Bua Lam Phu
+    fr: Nong Bua Lam Phu
+    gl: Provincia Nong Bua Lam Phu
+    gu: નોંગ બુઆ લામ ફુ
+    hi: नोंग बुआ लम फू प्रान्त
+    id: Provinsi Nong Bua Lamphu
+    it: provincia di Nongbua Lamphu
+    ja: ノーンブワラムプー県
+    kn: ನಾಂಗ್ ಬುವಾ ಲ್ಯಾಮ್ ಫು
+    ko: 농부아람푸 주
+    lo: ຈັງຫວັດໜອງບົວລຳພູ
+    mr: नाँग बुआ लाम फु
+    ms: Nongbua Lamphu
+    nb: Nongbua Lamphu
+    nl: Changwat Nong Bua Lamphu
+    pl: Prowincja Nongbua Lamphu
+    pt: Nong Bua Lam Phu
+    ro: Provincia Nong Bua Lamphu
+    ru: Нонгбуалампху
+    si: නොන්ග් බුආ ලැම් ෆු
+    sv: Nong Bua Lam Phu
+    ta: நொங் பூஆ லாம் ப்ஹு
+    te: నాంగ్ బువా లామ్ ఫూ
+    th: จังหวัดหนองบัวลำภู
+    tr: Nong Bua Lamphu
+    ur: نونگ بوا لامپھو صوبہ
+    vi: Nongbua Lamphu
+    zh: 廊磨喃蒲府
+    lv: Nonbualamphu province
+    ceb: Changwat Nong Bua Lamphu
+    lt: Nong Bua Lampu provincija
+    yue_Hans: 廊磨喃蒲府
+    ccp: "𑄚𑄧𑄁 𑄝𑄪𑄠 𑄣𑄟𑄴 𑄜𑄪"
+    uk: Провінція Нонгбуалампху
+    yue: 廊磨喃蒲府
+    'no': Nongbua Lamphu
+    ca: Nongbua Lamphu
+    km: ខេត្តហ្នងបួលំភូ
+  type: province
+'40':
+  name: Khon Kaen
+  code: '40'
+  unofficial_names:
+  - Khon Kaen
+  geo:
+    latitude: 16.4419355
+    longitude: 102.8359921
+    min_latitude: 15.6330732
+    min_longitude: 101.7500362
+    max_latitude: 17.094254
+    max_longitude: 103.1846
+  translations:
+    en: Khon Kaen
+    ar: محافظة خون كاين
+    bg: Кхон Каен
+    bn: খন কেইন
+    ca: Khon Kaen
+    da: Khon Kaen
+    de: Khon Kaen
+    el: Κον Καέν
+    es: Provincia de Khon Kaen
+    fa: خون کاین
+    fi: Khon Kaen
+    fr: Khon Kaen
+    gl: Provincia Khon Kaen
+    gu: ખોન કેન
+    hi: खोन कैन प्रान्त
+    id: Provinsi Khon Kaen
+    it: provincia di Khon Kaen
+    ja: コーンケン県
+    kn: ಖೊನ್ ಕೈನ್
+    ko: 콘깬 주
+    lo: ຈັງຫວັດຂອນແກ່ນ
+    mr: खॉन केन
+    ms: Khon Kaen
+    nb: Khon Kaen
+    nl: Changwat Khon Kaen
+    pl: Prowincja Khon Kaen
+    pt: Khon Kaen
+    ro: Provincia Khon Kaen
+    ru: Кхонкэн
+    si: කොන් කයෙන්
+    sv: Khon Kaen
+    ta: கஹோன் கேன்
+    te: ఖోన్ కాయిన్
+    th: จังหวัดขอนแก่น
+    tr: Khon Kaen
+    ur: کھون کیئن صوبہ
+    vi: Khon Kaen
+    zh: 坤敬府
+    lv: Khonkēna
+    ceb: Changwat Khon Kaen
+    lt: Kon Kajeno provincija
+    yue_Hans: 坤敬府
+    ccp: "𑄈𑄧𑄚𑄴 𑄇𑄠𑄬𑄚𑄴"
+    uk: Провінція Хон-Каен
+    yue: 坤敬府
+    'no': Khon Kaen
+    be: Кханкэн (правінцыя)
+    km: ខេត្តខនកែន
+    ne: खोन केन प्रान्त
+  type: province
+'41':
+  name: Udon Thani
+  code: '41'
+  unofficial_names:
+  - Udon Thani
+  geo:
+    latitude: 17.4138413
+    longitude: 102.7872325
+    min_latitude: 16.8083403
+    min_longitude: 102.0151634
+    max_latitude: 18.0863234
+    max_longitude: 103.6683832
+  translations:
+    en: Udon Thani
+    ar: محافظة ودون تاني
+    bg: Удон Тани
+    bn: উদন থাই
+    ca: Udon Thani
+    da: Udon Thani
+    de: Udon Thani
+    el: Ούντον Θάνι
+    es: Provincia de Udon Thani
+    fa: اودون تانی
+    fi: Udon Thani
+    fr: Udon Thani
+    gl: Provincia Udon Thani
+    gu: ઉડોન થાની
+    hi: उदोन थानी प्रान्त
+    id: Udon Thani
+    it: provincia di Udon Thani
+    ja: ウドーンターニー県
+    kn: ಉಡಾನ್ ಥಾನಿ
+    ko: 우돈타니 주
+    lo: ຈັງຫວັດອຸດອນທານີ
+    mr: उदोन थानी
+    ms: Udon Thani
+    nb: Udon Thani
+    nl: Changwat Udon Thani
+    pl: Prowincja Udon Thani
+    pt: Udon Thani
+    ro: Provincia Udon Thani
+    ru: Удонтхани
+    si: උදොන් තනි
+    sv: Udon Thani
+    ta: உடன் தானி
+    te: ఉడోన్ థాని
+    th: จังหวัดอุดรธานี
+    tr: Udon Thani
+    ur: اودون تھانی صوبہ
+    vi: Udon Thani
+    zh: 烏隆府
+    lv: Udonthānī province
+    ceb: Changwat Udon Thani
+    lt: Udon Tanio provincija
+    yue_Hans: 乌隆府
+    ccp: "𑄅𑄪𑄓𑄮𑄚𑄴 𑄗𑄚𑄨"
+    ml: ഉഡോൺ താനി പ്രവിശ്യ
+    uk: Провінція Удонтхані
+    yue: 烏隆府
+    'no': Udon Thani
+    be: Удонтхані (правінцыя)
+    ka: უდონთანის პროვინცია
+    km: ខេត្តឧត្តរធានី
+  type: province
+'42':
+  name: Loei
+  code: '42'
+  unofficial_names:
+  - Loei
+  geo:
+    latitude: 17.4860232
+    longitude: 101.7223002
+    min_latitude: 16.753525
+    min_longitude: 100.8329086
+    max_latitude: 18.2198926
+    max_longitude: 102.1557095
+  translations:
+    en: Loei
+    ar: محافظة لويي
+    bg: Лоеи
+    bn: লই
+    da: Loei
+    de: Loei
+    el: Λόεϊ
+    es: Provincia de Loei
+    fa: استان لوئی
+    fi: Loei
+    fr: Loei
+    gl: Provincia Loei
+    gu: લોઇ
+    hi: लोइ प्रान्त
+    id: Provinsi Loei
+    it: provincia di Loei
+    ja: ルーイ県
+    kn: ಲೊಯಿ
+    ko: 르이 주
+    lo: ຈັງຫວັດເລີຍ
+    mr: लोई
+    ms: Loei
+    nb: Loei
+    nl: Changwat Loei
+    pl: Prowincja Loei
+    pt: Loei
+    ro: Provincia Loei
+    ru: Лей (провинция)
+    si: ලොඑයි
+    sv: Loei
+    ta: லோஎய்
+    te: లోయీ
+    th: จังหวัดเลย
+    tr: Loei
+    ur: لوئی صوبہ
+    vi: Loei
+    zh: 黎府
+    lv: Leja
+    ceb: Changwat Loei
+    lt: Lėjaus provincija
+    yue_Hans: 黎府
+    ccp: "𑄣𑄮𑄠𑄨"
+    uk: Провінція Лей
+    yue: 黎府
+    'no': Loei
+    be: Лей (правінцыя)
+    ca: Loei
+    ka: ლეის პროვინცია
+    km: ខេត្តលើយ
+  type: province
+'43':
+  name: Nong Khai
+  code: '43'
+  unofficial_names:
+  - Nong Khai
+  geo:
+    latitude: 17.8782803
+    longitude: 102.7412638
+    min_latitude: 17.593637
+    min_longitude: 102.0543704
+    max_latitude: 18.3030927
+    max_longitude: 103.4176285
+  translations:
+    en: Nong Khai
+    ar: محافظة نونغ خاي
+    bg: Нонг Каи
+    bn: নং খাই
+    da: Nong Khai
+    de: Nong Khai
+    el: Νονγκ Χάι
+    es: Provincia de Nong Khai
+    fa: نونگ خای
+    fi: Nong Khai
+    fr: Nong Khai
+    gl: Provincia Nong Khai
+    gu: નોંગ ખાઇ
+    hi: नोंग खाइ प्रान्त
+    id: Provinsi Nong Khai
+    it: provincia di Nong Khai
+    ja: ノーンカーイ県
+    kn: ನಾಂಗ್ ಖಾಯ್
+    ko: 농카이 주
+    lo: ຈັງຫວັດໜອງຄາຍ
+    mr: नॉन खाई
+    ms: Nong Khai
+    nb: Nong Khai
+    nl: Changwat Nong Khai
+    pl: Prowincja Nong Khai
+    pt: Nong Khai
+    ro: Provincia Nong Khai
+    ru: Нонгкхай
+    si: නෝන්ග් ඛායි
+    sv: Nong Khai
+    ta: நாங் காய்
+    te: నాంగ్ ఖాయ్
+    th: จังหวัดหนองคาย
+    tr: Nong Khai
+    uk: Нонг Хай
+    ur: نونگ کھائی صوبہ
+    vi: Nong Khai
+    zh: 廊開府
+    lv: Nonkhāi province
+    ceb: Changwat Nong Khai
+    lt: Nong Chajus
+    yue_Hans: 廊开府
+    ccp: "𑄚𑄧𑄁 𑄈𑄭"
+    yue: 廊開府
+    'no': Nong Khai
+    be: Нангкхай (правінцыя)
+    ca: Nong Khai
+    ka: ნონგქაის პროვინცია
+    km: ខេត្តហ្នងគាយ
+  type: province
+'44':
+  name: Maha Sarakham
+  code: '44'
+  unofficial_names:
+  - Maha Sarakham
+  geo:
+    latitude: 16.0132015
+    longitude: 103.1615169
+    min_latitude: 15.406028
+    min_longitude: 102.8445023
+    max_latitude: 16.6429105
+    max_longitude: 103.503853
+  translations:
+    en: Maha Sarakham
+    ar: محافظة ماها ساراخام
+    bg: Маха Саракам
+    bn: মহা সারকাম
+    da: Maha Sarakham
+    de: Maha Sarakham
+    el: Μάχα Σάρακαμ
+    es: Provincia de Maha Sarakham
+    fa: ماها ساراخام
+    fi: Maha Sarakham
+    fr: Maha Sarakham
+    gl: Provincia Maha Sarakham
+    gu: મહા સરખામ
+    hi: महा साराखाम प्रान्त
+    id: Provinsi Maha Sarakham
+    it: provincia di Maha Sarakham
+    ja: マハーサーラカーム県
+    km: ខេត្តមហាសារខា​ម
+    kn: ಮಹಾ ಸರಕಾಮ್
+    ko: 마하사라캄 주
+    lo: ຈັງຫວັດມະຫາສາລະຄາມ
+    mr: महा सरखम
+    ms: Maha Sarakham
+    nb: Maha Sarakham
+    nl: Changwat Maha Sarakham
+    pl: Prowincja Maha Sarakham
+    pt: Maha Sarakham
+    ro: Provincia Maha Sarakham
+    ru: Махасаракам
+    si: මහා සරඛම්
+    sv: Maha Sarakham
+    ta: மகா சரஹாம்
+    te: మహా సరఖామ్
+    th: จังหวัดมหาสารคาม
+    tr: Maha Sarakham
+    ur: مہا ساراکھام صوبہ
+    vi: Maha Sarakham
+    zh: 瑪哈沙拉堪府
+    lv: Mahāsārakhāmas province
+    ceb: Changwat Maha Sarakham
+    lt: Maha Šarkamo provincija
+    yue_Hans: 吗哈沙拉堪府
+    ccp: "𑄟𑄧𑄟 𑄥𑄢𑄈𑄟𑄴"
+    uk: Провінція Махасаракхам
+    yue: 嗎哈沙拉堪府
+    'no': Maha Sarakham
+  type: province
+'45':
+  name: Roi Et
+  code: '45'
+  unofficial_names:
+  - Roi Et
+  geo:
+    latitude: 16.0538196
+    longitude: 103.6520036
+    min_latitude: 15.4048329
+    min_longitude: 103.2736968
+    max_latitude: 16.4733054
+    max_longitude: 104.349034
+  translations:
+    en: Roi Et
+    ar: محافظة روي إت
+    bn: রয় এট
+    da: Roi Et
+    de: Roi Et
+    el: Ρόι Ετ
+    es: Provincia de Roi Et
+    fa: روی ات
+    fi: Roi Et
+    fr: Roi Et
+    gl: Provincia Roi Et
+    gu: રોઈ એટ
+    hi: रोइ एत प्रान्त
+    id: Provinsi Roi Et
+    it: provincia di Roi Et
+    ja: ローイエット県
+    kn: ರೋಯಿ ಎಟ್
+    ko: 로이엣 주
+    lo: ຈັງຫວັດຮ້ອຍເອັດ
+    mr: रोई एट
+    ms: Roi Et
+    nb: Roi Et
+    nl: Changwat Roi Et
+    pl: Prowincja Roi Et
+    pt: Roi Et
+    ro: Provincia Roi Et
+    ru: Ройет
+    si: රෝයි එට්‌
+    sv: Roi Et
+    ta: ரோய் எட்
+    te: రోయి ఎట్
+    th: จังหวัดร้อยเอ็ด
+    tr: Roi Et
+    ur: روئی ات صوبہ
+    vi: Roi Et
+    zh: 黎逸府
+    lv: Rojeta
+    ceb: Changwat Roi Et
+    lt: Roi Etas
+    yue_Hans: 横逸府
+    ccp: "𑄢𑄰 𑄃𑄬𑄖𑄴"
+    uk: Провінція Ройет
+    yue: 橫逸府
+    'no': Roi Et
+    ca: Roi Et
+    km: ខេត្តរយឯត
+    ne: रोइएत प्रान्त
+  type: province
+'46':
+  name: Kalasin
+  code: '46'
+  unofficial_names:
+  - Kalasin
+  geo:
+    latitude: 16.434167
+    longitude: 103.509167
+    min_latitude: 16.4240752
+    min_longitude: 103.4909801
+    max_latitude: 16.4531604
+    max_longitude: 103.5239108
+  translations:
+    en: Kalasin
+    ar: محافظة كالاسين
+    bg: Каласин
+    bn: কালাসিন
+    da: Kalasin
+    de: Kalasin
+    el: Καλάσιν
+    es: Provincia de Kalasin
+    fa: کالاسین
+    fi: Kalasin
+    fr: Kalasin
+    gl: Provincia Kalasin
+    gu: કાલાસિન
+    hi: कालासिन प्रान्त
+    hy: Կալասին
+    id: Provinsi Kalasin
+    it: provincia di Kalasin
+    ja: カーラシン県
+    kn: ಕಲಾಸಿನ್
+    ko: 깔라신 주
+    lo: ຈັງຫວັດກາລະສິນ
+    mr: कलसिन
+    ms: Kalasin
+    nb: Kalasin
+    nl: Changwat Kalasin
+    pl: Prowincja Kalasin
+    pt: Kalasin
+    ro: Provincia Kalasin
+    ru: Каласин
+    si: කළසින්
+    sv: Kalasin
+    ta: க்ளாஸின்
+    te: కలాసిన్
+    th: จังหวัดกาฬสินธุ์
+    tr: Kalasin
+    ur: کالاسن صوبہ
+    vi: Kalasin
+    zh: 加拉信府
+    lv: Kālasina
+    ceb: Changwat Kalasin
+    lt: Kalasino provincija
+    yue_Hans: 加拉信府
+    ccp: "𑄇𑄣𑄥𑄨𑄚𑄴"
+    uk: Провінція Каласін
+    yue: 加拉信府
+    'no': Kalasin
+    be: Каласін (правінцыя)
+    ca: Kalasin
+    ka: კალასინის პროვინცია
+    km: ខេត្តកាលសិន្ធុ
+  type: province
+'47':
+  name: Sakon Nakhon
+  code: '47'
+  unofficial_names:
+  - Sakon Nakhon
+  geo:
+    latitude: 17.1545995
+    longitude: 104.1348365
+    min_latitude: 16.7722018
+    min_longitude: 103.2507219
+    max_latitude: 18.0889398
+    max_longitude: 104.4329268
+  translations:
+    en: Sakon Nakhon
+    ar: محافظة ساكون ناخون
+    bg: Сакон Након
+    bn: সাকন নাকন
+    da: Sakon Nakhon
+    de: Sakon Nakhon
+    el: Σάκον Νάνκον
+    es: Provincia de Sakon Nakhon
+    fa: ساکون ناخون
+    fi: Sakon Nakhon
+    fr: Sakon Nakhon
+    gl: Provincia Sakon Nakhon
+    gu: સાકોન નાખોન
+    hi: सकोन नखोन प्रान्त
+    id: Provinsi Sakon Nakhon
+    it: provincia di Sakon Nakhon
+    ja: サコンナコーン県
+    kn: ಸಕಾನ್ ನಖೋನ್
+    ko: 사꼰나콘 주
+    lo: ຈັງຫວັດສະກົນນະຄອນ
+    mr: सकोन नाखोन
+    ms: Sakhon Nakhon
+    nb: Sakon Nakhon
+    nl: Changwat Sakon Nakhon
+    pl: Prowincja Sakon Nakhon
+    pt: Sakon Nakhon
+    ro: Provincia Sakon Nakhon
+    ru: Сакон Накхон
+    si: සැකොන් නක්හොන්
+    sv: Sakon Nakhon
+    ta: சகோன் நக்ஹோன்
+    te: సాకోన్ నాఖోన్
+    th: จังหวัดสกลนคร
+    tr: Sakon Nakhon
+    uk: Сакон Накхон
+    ur: ساکون ناکھون صوبہ
+    vi: Sakon Nakhon
+    zh: 色軍府
+    lv: Sakonnakhona
+    ceb: Changwat Sakon Nakhon
+    lt: Sakon Nakonas
+    yue_Hans: 色军府
+    ccp: "𑄥𑄇𑄧𑄚𑄴 𑄚𑄈𑄧𑄚𑄴"
+    yue: 色軍府
+    'no': Sakon Nakhon
+    be: Саканакхон (правінцыя)
+    ca: Sakon Nakhon
+    ka: საკონ-ნაქონის პროვინცია
+    km: ខេត្តសកលនគរ
+  type: province
+'48':
+  name: Nakhon Phanom
+  code: '48'
+  unofficial_names:
+  - Nakhon Phanom
+  geo:
+    latitude: 17.392039
+    longitude: 104.7695508
+    min_latitude: 16.7871771
+    min_longitude: 103.9816124
+    max_latitude: 18.024405
+    max_longitude: 104.8073821
+  translations:
+    en: Nakhon Phanom
+    ar: محافظة ناخون فانوم
+    bg: Након Фаном
+    bn: নাখন ফানোম
+    da: Nakhon Phanom
+    de: Nakhon Phanom
+    el: Νάνκον Πάθομ
+    es: Provincia de Nakhon Phanom
+    fa: ناخون فانوم
+    fi: Nakhon Phanom
+    fr: Nakhon Phanom
+    gl: Provincia Nakhon Phanom
+    gu: નાખોન ફેનૉમ
+    hi: नखोन फनोम प्रान्त
+    id: Provinsi Nakhon Phanom
+    it: provincia di Nakhon Phanom
+    ja: ナコーンパノム県
+    kn: ನಖೋನ್ ಫಾನೊಮ್
+    ko: 나콘파놈 주
+    lo: ຈັງຫວັດນະຄອນພະນົມ
+    mr: नाखोन फॅनॉम
+    ms: Nakhon Phanom
+    nb: Nakhon Phanom
+    nl: Changwat Nakhon Phanom
+    pl: Prowincja Nakhon Phanom
+    pt: Nakhon Phanom
+    ro: Provincia Nakhon Phanom
+    ru: Накхон Пханом
+    si: නාකොන් ෆැනම්
+    sv: Nakhon Phanom
+    ta: நக்ஹோன் பானோம்
+    te: నాఖోోన్ ఫానోమ్
+    th: จังหวัดนครพนม
+    tr: Nakhon Phanom
+    uk: Накхон Пханом
+    ur: ناکھون پھانوم صوبہ
+    vi: Nakhon Phanom
+    zh: 那空拍儂府
+    lv: Nakhonphanomas province
+    ceb: Changwat Nakhon Phanom (lalawigan sa Tailandya)
+    lt: Nakon Fanomo provincija
+    yue_Hans: 那空拍侬府
+    ccp: "𑄚𑄈𑄧𑄚𑄴 𑄜𑄚𑄧𑄟𑄴"
+    yue: 那空拍儂府
+    'no': Nakhon Phanom
+    km: ខេត្តនគរភ្នំ
+  type: province
+'49':
+  name: Mukdahan
+  code: '49'
+  unofficial_names:
+  - Mukdahan
+  geo:
+    latitude: 16.5695723
+    longitude: 104.5231213
+    min_latitude: 16.1852048
+    min_longitude: 104.0702112
+    max_latitude: 16.9062543
+    max_longitude: 104.9783274
+  translations:
+    en: Mukdahan
+    ar: محافظة موكداهان
+    bg: Мукдахан
+    bn: মুকদাহান
+    da: Mukdahan
+    de: Mukdahan
+    el: Μουκνταχάν
+    es: Mukdahan
+    fa: موکداهان
+    fi: Mukdahan
+    fr: Mukdahan
+    gl: Provincia Mukdahan
+    gu: મુક્ડાહન
+    hi: मुकदाहान प्रान्त
+    id: Provinsi Mukdahan
+    it: provincia di Mukdahan
+    ja: ムックダーハーン県
+    kn: ಮುಕ್ದಾಹನ್
+    ko: 묵다한 주
+    lo: ຈັງຫວັດມຸກດາຫານ
+    mr: मुक्ढन
+    ms: Mukdahan
+    nb: Mukdahan
+    nl: Changwat Mukdahan
+    pl: Prowincja Mukdahan
+    pt: Mukdahan
+    ro: Provincia Mukdahan
+    ru: Мукдахан
+    si: මුක්දහන්
+    sv: Mukdahan
+    ta: முகதான்
+    te: ముక్దాహన్
+    th: จังหวัดมุกดาหาร
+    tr: Mukdahan
+    ur: موکداہان صوبہ
+    vi: Mukdahan
+    zh: 莫拉限府
+    lv: Mukdāhānas province
+    ceb: Changwat Mukdahan
+    lt: Mukdahano provincija
+    yue_Hans: 莫拉限府
+    ccp: "𑄟𑄪𑄇𑄴𑄓𑄦𑄚𑄴"
+    uk: Провінція Мукдахан
+    yue: 莫拉限府
+    'no': Mukdahan
+    be: Мукдахан (правінцыя)
+    eu: Mukdahan probintzia
+    ka: მუკდაჰანის პროვინცია
+    km: ខេត្តមុក្តាហារ
+  type: province
+'50':
+  name: Chiang Mai
+  code: '50'
+  unofficial_names:
+  - Chiangmai
+  - Chiengmai
+  - Kiangmai
+  geo:
+    latitude: 18.787747
+    longitude: 98.99312839999999
+    min_latitude: 17.2424831
+    min_longitude: 98.0079447
+    max_latitude: 20.1475012
+    max_longitude: 99.5715955
+  translations:
+    en: Chiang Mai
+    ar: محافظة تشيانغ مي
+    bg: Чианг Май
+    bn: চিয়াং মাই
+    da: Chiang Mai
+    de: Chiang Mai
+    el: Τσιανγκ Μάι
+    es: Provincia de Chiang Mai
+    eu: Txiang Mai
+    fa: استان چیانگ‌مای
+    fi: Chiang Mai
+    fr: Chiang Mai
+    gl: Provincia Chiang Mai
+    gu: ચિયાંગ માઇ
+    he: מחוז צ׳יאנג מאי
+    hi: चिअंग मई प्रान्त
+    id: Provinsi Chiang Mai
+    it: provincia di Chiang Mai
+    ja: チエンマイ県
+    ka: ჩიანგმაის პროვინცია
+    kn: ಚಿಯಾಂಗ್ ಮಾಯ್
+    ko: 치앙마이 주
+    lo: ຈັງຫວັດຊຽງໃໝ່
+    mr: चंग माइ
+    ms: Chiang Mai
+    nb: Chiang Mai
+    nl: Changwat Chiang Mai
+    pl: Prowincja Chiang Mai
+    pt: Chiang Mai
+    ro: Provincia Chiang Mai
+    ru: Чиангмай
+    si: චියාන්ග් මයි
+    sv: Chiang Mai
+    ta: சியாங் மாய்
+    te: చియాంగ్ మాయి
+    th: จังหวัดเชียงใหม่
+    tr: Chiang Mai
+    uk: Чіангмай
+    ur: صوبہ چیانگ مائی
+    vi: Chiang Mai
+    zh: 清邁府
+    lv: Čhīanmai
+    ceb: Chiang Mai Province
+    lt: Čiangmajus
+    yue_Hans: 清迈府
+    ccp: "𑄌𑄨𑄠𑄁 𑄟𑄭"
+    ml: ചിയാങ് മായി പ്രവിശ്യ
+    yue: 清邁府
+    'no': Chiang Mai
+    be: Чыянгмай (правінцыя)
+    ca: Chiang Mai
+    cs: Čiang Mai
+    km: ខេត្តឈៀងម៉ៃ
+    mk: Чијанг Мај (покраина)
+  type: province
+'51':
+  name: Lamphun
+  code: '51'
+  unofficial_names:
+  - Lamphun
+  geo:
+    latitude: 18.5744606
+    longitude: 99.0087221
+    min_latitude: 17.4260273
+    min_longitude: 98.6707359
+    max_latitude: 18.7112077
+    max_longitude: 99.32132659999999
+  translations:
+    en: Lamphun
+    ar: محافظة لامفون
+    bg: Лампхун
+    bn: লাম্পুন
+    ca: Província de Lamphun
+    da: Lamphun
+    de: Lamphun
+    el: Λαμφούν
+    es: Provincia de Lamphun
+    fa: لامفون
+    fi: Lamphun
+    fr: Lamphun
+    gl: Provincia Lamphun
+    gu: લમ્ફૂન
+    hi: लम्फून प्रान्त
+    id: Provinsi Lamphun
+    it: provincia di Lamphun
+    ja: ラムプーン県
+    ka: ლამფუნის პროვინცია
+    kn: ಲ್ಯಾಂಪ್ಹನ್
+    ko: 람푼 주
+    lo: ຈັງຫວັດລຳພູນ
+    mr: लँपून
+    ms: Lamphun
+    nb: Lamphun
+    nl: Changwat Lamphun
+    pl: Prowincja Lamphun
+    pt: Lamphun
+    ro: Provincia Lamphun
+    ru: Лампхун
+    si: ලම්ෆුන්
+    sv: Lamphun
+    ta: லாபியுன்
+    te: లాంఫున్
+    th: จังหวัดลำพูน
+    tr: Lamphun
+    ur: لیمپھون صوبہ
+    vi: Lamphun
+    zh: 南奔府
+    lv: Lamphūna
+    ceb: Changwat Lamphun (lalawigan sa Tailandya)
+    lt: Lamfuno provincija
+    yue_Hans: 南奔府
+    ccp: "𑄣𑄟𑄴𑄜𑄪𑄚𑄴"
+    uk: Провінція Лампхун
+    yue: 南奔府
+    'no': Lamphun
+    km: ខេត្តលំពូន
+  type: province
+'52':
+  name: Lampang
+  code: '52'
+  unofficial_names:
+  - Lampang
+  geo:
+    latitude: 18.2888404
+    longitude: 99.49087399999999
+    min_latitude: 17.2054347
+    min_longitude: 98.87993800000001
+    max_latitude: 19.4175326
+    max_longitude: 100.1254973
+  translations:
+    en: Lampang
+    ar: لامبانغ
+    bg: Лампанг
+    bn: ল্যাম্পাং
+    da: Lampang
+    de: Lampang
+    el: Λαμπάνγκ
+    es: Provincia de Lampang
+    fa: لامپانگ
+    fi: Lampang
+    fr: Lampang
+    gl: Provincia Lampang
+    gu: લેમ્પાંગ
+    hi: लम्पांग प्रान्त
+    id: Provinsi Lampang
+    it: provincia di Lampang
+    ja: ラムパーン県
+    ka: ლამპანგის პროვინცია
+    kn: ಲ್ಯಾಂಪಂಗ್
+    ko: 람빵 주
+    lo: ຈັງຫວັດລຳປາງ
+    mr: लंपांग
+    ms: Lampang
+    nb: Lampang
+    nl: Changwat Lampang
+    pl: Prowincja Lampang
+    pt: Lampang
+    ro: Provincia Lampang
+    ru: Лампанг
+    si: ලම්පන්ග්
+    sv: Lampang
+    ta: லாம்பங்
+    te: లాంపాంగ్
+    th: จังหวัดลำปาง
+    tr: Lampang
+    ur: لیمپینگ صوبہ
+    vi: Lampang
+    zh: 南邦府
+    lv: Lampanga
+    ceb: Changwat Lampang (lalawigan sa Tailandya)
+    lt: Lampangas
+    yue_Hans: 南邦府
+    ccp: "𑄣𑄟𑄴𑄛𑄁"
+    ml: ലമ്പാങ് പ്രവിശ്യ
+    uk: Провінція Лампанг
+    yue: 南邦府
+    'no': Lampang
+    be: Лампанг (правінцыя)
+    ca: província de Lampang
+    km: ខេត្តលំប៉ាង
+    mk: Лампанг (покраина)
+  type: province
+'53':
+  name: Uttaradit
+  code: '53'
+  unofficial_names:
+  - Uttaradit
+  geo:
+    latitude: 17.6200886
+    longitude: 100.0992942
+    min_latitude: 17.1624157
+    min_longitude: 99.896312
+    max_latitude: 18.3801428
+    max_longitude: 101.1926066
+  translations:
+    en: Uttaradit
+    ar: محافظة أوتاراديت
+    bg: Уттарадит
+    bn: উত্তরাদিত
+    da: Uttaradit
+    de: Uttaradit
+    el: Ουταραντίτ
+    es: Provincia de Uttaradit
+    fa: اوتارادیت
+    fi: Uttaradit
+    fr: Uttaradit
+    gl: Provincia Uttaradit
+    gu: નોર્થાદિત
+    hi: उत्तरादित प्रान्त
+    id: Provinsi Uttaradit
+    it: provincia di Uttaradit
+    ja: ウッタラディット県
+    ka: უტარადიტის პროვინცია
+    kn: ಉತ್ತರಾದಿತ್
+    ko: 우따라딧 주
+    lo: ຈັງຫວັດອຸຕະລະດິດ
+    mr: उत्तरादित
+    ms: Uttaradit
+    nb: Uttaradit
+    nl: Changwat Uttaradit
+    pl: Prowincja Uttaradit
+    pt: Uttaradit
+    ro: Provincia Uttaradit
+    ru: Уттарадит
+    si: උත්තරදිත්
+    sv: Uttaradit
+    ta: உத்தரடீட்
+    te: ఉట్టరాడిట్
+    th: จังหวัดอุตรดิตถ์
+    tr: Uttaradit
+    ur: اوتارادیت صوبہ
+    vi: Uttaradit
+    zh: 程逸府
+    lv: Utaradita
+    ceb: Changwat Uttaradit (lalawigan sa Tailandya)
+    lt: Utaradito provincija
+    yue_Hans: 程逸府
+    ccp: "𑄅𑄪𑄖𑄳𑄦𑄧𑄢𑄓𑄨𑄖𑄴"
+    uk: Провінція Уттарадіт
+    yue: 程逸府
+    'no': Uttaradit
+    ca: Uttaradit
+    km: ខេត្តឧត្តរឌិត្ថ
+  type: province
+'54':
+  name: Phrae
+  code: '54'
+  unofficial_names:
+  - Phrae
+  geo:
+    latitude: 18.1445774
+    longitude: 100.1402831
+    min_latitude: 17.68767
+    min_longitude: 99.36754309999999
+    max_latitude: 18.8354634
+    max_longitude: 100.5512932
+  translations:
+    en: Phrae
+    ar: محافظة فراي
+    bg: Фрае
+    bn: ফ্রা
+    da: Phrae
+    de: Phrae
+    el: Φράι
+    es: Provincia de Phrae
+    fa: استان فرای
+    fi: Phrae
+    fr: Phrae
+    gl: Provincia Phrae
+    gu: ફ્રાએ
+    hi: फ्रै प्रान्त
+    id: Provinsi Phrae
+    it: provincia di Phrae
+    ja: プレー県
+    ka: ფრეს პროვინცია
+    kn: ಫ್ರೇ
+    ko: 프래 주
+    lo: ຈັງຫວັດແພຣ່
+    mr: फ्रा
+    ms: Phrae
+    nb: Phrae
+    nl: Changwat Phrae
+    pl: Prowincja Phrae
+    pt: Phrae
+    ro: Provincia Phrae
+    ru: Пхрэ
+    si: පාරයි
+    sv: Phrae
+    ta: பிரே
+    te: ఫ్రాయీ
+    th: จังหวัดแพร่
+    tr: Phrae
+    ur: پھرائے صوبہ
+    vi: Phrae
+    zh: 帕府
+    lv: Phrē
+    ceb: Changwat Phrae (lalawigan sa Tailandya)
+    lt: Prė provincija
+    yue_Hans: 帕府
+    ccp: "𑄜𑄳𑄢𑄠𑄬"
+    uk: Провінція Пгре
+    yue: 帕府
+    'no': Phrae
+    be: Пхрэ (правінцыя)
+    km: ខេត្តព្រែ
+  type: province
+'55':
+  name: Nan
+  code: '55'
+  unofficial_names:
+  - Nan
+  geo:
+    latitude: 18.7756318
+    longitude: 100.7730417
+    min_latitude: 18.0131901
+    min_longitude: 100.3360441
+    max_latitude: 19.6382266
+    max_longitude: 101.3572627
+  translations:
+    en: Nan
+    ar: محافظة نان
+    bg: Нан
+    bn: নান
+    da: Nan
+    de: Nan
+    el: Ναν
+    es: Provincia de Nan
+    fa: نان
+    fi: Nan
+    fr: Nan
+    gl: Provincia Nan
+    gu: નાન
+    hi: नान प्रान्त
+    id: Provinsi Nan
+    it: provincia di Nan
+    ja: ナーン県
+    ka: ნანის პროვინცია
+    kn: ನಾನ್
+    ko: 난 주
+    lo: ຈັງຫວັດນ່ານ
+    mr: नान
+    ms: Nan
+    nb: Nan
+    nl: Changwat Nan
+    pl: Prowincja Nan
+    pt: Nan
+    ro: Provincia Nan
+    ru: Нан
+    si: නාන්
+    sv: Nan
+    ta: நான்
+    te: నాన్
+    th: จังหวัดน่าน
+    tr: Nan
+    ur: صوبہ نان
+    vi: Nan
+    zh: 楠府
+    lv: Nāna
+    ceb: Changwat Nan (lalawigan sa Tailandya)
+    lt: Nanas
+    yue_Hans: 楠府
+    ccp: "𑄚𑄚𑄴"
+    ml: നാൻ പ്രവിശ്യ
+    uk: Провінція Нан
+    yue: 楠府
+    'no': Nan
+    be: Нан (правінцыя)
+    ca: Nan
+    km: ខេត្តណាន
+    my: နန်းပြည်နယ်
+  type: province
+'56':
+  name: Phayao
+  code: '56'
+  unofficial_names:
+  - Phayao
+  geo:
+    latitude: 19.2154367
+    longitude: 100.2023692
+    min_latitude: 18.8063029
+    min_longitude: 99.6828377
+    max_latitude: 19.7351674
+    max_longitude: 100.6289514
+  translations:
+    en: Phayao
+    ar: محافظة فاياو
+    bg: Фаяо
+    bn: ফায়াও
+    da: Phayao
+    de: Phayao
+    el: Φαγιάο
+    es: Provincia de Phayao
+    fa: فایائو
+    fi: Phayao
+    fr: Phayao
+    gl: Provincia Phayao
+    gu: ફાયાઓ
+    hi: फयओ प्रान्त
+    id: Provinsi Phayao
+    it: provincia di Phayao
+    ja: パヤオ県
+    ka: ფაიაუს პროვინცია
+    kn: ಫಯಾಓ
+    ko: 파야오 주
+    lo: ຈັງຫວັດພະເຍົາ
+    mr: फायाओ
+    ms: Phayao
+    nb: Phayao
+    nl: Changwat Phayao
+    pl: Prowincja Phayao
+    pt: Phayao
+    ro: Provincia Phayao
+    ru: Пхаяу
+    si: පයාඕ
+    sv: Phayao
+    ta: பாயாவ்
+    te: ఫాయావో
+    th: จังหวัดพะเยา
+    tr: Phayao
+    ur: پھایاو صوبہ
+    vi: Phayao
+    zh: 帕夭府
+    lv: Phajau
+    ceb: Changwat Phayao (lalawigan sa Tailandya)
+    lt: Fajao
+    yue_Hans: 拍天府
+    ccp: "𑄜𑄠𑄃𑄮"
+    uk: Провінція Пхаяу
+    yue: 拍天府
+    'no': Phayao
+    ca: Phayao
+    km: ខេត្តព្យៅ
+  type: province
+'57':
+  name: Chiang Rai
+  code: '57'
+  unofficial_names:
+  - Chianpai
+  - Chienrai
+  - Muang Chiang Rai
+  geo:
+    latitude: 19.9071656
+    longitude: 99.830955
+    min_latitude: 18.9997316
+    min_longitude: 99.2582535
+    max_latitude: 20.4651902
+    max_longitude: 100.5778881
+  translations:
+    en: Chiang Rai
+    ar: تشيانغ ري
+    bg: Чианг Рай
+    bn: চিয়াং রাই
+    da: Chiang Rai
+    de: Chiang Rai
+    el: Τσιανγκ Ράι
+    es: Provincia de Chiang Rai
+    et: Chiang Rai provints
+    fa: استان چیانگ ری
+    fi: Chiang Rai
+    fr: Chiang Rai
+    gl: Provincia Chiang Rai
+    gu: ચિઆંગ રાય
+    he: מחוז צ׳יאנג ראי
+    hi: चिअंग राई प्रान्त
+    id: Provinsi Chiang Rai
+    it: provincia di Chiang Rai
+    ja: チエンラーイ県
+    ka: ჩიანგრაის პროვინცია
+    kn: ಚಿಯಾಂಗ್ ರೈ
+    ko: 치앙라이 주
+    lo: ຈັງຫວັດຊຽງຮາຍ
+    mr: चंग राय
+    ms: Chiang Rai
+    nb: Chiang Rai
+    nl: Changwat Chiang Rai
+    pl: Prowincja Chiang Rai
+    pt: Chiang Rai
+    ro: Provincia Chiang Rai
+    ru: Чианграй
+    si: චියාන්ග් රායි
+    sv: Chiang Rai
+    ta: சியாங் ராய்
+    te: చియాంగ్ రాయి
+    th: จังหวัดเชียงราย
+    tr: Chiang Rai
+    ur: صوبہ چیانگ رائی
+    vi: Chiang Rai
+    zh: 清萊府
+    lv: Čiangraja
+    ceb: Changwat Chiang Rai (lalawigan sa Tailandya)
+    lt: Čian Rajaus provincija
+    yue_Hans: 清莱
+    ccp: "𑄌𑄨𑄠𑄁 𑄢𑄭"
+    hu: Csiangraj tartomány
+    uk: Провінція Чіанг-Рай
+    yue: 清萊
+    'no': Chiang Rai
+    be: Чыянграй (правінцыя)
+    ca: Chiang Rai
+    km: ខេត្តឈៀងរ៉ាយ
+  type: province
+'58':
+  name: Mae Hong Son
+  code: '58'
+  unofficial_names:
+  - Mae Hong Son
+  geo:
+    latitude: 19.3020296
+    longitude: 97.96543679999999
+    min_latitude: 17.6370173
+    min_longitude: 97.3433651
+    max_latitude: 19.8141954
+    max_longitude: 98.6540375
+  translations:
+    en: Mae Hong Son
+    ar: محافظة ماي هونغ سون
+    bg: Мае Хонг Сон
+    bn: মায়ে হং সান
+    da: Mae Hong Son
+    de: Mae Hong Son
+    el: Μάι Χονγκ Σον
+    es: Provincia de Mae Hong Son
+    fa: مای هونگ سون
+    fi: Mae Hong Son
+    fr: Mae Hong Son
+    gl: Provincia Mae Hong Son
+    gu: મે હોંગ સન
+    hi: मै होंग सोन प्रान्त
+    id: Provinsi Mae Hong Son
+    it: provincia di Mae Hong Son
+    ja: メーホンソーン県
+    ka: მეჰონგსონის პროვინცია
+    kn: ಮೇ ಹಾಂಗ್ ಸನ್
+    ko: 매홍손 주
+    lo: ຈັງຫວັດແມ່ຮ່ອງສອນ
+    mr: मे हॉँग सोन
+    ms: Mae Hong Son
+    nb: Mae Hong Son
+    nl: Changwat Mae Hong Son
+    pl: Prowincja Mae Hong Son
+    pt: Mae Hong Son
+    ro: Provincia Mae Hong Son
+    ru: Мэхонгсон
+    si: මායි හොන්ග් සොන්ග්
+    sv: Mae Hong Son
+    ta: மாய ஹாங் சன்
+    te: మే హాంగ్ సన్
+    th: จังหวัดแม่ฮ่องสอน
+    tr: Mae Hong Son
+    ur: صوبہ مائے ہونگ سون
+    vi: Mae Hong Son
+    zh: 湄宏順府
+    lv: Mēhonsonas province
+    ceb: Changwat Mae Hong Son
+    lt: Majė Hong Sonas
+    yue_Hans: 湄宏顺府
+    ccp: "𑄟𑄠𑄬 𑄦𑄧𑄁 𑄥𑄧𑄚𑄴"
+    uk: Мехонгсон, Мегонґсон
+    yue: 湄宏順府
+    'no': Mae Hong Son
+    ca: Mae Hong Son
+    km: ខេត្តម៉ែហងសន
+  type: province
+'60':
+  name: Nakhon Sawan
+  code: '60'
+  unofficial_names:
+  - Nakhon Sawan
+  geo:
+    latitude: 15.6930072
+    longitude: 100.1225595
+    min_latitude: 15.0514745
+    min_longitude: 99.08603199999999
+    max_latitude: 16.1913173
+    max_longitude: 100.8339533
+  translations:
+    en: Nakhon Sawan
+    ar: محافظة ناخون ساوان
+    bg: Након Саван
+    bn: নাখন সাবান
+    da: Nakhon Sawan
+    de: Nakhon Sawan
+    el: Νάκχον Σαβάν
+    es: Provincia de Nakhon Sawan
+    fa: ناخون ساوان
+    fi: Nakhon Sawan
+    fr: Nakhon Sawan
+    gl: Provincia Nakhon Sawan
+    gu: નાખોનુ સાવન
+    hi: नखोन सवन प्रान्त
+    id: Provinsi Nakhon Sawan
+    it: provincia di Nakhon Sawan
+    ja: ナコーンサワン県
+    kn: ನಖೋನ್ ಸಾವನ್
+    ko: 나콘사완 주
+    lo: ຈັງຫວັດນະຄອນສະຫວັນ
+    mr: नाखोन सायन
+    ms: Nakhon Sawan
+    nb: Nakhon Sawan
+    nl: Changwat Nakhon Sawan
+    pl: Prowincja Nakhon Sawan
+    pt: Nakhon Sawan
+    ro: Provincia Nakhon Sawan
+    ru: Накхонсаван
+    si: නකොන් සවන්
+    sv: Nakhon Sawan
+    ta: நக்ஹோன் சவாண்
+    te: నాఖోన్ సావన్
+    th: จังหวัดนครสวรรค์
+    tr: Nakhon Sawan
+    ur: ناکھون ساوان صوبہ
+    vi: Nakhon Sawan
+    zh: 北欖坡府
+    lv: Nakhonsavana
+    ceb: Changwat Nakhon Sawan (lalawigan sa Tailandya)
+    lt: Nakon Savanas
+    yue_Hans: 北揽坡府
+    ccp: "𑄚𑄈𑄧𑄚𑄴 𑄥𑄮𑄠𑄚𑄴"
+    uk: Провінція Накхонсаван
+    yue: 北攬坡府
+    mk: Након Саван
+    'no': Nakhon Sawan
+    be: Накхонсаван (правінцыя)
+    ka: ნაქონსავანის პროვინცია
+    km: ខេត្តនគរសួគ៌
+  type: province
+'61':
+  name: Uthai Thani
+  code: '61'
+  unofficial_names:
+  - Uthai Thani
+  geo:
+    latitude: 15.3835001
+    longitude: 100.0245527
+    min_latitude: 14.9418877
+    min_longitude: 98.98343009999999
+    max_latitude: 15.7979235
+    max_longitude: 100.1065625
+  translations:
+    en: Uthai Thani
+    ar: محافظة يوثاي ثاني
+    bg: Утай Тани
+    bn: উথাই থানি
+    da: Uthai Thani
+    de: Uthai Thani
+    el: Ουθάι Θάνι
+    es: Provincia de Uthai Thani
+    fa: یوتای تانی
+    fi: Uthai Thani
+    fr: Uthai Thani
+    gl: Provincia Uthai Thani
+    gu: ઉથાઈ થાની
+    hi: उथाई थानी प्रान्त
+    id: Provinsi Uthai Thani
+    it: provincia di Uthai Thani
+    ja: ウタイターニー県
+    kn: ಉತೈ ಥಾನಿ
+    ko: 우타이타니 주
+    lo: ຈັງຫວັດອຸໄທທານີ
+    mr: उथई थानी
+    ms: Wilayah Uthai Thani
+    nb: Uthai Thani
+    nl: Changwat Uthai Thani
+    pl: Prowincja Uthai Thani
+    pt: Uthai Thani
+    ro: Provincia Uthai Thani
+    ru: Утхайтхани
+    si: උතායි තනි
+    sv: Uthai Thani
+    ta: உதய் தனி
+    te: ఉతాయి థాని
+    th: จังหวัดอุทัยธานี
+    tr: Uthai Thani
+    ur: اوتھائی تھانی صوبہ
+    vi: Uthai Thani
+    zh: 烏泰他尼府
+    lv: Uthajthānī province
+    ceb: Changwat Uthai Thani
+    lt: Utai Tanis
+    yue_Hans: 乌泰他尼府
+    ccp: "𑄅𑄪𑄗𑄭 𑄗𑄚𑄨"
+    uk: Провінція Утхайтхан
+    yue: 烏泰他尼府
+    'no': Uthai Thani
+    ca: Uthai Thani
+    km: ខេត្តឧទ័យធានី
+    my: ဥဒယဌာနီပြည်နယ်
+  type: province
+'62':
+  name: Kamphaeng Phet
+  code: '62'
+  unofficial_names:
+  - Kamphaeng Phet
+  geo:
+    latitude: 16.4827798
+    longitude: 99.5226618
+    min_latitude: 15.8756459
+    min_longitude: 98.9887554
+    max_latitude: 16.9134168
+    max_longitude: 100.0381412
+  translations:
+    en: Kamphaeng Phet
+    ar: كامفاينغ فيت
+    bg: Кампаенг Пет
+    bn: কামফাং ফেট
+    da: Kamphaeng Phet
+    de: Kamphaeng Phet
+    el: Καμφάενγκ- Φετ
+    es: Provincia de Kamphaeng Phet
+    fa: کامفائنگ فت
+    fi: Kamphaeng Phet
+    fr: Kamphaeng Phet
+    gl: Provincia Kamphaeng Phet
+    gu: કમફાંગ ફેટ
+    hi: कम्फैंग फेट प्रान्त
+    id: Provinsi Kamphaeng Phet
+    it: provincia di Kamphaeng Phet
+    ja: カムペーンペット県
+    kn: ಕಂಪಾಂಗ್ ಪೆಂಗ್
+    ko: 깜팽펫 주
+    lo: ຈັງຫວັດກຳແພງເພັດ
+    mr: कमफेंग पायथ
+    ms: Kamphaeng Phet
+    nb: Kamphaeng Phet
+    nl: Changwat Kamphaeng Phet
+    pl: Prowincja Kamphaeng Phet
+    pt: Kamphaeng Phet
+    ro: Provincia Kamphaeng Phet
+    ru: Кампхэнгпхет
+    si: කම්පෙන්ග් පෙට්
+    sv: Kamphaeng Phet
+    ta: கம்பஹஎங் பெட்
+    te: కాంఫేంగ్ ఫెట్
+    th: จังหวัดกำแพงเพชร
+    tr: Kamphaeng Phet
+    ur: کامپھائنگ پھیت صوبہ
+    vi: Kamphaeng Phet
+    zh: 甘烹碧府
+    lv: Kamphēnphetas province
+    ceb: Changwat Kamphaeng Phet
+    lt: Kampeng Feto provincija
+    yue_Hans: 甘烹碧府
+    ccp: "𑄖𑄟𑄴𑄜𑄠𑄬𑄁 𑄜𑄬𑄖𑄴"
+    uk: Провінція Кампхенгпхет
+    yue: 甘烹碧府
+    'no': Kamphaeng Phet
+    km: ខេត្តកំពែងពេជ្រ
+  type: province
+'63':
+  name: Tak
+  code: '63'
+  unofficial_names:
+  - Tak
+  geo:
+    latitude: 16.8839901
+    longitude: 99.1258498
+    min_latitude: 15.1807556
+    min_longitude: 97.7423139
+    max_latitude: 17.8678208
+    max_longitude: 99.48912449999999
+  translations:
+    en: Tak
+    ar: محافظة تاك
+    bg: Так
+    bn: টাক
+    da: Tak
+    de: Tak
+    el: Τακ
+    es: Provincia de Tak
+    fa: استان تاک
+    fi: Tak
+    fr: Tak
+    gl: Provincia Tak
+    gu: તાક
+    hi: ताक प्रान्त
+    id: Provinsi Tak
+    it: provincia di Tak
+    ja: ターク県
+    ka: ტაკის პროვინცია
+    kn: ತಕ್
+    ko: 딱 주
+    lo: ຈັງຫວັດຕາກ
+    mr: ताक
+    ms: Tak
+    nb: Tak
+    nl: Changwat Tak
+    pl: Prowincja Tak
+    pt: Tak
+    ro: Provincia Tak
+    ru: Так
+    si: ටක්
+    sv: Tak
+    ta: தக்
+    te: టాక్
+    th: จังหวัดตาก
+    tr: Tak
+    ur: تاک صوبہ
+    vi: Tak
+    zh: 來興府
+    lv: Tāka
+    ceb: Changwat Tak
+    lt: Takas
+    yue_Hans: 来兴府
+    ccp: "𑄑𑄇𑄴"
+    ml: തക് പ്രവിശ്യ
+    uk: Провінція Так
+    yue: 來興府
+    'no': Tak
+    be: Так (правінцыя)
+    ca: Tak
+    he: טאק
+    km: ខេត្តតាក
+    mk: Так (покраина)
+    my: တာ့ခ်ခရိုင်
+  type: province
+'64':
+  name: Sukhothai
+  code: '64'
+  unofficial_names:
+  - Sakhothai
+  geo:
+    latitude: 17.0055573
+    longitude: 99.8263712
+    min_latitude: 16.6828055
+    min_longitude: 99.30973329999999
+    max_latitude: 17.8214838
+    max_longitude: 100.111706
+  translations:
+    en: Sukhothai
+    ar: محافظة سوكوتاي
+    bg: Сукотаи
+    bn: সুখোথাই
+    da: Sukhothai
+    de: Sukhothai
+    el: Σουχοτάι
+    es: Provincia de Sukhothai
+    fa: استان سوکوتای
+    fi: Sukhothai
+    fr: Sukhothai
+    gl: Provincia Sukhothai
+    gu: સુખોથઇ
+    hi: सुखोथाई प्रान्त
+    id: Provinsi Sukhothai
+    it: provincia di Sukhothai
+    ja: スコータイ県
+    kn: ಸುಖೋತಿ
+    ko: 수코타이 주
+    lo: ຈັງຫວັດສຸໂຂໄທ
+    mr: सुखोथाई
+    ms: Sukhothai
+    nb: Sukhothai
+    nl: Changwat Sukhothai
+    pl: Prowincja Sukhothai
+    pt: Sukhothai
+    ro: Provincia Sukhothai
+    ru: Сукхотхай
+    si: සුකොතායි
+    sv: Sukhothai
+    ta: சூக்ஹோதை
+    te: సుఖోతాయి
+    th: จังหวัดสุโขทัย
+    tr: Sukhothai
+    uk: Сукхотхай
+    ur: سوخوتھائی صوبہ
+    vi: Sukhothai
+    zh: 素可泰府
+    lv: Sukhothai
+    ceb: Changwat Sukhothai
+    lt: Sukotajus
+    yue_Hans: 素可泰府
+    ccp: "𑄥𑄪𑄈𑄮𑄗𑄭"
+    km: ខេត្តសុខោទ័យ
+    yue: 素可泰府
+    'no': Sukhothai
+    ka: სუქოტაის პროვინცია
+  type: province
+'65':
+  name: Phitsanulok
+  code: '65'
+  unofficial_names:
+  - Phitsanulok
+  geo:
+    latitude: 16.8211238
+    longitude: 100.2658516
+    min_latitude: 16.792816
+    min_longitude: 100.2456044
+    max_latitude: 16.84105
+    max_longitude: 100.293535
+  translations:
+    en: Phitsanulok
+    ar: محافظة فيتسانولوك
+    bg: Фитсанулок
+    bn: ফিটসানুলোক
+    da: Phitsanulok
+    de: Phitsanulok
+    el: Πίτσανουλοκ
+    es: Provincia de Phitsanulok
+    fa: استان فیتسانولوک
+    fi: Phitsanulok
+    fr: Phitsanulok
+    gl: Provincia Phitsanulok
+    gu: ફિટસનુલોક
+    hi: फित्सनुलोक प्रान्त
+    id: Provinsi Phitsanulok
+    it: provincia di Phitsanulok
+    ja: ピッサヌローク県
+    ka: ფიტსანულოკის პროვინცია
+    kn: ಫಿಟ್ಸಾನುಲೋಕ್
+    ko: 핏사눌록 주
+    lo: ຈັງຫວັດພິສະນຸໂລກ
+    mr: फित्सनुलोक
+    ms: Phitsanulok
+    nb: Phitsanulok
+    nl: Changwat Phitsanulok
+    pl: Prowincja Phitsanulok
+    pt: Phitsanulok
+    ro: Provincia Phitsanulok
+    ru: Пхитсанулок
+    si: පිට්සනුලෝකෝ
+    sv: Phitsanulok
+    ta: பிட்ஸானுளொக்
+    te: ఫిట్స్ అనులోక్
+    th: จังหวัดพิษณุโลก
+    tr: Phitsanulok
+    ur: پھیتسانولوک صوبہ
+    vi: Phitsanulok
+    zh: 彭世洛府
+    lv: Pitsanulokas province
+    ceb: Changwat Phitsanulok (lalawigan sa Tailandya)
+    lt: Ficanulokas
+    yue_Hans: 彭世洛府
+    ccp: "𑄜𑄨𑄖𑄴𑄥𑄚𑄪𑄣𑄮𑄇𑄴"
+    ml: ഫിറ്റ്സാനുലോക്ക് പ്രവിശ്യ
+    uk: Провінція Пхітсанулок
+    yue: 彭世洛府
+    'no': Phitsanulok
+    be: Пхітсанулок (правінцыя)
+    cs: Phitsanulok
+    he: פיטסנולוק
+    km: ពិ្តសានុឱល្ក
+    ne: फितसनुलोक प्रान्त
+    sk: Phitsanulok
+  type: province
+'66':
+  name: Phichit
+  code: '66'
+  unofficial_names:
+  - Phichit
+  geo:
+    latitude: 16.2740876
+    longitude: 100.3346991
+    min_latitude: 15.9162294
+    min_longitude: 99.98371929999999
+    max_latitude: 16.6451379
+    max_longitude: 100.7992393
+  translations:
+    en: Phichit
+    ar: محافظة فيتشيت
+    bg: Фичит
+    bn: ফিকিট
+    da: Phichit
+    de: Phichit
+    el: Πικίτ
+    es: Provincia de Phichit
+    fa: فیچیت
+    fi: Phichit
+    fr: Phichit
+    gl: Provincia Phichit
+    gu: ફિચીટ
+    hi: फिचित प्रान्त
+    id: Provinsi Phichit
+    it: provincia di Phichit
+    ja: ピチット県
+    kn: ಫಿಚಿಟ್
+    ko: 피찟 주
+    lo: ຈັງຫວັດພິຈິດ
+    mr: फिचिट
+    ms: Phichit
+    nb: Phichit
+    nl: Changwat Phichit
+    pl: Prowincja Phichit
+    pt: Phichit
+    ro: Provincia Phichit
+    ru: Пхичит
+    si: පිචිට්
+    sv: Phichit
+    ta: பிசிட்
+    te: ఫిచిట్
+    th: จังหวัดพิจิตร
+    tr: Phichit
+    ur: پھیچیت صوبہ
+    vi: Phichit
+    zh: 披集府
+    lv: Phičitas province
+    ceb: Changwat Phichit (lalawigan sa Tailandya)
+    lt: Finčitas
+    yue_Hans: 披集府
+    ccp: "𑄜𑄨𑄌𑄨𑄖𑄴"
+    uk: Провінція Пхічіт
+    yue: 披集府
+    'no': Phichit
+    az: Pxiçit
+    ca: Phichit
+    km: ខេត្តពិចិត្រ
+  type: province
+'67':
+  name: Phetchabun
+  code: '67'
+  unofficial_names:
+  - Phetchabun
+  geo:
+    latitude: 16.301669
+    longitude: 101.1192804
+    min_latitude: 15.3182319
+    min_longitude: 100.6343118
+    max_latitude: 17.1781399
+    max_longitude: 101.7940183
+  translations:
+    en: Phetchabun
+    ar: محافظة فيتشابون
+    bg: Фетчабун
+    bn: ফেৎচাবুন
+    da: Phetchabun
+    de: Phetchabun
+    el: Φέτσαμπαν
+    es: Provincia de Phetchabun
+    fa: پتچابون
+    fi: Phetchabun
+    fr: Phetchabun
+    gl: Provincia Phetchabun
+    gu: ફતેચબૂન
+    hi: फेत्चबून प्रान्त
+    id: Provinsi Phetchabun
+    it: provincia di Phetchabun
+    ja: ペッチャブーン県
+    kn: ಫೆಚಚಬನ್
+    ko: 펫차분 주
+    lo: ຈັງຫວັດເພັດຊະບູນ
+    mr: फेटचबून
+    ms: Phetchabun
+    nb: Phetchabun
+    nl: Changwat Phetchabun
+    pl: Prowincja Phetchabun
+    pt: Phetchabun
+    ro: Provincia Phetchabun
+    ru: Пхетчабун
+    si: පෙචබුන්
+    sv: Phetchabun
+    ta: பட்சபுன்
+    te: ఫెట్చాబున్
+    th: จังหวัดเพชรบูรณ์
+    tr: Phetchabun
+    ur: پھیتچابون صوبہ
+    vi: Phetchabun
+    zh: 碧差汶府
+    lv: Fečabunas province
+    ceb: Changwat Phetchabun (lalawigan sa Tailandya)
+    lt: Fečabunas
+    yue_Hans: 碧差汶府
+    ccp: "𑄜𑄬𑄖𑄴𑄌𑄝𑄪𑄚𑄴"
+    uk: Провінція Пхетчабун
+    yue: 碧差汶府
+    'no': Phetchabun
+    ca: Phetchabun
+    ka: ფეტჩაბუნის პროვინცია
+    km: ខេត្តពេជ្របូរណ៍
+  type: province
+'70':
+  name: Ratchaburi
+  code: '70'
+  unofficial_names:
+  - Ratchaburi
+  geo:
+    latitude: 13.5282893
+    longitude: 99.8134211
+    min_latitude: 13.148458
+    min_longitude: 99.1634857
+    max_latitude: 13.9449264
+    max_longitude: 100.0728342
+  translations:
+    en: Ratchaburi
+    ar: محافظة راتشابوري
+    bg: Ратчабури
+    bn: রাতচাবুরি
+    da: Ratchaburi
+    de: Ratchaburi
+    el: Ράτσαμπουρι
+    es: Provincia de Ratchaburi
+    fa: راتچابوری
+    fi: Ratchaburi
+    fr: Ratchaburi
+    gl: Provincia Ratchaburi
+    gu: રૅચબૂરી
+    hi: रात्चाबुरी प्रान्त
+    id: Provinsi Ratchaburi
+    it: provincia di Ratchaburi
+    ja: ラーチャブリー県
+    ka: რატჩაბურის პროვინცია
+    kn: ರಾಚ್ಬಾರಿ
+    ko: 랏차부리 주
+    lo: ຈັງຫວັດລາຊະບຸລີ
+    mr: रचबुरी
+    ms: Ratchaburi
+    nb: Ratchaburi
+    nl: Changwat Ratchaburi
+    pl: Prowincja Ratchaburi
+    pt: Ratchaburi
+    ro: Provincia Ratchaburi
+    ru: Ратбури
+    si: රචබුරි
+    sv: Ratchaburi
+    ta: ராட்சபுரி
+    te: రాట్చాబురి
+    th: จังหวัดราชบุรี
+    tr: Ratchaburi
+    uk: Ратчабурі
+    ur: راتچابوری صوبہ
+    vi: Ratchaburi
+    zh: 叻丕府
+    lv: Rātčhaburī
+    ceb: Changwat Ratchaburi
+    lt: Račaburis
+    yue_Hans: 叻丕府
+    ccp: "𑄢𑄖𑄴𑄌𑄝𑄪𑄢𑄨"
+    yue: 叻丕府
+    'no': Ratchaburi
+    be: Ратбуры (правінцыя)
+    ca: Ratchaburi
+    km: ខេត្តរាជបុរី
+  type: province
+'71':
+  name: Kanchanaburi
+  code: '71'
+  unofficial_names:
+  - Kanchanaburi
+  geo:
+    latitude: 14.0227797
+    longitude: 99.5328115
+    min_latitude: 13.7261095
+    min_longitude: 98.1810039
+    max_latitude: 15.662279
+    max_longitude: 99.887722
+  translations:
+    en: Kanchanaburi
+    ar: محافظة كانتشانابوري
+    bg: Канчанабури
+    bn: কানাচানবুরি
+    da: Kanchanaburi
+    de: Kanchanaburi
+    el: Καντσάναμπερι
+    es: Provincia de Kanchanaburi
+    fa: کانتچانابوری
+    fi: Kanchanaburi
+    fr: Kanchanaburi
+    gl: Provincia Kanchanaburi
+    gu: કંચનબૂરી
+    hi: कांचनाबुरी प्रान्त
+    id: Kanchanaburi
+    it: provincia di Kanchanaburi
+    ja: カーンチャナブリー県
+    ka: კანჩანაბურის პროვინცია
+    kn: ಕಂಚನಾಬುರಿ
+    ko: 깐짜나부리 주
+    lo: ຈັງຫວັດການຈະນະບຸລີ
+    mr: कांचनबुरी
+    ms: Kanchanaburi
+    nb: Kanchanaburi
+    nl: Changwat Kanchanaburi
+    pl: Prowincja Kanchanaburi
+    pt: Kanchanaburi
+    ro: Provincia Kanchanaburi
+    ru: Канчанабури
+    si: කන්චනබුරි
+    sv: Kanchanaburi
+    ta: காஞ்சனாபுரி
+    te: కాంచనబురి
+    th: จังหวัดกาญจนบุรี
+    tr: Kanchanaburi
+    ur: کانچانابوری صوبہ
+    vi: Kanchanaburi
+    zh: 北碧府
+    lv: Kānčanaburī
+    ceb: Changwat Kanchanaburi (lalawigan sa Tailandya)
+    lt: Kančanaburis
+    yue_Hans: 北碧府
+    ccp: "𑄇𑄚𑄴𑄌𑄚𑄝𑄪𑄢𑄨"
+    ml: കാഞ്ചനബുരി പ്രവിശ്യ
+    uk: Провінція Канчанабурі
+    yue: 北碧府
+    'no': Kanchanaburi
+    be: Канчанабуры (правінцыя)
+    km: ខេត្តកញ្ចនបុរី
+    my: ကန်ချနဘူရီ ခရိုင်
+  type: province
+'72':
+  name: Suphan Buri
+  code: '72'
+  unofficial_names:
+  - Suphan Buri
+  geo:
+    latitude: 14.4744892
+    longitude: 100.1177128
+    min_latitude: 14.0566785
+    min_longitude: 99.28135119999999
+    max_latitude: 15.0823024
+    max_longitude: 100.2832801
+  translations:
+    en: Suphanburi
+    ar: محافظة سوفانبوري
+    bg: Суфанабури
+    bn: সোপান বুরি
+    da: Suphanburi
+    de: Suphanburi
+    el: Σούπαν Μπουρί
+    es: Provincia de Suphanburi
+    fa: سوپان بوری
+    fi: Suphanburi
+    fr: Suphanburi
+    gl: Provincia Suphan Buri
+    gu: સુફંબુરી
+    hi: सुफन बुरी प्रान्त
+    id: Provinsi Suphan Buri
+    it: provincia di Suphanburi
+    ja: スパンブリー県
+    kn: ಸುಹಾನ್ಬರಿ
+    ko: 수판부리 주
+    lo: ຈັງຫວັດສຸພັນບຸລີ
+    mr: सुभानबुरी
+    ms: Suphan Buri
+    nb: Suphan Buri
+    nl: Changwat Suphanburi
+    pl: Prowincja Suphanburi
+    pt: Suphan Buri
+    ro: Provincia Suphanburi
+    ru: Супханбури
+    si: සුපන්බුරි
+    sv: Suphanburi
+    ta: சுப்ஹஅன்புரி
+    te: సుఫాన్బురి
+    th: จังหวัดสุพรรณบุรี
+    tr: Suphanburi
+    ur: سوپھان بوری صوبہ
+    vi: Suphanburi
+    zh: 素攀武里府
+    lv: Suphanburī
+    ceb: Changwat Suphan Buri
+    lt: Sufan Burio provincija
+    yue_Hans: 素攀武里府
+    ccp: "𑄥𑄪𑄜𑄚𑄴𑄝𑄪𑄢𑄨"
+    uk: Провінція Супханбурі
+    yue: 素攀武里府
+    'no': Suphan Buri
+    be: Супханбуры (правінцыя)
+    ca: Suphanburi
+    he: סופאן בורי
+    km: ខេត្តសុពណ៌បុរី
+  type: province
+'73':
+  name: Nakhon Pathom
+  code: '73'
+  unofficial_names:
+  - Nakhon Pathom
+  geo:
+    latitude: 13.8199206
+    longitude: 100.0621676
+    min_latitude: 13.6493354
+    min_longitude: 99.82921119999999
+    max_latitude: 14.1789481
+    max_longitude: 100.3375195
+  translations:
+    en: Nakhon Pathom
+    ar: محافظة ناخون باتوم
+    bg: Након Патом
+    bn: নাখন পাথোম
+    da: Nakhon Pathom
+    de: Nakhon Pathom
+    el: Νακόν Πατόμ
+    es: Nakhon Pathom
+    fa: ناخون پاتوم
+    fi: Nakhon Pathom
+    fr: Nakhon Pathom
+    gl: Provincia Nakhon Pathom
+    gu: નાખોન પાથોમ
+    hi: नखोन पथोम प्रान्त
+    id: Nakhon Pathom
+    it: provincia di Nakhon Pathom
+    ja: ナコーンパトム県
+    kn: ನಖೋನ್ ಪಾಥೊಮ್
+    ko: 나콘빠톰 주
+    lo: ຈັງຫວັດນະຄອນປະຖົມ
+    mr: नाखोन पाथोम
+    ms: Nakhon Pathom
+    nb: Nakhon Pathom
+    nl: Changwat Nakhon Pathom
+    pl: Prowincja Nakhon Pathom
+    pt: Nakhon Pathom
+    ro: Provincia Nakhon Pathom
+    ru: Накхонпатхом
+    si: නකොන් පැතොම්
+    sv: Nakhon Pathom
+    ta: நக்ஹோன் பாத்தோம்
+    te: నాఖోన్ పాథమ్
+    th: จังหวัดนครปฐม
+    tr: Nakhon Pathom
+    ur: ناکھون پاتھوم صوبہ
+    vi: Nakhon Pathom
+    zh: 佛統府
+    lv: Nakhonpathomas province
+    ceb: Changwat Nakhon Pathom
+    lt: Nachon Patomo provincija
+    yue_Hans: 佛统府
+    ccp: "𑄚𑄈𑄧𑄚𑄴 𑄛𑄗𑄮𑄟𑄴"
+    uk: Провінція Нахонпатхом
+    yue: 佛統府
+    'no': Nakhon Pathom
+    be: Накхонпатхом (правінцыя)
+    ca: Nakhon Pathom
+    ka: ნაქონპათომის პროვინცია
+    km: ខេត្តនគរបឋម
+  type: province
+'74':
+  name: Samut Sakhon
+  code: '74'
+  unofficial_names:
+  - Samut Sakhon
+  geo:
+    latitude: 13.5475216
+    longitude: 100.2743956
+    min_latitude: 13.4250416
+    min_longitude: 100.0269286
+    max_latitude: 13.721126
+    max_longitude: 100.4201172
+  translations:
+    en: Samut Sakhon
+    ar: محافظة ساموت ساخون
+    bg: Самут Сакон
+    bn: সামুত সাখন
+    da: Samut Sakhon
+    de: Samut Sakhon
+    el: Σάμουτ Σάκον
+    es: Provincia de Samut Sakhon
+    fi: Samut Sakhon
+    fr: Samut Sakhon
+    gl: Provincia Samut Sakhon
+    gu: સમુટ સાખોન
+    hi: समुत साखोन प्रान्त
+    id: Samut Sakhon
+    it: provincia di Samut Sakhon
+    ja: サムットサーコーン県
+    kn: ಸಾಮುತ್ ಸಖೋನ್
+    ko: 사뭇사콘 주
+    lo: ຈັງຫວັດສະໝຸດສາຄອນ
+    mr: सॅम्युट सखोन
+    ms: Samut Sakhon
+    nb: Samut Sakhon
+    nl: Changwat Samut Sakhon
+    pl: Prowincja Samut Sakhon
+    pt: Samut Sakhon
+    ro: Provincia Samut Sakhon
+    ru: Самутсакхон
+    si: සමුට් සකොන්
+    sv: Samut Sakhon
+    ta: சமுட் சக்ஹோன்
+    te: సముట్ సాఖోన్
+    th: จังหวัดสมุทรสาคร
+    tr: Samut Sakhon
+    uk: Самутсакхон
+    ur: ساموت ساکھون صوبہ
+    vi: Samut Sakhon
+    zh: 龍仔厝府
+    lv: Samutsākhona
+    ceb: Changwat Samut Sakhon
+    lt: Samut Sakonas
+    fa: استان ساموت ساکون
+    yue_Hans: 龙仔厝府
+    ccp: "𑄥𑄟𑄪𑄖𑄴 𑄥𑄈𑄧𑄚𑄴"
+    yue: 龍仔厝府
+    'no': Samut Sakhon
+    be: Самутсакхон (правінцыя)
+    hy: Սամուտ Սակխոն
+    ka: სამუტსაქონის პროვინცია
+    km: ខេត្តសមុទ្រសាគរ
+  type: province
+'75':
+  name: Samut Songkhram
+  code: '75'
+  unofficial_names:
+  - Samut Songkhram
+  geo:
+    latitude: 13.4098217
+    longitude: 100.0022645
+    min_latitude: 13.2375277
+    min_longitude: 99.84554179999999
+    max_latitude: 13.5147972
+    max_longitude: 100.078691
+  translations:
+    en: Samut Songkhram
+    ar: محافظة ساموت سونغخرام
+    bg: Самут Сонгкрам
+    bn: সামুতে সোমখন্দ
+    da: Samut Songkhram
+    de: Samut Songkhram
+    el: Σάμουτ Σόνγκραμ
+    es: Provincia de Samut Songkhram
+    fa: استان ساموت سونگخرام
+    fi: Samut Songkhram
+    fr: Samut Songkhram
+    gl: Provincia Samut Songkhram
+    gu: સમુટ સોંગખ્રામ
+    hi: समुत सोंगख्राम प्रान्त
+    id: Samut Songkhram
+    it: provincia di Samut Songkhram
+    ja: サムットソンクラーム県
+    kn: ಸಾಮುಟ್ ಸಾಂಗ್ಖ್ರಾಮ್
+    ko: 사뭇송크람 주
+    lo: ຈັງຫວັດສະໝຸດສົງຄາມ
+    mr: सॅम्युट सोंगखराम
+    ms: Samut Songkhram
+    nb: Samut Songkhram
+    ne: समुद्सोंग्ख्रम
+    nl: Changwat Samut Songkhram
+    pl: Prowincja Samut Songkhram
+    pt: Samut Songkhram
+    ro: Provincia Samut Songkhram
+    ru: Самутсонгкхрам
+    si: සමුට් සොන්ග්ක්රම්
+    sl: Samut Songkhram
+    sv: Samut Songkhram
+    ta: சமுட் சோங்க்ஹராம்
+    te: సముత్ సాంగ్‌ఖ్రామ్
+    th: จังหวัดสมุทรสงคราม
+    tr: Samut Songkhram
+    uk: Самутсонгкхрам
+    ur: ساموت سونگکھرام صوبہ
+    vi: Samut Songkhram
+    zh: 夜功府
+    lv: Samutsonkhrāmas province
+    ceb: Changwat Samut Songkhram
+    lt: Samut Sonkramo provincija
+    yue_Hans: 夜功府
+    ccp: "𑄥𑄟𑄪𑄖 𑄥𑄧𑄁𑄈𑄳𑄢𑄟𑄴"
+    yue: 夜功府
+    'no': Samut Songkhram
+    be: Самутсангкхрам (правінцыя)
+    ca: Samut Songkhram
+    km: ខេត្តសមុទ្រសង្គ្រាម
+  type: province
+'76':
+  name: Phetchaburi
+  code: '76'
+  unofficial_names:
+  - Phetchaburi
+  geo:
+    latitude: 12.9649215
+    longitude: 99.6425883
+    min_latitude: 12.5632989
+    min_longitude: 99.0995873
+    max_latitude: 13.3445097
+    max_longitude: 100.1057452
+  translations:
+    en: Phetchaburi
+    ar: محافظة براتشينبوري
+    bg: Петчабури
+    bn: ফেৎচাবুরি
+    da: Phetchaburi
+    de: Phetchaburi
+    el: Πέτσαμπουρι
+    es: Provincia de Phetchaburi
+    et: Phetchaburi provints
+    fa: پتچابوری
+    fi: Phetchaburi
+    fr: Phetchaburi
+    gl: Provincia Phetchaburi
+    gu: ફેટચાબુરી
+    hi: फेत्चबुरी प्रान्त
+    id: Provinsi Phetchaburi
+    it: provincia di Phetchaburi
+    ja: ペッチャブリー県
+    ka: ფეტჩაბურის პროვინცია
+    kn: ಪೆಚೆಚಬರಿ
+    ko: 펫차부리 주
+    lo: ຈັງຫວັດເພັດຊະບຸລີ
+    mr: फेटचबुरी
+    ms: Phetchaburi
+    nb: Phetchaburi
+    nl: Changwat Phetchaburi
+    pl: Prowincja Phetchaburi
+    pt: Phetchaburi
+    ro: Provincia Phetchaburi
+    ru: Пхетбури
+    si: පෙචබුරි
+    sv: Phetchaburi
+    ta: பச்சபுரி
+    te: ఫెట్చాబురి
+    th: จังหวัดเพชรบุรี
+    tr: Phetchaburi
+    ur: پھتچابوری صوبہ
+    vi: Phetchaburi
+    zh: 佛丕府
+    lv: Phētčhaburī
+    ceb: Changwat Phetchaburi
+    lt: Fečaburos
+    yue_Hans: 佛丕府
+    ccp: "𑄜𑄬𑄖𑄴𑄌𑄝𑄪𑄢𑄨"
+    uk: Провінція Пхетбурі
+    yue: 佛丕府
+    'no': Phetchaburi
+    be: Пхетбуры (правінцыя)
+    ca: Phetchaburi
+    km: ខេត្តពេជ្របុរី
+  type: province
+'77':
+  name: Prachuap Khiri Khan
+  code: '77'
+  unofficial_names:
+  - Prachuap Khiri Khan
+  geo:
+    latitude: 11.816667
+    longitude: 99.8
+    min_latitude: 11.7831305
+    min_longitude: 99.77529
+    max_latitude: 11.8504599
+    max_longitude: 99.83044629999999
+  translations:
+    en: Prachuap Khiri Khan
+    ar: محافظة براتشواب خيري خان
+    bg: Прачуап Кири Кан
+    bn: প্রকাপ খরি খানের
+    ca: Prachuap Khiri Khan
+    da: Prachuap Khiri Khan
+    de: Prachuap Khiri Khan
+    el: Πράτσουαπ Κίρι Καν
+    es: Provincia de Prachuap Khiri Khan
+    fa: پراچواپ خیری خان
+    fi: Prachuap Khiri Khan
+    fr: Prachuap Khiri Khan
+    gl: Provincia Prachuap Khiri Khan
+    gu: પ્રચુએપ ખીરી ખાન
+    hi: प्रचुअप खीरी खन प्रान्त
+    id: Provinsi Prachuap Khiri Khan
+    it: provincia di Prachuap Khiri Khan
+    ja: プラチュワップキーリーカン県
+    ka: პრაჩუაპქირიქანის პროვინცია
+    kn: ಪ್ರಚುಪ್ ಖಿರಿ ಖಾನ್
+    ko: 쁘라쭈압키리칸 주
+    lo: ຈັງຫວັດປະຈວບຄີລີຂັນ
+    mr: प्रचुप खीरी खान
+    ms: Prachuap Khiri Khan
+    nb: Prachuap Khiri Khan
+    nl: Changwat Prachuap Khiri Khan
+    pl: Prowincja Prachuap Khiri Khan
+    pt: Prachuap Khiri Khan
+    ro: Provincia Prachuap Khiri Khan
+    ru: Прачуапкхирикхан
+    si: ප්‍රචප් ඛිරි ඛාන්
+    sv: Prachuap Khiri Khan
+    ta: பிரசுஅப் கஹிரி கான்
+    te: ప్రాచువాప్ ఖిరి ఖాన్
+    th: จังหวัดประจวบคีรีขันธ์
+    tr: Prachuap Khiri Khan
+    ur: پراچواپ کھیری کھان صوبہ
+    vi: Prachuap Khiri Khan
+    zh: 班武里府
+    lv: Pračuapkhīrīkhana
+    ceb: Changwat Prachuap Khiri Khan
+    lt: Pračap Kiri Kano provincija
+    yue_Hans: 班武里府
+    ccp: "𑄛𑄳𑄢𑄌𑄪𑄠𑄛𑄴 𑄈𑄨𑄢𑄨 𑄈𑄚𑄴"
+    ml: പ്രച്വാപ് ഖിരി ഖാൻ പ്രവിശ്യ
+    uk: Провінція Прачуапкхірікхан
+    yue: 班武里府
+    'no': Prachuap Khiri Khan
+    be: Прачуапкхірыкхан (правінцыя)
+    km: ខេត្តប្រចួបគីរីខ័ន្ធ
+    my: ပရာချုပ်ဂီရီခဏ္ဍပြည်နယ်
+  type: province
+'80':
+  name: Nakhon Si Thammarat
+  code: '80'
+  unofficial_names:
+  - Nakhon Si Thammarat
+  geo:
+    latitude: 8.4303975
+    longitude: 99.96312189999999
+    min_latitude: 7.8380614
+    min_longitude: 99.2344681
+    max_latitude: 9.3273438
+    max_longitude: 100.336324
+  translations:
+    en: Nakhon Si Thammarat
+    ar: محافظة ناخون سي تاممارات
+    bg: Након си Таммарат
+    bn: নাখন সি থামমারাত
+    da: Nakhon Si Thammarat
+    de: Provinz Nakhon Si Thammarat
+    el: Επαρχία Νακόν Σι Ταμμαράτ
+    es: Provincia de Nakhon Si Thammarat
+    fa: ناخون سی تاممارات
+    fi: Nakhon Si Thammarat
+    fr: Nakhon Si Thammarat
+    gl: Provincia Nakhon Si Thammarat
+    gu: નાખોનં સી થમારત
+    hi: नखोन सी थम्मारात प्रान्त
+    id: Provinsi Nakhon Si Thammarat
+    it: provincia di Nakhon Si Thammarat
+    ja: ナコーンシータンマラート県
+    kn: ನಖೋನ್ ಸಿ ಥಮ್ಮಾರತ್
+    ko: 나콘시탐마랏 주
+    lo: ຈັງຫວັດນະຄອນສີທຳມະລາດ
+    mr: नाखोन सी थमरात
+    ms: Wilayah Nakhon Si Thammarat
+    nb: Nakhon Si Thammarat
+    nl: Changwat Nakhon Si Thammarat
+    pl: Prowincja Nakhon Si Thammarat
+    pt: Província de Nakhon Si Thammarat
+    ro: Provincia Nakhon Si Thammarat
+    ru: Накхонситхаммарат
+    si: නකොන් සි තමරාට්
+    sv: Provins Nakhon Si Thammarat
+    ta: நக்ஹோன் சி தம்மரெட்
+    te: నాఖోన్ సి తమ్మారాట్
+    th: จังหวัดนครศรีธรรมราช
+    tr: Nakhon Si Thammarat
+    ur: ناکھون سی تھامارات صوبہ
+    vi: Nakhon Si Thammarat
+    zh: 洛坤府
+    lv: Nakhonsīthammarāta
+    ceb: Changwat Nakhon Si Thammarat
+    lt: Nakon Si Tamaratas
+    yue_Hans: 洛坤府
+    ccp: "𑄚𑄈𑄧𑄚𑄴 𑄥𑄨 𑄗𑄟𑄳𑄦𑄢𑄖𑄴"
+    hu: Nakhonszithammarat tartomány
+    uk: Провінція Нахон-Сі-Таммарат
+    yue: 洛坤府
+    'no': Nakhon Si Thammarat
+    be: Накхонсітхамарат (правінцыя)
+    km: ខេត្តនគរស្រីធម្មរាជ
+  type: province
+'81':
+  name: Krabi
+  code: '81'
+  unofficial_names:
+  - Krabi
+  geo:
+    latitude: 8.0862997
+    longitude: 98.9062835
+    min_latitude: 7.3999017
+    min_longitude: 98.5748929
+    max_latitude: 8.6816651
+    max_longitude: 99.4129851
+  translations:
+    en: Krabi
+    ar: محافظة كرابي
+    bg: Краби
+    bn: ক্রাবি
+    da: Krabi
+    de: Krabi
+    el: Κράμπι
+    es: Provincia de Krabi
+    fa: کرابی
+    fi: Krabi
+    fr: Krabi
+    gl: Provincia Krabi
+    gu: ક્રબી
+    he: מחוז קראבי
+    hi: क्रबी प्रान्त
+    id: Provinsi Krabi
+    it: provincia di Krabi
+    ja: クラビー県
+    kn: ಕ್ರಾಬಿ
+    ko: 끄라비 주
+    lo: ຈັງຫວັດກະບີ່
+    mr: क्रबी
+    ms: Krabi
+    nb: Krabi
+    nl: Changwat Krabi
+    pl: Prowincja Krabi
+    pt: Krabi
+    ro: Provincia Krabi
+    ru: Краби
+    si: ක්‍රබි
+    sv: Krabi
+    ta: கிராபி
+    te: క్రాబీ
+    th: จังหวัดกระบี่
+    tr: Krabi
+    ur: کرابی صوبہ
+    vi: Krabi
+    zh: 甲米府
+    lv: Krabi province
+    ceb: Changwat Krabi
+    lt: Krabis
+    yue_Hans: 甲米府
+    ccp: "𑄇𑄳𑄢𑄝𑄨"
+    hu: Krabi
+    uk: Провінція Крабі
+    cs: Krabi
+    yue: 甲米府
+    'no': Krabi
+    be: Крабі (правінцыя)
+    ca: Krabi
+    ka: კრაბის პროვინცია
+    km: ខេត្តក្របី
+  type: province
+'82':
+  name: Phangnga
+  code: '82'
+  unofficial_names:
+  - Phangnga
+  geo:
+    latitude: 8.4501414
+    longitude: 98.5255317
+    min_latitude: 7.8831978
+    min_longitude: 97.6315499
+    max_latitude: 9.463429099999999
+    max_longitude: 98.7070776
+  translations:
+    en: Phang Nga
+    ar: محافظة فانغ نغا
+    bg: Панг Нга
+    bn: পাং নাগা
+    da: Phang Nga
+    de: Phangnga
+    el: Πανγκ Νγκά
+    es: Provincia de Phang Nga
+    fa: پهانگ نگا
+    fi: Phang Nga
+    fr: Phang Nga
+    gl: Provincia Phangnga
+    gu: ફાંગ નગા
+    hi: फंग अंगा प्रान्त
+    id: Provinsi Phang Nga
+    it: provincia di Phang Nga
+    ja: パンガー県
+    kn: ಪಾಂಗ್ ನ್ಗ
+    ko: 팡응아 주
+    lo: ຈັງຫວັດພັງງາ
+    mr: फांग नगा
+    ms: Phang Nga
+    nb: Phang Nga
+    nl: Changwat Phang Nga
+    pl: Prowincja Phang Nga
+    pt: Phangnga
+    ro: Provincia Phang Nga
+    ru: Пхангнга
+    si: පන්ග් එන්ගා
+    sv: Phang Nga
+    ta: பாங் ங்கா
+    te: ఫాంగ్ ఎన్గా
+    th: จังหวัดพังงา
+    tr: Phang Nga
+    ur: پھانگ نگا صوبہ
+    vi: Phang Nga
+    zh: 攀牙府
+    lv: Phannā province
+    ceb: Changwat Phangnga
+    lt: Fang Ngos provincija
+    yue_Hans: 攀牙府
+    ccp: "𑄜𑄁 𑄚𑄳𑄉"
+    hu: Phangnga tartomány
+    uk: Провінція Пхангнга
+    yue: 攀牙府
+    'no': Phang Nga
+    be: Пхангнга (правінцыя)
+    cs: Provincie Phang Nga
+  type: province
+'83':
+  name: Phuket
+  code: '83'
+  unofficial_names:
+  - Phuket
+  geo:
+    latitude: 7.9519331
+    longitude: 98.33808839999999
+    min_latitude: 7.4621565
+    min_longitude: 98.2580093
+    max_latitude: 8.1999143
+    max_longitude: 98.4618483
+  translations:
+    en: Phuket
+    ar: محافظة بوكيت
+    bg: Пукет
+    bn: ফুকেট
+    cs: Phuket
+    da: Phuket
+    de: Phuket
+    el: Πουκέτ
+    es: Provincia de Phuket
+    eu: Phuket
+    fa: پوکت
+    fi: Phuket
+    fr: Phuket
+    gl: Provincia Phuket
+    gu: ફુકેટ
+    he: פוקט
+    hi: फूकेत प्रान्त
+    hu: Phuket
+    id: Phuket
+    it: provincia di Phuket
+    ja: プーケット県
+    ka: ფხუკეტის პროვინცია
+    kn: ಫುಕೆಟ್
+    ko: 푸껫 주
+    lo: ຈັງຫວັດພູເກັດ
+    mr: फुकेट
+    ms: Phuket
+    nb: Phuket
+    ne: फुकेट प्रदेश
+    nl: Changwat Phuket
+    pl: Prowincja Phuket
+    pt: Phuket
+    ro: Provincia Phuket
+    ru: Пхукет
+    si: ෆුකට්
+    sl: Phuket
+    sr: Пукет
+    sv: Phuket
+    ta: பூகத் மாநிலம்
+    te: ఫుకెట్
+    th: จังหวัดภูเก็ต
+    tr: Phuket
+    uk: Пхукет
+    ur: صوبہ پھوکٹ
+    vi: Phuket
+    zh: 普吉府
+    lv: Puketa
+    ceb: Phuket Province
+    sr_Latn: Puket
+    lt: Puketas
+    yue_Hans: 布吉府
+    sq: Provinca Phuket
+    ccp: "𑄜𑄪𑄇𑄬𑄖𑄴"
+    is: Phuket
+    kk: Пхукет
+    yue: 布吉府
+    'no': Phuket
+    be: Пхукет
+    km: ខេត្តភូកេត
+    uz: Phuket province
+  type: province
+'84':
+  name: Surat Thani
+  code: '84'
+  unofficial_names:
+  - Surat Thani
+  geo:
+    latitude: 9.1382389
+    longitude: 99.3217483
+    min_latitude: 8.3008059
+    min_longitude: 98.4430884
+    max_latitude: 10.1264422
+    max_longitude: 100.0905653
+  translations:
+    en: Surat Thani
+    ar: محافظة سورات ثاني
+    bg: Сурат Тани
+    bn: সুরাট থানি
+    da: Surat Thani
+    de: Surat Thani
+    el: Σούρατ Τανί
+    es: Provincia de Surat Thani
+    et: Surat Thani provints
+    fa: سورات تانی
+    fi: Surat Thani
+    fr: Surat Thani
+    gl: Provincia Surat Thani
+    gu: સુરત થાની
+    hi: सुरत थानी प्रान्त
+    id: Provinsi Surat Thani
+    it: provincia di Surat Thani
+    ja: スラートターニー県
+    kn: ಸೂರತ್ ಥನಿ
+    ko: 수랏타니 주
+    lo: ຈັງຫວັດສຸລາດທານີ
+    mr: सुरत थानी
+    ms: Surat Thani
+    nb: Surat Thani
+    nl: Changwat Surat Thani
+    pl: Prowincja Surat Thani
+    pt: Surat Thani
+    ro: Provincia Surat Thani
+    ru: Сураттани
+    si: සුරට් තනි
+    sv: Surat Thani
+    ta: சூரத் தானி
+    te: సూరత్ థాని
+    th: จังหวัดสุราษฎร์ธานี
+    tr: Surat Thani
+    ur: سورات تھانی صوبہ
+    vi: Surat Thani
+    zh: 素叻府
+    lv: Surātthānī
+    ceb: Changwat Surat Thani
+    lt: Surat Tanis
+    yue_Hans: 素叻府
+    ccp: "𑄥𑄪𑄢𑄖𑄴 𑄗𑄚𑄨"
+    hu: Szuratthani tartomány
+    pa: ਸੂਰਤ ਥਾਨੀ
+    ml: സൂറത്ത് താനി പ്രവിശ്യ
+    uk: Сураттхані
+    yue: 素叻府
+    'no': Surat Thani
+    be: Суратхані (правінцыя)
+    ca: Surat Thani
+    ka: სურატ-თანის პროვინცია
+    km: ខេត្តសុរាស្ត្រធានី
+  type: province
+'85':
+  name: Ranong
+  code: '85'
+  unofficial_names:
+  - Ranong
+  geo:
+    latitude: 9.9528702
+    longitude: 98.60846409999999
+    min_latitude: 9.3039528
+    min_longitude: 98.3260237
+    max_latitude: 10.7885391
+    max_longitude: 98.9650219
+  translations:
+    en: Ranong
+    ar: محافظة رانونغ
+    bg: Ранонг
+    bn: রানং
+    da: Ranong
+    de: Ranong
+    el: Ρανόνγκ
+    es: Provincia de Ranong
+    fa: رانونگ
+    fi: Ranong
+    fr: Ranong
+    gl: Provincia Ranong
+    gu: રેનોંગ
+    hi: रनोंग प्रान्त
+    id: Provinsi Ranong
+    it: provincia di Ranong
+    ja: ラノーン県
+    ka: რანონგის პროვინცია
+    kn: ರನೋಂಗ್
+    ko: 라농 주
+    lo: ຈັງຫວັດລະນອງ
+    mr: रॅनॉन्ग
+    ms: Ranong
+    nb: Ranong
+    nl: Changwat Ranong
+    pl: Prowincja Ranong
+    pt: Ranong
+    ro: Provincia Ranong
+    ru: Ранонг
+    si: රනොන්ග්
+    sv: Ranong
+    ta: ரானோங்
+    te: రానోంగ్
+    th: จังหวัดระนอง
+    tr: Ranong
+    uk: Ранонг
+    ur: رانونگ صوبہ
+    vi: Ranong
+    zh: 拉廊府
+    lv: Ranona
+    ceb: Changwat Ranong (lalawigan sa Tailandya)
+    lt: Ranongo provincija
+    yue_Hans: 拉廊府
+    ccp: "𑄢𑄚𑄧𑄁"
+    yue: 拉廊府
+    'no': Ranong
+    be: Ранонг (правінцыя)
+    ca: Ranong
+    km: ខេត្តរនង
+  type: province
+'86':
+  name: Chumphon
+  code: '86'
+  unofficial_names:
+  - Chumphon
+  geo:
+    latitude: 10.4930496
+    longitude: 99.18001989999999
+    min_latitude: 9.600966
+    min_longitude: 98.6268518
+    max_latitude: 11.0336752
+    max_longitude: 99.5195074
+  translations:
+    en: Chumphon
+    ar: محافظة تشومفون
+    bg: Чумфон
+    bn: কাম্ফন
+    da: Chumphon Province
+    de: Chumphon
+    el: Τσουμπόν
+    es: Provincia de Chumphon
+    fa: استان چومپون
+    fi: Chumphon
+    fr: Chumphon
+    gl: Provincia Chumphon
+    gu: ચુમ્ફોન
+    hi: चुमफोन प्रान्त
+    id: Provinsi Chumphon
+    it: provincia di Chumphon
+    ja: チュムポーン県
+    kn: ಚುಮ್ಫೋನ್
+    ko: 춤폰 주
+    lo: ຈັງຫວັດຊຸມພອນ
+    mr: चुमफोन
+    ms: Chumphon
+    nb: Chumphon
+    nl: Changwat Chumphon
+    pl: Prowincja Chumphon
+    pt: Chumphon
+    ro: Provincia Chumphon
+    ru: Чумпхон
+    si: චම්ෆොන්
+    sv: Chumphon
+    ta: சும்போன்
+    te: చుంఫాన్
+    th: จังหวัดชุมพร
+    tr: Chumphon
+    ur: چومپھون صوبہ
+    vi: Chumphon
+    zh: 春蓬府
+    lv: Čhumphonas province
+    ceb: Changwat Chumphon
+    lt: Čumpono provincija
+    yue_Hans: 春蓬府
+    ccp: "𑄌𑄪𑄟𑄜𑄮𑄚𑄴"
+    uk: Чумпхон
+    yue: 春蓬府
+    'no': Chumphon
+    be: Чумпхон (правінцыя)
+    ca: Chumphon
+    ka: ჩუმფონის პროვინცია
+    km: ខេត្តជុម្ពរ
+  type: province
+'90':
+  name: Songkhla
+  code: '90'
+  unofficial_names:
+  - Songkhla
+  geo:
+    latitude: 7.1756004
+    longitude: 100.614347
+    min_latitude: 6.2898742
+    min_longitude: 100.0547578
+    max_latitude: 7.9389736
+    max_longitude: 101.1050578
+  translations:
+    en: Songkhla
+    ar: محافظة سونغكلا
+    bg: Сонгкла
+    bn: সংখালা
+    da: Songkhla
+    de: Songkhla
+    el: Σόνγκλα
+    es: Provincia de Songkhla
+    fa: سونگخلا
+    fi: Songkhla
+    fr: Songkhla
+    gl: Provincia Songkhla
+    gu: સોંગખ્લા
+    hi: सोंगख्ला प्रान्त
+    id: Provinsi Songkhla
+    it: provincia di Songkhla
+    ja: ソンクラー県
+    kn: ಸಾಂಗ್ಖ್ಲಾ
+    ko: 송클라 주
+    lo: ຈັງຫວັດສົງຂາ
+    mr: सोंगला
+    ms: Songkhla
+    nb: Songkhla
+    nl: Changwat Songkhla
+    pl: Prowincja Songkhla
+    pt: Songkhla
+    ro: Provincia Songkhla
+    ru: Сонгкхла
+    si: සොන්ග්ක්ලා
+    sv: Songkhla
+    ta: சொங்க்ஹ்லா
+    te: సాంగ్‌ఖ్లా
+    th: จังหวัดสงขลา
+    tr: Songkhla
+    uk: Сонгкхла
+    ur: سونگکھلا صوبہ
+    vi: Songkhla
+    zh: 宋卡府
+    lv: Sonkhla
+    ceb: Changwat Songkhla
+    lt: Songkchla
+    yue_Hans: 宋卡府
+    ccp: "𑄥𑄧𑄁𑄈𑄳𑄣"
+    ml: സോങ്ഖ്ല പ്രവിശ്യ
+    yue: 宋卡府
+    'no': Songkhla
+    be: Сангхла (правінцыя)
+    ka: სონგქალის პროვინცია
+    km: ខេត្តសង្ខលា
+  type: province
+'91':
+  name: Satun
+  code: '91'
+  unofficial_names:
+  - Satun
+  geo:
+    latitude: 6.6238158
+    longitude: 100.0673744
+    min_latitude: 6.4227785
+    min_longitude: 99.1538582
+    max_latitude: 7.208318200000001
+    max_longitude: 100.2209857
+  translations:
+    en: Satun
+    ar: محافظة ساتون
+    bg: Сатун
+    bn: সাতুন
+    da: Satun
+    de: Satun
+    el: Σατούν
+    es: Provincia de Satun
+    fa: استان ساتون
+    fi: Satun
+    fr: Satun
+    gl: Provincia Satun
+    gu: સતુન
+    hi: सतून प्रान्त
+    id: Provinsi Satun
+    it: provincia di Satun
+    ja: サトゥーン県
+    kn: ಸ್ಯಾಟುನ್
+    ko: 사뚠 주
+    lo: ຈັງຫວັດສະຕູນ
+    mr: सटन
+    ms: Satun
+    nb: Satun
+    nl: Changwat Satun
+    pl: Prowincja Satun
+    pt: Satun
+    ro: Provincia Satun
+    ru: Сатун
+    si: සැටුන්
+    sv: Satun
+    ta: சாடுந்
+    te: సాటన్
+    th: จังหวัดสตูล
+    tr: Satun
+    uk: Сатун
+    ur: ساتون صوبہ
+    vi: Satun
+    zh: 沙敦府
+    lv: Satuna
+    ceb: Changwat Satun
+    lt: Satuno provincija
+    yue_Hans: 沙敦府
+    ccp: "𑄥𑄑𑄪𑄚𑄴"
+    yue: 沙敦府
+    'no': Satun
+    be: Сатун (правінцыя)
+    ka: სატუნის პრვინცია
+    km: ខេត្តស្តូល
+  type: province
+'92':
+  name: Trang
+  code: '92'
+  unofficial_names:
+  - Trang
+  geo:
+    latitude: 7.5593851
+    longitude: 99.6110065
+    min_latitude: 7.0218242
+    min_longitude: 99.05557379999999
+    max_latitude: 8.0126303
+    max_longitude: 99.9595902
+  translations:
+    en: Trang
+    ar: محافظة ترانغ
+    bg: Транг
+    bn: টাং
+    da: Trang
+    de: Trang
+    el: Τρανγκ
+    es: Provincia de Trang
+    fa: ترانگ
+    fi: Trang
+    fr: Trang
+    gl: Provincia Trang
+    gu: ટ્રાન્ગ
+    hi: त्रंग प्रान्त
+    id: Provinsi Trang
+    it: provincia di Trang
+    ja: トラン県
+    kn: ಟ್ರ್ಯಾಂಗ್
+    ko: 뜨랑 주
+    lo: ຈັງຫວັດຕັງ
+    mr: ट्रॅन्ग
+    ms: Trang
+    nb: Trang
+    nl: Changwat Trang
+    pl: Prowincja Trang
+    pt: Trang
+    ro: Provincia Trang
+    ru: Транг
+    si: ට්‍රැන්ග්
+    sv: Trang
+    ta: ட்ரங்
+    te: ట్రాంగ్
+    th: จังหวัดตรัง
+    tr: Trang
+    ur: ترانگ صوبہ
+    vi: Trang
+    zh: 董里府
+    lv: Tranga
+    ceb: Changwat Trang
+    lt: Trangas
+    yue_Hans: 董里府
+    ccp: "𑄑𑄳𑄢𑄁"
+    hu: Trang tartomány
+    uk: Провінція Транг
+    yue: 董里府
+    'no': Trang
+    be: Транг (правінцыя)
+    ka: ტრანგის პროვინცია
+    km: ខេត្តត្រាំង
+  type: province
+'93':
+  name: Phatthalung
+  code: '93'
+  unofficial_names:
+  - Phatthalung
+  geo:
+    latitude: 7.6166823
+    longitude: 100.0740231
+    min_latitude: 7.0909672
+    min_longitude: 99.7324393
+    max_latitude: 7.893497099999999
+    max_longitude: 100.4287929
+  translations:
+    en: Phatthalung
+    ar: محافظة فاتالونغ
+    bg: Фаталунг
+    bn: ফাত্থালাং
+    da: Phatthalung
+    de: Phatthalung
+    el: Παταλούνγκ
+    es: Provincia de Phatthalung
+    fa: فاتالونگ
+    fi: Phatthalung
+    fr: Phatthalung
+    gl: Provincia Phatthalung
+    gu: ફેટ્થલુંગ
+    hi: फत्थलुंग प्रान्त
+    id: Provinsi Phatthalung
+    it: provincia di Phatthalung
+    ja: パッタルン県
+    kn: ಫಾತಲಂಗ್
+    ko: 파탈룽 주
+    lo: ຈັງຫວັດພັດທະລຸງ
+    mr: फॅटथुंग
+    ms: Phattalung
+    nb: Phattalung
+    nl: Changwat Phattalung
+    pl: Prowincja Phatthalung
+    pt: Phatthalung
+    ro: Provincia Phatthalung
+    ru: Пхаттхалунг
+    si: පතාලන්ග්
+    sv: Phatthalung
+    ta: பாத்தாலுங்
+    te: ఫాతాలుంగ్
+    th: จังหวัดพัทลุง
+    tr: Phatthalung
+    ur: پھاتتھالونگ صوبہ
+    vi: Phatthalung
+    zh: 博他侖府
+    lv: Phatthalunas province
+    ceb: Changwat Phatthalung (lalawigan sa Tailandya)
+    lt: Fatalungo provincija
+    yue_Hans: 博他仑府
+    ccp: "𑄜𑄖𑄴𑄗𑄣𑄪𑄁"
+    uk: Провінція Пхаттхалунг
+    yue: 博他侖府
+    'no': Phattalung
+    be: Пхатхалунг (правінцыя)
+    ca: Phatthalung
+    km: ខេត្តព័ទ្ទលុង
+  type: province
+'94':
+  name: Pattani
+  code: '94'
+  unofficial_names:
+  - Pattani
+  geo:
+    latitude: 6.761830799999999
+    longitude: 101.3232549
+    min_latitude: 6.5501456
+    min_longitude: 101.0175344
+    max_latitude: 6.9520466
+    max_longitude: 101.7255187
+  translations:
+    en: Pattani
+    ar: باتاني
+    bg: Патани
+    bn: পাত্তানি
+    ca: Província de Pattani
+    da: Pattani
+    de: Pattani
+    el: Πατάνι
+    es: Provincia de Pattani
+    fa: پاتانی
+    fi: Pattani
+    fr: Pattani
+    gl: Provincia Pattani
+    gu: પટ્ટાની
+    hi: पत्तानी प्रान्त
+    id: Provinsi Pattani
+    it: provincia di Pattani
+    ja: パッターニー県
+    kn: ಪಟ್ಟನಿ
+    ko: 빠따니 주
+    lo: ຈັງຫວັດປັດຕານີ
+    mr: पट्टाणी
+    ms: Pattani
+    nb: Pattani
+    nl: Changwat Pattani
+    pl: Prowincja Pattani
+    pt: Pattani
+    ro: Provincia Pattani
+    ru: Паттани
+    si: පට්ටානි
+    sv: Pattani
+    ta: பட்டாணி
+    te: పట్టాని
+    th: จังหวัดปัตตานี
+    tr: Pattani ili
+    ur: صوبہ پاتانی
+    vi: Pattani
+    zh: 北大年府
+    lv: Patani
+    ceb: Changwat Pattani (lalawigan sa Tailandya)
+    lt: Patanis
+    yue_Hans: 北大年府
+    ccp: "𑄛𑄖𑄴𑄖𑄚𑄨"
+    uk: Провінція Патані
+    yue: 北大年府
+    az: Pattani
+    'no': Pattani
+    be: Патані (правінцыя)
+    km: ខេត្តប៉ាត់តានី
+  type: province
+'95':
+  name: Yala
+  code: '95'
+  unofficial_names:
+  - Yala
+  geo:
+    latitude: 6.541147
+    longitude: 101.2803947
+    min_latitude: 5.6127293
+    min_longitude: 100.8347818
+    max_latitude: 6.6831248
+    max_longitude: 101.6121819
+  translations:
+    en: Yala
+    ar: محافظة يالا
+    bg: Яла
+    bn: ইয়ালা
+    da: Yala
+    de: Yala
+    el: Γιάλα
+    es: Provincia de Yala
+    et: Yala provints
+    fa: یالا
+    fi: Yala
+    fr: Yala
+    gl: Provincia Yala
+    gu: યાલા
+    hi: याला प्रान्त
+    id: Provinsi Yala
+    it: provincia di Yala
+    ja: ヤラー県
+    kn: ಯಲಾ
+    ko: 얄라 주
+    lo: ຈັງຫວັດຍະລາ
+    mr: यला
+    ms: Yala
+    nb: Yala
+    nl: Changwat Yala
+    pl: Prowincja Yala
+    pt: Yala
+    ro: Provincia Yala
+    ru: Яла
+    si: යාල
+    sv: Yala
+    ta: யாளா
+    te: యాలా
+    th: จังหวัดยะลา
+    tr: Yala
+    ur: یالا پراونس
+    vi: Yala
+    zh: 惹拉府
+    lv: Jalā
+    ceb: Changwat Yala (lalawigan sa Tailandya)
+    lt: Jala
+    yue_Hans: 惹拉府
+    ccp: "𑄃𑄨𑄠𑄣"
+    uk: Провінція Яла
+    yue: 惹拉府
+    'no': Yala
+    be: Яла (правінцыя)
+    km: ខេត្តយលា
+  type: province
+'96':
+  name: Narathiwat
+  code: '96'
+  unofficial_names:
+  - Narathiwat
+  geo:
+    latitude: 6.4254607
+    longitude: 101.8253143
+    min_latitude: 5.732811
+    min_longitude: 101.3712505
+    max_latitude: 6.6363882
+    max_longitude: 102.0932184
+  translations:
+    en: Narathiwat
+    ar: محافظة ناراتيوات
+    bg: Наратхиуат
+    bn: নারাথিবাত
+    da: Narathiwat
+    de: Narathiwat
+    el: Ναραθιβάτ
+    es: Provincia de Narathiwat
+    et: Narathiwati provints
+    fa: ناراتیوات
+    fi: Narathiwat
+    fr: Narathiwat
+    gl: Provincia Narathiwat
+    gu: નરાથીવત
+    hi: नराथिवात प्रान्त
+    id: Narathiwat
+    it: provincia di Narathiwat
+    ja: ナラーティワート県
+    kn: ನರಥಿವತ್
+    ko: 나라티왓 주
+    lo: ຈັງຫວັດນະລາທິວາດ
+    mr: नारथीवाट
+    ms: Narathiwat
+    nb: Narathiwat
+    nl: Changwat Narathiwat
+    pl: Prowincja Narathiwat
+    pt: Narathiwat
+    ro: Provincia Narathiwat
+    ru: Наратхиват
+    si: නරතිවට්
+    sv: Narathiwat
+    ta: நரதிவாட்
+    te: నేరాథివాట్
+    th: จังหวัดนราธิวาส
+    tr: Narathiwat
+    ur: ناراتھیوات صوبہ
+    vi: Narathiwat
+    zh: 陶公府
+    lv: Narāthivātas province
+    ceb: Changwat Narathiwat (lalawigan sa Tailandya)
+    lt: Narativato provincija
+    yue_Hans: 陶公府
+    ccp: "𑄚𑄢𑄗𑄨𑄤𑄖𑄴"
+    ml: നാരതിവാട്ട് പ്രവിശ്യ
+    uk: Провінція Нарахтиват
+    yue: 陶公府
+    'no': Narathiwat
+    be: Наратхіват (правінцыя)
+    ca: Narathiwat
+    ka: ნარათივატის პროვინცია
+    km: ខេត្តនរាធិវាស
+  type: province
+S:
+  name: Phatthaya
+  code: S
+  unofficial_names:
+  - Phatthaya
+  geo:
+    latitude: 12.9276082
+    longitude: 100.8770813
+    min_latitude: 12.7713929
+    min_longitude: 100.8558912
+    max_latitude: 13.0019977
+    max_longitude: 100.9896282
+  translations:
+    en: Pattaya
+    ar: باتايا
+    bg: Патая
+    bn: পাতায়া
+    ca: Pattaya
+    cs: Pattaya
+    da: Pattaya
+    de: Pattaya
+    el: Πατάγια
+    es: Pattaya
+    et: Pattaya
+    eu: Pattaya
+    fa: پاتایا
+    fi: Pattaya
+    fr: Pattaya
+    gu: પટાયા
+    he: פאטאיה
+    hi: पटाया
+    hu: Pattaja
+    id: Pattaya
+    is: Pattaya
+    it: Pattaya
+    ja: パッタヤー
+    kn: ಪಟ್ಟಾಯ
+    ko: 파타야
+    lo: ພັດທະຍາ
+    lt: Pataja
+    ml: പട്ടായ
+    mr: पट्टाया
+    ms: Pattaya
+    nb: Pattaya
+    ne: पटाया
+    nl: Pattaya
+    pl: Pattaya
+    pt: Pattaya
+    ru: Паттайя
+    si: පතායා
+    sk: Pattaya
+    sr: Патаја
+    sv: Pattaya
+    ta: பட்டாயா
+    te: పట్టాయా
+    th: เมืองพัทยา
+    tr: Pattaya
+    uk: Паттайя
+    ur: پتایا
+    vi: Pattaya
+    zh: 芭達亞
+    lv: Pataija
+    cy: Pattaya
+    ceb: Phatthaya
+    sr_Latn: Pataja
+    yue_Hans: 芭堤雅
+    jv: Pattaya
+    ccp: "𑄛𑄗𑄭𑄠"
+    kk: Паттайя
+    yue: 芭堤雅
+    mk: Патаја
+    'no': Pattaya
+    be: Патая
+    ga: Pattaya
+    hy: Պատտայա
+    my: ပတ္တရားမြို့
+    uz: Pattaya
+  type: special_administrative_city

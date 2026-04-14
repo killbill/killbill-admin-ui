@@ -1,0 +1,776 @@
+---
+'1':
+  name: Burgenland
+  code: '1'
+  unofficial_names:
+  - Burgenland
+  geo:
+    latitude: 47.15371649999999
+    longitude: 16.2688797
+    min_latitude: 46.83047
+    min_longitude: 15.99632
+    max_latitude: 48.11879
+    max_longitude: 17.1603999
+  translations:
+    en: Burgenland
+    af: Burgenland
+    ar: بورغنلاند
+    be: Бургенланд
+    bg: Бургенланд
+    bn: বুর্গেনল্যান্ড
+    ca: Burgenland
+    cs: Burgenland
+    da: Burgenland
+    de: Burgenland
+    el: Μπούργκενλαντ
+    es: Burgenland
+    et: Burgenland
+    eu: Burgenland
+    fa: بورگن‌لاند
+    fi: Burgenland
+    fr: Burgenland
+    gl: Burgenland
+    gu: બર્ગેનલેન્ડ
+    he: בורגנלנד
+    hi: बुर्गेनलैंड
+    hr: Gradišće
+    hu: Burgenland
+    hy: Բուրգենլանդ
+    id: Burgenland
+    is: Burgenland
+    it: Burgenland
+    ja: ブルゲンラント州
+    ka: ბურგენლანდი
+    kn: ಬರ್ಗೆನ್ಲ್ಯಾಂಡ್
+    ko: 부르겐란트 주
+    lt: Burgenlandas
+    lv: Burgenlande
+    mn: Бургенланд
+    mr: बुर्गनलांड
+    ms: Burgenland
+    nb: Burgenland
+    nl: Burgenland
+    pl: Burgenland
+    pt: Burgenland
+    ro: Burgenland
+    ru: Бургенланд
+    si: බර්ගන්ලෑන්ඩ්
+    sk: Burgenland
+    sl: Gradiščanska
+    sr: Бургенланд
+    sv: Burgenland
+    ta: பெர்ஜென்லாண்ட்
+    te: బర్జెన్లాండ్
+    th: รัฐบูร์เกนลันด์
+    tk: Burgenland
+    tr: Burgenland
+    uk: Бургенланд
+    ur: بورگنلینڈ
+    vi: Burgenland
+    zh: 布尔根兰州
+    cy: Burgenland
+    ceb: Burgenland
+    sr_Latn: Burgenland
+    yue_Hans: 布尔根兰
+    ccp: "𑄝𑄪𑄢𑄴𑄉𑄳𑄠𑄚𑄴𑄣𑄳𑄠𑄚𑄴𑄓𑄴"
+    ga: Burgenland
+    yue: 布爾根蘭
+    bs: Gradišće
+    mk: Градиште
+    'no': Burgenland
+    az: Burqenland
+    ps: بورګن لاند
+    sd: برجنلينڊ
+    sq: Burgenland
+    sw: Burgenland
+  type: state
+'2':
+  name: Kärnten
+  code: '2'
+  unofficial_names:
+  - Carinthia
+  - Koroška
+  geo:
+    latitude: 46.722203
+    longitude: 14.1805881
+    min_latitude: 46.3723
+    min_longitude: 12.6563901
+    max_latitude: 47.13131
+    max_longitude: 15.0651401
+  translations:
+    en: Carinthia
+    af: Karinthië
+    ar: كيرنتن
+    be: Карынтыя
+    bg: Каринтия
+    bn: ক্যারিন্থিয়া
+    ca: Caríntia
+    cs: Korutany
+    da: Kärnten
+    de: Kärnten
+    el: Καρινθία
+    es: Carintia
+    et: Kärnteni liidumaa
+    eu: Karintia
+    fa: کرنتن
+    fi: Kärnten
+    fr: Carinthie
+    gl: Carintia - Kärnten
+    gu: કાર્ટેન
+    he: קרינתיה
+    hi: केरिन्थिया
+    hr: Koruška
+    hu: Karintia
+    hy: Կարինտիա
+    id: Kärnten
+    is: Kärnten
+    it: Carinzia
+    ja: ケルンテン州
+    ka: კარინტია
+    kn: ಕಾರ್ನ್ಟೆನ್
+    ko: 케른텐 주
+    lt: Karintija
+    lv: Karintija
+    mn: Каринт
+    mr: क्यार्न्टन
+    ms: Kärnten
+    nb: Kärnten
+    nl: Karinthië
+    pl: Karyntia
+    pt: Caríntia
+    ro: Carintia
+    ru: Каринтия
+    si: කරින්තියා
+    sk: Korutánsko
+    sl: Koroška
+    sr: Корушка
+    sv: Kärnten
+    sw: Karinthia
+    ta: காரின்திஆ
+    te: కెంర్టెన్
+    th: รัฐคารินเทีย
+    tk: Karintiýa
+    tr: Karintiya
+    uk: Каринтія
+    ur: کارنتھیا (ریاست)
+    vi: Kärnten
+    cy: Carinthia
+    ceb: Kärnten
+    sr_Latn: Koruška
+    zh: 克恩顿州
+    yue_Hans: 克恩滕
+    ccp: "𑄇𑄳𑄠𑄢𑄨𑄚𑄴𑄑𑄨𑄠"
+    ga: Carinthia
+    yue: 克恩滕
+    bs: Koruška
+    mk: Корушка
+    'no': Kärnten
+    az: Karintiya
+    sd: ڪرينٿيا
+    sq: Kärnten
+  type: state
+'3':
+  name: Niederösterreich
+  code: '3'
+  unofficial_names:
+  - Lower Austria
+  geo:
+    latitude: 48.10807699999999
+    longitude: 15.8049558
+    min_latitude: 47.42198
+    min_longitude: 14.4521301
+    max_latitude: 49.02062
+    max_longitude: 17.06847
+  translations:
+    en: Lower Austria
+    af: Neder-Oostenryk
+    ar: النمسا السفلى
+    be: Ніжняя Аўстрыя
+    bg: Долна Австрия
+    bn: লোয়ার অস্ট্রিয়া
+    ca: Baixa Àustria
+    cs: Dolní Rakousy
+    da: Niederösterreich
+    de: Niederösterreich
+    el: Κάτω Αυστρία
+    es: Baja Austria
+    et: Alam-Austria
+    eu: Austria Beherea
+    fa: نیدراسترایش
+    fi: Ala-Itävalta
+    fr: Basse-Autriche
+    gl: Baixa Austria
+    gu: લોઅર ઑસ્ટ્રિયા
+    he: אוסטריה תחתית
+    hi: निचला ऑस्ट्रिया
+    hr: Donja Austrija
+    hu: Alsó-Ausztria
+    hy: Ստորին Ավստրիա
+    id: Austria Hilir
+    is: Neðra Austurríki
+    it: Bassa Austria
+    ja: ニーダーエスターライヒ州
+    ka: ქვემო ავსტრია
+    kn: ಕೆಳಗಿನ ಆಸ್ಟ್ರಿಯಾ
+    ko: 니더외스터라이히 주
+    lt: Žemutinė Austrija
+    lv: Lejasaustrija
+    mn: Доор Австри
+    mr: नीडरओस्टराईश
+    ms: Niederösterreich
+    nb: Niederösterreich
+    nl: Neder-Oostenrijk
+    pl: Dolna Austria
+    pt: Baixa Áustria
+    ro: Austria Inferioară
+    ru: Нижняя Австрия
+    si: පහල ඔස්ට්‍රියාව
+    sk: Dolné Rakúsko
+    sl: Spodnja Avstrija
+    sr: Доња Аустрија
+    sv: Niederösterreich
+    sw: Austria Chini
+    ta: லோயர் ஆஸ்திரியா
+    te: లోయర్ ఆస్ట్రియా
+    th: รัฐโลเวอร์ออสเตรีย
+    tk: Aşaky Awstriýa
+    tr: Aşağı Avusturya
+    uk: Нижня Австрія
+    ur: زیریں آسٹریا
+    vi: Niederösterreich
+    cy: Awstria Isaf
+    ceb: Niederösterreich
+    sr_Latn: Donja Austrija
+    zh: 下奧地利州
+    yue_Hans: 下奥地利
+    ccp: "𑄑𑄧𑄣𑄴𑄟𑄪𑄇𑄴𑄈𑄬 𑄃𑄧𑄌𑄴𑄑𑄳𑄢𑄨𑄠"
+    kk: Төмеңгі Австрия
+    yue: 下奧地利
+    bs: Donja Austrija
+    mk: Долна Австрија
+    'no': Niederösterreich
+    az: Aşağı Avstriya
+    ga: An Ostair Íochtarach
+    sd: لوئر آسٽريا
+    sq: Austria e Poshtme
+  type: state
+'4':
+  name: Oberösterreich
+  code: '4'
+  unofficial_names:
+  - Upper Austria
+  geo:
+    latitude: 48.025854
+    longitude: 13.9723665
+    min_latitude: 47.46098
+    min_longitude: 12.74895
+    max_latitude: 48.7726901
+    max_longitude: 14.99129
+  translations:
+    en: Upper Austria
+    af: Opper-Oostenryk
+    ar: النمسا العليا
+    be: Верхняя Аўстрыя
+    bg: Горна Австрия
+    bn: আপার অস্ট্রিয়া
+    ca: Alta Àustria
+    cs: Horní Rakousy
+    da: Oberösterreich
+    de: Oberösterreich
+    el: Άνω Αυστρία
+    es: Alta Austria
+    et: Ülem-Austria
+    eu: Austria Garaia
+    fa: اوبراسترایش
+    fi: Ylä-Itävalta
+    fr: Haute-Autriche
+    gl: Alta Austria - Oberösterreich
+    gu: અપર ઑસ્ટ્રિયા
+    he: אוסטריה עילית
+    hi: ऊपरी ऑस्ट्रिया
+    hr: Gornja Austrija
+    hu: Felső-Ausztria
+    hy: Վերին Ավստրիա
+    id: Austria Hulu
+    is: Efra Austurríki
+    it: Alta Austria
+    ja: オーバーエスターライヒ州
+    ka: ზემო ავსტრია
+    kn: ಮೇಲ್ ಆಸ್ಟ್ರಿಯಾ
+    ko: 오버외스터라이히 주
+    lt: Aukštutinė Austrija
+    lv: Augšaustrija
+    mn: Дээр Австри
+    mr: ओबरओस्टराईश
+    ms: Oberösterreich
+    nb: Oberösterreich
+    nl: Opper-Oostenrijk
+    pl: Górna Austria
+    pt: Alta Áustria
+    ro: Austria Superioară
+    ru: Верхняя Австрия
+    si: ඉහල ඔස්ට්‍රියාව
+    sk: Horné Rakúsko
+    sl: Gornja Avstrija
+    sr: Горња Аустрија
+    sv: Oberösterreich
+    sw: Austria Juu
+    ta: அப்பர் ஆஸ்திரியா
+    te: అప్పర్ ఆస్ట్రియా
+    th: รัฐอัปเปอร์ออสเตรีย
+    tk: Ýokarky Awstriýa
+    tr: Yukarı Avusturya
+    uk: Верхня Австрія
+    ur: بالائی آسٹریا
+    vi: Oberösterreich
+    cy: Awstria Uchaf
+    ceb: Oberösterreich
+    sr_Latn: Gornja Austrija
+    zh: 上奧地利
+    yue_Hans: 上奥地利
+    ccp: "𑄅𑄪𑄉𑄪𑄢𑄬 𑄟𑄪𑄇𑄴𑄈𑄬 𑄃𑄧𑄌𑄴𑄑𑄳𑄢𑄨𑄠"
+    yue: 上奧地利
+    bs: Gornja Austrija
+    mk: Горна Австрија
+    'no': Oberösterreich
+    az: Yuxarı Avstriya
+    ga: An Ostair Uachtarach
+    sd: اپر آسٽريا
+    sq: Austria e Epërme
+  type: state
+'5':
+  name: Salzburg
+  code: '5'
+  unofficial_names:
+  - Salzbourg
+  geo:
+    latitude: 47.80949
+    longitude: 13.05501
+    min_latitude: 47.75131
+    min_longitude: 12.9859801
+    max_latitude: 47.85431
+    max_longitude: 13.1268799
+  translations:
+    en: Salzburg
+    af: Salzburg
+    ar: سالزبورغ
+    be: Зальцбург, федэральная зямля
+    bg: Залцбург
+    bn: সলজবুর্গ
+    ca: Estat de Salzburg
+    cs: Salcbursko
+    da: Salzburg
+    de: Salzburg
+    el: Σάλτσμπουργκ
+    es: Salzburgo
+    et: Salzburgi liidumaa
+    eu: Salzburg
+    fa: زالتسبورگ
+    fi: Salzburg
+    fr: Salzbourg
+    gl: Estado de Salzburgo
+    gu: સાલ્ઝબર્ગ
+    he: זלצבורג
+    hi: साल्ज़बर्ग
+    hr: Salzburg
+    hu: Salzburg
+    hy: Զալցբուրգ
+    id: Salzburg
+    is: Salzburg
+    it: Salisburghese
+    ja: ザルツブルク州
+    ka: ზალცბურგი
+    kn: ಸಾಲ್ಜ್‌ಬರ್ಗ್‌
+    ko: 잘츠부르크 주
+    lt: Zalcburgas
+    lv: Zalcburga
+    mn: Зальцбург муж
+    mr: जाल्त्सबुर्ग
+    ms: Salzburg
+    nb: Salzburg
+    nl: Salzburg
+    pl: Salzburg
+    pt: Salzburgo
+    ro: Salzburg
+    ru: Зальцбург
+    si: සැල්ස්බර්ග්
+    sk: Salzbursko
+    sl: Salzburg
+    sr: Салцбург
+    sv: Salzburg
+    sw: Salzburg
+    ta: சலஸ்புரஃ
+    te: సాల్జ్‌బర్గ్
+    th: รัฐซาลซ์บูร์ก
+    tk: Zaltsburg
+    tr: Salzburg
+    uk: Зальцбург
+    ur: سالزبرگ (ریاست)
+    vi: Salzburg
+    ceb: Salzburg (estado pederal)
+    sr_Latn: Salcburg
+    zh: 萨尔茨堡州
+    yue_Hans: 萨尔斯堡邦
+    ccp: "𑄥𑄣𑄴𑄝𑄢𑄳𑄉𑄴"
+    ga: Salzburg
+    yue: 薩爾斯堡邦
+    bs: Salzburg
+    mk: Салцбург
+    'no': Salzburg
+    az: Zalsburq
+    sd: سلزبرگ (رياست)
+    sq: Salzburgu (shteti federal)
+  type: state
+'6':
+  name: Steiermark
+  code: '6'
+  unofficial_names:
+  - Styria
+  geo:
+    latitude: 47.3593442
+    longitude: 14.4699827
+    min_latitude: 46.61163
+    min_longitude: 13.56417
+    max_latitude: 47.82789
+    max_longitude: 16.17014
+  translations:
+    en: Styria
+    af: Stiermarke
+    ar: شتايرمارك
+    az: Ştiriya
+    be: Штырыя
+    bg: Щирия
+    bn: স্টায়রিয়া
+    ca: Estíria
+    cs: Štýrsko
+    da: Steiermark
+    de: Steiermark
+    el: Στυρία
+    es: Estiria
+    et: Steiermargi liidumaa
+    eu: Estiria
+    fa: اشتایرمارک
+    fi: Steiermark
+    fr: Styrie
+    gl: Estiria
+    gu: સ્ટાયરિયા
+    he: שטיריה
+    hi: स्टायरिया
+    hr: Štajerska
+    hu: Stájerország
+    hy: Շտիրիա
+    id: Stiria
+    is: Steiermark
+    it: Stiria
+    ja: シュタイアーマルク州
+    ka: შტირია
+    kn: ಸ್ಟಿರಿಯಾ
+    ko: 슈타이어마르크 주
+    lt: Štirija
+    lv: Štīrija
+    mn: Штир
+    mr: श्टायरमार्क
+    ms: Stiria
+    nb: Steiermark
+    nl: Stiermarken
+    pl: Styria
+    pt: Estíria
+    ro: Stiria
+    ru: Штирия
+    si: ස්ටය්රියා
+    sk: Štajersko
+    sl: Štajerska
+    sr: Штајерска
+    sv: Steiermark
+    sw: Steiermark
+    ta: ஸ்டைரியா
+    te: స్టైరియా
+    th: รัฐสตีเรีย
+    tk: Ştiriýa
+    tr: Steiermark
+    uk: Штирія
+    ur: سٹیریا
+    vi: Steiermark
+    cy: Styria
+    ceb: Steiermark
+    sr_Latn: Štajerska
+    zh: 施蒂利亞州
+    yue_Hans: 施泰尔马克
+    ccp: "𑄃𑄬𑄌𑄴𑄑𑄭𑄢𑄨𑄠"
+    ga: Styria
+    yue: 施泰爾馬克
+    bs: Štajerska
+    mk: Штаерска
+    'no': Steiermark
+    sd: اسٽيريا
+    sq: Stiria
+  type: state
+'7':
+  name: Tirol
+  code: '7'
+  unofficial_names:
+  - Tyrol
+  geo:
+    latitude: 47.2537414
+    longitude: 11.601487
+    min_latitude: 46.6515599
+    min_longitude: 10.0980701
+    max_latitude: 47.74310999999999
+    max_longitude: 12.9662801
+  translations:
+    en: Tyrol
+    af: Tirool
+    ar: تيرول
+    be: Ціроль
+    bg: Тирол
+    bn: টিরোল
+    ca: Estat del Tirol
+    cs: Tyrolsko
+    da: Tyrol
+    de: Tirol
+    el: Τιρόλο
+    es: Tirol
+    et: Tirool
+    eu: Tirol
+    fa: تیرول
+    fi: Tiroli
+    fr: Tyrol
+    gl: Estado de Tirol
+    gu: ટાયરોલ
+    he: טירול
+    hi: टिरोल
+    hr: Tirol
+    hu: Tirol
+    hy: Տիրոլ
+    id: Tirol
+    is: Tirol
+    it: Tirolo
+    ja: チロル州
+    ka: ტიროლი
+    kn: ಟೈರೋಲ್
+    ko: 티롤 주
+    lt: Tirolis
+    lv: Tirole
+    mn: Тироль
+    mr: तिरोल
+    ms: Tirol
+    nb: Tirol
+    nl: Tirol
+    pl: Tyrol
+    pt: Tirol
+    ro: Tirol
+    ru: Тироль
+    si: ටයිරෝල්
+    sk: Tirolsko
+    sl: Tirolska
+    sr: Тирол
+    sv: Tyrolen
+    ta: டிரோள்
+    te: టైరోల్
+    th: รัฐทีโรล
+    tk: Tirol
+    tr: Tirol
+    uk: Тіроль
+    ur: ٹیرول (ریاست)
+    vi: Tirol
+    cy: Tirol
+    ceb: Tirol (estado pederal)
+    sr_Latn: Tirol
+    zh: 蒂罗尔州
+    yue_Hans: 蒂罗尔
+    ccp: "𑄑𑄭𑄢𑄧𑄣𑄴"
+    ga: An Tioróil
+    yue: 蒂羅爾
+    bs: Tirol
+    mk: Тирол
+    'no': Tirol
+    az: Tirol
+    ky: Тирол (Австрия)
+    sd: ٽرول (رياست)
+    sq: Tiroli
+  type: state
+'8':
+  name: Vorarlberg
+  code: '8'
+  unofficial_names:
+  - Vorarlberg
+  geo:
+    latitude: 47.2497427
+    longitude: 9.9797373
+    min_latitude: 46.84081
+    min_longitude: 9.5309099
+    max_latitude: 47.59621
+    max_longitude: 10.23689
+  translations:
+    en: Vorarlberg
+    af: Vorarlberg
+    ar: فورآرلبرغ
+    be: Форарльберг
+    bg: Форарлберг
+    bn: ভোরালবার্গ
+    ca: Vorarlberg
+    cs: Vorarlbersko
+    da: Vorarlberg
+    de: Vorarlberg
+    el: Φόραρλμπεργκ
+    es: Vorarlberg
+    et: Vorarlberg
+    eu: Vorarlberg
+    fa: فورآرلبرگ
+    fi: Vorarlberg
+    fr: Vorarlberg
+    gl: Vorarlberg
+    gu: વોરાર્લબર્ગ
+    he: פורארלברג
+    hi: वोरार्लबर्ग
+    hr: Vorarlberg
+    hu: Vorarlberg
+    hy: Ֆորալբերգ
+    id: Vorarlberg
+    is: Vorarlberg
+    it: Vorarlberg
+    ja: フォアアールベルク州
+    ka: ფორარლბერგი
+    kn: ವೋರಾರ್ಲ್ ಬರ್ಗ್
+    ko: 포어아를베르크 주
+    lt: Forarlbergas
+    lv: Forarlberga
+    mr: फोरार्लबर्ग
+    ms: Vorarlberg
+    nb: Vorarlberg
+    ne: भोरालबर्ग
+    nl: Vorarlberg
+    pl: Vorarlberg
+    pt: Vorarlberg
+    ro: Vorarlberg
+    ru: Форарльберг
+    si: වොරර්ල්බර්ග්
+    sk: Vorarlbersko
+    sl: Predarlska
+    sr: Форарлберг
+    sv: Vorarlberg
+    sw: Vorarlberg
+    ta: வோரால்பேர்க்
+    te: వోరార్ల్ బెర్గ్
+    th: รัฐโฟราร์ลแบร์ก
+    tk: Forarlberg
+    tr: Vorarlberg
+    uk: Форарльберг
+    ur: وورارلبرگ
+    vi: Vorarlberg
+    cy: Vorarlberg
+    ceb: Vorarlberg
+    sr_Latn: Forarlberg
+    zh: 福拉尔贝格州
+    yue_Hans: 福拉尔贝格
+    sq: Vorarlberg
+    ccp: "𑄞𑄧𑄢𑄢𑄴𑄣𑄴𑄝𑄢𑄳𑄉𑄴"
+    ga: Vorarlberg
+    yue: 福拉爾貝格
+    bs: Vorarlberg
+    mk: Предарлска
+    'no': Vorarlberg
+    az: Forarlberq
+    sd: وورارلبرگ
+  type: state
+'9':
+  name: Wien
+  code: '9'
+  unofficial_names:
+  - Vienna
+  geo:
+    latitude: 48.2081743
+    longitude: 16.3738189
+    min_latitude: 48.1182699
+    min_longitude: 16.1826199
+    max_latitude: 48.3230999
+    max_longitude: 16.5774999
+  translations:
+    en: Vienna
+    af: Wene
+    am: ቪየና
+    ar: فيينا
+    as: ভিয়েনা
+    az: Vyana
+    be: Вена
+    bg: Виена
+    bn: ভিয়েনা
+    ca: Viena
+    cs: Vídeň
+    da: Wien
+    de: Wien
+    el: Βιέννη
+    es: Viena
+    et: Viin
+    eu: Viena
+    fa: وین
+    fi: Wien
+    fr: Vienne
+    gl: Viena
+    gu: વિયેના
+    he: וינה
+    hi: वियना
+    hr: Beč
+    hu: Bécs
+    hy: Վիեննա
+    id: Wina
+    is: Vín
+    it: Vienna
+    ja: ウィーン
+    ka: ვენა
+    kn: ವಿಯೆನ್ನ
+    ko: 빈
+    lt: Viena
+    lv: Vīne
+    ml: വിയന്ന
+    mn: Вена
+    mr: व्हियेना
+    ms: Vienna
+    nb: Wien
+    nl: Wenen
+    or: ଭିଏନା
+    pl: Wiedeń
+    ps: وين
+    pt: Viena
+    ro: Viena
+    ru: Вена
+    si: වියානා
+    sk: Viedeň
+    sl: Dunaj
+    sr: Беч
+    sv: Wien
+    sw: Vienna
+    ta: வியன்னா
+    te: వియెన్నా
+    th: เวียนนา
+    tk: Wena
+    tr: Viyana
+    uk: Відень
+    ur: ویانا
+    vi: Viên
+    cy: Fienna
+    ceb: Vienna
+    sr_Latn: Beč
+    zh: 維也納
+    yue_Hans: 维也纳
+    jv: Wina
+    sq: Vjena
+    ccp: "𑄞𑄨𑄠𑄬𑄚"
+    ga: Vín
+    ky: Вена
+    ha: Vienna
+    so: Fiyena
+    pa: ਵਿਆਨਾ
+    kk: Вена
+    yue: 維也納
+    my: ဗီယင်နာမြို့
+    yo: Fienna
+    uz: Vena
+    bs: Beč
+    mk: Виена
+    ne: भियना
+    ha_NE: Vienna
+    'no': Wien
+    yo_BJ: Fienna
+    sd: ويانا
+  type: state

@@ -1,0 +1,1044 @@
+---
+AT:
+  name: Attapu [Attopeu]
+  code: AT
+  unofficial_names:
+  - Attapu
+  - Attopei
+  - Attopeu
+  geo:
+    latitude: 14.8193696
+    longitude: 106.8207875
+    min_latitude: 14.8034134
+    min_longitude: 106.8068505
+    max_latitude: 14.8316255
+    max_longitude: 106.8385219
+  translations:
+    en: Attapeu
+    ar: محافظة أتابيو
+    be: Атапы
+    bn: আত্তাপিউ প্রদেশ
+    da: Attapeu Province
+    de: Provinz Attapeu
+    el: Αττάπου
+    es: Provincia de Attapeu
+    eu: Attapu probintzia
+    fa: استان آتاپیو
+    fi: Attapu
+    fr: Province d’Attapeu
+    gu: અટેપેઉ પ્રાંત
+    hi: अत्ताप्यु प्रान्त
+    hr: Attapeu (provincija)
+    hu: Attapö tartomány
+    id: Provinsi Attapu
+    it: provincia di Attapeu
+    ja: アッタプー県
+    km: ខ្វែងអាចម៍ក្រពើ
+    kn: ಅಟಾಪೂ ಪ್ರಾಂತ್ಯ
+    ko: 앗타푸 주
+    lo: ແຂວງອັດຕະປື
+    lt: Atapu provincija
+    mr: अटापु प्रांत
+    ms: Wilayah Attapeu
+    nb: Attapeu
+    nl: Attapeu
+    pl: Prowincja Attapu
+    pt: Attapeu (província)
+    ru: Аттапы
+    si: ඇටේපූ පළාත
+    sv: Attapeu
+    ta: அட்டாபேக்கு மாகாணம்
+    te: అటేపు ప్రావిన్స్
+    th: แขวงอัตปือ
+    tr: Attapeu
+    uk: Аттапи
+    ur: اتوپو صوبہ
+    vi: Attapeu
+    zh: 阿速坡省
+    lv: Atapī province
+    ceb: Attapu (lalawigan)
+    ccp: "𑄃𑄖𑄳𑄦𑄛𑄬𑄠𑄮"
+    ca: província d’Attapeu
+    'no': Attapeu
+    cy: Talaith Attapeu
+    he: מחוז אטופו
+    ka: ატაპეუს პროვინცია
+  type: province
+BK:
+  name: Bokèo
+  code: BK
+  unofficial_names:
+  - Bokèo
+  geo:
+    latitude: 20.2872662
+    longitude: 100.7097867
+    min_latitude: 19.7742428
+    min_longitude: 100.093056
+    max_latitude: 20.838158
+    max_longitude: 101.2517739
+  translations:
+    en: Bokeo
+    ar: محافظة بوكيو
+    bn: বুকেও প্রদেশ
+    da: Bokeo Province
+    de: Provinz Bokeo
+    el: Μποκέο
+    es: Provincia de Bokeo
+    fa: استان بوکیو
+    fi: Bokeo
+    fr: Province de Bokeo
+    gu: બોકીઓ પ્રાંત
+    hi: बोकैओ प्रान्त
+    hr: Bokeo
+    hu: Bokeo tartomány
+    id: Provinsi Bokeo
+    it: provincia di Bokeo
+    ja: ボーケーオ県
+    km: ខេត្ត ប កែវ
+    kn: ಬೊಕೆಯೋ ಪ್ರಾಂತ್ಯ
+    ko: 보케오 주
+    lo: ແຂວງບໍ່ແກ້ວ
+    lt: Bokeo provincija
+    mr: बोको प्रांत
+    ms: Wilayah Bokeo
+    nb: Bokeo
+    nl: Bokeo
+    pl: Prowincja Bokéo
+    pt: Bokeo
+    ru: Бокео
+    si: බෝකියෝ පළාත
+    sv: Bokeo
+    ta: போக்கிய மாகாணம்
+    te: బోకియో ప్రావిన్స్
+    th: แขวงบ่อแก้ว
+    tr: Bokeo Province
+    uk: Бокеу
+    ur: بوکیو صوبہ
+    vi: Bokeo
+    lv: Bokēo province
+    ceb: Khouèng Bokèo
+    zh: 博胶省
+    ccp: "𑄝𑄧𑄇𑄨𑄃𑄮"
+    'no': Bokeo
+    cy: Talaith Bokeo
+    ka: ბოკეოს პროვინცია
+  type: province
+BL:
+  name: Bolikhamxai [Borikhane]
+  code: BL
+  unofficial_names:
+  - Bolikhamsai
+  - Bolikhamxai
+  - Borikhamxai
+  geo:
+    latitude: 18.4362924
+    longitude: 104.4723301
+    min_latitude: 17.8729919
+    min_longitude: 102.806132
+    max_latitude: 19.123211
+    max_longitude: 105.26368
+  translations:
+    en: Bolikhamsai
+    ar: محافظة بوليخاماسي
+    bn: বলিখামসাই প্রদেশ
+    da: Bolikhamsai Province
+    de: Bolikhamsai
+    el: Μπολικχαμξάι
+    es: Bolikhamxai
+    fa: استان بولیکام‌سای
+    fi: Bolikhamxai
+    fr: Province de Borikhamxay
+    gu: બોલિખાંસાઈ પ્રાંત
+    hi: बोलिखमसाइ प्रान्त
+    hr: Bolikhamsai (provincija)
+    hu: Bolikhamszaj tartomány
+    id: Provinsi Bolikhamsai
+    it: provincia di Bolikhamxai
+    ja: ボーリカムサイ県
+    km: ខេត្តបលិខាំសៃ
+    kn: ಬೋಲಿಖಾಮ ಪ್ರಾಂತ್ಯ
+    ko: 볼리캄사이 주
+    lo: ແຂວງບໍລິຄໍາໄຊ
+    lt: Bolikamsajaus provincija
+    mr: बोलीखांसई प्रांत
+    ms: Wilayah Bolikhamsai
+    nb: Bolikhamsai
+    nl: Bolikhamsai
+    pl: Prowincja Bolikhamxai
+    pt: Borikhamxai
+    ru: Борикхамсай
+    si: බොලිකමසායි පළාත
+    sv: Bolikhamsai
+    ta: போலிகம்சி மாகாணம்
+    te: బోలిఖామ్సాయి ప్రావిన్స్
+    th: แขวงบริคำไชย
+    tr: bolikhamsai Province
+    uk: Болікхамсай
+    ur: بولیخامسائی صوبہ
+    vi: Borikhamxay
+    lv: Bolikhamsai province
+    ceb: Bolikhamxai
+    zh: 博利坎赛省
+    ccp: "𑄝𑄧𑄣𑄨𑄈𑄟𑄴𑄥𑄭"
+    'no': Bolikhamsai
+    cy: Talaith Bolikhamsai
+    he: מחוז בוליקמסאי
+  type: province
+CH:
+  name: Champasak [Champassak]
+  code: CH
+  unofficial_names:
+  - Champasack
+  - Champassak
+  geo:
+    latitude: 14.9030362
+    longitude: 105.8642593
+    min_latitude: 14.8811701
+    min_longitude: 105.8406544
+    max_latitude: 14.9311844
+    max_longitude: 105.8913803
+  translations:
+    en: Champasak
+    ar: محافظة تشامباساك
+    bn: চম্পাকক প্রদেশ
+    da: Champasak Province
+    de: Provinz Champasak
+    el: Τσαμπασάκ
+    es: Provincia de Champasak
+    fa: استان چامپاساک
+    fi: Champasak
+    fr: province de Champassak
+    gu: ચંપાસક પ્રાંત
+    hi: चम्पासक प्रान्त
+    hr: Čampasak
+    hu: Tjampatszak tartomány
+    id: Provinsi Champasak
+    it: provincia di Champasak
+    ja: チャンパーサック県
+    km: ខេត្ត ចំប៉ាសក្តិ
+    kn: ಚಂಪಾಸಕ್ ಪ್ರಾಂತ್ಯ
+    ko: 참빠삭 주
+    lo: ແຂວງຈໍາປາສັກ
+    mn: Чампасак аймаг
+    mr: चंपाकक प्रांत
+    ms: Wilayah Champasak
+    nb: Champasack
+    nl: Champassak
+    pl: Prowincja Champasak
+    pt: Champassak
+    ru: Тямпасак
+    si: චම්පසක් පළාත
+    sv: Champasack
+    ta: சாம்பசக் மாகாணம்
+    te: చంపాసక్ ప్రావిన్స్
+    th: แขวงจำปาศักดิ์
+    tr: Champasak Province
+    uk: Тямпасак
+    ur: چامپاساک صوبہ
+    vi: Champasack
+    lv: Čampāsakas province
+    ceb: Champasak
+    lt: Tiampasako provincija
+    zh: 占巴塞省
+    ccp: "𑄌𑄟𑄴𑄛𑄥𑄇𑄴"
+    'no': Champasack
+    ca: Champasak
+    cy: Talaith Champasak
+    he: מחוז צ׳אמפסאק
+  type: province
+HO:
+  name: Houaphan
+  code: HO
+  unofficial_names:
+  - Houaphan
+  geo:
+    latitude: 20.3254175
+    longitude: 104.1001326
+    min_latitude: 19.617208
+    min_longitude: 103.105952
+    max_latitude: 20.981848
+    max_longitude: 104.9918211
+  translations:
+    en: Houaphanh
+    ar: محافظة هوا فان
+    bg: Хоуапхан
+    bn: হাউপানহ প্রদেশ
+    da: Houaphanh Province
+    de: Provinz Houaphan
+    el: Χουαφάν
+    es: Houaphan
+    fa: استان هوافان
+    fi: Houaphan
+    fr: Province de Houaphan
+    gu: હૌઆફંહ પ્રાંત
+    hi: हुआफान्ह प्रान्त
+    hr: Houaphan
+    hu: Huaphan tartomány
+    id: Provinsi Houaphan
+    it: provincia di Houaphan
+    ja: フアパン県
+    km: ខេត្ត ហួ ផាន់
+    kn: ಹೌಫಾನ್ ಪ್ರಾಂತ್ಯ
+    ko: 후아판 주
+    lo: ແຂວງຫົວພັນ
+    mr: हौआहान्ह प्रांत
+    ms: Wilayah Houaphanh
+    nb: Hua Phan
+    nl: Hua Phan
+    pl: Prowincja Houaphan
+    pt: Houaphanh
+    ru: Хуапхан
+    si: හොවාපන්හ් පළාත
+    sv: Hua Phan
+    ta: ஹௌஅபான்ஹ் மாகாணம்
+    te: హౌవాఫన్ ప్రావిన్స్
+    th: แขวงหัวพัน
+    tr: Huaphanh
+    uk: Хуапхан
+    ur: ہوافان صوبہ
+    vi: Huaphanh
+    lv: Hūephanas province
+    ceb: Houaphan
+    lt: Huaphano provincija
+    zh: 华潘省
+    ccp: "𑄦𑄯𑄠𑄜𑄚𑄴"
+    'no': Hua Phan
+    ca: Houaphan
+    cy: Talaith Houaphanh
+    he: מחוז חואופן
+    so: Houaphanh Province
+  type: province
+KH:
+  name: Khammouan
+  code: KH
+  unofficial_names:
+  - Khammouan
+  geo:
+    latitude: 17.6384066
+    longitude: 105.2194808
+    min_latitude: 16.9009419
+    min_longitude: 104.2752
+    max_latitude: 18.26511
+    max_longitude: 106.4278179
+  translations:
+    en: Khammouane
+    ar: محافظة خامواني
+    bg: Кхамоуан
+    bn: খামমুয়ান প্রদেশ
+    da: Khammouane Province
+    de: Provinz Khammuan
+    el: Χαμμουάν
+    es: Provincia de Khammouan
+    fa: استان خاموان
+    fi: Khammouan
+    fr: Province de Khammouane
+    gu: ખમાઉને પ્રાંત
+    hi: खम्मुआन प्रान्त
+    hr: Khammouane
+    hu: Khammuan tartomány
+    id: Provinsi Khammouan
+    it: provincia di Khammouan
+    ja: カムムアン県
+    km: ខេត្ត ខាំមួន
+    kn: ಖಮ್ಮೌನೆ ಪ್ರಾಂತ್ಯ
+    ko: 캄무안 주
+    lo: ແຂວງຄຳມ່ວນ
+    mr: खमौउने प्रांत
+    ms: Wilayah Khammouane
+    nb: Khammuan
+    nl: Khammuan
+    pl: Prowincja Khammouan
+    pt: Khammouane
+    ru: Кхаммуан
+    si: ඛංමෞනෙ පළාත
+    sv: Khammuan
+    ta: காமமெனெ மாகாணம்
+    te: ఖామౌని ప్రావిన్స్
+    th: แขวงคำม่วน
+    tr: Khammouane Province
+    ur: خاموان صوبہ
+    vi: Khammuane
+    lv: Khammūanas province
+    ceb: Khammouan
+    lt: Kamuvanės provincija
+    zh: 甘蒙省
+    ccp: "𑄈𑄟𑄯𑄚𑄬"
+    uk: Провінція Кхамуан
+    'no': Khammuan
+    ca: Khammouan
+    cy: Talaith Khammouane
+  type: province
+LM:
+  name: Louang Namtha
+  code: LM
+  unofficial_names:
+  - Louang Namtha
+  - Louangnamtha
+  - Luang Namtha
+  - Luong Nam Tha
+  geo:
+    latitude: 20.95
+    longitude: 101.4
+    min_latitude: 20.9250468
+    min_longitude: 101.3745403
+    max_latitude: 21.0397262
+    max_longitude: 101.4444065
+  translations:
+    en: Luang Namtha
+    ar: محافظة لوانغ نامثا
+    bg: Лоуангнамтха
+    bn: লুয়াং নাম্থা প্রদেশ
+    da: Luang Namtha
+    de: Luang Namtha
+    el: Λουάνγκ Νάμθα
+    es: Louang Namtha
+    fa: استان لوآنگ نامتا
+    fi: Loung Namtha
+    fr: Province de Luang Namtha
+    gu: લુઆંગ નામ્થા પ્રાંત
+    hi: लुअंग नम्था प्रान्त
+    hr: Luang Namtha (provincija)
+    hu: Luangnamtha tartomány
+    id: Provinsi Louang Namtha
+    it: provincia di Luang Namtha
+    ja: ルアンナムター県
+    kn: ಲುವಾಂಗ್ ನಮ್ತಾ ಪ್ರಾಂತ್ಯ
+    ko: 루앙남타 주
+    lo: ແຂວງຫຼວງນໍ້າທາ
+    mr: लुआंग नमता प्रांत
+    ms: Wilayah Louang Namtha
+    nb: Luang Namtha
+    nl: Luang Namtha
+    pl: Prowincja Louang Namtha
+    pt: Luang Namtha
+    ru: Луангнамтха
+    si: ලුඅන්ග් නම්ත පළාත
+    sv: Luang Namtha
+    ta: லூங் நம்தா மாகாணம்
+    te: లుమాంగ్ నమ్తా ప్రావిన్స్
+    th: แขวงหลวงน้ำทา
+    tr: Luang Namtha Province
+    ur: لوانگ نامتھا صوبہ
+    vi: Luangnamtha
+    lv: Lūennamthā province
+    cy: Talaith Luang Namtha
+    ceb: Louangnamtha
+    lt: Luang Namtos provincija
+    zh: 琅南塔省
+    ccp: "𑄣𑄁 𑄚𑄟𑄴𑄗"
+    uk: Провінція Луанг-Намта
+    'no': Luang Namtha
+    km: ខេត្តហ្លួងណាំថា
+    my: လွမ်နမ်ထာပြည်နယ်
+  type: province
+LP:
+  name: Louangphabang [Louang Prabang]
+  code: LP
+  unofficial_names:
+  - Louang Phrabang
+  - Louang Prabang
+  - Louangphrabang
+  - Luang Phrabang
+  geo:
+    latitude: 19.8833959
+    longitude: 102.1346874
+    min_latitude: 19.8651358
+    min_longitude: 102.1182632
+    max_latitude: 19.906138
+    max_longitude: 102.1728516
+  translations:
+    en: Luang Prabang
+    ar: محافظة لوانغ برابانغ
+    bn: লুয়াং প্রাবাং প্রদেশ
+    da: Luang Prabang Province
+    de: Provinz Luang Prabang
+    el: Λουάνγκ Πραμπάνγκ
+    es: Provincia de Luang Prabang
+    fa: استان لوآنگ پرابانگ
+    fi: Louangphabang
+    fr: Province de Luang Prabang
+    gu: લુઆંગ પ્રભાગ પ્રાંત
+    hi: लुअंग प्रबांग प्रान्त
+    hr: Luang Prabang (provincija)
+    hu: Luangprabang tartomány
+    id: Provinsi Louangphabang
+    it: provincia di Luang Prabang
+    ja: ルアンパバーン県
+    km: ខេត្តហ្លួងព្រះបាង
+    kn: ಲುವಾಂಗ್ ಪ್ರಬಂಗ್ ಪ್ರಾಂತ್ಯ
+    ko: 루앙프라방 주
+    lo: ແຂວງຫຼວງພະບາງ
+    mn: Луангпхабанг аймаг
+    mr: लुआंग प्रबंग प्रांत
+    ms: Wilayah Luang Prabang
+    nb: Luang Prabang
+    nl: Luang Prabang
+    pl: Prowincja Louangphrabang
+    pt: Luang Prabang
+    ru: Луангпхабанг
+    si: ලුවන්ග් ප්‍රබන්ග් පළාත
+    sv: Louang Prabang (provins)
+    ta: லூங் பிரபங் மாகாணம்
+    te: లువాంగ్ ప్రబాంగ్ ప్రావిన్స్
+    th: แขวงหลวงพระบาง
+    tr: Luang prabang Province
+    ur: لوانگ پرابانگ صوبہ
+    vi: Luangprabang
+    lv: Lūenphabānas province
+    ceb: Luang Prabang Province
+    lt: Luang Prabango provincija
+    zh: 琅勃拉邦省
+    ccp: "𑄣𑄁 𑄛𑄳𑄢𑄝𑄁"
+    uk: Луанг-Прабанг
+    be: Луангпхабанг
+    'no': Luang Prabang
+    ca: Louangphrabang
+    hy: Լուանգ Փրաբանգ
+    yue: 龍帕邦省
+    yue_Hans: 龙帕邦省
+  type: province
+OU:
+  name: Oudômxai [Oudomsai]
+  code: OU
+  unofficial_names:
+  - Oudomsai
+  - Oudomsay
+  geo:
+    latitude: 20.4921929
+    longitude: 101.8891721
+    min_latitude: 19.817
+    min_longitude: 100.7239439
+    max_latitude: 21.2127588
+    max_longitude: 102.35669
+  translations:
+    en: Oudomxay
+    ar: محافظة أودومكساي
+    az: Udomsay əyaləti
+    bn: উয়াডোমযায় প্রদেশ
+    da: Oudomxay Province
+    de: Provinz Oudomxay
+    el: Ουντομξάι
+    es: Provincia de Oudomxay
+    fa: استان اودومشای
+    fi: Oudomxai
+    fr: Province d’Oudomxay
+    gu: ઑડોમ્ક્સે પ્રાંત
+    hi: उडोमसाए प्रान्त
+    hr: Oudomxay
+    hu: Udomszaj tartomány
+    id: Provinsi Oudomxai
+    it: provincia di Oudomxay
+    ja: ウドムサイ県
+    km: ខេត្ត ឧត្តម ជ័យ
+    kn: ಒಡೊಮ್ಸೆ ಪ್ರಾಂತ್ಯ
+    ko: 우돔싸이 주
+    lo: ແຂວງອຸດົມໄຊ
+    lt: Udomsajaus provincija
+    mr: ऑडोम्क्सये प्रांत
+    ms: Wilayah Oudomxay
+    nb: Udomxai
+    nl: Udomxai
+    pl: Prowincja Oudômxai
+    pt: Oudomxai
+    ru: Удомсай
+    si: ඔඋඩොම්ක්සේ පළාත
+    sv: Udomxai
+    ta: வுடாமக்சாய் மாகாணம்
+    te: ఓడోమ్ క్సే ప్రావిన్స్
+    th: แขวงอุดมไซ
+    tr: Oudomxay Province
+    uk: Удомсай
+    ur: اودامسائے صوبہ
+    vi: Oudomxay
+    lv: Udomsai province
+    cy: Talaith Oudomxay
+    ceb: Khouèng Oudômxai
+    zh: 乌多姆塞省
+    ccp: "𑄃𑄯𑄓𑄧𑄟𑄴𑄎𑄳𑄠𑄬"
+    'no': Udomxai
+    he: מחוז אודומשי
+  type: province
+PH:
+  name: Phôngsali [Phong Saly]
+  code: PH
+  unofficial_names:
+  - Phongsali
+  geo:
+    latitude: 21.683333
+    longitude: 102.1
+    min_latitude: 21.6663623
+    min_longitude: 102.0874929
+    max_latitude: 21.6996212
+    max_longitude: 102.1256446
+  translations:
+    en: Phongsaly
+    ar: محافظة فونغ سالي
+    bn: ফংসালি প্রদেশ
+    ca: Província de Phongsali
+    da: Phongsaly Province
+    de: Provinz Phongsali
+    el: Φονγκσαλί
+    es: Provincia de Phongsali
+    fa: استان فونگسالی
+    fi: Phongsali
+    fr: Province de Phongsaly
+    gu: ફોંગ્સાલી પ્રાંત
+    hi: फोंगसाली प्रान्त
+    hr: Phongsali
+    hu: Phongszali tartomány
+    id: Provinsi Phongsali
+    it: provincia di Phongsali
+    ja: ポンサーリー県
+    km: ខេត្តផុងសាលី
+    kn: ಫೋನ್ಗ್ಸಲೈ ಪ್ರಾಂತ್ಯ
+    ko: 퐁살리 주
+    lo: ແຂວງຜົ້ງສາລີ
+    mr: फोंगास्ली प्रांत
+    ms: Wilayah Phongsaly
+    nb: Phongsali
+    nl: Phongsali
+    pl: Prowincja Phôngsali
+    pt: Phongsali
+    ru: Пхонгсали
+    si: පොන්ග්ස්ලේ පළාත
+    sv: Phongsali
+    ta: போங்சாலி மாகாணம்
+    te: ఫోంగ్సలే ప్రావిన్స్
+    th: แขวงพงสาลี
+    tr: Phongsaly Province
+    uk: Пхонгсалі
+    ur: فونگسالی صوبہ
+    vi: Phongsaly
+    lv: Phonsālī province
+    cy: Talaith Phongsaly
+    ceb: Khouèng Phôngsali
+    lt: Fongsalio provincija
+    zh: 丰沙里省
+    ccp: "𑄛𑄧𑄁𑄥𑄣𑄨"
+    'no': Phongsali
+  type: province
+SL:
+  name: Salavan [Saravane]
+  code: SL
+  unofficial_names:
+  - Saravane
+  geo:
+    latitude: 15.716667
+    longitude: 106.416667
+    min_latitude: 15.7041926
+    min_longitude: 106.393404
+    max_latitude: 15.725096
+    max_longitude: 106.4305044
+  translations:
+    en: Salavan
+    ar: سالافان
+    bn: সালভান প্রদেশ
+    da: Salavan Province
+    de: Provinz Salavan
+    el: Σαλαβάν
+    es: Salavan
+    fa: استان سالاوان
+    fi: Salavan
+    fr: Province de Saravane
+    gu: સાલવાન પ્રાંત
+    hi: सलावान प्रान्त
+    hr: Salavan (provincija)
+    hu: Szalavan tartomány
+    id: Provinsi Salavan
+    it: provincia di Salavan
+    ja: サーラワン県
+    km: ខេត្តសាឡៈវ៉ាន់
+    kn: ಸಲಾವಾನ್ ಪ್ರಾಂತ್ಯ
+    ko: 살라완 주
+    lo: ແຂວງສາລະວັນ
+    lt: Salavano provincija
+    mr: साल्वान प्रांत
+    ms: Wilayah Salavan
+    nb: Saravane
+    nl: Salavan
+    pl: Prowincja Saravane
+    pt: Saravane
+    ru: Сараван
+    si: සලවන් පළාත
+    sv: Saravane
+    ta: சலவன் மாகாணம்
+    te: సాలావన్ ప్రావిన్స్
+    th: แขวงสาละวัน
+    tr: Salavan Province
+    uk: Сараван
+    ur: سالاوان صوبہ
+    vi: Saravane
+    lv: Sālavanas province
+    ceb: Salavan (lalawigan)
+    zh: 沙拉湾省
+    ccp: "𑄥𑄣𑄴𑄞𑄧𑄣𑄴"
+    'no': Saravane
+    cy: Talaith Salavan
+    he: מחוז סלבן
+  type: province
+SV:
+  name: Savannakhét
+  code: SV
+  unofficial_names:
+  - Savannakhét
+  geo:
+    latitude: 16.5722464
+    longitude: 104.7705509
+    min_latitude: 16.5072445
+    min_longitude: 104.7402586
+    max_latitude: 16.6266521
+    max_longitude: 104.7958841
+  translations:
+    en: Savannakhet
+    ar: محافظة سافاناكيت
+    bn: স্যাভান্নাখেত প্রদেশ
+    da: Savannakhet Province
+    de: Provinz Savannakhet
+    el: Σαβανακέτ
+    es: Provincia de Savannakhet
+    fa: استان ساوان‌ناکت
+    fi: Savannakhet
+    fr: Province de Savannakhet
+    gu: સવાન્નાખેત પ્રાંત
+    hi: सवन्नाखेत प्रान्त
+    hr: Savannakhet
+    hu: Szavannakhet tartomány
+    id: Provinsi Savannakhet
+    it: provincia di Savannakhet
+    ja: サワンナケート県
+    kn: ಸವನ್ನಾಖೆತ್ ಪ್ರಾಂತ್ಯ
+    ko: 사완나켓 주
+    lo: ແຂວງສະຫວັນນະເຂດ
+    lt: Savanaketo provincija
+    mn: Саваннакхет аймаг
+    mr: सावन्नाखेत प्रांत
+    ms: Wilayah Savannakhet
+    nb: Savannakhet
+    nl: Savannakhet
+    pl: Prowincja Savannakhét
+    pt: Savannakhet
+    ru: Саваннакхет
+    si: සවන්නඛෙත් පළාත
+    sv: Savannakhet
+    ta: சவண்னக்ஹெட் மாகாணம்
+    te: సవన్నాఖేట్ ప్రావిన్స్
+    th: แขวงสุวรรณเขต
+    tr: Savanakhet Province
+    uk: Саваннакхет
+    ur: ساواناخیت صوبہ
+    vi: Savannakhet
+    lv: Savannakhētas province
+    ceb: Khouèng Savannakhét
+    zh: 沙湾拿吉省
+    ccp: "𑄥𑄞𑄚𑄴𑄈𑄬𑄖𑄴"
+    ml: സവണ്ണഖേത്
+    be: Саванакхет
+    'no': Savannakhet
+    ca: província de Savannakhet
+    cy: Talaith Savannakhet
+    km: ខេត្តសួគ៌ខេត្ត
+  type: province
+VI:
+  name: Vientiane
+  code: VI
+  unofficial_names:
+  - Vientiane Province
+  geo:
+    latitude: 17.966667
+    longitude: 102.6
+    min_latitude: 17.8847653
+    min_longitude: 102.5341096
+    max_latitude: 18.0318289
+    max_longitude: 102.6774216
+  translations:
+    en: Vientiane Province
+    ar: محافظة فيينتيان
+    de: Vientiane
+    es: Provincia de Vientián
+    fa: استان وینتیان
+    fr: Province de Vientiane
+    hi: व्यिंचन प्रान्त
+    hr: Vientiane
+    hu: Vientián tartomány
+    id: Provinsi Vientiane
+    it: provincia di Vientiane
+    ja: ヴィエンチャン県
+    ko: 비엔티안 주
+    lo: ແຂວງວຽງຈັນ
+    mn: Вьентьян аймаг
+    ms: Wilayah Vientiane
+    nb: Vientiane
+    nl: Vientiane
+    pl: Prowincja Wientian
+    pt: Vientiane
+    ru: Вьентьян
+    sv: Vientiane
+    th: แขวงเวียงจันทน์
+    uk: Вʼєнтьян
+    ur: وینتیان صوبہ
+    vi: Viêng Chăn
+    ceb: Vientiane Province
+    zh: 万象省
+    ccp: "𑄞𑄨𑄠𑄬𑄚𑄴𑄑𑄨𑄠𑄬𑄚𑄴 𑄛𑄳𑄢𑄧𑄞𑄨𑄚𑄴𑄥𑄴"
+    'no': Vientiane
+    bn: ভিয়েনচান প্রদেশ
+    ca: Vientiane
+    fi: Vientiane
+    km: ខេត្តវៀងច័ន្ទន៍
+    so: Vientiane Province
+    tr: Vientiane Bölgesi
+  type: province
+VT:
+  name: Vientiane Prefecture
+  code: VT
+  unofficial_names:
+  - Viangchan City
+  - Vientiane City
+  geo:
+    latitude: 18.110541
+    longitude: 102.5298028
+    min_latitude: 17.804958
+    min_longitude: 102.0385339
+    max_latitude: 18.43515
+    max_longitude: 103.101063
+  translations:
+    en: Vientiane
+    ar: مقاطعة فيينتيان
+    ca: Prefectura de Vientiane
+    de: Präfektur Vientiane
+    es: Prefectura de Vientián
+    fa: منطقه وینتیان
+    fr: préfecture de Vientiane
+    hi: व्यिंचन प्रशासितक्षेत्र
+    hr: Vientiane (prefektura)
+    hu: Vientián prefektúra
+    id: Prefektur Vientiane
+    it: prefettura di Vientiane
+    ja: ヴィエンチャン都
+    ko: 비엔티안 도
+    lo: ນະຄອນຫຼວງວຽງຈັນ
+    lt: Vientiano prefektūra
+    mn: Вьентьян тойрог
+    ms: Prefektur Vientiane
+    nl: Vientiane²
+    pl: Prefektura Wientian
+    pt: Vientiane²
+    ru: Вьентьян²
+    th: นครหลวงเวียงจันทน์
+    ur: وینتیان پریفیکچر
+    ceb: Vientiane Prefecture
+    zh: 永珍市
+    ccp: "𑄞𑄨𑄠𑄬𑄚𑄴𑄑𑄨𑄠𑄬𑄚𑄴"
+    bn: ভিয়েনচান প্রিফেকচার
+    km: រដ្ឋធានីវៀងចន្ទន៍
+    tr: Vientiane Özel Yönetim Bölgesi
+  type: prefecture
+XA:
+  name: Xaignabouli [Sayaboury]
+  code: XA
+  unofficial_names:
+  - Sayaboury
+  - Sayabury
+  - Xaignaboury
+  geo:
+    latitude: 19.3907886
+    longitude: 101.5248055
+    min_latitude: 17.466822
+    min_longitude: 100.4117971
+    max_latitude: 19.9302149
+    max_longitude: 101.8970158
+  translations:
+    en: Sainyabuli
+    ar: محافظة سايذيبولي
+    bn: সাইনিয়াবুলি প্রদেশ
+    ca: Província de Sainyabuli
+    da: Sainyabuli Province
+    de: Provinz Sainyabuli
+    el: Σενγιαμπούλι
+    es: Provincia de Sainyabuli
+    fa: استان ساینیابولی
+    fi: Xaignabouli
+    fr: Province de Sayaboury
+    gu: સૈન્યાબુલી પ્રાંત
+    hi: सैंयाबुली प्रान्त
+    hr: Sainyabuli
+    hu: Szajnjabuli tartomány
+    id: Provinsi Xaignabouli
+    it: provincia di Xaignabouli
+    ja: サイニャブーリー県
+    km: ខេត្ត ជ័យ បូរី
+    kn: ಸೈನ್ಯಬುಲಿ ಪ್ರಾಂತ್ಯ
+    ko: 사이냐불리 주
+    lo: ແຂວງໄຊຍະບູລີ
+    mr: साईनबुली प्रांत
+    ms: Wilayah Sainyabuli
+    nb: Sainyabuli
+    nl: Sainyabuli
+    pl: Prowincja Xaignabouli
+    pt: Sayaburi
+    ru: Сайнябули
+    si: සේයාන්බුලි පළාත
+    sv: Sainyabuli
+    ta: சைன்யபுலி மாகாணம்
+    te: సైన్యాబులి ప్రావిన్స్
+    th: แขวงไชยบุรี
+    tr: Sainyabuli Province
+    uk: Сайнябулі
+    ur: سائنیابولی صوبہ
+    vi: Xayabury
+    lv: Saiņabūlī province
+    ceb: Xaignabouli
+    lt: Sainjabulio provincija
+    zh: 沙耶武里省
+    ccp: "𑄥𑄭𑄚𑄨𑄠𑄝𑄪𑄣𑄨"
+    ml: സൈന്യാബുലി പ്രവിശ്യ
+    'no': Sainyabuli
+    cy: Talaith Sainyabuli
+    he: מחוז סאינבולי
+  type: province
+XE:
+  name: Xékong [Sékong]
+  code: XE
+  unofficial_names:
+  - Xékong
+  geo:
+    latitude: 15.344444
+    longitude: 106.7175
+    min_latitude: 15.3299657
+    min_longitude: 106.6949272
+    max_latitude: 15.3708533
+    max_longitude: 106.7550086
+  translations:
+    en: Sekong
+    ar: محافظة سيكونغ
+    bn: সেকং প্রদেশ
+    da: Sekong Province
+    de: Sekong
+    el: Ξεκόνγκ
+    es: Sekong
+    fa: استان سکونگ
+    fi: Sekongin lääni
+    fr: Province de Sékong
+    gu: સેકોંગ પ્રાંત
+    hi: सेकोंग प्रान्त
+    hr: Sekong (provincija)
+    hu: Szekong tartomány
+    id: Provinsi Xekong
+    it: provincia di Xekong
+    ja: セーコーン県
+    kn: ಸೆಕೊಂಗ್ ಪ್ರಾಂತ್ಯ
+    ko: 세콩 주
+    lo: ແຂວງເຊກອງ
+    mr: सिकोग प्रांत
+    ms: Wilayah Sekong
+    nb: Sekong
+    nl: Sekong
+    pl: Prowincja Xékong
+    pt: Sekong
+    ru: Секонг
+    si: සේකොන්ග් පළාත
+    sv: Sekong
+    ta: செகோங் மாகாணம்
+    te: సెకాంగ్ ప్రావిన్స్
+    th: แขวงเซกอง
+    tr: Sekong Province
+    uk: Секонг
+    ur: سیکونگ صوبہ
+    vi: Sekong
+    lv: Sēkonas province
+    ceb: Khouèng Xékong
+    lt: Sekongo provincija
+    zh: 塞公省
+    ccp: "𑄥𑄨𑄇𑄧𑄁"
+    hy: Սեկոնգ
+    'no': Sekong
+    cy: Talaith Sekong
+    he: מחוזסקונג
+    km: ខេត្តស្រែគង្គ
+  type: province
+XI:
+  name: Xiangkhoang [Xieng Khouang]
+  code: XI
+  unofficial_names:
+  - Xiang Khouang
+  - Xiangkhouang
+  - Xiangkhuang
+  - Xieng Khouang
+  geo:
+    latitude: 19.6093003
+    longitude: 103.7289167
+    min_latitude: 18.813512
+    min_longitude: 102.661909
+    max_latitude: 20.040053
+    max_longitude: 104.279344
+  translations:
+    en: Xiangkhouang
+    ar: محافظة زيانغهوانغ
+    bn: জিয়াংখুয়াং প্রদেশ
+    da: Xiangkhouang Province
+    de: Xieng Khouang
+    el: Ξιανγκχοάνγκ
+    es: Provincia de Xiangkhoang
+    fa: استان شیانگخوانگ
+    fi: Xiangkhouangin lääni
+    fr: Province de Xieng Khouang
+    gu: ઝીયાંગખૌઆંગ પ્રાંત
+    hi: सिएंगखुअंग प्रान्त
+    hr: Xiang Khouang
+    hu: Sziangkhuang tartomány
+    id: Provinsi Xiangkhoang
+    it: provincia di Xiangkhoang
+    ja: シエンクワーン県
+    km: ខេត្តស៊ៀង ខ្វាង
+    kn: ಕ್ಸಿಯಾಂಗ್ಖೌಂಗ್ ಪ್ರಾಂತ್ಯ
+    ko: 씨앙쿠앙 주
+    lo: ແຂວງຊຽງຂວາງ
+    lt: Siankuano provincija
+    mr: झिएंगखॉउंग प्रांत
+    ms: Wilayah Xiangkhouang
+    nb: Xieng Khouang
+    nl: Xieng Khuang
+    pl: Prowincja Xieng Khouang
+    pt: Xieng Khouang
+    ru: Сиангкхуанг
+    si: කිස්යැන්ග්කුඇන්ග් පලාත
+    sv: Xieng Khouang
+    ta: க்ஸிங்க்ஹவுங் மாகாணம்
+    te: జియాంగ్ హోవాంగ్ ప్రావిన్స్
+    th: แขวงเชียงขวาง
+    tr: Xiengkhuang
+    uk: Сіангкхуанг
+    ur: سیانگہوانگ صوبہ
+    vi: Xiengkhuang
+    lv: Sjenkhoānas province
+    ceb: Xiangkhouang
+    zh: 川圹省
+    ccp: "𑄎𑄨𑄠𑄁𑄇𑄯𑄁"
+    'no': Xieng Khouang
+    ca: Província de Xiangkhoang
+    cy: Talaith Xiangkhouang
+    he: סיינקהואנג
+  type: province
+XS:
+  name: ແຂວງໄຊສົມບູນ
+  code: XS
+  translations:
+    de: Provinz Saysomboun
+    en: Xaisomboun
+    hi: साइसोम्बून प्रान्त
+    it: Provincia di Xaisomboun
+    ja: サイソムブーン県
+    lo: ແຂວງໄຊສົມບູນ
+    pl: Prowincja Xaisômboun
+    th: แขวงไชยสมบูรณ์
+    ur: سائسومبون صوبہ
+    vi: Xaysomboun
+    zh: 賽宋奔省
+    ccp: "𑄎𑄭𑄥𑄧𑄟𑄴𑄝𑄯𑄚𑄴"
+    fr: Province de Xaisomboun
+    ko: 싸이솜분 주
+    bn: সাইসম্বুন প্রদেশ
+    cy: Talaith Xaisomboun
+    es: Provincia de Xaisomboun
+    km: ខេត្តជ័យសម្បូរណ៍
+  type: province

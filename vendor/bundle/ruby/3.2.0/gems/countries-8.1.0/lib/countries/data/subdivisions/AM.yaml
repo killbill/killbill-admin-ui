@@ -1,0 +1,848 @@
+---
+AG:
+  name: Aragacotn
+  code: AG
+  unofficial_names:
+  - Aragacotn
+  translations:
+    en: Aragatsotn
+    ar: محافظة آراغاتسوتن
+    az: Ağin
+    be: Марз Арагацотн
+    bg: Арагацотн
+    bn: আরাাগাটসন অঞ্চল
+    ca: Aragadzotn
+    cs: Aragacotn
+    da: Aragatsotn Region
+    de: Aragazotn
+    el: Επαρχία Αραγκατσότν
+    es: Aragatsotn
+    et: Aragatsotni maakond
+    fa: استان آراگاتسوتن
+    fi: Aragatsotn
+    fr: Aragatsotn
+    gu: એરાગાટ્સોટન પ્રદેશ
+    hi: अरागत्सोत्न
+    hr: Aragacotn
+    hu: Aragacotn tartomány
+    hy: Արագածոտնի մարզ
+    id: Aragatsotn
+    it: Aragatsotn
+    ja: アラガツォトゥン地方
+    ka: არაგაწოტნის პროვინცია
+    kn: ಅರಗತ್ಸೊಟ್ನ್ ಪ್ರದೇಶ
+    ko: 아라가초튼 주
+    lt: Aragacotno sritis
+    mn: Арагацотн аймаг
+    mr: अॅरामासॉटन प्रदेश
+    ms: Wilayah Aragatsotn
+    nb: Aragatsotn
+    ne: अरागत्सोत्न प्रान्त
+    nl: Aragatsotn
+    pl: Prowincja Aragacotn
+    pt: Aragatsotn
+    ro: Provincia Aragatsotn
+    ru: Арагацотнская область
+    si: අරගට්සොට්න් කලාපය
+    sr: Арагацотн
+    sv: Aragatsotn
+    ta: அரைக்காட்சோடன் பகுதி
+    te: ఆరాగాట్సోటిన్ ప్రాంతం
+    th: เขตอาร์แกทซอท์น
+    tk: Aragatsotn
+    tr: Aragatsotn
+    uk: Араґацотн
+    ur: آراگاتسوتن صوبہ
+    vi: Aragatsotn
+    zh: 阿拉加措特恩省
+    lv: Aragatsotnas province
+    ceb: Aragatsotni Marz
+    sr_Latn: Aragacotn
+    yue_Hans: 阿拉加措特恩省
+    ccp: "𑄃𑄢𑄉𑄖𑄴𑄥𑄧𑄖𑄳𑄚𑄴"
+    gl: Provincia de Aragatsotn
+    eu: Aragatsotn
+    pa: ਅਰਾਗਤਸੋਤਨ
+    yue: 阿拉加措特恩省
+    bs: Aragacotn
+    mk: Арагацотн
+    'no': Aragatsotn
+    ml: അരഗത്സോട്ൻ പ്രവിശ്യ
+  type: region
+AR:
+  name: Ararat
+  code: AR
+  unofficial_names:
+  - Ararat
+  geo:
+    latitude: 39.9753273
+    longitude: 44.8338058
+    min_latitude: 39.713722
+    min_longitude: 44.3149281
+    max_latitude: 40.189931
+    max_longitude: 45.11704899999999
+  translations:
+    en: Ararat
+    ar: محافظة أرارات
+    az: Ararat mərzi
+    be: Марз Арарат
+    bg: Арарат
+    bn: আরারাত প্রদেশ
+    ca: Ararat
+    cs: Ararat
+    da: Ararat Province
+    de: Region Ararat
+    el: Επαρχία Αραράτ
+    es: Ararat
+    et: Ararati maakond
+    fa: استان آرارات
+    fi: Ararat
+    fr: Ararat
+    gu: અરરાટ પ્રાંત
+    hi: अरारत प्रांत
+    hr: Ararat
+    hu: Ararat tartomány
+    hy: Արարատի մարզ
+    id: Provinsi Ararat
+    it: provincia di Ararat
+    ja: アララト地方
+    ka: არარატის პროვინცია
+    kn: ಅರರಾತ್ ಪ್ರಾಂತ್ಯ
+    ko: 아라라트 주
+    lt: Ararato sritis
+    mn: Арарат аймаг
+    mr: अरारत प्रांत
+    ms: Wilayah Ararat
+    nb: Ararat
+    ne: अरारत प्रान्त
+    nl: Ararat
+    pl: Prowincja Ararat
+    pt: Ararate
+    ro: Provincia Ararat
+    ru: Араратская область
+    si: අරරට් පළාත
+    sr: Арарат
+    sv: Ararat
+    ta: அராரட் மாகாணம்
+    te: ఆరారాట్ ప్రావిన్స్
+    th: จังหวัดอราแรต
+    tk: Ararat
+    tr: Ararat İli
+    uk: Арарат
+    ur: ارارات صوبہ
+    vi: Ararat
+    lv: Ararata reģions
+    ceb: Ararati Marz
+    sr_Latn: Ararat
+    zh: 亞拉拉特省
+    ccp: "𑄃𑄢𑄢𑄖𑄴"
+    eu: Ararat
+    bs: Ararat (pokrajina)
+    mk: Арарат
+    'no': Ararat
+    cy: Talaith Ararat
+    ml: അരാരത്ത് പ്രവിശ്യ
+    yue: 亞拉拉特省
+    yue_Hans: 亚拉拉特省
+  type: region
+AV:
+  name: Armavir
+  code: AV
+  unofficial_names:
+  - Armavir
+  geo:
+    latitude: 40.1315615
+    longitude: 43.8325355
+    min_latitude: 40.01846700000001
+    min_longitude: 43.6464811
+    max_latitude: 40.283289
+    max_longitude: 44.4403099
+  translations:
+    en: Armavir
+    ar: محافظة آرماوير
+    az: Armavir mərzi
+    be: Марз Армавір
+    bg: Армавир
+    bn: আরমাভির অঞ্চল
+    ca: Armavir
+    da: Armavir Region
+    de: Armawir
+    el: Αρμαβίρ
+    es: Armavir
+    et: Armaviri maakond
+    fa: استان آرماویر
+    fi: Armavir
+    fr: Armavir
+    gu: અર્માવિર પ્રદેશ
+    hi: अर्मावीर प्रांत
+    hr: Armavir
+    hu: Armavir tartomány
+    hy: Արմավիրի մարզ
+    id: Armavir
+    it: provincia di Armavir
+    ja: アルマヴィル地方
+    ka: არმავირის პროვინცია
+    kn: ಆರ್ಮವೀ್ ಪ್ರದೇಶ
+    ko: 아르마비르 주
+    lt: Armaviro sritis
+    mn: Армавир аймаг
+    mr: अर्मावीर प्रदेश
+    ms: Wilayah Armavir
+    nb: Armavir
+    ne: अर्मावीर प्रान्त
+    nl: Armavir
+    pl: Prowincja Armawir
+    pt: Armavir
+    ro: Provincia Armavir
+    ru: Армавирская область
+    si: අර්මවිර් කලාපය
+    sr: Армавир
+    sv: Armavir
+    ta: அர்மவீர் பகுதி
+    te: ఆర్మవీర్ ప్రాంతం
+    th: จังหวัดอาร์มาเวียร์
+    tk: Armawir
+    tr: Armavir İdari Bölgesi
+    uk: Армавір
+    ur: آرامویر صوبہ
+    vi: Armavir
+    lv: Armaviras reģions
+    ceb: Armaviri Marz
+    sr_Latn: Armavir
+    zh: 亞馬維爾省
+    ccp: "𑄃𑄢𑄴𑄟𑄞𑄨𑄢𑄴"
+    eu: Armavir
+    pa: ਅਰਮਾਵੀਰ ਸੂਬਾ
+    cs: Kategorie:Armavir (provincie)
+    bs: Armavir (pokrajina)
+    mk: Армавир
+    'no': Armavir
+    ml: അർമാവിർ പ്രവിശ്യ
+    ps: آرماویر
+    yue: 亞馬維省
+    yue_Hans: 亚马维省
+  type: region
+ER:
+  name: Erevan
+  code: ER
+  unofficial_names:
+  - Erevan
+  geo:
+    latitude: 40.183333
+    longitude: 44.516667
+    min_latitude: 40.0641141
+    min_longitude: 44.3620849
+    max_latitude: 40.2426667
+    max_longitude: 44.6150493
+  translations:
+    en: Yerevan
+    af: Jerewan
+    am: ዬሬቫን
+    ar: يريفان
+    az: İrəvan
+    be: Ерэван
+    bg: Ереван
+    bn: ইয়েরেভান
+    ca: Erevan
+    cs: Jerevan
+    da: Jerevan
+    de: Jerewan
+    el: Γερεβάν
+    es: Ereván
+    et: Jerevan
+    eu: Erevan
+    fa: ایروان
+    fi: Jerevan
+    fr: Erevan
+    gl: Iereván
+    gu: યેરેવન
+    he: ירוואן
+    hi: येरवान
+    hr: Erevan
+    hu: Jereván
+    hy: Երևան
+    id: Yerevan
+    is: Jerevan
+    it: Erevan
+    ja: エレバン
+    ka: ერევანი
+    kn: ಯೆರೆವಾನ್
+    ko: 예레반
+    lt: Jerevanas
+    lv: Erevāna
+    ml: യെറിവാൻ
+    mn: Ереван
+    mr: येरेव्हान
+    ms: Yerevan
+    nb: Jerevan
+    ne: येरवान प्रान्त
+    nl: Jerevan
+    pl: Erywań
+    pt: Erevan
+    ro: Erevan
+    ru: Ереван
+    si: යේරවාන්
+    sk: Jerevan
+    sl: Erevan
+    sr: Јереван
+    sv: Jerevan
+    sw: Yerevan
+    ta: யெரெவான்
+    te: యెరవాన్
+    th: เยเรวาน
+    tk: Ýerewan
+    tr: Erivan
+    uk: Єреван
+    ur: یریوان
+    vi: Yerevan
+    cy: Yerevan
+    ceb: Yerevan (lalawigan)
+    sr_Latn: Jerevan
+    zh: 葉里溫
+    yue_Hans: 埃里温
+    jv: Yerevan
+    sq: Jerevani
+    ccp: "𑄃𑄨𑄠𑄬𑄢𑄬𑄞𑄧𑄚𑄴"
+    ga: Eireaván
+    ky: Ереван
+    pa: ਯੇਰਵਾਨ
+    kk: Ереван
+    yue: 埃里溫
+    yo: Yerevan
+    uz: Yerevan
+    bs: Erevan
+    mk: Ереван
+    'no': Jerevan
+    yo_BJ: Yerevan
+    my: ယေရေဗန်
+    sd: يريوان
+  type: city
+GR:
+  name: Gegark'unik'
+  code: GR
+  unofficial_names:
+  - Gegharkunick
+  translations:
+    en: Gegharkunik
+    ar: محافظة غغاركونيك
+    az: Geğarkunik
+    be: Марз Гегаркунік
+    bg: Гегаркуник
+    bn: গেঘারকুনিক প্রদেশ
+    cs: Gegharkunik
+    da: Gegharkunik Province
+    de: Gegharkunik
+    el: Γκεγκαρκουνίκ
+    es: Geghark’unik’
+    et: Gegharkhunikhi maakond
+    fa: منطقه دریاچه سوان
+    fi: Geghark’unik’
+    fr: Gegharkunik
+    gu: ગેઘરક્યુનિક પ્રાંત
+    hi: गेघार्कुनिक प्रांत
+    hr: Gegharkunik
+    hu: Gegarkounik tartomány
+    hy: Գեղարքունիքի մարզ
+    id: Provinsi Gegharkunik
+    it: Gegharkunik
+    ja: ゲガルクニク地方
+    ka: გეღარქუნიქის პროვინცია
+    kn: ಜಿಘಾರ್ಕುನಿಕ್ ಪ್ರಾಂತ್ಯ
+    ko: 게가르쿠니크 주
+    lt: Gegarkuniko sritis
+    mn: Гехаркуник аймаг
+    mr: गेघरक्युनिक प्रांत
+    ms: Gegharkunik
+    nb: Gegharkunik
+    ne: गेघार्कुनिक प्रान्त
+    nl: Gegharkoenik
+    pl: Prowincja Gegharkunik
+    pt: Gegharkunik
+    ro: Provincia Gegharkunik
+    ru: Гехаркуникская область
+    si: ගෙග්හාකුනික් පළාත
+    sr: Гехаркуник
+    sv: Gegharkunik
+    ta: கேகார்குனிக் மாகாணம்
+    te: గెగార్కునిక్ ప్రావిన్స్
+    th: จังหวัดเกการ์คูนิค
+    tk: Geharkunik
+    tr: Geğarkunik
+    uk: Ґегаркунік
+    ur: گیغارکونیک صوبہ
+    vi: Gegharkunik
+    lv: Gegarkunikas reģions
+    cy: Gegharkunik
+    ceb: Geghark’unik’i Marz
+    sr_Latn: Geharkunik
+    zh: 格加爾庫尼克省
+    ccp: "𑄎𑄨𑄊𑄧𑄢𑄴𑄇𑄪𑄚𑄨𑄇𑄴"
+    eu: Gegharkunik
+    ca: Província de Gegharkunik
+    bs: Geharkunik
+    mk: Гехаркуник
+    'no': Gegharkunik
+    he: מחוז גגהרקוניק
+    ml: ഗെഘാർകുനിക്
+    yue: 格加古力省
+    yue_Hans: 格加古力省
+  type: region
+KT:
+  name: Kotayk'
+  code: KT
+  unofficial_names:
+  - Kotaik
+  geo:
+    latitude: 40.4277896
+    longitude: 44.6641741
+    min_latitude: 40.0972899
+    min_longitude: 44.398311
+    max_latitude: 40.71982999999999
+    max_longitude: 45.043105
+  translations:
+    en: Kotayk
+    ar: محافظة كوتايك
+    az: Kotayk mərzi
+    be: Марз Катайк
+    bg: Котайк
+    bn: কোতায়েক অঞ্চল
+    cs: Kotajk
+    da: Kotayk Region
+    de: Region Kotajk
+    el: Κόταγικ
+    es: Kotayk’
+    et: Kotajkhi maakond
+    fa: استان کوتایک
+    fi: Kotajk’
+    fr: Kotayk
+    gu: કોટાક પ્રાંત
+    hi: कोटायक प्रांत
+    hr: Kotajk
+    hu: Kotajk tartomány
+    hy: Կոտայքի մարզ
+    id: Kotayk
+    it: provincia di Kotayk’
+    ja: コタイク地方
+    ka: კოტაიქის პროვინცია
+    kn: ಕೋಟ್ಯಾಕ್ ಪ್ರದೇಶ
+    ko: 코타이크 주
+    lt: Kotaiko sritis
+    mn: Котайк аймаг
+    mr: कोतक प्रदेश
+    ms: Kotayk
+    nb: Kotajk
+    ne: कोटायक प्रान्त
+    nl: Kotayk
+    pl: Prowincja Kotajk
+    pt: Kotayk
+    ro: Provincia Kotayk
+    ru: Котайкская область
+    si: කොටයික් කලාපය
+    sr: Котајк
+    sv: Kotajk
+    ta: கொடய்க் பகுதி
+    te: కోటేక్
+    th: จังหวัดโคเทก
+    tk: Kotaýk
+    tr: Kotayk
+    uk: Котайк
+    ur: کوتایک صوبہ
+    vi: Kotayk
+    lv: Kotaikas reģions
+    ceb: Kotayk’i Marz
+    sr_Latn: Kotajk
+    zh: 科泰克省
+    ccp: "𑄇𑄧𑄑𑄭𑄇𑄴"
+    eu: Kotaik
+    pa: ਕੋਟਾਇਕ
+    ca: Regió de Kotayk
+    bs: Kotajk
+    mk: Котајк
+    'no': Kotajk
+    he: מחוז קוטאיק
+    ml: കോട്ടയ്ക് പ്രവിശ്യ
+    yue: 戈泰克省
+    yue_Hans: 戈泰克省
+  type: region
+LO:
+  name: Lory
+  code: LO
+  unofficial_names:
+  - Lorri
+  geo:
+    latitude: 40.969845
+    longitude: 44.490014
+    min_latitude: 40.668043
+    min_longitude: 44.016761
+    max_latitude: 41.299259
+    max_longitude: 44.960212
+  translations:
+    en: Lori
+    ar: محافظة لوري
+    az: Loru mahalı
+    be: Марз Лары
+    bg: Лори
+    bn: লরি অঞ্চল
+    ca: Lori
+    da: Lori Region
+    de: Lori
+    el: Λόρι
+    es: Lorri
+    et: Lori maakond
+    fa: استان لوری
+    fi: Lorri
+    fr: Lorri
+    gu: લોરી પ્રદેશ
+    hi: लोरी प्रांत
+    hr: Lori
+    hu: Lorj tartomány
+    hy: Լոռու մարզ
+    id: Lori
+    it: Lori
+    ja: ロリ地方
+    ka: ლორეს პროვინცია
+    kn: ಲೋರಿ ಪ್ರದೇಶ
+    ko: 로리 주
+    lt: Lorio sritis
+    mn: Лори аймаг
+    mr: लोरी प्रदेश
+    ms: Lorri
+    nb: Lori
+    ne: लोरी प्रान्त
+    nl: Lori
+    pl: Prowincja Lori
+    pt: Lorri
+    ro: Provincia Lori
+    ru: Лорийская область
+    si: ලොරි කලාපය
+    sr: Лори
+    sv: Lorri
+    ta: லோரி மாகாணம்
+    te: లోరి ప్రాంతం
+    th: จังหวัดโลรี
+    tk: Lori
+    tr: Lori
+    uk: Лорі
+    ur: لوری صوبہ
+    vi: Lori
+    lv: Lori reģions
+    ceb: Lorru Marz
+    sr_Latn: Lori
+    zh: 洛里省
+    ccp: "𑄣𑄧𑄢𑄨"
+    eu: Lori
+    pa: ਲੋਰੀ ਪ੍ਰਾਂਤ
+    cs: Lorri
+    bs: Lori
+    mk: Лори
+    'no': Lori
+    ml: ലോറി പ്രവിശ്യ
+    yue: 羅里省
+    yue_Hans: 罗里省
+  type: region
+SH:
+  name: Širak
+  code: SH
+  unofficial_names:
+  - Širak
+  geo:
+    latitude: 40.9630814
+    longitude: 43.8102461
+    min_latitude: 40.439465
+    min_longitude: 43.4497797
+    max_latitude: 41.1808931
+    max_longitude: 44.2037191
+  translations:
+    en: Shirak
+    ar: محافظة شيراك
+    az: Amasiya
+    be: Марз Шырак
+    bg: Ширак
+    bn: শিরাক অঞ্চল
+    ca: Xirak
+    cs: Širak
+    da: Shirak Region
+    de: Schirak
+    el: Σιράκ
+    es: Shirak
+    et: Širaki maakond
+    fa: استان شیراک
+    fi: Širak
+    fr: Shirak
+    gu: શિરક પ્રદેશ
+    hi: शिराक प्रांत
+    hr: Širak
+    hu: Sirak tartomány
+    hy: Շիրակի մարզ
+    id: Shirak
+    it: provincia di Shirak
+    ja: シラク地方
+    ka: შირაკის პროვინცია
+    kn: ಶಿರಾಕ್ ಪ್ರದೇಶ
+    ko: 시라크 주
+    lt: Širako sritis
+    mn: Ширак аймаг
+    mr: शिरक प्रदेश
+    ms: Shirak
+    nb: Sjirak
+    ne: शिराक प्रान्त
+    nl: Sjirak
+    pl: Prowincja Szirak
+    pt: Shirak
+    ro: Provincia Shirak
+    ru: Ширакская область
+    si: ශිරක් කලාපය
+    sr: Ширак
+    sv: Sjirak
+    ta: ஷிர்க் பகுதி
+    te: షిరాక్ ప్రాంతం
+    th: เขตเฟอร์กานา
+    tk: Şyrak
+    tr: Şirak İdari Bölgesi
+    uk: Ширак
+    ur: شیراک صوبہ
+    vi: Shirak
+    lv: Širakas reģions
+    ceb: Shiraki Marz
+    sr_Latn: Širak
+    zh: 希拉克省
+    ccp: "𑄥𑄨𑄢𑄇𑄴"
+    eu: Xirak
+    pa: ਸ਼ਿਰਾਕ
+    bs: Širak
+    mk: Ширак
+    'no': Sjirak
+    ml: ഷിറാക്ക് പ്രവിശ്യ
+    yue: 斯拉克省
+    yue_Hans: 斯拉克省
+  type: region
+SU:
+  name: Syunik'
+  code: SU
+  unofficial_names:
+  - Syunik'
+  geo:
+    latitude: 39.3194392
+    longitude: 46.14609189999999
+    min_latitude: 38.830521
+    min_longitude: 45.70893909999999
+    max_latitude: 39.854328
+    max_longitude: 46.630035
+  translations:
+    en: Syunik
+    ar: محافظة سيونيك
+    az: Sünik
+    be: Марз Сюнік
+    bg: Сюник
+    bn: সায়ুনিক প্রদেশ
+    ca: Siunia
+    cs: Sjunik
+    da: Syunik Province
+    de: Sjunik
+    el: Σγιούνικ
+    es: Syunik’
+    et: Sjunikhi maakond
+    fa: استان سیونیک
+    fi: Sjunik’
+    fr: Syunik
+    gu: સ્યુનિક પ્રાંત
+    hi: स्युनिक प्रांत
+    hr: Sjunik
+    hu: Szjounik tartomány
+    hy: Սյունիքի մարզ
+    id: Syunik
+    it: Syunik
+    ja: シュニク地方
+    ka: სიუნიქის პროვინცია
+    kn: ಸೈನಿಕ್ ಪ್ರಾಂತ್ಯ
+    ko: 슈니크 주
+    lt: Siuniko sritis
+    mn: Сюник аймаг
+    mr: स्युनिक प्रांत
+    ms: Wilayah Syunik
+    nb: Syunik
+    ne: स्युनिक प्रान्त
+    nl: Sjoenik
+    pl: Prowincja Sjunik
+    pt: Syunik
+    ro: Provincia Syunik
+    ru: Сюникская область
+    si: සයුනික් පළාත
+    sl: Sjunik
+    sr: Сјуник
+    sv: Siunik
+    ta: சுயூனிக் மாகாணம்
+    te: సైయూనిక్ ప్రావిన్స్
+    th: จังหวัดซูย์นิค
+    tk: Sünik
+    tr: Syunik ili
+    uk: Сюнік
+    ur: سیونیک صوبہ
+    vi: Syunik
+    lv: Sjunikas reģions
+    cy: Syunik
+    ceb: Syunik’i Marz
+    sr_Latn: Sjunik
+    zh: 休尼克省
+    ccp: "𑄥𑄭𑄠𑄪𑄚𑄨𑄇𑄴"
+    eu: Siunik
+    bs: Sjunik
+    mk: Сјуник
+    'no': Syunik
+    ml: സ്യൂനിക് പ്രവിശ്യ
+    yue: 蕭力省
+    yue_Hans: 萧力省
+  type: region
+TV:
+  name: Tavuš
+  code: TV
+  unofficial_names:
+  - Tavoush
+  geo:
+    latitude: 40.8866296
+    longitude: 45.339349
+    min_latitude: 40.648954
+    min_longitude: 44.766082
+    max_latitude: 41.3018379
+    max_longitude: 45.5956799
+  translations:
+    en: Tavush
+    ar: محافظة تاووش
+    az: Tavuş
+    be: Марз Тавуш
+    bg: Тавуш
+    bn: তাবুশ অঞ্চল
+    ca: Tavush
+    cs: Tavuš
+    da: Tavush Region
+    de: Tawusch
+    el: Ταβούς
+    es: Tavush
+    et: Tavuši maakond
+    fa: استان تاووش
+    fi: Tavuš
+    fr: Tavush
+    gu: તાવુશ પ્રદેશ
+    hi: तावूश
+    hr: Tavuš
+    hu: Tavous tartomány
+    hy: Տավուշի մարզ
+    id: Provinsi Tavush
+    it: provincia di Tavowš
+    ja: タヴシュ地方
+    ka: ტავუშის პროვინცია
+    kn: ತವಷ್ ಪ್ರದೇಶ
+    ko: 타부시 주
+    lt: Tavušo sritis
+    mn: Тавуш аймаг
+    mr: तावश प्रदेश
+    ms: Wilayah Tavush
+    nb: Tavusj
+    ne: तावूश प्रान्त
+    nl: Tavoesj
+    pl: Prowincja Tawusz
+    pt: Tavush
+    ro: Provincia Tavuș
+    ru: Тавушская область
+    si: ටවුෂ් කලාපය
+    sr: Тавуш
+    sv: Tavusj
+    ta: தாவுஸ் பகுதி
+    te: టావుష్ ప్రాంతం
+    th: ทาวุช
+    tk: Tawuş
+    tr: Tavuş
+    uk: Тавуш
+    ur: تاووش صوبہ
+    vi: Tavush
+    lv: Tavušas reģions
+    ceb: Tavushi Marz
+    sr_Latn: Tavuš
+    zh: 塔武什省
+    ccp: "𑄑𑄞𑄪𑄌𑄴"
+    eu: Tavux
+    pa: ਤਵੂਸ਼
+    bs: Tavuš
+    mk: Тавуш
+    'no': Tavusj
+    ml: താവുഷ് പ്രവിശ്യ
+    yue: 塔武殊省
+    yue_Hans: 塔武殊省
+  type: region
+VD:
+  name: Vayoc Jor
+  code: VD
+  unofficial_names:
+  - Vayoc Jor
+  geo:
+    latitude: 39.8107912
+    longitude: 45.4967174
+    min_latitude: 39.502243
+    min_longitude: 45.066502
+    max_latitude: 40.01380899999999
+    max_longitude: 45.825905
+  translations:
+    en: Vayots Dzor
+    ar: محافظة وايوتس‌جور
+    az: Dərələyəz mahalı
+    be: Марз Ваёц-Дзор
+    bg: Вайоц Дзор
+    bn: ভায়োত জুর অঞ্চল
+    ca: Vaiots Tzor
+    cs: Vajoc Dzor
+    da: Vayots Dzor Region
+    de: Wajoz Dsor
+    el: Βάγιοτς Ντζορ
+    es: Vayots’ Dzor
+    et: Vajotsh Dzori maakond
+    fa: استان وایوتس‌جور
+    fi: Vajots’ Dzor
+    fr: Vayots Dzor
+    gu: વેયોઝ ડીઝોર પ્રદેશ
+    hi: वायोत्स द्ज़ोर
+    hr: Vajots Dzor
+    hu: Vajoc Dzor tartomány
+    hy: Վայոց ձորի մարզ
+    id: Provinsi Vayots Dzor
+    it: Vayots Dzor
+    ja: ヴァヨツ・ゾル地方
+    ka: ვაიოცძორის პროვინცია
+    kn: ವಾಯೋಟ್ಸ್ ಡಿಜೋರ್ ಪ್ರದೇಶ
+    ko: 바요츠조르 주
+    lt: Vajocdzoro sritis
+    mn: Вайоцзор аймаг
+    mr: वायोट्स डोजोर प्रदेश
+    ms: Wilayah Vayots Dzor
+    nb: Vajots Dzor
+    ne: वायोत्स द्ज़ोर प्रान्त
+    nl: Vayots Dzor
+    pl: Prowincja Wajoc Dzor
+    pt: Vayots Dzor
+    ro: Provincia Vayots Dzor
+    ru: Вайоцдзорская область
+    si: වයෝට්ස් ඩිසොර් කලාපය
+    sr: Вајоц Џор
+    sv: Vajots Dzor
+    ta: வயோட்ஸ் டஸ்வ்ர் பகுதி
+    te: వాయోట్స్ డిజోర్ ప్రాంతం
+    th: วายท ดซอส
+    tk: Waýotsdzor
+    tr: Vayots Dzor
+    uk: Вайоц-Дзор
+    ur: وایوتس جور صوبہ
+    vi: Vayots Dzor
+    lv: Vajotdzoras reģions
+    cy: Vayots Dzor
+    ceb: Vayots’ Dzori Marz
+    sr_Latn: Vajoc Džor
+    zh: 瓦約茨佐爾省
+    ccp: "𑄞𑄧𑄠𑄮𑄖𑄴𑄥𑄴 𑄘𑄮𑄢𑄴"
+    eu: Vajots Dzor
+    pa: ਵਾਇਓਤ ਜੋਰ ਸੂਬਾ
+    bs: Vajots Dzor
+    mk: Вајоц Ѕор
+    'no': Vajots Dzor
+    ml: വയോത്സ് ഡ്സോർ പ്രവിശ്യ
+    yue: 華約茨佐省
+    yue_Hans: 华约茨佐省
+  type: region
