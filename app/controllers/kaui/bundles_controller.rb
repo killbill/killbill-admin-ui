@@ -150,7 +150,7 @@ module Kaui
       else
         []
       end
-    rescue StandardError
+    rescue KillBillClient::API::NotFound
       []
     end
   end
