@@ -26,11 +26,11 @@
           <% @bundles.each_with_index do |bundle, idx| %>
             <div class="row">
               <div class="d-flex">
-                <%= render :partial => Kaui.bundle_details_partial, :locals => { :bundle => bundle, :account => @account, :catalog => @catalog } %>
+                <%= render :partial => Kaui.bundle_details_partial, :locals => { :bundle => bundle, :account => @account, :catalog => @catalogs&.last } %>
               </div>
               <% if bundle.subscriptions.present? %>
                   <div class="search">
-                    <%= render :partial => 'kaui/subscriptions/subscriptions_table', :locals => {:bundle => bundle, :account => @account, :catalog => @catalog} %>
+                    <%= render :partial => 'kaui/subscriptions/subscriptions_table', :locals => {:bundle => bundle, :account => @account, :catalogs => @catalogs} %>
                   </div>
               <% end %>
             </div>

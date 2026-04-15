@@ -46,8 +46,15 @@ module Kaui
       @available_tags = wait(fetch_available_tags)
       @available_subscription_tags = wait(fetch_available_subscription_tags)
 
-      # Don't load the full catalog to avoid memory issues
-      @catalog = nil
+      # Collect the distinct start dates from subscriptions on this page, then fetch
+      # only the catalog versions needed — one per unique date — to avoid loading all
+      # historical versions into memory.
+      start_dates = @bundles.flat_map(&:subscriptions).filter_map(&:start_date).uniq
+      @catalogs = start_dates.filter_map do |date|
+        Kaui::Catalog.get_account_catalog_json(@account.account_id, date, cached_options_for_klient)&.last
+      rescue StandardError
+        nil
+      end.uniq(&:effective_date)
 
       @subscription = {}
       @bundles.each do |bundle|

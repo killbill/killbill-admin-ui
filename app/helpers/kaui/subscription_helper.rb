@@ -107,6 +107,24 @@ module Kaui
       end
     end
 
+    def catalog_for_subscription(sub, catalogs)
+      return nil if catalogs.blank? || sub&.start_date.blank?
+
+      start_date = Date.parse(sub.start_date)
+
+      # Find the latest catalog version whose effective_date <= subscription start_date
+      best = catalogs.select do |c|
+        Date.parse(c.effective_date) <= start_date
+      rescue StandardError
+        false
+      end.max_by(&:effective_date)
+
+      # Fall back to the oldest version if none precedes the start_date
+      best || catalogs.first
+    rescue StandardError
+      catalogs.last
+    end
+
     def humanized_subscription_phase_type(sub)
       sub.phase_type
     end

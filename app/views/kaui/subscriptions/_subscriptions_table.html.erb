@@ -104,7 +104,7 @@
             </div>
           </td>
         <% end %>
-        <td><%= humanized_subscription_plan_or_product_name(sub, catalog) %></td>
+        <td><%= humanized_subscription_plan_or_product_name(sub, catalog_for_subscription(sub, catalogs)) %></td>
         <td>
           <span id="<%= sub.subscription_id %>-popover" class="object-id-popover category-bedge" data-id="<%= sub.subscription_id %>">
             <%= humanized_subscription_product_category(sub) %>
