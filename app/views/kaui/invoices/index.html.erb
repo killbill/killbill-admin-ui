@@ -41,7 +41,16 @@
 
 <%= javascript_tag do %>
 $(document).ready(function() {
-  var stateKey = 'DataTables_invoices-table';
+  // Dynamically find the Invoice date column index based on current header order
+  var invoiceDateColIndex = 3; // fallback default
+  $('#invoices-table thead th').each(function(i) {
+    if ($(this).find('.header-text').text().trim().toLowerCase() === 'invoice date') {
+      invoiceDateColIndex = i;
+      return false;
+    }
+  });
+
+  var stateKey = 'DataTables_invoices-table_' + window.location.pathname.replace(/\//g, '_');
   var state = JSON.parse(localStorage.getItem(stateKey));
   if (state) {
     state.start = <%= @offset %>;
@@ -69,11 +78,8 @@ $(document).ready(function() {
     },
     "pageLength": <%= @limit %>,
     "displayStart": <%= @offset %>,
-    <% if @search_query.blank? %>
-        "ordering": true,
-    <% elsif !@ordering.blank? %>
-        "order": [[ 0, "<%= @ordering %>" ]],
-    <% end %>
+    "ordering": true,
+    "order": [[ invoiceDateColIndex, "asc" ]],
     "processing": true,
     "serverSide": true,
     "search": {"search": "<%= @search_query %>"},
@@ -97,8 +103,8 @@ $(document).ready(function() {
   });
 
   // Custom sorting functionality
-  var currentSortColumn = -1;
-  var currentSortDirection = 'asc';
+  var currentSortColumn = invoiceDateColIndex;
+  var currentSortDirection = 'desc';
 
   // Handle custom header clicks
   $('.sortable-header').on('click', function() {
@@ -134,9 +140,7 @@ $(document).ready(function() {
 
   // Initialize sort indicators based on current state
   <% if !@ordering.blank? %>
-    var initialColumn = 0;
-    var initialDirection = "<%= @ordering %>";
-    updateSortIndicators(initialColumn, initialDirection);
+    updateSortIndicators(invoiceDateColIndex, 'desc');
   <% end %>
 
   // Add an action whenever the page changes

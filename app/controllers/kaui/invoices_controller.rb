@@ -6,7 +6,7 @@ module Kaui
     def index
       @search_query = params[:account_id]
       @advance_search_query = params[:q] || request.query_string
-      @ordering = params[:ordering] || (@search_query.blank? ? 'desc' : 'asc')
+      @ordering = params[:ordering] || 'desc'
       @offset = params[:offset] || 0
       @limit = params[:limit] || 50
       @search_fields = Kaui::Invoice::ADVANCED_SEARCH_COLUMNS.map { |attr| [attr, attr.split('_').join(' ').capitalize] }

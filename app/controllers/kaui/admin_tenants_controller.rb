@@ -288,7 +288,15 @@ module Kaui
       options = tenant_options_for_client
       options[:api_key] = @tenant.api_key
       options[:api_secret] = @tenant.api_secret
-      @overdue = Kaui::Overdue.get_overdue_json(options)
+      begin
+        @overdue = Kaui::Overdue.get_overdue_json(options)
+        @overdue_corrupted = false
+      rescue StandardError => e
+        Rails.logger.warn("Failed to load overdue configuration for tenant #{@tenant.id}: #{e.class}: #{e.message}")
+        @overdue = KillBillClient::Model::Overdue.new.tap { |o| o.overdue_states = [] }
+        @overdue_corrupted = true
+        flash.now[:warning] = 'The existing overdue configuration is corrupted and cannot be loaded. Use the XML upload below to replace it with a valid configuration.'
+      end
     end
 
     def modify_overdue_config

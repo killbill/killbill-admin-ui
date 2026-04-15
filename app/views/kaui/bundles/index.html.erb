@@ -1,5 +1,6 @@
 <div class="kaui-container subscription-bundl-index pb-5">
   <%= render "kaui/components/breadcrumb/breadcrumb" %>
+  <%= render :partial => 'bundle_filterbar' %>
   <div class="d-flex mb-5" style="gap: 4rem;">
     <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
     <div class="subscription-bundle">
@@ -8,7 +9,20 @@
           <div class="d-flex align-items-center">
           <h2>Subscription Bundles</h2>
           </div>
-          <span>
+          <span class="d-flex align-items-center gap-2">
+            <%= render "kaui/components/button/button", {
+                  label: "Advance Search",
+                  icon: "kaui/search.svg",
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-button custom-hover",
+                  html_options: {
+                    data: {
+                      bs_toggle: "modal",
+                      bs_target: "#advanceSearchModal"
+                    }
+                  }
+                } %>
             <% if can? :create, Kaui::Subscription %>
               <%= link_to kaui_engine.new_subscription_path(:params => { :account_id => @account.account_id, :product_category => 'BASE' }) do %>
                 <%= render "kaui/components/button/button", {
@@ -21,6 +35,9 @@
               <% end %>
             <% end %>
           </span>
+        </div>
+        <div id="search-labels-container" class="ml-2 mb-2">
+          <!-- Dynamic search labels will be added here -->
         </div>
         <div class="subscriptions-scroll">
           <% @bundles.each_with_index do |bundle, idx| %>
@@ -37,6 +54,13 @@
           <% end %>
 
           
+          <% if @bundles.empty? %>
+            <div class="custom-alert custom-alert-info mt-3">
+              <span>No bundles found<%= @search_query.present? ? " for the given search query." : "." %></span>
+            </div>
+          <% end %>
+
+          <% unless @search_query.present? %>
           <div class="text-right d-flex justify-content-end pagination" style="">
             <%= link_to account_bundles_path(page: @page - 1), class: "btn btn-custom #{'disabled' if @page == 1}" do %>
               <%= render "kaui/components/button/button", {
@@ -81,6 +105,7 @@
                   } %>
             <% end %>
           </div>
+          <% end %>
         </div>
       </div>
     </div>

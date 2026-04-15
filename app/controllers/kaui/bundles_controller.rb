@@ -5,10 +5,11 @@ module Kaui
     # rubocop:disable Lint/HashCompareByIdentity
     def index
       cached_options_for_klient = options_for_klient
+      @search_query = params[:q].presence
+      @search_by = params[:search_by] || 'bundle_id'
       @per_page = (params[:per_page] || 10).to_i
       @page = (params[:page] || 1).to_i
 
-      fetch_bundles = promise { Kaui::Account.paginated_bundles(@account.account_id, (@page - 1) * @per_page, @per_page, 'NONE', cached_options_for_klient) }
       fetch_bundle_tags = promise do
         all_bundle_tags = @account.all_tags(:BUNDLE, false, 'NONE', cached_options_for_klient)
         all_bundle_tags.each_with_object({}) do |entry, hsh|
@@ -36,8 +37,15 @@ module Kaui
       fetch_available_tags = promise { Kaui::TagDefinition.all_for_bundle(cached_options_for_klient) }
       fetch_available_subscription_tags = promise { Kaui::TagDefinition.all_for_subscription(cached_options_for_klient) }
 
-      @bundles = wait(fetch_bundles)
-      @total_pages = (@bundles.pagination_max_nb_records.to_f / @per_page).ceil
+      if @search_query.present?
+        @bundles = search_bundles(@search_query, @search_by, cached_options_for_klient)
+        @total_pages = 1
+        @page = 1
+      else
+        fetched = Kaui::Account.paginated_bundles(@account.account_id, (@page - 1) * @per_page, @per_page, 'NONE', cached_options_for_klient)
+        @bundles = fetched
+        @total_pages = (fetched.pagination_max_nb_records.to_f / @per_page).ceil
+      end
 
       @tags_per_bundle = wait(fetch_bundle_tags)
       @tags_per_subscription = wait(fetch_subscription_tags)
@@ -118,6 +126,39 @@ module Kaui
                'updated'
              end
       redirect_to kaui_engine.account_bundles_path(@account.account_id), notice: msg
+    end
+
+    private
+
+    def search_bundles(query, search_by, options)
+      case search_by
+      when 'bundle_id'
+        bundle = Kaui::Bundle.find_by_id(query, options)
+        bundle ? [bundle] : []
+      when 'bundle_external_key'
+        bundle = Kaui::Bundle.find_by_external_key(query, false, options)
+        bundle ? [bundle] : []
+      when 'subscription_id'
+        subscription = KillBillClient::Model::Subscription.find_by_id(query, 'NONE', options)
+        if subscription
+          bundle = Kaui::Bundle.find_by_id(subscription.bundle_id, options)
+          bundle ? [bundle] : []
+        else
+          []
+        end
+      when 'subscription_external_key'
+        subscription = KillBillClient::Model::Subscription.find_by_external_key(query, 'NONE', options)
+        if subscription
+          bundle = Kaui::Bundle.find_by_id(subscription.bundle_id, options)
+          bundle ? [bundle] : []
+        else
+          []
+        end
+      else
+        []
+      end
+    rescue KillBillClient::API::NotFound
+      []
     end
   end
 end
