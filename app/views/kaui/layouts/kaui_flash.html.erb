@@ -12,28 +12,7 @@
       </div>
     </div>
   <% end %>
-<% end %> 
-
-
-<% if defined?(@account)  %>
-<% if @account.errors.any? %>
-  <div class="server-alert kaui-container centered-absolute">
-    <h3 class="error-title">The following errors prevented the account from being created:</h3>
-    <div class="custom-alert custom-alert-danger">
-      <i class="bi bi-exclamation-triangle-fill"></i>
-      <ul>
-        <% @account.errors.values.flatten.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
 <% end %>
-<% end %>
-
-
-
-
 
 <% if flash[:warning] %>
   <div id="flash-warning" class="server-alert kaui-container centered-absolute">
@@ -89,21 +68,21 @@
       $('#flash-notice').fadeOut(500);
     }, 3000);
   });
-  
+
   // Function to close flash messages
   function closeFlashMessage(type) {
     $('#flash-' + type).fadeOut(500);
   }
-  
+
   // Function to show ajax info alert with auto-hide
   function ajaxInfo(message, timeout) {
     if (typeof timeout === 'undefined') {
       timeout = 3000; // Default to 3 seconds
     }
-    
+
     $('#ajaxInfoAlertMessage').text(message);
     $('#ajaxInfoAlert').fadeIn(300);
-    
+
     // Auto-hide after specified timeout
     setTimeout(function() {
       $('#ajaxInfoAlert').fadeOut(500);

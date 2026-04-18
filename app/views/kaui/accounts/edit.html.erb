@@ -1,6 +1,15 @@
 <div class="register kaui-new-account">
     <div class="">
         <div class="mx-auto" style="max-width: 37.5rem;">
+            <% if @account.errors.any? %>
+              <div class="custom-alert custom-alert-danger mb-3">
+                <ul class="mb-0">
+                  <% @account.errors.each do |error| %>
+                    <li><%= error.message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
             <h5 class="add-account-title">
             <span class="icon-container">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1293,7 +1293,6 @@ table thead th:last-child {
   align-items: center;
   gap: 0.625rem;
   padding: 0.875rem 1.125rem;
-  margin: 0.625rem 0;
   border-radius: 0.375rem;
   font-size: 0.9375rem;
   font-weight: 500;
@@ -1465,6 +1464,10 @@ table thead th:last-child {
   transform: translateX(-50%);
   z-index: 1050;
   width: 100%;
+}
+
+.field_with_errors {
+  display: contents;
 }
 
 /* Navbar color changes - Higher specificity to override existing rules */
