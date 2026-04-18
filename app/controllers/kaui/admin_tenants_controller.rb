@@ -306,12 +306,16 @@ module Kaui
       options[:api_key] = current_tenant.api_key
       options[:api_secret] = current_tenant.api_secret
 
-      view_form_model = params.require(:kill_bill_client_model_overdue).permit!.to_h.compact_blank
+      view_form_model = params[:kill_bill_client_model_overdue]&.permit!&.to_h&.compact_blank || {}
       view_form_model['states'] = view_form_model['states'].values if view_form_model['states'].present?
-
-      overdue = Kaui::Overdue.from_overdue_form_model(view_form_model)
-      Kaui::Overdue.upload_tenant_overdue_config_json(overdue.to_json, options[:username], nil, comment, options)
-      redirect_to admin_tenant_path(current_tenant.id, active_tab: 'OverdueShow'), notice: I18n.t('flashes.notices.overdue_added_successfully')
+      if view_form_model['states'].blank?
+        Kaui::AdminTenant.delete_tenant_user_key_value('OVERDUE_CONFIG', options[:username], nil, comment, options)
+        redirect_to admin_tenant_path(current_tenant.id, active_tab: 'OverdueShow'), notice: I18n.t('flashes.notices.overdue_updated_successfully')
+      else
+        overdue = Kaui::Overdue.from_overdue_form_model(view_form_model)
+        Kaui::Overdue.upload_tenant_overdue_config_json(overdue.to_json, options[:username], nil, comment, options)
+        redirect_to admin_tenant_path(current_tenant.id, active_tab: 'OverdueShow'), notice: I18n.t('flashes.notices.overdue_added_successfully')
+      end
     end
 
     def upload_overdue_config
