@@ -92,6 +92,15 @@
 
 <%= javascript_tag do %>
 $(document).ready(function() {
+  // Restore advanced search from localStorage if no search params in current URL (global /invoices page only)
+  if (!window.location.search.includes('_q=1') && !window.location.pathname.includes('/accounts/')) {
+    var savedSearch = localStorage.getItem('kaui_adv_search_' + window.location.pathname);
+    if (savedSearch) {
+      window.location.replace(window.location.pathname + '?' + savedSearch);
+      return;
+    }
+  }
+
   populateSearchLabelsFromUrl();
   var dateFields = ['Invoice date', 'Target date'];
   // Handle the "Add" button click to add new search fields
@@ -136,6 +145,9 @@ $(document).ready(function() {
       searchParams = searchParams.replace(/account_id/g, 'ac_id');
       var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + searchParams;
       window.history.pushState({ path: newUrl }, '', newUrl);
+      if (!window.location.pathname.includes('/accounts/')) {
+        localStorage.setItem('kaui_adv_search_' + window.location.pathname, searchParams);
+      }
     }
 
     searchFields.each(function() {

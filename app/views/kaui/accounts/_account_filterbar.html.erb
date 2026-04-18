@@ -80,6 +80,15 @@
 
 <%= javascript_tag do %>
 $(document).ready(function() {
+  // Restore advanced search from localStorage if no search params in current URL
+  if (!window.location.search.includes('_q=1')) {
+    var savedSearch = localStorage.getItem('kaui_adv_search_' + window.location.pathname);
+    if (savedSearch) {
+      window.location.replace(window.location.pathname + '?' + savedSearch);
+      return;
+    }
+  }
+
   populateSearchLabelsFromUrl();
   var dateFields = ['Created date', 'Updated date', 'Reference time'];
   // Handle the "Add" button click to add new search fields
@@ -128,6 +137,7 @@ $(document).ready(function() {
       searchParams = searchParams.replace(/account_id/g, 'ac_id');
       var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + searchParams;
       window.history.pushState({ path: newUrl }, '', newUrl);
+      localStorage.setItem('kaui_adv_search_' + window.location.pathname, searchParams);
     }
 
     searchFields.each(function() {

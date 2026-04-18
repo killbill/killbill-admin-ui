@@ -117,6 +117,18 @@ $(document).ready(function() {
     "search": {"search": "<%= @search_query %>"},
   });
 
+  // If the page loaded with advanced search params in the URL (e.g. restored from
+  // localStorage) but @advance_search_query was not set server-side, re-fire the
+  // DataTable request with the correct filters.
+  if (window.location.search.includes('_q=1') && '<%= @advance_search_query.to_s.strip %>' === '' && !window.location.pathname.includes('/accounts/')) {
+    var urlSearch = window.location.search.substring(1).replace(/ac_id/g, 'account_id');
+    var ajaxUrl = "<%= payments_pagination_path(:ordering => @ordering, :format => :json) %>" + '?' + urlSearch;
+    table.on('preXhr.dt.filter', function(e, settings, data) {
+      data.search.value = urlSearch;
+    });
+    table.ajax.url(ajaxUrl).load();
+  }
+
   // Custom sorting functionality
   var currentSortColumn = -1;
   var currentSortDirection = 'asc';

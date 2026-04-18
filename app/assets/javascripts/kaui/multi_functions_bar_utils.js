@@ -141,6 +141,9 @@ function clearAdvanceSearch() {
   // Remove all search labels
   $('#search-labels-container').empty();
 
+  // Clear persisted search for this page
+  localStorage.removeItem('kaui_adv_search_' + window.location.pathname);
+
   // Reload the page with the original URL (no parameters)
   window.location.href = window.location.pathname;
 
@@ -226,8 +229,10 @@ $(document).on('click', '.filter-close-icon', function() {
     var pushParams = (searchParams || '').replace(/account_id/g, 'ac_id');
     var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + pushParams;
     window.history.pushState({ path: newUrl }, '', newUrl);
+    localStorage.setItem('kaui_adv_search_' + window.location.pathname, searchParams);
   } else {
     var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
     window.history.pushState({ path: newUrl }, '', newUrl);
+    localStorage.removeItem('kaui_adv_search_' + window.location.pathname);
   }
 });
