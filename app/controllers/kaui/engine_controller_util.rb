@@ -37,8 +37,8 @@ module Kaui
     end
 
     def paginate(searcher, data_extractor, formatter, table_default_columns = [])
-      search_key = (params[:search] || {})[:value].presence
-      advance_search_query = params[:advance_search_query].presence
+      search_key = normalize_search_key((params[:search] || {})[:value]).presence
+      advance_search_query = normalize_search_key(params[:advance_search_query]).presence
 
       search_key = advance_search_query if advance_search_query
       search_key = handle_balance_search(search_key) if search_key.present?
@@ -81,6 +81,30 @@ module Kaui
 
       respond_to do |format|
         format.json { render json: }
+      end
+    end
+
+    def advanced_search_query?(search_key)
+      search_key.to_s.include?('_q')
+    end
+
+    def scalar_account_id_param
+      path_account_id = request.path_parameters[:account_id].presence
+      return path_account_id if path_account_id.present?
+
+      account_id = params[:account_id]
+      account_id if account_id.is_a?(String) || account_id.is_a?(Numeric)
+    end
+
+    def normalize_search_key(search_key)
+      return if search_key.blank?
+
+      if search_key.respond_to?(:to_unsafe_h)
+        search_key.to_unsafe_h.to_query
+      elsif search_key.is_a?(Hash)
+        search_key.to_query
+      else
+        search_key
       end
     end
 
