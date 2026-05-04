@@ -189,6 +189,7 @@ Kaui::Engine.routes.draw do
     delete '/:id/delete_catalog' => 'admin_tenants#delete_catalog', :as => 'admin_tenant_delete_catalog'
     get '/:id/new_plan_currency' => 'admin_tenants#new_plan_currency', :as => 'admin_tenant_new_plan_currency'
     get '/:id/new_overdue_config' => 'admin_tenants#new_overdue_config', :as => 'admin_tenant_new_overdue_config'
+    delete '/:id' => 'admin_tenants#delete_overdue_config', :as => 'admin_tenant_delete_overdue_config'
     post '/upload_catalog' => 'admin_tenants#upload_catalog', :as => 'admin_tenant_upload_catalog'
     post '/display_catalog_xml' => 'admin_tenants#display_catalog_xml', :as => 'admin_tenant_display_catalog_xml'
     post '/display_overdue_xml' => 'admin_tenants#display_overdue_xml', :as => 'admin_tenant_display_overdue_xml'
