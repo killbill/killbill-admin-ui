@@ -374,7 +374,7 @@ $(document).ready(function() {
     container.hide();
     
     populateSavedSearchesDropdown();
-    $('#advanceSearchModal').modal('hide');
+    $('#applyAdvanceSearch').trigger('click');
   });
 
   $(document).on('hidden.bs.modal', '#advanceSearchModal', function () {
