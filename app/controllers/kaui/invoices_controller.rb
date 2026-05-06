@@ -4,7 +4,7 @@ require 'csv'
 module Kaui
   class InvoicesController < Kaui::EngineController
     def index
-      @search_query = params[:account_id]
+      @search_query = scalar_account_id_param
       @advance_search_query = params[:q] || request.query_string
       @ordering = params[:ordering] || 'desc'
       @offset = params[:offset] || 0
@@ -15,7 +15,7 @@ module Kaui
     end
 
     def download
-      account_id = params[:account_id]
+      account_id = scalar_account_id_param
       start_date = params[:startDate]
       end_date = params[:endDate]
       all_fields_checked = params[:allFieldsChecked] == 'true'
@@ -60,7 +60,7 @@ module Kaui
 
       searcher = lambda do |search_key, offset, limit|
         account = begin
-          Kaui::Account.find_by_id_or_key(search_key, false, false, cached_options_for_klient)
+          Kaui::Account.find_by_id_or_key(search_key, false, false, cached_options_for_klient) unless advanced_search_query?(search_key)
         rescue StandardError
           nil
         end

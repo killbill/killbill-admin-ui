@@ -288,13 +288,19 @@ module Kaui
       options = tenant_options_for_client
       options[:api_key] = @tenant.api_key
       options[:api_secret] = @tenant.api_secret
+      @overdue_config_exists = false
       begin
         @overdue = Kaui::Overdue.get_overdue_json(options)
+        @overdue_corrupted = false
+        @overdue_config_exists = @overdue.overdue_states.present? && !@overdue.has_states
+      rescue KillBillClient::API::NotFound
+        @overdue = KillBillClient::Model::Overdue.new.tap { |o| o.overdue_states = [] }
         @overdue_corrupted = false
       rescue StandardError => e
         Rails.logger.warn("Failed to load overdue configuration for tenant #{@tenant.id}: #{e.class}: #{e.message}")
         @overdue = KillBillClient::Model::Overdue.new.tap { |o| o.overdue_states = [] }
         @overdue_corrupted = true
+        @overdue_config_exists = true
         flash.now[:warning] = 'The existing overdue configuration is corrupted and cannot be loaded. Use the XML upload below to replace it with a valid configuration.'
       end
     end
@@ -340,6 +346,24 @@ module Kaui
       Kaui::AdminTenant.upload_overdue_config(overdue_config_xml, options[:username], nil, comment, options)
 
       redirect_to admin_tenant_path(current_tenant.id, active_tab: 'OverdueShow'), notice: I18n.t('flashes.notices.overdue_uploaded_successfully')
+    end
+
+    def delete_overdue_config
+      current_tenant = safely_find_tenant_by_id(params[:id])
+
+      options = tenant_options_for_client
+      options[:api_key] = current_tenant.api_key
+      options[:api_secret] = current_tenant.api_secret
+
+      begin
+        Kaui::AdminTenant.delete_tenant_user_key_value('OVERDUE_CONFIG', options[:username], nil, comment, options)
+      rescue StandardError => e
+        flash[:error] = "Failed to delete overdue config: #{as_string(e)}"
+        redirect_to admin_tenant_new_overdue_config_path(id: current_tenant.id) and return
+      end
+
+      flash[:overdue_deleted] = true
+      redirect_to admin_tenant_path(current_tenant.id, active_tab: 'OverdueShow'), notice: I18n.t('flashes.notices.overdue_deleted_successfully')
     end
 
     def upload_invoice_template

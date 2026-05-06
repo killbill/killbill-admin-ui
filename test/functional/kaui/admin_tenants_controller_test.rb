@@ -210,6 +210,49 @@ module Kaui
       assert_response :success
     end
 
+    test 'should upload and delete overdue config' do
+      tenant = create_kaui_tenant
+
+      post :upload_overdue_config, params: { id: tenant.id, overdue: fixture_file_upload("#{FIXTURES_PATH}/overdue-v1.xml") }
+      assert_redirected_to admin_tenant_path(tenant.id, active_tab: 'OverdueShow')
+      assert_equal I18n.t('flashes.notices.overdue_uploaded_successfully'), flash[:notice]
+
+      delete :delete_overdue_config, params: { id: tenant.id }
+      assert_redirected_to admin_tenant_path(tenant.id, active_tab: 'OverdueShow')
+      assert_equal I18n.t('flashes.notices.overdue_deleted_successfully'), flash[:notice]
+    end
+
+    test 'should delete overdue config created via modify' do
+      tenant = create_kaui_tenant
+
+      parameters = {
+        id: tenant.id,
+        kill_bill_client_model_overdue: {
+          states: { '0' => {
+            name: 'Overdue_test',
+            external_message: 'Overdue_Test_Ya',
+            is_block_changes: true,
+            subscription_cancellation_policy: 'NONE',
+            condition: {
+              time_since_earliest_unpaid_invoice_equals_or_exceeds: 1,
+              control_tag_inclusion: 'NONE',
+              control_tag_exclusion: 'NONE',
+              number_of_unpaid_invoices_equals_or_exceeds: 0,
+              total_unpaid_invoice_balance_equals_or_exceeds: 0
+            }
+          } }
+        }
+      }
+
+      post :modify_overdue_config, params: parameters
+      assert_redirected_to admin_tenant_path(tenant.id, active_tab: 'OverdueShow')
+      assert_equal I18n.t('flashes.notices.overdue_added_successfully'), flash[:notice].to_s.strip
+
+      delete :delete_overdue_config, params: { id: tenant.id }
+      assert_redirected_to admin_tenant_path(tenant.id, active_tab: 'OverdueShow')
+      assert_equal I18n.t('flashes.notices.overdue_deleted_successfully'), flash[:notice]
+    end
+
     test 'should modify overdue config' do
       tenant = create_kaui_tenant
 

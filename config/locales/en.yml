@@ -51,6 +51,7 @@ en:
       overdue_uploaded_successfully: 'Overdue config was successfully uploaded'
       overdue_added_successfully: 'Overdue config was successfully added'
       overdue_updated_successfully: 'Overdue config was successfully updated'
+      overdue_deleted_successfully: 'Overdue config was successfully deleted'
       invoice_template_uploaded_successfully: 'Invoice template was successfully uploaded'
       invoice_translation_uploaded_successfully: 'Invoice translation was successfully uploaded'
       catalog_translation_uploaded_successfully: 'Catalog translation was successfully uploaded'
@@ -85,3 +86,4 @@ en:
 
   admin_tenants:
     clock_warning: "This action will affect all tenants across the system. Proceed with caution."
+    delete_overdue_config_confirmation: "This action is irreversible and will permanently delete the overdue configuration for this tenant. Are you sure you want to continue?"

@@ -26,7 +26,8 @@ module Kaui
     end
 
     def perform_redirect_after_error(error:, error_message:, redirect: true)
-      account_id = nested_hash_value(params.permit!.to_h, :account_id)
+      account_id = request.path_parameters[:account_id].presence || nested_hash_value(params.permit!.to_h, :account_id)
+      account_id = nil unless account_id.is_a?(String) || account_id.is_a?(Numeric)
       home_path = kaui_engine.home_path
       redirect_path = if redirect && account_id.present?
                         kaui_engine.account_path(account_id)

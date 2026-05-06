@@ -38,7 +38,8 @@ class Kaui::EngineController < ApplicationController
   end
 
   def populate_account_details
-    @account ||= params[:account_id].present? ? Kaui::Account.find_by_id(params[:account_id], false, false, options_for_klient) : Kaui::Account.new
+    account_id = scalar_account_id_param
+    @account ||= account_id.present? ? Kaui::Account.find_by_id(account_id, false, false, options_for_klient) : Kaui::Account.new
   end
 
   def retrieve_tenants_for_current_user
