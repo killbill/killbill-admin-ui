@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module Kaui
-  VERSION = '4.0.14'
+  VERSION = '4.0.15'
 end
