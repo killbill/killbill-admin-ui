@@ -1,0 +1,253 @@
+<% modal_class ||= "" %>
+<% search_fields ||= [] %>
+<% date_fields ||= [] %>
+<% number_fields ||= [] %>
+<% search_query ||= "" %>
+<% balance_notice ||= false %>
+
+<div class="modal fade kaui-advanced-search-modal <%= modal_class %>" id="advanceSearchModal" tabindex="-1" role="dialog" aria-labelledby="advanceSearchModalLabel" aria-hidden="true"
+     data-save-search-label="<%= t('advanced_search.actions.save_search_as') %>"
+     data-save-label="<%= t('advanced_search.actions.save') %>"
+     data-empty-value-message="<%= t('advanced_search.validation.empty_value') %>"
+     data-missing-field-message="<%= t('advanced_search.validation.missing_field') %>">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title d-flex align-items-center gap-3" id="advanceSearchModalLabel">
+          <span class="icon-container">
+            <%= image_tag("kaui/modal/search.svg", width: 20, height: 20) %>
+          </span>
+          <%= t('advanced_search.title') %>
+        </h5>
+        <button type="button" class="close close-button custom-hover" data-bs-dismiss="modal" aria-label="<%= t('advanced_search.actions.close') %>">
+          <span aria-hidden="true">
+            <%= image_tag("kaui/modal/close.svg", width: 20, height: 20) %>
+          </span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="advanceSearchForm">
+          <div class="advanced-search-builder">
+            <div class="advanced-search-group">
+              <div id="search-fields-container" class="advanced-search-rules">
+              </div>
+            </div>
+            <button type="button" class="advanced-search-add-rule custom-hover" id="addSearchField">
+              <%= image_tag("kaui/modal/plus.svg", width: 16, height: 16) %>
+              <span><%= t('advanced_search.actions.add_search') %></span>
+            </button>
+          </div>
+          <div id="save-search-container" style="display: none;">
+            <hr class="mt-4 mb-3">
+            <div class="form-group d-flex align-items-center mb-0">
+              <label for="savedSearchName" class="mr-2 field-label" style="width: 30%;"><%= t('advanced_search.save_as_name') %></label>
+              <input type="text" id="savedSearchName" class="form-control flex-grow-1" placeholder="<%= t('advanced_search.save_name_placeholder') %>">
+            </div>
+          </div>
+        </form>
+        <% if balance_notice %>
+          <div class="alert alert-info advanced-search-alert" role="alert" style="margin-top: 30px;">
+            <%= t('advanced_search.balance_notice') %>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <div class="advanced-search-footer-left">
+          <%= render "kaui/components/button/button", {
+            label: t('advanced_search.actions.save_search_as'),
+            variant: "advanced-search-button advanced-search-button-secondary d-inline-flex align-items-center gap-1",
+            type: "button",
+            html_class: "custom-hover",
+            html_options: {
+              id: "saveAdvanceSearch"
+            }
+          } %>
+        </div>
+        <div class="advanced-search-footer-right">
+          <%= render "kaui/components/button/button", {
+            label: t('advanced_search.actions.clear_search'),
+            variant: "advanced-search-button advanced-search-button-ghost d-inline-flex align-items-center gap-1",
+            type: "button",
+            html_class: "custom-hover",
+            html_options: {
+              id: "clearAdvanceSearch"
+            }
+          } %>
+          <%= render "kaui/components/button/button", {
+            label: t('advanced_search.actions.apply_search'),
+            variant: "advanced-search-button advanced-search-button-primary d-inline-flex align-items-center gap-1",
+            type: "button",
+            html_class: "custom-hover",
+            html_options: {
+              id: "applyAdvanceSearch"
+            }
+          } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<template id="search-field-template">
+  <div class="search-field">
+    <div class="advanced-search-rule-row">
+      <select class="form-control search-field-name" aria-label="<%= t('advanced_search.search_field') %>">
+        <option value="" selected><%= t('advanced_search.select_placeholder') %></option>
+        <% search_fields.each do |value, title| %>
+          <option value="<%= value %>"><%= title %></option>
+        <% end %>
+      </select>
+      <select class="form-control search-field-filter" aria-label="<%= t('advanced_search.compare_operation') %>">
+        <option value="eq"><%= t('advanced_search.operators.eq') %></option>
+        <option value="neq"><%= t('advanced_search.operators.neq') %></option>
+        <option value="gt"><%= t('advanced_search.operators.gt') %></option>
+        <option value="gte"><%= t('advanced_search.operators.gte') %></option>
+        <option value="lt"><%= t('advanced_search.operators.lt') %></option>
+        <option value="lte"><%= t('advanced_search.operators.lte') %></option>
+        <option value="like"><%= t('advanced_search.operators.like') %></option>
+      </select>
+      <input type="text" class="form-control search-field-value" aria-label="<%= t('advanced_search.search_value') %>">
+      <button type="button" class="button custom-hover" id="remove-search-field" aria-label="<%= t('advanced_search.actions.remove_search') %>">
+        <%= image_tag("kaui/modal/red-close.svg", width: 16, height: 16) %>
+      </button>
+    </div>
+  </div>
+</template>
+
+<%= javascript_tag do %>
+$(document).ready(function() {
+
+  populateSearchLabelsFromUrl();
+  var dateFields = <%= raw date_fields.to_json %>;
+  var numberFields = <%= raw number_fields.to_json %>;
+  var emptyValueMessage = $('#advanceSearchModal').data('empty-value-message');
+  var missingFieldMessage = $('#advanceSearchModal').data('missing-field-message');
+
+  function updateSearchFieldRow(searchField) {
+    var selectedField = searchField.find('.search-field-name option:selected').text().trim();
+    var selectedValue = searchField.find('.search-field-name').val();
+    var valueInput = searchField.find('.search-field-value');
+
+    if (!selectedValue) {
+      searchField.find('.search-field-filter').attr('name', '');
+      valueInput.attr('name', '').attr('type', 'text');
+      return;
+    }
+
+    searchField.find('.search-field-filter').attr('name', selectedField + 'Filter');
+    valueInput.attr('name', selectedField);
+
+    if (dateFields.includes(selectedField)) {
+      valueInput.attr('type', 'date');
+    } else if (numberFields.includes(selectedField)) {
+      valueInput.attr('type', 'number');
+    } else {
+      valueInput.attr('type', 'text');
+    }
+  }
+
+  function addSearchField() {
+    var template = document.getElementById('search-field-template').content.cloneNode(true);
+    document.getElementById('search-fields-container').appendChild(template);
+    updateSearchFieldRow($('#search-fields-container .search-field:last'));
+  }
+
+  $('#addSearchField').on('click', function() {
+    addSearchField();
+  });
+
+  $('#search-fields-container').on('change', '.search-field-name', function() {
+    updateSearchFieldRow($(this).closest('.search-field'));
+  });
+
+  $('#applyAdvanceSearch').on('click', function() {
+    var searchFields = $('.search-field');
+    var searchLabelsContainer = $('#search-labels-container');
+
+    var hasValue = false;
+    var hasMissingField = false;
+    searchFields.each(function() {
+      var value = $(this).find('.search-field-value').val().trim();
+      if (value !== '') {
+        hasValue = true;
+        if (!$(this).find('.search-field-name').val()) {
+          hasMissingField = true;
+        }
+      }
+    });
+
+    if (!hasValue) {
+      alert(emptyValueMessage);
+      return;
+    }
+
+    if (hasMissingField) {
+      alert(missingFieldMessage);
+      return;
+    }
+
+    searchLabelsContainer.empty();
+
+    var table = $('<%= table_selector %>').DataTable();
+    table.off('preXhr.dt.filter');
+    table.on('preXhr.dt.filter', function(e, settings, data) {
+      data.search.value = searchQuery('<%= j search_query.to_s %>');
+    });
+
+    var searchParams = searchQuery('<%= j search_query.to_s %>');
+    var ajaxUrl = "<%= pagination_path %>";
+    if (searchParams) {
+      ajaxUrl += (ajaxUrl.includes('?') ? '&' : '?') + searchParams;
+    }
+    table.ajax.url(ajaxUrl).load();
+
+    if (searchParams) {
+      searchParams = searchParams.replace(/account_id/g, 'ac_id');
+      var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + searchParams;
+      window.history.pushState({ path: newUrl }, '', newUrl);
+    }
+
+    searchFields.each(function() {
+      var filter = $(this).find('.search-field-filter option:selected').text().trim();
+      var value = $(this).find('.search-field-value').val().trim();
+      var columnName = $(this).find('.search-field-name option:selected').text().trim();
+
+      if (value !== '') {
+        var label = $('<span>', {
+          class: 'label label-info d-inline-flex align-items-center gap-2',
+          'data-field': columnName,
+          'data-filter': filter,
+          'data-value': value
+        });
+        var labelText = $('<span>', { text: columnName + ' [' + filter + '] ' + value });
+        var closeIcon = $('<span>', {
+          class: 'filter-close-icon',
+          style: 'cursor: pointer; margin-left: 5px; display: inline-flex; align-items: center;'
+        }).html('<svg width="12" height="12" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.8337 4.1665L4.16699 15.8332M4.16699 4.1665L15.8337 15.8332" stroke="#A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+        label.append(labelText).append(closeIcon);
+        searchLabelsContainer.append(label);
+      }
+    });
+
+    $('#advanceSearchModal').modal('hide');
+  });
+
+  $('#advanceSearchModal').on('show.bs.modal', function() {
+    showAdvanceSearchModal();
+    if ($('#search-fields-container .search-field').length === 0) {
+      addSearchField();
+    }
+    $('#search-fields-container .search-field').each(function() {
+      updateSearchFieldRow($(this));
+    });
+  });
+
+  $('#clearAdvanceSearch').on('click', function() {
+    clearAdvanceSearch();
+  });
+
+  $('#search-fields-container').on('click', '#remove-search-field', function() {
+    $(this).closest('.search-field').remove();
+  });
+});
+<% end %>
