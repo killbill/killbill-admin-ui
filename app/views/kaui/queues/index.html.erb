@@ -51,9 +51,26 @@
         </div>
 
         <div class="search">
+          <% bus_events = @queues_entries['busEvents'] || [] %>
+          <% notifications = @queues_entries['notifications'] || [] %>
+          <% active_queue_tab = bus_events.empty? && notifications.any? ? 'notifications' : 'bus-events' %>
 
-          <% unless (@queues_entries['busEvents'] || []).empty? %>
-            <div class="d-flex flex-column ">
+          <div class="text-center filter-tabs queue-type-tabs" role="tablist" aria-label="Queue entry type">
+            <%= link_to 'Bus Events', '#bus-events',
+                class: "queue-type-tab #{active_queue_tab == 'bus-events' ? 'activelink' : ''}",
+                data: { target: 'bus-events' },
+                role: 'tab',
+                aria: { selected: active_queue_tab == 'bus-events', controls: 'bus-events' } %>
+
+            <%= link_to 'Notifications', '#notifications',
+                class: "queue-type-tab #{active_queue_tab == 'notifications' ? 'activelink' : ''}",
+                data: { target: 'notifications' },
+                role: 'tab',
+                aria: { selected: active_queue_tab == 'notifications', controls: 'notifications' } %>
+          </div>
+
+            <div id="bus-events" class="queue-tab-pane <%= active_queue_tab == 'bus-events' ? 'active' : '' %>" role="tabpanel">
+              <div class="d-flex flex-column ">
               <div class="queues-header mb-4">
                 <div class="d-flex align-items-center">
                   <h2>Bus events</h2>
@@ -126,7 +143,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <% @queues_entries['busEvents'].each do |bus_event| %>
+                  <% bus_events.each do |bus_event| %>
                       <tr>
                         <td class="timeline">
                           <span class="dot"></span>
@@ -147,9 +164,10 @@
                 </table>
               </div>
             </div>
-          <% end %>
-          <% unless (@queues_entries['notifications'] || []).empty? %>
-            <div class="d-flex flex-column ">
+            </div>
+
+            <div id="notifications" class="queue-tab-pane <%= active_queue_tab == 'notifications' ? 'active' : '' %>" role="tabpanel">
+              <div class="d-flex flex-column ">
               <div class="queues-header mb-4">
                 <div class="d-flex align-items-center">
                   <h2>Notifications</h2>
@@ -222,7 +240,7 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <% @queues_entries['notifications'].each do |notification| %>
+                    <% notifications.each do |notification| %>
                       <% if notification['effectiveDate'].to_datetime < @now %>
                           <tr class="">
                       <% else %>
@@ -249,7 +267,7 @@
                 </table>
               </div>
             </div>
-          <% end %>
+            </div>
 
         </div>
       </div>
@@ -257,11 +275,12 @@
   </div>
 </div>
 
-<% nb_bus_entries = (@queues_entries['busEvents'] || []).size %>
-<% nb_notifications_entries = (@queues_entries['notifications'] || []).size %>
+<% nb_bus_entries = bus_events.size %>
+<% nb_notifications_entries = notifications.size %>
 <%= javascript_tag do %>
   $(document).ready(function() {
-    var busTable = $('#bus-table').DataTable({
+    var $busTable = $('#bus-table');
+    var busTable = $busTable.length ? $busTable.DataTable({
       "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
       "paging": true,
       "pagingType": "full_numbers",
@@ -289,8 +308,9 @@
         "search": "Search:",
         "zeroRecords": "No matching records found"
       }
-    });
-    var notificationsTable = $('#notifications-table').DataTable({
+    }) : null;
+    var $notificationsTable = $('#notifications-table');
+    var notificationsTable = $notificationsTable.length ? $notificationsTable.DataTable({
       "dom": "<'row'<'col-md-6'><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
       "paging": true,
       "pagingType": "full_numbers",
@@ -317,6 +337,23 @@
         "infoFiltered": "(filtered from _MAX_ total entries)",
         "search": "Search:",
         "zeroRecords": "No matching records found"
+      }
+    }) : null;
+
+    $('.queue-type-tab').on('click', function(event) {
+      event.preventDefault();
+      var target = $(this).data('target');
+
+      $('.queue-type-tab').removeClass('activelink').attr('aria-selected', 'false');
+      $(this).addClass('activelink').attr('aria-selected', 'true');
+
+      $('.queue-tab-pane').removeClass('active');
+      $('#' + target).addClass('active');
+
+      if (target === 'bus-events' && busTable) {
+        busTable.columns.adjust().draw(false);
+      } else if (target === 'notifications' && notificationsTable) {
+        notificationsTable.columns.adjust().draw(false);
       }
     });
 
@@ -356,7 +393,11 @@
       $header.find('.sort-' + direction).addClass('active');
     }
 
-    $('#bus-table').wrap('<div class="table-wrapper"></div>');
-    $('#notifications-table').wrap('<div class="table-wrapper"></div>');
+    if ($busTable.length) {
+      $busTable.wrap('<div class="table-wrapper"></div>');
+    }
+    if ($notificationsTable.length) {
+      $notificationsTable.wrap('<div class="table-wrapper"></div>');
+    }
   });
 <% end %>
