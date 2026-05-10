@@ -10,19 +10,6 @@
           </span>
           Overdue Configuration
       </h5>
-      <% if @overdue_config_exists && can?(:config_upload, Kaui::AdminTenant) %>
-        <% overdue_delete_confirmation = t('admin_tenants.delete_overdue_config_confirmation') %>
-        <div class="form-group d-flex justify-content-end pb-3">
-          <%= form_tag(kaui_engine.admin_tenant_delete_overdue_config_path(id: @tenant.id), method: :delete, class: 'd-inline', onsubmit: "return confirm('#{j(overdue_delete_confirmation)}');") do %>
-            <%= render "kaui/components/button/button", {
-              label: 'Delete',
-              variant: "d-inline-flex align-items-center gap-1",
-              type: "submit",
-              html_class: "kaui-button delete-button custom-hover"
-            } %>
-          <% end %>
-        </div>
-      <% end %>
       <div class="form-group d-flex pb-3">
         <label class="col-sm-1 control-label">Type</label>
         <div class="toggle-segment col-sm-9">
