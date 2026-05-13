@@ -107,7 +107,7 @@
         <option value="like"><%= t('advanced_search.operators.like') %></option>
       </select>
       <input type="text" class="form-control search-field-value" aria-label="<%= t('advanced_search.search_value') %>">
-      <button type="button" class="button custom-hover" id="remove-search-field" aria-label="<%= t('advanced_search.actions.remove_search') %>">
+      <button type="button" class="button custom-hover remove-search-field" aria-label="<%= t('advanced_search.actions.remove_search') %>">
         <%= image_tag("kaui/modal/red-close.svg", width: 16, height: 16) %>
       </button>
     </div>
@@ -246,7 +246,7 @@ $(document).ready(function() {
     clearAdvanceSearch();
   });
 
-  $('#search-fields-container').on('click', '#remove-search-field', function() {
+  $('#search-fields-container').on('click', '.remove-search-field', function() {
     $(this).closest('.search-field').remove();
   });
 });

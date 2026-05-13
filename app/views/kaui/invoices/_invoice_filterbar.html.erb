@@ -1,5 +1,5 @@
 <% invoice_search_fields = if @account.account_id.present?
-                             @search_fields.reject { |value, _| value == 'balance' }
+                             @search_fields.reject { |value, _| ['account_id', 'balance'].include?(value) }
                            else
                              @search_fields
                            end %>

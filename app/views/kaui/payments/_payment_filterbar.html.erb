@@ -1,5 +1,11 @@
+<% payment_search_fields = if @account.account_id.present?
+                             @search_fields.reject { |value, _| value == 'account_id' }
+                           else
+                             @search_fields
+                           end %>
+
 <%= render "kaui/shared/advanced_search_filterbar", {
-  search_fields: @search_fields,
+  search_fields: payment_search_fields,
   date_fields: [],
   number_fields: [],
   table_selector: '#payments-table',
