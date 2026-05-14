@@ -11,10 +11,6 @@ gem 'rails', '~> 7.0.1'
 # Minitest 6.0.0 was released Dec 2024 with breaking API changes
 gem 'minitest', '~> 5.0'
 
-# This fix is temporary until the next release of the gem
-# See https://stackoverflow.com/questions/79360526/uninitialized-constant-activesupportloggerthreadsafelevellogger-nameerror
-gem 'concurrent-ruby', '1.3.4'
-
 group :development do
   gem 'gem-release'
   gem 'json'

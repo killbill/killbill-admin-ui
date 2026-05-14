@@ -44,6 +44,36 @@ en:
   loading_data_from_server: "Loading data from server"
   requested_amount_colon: "Requested amount: "
 
+  advanced_search:
+    title: "Advanced Search"
+    search_field: "Search field"
+    search_value: "Search value"
+    value_placeholder: "Enter search value..."
+    compare_operation: "Compare operation"
+    save_as_name: "Save As Name"
+    save_name_placeholder: "Enter a name for this search..."
+    select_placeholder: "-- Select --"
+    balance_notice: "* The Balance option won't work alongside other filters. If you search using Balance, all other filters will be ignored."
+    actions:
+      add_search: "Add Search"
+      apply_search: "Apply Search"
+      clear_search: "Clear Search"
+      close: "Close"
+      remove_search: "Remove search"
+      save: "Save"
+      save_search_as: "Save Search As..."
+    operators:
+      eq: "Equals"
+      neq: "Not Equals"
+      gt: "Greater Than"
+      gte: "Greater Than Or Equal"
+      lt: "Less Than"
+      lte: "Less Than Or Equal"
+      like: "Like"
+    validation:
+      empty_value: "Please enter a value for at least one search field."
+      missing_field: "Please select a search field for each rule with a value."
+
   flashes:
     notices:
       clock_updated_successfully: "Clock was successfully updated to %{new_date}"

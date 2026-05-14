@@ -63,6 +63,7 @@ module Kaui
 
       @overdue = flash[:overdue_deleted] ? nil : wait(fetch_overdue)
       @overdue_xml = flash[:overdue_deleted] ? nil : wait(fetch_overdue_xml)
+      @overdue_config_exists = @overdue_xml.present? || (@overdue&.overdue_states.present? && !@overdue.has_states)
       @tenant_plugin_config = begin
         wait(fetch_tenant_plugin_config)
       rescue StandardError

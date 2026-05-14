@@ -6,6 +6,17 @@
           <h2>Existing Overdue Config</h2>
         </div>
         <span>
+          <% if @overdue_config_exists && can?(:config_upload, Kaui::AdminTenant) %>
+            <% overdue_delete_confirmation = t('admin_tenants.delete_overdue_config_confirmation') %>
+            <%= link_to kaui_engine.admin_tenant_delete_overdue_config_path(id: @tenant.id), method: :delete, data: { confirm: overdue_delete_confirmation }, class: "text-decoration-none" do %>
+              <%= render "kaui/components/button/button", {
+                  label: "Delete",
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-button dots-menu custom-hover",
+              } %>
+            <% end %>
+          <% end %>
           <%= link_to "javascript:void(0);", onclick: "submit_overdue_xml();", class:"text-decoration-none" do %>
               <%= render "kaui/components/button/button", {
                   label: "XML View",

@@ -791,7 +791,8 @@
   text-transform: capitalize;
 }
 
-.show-catalog-simple .dots-menu {
+.show-catalog-simple .dots-menu,
+.existing-overdue-config-for-tenants-container .dots-menu {
   padding: 0 !important;
   background-color: transparent !important;
   border: none !important;

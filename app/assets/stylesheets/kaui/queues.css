@@ -59,6 +59,14 @@
   box-shadow: 0rem 0.0625rem 0.1875rem 0rem #0a0d121a;
 }
 
+.kaui-queues-index .queues .queue-tab-pane {
+  display: none;
+}
+
+.kaui-queues-index .queues .queue-tab-pane.active {
+  display: block;
+}
+
 .kaui-queues-index #bus-table_filter,
 .kaui-queues-index #notifications-table_filter {
   position: absolute;

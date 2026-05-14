@@ -89,7 +89,16 @@ function searchQuery(account_id){
     searchLabels = searchFields.map(function() {
       var filter = $(this).find('.search-field-filter').val();
       var value = $(this).find('.search-field-value').val().trim(); // Trim whitespace from value
-      var columnName = $(this).find('.search-field-filter').attr('name').replace('Filter', '').toLowerCase().replace(/\s+/g, '_');
+      var fieldSelect = $(this).find('.search-field-name');
+      var columnName = fieldSelect.length > 0 ?
+        fieldSelect.find('option:selected').text().trim() :
+        $(this).find('.search-field-filter').attr('name').replace('Filter', '').trim();
+
+      if (fieldSelect.length > 0 && !fieldSelect.val()) {
+        return;
+      }
+
+      columnName = columnName.toLowerCase().replace(/\s+/g, '_');
 
       if (value !== '') {
         if (filter === 'like') {
@@ -118,8 +127,9 @@ function searchQuery(account_id){
     searchLabels = builtParams.join('&');
   }
 
-  if (account_id !== undefined && account_id !== '' && account_id.trim() !== '') {
-    searchLabels += '&' + encodeURIComponent('account_id[eq]') + '=' + encodeURIComponent(account_id.trim());
+  var hasAccountIdFilter = /(^|&)account_id%5B/i.test(searchLabels);
+  if (account_id !== undefined && account_id !== '' && account_id.trim() !== '' && !hasAccountIdFilter) {
+    searchLabels += (searchLabels.length > 0 ? '&' : '') + encodeURIComponent('account_id[eq]') + '=' + encodeURIComponent(account_id.trim());
   }
 
   var searchLabelString = searchLabels.length > 0 ? ('_q=1&' + searchLabels) : '';
@@ -166,7 +176,18 @@ function showAdvanceSearchModal() {
     var value = filterAndValue[1].trim();
 
     var template = document.getElementById('search-field-template').content.cloneNode(true);
-    template.querySelector('.search-field-label').textContent = columnName.replace(/([A-Z])/g, ' $1').trim();
+    if (template.querySelector('.search-field-label')) {
+      template.querySelector('.search-field-label').textContent = columnName.replace(/([A-Z])/g, ' $1').trim();
+    }
+    if (template.querySelector('.search-field-name')) {
+      var fieldOptions = template.querySelectorAll('.search-field-name option');
+      for (var i = 0; i < fieldOptions.length; i++) {
+        if (fieldOptions[i].text.trim().toLowerCase() === columnName.toLowerCase()) {
+          fieldOptions[i].selected = true;
+          break;
+        }
+      }
+    }
     template.querySelector('.search-field-filter').name = columnName + 'Filter';
     template.querySelector('.search-field-filter').value = filter;
     template.querySelector('.search-field-value').name = columnName;
@@ -303,6 +324,12 @@ function populateSavedSearchesDropdown() {
   });
 }
 
+function getAdvancedSearchText(key, fallback) {
+  var modal = $('#advanceSearchModal');
+  var value = modal.length ? modal.data(key) : null;
+  return value || fallback;
+}
+
 $(document).ready(function() {
   populateSavedSearchesDropdown();
 
@@ -314,9 +341,9 @@ $(document).ready(function() {
   $(document).on('input', '#savedSearchName', function() {
     var val = $(this).val().trim();
     if (val === '') {
-      $('#saveAdvanceSearch').text('Save Search As...');
+      $('#saveAdvanceSearch').text(getAdvancedSearchText('save-search-label', 'Save Search As...'));
     } else {
-      $('#saveAdvanceSearch').text('Save');
+      $('#saveAdvanceSearch').text(getAdvancedSearchText('save-label', 'Save'));
     }
   });
 
@@ -353,13 +380,28 @@ $(document).ready(function() {
        // Check if there are any search fields before calling searchQuery(),
        // because searchQuery() calls clearAdvanceSearch() (which reloads the page)
        // when no fields exist.
-       if ($('.search-field').length === 0 && $('#search-labels-container .label').length === 0) {
-         alert("Please enter at least one search field.");
+       var hasSearchValue = false;
+       var hasMissingField = false;
+       $('.search-field-value').each(function() {
+         if ($(this).val().trim() !== '') {
+           hasSearchValue = true;
+           var fieldSelect = $(this).closest('.search-field').find('.search-field-name');
+           if (fieldSelect.length > 0 && !fieldSelect.val()) {
+             hasMissingField = true;
+           }
+         }
+       });
+       if (!hasSearchValue && $('#search-labels-container .label').length === 0) {
+         alert(getAdvancedSearchText('empty-value-message', 'Please enter at least one search field.'));
+         return;
+       }
+       if (hasMissingField) {
+         alert(getAdvancedSearchText('missing-field-message', 'Please select a search field for each rule with a value.'));
          return;
        }
        searchParams = searchQuery();
        if (!searchParams) {
-         alert("Please enter at least one search field.");
+         alert(getAdvancedSearchText('empty-value-message', 'Please enter at least one search field.'));
          return;
        }
        searchParams = searchParams.replace(/account_id/g, 'ac_id');
@@ -370,7 +412,7 @@ $(document).ready(function() {
     saveSavedSearches(searches);
     
     input.val('');
-    $('#saveAdvanceSearch').text('Save Search As...');
+    $('#saveAdvanceSearch').text(getAdvancedSearchText('save-search-label', 'Save Search As...'));
     container.hide();
     
     populateSavedSearchesDropdown();
@@ -380,7 +422,7 @@ $(document).ready(function() {
   $(document).on('hidden.bs.modal', '#advanceSearchModal', function () {
     $('#save-search-container').hide();
     $('#savedSearchName').val('');
-    $('#saveAdvanceSearch').text('Save Search As...');
+    $('#saveAdvanceSearch').text(getAdvancedSearchText('save-search-label', 'Save Search As...'));
   });
 
   $(document).on('click', '.apply-saved-search', function(e) {

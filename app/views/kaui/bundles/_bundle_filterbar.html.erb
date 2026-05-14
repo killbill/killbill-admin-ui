@@ -1,4 +1,8 @@
-<div class="modal fade" id="advanceSearchModal" tabindex="-1" role="dialog" aria-labelledby="advanceSearchModalLabel" aria-hidden="true">
+<div class="modal fade kaui-advanced-search-modal" id="advanceSearchModal" tabindex="-1" role="dialog" aria-labelledby="advanceSearchModalLabel" aria-hidden="true"
+     data-save-search-label="<%= t('advanced_search.actions.save_search_as') %>"
+     data-save-label="<%= t('advanced_search.actions.save') %>"
+    data-empty-value-message="<%= t('advanced_search.validation.empty_value') %>"
+    data-missing-field-message="<%= t('advanced_search.validation.missing_field') %>">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -6,9 +10,9 @@
           <span class="icon-container">
             <%= image_tag("kaui/modal/search.svg", width: 20, height: 20) %>
           </span>
-          Advanced Search
+          <%= t('advanced_search.title') %>
         </h5>
-        <button type="button" class="close close-button custom-hover" data-bs-dismiss="modal" aria-label="Close">
+        <button type="button" class="close close-button custom-hover" data-bs-dismiss="modal" aria-label="<%= t('advanced_search.actions.close') %>">
           <span aria-hidden="true">
             <%= image_tag("kaui/modal/close.svg", width: 20, height: 20) %>
           </span>
@@ -16,49 +20,54 @@
       </div>
       <div class="modal-body">
         <form id="advanceSearchForm">
-          <div class="form-group d-flex align-items-center">
-            <label for="searchFieldSelect" class="mr-2 field-label" style="width: 30%;">Search Field</label>
-            <select id="searchFieldSelect" class="form-control mr-2">
-              <% Kaui::Bundle::SEARCH_FIELDS.each do |value, title| %>
-                <option value="<%= value %>" <%= 'selected' if @search_by == value %>><%= title %></option>
-              <% end %>
-            </select>
-          </div>
-          <div class="form-group d-flex align-items-center mt-3">
-            <label for="bundleSearchValue" class="mr-2 field-label" style="width: 30%;">Value</label>
-            <input type="text" id="bundleSearchValue" class="form-control" placeholder="Enter search value..." value="<%= @search_query %>">
+          <div class="advanced-search-builder">
+            <div class="advanced-search-group">
+              <div class="advanced-search-query-row">
+                <select id="searchFieldSelect" class="form-control" aria-label="<%= t('advanced_search.search_field') %>">
+                  <option value=""><%= t('advanced_search.select_placeholder') %></option>
+                  <% Kaui::Bundle::SEARCH_FIELDS.each do |value, title| %>
+                    <option value="<%= value %>" <%= 'selected' if @search_query.present? && @search_by == value %>><%= title %></option>
+                  <% end %>
+                </select>
+                <input type="text" id="bundleSearchValue" class="form-control" aria-label="<%= t('advanced_search.search_value') %>" placeholder="<%= t('advanced_search.value_placeholder') %>" value="<%= @search_query %>">
+              </div>
+            </div>
           </div>
           <div id="save-search-container" style="display: none;">
             <hr class="mt-4 mb-3">
             <div class="form-group d-flex align-items-center mb-0">
-              <label for="savedSearchName" class="mr-2 field-label" style="width: 30%;">Save As Name</label>
-              <input type="text" id="savedSearchName" class="form-control flex-grow-1" placeholder="Enter a name for this search...">
+              <label for="savedSearchName" class="mr-2 field-label" style="width: 30%;"><%= t('advanced_search.save_as_name') %></label>
+              <input type="text" id="savedSearchName" class="form-control flex-grow-1" placeholder="<%= t('advanced_search.save_name_placeholder') %>">
             </div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <%= render "kaui/components/button/button", {
-          label: 'Save Search As...',
-          variant: "outline-secondary d-inline-flex align-items-center gap-1",
-          type: "button",
-          html_class: "kaui-button custom-hover",
-          html_options: { id: "saveAdvanceSearch" }
-        } %>
-        <%= render "kaui/components/button/button", {
-          label: 'Clear Search',
-          variant: "outline-secondary d-inline-flex align-items-center gap-1",
-          type: "button",
-          html_class: "kaui-button custom-hover",
-          html_options: { id: "clearAdvanceSearch" }
-        } %>
-        <%= render "kaui/components/button/button", {
-          label: 'Apply Search',
-          variant: "outline-secondary d-inline-flex align-items-center gap-1",
-          type: "button",
-          html_class: "kaui-dropdown custom-hover",
-          html_options: { id: "applyAdvanceSearch" }
-        } %>
+        <div class="advanced-search-footer-left">
+          <%= render "kaui/components/button/button", {
+            label: t('advanced_search.actions.save_search_as'),
+            variant: "advanced-search-button advanced-search-button-secondary d-inline-flex align-items-center gap-1",
+            type: "button",
+            html_class: "custom-hover",
+            html_options: { id: "saveAdvanceSearch" }
+          } %>
+        </div>
+        <div class="advanced-search-footer-right">
+          <%= render "kaui/components/button/button", {
+            label: t('advanced_search.actions.clear_search'),
+            variant: "advanced-search-button advanced-search-button-ghost d-inline-flex align-items-center gap-1",
+            type: "button",
+            html_class: "custom-hover",
+            html_options: { id: "clearAdvanceSearch" }
+          } %>
+          <%= render "kaui/components/button/button", {
+            label: t('advanced_search.actions.apply_search'),
+            variant: "advanced-search-button advanced-search-button-primary d-inline-flex align-items-center gap-1",
+            type: "button",
+            html_class: "custom-hover",
+            html_options: { id: "applyAdvanceSearch" }
+          } %>
+        </div>
       </div>
     </div>
   </div>
@@ -69,7 +78,7 @@ $(document).ready(function() {
   // Pre-populate modal from current URL params on open
   $('#advanceSearchModal').on('show.bs.modal', function() {
     var params = new URLSearchParams(window.location.search);
-    var searchBy = params.get('search_by') || 'bundle_id';
+    var searchBy = params.get('search_by') || '';
     var q = params.get('q') || '';
     $('#searchFieldSelect').val(searchBy);
     $('#bundleSearchValue').val(q);
@@ -79,7 +88,15 @@ $(document).ready(function() {
   $('#applyAdvanceSearch').on('click', function() {
     var searchBy = $('#searchFieldSelect').val();
     var q = $('#bundleSearchValue').val().trim();
-    if (!q) return;
+    if (!searchBy) {
+      alert($('#advanceSearchModal').data('missing-field-message'));
+      return;
+    }
+
+    if (!q) {
+      alert($('#advanceSearchModal').data('empty-value-message'));
+      return;
+    }
 
     var url = new URL(window.location.href);
     url.searchParams.set('search_by', searchBy);
