@@ -103,7 +103,9 @@ $(document).ready(function() {
     "serverSide": true,
     "search": {"search": "<%= @search_query %>"},
     "ajax": {
+      type: "POST",
       url: "<%= accounts_pagination_path(:ordering => @ordering, :format => :json, :advance_search_query => @advance_search_query) %>",
+      headers: {"X-CSRF-Token": $("meta[name='csrf-token']").attr("content")},
       dataSrc: function(json) {
         var colOrder = table.colReorder.order();
         var reorderedData = json.data.map(function(row) {

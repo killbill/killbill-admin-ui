@@ -31,13 +31,13 @@ module Kaui
 
     test 'should list accounts' do
       # Test pagination
-      get :pagination, params: { format: :json }
+      post :pagination, params: { format: :json }
       verify_pagination_results!
     end
 
     test 'should search accounts' do
       # Test search
-      get :pagination, params: { sSearch: 'foo', format: :json }
+      post :pagination, params: { sSearch: 'foo', format: :json }
       verify_pagination_results!
     end
 
