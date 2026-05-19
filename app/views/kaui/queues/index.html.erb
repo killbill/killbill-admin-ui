@@ -11,9 +11,13 @@
 
       <div class="queues-card">
 
+        <% show_notifications = params[:queue_tab] == 'notifications' ||
+                                  (params[:queue_tab].blank? &&
+                                   (@queues_entries['busEvents'] || []).empty? &&
+                                   (@queues_entries['notifications'] || []).any?) %>
         <ul class="nav nav-tabs queues-nav-tabs px-4" id="queuesNavTabs">
           <li class="nav-item">
-            <a class="nav-link queues-tab-link <%= params[:queue_tab] != 'notifications' ? 'active' : '' %>"
+            <a class="nav-link queues-tab-link <%= show_notifications ? '' : 'active' %>"
                id="busEvents-tab"
                href="#busEvents"
                data-bs-toggle="tab">
@@ -22,7 +26,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link queues-tab-link <%= params[:queue_tab] == 'notifications' ? 'active' : '' %>"
+            <a class="nav-link queues-tab-link <%= show_notifications ? 'active' : '' %>"
                id="notifications-tab"
                href="#notifications"
                data-bs-toggle="tab">
@@ -35,7 +39,7 @@
         <div class="tab-content">
 
           <%# Bus Events pane %>
-          <div class="tab-pane fade <%= params[:queue_tab] != 'notifications' ? 'show active' : '' %>" id="busEvents">
+          <div class="tab-pane fade <%= show_notifications ? '' : 'show active' %>" id="busEvents">
             <div class="queues-pane-inner">
 
               <div class="queues-controls-bar mb-4">
@@ -62,7 +66,7 @@
                   </div>
                 </div>
                 <div class="queues-search-bar">
-                  <span class="search-label">Search:</span>
+                  <label class="search-label" for="bus-search">Search:</label>
                   <div class="search-input-group">
                     <input type="text" id="bus-search" class="queues-search-input" placeholder="Search events...">
                     <span class="search-icon">
@@ -151,7 +155,7 @@
           </div>
 
           <%# Notifications pane %>
-          <div class="tab-pane fade <%= params[:queue_tab] == 'notifications' ? 'show active' : '' %>" id="notifications">
+          <div class="tab-pane fade <%= show_notifications ? 'show active' : '' %>" id="notifications">
             <div class="queues-pane-inner">
 
               <div class="queues-controls-bar mb-4">
@@ -178,7 +182,7 @@
                   </div>
                 </div>
                 <div class="queues-search-bar">
-                  <span class="search-label">Search:</span>
+                  <label class="search-label" for="notifications-search">Search:</label>
                   <div class="search-input-group">
                     <input type="text" id="notifications-search" class="queues-search-input" placeholder="Search events...">
                     <span class="search-icon">

@@ -37,7 +37,7 @@ module Kaui
 
     test 'should search accounts' do
       # Test search
-      post :pagination, params: { sSearch: 'foo', format: :json }
+      post :pagination, params: { search: { value: 'foo' }, format: :json }
       verify_pagination_results!
     end
 
