@@ -103,7 +103,13 @@ $(document).ready(function() {
     "serverSide": true,
     "search": {"search": "<%= @search_query %>"},
     "ajax": {
-      url: "<%= accounts_pagination_path(:ordering => @ordering, :format => :json, :advance_search_query => @advance_search_query) %>",
+      type: "POST",
+      url: "<%= accounts_pagination_path(:ordering => @ordering, :format => :json) %>",
+      headers: {"X-CSRF-Token": $("meta[name='csrf-token']").attr("content")},
+      data: function(d) {
+        d.advance_search_query = "<%= j(@advance_search_query.to_s) %>";
+        return d;
+      },
       dataSrc: function(json) {
         var colOrder = table.colReorder.order();
         var reorderedData = json.data.map(function(row) {
@@ -127,9 +133,10 @@ $(document).ready(function() {
   // DataTable request with the correct filters.
   if (window.location.search.includes('_q=1') && '<%= j(@advance_search_query.to_s.strip) %>' === '') {
     var urlSearch = window.location.search.substring(1).replace(/ac_id/g, 'account_id');
-    var ajaxUrl = "<%= accounts_pagination_path(:ordering => @ordering, :format => :json) %>" + '?' + urlSearch;
+    var ajaxUrl = "<%= accounts_pagination_path(:ordering => @ordering, :format => :json) %>";
     table.on('preXhr.dt.filter', function(e, settings, data) {
       data.search.value = urlSearch;
+      data.advance_search_query = urlSearch;
     });
     table.ajax.url(ajaxUrl).load();
   }

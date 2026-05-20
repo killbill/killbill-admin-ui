@@ -1,79 +1,199 @@
-.kaui-queues-index .queues {
-  width: 67.5625rem;
-}
-
-.kaui-queues-index .queues .queues-header {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
+/* ── Page header ─────────────────────────────────────────── */
+.kaui-queues-index .queues-main-header {
   padding: 0;
-  border-bottom: 0.0625rem solid #e9eaeb;
 }
 
-.kaui-queues-index .queues .queues-header h2 {
+.kaui-queues-index .queues-title {
   font-weight: 600;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  color: #414651;
-  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: #181d27;
+  margin-bottom: 0.25rem;
 }
 
-.kaui-queues-index .queues .filter-tabs {
-  background-color: #fafafa;
+.kaui-queues-index .queues-subtitle {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #535862;
+  margin-bottom: 0;
+}
+
+/* ── Main card ───────────────────────────────────────────── */
+.kaui-queues-index .queues-card {
+  background: #ffffff;
   border: 0.0625rem solid #e9eaeb;
-  border-radius: 0.375rem;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* ── Tab navigation ──────────────────────────────────────── */
+.kaui-queues-index .queues-nav-tabs {
+  border-bottom: 0.0625rem solid #e9eaeb;
   gap: 0.25rem;
-  margin: 0;
-  margin-bottom: 1.5rem;
-  padding: 0.25rem;
-  height: 2.5rem;
 }
 
-.kaui-queues-index .queues .filter-tabs a {
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.25rem;
+.kaui-queues-index .queues-nav-tabs .queues-tab-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 0.25rem;
+  margin-bottom: -0.0625rem;
+  border: none;
+  border-bottom: 0.125rem solid transparent;
+  border-radius: 0;
   color: #717680;
-  padding: 0.375rem 0;
-  border-radius: 0.25rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
   text-decoration: none;
-  height: 2rem;
-  width: 100%;
+  background: transparent;
+  margin-right: 0.75rem;
 }
 
-@media (max-width: 768px) {
-  .kaui-queues-index .queues .filter-tabs a {
-    font-size: 0.7rem;
-  }
-}
-
-.kaui-queues-index .queues .filter-tabs .activelink {
+.kaui-queues-index .queues-nav-tabs .queues-tab-link:hover {
   color: #414651;
-  background-color: #ffffff;
-  box-shadow: 0rem 0.0625rem 0.125rem -0.0625rem #0a0d121a;
-  box-shadow: 0rem 0.0625rem 0.1875rem 0rem #0a0d121a;
+  border-bottom-color: #d1d5db;
 }
 
-.kaui-queues-index .queues .queue-tab-pane {
-  display: none;
+.kaui-queues-index .queues-nav-tabs .queues-tab-link.active {
+  color: #175cd3;
+  border-bottom-color: #1570ef;
 }
 
-.kaui-queues-index .queues .queue-tab-pane.active {
-  display: block;
+.kaui-queues-index .queues-nav-tabs .queues-tab-link .tab-icon {
+  opacity: 0.5;
+  transition: opacity 0.15s ease, filter 0.15s ease;
 }
 
-.kaui-queues-index #bus-table_filter,
-.kaui-queues-index #notifications-table_filter {
+.kaui-queues-index .queues-nav-tabs .queues-tab-link.active .tab-icon {
+  opacity: 1;
+  filter: invert(28%) sepia(94%) saturate(1453%) hue-rotate(197deg) brightness(90%) contrast(101%);
+}
+
+/* ── Tab pane inner ──────────────────────────────────────── */
+.kaui-queues-index .queues-pane-inner {
+  padding: 1.5rem;
+}
+
+/* ── Controls bar (time scope + search) ──────────────────── */
+.kaui-queues-index .queues-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: #ffffff;
+  border: 0.0625rem solid #e9eaeb;
+  border-radius: 0.5rem;
+}
+
+.kaui-queues-index .time-scope-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #414651;
+  white-space: nowrap;
+}
+
+/* ── Time scope toggle buttons ───────────────────────────── */
+.kaui-queues-index .time-scope-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4375rem 0.875rem;
+  border: 0.0625rem solid #d5d7da;
+  border-radius: 0.375rem;
+  background: #ffffff;
+  color: #414651;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.kaui-queues-index .time-scope-btn:hover {
+  border-color: #1570ef;
+  color: #175cd3;
+  text-decoration: none;
+}
+
+.kaui-queues-index .time-scope-btn.active {
+  border-color: #1570ef;
+  color: #175cd3;
+  background: #eff6ff;
+}
+
+/* ── Radio dot indicator ─────────────────────────────────── */
+.kaui-queues-index .radio-dot {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  border-radius: 50%;
+  border: 0.125rem solid #d1d5db;
+  background: #ffffff;
+  transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.kaui-queues-index .time-scope-btn.active .radio-dot {
+  border-color: #1570ef;
+  background-color: #1570ef;
+  box-shadow: inset 0 0 0 0.1875rem #ffffff;
+}
+
+/* ── Search bar ──────────────────────────────────────────── */
+.kaui-queues-index .queues-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.kaui-queues-index .search-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #414651;
+  white-space: nowrap;
+}
+
+.kaui-queues-index .search-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.kaui-queues-index .queues-search-input {
+  width: 20rem;
+  height: 2.25rem;
+  padding: 0.375rem 2.25rem 0.375rem 0.875rem;
+  border: 0.0625rem solid #e5e7eb;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #414651;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.kaui-queues-index .queues-search-input:focus {
+  border-color: #1570ef;
+  box-shadow: 0 0 0 0.1875rem rgba(21, 112, 239, 0.12);
+}
+
+.kaui-queues-index .queues-search-input::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+.kaui-queues-index .search-icon {
   position: absolute;
-  top: -4.5rem;
-  right: 0;
+  right: 0.625rem;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
 }
 
+/* ── Tables ──────────────────────────────────────────────── */
 .kaui-queues-index .queues .bus-table td,
 .kaui-queues-index .queues .notifications-table td {
   font-weight: 500 !important;
@@ -129,26 +249,7 @@
   text-align: left;
 }
 
-.kaui-queues-index .queues .pagination a:not(:first-child):not(:last-child) {
-  color: #717680;
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  letter-spacing: 0;
-}
-
-.kaui-queues-index
-  .queues
-  .pagination
-  a:not(:first-child):not(:last-child).btn-primary {
-  color: #414651;
-  background-color: #f5f5f5 !important;
-  border: 0 !important;
-}
-
+/* ── Pagination ──────────────────────────────────────────── */
 .kaui-queues-index .queues .dataTables_paginate {
   display: flex;
   align-items: center;
@@ -179,7 +280,9 @@
   color: #414651 !important;
 }
 
+.kaui-queues-index .queues .dataTables_paginate .paginate_button.first,
 .kaui-queues-index .queues .dataTables_paginate .paginate_button.last,
+.kaui-queues-index .queues .dataTables_paginate .paginate_button.next,
 .kaui-queues-index .queues .dataTables_paginate .paginate_button.previous {
   border: 0.0625rem solid #e5e7eb;
   border-radius: 0.5rem;
@@ -188,23 +291,13 @@
   color: #374151;
 }
 
-.kaui-queues-index .queues #bus-table_wrapper .table-wrapper,
-.kaui-queues-index .queues #notifications-table_wrapper .table-wrapper {
-  margin-bottom: 1rem;
-}
-
 .kaui-queues-index .queues #bus-table_wrapper .row:nth-of-type(2),
 .kaui-queues-index .queues #notifications-table_wrapper .row:nth-of-type(2) {
   margin-top: 1.5rem;
 }
 
-/* .kaui-queues-index #bus-table_wrapper,
-.kaui-queues-index #notifications-table_wrapper {
-  max-width: <%= params[:account_id].present? ? '67.5625rem' : '80rem' %>;
-} */
-
+/* ── Table wrapper ───────────────────────────────────────── */
 .kaui-queues-index .table-wrapper {
-  /* max-width: <%= params[:account_id].present? ? '67.5625rem' : '80rem' %> !important; */
   overflow-x: auto !important;
   width: 100% !important;
 }
@@ -217,20 +310,7 @@
   max-width: 80rem;
 }
 
-.kaui-queues-index .queues #bus-table_filter input,
-.kaui-queues-index .queues #notifications-table_filter input {
-  width: 20rem;
-  height: 2.2rem;
-  padding: 0.3rem 1rem;
-  border: 0.0625rem solid #e5e7eb;
-  border-radius: 0.375rem;
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: #414651;
-  outline: none;
-}
-
+/* ── Timeline / dot ──────────────────────────────────────── */
 .kaui-queues-index .timeline {
   position: relative;
   width: 1.25rem;

@@ -25,7 +25,7 @@ Kaui::Engine.routes.draw do
   get '/500', to: 'errors#show', code: 500
 
   scope '/accounts' do
-    get '/pagination' => 'accounts#pagination', :as => 'accounts_pagination'
+    post '/pagination' => 'accounts#pagination', :as => 'accounts_pagination'
     get '/validate_external_key' => 'accounts#validate_external_key', :as => 'accounts_validate_external_key'
     get '/download' => 'accounts#download', :as => 'download_accounts'
     get '/export/:account_id', to: 'accounts#export_account', as: 'export_account'
