@@ -1,0 +1,39 @@
+<div class="kaui-container admin-tenant-catalog">
+  <%= render partial: 'kaui/components/breadcrumb/breadcrumb', locals: {
+    breadcrumbs: [
+      { label: 'Settings', href: '/' },
+      { label: @tenant.name, href: admin_tenant_path(@tenant.id) },
+      { label: 'Catalog', href: '#' }
+    ]
+  } %>
+
+  <div class="d-flex" style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_setting_sidebar' %>
+
+    <div class="w-100">
+      <%= render :partial => 'show_catalog_simple' %>
+      <%= render :partial => 'show_catalog_xml' %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_tag do %>
+function switchBasicConfig() {
+    $('#catalog_xml').removeClass('active').hide();
+    if (typeof initBasicConfig === 'function') {
+        initBasicConfig();
+    }
+    $('#catalog_simple').addClass('active').show();
+}
+
+function switchXMLConfig() {
+    $('#catalog_simple').removeClass('active').hide();
+    $('#catalog_xml').addClass('active').show();
+}
+
+$(document).ready(function() {
+    if ($('#catalog_simple').length && $('#catalog_xml').length) {
+        switchBasicConfig();
+    }
+});
+<% end %>
