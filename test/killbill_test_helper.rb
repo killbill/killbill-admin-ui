@@ -125,7 +125,7 @@ module Kaui
                                                             product_category: 'BASE',
                                                             billing_period: 'MONTHLY',
                                                             price_list: 'DEFAULT')
-      entitlement = entitlement.create(user, reason, comment, nil, false, build_options(tenant, username, password))
+      entitlement = entitlement.create(user, reason, comment, nil, true, build_options(tenant, username, password))
 
       KillBillClient::Model::Bundle.find_by_id(entitlement.bundle_id, build_options(tenant, username, password))
     end

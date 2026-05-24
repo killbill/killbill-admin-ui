@@ -9,8 +9,9 @@
   { label: 'Custom Fields', path: kaui_engine.custom_fields_path, controller_suffix: 'custom_fields', icon_path: 'kaui/setting/custom-field.svg' }
 ].compact %>
 
-<% if session[:tenant_id].present? %>
-  <% menu_items << { label: 'Catalog Show', path: kaui_engine.admin_tenant_catalog_path(session[:tenant_id]), controller_suffix: 'catalog_show', icon_path: 'kaui/setting/analytics.svg' } %>
+<% catalog_tenant_id = params[:id].presence || session[:tenant_id] %>
+<% if catalog_tenant_id.present? %>
+  <% menu_items << { label: 'Catalog Show', path: kaui_engine.admin_tenant_catalog_path(catalog_tenant_id), controller_suffix: 'catalog_show', icon_path: 'kaui/setting/analytics.svg' } %>
 <% end %>
 
 <% if kpm_plugin_installed %>

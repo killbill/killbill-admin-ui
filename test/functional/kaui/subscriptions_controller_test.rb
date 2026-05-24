@@ -306,7 +306,7 @@ module Kaui
       assert_response :success
       assert_equal extract_value_from_input_field('subscription_account_id'), @bundle.subscriptions.first.account_id
       assert_equal extract_value_from_input_field('subscription_bill_cycle_day_local'), @bundle.subscriptions.first.bill_cycle_day_local.to_s
-      assert_equal extract_value_from_input_field('effective_from_date'), Date.parse(Time.zone.now.to_s).to_s
+      assert_equal extract_value_from_input_field('effective_from_date'), Time.zone.today.strftime('%Y-%m-%d')
     end
 
     test 'should update bcd' do

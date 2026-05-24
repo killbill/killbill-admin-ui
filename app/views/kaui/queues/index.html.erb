@@ -152,7 +152,7 @@
                           <span class="dot"></span>
                         </td>
                         <td><span><%= truncate_millis(bus_event['createdDate']) %></span></td>
-                        <td><%= truncate_class_name(bus_event['className'], false) %></td>
+                        <td data-full-value="<%= bus_event['className'] %>"><%= truncate_class_name(bus_event['className'], false) %></td>
                         <td><%= "<pre>#{JSON.pretty_generate(bus_event['event'])}</pre>".html_safe %></td>
                         <td><%= bus_event['userToken'] %></td>
                         <% if @account_id.blank? %>
@@ -322,7 +322,9 @@
       var cells = $(row).find('td');
       var obj = {};
       visibleColumnIndexes.forEach(function(colIdx, i) {
-        var cellText = $(cells[colIdx]).text().trim();
+        var $cell = $(cells[colIdx]);
+        var fullValue = $cell.data('full-value');
+        var cellText = fullValue !== undefined ? String(fullValue) : $cell.text().trim();
         var key = headers[i];
         try {
           obj[key] = JSON.parse(cellText);

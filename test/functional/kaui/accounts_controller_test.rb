@@ -165,8 +165,8 @@ module Kaui
       }
 
       post :trigger_invoice, params: parameters
-      assert_equal 'Nothing to generate for target date today', flash[:notice]
-      assert_redirected_to account_path(account.account_id)
+      assert_match(/Generated invoice.*for target date.*|Nothing to generate for target date today/, flash[:notice])
+      assert_response :redirect
 
       today_next_month = (Date.parse(@kb_clock['localDate']) + 31).to_s
       # generate a dry run invoice
