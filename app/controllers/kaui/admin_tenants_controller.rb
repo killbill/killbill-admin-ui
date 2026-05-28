@@ -71,35 +71,11 @@ module Kaui
       end
 
       # When reloading page from the view, it sends the last tab that was active
-      @active_tab = params[:active_tab] || 'OverdueShow'
+      @active_tab = params[:active_tab] || 'CatalogShow'
 
       respond_to do |format|
         format.html
         format.js
-      end
-    end
-
-    def catalog
-      @tenant = safely_find_tenant_by_id(params[:id])
-      configure_tenant_if_nil(@tenant)
-
-      options = tenant_options_for_client
-      options[:api_key] = @tenant.api_key
-      options[:api_secret] = @tenant.api_secret
-
-      @catalog_versions = []
-      begin
-        Kaui::Catalog.get_tenant_catalog_versions(nil, options).each_with_index do |effective_date, idx|
-          @catalog_versions << { version: idx, version_date: effective_date }
-        end
-      rescue StandardError
-        @catalog_versions = []
-      end
-
-      @latest_version = begin
-        @catalog_versions[-1][:version_date]
-      rescue StandardError
-        nil
       end
     end
 
@@ -183,7 +159,7 @@ module Kaui
       end
       if catalog_validation_errors.blank?
         Kaui::AdminTenant.upload_catalog(catalog_xml, options[:username], nil, comment, options)
-        redirect_to admin_tenant_catalog_path(current_tenant.id), notice: I18n.t('flashes.notices.catalog_uploaded_successfully')
+        redirect_to admin_tenant_path(current_tenant.id), notice: I18n.t('flashes.notices.catalog_uploaded_successfully')
       else
         errors = ''
         catalog_validation_errors.each do |validation_error|
@@ -220,7 +196,7 @@ module Kaui
         redirect_to admin_tenants_path and return
       end
 
-      redirect_to admin_tenant_catalog_path(tenant.id), notice: 'Catalog was successfully deleted'
+      redirect_to admin_tenant_path(tenant.id), notice: 'Catalog was successfully deleted'
     end
 
     def new_plan_currency
@@ -297,7 +273,7 @@ module Kaui
       if valid
         begin
           Kaui::Catalog.add_tenant_catalog_simple_plan(@simple_plan, options[:username], nil, comment, options)
-          redirect_to admin_tenant_catalog_path(@tenant.id), notice: 'Catalog plan was successfully added'
+          redirect_to admin_tenant_path(@tenant.id), notice: 'Catalog plan was successfully added'
         rescue StandardError => e
           flash.now[:error] = "Error while creating plan: #{as_string(e)}"
           render action: :new_catalog

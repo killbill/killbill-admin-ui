@@ -121,6 +121,9 @@
       <div class="kaui-container nav-tabs-details">
         <ul class="nav nav-tabs" id="tenant_tabs" active_tab="<%= @active_tab %>">
           <li class="nav-item">
+            <a class="nav-link" href="#CatalogShow" data-bs-toggle="tab">Catalog Show</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="#OverdueShow" data-bs-toggle="tab">Overdue Show</a>
           </li>
           <li class="nav-item">
@@ -138,6 +141,7 @@
         </ul>
 
         <div class="tab-content">
+          <%= render :partial => 'show_catalog' %>
           <%= render :partial => 'show_overdue' %>
           <%= render :partial => 'form_invoice_template' %>
           <%= render :partial => 'form_invoice_translation' %>
@@ -252,9 +256,8 @@
     });
 
 
-    var activeTab = $('#tenant_tabs').attr('active_tab');
-    if (activeTab != "") {
-      $('#tenant_tabs a[href="#' + activeTab + '"]').tab('show');
+    if ($('#tenant_tabs').attr('active_tab') != "") {
+      $('#tenant_tabs a[href="#' + $('#tenant_tabs').attr('active_tab') + '"]').tab('show');
     }
   });
 <% end %> 

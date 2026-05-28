@@ -185,7 +185,6 @@ Kaui::Engine.routes.draw do
 
   scope '/admin_tenants' do
     put '/:id/clock' => 'admin_tenants#set_clock', :as => 'admin_tenant_set_clock'
-    get '/:id/catalog' => 'admin_tenants#catalog', :as => 'admin_tenant_catalog'
     get '/:id/new_catalog' => 'admin_tenants#new_catalog', :as => 'admin_tenant_new_catalog'
     delete '/:id/delete_catalog' => 'admin_tenants#delete_catalog', :as => 'admin_tenant_delete_catalog'
     get '/:id/new_plan_currency' => 'admin_tenants#new_plan_currency', :as => 'admin_tenant_new_plan_currency'

@@ -62,7 +62,7 @@ module Kaui
       tenant = create_kaui_tenant
       post :upload_catalog, params: { id: tenant.id, catalog: fixture_file_upload("#{FIXTURES_PATH}/catalog-v1.xml") }
 
-      assert_redirected_to admin_tenant_catalog_path(tenant.id)
+      assert_redirected_to admin_tenant_path(tenant.id)
       assert_equal I18n.t('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
     end
 
@@ -146,7 +146,7 @@ module Kaui
 
       # upload catalog first
       post :upload_catalog, params: { id: tenant.id, catalog: fixture_file_upload("#{FIXTURES_PATH}/catalog-v1.xml") }
-      assert_redirected_to admin_tenant_catalog_path(tenant.id)
+      assert_redirected_to admin_tenant_path(tenant.id)
       assert_equal I18n.t('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
 
       get :new_plan_currency, params: { id: tenant.id, plan_id: }
@@ -286,7 +286,7 @@ module Kaui
       tenant = create_kaui_tenant
       post :upload_catalog, params: { id: tenant.id, catalog: fixture_file_upload("#{FIXTURES_PATH}/catalog-v1.xml") }
 
-      assert_redirected_to admin_tenant_catalog_path(tenant.id)
+      assert_redirected_to admin_tenant_path(tenant.id)
       assert_equal I18n.t('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
 
       post :display_catalog_xml, params: { effective_date:, id: tenant.id }
@@ -373,7 +373,7 @@ module Kaui
       tenant = create_kaui_tenant
       post :upload_catalog, params: { id: tenant.id, catalog: fixture_file_upload("#{FIXTURES_PATH}/catalog-v1.xml") }
 
-      assert_redirected_to admin_tenant_catalog_path(tenant.id)
+      assert_redirected_to admin_tenant_path(tenant.id)
       assert_equal I18n.t('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
 
       get :download_catalog_xml, params: { effective_date:, id: tenant.id }
