@@ -4,9 +4,22 @@
     <%= render :template => 'kaui/layouts/kaui_account_sidebar' %>
     <div class="queues w-100">
 
-      <div class="queues-main-header mb-4">
-        <h1 class="queues-title">Queues</h1>
-        <p class="queues-subtitle">View and monitor bus events and notifications.</p>
+      <div class="queues-main-header mb-4 d-flex justify-content-between align-items-start">
+        <div>
+          <h1 class="queues-title">Queues</h1>
+          <p class="queues-subtitle">View and monitor bus events and notifications.</p>
+        </div>
+        <%= render "kaui/components/button/button", {
+          label: "Download JSON",
+          icon: 'kaui/download.svg',
+          html_class: "kaui-button custom-hover",
+          variant: "btn-outline-secondary d-inline-flex align-items-center gap-1",
+          type: "button",
+          html_options: {
+            id: "queuesDownloadButton",
+            onclick: "downloadActiveQueuesTab()"
+          }
+        } %>
       </div>
 
       <div class="queues-card">
@@ -139,7 +152,7 @@
                           <span class="dot"></span>
                         </td>
                         <td><span><%= truncate_millis(bus_event['createdDate']) %></span></td>
-                        <td><%= truncate_class_name(bus_event['className'], false) %></td>
+                        <td data-full-value="<%= bus_event['className'] %>"><%= truncate_class_name(bus_event['className'], false) %></td>
                         <td><%= "<pre>#{JSON.pretty_generate(bus_event['event'])}</pre>".html_safe %></td>
                         <td><%= bus_event['userToken'] %></td>
                         <% if @account_id.blank? %>
@@ -278,6 +291,62 @@
 </div>
 
 <%= javascript_tag do %>
+  function downloadActiveQueuesTab() {
+    var activeTab = $('#queuesNavTabs .nav-link.active').attr('id');
+    var tableId, filename;
+    if (activeTab === 'notifications-tab') {
+      tableId = '#notifications-table';
+      filename = 'notifications-' + new Date().toISOString().split('T')[0] + '.json';
+    } else {
+      tableId = '#bus-table';
+      filename = 'bus-events-' + new Date().toISOString().split('T')[0] + '.json';
+    }
+
+    var table = $(tableId).DataTable();
+    var headers = [];
+    var visibleColumnIndexes = [];
+
+    $(tableId + ' thead th').each(function(index) {
+      if (index === 0) return; // skip timeline dot column
+      var column = table.column(index);
+      if (column.visible()) {
+        var headerText = $(this).find('.header-text').text().trim();
+        headers.push(headerText);
+        visibleColumnIndexes.push(index);
+      }
+    });
+
+    var jsonRows = [];
+
+    table.rows({ search: 'applied' }).nodes().each(function(row) {
+      var cells = $(row).find('td');
+      var obj = {};
+      visibleColumnIndexes.forEach(function(colIdx, i) {
+        var $cell = $(cells[colIdx]);
+        var fullValue = $cell.data('full-value');
+        var cellText = fullValue !== undefined ? String(fullValue) : $cell.text().trim();
+        var key = headers[i];
+        try {
+          obj[key] = JSON.parse(cellText);
+        } catch (e) {
+          obj[key] = cellText;
+        }
+      });
+      jsonRows.push(obj);
+    });
+
+    var jsonContent = JSON.stringify(jsonRows, null, 2);
+    var blob = new Blob([jsonContent], { type: 'application/json;charset=utf-8;' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
   $(document).ready(function() {
     var busTable = $('#bus-table').DataTable({
       "dom": "t<'row dt-footer-row'<'col-md-6'i><'col-md-6'p>>",
