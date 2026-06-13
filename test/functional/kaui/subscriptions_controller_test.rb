@@ -323,6 +323,48 @@ module Kaui
       assert_equal 'Subscription BCD was successfully changed', flash[:notice]
     end
 
+    test 'should get edit quantity' do
+      get :edit_quantity, params: { id: @bundle.subscriptions.first.subscription_id }
+      assert_response :success
+      assert_equal extract_value_from_input_field('subscription_account_id'), @bundle.subscriptions.first.account_id
+      assert_equal extract_value_from_input_field('effective_from_date'), Time.zone.today.strftime('%Y-%m-%d')
+    end
+
+    test 'should update quantity' do
+      bundle = create_bundle(@account, @tenant)
+      subscription_id = bundle.subscriptions.first.subscription_id
+      parameters = {
+        id: subscription_id,
+        subscription: { account_id: bundle.subscriptions.first.account_id,
+                        quantity: 2 },
+        effective_from_date: (Time.zone.today >> 1).to_s
+      }
+
+      put :update_quantity, params: parameters
+      assert_redirected_to account_bundles_path(bundle.subscriptions.first.account_id)
+      assert_equal 'Subscription quantity was successfully changed', flash[:notice]
+    end
+
+    test 'should coerce string quantity to integer' do
+      bundle = create_bundle(@account, @tenant)
+      parameters = {
+        id: bundle.subscriptions.first.subscription_id,
+        subscription: { account_id: bundle.subscriptions.first.account_id,
+                        quantity: '3' },
+        effective_from_date: (Time.zone.today >> 1).to_s
+      }
+
+      put :update_quantity, params: parameters
+      assert_redirected_to account_bundles_path(bundle.subscriptions.first.account_id)
+      assert_equal 'Subscription quantity was successfully changed', flash[:notice]
+    end
+
+    test 'should require subscription params on update quantity' do
+      assert_raises(ActionController::ParameterMissing) do
+        put :update_quantity, params: { id: @bundle.subscriptions.first.subscription_id }
+      end
+    end
+
     test 'should validate external key if found' do
       get :validate_external_key, params: { external_key: 'foo' }
       assert_response :success

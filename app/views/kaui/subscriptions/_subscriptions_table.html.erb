@@ -183,6 +183,14 @@
                   } %>
                 <% end %>
 
+                <% if can?(:create, Kaui::Subscription) %>
+                  <% menu_items << {
+                    label: "Update Quantity",
+                    path: kaui_engine.edit_quantity_path(id: sub.subscription_id),
+                    icon: "kaui/subscription/change.svg"
+                  } %>
+                <% end %>
+
                 <% if can?(:transfer, Kaui::Bundle) && sub.product_category != 'ADD_ON' %>
                   <% menu_items << {
                     label: I18n.translate('transfer'),
