@@ -158,6 +158,22 @@ module Kaui
       redirect_to kaui_engine.account_bundles_path(input_subscription['account_id']), notice: 'Subscription BCD was successfully changed'
     end
 
+    def edit_quantity
+      @subscription = Kaui::Subscription.find_by_id(params.require(:id), 'NONE', options_for_klient)
+    end
+
+    def update_quantity
+      input_subscription = params.require(:subscription)
+      subscription = Kaui::Subscription.new
+      subscription.subscription_id = params.require(:id)
+      subscription.quantity = input_subscription['quantity'].to_i
+
+      effective_from_date = params['effective_from_date']
+
+      subscription.update_quantity(current_user.kb_username, params[:reason], params[:comment], effective_from_date, nil, options_for_klient)
+      redirect_to kaui_engine.account_bundles_path(input_subscription['account_id']), notice: 'Subscription quantity was successfully changed'
+    end
+
     def restful_show
       subscription = Kaui::Subscription.find_by_id(params.require(:id), 'NONE', options_for_klient)
       redirect_to kaui_engine.account_bundles_path(subscription.account_id)
