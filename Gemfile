@@ -8,7 +8,7 @@ gemspec
 gem 'rails', '~> 7.0.1'
 
 # Lock i18n to 1.14.x for: https://github.com/ruby-i18n/i18n/issues/735
-gem 'i18n', '~> 1.14.0'
+gem 'i18n', '~> 1.15.1'
 
 # Lock minitest to 5.x until Rails 7.1+ adds Minitest 6.0 support
 # Minitest 6.0.0 was released Dec 2024 with breaking API changes
