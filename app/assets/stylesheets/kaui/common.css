@@ -1066,7 +1066,6 @@ form[id^="new_tag_definition"] #object_types div .tag-definition-select {
 /* Prevent flex children from overflowing the sidebar + content layout */
 .kaui-container > .d-flex > :not(.account-sidebar-area) {
   min-width: 0;
-  flex: 1;
 }
 
 header {
