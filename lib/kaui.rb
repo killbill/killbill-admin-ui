@@ -135,6 +135,8 @@ module Kaui
         view_context.humanized_money_with_symbol(invoice.balance_to_money)
       when 'invoice_id'
         view_context.link_to(invoice.invoice_id, view_context.url_for(controller: :invoices, action: :show, account_id: invoice.account_id, id: invoice.invoice_id))
+      when 'invoice_number'
+        view_context.link_to(invoice.invoice_number, view_context.url_for(controller: :invoices, action: :show, account_id: invoice.account_id, id: invoice.invoice_id))
       when 'status'
         default_label = 'label-info'
         default_label = 'label-default' if invoice&.status == 'DRAFT'
