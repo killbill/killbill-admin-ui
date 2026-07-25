@@ -23,16 +23,6 @@ module Kaui
         KillBillClient::Model::Invoice.upload_invoice_translation(invoice_translation, locale, delete_if_exists, user, reason, comment, options)
       end
 
-      # Return a map of locale => invoice translation content, for every invoice translation uploaded for the tenant
-      def get_invoice_translations(options = {})
-        raw_translations = KillBillClient::Model::Tenant.search_tenant_config('INVOICE_TRANSLATION_', options)
-
-        raw_translations.each_with_object({}) do |e, hsh|
-          locale = e.key.gsub('INVOICE_TRANSLATION_', '')
-          hsh[locale] = e.values[0]
-        end
-      end
-
       def upload_catalog_translation(catalog_translation, locale, delete_if_exists, user = nil, reason = nil, comment = nil, options = {})
         KillBillClient::Model::Invoice.upload_catalog_translation(catalog_translation, locale, delete_if_exists, user, reason, comment, options)
       end

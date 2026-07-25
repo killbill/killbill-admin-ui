@@ -53,12 +53,6 @@ module Kaui
         @invoice_template = nil
       end
 
-      fetch_invoice_translations = promise do
-        Kaui::AdminTenant.get_invoice_translations(options)
-      rescue StandardError
-        @invoice_translations = {}
-      end
-
       fetch_tenant_plugin_config = promise { Kaui::AdminTenant.get_tenant_plugin_config(options) }
 
       @catalog_versions = []
@@ -80,12 +74,6 @@ module Kaui
         wait(fetch_invoice_template)
       rescue StandardError
         nil
-      end
-
-      @invoice_translations = begin
-        wait(fetch_invoice_translations)
-      rescue StandardError
-        {}
       end
 
       @tenant_plugin_config = begin
