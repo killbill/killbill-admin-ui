@@ -53,12 +53,6 @@ module Kaui
         @invoice_template = nil
       end
 
-      fetch_invoice_translations = promise do
-        Kaui::AdminTenant.get_invoice_translations(options)
-      rescue StandardError
-        @invoice_translations = {}
-      end
-
       fetch_tenant_plugin_config = promise { Kaui::AdminTenant.get_tenant_plugin_config(options) }
 
       @catalog_versions = []
@@ -80,12 +74,6 @@ module Kaui
         wait(fetch_invoice_template)
       rescue StandardError
         nil
-      end
-
-      @invoice_translations = begin
-        wait(fetch_invoice_translations)
-      rescue StandardError
-        {}
       end
 
       @tenant_plugin_config = begin
@@ -612,6 +600,52 @@ module Kaui
       session[:tenant_id] = tenant.id
 
       redirect_to admin_tenant_path(tenant.id), notice: "Tenant was switched to #{tenant.name}"
+    end
+
+    # API endpoint to create a tenant programmatically (used by Aviate)
+    def create_tenant
+      # Validate required parameters
+      required_params = %i[name tenant_key tenant_secret kb_tenant_id]
+      missing = required_params.select { |p| params[p].blank? }
+      if missing.any?
+        render json: { error: "Missing required parameters: #{missing.join(', ')}" }, status: :bad_request
+        return
+      end
+
+      # Check for duplicate tenant (by name or kb_tenant_id)
+      if Kaui::Tenant.exists?(name: params[:name])
+        render json: { error: "Tenant with name '#{params[:name]}' already exists" }, status: :conflict
+        return
+      end
+      if Kaui::Tenant.exists?(kb_tenant_id: params[:kb_tenant_id])
+        render json: { error: "Tenant with kb_tenant_id '#{params[:kb_tenant_id]}' already exists" }, status: :conflict
+        return
+      end
+
+      begin
+        tenant = Kaui::Tenant.new(
+          name: params[:name],
+          api_key: params[:tenant_key],
+          api_secret: params[:tenant_secret],
+          kb_tenant_id: params[:kb_tenant_id]
+        )
+        tenant.save!
+
+        # Grant access to the new tenant for the current user
+        tenant.kaui_allowed_users << Kaui::AllowedUser.where(kb_username: current_user.kb_username).first_or_create
+
+        render json: {
+          id: tenant.id,
+          name: tenant.name,
+          kb_tenant_id: tenant.kb_tenant_id,
+          api_key: tenant.api_key,
+          created_at: tenant.created_at
+        }, status: :created
+      rescue ActiveRecord::RecordInvalid => e
+        render json: { error: "Validation failed: #{e.message}" }, status: :unprocessable_entity
+      rescue StandardError => e
+        render json: { error: "Failed to create tenant: #{e.message}" }, status: :internal_server_error
+      end
     end
 
     private
