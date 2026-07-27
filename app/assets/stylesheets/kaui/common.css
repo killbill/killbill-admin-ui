@@ -1060,6 +1060,12 @@ form[id^="new_tag_definition"] #object_types div .tag-definition-select {
   margin: 0 auto;
   padding-bottom: 0.625rem !important;
   max-width: 80rem;
+  overflow-x: hidden;
+}
+
+/* Prevent flex children from overflowing the sidebar + content layout */
+.kaui-container > .d-flex > :not(.account-sidebar-area) {
+  min-width: 0;
 }
 
 header {
