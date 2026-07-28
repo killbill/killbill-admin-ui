@@ -8,10 +8,8 @@
         </div>
         <div>
           <table id="existing-invoice-translations-for-tenants" class="existing-invoice-translations-table">
-            <span class='label'>
-            </span>
             <% if @invoice_translations.blank? %>
-              No invoice translation defined for tenant
+              <tbody><tr><td>No invoice translation defined for tenant</td></tr></tbody>
             <% else %>
               <thead>
                 <tr>
