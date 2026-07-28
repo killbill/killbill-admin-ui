@@ -206,7 +206,6 @@ Kaui::Engine.routes.draw do
     post '/upload_invoice_translation' => 'admin_tenants#upload_invoice_translation', :as => 'admin_tenant_upload_invoice_translation'
     post '/upload_catalog_translation' => 'admin_tenants#upload_catalog_translation', :as => 'admin_tenant_upload_catalog_translation'
     post '/upload_plugin_config' => 'admin_tenants#upload_plugin_config', :as => 'admin_tenant_upload_plugin_config'
-    post '/create_tenant' => 'admin_tenants#create_tenant', :as => 'admin_tenant_create_tenant'
     delete '/remove_allowed_user' => 'admin_tenants#remove_allowed_user', :as => 'remove_allowed_user'
     put '/add_allowed_user' => 'admin_tenants#add_allowed_user', :as => 'add_allowed_user'
     get '/allowed_users' => 'admin_tenants#allowed_users', :as => 'admin_tenant_allowed_users'
