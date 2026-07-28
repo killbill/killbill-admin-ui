@@ -101,6 +101,7 @@ $(document).ready(function() {
         return reorderedData;
       }
     },
+    "columns": <%= raw @visible_columns.to_json %>
   });
 
   // If the page loaded with advanced search params in the URL (e.g. restored from

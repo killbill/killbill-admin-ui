@@ -641,59 +641,6 @@
   color: #414651;
 }
 
-/* app/views/kaui/admin_tenants/_form_invoice_translation.erb */
-
-.existing-invoice-translations-container {
-  max-width: 80rem;
-  width: 100%;
-}
-
-.existing-invoice-translations-container .existing-invoice-translations-header {
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  padding: 0;
-  border-bottom: 0.0625rem solid #E9EAEB;
-}
-
-.existing-invoice-translations-container .existing-invoice-translations-header h2 {
-  font-weight: 600;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  color: #414651;
-  margin-bottom: 1.25rem;
-}
-
-.existing-invoice-translations-container table.existing-invoice-translations-table {
-  overflow-x: auto;
-  min-width: 100%;
-  border: none !important;
-}
-
-.existing-invoice-translations-container table.existing-invoice-translations-table tbody tr {
-  border-bottom: 0.0625rem solid #E9EAEB !important;
-}
-
-.existing-invoice-translations-container table.existing-invoice-translations-table th {
-  padding: 0.375rem 0.75rem !important;
-  font-weight: 500 !important;
-  font-size: 0.75rem !important;
-  line-height: 1.125rem;
-  letter-spacing: 0;
-  color: #717680;
-  text-transform: capitalize;
-  background-color: #FAFAFA !important;
-}
-
-.existing-invoice-translations-container table.existing-invoice-translations-table td {
-  font-weight: 500 !important;
-  font-size: 0.875rem !important;
-  line-height: 1.125rem !important;
-  text-align: start;
-  padding: 0.3125rem 0.75rem !important;
-  color: #535862 !important;
-}
-
 /* app/views/kaui/admin_tenants/_show_catalog_simple.erb */
 
 #catalog_simple, #catalog_xml {
