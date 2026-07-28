@@ -15,6 +15,7 @@
 
       <% if aviate_plugin_installed %>
         <% menu_items << { label: 'Wallets', path: aviate_engine.account_wallets_path(params[:account_id]), controller_suffix: 'wallets', icon_path: 'kaui/sidebar/invoices.svg' } %>
+        <% menu_items << { label: 'Usage', path: aviate_engine.account_usage_index_path(params[:account_id]), controller_suffix: 'usage', icon_path: 'kaui/sidebar/subscriptions.svg' } %>
       <% end %>
 
       <% if current_user.root? %>

@@ -215,6 +215,14 @@
                     path: kaui_engine.record_usage_path(id: sub.subscription_id),
                     icon: "kaui/subscription/change.svg"
                   } %>
+
+                  <% if aviate_plugin_installed %>
+                    <% menu_items << {
+                      label: "View Usage",
+                      path: aviate_engine.usage_subscription_path(id: sub.subscription_id),
+                      icon: "kaui/subscription/change.svg"
+                    } %>
+                  <% end %>
                 <% end %>
 
                 <% if can?(:transfer, Kaui::Bundle) && sub.product_category != 'ADD_ON' %>
