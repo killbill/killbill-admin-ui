@@ -1,5 +1,51 @@
 <% if can? :config_upload, Kaui::AdminTenant %>
   <div class="tab-pane fade" id="InvoiceTranslation">
+    <div class="existing-invoice-translations-container mb-4">
+      <div class="d-flex flex-column">
+        <div class="existing-invoice-translations-header mb-3">
+          <div class="d-flex align-items-start flex-column">
+          </div>
+        </div>
+        <div>
+          <table id="existing-invoice-translations-for-tenants" class="existing-invoice-translations-table">
+            <% if @invoice_translations.blank? %>
+              <tbody><tr><td>No invoice translation defined for tenant</td></tr></tbody>
+            <% else %>
+              <thead>
+                <tr>
+                  <th>Locale</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @invoice_translations.each do |locale, content| %>
+                  <tr>
+                    <td><%= locale %></td>
+                    <td class="text-end">
+                      <%= render "kaui/components/button/button", {
+                        label: 'View Source',
+                        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                        type: "button",
+                        html_class: "kaui-button custom-hover",
+                        html_options: {
+                          onclick: '$(this).blur(); $(this).closest("tr").next(".invoice-translation-source-row").toggle(); return false;'
+                        }
+                      } %>
+                    </td>
+                  </tr>
+                  <tr class="invoice-translation-source-row" style="display: none;">
+                    <td colspan="2">
+                      <pre class="mb-0 p-2 bg-light" style="max-height: 400px; overflow-y: auto; white-space: pre-wrap; word-break: break-all; font-family: monospace; font-size: 12px;"><%= html_escape(content) %></pre>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+
     <%= form_tag({:action => :upload_invoice_translation}, :method => 'post', :multipart => true, :class => 'form-horizontal') do %>
         <%= hidden_field_tag(:id, @tenant.id) %>
 
