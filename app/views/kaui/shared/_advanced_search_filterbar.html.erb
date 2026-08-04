@@ -191,19 +191,19 @@ $(document).ready(function() {
     var table = $('<%= table_selector %>').DataTable();
     table.off('preXhr.dt.filter');
     table.on('preXhr.dt.filter', function(e, settings, data) {
-      data.search.value = searchQuery('<%= j search_query.to_s %>');
+      data.advance_search_query = decodeURIComponent(searchQuery('<%= j search_query.to_s %>'));
     });
 
     var searchParams = searchQuery('<%= j search_query.to_s %>');
+    var rawSearchParams = searchParams ? decodeURIComponent(searchParams) : searchParams;
     var ajaxUrl = "<%= pagination_path %>";
-    if (searchParams) {
-      ajaxUrl += (ajaxUrl.includes('?') ? '&' : '?') + searchParams;
+    if (rawSearchParams) {
+      ajaxUrl += (ajaxUrl.includes('?') ? '&' : '?') + 'advance_search_query=' + encodeURIComponent(rawSearchParams);
     }
     table.ajax.url(ajaxUrl).load();
 
-    if (searchParams) {
-      searchParams = searchParams.replace(/account_id/g, 'ac_id');
-      var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + searchParams;
+    if (rawSearchParams) {
+      var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?advance_search_query=' + encodeURIComponent(rawSearchParams);
       window.history.pushState({ path: newUrl }, '', newUrl);
     }
 
