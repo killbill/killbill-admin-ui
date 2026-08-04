@@ -55,15 +55,17 @@ function populateSearchLabelsFromUrl() {
       if (match) {
         var columnName = match[1].replace(/_/g, ' ').replace(/^\w/, function(l) { return l.toUpperCase(); });
         var filter = searchFormatOperator(match[2].trim());
+        var isHiddenAccountFilter = match[1].trim().toLowerCase() === 'account_id' && window.location.pathname.includes('/accounts/');
         var label = $('<span>', {
-          class: 'label label-info d-inline-flex align-items-center gap-2',
+          class: 'label label-info d-inline-flex align-items-center gap-2' + (isHiddenAccountFilter ? ' d-none' : ''),
           'data-field': columnName.trim(),
           'data-filter': filter.trim(),
-          'data-value': value.trim()
+          'data-value': value.trim(),
+          'data-hidden-filter': isHiddenAccountFilter
         });
 
         if (hasBalanceFilter && columnName.toLowerCase().trim() !== 'balance') {
-          label.attr('class', 'label label-default d-inline-flex align-items-center gap-2');
+          label.attr('class', 'label label-default d-inline-flex align-items-center gap-2' + (isHiddenAccountFilter ? ' d-none' : ''));
         }
 
         var labelText = $('<span>', {
@@ -168,6 +170,10 @@ function showAdvanceSearchModal() {
 
   // Populate the search fields with the current filters
   searchLabelsContainer.find('.label').each(function() {
+    if ($(this).data('hidden-filter')) {
+      return;
+    }
+
     var labelText = $(this).text().trim();
     var parts = labelText.split(' [');
     var columnName = parts[0].trim();

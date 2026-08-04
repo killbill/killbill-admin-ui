@@ -6,7 +6,7 @@ module Kaui
     # Columns shown by default on the Invoices list screen (demo-friendly defaults); the rest remain
     # available but hidden until the user opts in via "Edit Columns".
     DEFAULT_VISIBLE_COLUMNS = %w[invoice_number invoice_id status invoice_date target_date currency account_id].freeze
-    ADVANCED_SEARCH_COLUMNS = %w[invoice_id account_id invoice_date target_date currency status balance].freeze
+    ADVANCED_SEARCH_COLUMNS = %w[id account_id invoice_date target_date currency status balance].freeze
     ADVANCED_SEARCH_NAME_CHANGES = [%w[ac_id account_id]].freeze
 
     def self.build_from_raw_invoice(raw_invoice)
