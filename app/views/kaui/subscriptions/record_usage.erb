@@ -22,22 +22,34 @@
             <%= form_tag create_usage_path(@subscription.subscription_id), method: :post, id: 'record_usage_form', class: 'form-horizontal' do %>
 
                 <div class="form-group d-flex pb-3">
-                    <%= label_tag :unit_type, 'Unit Type', class: 'col-sm-3 control-label' %>
+                    <%= label_tag :unit_type, (@is_aviate_catalog ? 'Billing Meter Code' : 'Unit Type'), class: 'col-sm-3 control-label' %>
                     <div class="col-sm-9">
                         <% if @unit_types.length == 1 %>
                             <%= text_field_tag :unit_type, @unit_types.first, readonly: true, required: true, class: 'form-control bg-light' %>
                         <% elsif @unit_types.length > 1 %>
                             <%= select_tag :unit_type, options_for_select(@unit_types.map { |u| [u, u] }, @unit_type.presence || @unit_types.first), required: true, class: 'form-control', title: (@unit_type.presence || @unit_types.first) %>
                         <% else %>
-                            <%= text_field_tag :unit_type, @unit_type, required: true, maxlength: 255, class: 'form-control', placeholder: 'e.g. api-calls' %>
+                            <%= text_field_tag :unit_type, @unit_type, required: true, maxlength: 255, class: 'form-control', placeholder: (@is_aviate_catalog ? 'e.g. api-calls-meter' : 'e.g. api-calls') %>
                         <% end %>
+                        <small class="form-text text-muted">
+                            <% if @is_aviate_catalog %>
+                                This subscription's plan is billed via an Aviate catalog: usage is recorded against a <strong>billing meter code</strong> instead of a unit type.
+                            <% else %>
+                                This subscription's plan is billed via a standard (XML) catalog: usage is recorded against a <strong>unit type</strong>.
+                            <% end %>
+                            <a href="#" data-toggle="tooltip" class="kb-tooltip" title="Kaui automatically detects the catalog type for this subscription's account and submits usage through the matching Kill Bill API: the Record Usage API (unit type) for standard catalogs, or the Aviate Submit Usage Events API (billing meter code) for Aviate catalogs.">(?)</a>
+                        </small>
                     </div>
                 </div>
 
                 <div class="form-group d-flex pb-3">
                     <%= label_tag :amount, 'Amount', class: 'col-sm-3 control-label' %>
                     <div class="col-sm-9">
-                        <%= number_field_tag :amount, @amount, required: true, min: 1, step: 1, class: 'form-control', placeholder: 'Positive integer' %>
+                        <% if @is_aviate_catalog %>
+                            <%= number_field_tag :amount, @amount, required: true, min: 0, step: 'any', class: 'form-control', placeholder: 'Positive number' %>
+                        <% else %>
+                            <%= number_field_tag :amount, @amount, required: true, min: 1, step: 1, class: 'form-control', placeholder: 'Positive integer' %>
+                        <% end %>
                     </div>
                 </div>
 
@@ -84,9 +96,11 @@
                 <div class="form-group d-flex pb-3">
                     <%= label_tag :tracking_id, 'Tracking ID', class: 'col-sm-3 control-label' %>
                     <div class="col-sm-9">
-                        <%= text_field_tag :tracking_id, @tracking_id, maxlength: 255, class: 'form-control', placeholder: 'Optional, used for idempotency' %>
+                        <%= text_field_tag :tracking_id, @tracking_id, maxlength: 255, class: 'form-control', placeholder: (@is_aviate_catalog ? 'Optional UUID, auto-generated if left blank' : 'Optional, used for idempotency') %>
                     </div>
                 </div>
+
+                <%= hidden_field_tag :is_aviate_catalog, @is_aviate_catalog.to_s %>
 
                 <div class="form-group d-flex justify-content-end pb-3">
                     <%= render "kaui/components/button/button", {
@@ -113,8 +127,11 @@
 
 <%= javascript_tag do %>
   document.addEventListener('DOMContentLoaded', function () {
+    $('[data-toggle="tooltip"]').tooltip();
+
     var form = document.getElementById('record_usage_form');
     if (!form) { return; }
+    var isAviateCatalog = document.getElementById('is_aviate_catalog') && document.getElementById('is_aviate_catalog').value === 'true';
         var unitTypeSelect = document.getElementById('unit_type');
         if (unitTypeSelect && unitTypeSelect.tagName === 'SELECT') {
             unitTypeSelect.title = unitTypeSelect.value || '';
@@ -129,13 +146,20 @@
             var unitTypeEl = document.getElementById('unit_type');
             var unitType = unitTypeEl ? (unitTypeEl.value || '').trim() : '';
       if (unitType.length === 0) {
-        errors.push('Unit type is required.');
+        errors.push(isAviateCatalog ? 'Billing meter code is required.' : 'Unit type is required.');
       }
 
       var amountStr = (document.getElementById('amount').value || '').trim();
-      var amount = parseInt(amountStr, 10);
-      if (amountStr.length === 0 || isNaN(amount) || amount <= 0 || String(amount) !== amountStr) {
-        errors.push('Amount must be a positive integer.');
+      if (isAviateCatalog) {
+        var floatAmount = parseFloat(amountStr);
+        if (amountStr.length === 0 || isNaN(floatAmount) || floatAmount <= 0) {
+          errors.push('Amount must be a positive number.');
+        }
+      } else {
+        var amount = parseInt(amountStr, 10);
+        if (amountStr.length === 0 || isNaN(amount) || amount <= 0 || String(amount) !== amountStr) {
+          errors.push('Amount must be a positive integer.');
+        }
       }
 
             var dateEl = document.getElementById('record_date_date');
