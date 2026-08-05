@@ -181,7 +181,12 @@ module Kaui
 
     def record_usage
       @subscription = Kaui::Subscription.find_by_id(params.require(:id), 'NONE', options_for_klient)
-      @unit_types = fetch_unit_types_from_subscription(@subscription)
+      @is_aviate_catalog = Dependencies::Aviate::Metering.aviate_catalog?(@subscription.account_id, options_for_aviate_klient)
+      @unit_types = if @is_aviate_catalog
+                      Dependencies::Aviate::Metering.billing_meter_codes_for_plan(@subscription.plan_name, @subscription.account_id, options_for_aviate_klient)
+                    else
+                      fetch_unit_types_from_subscription(@subscription)
+                    end
     end
 
     def create_usage
@@ -189,56 +194,65 @@ module Kaui
       unit_type = params[:unit_type].to_s.strip
       amount_raw = params[:amount].to_s.strip
       record_date = params[:record_date].to_s.strip
+      tracking_id = params[:tracking_id].to_s.strip
+
+      @subscription = Kaui::Subscription.find_by_id(subscription_id, 'NONE', options_for_klient)
+      @is_aviate_catalog = Dependencies::Aviate::Metering.aviate_catalog?(@subscription.account_id, options_for_aviate_klient)
 
       # Input validation
       errors = []
-      errors << 'Unit type is required' if unit_type.blank?
+      errors << (@is_aviate_catalog ? 'Billing meter code is required' : 'Unit type is required') if unit_type.blank?
       errors << 'Amount is required' if amount_raw.blank?
-      amount = Integer(amount_raw, exception: false)
-      errors << 'Amount must be a positive integer' if amount.nil? || amount <= 0
+      amount = @is_aviate_catalog ? parse_usage_amount(amount_raw) : Integer(amount_raw, exception: false)
+      errors << (@is_aviate_catalog ? 'Amount must be a positive number' : 'Amount must be a positive integer') if amount.nil? || amount <= 0
       errors << 'Date/time of usage is required' if record_date.blank?
       parsed_date = parse_usage_date(record_date) if record_date.present?
       errors << 'Date/time of usage must be a valid date or datetime' if record_date.present? && parsed_date.nil?
+      errors << 'Tracking ID must be a valid UUID' if @is_aviate_catalog && tracking_id.present? && !tracking_id.match?(/\A[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\z/i)
 
       if errors.any?
         flash.now[:error] = errors.join('. ')
-        @subscription = Kaui::Subscription.find_by_id(subscription_id, 'NONE', options_for_klient)
-        @unit_types = fetch_unit_types_from_subscription(@subscription)
+        @unit_types = fetch_unit_types_for_record_usage_form(@subscription, @is_aviate_catalog)
         @unit_type = unit_type
         @amount = amount_raw
         @record_date = record_date
-        @tracking_id = params[:tracking_id]
+        @tracking_id = tracking_id
         render :record_usage and return
       end
 
       begin
-        usage_record = KillBillClient::Model::UsageRecordAttributes.new
-        usage_record.record_date = parsed_date.utc.iso8601
-        usage_record.amount = amount
+        if @is_aviate_catalog
+          # trackingId is required by the Aviate metering API; auto-generate one if the user left it blank
+          tracking_id = SecureRandom.uuid if tracking_id.blank?
+          Dependencies::Aviate::Metering.submit_usage_event(@subscription.account_id, unit_type, subscription_id, tracking_id,
+                                                            parsed_date.utc.strftime('%Y-%m-%dT%H:%M:%S'), amount.to_f, options_for_aviate_klient)
+        else
+          usage_record = KillBillClient::Model::UsageRecordAttributes.new
+          usage_record.record_date = parsed_date.utc.iso8601
+          usage_record.amount = amount.to_i
 
-        unit_usage_record = KillBillClient::Model::UnitUsageRecordAttributes.new
-        unit_usage_record.unit_type = unit_type
-        unit_usage_record.usage_records = [usage_record]
+          unit_usage_record = KillBillClient::Model::UnitUsageRecordAttributes.new
+          unit_usage_record.unit_type = unit_type
+          unit_usage_record.usage_records = [usage_record]
 
-        usage = Kaui::Usage.new
-        usage.subscription_id = subscription_id
-        usage.tracking_id = params[:tracking_id].presence
-        usage.unit_usage_records = [unit_usage_record]
+          usage = Kaui::Usage.new
+          usage.subscription_id = subscription_id
+          usage.tracking_id = tracking_id.presence
+          usage.unit_usage_records = [unit_usage_record]
 
-        usage.create(current_user.kb_username, nil, nil, options_for_klient)
+          usage.create(current_user.kb_username, nil, nil, options_for_klient)
+        end
 
-        subscription = Kaui::Subscription.find_by_id(subscription_id, 'NONE', options_for_klient)
-        redirect_to kaui_engine.account_bundles_path(subscription.account_id), notice: 'Usage was successfully recorded'
+        redirect_to kaui_engine.account_bundles_path(@subscription.account_id), notice: 'Usage was successfully recorded'
       rescue StandardError => e
         Rails.logger.error("Failed to record usage for subscription #{subscription_id}: #{e.class}: #{e.message}")
         Rails.logger.error(e.backtrace.join("\n")) if e.backtrace
         flash.now[:error] = "Error while recording usage: #{as_string(e)}"
-        @subscription = Kaui::Subscription.find_by_id(subscription_id, 'NONE', options_for_klient)
-        @unit_types = fetch_unit_types_from_subscription(@subscription)
+        @unit_types = fetch_unit_types_for_record_usage_form(@subscription, @is_aviate_catalog)
         @unit_type = unit_type
         @amount = amount_raw
         @record_date = record_date
-        @tracking_id = params[:tracking_id]
+        @tracking_id = tracking_id
         render :record_usage
       end
     end
@@ -409,6 +423,27 @@ module Kaui
 
     def phase_uses_fixed_price?(phase)
       (phase.prices || []).empty?
+    end
+
+    def fetch_unit_types_for_record_usage_form(subscription, is_aviate_catalog)
+      if is_aviate_catalog
+        Dependencies::Aviate::Metering.billing_meter_codes_for_plan(subscription.plan_name, subscription.account_id, options_for_aviate_klient)
+      else
+        fetch_unit_types_from_subscription(subscription)
+      end
+    end
+
+    # The Aviate plugin's catalog/metering endpoints require a JWT (obtained by logging in via the
+    # Aviate Configuration page in killbill-aviate-ui), stored in a jwt_token cookie - same convention
+    # as Aviate::EngineController#options_for_klient in that engine.
+    def options_for_aviate_klient
+      options_for_klient(jwt_token: cookies[:jwt_token])
+    end
+
+    def parse_usage_amount(amount_raw)
+      BigDecimal(amount_raw, exception: false)
+    rescue ArgumentError
+      nil
     end
 
     def fetch_unit_types_from_subscription(subscription)

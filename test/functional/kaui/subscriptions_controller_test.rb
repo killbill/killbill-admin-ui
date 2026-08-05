@@ -502,6 +502,77 @@ module Kaui
       assert_match(/Error while recording usage/, flash.now[:error])
     end
 
+    test 'should get record usage form with billing meter codes for an Aviate catalog' do
+      Dependencies::Aviate::Metering.stub(:aviate_catalog?, true) do
+        Dependencies::Aviate::Metering.stub(:billing_meter_codes_for_plan, %w[meter1 meter2]) do
+          get :record_usage, params: { id: @bundle.subscriptions.first.subscription_id }
+        end
+      end
+      assert_response :success
+      assert assigns(:is_aviate_catalog)
+      assert_equal %w[meter1 meter2], assigns(:unit_types)
+    end
+
+    test 'should submit usage events via the Aviate metering API for an Aviate catalog' do
+      subscription_id = @bundle.subscriptions.first.subscription_id
+      received_args = nil
+      submit_stub = lambda do |account_id, billing_meter_code, sub_id, tracking_id, timestamp, value, _options|
+        received_args = { account_id:, billing_meter_code:, sub_id:, tracking_id:, timestamp:, value: }
+        true
+      end
+
+      Dependencies::Aviate::Metering.stub(:aviate_catalog?, true) do
+        Dependencies::Aviate::Metering.stub(:submit_usage_event, submit_stub) do
+          post :create_usage,
+               params: {
+                 id: subscription_id,
+                 unit_type: 'meter1',
+                 amount: '1.5',
+                 record_date: '2025-01-01T10:30'
+               }
+        end
+      end
+
+      assert_redirected_to account_bundles_path(@account.account_id)
+      assert_equal 'Usage was successfully recorded', flash[:notice]
+      assert_equal @account.account_id, received_args[:account_id]
+      assert_equal 'meter1', received_args[:billing_meter_code]
+      assert_equal subscription_id, received_args[:sub_id]
+      assert_match(/\A[0-9a-f-]{36}\z/i, received_args[:tracking_id])
+      assert_equal 1.5, received_args[:value]
+    end
+
+    test 'should reject Aviate usage with an invalid tracking id' do
+      Dependencies::Aviate::Metering.stub(:aviate_catalog?, true) do
+        post :create_usage,
+             params: {
+               id: @bundle.subscriptions.first.subscription_id,
+               unit_type: 'meter1',
+               amount: '1.5',
+               record_date: '2025-01-01T10:30',
+               tracking_id: 'not-a-uuid'
+             }
+      end
+      assert_response :success
+      assert_template :record_usage
+      assert_match(/Tracking ID must be a valid UUID/, flash.now[:error])
+    end
+
+    test 'should reject Aviate usage with a non-positive amount but allow decimals' do
+      Dependencies::Aviate::Metering.stub(:aviate_catalog?, true) do
+        post :create_usage,
+             params: {
+               id: @bundle.subscriptions.first.subscription_id,
+               unit_type: 'meter1',
+               amount: '0',
+               record_date: '2025-01-01T10:30'
+             }
+      end
+      assert_response :success
+      assert_template :record_usage
+      assert_match(/Amount must be a positive number/, flash.now[:error])
+    end
+
     test 'should validate external key if found' do
       get :validate_external_key, params: { external_key: 'foo' }
       assert_response :success

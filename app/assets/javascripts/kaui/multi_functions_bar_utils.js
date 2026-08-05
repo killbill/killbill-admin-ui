@@ -29,8 +29,8 @@ function searchParseOperatorText(text) {
 // Function to parse URL parameters
 function getUrlParams() {
   var params = {};
-  var queryString = window.location.search.substring(1);
-  queryString = queryString.replace(/ac_id/g, 'account_id');
+  var advanceSearchQuery = new URLSearchParams(window.location.search).get('advance_search_query');
+  var queryString = advanceSearchQuery !== null ? advanceSearchQuery : window.location.search.substring(1).replace(/ac_id/g, 'account_id');
   var regex = /([^&=]+)=([^&]*)/g;
   var m;
   while (m = regex.exec(queryString)) {
@@ -55,15 +55,17 @@ function populateSearchLabelsFromUrl() {
       if (match) {
         var columnName = match[1].replace(/_/g, ' ').replace(/^\w/, function(l) { return l.toUpperCase(); });
         var filter = searchFormatOperator(match[2].trim());
+        var isHiddenAccountFilter = match[1].trim().toLowerCase() === 'account_id' && window.location.pathname.includes('/accounts/');
         var label = $('<span>', {
-          class: 'label label-info d-inline-flex align-items-center gap-2',
+          class: 'label label-info d-inline-flex align-items-center gap-2' + (isHiddenAccountFilter ? ' d-none' : ''),
           'data-field': columnName.trim(),
           'data-filter': filter.trim(),
-          'data-value': value.trim()
+          'data-value': value.trim(),
+          'data-hidden-filter': isHiddenAccountFilter
         });
 
         if (hasBalanceFilter && columnName.toLowerCase().trim() !== 'balance') {
-          label.attr('class', 'label label-default d-inline-flex align-items-center gap-2');
+          label.attr('class', 'label label-default d-inline-flex align-items-center gap-2' + (isHiddenAccountFilter ? ' d-none' : ''));
         }
 
         var labelText = $('<span>', {
@@ -168,6 +170,10 @@ function showAdvanceSearchModal() {
 
   // Populate the search fields with the current filters
   searchLabelsContainer.find('.label').each(function() {
+    if ($(this).data('hidden-filter')) {
+      return;
+    }
+
     var labelText = $(this).text().trim();
     var parts = labelText.split(' [');
     var columnName = parts[0].trim();
@@ -226,6 +232,10 @@ $(document).on('click', '.filter-close-icon', function() {
     }
   });
   var searchParams = searchQuery();
+  // searchQuery() returns an already percent-encoded field[op]=value fragment; decode it
+  // back to raw text so it can be sent as the (single-encoded) value of the dedicated
+  // advance_search_query param instead of as top-level bracketed keys.
+  var rawSearchParams = searchParams ? decodeURIComponent(searchParams) : searchParams;
   // Reapply search without the removed filter
   var tableSelectors = ['#invoices-table', '#accounts-table', '#payments-table', '#subscriptions-table'];
   var table = null;
@@ -240,15 +250,14 @@ $(document).on('click', '.filter-close-icon', function() {
   
   if (table && table.ajax) {
     table.on('preXhr.dt', function(e, settings, data) {
-      data.search.value = searchParams;
+      data.advance_search_query = rawSearchParams;
     });
     table.ajax.reload(null, false);
   }
   
   // Update URL
-  if (searchParams) {
-    var pushParams = (searchParams || '').replace(/account_id/g, 'ac_id');
-    var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + pushParams;
+  if (rawSearchParams) {
+    var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?advance_search_query=' + encodeURIComponent(rawSearchParams);
     window.history.pushState({ path: newUrl }, '', newUrl);
   } else {
     var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;

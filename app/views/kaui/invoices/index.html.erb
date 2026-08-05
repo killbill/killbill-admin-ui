@@ -106,11 +106,11 @@ $(document).ready(function() {
   // If the page loaded with advanced search params in the URL (e.g. restored from
   // localStorage) but @advance_search_query was not set server-side, re-fire the
   // DataTable request with the correct filters.
-  if (window.location.search.includes('_q=1') && '<%= j(@advance_search_query.to_s.strip) %>' === '' && !window.location.pathname.includes('/accounts/')) {
-    var urlSearch = window.location.search.substring(1).replace(/ac_id/g, 'account_id');
-    var ajaxUrl = "<%= invoices_pagination_path(:ordering => @ordering, :format => :json) %>" + '?' + urlSearch;
+  if (window.location.search.includes('advance_search_query=') && '<%= j(@advance_search_query.to_s.strip) %>' === '' && !window.location.pathname.includes('/accounts/')) {
+    var urlSearch = new URLSearchParams(window.location.search).get('advance_search_query') || '';
+    var ajaxUrl = "<%= invoices_pagination_path(:ordering => @ordering, :format => :json) %>" + '?advance_search_query=' + encodeURIComponent(urlSearch);
     table.on('preXhr.dt.filter', function(e, settings, data) {
-      data.search.value = urlSearch;
+      data.advance_search_query = urlSearch;
     });
     table.ajax.url(ajaxUrl).load();
   }
