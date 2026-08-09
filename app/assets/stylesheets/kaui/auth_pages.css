@@ -4,6 +4,14 @@
   background-color: #fff;
 }
 
+.auth-container .centered-absolute {
+  position: relative;
+  top: 0;
+  left: 0;
+  transform: none;
+  margin: 1.5rem auto 0;
+}
+
 .auth-form-container {
   position: relative;
   height: 100%;
