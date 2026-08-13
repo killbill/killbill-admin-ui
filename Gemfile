@@ -5,7 +5,7 @@ ruby '>= 3.1.0'
 
 gemspec
 
-gem 'rails', '~> 7.0.1'
+gem 'rails', '~> 7.2.0'
 
 # Lock i18n to 1.14.x for: https://github.com/ruby-i18n/i18n/issues/735
 gem 'i18n', '~> 1.14.0'
@@ -26,7 +26,7 @@ group :development do
   gem 'simplecov'
 
   if defined?(JRUBY_VERSION)
-    gem 'activerecord-jdbc-adapter', '~> 70.0'
+    gem 'activerecord-jdbc-adapter', '~> 72.0'
     # Add the drivers
     gem 'jdbc-mariadb'
     gem 'jdbc-postgres'

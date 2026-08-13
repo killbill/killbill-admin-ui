@@ -145,7 +145,7 @@ module Kaui
     test 'should upload plugin config' do
       tenant = create_kaui_tenant
 
-      stripe_yml = YAML.load_file(File.join(self.class.fixture_path, 'stripe.yml'))[:stripe]
+      stripe_yml = YAML.load_file(File.join(self.class.fixture_paths.first, 'stripe.yml'))[:stripe]
       stripe_yml.stringify_keys!
       stripe_yml.each { |k, v| stripe_yml[k] = v.to_s }
       post :upload_plugin_config, params: { id: tenant.id, plugin_name: 'killbill-stripe', plugin_key: 'stripe', plugin_type: 'ruby', plugin_properties: stripe_yml }
@@ -166,7 +166,7 @@ module Kaui
       tenant = create_kaui_tenant
 
       # retrieve plan id from catalog xml
-      catalog_xml = File.read(File.join(self.class.fixture_path, 'catalog-v1.xml'))
+      catalog_xml = File.read(File.join(self.class.fixture_paths.first, 'catalog-v1.xml'))
       doc = Nokogiri::XML(catalog_xml)
       plan_id = doc.css('plan').first['name']
 
@@ -327,7 +327,7 @@ module Kaui
     end
 
     test 'should display overdue xml' do
-      overdue_xml = File.read(File.join(self.class.fixture_path, 'overdue-v1.xml'))
+      overdue_xml = File.read(File.join(self.class.fixture_paths.first, 'overdue-v1.xml'))
       post :display_overdue_xml, params: { xml: overdue_xml }
 
       assert_equal @response.body, overdue_xml

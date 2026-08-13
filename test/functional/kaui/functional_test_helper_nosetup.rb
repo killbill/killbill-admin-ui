@@ -7,7 +7,7 @@ module Kaui
 
     protected
 
-    self.fixture_path = Kaui::Engine.root.join('test', 'fixtures')
+    self.fixture_paths = [Kaui::Engine.root.join('test', 'fixtures')]
 
     #
     # Rails helpers
