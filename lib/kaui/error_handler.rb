@@ -7,7 +7,7 @@ module Kaui
 
     included do
       rescue_from(StandardError) do |error|
-        error_message = "Error: #{as_string(error)}"
+        error_message = "Error: #{as_string(error)} || DEBUG_BACKTRACE: #{error.backtrace&.first(8)&.join(' <- ')}"
         try_to_redirect_to_account_path = !params[:controller].ends_with?('accounts')
         perform_redirect_after_error(redirect: try_to_redirect_to_account_path, error:, error_message:)
       end

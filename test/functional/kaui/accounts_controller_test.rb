@@ -290,10 +290,11 @@ module Kaui
     private
 
     def redirected_account_id
-      fields = %r{<a.href="http:/.*/.*?/(?<id>.*?)">}.match(@response.body) if fields.nil?
+      # Rails 7.2 no longer includes a fallback HTML body (with a link to the redirect
+      # target) in redirect responses, so parse the account id from the Location header instead.
+      return nil if @response.location.blank?
 
-      return nil if fields.nil?
-
+      fields = %r{/accounts/(?<id>[^/?]+)}.match(@response.location)
       fields.nil? ? nil : fields[:id]
     end
   end
