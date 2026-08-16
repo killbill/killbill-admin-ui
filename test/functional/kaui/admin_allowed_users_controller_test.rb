@@ -228,8 +228,11 @@ module Kaui
 
     def extract_allowed_id(response_body)
       fields = %r{<form.*action="/.*/.*/(?<id>.*?)".accept-charset=.*method="post">}.match(response_body)
-      fields = %r{<a.href="http:/.*/.*/(?<id>.*?)">}.match(response_body) if fields.nil?
+      return fields[:id] if fields
 
+      # Rails 7.2 no longer includes a fallback HTML body in redirect responses,
+      # so fall back to parsing the id out of the Location header instead.
+      fields = %r{/(?<id>[^/?]+)\z}.match(response_path)
       fields.nil? ? nil : fields[:id]
     end
   end

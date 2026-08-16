@@ -9,6 +9,17 @@ module Kaui
 
     self.fixture_paths = [Kaui::Engine.root.join('test', 'fixtures')]
 
+    # ActionController::TestCase recycles the request env between successive calls in the
+    # same test (e.g. a multipart POST followed by a GET), but doesn't clear a stale multipart
+    # Content-Type header (see scrub_env! in Rails' action_controller/test_case.rb). Rack 3.x
+    # then raises Rack::Multipart::EmptyContentError when that later request's (now empty)
+    # body gets parsed as multipart. Clear it before every request; #process re-sets it as
+    # needed for whichever request is actually being made.
+    def process(*, **)
+      @request.delete_header('CONTENT_TYPE') if @request
+      super
+    end
+
     #
     # Rails helpers
     #

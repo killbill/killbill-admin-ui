@@ -402,11 +402,6 @@ module Kaui
       assert_redirected_to admin_tenant_path(tenant.id)
       assert_equal I18n.t('flashes.notices.catalog_uploaded_successfully'), flash[:notice]
 
-      # ActionController::TestCase recycles the request env between calls in the same test but
-      # does not clear a stale multipart Content-Type header (see scrub_env! in Rails' test_case.rb),
-      # which makes Rack 3.x raise Rack::Multipart::EmptyContentError on this subsequent GET.
-      @request.delete_header('CONTENT_TYPE')
-
       get :download_catalog_xml, params: { effective_date:, id: tenant.id }
       assert_response :success
       assert_equal 'application/xml', @response.header['Content-Type']
