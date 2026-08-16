@@ -16,7 +16,7 @@ module Kaui
     # body gets parsed as multipart. Clear it before every request; #process re-sets it as
     # needed for whichever request is actually being made.
     def process(*, **)
-      @request.delete_header('CONTENT_TYPE') if @request
+      @request&.delete_header('CONTENT_TYPE')
       super
     end
 

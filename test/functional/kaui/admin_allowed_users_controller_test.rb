@@ -134,7 +134,9 @@ module Kaui
 
       # should respond with an error if tried to delete again
       delete :destroy, params: { id: }
-      assert_equal "Error: Couldn't find Kaui::AllowedUser with 'id'=#{id}", flash[:error]
+      # Rails 7.2 quotes the id value in ActiveRecord::RecordNotFound's message
+      # (e.g. 'id'="60" instead of 'id'=60), since the id here is a String.
+      assert_equal "Error: Couldn't find Kaui::AllowedUser with 'id'=\"#{id}\"", flash[:error]
       assert_response :redirect
       # validate redirect path
       assert response_path.include?('/kaui/home'), "#{response_path} is expected to contain '/kaui/home'"
