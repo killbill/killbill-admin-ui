@@ -1,6 +1,15 @@
 development: &default
 <% if defined?(JRUBY_VERSION) %>
 <% adapter = java.lang.System.getProperty('kaui.db.adapter', ENV['DB_ADAPTER'] || 'mariadb') %>
+<% if adapter == 'mysql2'
+  # arjdbc's mysql2 adapter doesn't auto-load the MariaDB JDBC driver the way the
+  # (now removed in arjdbc 72.x) 'mariadb' adapter used to; without this, connecting
+  # raises Java::JavaLang::ClassNotFoundException: org.mariadb.jdbc.Driver
+  # Note: must pass :require explicitly - the default :load method does not
+  # actually register the jar with JRuby's classloader.
+  require 'jdbc/mariadb'
+  Jdbc::MariaDB.load_driver(:require)
+end %>
   adapter: <%= adapter %>
   encoding: <%= java.lang.System.getProperty('kaui.db.encoding', ENV['DB_ENCODING'] || 'utf8') %>
 <% if adapter == 'sqlite3' %>
