@@ -7,10 +7,6 @@ module Kaui
 
     included do
       rescue_from(StandardError) do |error|
-        if Rails.env.test? # TEMPORARY: print full backtrace to CI log for debugging, without changing behavior
-          warn "DEBUG_BACKTRACE (#{error.class}: #{error.message}): #{error.backtrace&.first(15)&.join(' <- ')}"
-        end
-
         error_message = "Error: #{as_string(error)}"
         try_to_redirect_to_account_path = !params[:controller].ends_with?('accounts')
         perform_redirect_after_error(redirect: try_to_redirect_to_account_path, error:, error_message:)
