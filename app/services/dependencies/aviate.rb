@@ -21,10 +21,15 @@ module Dependencies
         # Any error (plugin not installed, missing/invalid JWT, network issue, etc.) is treated as
         # "not Aviate" so that callers can safely fall back to the existing XML-catalog behavior.
         def aviate_catalog?(account_id, options_for_klient)
-          response = KillBillClient::API.get("#{KILLBILL_AVIATE_PREFIX}/catalog/info", catalog_params(account_id), request_options(options_for_klient))
-          JSON.parse(response.body)['state'] == CATALOG_STATE_AVIATE
-        rescue StandardError => e
-          Rails.logger.warn("Failed to retrieve Aviate catalog info: #{e.class}: #{e.message}")
+          params_list = account_id.present? ? [{ accountId: account_id }, {}] : [{}]
+          params_list.each do |params|
+            begin
+              response = KillBillClient::API.get("#{KILLBILL_AVIATE_PREFIX}/catalog/info", params, request_options(options_for_klient))
+              return true if JSON.parse(response.body)['state'] == CATALOG_STATE_AVIATE
+            rescue StandardError => e
+              Rails.logger.warn("Failed to retrieve Aviate catalog info (params=#{params}): #{e.class}: #{e.message}")
+            end
+          end
           false
         end
 
