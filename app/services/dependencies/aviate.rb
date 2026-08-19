@@ -23,12 +23,10 @@ module Dependencies
         def aviate_catalog?(account_id, options_for_klient)
           params_list = account_id.present? ? [{ accountId: account_id }, {}] : [{}]
           params_list.each do |params|
-            begin
-              response = KillBillClient::API.get("#{KILLBILL_AVIATE_PREFIX}/catalog/info", params, request_options(options_for_klient))
-              return true if JSON.parse(response.body)['state'] == CATALOG_STATE_AVIATE
-            rescue StandardError => e
-              Rails.logger.warn("Failed to retrieve Aviate catalog info (params=#{params}): #{e.class}: #{e.message}")
-            end
+            response = KillBillClient::API.get("#{KILLBILL_AVIATE_PREFIX}/catalog/info", params, request_options(options_for_klient))
+            return true if JSON.parse(response.body)['state'] == CATALOG_STATE_AVIATE
+          rescue StandardError => e
+            Rails.logger.warn("Failed to retrieve Aviate catalog info (params=#{params}): #{e.class}: #{e.message}")
           end
           false
         end
