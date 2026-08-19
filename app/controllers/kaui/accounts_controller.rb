@@ -156,7 +156,15 @@ module Kaui
       @children = wait(fetch_children)
       @account_parent = @account.parent_account_id.nil? ? nil : wait(fetch_parent)
       @email_notification_configuration = is_email_notifications_plugin_available ? wait(fetch_email_notification_configuration) : []
-      @bundles = wait(fetch_bundles)
+      @bundles = begin
+        wait(fetch_bundles)
+      rescue KillBillClient::API::ResponseError => e
+        # e.g. a subscription references a plan that no longer exists in the currently loaded catalog.
+        # Don't fail the whole account page for this, just warn and show it without bundle-derived data.
+        Rails.logger.warn("Unable to fetch bundles for account #{@account.account_id}: #{as_string(e)}")
+        flash.now[:warning] = "Unable to load some subscription details: #{as_string(e)}"
+        []
+      end
 
       @last_transaction_by_payment_method_id = {}
       wait(fetch_payments).each do |payment|
