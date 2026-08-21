@@ -49,13 +49,6 @@
           </div>
         </form>
 
-        <div class="form-horizontal d-flex gap-2 mb-4 mx-0">
-          <div class="form-group p-0 d-flex align-items-center gap-2">
-            <label for="group-by" class="control-label mb-0 text-nowrap">Group by</label>
-            <%= select_tag 'group-by', options_for_select([['Object Type', 'type'], ['Date', 'date']], 'type'), :class => 'form-control' %>
-          </div>
-        </div>
-
         <div id="timeline-entries">
           <% if @account.present? %>
             <% @invoices.each do |invoice_stub| %>
@@ -359,36 +352,29 @@
       });
     }
 
-    var originalTimelineEntriesOrder = null;
-
-    function sortTimelineEntries(sortByDate) {
+    function sortTimelineEntries() {
       var $container = $('#timeline-entries');
       var $entries = $container.children('[data-event-type]');
 
-      if (originalTimelineEntriesOrder === null) {
-        // Cache the initial (grouped-by-object-type) DOM order the first time we need it
-        originalTimelineEntriesOrder = $entries.get();
-      }
-
-      var orderedEntries;
-      if (sortByDate) {
-        orderedEntries = $entries.get().sort(function (a, b) {
-          var x = parseInt($(a).attr('data-timestamp'), 10);
-          var y = parseInt($(b).attr('data-timestamp'), 10);
-          x = isNaN(x) ? -Infinity : x;
-          y = isNaN(y) ? -Infinity : y;
-          // Most recent first; entries without a usable timestamp sort last
+      var orderedEntries = $entries.get().sort(function (a, b) {
+        var x = parseInt($(a).attr('data-timestamp'), 10);
+        var y = parseInt($(b).attr('data-timestamp'), 10);
+        x = isNaN(x) ? -Infinity : x;
+        y = isNaN(y) ? -Infinity : y;
+        if (y !== x) {
           return y - x;
-        });
-      } else {
-        orderedEntries = originalTimelineEntriesOrder;
-      }
+        }
+        var typeX = eventsOrder.indexOf($(a).attr('data-event-type'));
+        var typeY = eventsOrder.indexOf($(b).attr('data-event-type'));
+        typeX = typeX === -1 ? Infinity : typeX;
+        typeY = typeY === -1 ? Infinity : typeY;
+        return typeX - typeY;
+      });
 
       $.each(orderedEntries, function (_, entry) {
         $container.append(entry);
       });
 
-      // Re-apply any active filters, since the DOM order just changed
       filterTimeline();
     }
 
@@ -465,13 +451,6 @@
         searchTimeout = setTimeout(filterTimeline, 300);
       });
 
-      $('#group-by').on('change', function() {
-        sortTimelineEntries($(this).val() === 'date');
-      });
-
-      
-
-      
       // Clear all filters button
       $('#clear-all-filters').click(function() {
         $('#search').val('');
@@ -481,8 +460,8 @@
         $('#billing_filter').val('all');
         filterTimeline();
       });
-      
-      // Apply initial filters if any are selected
-      filterTimeline();
+
+      // Sort by date first, event type second, then apply filters
+      sortTimelineEntries();
     });
 <% end %>
