@@ -1,0 +1,16 @@
+<div class="register kaui-subscription-new">
+  <div class="d-flex justify-content-center flex-wrap" style="gap: 2rem; max-width: 60.5rem; margin: 0 auto;">
+    <h5 class="add-account-title border-bottom pb-3 mb-3" style="flex: 0 0 100%;">
+        <span class="icon-container">
+            <%= image_tag "kaui/timeline/block.svg", width: 20, height: 20 %>
+        </span>
+        Create blocking state
+    </h5>
+    <div style="max-width: 37.5rem; width: 100%;">
+        <%= form_tag do_block_account_path(:account_id => @account.account_id), :class => 'form-horizontal', :method => :put do %>
+          <%= render "kaui/components/blocking_state_form/fields", :applies_to_type => 'Account', :applies_to_id => @account.account_id %>
+        <% end %>
+    </div>
+    <%= render "kaui/components/blocking_state_form/about_panel" %>
+  </div>
+</div>

@@ -323,6 +323,40 @@ module Kaui
       assert_equal 'Subscription BCD was successfully changed', flash[:notice]
     end
 
+    test 'should get block' do
+      get :block, params: { id: @bundle.subscriptions.first.subscription_id }
+      assert_response :success
+      assert_not_nil assigns(:subscription)
+    end
+
+    test 'should handle missing params during do_block' do
+      put :do_block, params: { id: @bundle.subscriptions.first.subscription_id, account_id: @account.account_id }
+      assert_redirected_to home_path
+      assert_equal 'Required parameter missing: state_name', flash[:error]
+    end
+
+    test 'should put subscription on block' do
+      bundle = create_bundle(@account, @tenant)
+      subscription_id = bundle.subscriptions.first.subscription_id
+
+      put :do_block,
+          params: {
+            id: subscription_id,
+            account_id: @account.account_id,
+            state_name: 'BLOCKED',
+            service: 'kaui-test',
+            is_block_billing: '1',
+            is_block_entitlement: '1'
+          }
+      assert_redirected_to account_bundles_path(@account.account_id)
+      assert_equal 'Blocking state was successfully created', flash[:notice]
+
+      refetched = KillBillClient::Model::AccountTimeline.find_by_account_id(@account.account_id, 'NONE', options).bundles.find { |b| b.bundle_id == bundle.bundle_id }
+      event = refetched.subscriptions.flat_map(&:events).find { |e| e.event_type == 'SERVICE_STATE_CHANGE' && e.service_name == 'kaui-test' }
+      assert_not_nil event
+      assert_equal 'BLOCKED', event.service_state_name
+    end
+
     test 'should get edit quantity' do
       get :edit_quantity, params: { id: @bundle.subscriptions.first.subscription_id }
       assert_response :success

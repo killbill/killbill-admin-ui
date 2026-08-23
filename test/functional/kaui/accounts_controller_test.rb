@@ -69,6 +69,38 @@ module Kaui
       assert_select '.badge.success', text: 'Good'
     end
 
+    test 'should get block' do
+      get :block, params: { account_id: @account.account_id }
+      assert_response :ok
+      assert_not_nil assigns(:account)
+    end
+
+    test 'should handle missing params during do_block' do
+      put :do_block, params: { account_id: @account.account_id }
+      assert_redirected_to home_path
+      assert_equal 'Required parameter missing: state_name', flash[:error]
+    end
+
+    test 'should put account on block' do
+      put :do_block,
+          params: {
+            account_id: @account.account_id,
+            state_name: 'BLOCKED',
+            service: 'kaui-test',
+            is_block_billing: '1',
+            is_block_entitlement: '1'
+          }
+      assert_redirected_to account_path(@account.account_id)
+      assert_equal 'Blocking state was successfully created', flash[:notice]
+
+      blocking_states = @account.blocking_states(nil, nil, 'NONE', options)
+      state = blocking_states.find { |bs| bs.service == 'kaui-test' }
+      assert_not_nil state
+      assert_equal 'BLOCKED', state.state_name
+      assert state.is_block_billing
+      assert state.is_block_entitlement
+    end
+
     test 'should handle Kill Bill errors when creating account' do
       post :create
       assert_redirected_to home_path

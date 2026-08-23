@@ -11,6 +11,7 @@ module Kaui
       @invoices = timeline.invoices
       @payments = timeline.payments
       extract_invoices_by_id(@invoices)
+      @account_blocking_states = fetch_account_blocking_states(@account)
 
       # Lookup all bundle names
       @bundle_names = {}
@@ -51,6 +52,7 @@ module Kaui
       @invoices = timeline.invoices
       @payments = timeline.payments
       extract_invoices_by_id(@invoices)
+      @account_blocking_states = fetch_account_blocking_states(@account)
 
       # Lookup all bundle names
       @bundle_names = {}
@@ -117,18 +119,28 @@ module Kaui
           @bundles.each do |bundle|
             bundle.subscriptions.each do |sub|
               sub.events.each do |event|
-                # Skip SERVICE_STATE_CHANGE events
-                next if event.event_type == 'SERVICE_STATE_CHANGE'
-
                 effective_date = event.effective_date.present? ? Date.parse(event.effective_date).to_s : '[unknown]'
                 bundle_keys = @bundle_names[bundle.external_key]
-                event_type = event.event_type
-                phase = event.phase
                 audit_logs = event.audit_logs.present? ? event.audit_logs.map { |entry| Kaui::AuditLog.description(entry) }.join(', ') : ''
+                details = if event.event_type == 'SERVICE_STATE_CHANGE'
+                            "#{event.service_name}/#{event.service_state_name} (billing=#{event.is_blocked_billing}, entitlement=#{event.is_blocked_entitlement})"
+                          else
+                            event.phase
+                          end
 
-                csv << [effective_date, bundle_keys, event_type, phase, audit_logs] if filter_date?(effective_date, start_date, end_date)
+                csv << [effective_date, bundle_keys, event.event_type, details, audit_logs] if filter_date?(effective_date, start_date, end_date)
               end
             end
+          end
+        end
+
+        if %w[ENTITLEMENT ALL].include?(event_type)
+          @account_blocking_states.each do |blocking_state|
+            effective_date = blocking_state.effective_date.present? ? Date.parse(blocking_state.effective_date).to_s : '[unknown]'
+            audit_logs = blocking_state.audit_logs.present? ? blocking_state.audit_logs.map { |entry| Kaui::AuditLog.description(entry) }.join(', ') : ''
+            details = "#{blocking_state.service}/#{blocking_state.state_name} (billing=#{blocking_state.is_block_billing}, entitlement=#{blocking_state.is_block_entitlement}, change=#{blocking_state.is_block_change})"
+
+            csv << [effective_date, '', 'SERVICE_STATE_CHANGE', details, audit_logs] if filter_date?(effective_date, start_date, end_date)
           end
         end
       end
@@ -160,6 +172,12 @@ module Kaui
       @invoices_by_id = all_invoices.to_h do |invoice|
         [invoice.invoice_id, Kaui::Invoice.build_from_raw_invoice(invoice)]
       end
+    end
+
+    def fetch_account_blocking_states(account)
+      account.blocking_states(nil, nil, 'NONE', options_for_klient)
+    rescue StandardError
+      []
     end
   end
 end

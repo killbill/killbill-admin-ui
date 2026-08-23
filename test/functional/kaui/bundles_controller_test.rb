@@ -113,6 +113,41 @@ module Kaui
       assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
     end
 
+    test 'should get block' do
+      get :block, params: { id: @bundle.bundle_id }
+      assert_response :ok
+      assert_not_nil assigns(:bundle)
+    end
+
+    test 'should handle missing params during do_block' do
+      put :do_block, params: { id: @bundle.bundle_id, account_id: @account.account_id }
+      assert_redirected_to home_path
+      assert_equal 'Required parameter missing: state_name', flash[:error]
+    end
+
+    test 'should put bundle on block' do
+      expected_response_path = "/accounts/#{@account.account_id}/bundles"
+      bundle = create_bundle(@account, @tenant)
+
+      put :do_block,
+          params: {
+            id: bundle.bundle_id,
+            account_id: @account.account_id,
+            state_name: 'BLOCKED',
+            service: 'kaui-test',
+            is_block_billing: '1',
+            is_block_entitlement: '1'
+          }
+      assert_response :redirect
+      assert_equal 'Blocking state was successfully created', flash[:notice]
+      assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
+
+      refetched = KillBillClient::Model::AccountTimeline.find_by_account_id(@account.account_id, 'NONE', options).bundles.find { |b| b.bundle_id == bundle.bundle_id }
+      event = refetched.subscriptions.flat_map(&:events).find { |e| e.event_type == 'SERVICE_STATE_CHANGE' && e.service_name == 'kaui-test' }
+      assert_not_nil event
+      assert_equal 'BLOCKED', event.service_state_name
+    end
+
     private
 
     def create_tag_definition(tag_definition_name, tenant, username = USERNAME, password = PASSWORD, reason = nil, comment = nil)

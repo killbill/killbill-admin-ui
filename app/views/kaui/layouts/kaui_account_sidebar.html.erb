@@ -10,7 +10,8 @@
         { label: 'Payments', path: kaui_engine.account_payments_path(params[:account_id]), controller_suffix: 'payments', icon_path: 'kaui/sidebar/payments.svg' },
         { label: 'Timeline', path: kaui_engine.account_timeline_path(params[:account_id]), controller_suffix: 'timelines', icon_path: 'kaui/sidebar/timeline.svg' },
         { label: 'Tags', path: kaui_engine.account_tags_path(params[:account_id]), controller_suffix: 'tags', icon_path: 'kaui/sidebar/tags.svg' },
-        { label: 'Custom Fields', path: kaui_engine.account_custom_fields_path(params[:account_id]), controller_suffix: 'custom_fields', icon_path: 'kaui/sidebar/custom-fields.svg' }
+        { label: 'Custom Fields', path: kaui_engine.account_custom_fields_path(params[:account_id]), controller_suffix: 'custom_fields', icon_path: 'kaui/sidebar/custom-fields.svg' },
+        { label: 'Blocking States', path: kaui_engine.account_blocking_states_path(params[:account_id]), controller_suffix: 'blocking_states', icon_path: 'kaui/sidebar/blocking-states.svg' }
       ] %>
 
       <% if aviate_plugin_installed %>
