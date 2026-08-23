@@ -400,9 +400,9 @@ module Kaui
       account_id = params.require(:account_id)
       account = Kaui::Account.new(account_id:)
       account.set_blocking_state(params.require(:state_name), params.require(:service),
-                                  params[:is_block_change] == '1', params[:is_block_entitlement] == '1',
-                                  params[:is_block_billing] == '1', params[:requested_date].presence,
-                                  current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+                                 params[:is_block_change] == '1', params[:is_block_entitlement] == '1',
+                                 params[:is_block_billing] == '1', params[:requested_date].presence,
+                                 current_user.kb_username, params[:reason], params[:comment], options_for_klient)
 
       redirect_to account_path(account_id), notice: 'Blocking state was successfully created'
     end

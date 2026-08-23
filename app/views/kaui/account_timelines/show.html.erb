@@ -315,6 +315,9 @@
                               <div>
                                 <b>Details</b>
                                 <p>
+                                  <% if event.is_blocked_billing || event.is_blocked_entitlement %>
+                                    <%= event.service_name %> / <%= event.service_state_name %><br/>
+                                  <% end %>
                                   <%= event.phase %><span class="hide" title="<%= sub.product_category %>"></span>
                                 </p>
                               </div>

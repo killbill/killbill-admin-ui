@@ -122,7 +122,7 @@ module Kaui
                 effective_date = event.effective_date.present? ? Date.parse(event.effective_date).to_s : '[unknown]'
                 bundle_keys = @bundle_names[bundle.external_key]
                 audit_logs = event.audit_logs.present? ? event.audit_logs.map { |entry| Kaui::AuditLog.description(entry) }.join(', ') : ''
-                details = if event.event_type == 'SERVICE_STATE_CHANGE'
+                details = if event.event_type == 'SERVICE_STATE_CHANGE' || event.is_blocked_billing || event.is_blocked_entitlement
                             "#{event.service_name}/#{event.service_state_name} (billing=#{event.is_blocked_billing}, entitlement=#{event.is_blocked_entitlement})"
                           else
                             event.phase

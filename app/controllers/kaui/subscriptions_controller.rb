@@ -157,9 +157,9 @@ module Kaui
     def do_block
       subscription = Kaui::Subscription.new(subscription_id: params.require(:id))
       subscription.set_blocking_state(params.require(:state_name), params.require(:service),
-                                       params[:is_block_change] == '1', params[:is_block_entitlement] == '1',
-                                       params[:is_block_billing] == '1', params[:requested_date].presence,
-                                       current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+                                      params[:is_block_change] == '1', params[:is_block_entitlement] == '1',
+                                      params[:is_block_billing] == '1', params[:requested_date].presence,
+                                      current_user.kb_username, params[:reason], params[:comment], options_for_klient)
 
       redirect_to kaui_engine.account_bundles_path(params.require(:account_id)), notice: 'Blocking state was successfully created'
     end

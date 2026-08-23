@@ -77,7 +77,7 @@ module Kaui
 
     test 'should handle missing params during do_block' do
       put :do_block, params: { account_id: @account.account_id }
-      assert_redirected_to home_path
+      assert_redirected_to account_path(@account.account_id)
       assert_equal 'Required parameter missing: state_name', flash[:error]
     end
 

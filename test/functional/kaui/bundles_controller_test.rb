@@ -121,7 +121,7 @@ module Kaui
 
     test 'should handle missing params during do_block' do
       put :do_block, params: { id: @bundle.bundle_id, account_id: @account.account_id }
-      assert_redirected_to home_path
+      assert_redirected_to account_path(@account.account_id)
       assert_equal 'Required parameter missing: state_name', flash[:error]
     end
 
@@ -143,7 +143,7 @@ module Kaui
       assert response_path.include?(expected_response_path), "#{response_path} is expected to contain #{expected_response_path}"
 
       refetched = KillBillClient::Model::AccountTimeline.find_by_account_id(@account.account_id, 'NONE', options).bundles.find { |b| b.bundle_id == bundle.bundle_id }
-      event = refetched.subscriptions.flat_map(&:events).find { |e| e.event_type == 'SERVICE_STATE_CHANGE' && e.service_name == 'kaui-test' }
+      event = refetched.subscriptions.flat_map(&:events).find { |e| e.event_type == 'PAUSE_ENTITLEMENT' && e.service_name == 'kaui-test' }
       assert_not_nil event
       assert_equal 'BLOCKED', event.service_state_name
     end

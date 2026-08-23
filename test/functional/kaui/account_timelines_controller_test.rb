@@ -23,15 +23,17 @@ module Kaui
 
     test 'should show a subscription blocking state and an account-level blocking state on the timeline' do
       @bundle.subscriptions.first.set_blocking_state('BLOCKED', 'kaui-test-sub', true, true, true, nil,
-                                                       USERNAME, nil, nil, options)
+                                                     USERNAME, nil, nil, options)
       @account.set_blocking_state('BLOCKED', 'kaui-test-account', true, true, true, nil,
-                                   USERNAME, nil, nil, options)
+                                  USERNAME, nil, nil, options)
 
       get :show, params: { account_id: @account.account_id }
       assert_response :ok
 
       bundle = assigns(:bundles).find { |b| b.bundle_id == @bundle.bundle_id }
-      event = bundle.subscriptions.flat_map(&:events).find { |e| e.event_type == 'SERVICE_STATE_CHANGE' && e.service_name == 'kaui-test-sub' }
+      # A subscription-level blocking state surfaces as PAUSE_ENTITLEMENT/PAUSE_BILLING events,
+      # not as a SERVICE_STATE_CHANGE event (those are only emitted for account-level blocking states)
+      event = bundle.subscriptions.flat_map(&:events).find { |e| e.event_type == 'PAUSE_ENTITLEMENT' && e.service_name == 'kaui-test-sub' }
       assert_not_nil event
       assert_equal 'BLOCKED', event.service_state_name
 
@@ -45,9 +47,9 @@ module Kaui
 
     test 'should include blocking states in the CSV download' do
       @bundle.subscriptions.first.set_blocking_state('BLOCKED', 'kaui-test-sub', true, true, true, nil,
-                                                       USERNAME, nil, nil, options)
+                                                     USERNAME, nil, nil, options)
       @account.set_blocking_state('BLOCKED', 'kaui-test-account', true, true, true, nil,
-                                   USERNAME, nil, nil, options)
+                                  USERNAME, nil, nil, options)
 
       get :download, params: { account_id: @account.account_id, eventType: 'ALL' }
       assert_response :ok
