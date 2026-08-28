@@ -140,7 +140,6 @@ module Kaui
       assert response_path.include?('/kaui/home'), "#{response_path} is expected to contain '/kaui/home'"
     end
 
-    # rubocop:disable-next-line Naming/VariableNumber
     test 'should add tenant' do
       allowed_user = { kb_username: SecureRandom.uuid.to_s, description: SecureRandom.uuid.to_s }
 
@@ -151,7 +150,7 @@ module Kaui
 
       allowed_user[:id] = au.id
 
-      put :add_tenant, params: { allowed_user:, tenant_1: nil }
+      put :add_tenant, params: { allowed_user:, tenant_1: nil } # rubocop:disable Naming/VariableNumber
       assert_equal 'Successfully set tenants for user', flash[:notice]
       assert_response :redirect
       # validate redirect path

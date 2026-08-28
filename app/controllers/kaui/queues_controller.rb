@@ -2,7 +2,6 @@
 
 module Kaui
   class QueuesController < Kaui::EngineController
-    # rubocop:disable-next-line Lint/SuppressedException,Lint/EnsureReturn
     def index
       @account_id = params[:account_id]
 
@@ -10,11 +9,11 @@ module Kaui
         begin
           max_date_test = Time.parse(params[:max_date]).iso8601
         rescue StandardError
-        ensure
-          if max_date_test.nil?
-            flash[:error] = I18n.t('errors.messages.invalid_max_date')
-            redirect_to account_queues_path(@account.account_id) and return
-          end
+          max_date_test = nil
+        end
+        if max_date_test.nil?
+          flash[:error] = I18n.t('errors.messages.invalid_max_date')
+          redirect_to account_queues_path(@account.account_id) and return
         end
       end
 
@@ -22,11 +21,11 @@ module Kaui
         begin
           min_date_test = Time.parse(params[:min_date]).iso8601
         rescue StandardError
-        ensure
-          if min_date_test.nil?
-            flash[:error] = I18n.t('errors.messages.invalid_min_date')
-            redirect_to account_queues_path(@account.account_id) and return
-          end
+          min_date_test = nil
+        end
+        if min_date_test.nil?
+          flash[:error] = I18n.t('errors.messages.invalid_min_date')
+          redirect_to account_queues_path(@account.account_id) and return
         end
       end
 

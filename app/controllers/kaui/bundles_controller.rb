@@ -2,7 +2,6 @@
 
 module Kaui
   class BundlesController < Kaui::EngineController
-    # rubocop:disable-next-line Lint/HashCompareByIdentity
     def index
       cached_options_for_klient = options_for_klient
       @search_query = params[:q].presence
@@ -13,25 +12,25 @@ module Kaui
       fetch_bundle_tags = promise do
         all_bundle_tags = @account.all_tags(:BUNDLE, false, 'NONE', cached_options_for_klient)
         all_bundle_tags.each_with_object({}) do |entry, hsh|
-          (hsh[entry.object_id] ||= []) << entry
+          (hsh[entry.object_id] ||= []) << entry # rubocop:disable Lint/HashCompareByIdentity
         end
       end
       fetch_subscription_tags = promise do
         all_subscription_tags = @account.all_tags(:SUBSCRIPTION, false, 'NONE', cached_options_for_klient)
         all_subscription_tags.each_with_object({}) do |entry, hsh|
-          (hsh[entry.object_id] ||= []) << entry
+          (hsh[entry.object_id] ||= []) << entry # rubocop:disable Lint/HashCompareByIdentity
         end
       end
       fetch_bundle_fields = promise do
         all_bundle_fields = @account.all_custom_fields(:BUNDLE, 'NONE', cached_options_for_klient)
         all_bundle_fields.each_with_object({}) do |entry, hsh|
-          (hsh[entry.object_id] ||= []) << entry
+          (hsh[entry.object_id] ||= []) << entry # rubocop:disable Lint/HashCompareByIdentity
         end
       end
       fetch_subscription_fields = promise do
         all_subscription_fields = @account.all_custom_fields(:SUBSCRIPTION, 'NONE', cached_options_for_klient)
         all_subscription_fields.each_with_object({}) do |entry, hsh|
-          (hsh[entry.object_id] ||= []) << entry
+          (hsh[entry.object_id] ||= []) << entry # rubocop:disable Lint/HashCompareByIdentity
         end
       end
       fetch_available_tags = promise { Kaui::TagDefinition.all_for_bundle(cached_options_for_klient) }

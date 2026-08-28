@@ -131,8 +131,7 @@ module Kaui
     end
 
     # Return a new test payment method
-    # rubocop:disable-next-line Style/OptionalBooleanParameter
-    def create_payment_method(set_default = false, account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
+    def create_payment_method(set_default = false, account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil) # rubocop:disable Style/OptionalBooleanParameter
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
 
       payment_method = Kaui::PaymentMethod.new(account_id: account.account_id, plugin_name: '__EXTERNAL_PAYMENT__', is_default: set_default)
@@ -140,8 +139,7 @@ module Kaui
     end
 
     # Return the created external charge
-    # rubocop:disable-next-line Style/OptionalBooleanParameter
-    def create_charge(account = nil, tenant = nil, auto_commit = false, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
+    def create_charge(account = nil, tenant = nil, auto_commit = false, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil) # rubocop:disable Style/OptionalBooleanParameter
       tenant  = create_tenant(user, reason, comment) if tenant.nil?
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
 
@@ -156,8 +154,7 @@ module Kaui
     end
 
     # Return the created credit
-    # rubocop:disable-next-line Style/OptionalBooleanParameter
-    def create_cba(invoice_id = nil, account = nil, tenant = nil, _auto_commit = false, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
+    def create_cba(invoice_id = nil, account = nil, tenant = nil, _auto_commit = false, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil) # rubocop:disable Style/OptionalBooleanParameter
       tenant  = create_tenant(user, reason, comment) if tenant.nil?
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
 

@@ -17,7 +17,6 @@ module Kaui
       @refund = KillBillClient::Model::InvoiceItem.new(invoice_id: @invoice.invoice_id)
     end
 
-    # rubocop:disable-next-line Lint/FloatComparison
     def create
       invoice = Kaui::Invoice.find_by_id(params.require(:invoice_id), false, 'NONE', options_for_klient)
 
@@ -29,9 +28,7 @@ module Kaui
           item = KillBillClient::Model::InvoiceItem.new
           item.invoice_item_id = ii[0]
           item.description = params.dig(:descriptions, ii[0])
-          # If we tried to do a partial item adjustment, we pass the value, if not we don't send any value and let the system
-          # decide what is the maximum amount we can have on that item
-          item.amount = ii[1].to_f == original_item.amount ? nil : ii[1]
+          item.amount = ii[1].to_f == original_item.amount ? nil : ii[1] # rubocop:disable Lint/FloatComparison
 
           items << item
         end

@@ -84,7 +84,6 @@ module Kaui
       paginate searcher, data_extractor, formatter
     end
 
-    # rubocop:disable-next-line Lint/HashCompareByIdentity
     def show
       # Go to the database once
       cached_options_for_klient = options_for_klient
@@ -117,7 +116,7 @@ module Kaui
       fetch_payment_fields = promise do
         all_payment_fields = @account.all_custom_fields(:PAYMENT, 'NONE', cached_options_for_klient)
         all_payment_fields.each_with_object({}) do |entry, hsh|
-          (hsh[entry.object_id] ||= []) << entry
+          (hsh[entry.object_id] ||= []) << entry # rubocop:disable Lint/HashCompareByIdentity
         end
       end
 
@@ -125,14 +124,14 @@ module Kaui
       fetch_tags_per_invoice_item = promise do
         tags_per_invoice_item = @account.all_tags(:INVOICE_ITEM, false, 'NONE', cached_options_for_klient)
         tags_per_invoice_item.each_with_object({}) do |entry, hsh|
-          (hsh[entry.object_id] ||= []) << entry
+          (hsh[entry.object_id] ||= []) << entry # rubocop:disable Lint/HashCompareByIdentity
         end
       end
 
       fetch_custom_fields_per_invoice_item = promise do
         custom_fields_per_invoice_item = @account.all_custom_fields(:INVOICE_ITEM, 'NONE', cached_options_for_klient)
         custom_fields_per_invoice_item.each_with_object({}) do |entry, hsh|
-          (hsh[entry.object_id] ||= []) << entry
+          (hsh[entry.object_id] ||= []) << entry # rubocop:disable Lint/HashCompareByIdentity
         end
       end
 
@@ -174,8 +173,7 @@ module Kaui
     end
 
     def show_html
-      # rubocop:disable-next-line Rails/OutputSafety -- Invoice HTML from Kill Bill backend is trusted
-      render html: Kaui::Invoice.as_html(params.require(:id), options_for_klient).html_safe
+      render html: Kaui::Invoice.as_html(params.require(:id), options_for_klient).html_safe # rubocop:disable Rails/OutputSafety -- Invoice HTML from Kill Bill backend is trusted
     end
 
     def commit_invoice
