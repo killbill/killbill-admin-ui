@@ -115,24 +115,18 @@ module Kaui
       fetch_invoice_fields = promise { @invoice.custom_fields('NONE', cached_options_for_klient).sort { |cf_a, cf_b| cf_a.name.downcase <=> cf_b.name.downcase } }
       fetch_payment_fields = promise do
         all_payment_fields = @account.all_custom_fields(:PAYMENT, 'NONE', cached_options_for_klient)
-        all_payment_fields.each_with_object({}) do |entry, hsh|
-          (hsh[entry.object_id] ||= []) << entry # rubocop:disable Lint/HashCompareByIdentity
-        end
+        all_payment_fields.group_by(&:object_id)
       end
 
       fetch_available_invoice_item_tags = promise { Kaui::TagDefinition.all_for_invoice_item(cached_options_for_klient) }
       fetch_tags_per_invoice_item = promise do
         tags_per_invoice_item = @account.all_tags(:INVOICE_ITEM, false, 'NONE', cached_options_for_klient)
-        tags_per_invoice_item.each_with_object({}) do |entry, hsh|
-          (hsh[entry.object_id] ||= []) << entry # rubocop:disable Lint/HashCompareByIdentity
-        end
+        tags_per_invoice_item.group_by(&:object_id)
       end
 
       fetch_custom_fields_per_invoice_item = promise do
         custom_fields_per_invoice_item = @account.all_custom_fields(:INVOICE_ITEM, 'NONE', cached_options_for_klient)
-        custom_fields_per_invoice_item.each_with_object({}) do |entry, hsh|
-          (hsh[entry.object_id] ||= []) << entry # rubocop:disable Lint/HashCompareByIdentity
-        end
+        custom_fields_per_invoice_item.group_by(&:object_id)
       end
 
       fetch_invoice_tags = promise { @invoice.tags(false, 'NONE', cached_options_for_klient).sort }
