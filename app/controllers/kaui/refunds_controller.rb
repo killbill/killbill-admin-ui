@@ -28,7 +28,7 @@ module Kaui
           item = KillBillClient::Model::InvoiceItem.new
           item.invoice_item_id = ii[0]
           item.description = params.dig(:descriptions, ii[0])
-          item.amount = ii[1].to_f == original_item.amount ? nil : ii[1] # rubocop:disable Lint/FloatComparison
+          item.amount = ii[1].to_d == original_item.amount.to_d ? nil : ii[1]
 
           items << item
         end
