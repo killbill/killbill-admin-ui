@@ -505,18 +505,18 @@
     function filterTimeline() {
       var selectedBundle = $("#bundles").val();
       var searchQuery = $('#search').val().toLowerCase();
+      var blockingStateFilter = $('#blocking_state_filter').val().toUpperCase();
 
-      var filters = {
-        payment:        { value: $('#payment_filter').val().toUpperCase(),        categories: ['payment'] },
-        subscription:   { value: $('#subscription_filter').val().toUpperCase(),   categories: ['subscription'] },
-        billing:        { value: $('#billing_filter').val().toUpperCase(),        categories: ['billing', 'invoice'] },
-        blocking_state: { value: $('#blocking_state_filter').val().toUpperCase(), categories: ['blocking_state'] }
+      var categoryFilters = {
+        payment:      { value: $('#payment_filter').val().toUpperCase(),      categories: ['payment'] },
+        subscription: { value: $('#subscription_filter').val().toUpperCase(), categories: ['subscription'] },
+        billing:      { value: $('#billing_filter').val().toUpperCase(),      categories: ['billing', 'invoice'] }
       };
 
       $('.account-timeline-card').parent().each(function() {
         var $card = $(this);
-        var eventType = $card.data('event-type');
-        var eventCategory = $card.data('event-category');
+        var eventType = ($card.attr('data-event-type') || '').toUpperCase();
+        var eventCategory = $card.attr('data-event-category') || '';
         var bundleTitle = $card.attr('title');
         var cardText = $card.text().toLowerCase();
 
@@ -528,19 +528,32 @@
           }
         }
 
-        var governingFilter = null;
-        $.each(filters, function(_, f) {
-          if (f.categories.indexOf(eventCategory) !== -1) {
-            governingFilter = f;
-          }
-        });
-
-        if (shouldShow && governingFilter) {
-          if (governingFilter.value === 'NONE') {
-            shouldShow = false;
-          } else if (governingFilter.value !== 'ALL') {
-            if (!eventType || eventType !== governingFilter.value) {
+        if (shouldShow) {
+          if (blockingStateFilter === 'NONE') {
+            if (eventCategory === 'blocking_state') {
               shouldShow = false;
+            }
+          } else if (blockingStateFilter !== 'ALL') {
+            // Specific type selected: show only events matching that exact type
+            if (eventType !== blockingStateFilter) {
+              shouldShow = false;
+            }
+          } else {
+            // Blocking state filter is ALL — apply per-category filters
+            var governingFilter = null;
+            $.each(categoryFilters, function(_, f) {
+              if (f.categories.indexOf(eventCategory) !== -1) {
+                governingFilter = f;
+              }
+            });
+            if (governingFilter) {
+              if (governingFilter.value === 'NONE') {
+                shouldShow = false;
+              } else if (governingFilter.value !== 'ALL') {
+                if (eventType !== governingFilter.value) {
+                  shouldShow = false;
+                }
+              }
             }
           }
         }
