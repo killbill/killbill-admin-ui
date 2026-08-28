@@ -131,17 +131,16 @@ module Kaui
     end
 
     # Return a new test payment method
-    # rubocop:disable Style/OptionalBooleanParameter
+    # rubocop:disable-next-line Style/OptionalBooleanParameter
     def create_payment_method(set_default = false, account = nil, tenant = nil, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
 
       payment_method = Kaui::PaymentMethod.new(account_id: account.account_id, plugin_name: '__EXTERNAL_PAYMENT__', is_default: set_default)
       payment_method.create(true, user, reason, comment, build_options(tenant, username, password))
     end
-    # rubocop:enable Style/OptionalBooleanParameter
 
     # Return the created external charge
-    # rubocop:disable Style/OptionalBooleanParameter
+    # rubocop:disable-next-line Style/OptionalBooleanParameter
     def create_charge(account = nil, tenant = nil, auto_commit = false, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
       tenant  = create_tenant(user, reason, comment) if tenant.nil?
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
@@ -155,10 +154,9 @@ module Kaui
     rescue StandardError
       nil
     end
-    # rubocop:enable Style/OptionalBooleanParameter
 
     # Return the created credit
-    # rubocop:disable Style/OptionalBooleanParameter
+    # rubocop:disable-next-line Style/OptionalBooleanParameter
     def create_cba(invoice_id = nil, account = nil, tenant = nil, _auto_commit = false, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
       tenant  = create_tenant(user, reason, comment) if tenant.nil?
       account = create_account(tenant, username, password, user, reason, comment) if account.nil?
@@ -169,7 +167,6 @@ module Kaui
       invoice = KillBillClient::Model::Invoice.find_by_id(credit.invoice_id, false, 'NONE', build_options(tenant, username, password))
       invoice.items.find { |ii| ii.amount == -credit.amount }
     end
-    # rubocop:enable Style/OptionalBooleanParameter
 
     def commit_invoice(invoice_id, tenant, username = USERNAME, password = PASSWORD, user = 'Kaui test', reason = nil, comment = nil)
       invoice = KillBillClient::Model::Invoice.find_by_id(invoice_id, false, 'NONE', build_options(tenant, username, password))

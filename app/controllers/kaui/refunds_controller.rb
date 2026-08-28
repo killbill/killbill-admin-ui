@@ -17,7 +17,7 @@ module Kaui
       @refund = KillBillClient::Model::InvoiceItem.new(invoice_id: @invoice.invoice_id)
     end
 
-    # rubocop:disable Lint/FloatComparison
+    # rubocop:disable-next-line Lint/FloatComparison
     def create
       invoice = Kaui::Invoice.find_by_id(params.require(:invoice_id), false, 'NONE', options_for_klient)
 
@@ -40,7 +40,6 @@ module Kaui
       KillBillClient::Model::InvoicePayment.refund(params.require(:payment_id), params[:amount], items, current_user.kb_username, params[:reason], params[:comment], options_for_klient)
       redirect_to kaui_engine.account_invoice_path(invoice.account_id, invoice.invoice_id), notice: 'Refund created'
     end
-    # rubocop:enable Lint/FloatComparison
 
     private
 
