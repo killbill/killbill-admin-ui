@@ -8,7 +8,7 @@ module Kaui
 
     protected
 
-    def get_layout # rubocop:disable Naming/AccessorMethodName
+    def current_layout
       Kaui.config[:layout]
     end
 

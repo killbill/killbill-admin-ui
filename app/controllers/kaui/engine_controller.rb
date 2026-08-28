@@ -7,7 +7,7 @@ class Kaui::EngineController < ApplicationController
 
   before_action :authenticate_user!, :check_for_redirect_to_tenant_screen, :populate_account_details
 
-  layout :get_layout
+  layout :current_layout
 
   # Common options for the Kill Bill client
   def options_for_klient(options = {})
