@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 module Kaui
-  # rubocop:disable-next-line Lint/EmptyClass
+  # rubocop:disable Lint/EmptyClass
   class Refund
   end
+  # rubocop:enable Lint/EmptyClass
 end

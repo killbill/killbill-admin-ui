@@ -8,10 +8,11 @@ module Kaui
 
     protected
 
-    # rubocop:disable-next-line Lint/UselessAssignment, Naming/AccessorMethodName
+    # rubocop:disable Lint/UselessAssignment, Naming/AccessorMethodName
     def get_layout
       layout ||= Kaui.config[:layout]
     end
+    # rubocop:enable Lint/UselessAssignment, Naming/AccessorMethodName
 
     # Remove this when we support balance search alongside the other search
     def handle_balance_search(query_string)

@@ -2,7 +2,7 @@
 
 module Kaui
   class BundlesController < Kaui::EngineController
-    # rubocop:disable-next-line Lint/HashCompareByIdentity
+    # rubocop:disable Lint/HashCompareByIdentity
     def index
       cached_options_for_klient = options_for_klient
       @search_query = params[:q].presence
@@ -74,6 +74,7 @@ module Kaui
         end
       end
     end
+    # rubocop:enable Lint/HashCompareByIdentity
 
     def transfer
       @bundle_id = params.require(:id)

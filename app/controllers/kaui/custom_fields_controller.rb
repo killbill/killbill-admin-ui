@@ -137,7 +137,7 @@ module Kaui
       test_uuid = nil
       msg = nil
       case param_object_type
-      when 'INVOICE_ITEM'
+      when  'INVOICE_ITEM'
         begin
           test_uuid = Kaui::Invoice.find_by_invoice_item_id(param_uuid, false, 'NONE', options_for_klient)
         rescue StandardError
@@ -145,7 +145,7 @@ module Kaui
         ensure
           msg = { status: '200', message: I18n.t('custom_field_uuid_exist_in_invoice_item_db') } if test_uuid.present?
         end
-      when 'ACCOUNT'
+      when  'ACCOUNT'
         begin
           test_uuid = Kaui::Account.find_by_id_or_key(param_uuid, false, false, options_for_klient)
         rescue StandardError
@@ -153,7 +153,7 @@ module Kaui
         ensure
           msg = { status: '200', message: I18n.t('custom_field_uuid_exist_in_account_db') } if test_uuid.present? && (test_uuid.account_id == param_uuid)
         end
-      when 'BUNDLE'
+      when  'BUNDLE'
         begin
           test_uuid = Kaui::Bundle.find_by_id_or_key(param_uuid, options_for_klient)
         rescue StandardError
@@ -161,7 +161,7 @@ module Kaui
         ensure
           msg = { status: '200', message: I18n.t('custom_field_uuid_exist_in_bundle_db') } if test_uuid.present? && (test_uuid.bundle_id == param_uuid)
         end
-      when 'SUBSCRIPTION'
+      when  'SUBSCRIPTION'
         begin
           test_uuid = Kaui::Subscription.find_by_id(param_uuid, 'NONE', options_for_klient)
         rescue StandardError
@@ -169,7 +169,7 @@ module Kaui
         ensure
           msg = { status: '200', message: I18n.t('custom_field_uuid_exist_in_subscription_db') } if test_uuid.present? && (test_uuid.subscription_id == param_uuid)
         end
-      when 'INVOICE'
+      when  'INVOICE'
         begin
           cached_options_for_klient = options_for_klient
           test_uuid = Kaui::Invoice.find_by_id(param_uuid, false, 'FULL', cached_options_for_klient)
@@ -178,7 +178,7 @@ module Kaui
         ensure
           msg = { status: '200', message: I18n.t('custom_field_uuid_exist_in_invoice_db') } if test_uuid.present? && (test_uuid.invoice_id == param_uuid)
         end
-      when 'PAYMENT'
+      when  'PAYMENT'
         begin
           test_uuid = Kaui::InvoicePayment.find_by_id(param_uuid, false, true, options_for_klient)
         rescue StandardError

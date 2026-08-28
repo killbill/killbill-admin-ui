@@ -84,7 +84,7 @@ module Kaui
       paginate searcher, data_extractor, formatter
     end
 
-    # rubocop:disable-next-line Lint/HashCompareByIdentity
+    # rubocop:disable Lint/HashCompareByIdentity
     def show
       # Go to the database once
       cached_options_for_klient = options_for_klient
@@ -150,6 +150,7 @@ module Kaui
       @available_invoice_tags = wait(fetch_available_invoice_tags)
       @available_invoice_tags.reject! { |td| td.name == 'WRITTEN_OFF' } if @invoice.status == 'VOID'
     end
+    # rubocop:enable Lint/HashCompareByIdentity
 
     def void_invoice
       cached_options_for_klient = options_for_klient
@@ -174,8 +175,9 @@ module Kaui
     end
 
     def show_html
-      # rubocop:disable-next-line Rails/OutputSafety -- Invoice HTML from Kill Bill backend is trusted
+      # rubocop:disable Rails/OutputSafety -- Invoice HTML from Kill Bill backend is trusted
       render html: Kaui::Invoice.as_html(params.require(:id), options_for_klient).html_safe
+      # rubocop:enable Rails/OutputSafety
     end
 
     def commit_invoice

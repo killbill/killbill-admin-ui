@@ -2,7 +2,7 @@
 
 module Kaui
   class QueuesController < Kaui::EngineController
-    # rubocop:disable-next-line Lint/SuppressedException,Lint/EnsureReturn
+    # rubocop:disable Lint/SuppressedException,Lint/EnsureReturn
     def index
       @account_id = params[:account_id]
 
@@ -47,5 +47,6 @@ module Kaui
 
       params.permit!
     end
+    # rubocop:enable Lint/SuppressedException,Lint/EnsureReturn
   end
 end
