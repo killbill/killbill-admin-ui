@@ -47,7 +47,7 @@
           <div class="form-group p-0 w-100 max-width-148">
             <label for="blocking_state_filter" class="control-label">Blocking State</label>
             <div class="d-flex">
-              <%= select_tag 'blocking_state_filter', options_for_select('<option value="all">ALL</option><option value="none">NONE</option>'.html_safe), :class => 'form-control' %>
+              <%= select_tag 'blocking_state_filter', options_for_select('<option value="all">ALL</option><option value="start_entitlement">START_ENTITLEMENT</option><option value="start_billing">START_BILLING</option><option value="service_state_change">SERVICE_STATE_CHANGE</option><option value="none">NONE</option>'.html_safe), :class => 'form-control' %>
             </div>
           </div>
           <div class="form-group p-0 d-flex align-self-end justify-content-end w-100">

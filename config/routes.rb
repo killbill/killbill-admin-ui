@@ -43,10 +43,6 @@ Kaui::Engine.routes.draw do
       get '/block' => 'accounts#block', :as => 'block_account'
       put '/do_block' => 'accounts#do_block', :as => 'do_block_account'
 
-      scope '/blocking_states' do
-        get '/' => 'account_blocking_states#index', :as => 'account_blocking_states'
-      end
-
       scope '/account_tags' do
         get '/' => 'account_tags#index', :as => 'account_tags'
         get '/edit' => 'account_tags#edit', :as => 'edit_account_tags'
