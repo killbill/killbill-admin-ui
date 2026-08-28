@@ -140,7 +140,7 @@ module Kaui
       assert response_path.include?('/kaui/home'), "#{response_path} is expected to contain '/kaui/home'"
     end
 
-    # rubocop:disable Naming/VariableNumber
+    # rubocop:disable-next-line Naming/VariableNumber
     test 'should add tenant' do
       allowed_user = { kb_username: SecureRandom.uuid.to_s, description: SecureRandom.uuid.to_s }
 
@@ -157,7 +157,6 @@ module Kaui
       # validate redirect path
       assert response_path.include?(expected_response_path(au.id)), "#{response_path} is expected to contain #{expected_response_path(au.id)}"
     end
-    # rubocop:enable Naming/VariableNumber
 
     test 'should detect if a user is managed externally' do
       allowed_user = { kb_username: SecureRandom.uuid.to_s, description: SecureRandom.uuid.to_s }

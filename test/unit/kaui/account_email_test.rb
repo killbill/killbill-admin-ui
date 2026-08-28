@@ -4,7 +4,7 @@ require 'test_helper'
 
 module Kaui
   class AccountEmailTest < ActiveSupport::TestCase
-    # rubocop:disable Lint/BinaryOperatorWithIdenticalOperands
+    # rubocop:disable-next-line Lint/BinaryOperatorWithIdenticalOperands
     test 'can compare emails' do
       email1 = Kaui::AccountEmail.new(account_id: SecureRandom.uuid, email: 'abc@bar.com')
       email2 = Kaui::AccountEmail.new(account_id: SecureRandom.uuid, email: 'bcd@bar.com')
@@ -19,6 +19,5 @@ module Kaui
       assert_equal(-1, email3 <=> email1)
       assert_equal(-1, email1 <=> nil)
     end
-    # rubocop:enable Lint/BinaryOperatorWithIdenticalOperands
   end
 end
