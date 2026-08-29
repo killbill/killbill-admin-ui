@@ -42,11 +42,11 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rubocop', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
-  gem 'rubocop-thread_safety', require: false
+  gem 'rubocop', '~> 1.89.0', require: false
+  gem 'rubocop-performance', '~> 1.26.1', require: false
+  gem 'rubocop-rails', '~> 2.36.0', require: false
+  gem 'rubocop-rspec', '~> 3.10.2', require: false
+  gem 'rubocop-thread_safety', '~> 0.7.3', require: false
 end
 
 # gem 'killbill-assets-ui', github: 'killbill/killbill-assets-ui', ref: 'main'
