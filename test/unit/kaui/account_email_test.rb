@@ -11,9 +11,9 @@ module Kaui
 
       assert_equal(-1, email1 <=> email2)
       assert_equal 1, email2 <=> email1
-      assert_equal 0, email1 <=> email1 # rubocop:disable Lint/BinaryOperatorWithIdenticalOperands
-      assert_equal 0, email2 <=> email2 # rubocop:disable Lint/BinaryOperatorWithIdenticalOperands
-      assert_equal 0, email3 <=> email3 # rubocop:disable Lint/BinaryOperatorWithIdenticalOperands
+      assert_equal 0, email1 <=> email1.dup
+      assert_equal 0, email2 <=> email2.dup
+      assert_equal 0, email3 <=> email3.dup
       assert_equal 1, email1 <=> email3
       assert_equal(-1, email3 <=> email1)
       assert_equal(-1, email1 <=> nil)
