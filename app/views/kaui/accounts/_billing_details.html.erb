@@ -3,7 +3,7 @@
     <div class="billing-details-header">
       <h2>Billing Information</h2>
       <span>
-        <% if can?(:trigger, Kaui::Payment) || can?(:credit, Kaui::Account) || can?(:charge, Kaui::Account) %>
+        <% if can?(:trigger, Kaui::Payment) || can?(:credit, Kaui::Account) || can?(:charge, Kaui::Account) || can?(:update, Kaui::Account) %>
           <div class="tag-bar tag-bar-breathe">
             <div class="toggler">
               <div class="toggle">
@@ -51,6 +51,18 @@
                     <%= link_to deposit_engine.collection_index_path(:account_id => @account.account_id, :currency => @account.currency) do %>
                       <%= render "kaui/components/button/button", {
                             label: "Create Deposit",
+                            icon: "kaui/plus.svg",
+                            variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                            type: "button",
+                            html_class: "kaui-dropdown custom-hover",
+                          } %>
+                    <% end %>
+                  <% end %>
+
+                  <% if can? :update, Kaui::Account %>
+                    <%= link_to kaui_engine.block_account_path(@account.account_id) do %>
+                      <%= render "kaui/components/button/button", {
+                            label: "Create Blocking State",
                             icon: "kaui/plus.svg",
                             variant: "outline-secondary d-inline-flex align-items-center gap-1",
                             type: "button",

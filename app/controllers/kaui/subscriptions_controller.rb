@@ -150,6 +150,20 @@ module Kaui
       redirect_to kaui_engine.account_bundles_path(input_subscription['account_id']), notice: 'Subscription BCD was successfully changed'
     end
 
+    def block
+      @subscription = Kaui::Subscription.find_by_id(params.require(:id), 'NONE', options_for_klient)
+    end
+
+    def do_block
+      subscription = Kaui::Subscription.new(subscription_id: params.require(:id))
+      subscription.set_blocking_state(params.require(:state_name), params.require(:service),
+                                      params[:is_block_change] == '1', params[:is_block_entitlement] == '1',
+                                      params[:is_block_billing] == '1', params[:requested_date].presence,
+                                      current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+
+      redirect_to kaui_engine.account_bundles_path(params.require(:account_id)), notice: 'Blocking state was successfully created'
+    end
+
     def edit_quantity
       @subscription = Kaui::Subscription.find_by_id(params.require(:id), 'NONE', options_for_klient)
     end

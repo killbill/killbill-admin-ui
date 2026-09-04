@@ -29,32 +29,31 @@
           <div class="form-group p-0 w-100 max-width-148">
             <label for="payment_filter" class="control-label">Payment</label>
             <div class="d-flex">
-              <%= select_tag 'payment_filter', options_for_select('<option value="all">ALL</option><option value="authorize">AUTHORIZE</option><option value="purchase">PURCHASE</option><option value="capture">CAPTURE</option><option value="credit">CREDIT</option><option value="refund">REFUND</option><option value="void">VOID</option><option value="chargeback">CHARGEBACK</option>'.html_safe), :class => 'form-control' %>
+              <%= select_tag 'payment_filter', options_for_select('<option value="all">ALL</option><option value="none">NONE</option><option value="authorize">AUTHORIZE</option><option value="purchase">PURCHASE</option><option value="capture">CAPTURE</option><option value="credit">CREDIT</option><option value="refund">REFUND</option><option value="void">VOID</option><option value="chargeback">CHARGEBACK</option>'.html_safe), :class => 'form-control' %>
             </div>
           </div>
           <div class="form-group p-0 w-100 max-width-148">
             <label for="subscription_filter" class="control-label">Subscription</label>
             <div class="d-flex">
-              <%= select_tag 'subscription_filter', options_for_select('<option value="all">ALL</option><option value="start_entitlement">START_ENTITLEMENT</option><option value="pause_entitlement">PAUSE_ENTITLEMENT</option><option value="resume_entitlement">RESUME_ENTITLEMENT</option><option value="stop_entitlement">STOP_ENTITLEMENT</option><option value="phase">PHASE</option><option value="change">CHANGE</option>'.html_safe), :class => 'form-control' %>
+              <%= select_tag 'subscription_filter', options_for_select('<option value="all">ALL</option><option value="none">NONE</option><option value="start_entitlement">START_ENTITLEMENT</option><option value="pause_entitlement">PAUSE_ENTITLEMENT</option><option value="resume_entitlement">RESUME_ENTITLEMENT</option><option value="stop_entitlement">STOP_ENTITLEMENT</option><option value="phase">PHASE</option><option value="change">CHANGE</option>'.html_safe), :class => 'form-control' %>
             </div>
           </div>
           <div class="form-group p-0 w-100 max-width-148">
             <label for="billing_filter" class="control-label">Billing</label>
             <div class="d-flex">
-              <%= select_tag 'billing_filter', options_for_select('<option value="all">ALL</option><option value="invoice">INVOICE</option><option value="start_billing">START_BILLING</option><option value="pause_billing">PAUSE_BILLING</option><option value="resume_billing">RESUME_BILLING</option><option value="stop_billing">STOP_BILLING</option>'.html_safe), :class => 'form-control' %>
+              <%= select_tag 'billing_filter', options_for_select('<option value="all">ALL</option><option value="none">NONE</option><option value="invoice">INVOICE</option><option value="start_billing">START_BILLING</option><option value="pause_billing">PAUSE_BILLING</option><option value="resume_billing">RESUME_BILLING</option><option value="stop_billing">STOP_BILLING</option>'.html_safe), :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group p-0 w-100 max-width-148">
+            <label for="blocking_state_filter" class="control-label">Blocking State</label>
+            <div class="d-flex">
+              <%= select_tag 'blocking_state_filter', options_for_select('<option value="all">ALL</option><option value="start_entitlement">START_ENTITLEMENT</option><option value="start_billing">START_BILLING</option><option value="service_state_change">SERVICE_STATE_CHANGE</option><option value="none">NONE</option>'.html_safe), :class => 'form-control' %>
             </div>
           </div>
           <div class="form-group p-0 d-flex align-self-end justify-content-end w-100">
             <button type="button" id="clear-all-filters" class="dots-menu link-button">Clear Filters</button>
           </div>
         </form>
-
-        <div class="form-horizontal d-flex gap-2 mb-4 mx-0">
-          <div class="form-group p-0 d-flex align-items-center gap-2">
-            <label for="group-by" class="control-label mb-0 text-nowrap">Group by</label>
-            <%= select_tag 'group-by', options_for_select([['Object Type', 'type'], ['Date', 'date']], 'type'), :class => 'form-control' %>
-          </div>
-        </div>
 
         <div id="timeline-entries">
           <% if @account.present? %>
@@ -67,7 +66,7 @@
             <% else %>
                 <% invoice = invoice_stub %>
             <% end %>
-            <div title="<%= bundles %>" data-event-type="INVOICE" data-timestamp="<%= timeline_sort_timestamp(invoice.target_date) %>">
+            <div title="<%= bundles %>" data-event-type="INVOICE" data-event-category="invoice" data-timestamp="<%= timeline_sort_timestamp(invoice.target_date) %>">
               <div class="datetime-container">
                 <% if invoice.target_date.present? %>
                     <%= invoice.target_date %>
@@ -155,7 +154,7 @@
                 <% invoice = nil %>
             <% end %>
             <% payment.transactions.each do |transaction| %>
-              <div title="<%= bundles %>" data-event-type="<%= transaction.transaction_type %>" data-timestamp="<%= timeline_sort_timestamp(transaction.effective_date) %>">
+              <div title="<%= bundles %>" data-event-type="<%= transaction.transaction_type %>" data-event-category="payment" data-timestamp="<%= timeline_sort_timestamp(transaction.effective_date) %>">
                 <div class="datetime-container">
                   <% if transaction.effective_date.present? %>
                     <%= format_date(transaction.effective_date, @account.time_zone).html_safe %>
@@ -235,60 +234,178 @@
           <% @bundles.each do |bundle| %>
             <% bundle.subscriptions.each do |sub| %>
               <% sub.events.each do |event| %>
-                <% next if event.event_type == 'SERVICE_STATE_CHANGE' %>
-                <div title="<%= @bundle_names[bundle.external_key] %>" data-event-type="<%= event.event_type %>" data-timestamp="<%= timeline_sort_timestamp(event.effective_date) %>">
-                  <div class="datetime-container">
-                    <% if event.effective_date.present? %>
-                        <%= format_date(event.effective_date, @account.time_zone).html_safe %>
-                    <% else %>
-                        [unknown]
-                    <% end %>
-                  </div>
-                  <div class="account-timeline-card d-flex gap-3">
-                    <span class="icon-container">
-                      <%= image_tag("kaui/timeline/invoice.svg", width: 20, height: 20) %>
-                    </span>
-                    
-                    <div class="d-flex justify-content-start flex-column gap-3 w-100 row">
-                      <h3><%= event.event_type %></h3>
-                      <div class="w-100">
-                        <div class="row account-timeline-card-detail">
-                          <div class="col-sm-4">
-                            <div>
-                              <b>Details</b>
-                              <p>
-                                <%= event.phase %><span class="hide" title="<%= sub.product_category %>"></span>
-                              </p>
+                <% if event.event_type == 'SERVICE_STATE_CHANGE' %>
+                  <div title="<%= @bundle_names[bundle.external_key] %>" data-event-type="SERVICE_STATE_CHANGE" data-event-category="blocking_state" data-timestamp="<%= timeline_sort_timestamp(event.effective_date) %>">
+                    <div class="datetime-container">
+                      <% if event.effective_date.present? %>
+                          <%= format_date(event.effective_date, @account.time_zone).html_safe %>
+                      <% else %>
+                          [unknown]
+                      <% end %>
+                    </div>
+                    <div class="account-timeline-card d-flex gap-3">
+                      <span class="icon-container">
+                        <%= image_tag("kaui/timeline/block.svg", width: 20, height: 20) %>
+                      </span>
+
+                      <div class="d-flex justify-content-start flex-column gap-3 w-100 row">
+                        <h3>BLOCKING STATE</h3>
+                        <div class="w-100">
+                          <div class="row account-timeline-card-detail">
+                            <div class="col-sm-4">
+                              <div>
+                                <b>Service / State</b>
+                                <p>
+                                  <%= event.service_name %> / <%= event.service_state_name %>
+                                </p>
+                              </div>
                             </div>
-                            
-                          </div>
-                          <div class="col-sm-4">
-                            <div>
-                              <b>Bundle</b>
-                              <p>
-                                <%= truncate_uuid(@bundle_names[bundle.external_key]) %>
-                              </p>
+                            <div class="col-sm-4">
+                              <div>
+                                <b>Blocked</b>
+                                <p>
+                                  <%= 'Billing' if event.is_blocked_billing %>
+                                  <%= 'Entitlement' if event.is_blocked_entitlement %>
+                                </p>
+                              </div>
+                              <div>
+                                <b>Bundle</b>
+                                <p>
+                                  <%= truncate_uuid(@bundle_names[bundle.external_key]) %>
+                                </p>
+                              </div>
                             </div>
-                          </div>
-                          <div class="col-sm-4">
-                           <div>
-                              <b>Reason Code / Comments</b>
-                              <p>
-                                <% if event.audit_logs.present? %>
-                                  <% event.audit_logs.each do |entry| %>
-                                    <%= Kaui::AuditLog.description(entry) %>
+                            <div class="col-sm-4">
+                              <div>
+                                <b>Reason Code / Comments</b>
+                                <p>
+                                  <% if event.audit_logs.present? %>
+                                    <% event.audit_logs.each do |entry| %>
+                                      <%= Kaui::AuditLog.description(entry) %>
+                                    <% end %>
                                   <% end %>
-                                <% end %> 
-                              </p>
+                                </p>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                <% else %>
+                  <% event_category = %w[START_BILLING PAUSE_BILLING RESUME_BILLING STOP_BILLING].include?(event.event_type) ? 'billing' : 'subscription' %>
+                  <div title="<%= @bundle_names[bundle.external_key] %>" data-event-type="<%= event.event_type %>" data-event-category="<%= event_category %>" data-timestamp="<%= timeline_sort_timestamp(event.effective_date) %>">
+                    <div class="datetime-container">
+                      <% if event.effective_date.present? %>
+                          <%= format_date(event.effective_date, @account.time_zone).html_safe %>
+                      <% else %>
+                          [unknown]
+                      <% end %>
+                    </div>
+                    <div class="account-timeline-card d-flex gap-3">
+                      <span class="icon-container">
+                        <%= image_tag("kaui/timeline/invoice.svg", width: 20, height: 20) %>
+                      </span>
+
+                      <div class="d-flex justify-content-start flex-column gap-3 w-100 row">
+                        <h3><%= event.event_type %></h3>
+                        <div class="w-100">
+                          <div class="row account-timeline-card-detail">
+                            <div class="col-sm-4">
+                              <div>
+                                <b>Details</b>
+                                <p>
+                                  <% if event.is_blocked_billing || event.is_blocked_entitlement %>
+                                    <%= event.service_name %> / <%= event.service_state_name %><br/>
+                                  <% end %>
+                                  <%= event.phase %><span class="hide" title="<%= sub.product_category %>"></span>
+                                </p>
+                              </div>
+
+                            </div>
+                            <div class="col-sm-4">
+                              <div>
+                                <b>Bundle</b>
+                                <p>
+                                  <%= truncate_uuid(@bundle_names[bundle.external_key]) %>
+                                </p>
+                              </div>
+                            </div>
+                            <div class="col-sm-4">
+                             <div>
+                                <b>Reason Code / Comments</b>
+                                <p>
+                                  <% if event.audit_logs.present? %>
+                                    <% event.audit_logs.each do |entry| %>
+                                      <%= Kaui::AuditLog.description(entry) %>
+                                    <% end %>
+                                  <% end %>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
               <% end %>
             <% end %>
+          <% end %>
+
+          <% (@account_blocking_states || []).each do |blocking_state| %>
+            <div data-event-type="SERVICE_STATE_CHANGE" data-event-category="blocking_state" data-timestamp="<%= timeline_sort_timestamp(blocking_state.effective_date) %>">
+              <div class="datetime-container">
+                <% if blocking_state.effective_date.present? %>
+                    <%= format_date(blocking_state.effective_date, @account.time_zone).html_safe %>
+                <% else %>
+                    [unknown]
+                <% end %>
+              </div>
+              <div class="account-timeline-card d-flex gap-3">
+                <span class="icon-container">
+                  <%= image_tag("kaui/timeline/block.svg", width: 20, height: 20) %>
+                </span>
+
+                <div class="d-flex justify-content-start flex-column gap-3 w-100 row">
+                  <h3>BLOCKING STATE</h3>
+                  <div class="w-100">
+                    <div class="row account-timeline-card-detail">
+                      <div class="col-sm-4">
+                        <div>
+                          <b>Service / State</b>
+                          <p>
+                            <%= blocking_state.service %> / <%= blocking_state.state_name %>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div>
+                          <b>Blocked</b>
+                          <p>
+                            <%= 'Change' if blocking_state.is_block_change %>
+                            <%= 'Billing' if blocking_state.is_block_billing %>
+                            <%= 'Entitlement' if blocking_state.is_block_entitlement %>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div>
+                          <b>Reason Code / Comments</b>
+                          <p>
+                            <% if blocking_state.audit_logs.present? %>
+                              <% blocking_state.audit_logs.each do |entry| %>
+                                <%= Kaui::AuditLog.description(entry) %>
+                              <% end %>
+                            <% end %>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           <% end %>
         <% end %>
         </div>
@@ -305,7 +422,7 @@
     }
 
     var eventsOrder = ["START_ENTITLEMENT", "START_BILLING", "PAUSE_ENTITLEMENT", "PAUSE_BILLING", "RESUME_ENTITLEMENT",
-    "RESUME_BILLING", "PHASE", "CHANGE", "STOP_ENTITLEMENT", "STOP_BILLING", "INVOICE", "AUTHORIZE", "PURCHASE", "CAPTURE",
+    "RESUME_BILLING", "PHASE", "CHANGE", "STOP_ENTITLEMENT", "STOP_BILLING", "SERVICE_STATE_CHANGE", "INVOICE", "AUTHORIZE", "PURCHASE", "CAPTURE",
     "CREDIT", "REFUND", "VOID", "CHARGEBACK"];
 
     jQuery.fn.dataTableExt.oSort['timeline-event-asc'] = function(e1,e2) {
@@ -359,92 +476,95 @@
       });
     }
 
-    var originalTimelineEntriesOrder = null;
-
-    function sortTimelineEntries(sortByDate) {
+    function sortTimelineEntries() {
       var $container = $('#timeline-entries');
       var $entries = $container.children('[data-event-type]');
 
-      if (originalTimelineEntriesOrder === null) {
-        // Cache the initial (grouped-by-object-type) DOM order the first time we need it
-        originalTimelineEntriesOrder = $entries.get();
-      }
-
-      var orderedEntries;
-      if (sortByDate) {
-        orderedEntries = $entries.get().sort(function (a, b) {
-          var x = parseInt($(a).attr('data-timestamp'), 10);
-          var y = parseInt($(b).attr('data-timestamp'), 10);
-          x = isNaN(x) ? -Infinity : x;
-          y = isNaN(y) ? -Infinity : y;
-          // Most recent first; entries without a usable timestamp sort last
+      var orderedEntries = $entries.get().sort(function (a, b) {
+        var x = parseInt($(a).attr('data-timestamp'), 10);
+        var y = parseInt($(b).attr('data-timestamp'), 10);
+        x = isNaN(x) ? -Infinity : x;
+        y = isNaN(y) ? -Infinity : y;
+        if (y !== x) {
           return y - x;
-        });
-      } else {
-        orderedEntries = originalTimelineEntriesOrder;
-      }
+        }
+        var typeX = eventsOrder.indexOf($(a).attr('data-event-type'));
+        var typeY = eventsOrder.indexOf($(b).attr('data-event-type'));
+        typeX = typeX === -1 ? Infinity : typeX;
+        typeY = typeY === -1 ? Infinity : typeY;
+        return typeX - typeY;
+      });
 
       $.each(orderedEntries, function (_, entry) {
         $container.append(entry);
       });
 
-      // Re-apply any active filters, since the DOM order just changed
       filterTimeline();
     }
 
     function filterTimeline() {
       var selectedBundle = $("#bundles").val();
-      var selectedPayment = $('#payment_filter').val().toUpperCase();
-      var selectedSubscription = $('#subscription_filter').val().toUpperCase();
-      var selectedBilling = $('#billing_filter').val().toUpperCase();
       var searchQuery = $('#search').val().toLowerCase();
-      
-      // Show all cards initially
-      $('.account-timeline-card').parent().show();
-      
-      // Apply all filters to each card
+      var blockingStateFilter = $('#blocking_state_filter').val().toUpperCase();
+
+      var categoryFilters = {
+        payment:      { value: $('#payment_filter').val().toUpperCase(),      categories: ['payment'] },
+        subscription: { value: $('#subscription_filter').val().toUpperCase(), categories: ['subscription'] },
+        billing:      { value: $('#billing_filter').val().toUpperCase(),      categories: ['billing', 'invoice'] }
+      };
+
       $('.account-timeline-card').parent().each(function() {
         var $card = $(this);
-        var eventType = $card.data('event-type');
+        var eventType = ($card.attr('data-event-type') || '').toUpperCase();
+        var eventCategory = $card.attr('data-event-category') || '';
         var bundleTitle = $card.attr('title');
         var cardText = $card.text().toLowerCase();
-        
+
         var shouldShow = true;
-        
+
         if (selectedBundle && selectedBundle !== '' && selectedBundle !== 'All') {
           if (!bundleTitle || bundleTitle.indexOf(selectedBundle) === -1) {
             shouldShow = false;
           }
         }
-        
-        // Filter by payment events if not "ALL"
-        if (selectedPayment !== "ALL" && shouldShow) {
-          if (!eventType || eventType !== selectedPayment) {
-            shouldShow = false;
+
+        if (shouldShow) {
+          if (blockingStateFilter === 'NONE') {
+            if (eventCategory === 'blocking_state') {
+              shouldShow = false;
+            }
+          } else if (blockingStateFilter !== 'ALL') {
+            // Specific type selected: show only events matching that exact type
+            if (eventType !== blockingStateFilter) {
+              shouldShow = false;
+            }
+          } else {
+            // Blocking state filter is ALL — apply per-category filters
+            var governingFilter = null;
+            $.each(categoryFilters, function(_, f) {
+              if (f.categories.indexOf(eventCategory) !== -1) {
+                governingFilter = f;
+              }
+            });
+            if (governingFilter) {
+              if (governingFilter.value === 'NONE') {
+                shouldShow = false;
+              } else if (governingFilter.value !== 'ALL') {
+                if (eventType !== governingFilter.value) {
+                  shouldShow = false;
+                }
+              }
+            }
           }
         }
-        
-        // Filter by subscription events if not "ALL"
-        if (selectedSubscription !== "ALL" && shouldShow) {
-          if (!eventType || eventType !== selectedSubscription) {
-            shouldShow = false;
-          }
-        }
-        
-        // Filter by billing events if not "ALL"
-        if (selectedBilling !== "ALL" && shouldShow) {
-          if (!eventType || eventType !== selectedBilling) {
-            shouldShow = false;
-          }
-        }
-        
+
         // Apply search filter if query exists
         if (searchQuery && shouldShow) {
           if (cardText.indexOf(searchQuery) === -1) {
             shouldShow = false;
           }
         }
-        
+
         // Show or hide the card based on all filters
         if (shouldShow) {
           $card.show();
@@ -456,22 +576,15 @@
 
     $(document).ready(function() {
       disableLinks();
-      
+
       // Initialize filters with debounce for search
       var searchTimeout;
-      $("#bundles, #payment_filter, #subscription_filter, #billing_filter").on('change', filterTimeline);
+      $("#bundles, #payment_filter, #subscription_filter, #billing_filter, #blocking_state_filter").on('change', filterTimeline);
       $('#search').on('keyup', function() {
         clearTimeout(searchTimeout);
         searchTimeout = setTimeout(filterTimeline, 300);
       });
 
-      $('#group-by').on('change', function() {
-        sortTimelineEntries($(this).val() === 'date');
-      });
-
-      
-
-      
       // Clear all filters button
       $('#clear-all-filters').click(function() {
         $('#search').val('');
@@ -479,10 +592,11 @@
         $('#payment_filter').val('all');
         $('#subscription_filter').val('all');
         $('#billing_filter').val('all');
+        $('#blocking_state_filter').val('all');
         filterTimeline();
       });
-      
-      // Apply initial filters if any are selected
-      filterTimeline();
+
+      // Sort by date first, event type second, then apply filters
+      sortTimelineEntries();
     });
 <% end %>

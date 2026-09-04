@@ -437,6 +437,44 @@ table tr.expired td {
   right: 0.5rem;
 }
 
+/* app/views/kaui/components/blocking_state_form/_about_panel.html.erb */
+
+.blocking-state-about-panel {
+  flex: 0 0 20rem;
+  max-width: 20rem;
+  height: fit-content;
+  padding: 1.25rem;
+  background-color: #EFF6FF;
+  border: 0.0625rem solid #DBEAFE;
+  border-radius: 0.5rem;
+}
+
+.blocking-state-about-panel .icon-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: #2563EB;
+  flex-shrink: 0;
+}
+
+.blocking-state-about-panel h6 {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #1B1C1E;
+}
+
+.blocking-state-about-panel p {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  color: #414651;
+  margin-bottom: 0;
+}
+
 .kaui-subscription-new .form-group.d-flex.pb-3 .form-control {
   height: 2.5rem;
   border-radius: 0.375rem;

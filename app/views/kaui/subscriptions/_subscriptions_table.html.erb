@@ -243,6 +243,22 @@
                 } %>
               <% end %>
 
+              <% if can?(:pause_resume, Kaui::Subscription) && sub.product_category != 'ADD_ON' %>
+                <% menu_items << {
+                  label: "Create blocking state (bundle)",
+                  path: kaui_engine.block_bundle_path(account_id: bundle.account_id, id: bundle.bundle_id),
+                  icon: "kaui/subscription/pause.svg"
+                } %>
+              <% end %>
+
+              <% if can?(:pause_resume, Kaui::Subscription) %>
+                <% menu_items << {
+                  label: "Create blocking state (subscription)",
+                  path: kaui_engine.block_subscription_path(account_id: bundle.account_id, id: sub.subscription_id),
+                  icon: "kaui/subscription/pause.svg"
+                } %>
+              <% end %>
+
               <% if menu_items.any? %>
                 <%= render partial: "kaui/components/menu_dropdown/menu_dropdown", locals: {
                     variant: "btn-light",
