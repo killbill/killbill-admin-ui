@@ -44,7 +44,7 @@ end
 group :development, :test do
   gem 'rubocop', '~> 1.89.0', require: false
   gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', '~> 2.36.0', require: false
+  gem 'rubocop-rails', '~> 2.37.0', require: false
   gem 'rubocop-rspec', '~> 3.10.2', require: false
   gem 'rubocop-thread_safety', require: false
 end
