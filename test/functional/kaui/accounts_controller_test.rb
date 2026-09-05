@@ -220,8 +220,9 @@ module Kaui
       post :trigger_invoice, params: parameters
       assert_response :redirect
       assert_match(/Generated invoice.*for target date.*/, flash[:notice])
-      a_tag = /<a.href="(?<href>.*?)">/.match(@response.body)
-      assert_redirected_to a_tag[:href]
+      # Rails 7.2 no longer includes a fallback HTML body in redirect responses;
+      # use the Location header directly instead of parsing @response.body.
+      assert_redirected_to @response.location
     end
 
     test 'should get next_invoice_date' do
@@ -322,10 +323,11 @@ module Kaui
     private
 
     def redirected_account_id
-      fields = %r{<a.href="http:/.*/.*?/(?<id>.*?)">}.match(@response.body) if fields.nil?
+      # Rails 7.2 no longer includes a fallback HTML body (with a link to the redirect
+      # target) in redirect responses, so parse the account id from the Location header instead.
+      return nil if @response.location.blank?
 
-      return nil if fields.nil?
-
+      fields = %r{/accounts/(?<id>[^/?]+)}.match(@response.location)
       fields.nil? ? nil : fields[:id]
     end
   end
