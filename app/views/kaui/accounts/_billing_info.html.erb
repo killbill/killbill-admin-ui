@@ -6,7 +6,7 @@
 
     <div class="info-wrapper">
 
-      <% if can?(:trigger, Kaui::Payment) || can?(:credit, Kaui::Account) || can?(:charge, Kaui::Account) %>
+      <% if can?(:trigger, Kaui::Payment) || can?(:credit, Kaui::Account) || can?(:charge, Kaui::Account) || can?(:update, Kaui::Account) %>
           <div class="tag-bar tag-bar-breathe">
             <div class="toggler">
               <div class="toggle">
@@ -28,6 +28,10 @@
                   <% if deposit_plugin_available? %>
                       <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Create deposit'.html_safe,
                                   deposit_engine.collection_index_path(:account_id => @account.account_id, :currency => @account.currency) %>
+                  <% end %>
+                  <% if can? :update, Kaui::Account %>
+                      <%= link_to '<i class="fa fa-plus-square"></i>&nbsp;Create blocking state'.html_safe,
+                                  kaui_engine.block_account_path(@account.account_id) %>
                   <% end %>
                 </div>
               </div>

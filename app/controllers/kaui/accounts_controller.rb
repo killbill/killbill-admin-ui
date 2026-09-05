@@ -156,7 +156,15 @@ module Kaui
       @children = wait(fetch_children)
       @account_parent = @account.parent_account_id.nil? ? nil : wait(fetch_parent)
       @email_notification_configuration = is_email_notifications_plugin_available ? wait(fetch_email_notification_configuration) : []
-      @bundles = wait(fetch_bundles)
+      @bundles = begin
+        wait(fetch_bundles)
+      rescue KillBillClient::API::ResponseError => e
+        # e.g. a subscription references a plan that no longer exists in the currently loaded catalog.
+        # Don't fail the whole account page for this, just warn and show it without bundle-derived data.
+        Rails.logger.warn("Unable to fetch bundles for account #{@account.account_id}: #{as_string(e)}")
+        flash.now[:warning] = "Unable to load some subscription details: #{as_string(e)}"
+        []
+      end
 
       @last_transaction_by_payment_method_id = {}
       wait(fetch_payments).each do |payment|
@@ -382,6 +390,21 @@ module Kaui
     def export_account
       data = KillBillClient::Model::Export.find_by_account_id(params[:account_id], current_user.kb_username, options_for_klient)
       send_data data, filename: "account#{params[:account_id]}.txt", type: :txt
+    end
+
+    def block
+      @account = Kaui::Account.find_by_id(params.require(:account_id), false, false, options_for_klient)
+    end
+
+    def do_block
+      account_id = params.require(:account_id)
+      account = Kaui::Account.new(account_id:)
+      account.set_blocking_state(params.require(:state_name), params.require(:service),
+                                 params[:is_block_change] == '1', params[:is_block_entitlement] == '1',
+                                 params[:is_block_billing] == '1', params[:requested_date].presence,
+                                 current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+
+      redirect_to account_path(account_id), notice: 'Blocking state was successfully created'
     end
   end
 end

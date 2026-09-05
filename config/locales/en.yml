@@ -44,6 +44,10 @@ en:
   loading_data_from_server: "Loading data from server"
   requested_amount_colon: "Requested amount: "
 
+  blocking_state_about_panel:
+    title: "About Blocking States"
+    description: "Blocking states restrict actions on accounts, bundles, or subscriptions. They are enforced by specific services such as entitlement, billing, or custom services."
+
   advanced_search:
     title: "Advanced Search"
     search_field: "Search field"

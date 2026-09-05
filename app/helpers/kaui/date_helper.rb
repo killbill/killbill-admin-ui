@@ -24,6 +24,18 @@ module Kaui
       DateTime.parse(date_s).strftime('%FT%T')
     end
 
+    # Best-effort epoch (seconds) timestamp for a timeline entry's date/time
+    # value, used purely for client-side "Sort by Date" ordering on the
+    # account timeline page. Returns nil if the date is missing or cannot be
+    # parsed (entries without a usable timestamp are sorted last).
+    def timeline_sort_timestamp(date)
+      return nil if date.blank?
+
+      DateTime.parse(date.to_s).to_i
+    rescue ArgumentError, TypeError
+      nil
+    end
+
     # Retrieve current killbill server time based on a time zone.
     # if no time zone is provided it will return UTC.
     # if the killbill server is not reachable it will return the time of the Kaui server

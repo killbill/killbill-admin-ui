@@ -215,6 +215,14 @@
                     path: kaui_engine.record_usage_path(id: sub.subscription_id),
                     icon: "kaui/subscription/change.svg"
                   } %>
+
+                  <% if aviate_plugin_installed %>
+                    <% menu_items << {
+                      label: "View Usage",
+                      path: aviate_engine.usage_subscription_path(id: sub.subscription_id),
+                      icon: "kaui/subscription/change.svg"
+                    } %>
+                  <% end %>
                 <% end %>
 
                 <% if can?(:transfer, Kaui::Bundle) && sub.product_category != 'ADD_ON' %>
@@ -232,6 +240,22 @@
                   path: "#view_subscription_json_modal",
                   icon: "kaui/view-doc.svg",
                   data: { bs_toggle: 'modal', id: sub.subscription_id }
+                } %>
+              <% end %>
+
+              <% if can?(:pause_resume, Kaui::Subscription) && sub.product_category != 'ADD_ON' %>
+                <% menu_items << {
+                  label: "Create blocking state (bundle)",
+                  path: kaui_engine.block_bundle_path(account_id: bundle.account_id, id: bundle.bundle_id),
+                  icon: "kaui/subscription/pause.svg"
+                } %>
+              <% end %>
+
+              <% if can?(:pause_resume, Kaui::Subscription) %>
+                <% menu_items << {
+                  label: "Create blocking state (subscription)",
+                  path: kaui_engine.block_subscription_path(account_id: bundle.account_id, id: sub.subscription_id),
+                  icon: "kaui/subscription/pause.svg"
                 } %>
               <% end %>
 

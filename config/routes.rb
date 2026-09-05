@@ -40,6 +40,8 @@ Kaui::Engine.routes.draw do
       post '/trigger_invoice' => 'accounts#trigger_invoice', :as => 'trigger_invoice'
       put '/link_to_parent' => 'accounts#link_to_parent', :as => 'link_to_parent'
       delete '/unlink_to_parent' => 'accounts#unlink_to_parent', :as => 'unlink_to_parent'
+      get '/block' => 'accounts#block', :as => 'block_account'
+      put '/do_block' => 'accounts#do_block', :as => 'do_block_account'
 
       scope '/account_tags' do
         get '/' => 'account_tags#index', :as => 'account_tags'
@@ -134,6 +136,8 @@ Kaui::Engine.routes.draw do
     get '/:id/pause_resume', to: 'bundles#pause_resume', as: 'pause_resume_bundle'
     put '/:id/do_transfer', to: 'bundles#do_transfer', as: 'do_transfer_bundle'
     get '/:id/transfer', to: 'bundles#transfer', as: 'transfer_bundle'
+    put '/:id/do_block', to: 'bundles#do_block', as: 'do_block_bundle'
+    get '/:id/block', to: 'bundles#block', as: 'block_bundle'
     get '/:id' => 'bundles#restful_show', :as => 'bundle'
   end
 
@@ -141,6 +145,8 @@ Kaui::Engine.routes.draw do
     post '/:id/tags' => 'subscriptions#update_tags', :as => 'update_subscriptions_tags'
     get '/:id/edit_bcd' => 'subscriptions#edit_bcd', :as => 'edit_bcd'
     put '/:id/update_bcd' => 'subscriptions#update_bcd', :as => 'update_bcd'
+    get '/:id/block' => 'subscriptions#block', :as => 'block_subscription'
+    put '/:id/do_block' => 'subscriptions#do_block', :as => 'do_block_subscription'
     get '/:id/edit_quantity' => 'subscriptions#edit_quantity', :as => 'edit_quantity'
     put '/:id/update_quantity' => 'subscriptions#update_quantity', :as => 'update_quantity'
     get '/:id/record_usage' => 'subscriptions#record_usage', :as => 'record_usage'
