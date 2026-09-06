@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.summary = 'Killbill Admin UI mountable engine'
   s.description = 'Rails UI plugin for Killbill administration.'
 
-  s.required_ruby_version = '>= 2.7.0'
+  s.required_ruby_version = '>= 3.1.0'
 
   s.license = 'Apache License (2.0)'
 
@@ -37,7 +37,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'money-rails'
   s.add_dependency 'mustache-js-rails'
   s.add_dependency 'popper_js', '~> 2.11.5'
-  s.add_dependency 'rails', '~> 7.0'
+  s.add_dependency 'rails', '~> 7.2'
   s.add_dependency 'spinjs-rails'
   s.add_dependency 'sprockets'
   s.add_dependency 'sprockets-rails'

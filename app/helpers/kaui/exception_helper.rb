@@ -21,7 +21,7 @@ module Kaui
         I18n.t('errors.messages.error_communicating_killbill')
       else
         # Show detailed error in development/test, or when KAUI_SHOW_ERROR_DETAILS is set (for Docker)
-        show_details = Rails.env.development? || Rails.env.test? || ENV['KAUI_SHOW_ERROR_DETAILS'].present?
+        show_details = Rails.env.local? || ENV['KAUI_SHOW_ERROR_DETAILS'].present?
         show_details ? exception.message : nil
       end
     end
