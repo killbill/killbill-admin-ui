@@ -26,6 +26,10 @@ Gem::Specification.new do |s|
   s.add_dependency 'cancan'
   s.add_dependency 'concurrent-ruby'
   s.add_dependency 'country_select'
+  # csv is a "bundled gem" as of Ruby 3.4 (no longer a default gem), so it
+  # must be an explicit dependency for it to be available via Bundler.require
+  # (affects controllers using CSV export). JRuby 10 targets Ruby 3.4+ compat.
+  s.add_dependency 'csv'
   s.add_dependency 'devise'
   s.add_dependency 'font-awesome-rails'
   s.add_dependency 'jquery-rails', '~> 4.5.1'
