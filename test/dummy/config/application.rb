@@ -15,10 +15,13 @@ require "action_view/railtie"
 require "rails/test_unit/railtie"
 require 'sprockets/railtie'
 
-# Work around a sorbet-runtime/js-routes crash under JRuby 10 (Ruby 4.0 compat):
-# js-routes' sig-decorated methods trigger a sorbet-runtime signature-validation
-# NoMethodError at load time. Disabling runtime checks avoids building the
-# crashing validation wrapper. See repo memory for details.
+# Work around a JRuby 10 bug (jruby/jruby#9651): assigning to an outer local
+# variable named `it` inside a block silently creates a block-local shadow
+# instead of updating the outer one, so op-assignments raise NoMethodError.
+# sorbet-runtime 0.6.x's signature-validation code uses `it` as a loop counter
+# (T::Private::Methods::Signature#each_args_value_type), so any call to a
+# sig'd method (e.g. js-routes' sig-decorated methods) crashes at load time.
+# Disabling runtime checks avoids building the crashing validation wrapper.
 if defined?(JRUBY_VERSION)
   require 'sorbet-runtime'
   T::Configuration.default_checked_level = :never
