@@ -12,7 +12,7 @@ gem 'i18n', '~> 1.14.0'
 
 # Lock minitest to 5.x until Rails 7.1+ adds Minitest 6.0 support
 # Minitest 6.0.0 was released Dec 2024 with breaking API changes
-gem 'minitest', '~> 5.0'
+gem 'minitest', '~> 6.0'
 
 # json 3.0 dropped the quirks_mode keyword that ActiveSupport::JSON.encode
 # still passes to JSON.generate, raising ArgumentError (breaks any code path
