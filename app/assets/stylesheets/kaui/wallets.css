@@ -111,7 +111,7 @@
 .add-new-wallet-details select.form-control:focus {
   box-shadow: none;
   outline: none;
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 .add-new-wallet-details .form-group .form-control {

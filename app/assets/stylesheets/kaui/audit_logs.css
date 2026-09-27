@@ -50,7 +50,7 @@
   border-radius: 62.4375rem;
   background-color: #eff8ff;
   border: 0.0625rem solid #d1e9ff;
-  color: #175cd3;
+  color: var(--kb-primary);
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.125rem;

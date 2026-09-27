@@ -36,11 +36,11 @@ table th:first-of-type,
   font-weight: 600 !important;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: blue;
+  color: var(--kb-primary);
 }
 
 tbody tr td:first-of-type a {
-  color: #1570ef !important;
+  color: var(--kb-primary) !important;
   text-decoration: none;
 }
 

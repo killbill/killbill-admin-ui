@@ -229,7 +229,7 @@
   border-radius: 62.4375rem;
   background-color: #EFF8FF;
   border: 0.0625rem solid #D1E9FF;
-  color: #175CD3;
+  color: var(--kb-primary);
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.125rem;
@@ -288,7 +288,7 @@
 }
 
 .kaui-tags-index #tags-table_filter input:focus {
-  border-color: blue;
+  border-color: var(--kb-primary);
 }
 
 .kaui-tags-index .pagination a:not(:first-child):not(:last-child) {
@@ -433,7 +433,7 @@
   font-size: 0.875rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   background-color: #EFF8FF;
   text-transform: capitalize;
 }
@@ -588,7 +588,7 @@
 }
 
 .kaui-account-tags-index .account-tags #tags-table_filter input:focus {
-  border-color: blue;
+  border-color: var(--kb-primary);
 }
 
 .kaui-account-tags-index .account-tags #tags-table_wrapper .row:nth-of-type(2) {
@@ -604,7 +604,7 @@
   border-radius: 62.4375rem;
   background-color: #EFF8FF;
   border: 0.0625rem solid #D1E9FF;
-  color: #175CD3;
+  color: var(--kb-primary);
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.125rem;

@@ -68,7 +68,7 @@
 .kaui-tenant-select select#kb_tenant_id:focus {
   box-shadow: none;
   outline: none;
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 /* app/views/kaui/admin_tenants/index.html.erb */
@@ -341,8 +341,8 @@
 }
 
 .admin-tenant-show .nav-tabs-details .nav-link.active {
-  border-bottom: 0.125rem solid #1570EF !important; 
-  color: #175CD3 !important;
+  border-bottom: 0.125rem solid var(--kb-primary) !important; 
+  color: var(--kb-primary) !important;
   border-top: none !important;
   border-left: none !important;
   border-right: none !important;
@@ -810,7 +810,7 @@
   padding: 0 !important;
   background-color: transparent !important;
   border: none !important;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   font-weight: 500 !important;
   font-size: 0.75rem !important;
   line-height: 1.125rem !important;
@@ -825,7 +825,7 @@
   font-size: 0.75rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   background-color: #EFF8FF;
   text-transform: capitalize;
 }
@@ -911,7 +911,7 @@
   padding: 0 !important;
   background-color: transparent !important;
   border: none !important;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   font-weight: 500 !important;
   font-size: 0.75rem !important;
   line-height: 1.125rem !important;
@@ -1008,7 +1008,7 @@
 .kaui-new-catalog select:focus {
   box-shadow: none;
   outline: none;
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 .kaui-new-catalog .additional-base-products select {
@@ -1030,7 +1030,7 @@
 .kaui-new-catalog .additional-base-products select:focus {
   box-shadow: none;
   outline: none;
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 .kaui-new-catalog .toggle-segment {
@@ -1109,7 +1109,7 @@
 }
 
 .kaui-new-catalog .upload-content .highlight {
-  color: #1570ef;
+  color: var(--kb-primary);
   font-weight: 500;
   cursor: pointer;
 }
@@ -1208,7 +1208,7 @@
   padding: 0 !important;
   background-color: transparent !important;
   border: none !important;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1313,13 +1313,13 @@
 .kaui-new-overdue-config table.existing-overdue-config-for-tenants td input:focus {
   box-shadow: none;
   outline: none;
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 .kaui-new-overdue-config select:focus {
   box-shadow: none;
   outline: none;
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 /* app/views/kaui/admin_tenants/new_plan_currency.html.erb */
@@ -1413,7 +1413,7 @@
 .catalog-simple-new-plan-currency select:focus {
   box-shadow: none;
   outline: none;
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 .catalog-simple-new-plan-currency .amount-input {
@@ -1442,7 +1442,7 @@
 .catalog-simple-new-plan-currency .additional-base-products select:focus {
   box-shadow: none;
   outline: none;
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 .catalog-simple-new-plan-currency .toggle-segment {
@@ -1521,7 +1521,7 @@
 }
 
 .catalog-simple-new-plan-currency .upload-content .highlight {
-  color: #1570ef;
+  color: var(--kb-primary);
   font-weight: 500;
   cursor: pointer;
 }

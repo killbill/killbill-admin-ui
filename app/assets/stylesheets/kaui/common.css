@@ -228,13 +228,13 @@ input[type="submit"]:hover {
 .kaui-advanced-search-modal .advanced-search-button-secondary {
   background: #FFFFFF;
   border: 0.0625rem solid #B2DDFF;
-  color: #175CD3;
+  color: var(--kb-primary);
 }
 
 .kaui-advanced-search-modal .advanced-search-button-secondary:hover {
   background: #EFF6FF;
   border-color: #84CAFF;
-  color: #175CD3;
+  color: var(--kb-primary);
 }
 
 .kaui-advanced-search-modal .advanced-search-button-ghost {
@@ -256,8 +256,8 @@ input[type="submit"]:hover {
 }
 
 .kaui-advanced-search-modal .advanced-search-button-primary:hover {
-  background: #175CD3;
-  border-color: #175CD3;
+  background: var(--kb-primary);
+  border-color: var(--kb-primary);
   color: #FFFFFF;
 }
 
@@ -606,7 +606,7 @@ table.subtitle td {
   max-width: 80rem;
   text-align: center;
   margin: 0;
-  color: #1570ef; 
+  color: var(--kb-primary); 
 }
 
 .column-block {
@@ -983,7 +983,7 @@ form[id^="new_tag_definition"] #object_types div .tag-definition-select {
 }
 
 .toggle-switch input:checked + .toggle-slider {
-  background-color: #1570ef;
+  background-color: var(--kb-primary);
 }
 
 .toggle-switch input:checked + .toggle-slider:before {
@@ -1001,11 +1001,11 @@ form[id^="new_tag_definition"] #object_types div .tag-definition-select {
 }
 
 .toggle-switch input:not(:checked) + .toggle-slider:hover {
-  background-color: #1570ef;
+  background-color: var(--kb-primary);
 }
 
 .toggle-switch input:checked:not(:disabled) + .toggle-slider:hover {
-  background-color: #1570ef;
+  background-color: var(--kb-primary);
 }
 
 /* Required for https://github.com/killbill/killbill-admin-ui/issues/262 */
@@ -1465,7 +1465,7 @@ table thead th:last-child {
 }
 
 .upload-box:hover {
-  border-color: #175CD3;
+  border-color: var(--kb-primary);
   background-color: #f8fafc;
 }
 
@@ -1491,7 +1491,7 @@ table thead th:last-child {
 }
 
 .upload-content span.highlight {
-  color: #175CD3;
+  color: var(--kb-primary);
   font-weight: 500;
   margin: 0;
 }

@@ -31,7 +31,7 @@
 
 .account-sidebar-area .container a.current {
   background-color: #EFF8FF;
-  color: #175CD3;
+  color: var(--kb-primary);
 }
 
 .account-sidebar-area .container a .icon {
@@ -92,7 +92,7 @@
 
 .setting-sidebar-area .container a.current {
   background-color: #eff8ff;
-  color: #175cd3;
+  color: var(--kb-primary);
 }
 
 .setting-sidebar-area .container a .icon {

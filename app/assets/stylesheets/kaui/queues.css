@@ -55,8 +55,8 @@
 }
 
 .kaui-queues-index .queues-nav-tabs .queues-tab-link.active {
-  color: #175cd3;
-  border-bottom-color: #1570ef;
+  color: var(--kb-primary);
+  border-bottom-color: var(--kb-primary);
 }
 
 .kaui-queues-index .queues-nav-tabs .queues-tab-link .tab-icon {
@@ -112,14 +112,14 @@
 }
 
 .kaui-queues-index .time-scope-btn:hover {
-  border-color: #1570ef;
-  color: #175cd3;
+  border-color: var(--kb-primary);
+  color: var(--kb-primary);
   text-decoration: none;
 }
 
 .kaui-queues-index .time-scope-btn.active {
-  border-color: #1570ef;
-  color: #175cd3;
+  border-color: var(--kb-primary);
+  color: var(--kb-primary);
   background: #eff6ff;
 }
 
@@ -136,8 +136,8 @@
 }
 
 .kaui-queues-index .time-scope-btn.active .radio-dot {
-  border-color: #1570ef;
-  background-color: #1570ef;
+  border-color: var(--kb-primary);
+  background-color: var(--kb-primary);
   box-shadow: inset 0 0 0 0.1875rem #ffffff;
 }
 
@@ -176,7 +176,7 @@
 }
 
 .kaui-queues-index .queues-search-input:focus {
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
   box-shadow: 0 0 0 0.1875rem rgba(21, 112, 239, 0.12);
 }
 

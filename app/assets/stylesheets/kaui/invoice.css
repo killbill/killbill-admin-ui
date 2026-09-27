@@ -248,7 +248,7 @@ table.invoice-totals tr:last-of-type {
   font-size: 0.875rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   background-color: #EFF8FF;
   text-transform: capitalize;
 }
@@ -553,13 +553,13 @@ table.invoice-totals tr:last-of-type {
 .invoice-index .advanced-search-button-secondary {
   background: #FFFFFF;
   border: 0.0625rem solid #B2DDFF;
-  color: #175CD3;
+  color: var(--kb-primary);
 }
 
 .invoice-index .advanced-search-button-secondary:hover {
   background: #EFF6FF;
   border-color: #84CAFF;
-  color: #175CD3;
+  color: var(--kb-primary);
 }
 
 .invoice-index .advanced-search-button-ghost {
@@ -581,8 +581,8 @@ table.invoice-totals tr:last-of-type {
 }
 
 .invoice-index .advanced-search-button-primary:hover {
-  background: #175CD3;
-  border-color: #175CD3;
+  background: var(--kb-primary);
+  border-color: var(--kb-primary);
   color: #FFFFFF;
 }
 
@@ -958,7 +958,7 @@ table.invoice-totals tr:last-of-type {
   font-size: 0.75rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   background-color: #EFF8FF;
   text-transform: capitalize;
 }
@@ -1024,7 +1024,7 @@ table.invoice-totals tr:last-of-type {
   padding: 0 !important;
   background-color: transparent !important;
   border: none !important;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
 }
 
 .invoice-show .invoice-totals p {

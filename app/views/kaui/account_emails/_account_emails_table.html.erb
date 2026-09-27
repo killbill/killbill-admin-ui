@@ -14,7 +14,7 @@
     <% if can? :add_emails, Kaui::Account %>
       <%= link_to kaui_engine.new_account_account_email_path(@account.account_id), class: 'add-link' do %>
         <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8.33333 2.66675V13.3334M13.6667 8.00008H3" stroke="#1570EF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.33333 2.66675V13.3334M13.6667 8.00008H3" stroke="var(--kb-primary)" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         Add
       <% end %>

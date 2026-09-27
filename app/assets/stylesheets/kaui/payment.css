@@ -194,7 +194,7 @@
   font-size: 0.875rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   background-color: #EFF8FF;
   text-transform: capitalize;
 }
@@ -500,13 +500,13 @@
 .payments-index .advanced-search-button-secondary {
   background: #FFFFFF;
   border: 0.0625rem solid #B2DDFF;
-  color: #175CD3;
+  color: var(--kb-primary);
 }
 
 .payments-index .advanced-search-button-secondary:hover {
   background: #EFF6FF;
   border-color: #84CAFF;
-  color: #175CD3;
+  color: var(--kb-primary);
 }
 
 .payments-index .advanced-search-button-ghost {
@@ -528,8 +528,8 @@
 }
 
 .payments-index .advanced-search-button-primary:hover {
-  background: #175CD3;
-  border-color: #175CD3;
+  background: var(--kb-primary);
+  border-color: var(--kb-primary);
   color: #FFFFFF;
 }
 
@@ -880,7 +880,7 @@
   font-size: 0.75rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   background-color: #EFF8FF;
   text-transform: capitalize;
 }
@@ -946,7 +946,7 @@
   padding: 0 !important;
   background-color: transparent !important;
   border: none !important;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
 }
 
 .payments-show .invoice-totals p {
@@ -1035,7 +1035,7 @@
 }
 
 .payments-show .gateway-link a {
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   text-decoration: none !important;
 }
 
@@ -1249,7 +1249,7 @@ app/views/kaui/payment_methods/_new_creditcard_payment_method.html.erb
 
 .add-new-payment-method-modal .expiry-date:focus-within div:nth-child(2),
 .add-new-payment-method-modal .expiry-date:focus-within input {
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 .add-new-payment-method-modal .checkbox label {

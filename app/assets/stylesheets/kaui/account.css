@@ -117,13 +117,13 @@ table.dataTable thead > tr > th {
 .kaui-accounts-index .advanced-search-button-secondary {
   background: #FFFFFF;
   border: 0.0625rem solid #B2DDFF;
-  color: #175CD3;
+  color: var(--kb-primary);
 }
 
 .kaui-accounts-index .advanced-search-button-secondary:hover {
   background: #EFF6FF;
   border-color: #84CAFF;
-  color: #175CD3;
+  color: var(--kb-primary);
 }
 
 .kaui-accounts-index .advanced-search-button-ghost {
@@ -145,8 +145,8 @@ table.dataTable thead > tr > th {
 }
 
 .kaui-accounts-index .advanced-search-button-primary:hover {
-  background: #175CD3;
-  border-color: #175CD3;
+  background: var(--kb-primary);
+  border-color: var(--kb-primary);
   color: #FFFFFF;
 }
 
@@ -297,7 +297,7 @@ table.dataTable thead > tr > th {
 }
 
 .kaui-accounts-index .advanced-search-group-title {
-  color: #175CD3;
+  color: var(--kb-primary);
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -1018,7 +1018,7 @@ table.dataTable thead > tr > th {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #175CD3;
+  color: var(--kb-primary);
   display: flex;
   text-transform: capitalize;
   align-items: center;
@@ -1241,6 +1241,11 @@ table.dataTable thead > tr > th {
   margin-top: 0.25rem;
 }
 
+.billing-details .form-check-input:checked {
+  background-color: var(--kb-primary);
+  border-color: var(--kb-primary);
+}
+
 .billing-details .custom-date-input-wrapper {
   padding: 0 0.625rem !important;
   border: 0.0625rem solid #D5D7DA !important;
@@ -1338,7 +1343,7 @@ table.dataTable thead > tr > th {
   align-items: center;
   gap: 0.25rem;
   font-size: 0.875rem;
-  color: #175CD3;
+  color: var(--kb-primary);
   text-decoration: none;
 }
 
@@ -2011,7 +2016,7 @@ table.dataTable thead > tr > th {
   background-color: transparent !important;
   border: none !important;
   text-decoration: none !important;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   margin-bottom: 1rem;
 }
 
@@ -2153,7 +2158,7 @@ table.dataTable thead > tr > th {
   background-color: transparent !important;
   border: none !important;
   text-decoration: none !important;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   margin-bottom: 1rem;
 }
 

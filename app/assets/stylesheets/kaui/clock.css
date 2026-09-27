@@ -90,7 +90,7 @@
   background-color: transparent !important;
   border: none !important;
   text-decoration: none !important;
-  color: #175cd3 !important;
+  color: var(--kb-primary) !important;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;

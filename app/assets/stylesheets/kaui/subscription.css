@@ -99,7 +99,7 @@ table tr.expired td {
   font-size: 0.75rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   background-color: #EFF8FF;
   text-transform: capitalize;
 }
