@@ -2,13 +2,13 @@
   display: flex;
   align-items: center;
   font-size: 0.875rem;
-  color: #5E6272;
+  color: var(--kb-on-surface-tertiary);
   padding: 2rem 0;
 }
 
 .breadcrumb-separator {
   margin: 0 0.625rem;
-  color: #A4A7AE;
+  color: var(--kb-on-surface-quaternary);
   font-size: 1.125rem;
 }
 
@@ -20,7 +20,7 @@
 
 .breadcrumb-link {
   text-decoration: none;
-  color: #5E6272;
+  color: var(--kb-on-surface-tertiary);
 }
 
 .breadcrumb-link:hover {
@@ -28,8 +28,8 @@
 }
 
 .breadcrumb-current {
-  background-color: #FAFAFA;
-  color: #3F4254;
+  background-color: var(--kb-surface-container-low);
+  color: var(--kb-neutral-600);
   font-size: 0.875rem;
   line-height: 1.25rem;
   font-weight: 600 !important;

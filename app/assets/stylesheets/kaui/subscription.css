@@ -1,5 +1,5 @@
 table tr.expired td {
-  color: #cccccc; }
+  color: var(--kb-outline-secondary); }
 
 #cancel_subscription_by_date_modal .modal-footer {
   text-align: left;
@@ -7,7 +7,7 @@ table tr.expired td {
   #cancel_subscription_by_date_modal .modal-footer .alert {
     margin-bottom: 0; }
     #cancel_subscription_by_date_modal .modal-footer .alert .label-default {
-      color: white; }
+      color: var(--kb-neutral-0); }
 
 .price-override-popover {
   cursor: pointer; }
@@ -23,14 +23,14 @@ table tr.expired td {
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #E9EAEB;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .subscription-bundl-index .subscription-bundle .subscription-bundle-header h2 {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -39,7 +39,7 @@ table tr.expired td {
   font-size: 0.875rem;
   line-height: 1.25rem;
   letter-spacing: 0;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
 }
 
 .subscription-bundl-index .subscription-bundle .bundle-details-header p {
@@ -47,7 +47,7 @@ table tr.expired td {
   font-size: 0.75rem;
   line-height: 1.25rem;
   letter-spacing: 0;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
 }
 
 .subscription-bundl-index .subscription-bundle .dropdown-menu {
@@ -55,7 +55,7 @@ table tr.expired td {
 }
 
 .subscription-bundl-index .subscription-bundle .dropdown-menu li:hover a {
-  color: #181D27 !important;
+  color: var(--kb-on-surface-primary) !important;
 }
 
 .subscription-bundl-index .subscription-bundle .subscriptions-table th {
@@ -64,7 +64,7 @@ table tr.expired td {
   font-size: 0.75rem;
   line-height: 1.125rem;
   letter-spacing: 0;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   text-transform: capitalize;
 }
 
@@ -79,28 +79,28 @@ table tr.expired td {
 .subscription-bundl-index .subscription-bundle .subscriptions-table .category-bedge {
   display: inline-block;
   padding: 0.125rem 0.5rem !important;
-  border: 0.0625rem solid #F5F5F5 !important;
+  border: 0.0625rem solid var(--kb-surface-container) !important;
   border-radius: 9999rem;
   font-weight: 500 !important;
   font-size: 0.75rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #414651 !important;
-  background-color: #FAFAFA;
+  color: var(--kb-on-surface-secondary) !important;
+  background-color: var(--kb-surface-container-low);
   text-transform: capitalize;
 }
 
 .subscription-bundl-index .subscription-bundle .subscriptions-table .phase-type {
   display: inline-block;
   padding: 0.125rem 0.5rem !important;
-  border: 0.0625rem solid #D1E9FF !important;
+  border: 0.0625rem solid var(--kb-primary-50) !important;
   border-radius: 9999rem;
   font-weight: 500 !important;
   font-size: 0.75rem !important;
   line-height: 1.125rem !important;
   text-align: start;
   color: var(--kb-primary) !important;
-  background-color: #EFF8FF;
+  background-color: var(--kb-primary-25);
   text-transform: capitalize;
 }
 
@@ -110,7 +110,7 @@ table tr.expired td {
   padding: 1rem 0.75rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
 }
 
 .subscription-bundl-index .tag-select:hover .tag-as-select-box {
@@ -139,15 +139,15 @@ table tr.expired td {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #252B37;
+  color: var(--kb-neutral-700);
 }
 
 .subscription-bundl-index .label-group-item-manual:active {
-  background: #FAFAFA;
+  background: var(--kb-surface-container-low);
 }
 
 .subscription-bundl-index .label-group-item-manual:has(input[type="checkbox"]:checked) {
-  background-color: #FAFAFA;
+  background-color: var(--kb-surface-container-low);
   border-radius: 0.25rem;
   cursor: pointer !important;
 }
@@ -157,7 +157,7 @@ table tr.expired td {
 }
 
 .subscription-bundl-index .tag-as-select-box::-webkit-scrollbar-thumb {
-  background-color: #ccc;
+  background-color: var(--kb-outline-secondary);
   border-radius: 0.1875rem;
 }
 
@@ -185,7 +185,7 @@ table tr.expired td {
 }
 
 .subscription-bundl-index .subscription-bundle .cancel-menu li:hover {
-  background-color: #FAFAFA !important;
+  background-color: var(--kb-surface-container-low) !important;
 }
 
 .subscription-bundl-index .subscription-bundle .cancel-menu li a {
@@ -193,7 +193,7 @@ table tr.expired td {
   font-size: 0.875rem !important;
   line-height: 1.25rem !important;
   letter-spacing: 0 !important;
-  color: #717680 !important;
+  color: var(--kb-on-surface-quaternary) !important;
   text-transform: capitalize !important;
   text-decoration: none;
 }
@@ -205,7 +205,7 @@ table tr.expired td {
   justify-content: space-between;
   border: none !important;
   padding: 0 !important;
-  color: #D92D20 !important;
+  color: var(--kb-error) !important;
   text-transform: capitalize;
   gap: 0.1rem;
   font-weight: 500;
@@ -231,13 +231,13 @@ table tr.expired td {
   font-size: 0.875rem;
   line-height: 1.25rem;
   letter-spacing: 0;
-  color: #535862;
+  color: var(--kb-on-surface-tertiary);
   margin-left: 0.75rem;
   text-decoration: none;
 }
 
 .subscription-bundl-index .subscription-bundle .pagination a:not(:first-child):not(:last-child) {
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   display: flex;
   align-items: center;
   padding: 0 1rem;
@@ -250,8 +250,8 @@ table tr.expired td {
 }
 
 .subscription-bundl-index .subscription-bundle .pagination a:not(:first-child):not(:last-child).btn-primary {
-  color: #414651;
-  background-color: #F5F5F5 !important;
+  color: var(--kb-on-surface-secondary);
+  background-color: var(--kb-surface-container) !important;
   border: 0 !important;
 }
 
@@ -360,7 +360,7 @@ table tr.expired td {
   font-size: 1.125rem;
   line-height: 1.75rem;
   letter-spacing: 0;
-  color: #1B1C1E;
+  color: var(--kb-on-surface-primary);
   padding: 1.5rem 0;
 }
 
@@ -368,7 +368,7 @@ table tr.expired td {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -382,7 +382,7 @@ table tr.expired td {
 
 .kaui-subscription-new .custom-date-input-wrapper {
   padding: 0 0.625rem !important;
-  border: 0.0625rem solid #D5D7DA !important;
+  border: 0.0625rem solid var(--kb-outline-secondary) !important;
   border-radius: 0.375rem;
   cursor: pointer;
 }
@@ -398,12 +398,12 @@ table tr.expired td {
   box-shadow: none;
   padding: 0 !important;
   font-size: 1rem;
-  color: #6B7280;
+  color: var(--kb-on-surface-tertiary);
   height: 2.5rem;
 }
 
 .kaui-subscription-new .custom-date-input-wrapper input::placeholder {
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
 }
 
 .kaui-subscription-new .custom-date-input-wrapper input.form-control {
@@ -418,11 +418,11 @@ table tr.expired td {
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .kaui-subscription-new .question-circle {
-  color: #A4A7AE;
+  color: var(--kb-on-surface-quaternary);
   font-size: 1rem;
   width: 1rem;
   height: 1rem;
@@ -444,8 +444,8 @@ table tr.expired td {
   max-width: 20rem;
   height: fit-content;
   padding: 1.25rem;
-  background-color: #EFF6FF;
-  border: 0.0625rem solid #DBEAFE;
+  background-color: var(--kb-primary-25);
+  border: 0.0625rem solid var(--kb-primary-50);
   border-radius: 0.5rem;
 }
 
@@ -456,7 +456,7 @@ table tr.expired td {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
-  background-color: #2563EB;
+  background-color: var(--kb-primary);
   flex-shrink: 0;
 }
 
@@ -464,14 +464,14 @@ table tr.expired td {
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.5rem;
-  color: #1B1C1E;
+  color: var(--kb-on-surface-primary);
 }
 
 .blocking-state-about-panel p {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 0;
 }
 
@@ -488,7 +488,7 @@ table tr.expired td {
 .kaui-subscription-new .toggle-segment {
   display: flex;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   width: fit-content;
   border-radius: 0.375rem;
   overflow: hidden;
@@ -500,8 +500,8 @@ table tr.expired td {
   align-items: center;
   padding: 0.625rem 1rem !important;
   cursor: pointer;
-  color: #414651;
-  border-right: 0.0625rem solid #D5D7DA;
+  color: var(--kb-on-surface-secondary);
+  border-right: 0.0625rem solid var(--kb-outline-secondary);
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -532,14 +532,14 @@ table tr.expired td {
   left: 0;
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #17B26A;
+  background-color: var(--kb-success-pressed);
   border-radius: 50%;
 }
 
 .kaui-subscription-new .toggle-segment .radio label:has(input[type="radio"]:checked) {
-  background-color: #FAFAFA;
+  background-color: var(--kb-surface-container-low);
   font-weight: 600;
-  color: #252B37;
+  color: var(--kb-neutral-700);
   gap: 1rem;
 }
 
@@ -587,7 +587,7 @@ table tr.expired td {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #181D27;
+  color: var(--kb-on-surface-primary);
 }
 
 .cancel_subscription_by_date_modal .close-button {
@@ -605,7 +605,7 @@ table tr.expired td {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-top: -1.25rem;
   min-width: 9.59375rem;
 }
@@ -623,7 +623,7 @@ table tr.expired td {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -633,7 +633,7 @@ table tr.expired td {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -647,7 +647,7 @@ table tr.expired td {
 
 .cancel_subscription_by_date_modal .custom-date-input-wrapper {
   padding: 0 0.625rem !important;
-  border: 0.0625rem solid #D5D7DA !important;
+  border: 0.0625rem solid var(--kb-outline-secondary) !important;
   border-radius: 0.375rem;
   cursor: pointer;
 }
@@ -663,12 +663,12 @@ table tr.expired td {
   box-shadow: none;
   padding: 0 !important;
   font-size: 1rem;
-  color: #6B7280;
+  color: var(--kb-on-surface-tertiary);
   height: 2.5rem;
 }
 
 .cancel_subscription_by_date_modal .custom-date-input-wrapper input::placeholder {
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
 }
 
 .cancel_subscription_by_date_modal .custom-date-input-wrapper input.form-control {
@@ -698,9 +698,9 @@ table tr.expired td {
   display: flex;
   gap: 0.5rem;
   padding: 0.5rem;
-  background-color: #FAFAFA;
+  background-color: var(--kb-surface-container-low);
   border-radius: 0.75rem;
-  border: 0.0625rem solid #E9EAEB;
+  border: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .cancel_subscription_by_date_modal .notice-worning div {
@@ -708,11 +708,11 @@ table tr.expired td {
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
 }
 
 .cancel_subscription_by_date_modal .notice-worning div span {
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
 }
 
 .cancel_subscription_by_date_modal .notice-worning div ul {
@@ -725,7 +725,7 @@ table tr.expired td {
   font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 0.25rem;
 }
 
@@ -746,7 +746,7 @@ table tr.expired td {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -775,7 +775,7 @@ table tr.expired td {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-top: -1.25rem;
   min-width: 9.59375rem;
 }

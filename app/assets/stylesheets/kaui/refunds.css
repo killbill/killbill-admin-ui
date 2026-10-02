@@ -6,7 +6,7 @@
   font-size: 1.125rem;
   line-height: 1.75rem;
   letter-spacing: 0;
-  color: #1b1c1e;
+  color: var(--kb-on-surface-primary);
   padding: 1.5rem 0;
 }
 
@@ -14,7 +14,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #d5d7da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -32,11 +32,11 @@
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .process-refund-modal .question-circle {
-  color: #a4a7ae;
+  color: var(--kb-on-surface-quaternary);
   font-size: 1rem;
   width: 1rem;
   height: 1rem;
@@ -59,7 +59,7 @@
 .process-refund-modal .form-group.d-flex .form-control:focus {
   outline: none;
   box-shadow: none;
-  border: 0.0625rem solid #1a73e8;
+  border: 0.0625rem solid var(--kb-primary);
 }
 
 .process-refund-modal .form-group select.form-control {
@@ -82,7 +82,7 @@
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   display: flex;
   align-items: center;
   gap: 0.375rem;
@@ -95,19 +95,19 @@
 
 .process-refund-modal .form-group.d-flex .currency-group .currency {
   border-left: 0 !important;
-  border: 0.0625rem solid #ced4da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0 0.375rem 0.375rem 0 !important;
   padding: 0.375rem 0.75rem;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.5rem;
-  color: #535862;
+  color: var(--kb-on-surface-tertiary);
 }
 
 .process-refund-modal .toggle-segment {
   display: flex;
   align-items: center;
-  border: 0.0625rem solid #d5d7da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   width: fit-content;
   border-radius: 0.375rem;
   overflow: hidden;
@@ -119,8 +119,8 @@
   align-items: center;
   padding: 0.625rem 1rem !important;
   cursor: pointer;
-  color: #414651;
-  border-right: 0.0625rem solid #d5d7da;
+  color: var(--kb-on-surface-secondary);
+  border-right: 0.0625rem solid var(--kb-outline-secondary);
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -155,7 +155,7 @@
   left: 0;
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #17b26a;
+  background-color: var(--kb-success-pressed);
   border-radius: 50%;
 }
 
@@ -163,9 +163,9 @@
   .toggle-segment
   .checkbox
   label:has(input[type="radio"]:checked) {
-  background-color: #fafafa;
+  background-color: var(--kb-surface-container-low);
   font-weight: 600;
-  color: #252b37;
+  color: var(--kb-neutral-700);
   gap: 1rem;
 }
 
@@ -181,5 +181,5 @@
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #535862;
+  color: var(--kb-on-surface-tertiary);
 }

@@ -7,14 +7,14 @@
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #e9eaeb;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .kaui-account-custom-fields-index .custom-fields .custom-fields-header h2 {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -23,7 +23,7 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
   letter-spacing: 0;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
 }
 
 .kaui-account-custom-fields-index .custom-fields .bundle-details-header p {
@@ -31,7 +31,7 @@
   font-size: 0.75rem;
   line-height: 1.25rem;
   letter-spacing: 0;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
 }
 
 .kaui-account-custom-fields-index .custom-fields .custom-fields-table {
@@ -45,7 +45,7 @@
   font-size: 0.875rem;
   line-height: 1.125rem;
   letter-spacing: 0;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   text-transform: capitalize;
 }
 
@@ -55,7 +55,7 @@
   tr
   td:not(:first-child)
   a {
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
   text-decoration: none !important;
 }
 
@@ -65,14 +65,14 @@
   .category-bedge {
   display: inline-block;
   padding: 0.125rem 0.5rem !important;
-  border: 0.0625rem solid #f5f5f5 !important;
+  border: 0.0625rem solid var(--kb-surface-container) !important;
   border-radius: 624.9375rem;
   font-weight: 500 !important;
   font-size: 0.875rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #414651 !important;
-  background-color: #fafafa;
+  color: var(--kb-on-surface-secondary) !important;
+  background-color: var(--kb-surface-container-low);
   text-transform: capitalize;
 }
 
@@ -82,14 +82,14 @@
   .phase-type {
   display: inline-block;
   padding: 0.125rem 0.5rem !important;
-  border: 0.0625rem solid #d1e9ff !important;
+  border: 0.0625rem solid var(--kb-primary-50) !important;
   border-radius: 624.9375rem;
   font-weight: 500 !important;
   font-size: 0.875rem !important;
   line-height: 1.125rem !important;
   text-align: start;
   color: var(--kb-primary) !important;
-  background-color: #eff8ff;
+  background-color: var(--kb-primary-25);
   text-transform: capitalize;
 }
 
@@ -99,7 +99,7 @@
   padding: 1rem 0.5rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
 }
 
 .kaui-account-custom-fields-index .custom-fields .search table th:first-of-type,
@@ -118,7 +118,7 @@
 }
 
 .kaui-account-custom-fields-index .custom-fields .cancel-menu li:hover {
-  background-color: #fafafa !important;
+  background-color: var(--kb-surface-container-low) !important;
 }
 
 .kaui-account-custom-fields-index .custom-fields .cancel-menu li a {
@@ -126,7 +126,7 @@
   font-size: 0.875rem !important;
   line-height: 1.25rem !important;
   letter-spacing: 0 !important;
-  color: #717680 !important;
+  color: var(--kb-on-surface-quaternary) !important;
   text-transform: capitalize !important;
   text-decoration: none;
 }
@@ -135,7 +135,7 @@
   background-color: transparent !important;
   border: none !important;
   padding: 0 !important;
-  color: #d92d20 !important;
+  color: var(--kb-error) !important;
   flex-direction: row-reverse;
   text-transform: capitalize;
   gap: 0.0625rem;
@@ -163,7 +163,7 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
   letter-spacing: 0;
-  color: #535862;
+  color: var(--kb-on-surface-tertiary);
   margin-left: 0.75rem;
   text-decoration: none;
 }
@@ -172,7 +172,7 @@
   .custom-fields
   .pagination
   a:not(:first-child):not(:last-child) {
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem;
@@ -186,8 +186,8 @@
   .custom-fields
   .pagination
   a:not(:first-child):not(:last-child).btn-primary {
-  color: #414651;
-  background-color: #f5f5f5 !important;
+  color: var(--kb-on-surface-secondary);
+  background-color: var(--kb-surface-container) !important;
   border: 0 !important;
 }
 
@@ -210,7 +210,7 @@
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  color: #717680 !important;
+  color: var(--kb-on-surface-quaternary) !important;
   text-decoration: none;
   border: 0 !important;
 }
@@ -219,16 +219,16 @@
   .custom-fields
   .dataTables_paginate
   .paginate_button:hover {
-  background-color: #f3f4f6;
+  background-color: var(--kb-surface-container);
 }
 
 .kaui-account-custom-fields-index
   .custom-fields
   .dataTables_paginate
   .paginate_button.current {
-  background-color: #f5f5f5 !important;
+  background-color: var(--kb-surface-container) !important;
   border-radius: 0.375rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .kaui-account-custom-fields-index
@@ -239,11 +239,11 @@
   .custom-fields
   .dataTables_paginate
   .paginate_button.previous {
-  border: 0.0625rem solid #e5e7eb;
+  border: 0.0625rem solid var(--kb-outline-primary);
   border-radius: 0.5rem;
-  background-color: white;
+  background-color: var(--kb-neutral-0);
   padding: 0.5rem 0.875rem;
-  color: #374151;
+  color: var(--kb-neutral-600);
 }
 
 .kaui-account-custom-fields-index .custom-fields #custom_fields-table_filter {
@@ -263,12 +263,12 @@
   width: 20rem;
   height: 2.2rem;
   padding: 0.3rem 1rem;
-  border: 0.0625rem solid #e5e7eb;
+  border: 0.0625rem solid var(--kb-outline-primary);
   border-radius: 0.375rem;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   outline: none;
 }
 
@@ -295,8 +295,8 @@
   span {
   padding: 0.125rem 0.5rem;
   border-radius: 62.4375rem;
-  background-color: #eff8ff;
-  border: 0.0625rem solid #d1e9ff;
+  background-color: var(--kb-primary-25);
+  border: 0.0625rem solid var(--kb-primary-50);
   color: var(--kb-primary);
   font-weight: 500;
   font-size: 0.75rem;
@@ -310,14 +310,14 @@
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #e9eaeb;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .kaui-custom-fields-index .custom-fields-details-header h2 {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.5rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -332,7 +332,7 @@
   font-size: 0.875rem;
   line-height: 1.125rem;
   letter-spacing: 0;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   text-transform: capitalize;
   white-space: nowrap;
 }
@@ -343,7 +343,7 @@
   padding: 1rem 0.5rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
 }
 
 .kaui-custom-fields-index
@@ -354,8 +354,8 @@
   span {
   padding: 0.125rem 0.5rem;
   border-radius: 62.4375rem;
-  background-color: #eff8ff;
-  border: 0.0625rem solid #d1e9ff;
+  background-color: var(--kb-primary-25);
+  border: 0.0625rem solid var(--kb-primary-50);
   color: var(--kb-primary);
   font-weight: 500;
   font-size: 0.75rem;
@@ -370,9 +370,9 @@
   .true {
   padding: 0.125rem 0.5rem;
   border-radius: 62.4375rem;
-  background-color: #ecfdf3;
-  border: 0.0625rem solid #dcfae6;
-  color: #067647;
+  background-color: var(--kb-success-25);
+  border: 0.0625rem solid var(--kb-success-50);
+  color: var(--kb-success-hover);
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.125rem;
@@ -386,16 +386,16 @@
   .false {
   padding: 0.125rem 0.5rem;
   border-radius: 62.4375rem;
-  background-color: #fef3f2;
-  border: 0.0625rem solid #fee4e2;
-  color: #b42318;
+  background-color: var(--kb-error-25);
+  border: 0.0625rem solid var(--kb-error-50);
+  color: var(--kb-error-hover);
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.125rem;
 }
 
 .kaui-custom-fields-index .tag-definitions-table tbody tr td:nth-of-type(6) a {
-  color: #d92d20;
+  color: var(--kb-error);
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.125rem;
@@ -412,12 +412,12 @@
   width: 20rem;
   height: 2.2rem;
   padding: 0.3rem 1rem;
-  border: 0.0625rem solid #e5e7eb;
+  border: 0.0625rem solid var(--kb-outline-primary);
   border-radius: 0.375rem;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   outline: none;
 }
 
@@ -426,7 +426,7 @@
 }
 
 .kaui-custom-fields-index .pagination a:not(:first-child):not(:last-child) {
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem;
@@ -439,8 +439,8 @@
 .kaui-custom-fields-index
   .pagination
   a:not(:first-child):not(:last-child).btn-primary {
-  color: #414651;
-  background-color: #f5f5f5 !important;
+  color: var(--kb-on-surface-secondary);
+  background-color: var(--kb-surface-container) !important;
   border: 0 !important;
 }
 
@@ -463,28 +463,28 @@
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  color: #717680 !important;
+  color: var(--kb-on-surface-quaternary) !important;
   text-decoration: none;
   border: 0 !important;
 }
 
 .kaui-custom-fields-index .dataTables_paginate .paginate_button:hover {
-  background-color: #f3f4f6;
+  background-color: var(--kb-surface-container);
 }
 
 .kaui-custom-fields-index .dataTables_paginate .paginate_button.current {
-  background-color: #f5f5f5 !important;
+  background-color: var(--kb-surface-container) !important;
   border-radius: 0.375rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .kaui-custom-fields-index .dataTables_paginate .paginate_button.last,
 .kaui-custom-fields-index .dataTables_paginate .paginate_button.previous {
-  border: 0.0625rem solid #e5e7eb;
+  border: 0.0625rem solid var(--kb-outline-primary);
   border-radius: 0.5rem;
-  background-color: white;
+  background-color: var(--kb-neutral-0);
   padding: 0.5rem 0.875rem;
-  color: #374151;
+  color: var(--kb-neutral-600);
 }
 
 /* app/views/kaui/custom_fields/new.html.erb */
@@ -497,7 +497,7 @@
   font-size: 1.125rem;
   line-height: 1.75rem;
   letter-spacing: 0;
-  color: #1b1c1e;
+  color: var(--kb-on-surface-primary);
   padding: 1.5rem 0;
 }
 
@@ -505,7 +505,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #d5d7da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -521,7 +521,7 @@
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .add-new-custom-field-details select.form-control {

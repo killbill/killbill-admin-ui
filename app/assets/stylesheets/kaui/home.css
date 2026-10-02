@@ -34,7 +34,7 @@
 }
 
 .home #home_searchform input[type="submit"] {
-  background: #00919d url("kaui/search_white.png") no-repeat center center;
+  background: var(--kb-primary) url("kaui/search_white.png") no-repeat center center;
   height: 3.125rem;
   padding: 0 1.25rem;
   text-indent: 6249.99375rem;
@@ -63,7 +63,7 @@
   height: 16.25rem;
   padding: 2.1875rem 7.5rem 6.25rem 1.875rem;
   font-size: 1.125rem;
-  color: #666;
+  color: var(--kb-on-surface-tertiary);
   display: block;
   position: fixed;
   bottom: 0;

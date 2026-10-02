@@ -1,5 +1,5 @@
 .tag-bar {
-  border-bottom: 0.0625rem solid #ddd;
+  border-bottom: 0.0625rem solid var(--kb-outline-secondary);
   margin-bottom: 0;
   position: relative;
 }
@@ -19,7 +19,7 @@
   padding: 0.3125rem 1.25rem;
   text-align: center;
   display: block;
-  border-right: 0.0625rem solid #ddd;
+  border-right: 0.0625rem solid var(--kb-outline-secondary);
 }
 
 @media (max-width: 48rem) {
@@ -30,12 +30,12 @@
 
 .tag-bar .tag-select span i {
   margin: 0 0.3125rem;
-  color: #515151;
+  color: var(--kb-on-surface-secondary);
   font-size: 1rem;
 }
 
 .tag-bar .tag-select span i.fa-caret-down {
-  color: #999999;
+  color: var(--kb-on-surface-quaternary);
   font-size: 0.75rem;
 }
 
@@ -51,7 +51,7 @@
 .tag-bar .tag-select:hover .tag-select-box {
   max-height: 31.25rem;
   padding: 1.25rem 1.5625rem;
-  border: 0.0625rem solid #ddd;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   box-shadow: 0.0625rem 0.1875rem 0.125rem rgba(0, 0, 0, 0.11);
 }
 
@@ -61,11 +61,11 @@
   left: 0;
   right: auto;
   max-height: 0;
-  background-color: #fff;
+  background-color: var(--kb-neutral-0);
   z-index: 100;
   padding: 0 0.9375rem;
   font-size: 0.75rem;
-  color: #999999;
+  color: var(--kb-on-surface-quaternary);
   overflow: hidden;
   width: 17rem;
   max-width: min(17rem, 95vw);
@@ -133,15 +133,15 @@
     width: 64%;
     padding: 0.125rem;
     overflow: hidden;
-    border-left: 0.0625rem solid #ddd;
+    border-left: 0.0625rem solid var(--kb-outline-secondary);
   }
 }
 
 .tag-bar .tag-selected span {
   display: inline-block;
   font-size: 0.75rem;
-  color: #777777;
-  background: #e5e5e5;
+  color: var(--kb-on-surface-tertiary);
+  background: var(--kb-outline-primary);
   padding: 0.1875rem 1.25rem;
   margin: 0 0.3125rem;
   transition: all 0.5s;
@@ -149,7 +149,7 @@
 }
 
 .tag-bar .tag-selected span:hover {
-  background-color: #cce9eb;
+  background-color: var(--kb-primary-50);
 }
 
 @media (max-width: 48rem) {
@@ -213,22 +213,22 @@
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #E9EAEB;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .kaui-tags-index .tags-details-header h2 {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 1.25rem;
 }
 
 .kaui-tags-index #tags-table tbody tr td span {
   padding: 0.125rem 0.5rem;
   border-radius: 62.4375rem;
-  background-color: #EFF8FF;
-  border: 0.0625rem solid #D1E9FF;
+  background-color: var(--kb-primary-25);
+  border: 0.0625rem solid var(--kb-primary-50);
   color: var(--kb-primary);
   font-weight: 500;
   font-size: 0.75rem;
@@ -239,7 +239,7 @@
   font-weight: 600;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   text-decoration: none;
   
 }
@@ -255,7 +255,7 @@
   font-size: 0.875rem;
   line-height: 1.125rem;
   letter-spacing: 0;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   text-transform: capitalize;
 }
 
@@ -265,7 +265,7 @@
   padding: 1rem 0.5rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
 }
 
 .kaui-tags-index #tags-table_filter {
@@ -278,12 +278,12 @@
   width: 20rem;
   height: 2.2rem;
   padding: 0.3rem 1rem;
-  border: 0.0625rem solid #E5E7EB;
+  border: 0.0625rem solid var(--kb-outline-primary);
   border-radius: 0.375rem;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   outline: none;
 }
 
@@ -292,7 +292,7 @@
 }
 
 .kaui-tags-index .pagination a:not(:first-child):not(:last-child) {
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem;
@@ -303,8 +303,8 @@
 }
 
 .kaui-tags-index .pagination a:not(:first-child):not(:last-child).btn-primary {
-  color: #414651;
-  background-color: #F5F5F5 !important;
+  color: var(--kb-on-surface-secondary);
+  background-color: var(--kb-surface-container) !important;
   border: 0 !important;
 }
 
@@ -327,28 +327,28 @@
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  color: #717680 !important; 
+  color: var(--kb-on-surface-quaternary) !important; 
   text-decoration: none;
   border: 0 !important;
 }
 
 .kaui-tags-index .dataTables_paginate .paginate_button:hover {
-  background-color: #F3F4F6;
+  background-color: var(--kb-surface-container);
 }
 
 .kaui-tags-index .dataTables_paginate .paginate_button.current {
-  background-color: #F5F5F5 !important;
+  background-color: var(--kb-surface-container) !important;
   border-radius: 0.375rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .kaui-tags-index .dataTables_paginate .paginate_button.last,
 .kaui-tags-index .dataTables_paginate .paginate_button.previous {
-  border: 0.0625rem solid #E5E7EB;
+  border: 0.0625rem solid var(--kb-outline-primary);
   border-radius: 0.5rem;
-  background-color: white;
+  background-color: var(--kb-neutral-0);
   padding: 0.5rem 0.875rem;
-  color: #374151;
+  color: var(--kb-neutral-600);
 }
 
 /* app/views/kaui/account_tags/index.html.erb */
@@ -362,14 +362,14 @@
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #E9EAEB;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .kaui-account-tags-index .account-tags .account-tags-header h2 {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -378,7 +378,7 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
   letter-spacing: 0;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
 }
 
 .kaui-account-tags-index .account-tags .bundle-details-header p {
@@ -386,7 +386,7 @@
   font-size: 0.75rem;
   line-height: 1.25rem;
   letter-spacing: 0;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
 }
 
 .kaui-account-tags-index .account-tags .account-tags-table {
@@ -401,40 +401,40 @@
   font-size: 0.875rem;
   line-height: 1.125rem;
   letter-spacing: 0;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   text-transform: capitalize;
 }
 
 .kaui-account-tags-index .account-tags .account-tags-table tr td:not(:first-child) a {
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
   text-decoration: none !important;
 }
 
 .kaui-account-tags-index .account-tags .account-tags-table .category-bedge {
   display: inline-block;
   padding: 0.125rem 0.5rem !important;
-  border: 0.0625rem solid #F5F5F5 !important;
+  border: 0.0625rem solid var(--kb-surface-container) !important;
   border-radius: 624.9375rem;
   font-weight: 500 !important;
   font-size: 0.875rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #414651 !important;
-  background-color: #FAFAFA;
+  color: var(--kb-on-surface-secondary) !important;
+  background-color: var(--kb-surface-container-low);
   text-transform: capitalize;
 }
 
 .kaui-account-tags-index .account-tags .account-tags-table .phase-type {
   display: inline-block;
   padding: 0.125rem 0.5rem !important;
-  border: 0.0625rem solid #D1E9FF !important;
+  border: 0.0625rem solid var(--kb-primary-50) !important;
   border-radius: 624.9375rem;
   font-weight: 500 !important;
   font-size: 0.875rem !important;
   line-height: 1.125rem !important;
   text-align: start;
   color: var(--kb-primary) !important;
-  background-color: #EFF8FF;
+  background-color: var(--kb-primary-25);
   text-transform: capitalize;
 }
 
@@ -444,7 +444,7 @@
   padding: 1rem 0.5rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
 }
 
 .kaui-account-tags-index .account-tags .search table th:first-of-type, .search table td:first-of-type {
@@ -462,7 +462,7 @@
 }
 
 .kaui-account-tags-index .account-tags .cancel-menu li:hover {
-  background-color: #FAFAFA !important;
+  background-color: var(--kb-surface-container-low) !important;
 }
 
 .kaui-account-tags-index .account-tags .cancel-menu li a {
@@ -470,7 +470,7 @@
   font-size: 0.875rem !important;
   line-height: 1.25rem !important;
   letter-spacing: 0 !important;
-  color: #717680 !important;
+  color: var(--kb-on-surface-quaternary) !important;
   text-transform: capitalize !important;
   text-decoration: none;
 }
@@ -479,7 +479,7 @@
   background-color: transparent !important;
   border: none !important;
   padding: 0 !important;
-  color: #D92D20 !important;
+  color: var(--kb-error) !important;
   flex-direction: row-reverse;
   text-transform: capitalize;
   gap: 0.0625rem;
@@ -507,13 +507,13 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
   letter-spacing: 0;
-  color: #535862;
+  color: var(--kb-on-surface-tertiary);
   margin-left: 0.75rem;
   text-decoration: none;
 }
 
 .kaui-account-tags-index .account-tags .pagination a:not(:first-child):not(:last-child) {
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem;
@@ -524,8 +524,8 @@
 }
 
 .kaui-account-tags-index .account-tags .pagination a:not(:first-child):not(:last-child).btn-primary {
-  color: #414651;
-  background-color: #F5F5F5 !important;
+  color: var(--kb-on-surface-secondary);
+  background-color: var(--kb-surface-container) !important;
   border: 0 !important;
 }
 
@@ -544,28 +544,28 @@
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  color: #717680 !important; 
+  color: var(--kb-on-surface-quaternary) !important; 
   text-decoration: none;
   border: 0 !important;
 }
 
 .kaui-account-tags-index .account-tags .dataTables_paginate .paginate_button:hover {
-  background-color: #F3F4F6;
+  background-color: var(--kb-surface-container);
 }
 
 .kaui-account-tags-index .account-tags .dataTables_paginate .paginate_button.current {
-  background-color: #F5F5F5 !important;
+  background-color: var(--kb-surface-container) !important;
   border-radius: 0.375rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .kaui-account-tags-index .account-tags .dataTables_paginate .paginate_button.last,
 .kaui-account-tags-index .account-tags .dataTables_paginate .paginate_button.previous {
-  border: 0.0625rem solid #E5E7EB;
+  border: 0.0625rem solid var(--kb-outline-primary);
   border-radius: 0.5rem;
-  background-color: white;
+  background-color: var(--kb-neutral-0);
   padding: 0.5rem 0.875rem;
-  color: #374151;
+  color: var(--kb-neutral-600);
 }
 
 .kaui-account-tags-index .account-tags #tags-table_filter {
@@ -578,12 +578,12 @@
   width: 20rem;
   height: 2.2rem;
   padding: 0.3rem 1rem;
-  border: 0.0625rem solid #E5E7EB;
+  border: 0.0625rem solid var(--kb-outline-primary);
   border-radius: 0.375rem;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   outline: none;
 }
 
@@ -602,8 +602,8 @@
 .kaui-account-tags-index .account-tags #tags-table tbody tr td span {
   padding: 0.125rem 0.5rem;
   border-radius: 62.4375rem;
-  background-color: #EFF8FF;
-  border: 0.0625rem solid #D1E9FF;
+  background-color: var(--kb-primary-25);
+  border: 0.0625rem solid var(--kb-primary-50);
   color: var(--kb-primary);
   font-weight: 500;
   font-size: 0.75rem;

@@ -8,7 +8,7 @@
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #e9eaeb;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
   padding-bottom: 1rem;
 }
 
@@ -16,7 +16,7 @@
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin: 0;
 }
 
@@ -24,14 +24,14 @@
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #535862;
+  color: var(--kb-on-surface-tertiary);
   margin: 0;
 }
 
 .clock-container .trigger-invoice-box b {
   display: block;
   margin-bottom: 0.25rem;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
   font-weight: 600;
   font-size: 0.875rem !important;
   line-height: 1.25rem;
@@ -54,10 +54,10 @@
 
 .clock-container .custom-date-input-wrapper {
   padding: 0 0.625rem !important;
-  border: 0.0625rem solid #d5d7da !important;
+  border: 0.0625rem solid var(--kb-outline-secondary) !important;
   border-radius: 0.375rem;
   cursor: pointer;
-  background-color: #fff;
+  background-color: var(--kb-neutral-0);
 }
 
 .clock-container .custom-date-input-wrapper svg {
@@ -71,12 +71,12 @@
   box-shadow: none;
   padding: 0 !important;
   font-size: 1rem;
-  color: #6b7280;
+  color: var(--kb-on-surface-tertiary);
   height: 2.5rem;
 }
 
 .clock-container .custom-date-input-wrapper input::placeholder {
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
 }
 
 .clock-container .custom-date-input-wrapper input.form-control {

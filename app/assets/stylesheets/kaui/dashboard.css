@@ -12,7 +12,7 @@
 }
 
 .dashboard-card-divider {
-  border-top: 0.0625rem solid #e9ecef;
+  border-top: 0.0625rem solid var(--kb-surface-container-high);
 }
 
 .dashboard-card-icon {
@@ -35,8 +35,8 @@
 .disabled-setting-card .tooltip-text {
   visibility: hidden !important;
   position: absolute;
-  background-color: #333;
-  color: white;
+  background-color: var(--kb-neutral-700);
+  color: var(--kb-neutral-0);
   text-align: center;
   padding: 5px 10px;
   border-radius: 4px;
