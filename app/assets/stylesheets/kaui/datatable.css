@@ -1,6 +1,6 @@
 /* 2. Table wrapper — white card with rounded corners & soft shadow */
 .dataTables_wrapper {
-  background: #fff;
+  background: var(--kb-neutral-0);
   margin-bottom: 2rem;
 }
 
@@ -36,37 +36,37 @@ table th:first-of-type,
   font-weight: 600 !important;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: blue;
+  color: var(--kb-primary);
 }
 
 tbody tr td:first-of-type a {
-  color: #1570ef !important;
+  color: var(--kb-primary) !important;
   text-decoration: none;
 }
 
 table.dataTable thead th {
-  background-color: #fafafa;
+  background-color: var(--kb-surface-container-low);
   font-weight: 500 !important;
   padding: 0.75rem;
   border: 0rem !important;
   font-size: 0.75rem;
   line-height: 1.125rem;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   text-transform: capitalize;
 }
 
 table.dataTable tbody td {
   padding: 0.9375rem 0.75rem !important;
   vertical-align: middle;
-  border-bottom: 0.0625rem solid #e9eaeb !important;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary) !important;
   font-weight: 400 !important;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #535862;
+  color: var(--kb-on-surface-tertiary);
 }
 
 table.dataTable tbody tr:hover {
-  background-color: #f5f7fa;
+  background-color: var(--kb-surface-container-low);
 }
 
 table.dataTable td input[type="checkbox"] {
@@ -82,7 +82,7 @@ table.dataTable td input[type="checkbox"] {
 .dataTables_filter input {
   border-radius: 0.5rem;
   padding: 0.4rem 0.75rem;
-  border: 0.0625rem solid #ced4da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   font-size: 0.9rem;
   width: auto;
   display: inline-block;
@@ -101,14 +101,14 @@ table.dataTable td input[type="checkbox"] {
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
-  border: 0.0625rem solid #d5d7da !important;
+  color: var(--kb-on-surface-secondary) !important;
+  border: 0.0625rem solid var(--kb-outline-secondary) !important;
 }
 
 .paginate_button.current,
 .paginate_button:hover {
-  background: #fff !important;
-  color: #414651 !important;
+  background: var(--kb-neutral-0) !important;
+  color: var(--kb-on-surface-secondary) !important;
   opacity: 0.6;
   transition: opacity 0.2s ease-in-out;
   -webkit-transition: opacity 0.2s ease-in-out;
@@ -125,5 +125,5 @@ table.dataTable td input[type="checkbox"] {
   font-size: 0.875rem !important;
   font-weight: 400 !important;
   line-height: 1.25rem !important;
-  color: #717680 !important;
+  color: var(--kb-on-surface-quaternary) !important;
 }

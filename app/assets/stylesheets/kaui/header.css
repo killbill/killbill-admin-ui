@@ -3,8 +3,8 @@
  */
 header {
   padding: 1.5625rem 0;
-  background: #fff;
-  border-bottom: 0.0625rem solid #ccc;
+  background: var(--kb-neutral-0);
+  border-bottom: 0.0625rem solid var(--kb-outline-secondary);
 }
 header img {
   vertical-align: middle;
@@ -88,19 +88,19 @@ header nav ul li {
   vertical-align: middle;
 }
 header nav ul li a {
-  color: #777777;
+  color: var(--kb-on-surface-tertiary);
   padding: 0 0.625rem;
-  border-right: 0.0625rem solid #ccc;
+  border-right: 0.0625rem solid var(--kb-outline-secondary);
 }
 header nav ul li a:hover {
-  color: #000;
+  color: var(--kb-neutral-900);
 }
 header nav ul li:last-of-type a {
   border: 0;
 }
 
 .title-nav-area {
-  background: #c7e4e7;
+  background: var(--kb-primary-50);
   margin: 0 0 1.875rem;
   font-size: 0;
   margin-top: -2.5rem;
@@ -128,7 +128,7 @@ header nav ul li:last-of-type a {
     width: 30%;
     padding: 0.75rem 0;
     text-align: center;
-    border-bottom: 0.0625rem solid #fff;
+    border-bottom: 0.0625rem solid var(--kb-neutral-0);
   }
   .title-nav-area a:nth-of-type(4),
   .title-nav-area a:nth-of-type(5),
@@ -140,7 +140,7 @@ header nav ul li:last-of-type a {
   .title-nav-area a:nth-of-type(5),
   .title-nav-area p:nth-of-type(3),
   .title-nav-area p:nth-of-type(5) {
-    border-right: 0.0625rem solid #fff;
+    border-right: 0.0625rem solid var(--kb-neutral-0);
   }
 }
 @media (max-width: 28.125rem) {
@@ -155,7 +155,7 @@ header nav ul li:last-of-type a {
   .title-nav-area p:nth-of-type(2),
   .title-nav-area p:nth-of-type(4),
   .title-nav-area p:nth-of-type(5) {
-    border-right: 0.0625rem solid #fff;
+    border-right: 0.0625rem solid var(--kb-neutral-0);
   }
   .title-nav-area a:nth-of-type(3),
   .title-nav-area p:nth-of-type(3) {
@@ -171,17 +171,17 @@ header nav ul li:last-of-type a {
   }
 }
 .title-nav-area a {
-  color: #666666;
+  color: var(--kb-on-surface-tertiary);
   text-transform: uppercase;
-  border-left: 0.0625rem solid #fff;
+  border-left: 0.0625rem solid var(--kb-neutral-0);
 }
 .title-nav-area a:hover,
 .title-nav-area a.current {
-  color: #fff;
-  background: #00919d;
+  color: var(--kb-neutral-0);
+  background: var(--kb-primary);
 }
 .title-nav-area a:last-of-type {
-  border-right: 0.0625rem solid #fff;
+  border-right: 0.0625rem solid var(--kb-neutral-0);
 }
 .title-nav-area p {
   font-weight: normal;
@@ -199,7 +199,7 @@ header nav ul li:last-of-type a {
   border-radius: 0.5rem;
 }
 .search-box input.form-control::-webkit-input-placeholder {
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   font-weight: 400;
   font-size: 1rem;
   font-style: normal !important;
@@ -225,12 +225,12 @@ ul.header-menu li span {
   overflow-y: auto;
 }
 .header-tag {
-  border: 0.0625rem solid #ccc;
+  border: 0.0625rem solid var(--kb-outline-secondary);
 }
 .header-tag a {
   text-transform: none;
   font-size: 1rem;
 }
 .header-tag:hover {
-  background-color: #fff !important;
+  background-color: var(--kb-neutral-0) !important;
 }

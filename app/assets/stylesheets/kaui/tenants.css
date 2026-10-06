@@ -2,7 +2,7 @@
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .kaui-tenant-select .choose-tenant-title {
@@ -13,7 +13,7 @@
   font-size: 1.125rem;
   line-height: 1.75rem;
   letter-spacing: 0;
-  color: #1b1c1e;
+  color: var(--kb-on-surface-primary);
   padding: 1rem 0;
   margin-bottom: 1.5rem;
 }
@@ -22,7 +22,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #d5d7da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -38,7 +38,7 @@
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .kaui-tenant-select select#kb_tenant_id {
@@ -52,10 +52,10 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
+  color: var(--kb-neutral-800);
+  background-color: var(--kb-neutral-0);
   background-clip: padding-box;
-  border: 0.0625rem solid #ced4da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   background-image: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 6L8 10L12 6' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
@@ -68,7 +68,7 @@
 .kaui-tenant-select select#kb_tenant_id:focus {
   box-shadow: none;
   outline: none;
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 /* app/views/kaui/admin_tenants/index.html.erb */
@@ -78,14 +78,14 @@
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #E9EAEB;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .admin-tenant-details .admin-tenant-details-header h2 {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -100,7 +100,7 @@
   font-size: 0.875rem;
   line-height: 1.125rem;
   letter-spacing: 0;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   text-transform: capitalize;
 }
 
@@ -110,7 +110,7 @@
   padding: 1rem 0.5rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
 }
 
 /* app/views/kaui/admin_tenants/new.html.erb */
@@ -123,7 +123,7 @@
   font-size: 1.125rem;
   line-height: 1.75rem;
   letter-spacing: 0;
-  color: #1B1C1E;
+  color: var(--kb-on-surface-primary);
   padding: 1.5rem 0;
 }
 
@@ -131,7 +131,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -147,7 +147,7 @@
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .add-new-tenant-details .form-group .form-control {
@@ -168,7 +168,7 @@
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #E9EAEB;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
   padding-bottom: 1rem;
 }
 
@@ -176,14 +176,14 @@
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin: 0;
 }
 
 .useful-links-container .useful-links b {
   display: block;
   margin-bottom: 0.25rem;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
   font-weight: 600;
   font-size: 0.875rem !important;
   line-height: 1.25rem;
@@ -192,7 +192,7 @@
 
 .useful-links-container .useful-links p {
   display: block;
-  color: #717680 !important;
+  color: var(--kb-on-surface-quaternary) !important;
   font-weight: 400;
   font-size: 0.875rem !important;
   line-height: 1.25rem;
@@ -215,7 +215,7 @@
   text-decoration: underline;
   text-decoration-style: solid;
   text-decoration-skip-ink: auto;
-  color: #717680 !important;
+  color: var(--kb-on-surface-quaternary) !important;
 }
 
 /* app/views/kaui/admin_tenants/_tenant_details.html.erb */
@@ -230,7 +230,7 @@
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #E9EAEB;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
   padding-bottom: 1rem;
 }
 
@@ -238,14 +238,14 @@
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin: 0;
 }
 
 .tenant-details-container .tenant-details b {
   display: block;
   margin-bottom: 0.25rem;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
   font-weight: 600;
   font-size: 0.875rem !important;
   line-height: 1.25rem;
@@ -254,7 +254,7 @@
 
 .tenant-details-container .tenant-details p {
   display: block;
-  color: #717680 !important;
+  color: var(--kb-on-surface-quaternary) !important;
   font-weight: 400;
   font-size: 0.875rem !important;
   line-height: 1.25rem;
@@ -279,14 +279,14 @@
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #E9EAEB;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .admin-tenant-show .allowed-users-container .allowed-users-header h2 {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -295,7 +295,7 @@
   background-color: transparent !important;
   border: none !important;
   text-decoration: none !important;
-  color: #D92D20 !important;
+  color: var(--kb-error) !important;
   font-weight: 500;
   padding-right: 0.5rem !important; 
   font-size: 0.875rem; 
@@ -303,8 +303,8 @@
 }
 
 .admin-tenant-show .card {
-  background: #FAFAFA;
-  border: 0.0625rem solid #E9EAEB;
+  background: var(--kb-surface-container-low);
+  border: 0.0625rem solid var(--kb-outline-primary);
   border-radius: 0.5rem;
 }
 
@@ -327,7 +327,7 @@
   font-size: 0.875rem;
   line-height: 1.125rem;
   letter-spacing: 0;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   text-transform: capitalize;
 }
 
@@ -337,12 +337,12 @@
   padding: 1rem 0.5rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
 }
 
 .admin-tenant-show .nav-tabs-details .nav-link.active {
-  border-bottom: 0.125rem solid #1570EF !important; 
-  color: #175CD3 !important;
+  border-bottom: 0.125rem solid var(--kb-primary) !important; 
+  color: var(--kb-primary) !important;
   border-top: none !important;
   border-left: none !important;
   border-right: none !important;
@@ -354,7 +354,7 @@
   border-left: none !important;
   border-right: none !important;
   padding: 0.25rem 0 0.75rem 0.25rem !important;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   margin-right: 0.75rem !important;
   font-weight: 500 !important;
   font-size: 0.875rem !important; 
@@ -374,7 +374,7 @@
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
 }
 
 .addAllowedUserModal .modal-body {
@@ -393,7 +393,7 @@
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #181D27;
+  color: var(--kb-on-surface-primary);
 }
 
 .addAllowedUserModal .close-button {
@@ -412,7 +412,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -441,7 +441,7 @@
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-top: -1.25rem;
   min-width: 9.59375rem;
 }
@@ -498,14 +498,14 @@
 .addAllowedUserModal #search-labels-container .label {
   margin-left: 0.3125rem;
   margin-bottom: 0.3125rem;
-  color: white;
+  color: var(--kb-neutral-0);
 }
 
 .addAllowedUserModal .col-form-label {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   padding: 0;
 }
 
@@ -535,7 +535,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -575,14 +575,14 @@
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #E9EAEB;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .existing-overdue-config-for-tenants-container .existing-overdue-config-for-tenants-header h2 {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -593,7 +593,7 @@
 }
 
 .existing-overdue-config-for-tenants-container table.existing-overdue-config-for-tenants-table tbody tr {
-  border-bottom: 0.0625rem solid #E9EAEB !important;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary) !important;
 }
 
 .existing-overdue-config-for-tenants-container table.existing-overdue-config-for-tenants-table ul {
@@ -611,9 +611,9 @@
   font-size: 0.75rem !important;
   line-height: 1.125rem;
   letter-spacing: 0;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   text-transform: capitalize;
-  background-color: #FAFAFA !important;
+  background-color: var(--kb-surface-container-low) !important;
 }
 
 .existing-overdue-config-for-tenants-container table.existing-overdue-config-for-tenants-table td {
@@ -623,7 +623,7 @@
   line-height: 1.125rem !important;
   text-align: start;
   padding: 0.3125rem 0.75rem !important;
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
 }
 
 /* app/views/kaui/admin_tenants/_form_invoice_template.erb */
@@ -638,7 +638,7 @@
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
 }
 
 /* app/views/kaui/admin_tenants/_form_invoice_translation.erb */
@@ -653,14 +653,14 @@
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #E9EAEB;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .existing-invoice-translations-container .existing-invoice-translations-header h2 {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -671,7 +671,7 @@
 }
 
 .existing-invoice-translations-container table.existing-invoice-translations-table tbody tr {
-  border-bottom: 0.0625rem solid #E9EAEB !important;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary) !important;
 }
 
 .existing-invoice-translations-container table.existing-invoice-translations-table th {
@@ -680,9 +680,9 @@
   font-size: 0.75rem !important;
   line-height: 1.125rem;
   letter-spacing: 0;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   text-transform: capitalize;
-  background-color: #FAFAFA !important;
+  background-color: var(--kb-surface-container-low) !important;
 }
 
 .existing-invoice-translations-container table.existing-invoice-translations-table td {
@@ -691,7 +691,7 @@
   line-height: 1.125rem !important;
   text-align: start;
   padding: 0.3125rem 0.75rem !important;
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
 }
 
 /* app/views/kaui/admin_tenants/_show_catalog_simple.erb */
@@ -714,14 +714,14 @@
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #E9EAEB;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .show-catalog-simple .existing-plans-container .existing-plans-header h2 {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -729,10 +729,10 @@
   height: 2.125rem;
   font-size: 1rem;
   line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
+  color: var(--kb-on-surface-secondary);
+  background-color: var(--kb-neutral-0);
   background-clip: padding-box;
-  border: 0.0625rem solid #ced4da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   margin-top: 0.0625rem;
   -webkit-appearance: none;
@@ -748,7 +748,7 @@
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
 }
 
 .show-catalog-simple .select-catalog-version select:focus {
@@ -767,10 +767,10 @@
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.125rem;
-  color: #495057;
-  background-color: #fff;
+  color: var(--kb-on-surface-secondary);
+  background-color: var(--kb-neutral-0);
   background-clip: padding-box;
-  border: 0.0625rem solid #ced4da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -792,9 +792,9 @@
   font-size: 0.75rem;
   line-height: 1.125rem;
   letter-spacing: 0;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   text-transform: capitalize;
-  background-color: #FAFAFA !important;
+  background-color: var(--kb-surface-container-low) !important;
 }
 
 .show-catalog-simple table.existing-plans-table td {
@@ -803,14 +803,14 @@
   padding: 1rem 0.5rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
 }
 
 .show-catalog-simple .currency-button {
   padding: 0 !important;
   background-color: transparent !important;
   border: none !important;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   font-weight: 500 !important;
   font-size: 0.75rem !important;
   line-height: 1.125rem !important;
@@ -819,28 +819,28 @@
 .show-catalog-simple .selected_catalog .category {
   display: inline-block;
   padding: 0.125rem 0.5rem !important;
-  border: 0.0625rem solid #D1E9FF !important;
+  border: 0.0625rem solid var(--kb-primary-50) !important;
   border-radius: 39.0586rem;
   font-weight: 500 !important;
   font-size: 0.75rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #175CD3 !important;
-  background-color: #EFF8FF;
+  color: var(--kb-primary) !important;
+  background-color: var(--kb-primary-25);
   text-transform: capitalize;
 }
 
 .show-catalog-simple .selected_catalog .phase-duration {
   display: inline-block;
   padding: 0.125rem 0.5rem !important;
-  border: 0.0625rem solid #DCFAE6 !important;
+  border: 0.0625rem solid var(--kb-success-50) !important;
   border-radius: 39.0586rem;
   font-weight: 500 !important;
   font-size: 0.75rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #067647 !important;
-  background-color: #ECFDF3;
+  color: var(--kb-success-hover) !important;
+  background-color: var(--kb-success-25);
   text-transform: capitalize;
 }
 
@@ -850,7 +850,7 @@
   background-color: transparent !important;
   border: none !important;
   text-decoration: none !important;
-  color: #D92D20 !important;
+  color: var(--kb-error) !important;
   font-weight: 500;
   padding-right: 0.3125rem !important;
   font-size: 0.875rem;
@@ -870,14 +870,14 @@
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #E9EAEB;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .show-catalog-xml .catalog-container .catalog-header h2 {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -893,9 +893,9 @@
   font-size: 0.75rem !important;
   line-height: 1.125rem;
   letter-spacing: 0;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   text-transform: capitalize;
-  background-color: #FAFAFA !important;
+  background-color: var(--kb-surface-container-low) !important;
 }
 
 .show-catalog-xml table td {
@@ -904,14 +904,14 @@
   padding: 1rem 0.5rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
 }
 
 .show-catalog-xml .currency-button {
   padding: 0 !important;
   background-color: transparent !important;
   border: none !important;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   font-weight: 500 !important;
   font-size: 0.75rem !important;
   line-height: 1.125rem !important;
@@ -927,7 +927,7 @@
   font-size: 1.125rem;
   line-height: 1.75rem;
   letter-spacing: 0;
-  color: #1B1C1E;
+  color: var(--kb-on-surface-primary);
   padding: 1.5rem 0;
 }
 
@@ -935,7 +935,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -951,11 +951,11 @@
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .kaui-new-catalog .question-circle {
-  color: #A4A7AE;
+  color: var(--kb-on-surface-quaternary);
   font-size: 1rem;
   width: 1rem;
   height: 1rem;
@@ -992,10 +992,10 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
+  color: var(--kb-neutral-800);
+  background-color: var(--kb-neutral-0);
   background-clip: padding-box;
-  border: 0.0625rem solid #ced4da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   background-image: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M4 6L8 10L12 6' stroke='%23A4A7AE' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
@@ -1008,7 +1008,7 @@
 .kaui-new-catalog select:focus {
   box-shadow: none;
   outline: none;
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 .kaui-new-catalog .additional-base-products select {
@@ -1019,10 +1019,10 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
+  color: var(--kb-neutral-800);
+  background-color: var(--kb-neutral-0);
   background-clip: padding-box;
-  border: 0.0625rem solid #ced4da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -1030,13 +1030,13 @@
 .kaui-new-catalog .additional-base-products select:focus {
   box-shadow: none;
   outline: none;
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 .kaui-new-catalog .toggle-segment {
   display: flex;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   width: fit-content;
   border-radius: 0.375rem;
   overflow: hidden;
@@ -1048,8 +1048,8 @@
   align-items: center;
   padding: 0.625rem 1rem;
   cursor: pointer;
-  color: #414651;
-  border-right: 0.0625rem solid #D5D7DA;
+  color: var(--kb-on-surface-secondary);
+  border-right: 0.0625rem solid var(--kb-outline-secondary);
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1066,14 +1066,14 @@
   display: none;
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #17B26A;
+  background-color: var(--kb-success-pressed);
   border-radius: 50%;
 }
 
 .kaui-new-catalog .toggle-segment .toggle-option.active-btn {
-  background-color: #FAFAFA;
+  background-color: var(--kb-surface-container-low);
   font-weight: 600;
-  color: #252B37;
+  color: var(--kb-neutral-700);
   gap: 1rem;
 }
 
@@ -1082,34 +1082,34 @@
 }
 
 .kaui-new-catalog .upload-status {
-  border: 0.0625rem solid #E9EAEB;
+  border: 0.0625rem solid var(--kb-outline-primary);
   border-radius: 0.75rem;
-  background-color: #fff;
+  background-color: var(--kb-neutral-0);
   padding: 1rem 1.5rem;
   margin-top: 1rem;
 }
 
 .kaui-new-catalog .upload-status-box {
-  border: 0.0625rem solid #d5d7da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.75rem;
   padding: 1rem 1.25rem;
-  background-color: #fff;
+  background-color: var(--kb-neutral-0);
 }
 
 .kaui-new-catalog #fileName {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
 }
 
 .kaui-new-catalog .upload-content p {
   margin: 0;
-  color: #555;
+  color: var(--kb-on-surface-secondary);
 }
 
 .kaui-new-catalog .upload-content .highlight {
-  color: #1570ef;
+  color: var(--kb-primary);
   font-weight: 500;
   cursor: pointer;
 }
@@ -1129,7 +1129,7 @@
   font-size: 1.125rem;
   line-height: 1.75rem;
   letter-spacing: 0;
-  color: #1B1C1E;
+  color: var(--kb-on-surface-primary);
   padding: 1.5rem 0;
 }
 
@@ -1137,7 +1137,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -1152,7 +1152,7 @@
 .kaui-new-overdue-config .toggle-segment {
   display: flex;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   width: fit-content;
   border-radius: 0.375rem;
   overflow: hidden;
@@ -1164,8 +1164,8 @@
   align-items: center;
   padding: 0.625rem 1rem;
   cursor: pointer;
-  color: #414651;
-  border-right: 0.0625rem solid #D5D7DA;
+  color: var(--kb-on-surface-secondary);
+  border-right: 0.0625rem solid var(--kb-outline-secondary);
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1182,14 +1182,14 @@
   display: none;
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #17B26A;
+  background-color: var(--kb-success-pressed);
   border-radius: 50%;
 }
 
 .kaui-new-overdue-config .toggle-segment .toggle-option.active-btn {
-  background-color: #FAFAFA;
+  background-color: var(--kb-surface-container-low);
   font-weight: 600;
-  color: #252B37;
+  color: var(--kb-neutral-700);
   gap: 1rem;
 }
 
@@ -1201,14 +1201,14 @@
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .kaui-new-overdue-config .new-overdue-states-button {
   padding: 0 !important;
   background-color: transparent !important;
   border: none !important;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1249,10 +1249,10 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
+  color: var(--kb-neutral-800);
+  background-color: var(--kb-neutral-0);
   background-clip: padding-box;
-  border: 0.0625rem solid #ced4da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="%23A4A7AE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
@@ -1273,9 +1273,9 @@
   font-size: 0.75rem;
   line-height: 1.125rem;
   letter-spacing: 0;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   text-transform: capitalize;
-  background-color: #FAFAFA !important;
+  background-color: var(--kb-surface-container-low) !important;
   max-width: 8.5625rem !important;
 }
 
@@ -1285,7 +1285,7 @@
   padding: 0.3125rem 0.75rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
   max-width: 8.5625rem !important;
 }
 
@@ -1302,10 +1302,10 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
+  color: var(--kb-neutral-800);
+  background-color: var(--kb-neutral-0);
   background-clip: padding-box;
-  border: 0.0625rem solid #ced4da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -1313,13 +1313,13 @@
 .kaui-new-overdue-config table.existing-overdue-config-for-tenants td input:focus {
   box-shadow: none;
   outline: none;
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 .kaui-new-overdue-config select:focus {
   box-shadow: none;
   outline: none;
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 /* app/views/kaui/admin_tenants/new_plan_currency.html.erb */
@@ -1332,7 +1332,7 @@
   font-size: 1.125rem;
   line-height: 1.75rem;
   letter-spacing: 0;
-  color: #1B1C1E;
+  color: var(--kb-on-surface-primary);
   padding: 1.5rem 0;
 }
 
@@ -1340,7 +1340,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -1356,11 +1356,11 @@
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .catalog-simple-new-plan-currency .question-circle {
-  color: #A4A7AE;
+  color: var(--kb-on-surface-quaternary);
   font-size: 1rem;
   width: 1rem;
   height: 1rem;
@@ -1396,10 +1396,10 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
+  color: var(--kb-neutral-800);
+  background-color: var(--kb-neutral-0);
   background-clip: padding-box;
-  border: 0.0625rem solid #ced4da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-left: none;
   border-radius: 0 0.375rem 0.375rem 0 !important;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -1413,12 +1413,12 @@
 .catalog-simple-new-plan-currency select:focus {
   box-shadow: none;
   outline: none;
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 .catalog-simple-new-plan-currency .amount-input {
   height: 2.5rem;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-right: none;
   border-radius: 0.375rem 0 0 0.375rem !important;
 }
@@ -1431,10 +1431,10 @@
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
-  background-color: #fff;
+  color: var(--kb-neutral-800);
+  background-color: var(--kb-neutral-0);
   background-clip: padding-box;
-  border: 0.0625rem solid #ced4da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -1442,13 +1442,13 @@
 .catalog-simple-new-plan-currency .additional-base-products select:focus {
   box-shadow: none;
   outline: none;
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 .catalog-simple-new-plan-currency .toggle-segment {
   display: flex;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   width: fit-content;
   border-radius: 0.375rem;
   overflow: hidden;
@@ -1460,8 +1460,8 @@
   align-items: center;
   padding: 0.625rem 1rem;
   cursor: pointer;
-  color: #414651;
-  border-right: 0.0625rem solid #D5D7DA;
+  color: var(--kb-on-surface-secondary);
+  border-right: 0.0625rem solid var(--kb-outline-secondary);
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1478,14 +1478,14 @@
   display: none;
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #17B26A;
+  background-color: var(--kb-success-pressed);
   border-radius: 50%;
 }
 
 .catalog-simple-new-plan-currency .toggle-segment .toggle-option.active-btn {
-  background-color: #FAFAFA;
+  background-color: var(--kb-surface-container-low);
   font-weight: 600;
-  color: #252B37;
+  color: var(--kb-neutral-700);
   gap: 1rem;
 }
 
@@ -1494,34 +1494,34 @@
 }
 
 .catalog-simple-new-plan-currency .upload-status {
-  border: 0.0625rem solid #E9EAEB;
+  border: 0.0625rem solid var(--kb-outline-primary);
   border-radius: 0.75rem;
-  background-color: #fff;
+  background-color: var(--kb-neutral-0);
   padding: 1rem 1.5rem;
   margin-top: 1rem;
 }
 
 .catalog-simple-new-plan-currency .upload-status-box {
-  border: 0.0625rem solid #d5d7da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.75rem;
   padding: 1rem 1.25rem;
-  background-color: #fff;
+  background-color: var(--kb-neutral-0);
 }
 
 .catalog-simple-new-plan-currency #fileName {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
 }
 
 .catalog-simple-new-plan-currency .upload-content p {
   margin: 0;
-  color: #555;
+  color: var(--kb-on-surface-secondary);
 }
 
 .catalog-simple-new-plan-currency .upload-content .highlight {
-  color: #1570ef;
+  color: var(--kb-primary);
   font-weight: 500;
   cursor: pointer;
 }

@@ -3,14 +3,14 @@
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #e9eaeb;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .kaui-tag-definitions-index .tag-definitions-details-header h2 {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -25,7 +25,7 @@
   font-size: 0.875rem;
   line-height: 1.125rem;
   letter-spacing: 0;
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   text-transform: capitalize;
   white-space: nowrap;
 }
@@ -36,24 +36,24 @@
   padding: 1rem 0.5rem !important;
   line-height: 1.125rem !important;
   text-align: start;
-  color: #535862 !important;
+  color: var(--kb-on-surface-tertiary) !important;
 }
 
 .kaui-tag-definitions-index .clickable-id {
   cursor: pointer;
-  color: #1570ef !important;
+  color: var(--kb-primary) !important;
   text-decoration: underline;
   transition: color 0.2s ease;
 }
 
 .kaui-tag-definitions-index .clickable-id:hover {
-  color: #0f4c8a !important;
+  color: var(--kb-primary-700) !important;
 }
 
 /* Custom Object ID Tooltip Styles */
 .object-id-tooltip {
-  background: #ffffff;
-  border: 0.0625rem solid #e5e7eb;
+  background: var(--kb-neutral-0);
+  border: 0.0625rem solid var(--kb-outline-primary);
   border-radius: 0.5rem;
   box-shadow: 0 0.25rem 0.375rem -0.0625rem rgba(0, 0, 0, 0.1),
               0 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.06);
@@ -67,7 +67,7 @@
 .object-id-tooltip .tooltip-header {
   font-size: 0.75rem;
   font-weight: 600;
-  color: #6b7280;
+  color: var(--kb-on-surface-tertiary);
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.03125rem;
@@ -83,14 +83,14 @@
 .object-id-tooltip .tooltip-id {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #1f2937;
+  color: var(--kb-neutral-700);
   word-break: break-all;
   flex: 1;
 }
 
 .object-id-tooltip .copy-btn {
-  background: #f3f4f6;
-  border: 0.0625rem solid #d1d5db;
+  background: var(--kb-surface-container);
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.25rem;
   padding: 0.25rem;
   cursor: pointer;
@@ -102,12 +102,12 @@
 }
 
 .object-id-tooltip .copy-btn:hover {
-  background: #e5e7eb;
-  border-color: #9ca3af;
+  background: var(--kb-outline-primary);
+  border-color: var(--kb-on-surface-quaternary);
 }
 
 .object-id-tooltip .copy-btn:active {
-  background: #d1d5db;
+  background: var(--kb-outline-secondary);
   transform: scale(0.95);
 }
 
@@ -119,9 +119,9 @@
   span {
   padding: 0.125rem 0.5rem;
   border-radius: 62.4375rem;
-  background-color: #eff8ff;
-  border: 0.0625rem solid #d1e9ff;
-  color: #175cd3;
+  background-color: var(--kb-primary-25);
+  border: 0.0625rem solid var(--kb-primary-50);
+  color: var(--kb-primary);
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.125rem;
@@ -135,9 +135,9 @@
   .true {
   padding: 0.125rem 0.5rem;
   border-radius: 62.4375rem;
-  background-color: #ecfdf3;
-  border: 0.0625rem solid #dcfae6;
-  color: #067647;
+  background-color: var(--kb-success-25);
+  border: 0.0625rem solid var(--kb-success-50);
+  color: var(--kb-success-hover);
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.125rem;
@@ -151,9 +151,9 @@
   .false {
   padding: 0.125rem 0.5rem;
   border-radius: 62.4375rem;
-  background-color: #fef3f2;
-  border: 0.0625rem solid #fee4e2;
-  color: #b42318;
+  background-color: var(--kb-error-25);
+  border: 0.0625rem solid var(--kb-error-50);
+  color: var(--kb-error-hover);
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.125rem;
@@ -165,7 +165,7 @@
   tr
   td:nth-of-type(6)
   a {
-  color: #d92d20;
+  color: var(--kb-error);
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -182,7 +182,7 @@
   font-size: 1.125rem;
   line-height: 1.75rem;
   letter-spacing: 0;
-  color: #1b1c1e;
+  color: var(--kb-on-surface-primary);
   padding: 1.5rem 0;
 }
 
@@ -190,7 +190,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #d5d7da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -206,7 +206,7 @@
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .add-new-tag-definition-details select.form-control {
@@ -221,7 +221,7 @@
 .add-new-tag-definition-details select:focus {
   box-shadow: none;
   outline: none;
-  border-color: #1570ef;
+  border-color: var(--kb-primary);
 }
 
 .add-new-tag-definition-details .form-group .form-control {
@@ -235,7 +235,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #d5d7da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -265,10 +265,10 @@
 .kaui-account-timelines-show .download-button-right {
   float: right;
   margin-left: 0.625rem;
-  background-color: white;
-  color: black;
+  background-color: var(--kb-neutral-0);
+  color: var(--kb-neutral-900);
   text-transform: none;
-  border: 0.0625rem solid #ccc;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   padding: 0.5rem 0.9375rem;
 }
 
@@ -291,10 +291,10 @@
   float: right;
   margin-bottom: 0.625rem;
   margin-left: 0.625rem;
-  background-color: white;
-  color: black;
+  background-color: var(--kb-neutral-0);
+  color: var(--kb-neutral-900);
   text-transform: none;
-  border: 0.0625rem solid #ccc;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   padding: 0.5rem 0.9375rem;
 }
 
@@ -302,10 +302,10 @@
   float: right;
   margin-bottom: 0.625rem;
   margin-left: 0.625rem;
-  background-color: white;
-  color: black;
+  background-color: var(--kb-neutral-0);
+  color: var(--kb-neutral-900);
   text-transform: none;
-  border: 0.0625rem solid #ccc;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   padding: 0.5rem 0.9375rem;
 }
 
@@ -351,7 +351,7 @@
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #181d27;
+  color: var(--kb-on-surface-primary);
 }
 
 .kaui-account-timelines-show .close-button {
@@ -370,7 +370,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #d5d7da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -399,7 +399,7 @@
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-top: -1.25rem;
   min-width: 9.59375rem;
 }
@@ -456,14 +456,14 @@
 .kaui-account-timelines-show #search-labels-container .label {
   margin-left: 0.3125rem;
   margin-bottom: 0.3125rem;
-  color: white;
+  color: var(--kb-neutral-0);
 }
 
 .kaui-account-timelines-show .col-form-label {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   padding: 0;
 }
 
@@ -493,7 +493,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #d5d7da;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;

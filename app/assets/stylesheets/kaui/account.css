@@ -3,19 +3,19 @@ h1 span.account-child-label {
 }
 
 .account-child-label {
-  color: white !important;
+  color: var(--kb-neutral-0) !important;
 }
 
 .naked {
   background-color: transparent;
-  color: #00919d;
+  color: var(--kb-primary);
   padding: 0;
   font-size: inherit;
 }
 
 .naked:hover {
   background-color: transparent;
-  color: #2a6496;
+  color: var(--kb-primary-700);
 }
 
 .title-nav-area .container p {
@@ -83,7 +83,7 @@ table.dataTable thead > tr > th {
 
 .kaui-accounts-index .modal-footer {
   align-items: center;
-  border-top: 0.0625rem solid #E9EAEB;
+  border-top: 0.0625rem solid var(--kb-outline-primary);
   display: flex;
   gap: 0.75rem;
   justify-content: space-between;
@@ -115,46 +115,46 @@ table.dataTable thead > tr > th {
 }
 
 .kaui-accounts-index .advanced-search-button-secondary {
-  background: #FFFFFF;
-  border: 0.0625rem solid #B2DDFF;
-  color: #175CD3;
+  background: var(--kb-neutral-0);
+  border: 0.0625rem solid var(--kb-primary-container);
+  color: var(--kb-primary);
 }
 
 .kaui-accounts-index .advanced-search-button-secondary:hover {
-  background: #EFF6FF;
-  border-color: #84CAFF;
-  color: #175CD3;
+  background: var(--kb-primary-25);
+  border-color: var(--kb-primary-200);
+  color: var(--kb-primary);
 }
 
 .kaui-accounts-index .advanced-search-button-ghost {
-  background: #FFFFFF;
-  border: 0.0625rem solid #D5D7DA;
-  color: #414651;
+  background: var(--kb-neutral-0);
+  border: 0.0625rem solid var(--kb-outline-secondary);
+  color: var(--kb-on-surface-secondary);
 }
 
 .kaui-accounts-index .advanced-search-button-ghost:hover {
-  background: #FAFAFA;
-  border-color: #A4A7AE;
-  color: #181D27;
+  background: var(--kb-surface-container-low);
+  border-color: var(--kb-on-surface-quaternary);
+  color: var(--kb-on-surface-primary);
 }
 
 .kaui-accounts-index .advanced-search-button-primary {
-  background: #2E90FA;
-  border: 0.0625rem solid #2E90FA;
-  color: #FFFFFF;
+  background: var(--kb-primary-400);
+  border: 0.0625rem solid var(--kb-primary-400);
+  color: var(--kb-neutral-0);
 }
 
 .kaui-accounts-index .advanced-search-button-primary:hover {
-  background: #175CD3;
-  border-color: #175CD3;
-  color: #FFFFFF;
+  background: var(--kb-primary);
+  border-color: var(--kb-primary);
+  color: var(--kb-neutral-0);
 }
 
 .kaui-accounts-index .modal-title {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #181D27;
+  color: var(--kb-on-surface-primary);
 }
 
 .kaui-accounts-index .close-button {
@@ -173,7 +173,7 @@ table.dataTable thead > tr > th {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -202,7 +202,7 @@ table.dataTable thead > tr > th {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-top: -1.25rem;
   min-width: 9.59375rem;
 }
@@ -259,14 +259,14 @@ table.dataTable thead > tr > th {
 .kaui-accounts-index #search-labels-container .label {
   margin-left: 0.3125rem;
   margin-bottom: 0.3125rem;
-  color: white;
+  color: var(--kb-neutral-0);
 }
 
 .kaui-accounts-index .col-form-label {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   padding: 0;
 }
 
@@ -283,8 +283,8 @@ table.dataTable thead > tr > th {
 }
 
 .kaui-accounts-index .advanced-search-group {
-  background: #EFF6FF;
-  border: 0.125rem solid #B2DDFF;
+  background: var(--kb-primary-25);
+  border: 0.125rem solid var(--kb-primary-container);
   border-radius: 0.75rem;
   padding: 1rem;
 }
@@ -297,7 +297,7 @@ table.dataTable thead > tr > th {
 }
 
 .kaui-accounts-index .advanced-search-group-title {
-  color: #175CD3;
+  color: var(--kb-primary);
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -305,7 +305,7 @@ table.dataTable thead > tr > th {
 }
 
 .kaui-accounts-index .advanced-search-group-description {
-  color: #535862;
+  color: var(--kb-on-surface-tertiary);
   font-size: 0.8125rem;
   line-height: 1.25rem;
   margin-top: 0.125rem;
@@ -322,7 +322,7 @@ table.dataTable thead > tr > th {
 
 .kaui-accounts-index .search-field + .search-field::before {
   align-self: center;
-  color: #2E90FA;
+  color: var(--kb-primary-400);
   content: 'AND';
   font-size: 0.875rem;
   font-weight: 700;
@@ -332,7 +332,7 @@ table.dataTable thead > tr > th {
 
 .kaui-accounts-index .advanced-search-rule-row {
   align-items: center;
-  background: #FFFFFF;
+  background: var(--kb-neutral-0);
   border-radius: 0.75rem;
   display: grid;
   gap: 0.75rem;
@@ -358,10 +358,10 @@ table.dataTable thead > tr > th {
 .kaui-accounts-index .advanced-search-add-rule {
   align-items: center;
   align-self: flex-start;
-  background: #FFFFFF;
-  border: 0.0625rem solid #D5D7DA;
+  background: var(--kb-neutral-0);
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.75rem;
-  color: #535862;
+  color: var(--kb-on-surface-tertiary);
   display: inline-flex;
   font-weight: 500;
   gap: 0.5rem;
@@ -370,7 +370,7 @@ table.dataTable thead > tr > th {
 }
 
 .kaui-accounts-index .advanced-search-add-rule:hover {
-  background: #FFFFFF;
+  background: var(--kb-neutral-0);
 }
 
 .kaui-accounts-index .filter-bar-container {
@@ -392,7 +392,7 @@ table.dataTable thead > tr > th {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -427,11 +427,11 @@ table.dataTable thead > tr > th {
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.75rem;
-  color: #181D27;
+  color: var(--kb-on-surface-primary);
 }
 
 .kaui-accounts-index .custom-border-bottom {
-  border-bottom: 0.0625rem solid #E9EAEB;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .kaui-accounts-index .dropdown-menu#column-visibility {
@@ -457,8 +457,8 @@ table.dataTable thead > tr > th {
   position: absolute;
   top: 100%;
   right: 9.375rem;
-  background: white;
-  border: 0.0625rem solid #ccc;
+  background: var(--kb-neutral-0);
+  border: 0.0625rem solid var(--kb-outline-secondary);
   max-height: 18.75rem;
   width: 13.75rem;
   overflow-y: auto;
@@ -481,9 +481,9 @@ table.dataTable thead > tr > th {
 }
 
 .kaui-accounts-index .toggle-button-right {
-  background-color: white;
-  color: black;
-  border: 0.0625rem solid #ccc;
+  background-color: var(--kb-neutral-0);
+  color: var(--kb-neutral-900);
+  border: 0.0625rem solid var(--kb-outline-secondary);
   padding: 0.5rem 0.9375rem;
   cursor: pointer;
 }
@@ -501,10 +501,10 @@ table.dataTable thead > tr > th {
   float: right;
   margin-bottom: 0.625rem;
   margin-left: 0.625rem;
-  background-color: white;
-  color: black;
+  background-color: var(--kb-neutral-0);
+  color: var(--kb-neutral-900);
   text-transform: none;
-  border: 0.0625rem solid #ccc;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   padding: 0.5rem 0.9375rem;
 }
 
@@ -523,11 +523,11 @@ table.dataTable thead > tr > th {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #252B37;
+  color: var(--kb-neutral-700);
 }
 
 .kaui-accounts-index .label-group-item-manual:active {
-  background: #FAFAFA;
+  background: var(--kb-surface-container-low);
 }
 
 .kaui-accounts-index .label-group-item-manual span {
@@ -535,14 +535,14 @@ table.dataTable thead > tr > th {
 }
 
 .kaui-accounts-index .label-group-item-manual:has(input[type="checkbox"]:checked) {
-  background-color: #FAFAFA;
+  background-color: var(--kb-surface-container-low);
   border-radius: 0.25rem;
   cursor: pointer !important;
 }
 
 .kaui-accounts-index .dropdown-menu.ui-sortable {
   scrollbar-width: thin;
-  scrollbar-color: #ccc transparent;
+  scrollbar-color: var(--kb-outline-secondary) transparent;
   border-radius: 0.375rem;
   border: 0.0625rem solid #00000014 !important;
   margin: 0.625rem 0 0;
@@ -554,7 +554,7 @@ table.dataTable thead > tr > th {
 }
 
 .kaui-accounts-index .dropdown-menu.ui-sortable::-webkit-scrollbar-thumb {
-  background-color: #ccc;
+  background-color: var(--kb-outline-secondary);
   border-radius: 0.1875rem;
 }
 
@@ -572,7 +572,7 @@ table.dataTable thead > tr > th {
   font-size: 1.125rem;
   line-height: 1.75rem;
   letter-spacing: 0;
-  color: #1B1C1E;
+  color: var(--kb-on-surface-primary);
   padding: 1.5rem 0;
   
 }
@@ -581,7 +581,7 @@ table.dataTable thead > tr > th {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -598,11 +598,11 @@ table.dataTable thead > tr > th {
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .kaui-new-account .question-circle {
-  color: #A4A7AE;
+  color: var(--kb-on-surface-quaternary);
   font-size: 1rem;
   width: 1rem;
   height: 1rem;
@@ -649,7 +649,7 @@ table.dataTable thead > tr > th {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   display: flex;
   align-items: center;
   gap: 0.375rem;
@@ -681,7 +681,7 @@ table.dataTable thead > tr > th {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #181D27;
+  color: var(--kb-on-surface-primary);
 }
 
 .link-to-parent-account .close-button {
@@ -743,14 +743,14 @@ table.dataTable thead > tr > th {
 #search-labels-container .label {
   margin-left: 0.3125rem;
   margin-bottom: 0.3125rem;
-  color: white;
+  color: var(--kb-neutral-0);
 }
 
 .link-to-parent-account .col-form-label {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   padding: 0;
   margin-top: -1.25rem;
 }
@@ -759,7 +759,7 @@ table.dataTable thead > tr > th {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -774,7 +774,7 @@ table.dataTable thead > tr > th {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #252B37;
+  color: var(--kb-neutral-700);
 }
 
 /* app/views/kaui/accounts/_close_account_modal.html.erb */
@@ -802,7 +802,7 @@ table.dataTable thead > tr > th {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #181D27;
+  color: var(--kb-on-surface-primary);
 }
 
 .close_account_modal .control-label {
@@ -810,7 +810,7 @@ table.dataTable thead > tr > th {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
 }
 
 .close_account_modal .close-button {
@@ -823,11 +823,11 @@ table.dataTable thead > tr > th {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
 }
 
 .close_account_modal .form-group.mb-3 input {
-  background-color: #fafafa !important;
+  background-color: var(--kb-surface-container-low) !important;
 }
 
 .close_account_modal .close-button:hover {
@@ -883,14 +883,14 @@ table.dataTable thead > tr > th {
 #search-labels-container .label {
   margin-left: 0.3125rem;
   margin-bottom: 0.3125rem;
-  color: white;
+  color: var(--kb-neutral-0);
 }
 
 .close_account_modal .col-form-label {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   padding: 0;
 }
 
@@ -898,7 +898,7 @@ table.dataTable thead > tr > th {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -913,7 +913,7 @@ table.dataTable thead > tr > th {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #252B37;
+  color: var(--kb-neutral-700);
 }
 
 /* app/views/kaui/accounts/_account_details.html.erb */
@@ -923,14 +923,14 @@ table.dataTable thead > tr > th {
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #E9EAEB;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .account-details .account-details-header h2 {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -938,9 +938,9 @@ table.dataTable thead > tr > th {
   margin: 0 0 1rem 0.625rem;
   padding: 0.125rem 0.5rem;
   border-radius: 1.25rem;
-  color: #067647 !important;
-  border: 0.0625rem solid #DCFAE6;
-  background: #ECFDF3;
+  color: var(--kb-success-hover) !important;
+  border: 0.0625rem solid var(--kb-success-50);
+  background: var(--kb-success-25);
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 1.125rem;
@@ -963,7 +963,7 @@ table.dataTable thead > tr > th {
 }
 
 .account-details .account-details-body h2 {
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
   font-weight: 600;
   font-size: 0.875rem !important;
   line-height: 1.25rem;
@@ -972,7 +972,7 @@ table.dataTable thead > tr > th {
 }
 
 .account-details .account-details-body p {
-  color: #717680 !important;
+  color: var(--kb-on-surface-quaternary) !important;
   font-weight: 500;
   font-size: 0.875rem !important;
   line-height: 1.25rem;
@@ -988,7 +988,7 @@ table.dataTable thead > tr > th {
   background-color: transparent !important;
   border: none !important;
   text-decoration: none !important;
-  color: #D92D20 !important;
+  color: var(--kb-error) !important;
   font-weight: 500;
   padding-right: 0.3125rem !important;
   font-size: 0.875rem;
@@ -997,7 +997,7 @@ table.dataTable thead > tr > th {
 }
 
 .account-details .account-details-body h2 a {
-  color: #D92D20 !important;
+  color: var(--kb-error) !important;
   font-weight: 500 !important;
   font-size: 0.875rem !important;
   line-height: 1.25rem;
@@ -1018,7 +1018,7 @@ table.dataTable thead > tr > th {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #175CD3;
+  color: var(--kb-primary);
   display: flex;
   text-transform: capitalize;
   align-items: center;
@@ -1031,10 +1031,10 @@ table.dataTable thead > tr > th {
   padding: 0.125rem 0.5rem;
   font-family: system-ui, sans-serif;
   font-size: 0.875rem;
-  color: #434854;
+  color: var(--kb-neutral-600);
   text-decoration: none;
-  border: 0.0625rem solid #f1f1f1;
-  background: #fafafa;
+  border: 0.0625rem solid var(--kb-surface-container);
+  background: var(--kb-surface-container-low);
 }
 
 .account-details .add_parent a:first-of-type {
@@ -1048,12 +1048,12 @@ table.dataTable thead > tr > th {
   border-bottom-right-radius: 0.25rem;
   border-left: none;
   margin-left: -0.3125rem;
-  color: #A4A7AE;
+  color: var(--kb-on-surface-quaternary);
   cursor: pointer;
 }
 
 .account-details .add_parent a:nth-of-type(2):hover {
-  color: #000;
+  color: var(--kb-neutral-900);
 }
 
 .account-details .tag-select:hover .tag-as-select-box {
@@ -1082,15 +1082,15 @@ table.dataTable thead > tr > th {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #252B37;
+  color: var(--kb-neutral-700);
 }
 
 .account-details .label-group-item-manual:active {
-  background: #FAFAFA;
+  background: var(--kb-surface-container-low);
 }
 
 .account-details .label-group-item-manual:has(input[type="checkbox"]:checked) {
-  background-color: #FAFAFA;
+  background-color: var(--kb-surface-container-low);
   border-radius: 0.25rem;
   cursor: pointer !important;
 }
@@ -1100,7 +1100,7 @@ table.dataTable thead > tr > th {
 }
 
 .account-details .tag-as-select-box::-webkit-scrollbar-thumb {
-  background-color: #ccc;
+  background-color: var(--kb-outline-secondary);
   border-radius: 0.1875rem;
 }
 
@@ -1122,7 +1122,7 @@ table.dataTable thead > tr > th {
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #E9EAEB;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .billing-details .tag-bar.tag-bar-breathe,
@@ -1145,7 +1145,7 @@ table.dataTable thead > tr > th {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -1173,7 +1173,7 @@ table.dataTable thead > tr > th {
 .billing-details .info-item b {
   display: block;
   margin-bottom: 0.25rem;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
   font-weight: 600;
   font-size: 0.875rem !important;
   line-height: 1.25rem;
@@ -1182,7 +1182,7 @@ table.dataTable thead > tr > th {
 
 .billing-details .info-item p {
   margin: 0;
-  color: #717680 !important;
+  color: var(--kb-on-surface-quaternary) !important;
   font-weight: 500;
   font-size: 0.875rem !important;
   text-align: left;
@@ -1197,30 +1197,30 @@ table.dataTable thead > tr > th {
 }
 
 .billing-details .badge.success {
-  background-color: #ECFDF3;
-  color: #067647 !important;
+  background-color: var(--kb-success-25);
+  color: var(--kb-success-hover) !important;
   font-weight: 500;
   font-size: 0.875rem;
-  border: 0.0625rem solid #DCFAE6;
+  border: 0.0625rem solid var(--kb-success-50);
 }
 
 .billing-details .badge.danger {
-  background-color: #fbe4e6;
-  color: #842029 !important;
+  background-color: var(--kb-error-50);
+  color: var(--kb-error-700) !important;
   font-weight: 500;
   font-size: 0.875rem;
-  border: 0.0625rem solid #fed0d4;
+  border: 0.0625rem solid var(--kb-error-container);
 }
 
 .billing-details .badge.neutral {
-  background-color: #e2e3e5;
-  color: #6c757d;
+  background-color: var(--kb-outline-primary);
+  color: var(--kb-on-surface-tertiary);
 }
 
 .billing-details .trigger-invoice-box b {
   display: block;
   margin-bottom: 0.25rem;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
   font-weight: 600;
   font-size: 0.875rem !important;
   line-height: 1.25rem;
@@ -1241,9 +1241,14 @@ table.dataTable thead > tr > th {
   margin-top: 0.25rem;
 }
 
+.billing-details .form-check-input:checked {
+  background-color: var(--kb-primary);
+  border-color: var(--kb-primary);
+}
+
 .billing-details .custom-date-input-wrapper {
   padding: 0 0.625rem !important;
-  border: 0.0625rem solid #D5D7DA !important;
+  border: 0.0625rem solid var(--kb-outline-secondary) !important;
   border-radius: 0.375rem;
   cursor: pointer;
 }
@@ -1259,12 +1264,12 @@ table.dataTable thead > tr > th {
   box-shadow: none;
   padding: 0 !important;
   font-size: 1rem;
-  color: #6B7280;
+  color: var(--kb-on-surface-tertiary);
   height: 2.5rem;
 }
 
 .billing-details .custom-date-input-wrapper input::placeholder {
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
 }
 
 .billing-details .custom-date-input-wrapper input.form-control {
@@ -1282,10 +1287,10 @@ table.dataTable thead > tr > th {
 .personal-details-header h2 {
   font-weight: 600;
   font-size: 1.125rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   text-align: left;
   margin-bottom: 1.25rem;
-  border-bottom: 0.0625rem solid #E9EAEB;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
   padding-bottom: 0.5rem;
 }
 
@@ -1294,7 +1299,7 @@ table.dataTable thead > tr > th {
 }
 
 .personal-details .info-item b {
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
   font-weight: 600;
   font-size: 0.875rem !important;
   line-height: 1.25rem;
@@ -1302,7 +1307,7 @@ table.dataTable thead > tr > th {
 }
 
 .personal-details .info-item p {
-  color: #717680 !important;
+  color: var(--kb-on-surface-quaternary) !important;
   font-weight: 500;
   font-size: 0.875rem !important;
   line-height: 1.25rem;
@@ -1318,11 +1323,11 @@ table.dataTable thead > tr > th {
 }
 
 .personal-details .email-chip {
-  background-color: #f1f3f5;
+  background-color: var(--kb-surface-container);
   border-radius: 1rem;
   padding: 0.25rem 0.625rem;
   font-size: 0.8125rem;
-  color: #333;
+  color: var(--kb-neutral-700);
   display: inline-flex;
   align-items: center;
 }
@@ -1330,7 +1335,7 @@ table.dataTable thead > tr > th {
 .personal-details .email-chip .remove {
   margin-left: 0.5rem;
   cursor: pointer;
-  color: #888;
+  color: var(--kb-on-surface-tertiary);
 }
 
 .personal-details .add-link {
@@ -1338,7 +1343,7 @@ table.dataTable thead > tr > th {
   align-items: center;
   gap: 0.25rem;
   font-size: 0.875rem;
-  color: #175CD3;
+  color: var(--kb-primary);
   text-decoration: none;
 }
 
@@ -1361,11 +1366,11 @@ table.dataTable thead > tr > th {
   flex-direction: row;
   border-radius: 0.25rem;
   gap: 0.25rem;
-  border: 0.0625rem solid #E9EAEB;
-  background-color: #FAFAFA;
+  border: 0.0625rem solid var(--kb-outline-primary);
+  background-color: var(--kb-surface-container-low);
   padding: 0.125rem 0.5rem;
   font-size: 0.875rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   line-height: 1.25rem;
 }
 
@@ -1380,14 +1385,14 @@ table.dataTable thead > tr > th {
   align-items: start;
   justify-content: space-between;
   padding: 0;
-  border-bottom: 0.0625rem solid #E9EAEB;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
 }
 
 .payment-methods .payment-methods-header h2 {
   font-weight: 600;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   margin-bottom: 1.25rem;
 }
 
@@ -1402,7 +1407,7 @@ table.dataTable thead > tr > th {
 .payment-methods .info-wrapper {
   border: none !important;
   margin-top: 1.25rem;
-  border-bottom: 0.0625rem solid #E9EAEB !important;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary) !important;
 }
 
 .payment-methods .info-wrapper .toggler {
@@ -1412,7 +1417,7 @@ table.dataTable thead > tr > th {
 }
 
 .payment-methods .payment-method {
-  border-bottom: 0.0625rem solid #e0e0e0;
+  border-bottom: 0.0625rem solid var(--kb-outline-primary);
   padding: 0.375rem 0;
   font-family: sans-serif;
   position: relative;
@@ -1433,7 +1438,7 @@ table.dataTable thead > tr > th {
 }
 
 .payment-methods .column strong {
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
   font-weight: 600;
   font-size: 0.875rem !important;
   line-height: 1.25rem;
@@ -1442,7 +1447,7 @@ table.dataTable thead > tr > th {
 }
 
 .payment-methods .column div {
-  color: #717680 !important;
+  color: var(--kb-on-surface-quaternary) !important;
   font-weight: 500;
   font-size: 0.875rem !important;
   line-height: 1.25rem;
@@ -1461,11 +1466,11 @@ table.dataTable thead > tr > th {
 .payment-methods .copy-icon {
   margin-left: 0.5rem;
   cursor: pointer;
-  color: #888;
+  color: var(--kb-on-surface-tertiary);
 }
 
 .payment-methods .delete-link {
-  color: #D92D20;
+  color: var(--kb-error);
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1482,7 +1487,7 @@ table.dataTable thead > tr > th {
 }
 
 .payment-methods .primary {
-  color: #A4A7AE;
+  color: var(--kb-on-surface-quaternary);
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1491,7 +1496,7 @@ table.dataTable thead > tr > th {
 
 .payment-methods .make-primary {
   font-weight: 500;
-  color: #535862;
+  color: var(--kb-on-surface-tertiary);
   font-size: 0.875rem;
   line-height: 1.25rem;
   letter-spacing: 0;
@@ -1509,7 +1514,7 @@ table.dataTable thead > tr > th {
 .payment-methods .toggle-checkbox:checked + .payment-summary + .payment-detail {
   max-height: 62.5rem;
   padding-top: 0.75rem;
-  border-top: 0.0625rem solid #E9EAEB;
+  border-top: 0.0625rem solid var(--kb-outline-primary);
   margin-top: 0.75rem;
 }
 
@@ -1534,7 +1539,7 @@ table.dataTable thead > tr > th {
   position: absolute;
   top: 1.75rem;
   right: 0;
-  background: white;
+  background: var(--kb-neutral-0);
   border-radius: 0.75rem;
   box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.1);
   min-width: 8.75rem;
@@ -1557,12 +1562,12 @@ table.dataTable thead > tr > th {
 }
 
 .payment-methods .action-dropdown li:hover {
-  background-color: #f5f5f5;
+  background-color: var(--kb-surface-container);
 }
 
 .payment-methods .action-dropdown a {
   text-decoration: none;
-  color: #4a4a4a;
+  color: var(--kb-on-surface-secondary);
   font-weight: 500;
   display: flex;
   align-items: center;
@@ -1597,7 +1602,7 @@ table.dataTable thead > tr > th {
 .payment-methods .payment-method-details .detail-item b {
   display: block;
   margin-bottom: 0.25rem;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
   font-weight: 600;
   font-size: 0.875rem !important;
   line-height: 1.25rem;
@@ -1606,7 +1611,7 @@ table.dataTable thead > tr > th {
 
 .payment-methods .payment-method-details .detail-item span {
   display: block;
-  color: #717680 !important;
+  color: var(--kb-on-surface-quaternary) !important;
   font-weight: 400;
   font-size: 0.875rem !important;
   line-height: 1.25rem;
@@ -1631,7 +1636,7 @@ table.dataTable thead > tr > th {
   font-size: 0.875rem;
   line-height: 1.25rem;
   letter-spacing: 0;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
 }
 .list-bar-custom-fields .tag-select-box label {
   margin: 0;
@@ -1640,7 +1645,7 @@ table.dataTable thead > tr > th {
 
 .list-bar-custom-fields .tag-description {
   border-radius: 0.25rem;
-  background-color: #FAFAFA;
+  background-color: var(--kb-surface-container-low);
   padding: 0.125rem 0.5rem;
   margin: 0 0.25rem;
   font-weight: 500;
@@ -1648,8 +1653,8 @@ table.dataTable thead > tr > th {
   line-height: 1.125rem;
   letter-spacing: 0;
   text-align: center;
-  color: #717680;
-  border: 0.0625rem solid #F5F5F5;
+  color: var(--kb-on-surface-quaternary);
+  border: 0.0625rem solid var(--kb-surface-container);
 }
 
 /* app/views/kaui/charges/new.html.erb */
@@ -1662,7 +1667,7 @@ table.dataTable thead > tr > th {
   font-size: 1.125rem;
   line-height: 1.75rem;
   letter-spacing: 0;
-  color: #1B1C1E;
+  color: var(--kb-on-surface-primary);
   padding: 1rem 0;
   margin-bottom: 1.5rem;
 }
@@ -1671,7 +1676,7 @@ table.dataTable thead > tr > th {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -1689,11 +1694,11 @@ table.dataTable thead > tr > th {
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .add-new-charge-modal .question-circle {
-  color: #A4A7AE;
+  color: var(--kb-on-surface-quaternary);
   font-size: 1rem;
   width: 1rem;
   height: 1rem;
@@ -1716,7 +1721,7 @@ table.dataTable thead > tr > th {
 .add-new-charge-modal .form-group.d-flex .form-control:focus {
   outline: none;
   box-shadow: none;
-  border: 0.0625rem solid #1A73E8;
+  border: 0.0625rem solid var(--kb-primary);
 }
 
 .add-new-charge-modal .form-group select.form-control {
@@ -1739,7 +1744,7 @@ table.dataTable thead > tr > th {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   display: flex;
   align-items: center;
   gap: 0.375rem;
@@ -1765,7 +1770,7 @@ table.dataTable thead > tr > th {
   font-size: 1.125rem;
   line-height: 1.75rem;
   letter-spacing: 0;
-  color: #1B1C1E;
+  color: var(--kb-on-surface-primary);
   padding: 1rem 0;
   margin-bottom: 1.5rem;
 }
@@ -1774,7 +1779,7 @@ table.dataTable thead > tr > th {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -1790,11 +1795,11 @@ table.dataTable thead > tr > th {
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .add-new-credit-modal .question-circle {
-  color: #A4A7AE;
+  color: var(--kb-on-surface-quaternary);
   font-size: 1rem;
   width: 1rem;
   height: 1rem;
@@ -1817,7 +1822,7 @@ table.dataTable thead > tr > th {
 .add-new-credit-modal .form-group.d-flex .form-control:focus {
   outline: none;
   box-shadow: none;
-  border: 0.0625rem solid #1A73E8;
+  border: 0.0625rem solid var(--kb-primary);
 }
 
 .add-new-credit-modal .form-group select.form-control {
@@ -1843,7 +1848,7 @@ table.dataTable thead > tr > th {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   display: flex;
   align-items: center;
   gap: 0.375rem;
@@ -1869,7 +1874,7 @@ table.dataTable thead > tr > th {
   font-size: 1.125rem;
   line-height: 1.75rem;
   letter-spacing: 0;
-  color: #1B1C1E;
+  color: var(--kb-on-surface-primary);
   padding: 1rem 0;
   margin-bottom: 1.5rem;
 }
@@ -1878,7 +1883,7 @@ table.dataTable thead > tr > th {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -1894,11 +1899,11 @@ table.dataTable thead > tr > th {
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .add-new-account-email-modal .question-circle {
-  color: #A4A7AE;
+  color: var(--kb-on-surface-quaternary);
   font-size: 1rem;
   width: 1rem;
   height: 1rem;
@@ -1927,7 +1932,7 @@ table.dataTable thead > tr > th {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   display: flex;
   align-items: center;
   gap: 0.375rem;
@@ -1943,7 +1948,7 @@ table.dataTable thead > tr > th {
   font-size: 1.125rem;
   line-height: 1.75rem;
   letter-spacing: 0;
-  color: #1B1C1E;
+  color: var(--kb-on-surface-primary);
   padding: 1.5rem 0;
 }
 
@@ -1951,7 +1956,7 @@ table.dataTable thead > tr > th {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -1967,11 +1972,11 @@ table.dataTable thead > tr > th {
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .add-new-payment-method-modal .question-circle {
-  color: #A4A7AE;
+  color: var(--kb-on-surface-quaternary);
   font-size: 1rem;
   width: 1rem;
   height: 1rem;
@@ -2000,7 +2005,7 @@ table.dataTable thead > tr > th {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   display: flex;
   align-items: center;
   gap: 0.375rem;
@@ -2011,7 +2016,7 @@ table.dataTable thead > tr > th {
   background-color: transparent !important;
   border: none !important;
   text-decoration: none !important;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   margin-bottom: 1rem;
 }
 
@@ -2020,11 +2025,11 @@ table.dataTable thead > tr > th {
 }
 
 .add-new-payment-method-modal .payment-method-form table thead th {
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   font-weight: 500 !important;
   font-size: 0.75rem;
   line-height: 1.125rem;
-  background: #FAFAFA !important;
+  background: var(--kb-surface-container-low) !important;
 }
 
 .add-new-payment-method-modal .payment-method-form table thead th:first-child {
@@ -2059,7 +2064,7 @@ table.dataTable thead > tr > th {
   font-size: 1.125rem;
   line-height: 1.75rem;
   letter-spacing: 0;
-  color: #1B1C1E;
+  color: var(--kb-on-surface-primary);
   padding: 1.5rem 0;
 }
 
@@ -2067,7 +2072,7 @@ table.dataTable thead > tr > th {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 0.0625rem solid #D5D7DA;
+  border: 0.0625rem solid var(--kb-outline-secondary);
   border-radius: 0.375rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -2083,11 +2088,11 @@ table.dataTable thead > tr > th {
   font-size: 0.875rem !important;
   font-weight: 500 !important;
   line-height: 1.25rem !important;
-  color: #414651 !important;
+  color: var(--kb-on-surface-secondary) !important;
 }
 
 .process-transaction-modal .question-circle {
-  color: #A4A7AE;
+  color: var(--kb-on-surface-quaternary);
   font-size: 1rem;
   width: 1rem;
   height: 1rem;
@@ -2110,7 +2115,7 @@ table.dataTable thead > tr > th {
 .process-transaction-modal .form-group.d-flex .form-control:focus {
   outline: none;
   box-shadow: none;
-  border: 0.0625rem solid #1A73E8;
+  border: 0.0625rem solid var(--kb-primary);
 }
 
 .process-transaction-modal .form-group select.form-control {
@@ -2133,7 +2138,7 @@ table.dataTable thead > tr > th {
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  color: #414651;
+  color: var(--kb-on-surface-secondary);
   display: flex;
   align-items: center;
   gap: 0.375rem;
@@ -2153,7 +2158,7 @@ table.dataTable thead > tr > th {
   background-color: transparent !important;
   border: none !important;
   text-decoration: none !important;
-  color: #175CD3 !important;
+  color: var(--kb-primary) !important;
   margin-bottom: 1rem;
 }
 
@@ -2163,7 +2168,7 @@ table.dataTable thead > tr > th {
 }
 
 .process-transaction-modal .payment-method-form table tr:last-of-type {
-  border-color: #ccc !important;
+  border-color: var(--kb-outline-secondary) !important;
 }
 
 .process-transaction-modal .payment-method-form .table>:not(:last-child)>:last-child>* {
@@ -2171,11 +2176,11 @@ table.dataTable thead > tr > th {
 }
 
 .process-transaction-modal .payment-method-form table thead th {
-  color: #717680;
+  color: var(--kb-on-surface-quaternary);
   font-weight: 500 !important;
   font-size: 0.75rem;
   line-height: 1.125rem;
-  background: #FAFAFA !important;
+  background: var(--kb-surface-container-low) !important;
   text-transform: capitalize;
 }
 
