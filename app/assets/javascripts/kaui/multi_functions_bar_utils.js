@@ -442,7 +442,15 @@ $(document).ready(function() {
     var searches = getSavedSearches();
     var params = searches[name];
     if (params) {
-      var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + params;
+      var query;
+      if (params.indexOf('_q=1') === 0) {
+        // Advanced search: same URL format as the Apply button (see _advanced_search_filterbar.html.erb),
+        // which is the one understood by the accounts, invoices and payments pages
+        query = 'advance_search_query=' + encodeURIComponent(decodeURIComponent(params));
+      } else {
+        query = params;
+      }
+      var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + query;
       window.location.href = newUrl;
     }
   });

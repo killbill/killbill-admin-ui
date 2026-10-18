@@ -108,7 +108,7 @@ $(document).ready(function() {
       url: "<%= accounts_pagination_path(:ordering => @ordering, :format => :json) %>",
       headers: {"X-CSRF-Token": $("meta[name='csrf-token']").attr("content")},
       data: function(d) {
-        d.advance_search_query = "<%= j(@advance_search_query.to_s) %>";
+        d.advance_search_query = "<%= raw j(@advance_search_query.to_s) %>"; // raw: ERB would turn '&' into '&amp;'; j() already makes it safe for a JS string
         return d;
       },
       dataSrc: function(json) {
