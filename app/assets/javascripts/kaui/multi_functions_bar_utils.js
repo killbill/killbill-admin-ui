@@ -30,11 +30,23 @@ function searchParseOperatorText(text) {
 function getUrlParams() {
   var params = {};
   var advanceSearchQuery = new URLSearchParams(window.location.search).get('advance_search_query');
-  var queryString = advanceSearchQuery !== null ? advanceSearchQuery : window.location.search.substring(1).replace(/ac_id/g, 'account_id');
+  // URLSearchParams already decoded advance_search_query (e.g. 'name[like]=%test%'), so it must not be decoded
+  // again: decodeURIComponent throws on the bare '%' of a LIKE value, which aborts the table's draw handler
+  // and leaves the DataTables loading indicator on screen.
+  var alreadyDecoded = advanceSearchQuery !== null;
+  var queryString = alreadyDecoded ? advanceSearchQuery : window.location.search.substring(1).replace(/ac_id/g, 'account_id');
+  var decode = function(s) {
+    if (alreadyDecoded) return s;
+    try {
+      return decodeURIComponent(s);
+    } catch (e) {
+      return s;
+    }
+  };
   var regex = /([^&=]+)=([^&]*)/g;
   var m;
   while (m = regex.exec(queryString)) {
-    params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+    params[decode(m[1])] = decode(m[2]);
   }
   return params;
 }
