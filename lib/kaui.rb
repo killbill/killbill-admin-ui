@@ -172,7 +172,7 @@ module Kaui
     values = fields.map do |attr|
       case attr
       when 'auth_amount', 'captured_amount', 'purchased_amount', 'refunded_amount', 'credited_amount'
-        view_context.humanized_money_with_symbol(payment&.send("#{attr.downcase}_to_money" ))
+        view_context.humanized_money_with_symbol(payment&.send("#{attr.downcase}_to_money"))
       when 'payment_number'
         view_context.link_to(payment.payment_number, view_context.url_for(controller: :payments, action: :show, account_id: payment.account_id, id: payment.payment_id))
       when 'payment_date'
