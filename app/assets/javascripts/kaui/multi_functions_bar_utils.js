@@ -30,11 +30,23 @@ function searchParseOperatorText(text) {
 function getUrlParams() {
   var params = {};
   var advanceSearchQuery = new URLSearchParams(window.location.search).get('advance_search_query');
-  var queryString = advanceSearchQuery !== null ? advanceSearchQuery : window.location.search.substring(1).replace(/ac_id/g, 'account_id');
+  // URLSearchParams already decoded advance_search_query (e.g. 'name[like]=%test%'), so it must not be decoded
+  // again: decodeURIComponent throws on the bare '%' of a LIKE value, which aborts the table's draw handler
+  // and leaves the DataTables loading indicator on screen.
+  var alreadyDecoded = advanceSearchQuery !== null;
+  var queryString = alreadyDecoded ? advanceSearchQuery : window.location.search.substring(1).replace(/ac_id/g, 'account_id');
+  var decode = function(s) {
+    if (alreadyDecoded) return s;
+    try {
+      return decodeURIComponent(s);
+    } catch (e) {
+      return s;
+    }
+  };
   var regex = /([^&=]+)=([^&]*)/g;
   var m;
   while (m = regex.exec(queryString)) {
-    params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+    params[decode(m[1])] = decode(m[2]);
   }
   return params;
 }
@@ -442,7 +454,15 @@ $(document).ready(function() {
     var searches = getSavedSearches();
     var params = searches[name];
     if (params) {
-      var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + params;
+      var query;
+      if (params.indexOf('_q=1') === 0) {
+        // Advanced search: same URL format as the Apply button (see _advanced_search_filterbar.html.erb),
+        // which is the one understood by the accounts, invoices and payments pages
+        query = 'advance_search_query=' + encodeURIComponent(decodeURIComponent(params));
+      } else {
+        query = params;
+      }
+      var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + query;
       window.location.href = newUrl;
     }
   });
