@@ -24,7 +24,7 @@ jobs:
           git config --global url."https://${BUILD_USER}:${BUILD_TOKEN}@github.com/".insteadOf "git@github.com:"
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2.2'
+          ruby-version: '3.2'
       - name: Download Ruby dependencies
         run: |
           bundle install
