@@ -21,13 +21,25 @@
 
 
         <% if can?(:delete, Kaui::AdminTenant) %>
-            <%= link_to admin_tenant_delete_catalog_path(id: @tenant.id), :method => :delete, class: "text-decoration-none" do %>
-                <%= render "kaui/components/button/button", {
-                    label: "Delete Catalog",
-                    variant: "outline-secondary d-inline-flex align-items-center gap-1",
-                    type: "button",
-                    html_class: "kaui-button dots-menu custom-hover",
-                } %>
+            <% if @is_aviate_catalog %>
+                <span class="d-inline-block" tabindex="0" title="Aviate catalog cannot be deleted">
+                    <%= render "kaui/components/button/button", {
+                        label: "Delete Catalog",
+                        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                        type: "button",
+                        html_class: "kaui-button dots-menu custom-hover",
+                        html_options: { disabled: true, style: "pointer-events: none;" }
+                    } %>
+                </span>
+            <% else %>
+                <%= link_to admin_tenant_delete_catalog_path(id: @tenant.id), :method => :delete, class: "text-decoration-none" do %>
+                    <%= render "kaui/components/button/button", {
+                        label: "Delete Catalog",
+                        variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                        type: "button",
+                        html_class: "kaui-button dots-menu custom-hover",
+                    } %>
+                <% end %>
             <% end %>
         <% end %>
         <%= link_to download_catalog_xml_path(id: @tenant.id, effective_date: @latest_version), id: "download_link", class: "text-decoration-none" do %>

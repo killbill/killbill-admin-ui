@@ -15,7 +15,7 @@
       <div class="form-group d-flex pb-3 border-bottom mb-3">
         <%= f.label :amount, 'Amount', class: 'col-sm-3 control-label' %>
         <div class="input-group">
-          <%= f.number_field :amount, step: :any, id: 'charge_amount', class: 'form-control', placeholder: '$ 0.00', disabled: fix_transaction_state %>
+          <%= f.number_field :amount, step: :any, id: 'charge_amount', class: 'form-control', placeholder: '0.00', disabled: fix_transaction_state %>
           <div class="input-group-append">
             <% if @invoice.present? %>
               <span class="input-group-text"><%= @invoice.currency %></span>
