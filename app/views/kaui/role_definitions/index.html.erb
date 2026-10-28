@@ -1,0 +1,69 @@
+<div class="kaui-container kaui-users-index">
+  <%= render partial: 'kaui/components/breadcrumb/breadcrumb', locals: {
+    breadcrumbs: [
+      { label: 'Settings', href: '/' },
+      { label: "Roles", href: '#' }
+    ]
+  } %>
+
+  <div class="d-flex" style="gap: 4rem;">
+    <%= render :template => 'kaui/layouts/kaui_setting_sidebar' %>
+
+    <div class="users-details w-100">
+      <div class="d-flex flex-column">
+        <div class="users-details-header">
+          <h2>Roles</h2>
+          <span>
+            <% if can? :create, Kaui::AdminTenant %>
+              <%= link_to new_role_definition_path do %>
+                <%= render "kaui/components/button/button", {
+                  label: "Create Role",
+                  icon: "kaui/plus.svg",
+                  variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                  type: "button",
+                  html_class: "kaui-dropdown custom-hover",
+                } %>
+              <% end %>
+            <% end %>
+          </span>
+        </div>
+
+        <div class="mt-4">
+          <% if @list_unsupported %>
+            <p>Listing roles requires Kill Bill 0.25 or later.</p>
+          <% elsif @role_definitions.empty? %>
+            <p>No roles found.</p>
+          <% else %>
+            <table id="role-definitions-table" class="allowed-users-table">
+              <thead>
+                <tr>
+                  <th>Role</th>
+                  <th>Permissions</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @role_definitions.each do |role_definition| %>
+                  <tr>
+                    <td><%= link_to role_definition.role, edit_role_definition_path(role_definition.role) %></td>
+                    <td><%= Array(role_definition.permissions).join(', ') %></td>
+                    <td class="text-end">
+                      <%= link_to edit_role_definition_path(role_definition.role), class: 'text-decoration-none' do %>
+                        <%= render "kaui/components/button/button", {
+                          label: "Edit",
+                          variant: "outline-secondary d-inline-flex align-items-center gap-1",
+                          type: "button",
+                          html_class: "kaui-button edit-button custom-hover",
+                        } %>
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

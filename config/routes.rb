@@ -226,5 +226,5 @@ Kaui::Engine.routes.draw do
     post '/add_tenant' => 'admin_allowed_users#add_tenant', :as => 'add_tenant'
   end
 
-  resources :role_definitions, only: %i[new create]
+  resources :role_definitions, only: %i[index new create edit update], constraints: { id: %r{[^/]+} }
 end

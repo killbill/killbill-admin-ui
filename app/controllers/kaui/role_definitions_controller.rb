@@ -2,6 +2,18 @@
 
 module Kaui
   class RoleDefinitionsController < Kaui::EngineController
+    def index
+      @role_definitions = Kaui::RoleDefinition.find_all(options_for_klient).sort_by { |role_definition| role_definition.role.to_s }
+    rescue StandardError => e
+      @role_definitions = []
+      if e.is_a?(KillBillClient::API::ClientError) && [404, 405].include?(e.response.code.to_i)
+        # Listing roles requires Kill Bill 0.25+
+        @list_unsupported = true
+      else
+        flash.now[:error] = "Error while retrieving roles: #{as_string(e)}"
+      end
+    end
+
     def new
       @role_definition = Kaui::RoleDefinition.new
 
@@ -15,6 +27,20 @@ module Kaui
         external: params[:external],
         allowed_user_id: params[:allowed_user_id]
       }
+    end
+
+    def edit
+      @role_definition = Kaui::RoleDefinition.find_by_name(params.require(:id), options_for_klient)
+
+      # Kill Bill answers 200 with no permissions for a role that does not exist
+      if Array(@role_definition.permissions).empty?
+        redirect_to role_definitions_path, flash: { error: "Role '#{params[:id]}' was not found" }
+        return
+      end
+
+      @role_definition.permissions = Array(@role_definition.permissions).join(',')
+    rescue StandardError => e
+      redirect_to role_definitions_path, flash: { error: "Error while retrieving role: #{as_string(e)}" }
     end
 
     def create
@@ -47,6 +73,20 @@ module Kaui
       rescue StandardError => e
         flash.now[:error] = "Error while creating role: #{as_string(e)}"
         render action: :new
+      end
+    end
+
+    def update
+      @role_definition = Kaui::RoleDefinition.new(role: params.require(:id),
+                                                  permissions: params.require(:role_definition)[:permissions].to_s.split(',').map(&:strip).compact_blank)
+
+      begin
+        @role_definition.update(current_user.kb_username, params[:reason], params[:comment], options_for_klient)
+        redirect_to role_definitions_path, notice: "Role '#{@role_definition.role}' was successfully updated"
+      rescue StandardError => e
+        @role_definition.permissions = @role_definition.permissions.join(',')
+        flash.now[:error] = "Error while updating role: #{as_string(e)}"
+        render action: :edit
       end
     end
   end
