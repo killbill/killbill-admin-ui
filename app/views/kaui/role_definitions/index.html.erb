@@ -33,7 +33,7 @@
           <% if @list_unsupported %>
             <p>Listing roles requires Kill Bill 0.25 or later.</p>
           <% else %>
-            <table id="role-definitions-table" class="allowed-users-table">
+            <table id="role-definitions-table" class="allowed-users-table" data-search="<%= @search_query %>">
               <thead>
                 <tr>
                   <th>Role</th>
@@ -67,7 +67,7 @@
       "ordering": false,
       "processing": true,
       "serverSide": true,
-      "search": {"search": <%= raw (@search_query || '').to_json %>},
+      "search": {"search": $('#role-definitions-table').attr('data-search') || ''},
       "ajax": "<%= role_definitions_pagination_path(:format => :json) %>",
       "initComplete": function() {
         // Show the search box next to the Create Role button, keeping the standard DataTables search styling
