@@ -46,7 +46,7 @@ module Kaui
       assert_response :success
     end
 
-    test 'should list role definitions' do
+    test 'should render the roles table that is filled from the server' do
       roles = [Kaui::RoleDefinition.new(role: 'b_role', permissions: ['invoice:view']),
                Kaui::RoleDefinition.new(role: 'a_role', permissions: %w[account:create account:update])]
 
@@ -55,19 +55,57 @@ module Kaui
       end
 
       assert_response :success
-      assert_equal %w[a_role b_role], assigns(:role_definitions).map(&:role)
+      assert_equal 2, assigns(:max_nb_records)
       assert_nil assigns(:list_unsupported)
+      assert_select 'table#role-definitions-table tbody tr', count: 0
+      assert_select 'script', text: %r{role_definitions/pagination\.json}
+    end
+
+    test 'should paginate role definitions on the server' do
+      roles = Array.new(5) { |i| Kaui::RoleDefinition.new(role: "role_#{i}", permissions: ['invoice:view']) }.reverse
+
+      Kaui::RoleDefinition.stub(:find_all, roles) do
+        get :pagination, params: { draw: 1, start: 2, length: 2 }, format: :json
+      end
+
+      assert_response :success
+      json = JSON.parse(response.body)
+      assert_equal 5, json['recordsTotal']
+      assert_equal 5, json['recordsFiltered']
+      assert_equal(%w[role_2 role_3], json['data'].map { |row| Nokogiri::HTML.fragment(row[0]).text })
+    end
+
+    test 'should search role definitions by role name or permission on the server' do
+      roles = [Kaui::RoleDefinition.new(role: 'finance', permissions: ['invoice:view']),
+               Kaui::RoleDefinition.new(role: 'support', permissions: ['account:view']),
+               Kaui::RoleDefinition.new(role: 'ops', permissions: ['Invoice:create'])]
+
+      Kaui::RoleDefinition.stub(:find_all, roles) do
+        get :pagination, params: { draw: 1, start: 0, length: 10, search: { value: 'FINANCE' } }, format: :json
+        json = JSON.parse(response.body)
+        assert_equal 3, json['recordsTotal']
+        assert_equal 1, json['recordsFiltered']
+        assert_equal(['finance'], json['data'].map { |row| Nokogiri::HTML.fragment(row[0]).text })
+
+        get :pagination, params: { draw: 2, start: 0, length: 10, search: { value: 'invoice' } }, format: :json
+        assert_equal(%w[finance ops], JSON.parse(response.body)['data'].map { |row| Nokogiri::HTML.fragment(row[0]).text })
+
+        get :pagination, params: { draw: 3, start: 0, length: 10, search: { value: 'nomatch' } }, format: :json
+        assert_empty JSON.parse(response.body)['data']
+      end
     end
 
     test 'should link to the edit page of each listed role' do
       roles = [Kaui::RoleDefinition.new(role: 'finance', permissions: ['invoice:view'])]
 
       Kaui::RoleDefinition.stub(:find_all, roles) do
-        get :index
+        get :pagination, params: { draw: 1, start: 0, length: 10 }, format: :json
       end
 
-      assert_select "a[href='#{edit_role_definition_path('finance')}']"
-      assert_select 'td', text: 'invoice:view'
+      row = JSON.parse(response.body)['data'].first
+      assert_includes row[0], "href=\"#{edit_role_definition_path('finance')}\""
+      assert_equal 'invoice:view', row[1]
+      assert_includes row[2], "href=\"#{edit_role_definition_path('finance')}\""
     end
 
     test 'should handle servers that cannot list role definitions' do
@@ -77,7 +115,7 @@ module Kaui
       end
 
       assert_response :success
-      assert_empty assigns(:role_definitions)
+      assert_equal 0, assigns(:max_nb_records)
       assert assigns(:list_unsupported)
     end
 

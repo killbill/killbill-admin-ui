@@ -2,16 +2,54 @@
 
 module Kaui
   class RoleDefinitionsController < Kaui::EngineController
+    DEFAULT_PAGE_SIZE = 20
+
     def index
-      @role_definitions = Kaui::RoleDefinition.find_all(options_for_klient).sort_by { |role_definition| role_definition.role.to_s }
+      @search_query = params[:q]
+      @offset = params[:offset] || 0
+      @limit = params[:limit] || DEFAULT_PAGE_SIZE
+
+      # The roles are paginated and searched on the server (see #pagination), this only checks that listing is supported
+      @max_nb_records = all_role_definitions.size
     rescue StandardError => e
-      @role_definitions = []
+      @max_nb_records = 0
       if e.is_a?(KillBillClient::API::ClientError) && [404, 405].include?(e.response.code.to_i)
         # Listing roles requires Kill Bill 0.25+
         @list_unsupported = true
       else
         flash.now[:error] = "Error while retrieving roles: #{as_string(e)}"
       end
+    end
+
+    def pagination
+      searcher = lambda do |search_key, offset, limit|
+        all = all_role_definitions
+        matching = filter_role_definitions(all, search_key)
+        page = matching.slice(offset, limit) || []
+        max_nb_records = all.size
+        total_nb_records = matching.size
+        page.define_singleton_method(:pagination_max_nb_records) { max_nb_records }
+        page.define_singleton_method(:pagination_total_nb_records) { total_nb_records }
+        page
+      end
+
+      data_extractor = lambda do |role_definition, column|
+        [
+          role_definition.role,
+          Array(role_definition.permissions).join(', ')
+        ][column]
+      end
+
+      formatter = lambda do |role_definition|
+        edit_path = view_context.edit_role_definition_path(role_definition.role)
+        [
+          view_context.link_to(role_definition.role, edit_path),
+          Array(role_definition.permissions).join(', '),
+          view_context.link_to('Edit', edit_path, class: 'kaui-button edit-button custom-hover text-decoration-none')
+        ]
+      end
+
+      paginate searcher, data_extractor, formatter
     end
 
     def new
@@ -87,6 +125,22 @@ module Kaui
         @role_definition.permissions = @role_definition.permissions.join(',')
         flash.now[:error] = "Error while updating role: #{as_string(e)}"
         render action: :edit
+      end
+    end
+
+    private
+
+    def all_role_definitions
+      Kaui::RoleDefinition.find_all(options_for_klient).sort_by { |role_definition| role_definition.role.to_s }
+    end
+
+    # Case-insensitive match on the role name or any of its permissions
+    def filter_role_definitions(role_definitions, search_key)
+      return role_definitions if search_key.blank?
+
+      needle = search_key.to_s.downcase
+      role_definitions.select do |role_definition|
+        role_definition.role.to_s.downcase.include?(needle) || Array(role_definition.permissions).any? { |permission| permission.to_s.downcase.include?(needle) }
       end
     end
   end

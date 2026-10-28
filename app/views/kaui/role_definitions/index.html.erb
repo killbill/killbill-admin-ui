@@ -13,7 +13,8 @@
       <div class="d-flex flex-column">
         <div class="users-details-header">
           <h2>Roles</h2>
-          <span>
+          <span class="d-flex align-items-start gap-3">
+            <span id="role-definitions-search"></span>
             <% if can? :create, Kaui::AdminTenant %>
               <%= link_to new_role_definition_path do %>
                 <%= render "kaui/components/button/button", {
@@ -31,8 +32,6 @@
         <div class="mt-4">
           <% if @list_unsupported %>
             <p>Listing roles requires Kill Bill 0.25 or later.</p>
-          <% elsif @role_definitions.empty? %>
-            <p>No roles found.</p>
           <% else %>
             <table id="role-definitions-table" class="allowed-users-table">
               <thead>
@@ -43,22 +42,6 @@
                 </tr>
               </thead>
               <tbody>
-                <% @role_definitions.each do |role_definition| %>
-                  <tr>
-                    <td><%= link_to role_definition.role, edit_role_definition_path(role_definition.role) %></td>
-                    <td><%= Array(role_definition.permissions).join(', ') %></td>
-                    <td class="text-end">
-                      <%= link_to edit_role_definition_path(role_definition.role), class: 'text-decoration-none' do %>
-                        <%= render "kaui/components/button/button", {
-                          label: "Edit",
-                          variant: "outline-secondary d-inline-flex align-items-center gap-1",
-                          type: "button",
-                          html_class: "kaui-button edit-button custom-hover",
-                        } %>
-                      <% end %>
-                    </td>
-                  </tr>
-                <% end %>
               </tbody>
             </table>
           <% end %>
@@ -67,3 +50,30 @@
     </div>
   </div>
 </div>
+
+<% unless @list_unsupported %>
+<%= javascript_tag do %>
+  $(document).ready(function() {
+    $('#role-definitions-table').DataTable({
+      "dom": "frt<'row'<'col-md-6'i><'col-md-6'p>>",
+      "pagingType": "full_numbers",
+      "language": {
+        "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+        "emptyTable": "No roles found.",
+        "zeroRecords": "No roles found."
+      },
+      "pageLength": <%= @limit.to_i %>,
+      "displayStart": <%= @offset.to_i %>,
+      "ordering": false,
+      "processing": true,
+      "serverSide": true,
+      "search": {"search": <%= raw (@search_query || '').to_json %>},
+      "ajax": "<%= role_definitions_pagination_path(:format => :json) %>",
+      "initComplete": function() {
+        // Show the search box next to the Create Role button, keeping the standard DataTables search styling
+        $('#role-definitions-table_filter').appendTo('#role-definitions-search');
+      }
+    });
+  });
+<% end %>
+<% end %>
