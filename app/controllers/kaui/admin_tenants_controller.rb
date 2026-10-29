@@ -67,6 +67,8 @@ module Kaui
                                version_date: effective_date }
       end
 
+      @is_aviate_catalog = Dependencies::Aviate::Metering.aviate_catalog?(nil, options.merge(jwt_token: cookies[:jwt_token]))
+
       @latest_version = begin
         @catalog_versions[-1][:version_date]
       rescue StandardError
