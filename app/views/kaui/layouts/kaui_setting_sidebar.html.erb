@@ -4,6 +4,7 @@
   session[:tenant_id].present? ? { label: session["kb_tenant_name"], path: kaui_engine.admin_tenant_path(session[:tenant_id]), controller_suffix: "#{session[:tenant_id]}", icon_path: 'kaui/setting/account.svg' } : nil,
   { label: 'Tenants', path: kaui_engine.admin_tenants_path, controller_suffix: 'admin_tenants', icon_path: 'kaui/setting/tenants.svg' },
   { label: 'Users', path: kaui_engine.admin_allowed_users_path, controller_suffix: 'admin_allowed_users', icon_path: 'kaui/setting/users.svg' },
+  { label: 'Roles', path: kaui_engine.role_definitions_path, controller_suffix: 'role_definitions', icon_path: 'kaui/setting/users.svg' },
   { label: 'Tags', path: kaui_engine.tags_path, controller_suffix: 'tags', icon_path: 'kaui/setting/tags.svg' },
   { label: 'Tag Definitions', path: kaui_engine.tag_definitions_path, controller_suffix: 'tag_definitions', icon_path: 'kaui/setting/tag-definitions.svg' },
   { label: 'Custom Fields', path: kaui_engine.custom_fields_path, controller_suffix: 'custom_fields', icon_path: 'kaui/setting/custom-field.svg' }

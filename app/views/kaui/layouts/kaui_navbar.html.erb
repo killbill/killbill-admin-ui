@@ -41,6 +41,7 @@
                 </button>
                 <ul class="dropdown-menu">
                   <li><%= link_to 'Users', kaui_engine.admin_allowed_users_path, class: 'dropdown-item' %></li>
+                  <li><%= link_to 'Roles', kaui_engine.role_definitions_path, class: 'dropdown-item' %></li>
                   <li><%= link_to 'Tenants', kaui_engine.admin_tenants_path, class: 'dropdown-item' %></li>
                   <li><%= link_to 'Admin', kaui_engine.admin_path, class: 'dropdown-item' %></li>
                 </ul>
