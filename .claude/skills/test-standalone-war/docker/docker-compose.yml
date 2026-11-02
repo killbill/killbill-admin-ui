@@ -1,0 +1,71 @@
+# Runtime stack used to smoke-test a killbill-admin-ui-standalone WAR:
+#   db (MariaDB, holds the `killbill` + `kaui` schemas)  <-  killbill (server)  <-  kaui (WAR on Tomcat)
+# Everything is parameterised through the profile env file (see ../profiles) and scripts/run.sh.
+name: ${COMPOSE_PROJECT_NAME}
+
+services:
+  db:
+    image: ${DB_IMAGE}
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    healthcheck:
+      # TCP only answers once the image's init scripts (killbill + kaui schemas, admin user) are done.
+      # MariaDB 11 ships `mariadb`, older images only `mysql`.
+      test: ["CMD-SHELL", "c=$$(command -v mariadb || command -v mysql); $$c -h 127.0.0.1 -uroot -proot -N -e 'select count(*) from kaui.kaui_allowed_users' | grep -qv '^0$$'"]
+      interval: 5s
+      timeout: 5s
+      retries: 40
+
+  killbill:
+    image: ${KILLBILL_IMAGE}
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      KILLBILL_CATALOG_URI: SpyCarAdvanced.xml
+      KILLBILL_DAO_URL: jdbc:mysql://db:3306/killbill
+      KILLBILL_DAO_USER: root
+      KILLBILL_DAO_PASSWORD: root
+      KILLBILL_SERVER_TEST_MODE: "true"
+      KILLBILL_INVOICE_SANITY_SAFETY_BOUND_ENABLED: "false"
+      KILLBILL_INVOICE_MAX_DAILY_NUMBER_OF_ITEMS_SAFETY_BOUND: "-1"
+    ports:
+      - "${KB_PORT}:8080"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://127.0.0.1:8080/1.0/healthcheck >/dev/null"]
+      interval: 5s
+      timeout: 10s
+      retries: 120
+
+  kaui:
+    image: ${TOMCAT_IMAGE}
+    depends_on:
+      killbill:
+        condition: service_healthy
+    volumes:
+      # Deployed as the ROOT webapp, i.e. served from "/" (same as the killbill/kaui image)
+      - ${WAR_PATH}:/usr/local/tomcat/webapps/ROOT.war:ro
+    environment:
+      LOGS_DIR: /usr/local/tomcat/logs
+      # JDBC URL goes through an env var: catalina.sh evals JAVA_OPTS, so a "&" in a -D value would break it
+      KAUI_DB_URL: jdbc:mysql://db:3306/kaui?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+      JAVA_OPTS: >-
+        -Xmx1g
+        -Djava.security.egd=file:/dev/./urandom
+        -Dkaui.url=http://killbill:8080
+        -Dkaui.db.adapter=mysql2
+        -Dkaui.db.username=root
+        -Dkaui.db.password=root
+        -Dkaui.secret_key_base=${KAUI_SECRET_KEY_BASE}
+    ports:
+      - "${KAUI_PORT}:8080"
+    healthcheck:
+      # The login page only answers once the Rails app is up. Keep the timeout LONG on purpose: a probe that gets
+      # killed leaves its request running server-side, so the next probe overlaps it, and concurrent *first*
+      # requests intermittently poison the standalone WAR ("Asset ... was not declared to be precompiled", HTTP 500
+      # until restart - reproducible with the released WAR too). Serial probes avoid triggering that from the harness.
+      test: ["CMD-SHELL", "curl -sf --max-time 110 http://127.0.0.1:8080/users/sign_in >/dev/null"]
+      interval: 5s
+      timeout: 120s
+      retries: 60
+      start_period: 20s
