@@ -5,7 +5,7 @@
 #   java21 : Java 21 + JRuby 10.0 + Tomcat 11    (standalone branch master)
 #
 # For each profile: (1) build the WAR in a Docker JRuby image, (2) start MariaDB + Kill Bill + Tomcat(WAR) with
-# docker compose, (3) drive the UI with Playwright (e2e/smoke.js), (4) collect logs and tear everything down.
+# docker compose, (3) run the curl smoke test (scripts/smoke.sh), (4) collect logs and tear everything down.
 #
 # Run `run.sh --help` for the options.
 set -euo pipefail
@@ -17,7 +17,6 @@ COMPOSE_FILE="$SKILL_DIR/docker/docker-compose.yml"
 STANDALONE_REPO_URL="${STANDALONE_REPO_URL:-https://github.com/killbill/killbill-admin-ui-standalone.git}"
 KILLBILL_IMAGE="${KILLBILL_IMAGE:-killbill/killbill:0.24.3}"   # same as the standalone repo CI
 DB_IMAGE="${DB_IMAGE:-killbill/mariadb:0.24}"                  # ships the killbill + kaui schemas
-PLAYWRIGHT_VERSION="${PLAYWRIGHT_VERSION:-1.49.1}"             # only used by the Docker fallback runner
 WORK_ROOT="${KAUI_WAR_TEST_DIR:-${TMPDIR:-/tmp}/kaui-war-test}"
 BOOT_TIMEOUT="${BOOT_TIMEOUT:-600}"                            # seconds to wait for the stack to become healthy
 
@@ -29,7 +28,6 @@ WAR_OVERRIDE=""
 SKIP_BUILD=0
 KEEP=0
 CLEAN_CACHE=0
-PLAYWRIGHT_MODE="auto"                                         # auto | host | docker
 PROFILES=()
 
 usage() {
@@ -54,8 +52,7 @@ What gets built
 
 Running
   --keep                Leave the Docker stack running afterwards (URLs are printed). Stop it with:  run.sh down <profile|all>
-  --playwright MODE     auto (default) | host | docker. 'docker' runs the tests in the official Playwright image.
-  --work-dir DIR        Where sources, WARs, logs and screenshots go (default: $WORK_ROOT).
+  --work-dir DIR        Where sources, WARs and logs go (default: $WORK_ROOT).
 
 Other commands
   run.sh down <java11|java21|all>   Stop and delete the compose stack(s) of a profile.
@@ -83,7 +80,6 @@ while [[ $# -gt 0 ]]; do
     --skip-build) SKIP_BUILD=1 ;;
     --clean-cache) CLEAN_CACHE=1 ;;
     --keep) KEEP=1 ;;
-    --playwright) PLAYWRIGHT_MODE="${2:?--playwright needs a value}"; shift ;;
     --work-dir) mkdir -p "${2:?--work-dir needs a value}"; WORK_ROOT="$(cd "$2" && pwd)"; shift ;;
     java11|java21) PROFILES+=("$1") ;;
     all) PROFILES+=(java11 java21) ;;
@@ -204,25 +200,10 @@ wait_for_stack() {
 }
 
 run_tests() { # run_tests <profile-work-dir>
-  local out="$1/out"; rm -rf "$out/screenshots" "$out/results".*
-  local mode="$PLAYWRIGHT_MODE"
-  if [[ "$mode" == "auto" ]]; then
-    if node -e "require('playwright')" >/dev/null 2>&1 || NODE_PATH="$(npm root -g 2>/dev/null)" node -e "require('playwright')" >/dev/null 2>&1; then mode=host; else mode=docker; fi
-  fi
-  log "Running UI smoke tests ($mode Playwright)"
-  if [[ "$mode" == "host" ]]; then
-    ( cd "$SKILL_DIR/e2e" && NODE_PATH="${NODE_PATH:-}:$(npm root -g 2>/dev/null)" KAUI_URL="http://127.0.0.1:$KAUI_PORT" OUT_DIR="$out" node smoke.js )
-  else
-    # Join the compose network so the tests reach Tomcat as http://kaui:8080 (works on Linux, macOS and CI alike)
-    local pw_args=()
-    local ca="${SSL_CERT_FILE:-${CURL_CA_BUNDLE:-}}"   # TLS-intercepting proxy: npm in the container must trust its CA
-    [[ -n "$ca" && -f "$ca" ]] && pw_args+=(-v "$ca:/proxy-ca.crt:ro" -e NODE_EXTRA_CA_CERTS=/proxy-ca.crt)
-    [[ -n "${HTTPS_PROXY:-}" && ! "${HTTPS_PROXY}" =~ (127\.0\.0\.1|localhost) ]] && pw_args+=(-e HTTPS_PROXY)
-    docker run --rm --ipc=host --network "kauiwar-${PROFILE_NAME}_default" "${pw_args[@]}" \
-      -v "$SKILL_DIR/e2e:/e2e:ro" -v "$out:/out" -e KAUI_URL=http://kaui:8080 -e OUT_DIR=/out -e NODE_PATH=/pw/node_modules \
-      "mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-noble" \
-      bash -c "mkdir -p /pw && cd /pw && npm init -y >/dev/null 2>&1 && npm i --no-audit --no-fund playwright@${PLAYWRIGHT_VERSION} >/tmp/npm.log 2>&1 || { cat /tmp/npm.log >&2; exit 4; }; node /e2e/smoke.js"
-  fi
+  local out="$1/out"
+  log "Running smoke test against http://127.0.0.1:$KAUI_PORT"
+  "$SKILL_DIR/scripts/smoke.sh" "http://127.0.0.1:$KAUI_PORT" 2>&1 | tee "$out/results.txt"
+  return "${PIPESTATUS[0]}"
 }
 
 collect_logs() { # collect_logs <profile-work-dir>
@@ -262,7 +243,7 @@ for p in "${PROFILES[@]}"; do
 
   export_stack_env "$WAR"
   if wait_for_stack; then
-    if run_tests "$PDIR"; then RESULT="PASS"; else RESULT="FAIL"; DETAIL="UI smoke test failures (see $PDIR/out/results.txt)"; fi
+    if run_tests "$PDIR"; then RESULT="PASS"; else RESULT="FAIL"; DETAIL="smoke test failed (see $PDIR/out/results.txt)"; fi
   else
     RESULT="FAIL"; DETAIL="stack did not become healthy within ${BOOT_TIMEOUT}s"
     compose "$PROFILE_NAME" ps || true
@@ -275,10 +256,9 @@ for p in "${PROFILES[@]}"; do
     compose "$PROFILE_NAME" down -v --remove-orphans >/dev/null 2>&1 || true
   fi
 
-  [[ -f "$PDIR/out/results.txt" ]] && tail -1 "$PDIR/out/results.txt"
   [[ "${LOG_ERROR_COUNT:-0}" -gt 0 ]] && { warn "$LOG_ERROR_COUNT suspicious line(s) (HTTP 5xx / exceptions / SEVERE) in the Kaui log; first ones:"; echo "$LOG_ERRORS" | cut -c1-300; }
   [[ "$RESULT" == "FAIL" ]] && OVERALL=1
-  SUMMARY+=("$(printf '%-7s %-5s %s' "$PROFILE_NAME" "$RESULT" "$DETAIL")  [logs/screenshots: $PDIR/out]")
+  SUMMARY+=("$(printf '%-7s %-5s %s' "$PROFILE_NAME" "$RESULT" "$DETAIL")  [logs: $PDIR/out]")
 done
 
 if [[ "$COMMAND" == "test" ]]; then
