@@ -191,9 +191,9 @@ build_war() { # build_war <profile-work-dir>  -> sets WAR
   echo "Built $WAR ($(du -h "$WAR" | cut -f1)); standalone @ ${STANDALONE_COMMIT:-?}"
   if command -v unzip >/dev/null; then
     local kv
-    kv="$(unzip -p "$WAR" WEB-INF/_kaui_local/lib/kaui/version.rb 2>/dev/null | sed -n "s/.*VERSION = '\(.*\)'.*/\1/p")"
+    kv="$(unzip -p "$WAR" WEB-INF/_kaui_local/lib/kaui/version.rb 2>/dev/null | sed -n "s/.*VERSION = '\(.*\)'.*/\1/p" || true)"
     if [[ -n "$kv" ]]; then echo "Bundled Kaui engine: local checkout, version $kv"
-    else echo "Bundled Kaui engine: $(unzip -l "$WAR" 2>/dev/null | grep -Eo 'gems/kaui-[0-9.]+/' | head -1 | tr -d '/' || echo '?') (released gem)"; fi
+    else echo "Bundled Kaui engine: $( { unzip -l "$WAR" 2>/dev/null | grep -Eo 'gems/kaui-[0-9.]+/' | head -1 | sed 's|^gems/||; s|/$||'; } || true ) (released gem)"; fi
   fi
 }
 
@@ -214,10 +214,14 @@ run_tests() { # run_tests <profile-work-dir>
     ( cd "$SKILL_DIR/e2e" && NODE_PATH="${NODE_PATH:-}:$(npm root -g 2>/dev/null)" KAUI_URL="http://127.0.0.1:$KAUI_PORT" OUT_DIR="$out" node smoke.js )
   else
     # Join the compose network so the tests reach Tomcat as http://kaui:8080 (works on Linux, macOS and CI alike)
-    docker run --rm --ipc=host --network "kauiwar-${PROFILE_NAME}_default" \
+    local pw_args=()
+    local ca="${SSL_CERT_FILE:-${CURL_CA_BUNDLE:-}}"   # TLS-intercepting proxy: npm in the container must trust its CA
+    [[ -n "$ca" && -f "$ca" ]] && pw_args+=(-v "$ca:/proxy-ca.crt:ro" -e NODE_EXTRA_CA_CERTS=/proxy-ca.crt)
+    [[ -n "${HTTPS_PROXY:-}" && ! "${HTTPS_PROXY}" =~ (127\.0\.0\.1|localhost) ]] && pw_args+=(-e HTTPS_PROXY)
+    docker run --rm --ipc=host --network "kauiwar-${PROFILE_NAME}_default" "${pw_args[@]}" \
       -v "$SKILL_DIR/e2e:/e2e:ro" -v "$out:/out" -e KAUI_URL=http://kaui:8080 -e OUT_DIR=/out -e NODE_PATH=/pw/node_modules \
       "mcr.microsoft.com/playwright:v${PLAYWRIGHT_VERSION}-noble" \
-      bash -c "mkdir -p /pw && cd /pw && npm init -y >/dev/null 2>&1 && npm i --silent playwright@${PLAYWRIGHT_VERSION} >/dev/null 2>&1 && node /e2e/smoke.js"
+      bash -c "mkdir -p /pw && cd /pw && npm init -y >/dev/null 2>&1 && npm i --no-audit --no-fund playwright@${PLAYWRIGHT_VERSION} >/tmp/npm.log 2>&1 || { cat /tmp/npm.log >&2; exit 4; }; node /e2e/smoke.js"
   fi
 }
 
