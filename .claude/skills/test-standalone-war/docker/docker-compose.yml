@@ -57,6 +57,7 @@ services:
         -Dkaui.db.username=root
         -Dkaui.db.password=root
         -Dkaui.secret_key_base=${KAUI_SECRET_KEY_BASE}
+        ${EXTRA_JAVA_OPTS:-}
     ports:
       - "${KAUI_PORT}:8080"
     healthcheck:
