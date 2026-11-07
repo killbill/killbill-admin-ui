@@ -31,8 +31,8 @@ module Kaui
 
       post :create, params: { role_definition: }
 
-      assert_equal 'Role was successfully created', flash[:notice]
-      assert_response :redirect
+      assert_redirected_to role_definitions_path
+      assert_equal "Role '#{role_definition['role']}' was successfully created", flash[:notice]
     end
 
     test 'should return an error if there is a error while creating role' do
@@ -122,7 +122,8 @@ module Kaui
     test 'should edit and update a role definition' do
       role_name = "test#{SecureRandom.base64(9).gsub(%r{[/+=]}, '')}"
       post :create, params: { role_definition: { role: role_name, permissions: 'account:delete_emails' } }
-      assert_equal 'Role was successfully created', flash[:notice]
+      assert_redirected_to role_definitions_path
+      assert_equal "Role '#{role_name}' was successfully created", flash[:notice]
 
       get :edit, params: { id: role_name }
       assert_response :success
