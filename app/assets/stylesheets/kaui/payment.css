@@ -98,6 +98,11 @@
   text-decoration: none !important;
 }
 
+.payments-index .payments .payments-table tr td a.payment-number-link {
+  color: var(--kb-primary) !important;
+  font-weight: 600;
+}
+
 .payments-index .payments .payments-table td:first-child {
   padding-left: 1.25rem !important;
 }
