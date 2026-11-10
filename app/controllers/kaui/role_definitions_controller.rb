@@ -106,7 +106,7 @@ module Kaui
                         notice: "Role '#{@role_definition.role}' was successfully created"
           end
         else
-          redirect_to admin_allowed_users_path, notice: 'Role was successfully created'
+          redirect_to role_definitions_path, notice: "Role '#{@role_definition.role}' was successfully created"
         end
       rescue StandardError => e
         flash.now[:error] = "Error while creating role: #{as_string(e)}"
