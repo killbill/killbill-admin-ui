@@ -2,7 +2,10 @@
 
 module Kaui
   class Invoice < KillBillClient::Model::Invoice
-    TABLE_IGNORE_COLUMNS = %w[amount balance credit_adj refund_adj items is_parent_invoice parent_invoice_id parent_account_id audit_logs bundle_keys].freeze
+    TABLE_IGNORE_COLUMNS = %w[credit_adj refund_adj items is_parent_invoice parent_invoice_id parent_account_id audit_logs bundle_keys].freeze
+    # Columns that are only populated when the invoice components are loaded: the paginated account invoices API
+    # returns shallow invoices (amount and balance are 0) unless it is asked to include the invoice components.
+    COMPONENT_COLUMNS = %w[amount balance].freeze
     # Columns shown by default on the Invoices list screen (demo-friendly defaults); the rest remain
     # available but hidden until the user opts in via "Edit Columns".
     DEFAULT_VISIBLE_COLUMNS = %w[invoice_number invoice_id status invoice_date target_date currency account_id].freeze

@@ -29,6 +29,31 @@ module Kaui
       verify_pagination_results!
     end
 
+    test 'should offer amount and balance columns, hidden by default' do
+      fields = Kaui.account_invoices_columns.call[3]
+      Kaui::Invoice::COMPONENT_COLUMNS.each do |column|
+        assert_includes fields, column
+        assert_not_includes Kaui::Invoice::DEFAULT_VISIBLE_COLUMNS, column
+      end
+    end
+
+    test 'should only load invoice components when requested' do
+      [[nil, false], ['false', false], ['true', true]].each do |param, expected|
+        include_components = nil
+        paginated_invoices = lambda do |_account_id, _offset, _limit, _audit, _options, include_invoice_components|
+          include_components = include_invoice_components
+          []
+        end
+
+        Kaui::Account.stub(:paginated_invoices, paginated_invoices) do
+          get :pagination, params: { search: { value: @invoice_item.account_id }, include_invoice_components: param, format: :json }
+          verify_pagination_results!
+        end
+
+        assert_equal expected, include_components, "include_invoice_components=#{param.inspect}"
+      end
+    end
+
     test 'should handle Kill Bill errors in show screen' do
       invoice_id = SecureRandom.uuid.to_s
       get :show, params: { account_id: @invoice_item.account_id, id: invoice_id }
