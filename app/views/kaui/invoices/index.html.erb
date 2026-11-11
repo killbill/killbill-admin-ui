@@ -58,6 +58,23 @@ $(document).ready(function() {
     localStorage.setItem(stateKey, JSON.stringify(state));
   }
 
+  // Amount and balance are only fetched (for the invoices of the current page) when one of these columns is visible
+  var componentsRequested = false;
+  function componentColumnsVisible() {
+    var visible = false;
+    try {
+      $('#invoices-table').DataTable().columns().every(function() {
+        var title = $(this.header()).text().trim().toLowerCase();
+        if ((title === 'amount' || title === 'balance') && this.visible()) {
+          visible = true;
+        }
+      });
+    } catch (e) {
+      visible = false;
+    }
+    return visible;
+  }
+
   var table = $('#invoices-table').DataTable({
     "colReorder": {
       "enable": false
@@ -88,6 +105,8 @@ $(document).ready(function() {
       url: "<%= invoices_pagination_path(:ordering => @ordering, :format => :json, :advance_search_query => @advance_search_query) %>",
       data: function(d) {
         d.colum_order = $('#invoices-table').DataTable().colReorder.order();
+        componentsRequested = componentColumnsVisible();
+        d.include_invoice_components = componentsRequested;
       },
       dataSrc: function(json) {
         var colOrder = table.colReorder.order();
@@ -176,6 +195,11 @@ $(document).ready(function() {
       $(".dataTables_info").toggle(!noMoreData);
     <% end %>
     populateSearchLabelsFromUrl();
+
+    // Amount or balance has been made visible since the data was requested: load them for the current page
+    if (!componentsRequested && componentColumnsVisible()) {
+      table.ajax.reload(null, false);
+    }
   });
 });
 <% end %>
