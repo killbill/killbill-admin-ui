@@ -29,7 +29,7 @@ module Kaui
       verify_pagination_results!
     end
 
-    test 'should offer amount and balance columns, hidden by default' do
+    test 'should offer amount and balance columns without changing the default visible columns' do
       fields = Kaui.account_invoices_columns.call[3]
       Kaui::Invoice::COMPONENT_COLUMNS.each do |column|
         assert_includes fields, column
@@ -42,7 +42,7 @@ module Kaui
         include_components = nil
         paginated_invoices = lambda do |_account_id, _offset, _limit, _audit, _options, include_invoice_components|
           include_components = include_invoice_components
-          []
+          KillBillClient::Model::Resources.new
         end
 
         Kaui::Account.stub(:paginated_invoices, paginated_invoices) do
