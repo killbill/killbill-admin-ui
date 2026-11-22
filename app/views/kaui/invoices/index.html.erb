@@ -195,8 +195,10 @@ $(document).ready(function() {
       $(".dataTables_info").toggle(!noMoreData);
     <% end %>
     populateSearchLabelsFromUrl();
+  });
 
-    // Amount or balance has been made visible since the data was requested: load them for the current page
+  // Amount or balance has been made visible since the data was requested: load them for the current page
+  table.on('column-visibility.dt', function() {
     if (!componentsRequested && componentColumnsVisible()) {
       table.ajax.reload(null, false);
     }
