@@ -126,3 +126,20 @@ KAUI has been enriched with new models and new screens to manage the multi-tenan
 
 
 
+
+Cognito token exchange (optional)
+---------------------------------
+
+A web application whose users sign in with AWS Cognito can open Kaui for them without a second login, through `POST /sso/cognito/exchange` (`POST /sso/aviate/exchange` is kept as an alias). The feature is **disabled** (the endpoint answers `404`) unless the Cognito issuer and at least one app client id are configured, either as system properties or as environment variables:
+
+| System property | Environment variable | Description |
+|---|---|---|
+| `kaui.cognito.issuer` | `KAUI_COGNITO_ISSUER` | `https://cognito-idp.<region>.amazonaws.com/<user-pool-id>` |
+| `kaui.cognito.client_ids` (or `kaui.cognito.client_id`) | `KAUI_COGNITO_CLIENT_IDS` (or `KAUI_COGNITO_CLIENT_ID`) | Accepted Cognito app client ids (comma-separated) |
+
+The client sends the Cognito ID token as `Authorization: Bearer <token>` and, optionally, `target` (a Kaui path such as `/accounts`). The response is `{"redirectUrl": "..."}` (including the context path Kaui is mounted at) and sets the Kaui session cookie. Two modes:
+
+* **basic**: `kb_username` (defaults to the email of the token) and `kb_password`. Kaui logs into Kill Bill with Basic auth; the tenant comes from the `kaui_allowed_users` of that user (`tenant_name` disambiguates).
+* **bearer**: no `kb_password`, for users without Kill Bill credentials (requires the Cognito realm in Kill Bill). Kaui logs into Kill Bill with the Bearer token and the Kaui user is the principal reported by Kill Bill (e.g. `cognito:alice@acme.com`). The tenant comes from `tenant_api_key` and `tenant_api_secret`, which must match a tenant of `kaui_tenants` (`403` otherwise); the user is then allowed on that tenant. If Kill Bill has no Cognito realm, the answer is `401`.
+
+Users of the bearer mode have no password: when their Kill Bill session expires, Kaui displays a "reopen Kaui from the application you came from" page instead of the sign-in form. The Tenants, Users and Roles settings screens are only listed for them if their Kill Bill permissions include `*:*`.

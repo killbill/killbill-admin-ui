@@ -46,7 +46,7 @@ class Kaui::EngineController < ApplicationController
     if current_user.root?
       Kaui::Tenant.all.map(&:kb_tenant_id)
     else
-      Kaui::AllowedUser.preload(:kaui_tenants).find_by_kb_username(current_user.kb_username).kaui_tenants.map(&:kb_tenant_id)
+      Kaui::AllowedUser.preload(:kaui_tenants).find_by_kb_username(current_user.kb_username)&.kaui_tenants&.map(&:kb_tenant_id) || []
     end
   end
 

@@ -77,7 +77,8 @@ Warden::Manager.after_set_user do |user, auth, opts|
   unless user.authenticated_with_killbill?
     scope = opts[:scope]
     auth.logout(scope)
-    throw(:warden, scope:, reason: 'Kill Bill session expired')
+    # Users without Kill Bill credentials (Cognito token exchange) can't use the sign-in form: see Devise::FailureApp#scope_url
+    throw(:warden, scope:, reason: user.cognito_principal? ? :cognito_session_expired : 'Kill Bill session expired')
   end
 end
 
