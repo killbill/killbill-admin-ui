@@ -2,6 +2,9 @@
 
 module Kaui
   class AdminAllowedUsersController < Kaui::EngineController
+    # Before the tenant selection redirect: the answer must not depend on the selected tenant
+    prepend_before_action :require_kaui_admin_screens!
+
     skip_before_action :check_for_redirect_to_tenant_screen
 
     def index

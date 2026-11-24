@@ -1,7 +1,7 @@
 <% identifier = "Settings" %>
 
 <%# Users signed in through the Cognito token exchange (no Kill Bill credentials) only see the admin screens when their Kill Bill permissions allow it (e.g. a *:* owner role) %>
-<% show_admin_screens = !current_user&.cognito_principal? || can?(:manage, :all) %>
+<% show_admin_screens = kaui_admin_screens_allowed? %>
 
 <% menu_items = [
   session[:tenant_id].present? ? { label: session["kb_tenant_name"], path: kaui_engine.admin_tenant_path(session[:tenant_id]), controller_suffix: "#{session[:tenant_id]}", icon_path: 'kaui/setting/account.svg' } : nil,

@@ -9,6 +9,8 @@ class Kaui::EngineController < ApplicationController
 
   layout :get_layout
 
+  helper_method :kaui_admin_screens_allowed?
+
   # Common options for the Kill Bill client
   def options_for_klient(options = {})
     user_tenant_options = Kaui.current_tenant_user_options(current_user, session)
@@ -28,6 +30,18 @@ class Kaui::EngineController < ApplicationController
   def current_ability
     # Redefined here to namespace Ability in the correct module
     @current_ability ||= Kaui::Ability.new(current_user)
+  end
+
+  # The Kaui administration screens (tenants, users, roles) are not for the users who signed in through the Cognito token
+  # exchange, unless they hold the *:* role
+  def kaui_admin_screens_allowed?
+    !current_user&.cognito_principal? || can?(:manage, :all)
+  end
+
+  def require_kaui_admin_screens!
+    return if kaui_admin_screens_allowed?
+
+    render plain: 'Forbidden: this screen is reserved to Kaui administrators', status: :forbidden
   end
 
   def check_for_redirect_to_tenant_screen
