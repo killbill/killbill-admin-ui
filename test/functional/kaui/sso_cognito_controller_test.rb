@@ -226,6 +226,19 @@ module Kaui
       assert_nil session[:aviate_sso]
     end
 
+    test 'keeps the CSRF protection for the requests without a bearer token' do
+      Kaui::SsoCognitoController.allow_forgery_protection = true
+
+      post :exchange, params: { kb_username: 'bob', kb_password: 'secret' }
+      assert_response :unauthorized
+      assert_not_kb_login
+
+      exchange(token, kb_username: 'bob', kb_password: 'secret')
+      assert_response :ok
+    ensure
+      Kaui::SsoCognitoController.allow_forgery_protection = false
+    end
+
     test 'serves the session expired page' do
       get :session_expired
 

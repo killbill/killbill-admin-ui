@@ -14,8 +14,9 @@ module Kaui
   class SsoCognitoController < ActionController::Base # rubocop:disable Rails/ApplicationController
     include Kaui::KbCognitoAuthenticatable
 
-    # The exchange is a cross-site API call authenticated by the Cognito token
-    skip_forgery_protection only: [:exchange]
+    # The exchange is a cross-site API call authenticated by the Cognito token. The CSRF protection stays on for any
+    # request without a bearer token: a cross-site form cannot set the Authorization header.
+    protect_from_forgery with: :exception, unless: -> { request.headers['Authorization'].to_s.start_with?('Bearer ') }
 
     ALLOWED_TARGETS = %w[/accounts /invoices /payments /bundles].freeze
 
@@ -24,6 +25,10 @@ module Kaui
       Rails.logger.error("SSO exchange failed: #{e.class} - #{e.message}")
       Rails.logger.error(e.backtrace.join("\n")) if e.backtrace
       render_error('SSO exchange failed', :internal_server_error)
+    end
+    rescue_from ActionController::InvalidAuthenticityToken do |e|
+      Rails.logger.warn("SSO exchange rejected: #{e.message}")
+      render_error('Missing or invalid Authorization header', :unauthorized)
     end
     rescue_from JWT::DecodeError do |e|
       Rails.logger.error("SSO JWT verification failed: #{e.message}")
