@@ -68,7 +68,8 @@
 
           <!-- Settings Icon -->
           <% if user_signed_in? && session[:tenant_id].present? %>
-            <%= link_to kaui_engine.admin_tenant_path(session[:tenant_id]), class: 'd-flex align-items-center gap-2 border admin-info text-decoration-none' do %>
+            <%# The tenant screen is reserved to Kaui administrators: the other users get the settings they can use %>
+            <%= link_to (kaui_admin_screens_allowed? ? kaui_engine.admin_tenant_path(session[:tenant_id]) : kaui_engine.tag_definitions_path), class: 'd-flex align-items-center gap-2 border admin-info text-decoration-none' do %>
               <%= image_tag 'kaui/header/cog_icon.svg', alt: 'setting' %>              
               <% if user_signed_in? %>
                 <div class="text-sm text-nowrap">

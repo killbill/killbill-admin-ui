@@ -19,14 +19,34 @@ module Kaui
       @user = Kaui::User.create!(kb_username: 'cognito:alice@acme.com', kb_session_id: 'session')
     end
 
-    test 'forbids the admin screens to a bearer user without the *:* role' do
+    test 'sends a bearer user without the *:* role back to the home page with a warning' do
       with_kill_bill_permissions(%w[account:item_adjust]) do
         sign_in @user, scope: :user
 
         ADMIN_PATHS.each do |path|
           get path
-          assert_response :forbidden, path
+          assert_redirected_to 'http://www.example.com/kaui/home', path
+          assert_equal 'You do not have access to this screen.', flash[:warning], path
         end
+      end
+    end
+
+    test 'answers 403 to the non-HTML requests of a bearer user without the *:* role' do
+      with_kill_bill_permissions(%w[account:item_adjust]) do
+        sign_in @user, scope: :user
+
+        get '/kaui/role_definitions/pagination', xhr: true
+        assert_response :forbidden
+      end
+    end
+
+    test 'does not send a bearer user without tenant to the tenant creation screen' do
+      with_kill_bill_permissions(%w[account:item_adjust]) do
+        sign_in @user, scope: :user
+
+        get '/kaui/tenants'
+        assert_response :ok
+        assert_match(/No tenant is available for your user/, response.body)
       end
     end
 
@@ -36,7 +56,7 @@ module Kaui
 
         ADMIN_PATHS.each do |path|
           get path
-          assert_not_equal 403, response.status, path
+          assert_nil flash[:warning], path
         end
       end
     end

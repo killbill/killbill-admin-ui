@@ -41,7 +41,12 @@ class Kaui::EngineController < ApplicationController
   def require_kaui_admin_screens!
     return if kaui_admin_screens_allowed?
 
-    render plain: 'Forbidden: this screen is reserved to Kaui administrators', status: :forbidden
+    # Links to these screens are hidden for such users; this is for the ones typed in the address bar
+    if request.format.html? && !request.xhr?
+      redirect_to kaui_engine.home_path, flash: { warning: 'You do not have access to this screen.' }
+    else
+      head :forbidden
+    end
   end
 
   def check_for_redirect_to_tenant_screen
