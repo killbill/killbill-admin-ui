@@ -44,7 +44,10 @@ module Kaui
       with_kill_bill_permissions(%w[account:item_adjust]) do
         sign_in @user, scope: :user
 
-        get '/kaui/tenants'
+        # No default tenant configured (KillBillClient.api_key is set in some environments, e.g. CI)
+        KillBillClient.stub(:api_key, nil) do
+          get '/kaui/tenants'
+        end
         assert_response :ok
         assert_match(/No tenant is available for your user/, response.body)
       end
