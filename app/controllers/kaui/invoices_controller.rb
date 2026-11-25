@@ -32,8 +32,9 @@ module Kaui
       kb_params[:startDate] = Date.parse(start_date).strftime('%Y-%m-%d') if start_date
       kb_params[:endDate] = Date.parse(end_date).strftime('%Y-%m-%d') if end_date
       query_string = remapping_addvanced_search_fields(query_string, Kaui::Invoice::ADVANCED_SEARCH_NAME_CHANGES)
+      include_components = columns.intersect?(Kaui::Invoice::COMPONENT_COLUMNS)
       invoices = if account_id.present? && query_string.blank?
-                   Kaui::Account.paginated_invoices(account_id, nil, nil, 'NONE', options_for_klient).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
+                   Kaui::Account.paginated_invoices(account_id, nil, nil, 'NONE', options_for_klient, include_components).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
                  else
                    Kaui::Invoice.list_or_search(query_string, 0, MAXIMUM_NUMBER_OF_RECORDS_DOWNLOAD, options_for_klient.merge(params: kb_params))
                  end
@@ -59,6 +60,9 @@ module Kaui
 
     def pagination
       cached_options_for_klient = options_for_klient
+      # Amount and balance are only available when the invoice components are loaded (only for the invoices of the page):
+      # the UI asks for them only when at least one of these columns is visible
+      include_components = params[:include_invoice_components] == 'true'
 
       searcher = lambda do |search_key, offset, limit|
         account = begin
@@ -70,7 +74,7 @@ module Kaui
           search_key = remapping_addvanced_search_fields(search_key, Kaui::Invoice::ADVANCED_SEARCH_NAME_CHANGES)
           Kaui::Invoice.list_or_search(search_key, offset, limit, cached_options_for_klient)
         else
-          Kaui::Account.paginated_invoices(search_key, offset, limit, 'NONE', cached_options_for_klient).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
+          Kaui::Account.paginated_invoices(search_key, offset, limit, 'NONE', cached_options_for_klient, include_components).map! { |invoice| Kaui::Invoice.build_from_raw_invoice(invoice) }
         end
       end
 
