@@ -19,8 +19,11 @@ module Kaui
         tenant = KillBillClient.api_key.nil? ? nil : KillBillClient::Model::Tenant.find_by_api_key(KillBillClient.api_key, session_id: current_user.kb_session_id)
         if tenant.present?
           select_tenant_for_tenant_id(tenant.tenant_id, tenant.external_key, nil)
-        else
+        elsif kaui_admin_screens_allowed?
           redirect_to new_admin_tenant_path
+        else
+          # Not for them to create (and redirecting elsewhere would loop back here): show the empty list
+          flash.now[:warning] = 'No tenant is available for your user.'
         end
       when 1
         # If there is only one tenant defined we skip the screen and set the tenant for the user

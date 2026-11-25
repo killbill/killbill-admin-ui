@@ -29,6 +29,8 @@ module Devise
       opts[:script_name] = nil
 
       route = route(scope)
+      # Kill Bill session expired for a user without Kill Bill credentials: tell them to reopen Kaui instead of showing the sign-in form
+      route = :sso_cognito_session_expired_url if warden_options[:reason] == :cognito_session_expired
 
       opts[:format] = request_format unless skip_format?
 

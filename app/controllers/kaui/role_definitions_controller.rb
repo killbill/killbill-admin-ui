@@ -2,6 +2,9 @@
 
 module Kaui
   class RoleDefinitionsController < Kaui::EngineController
+    # Before the tenant selection redirect: the answer must not depend on the selected tenant
+    prepend_before_action :require_kaui_admin_screens!
+
     DEFAULT_PAGE_SIZE = 20
 
     def index

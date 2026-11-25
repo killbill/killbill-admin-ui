@@ -24,6 +24,12 @@ Kaui::Engine.routes.draw do
   root to: 'home#index', as: 'kaui'
   get '/500', to: 'errors#show', code: 500
 
+  # Optional Cognito token exchange (disabled unless configured, see Kaui::CognitoJwtVerifier).
+  # /sso/aviate/exchange is kept as an alias for existing clients.
+  post '/sso/cognito/exchange' => 'sso_cognito#exchange', :as => 'sso_cognito_exchange'
+  post '/sso/aviate/exchange' => 'sso_cognito#exchange', :as => 'sso_aviate_exchange'
+  get '/sso/cognito/session_expired' => 'sso_cognito#session_expired', :as => 'sso_cognito_session_expired'
+
   scope '/accounts' do
     post '/pagination' => 'accounts#pagination', :as => 'accounts_pagination'
     get '/validate_external_key' => 'accounts#validate_external_key', :as => 'accounts_validate_external_key'

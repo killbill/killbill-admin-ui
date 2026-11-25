@@ -9,6 +9,8 @@ class Kaui::EngineController < ApplicationController
 
   layout :get_layout
 
+  helper_method :kaui_admin_screens_allowed?
+
   # Common options for the Kill Bill client
   def options_for_klient(options = {})
     user_tenant_options = Kaui.current_tenant_user_options(current_user, session)
@@ -30,6 +32,23 @@ class Kaui::EngineController < ApplicationController
     @current_ability ||= Kaui::Ability.new(current_user)
   end
 
+  # The Kaui administration screens (tenants, users, roles) are not for the users who signed in through the Cognito token
+  # exchange, unless they hold the *:* role
+  def kaui_admin_screens_allowed?
+    !current_user&.cognito_principal? || can?(:manage, :all)
+  end
+
+  def require_kaui_admin_screens!
+    return if kaui_admin_screens_allowed?
+
+    # Links to these screens are hidden for such users; this is for the ones typed in the address bar
+    if request.format.html? && !request.xhr?
+      redirect_to kaui_engine.home_path, flash: { warning: 'You do not have access to this screen.' }
+    else
+      head :forbidden
+    end
+  end
+
   def check_for_redirect_to_tenant_screen
     unless Kaui.user_assigned_valid_tenant?(current_user, session)
       session[:kb_tenant_id] = nil
@@ -46,7 +65,7 @@ class Kaui::EngineController < ApplicationController
     if current_user.root?
       Kaui::Tenant.all.map(&:kb_tenant_id)
     else
-      Kaui::AllowedUser.preload(:kaui_tenants).find_by_kb_username(current_user.kb_username).kaui_tenants.map(&:kb_tenant_id)
+      Kaui::AllowedUser.preload(:kaui_tenants).find_by_kb_username(current_user.kb_username)&.kaui_tenants&.map(&:kb_tenant_id) || []
     end
   end
 

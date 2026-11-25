@@ -6,6 +6,9 @@ module Kaui
   class User < ApplicationRecord
     devise :killbill_authenticatable, :killbill_registerable
 
+    # Principal prefix reported by the Cognito realm of Kill Bill for the users who signed in with a Cognito token (bearer mode of the exchange)
+    COGNITO_PRINCIPAL_PREFIX = 'cognito:'
+
     # Managed by Devise
     attr_accessor :password
 
@@ -27,6 +30,11 @@ module Kaui
       subject.is_authenticated
     rescue Errno::ECONNREFUSED, KillBillClient::API::Unauthorized => _e
       false
+    end
+
+    # True for the users signed in through the Cognito token exchange without Kill Bill credentials: they have no password to sign in again
+    def cognito_principal?
+      kb_username.to_s.start_with?(COGNITO_PRINCIPAL_PREFIX)
     end
 
     def root?
