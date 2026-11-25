@@ -52,8 +52,12 @@ module Kaui
       render json: { redirectUrl: sso_target_url }, status: :ok
     end
 
-    # Shown instead of the sign-in form when the Kill Bill session of a user who didn't sign in with a password expired
+    # Instead of the sign-in form (they have no Kill Bill password), for the users whose Kill Bill session expired:
+    # back to the login page of the application they came from if it is configured, an explanation otherwise
     def session_expired
+      login_url = Kaui::CognitoJwtVerifier.login_url
+      return redirect_to(login_url, allow_other_host: true) if login_url
+
       render layout: false
     end
 

@@ -14,6 +14,9 @@ module Kaui
   #               KAUI_COGNITO_ISSUER
   #   client ids: -Dkaui.cognito.client_ids=<id1>,<id2> (or the legacy single -Dkaui.cognito.client_id=<id>)
   #               KAUI_COGNITO_CLIENT_IDS=<id1>,<id2> (or KAUI_COGNITO_CLIENT_ID=<id>)
+  #   login url:  (optional) -Dkaui.cognito.login_url=https://app.example.com/login
+  #               KAUI_COGNITO_LOGIN_URL
+  #               where to send the users of the exchange when their Kill Bill session expired
   class CognitoJwtVerifier
     # Minimum delay (in seconds) between two refreshes of the JWKS triggered by an unknown 'kid'
     JWKS_MIN_REFRESH_INTERVAL = 60
@@ -40,6 +43,15 @@ module Kaui
         return from_properties.uniq if from_properties.any?
 
         (split_ids(ENV.fetch('KAUI_COGNITO_CLIENT_IDS', nil)) + split_ids(ENV.fetch('KAUI_COGNITO_CLIENT_ID', nil))).uniq
+      end
+
+      # Where to send the users who signed in through the exchange when their Kill Bill session expired (nil if unset or
+      # not an http(s) URL). They have no Kill Bill password: they must sign in again in the application they came from.
+      def login_url
+        url = config_value('kaui.cognito.login_url', 'KAUI_COGNITO_LOGIN_URL').to_s.strip
+        URI.parse(url).is_a?(URI::HTTP) ? url : nil
+      rescue URI::InvalidURIError
+        nil
       end
 
       # Returns the verified claims or raises JWT::DecodeError (including JWT::ExpiredSignature)

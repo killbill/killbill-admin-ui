@@ -136,10 +136,11 @@ A web application whose users sign in with AWS Cognito can open Kaui for them wi
 |---|---|---|
 | `kaui.cognito.issuer` | `KAUI_COGNITO_ISSUER` | `https://cognito-idp.<region>.amazonaws.com/<user-pool-id>` |
 | `kaui.cognito.client_ids` (or `kaui.cognito.client_id`) | `KAUI_COGNITO_CLIENT_IDS` (or `KAUI_COGNITO_CLIENT_ID`) | Accepted Cognito app client ids (comma-separated) |
+| `kaui.cognito.login_url` | `KAUI_COGNITO_LOGIN_URL` | Optional. Login page of the application the users come from (http or https), where they are sent when their Kill Bill session expires |
 
 The client sends the Cognito ID token as `Authorization: Bearer <token>` and, optionally, `target` (a Kaui path such as `/accounts`). The response is `{"redirectUrl": "..."}` (including the context path Kaui is mounted at) and sets the Kaui session cookie. Two modes:
 
 * **basic**: `kb_username` (defaults to the email of the token) and `kb_password`. Kaui logs into Kill Bill with Basic auth; the tenant comes from the `kaui_allowed_users` of that user (`tenant_name` disambiguates).
 * **bearer**: no `kb_password`, for users without Kill Bill credentials (requires the Cognito realm in Kill Bill). Kaui logs into Kill Bill with the Bearer token and the Kaui user is the principal reported by Kill Bill (e.g. `cognito:alice@acme.com`). The tenant comes from `tenant_api_key` and `tenant_api_secret`, which must match a tenant of `kaui_tenants` (`403` otherwise); the user is then allowed on that tenant. If Kill Bill has no Cognito realm, the answer is `401`.
 
-Users of the bearer mode have no password: when their Kill Bill session expires, Kaui displays a "reopen Kaui from the application you came from" page instead of the sign-in form. The Tenants, Users and Roles settings screens are only listed for them (sidebar, home page), and only served if their Kill Bill permissions include `*:*`: otherwise they are sent back to the home page with a warning (403 for non-HTML requests).
+Users of the bearer mode have no password: when their Kill Bill session expires, Kaui sends them to `kaui.cognito.login_url` when it is set, and displays a "reopen Kaui from the application you came from" page otherwise, instead of the sign-in form (they have no Kill Bill password to type in it). The Tenants, Users and Roles settings screens are only listed for them (sidebar, home page), and only served if their Kill Bill permissions include `*:*`: otherwise they are sent back to the home page with a warning (403 for non-HTML requests).

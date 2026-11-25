@@ -33,7 +33,7 @@ module Kaui
     # rubocop:enable ThreadSafety/MutableClassInstanceVariable
 
     teardown do
-      %w[KAUI_COGNITO_ISSUER KAUI_COGNITO_CLIENT_IDS KAUI_COGNITO_CLIENT_ID].each { |k| ENV.delete(k) }
+      %w[KAUI_COGNITO_ISSUER KAUI_COGNITO_CLIENT_IDS KAUI_COGNITO_CLIENT_ID KAUI_COGNITO_LOGIN_URL].each { |k| ENV.delete(k) }
       @saved_env.each { |k, v| ENV[k] = v }
       Kaui::CognitoJwtVerifier.clear_cache!
     end
@@ -244,6 +244,29 @@ module Kaui
 
       assert_response :ok
       assert_match(/reopen Kaui/, response.body)
+    end
+
+    test 'sends the user to the configured login url when the session expired' do
+      ENV['KAUI_COGNITO_LOGIN_URL'] = 'https://app.example.com/login'
+
+      get :session_expired
+
+      assert_redirected_to 'https://app.example.com/login'
+    ensure
+      ENV.delete('KAUI_COGNITO_LOGIN_URL')
+    end
+
+    test 'ignores a login url that is not http(s)' do
+      ['javascript:alert(1)', 'not a url', '//evil.example.com', ''].each do |url|
+        ENV['KAUI_COGNITO_LOGIN_URL'] = url
+
+        get :session_expired
+
+        assert_response :ok, url
+        assert_match(/reopen Kaui/, response.body, url)
+      end
+    ensure
+      ENV.delete('KAUI_COGNITO_LOGIN_URL')
     end
 
     private
