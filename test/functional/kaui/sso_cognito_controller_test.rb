@@ -244,6 +244,7 @@ module Kaui
 
       assert_response :ok
       assert_match(/reopen Kaui/, response.body)
+      assert_match(/kaui\.cognito\.login_url/, response.body)
     end
 
     test 'sends the user to the configured login url when the session expired' do
