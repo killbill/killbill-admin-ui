@@ -70,6 +70,19 @@ module Kaui
       user
     end
 
+    # Verifies the Cognito token and logs into Kill Bill (basic or bearer mode), like authenticate_kb_user!, but for the API
+    # calls that must not change the session of the browser, and that do not need a tenant yet (e.g. to register one).
+    # Returns the Kaui::User (saved, with the Kill Bill session id). No Warden session, no tenant check.
+    def authenticate_kb_user_without_session!
+      token = extract_bearer_token
+      claims = Kaui::CognitoJwtVerifier.verify!(token)
+
+      user, kb_session_id = kb_bearer_mode? ? login_to_kb_with_bearer!(token) : login_to_kb_with_password!(claims)
+      user.kb_session_id = kb_session_id
+      user.save!
+      user
+    end
+
     def login_to_kb_with_password!(claims)
       kb_username = params[:kb_username].presence || claims['email'].to_s.downcase.presence
       raise Error.new('kb_username is required when the token has no email claim', :bad_request) if kb_username.blank?

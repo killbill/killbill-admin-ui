@@ -10,38 +10,12 @@ module Kaui
   #         tenant_name (basic mode) and target (path of the Kaui page to open)
   #
   # Disabled (404) unless the Cognito issuer and client ids are configured (see Kaui::CognitoJwtVerifier).
-  # Not an ApplicationController: the host application's one may require a signed-in user
-  class SsoCognitoController < ActionController::Base # rubocop:disable Rails/ApplicationController
-    include Kaui::KbCognitoAuthenticatable
+  class SsoCognitoController < Kaui::SsoCognito::BaseController
+    ALLOWED_TARGETS = %w[/accounts /invoices /payments /bundles /subscriptions].freeze
 
-    # The exchange is a cross-site API call authenticated by the Cognito token. The CSRF protection stays on for any
-    # request without a bearer token: a cross-site form cannot set the Authorization header.
-    protect_from_forgery with: :exception, unless: -> { request.headers['Authorization'].to_s.start_with?('Bearer ') }
-
-    ALLOWED_TARGETS = %w[/accounts /invoices /payments /bundles].freeze
-
-    # Declared from the most generic to the most specific (the last matching handler wins)
-    rescue_from StandardError do |e|
-      Rails.logger.error("SSO exchange failed: #{e.class} - #{e.message}")
-      Rails.logger.error(e.backtrace.join("\n")) if e.backtrace
-      render_error('SSO exchange failed', :internal_server_error)
-    end
-    rescue_from ActionController::InvalidAuthenticityToken do |e|
-      Rails.logger.warn("SSO exchange rejected: #{e.message}")
-      render_error('Missing or invalid Authorization header', :unauthorized)
-    end
-    rescue_from JWT::DecodeError do |e|
-      Rails.logger.error("SSO JWT verification failed: #{e.message}")
-      render_error('Invalid or expired token', :unauthorized)
-    end
-    rescue_from Kaui::KbCognitoAuthenticatable::Error do |e|
-      Rails.logger.warn("SSO exchange rejected: #{e.message}")
-      render_error(e.message, e.status)
-    end
+    before_action :ensure_cognito_configured, only: :exchange
 
     def exchange
-      return render_error('Cognito token exchange is not enabled on this Kaui (kaui.cognito.issuer / kaui.cognito.client_ids)', :not_found) unless Kaui::CognitoJwtVerifier.configured?
-
       # Verify the token, authenticate against Kill Bill, and establish the Warden session of the Kaui::User
       user = authenticate_kb_user!
       Rails.logger.info("SSO: Authenticated #{user.kb_username} (user ##{user.id})")
@@ -62,10 +36,6 @@ module Kaui
     end
 
     private
-
-    def render_error(message, status)
-      render json: { error: message }, status:
-    end
 
     def sso_target_url
       # Allow only known internal paths to avoid open redirect vulnerability
