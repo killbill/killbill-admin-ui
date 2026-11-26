@@ -120,7 +120,10 @@ module Kaui
       exchange(token, kb_username: 'bob', kb_password: 'secret')
       assert_equal 'http://test.host/kaui/', json['redirectUrl']
 
-      ['https://evil.example.com', '//evil.example.com', '/admin', '/accounts/../admin', '/accountsfoo'].each do |target|
+      exchange(token, kb_username: 'bob', kb_password: 'secret', target: '/subscriptions/new?account_id=123&product_category=BASE')
+      assert_equal 'http://test.host/kaui/subscriptions/new?account_id=123&product_category=BASE', json['redirectUrl']
+
+      ['https://evil.example.com', '//evil.example.com', '/admin', '/accounts/../admin', '/accountsfoo', '/subscriptionsfoo'].each do |target|
         exchange(token, kb_username: 'bob', kb_password: 'secret', target:)
         assert_equal 'http://test.host/kaui/', json['redirectUrl'], "target: #{target}"
       end

@@ -29,6 +29,9 @@ Kaui::Engine.routes.draw do
   post '/sso/cognito/exchange' => 'sso_cognito#exchange', :as => 'sso_cognito_exchange'
   post '/sso/aviate/exchange' => 'sso_cognito#exchange', :as => 'sso_aviate_exchange'
   get '/sso/cognito/session_expired' => 'sso_cognito#session_expired', :as => 'sso_cognito_session_expired'
+  # Registers in Kaui a tenant created in Kill Bill (/sso/aviate/tenants is kept as an alias for existing clients)
+  post '/sso/cognito/tenants' => 'sso_cognito/tenants#create', :as => 'sso_cognito_tenants'
+  post '/sso/aviate/tenants' => 'sso_cognito/tenants#create', :as => 'sso_aviate_tenants'
 
   scope '/accounts' do
     post '/pagination' => 'accounts#pagination', :as => 'accounts_pagination'
