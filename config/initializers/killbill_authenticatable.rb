@@ -76,9 +76,13 @@ Warden::Strategies.add(:killbill_jwt, Devise::Strategies::KillbillJWTAuthenticat
 Warden::Manager.after_set_user do |user, auth, opts|
   unless user.authenticated_with_killbill?
     scope = opts[:scope]
+    # Read before the logout, which resets the session: the session of a Cognito token exchange (basic or bearer mode) is flagged
+    exchanged = auth.env['rack.session']&.[](Kaui::KbCognitoAuthenticatable::SSO_SESSION_KEY)
     auth.logout(scope)
-    # Users without Kill Bill credentials (Cognito token exchange) can't use the sign-in form: see Devise::FailureApp#scope_url
-    throw(:warden, scope:, reason: user.cognito_principal? ? :cognito_session_expired : 'Kill Bill session expired')
+    # Users who signed in through the Cognito token exchange go back to the application they came from instead of the sign-in
+    # form: bearer users have no Kill Bill password, basic users usually don't know theirs (see Devise::FailureApp#scope_url)
+    back_to_login_app = user.cognito_principal? || (exchanged && Kaui::CognitoJwtVerifier.login_url)
+    throw(:warden, scope:, reason: back_to_login_app ? :cognito_session_expired : 'Kill Bill session expired')
   end
 end
 
