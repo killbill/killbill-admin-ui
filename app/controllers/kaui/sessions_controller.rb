@@ -11,6 +11,9 @@ module Kaui
 
     # The sign-in flow eventually calls authenticate! from config/initializers/killbill_authenticatable.rb
 
+    # Before the sign out, which resets the session: remember if the session comes from the Cognito token exchange
+    prepend_before_action :remember_exchanged_session, only: :destroy # rubocop:disable Rails/LexicallyScopedActionFilter
+
     def new
       flash.delete(:alert) if flash[:alert] == I18n.t('devise.failure.unauthenticated') && (stored_location_for(:user).nil? || flash[:notice].present?)
       super
@@ -34,7 +37,14 @@ module Kaui
 
     def after_sign_out_path_for(_resource)
       cookies.delete(:jwt_token)
+      # Users who came through the Cognito token exchange sign in again in the application they came from (if configured)
+      return sso_cognito_session_expired_path if @exchanged_session && Kaui::CognitoJwtVerifier.login_url
+
       new_user_session_path
+    end
+
+    def remember_exchanged_session
+      @exchanged_session = session[Kaui::KbCognitoAuthenticatable::SSO_SESSION_KEY] || current_user&.cognito_principal?
     end
 
     def require_no_authentication
